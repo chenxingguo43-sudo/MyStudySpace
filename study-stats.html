@@ -1,0 +1,820 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学习数据统计 - 沉浸式俄语学习舱</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* ===== 统一导航框架 V10.0 ===== */
+        #unified-nav{position:fixed;top:0;left:0;right:0;z-index:9500;height:44px;background:rgba(10,10,20,0.88);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.08);display:flex;align-items:center;padding:0 16px;gap:0}
+        .unav-logo{font-size:.82em;font-weight:700;color:rgba(255,255,255,.7);margin-right:16px;white-space:nowrap;letter-spacing:.04em}
+        .unav-links{display:flex;align-items:center;gap:2px;flex:1}
+        .unav-link{display:inline-flex;align-items:center;gap:4px;padding:5px 12px;border-radius:18px;font-size:.78em;color:rgba(255,255,255,.55);text-decoration:none;transition:all .2s;white-space:nowrap;border:1px solid transparent}
+        .unav-link:hover{color:rgba(255,255,255,.9);background:rgba(255,255,255,.08)}
+        .unav-link.active{color:#a5b4fc;background:rgba(99,102,241,.2);border-color:rgba(99,102,241,.3)}
+        .unav-right{display:flex;align-items:center;gap:8px;margin-left:auto}
+        .unav-dark-btn{background:none;border:none;cursor:pointer;font-size:1em;padding:4px 8px;border-radius:12px;color:rgba(255,255,255,.5);transition:all .2s}
+        .unav-dark-btn:hover{background:rgba(255,255,255,.08);color:rgba(255,255,255,.9)}
+        /* 导航栏占位 — 让body内容不被遮挡 */
+        body{padding-top:44px!important}
+        /* iframe 内嵌模式：隐藏导航栏、移除顶部间距 */
+        body.in-iframe{padding-top:0!important}
+        body.in-iframe #unified-nav,
+        body.in-iframe .unified-nav{display:none!important}
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #020617;
+            min-height: 100vh;
+            padding: 20px;
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* 顶部标题栏 */
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 20px 24px;
+            border-radius: 16px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .header h1 {
+            font-size: 1.5em;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 700;
+        }
+
+        .close-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: none;
+            background: rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 18px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+
+        .close-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.05);
+        }
+
+        /* 统计卡片通用样式 */
+        .stats-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .stats-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 28px rgba(0, 0, 0, 0.3);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .card-icon {
+            font-size: 1.8em;
+        }
+
+        .card-title {
+            font-size: 1.3em;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* 番茄钟统计卡片 - 靛蓝渐变 */
+        .pomodoro-card {
+            background: linear-gradient(135deg, rgba(79, 70, 229, 0.08) 0%, rgba(129, 140, 248, 0.08) 100%);
+            border: 1px solid rgba(79, 70, 229, 0.2);
+        }
+
+        /* 俄语学习卡片 - 蓝紫渐变（保持不变） */
+        .russian-card {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.08) 0%, rgba(118, 75, 162, 0.08) 100%);
+            border: 1px solid rgba(102, 126, 234, 0.2);
+        }
+
+        /* 统计项布局 */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .stat-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 16px;
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.2s;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .stat-item:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: scale(1.02);
+        }
+
+        .stat-value {
+            font-size: 2.2em;
+            font-weight: 800;
+            margin: 8px 0;
+            background: linear-gradient(135deg, #4F46E5 0%, #818CF8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .pomodoro-card .stat-value {
+            background: linear-gradient(135deg, #4F46E5 0%, #818CF8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            font-size: 0.85em;
+            color: rgba(255, 255, 255, 0.5);
+            font-weight: 500;
+        }
+
+        /* 总览统计 */
+        .overview-stats {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 20px 0;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .overview-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 18px;
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 10px;
+            font-size: 1.1em;
+            font-weight: 600;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        /* 图表容器 */
+        .chart-container {
+            max-width: 300px;
+            margin: 30px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        /* 章节明细表格 */
+        .chapter-details {
+            margin-top: 20px;
+            overflow-x: auto;
+        }
+
+        .chapter-details table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .chapter-details th {
+            background: linear-gradient(135deg, #4F46E5, #6366F1);
+            color: #fff;
+            padding: 12px 16px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.9em;
+        }
+
+        .chapter-details td {
+            padding: 10px 16px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            font-size: 0.9em;
+            color: rgba(255, 255, 255, 0.75);
+        }
+
+        .chapter-details tr:last-child td {
+            border-bottom: none;
+        }
+
+        .chapter-details tr:hover td {
+            background: rgba(79, 70, 229, 0.08);
+        }
+
+        /* 数据管理栏 */
+        .data-management {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            margin-top: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .data-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 10px;
+            font-size: 0.95em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            color: #fff;
+        }
+
+        .export-btn {
+            background: linear-gradient(135deg, #4F46E5, #6366F1);
+        }
+
+        .export-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(79, 70, 229, 0.4);
+        }
+
+        .import-btn {
+            background: linear-gradient(135deg, #26a69a, #00796b);
+        }
+
+        .import-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(38, 166, 154, 0.4);
+        }
+
+        .clear-btn {
+            background: linear-gradient(135deg, #ef5350, #c62828);
+        }
+
+        .clear-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(239, 83, 80, 0.4);
+        }
+
+        .file-input {
+            display: none;
+        }
+
+        /* 空状态 */
+        .empty-state {
+            text-align: center;
+            padding: 40px 20px;
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .empty-state-icon {
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+
+        /* 响应式 */
+        @media (max-width: 768px) {
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .overview-stats {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .data-management {
+                flex-direction: column;
+            }
+
+            .data-btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        /* Toast 提示 */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) translateY(20px);
+            background: rgba(30, 30, 50, 0.9);
+            color: #fff;
+            padding: 12px 24px;
+            border-radius: 10px;
+            font-size: 0.9em;
+            z-index: 9999;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            pointer-events: none;
+            opacity: 0;
+        }
+
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+    .unified-nav{position:sticky;top:0;z-index:9999;display:flex;align-items:center;justify-content:center;gap:4px;background:rgba(255,255,255,0.88);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(0,0,0,0.05);padding:0 20px;height:38px;margin:-25px -35px 20px -35px;width:calc(100% + 70px)}
+.unified-nav a{padding:6px 14px;border-radius:6px;font-size:.85em;font-weight:500;color:#555;text-decoration:none;transition:all .2s}
+.unified-nav a:hover,.unified-nav a.active{background:rgba(79,70,229,0.08);color:#4F46E5}</style>
+</head>
+<body><nav class="unified-nav"><a href="index.html">🏠 首页</a><a href="俄语知识库.html">📚 素材库</a><a href="pomodoro.html">⏱️ 番茄钟</a><a href="study-stats.html" class="active">📊 统计</a></nav>
+<div id="unified-nav">
+  <span class="unav-logo">🎓 学习舱</span>
+  <div class="unav-links">
+    <a href="index.html" class="unav-link">🏠 主控台</a>
+    <a href="pomodoro.html" class="unav-link">🍅 番茄钟</a>
+    <a href="俄语知识库.html" class="unav-link">🇷🇺 俄语库</a>
+    <a href="study-stats.html" class="unav-link active">📊 统计</a><a href="b2-exam.html" class="unav-link">📋 B2真题</a>
+  </div>
+  <div class="unav-right">
+    <button class="unav-dark-btn" id="unav-dark-btn" onclick="unavToggleDark()" title="切换暗色模式">🌙</button>
+  </div>
+</div>
+<script>
+function unavToggleDark(){
+  var isDark = document.body.classList.toggle('dark');
+  localStorage.setItem('dark-mode', isDark ? '1' : '0');
+  document.getElementById('unav-dark-btn').textContent = isDark ? '☀️' : '🌙';
+}
+(function(){
+  if(localStorage.getItem('dark-mode')==='1'){ document.body.classList.add('dark'); var b=document.getElementById('unav-dark-btn'); if(b) b.textContent='☀️'; }
+})();
+// iframe 内嵌检测
+(function(){
+  if(window.self!==window.top){
+    document.body.classList.add('in-iframe');
+  }
+})();
+// 监听父页面消息
+window.addEventListener('message', function(event) {
+    if (event.data === 'OPEN_STATS') {
+        if (typeof refreshAllStats === 'function') refreshAllStats();
+    }
+});
+</script>
+    <div class="container">
+        <!-- 顶部标题栏 -->
+        <div class="header">
+            <h1>📊 学习数据统计</h1>
+            <button class="close-btn" onclick="if(window.self!==window.top){parent.postMessage('CLOSE_STATS','*')}else{window.close()}" title="关闭">✕</button>
+        </div>
+
+        <!-- 🍅 番茄钟统计区块 -->
+        <div class="stats-card pomodoro-card">
+            <div class="card-header">
+                <span class="card-icon">🍅</span>
+                <span class="card-title">番茄钟统计</span>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-label">今日番茄</div>
+                    <div class="stat-value" id="today-count">0</div>
+                    <div class="stat-label">个</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">今日专注</div>
+                    <div class="stat-value" id="today-minutes">0</div>
+                    <div class="stat-label">分钟</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">累计番茄</div>
+                    <div class="stat-value" id="total-count">0</div>
+                    <div class="stat-label">个</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">累计时长</div>
+                    <div class="stat-value" id="total-hours">0</div>
+                    <div class="stat-label">小时</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">连续天数</div>
+                    <div class="stat-value" id="streak-days">0</div>
+                    <div class="stat-label">天</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 🗣️ 俄语学习区块 -->
+        <div class="stats-card russian-card">
+            <div class="card-header">
+                <span class="card-icon">🗣️</span>
+                <span class="card-title">俄语学习统计</span>
+            </div>
+
+            <!-- 总览 -->
+            <div class="overview-stats">
+                <div class="overview-item">
+                    <span>👁</span>
+                    <span id="total-read">0</span>
+                    <span>次阅读</span>
+                </div>
+                <div class="overview-item">
+                    <span>🎤</span>
+                    <span id="total-speak">0</span>
+                    <span>次口语</span>
+                </div>
+                <div class="overview-item">
+                    <span>🧠</span>
+                    <span id="total-memo">0</span>
+                    <span>次记忆</span>
+                </div>
+            </div>
+
+            <!-- 今日统计 -->
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-label">今日阅读</div>
+                    <div class="stat-value" id="today-read" style="font-size: 1.8em;">0</div>
+                    <div class="stat-label">条</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">今日口语</div>
+                    <div class="stat-value" id="today-speak" style="font-size: 1.8em;">0</div>
+                    <div class="stat-label">条</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">今日记忆</div>
+                    <div class="stat-value" id="today-memo" style="font-size: 1.8em;">0</div>
+                    <div class="stat-label">条</div>
+                </div>
+            </div>
+
+            <!-- 口语评分分布图表 -->
+            <div class="chart-container">
+                <canvas id="rating-chart"></canvas>
+            </div>
+
+            <!-- 章节明细 -->
+            <div class="chapter-details">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>章节</th>
+                            <th>阅读次数</th>
+                            <th>口语次数</th>
+                            <th>记忆次数</th>
+                        </tr>
+                    </thead>
+                    <tbody id="chapter-tbody">
+                        <tr>
+                            <td colspan="4" class="empty-state">
+                                <div class="empty-state-icon">📭</div>
+                                <div>暂无学习记录</div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- 📂 数据管理栏 -->
+        <div class="stats-card">
+            <div class="card-header">
+                <span class="card-icon">📂</span>
+                <span class="card-title">数据管理</span>
+            </div>
+
+            <div class="data-management">
+                <button class="data-btn export-btn" onclick="exportAllData()">
+                    📤 导出所有数据
+                </button>
+                <button class="data-btn import-btn" onclick="document.getElementById('import-file').click()">
+                    📥 导入数据
+                </button>
+                <button class="data-btn clear-btn" onclick="clearAllData()">
+                    🗑️ 清空所有数据
+                </button>
+            </div>
+
+            <input type="file" id="import-file" class="file-input" accept=".json" onchange="importData(event)">
+        </div>
+    </div>
+
+    <!-- Toast 提示 -->
+    <div class="toast" id="toast"></div>
+
+    <script>
+        // ==========================================
+        // 全局变量
+        // ==========================================
+        let ratingChart = null;
+
+        // ==========================================
+        // 初始化
+        // ==========================================
+        document.addEventListener('DOMContentLoaded', function() {
+            refreshAllStats();
+            
+            // 监听跨页面 storage 事件
+            window.addEventListener('storage', function(e) {
+                var relevantKeys = [
+                    'pomodoro-today-count', 'pomodoro-today-minutes',
+                    'pomodoro-total-count', 'pomodoro-total-minutes', 'pomodoro-streak',
+                    'oral-read-records', 'oral-speak-records', 'oral-memo-records',
+                    'oral-speak-daily'
+                ];
+                if (relevantKeys.indexOf(e.key) !== -1) {
+                    refreshAllStats();
+                }
+            });
+        });
+
+        // ==========================================
+        // 刷新所有统计
+        // ==========================================
+        function refreshAllStats() {
+            refreshPomodoroStats();
+            refreshRussianStats();
+        }
+
+        // ==========================================
+        // 番茄钟统计
+        // ==========================================
+        function refreshPomodoroStats() {
+            var todayCount = parseInt(localStorage.getItem('pomodoro-today-count') || '0');
+            var todayMinutes = parseInt(localStorage.getItem('pomodoro-today-minutes') || '0');
+            var totalCount = parseInt(localStorage.getItem('pomodoro-total-count') || '0');
+            var totalMinutes = parseInt(localStorage.getItem('pomodoro-total-minutes') || '0');
+            var streak = parseInt(localStorage.getItem('pomodoro-streak') || '0');
+
+            document.getElementById('today-count').textContent = todayCount;
+            document.getElementById('today-minutes').textContent = todayMinutes;
+            document.getElementById('total-count').textContent = totalCount;
+            document.getElementById('total-hours').textContent = (totalMinutes / 60).toFixed(1);
+            document.getElementById('streak-days').textContent = streak;
+        }
+
+        // ==========================================
+        // 俄语学习统计
+        // ==========================================
+        function refreshRussianStats() {
+            var readRecords = JSON.parse(localStorage.getItem('oral-read-records') || '{}');
+            var speakRecords = JSON.parse(localStorage.getItem('oral-speak-records') || '{}');
+            var memoRecords = JSON.parse(localStorage.getItem('oral-memo-records') || '{}');
+            var speakDaily = JSON.parse(localStorage.getItem('oral-speak-daily') || '{}');
+
+            var today = new Date().toISOString().slice(0, 10);
+
+            // 计算总数
+            var totalRead = 0, totalSpeak = 0, totalMemo = 0;
+            var todayRead = 0, todaySpeak = 0, todayMemo = 0;
+
+            for (var k in readRecords) {
+                var cnt = readRecords[k].count || 1;
+                totalRead += cnt;
+                if (readRecords[k].dates && readRecords[k].dates.indexOf(today) !== -1) {
+                    todayRead += 1;
+                }
+            }
+
+            for (var k in speakRecords) {
+                var cnt = speakRecords[k].count || 1;
+                totalSpeak += cnt;
+                if (speakRecords[k].dates && speakRecords[k].dates.indexOf(today) !== -1) {
+                    todaySpeak += 1;
+                }
+            }
+
+            for (var k in memoRecords) {
+                var cnt = memoRecords[k].count || 1;
+                totalMemo += cnt;
+                if (memoRecords[k].dates && memoRecords[k].dates.indexOf(today) !== -1) {
+                    todayMemo += 1;
+                }
+            }
+
+            document.getElementById('total-read').textContent = totalRead;
+            document.getElementById('total-speak').textContent = totalSpeak;
+            document.getElementById('total-memo').textContent = totalMemo;
+            document.getElementById('today-read').textContent = todayRead;
+            document.getElementById('today-speak').textContent = todaySpeak;
+            document.getElementById('today-memo').textContent = todayMemo;
+
+            // 更新口语评分分布图表
+            updateRatingChart(speakDaily);
+            
+            // 更新章节明细（这里需要章节信息，暂时省略）
+            updateChapterDetails(readRecords, speakRecords, memoRecords);
+        }
+
+        // ==========================================
+        // 更新口语评分分布图表
+        // ==========================================
+        function updateRatingChart(speakDaily) {
+            var ratingCounts = [0, 0, 0, 0, 0]; // 😰 😐 🙂 😊 🌟
+
+            // 从 speakDaily 中统计评分分布
+            for (var date in speakDaily) {
+                var records = speakDaily[date];
+                if (Array.isArray(records)) {
+                    records.forEach(function(r) {
+                        if (r.rating && r.rating >= 1 && r.rating <= 5) {
+                            ratingCounts[r.rating - 1]++;
+                        }
+                    });
+                }
+            }
+
+            var ctx = document.getElementById('rating-chart').getContext('2d');
+
+            if (ratingChart) {
+                ratingChart.data.datasets[0].data = ratingCounts;
+                ratingChart.update();
+            } else {
+                ratingChart = new Chart(ctx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['😰 困难', '😐 一般', '🙂 不错', '😊 很好', '🌟 完美'],
+                        datasets: [{
+                            data: ratingCounts,
+                            backgroundColor: ['#ef4444', '#f97316', '#eab308', '#22c55e', '#3b82f6'],
+                            borderWidth: 0,
+                            borderRadius: 8
+                        }]
+                    },
+                    options: {
+                        cutout: '78%',
+                        plugins: {
+                            legend: {
+                                display: true,
+                                position: 'bottom',
+                                labels: {
+                                    padding: 15,
+                                    font: {
+                                        size: 12
+                                    }
+                                }
+                            }
+                        },
+                        animation: {
+                            animateRotate: true,
+                            duration: 800
+                        }
+                    }
+                });
+            }
+        }
+
+        // ==========================================
+        // 更新章节明细（简化版，只显示总数）
+        // ==========================================
+        function updateChapterDetails(readRecords, speakRecords, memoRecords) {
+            // 这里可以扩展为按章节统计
+            // 暂时省略具体实现，因为需要章节映射数据
+        }
+
+        // ==========================================
+        // 数据导出
+        // ==========================================
+        function exportAllData() {
+            var data = {};
+            var keys = [
+                'oral-read-records', 'oral-speak-records', 'oral-memo-records',
+                'oral-chapter-masks', 'oral-speak-daily', 'oral-daily-position',
+                'pomodoro-sessions', 'pomodoro-today-count', 'pomodoro-today-minutes',
+                'pomodoro-week-count', 'pomodoro-month-count', 'pomodoro-total-count',
+                'pomodoro-total-minutes', 'pomodoro-streak', 'pomodoro-current-task'
+            ];
+
+            keys.forEach(function(key) {
+                var val = localStorage.getItem(key);
+                if (val !== null) {
+                    try {
+                        data[key] = JSON.parse(val);
+                    } catch(e) {
+                        data[key] = val;
+                    }
+                }
+            });
+
+            var blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+            var url = URL.createObjectURL(blob);
+            var a = document.createElement('a');
+            a.href = url;
+            a.download = 'mystudyspace-backup-' + new Date().toISOString().slice(0, 10) + '.json';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+
+            showToast('✅ 数据已导出');
+        }
+
+        // ==========================================
+        // 数据导入
+        // ==========================================
+        function importData(event) {
+            var file = event.target.files[0];
+            if (!file) return;
+
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    var data = JSON.parse(e.target.result);
+                    
+                    for (var key in data) {
+                        localStorage.setItem(key, JSON.stringify(data[key]));
+                    }
+
+                    refreshAllStats();
+                    showToast('✅ 数据已导入');
+                } catch(err) {
+                    showToast('❌ 导入失败：文件格式错误');
+                }
+            };
+            reader.readAsText(file);
+            
+            // 清空 input，允许重复选择同一文件
+            event.target.value = '';
+        }
+
+        // ==========================================
+        // 清空所有数据
+        // ==========================================
+        function clearAllData() {
+            if (confirm('确定要清空所有学习数据吗？此操作不可恢复！')) {
+                var keys = [
+                    'oral-read-records', 'oral-speak-records', 'oral-memo-records',
+                    'oral-chapter-masks', 'oral-speak-daily', 'oral-daily-position',
+                    'pomodoro-sessions', 'pomodoro-today-count', 'pomodoro-today-minutes',
+                    'pomodoro-week-count', 'pomodoro-month-count', 'pomodoro-total-count',
+                    'pomodoro-total-minutes', 'pomodoro-streak', 'pomodoro-current-task'
+                ];
+
+                keys.forEach(function(key) {
+                    localStorage.removeItem(key);
+                });
+
+                refreshAllStats();
+                showToast('🗑️ 所有数据已清空');
+            }
+        }
+
+        // ==========================================
+        // Toast 提示
+        // ==========================================
+        function showToast(msg) {
+            var toast = document.getElementById('toast');
+            toast.textContent = msg;
+            toast.classList.add('show');
+            
+            setTimeout(function() {
+                toast.classList.remove('show');
+            }, 2500);
+        }
+    </script>
+</body>
+</html>

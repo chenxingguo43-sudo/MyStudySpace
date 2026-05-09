@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>TRKI-B2 口语真题库</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei","Noto Sans",sans-serif;max-width:92%;min-width:900px;margin:0 auto;padding:25px 35px 60px;background:#f0f2f5;color:#2c3e50;line-height:1.7}
+h1{text-align:center;color:#1a1a2e;margin:15px 0 10px;font-size:1.6em}
+h2{font-family:'Cormorant Garamond',serif;font-weight:700;margin:40px 0 16px 0;padding:12px 20px;background:linear-gradient(135deg,#6366F1,#818cf8);color:#fff;border-radius:10px;font-size:1.15em}
+h3{color:#0f3460;margin:24px 0 10px 0;padding-left:10px;border-left:3px solid #6366F1;font-size:1em}
+.exam-card{background:#fff;border-radius:12px;padding:20px 24px;margin:14px 0;box-shadow:0 2px 10px rgba(0,0,0,0.05);border:1px solid #edf0f7}
+.exam-card h4{color:#4F46E5;margin-bottom:10px;font-size:.98em}
+.exam-card p{color:#555;font-size:.9em;line-height:1.7}
+.exam-card .badge{display:inline-block;padding:2px 8px;border-radius:4px;font-size:.75em;font-weight:600;margin-right:6px}
+.badge-time{background:rgba(79,70,229,0.1);color:#4F46E5}
+.badge-score{background:rgba(22,163,74,0.1);color:#16A34A}
+.template-section{background:#f8f9ff;border:1px dashed #c4c9d4;border-radius:8px;padding:16px 20px;margin:12px 0;font-family:monospace;font-size:.85em;color:#533483;white-space:pre-wrap;word-break:break-all}
+.placeholder{background:rgba(251,191,36,0.15);color:#b45309;padding:1px 3px;border-radius:3px;font-style:italic}
+blockquote{border-left:4px solid #6366F1;padding:10px 16px;margin:10px 0;background:#f8f9ff;border-radius:0 8px 8px 0;color:#555;font-size:.9em}
+/* 统一导航 */
+.unified-nav{position:sticky;top:0;z-index:9999;display:flex;align-items:center;justify-content:center;gap:4px;background:rgba(255,255,255,0.88);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(0,0,0,0.05);padding:0 20px;height:38px;margin:-25px -35px 20px -35px;width:calc(100% + 70px)}
+.unified-nav a{padding:6px 14px;border-radius:6px;font-size:.85em;font-weight:500;color:#555;text-decoration:none;transition:all .2s}
+.unified-nav a:hover,.unified-nav a.active{background:rgba(99,102,241,0.08);color:#6366F1}
+hr{border:none;border-top:2px solid #e0e0e0;margin:35px 0}
+code{background:#f0f2f5;padding:2px 6px;border-radius:4px;font-size:.9em}
+</style>
+</head>
+<body>
+<nav class="unified-nav">
+  <a href="index.html">🏠 首页</a>
+  <a href="俄语知识库.html">📚 素材库</a>
+  <a href="pomodoro.html">⏱️ 番茄钟</a>
+  <a href="study-stats.html">📊 统计</a>
+  <a href="b2-exam.html" class="active">🎯 B2真题</a>
+</nav>
+<h1>🎯 TRKI-B2 口语真题库</h1>
+<blockquote>
+  <strong>状态：框架就绪，待填充真题</strong><br>
+  本页面预置了 B2 口语考试 4 大题型的结构和数据模板。提供真题后可直接填入，无需额外开发。
+</blockquote>
+
+<h2>一、考试结构总览</h2>
+
+<div class="exam-card">
+  <h4>Задание 1 · 独白：给定话题叙述</h4>
+  <span class="badge badge-time">准备 15 分钟</span>
+  <span class="badge badge-time">作答 3-5 分钟</span>
+  <p>考生从 2 个话题中选 1 个，进行 3-5 分钟连贯独白。要求：逻辑清晰、词汇丰富、语法正确、表达自然。</p>
+</div>
+
+<div class="exam-card">
+  <h4>Задание 2 · 对话：角色扮演讨论</h4>
+  <span class="badge badge-time">准备 5 分钟</span>
+  <span class="badge badge-time">作答 5-8 分钟</span>
+  <p>与考官进行角色对话。考察：互动能力、即兴表达、观点交流。</p>
+</div>
+
+<div class="exam-card">
+  <h4>Задание 3 · 辩论：立场表达与论证</h4>
+  <span class="badge badge-time">准备 10 分钟</span>
+  <span class="badge badge-time">作答 5-7 分钟</span>
+  <p>就给定议题表达立场并进行论证。要求：论点明确、论证有力、反驳得当。</p>
+</div>
+
+<div class="exam-card">
+  <h4>Задание 4 · 即兴：看图/听音描述</h4>
+  <span class="badge badge-time">无准备时间</span>
+  <span class="badge badge-time">作答 2-3 分钟</span>
+  <p>根据图片或音频进行即兴描述。考察：观察力、即兴组织语言能力。</p>
+</div>
+
+<hr>
+
+<h2>二、数据模板（供填入真题）</h2>
+<p>以下 JSON 结构定义了每道真题需要的信息。填好数据后，同名 key 可直接被程序读取。</p>
+
+<h3>Задание 1 模板</h3>
+<div class="template-section">{
+  "task1": [
+    {
+      "id": "t1-001",
+      "topic": "<span class=placeholder>话题标题（俄语）</span>",
+      "topicCN": "<span class=placeholder>话题标题（中文）</span>",
+      "subQuestions": [
+        "<span class=placeholder>引导问题1（俄语）</span>",
+        "<span class=placeholder>引导问题2（俄语）</span>"
+      ],
+      "modelAnswer": "<span class=placeholder>范文（俄语）</span>",
+      "modelAnswerCN": "<span class=placeholder>范文翻译（中文）</span>",
+      "keyVocab": ["<span class=placeholder>关键词1</span>", "<span class=placeholder>关键词2</span>"],
+      "source": "<span class=placeholder>真题来源/年份</span>"
+    }
+  ]
+}</div>
+
+<h3>Задание 2 模板</h3>
+<div class="template-section">{
+  "task2": [
+    {
+      "id": "t2-001",
+      "scenario": "<span class=placeholder>场景描述（俄语）</span>",
+      "scenarioCN": "<span class=placeholder>场景描述（中文）</span>",
+      "roleA": "<span class=placeholder>角色A（考生扮演）</span>",
+      "roleB": "<span class=placeholder>角色B（考官扮演）</span>",
+      "objectives": [
+        "<span class=placeholder>对话目标1</span>",
+        "<span class=placeholder>对话目标2</span>"
+      ],
+      "usefulPhrases": ["<span class=placeholder>常用句型1</span>", "<span class=placeholder>常用句型2</span>"],
+      "source": "<span class=placeholder>真题来源/年份</span>"
+    }
+  ]
+}</div>
+
+<h3>Задание 3 模板</h3>
+<div class="template-section">{
+  "task3": [
+    {
+      "id": "t3-001",
+      "topic": "<span class=placeholder>辩题（俄语）</span>",
+      "topicCN": "<span class=placeholder>辩题（中文）</span>",
+      "arguments": {
+        "pro": ["<span class=placeholder>支持论点1</span>", "<span class=placeholder>支持论点2</span>"],
+        "con": ["<span class=placeholder>反对论点1</span>", "<span class=placeholder>反对论点2</span>"]
+      },
+      "modelResponse": "<span class=placeholder>范文（俄语）</span>",
+      "keyPhrases": ["<span class=placeholder>关键表达1</span>", "<span class=placeholder>关键表达2</span>"],
+      "source": "<span class=placeholder>真题来源/年份</span>"
+    }
+  ]
+}</div>
+
+<h3>Задание 4 模板</h3>
+<div class="template-section">{
+  "task4": [
+    {
+      "id": "t4-001",
+      "type": "image",
+      "description": "<span class=placeholder>图片描述/音频内容（俄语）</span>",
+      "descriptionCN": "<span class=placeholder>图片描述（中文）</span>",
+      "prompts": [
+        "<span class=placeholder>引导描述方向1</span>",
+        "<span class=placeholder>引导描述方向2</span>"
+      ],
+      "usefulVocab": ["<span class=placeholder>可用词汇1</span>", "<span class=placeholder>可用词汇2</span>"],
+      "source": "<span class=placeholder>真题来源/年份</span>"
+    }
+  ]
+}</div>
+
+<hr>
+
+<h2>三、评分维度参考</h2>
+<div class="exam-card">
+  <table style="width:100%;border-collapse:collapse">
+    <tr style="background:#f6f7ff"><td style="padding:8px 12px;font-weight:600">语法准确性</td><td style="padding:8px 12px">Грамматическая правильность</td><td style="padding:8px 12px;color:#889">0-20 分</td></tr>
+    <tr><td style="padding:8px 12px;font-weight:600">词汇丰富度</td><td style="padding:8px 12px">Лексическое разнообразие</td><td style="padding:8px 12px;color:#889">0-20 分</td></tr>
+    <tr style="background:#f6f7ff"><td style="padding:8px 12px;font-weight:600">内容完整度</td><td style="padding:8px 12px">Полнота раскрытия темы</td><td style="padding:8px 12px;color:#889">0-20 分</td></tr>
+    <tr><td style="padding:8px 12px;font-weight:600">语音语调</td><td style="padding:8px 12px">Фонетика и интонация</td><td style="padding:8px 12px;color:#889">0-20 分</td></tr>
+    <tr style="background:#f6f7ff"><td style="padding:8px 12px;font-weight:600">互动能力</td><td style="padding:8px 12px">Коммуникативное взаимодействие</td><td style="padding:8px 12px;color:#889">0-20 分</td></tr>
+  </table>
+</div>
+
+<hr>
+<blockquote>
+  <strong>下一步：</strong>提供 B2 真题后，我会将数据填入上述模板，并可根据需要开发模拟考试倒计时、自动评分等功能。
+</blockquote>
+</body>
+</html>
