@@ -1,0 +1,91 @@
+/* 仪表盘 - iOS 风格毛玻璃卡片 */
+
+.dashboard {
+  --card-bg: rgba(255, 255, 255, 0.35);
+  --card-border: rgba(255, 255, 255, 0.4);
+  --radius: 18px;
+  --shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+  --blur: 14px;
+  --gap: 20px;
+  --text-primary: #1d1d1f;
+  --text-secondary: #6e6e73;
+  --accent: #0071e3;
+}
+
+/* 深色模式适配 */
+.theme-dark.dashboard {
+  --card-bg: rgba(40, 40, 44, 0.55);
+  --card-border: rgba(255, 255, 255, 0.08);
+  --shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
+  --text-primary: #f5f5f7;
+  --text-secondary: #98989d;
+  --accent: #4da6ff;
+}
+
+/* 页面基础 */
+.dashboard .markdown-preview-view {
+  padding: 24px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Dataview 查询块 → 毛玻璃卡片 */
+.dashboard .block-language-dataview,
+.dashboard .block-language-dataviewjs {
+  background: var(--card-bg);
+  backdrop-filter: blur(var(--blur));
+  -webkit-backdrop-filter: blur(var(--blur));
+  border-radius: var(--radius);
+  border: 1px solid var(--card-border);
+  box-shadow: var(--shadow);
+  padding: 18px 20px;
+  margin-bottom: var(--gap);
+}
+
+/* Dataview 表格美化 */
+.dashboard .dataview-result table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.dashboard .dataview-result th {
+  color: var(--text-secondary);
+  font-size: 0.8em;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 8px 12px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.dashboard .dataview-result td {
+  padding: 8px 12px;
+  color: var(--text-primary);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+/* 章节标题 */
+.dashboard h2 {
+  font-size: 1.1em;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin: 28px 0 10px 4px;
+  letter-spacing: 0.3px;
+}
+
+/* 空结果占位 */
+.dashboard .dataview-result p:only-child {
+  color: var(--text-secondary);
+  font-style: italic;
+  font-size: 0.9em;
+}
+
+/* 响应式：小屏单列 */
+@media (max-width: 600px) {
+  .dashboard .markdown-preview-view {
+    padding: 12px;
+  }
+  .dashboard .block-language-dataview {
+    padding: 12px 14px;
+  }
+}

@@ -2243,7 +2243,7 @@ function unavToggleDark(){
 
     <!-- 动态视频背景 -->
     <video id="video-background" class="video-background" autoplay muted loop playsinline style="display: none;">
-        <source src="../videos/video1.mp4" type="video/mp4">
+        <source src="assets/videos/video1.mp4" type="video/mp4">
     </video>
     <div class="video-overlay" id="video-overlay" style="display: none;"></div>
     
@@ -2260,7 +2260,7 @@ function unavToggleDark(){
     <div id="minimized-cat-capsule" class="fixed z-[10000] opacity-100 scale-100 transition-all duration-700 ease-out will-change-transform" style="left: 20px; bottom: 20px;">
         
         <div id="cat-floating-body" class="w-16 h-16 cursor-grab active:cursor-grabbing kele-cat-float hover-float">
-            <img id="capsule-cat-img" src="../kele-transparent.png" class="w-full h-full object-cover drop-shadow-[0_4px_6px_rgba(0,0,0,0.25)]" draggable="false">
+            <img id="capsule-cat-img" src="assets/kele-transparent.png" class="w-full h-full object-cover drop-shadow-[0_4px_6px_rgba(0,0,0,0.25)]" draggable="false">
         </div>
 
         <!-- 可乐面板（点击胶囊头像展开） -->
@@ -2274,7 +2274,7 @@ function unavToggleDark(){
                 </div>
                 <div class="kele-panel-body">
                     <div class="kele-avatar-wrap">
-                        <img src="../kele-transparent.png" alt="可乐" id="kele-panel-img">
+                        <img src="assets/kele-transparent.png" alt="可乐" id="kele-panel-img">
                         <div id="kele-panel-status-badge" class="kele-status-badge"></div>
                     </div>
                     <div id="kele-panel-state" class="kele-state-text"></div>
@@ -2380,7 +2380,7 @@ function unavToggleDark(){
                     
                     <!-- 🐱 环形轨道小猫容器 -->
                     <div id="cat-runner" class="absolute w-12 h-12 z-20 pointer-events-none" style="left: 50%; top: 5%; transform: translate(-50%, -50%);">
-                        <img src="../kele-transparent.png" class="w-full h-full object-contain filter drop-shadow-[0_4px_6px_rgba(0,0,0,0.3)]" alt="可乐">
+                        <img src="assets/kele-transparent.png" class="w-full h-full object-contain filter drop-shadow-[0_4px_6px_rgba(0,0,0,0.3)]" alt="可乐">
                     </div>
                     
                     <div class="absolute inset-0 flex flex-col items-center justify-center">
@@ -2899,12 +2899,12 @@ function unavToggleDark(){
         // 使用用户提供的本地图片
         const backgroundImages = [
             { name: '默认', url: '', color: '#F5F5F0' },
-            { name: '风景1', url: '../IMG_20260405_015648.jpg' },
-            { name: '风景2', url: '../IMG_20260405_015834.jpg' },
-            { name: '风景3', url: '../IMG_20260405_015918.jpg' },
-            { name: '风景4', url: '../IMG_20260405_020008.jpg' },
-            { name: '风景5', url: '../IMG_20260405_020048.jpg' },
-            { name: '风景6', url: '../mmexport1775325437154.jpg' }
+            { name: '风景1', url: 'assets/IMG_20260405_015648.jpg' },
+            { name: '风景2', url: 'assets/IMG_20260405_015834.jpg' },
+            { name: '风景3', url: 'assets/IMG_20260405_015918.jpg' },
+            { name: '风景4', url: 'assets/IMG_20260405_020008.jpg' },
+            { name: '风景5', url: 'assets/IMG_20260405_020048.jpg' },
+            { name: '风景6', url: 'assets/mmexport1775325437154.jpg' }
         ];
 
         // 内置白噪音音乐列表
@@ -3072,7 +3072,7 @@ function unavToggleDark(){
                 
                 // 🐱 计算切线方向，让小猫面朝运动方向
                 // 进度减少 → 沿圆逆时针移动，切线角度 = 当前角度 - 90°
-                // ../kele-transparent.png 默认朝右（0°），所以再补偿 -90° 让默认朝上对齐圆顶
+                // kele-transparent.png 默认朝右（0°），所以再补偿 -90° 让默认朝上对齐圆顶
                 const tangentDeg = angle * (180 / Math.PI) - 90;
                 const catImg = catRunner.querySelector('img');
                 if (catImg) {
@@ -4842,7 +4842,7 @@ function unavToggleDark(){
             const mood = PET_MOODS[moodKey] || PET_MOODS.NORMAL;
             
             // 可乐头像永远显示图片，心情emoji取消覆盖
-            avatar.innerHTML = '<img src="../kele-transparent.png" alt="可乐" id="pet-img">';
+            avatar.innerHTML = '<img src="assets/kele-transparent.png" alt="可乐" id="pet-img">';
             petImg = document.getElementById('pet-img'); // 保存引用以便后续操作
             avatar.style.fontSize = '';
             avatar.style.display = '';
@@ -5213,7 +5213,7 @@ function unavToggleDark(){
         }
         
         // ==================== 动态视频壁纸 ====================
-        const videoSources = ['../videos/video1.mp4', '../videos/video2.mp4', '../videos/video3.mp4'];
+        const videoSources = ['assets/videos/video1.mp4', 'assets/videos/video2.mp4', 'assets/videos/video3.mp4'];
         let currentVideoIndex = 0;
         let videoEnabled = false;
         
@@ -5398,8 +5398,8 @@ function unavToggleDark(){
         } else {
             // 首次打开：默认使用第一个静态壁纸 + 深绿色色温
             updateRingColor('#3A8C5C');
-            setBackground('../IMG_20260405_015648.jpg', true);
-            localStorage.setItem('pomodoro-bg', '../IMG_20260405_015648.jpg');
+            setBackground('assets/IMG_20260405_015648.jpg', true);
+            localStorage.setItem('pomodoro-bg', 'assets/IMG_20260405_015648.jpg');
         }
         
         // 初始化动态视频壁纸（最后执行，让视频主题色覆盖背景色）
@@ -6540,8 +6540,8 @@ function unavToggleDark(){
 
             // --- 眨眼引擎（单图+object-cover确保尺寸不变+预加载闭眼图） ---
             const catImg = capsule.querySelector('#capsule-cat-img');
-            const openEyeSrc = '../kele-transparent.png';
-            const closeEyeSrc = '../可乐像素闭眼图片.png';
+            const openEyeSrc = 'assets/kele-transparent.png';
+            const closeEyeSrc = 'assets/可乐像素闭眼图片.png';
             let blinkTimeoutId = null;
             let blinkReady = false;
 
