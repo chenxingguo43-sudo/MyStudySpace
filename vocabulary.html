@@ -633,7 +633,6 @@
             return true;
         });
 
-        document.getElementById('totalCount').textContent = filtered.length;
         startNewDeck();
     }
 
@@ -670,7 +669,6 @@
             // 收藏模式单独处理
             var extras = getExtras();
             filtered = allWords.filter(function(w) { return extras.fav.indexOf(w.id) >= 0; });
-            document.getElementById('totalCount').textContent = filtered.length;
             startNewDeck();
             return;
         } else if (mode === 'problems') {
