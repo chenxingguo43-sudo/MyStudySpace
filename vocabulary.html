@@ -1088,6 +1088,7 @@
         currentPos++;
         flipped = false;
         renderCard();
+        syncToServer();
     }
 
     // ─── 键盘快捷键 ────────────────────────────────────────────────
@@ -1119,6 +1120,51 @@
         d.appendChild(document.createTextNode(s));
         return d.innerHTML;
     }
+
+    // ─── 同步到仪表盘 ─────────────────────────────────────────────
+    var _syncTimer = null;
+    function syncToServer() {
+        clearTimeout(_syncTimer);
+        _syncTimer = setTimeout(_doSync, 3000);
+    }
+
+    function _doSync() {
+        var records = getRecords();
+        var todayKey = getTodayKey();
+        var reviewed = 0;
+        for (var id in records) {
+            if (records[id].lastReview && records[id].lastReview.slice(0, 10) === todayKey) reviewed++;
+        }
+        // 连续天数
+        var streak = 0;
+        var d = new Date();
+        for (var i = 0; i < 365; i++) {
+            var key = d.toISOString().slice(0, 10);
+            var hasReview = false;
+            for (var rid in records) {
+                if (records[rid].lastReview && records[rid].lastReview.slice(0, 10) === key) {
+                    hasReview = true; break;
+                }
+            }
+            if (!hasReview) break;
+            streak++;
+            d.setDate(d.getDate() - 1);
+        }
+        var mastered = 0, due = 0;
+        for (var id in records) {
+            if (records[id].mastery >= 5) mastered++;
+            if (!records[id].nextReview || new Date(records[id].nextReview) <= new Date()) due++;
+        }
+        try {
+            fetch('/api/vocab-sync', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ date: todayKey, reviewed: reviewed, mastered: mastered, due: due, streak: streak })
+            }).catch(function() {});
+        } catch(e) {}
+    }
+
+    window.addEventListener('beforeunload', _doSync);
 
     // ─── 备份提醒 ──────────────────────────────────────────────────
     function checkBackupReminder() {
