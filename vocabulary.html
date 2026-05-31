@@ -71,6 +71,51 @@
             border-color: rgba(79,70,229,0.4) !important;
             color: #a5b4fc !important;
         }
+        .mode-sep { width: 1px; height: 28px; background: rgba(255,255,255,0.08); }
+
+        /* ─── 设置弹窗 ─── */
+        .modal-overlay {
+            position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.6); z-index: 1000;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .modal-box {
+            background: #0f172a; border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px; padding: 24px; width: 360px; max-width: 90vw;
+        }
+        .modal-title { font-size: 16px; font-weight: 700; margin-bottom: 16px; }
+        .modal-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+        .modal-label { font-size: 13px; color: rgba(255,255,255,0.6); }
+        .modal-input {
+            width: 80px; padding: 6px 10px; border-radius: 8px;
+            background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.15);
+            color: #e2e8f0; font-size: 14px; text-align: center;
+            font-family: 'Inter', sans-serif;
+        }
+        .modal-btns { display: flex; gap: 8px; margin-top: 16px; justify-content: flex-end; }
+        .modal-btn {
+            padding: 8px 16px; border-radius: 8px; border: none; font-size: 13px;
+            cursor: pointer; font-family: 'Inter', sans-serif; font-weight: 600;
+        }
+        .modal-btn-primary { background: #4F46E5; color: #fff; }
+        .modal-btn-secondary { background: rgba(255,255,255,0.08); color: #e2e8f0; }
+
+        /* ─── 问题卡片列表 ─── */
+        .problem-list { margin-top: 16px; }
+        .problem-item {
+            background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 10px; padding: 12px; margin-bottom: 8px;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .problem-word { font-family: 'Crimson Pro', serif; font-size: 16px; }
+        .problem-file { font-size: 11px; color: rgba(255,255,255,0.3); margin-top: 4px; word-break: break-all; }
+        .problem-actions { display: flex; gap: 6px; }
+        .problem-actions button {
+            padding: 4px 10px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.05); color: rgba(255,255,255,0.5);
+            font-size: 11px; cursor: pointer; font-family: 'Inter', sans-serif;
+        }
+        .problem-actions button:hover { background: rgba(255,255,255,0.1); color: #e2e8f0; }
 
         /* ─── 筛选面板 ─── */
         .filter-bar {
@@ -331,6 +376,9 @@
             <button class="mode-btn" data-mode="freq" onclick="switchMode('freq')">🔥 高频词</button>
             <button class="mode-btn" data-mode="wrong" onclick="switchMode('wrong')">❌ 错题本</button>
             <button class="mode-btn" data-mode="fav" onclick="switchMode('fav')">⭐ 收藏</button>
+            <button class="mode-btn" data-mode="problems" onclick="switchMode('problems')">🚩 问题卡</button>
+            <span class="mode-sep"></span>
+            <button class="mode-btn" onclick="showSettings()">⚙ 设置</button>
         </div>
 
         <!-- 筛选栏 -->
@@ -360,7 +408,9 @@
 
         <!-- 统计条 -->
         <div class="stats-bar" id="statsBar">
-            <span>共 <span class="count" id="totalCount">0</span> 词</span>
+            <span>到期 <span class="count" id="dueCount">0</span></span>
+            <span>新卡 <span class="count" id="newCount">0</span></span>
+            <span>今日 <span class="count" id="dailyProgress">0/20</span></span>
             <span>本轮 <span class="count" id="currentIdx">0</span> / <span id="sessionTotal">0</span></span>
             <span>掌握率 <span class="count" id="masterRate">0%</span></span>
         </div>
@@ -392,6 +442,8 @@
     var showDueOnly = true;      // 默认只显示今日待复习
     var REVIEW_KEY = 'vocabulary-review-records';
     var EXTRAS_KEY = 'vocabulary-extras';
+    var SETTINGS_KEY = 'vocabulary-settings';
+    var newCardsToday = 0;       // 今日已学新卡数
 
     // ─── 加载数据 ──────────────────────────────────────────────────
     function loadVocabulary() {
@@ -423,6 +475,40 @@
 
     function saveExtras(extras) {
         localStorage.setItem(EXTRAS_KEY, JSON.stringify(extras));
+    }
+
+    function getSettings() {
+        try {
+            return JSON.parse(localStorage.getItem(SETTINGS_KEY)) || {};
+        } catch(e) { return {}; }
+    }
+
+    function saveSettings(s) {
+        localStorage.setItem(SETTINGS_KEY, JSON.stringify(s));
+    }
+
+    function getDailyLimit() {
+        return getSettings().dailyLimit || 20;
+    }
+
+    function getTodayKey() {
+        return new Date().toISOString().slice(0, 10);
+    }
+
+    function getNewCardsToday() {
+        var s = getSettings();
+        if (s.todayDate !== getTodayKey()) return 0;
+        return s.newCardsToday || 0;
+    }
+
+    function incNewCardsToday() {
+        var s = getSettings();
+        if (s.todayDate !== getTodayKey()) {
+            s.todayDate = getTodayKey();
+            s.newCardsToday = 0;
+        }
+        s.newCardsToday = (s.newCardsToday || 0) + 1;
+        saveSettings(s);
     }
 
     // SM-2 间隔复习算法
@@ -587,9 +673,129 @@
             document.getElementById('totalCount').textContent = filtered.length;
             startNewDeck();
             return;
+        } else if (mode === 'problems') {
+            renderProblems();
+            return;
         }
 
         applyFilters();
+    }
+
+    function showSettings() {
+        var limit = getDailyLimit();
+        var overlay = document.createElement('div');
+        overlay.className = 'modal-overlay';
+        overlay.onclick = function(e) { if (e.target === overlay) overlay.remove(); };
+        overlay.innerHTML =
+            '<div class="modal-box">' +
+            '  <div class="modal-title">⚙ 设置</div>' +
+            '  <div class="modal-row">' +
+            '    <span class="modal-label">每日新卡上限</span>' +
+            '    <input class="modal-input" id="inputLimit" type="number" min="1" max="500" value="' + limit + '">' +
+            '  </div>' +
+            '  <div class="modal-row">' +
+            '    <span class="modal-label">导出/导入进度</span>' +
+            '    <div style="display:flex;gap:6px;">' +
+            '      <button class="modal-btn modal-btn-secondary" onclick="exportProgress()">📤 导出</button>' +
+            '      <button class="modal-btn modal-btn-secondary" onclick="document.getElementById(\'importFile\').click()">📥 导入</button>' +
+            '      <input type="file" id="importFile" accept=".json" style="display:none" onchange="importProgress(this)">' +
+            '    </div>' +
+            '  </div>' +
+            '  <div class="modal-btns">' +
+            '    <button class="modal-btn modal-btn-secondary" onclick="this.closest(\'.modal-overlay\').remove()">取消</button>' +
+            '    <button class="modal-btn modal-btn-primary" onclick="saveSettingsFromModal()">保存</button>' +
+            '  </div>' +
+            '</div>';
+        document.body.appendChild(overlay);
+    }
+
+    function saveSettingsFromModal() {
+        var val = parseInt(document.getElementById('inputLimit').value);
+        if (val > 0) {
+            var s = getSettings();
+            s.dailyLimit = val;
+            saveSettings(s);
+        }
+        document.querySelector('.modal-overlay').remove();
+        applyFilters(); // 刷新卡组
+    }
+
+    function exportProgress() {
+        var data = {
+            version: 1,
+            exportedAt: new Date().toISOString(),
+            records: getRecords(),
+            extras: getExtras(),
+            settings: getSettings()
+        };
+        var blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+        var a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = 'vocabulary-progress-' + getTodayKey() + '.json';
+        a.click();
+        URL.revokeObjectURL(a.href);
+    }
+
+    function importProgress(input) {
+        var file = input.files[0];
+        if (!file) return;
+        var reader = new FileReader();
+        reader.onload = function(e) {
+            try {
+                var data = JSON.parse(e.target.result);
+                if (!data.records) { alert('格式错误：缺少 records 字段'); return; }
+                if (!confirm('导入将覆盖当前进度，确定？')) return;
+                localStorage.setItem(REVIEW_KEY, JSON.stringify(data.records));
+                if (data.extras) localStorage.setItem(EXTRAS_KEY, JSON.stringify(data.extras));
+                if (data.settings) localStorage.setItem(SETTINGS_KEY, JSON.stringify(data.settings));
+                alert('导入成功！共 ' + Object.keys(data.records).length + ' 条记录');
+                document.querySelector('.modal-overlay').remove();
+                applyFilters();
+            } catch(err) {
+                alert('导入失败：' + err.message);
+            }
+        };
+        reader.readAsText(file);
+        input.value = '';
+    }
+
+    // ─── 问题卡片视图 ────────────────────────────────────────────
+    function renderProblems() {
+        var area = document.getElementById('cardArea');
+        var extras = getExtras();
+        var problemIds = (extras.report || []).concat(extras.skip || []);
+        if (problemIds.length === 0) {
+            area.innerHTML = '<div class="done-card"><div class="done-emoji">✅</div>' +
+                '<div class="done-title">没有问题卡片</div>' +
+                '<div class="done-sub">标记数据问题或跳过的卡片会出现在这里</div></div>';
+            return;
+        }
+        var html = '<div class="problem-list">';
+        html += '<div style="font-size:13px;color:rgba(255,255,255,0.4);margin-bottom:12px;">共 ' + problemIds.length + ' 条问题卡片，可回 Obsidian 修复原文件</div>';
+        problemIds.forEach(function(id) {
+            var w = allWords.find(function(x) { return x.id === id; });
+            if (!w) return;
+            var isReport = (extras.report || []).indexOf(id) >= 0;
+            html += '<div class="problem-item">' +
+                '  <div>' +
+                '    <div class="problem-word">' + esc(w.word) + ' → ' + esc(w.meaning).slice(0, 40) + '</div>' +
+                '    <div class="problem-file">' + (isReport ? '🚩 数据问题' : '⏭ 已跳过') + ' · ' + esc(w.file) + '</div>' +
+                '  </div>' +
+                '  <div class="problem-actions">' +
+                '    <button onclick="unmarkProblem(\'' + esc(id) + '\')">恢复</button>' +
+                '  </div>' +
+                '</div>';
+        });
+        html += '</div>';
+        area.innerHTML = html;
+    }
+
+    function unmarkProblem(id) {
+        var ex = getExtras();
+        ex.report = (ex.report || []).filter(function(x) { return x !== id; });
+        ex.skip = (ex.skip || []).filter(function(x) { return x !== id; });
+        saveExtras(ex);
+        renderProblems();
     }
 
     function toggleDueOnly() {
@@ -612,12 +818,44 @@
 
     // ─── 卡组管理 ─────────────────────────────────────────────────
     function startNewDeck() {
-        // 打乱顺序
-        deck = filtered.slice();
+        var limit = getDailyLimit();
+        var todayCount = getNewCardsToday();
+
+        // 分离：到期复习卡 vs 新卡
+        var records = getRecords();
+        var dueCards = [];
+        var newCards = [];
+        filtered.forEach(function(w) {
+            var rec = records[w.id];
+            if (rec && rec.nextReview && new Date(rec.nextReview) <= new Date()) {
+                dueCards.push(w); // 到期复习
+            } else if (!rec) {
+                newCards.push(w); // 从未见过的新卡
+            } else {
+                dueCards.push(w); // 其他（已复习但未到期的，在 showDueOnly 模式已被过滤）
+            }
+        });
+
+        // 复习卡优先，新卡受限
+        var remainingNew = Math.max(0, limit - todayCount);
+        if (showDueOnly) {
+            var allowedNew = newCards.slice(0, remainingNew);
+            deck = dueCards.concat(allowedNew);
+        } else {
+            deck = dueCards.concat(newCards);
+        }
+
         shuffle(deck);
         currentPos = 0;
         sessionStats = { know: 0, fuzzy: 0, dunno: 0 };
         flipped = false;
+
+        // 更新统计显示
+        var totalNew = showDueOnly ? Math.min(newCards.length, remainingNew) : newCards.length;
+        document.getElementById('dueCount').textContent = dueCards.length;
+        document.getElementById('newCount').textContent = totalNew;
+        document.getElementById('dailyProgress').textContent = todayCount + '/' + limit;
+
         renderCard();
     }
 
@@ -770,7 +1008,13 @@
     function rate(score) {
         if (currentPos >= deck.length) return;
         var w = deck[currentPos];
+        var records = getRecords();
+        var isNew = !records[w.id];
+
         saveRecord(w.id, score);
+
+        // 新卡计入每日计数
+        if (isNew) incNewCardsToday();
 
         if (score >= 5) sessionStats.know++;
         else if (score >= 3) sessionStats.fuzzy++;

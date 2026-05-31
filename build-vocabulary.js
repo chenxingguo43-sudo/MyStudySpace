@@ -257,15 +257,21 @@ function extractVocab(file) {
     // B2高频词/ 目录
     if (rel.startsWith('B2高频词/')) {
         if (!fm.word) return null;
-        // 从文件 body 提取例句
+        // 从文件 body 提取例句和常见形式
         const examples = extractExamplesFromBody(src);
+        const forms = extractFormsFromBody(src);
+        const stem = fm.stem || '';
+        const freq = fm.frequency || 0;
+        var extraParts = [];
+        if (stem && stem !== String(fm.word)) extraParts.push('词根: ' + stem);
+        if (freq) extraParts.push('频率: ' + freq);
         return {
             id: rel.replace(/\.md$/, ''),
             word: String(fm.word),
-            meaning: fm.stem || '',
-            extra: fm.frequency ? `频率: ${fm.frequency}` : '',
+            meaning: forms || '高频词',
+            extra: extraParts.join(' | '),
             examples: examples,
-            type: fm.type || '高频词',
+            type: '高频词',
             source: 'freq',
             chapter: 'B2高频词',
             section: '',
@@ -294,6 +300,12 @@ function normalizeExamples(ex) {
         ru: e.ru || '',
         zh: e.zh || ''
     }));
+}
+
+function extractFormsFromBody(src) {
+    const m = src.match(/##\s*常见形式([\s\S]*?)(?=\n##\s|\n---|$)/);
+    if (!m) return '';
+    return m[1].split('\n').map(function(l) { return l.trim(); }).filter(function(l) { return l && !l.startsWith('#'); }).join(', ');
 }
 
 function extractExamplesFromBody(src) {
