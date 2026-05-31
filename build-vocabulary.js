@@ -408,6 +408,45 @@ function main() {
     for (const [t, count] of Object.entries(byType).sort(function(a,b){ return b[1]-a[1]; })) {
         console.log(`     ${t}: ${count}`);
     }
+
+    // ─── 质量报告 ────────────────────────────────────────────────
+    const hasCyrillic = /[а-яА-ЯёЁ]/;
+    const issues = [];
+
+    for (const e of entries) {
+        // 正面无俄语字母
+        if (!hasCyrillic.test(e.word || '')) {
+            issues.push({ id: e.id, word: (e.word||'').slice(0,60), meaning: (e.meaning||'').slice(0,60),
+                file: e.file, reason: '正面无俄语字母' });
+        }
+        // 空释义
+        if (!e.meaning || e.meaning.trim() === '') {
+            issues.push({ id: e.id, word: (e.word||'').slice(0,60), meaning: '',
+                file: e.file, reason: '释义为空' });
+        }
+        // 正反面疑似相同
+        if (e.word && e.meaning && e.word.trim() === e.meaning.trim()) {
+            issues.push({ id: e.id, word: (e.word||'').slice(0,60), meaning: (e.meaning||'').slice(0,60),
+                file: e.file, reason: '正反面内容相同' });
+        }
+    }
+
+    // 重复 id 检测
+    const idCount = {};
+    entries.forEach(function(e) { idCount[e.id] = (idCount[e.id]||0)+1; });
+    for (const [id, count] of Object.entries(idCount)) {
+        if (count > 1) {
+            const e = entries.find(function(x){ return x.id===id; });
+            issues.push({ id: id, word: (e.word||'').slice(0,60), meaning: (e.meaning||'').slice(0,60),
+                file: e.file, reason: '重复 id（出现 ' + count + ' 次）' });
+        }
+    }
+
+    const reportPath = path.join(OUT_DIR, 'vocabulary-quality-report.json');
+    const report = { generatedAt: new Date().toISOString(), totalEntries: entries.length, issues: issues };
+    fs.writeFileSync(reportPath, JSON.stringify(report, null, 2), 'utf-8');
+    console.log('');
+    console.log(`📋 质量报告 ${reportPath}（${issues.length} 个问题）`);
 }
 
 main();

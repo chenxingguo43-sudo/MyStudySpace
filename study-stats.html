@@ -133,6 +133,12 @@
             border: 1px solid rgba(102, 126, 234, 0.2);
         }
 
+        /* 背单词卡片 - 靛蓝绿渐变 */
+        .vocab-card {
+            background: linear-gradient(135deg, rgba(79, 70, 229, 0.06) 0%, rgba(16, 185, 129, 0.06) 100%);
+            border: 1px solid rgba(79, 70, 229, 0.15);
+        }
+
         /* 统计项布局 */
         .stats-grid {
             display: grid;
@@ -520,6 +526,65 @@ window.addEventListener('message', function(event) {
             </div>
         </div>
 
+        <!-- 📚 背单词统计 -->
+        <div class="stats-card vocab-card">
+            <div class="card-header">
+                <span class="card-icon">📚</span>
+                <span class="card-title">背单词统计</span>
+            </div>
+
+            <div class="overview-stats">
+                <div class="overview-item">
+                    <span>📖</span>
+                    <span id="vocab-total-records">0</span>
+                    <span>已学习</span>
+                </div>
+                <div class="overview-item">
+                    <span>📅</span>
+                    <span id="vocab-today-reviewed">0</span>
+                    <span>今日复习</span>
+                </div>
+                <div class="overview-item">
+                    <span>✅</span>
+                    <span id="vocab-mastered">0</span>
+                    <span>已掌握</span>
+                </div>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-label">待复习</div>
+                    <div class="stat-value" id="vocab-due" style="font-size: 1.8em;">0</div>
+                    <div class="stat-label">张</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">问题卡</div>
+                    <div class="stat-value" id="vocab-problems" style="font-size: 1.8em;">0</div>
+                    <div class="stat-label">张</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">收藏</div>
+                    <div class="stat-value" id="vocab-favs" style="font-size: 1.8em;">0</div>
+                    <div class="stat-label">张</div>
+                </div>
+            </div>
+
+            <div class="stats-grid" style="margin-top: 12px;">
+                <div class="stat-item">
+                    <div class="stat-label">今日上限</div>
+                    <div class="stat-value" id="vocab-daily-limit" style="font-size: 1.4em;">20</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">今日新卡</div>
+                    <div class="stat-value" id="vocab-new-today" style="font-size: 1.4em;">0</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">最近备份</div>
+                    <div class="stat-value" id="vocab-last-backup" style="font-size: 0.9em;">-</div>
+                </div>
+            </div>
+        </div>
+
         <!-- 📂 数据管理栏 -->
         <div class="stats-card">
             <div class="card-header">
@@ -564,7 +629,8 @@ window.addEventListener('message', function(event) {
                     'pomodoro-today-count', 'pomodoro-today-minutes',
                     'pomodoro-total-count', 'pomodoro-total-minutes', 'pomodoro-streak',
                     'oral-read-records', 'oral-speak-records', 'oral-memo-records',
-                    'oral-speak-daily'
+                    'oral-speak-daily',
+                    'vocabulary-review-records', 'vocabulary-extras', 'vocabulary-settings'
                 ];
                 if (relevantKeys.indexOf(e.key) !== -1) {
                     refreshAllStats();
@@ -578,6 +644,7 @@ window.addEventListener('message', function(event) {
         function refreshAllStats() {
             refreshPomodoroStats();
             refreshRussianStats();
+            refreshVocabStats();
         }
 
         // ==========================================
@@ -648,6 +715,53 @@ window.addEventListener('message', function(event) {
             
             // 更新章节明细（这里需要章节信息，暂时省略）
             updateChapterDetails(readRecords, speakRecords, memoRecords);
+        }
+
+        // ==========================================
+        // 背单词统计
+        // ==========================================
+        function refreshVocabStats() {
+            var records = JSON.parse(localStorage.getItem('vocabulary-review-records') || '{}');
+            var extras = JSON.parse(localStorage.getItem('vocabulary-extras') || '{"fav":[],"skip":[],"report":[]}');
+            var settings = JSON.parse(localStorage.getItem('vocabulary-settings') || '{}');
+
+            var totalRecords = Object.keys(records).length;
+            var mastered = 0;
+            var due = 0;
+            var todayKey = new Date().toISOString().slice(0, 10);
+            var todayReviewed = 0;
+
+            for (var id in records) {
+                var r = records[id];
+                if (r.mastery >= 5) mastered++;
+                if (!r.nextReview || new Date(r.nextReview) <= new Date()) due++;
+                if (r.lastReview && r.lastReview.slice(0, 10) === todayKey) todayReviewed++;
+            }
+
+            var problems = (extras.report || []).length + (extras.skip || []).length;
+            var favs = (extras.fav || []).length;
+            var dailyLimit = settings.dailyLimit || 20;
+            var newToday = 0;
+            if (settings.todayDate === todayKey) newToday = settings.newCardsToday || 0;
+
+            var lastBackup = settings.lastExportAt;
+            var backupText = '-';
+            if (lastBackup) {
+                var daysAgo = Math.floor((Date.now() - new Date(lastBackup).getTime()) / (1000*60*60*24));
+                if (daysAgo === 0) backupText = '今天';
+                else if (daysAgo === 1) backupText = '昨天';
+                else backupText = daysAgo + '天前';
+            }
+
+            document.getElementById('vocab-total-records').textContent = totalRecords;
+            document.getElementById('vocab-today-reviewed').textContent = todayReviewed;
+            document.getElementById('vocab-mastered').textContent = mastered;
+            document.getElementById('vocab-due').textContent = due;
+            document.getElementById('vocab-problems').textContent = problems;
+            document.getElementById('vocab-favs').textContent = favs;
+            document.getElementById('vocab-daily-limit').textContent = dailyLimit;
+            document.getElementById('vocab-new-today').textContent = newToday;
+            document.getElementById('vocab-last-backup').textContent = backupText;
         }
 
         // ==========================================
