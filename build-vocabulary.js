@@ -317,39 +317,84 @@ function extractExamplesFromBody(src) {
 // ─── 主流程 ────────────────────────────────────────────────────────
 
 function main() {
+    const scanDirs = [
+        { label: '词汇/', path: path.join(VAULT, '词汇'), source: 'vocab' },
+        { label: 'B2口语素材/', path: path.join(VAULT, 'B2口语素材'), source: 'b2' },
+        { label: 'B2高频词/', path: path.join(VAULT, 'B2高频词'), source: 'freq' },
+    ];
+
     console.log('📂 扫描俄语笔记库...');
-    const files = walkMd(VAULT);
-    console.log(`   找到 ${files.length} 个 Markdown 文件`);
+    console.log(`   vault: ${VAULT}`);
+    console.log('');
 
     const entries = [];
     let skipped = 0;
-    for (const f of files) {
-        try {
-            const entry = extractVocab(f);
-            if (entry) {
-                entries.push(entry);
-            } else {
+    const stats = {};
+
+    for (const dir of scanDirs) {
+        const files = walkMd(dir.path);
+        let added = 0;
+        for (const f of files) {
+            try {
+                const entry = extractVocab(f);
+                if (entry) { entries.push(entry); added++; }
+                else skipped++;
+            } catch (err) {
+                console.warn(`   ⚠ ${path.relative(VAULT, f)}: ${err.message}`);
                 skipped++;
             }
-        } catch (err) {
-            console.warn(`   ⚠ 跳过 ${path.relative(VAULT, f)}: ${err.message}`);
-            skipped++;
         }
+        stats[dir.source] = { label: dir.label, scanned: files.length, added };
+        console.log(`   ${dir.label} → 扫描 ${files.length} 文件, 提取 ${added} 条`);
     }
 
-    // 输出
+    // 排序：按 source → chapter → word，确保输出确定性
+    entries.sort(function(a, b) {
+        if (a.source !== b.source) return a.source.localeCompare(b.source);
+        if (a.chapter !== b.chapter) return (a.chapter || '').localeCompare(b.chapter || '');
+        return (a.word || '').localeCompare(b.word || '');
+    });
+
+    // 输出 JSON
     if (!fs.existsSync(OUT_DIR)) fs.mkdirSync(OUT_DIR, { recursive: true });
     fs.writeFileSync(OUT_FILE, JSON.stringify(entries, null, 2), 'utf-8');
 
-    // 统计
-    const bySrc = {};
-    for (const e of entries) {
-        bySrc[e.source] = (bySrc[e.source] || 0) + 1;
+    // 输出构建清单
+    var manifest = {
+        version: 1,
+        builtAt: new Date().toISOString(),
+        vault: VAULT,
+        totalEntries: entries.length,
+        skipped: skipped,
+        sources: {}
+    };
+    for (const [src, info] of Object.entries(stats)) {
+        manifest.sources[src] = { label: info.label, scanned: info.scanned, added: info.added };
     }
-    console.log(`\n✅ 生成 ${OUT_FILE}`);
-    console.log(`   共 ${entries.length} 条词条（跳过 ${skipped} 个文件）`);
-    for (const [src, count] of Object.entries(bySrc)) {
-        console.log(`   - ${src}: ${count} 条`);
+    // 按 type 统计
+    const byType = {};
+    for (const e of entries) {
+        const t = e.type || 'unknown';
+        byType[t] = (byType[t] || 0) + 1;
+    }
+    manifest.byType = byType;
+
+    var manifestPath = path.join(OUT_DIR, 'vocabulary-manifest.json');
+    fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 2), 'utf-8');
+
+    // 汇总
+    console.log('');
+    console.log(`✅ 生成 ${OUT_FILE}（${(fs.statSync(OUT_FILE).size / 1024).toFixed(0)} KB）`);
+    console.log(`   清单 ${manifestPath}`);
+    console.log(`   共 ${entries.length} 条, 跳过 ${skipped} 个文件`);
+    console.log('');
+    console.log('   按来源:');
+    for (const [src, info] of Object.entries(stats)) {
+        console.log(`     ${src}: ${info.added} 条（扫描 ${info.scanned} 文件）`);
+    }
+    console.log('   按类型:');
+    for (const [t, count] of Object.entries(byType).sort(function(a,b){ return b[1]-a[1]; })) {
+        console.log(`     ${t}: ${count}`);
     }
 }
 
