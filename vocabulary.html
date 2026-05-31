@@ -248,6 +248,32 @@
         }
         @keyframes spin { to { transform: rotate(360deg); } }
 
+        /* ─── 卡片工具栏 ─── */
+        .card-utils {
+            display: flex; justify-content: center; align-items: center; gap: 12px;
+            margin-bottom: 16px;
+        }
+        .due-badge {
+            font-size: 12px; color: rgba(255,255,255,0.4);
+            background: rgba(255,255,255,0.05);
+            padding: 3px 10px; border-radius: 10px;
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+        .util-btn {
+            background: none; border: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.4); font-size: 16px;
+            width: 32px; height: 32px; border-radius: 8px;
+            cursor: pointer; transition: all 0.2s;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .util-btn:hover { background: rgba(255,255,255,0.08); color: #e2e8f0; }
+        .util-active { border-color: #facc15; color: #facc15; }
+
+        /* ─── 操作按钮子标签 ─── */
+        .action-btn .btn-sub {
+            font-size: 10px; font-weight: 400; opacity: 0.5;
+        }
+
         /* ─── 响应式 ─── */
         @media (max-width: 480px) {
             .card-word { font-size: 26px; }
@@ -299,6 +325,7 @@
                 <option value="all">全部章节</option>
             </select>
             <div class="filter-sep"></div>
+            <button id="btnDueOnly" class="filter-btn-active" onclick="toggleDueOnly()">📅 今日待复习</button>
             <button id="btnOnlyWrong" onclick="toggleOnlyWrong()">❌ 只看错词</button>
             <button id="btnOnlyUnmastered" onclick="toggleOnlyUnmastered()">⚠ 未掌握</button>
         </div>
@@ -334,7 +361,9 @@
     var sessionStats = { know: 0, fuzzy: 0, dunno: 0 };
     var onlyWrong = false;
     var onlyUnmastered = false;
+    var showDueOnly = true;      // 默认只显示今日待复习
     var REVIEW_KEY = 'vocabulary-review-records';
+    var EXTRAS_KEY = 'vocabulary-extras';
 
     // ─── 加载数据 ──────────────────────────────────────────────────
     function loadVocabulary() {
@@ -358,23 +387,92 @@
         } catch(e) { return {}; }
     }
 
+    function getExtras() {
+        try {
+            return JSON.parse(localStorage.getItem(EXTRAS_KEY)) || { fav: [], skip: [], report: [] };
+        } catch(e) { return { fav: [], skip: [], report: [] }; }
+    }
+
+    function saveExtras(extras) {
+        localStorage.setItem(EXTRAS_KEY, JSON.stringify(extras));
+    }
+
+    // SM-2 间隔复习算法
     function saveRecord(wordId, rating) {
         var records = getRecords();
-        var now = new Date().toISOString();
-        if (!records[wordId]) {
-            records[wordId] = { mastery: rating, lastReview: now, count: 0 };
+        var now = new Date();
+        var rec = records[wordId] || { mastery: 1, count: 0, interval: 0, easeFactor: 2.5, nextReview: null };
+
+        rec.count = (rec.count || 0) + 1;
+        rec.mastery = rating;
+        rec.lastReview = now.toISOString();
+
+        // SM-2: rating 1=不认识, 3=模糊, 5=认识
+        if (rating < 3) {
+            // 不认识：明天再复习
+            rec.interval = 1;
+            rec.easeFactor = Math.max(1.3, rec.easeFactor - 0.2);
+        } else {
+            // 认识/模糊：拉长间隔
+            if (rec.interval === 0) {
+                rec.interval = 1;
+            } else if (rec.interval === 1) {
+                rec.interval = rating >= 5 ? 3 : 2;
+            } else {
+                var ef = rec.easeFactor;
+                ef = ef + (0.1 - (5 - rating) * (0.08 + (5 - rating) * 0.02));
+                rec.easeFactor = Math.max(1.3, ef);
+                rec.interval = Math.round(rec.interval * rec.easeFactor);
+            }
         }
-        records[wordId].mastery = rating;
-        records[wordId].lastReview = now;
-        records[wordId].count = (records[wordId].count || 0) + 1;
+
+        // 计算下次复习时间
+        var next = new Date(now);
+        next.setDate(next.getDate() + rec.interval);
+        rec.nextReview = next.toISOString();
+
+        records[wordId] = rec;
         localStorage.setItem(REVIEW_KEY, JSON.stringify(records));
     }
 
     function getWordMastery(word) {
         var records = getRecords();
-        // 优先用 localStorage 记录，否则用笔记中的 mastery
         if (records[word.id]) return records[word.id].mastery;
         return word.mastery || 1;
+    }
+
+    function isDue(word) {
+        var records = getRecords();
+        var rec = records[word.id];
+        if (!rec || !rec.nextReview) return true; // 从未复习过的卡片也算待复习
+        return new Date(rec.nextReview) <= new Date();
+    }
+
+    function toggleFav(wordId) {
+        var ex = getExtras();
+        var idx = ex.fav.indexOf(wordId);
+        if (idx >= 0) ex.fav.splice(idx, 1); else ex.fav.push(wordId);
+        saveExtras(ex);
+        renderCard(); // 刷新收藏按钮状态
+    }
+
+    function toggleSkip(wordId) {
+        var ex = getExtras();
+        var idx = ex.skip.indexOf(wordId);
+        if (idx >= 0) ex.skip.splice(idx, 1); else ex.skip.push(wordId);
+        saveExtras(ex);
+        currentPos++;
+        flipped = false;
+        renderCard();
+    }
+
+    function reportCard(wordId) {
+        var ex = getExtras();
+        if (ex.report.indexOf(wordId) < 0) ex.report.push(wordId);
+        saveExtras(ex);
+        currentPos++;
+        flipped = false;
+        renderCard();
     }
 
     // ─── 筛选 ─────────────────────────────────────────────────────
@@ -397,11 +495,19 @@
         var src = document.getElementById('filterSource').value;
         var type = document.getElementById('filterType').value;
         var chapter = document.getElementById('filterChapter').value;
+        var extras = getExtras();
 
         filtered = allWords.filter(function(w) {
             if (src !== 'all' && w.source !== src) return false;
             if (type !== 'all' && w.type !== type) return false;
             if (chapter !== 'all' && (w.chapter || w.theme) !== chapter) return false;
+            // 跳过已标记跳过的卡片
+            if (extras.skip.indexOf(w.id) >= 0) return false;
+            // 跳过已标记问题的卡片
+            if (extras.report.indexOf(w.id) >= 0) return false;
+            if (showDueOnly) {
+                if (!isDue(w)) return false;
+            }
             if (onlyWrong) {
                 var m = getWordMastery(w);
                 if (m >= 3) return false;
@@ -415,6 +521,12 @@
 
         document.getElementById('totalCount').textContent = filtered.length;
         startNewDeck();
+    }
+
+    function toggleDueOnly() {
+        showDueOnly = !showDueOnly;
+        document.getElementById('btnDueOnly').classList.toggle('filter-btn-active', showDueOnly);
+        applyFilters();
     }
 
     function toggleOnlyWrong() {
@@ -496,6 +608,25 @@
         if (w.aspect) extraMeta += w.aspect + ' ';
         if (extraMeta) backContent += '<div class="card-extra" style="margin-top:8px;">' + esc(extraMeta.trim()) + '</div>';
 
+        // 收藏状态
+        var extras = getExtras();
+        var isFav = extras.fav.indexOf(w.id) >= 0;
+
+        // 下次复习信息
+        var records = getRecords();
+        var rec = records[w.id];
+        var dueInfo = '';
+        if (rec && rec.nextReview) {
+            var nextDate = new Date(rec.nextReview);
+            var now = new Date();
+            var diffDays = Math.ceil((nextDate - now) / (1000*60*60*24));
+            if (diffDays <= 0) dueInfo = '待复习';
+            else if (diffDays === 1) dueInfo = '明天复习';
+            else dueInfo = diffDays + '天后复习';
+        } else {
+            dueInfo = '新卡片';
+        }
+
         area.innerHTML =
             '<div class="card-zone">' +
             '  <div class="flashcard' + (flipped ? ' flipped' : '') + '" id="flashcard" onclick="flipCard()">' +
@@ -509,10 +640,16 @@
             '    </div>' +
             '  </div>' +
             '</div>' +
+            '<div class="card-utils">' +
+            '  <span class="due-badge">' + dueInfo + '</span>' +
+            '  <button class="util-btn' + (isFav ? ' util-active' : '') + '" onclick="toggleFav(\'' + esc(w.id) + '\')" title="收藏">' + (isFav ? '⭐' : '☆') + '</button>' +
+            '  <button class="util-btn" onclick="toggleSkip(\'' + esc(w.id) + '\')" title="跳过此卡">⏭</button>' +
+            '  <button class="util-btn" onclick="reportCard(\'' + esc(w.id) + '\')" title="标记数据问题">🚩</button>' +
+            '</div>' +
             '<div class="action-btns">' +
-            '  <button class="action-btn btn-dunno" onclick="rate(1)"><span>❌</span><span class="btn-label">不认识</span></button>' +
-            '  <button class="action-btn btn-fuzzy" onclick="rate(3)"><span>⚠️</span><span class="btn-label">模糊</span></button>' +
-            '  <button class="action-btn btn-know" onclick="rate(5)"><span>✅</span><span class="btn-label">认识</span></button>' +
+            '  <button class="action-btn btn-dunno" onclick="rate(1)"><span>❌</span><span class="btn-label">不认识</span><span class="btn-sub">明天再来</span></button>' +
+            '  <button class="action-btn btn-fuzzy" onclick="rate(3)"><span>⚠️</span><span class="btn-label">模糊</span><span class="btn-sub">2-3天后</span></button>' +
+            '  <button class="action-btn btn-know" onclick="rate(5)"><span>✅</span><span class="btn-label">认识</span><span class="btn-sub">逐步拉长</span></button>' +
             '</div>' +
             '<div class="kb-hints">' +
             '  <span><kbd>←</kbd> 不认识</span>' +
@@ -573,6 +710,11 @@
         // 同步更新 allWords 中的 mastery（影响筛选）
         var orig = allWords.find(function(x) { return x.id === w.id; });
         if (orig) orig.mastery = score;
+
+        // 如果是"今日待复习"模式，不认识的卡片插回卡组后面
+        if (showDueOnly && score < 3) {
+            deck.push(w);
+        }
 
         currentPos++;
         flipped = false;
