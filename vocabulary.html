@@ -732,6 +732,11 @@
         a.download = 'vocabulary-progress-' + getTodayKey() + '.json';
         a.click();
         URL.revokeObjectURL(a.href);
+        // 更新备份时间
+        var s = getSettings();
+        s.lastExportAt = new Date().toISOString();
+        saveSettings(s);
+        checkBackupReminder();
     }
 
     function importProgress(input) {
@@ -747,6 +752,10 @@
                 if (data.extras) localStorage.setItem(EXTRAS_KEY, JSON.stringify(data.extras));
                 if (data.settings) localStorage.setItem(SETTINGS_KEY, JSON.stringify(data.settings));
                 alert('导入成功！共 ' + Object.keys(data.records).length + ' 条记录');
+                // 导入也算备份操作
+                var s2 = getSettings();
+                s2.lastExportAt = new Date().toISOString();
+                saveSettings(s2);
                 document.querySelector('.modal-overlay').remove();
                 applyFilters();
             } catch(err) {
@@ -769,7 +778,9 @@
             return;
         }
         var html = '<div class="problem-list">';
-        html += '<div style="font-size:13px;color:rgba(255,255,255,0.4);margin-bottom:12px;">共 ' + problemIds.length + ' 条问题卡片，可回 Obsidian 修复原文件</div>';
+        html += '<div style="font-size:13px;color:rgba(255,255,255,0.4);margin-bottom:12px;display:flex;align-items:center;justify-content:space-between;">' +
+            '<span>共 ' + problemIds.length + ' 条问题卡片，可回 Obsidian 修复原文件</span>' +
+            '<button onclick="exportProblemsToMd()" style="padding:4px 12px;border-radius:6px;border:1px solid rgba(79,70,229,0.4);background:rgba(79,70,229,0.2);color:#a5b4fc;cursor:pointer;font-size:12px;font-family:Inter,sans-serif;">📥 导出 Markdown</button></div>';
         problemIds.forEach(function(id) {
             var w = allWords.find(function(x) { return x.id === id; });
             if (!w) return;
@@ -786,6 +797,53 @@
         });
         html += '</div>';
         area.innerHTML = html;
+    }
+
+    function exportProblemsToMd() {
+        var extras = getExtras();
+        var reportIds = extras.report || [];
+        var skipIds = extras.skip || [];
+        var records = getRecords();
+        var now = new Date();
+        var dateStr = now.toISOString().slice(0, 10);
+
+        var md = '---\ntitle: 背词问题卡\ndate: ' + dateStr + '\ntotal: ' + (reportIds.length + skipIds.length) + '\ntags: [复习/问题卡, 词汇]\n---\n\n';
+        md += '# 背词问题卡\n\n';
+        md += '> 自动生成于 ' + now.toLocaleString('zh-CN') + '。在 Obsidian 中逐条检查并修复原文件。\n\n';
+
+        if (reportIds.length > 0) {
+            md += '## 🚩 数据问题（' + reportIds.length + ' 条）\n\n';
+            reportIds.forEach(function(id) {
+                var w = allWords.find(function(x) { return x.id === id; });
+                if (!w) return;
+                var rec = records[id];
+                md += '### ' + (w.word || '').slice(0, 60) + '\n';
+                md += '- **释义**：' + (w.meaning || '').slice(0, 80) + '\n';
+                md += '- **来源**：' + w.source + ' · ' + (w.chapter || '') + '\n';
+                md += '- **文件**：`' + (w.file || '') + '`\n';
+                md += '- **复习次数**：' + (rec ? rec.count : 0) + '，掌握度：' + (rec ? rec.mastery : '-') + '\n';
+                md += '- **标记原因**：数据问题\n\n';
+            });
+        }
+
+        if (skipIds.length > 0) {
+            md += '## ⏭ 已跳过（' + skipIds.length + ' 条）\n\n';
+            skipIds.forEach(function(id) {
+                var w = allWords.find(function(x) { return x.id === id; });
+                if (!w) return;
+                md += '### ' + (w.word || '').slice(0, 60) + '\n';
+                md += '- **释义**：' + (w.meaning || '').slice(0, 80) + '\n';
+                md += '- **文件**：`' + (w.file || '') + '`\n';
+                md += '- **标记原因**：用户跳过\n\n';
+            });
+        }
+
+        var blob = new Blob([md], { type: 'text/markdown;charset=utf-8' });
+        var a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = '背词问题卡-' + dateStr + '.md';
+        a.click();
+        URL.revokeObjectURL(a.href);
     }
 
     function unmarkProblem(id) {
@@ -1062,8 +1120,46 @@
         return d.innerHTML;
     }
 
+    // ─── 备份提醒 ──────────────────────────────────────────────────
+    function checkBackupReminder() {
+        var existing = document.getElementById('backupReminder');
+        if (existing) existing.remove();
+        var s = getSettings();
+        var last = s.lastExportAt;
+        if (!last) {
+            // 从未导出过，检查是否有复习记录
+            var records = getRecords();
+            if (Object.keys(records).length === 0) return; // 新用户，不提醒
+            showBackupBanner('学习进度尚未备份过，建议导出一份 JSON');
+            return;
+        }
+        var daysSince = (Date.now() - new Date(last).getTime()) / (1000 * 60 * 60 * 24);
+        if (daysSince > 7) {
+            showBackupBanner('已 ' + Math.floor(daysSince) + ' 天未备份学习进度');
+        }
+    }
+
+    function showBackupBanner(msg) {
+        var bar = document.createElement('div');
+        bar.id = 'backupReminder';
+        bar.style.cssText = 'position:fixed;bottom:0;left:0;right:0;z-index:999;' +
+            'background:rgba(79,70,229,0.15);border-top:1px solid rgba(79,70,229,0.3);' +
+            'padding:10px 20px;display:flex;align-items:center;justify-content:space-between;' +
+            'font-size:13px;color:#a5b4fc;backdrop-filter:blur(12px);';
+        bar.innerHTML = '<span>💾 ' + esc(msg) + '</span>' +
+            '<div style="display:flex;gap:8px;">' +
+            '<button onclick="showSettings();this.closest(\'#backupReminder\').remove()" ' +
+            'style="padding:4px 12px;border-radius:6px;border:1px solid rgba(79,70,229,0.4);' +
+            'background:rgba(79,70,229,0.2);color:#a5b4fc;cursor:pointer;font-size:12px;font-family:Inter,sans-serif;">立即备份</button>' +
+            '<button onclick="this.closest(\'#backupReminder\').remove()" ' +
+            'style="padding:4px 8px;border-radius:6px;border:none;background:transparent;' +
+            'color:rgba(255,255,255,0.3);cursor:pointer;font-size:12px;">✕</button></div>';
+        document.body.appendChild(bar);
+    }
+
     // ─── 启动 ──────────────────────────────────────────────────────
     loadVocabulary();
+    checkBackupReminder();
     </script>
 </body>
 </html>
