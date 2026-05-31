@@ -206,16 +206,45 @@ function extractVocab(file) {
     // B2口语素材/ 目录：口语语料
     if (rel.startsWith('B2口语素材/')) {
         if (!fm.ru) return null;
+        let word = String(fm.ru);
+        let meaning = fm.zh || '';
+        const section = fm.section || '';
+        const chapter = fm.chapter || '';
+
+        // 正反面检测：如果 word（ru字段）没有俄语字母，说明正反面写反了
+        const wordHasCyrillic = /[а-яА-ЯёЁ]/.test(word);
+        const meaningHasCyrillic = /[а-яА-ЯёЁ]/.test(meaning);
+        if (!wordHasCyrillic && meaningHasCyrillic) {
+            // 翻转：把俄语放到正面
+            const tmp = word;
+            word = meaning;
+            meaning = tmp;
+        } else if (!wordHasCyrillic && !meaningHasCyrillic) {
+            // 两边都没俄语，跳过这条垃圾数据
+            return null;
+        }
+
+        // 卡类型：tip=技巧/指令, sentence=对话/句型, vocab=词汇小灶
+        let cardType = 'sentence';
+        const secLC = section.toLowerCase();
+        if (secLC.includes('技巧') || secLC.includes('小贴士') || secLC.includes('练习计划')) {
+            cardType = 'tip';
+        } else if (secLC.includes('词汇小灶')) {
+            cardType = 'vocab';
+        } else if (secLC.includes('重音') || secLC.includes('功能句')) {
+            cardType = 'tip';
+        }
+
         return {
             id: rel.replace(/\.md$/, ''),
-            word: String(fm.ru),
-            meaning: fm.zh || '',
+            word: word,
+            meaning: meaning,
             extra: fm.extra || '',
             examples: [],
-            type: '',
+            type: cardType,
             source: 'b2',
-            chapter: fm.chapter || '',
-            section: fm.section || '',
+            chapter: chapter,
+            section: section,
             theme: '',
             tags: normalizeTags(fm.tags),
             mastery: typeof fm.mastery === 'number' ? fm.mastery : 1,
