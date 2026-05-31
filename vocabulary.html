@@ -54,6 +54,24 @@
             max-width: 640px; margin: 0 auto; padding: 24px 16px 100px;
         }
 
+        /* ─── 模式栏 ─── */
+        .mode-bar {
+            display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px;
+        }
+        .mode-btn {
+            padding: 8px 16px; border: 1px solid rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.03); color: rgba(255,255,255,0.5);
+            border-radius: 10px; font-size: 13px; font-weight: 500;
+            cursor: pointer; transition: all 0.2s;
+            font-family: 'Inter', sans-serif;
+        }
+        .mode-btn:hover { background: rgba(255,255,255,0.08); color: #e2e8f0; }
+        .mode-active {
+            background: rgba(79,70,229,0.2) !important;
+            border-color: rgba(79,70,229,0.4) !important;
+            color: #a5b4fc !important;
+        }
+
         /* ─── 筛选面板 ─── */
         .filter-bar {
             display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px;
@@ -305,6 +323,16 @@
 
     <!-- 主内容 -->
     <div class="main-container">
+        <!-- 模式快捷入口 -->
+        <div class="mode-bar" id="modeBar">
+            <button class="mode-btn mode-active" data-mode="due" onclick="switchMode('due')">📅 今日待复习</button>
+            <button class="mode-btn" data-mode="vocab" onclick="switchMode('vocab')">📖 生词本</button>
+            <button class="mode-btn" data-mode="b2" onclick="switchMode('b2')">🇷🇺 B2口语</button>
+            <button class="mode-btn" data-mode="freq" onclick="switchMode('freq')">🔥 高频词</button>
+            <button class="mode-btn" data-mode="wrong" onclick="switchMode('wrong')">❌ 错题本</button>
+            <button class="mode-btn" data-mode="fav" onclick="switchMode('fav')">⭐ 收藏</button>
+        </div>
+
         <!-- 筛选栏 -->
         <div class="filter-bar" id="filterBar">
             <select id="filterSource">
@@ -521,6 +549,47 @@
 
         document.getElementById('totalCount').textContent = filtered.length;
         startNewDeck();
+    }
+
+    // ─── 模式切换 ─────────────────────────────────────────────────
+    function switchMode(mode) {
+        // 更新按钮状态
+        document.querySelectorAll('.mode-btn').forEach(function(b) { b.classList.remove('mode-active'); });
+        document.querySelector('.mode-btn[data-mode="' + mode + '"]').classList.add('mode-active');
+
+        // 重置筛选
+        showDueOnly = false;
+        onlyWrong = false;
+        onlyUnmastered = false;
+        document.getElementById('btnDueOnly').classList.remove('filter-btn-active');
+        document.getElementById('btnOnlyWrong').classList.remove('filter-btn-active');
+        document.getElementById('btnOnlyUnmastered').classList.remove('filter-btn-active');
+        document.getElementById('filterSource').value = 'all';
+        document.getElementById('filterType').value = 'all';
+        document.getElementById('filterChapter').value = 'all';
+
+        if (mode === 'due') {
+            showDueOnly = true;
+            document.getElementById('btnDueOnly').classList.add('filter-btn-active');
+        } else if (mode === 'vocab') {
+            document.getElementById('filterSource').value = 'vocab';
+        } else if (mode === 'b2') {
+            document.getElementById('filterSource').value = 'b2';
+        } else if (mode === 'freq') {
+            document.getElementById('filterSource').value = 'freq';
+        } else if (mode === 'wrong') {
+            onlyWrong = true;
+            document.getElementById('btnOnlyWrong').classList.add('filter-btn-active');
+        } else if (mode === 'fav') {
+            // 收藏模式单独处理
+            var extras = getExtras();
+            filtered = allWords.filter(function(w) { return extras.fav.indexOf(w.id) >= 0; });
+            document.getElementById('totalCount').textContent = filtered.length;
+            startNewDeck();
+            return;
+        }
+
+        applyFilters();
     }
 
     function toggleDueOnly() {
