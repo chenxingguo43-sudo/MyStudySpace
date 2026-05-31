@@ -11,6 +11,7 @@ An immersive study space that integrates a Pomodoro timer and a Russian B2 speak
 ```bash
 node server.js              # Start dev server at http://localhost:3000
 npm start                   # Same as above
+npm run build:vocab          # Build vocabulary.json from Obsidian vault markdown
 node convert.js             # Convert 俄语知识库.html → Obsidian markdown (requires cheerio)
 npm test                    # No-op (placeholder)
 ```
@@ -30,7 +31,9 @@ Only runtime dependency: `cheerio` (used by `convert.js` to parse the HTML knowl
 | `俄语知识库.html` (~510KB) | Russian B2 speaking-material library (V7.0), ~2200 entries, 13 topic areas |
 | `study-stats.html` (~31KB) | Stats dashboard (Pomodoro + Russian), Chart.js doughnut chart, data export/import |
 | `b2-exam.html` (~9KB) | TRKI-B2 oral exam question bank with templates and scoring badges |
-| `server.js` | Minimal Node.js static server on port 3000, MIME-type mapping, parent-dir fallback |
+| `server.js` | Minimal Node.js static server on port 3000, MIME-type mapping, parent-dir fallback, `POST /api/vocab-sync` endpoint |
+| `build-vocabulary.js` | Scans `俄语笔记库/` markdown files → generates `data/vocabulary.json` + quality report + manifest |
+| `vocabulary.html` (~27KB) | Vocabulary flashcard review tool with SM-2 spaced repetition, daily limits, card modes |
 | `convert.js` | Converts `俄语知识库.html` → Obsidian Markdown files into `俄语笔记库/B2口语素材/` |
 | `cloudsync-config.js` | Cloud sync config (GitHub Gist token) — **DO NOT commit, contains real credentials** |
 | `cloudsync-config.example.js` | Template for the above (safe to commit) |
@@ -40,7 +43,8 @@ Only runtime dependency: `cheerio` (used by `convert.js` to parse the HTML knowl
 - `docs/` — design docs: `UI_OPTIMIZATION_PLAN.md` (current task), `数据存储说明.md` (localStorage schema), `排版审查报告.md` (layout audit), `灵动岛代码.md` (dynamic island code), `俄语知识库_结构分析报告.md` (knowledge base structure)
 - `scripts/` — Python helper scripts: `fix_stress_and_emoji.py` / `fix_stress_step2.py` (data repair), `verify_repair.py` / `check_file.py` / `check_backup.py` (verification), `reorganize.py` (reorganization), `v.py` (quick verify)
 - `assets/` — static images and videos referenced by HTML pages via `../assets/` paths
-- `俄语笔记库/` — Obsidian vault with Russian notes (`B2口语素材/`, `词汇/`, `语法/`, `考试词汇表/`, `每日练习/`). The `.obsidian/` subdirectory contains Obsidian plugin configs including Templater.
+- `data/` — build output (gitignored): `vocabulary.json`, `vocabulary-manifest.json`, `vocabulary-quality-report.json`
+- `俄语笔记库/` — Obsidian vault with Russian notes (`B2口语素材/`, `词汇/`, `B2高频词/`, `语法/`, `考试词汇表/`, `每日练习/`). The `.obsidian/` subdirectory contains Obsidian plugin configs including Templater. **Gitignored — not tracked.**
 
 ## localStorage reference
 
@@ -111,7 +115,46 @@ Standalone stats dashboard opened via `#open-stats-btn` in index.html (opens in 
 
 ### `server.js`
 
-Minimal Node.js static file server (port 3000). Maps file extensions to MIME types; defaults unknown types to `application/octet-stream`. Falls back to parent directory when a file isn't found locally (supports `../videos`, `../assets/` paths). Binds to `0.0.0.0`. No routing, no middleware.
+Minimal Node.js static file server (port 3000). Maps file extensions to MIME types; defaults unknown types to `application/octet-stream`. Falls back to parent directory when a file isn't found locally (supports `../videos`, `../assets/` paths). Binds to `0.0.0.0`.
+
+Also handles `POST /api/vocab-sync` — receives vocabulary review stats from `vocabulary.html` and writes them to `俄语笔记库/wiki/study-log.json` for the Obsidian dashboard to read.
+
+### `build-vocabulary.js`
+
+Scans three directories in `俄语笔记库/`:
+- `词汇/**/*.md` → vocab entries (word/type/meaning/mastery/examples)
+- `B2口语素材/**/*.md` → B2 oral entries (ru/zh/chapter/section)
+- `B2高频词/**/*.md` → high-frequency words (word/stem/frequency)
+
+Parses YAML frontmatter (inline arrays, multi-line objects), detects and swaps reversed front/back cards, filters garbage data. Outputs:
+- `data/vocabulary.json` — unified entry array, sorted deterministically
+- `data/vocabulary-manifest.json` — build metadata and per-source stats
+- `data/vocabulary-quality-report.json` — suspected anomalies (no auto-fix)
+
+Run: `npm run build:vocab`
+
+### `vocabulary.html`
+
+Standalone flashcard review page (no iframe, opens from nav bar). Features:
+- **Card flip**: Russian front → Chinese back (+ extra, examples, gender/aspect)
+- **SM-2 spaced repetition**: 不认识→1天, 模糊→2-3天, 认识→逐步拉长
+- **Daily limit**: default 20 new cards/day, configurable in settings
+- **Card modes**: 今日待复习 / 生词本 / B2口语 / 高频词 / 错题本 / 收藏 / 问题卡
+- **Card actions**: ⭐ 收藏, ⏭ 跳过, 🚩 标记数据问题
+- **Sync to dashboard**: POST review stats to `/api/vocab-sync` (3s debounce + beforeunload)
+- **Export/Import**: JSON progress backup with 7-day reminder
+- **Problem cards export**: generates Obsidian-readable `背词问题卡-日期.md`
+
+localStorage keys:
+- `vocabulary-review-records` — per-card scheduling data (mastery, nextReview, interval, easeFactor, count)
+- `vocabulary-extras` — { fav[], skip[], report[] }
+- `vocabulary-settings` — { dailyLimit, todayDate, newCardsToday, lastExportAt }
+
+### Dashboard integration
+
+`vocabulary.html` → `POST /api/vocab-sync` → `server.js` → `俄语笔记库/wiki/study-log.json` → `仪表盘.md` (DataviewJS).
+
+The dashboard reads `vocab_reviewed`, `vocab_mastered`, `vocab_due`, `vocab_streak` from study-log.json and displays them in the "📚 背词打卡" card alongside the manual minute-based check-in.
 
 ### `convert.js`
 
@@ -132,27 +175,9 @@ Parses `俄语知识库.html` with cheerio, walks the DOM in document order trac
 
 `package.json` contains the full authenticated GitHub URL (with token) in the `repository.url` field. This is a **leaked credential**. If you ever edit `package.json`, replace the URL with the unauthenticated form `git+https://github.com/chenxingguo43-sudo/MyStudySpace.git`.
 
-## 当前任务：UI 优化（进行中）
-
-详细计划在 `docs/UI_OPTIMIZATION_PLAN.md`，请先读它。
-
-### ⚠️ 绝对不能改的东西
+## ⚠️ 绝对不能改的东西
 - 番茄钟 SVG 计时圆环颜色（随工作/休息模式自动变色）
 - 开始/暂停/重置按钮颜色（跟圆环联动）
 - 4 个漂浮流体光球 `.fluid-orb` 的颜色和动画
 - 所有 work-mode / break-mode 相关的动态 CSS
-
-### 可以改的
-- 页面背景色 → `#020617`
-- 毛玻璃卡片 → 统一 16px 圆角 + 细白边 `rgba(255,255,255,0.08)`
-- 字体 → Inter（界面UI）+ Crimson Pro + Cormorant Garamond（俄语内容）
-- 统计面板配色 → Language Learning 调色板，主色 `#4F46E5`
-- 章节标题栏颜色 → 学习靛蓝
-
-### 改动顺序
-1. pomodoro.html — 背景+卡片+字体（影响最大）
-2. study-stats.html — 配色统一
-3. 俄语知识库.html — 学术字体+标题栏
-4. index.html — 微调背景+FAB
-
-改完一个测一个，确认圆环光球没事再继续。
+- `cloudsync-config.js` — 含真实 token，不提交
