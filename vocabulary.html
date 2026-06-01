@@ -798,6 +798,24 @@
         }
         .ex-audio-btn:hover { color: #a5b4fc; }
 
+        /* ─── 快捷键提示 ─── */
+        .kbd-hints {
+            display: flex; gap: 12px; justify-content: center;
+            margin-top: 8px; flex-wrap: wrap;
+        }
+        .kbd-hint {
+            font-size: 11px; color: rgba(255,255,255,0.25);
+            display: inline-flex; align-items: center; gap: 4px;
+        }
+        .kbd-hint kbd {
+            display: inline-block; padding: 1px 5px;
+            font-size: 10px; font-family: 'Inter', monospace;
+            color: rgba(255,255,255,0.4);
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 4px; line-height: 1.4;
+        }
+
         /* ─── 操作按钮子标签 ─── */
         .action-btn .btn-sub {
             font-size: 10px; font-weight: 400; opacity: 0.5;
@@ -2129,7 +2147,14 @@
             '    </div>' +
             '  </div>' +
             '</div>' +
-            actionHtml;
+            actionHtml +
+            '<div class="kbd-hints">' +
+            '  <span class="kbd-hint"><kbd>Space</kbd> 翻转</span>' +
+            '  <span class="kbd-hint"><kbd>←</kbd> 不认识</span>' +
+            '  <span class="kbd-hint"><kbd>↓</kbd> 模糊</span>' +
+            '  <span class="kbd-hint"><kbd>→</kbd> 认识</span>' +
+            '  <span class="kbd-hint"><kbd>↑</kbd> 撤销</span>' +
+            '</div>';
 
         updateStats();
         adjustCardHeight();
