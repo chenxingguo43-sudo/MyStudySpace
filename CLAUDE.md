@@ -27,15 +27,16 @@ Only runtime dependency: `cheerio` (used by `convert.js` to parse the HTML knowl
 | File | Role |
 |------|------|
 | `index.html` | Dispatch center — iframe container, mode switching, toolbar, drag system |
-| `pomodoro.html` (~313KB) | Pomodoro timer with Tailwind CSS + Font Awesome 4.7 CDN, `#russian-fab` button |
+| `pomodoro.html` (~313KB) | Pomodoro timer with Tailwind CSS + Font Awesome 4.7 CDN, `#russian-fab` + `#vocab-fab` buttons |
 | `俄语知识库.html` (~510KB) | Russian B2 speaking-material library (V7.0), ~2200 entries, 13 topic areas |
 | `study-stats.html` (~31KB) | Stats dashboard (Pomodoro + Russian), Chart.js doughnut chart, data export/import |
 | `b2-exam.html` (~9KB) | TRKI-B2 oral exam question bank with templates and scoring badges |
-| `reader.html` | Novel reader — bookshelf, chapter list, bilingual reading, word selection popup, save to Obsidian vocab |
+| `reader.html` | Novel reader — bookshelf, chapter list, bilingual reading, 3 themes, search, word highlight, paragraph bookmark, reading notes export, reading report |
 | `server.js` | Minimal Node.js static server on port 3000, MIME-type mapping, parent-dir fallback, `POST /api/vocab-sync`, novel API endpoints |
 | `build-vocabulary.js` | Scans `俄语笔记库/` markdown files → generates `data/vocabulary.json` + quality report + manifest |
-| `vocabulary.html` (~27KB) | Vocabulary flashcard review tool with SM-2 spaced repetition, daily limits, card modes |
+| `vocabulary.html` (~121KB) | Vocabulary flashcard review tool with SM-2 spaced repetition, grammar panel, stress quiz, morphology, adaptive learning |
 | `convert.js` | Converts `俄语知识库.html` → Obsidian Markdown files into `俄语笔记库/B2口语素材/` |
+| `rewrite-examples.js` | Batch rewrite example sentences in vocab files (one-time utility, can be re-run) |
 | `cloudsync-config.js` | Cloud sync config (GitHub Gist token) — **DO NOT commit, contains real credentials** |
 | `cloudsync-config.example.js` | Template for the above (safe to commit) |
 | `启动学习舱.bat` | Windows batch launcher — gitignored (`*.bat`) |
@@ -59,13 +60,20 @@ Syncs Pomodoro + Russian speaking stats to a private GitHub Gist. The config hol
 ## Novel Reader (`reader.html`)
 
 Standalone novel reader page integrated into the dispatch center. Features:
-- **Bookshelf**: displays imported novels from `data/novel/index.json`
-- **Chapter list**: grid view with read/unread status
+- **Bookshelf**: displays imported novels from `data/novel/index.json`, sortable by progress/unread
+- **Chapter list**: grid view with read/unread status, export reading notes button
 - **Reading view**: three modes (Russian only / Bilingual / Chinese only), paragraph click-to-reveal translation
+- **3 themes**: dark (default), sepia (护眼), paper (纸质) — cycled via 🎨 button
+- **In-chapter search**: Ctrl+F or 🔍 button, Enter/Shift+Enter to navigate matches
 - **Word selection**: select Russian text → popup with "📖 Wiktionary" / "🤖 AI提问" / "⭐ 保存到生词本"
-- **Auto dictionary**: Wiktionary REST API lookup on word selection
-- **Save to Obsidian**: POST to `/api/novel-vocab` → generates markdown in `俄语笔记库/小说词汇/`
-- **Reading stats**: chapters read, peek count, reading time — persisted in localStorage (`rr_stats_study_novel`)
+- **Auto dictionary**: Wiktionary REST API lookup on word selection, blocks save while loading
+- **Saved word highlight**: words saved from novels are highlighted in the reading text
+- **Paragraph bookmark**: ☆ button on hover, persisted in localStorage
+- **Reading notes export**: 📋 button generates Obsidian markdown with bookmarked paragraphs + vocabulary
+- **Reading report**: 📊 button shows chapters read, time, peek count, saved words
+- **Reading progress**: top progress bar, scroll position restore on return
+- **Reading timer**: elapsed time display in toolbar
+- **PostMessage**: sends `NOVEL_CHAPTER_DONE` to parent on chapter completion
 
 Data source: `data/novel/` directory with per-chapter JSON files (format: `{index, title, original[], translated[]}`).
 
@@ -77,6 +85,7 @@ Data source: `data/novel/` directory with per-chapter JSON files (format: `{inde
 | `/api/novel/index` | GET | Return book catalog from `data/novel/index.json` |
 | `/api/novel/:bookId/:chapter` | GET | Return single chapter JSON from `data/novel/{bookId}/ch{idx}.json` |
 | `/api/novel-vocab` | POST | Save word to `俄语笔记库/小说词汇/` as Obsidian markdown (with duplicate detection) |
+| `/api/novel-vocab-list` | GET | Return all saved novel words as JSON array `[{word, meaning, source}]` |
 
 ## Architecture
 
@@ -177,6 +186,43 @@ Parses YAML frontmatter (inline arrays, multi-line objects), detects and swaps r
 
 Run: `npm run build:vocab`
 
+### Vocabulary markdown format (`俄语笔记库/词汇/**/*.md`)
+
+Each vocab file has YAML frontmatter + markdown body:
+
+```yaml
+---
+word: "влия́ть"
+type: verb
+theme: "思维情感社交"
+meaning: "影响，起作用"
+mastery: 1
+tags: ["高频动词", "B2"]
+aspect: "несов."
+case_gov: "на + что (Вин.) — 影响某事"
+pair: "повлиять"
+conj_pattern: "влияю, влияешь, влияют"
+morphology: "в-ли-ять"
+examples:
+  - ru: "Музыка эмоционально влияет на человека."
+    zh: "音乐会在情感上影响一个人。"
+created: "2026-05-19"
+---
+
+# влия́ть
+## 📖 释义
+影响，起作用
+## ✍️ 例句
+| 俄语 | 中文 |
+|------|------|
+| ... | ... |
+## 📐 变位/变格/接格
+| 人称 | 现在时 | 过去时 |
+|------|--------|--------|
+| я | влияю | влиял |
+| ... | ... | ... |
+```
+
 ### `vocabulary.html`
 
 Standalone flashcard review page (no iframe, opens from nav bar). Features:
@@ -192,9 +238,14 @@ Standalone flashcard review page (no iframe, opens from nav bar). Features:
 - **Mastery visualization**: progress bar, stars (★★★☆☆), colored glow on card
 - **Search**: text filter by Russian word or Chinese meaning
 - **Visual polish**: gradient mode bar, glass buttons, card entrance animation
+- **Keyboard shortcuts**: Space=flip, ←=不认识, ↓=模糊, →=认识, ↑=undo (shown as hints at bottom)
 - **Sync to dashboard**: POST review stats to `/api/vocab-sync` (3s debounce + beforeunload)
 - **Export/Import**: JSON progress backup with 7-day reminder
 - **Problem cards export**: generates Obsidian-readable `背词问题卡-日期.md`
+
+### Pomodoro → Vocabulary integration
+
+`pomodoro.html` has a `#vocab-fab` button (📚) next to the Russian FAB (🌐) that opens `vocabulary.html` in a new window. Styling mirrors the Russian FAB. Review data syncs to `study-stats.html` via localStorage `storage` events.
 
 localStorage keys:
 - `vocabulary-review-records` — per-card scheduling data (mastery, nextReview, interval, easeFactor, count)
