@@ -31,7 +31,8 @@ Only runtime dependency: `cheerio` (used by `convert.js` to parse the HTML knowl
 | `俄语知识库.html` (~510KB) | Russian B2 speaking-material library (V7.0), ~2200 entries, 13 topic areas |
 | `study-stats.html` (~31KB) | Stats dashboard (Pomodoro + Russian), Chart.js doughnut chart, data export/import |
 | `b2-exam.html` (~9KB) | TRKI-B2 oral exam question bank with templates and scoring badges |
-| `server.js` | Minimal Node.js static server on port 3000, MIME-type mapping, parent-dir fallback, `POST /api/vocab-sync` endpoint |
+| `reader.html` | Novel reader — bookshelf, chapter list, bilingual reading, word selection popup, save to Obsidian vocab |
+| `server.js` | Minimal Node.js static server on port 3000, MIME-type mapping, parent-dir fallback, `POST /api/vocab-sync`, novel API endpoints |
 | `build-vocabulary.js` | Scans `俄语笔记库/` markdown files → generates `data/vocabulary.json` + quality report + manifest |
 | `vocabulary.html` (~27KB) | Vocabulary flashcard review tool with SM-2 spaced repetition, daily limits, card modes |
 | `convert.js` | Converts `俄语知识库.html` → Obsidian Markdown files into `俄语笔记库/B2口语素材/` |
@@ -44,6 +45,7 @@ Only runtime dependency: `cheerio` (used by `convert.js` to parse the HTML knowl
 - `scripts/` — Python helper scripts: `fix_stress_and_emoji.py` / `fix_stress_step2.py` (data repair), `verify_repair.py` / `check_file.py` / `check_backup.py` (verification), `reorganize.py` (reorganization), `v.py` (quick verify)
 - `assets/` — static images and videos referenced by HTML pages via `../assets/` paths
 - `data/` — build output (gitignored): `vocabulary.json`, `vocabulary-manifest.json`, `vocabulary-quality-report.json`
+- `data/novel/` — novel translation cache: `index.json` (book catalog), `boss_yin/` (261 chapters), `russian_tales/` (7 stories)
 - `俄语笔记库/` — Obsidian vault with Russian notes (`B2口语素材/`, `词汇/`, `B2高频词/`, `语法/`, `考试词汇表/`, `每日练习/`). The `.obsidian/` subdirectory contains Obsidian plugin configs including Templater. **Gitignored — not tracked.**
 
 ## localStorage reference
@@ -54,23 +56,53 @@ Only runtime dependency: `cheerio` (used by `convert.js` to parse the HTML knowl
 
 Syncs Pomodoro + Russian speaking stats to a private GitHub Gist. The config holds a Gist ID and personal access token (needs `gist` scope). `cloudsync-config.js` is **not** in `.gitignore` by filename — be careful to never stage/commit it. The template (`cloudsync-config.example.js`) has placeholder values and is safe to commit.
 
+## Novel Reader (`reader.html`)
+
+Standalone novel reader page integrated into the dispatch center. Features:
+- **Bookshelf**: displays imported novels from `data/novel/index.json`
+- **Chapter list**: grid view with read/unread status
+- **Reading view**: three modes (Russian only / Bilingual / Chinese only), paragraph click-to-reveal translation
+- **Word selection**: select Russian text → popup with "📖 Wiktionary" / "🤖 AI提问" / "⭐ 保存到生词本"
+- **Auto dictionary**: Wiktionary REST API lookup on word selection
+- **Save to Obsidian**: POST to `/api/novel-vocab` → generates markdown in `俄语笔记库/小说词汇/`
+- **Reading stats**: chapters read, peek count, reading time — persisted in localStorage (`rr_stats_study_novel`)
+
+Data source: `data/novel/` directory with per-chapter JSON files (format: `{index, title, original[], translated[]}`).
+
+## Server API Endpoints (`server.js`)
+
+| Endpoint | Method | Description |
+|----------|--------|-------------|
+| `/api/vocab-sync` | POST | Sync vocab review stats to `俄语笔记库/wiki/study-log.json` |
+| `/api/novel/index` | GET | Return book catalog from `data/novel/index.json` |
+| `/api/novel/:bookId/:chapter` | GET | Return single chapter JSON from `data/novel/{bookId}/ch{idx}.json` |
+| `/api/novel-vocab` | POST | Save word to `俄语笔记库/小说词汇/` as Obsidian markdown (with duplicate detection) |
+
 ## Architecture
 
 ### Entry point: `index.html` ("调度中心" / Dispatch Center)
 
-The container that loads both apps via iframes, orchestrates mode switching (Pomodoro ↔ Russian immersive), and provides toolbar buttons:
+The container that loads sub-apps via iframes, orchestrates mode switching, and provides toolbar buttons:
 
 ```
 ┌─────────────────────────────────────────────┐
 │  index.html (z-index: 10 for pomodoro,      │
-│              z-index: 5 for russian)         │
+│              z-index: 5 for others)          │
 │  ┌──────────────────────────────────────┐   │
 │  │  #pomodoro-frame (fullscreen default)│   │
 │  │  pomodoro.html                       │   │
 │  └──────────────────────────────────────┘   │
 │  ┌──────────────────────────────────────┐   │
-│  │  #russian-frame (hidden default)     │   │
+│  │  #russian-frame (hidden)             │   │
 │  │  俄语知识库.html                      │   │
+│  └──────────────────────────────────────┘   │
+│  ┌──────────────────────────────────────┐   │
+│  │  #vocab-frame (hidden)               │   │
+│  │  vocabulary.html                     │   │
+│  └──────────────────────────────────────┘   │
+│  ┌──────────────────────────────────────┐   │
+│  │  #reader-frame (hidden)              │   │
+│  │  reader.html                         │   │
 │  └──────────────────────────────────────┘   │
 │  ┌──────────────────────────────────────┐   │
 │  │  #drag-shield (z-index: 9999)        │   │
@@ -88,6 +120,9 @@ The container that loads both apps via iframes, orchestrates mode switching (Pom
 |---------|-----------|--------|
 | `OPEN_RUSSIAN` | pomodoro → parent | Parent shrinks pomodoro to mini-mode (260×260, positionable), shows Russian KB fullscreen, forwards message to Russian iframe |
 | `CLOSE_RUSSIAN` | parent → pomodoro + Russian | Restores pomodoro to fullscreen, hides Russian KB |
+| `CLOSE_STATS` | any → parent | Returns to console view |
+| `CLOSE_VOCAB` | any → parent | Returns to console view |
+| `CLOSE_READER` | any → parent | Returns to console view |
 
 NOTE: pomodoro.html also sends `{type: 'DRAG_START', clientX, clientY}` on pointerdown in mini-mode, but index.html does **not** handle this message — the actual drag is driven by `mousedown` on `#drag-shield` (see Drag system below).
 
@@ -121,10 +156,19 @@ Also handles `POST /api/vocab-sync` — receives vocabulary review stats from `v
 
 ### `build-vocabulary.js`
 
-Scans three directories in `俄语笔记库/`:
-- `词汇/**/*.md` → vocab entries (word/type/meaning/mastery/examples)
+Scans directories in `俄语笔记库/`:
+- `词汇/**/*.md` → vocab entries (word/type/meaning/mastery/examples + grammar fields)
 - `B2口语素材/**/*.md` → B2 oral entries (ru/zh/chapter/section)
 - `B2高频词/**/*.md` → high-frequency words (word/stem/frequency)
+
+Extracts grammar data from markdown body and frontmatter:
+- `grammarTable` — 变位/变格表 from `## 📐 变位/变格/接格` section
+- `case_gov` — verb case government pattern
+- `pair` — aspect pair (сов./несов. partner)
+- `conj_pattern` — conjugation pattern
+- `morphology` — word root breakdown (prefix-root-suffix)
+- `short_form` — adjective short form
+- `animate` — noun animacy
 
 Parses YAML frontmatter (inline arrays, multi-line objects), detects and swaps reversed front/back cards, filters garbage data. Outputs:
 - `data/vocabulary.json` — unified entry array, sorted deterministically
@@ -139,8 +183,15 @@ Standalone flashcard review page (no iframe, opens from nav bar). Features:
 - **Card flip**: Russian front → Chinese back (+ extra, examples, gender/aspect)
 - **SM-2 spaced repetition**: 不认识→1天, 模糊→2-3天, 认识→逐步拉长
 - **Daily limit**: default 20 new cards/day, configurable in settings
+- **Adaptive learning**: adjusts daily new card count based on performance (≥85%→+3, <60%→-3)
 - **Card modes**: 今日待复习 / 生词本 / B2口语 / 高频词 / 错题本 / 收藏 / 问题卡
 - **Card actions**: ⭐ 收藏, ⏭ 跳过, 🚩 标记数据问题
+- **Grammar panel**: collapsible section showing case_gov, conjugation table, aspect pair
+- **Morphology display**: colored word root breakdown (prefix/root/suffix)
+- **Stress quiz**: clickable syllable options for stress mark practice
+- **Mastery visualization**: progress bar, stars (★★★☆☆), colored glow on card
+- **Search**: text filter by Russian word or Chinese meaning
+- **Visual polish**: gradient mode bar, glass buttons, card entrance animation
 - **Sync to dashboard**: POST review stats to `/api/vocab-sync` (3s debounce + beforeunload)
 - **Export/Import**: JSON progress backup with 7-day reminder
 - **Problem cards export**: generates Obsidian-readable `背词问题卡-日期.md`
@@ -148,7 +199,7 @@ Standalone flashcard review page (no iframe, opens from nav bar). Features:
 localStorage keys:
 - `vocabulary-review-records` — per-card scheduling data (mastery, nextReview, interval, easeFactor, count)
 - `vocabulary-extras` — { fav[], skip[], report[] }
-- `vocabulary-settings` — { dailyLimit, todayDate, newCardsToday, lastExportAt }
+- `vocabulary-settings` — { dailyLimit, todayDate, newCardsToday, lastExportAt, adaptiveLimit, dailyPerf }
 
 ### Dashboard integration
 
@@ -163,7 +214,7 @@ Parses `俄语知识库.html` with cheerio, walks the DOM in document order trac
 ## When editing
 
 - All HTML files are monolithic with inline CSS/JS. Search for the function/symbol before editing — there is no module system.
-- The `postMessage` protocol strings (`OPEN_RUSSIAN`, `CLOSE_RUSSIAN`) are the contract between files. If you change one, change all three HTML files. `b2-exam.html` is standalone and does **not** participate in postMessage.
+- The `postMessage` protocol strings (`OPEN_RUSSIAN`, `CLOSE_RUSSIAN`, `CLOSE_STATS`, `CLOSE_VOCAB`, `CLOSE_READER`) are the contract between files. If you change one, change all relevant HTML files. `b2-exam.html` and `reader.html` are standalone and do **not** send postMessage (but `index.html` sends `CLOSE_READER` to return from reader view).
 - **Drag system in `index.html`**: A `MutationObserver` watches `#pomodoro-frame` for the `.mini-mode` class. When added, `#drag-shield` (24px tall bar, z-index 9999) becomes visible and syncs its position to the iframe via `getBoundingClientRect()`. `mousedown` on the shield starts drag; `mousemove` repositions the iframe using `left`/`top` (clamped to viewport); `mouseup` ends it. If drag breaks, check: (a) shield `display` is `flex` in mini-mode, (b) shield `left`/`top` matches the iframe rect, (c) z-index 9999 > 10.
 - `pomodoro.html` uses CDN dependencies (Tailwind, Font Awesome). It works offline only after the browser caches them.
 - Chinese filenames are intentional (Windows UTF-8). Do not rename to ASCII.

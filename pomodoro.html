@@ -2194,6 +2194,35 @@
             box-shadow: 0 6px 28px rgba(0,0,0,0.25);
         }
         #russian-fab:active {
+            transform: scale(0.92);
+        }
+        #vocab-fab {
+            position: fixed;
+            bottom: 30px;
+            right: 100px;
+            z-index: 1200;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.25);
+            color: rgba(255,255,255,0.85);
+            font-size: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.18);
+        }
+        #vocab-fab:hover {
+            background: rgba(255,255,255,0.15);
+            transform: scale(1.08);
+            box-shadow: 0 6px 28px rgba(0,0,0,0.25);
+        }
+        #vocab-fab:active {
             transform: scale(0.95);
         }
     .unified-nav{position:fixed;top:0;left:0;right:0;z-index:9999;display:flex;align-items:center;justify-content:center;gap:4px;background:rgba(255,255,255,0.88);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(0,0,0,0.05);padding:0 20px;height:38px}
@@ -2802,6 +2831,9 @@ function unavToggleDark(){
     <!-- 右下角俄语素材库按钮（玻璃质感 FAB） -->
     <button id="russian-fab" title="打开俄语素材库">
         <i class="fa fa-language"></i>
+    </button>
+    <button id="vocab-fab" title="打开背词卡片" onclick="window.open('vocabulary.html','_blank')">
+        📚
     </button>
 
     <script>
@@ -7185,6 +7217,16 @@ function unavToggleDark(){
                     if (typeof switchMode === 'function') switchMode('work', null);
                 } else if (event.data.action === 'mode-break') {
                     if (typeof switchMode === 'function') switchMode('break', null);
+                } else if (event.data.action === 'set-task') {
+                    var taskName = event.data.task || '';
+                    if (taskName) {
+                        localStorage.setItem('pomodoro-current-task', taskName);
+                        var taskInput = document.getElementById('task-input');
+                        if (taskInput) {
+                            taskInput.value = taskName;
+                            taskInput.classList.add('hidden');
+                        }
+                    }
                 } else if (event.data.action === 'music-netease-on') {
                     neteaseEnabled = true;
                     localStorage.setItem('pomodoro-netease', 'true');
