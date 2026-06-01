@@ -184,10 +184,10 @@ function extractVocab(file) {
         if (!fm.word || !fm.meaning) return null;
         const dirParts = rel.split('/');
         const chapter = dirParts.length > 2 ? dirParts[1] : '';
-        return {
+        const entry = {
             id: rel.replace(/\.md$/, ''),
-            word: String(fm.word),
-            meaning: String(fm.meaning),
+            word: normalizeStress(String(fm.word)),
+            meaning: normalizeStress(String(fm.meaning)),
             extra: '',
             examples: normalizeExamples(fm.examples),
             type: fm.type || '',
@@ -201,6 +201,17 @@ function extractVocab(file) {
             aspect: fm.aspect || '',
             file: rel
         };
+        // 提取语法相关字段
+        if (fm.case_gov) entry.case_gov = normalizeStress(String(fm.case_gov));
+        if (fm.conj_pattern) entry.conj_pattern = normalizeStress(String(fm.conj_pattern));
+        if (fm.pair) entry.pair = normalizeStress(String(fm.pair));
+        if (fm.short_form) entry.short_form = normalizeStress(String(fm.short_form));
+        if (fm.morphology) entry.morphology = String(fm.morphology);
+        if (fm.animate !== undefined) entry.animate = fm.animate;
+        // 从 body 提取变位/变格表格
+        const grammarTable = extractGrammarTable(src);
+        if (grammarTable) entry.grammarTable = grammarTable;
+        return entry;
     }
 
     // B2口语素材/ 目录：口语语料
@@ -224,6 +235,16 @@ function extractVocab(file) {
             return null;
         }
 
+        // 修复 meaning 是标签/序号而非翻译的情况
+        const extraStr = fm.extra || '';
+        if (meaning.length < 4 && extraStr.length >= meaning.length) {
+            meaning = extraStr;
+        }
+        // 如果 meaning 是纯数字（文件序号泄露），强制使用 extra
+        if (/^\d+$/.test(meaning) && extraStr) {
+            meaning = extraStr;
+        }
+
         // 卡类型：tip=技巧/指令, sentence=对话/句型, vocab=词汇小灶
         let cardType = 'sentence';
         const secLC = section.toLowerCase();
@@ -237,9 +258,9 @@ function extractVocab(file) {
 
         return {
             id: rel.replace(/\.md$/, ''),
-            word: word,
-            meaning: meaning,
-            extra: fm.extra || '',
+            word: normalizeStress(word),
+            meaning: normalizeStress(meaning),
+            extra: normalizeStress(fm.extra || ''),
             examples: [],
             type: cardType,
             source: 'b2',
@@ -254,22 +275,64 @@ function extractVocab(file) {
         };
     }
 
-    // B2高频词/ 目录
+    // 小说词汇/ 目录：从阅读器保存的生词
+    if (rel.startsWith('小说词汇/')) {
+        if (!fm.word) return null;
+        const source = fm.source || '';
+        const chapter = source.replace(/\s*第\d+章\s*/, '').trim() || '小说';
+        // 从 markdown body 提取引用块作为例句上下文
+        const ctxMatch = src.match(/^>\s*(.+)$/m);
+        const novExamples = ctxMatch ? [{ ru: normalizeStress(ctxMatch[1].trim()), zh: '' }] : [];
+        return {
+            id: rel.replace(/\.md$/, ''),
+            word: normalizeStress(String(fm.word)),
+            meaning: normalizeStress(String(fm.meaning || '')),
+            extra: source ? '来源: ' + source : '',
+            examples: novExamples,
+            type: '小说',
+            source: 'novel',
+            chapter: chapter,
+            section: '',
+            theme: '',
+            tags: normalizeTags(fm.tags),
+            mastery: typeof fm.mastery === 'number' ? fm.mastery : 0,
+            gender: '',
+            aspect: '',
+            file: rel
+        };
+    }
+
     if (rel.startsWith('B2高频词/')) {
         if (!fm.word) return null;
+        const wordStr = String(fm.word).trim();
         // 从文件 body 提取例句和常见形式
         const examples = extractExamplesFromBody(src);
         const forms = extractFormsFromBody(src);
         const stem = fm.stem || '';
         const freq = fm.frequency || 0;
         var extraParts = [];
-        if (stem && stem !== String(fm.word)) extraParts.push('词根: ' + stem);
+        if (stem && stem !== wordStr) extraParts.push('词根: ' + stem);
         if (freq) extraParts.push('频率: ' + freq);
+        // 修复 word === meaning 问题
+        let meaning = forms || '';
+        if (!meaning || meaning === wordStr) {
+            // 尝试从 frontmatter 获取
+            meaning = fm.meaning || '';
+        }
+        if (!meaning || meaning === wordStr) {
+            // 尝试从第一个例句的中文翻译获取
+            if (examples.length > 0 && examples[0].zh) {
+                meaning = examples[0].zh.slice(0, 30);
+            }
+        }
+        if (!meaning || meaning === wordStr) {
+            meaning = '高频词'; // 最终兜底
+        }
         return {
             id: rel.replace(/\.md$/, ''),
-            word: String(fm.word),
-            meaning: forms || '高频词',
-            extra: extraParts.join(' | '),
+            word: normalizeStress(wordStr),
+            meaning: normalizeStress(meaning),
+            extra: normalizeStress(extraParts.join(' | ')),
             examples: examples,
             type: '高频词',
             source: 'freq',
@@ -297,10 +360,55 @@ function normalizeExamples(ex) {
     if (!ex) return [];
     if (!Array.isArray(ex)) return [];
     return ex.filter(e => e && (e.ru || e.zh)).map(e => ({
-        ru: e.ru || '',
+        ru: normalizeStress(e.ru || ''),
         zh: e.zh || ''
     }));
 }
+
+// ─── 重音标记归一化 ──────────────────────────────────────────────────
+// 在俄语上下文中：
+// 1. 将 Latin 同形字母（OCR/打字错误）→ Cyrillic 正确字母
+// 2. 将预组合拉丁带重音字母 → Cyrillic 基础字母 + U+0301
+const ACUTE = '́';
+// Latin 同形字母 → Cyrillic（仅在含俄语的文本中转换）
+// Latin 同形小写字母 → Cyrillic（仅在含俄语的文本中，且只转小写）
+const LOOKALIKE = {
+    'a':'а','c':'с','e':'е','o':'о','p':'р','x':'х','y':'у',
+    'r':'р','n':'н','m':'м','v':'в','d':'д','g':'г',
+    'k':'к','l':'л','h':'н','i':'и','s':'ѕ','t':'т','u':'у','z':'з',
+};
+// 不用正则预过滤，逐字符查 LOOKALIKE 表即可
+const LAT_ACCENT_TO_CYR = {
+    'á':'а','é':'е','í':'и','ó':'о','ú':'у','ý':'ы',
+    'Á':'А','É':'Е','Í':'И','Ó':'О','Ú':'У','Ý':'Ы',
+    'à':'а','è':'е','ì':'и','ò':'о','ù':'у',
+    'À':'А','È':'Е','Ì':'И','Ò':'О','Ù':'У',
+    'ä':'я','ë':'е','ï':'и','ö':'о','ü':'у',
+    'Ä':'Я','Ë':'Е','Ï':'И','Ö':'О','Ü':'У',
+};
+const LAT_ACCENT_RE = /[áéíóúýÁÉÍÓÚÝàèìòùÀÈÌÒÙäëïöüÄËÏÖÜ]/g;
+function hasCyrillic(s) { return /[а-яА-ЯёЁ]/.test(s); }
+function normalizeStress(s) {
+    if (!s) return '';
+    if (!hasCyrillic(s)) return s;
+    let result = '';
+    for (let i = 0; i < s.length; i++) {
+        let ch = s[i];
+        // 1) 预组合拉丁重音字母 → Cyrillic + 组合锐音符
+        if (LAT_ACCENT_TO_CYR[ch]) {
+            result += LAT_ACCENT_TO_CYR[ch] + ACUTE;
+            continue;
+        }
+        // 2) Latin 同形字母 → Cyrillic
+        if (LOOKALIKE[ch]) {
+            result += LOOKALIKE[ch];
+            continue;
+        }
+        result += ch;
+    }
+    return result;
+}
+
 
 function extractFormsFromBody(src) {
     const m = src.match(/##\s*常见形式([\s\S]*?)(?=\n##\s|\n---|$)/);
@@ -319,11 +427,26 @@ function extractExamplesFromBody(src) {
     for (let i = 1; i < ruBlocks.length; i++) {
         const block = ruBlocks[i];
         const zhSplit = block.split(/\*\*Zh:\*\*/);
-        const ru = zhSplit[0].trim().replace(/\n\s*/g, ' ');
+        const ru = normalizeStress(zhSplit[0].trim().replace(/\n\s*/g, ' '));
         const zh = zhSplit[1] ? zhSplit[1].trim().replace(/\n\s*/g, ' ') : '';
         if (ru) examples.push({ ru, zh });
     }
     return examples;
+}
+
+// 从 body 中提取 变位/变格/接格 表格
+function extractGrammarTable(src) {
+    const section = src.match(/##\s*📐\s*变位\/变格\/接格([\s\S]*?)(?=\n##\s|\n---|$)/);
+    if (!section) return '';
+    const text = section[1].trim();
+    // 如果只是"参见变位规则"之类的简短说明，直接返回
+    if (!text.includes('|')) return text.replace(/^[-\s]*/m, '').trim();
+    // 提取 markdown 表格（从第一个 | 到最后一个 | 行）
+    const tableLines = text.split('\n')
+        .map(l => l.trim())
+        .filter(l => l.startsWith('|') && l.endsWith('|'));
+    if (tableLines.length < 2) return '';
+    return tableLines.join('\n');
 }
 
 // ─── 主流程 ────────────────────────────────────────────────────────
@@ -333,6 +456,7 @@ function main() {
         { label: '词汇/', path: path.join(VAULT, '词汇'), source: 'vocab' },
         { label: 'B2口语素材/', path: path.join(VAULT, 'B2口语素材'), source: 'b2' },
         { label: 'B2高频词/', path: path.join(VAULT, 'B2高频词'), source: 'freq' },
+        { label: '小说词汇/', path: path.join(VAULT, '小说词汇'), source: 'novel' },
     ];
 
     console.log('📂 扫描俄语笔记库...');
@@ -359,6 +483,31 @@ function main() {
         stats[dir.source] = { label: dir.label, scanned: files.length, added };
         console.log(`   ${dir.label} → 扫描 ${files.length} 文件, 提取 ${added} 条`);
     }
+
+    // 跨源去重：同一单词如果在 vocab 和 novel 中都出现，保留 vocab（手动维护的更完整）
+    const wordSeen = {};
+    const deduped = [];
+    for (const e of entries) {
+        const key = (e.word || '').toLowerCase();
+        if (!key) { deduped.push(e); continue; }
+        if (!wordSeen[key]) {
+            wordSeen[key] = e;
+            deduped.push(e);
+        } else {
+            // 如果已有条目是 novel，当前是 vocab → 替换
+            if (wordSeen[key].source === 'novel' && e.source !== 'novel') {
+                const idx = deduped.indexOf(wordSeen[key]);
+                if (idx >= 0) deduped[idx] = e;
+                wordSeen[key] = e;
+            }
+            // 否则跳过（保留先出现的）
+        }
+    }
+    if (deduped.length < entries.length) {
+        console.log(`   🔄 跨源去重: ${entries.length} → ${deduped.length} 条`);
+    }
+    entries.length = 0;
+    entries.push(...deduped);
 
     // 排序：按 source → chapter → word，确保输出确定性
     entries.sort(function(a, b) {
