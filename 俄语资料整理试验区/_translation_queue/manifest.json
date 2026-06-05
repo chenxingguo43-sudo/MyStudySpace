@@ -1,0 +1,127 @@
+{
+  "generated_at": "2026-06-06 03:13:46",
+  "total_pending": 722,
+  "total_rejected": 356,
+  "total_batches": 15,
+  "batch_size": 50,
+  "batches": [
+    {
+      "batch_id": "batch-20260606-001",
+      "item_count": 50,
+      "source_ids": [
+        "diag-0011",
+        "diag-0002"
+      ]
+    },
+    {
+      "batch_id": "batch-20260606-002",
+      "item_count": 50,
+      "source_ids": [
+        "diag-0002"
+      ]
+    },
+    {
+      "batch_id": "batch-20260606-003",
+      "item_count": 50,
+      "source_ids": [
+        "diag-0002"
+      ]
+    },
+    {
+      "batch_id": "batch-20260606-004",
+      "item_count": 50,
+      "source_ids": [
+        "diag-0001",
+        "diag-0002",
+        "diag-0009",
+        "diag-0010"
+      ]
+    },
+    {
+      "batch_id": "batch-20260606-005",
+      "item_count": 50,
+      "source_ids": [
+        "diag-0001"
+      ]
+    },
+    {
+      "batch_id": "batch-20260606-006",
+      "item_count": 50,
+      "source_ids": [
+        "diag-0029"
+      ]
+    },
+    {
+      "batch_id": "batch-20260606-007",
+      "item_count": 50,
+      "source_ids": [
+        "diag-0029"
+      ]
+    },
+    {
+      "batch_id": "batch-20260606-008",
+      "item_count": 50,
+      "source_ids": [
+        "diag-0029"
+      ]
+    },
+    {
+      "batch_id": "batch-20260606-009",
+      "item_count": 50,
+      "source_ids": [
+        "diag-0029"
+      ]
+    },
+    {
+      "batch_id": "batch-20260606-010",
+      "item_count": 50,
+      "source_ids": [
+        "diag-0029",
+        "diag-0006"
+      ]
+    },
+    {
+      "batch_id": "batch-20260606-011",
+      "item_count": 50,
+      "source_ids": [
+        "diag-0006"
+      ]
+    },
+    {
+      "batch_id": "batch-20260606-012",
+      "item_count": 50,
+      "source_ids": [
+        "diag-0006"
+      ]
+    },
+    {
+      "batch_id": "batch-20260606-013",
+      "item_count": 50,
+      "source_ids": [
+        "diag-0006",
+        "diag-0008"
+      ]
+    },
+    {
+      "batch_id": "batch-20260606-014",
+      "item_count": 50,
+      "source_ids": [
+        "diag-0008"
+      ]
+    },
+    {
+      "batch_id": "batch-20260606-015",
+      "item_count": 22,
+      "source_ids": [
+        "diag-0008"
+      ]
+    }
+  ],
+  "reject_reasons": {
+    "fragment": 297,
+    "vocabulary_table_item": 261,
+    "likely_title": 85,
+    "book_metadata": 7,
+    "author_name": 5
+  }
+}
