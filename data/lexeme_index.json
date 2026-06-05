@@ -43,12 +43,13 @@
     "source": "surface"
   },
   "были": {
-    "lemma": "быть",
+    "lemma": "были",
     "sentence_ids": [
       "ex-000001",
-      "ex-000005"
+      "ex-000005",
+      "dia0119"
     ],
-    "source": "surface"
+    "source": "possible"
   },
   "основать": {
     "lemma": "основать",
@@ -292,11 +293,12 @@
     "source": "surface"
   },
   "получил": {
-    "lemma": "получить",
+    "lemma": "получил",
     "sentence_ids": [
-      "ex-000011"
+      "ex-000011",
+      "dia0131"
     ],
-    "source": "surface"
+    "source": "possible"
   },
   "вызывать": {
     "lemma": "вызывать",
@@ -313,11 +315,13 @@
     "source": "lexeme"
   },
   "вызывает": {
-    "lemma": "вызывать",
+    "lemma": "вызывает",
     "sentence_ids": [
-      "ex-000012"
+      "ex-000012",
+      "dia0132",
+      "dia0135"
     ],
-    "source": "surface"
+    "source": "possible"
   },
   "надлежащей": {
     "lemma": "надлежащий",
@@ -470,7 +474,8 @@
   "великий": {
     "lemma": "великий",
     "sentence_ids": [
-      "ex-000018"
+      "ex-000018",
+      "dia0062"
     ],
     "source": "lexeme"
   },
@@ -559,11 +564,12 @@
     "source": "lexeme"
   },
   "открывается": {
-    "lemma": "открываться",
+    "lemma": "открывается",
     "sentence_ids": [
-      "ex-000022"
+      "ex-000022",
+      "dia0055"
     ],
-    "source": "surface"
+    "source": "possible"
   },
   "потрясающая": {
     "lemma": "потрясающий",
@@ -617,7 +623,12 @@
   "его": {
     "lemma": "его",
     "sentence_ids": [
-      "d11-0002"
+      "d11-0002",
+      "dia0034",
+      "dia0035",
+      "dia0037",
+      "dia0094",
+      "dia0101"
     ],
     "source": "possible"
   },
@@ -725,7 +736,20 @@
   "для": {
     "lemma": "для",
     "sentence_ids": [
-      "d11-0017"
+      "d11-0017",
+      "dia0016",
+      "dia0017",
+      "dia0018",
+      "dia0019",
+      "dia0020",
+      "dia0021",
+      "dia0022",
+      "dia0023",
+      "dia0024",
+      "dia0029",
+      "dia0117",
+      "dia0133",
+      "dia0136"
     ],
     "source": "possible"
   },
@@ -788,7 +812,11 @@
   "нового": {
     "lemma": "нового",
     "sentence_ids": [
-      "d11-0029"
+      "d11-0029",
+      "dia0086",
+      "dia0094",
+      "dia0096",
+      "dia0110"
     ],
     "source": "possible"
   },
@@ -816,7 +844,11 @@
   "лет": {
     "lemma": "лет",
     "sentence_ids": [
-      "d11-0034"
+      "d11-0034",
+      "dia0093",
+      "dia0119",
+      "dia0121",
+      "dia0151"
     ],
     "source": "possible"
   },
@@ -880,7 +912,8 @@
   "все": {
     "lemma": "все",
     "sentence_ids": [
-      "d11-0041"
+      "d11-0041",
+      "dia0125"
     ],
     "source": "possible"
   },
@@ -888,7 +921,8 @@
     "lemma": "кроме",
     "sentence_ids": [
       "d11-0041",
-      "d11-0042"
+      "d11-0042",
+      "dia0107"
     ],
     "source": "possible"
   },
@@ -909,7 +943,8 @@
   "также": {
     "lemma": "также",
     "sentence_ids": [
-      "d11-0042"
+      "d11-0042",
+      "dia0118"
     ],
     "source": "possible"
   },
@@ -930,7 +965,8 @@
   "много": {
     "lemma": "много",
     "sentence_ids": [
-      "d11-0043"
+      "d11-0043",
+      "dia0119"
     ],
     "source": "possible"
   },
@@ -1285,7 +1321,8 @@
   "человек": {
     "lemma": "человек",
     "sentence_ids": [
-      "d11-0102"
+      "d11-0102",
+      "dia0044"
     ],
     "source": "possible"
   },
@@ -1350,7 +1387,10 @@
   "город": {
     "lemma": "город",
     "sentence_ids": [
-      "d11-0109"
+      "d11-0109",
+      "dia0012",
+      "dia0021",
+      "dia0067"
     ],
     "source": "possible"
   },
@@ -1428,7 +1468,8 @@
   "работу": {
     "lemma": "работу",
     "sentence_ids": [
-      "d11-0114"
+      "d11-0114",
+      "dia0028"
     ],
     "source": "possible"
   },
@@ -1477,7 +1518,8 @@
   "начала": {
     "lemma": "начала",
     "sentence_ids": [
-      "d11-0117"
+      "d11-0117",
+      "dia0115"
     ],
     "source": "possible"
   },
@@ -1543,7 +1585,8 @@
     "sentence_ids": [
       "d11-0122",
       "d11-0138",
-      "d11-0139"
+      "d11-0139",
+      "dia0103"
     ],
     "source": "possible"
   },
@@ -1578,7 +1621,8 @@
   "комната": {
     "lemma": "комната",
     "sentence_ids": [
-      "d11-0128"
+      "d11-0128",
+      "dia0013"
     ],
     "source": "possible"
   },
@@ -1593,7 +1637,8 @@
     "lemma": "книга",
     "sentence_ids": [
       "d11-0129",
-      "d11-0154"
+      "d11-0154",
+      "dia0065"
     ],
     "source": "possible"
   },
@@ -1635,14 +1680,16 @@
   "жизнь": {
     "lemma": "жизнь",
     "sentence_ids": [
-      "d11-0133"
+      "d11-0133",
+      "dia0070"
     ],
     "source": "possible"
   },
   "нас": {
     "lemma": "нас",
     "sentence_ids": [
-      "d11-0133"
+      "d11-0133",
+      "dia0025"
     ],
     "source": "possible"
   },
@@ -1800,7 +1847,9 @@
   "человека": {
     "lemma": "человека",
     "sentence_ids": [
-      "d11-0147"
+      "d11-0147",
+      "dia0054",
+      "dia0144"
     ],
     "source": "possible"
   },
@@ -1886,7 +1935,8 @@
   "жизни": {
     "lemma": "жизни",
     "sentence_ids": [
-      "d11-0154"
+      "d11-0154",
+      "dia0030"
     ],
     "source": "possible"
   },
@@ -1921,7 +1971,9 @@
   "меня": {
     "lemma": "меня",
     "sentence_ids": [
-      "d11-0159"
+      "d11-0159",
+      "dia0033",
+      "dia0148"
     ],
     "source": "possible"
   },
@@ -1949,7 +2001,8 @@
   "работать": {
     "lemma": "работать",
     "sentence_ids": [
-      "d11-0163"
+      "d11-0163",
+      "dia0114"
     ],
     "source": "possible"
   },
@@ -2002,7 +2055,8 @@
       "d11-0169",
       "d11-0170",
       "d11-0171",
-      "d11-0173"
+      "d11-0173",
+      "dia0093"
     ],
     "source": "possible"
   },
@@ -2079,7 +2133,8 @@
   "задания": {
     "lemma": "задания",
     "sentence_ids": [
-      "d11-0171"
+      "d11-0171",
+      "dia0080"
     ],
     "source": "possible"
   },
@@ -2107,7 +2162,8 @@
   "университета": {
     "lemma": "университета",
     "sentence_ids": [
-      "d11-0174"
+      "d11-0174",
+      "dia0098"
     ],
     "source": "possible"
   },
@@ -2122,6 +2178,4777 @@
     "lemma": "родину",
     "sentence_ids": [
       "d11-0175"
+    ],
+    "source": "possible"
+  },
+  "хорошо": {
+    "lemma": "хорошо",
+    "sentence_ids": [
+      "dia0001"
+    ],
+    "source": "possible"
+  },
+  "если": {
+    "lemma": "если",
+    "sentence_ids": [
+      "dia0001",
+      "dia0044"
+    ],
+    "source": "possible"
+  },
+  "ваши": {
+    "lemma": "ваши",
+    "sentence_ids": [
+      "dia0001"
+    ],
+    "source": "possible"
+  },
+  "желания": {
+    "lemma": "желания",
+    "sentence_ids": [
+      "dia0001"
+    ],
+    "source": "possible"
+  },
+  "соответствуют": {
+    "lemma": "соответствуют",
+    "sentence_ids": [
+      "dia0001"
+    ],
+    "source": "possible"
+  },
+  "этот": {
+    "lemma": "этот",
+    "sentence_ids": [
+      "dia0002",
+      "dia0021",
+      "dia0022",
+      "dia0064",
+      "dia0067",
+      "dia0078"
+    ],
+    "source": "possible"
+  },
+  "товар": {
+    "lemma": "товар",
+    "sentence_ids": [
+      "dia0002"
+    ],
+    "source": "possible"
+  },
+  "отвечает": {
+    "lemma": "отвечает",
+    "sentence_ids": [
+      "dia0002"
+    ],
+    "source": "possible"
+  },
+  "стандартам": {
+    "lemma": "стандартам",
+    "sentence_ids": [
+      "dia0002"
+    ],
+    "source": "possible"
+  },
+  "спорт": {
+    "lemma": "спорт",
+    "sentence_ids": [
+      "dia0003"
+    ],
+    "source": "possible"
+  },
+  "способствует": {
+    "lemma": "способствует",
+    "sentence_ids": [
+      "dia0003"
+    ],
+    "source": "possible"
+  },
+  "здоровью": {
+    "lemma": "здоровью",
+    "sentence_ids": [
+      "dia0003",
+      "dia0004"
+    ],
+    "source": "possible"
+  },
+  "курение": {
+    "lemma": "курение",
+    "sentence_ids": [
+      "dia0004",
+      "dia0017"
+    ],
+    "source": "possible"
+  },
+  "вредит": {
+    "lemma": "вредит",
+    "sentence_ids": [
+      "dia0004"
+    ],
+    "source": "possible"
+  },
+  "учёный": {
+    "lemma": "учёный",
+    "sentence_ids": [
+      "dia0005"
+    ],
+    "source": "possible"
+  },
+  "противоположил": {
+    "lemma": "противоположил",
+    "sentence_ids": [
+      "dia0005"
+    ],
+    "source": "possible"
+  },
+  "новую": {
+    "lemma": "новую",
+    "sentence_ids": [
+      "dia0005"
+    ],
+    "source": "possible"
+  },
+  "теорию": {
+    "lemma": "теорию",
+    "sentence_ids": [
+      "dia0005"
+    ],
+    "source": "possible"
+  },
+  "старым": {
+    "lemma": "старым",
+    "sentence_ids": [
+      "dia0005"
+    ],
+    "source": "possible"
+  },
+  "представлениям": {
+    "lemma": "представлениям",
+    "sentence_ids": [
+      "dia0005"
+    ],
+    "source": "possible"
+  },
+  "растущая": {
+    "lemma": "растущая",
+    "sentence_ids": [
+      "dia0006"
+    ],
+    "source": "possible"
+  },
+  "конкуренция": {
+    "lemma": "конкуренция",
+    "sentence_ids": [
+      "dia0006"
+    ],
+    "source": "possible"
+  },
+  "влияет": {
+    "lemma": "влияет",
+    "sentence_ids": [
+      "dia0006"
+    ],
+    "source": "possible"
+  },
+  "качества": {
+    "lemma": "качества",
+    "sentence_ids": [
+      "dia0007"
+    ],
+    "source": "possible"
+  },
+  "продукции": {
+    "lemma": "продукции",
+    "sentence_ids": [
+      "dia0007"
+    ],
+    "source": "possible"
+  },
+  "сотрудник": {
+    "lemma": "сотрудник",
+    "sentence_ids": [
+      "dia0008"
+    ],
+    "source": "possible"
+  },
+  "опоздал": {
+    "lemma": "опоздал",
+    "sentence_ids": [
+      "dia0008"
+    ],
+    "source": "possible"
+  },
+  "на": {
+    "lemma": "на",
+    "sentence_ids": [
+      "dia0008",
+      "dia0099",
+      "dia0102",
+      "dia0106",
+      "dia0110",
+      "dia0121",
+      "dia0138",
+      "dia0150",
+      "dia0152"
+    ],
+    "source": "possible"
+  },
+  "совещание": {
+    "lemma": "совещание",
+    "sentence_ids": [
+      "dia0008"
+    ],
+    "source": "possible"
+  },
+  "долго": {
+    "lemma": "долго",
+    "sentence_ids": [
+      "dia0008"
+    ],
+    "source": "possible"
+  },
+  "извинялся": {
+    "lemma": "извинялся",
+    "sentence_ids": [
+      "dia0008"
+    ],
+    "source": "possible"
+  },
+  "вы": {
+    "lemma": "вы",
+    "sentence_ids": [
+      "dia0009"
+    ],
+    "source": "possible"
+  },
+  "вполне": {
+    "lemma": "вполне",
+    "sentence_ids": [
+      "dia0009"
+    ],
+    "source": "possible"
+  },
+  "можете": {
+    "lemma": "можете",
+    "sentence_ids": [
+      "dia0009"
+    ],
+    "source": "possible"
+  },
+  "поступить": {
+    "lemma": "поступить",
+    "sentence_ids": [
+      "dia0009"
+    ],
+    "source": "possible"
+  },
+  "аспирантуру": {
+    "lemma": "аспирантуру",
+    "sentence_ids": [
+      "dia0009"
+    ],
+    "source": "possible"
+  },
+  "богат": {
+    "lemma": "богат",
+    "sentence_ids": [
+      "dia0010"
+    ],
+    "source": "possible"
+  },
+  "эта": {
+    "lemma": "эта",
+    "sentence_ids": [
+      "dia0010",
+      "dia0065"
+    ],
+    "source": "possible"
+  },
+  "страна": {
+    "lemma": "страна",
+    "sentence_ids": [
+      "dia0010"
+    ],
+    "source": "possible"
+  },
+  "богата": {
+    "lemma": "богата",
+    "sentence_ids": [
+      "dia0010"
+    ],
+    "source": "possible"
+  },
+  "ресурсами": {
+    "lemma": "ресурсами",
+    "sentence_ids": [
+      "dia0010"
+    ],
+    "source": "possible"
+  },
+  "доволен": {
+    "lemma": "доволен",
+    "sentence_ids": [
+      "dia0011"
+    ],
+    "source": "possible"
+  },
+  "результатом": {
+    "lemma": "результатом",
+    "sentence_ids": [
+      "dia0011"
+    ],
+    "source": "possible"
+  },
+  "известен": {
+    "lemma": "известен",
+    "sentence_ids": [
+      "dia0012"
+    ],
+    "source": "possible"
+  },
+  "своей": {
+    "lemma": "своей",
+    "sentence_ids": [
+      "dia0012",
+      "dia0030"
+    ],
+    "source": "possible"
+  },
+  "архитектурой": {
+    "lemma": "архитектурой",
+    "sentence_ids": [
+      "dia0012"
+    ],
+    "source": "possible"
+  },
+  "наполнена": {
+    "lemma": "наполнена",
+    "sentence_ids": [
+      "dia0013"
+    ],
+    "source": "possible"
+  },
+  "светом": {
+    "lemma": "светом",
+    "sentence_ids": [
+      "dia0013"
+    ],
+    "source": "possible"
+  },
+  "обеспечен": {
+    "lemma": "обеспечен",
+    "sentence_ids": [
+      "dia0014"
+    ],
+    "source": "possible"
+  },
+  "он": {
+    "lemma": "он",
+    "sentence_ids": [
+      "dia0014",
+      "dia0030",
+      "dia0033",
+      "dia0036",
+      "dia0046",
+      "dia0052",
+      "dia0061",
+      "dia0071",
+      "dia0074",
+      "dia0075",
+      "dia0077",
+      "dia0097"
+    ],
+    "source": "possible"
+  },
+  "средствами": {
+    "lemma": "средствами",
+    "sentence_ids": [
+      "dia0014"
+    ],
+    "source": "possible"
+  },
+  "существованию": {
+    "lemma": "существованию",
+    "sentence_ids": [
+      "dia0014"
+    ],
+    "source": "possible"
+  },
+  "природа": {
+    "lemma": "природа",
+    "sentence_ids": [
+      "dia0015"
+    ],
+    "source": "possible"
+  },
+  "климат": {
+    "lemma": "климат",
+    "sentence_ids": [
+      "dia0015",
+      "dia0016"
+    ],
+    "source": "possible"
+  },
+  "юга": {
+    "lemma": "юга",
+    "sentence_ids": [
+      "dia0015",
+      "dia0016"
+    ],
+    "source": "possible"
+  },
+  "россии": {
+    "lemma": "россии",
+    "sentence_ids": [
+      "dia0015",
+      "dia0016",
+      "dia0085",
+      "dia0095"
+    ],
+    "source": "possible"
+  },
+  "благоприятны": {
+    "lemma": "благоприятны",
+    "sentence_ids": [
+      "dia0015"
+    ],
+    "source": "possible"
+  },
+  "сельским": {
+    "lemma": "сельским",
+    "sentence_ids": [
+      "dia0015"
+    ],
+    "source": "possible"
+  },
+  "хозяйством": {
+    "lemma": "хозяйством",
+    "sentence_ids": [
+      "dia0015"
+    ],
+    "source": "possible"
+  },
+  "благоприятен": {
+    "lemma": "благоприятен",
+    "sentence_ids": [
+      "dia0016"
+    ],
+    "source": "possible"
+  },
+  "сельского": {
+    "lemma": "сельского",
+    "sentence_ids": [
+      "dia0016"
+    ],
+    "source": "possible"
+  },
+  "хозяйства": {
+    "lemma": "хозяйства",
+    "sentence_ids": [
+      "dia0016"
+    ],
+    "source": "possible"
+  },
+  "опасно": {
+    "lemma": "опасно",
+    "sentence_ids": [
+      "dia0017"
+    ],
+    "source": "possible"
+  },
+  "здоровья": {
+    "lemma": "здоровья",
+    "sentence_ids": [
+      "dia0017"
+    ],
+    "source": "possible"
+  },
+  "физические": {
+    "lemma": "физические",
+    "sentence_ids": [
+      "dia0018"
+    ],
+    "source": "possible"
+  },
+  "упражнения": {
+    "lemma": "упражнения",
+    "sentence_ids": [
+      "dia0018"
+    ],
+    "source": "possible"
+  },
+  "полезны": {
+    "lemma": "полезны",
+    "sentence_ids": [
+      "dia0018"
+    ],
+    "source": "possible"
+  },
+  "организма": {
+    "lemma": "организма",
+    "sentence_ids": [
+      "dia0018"
+    ],
+    "source": "possible"
+  },
+  "сахар": {
+    "lemma": "сахар",
+    "sentence_ids": [
+      "dia0019"
+    ],
+    "source": "possible"
+  },
+  "вреден": {
+    "lemma": "вреден",
+    "sentence_ids": [
+      "dia0019"
+    ],
+    "source": "possible"
+  },
+  "зубов": {
+    "lemma": "зубов",
+    "sentence_ids": [
+      "dia0019"
+    ],
+    "source": "possible"
+  },
+  "это": {
+    "lemma": "это",
+    "sentence_ids": [
+      "dia0020",
+      "dia0023",
+      "dia0101"
+    ],
+    "source": "possible"
+  },
+  "кресло": {
+    "lemma": "кресло",
+    "sentence_ids": [
+      "dia0020"
+    ],
+    "source": "possible"
+  },
+  "удобно": {
+    "lemma": "удобно",
+    "sentence_ids": [
+      "dia0020"
+    ],
+    "source": "possible"
+  },
+  "работы": {
+    "lemma": "работы",
+    "sentence_ids": [
+      "dia0020",
+      "dia0024",
+      "dia0152"
+    ],
+    "source": "possible"
+  },
+  "за": {
+    "lemma": "за",
+    "sentence_ids": [
+      "dia0020"
+    ],
+    "source": "possible"
+  },
+  "компьютером": {
+    "lemma": "компьютером",
+    "sentence_ids": [
+      "dia0020"
+    ],
+    "source": "possible"
+  },
+  "привлекателен": {
+    "lemma": "привлекателен",
+    "sentence_ids": [
+      "dia0021",
+      "dia0078"
+    ],
+    "source": "possible"
+  },
+  "туристов": {
+    "lemma": "туристов",
+    "sentence_ids": [
+      "dia0021"
+    ],
+    "source": "possible"
+  },
+  "стиль": {
+    "lemma": "стиль",
+    "sentence_ids": [
+      "dia0022"
+    ],
+    "source": "possible"
+  },
+  "характерен": {
+    "lemma": "характерен",
+    "sentence_ids": [
+      "dia0022"
+    ],
+    "source": "possible"
+  },
+  "эпохи": {
+    "lemma": "эпохи",
+    "sentence_ids": [
+      "dia0022",
+      "dia0090",
+      "dia0097",
+      "dia0128"
+    ],
+    "source": "possible"
+  },
+  "возрождения": {
+    "lemma": "возрождения",
+    "sentence_ids": [
+      "dia0022",
+      "dia0090",
+      "dia0128"
+    ],
+    "source": "possible"
+  },
+  "поведение": {
+    "lemma": "поведение",
+    "sentence_ids": [
+      "dia0023"
+    ],
+    "source": "possible"
+  },
+  "типично": {
+    "lemma": "типично",
+    "sentence_ids": [
+      "dia0023"
+    ],
+    "source": "possible"
+  },
+  "подростков": {
+    "lemma": "подростков",
+    "sentence_ids": [
+      "dia0023"
+    ],
+    "source": "possible"
+  },
+  "знание": {
+    "lemma": "знание",
+    "sentence_ids": [
+      "dia0024"
+    ],
+    "source": "possible"
+  },
+  "языков": {
+    "lemma": "языков",
+    "sentence_ids": [
+      "dia0024"
+    ],
+    "source": "possible"
+  },
+  "важно": {
+    "lemma": "важно",
+    "sentence_ids": [
+      "dia0024"
+    ],
+    "source": "possible"
+  },
+  "международной": {
+    "lemma": "международной",
+    "sentence_ids": [
+      "dia0024"
+    ],
+    "source": "possible"
+  },
+  "компании": {
+    "lemma": "компании",
+    "sentence_ids": [
+      "dia0024"
+    ],
+    "source": "possible"
+  },
+  "послании": {
+    "lemma": "послании",
+    "sentence_ids": [
+      "dia0025"
+    ],
+    "source": "possible"
+  },
+  "римлянам": {
+    "lemma": "римлянам",
+    "sentence_ids": [
+      "dia0025"
+    ],
+    "source": "possible"
+  },
+  "апостол": {
+    "lemma": "апостол",
+    "sentence_ids": [
+      "dia0025"
+    ],
+    "source": "possible"
+  },
+  "павел": {
+    "lemma": "павел",
+    "sentence_ids": [
+      "dia0025"
+    ],
+    "source": "possible"
+  },
+  "советует": {
+    "lemma": "советует",
+    "sentence_ids": [
+      "dia0025",
+      "dia0142"
+    ],
+    "source": "possible"
+  },
+  "жить": {
+    "lemma": "жить",
+    "sentence_ids": [
+      "dia0025"
+    ],
+    "source": "possible"
+  },
+  "согласии": {
+    "lemma": "согласии",
+    "sentence_ids": [
+      "dia0025"
+    ],
+    "source": "possible"
+  },
+  "окружающими": {
+    "lemma": "окружающими",
+    "sentence_ids": [
+      "dia0025"
+    ],
+    "source": "possible"
+  },
+  "согласен": {
+    "lemma": "согласен",
+    "sentence_ids": [
+      "dia0026"
+    ],
+    "source": "possible"
+  },
+  "вашим": {
+    "lemma": "вашим",
+    "sentence_ids": [
+      "dia0026"
+    ],
+    "source": "possible"
+  },
+  "мнением": {
+    "lemma": "мнением",
+    "sentence_ids": [
+      "dia0026"
+    ],
+    "source": "possible"
+  },
+  "дружу": {
+    "lemma": "дружу",
+    "sentence_ids": [
+      "dia0027"
+    ],
+    "source": "possible"
+  },
+  "соседями": {
+    "lemma": "соседями",
+    "sentence_ids": [
+      "dia0027"
+    ],
+    "source": "possible"
+  },
+  "мы": {
+    "lemma": "мы",
+    "sentence_ids": [
+      "dia0028",
+      "dia0039",
+      "dia0042",
+      "dia0043"
+    ],
+    "source": "possible"
+  },
+  "сравниваем": {
+    "lemma": "сравниваем",
+    "sentence_ids": [
+      "dia0028"
+    ],
+    "source": "possible"
+  },
+  "нашу": {
+    "lemma": "нашу",
+    "sentence_ids": [
+      "dia0028"
+    ],
+    "source": "possible"
+  },
+  "прошлогодней": {
+    "lemma": "прошлогодней",
+    "sentence_ids": [
+      "dia0028"
+    ],
+    "source": "possible"
+  },
+  "древнегреческий": {
+    "lemma": "древнегреческий",
+    "sentence_ids": [
+      "dia0029"
+    ],
+    "source": "possible"
+  },
+  "историк": {
+    "lemma": "историк",
+    "sentence_ids": [
+      "dia0029",
+      "dia0094"
+    ],
+    "source": "possible"
+  },
+  "геродот": {
+    "lemma": "геродот",
+    "sentence_ids": [
+      "dia0029"
+    ],
+    "source": "possible"
+  },
+  "считал": {
+    "lemma": "считал",
+    "sentence_ids": [
+      "dia0029"
+    ],
+    "source": "possible"
+  },
+  "что": {
+    "lemma": "что",
+    "sentence_ids": [
+      "dia0029",
+      "dia0031",
+      "dia0054",
+      "dia0056",
+      "dia0059",
+      "dia0061",
+      "dia0140",
+      "dia0143"
+    ],
+    "source": "possible"
+  },
+  "установления": {
+    "lemma": "установления",
+    "sentence_ids": [
+      "dia0029"
+    ],
+    "source": "possible"
+  },
+  "истины": {
+    "lemma": "истины",
+    "sentence_ids": [
+      "dia0029"
+    ],
+    "source": "possible"
+  },
+  "научном": {
+    "lemma": "научном",
+    "sentence_ids": [
+      "dia0029"
+    ],
+    "source": "possible"
+  },
+  "споре": {
+    "lemma": "споре",
+    "sentence_ids": [
+      "dia0029"
+    ],
+    "source": "possible"
+  },
+  "рассказал": {
+    "lemma": "рассказал",
+    "sentence_ids": [
+      "dia0030"
+    ],
+    "source": "possible"
+  },
+  "историю": {
+    "lemma": "историю",
+    "sentence_ids": [
+      "dia0030"
+    ],
+    "source": "possible"
+  },
+  "английский": {
+    "lemma": "английский",
+    "sentence_ids": [
+      "dia0031"
+    ],
+    "source": "possible"
+  },
+  "писатель": {
+    "lemma": "писатель",
+    "sentence_ids": [
+      "dia0031"
+    ],
+    "source": "possible"
+  },
+  "джозеф": {
+    "lemma": "джозеф",
+    "sentence_ids": [
+      "dia0031"
+    ],
+    "source": "possible"
+  },
+  "аддисон": {
+    "lemma": "аддисон",
+    "sentence_ids": [
+      "dia0031"
+    ],
+    "source": "possible"
+  },
+  "предпочитал": {
+    "lemma": "предпочитал",
+    "sentence_ids": [
+      "dia0031"
+    ],
+    "source": "possible"
+  },
+  "радость": {
+    "lemma": "радость",
+    "sentence_ids": [
+      "dia0031"
+    ],
+    "source": "possible"
+  },
+  "считая": {
+    "lemma": "считая",
+    "sentence_ids": [
+      "dia0031"
+    ],
+    "source": "possible"
+  },
+  "веселье": {
+    "lemma": "веселье",
+    "sentence_ids": [
+      "dia0031"
+    ],
+    "source": "possible"
+  },
+  "быстро": {
+    "lemma": "быстро",
+    "sentence_ids": [
+      "dia0031"
+    ],
+    "source": "possible"
+  },
+  "проходит": {
+    "lemma": "проходит",
+    "sentence_ids": [
+      "dia0031"
+    ],
+    "source": "possible"
+  },
+  "остаётся": {
+    "lemma": "остаётся",
+    "sentence_ids": [
+      "dia0031"
+    ],
+    "source": "possible"
+  },
+  "вас": {
+    "lemma": "вас",
+    "sentence_ids": [
+      "dia0032"
+    ],
+    "source": "possible"
+  },
+  "не": {
+    "lemma": "не",
+    "sentence_ids": [
+      "dia0032",
+      "dia0044",
+      "dia0056",
+      "dia0057",
+      "dia0059",
+      "dia0062",
+      "dia0139",
+      "dia0140",
+      "dia0151"
+    ],
+    "source": "possible"
+  },
+  "упрекаю": {
+    "lemma": "упрекаю",
+    "sentence_ids": [
+      "dia0032"
+    ],
+    "source": "possible"
+  },
+  "храни": {
+    "lemma": "храни",
+    "sentence_ids": [
+      "dia0032"
+    ],
+    "source": "possible"
+  },
+  "бог": {
+    "lemma": "бог",
+    "sentence_ids": [
+      "dia0032"
+    ],
+    "source": "possible"
+  },
+  "продолжал": {
+    "lemma": "продолжал",
+    "sentence_ids": [
+      "dia0032"
+    ],
+    "source": "possible"
+  },
+  "упрекнул": {
+    "lemma": "упрекнул",
+    "sentence_ids": [
+      "dia0033"
+    ],
+    "source": "possible"
+  },
+  "ошибке": {
+    "lemma": "ошибке",
+    "sentence_ids": [
+      "dia0033",
+      "dia0036"
+    ],
+    "source": "possible"
+  },
+  "обвиняют": {
+    "lemma": "обвиняют",
+    "sentence_ids": [
+      "dia0034"
+    ],
+    "source": "possible"
+  },
+  "преступлении": {
+    "lemma": "преступлении",
+    "sentence_ids": [
+      "dia0034"
+    ],
+    "source": "possible"
+  },
+  "подозревают": {
+    "lemma": "подозревают",
+    "sentence_ids": [
+      "dia0035"
+    ],
+    "source": "possible"
+  },
+  "обмане": {
+    "lemma": "обмане",
+    "sentence_ids": [
+      "dia0035"
+    ],
+    "source": "possible"
+  },
+  "признался": {
+    "lemma": "признался",
+    "sentence_ids": [
+      "dia0036"
+    ],
+    "source": "possible"
+  },
+  "сомневаюсь": {
+    "lemma": "сомневаюсь",
+    "sentence_ids": [
+      "dia0037"
+    ],
+    "source": "possible"
+  },
+  "честности": {
+    "lemma": "честности",
+    "sentence_ids": [
+      "dia0037"
+    ],
+    "source": "possible"
+  },
+  "убедился": {
+    "lemma": "убедился",
+    "sentence_ids": [
+      "dia0038"
+    ],
+    "source": "possible"
+  },
+  "правильности": {
+    "lemma": "правильности",
+    "sentence_ids": [
+      "dia0038"
+    ],
+    "source": "possible"
+  },
+  "решения": {
+    "lemma": "решения",
+    "sentence_ids": [
+      "dia0038"
+    ],
+    "source": "possible"
+  },
+  "участвуем": {
+    "lemma": "участвуем",
+    "sentence_ids": [
+      "dia0039"
+    ],
+    "source": "possible"
+  },
+  "проекте": {
+    "lemma": "проекте",
+    "sentence_ids": [
+      "dia0039",
+      "dia0125"
+    ],
+    "source": "possible"
+  },
+  "смысл": {
+    "lemma": "смысл",
+    "sentence_ids": [
+      "dia0040"
+    ],
+    "source": "possible"
+  },
+  "заключается": {
+    "lemma": "заключается",
+    "sentence_ids": [
+      "dia0040"
+    ],
+    "source": "possible"
+  },
+  "идее": {
+    "lemma": "идее",
+    "sentence_ids": [
+      "dia0040"
+    ],
+    "source": "possible"
+  },
+  "древнем": {
+    "lemma": "древнем",
+    "sentence_ids": [
+      "dia0041"
+    ],
+    "source": "possible"
+  },
+  "египте": {
+    "lemma": "египте",
+    "sentence_ids": [
+      "dia0041"
+    ],
+    "source": "possible"
+  },
+  "наука": {
+    "lemma": "наука",
+    "sentence_ids": [
+      "dia0041"
+    ],
+    "source": "possible"
+  },
+  "искусство": {
+    "lemma": "искусство",
+    "sentence_ids": [
+      "dia0041"
+    ],
+    "source": "possible"
+  },
+  "достигли": {
+    "lemma": "достигли",
+    "sentence_ids": [
+      "dia0041"
+    ],
+    "source": "possible"
+  },
+  "развития": {
+    "lemma": "развития",
+    "sentence_ids": [
+      "dia0041",
+      "dia0091",
+      "dia0127"
+    ],
+    "source": "possible"
+  },
+  "ждём": {
+    "lemma": "ждём",
+    "sentence_ids": [
+      "dia0042",
+      "dia0043"
+    ],
+    "source": "possible"
+  },
+  "ый": {
+    "lemma": "ый",
+    "sentence_ids": [
+      "dia0042"
+    ],
+    "source": "possible"
+  },
+  "автобус": {
+    "lemma": "автобус",
+    "sentence_ids": [
+      "dia0042"
+    ],
+    "source": "possible"
+  },
+  "ответа": {
+    "lemma": "ответа",
+    "sentence_ids": [
+      "dia0043"
+    ],
+    "source": "possible"
+  },
+  "может": {
+    "lemma": "может",
+    "sentence_ids": [
+      "dia0044"
+    ],
+    "source": "possible"
+  },
+  "посмеяться": {
+    "lemma": "посмеяться",
+    "sentence_ids": [
+      "dia0044"
+    ],
+    "source": "possible"
+  },
+  "то": {
+    "lemma": "то",
+    "sentence_ids": [
+      "dia0044",
+      "dia0115"
+    ],
+    "source": "possible"
+  },
+  "депрессия": {
+    "lemma": "депрессия",
+    "sentence_ids": [
+      "dia0044"
+    ],
+    "source": "possible"
+  },
+  "ему": {
+    "lemma": "ему",
+    "sentence_ids": [
+      "dia0044",
+      "dia0063",
+      "dia0124"
+    ],
+    "source": "possible"
+  },
+  "страшна": {
+    "lemma": "страшна",
+    "sentence_ids": [
+      "dia0044"
+    ],
+    "source": "possible"
+  },
+  "иностранным": {
+    "lemma": "иностранным",
+    "sentence_ids": [
+      "dia0045"
+    ],
+    "source": "possible"
+  },
+  "студентам": {
+    "lemma": "студентам",
+    "sentence_ids": [
+      "dia0045",
+      "dia0066",
+      "dia0078"
+    ],
+    "source": "possible"
+  },
+  "приехавшим": {
+    "lemma": "приехавшим",
+    "sentence_ids": [
+      "dia0045"
+    ],
+    "source": "possible"
+  },
+  "россию": {
+    "lemma": "россию",
+    "sentence_ids": [
+      "dia0045"
+    ],
+    "source": "possible"
+  },
+  "из": {
+    "lemma": "из",
+    "sentence_ids": [
+      "dia0045",
+      "dia0083",
+      "dia0102",
+      "dia0105",
+      "dia0109",
+      "dia0114",
+      "dia0118",
+      "dia0126",
+      "dia0143",
+      "dia0153"
+    ],
+    "source": "possible"
+  },
+  "тропических": {
+    "lemma": "тропических",
+    "sentence_ids": [
+      "dia0045"
+    ],
+    "source": "possible"
+  },
+  "стран": {
+    "lemma": "стран",
+    "sentence_ids": [
+      "dia0045"
+    ],
+    "source": "possible"
+  },
+  "трудно": {
+    "lemma": "трудно",
+    "sentence_ids": [
+      "dia0045"
+    ],
+    "source": "possible"
+  },
+  "привык": {
+    "lemma": "привык",
+    "sentence_ids": [
+      "dia0046"
+    ],
+    "source": "possible"
+  },
+  "холодной": {
+    "lemma": "холодной",
+    "sentence_ids": [
+      "dia0046"
+    ],
+    "source": "possible"
+  },
+  "погоде": {
+    "lemma": "погоде",
+    "sentence_ids": [
+      "dia0046"
+    ],
+    "source": "possible"
+  },
+  "маму": {
+    "lemma": "маму",
+    "sentence_ids": [
+      "dia0047"
+    ],
+    "source": "possible"
+  },
+  "приучили": {
+    "lemma": "приучили",
+    "sentence_ids": [
+      "dia0047"
+    ],
+    "source": "possible"
+  },
+  "порядку": {
+    "lemma": "порядку",
+    "sentence_ids": [
+      "dia0047"
+    ],
+    "source": "possible"
+  },
+  "иностранный": {
+    "lemma": "иностранный",
+    "sentence_ids": [
+      "dia0048"
+    ],
+    "source": "possible"
+  },
+  "студент": {
+    "lemma": "студент",
+    "sentence_ids": [
+      "dia0048"
+    ],
+    "source": "possible"
+  },
+  "адаптировался": {
+    "lemma": "адаптировался",
+    "sentence_ids": [
+      "dia0048"
+    ],
+    "source": "possible"
+  },
+  "новой": {
+    "lemma": "новой",
+    "sentence_ids": [
+      "dia0048"
+    ],
+    "source": "possible"
+  },
+  "школе": {
+    "lemma": "школе",
+    "sentence_ids": [
+      "dia0048"
+    ],
+    "source": "possible"
+  },
+  "подойти": {
+    "lemma": "подойти",
+    "sentence_ids": [
+      "dia0049"
+    ],
+    "source": "possible"
+  },
+  "столу": {
+    "lemma": "столу",
+    "sentence_ids": [
+      "dia0049"
+    ],
+    "source": "possible"
+  },
+  "самолёт": {
+    "lemma": "самолёт",
+    "sentence_ids": [
+      "dia0050"
+    ],
+    "source": "possible"
+  },
+  "приблизился": {
+    "lemma": "приблизился",
+    "sentence_ids": [
+      "dia0050"
+    ],
+    "source": "possible"
+  },
+  "аэропорту": {
+    "lemma": "аэропорту",
+    "sentence_ids": [
+      "dia0050"
+    ],
+    "source": "possible"
+  },
+  "прислониться": {
+    "lemma": "прислониться",
+    "sentence_ids": [
+      "dia0051"
+    ],
+    "source": "possible"
+  },
+  "стене": {
+    "lemma": "стене",
+    "sentence_ids": [
+      "dia0051"
+    ],
+    "source": "possible"
+  },
+  "стремится": {
+    "lemma": "стремится",
+    "sentence_ids": [
+      "dia0052"
+    ],
+    "source": "possible"
+  },
+  "успеху": {
+    "lemma": "успеху",
+    "sentence_ids": [
+      "dia0052"
+    ],
+    "source": "possible"
+  },
+  "тянутся": {
+    "lemma": "тянутся",
+    "sentence_ids": [
+      "dia0053"
+    ],
+    "source": "possible"
+  },
+  "свету": {
+    "lemma": "свету",
+    "sentence_ids": [
+      "dia0053"
+    ],
+    "source": "possible"
+  },
+  "учёные": {
+    "lemma": "учёные",
+    "sentence_ids": [
+      "dia0054"
+    ],
+    "source": "possible"
+  },
+  "утверждают": {
+    "lemma": "утверждают",
+    "sentence_ids": [
+      "dia0054"
+    ],
+    "source": "possible"
+  },
+  "мозг": {
+    "lemma": "мозг",
+    "sentence_ids": [
+      "dia0054"
+    ],
+    "source": "possible"
+  },
+  "дельфина": {
+    "lemma": "дельфина",
+    "sentence_ids": [
+      "dia0054"
+    ],
+    "source": "possible"
+  },
+  "по": {
+    "lemma": "по",
+    "sentence_ids": [
+      "dia0054",
+      "dia0102",
+      "dia0116",
+      "dia0141"
+    ],
+    "source": "possible"
+  },
+  "строению": {
+    "lemma": "строению",
+    "sentence_ids": [
+      "dia0054"
+    ],
+    "source": "possible"
+  },
+  "напоминает": {
+    "lemma": "напоминает",
+    "sentence_ids": [
+      "dia0054"
+    ],
+    "source": "possible"
+  },
+  "краснодарском": {
+    "lemma": "краснодарском",
+    "sentence_ids": [
+      "dia0055"
+    ],
+    "source": "possible"
+  },
+  "крае": {
+    "lemma": "крае",
+    "sentence_ids": [
+      "dia0055"
+    ],
+    "source": "possible"
+  },
+  "горнолыжный": {
+    "lemma": "горнолыжный",
+    "sentence_ids": [
+      "dia0055"
+    ],
+    "source": "possible"
+  },
+  "центр": {
+    "lemma": "центр",
+    "sentence_ids": [
+      "dia0055"
+    ],
+    "source": "possible"
+  },
+  "который": {
+    "lemma": "который",
+    "sentence_ids": [
+      "dia0055"
+    ],
+    "source": "possible"
+  },
+  "будет": {
+    "lemma": "будет",
+    "sentence_ids": [
+      "dia0055"
+    ],
+    "source": "possible"
+  },
+  "отличаться": {
+    "lemma": "отличаться",
+    "sentence_ids": [
+      "dia0055"
+    ],
+    "source": "possible"
+  },
+  "от": {
+    "lemma": "от",
+    "sentence_ids": [
+      "dia0055",
+      "dia0113"
+    ],
+    "source": "possible"
+  },
+  "историей": {
+    "lemma": "историей",
+    "sentence_ids": [
+      "dia0056"
+    ],
+    "source": "possible"
+  },
+  "доказано": {
+    "lemma": "доказано",
+    "sentence_ids": [
+      "dia0056"
+    ],
+    "source": "possible"
+  },
+  "тоталитарном": {
+    "lemma": "тоталитарном",
+    "sentence_ids": [
+      "dia0056"
+    ],
+    "source": "possible"
+  },
+  "государстве": {
+    "lemma": "государстве",
+    "sentence_ids": [
+      "dia0056"
+    ],
+    "source": "possible"
+  },
+  "люди": {
+    "lemma": "люди",
+    "sentence_ids": [
+      "dia0056",
+      "dia0057",
+      "dia0059",
+      "dia0070"
+    ],
+    "source": "possible"
+  },
+  "свободны": {
+    "lemma": "свободны",
+    "sentence_ids": [
+      "dia0056",
+      "dia0057"
+    ],
+    "source": "possible"
+  },
+  "выборе": {
+    "lemma": "выборе",
+    "sentence_ids": [
+      "dia0057"
+    ],
+    "source": "possible"
+  },
+  "она": {
+    "lemma": "она",
+    "sentence_ids": [
+      "dia0058",
+      "dia0114",
+      "dia0143"
+    ],
+    "source": "possible"
+  },
+  "ограничена": {
+    "lemma": "ограничена",
+    "sentence_ids": [
+      "dia0058"
+    ],
+    "source": "possible"
+  },
+  "во": {
+    "lemma": "во",
+    "sentence_ids": [
+      "dia0058",
+      "dia0088"
+    ],
+    "source": "possible"
+  },
+  "времени": {
+    "lemma": "времени",
+    "sentence_ids": [
+      "dia0058",
+      "dia0097"
+    ],
+    "source": "possible"
+  },
+  "проблема": {
+    "lemma": "проблема",
+    "sentence_ids": [
+      "dia0059"
+    ],
+    "source": "possible"
+  },
+  "том": {
+    "lemma": "том",
+    "sentence_ids": [
+      "dia0059",
+      "dia0061"
+    ],
+    "source": "possible"
+  },
+  "соблюдают": {
+    "lemma": "соблюдают",
+    "sentence_ids": [
+      "dia0059"
+    ],
+    "source": "possible"
+  },
+  "правила": {
+    "lemma": "правила",
+    "sentence_ids": [
+      "dia0059"
+    ],
+    "source": "possible"
+  },
+  "трудность": {
+    "lemma": "трудность",
+    "sentence_ids": [
+      "dia0060"
+    ],
+    "source": "possible"
+  },
+  "понимании": {
+    "lemma": "понимании",
+    "sentence_ids": [
+      "dia0060"
+    ],
+    "source": "possible"
+  },
+  "текста": {
+    "lemma": "текста",
+    "sentence_ids": [
+      "dia0060",
+      "dia0079"
+    ],
+    "source": "possible"
+  },
+  "преимущество": {
+    "lemma": "преимущество",
+    "sentence_ids": [
+      "dia0061"
+    ],
+    "source": "possible"
+  },
+  "опытный": {
+    "lemma": "опытный",
+    "sentence_ids": [
+      "dia0061"
+    ],
+    "source": "possible"
+  },
+  "полководец": {
+    "lemma": "полководец",
+    "sentence_ids": [
+      "dia0062"
+    ],
+    "source": "possible"
+  },
+  "александр": {
+    "lemma": "александр",
+    "sentence_ids": [
+      "dia0062"
+    ],
+    "source": "possible"
+  },
+  "македонский": {
+    "lemma": "македонский",
+    "sentence_ids": [
+      "dia0062"
+    ],
+    "source": "possible"
+  },
+  "имел": {
+    "lemma": "имел",
+    "sentence_ids": [
+      "dia0062"
+    ],
+    "source": "possible"
+  },
+  "суровый": {
+    "lemma": "суровый",
+    "sentence_ids": [
+      "dia0062"
+    ],
+    "source": "possible"
+  },
+  "характер": {
+    "lemma": "характер",
+    "sentence_ids": [
+      "dia0062"
+    ],
+    "source": "possible"
+  },
+  "но": {
+    "lemma": "но",
+    "sentence_ids": [
+      "dia0062"
+    ],
+    "source": "possible"
+  },
+  "сострадание": {
+    "lemma": "сострадание",
+    "sentence_ids": [
+      "dia0062"
+    ],
+    "source": "possible"
+  },
+  "было": {
+    "lemma": "было",
+    "sentence_ids": [
+      "dia0062"
+    ],
+    "source": "possible"
+  },
+  "чуждо": {
+    "lemma": "чуждо",
+    "sentence_ids": [
+      "dia0062"
+    ],
+    "source": "possible"
+  },
+  "терпение": {
+    "lemma": "терпение",
+    "sentence_ids": [
+      "dia0063"
+    ],
+    "source": "possible"
+  },
+  "присуще": {
+    "lemma": "присуще",
+    "sentence_ids": [
+      "dia0063"
+    ],
+    "source": "possible"
+  },
+  "подарок": {
+    "lemma": "подарок",
+    "sentence_ids": [
+      "dia0064"
+    ],
+    "source": "possible"
+  },
+  "дорог": {
+    "lemma": "дорог",
+    "sentence_ids": [
+      "dia0064"
+    ],
+    "source": "possible"
+  },
+  "маме": {
+    "lemma": "маме",
+    "sentence_ids": [
+      "dia0064"
+    ],
+    "source": "possible"
+  },
+  "полезна": {
+    "lemma": "полезна",
+    "sentence_ids": [
+      "dia0065"
+    ],
+    "source": "possible"
+  },
+  "детям": {
+    "lemma": "детям",
+    "sentence_ids": [
+      "dia0065",
+      "dia0068"
+    ],
+    "source": "possible"
+  },
+  "объяснение": {
+    "lemma": "объяснение",
+    "sentence_ids": [
+      "dia0066"
+    ],
+    "source": "possible"
+  },
+  "понятно": {
+    "lemma": "понятно",
+    "sentence_ids": [
+      "dia0066"
+    ],
+    "source": "possible"
+  },
+  "знаком": {
+    "lemma": "знаком",
+    "sentence_ids": [
+      "dia0067"
+    ],
+    "source": "possible"
+  },
+  "мне": {
+    "lemma": "мне",
+    "sentence_ids": [
+      "dia0067"
+    ],
+    "source": "possible"
+  },
+  "фильм": {
+    "lemma": "фильм",
+    "sentence_ids": [
+      "dia0068"
+    ],
+    "source": "possible"
+  },
+  "интересен": {
+    "lemma": "интересен",
+    "sentence_ids": [
+      "dia0068"
+    ],
+    "source": "possible"
+  },
+  "вода": {
+    "lemma": "вода",
+    "sentence_ids": [
+      "dia0069"
+    ],
+    "source": "possible"
+  },
+  "необходима": {
+    "lemma": "необходима",
+    "sentence_ids": [
+      "dia0069"
+    ],
+    "source": "possible"
+  },
+  "человеку": {
+    "lemma": "человеку",
+    "sentence_ids": [
+      "dia0069",
+      "dia0077"
+    ],
+    "source": "possible"
+  },
+  "склонные": {
+    "lemma": "склонные",
+    "sentence_ids": [
+      "dia0070"
+    ],
+    "source": "possible"
+  },
+  "воспринимать": {
+    "lemma": "воспринимать",
+    "sentence_ids": [
+      "dia0070"
+    ],
+    "source": "possible"
+  },
+  "юмором": {
+    "lemma": "юмором",
+    "sentence_ids": [
+      "dia0070"
+    ],
+    "source": "possible"
+  },
+  "обычно": {
+    "lemma": "обычно",
+    "sentence_ids": [
+      "dia0070"
+    ],
+    "source": "possible"
+  },
+  "терпимы": {
+    "lemma": "терпимы",
+    "sentence_ids": [
+      "dia0070"
+    ],
+    "source": "possible"
+  },
+  "равнодушен": {
+    "lemma": "равнодушен",
+    "sentence_ids": [
+      "dia0071"
+    ],
+    "source": "possible"
+  },
+  "критике": {
+    "lemma": "критике",
+    "sentence_ids": [
+      "dia0071"
+    ],
+    "source": "possible"
+  },
+  "чувствителен": {
+    "lemma": "чувствителен",
+    "sentence_ids": [
+      "dia0072"
+    ],
+    "source": "possible"
+  },
+  "замечаниям": {
+    "lemma": "замечаниям",
+    "sentence_ids": [
+      "dia0072"
+    ],
+    "source": "possible"
+  },
+  "внимателен": {
+    "lemma": "внимателен",
+    "sentence_ids": [
+      "dia0073"
+    ],
+    "source": "possible"
+  },
+  "просьбам": {
+    "lemma": "просьбам",
+    "sentence_ids": [
+      "dia0073"
+    ],
+    "source": "possible"
+  },
+  "студентов": {
+    "lemma": "студентов",
+    "sentence_ids": [
+      "dia0073"
+    ],
+    "source": "possible"
+  },
+  "склонен": {
+    "lemma": "склонен",
+    "sentence_ids": [
+      "dia0074"
+    ],
+    "source": "possible"
+  },
+  "риску": {
+    "lemma": "риску",
+    "sentence_ids": [
+      "dia0074"
+    ],
+    "source": "possible"
+  },
+  "враждебен": {
+    "lemma": "враждебен",
+    "sentence_ids": [
+      "dia0075"
+    ],
+    "source": "possible"
+  },
+  "врагам": {
+    "lemma": "врагам",
+    "sentence_ids": [
+      "dia0075"
+    ],
+    "source": "possible"
+  },
+  "доброжелателен": {
+    "lemma": "доброжелателен",
+    "sentence_ids": [
+      "dia0076"
+    ],
+    "source": "possible"
+  },
+  "коллегам": {
+    "lemma": "коллегам",
+    "sentence_ids": [
+      "dia0076"
+    ],
+    "source": "possible"
+  },
+  "равен": {
+    "lemma": "равен",
+    "sentence_ids": [
+      "dia0077"
+    ],
+    "source": "possible"
+  },
+  "каждому": {
+    "lemma": "каждому",
+    "sentence_ids": [
+      "dia0077"
+    ],
+    "source": "possible"
+  },
+  "метод": {
+    "lemma": "метод",
+    "sentence_ids": [
+      "dia0078"
+    ],
+    "source": "possible"
+  },
+  "объём": {
+    "lemma": "объём",
+    "sentence_ids": [
+      "dia0079"
+    ],
+    "source": "possible"
+  },
+  "слов": {
+    "lemma": "слов",
+    "sentence_ids": [
+      "dia0079",
+      "dia0143"
+    ],
+    "source": "possible"
+  },
+  "мин": {
+    "lemma": "мин",
+    "sentence_ids": [
+      "dia0080"
+    ],
+    "source": "possible"
+  },
+  "музея": {
+    "lemma": "музея",
+    "sentence_ids": [
+      "dia0081",
+      "dia0086",
+      "dia0087",
+      "dia0091",
+      "dia0094",
+      "dia0096",
+      "dia0098",
+      "dia0103",
+      "dia0106",
+      "dia0109",
+      "dia0110",
+      "dia0111",
+      "dia0126",
+      "dia0127"
+    ],
+    "source": "possible"
+  },
+  "изобразительных": {
+    "lemma": "изобразительных",
+    "sentence_ids": [
+      "dia0081"
+    ],
+    "source": "possible"
+  },
+  "искусств": {
+    "lemma": "искусств",
+    "sentence_ids": [
+      "dia0081",
+      "dia0093"
+    ],
+    "source": "possible"
+  },
+  "им": {
+    "lemma": "им",
+    "sentence_ids": [
+      "dia0081"
+    ],
+    "source": "possible"
+  },
+  "пушкина": {
+    "lemma": "пушкина",
+    "sentence_ids": [
+      "dia0082"
+    ],
+    "source": "possible"
+  },
+  "гмии": {
+    "lemma": "гмии",
+    "sentence_ids": [
+      "dia0082",
+      "dia0089",
+      "dia0119",
+      "dia0122"
+    ],
+    "source": "possible"
+  },
+  "прочитайте": {
+    "lemma": "прочитайте",
+    "sentence_ids": [
+      "dia0083"
+    ],
+    "source": "possible"
+  },
+  "статью": {
+    "lemma": "статью",
+    "sentence_ids": [
+      "dia0083"
+    ],
+    "source": "possible"
+  },
+  "газеты": {
+    "lemma": "газеты",
+    "sentence_ids": [
+      "dia0083"
+    ],
+    "source": "possible"
+  },
+  "выберите": {
+    "lemma": "выберите",
+    "sentence_ids": [
+      "dia0084"
+    ],
+    "source": "possible"
+  },
+  "правильный": {
+    "lemma": "правильный",
+    "sentence_ids": [
+      "dia0084"
+    ],
+    "source": "possible"
+  },
+  "вариант": {
+    "lemma": "вариант",
+    "sentence_ids": [
+      "dia0084"
+    ],
+    "source": "possible"
+  },
+  "начале": {
+    "lemma": "начале",
+    "sentence_ids": [
+      "dia0085",
+      "dia0095"
+    ],
+    "source": "possible"
+  },
+  "века": {
+    "lemma": "века",
+    "sentence_ids": [
+      "dia0085",
+      "dia0089",
+      "dia0095",
+      "dia0122"
+    ],
+    "source": "possible"
+  },
+  "появился": {
+    "lemma": "появился",
+    "sentence_ids": [
+      "dia0085",
+      "dia0095"
+    ],
+    "source": "possible"
+  },
+  "музей": {
+    "lemma": "музей",
+    "sentence_ids": [
+      "dia0085",
+      "dia0093",
+      "dia0095",
+      "dia0097",
+      "dia0108",
+      "dia0114",
+      "dia0123"
+    ],
+    "source": "possible"
+  },
+  "идею": {
+    "lemma": "идею",
+    "sentence_ids": [
+      "dia0086",
+      "dia0096"
+    ],
+    "source": "possible"
+  },
+  "создания": {
+    "lemma": "создания",
+    "sentence_ids": [
+      "dia0086",
+      "dia0094",
+      "dia0096"
+    ],
+    "source": "possible"
+  },
+  "выдвинул": {
+    "lemma": "выдвинул",
+    "sentence_ids": [
+      "dia0086",
+      "dia0096"
+    ],
+    "source": "possible"
+  },
+  "после": {
+    "lemma": "после",
+    "sentence_ids": [
+      "dia0087",
+      "dia0108",
+      "dia0111",
+      "dia0116",
+      "dia0117"
+    ],
+    "source": "possible"
+  },
+  "революции": {
+    "lemma": "революции",
+    "sentence_ids": [
+      "dia0087",
+      "dia0108",
+      "dia0111"
+    ],
+    "source": "possible"
+  },
+  "коллекция": {
+    "lemma": "коллекция",
+    "sentence_ids": [
+      "dia0087",
+      "dia0111"
+    ],
+    "source": "possible"
+  },
+  "время": {
+    "lemma": "время",
+    "sentence_ids": [
+      "dia0088",
+      "dia0090",
+      "dia0128"
+    ],
+    "source": "possible"
+  },
+  "великой": {
+    "lemma": "великой",
+    "sentence_ids": [
+      "dia0088"
+    ],
+    "source": "possible"
+  },
+  "отечественной": {
+    "lemma": "отечественной",
+    "sentence_ids": [
+      "dia0088"
+    ],
+    "source": "possible"
+  },
+  "войны": {
+    "lemma": "войны",
+    "sentence_ids": [
+      "dia0088",
+      "dia0112",
+      "dia0116",
+      "dia0117"
+    ],
+    "source": "possible"
+  },
+  "середине": {
+    "lemma": "середине",
+    "sentence_ids": [
+      "dia0089",
+      "dia0122"
+    ],
+    "source": "possible"
+  },
+  "настоящее": {
+    "lemma": "настоящее",
+    "sentence_ids": [
+      "dia0090",
+      "dia0128"
+    ],
+    "source": "possible"
+  },
+  "копии": {
+    "lemma": "копии",
+    "sentence_ids": [
+      "dia0090",
+      "dia0128"
+    ],
+    "source": "possible"
+  },
+  "скульптур": {
+    "lemma": "скульптур",
+    "sentence_ids": [
+      "dia0090",
+      "dia0097",
+      "dia0128"
+    ],
+    "source": "possible"
+  },
+  "планах": {
+    "lemma": "планах",
+    "sentence_ids": [
+      "dia0091",
+      "dia0127"
+    ],
+    "source": "possible"
+  },
+  "информация": {
+    "lemma": "информация",
+    "sentence_ids": [
+      "dia0092",
+      "dia0129",
+      "dia0141"
+    ],
+    "source": "possible"
+  },
+  "тексте": {
+    "lemma": "тексте",
+    "sentence_ids": [
+      "dia0092",
+      "dia0129"
+    ],
+    "source": "possible"
+  },
+  "представлена": {
+    "lemma": "представлена",
+    "sentence_ids": [
+      "dia0092",
+      "dia0129"
+    ],
+    "source": "possible"
+  },
+  "позиции": {
+    "lemma": "позиции",
+    "sentence_ids": [
+      "dia0092",
+      "dia0129"
+    ],
+    "source": "possible"
+  },
+  "сто": {
+    "lemma": "сто",
+    "sentence_ids": [
+      "dia0093",
+      "dia0151"
+    ],
+    "source": "possible"
+  },
+  "назад": {
+    "lemma": "назад",
+    "sentence_ids": [
+      "dia0093"
+    ],
+    "source": "possible"
+  },
+  "именовался": {
+    "lemma": "именовался",
+    "sentence_ids": [
+      "dia0093"
+    ],
+    "source": "possible"
+  },
+  "музеем": {
+    "lemma": "музеем",
+    "sentence_ids": [
+      "dia0093"
+    ],
+    "source": "possible"
+  },
+  "изящных": {
+    "lemma": "изящных",
+    "sentence_ids": [
+      "dia0093"
+    ],
+    "source": "possible"
+  },
+  "имени": {
+    "lemma": "имени",
+    "sentence_ids": [
+      "dia0093"
+    ],
+    "source": "possible"
+  },
+  "александра": {
+    "lemma": "александра",
+    "sentence_ids": [
+      "dia0093"
+    ],
+    "source": "possible"
+  },
+  "московском": {
+    "lemma": "московском",
+    "sentence_ids": [
+      "dia0093"
+    ],
+    "source": "possible"
+  },
+  "университете": {
+    "lemma": "университете",
+    "sentence_ids": [
+      "dia0093"
+    ],
+    "source": "possible"
+  },
+  "инициативой": {
+    "lemma": "инициативой",
+    "sentence_ids": [
+      "dia0094"
+    ],
+    "source": "possible"
+  },
+  "выступил": {
+    "lemma": "выступил",
+    "sentence_ids": [
+      "dia0094"
+    ],
+    "source": "possible"
+  },
+  "доктор": {
+    "lemma": "доктор",
+    "sentence_ids": [
+      "dia0094"
+    ],
+    "source": "possible"
+  },
+  "римской": {
+    "lemma": "римской",
+    "sentence_ids": [
+      "dia0094"
+    ],
+    "source": "possible"
+  },
+  "словесности": {
+    "lemma": "словесности",
+    "sentence_ids": [
+      "dia0094"
+    ],
+    "source": "possible"
+  },
+  "искусства": {
+    "lemma": "искусства",
+    "sentence_ids": [
+      "dia0094",
+      "dia0109",
+      "dia0110",
+      "dia0115"
+    ],
+    "source": "possible"
+  },
+  "профессор": {
+    "lemma": "профессор",
+    "sentence_ids": [
+      "dia0094"
+    ],
+    "source": "possible"
+  },
+  "иван": {
+    "lemma": "иван",
+    "sentence_ids": [
+      "dia0094"
+    ],
+    "source": "possible"
+  },
+  "цветаев": {
+    "lemma": "цветаев",
+    "sentence_ids": [
+      "dia0094"
+    ],
+    "source": "possible"
+  },
+  "ставший": {
+    "lemma": "ставший",
+    "sentence_ids": [
+      "dia0094"
+    ],
+    "source": "possible"
+  },
+  "первым": {
+    "lemma": "первым",
+    "sentence_ids": [
+      "dia0094"
+    ],
+    "source": "possible"
+  },
+  "директором": {
+    "lemma": "директором",
+    "sentence_ids": [
+      "dia0094"
+    ],
+    "source": "possible"
+  },
+  "поначалу": {
+    "lemma": "поначалу",
+    "sentence_ids": [
+      "dia0097"
+    ],
+    "source": "possible"
+  },
+  "задумывался": {
+    "lemma": "задумывался",
+    "sentence_ids": [
+      "dia0097"
+    ],
+    "source": "possible"
+  },
+  "как": {
+    "lemma": "как",
+    "sentence_ids": [
+      "dia0097",
+      "dia0114",
+      "dia0144",
+      "dia0145"
+    ],
+    "source": "possible"
+  },
+  "учебный": {
+    "lemma": "учебный",
+    "sentence_ids": [
+      "dia0097"
+    ],
+    "source": "possible"
+  },
+  "слепков": {
+    "lemma": "слепков",
+    "sentence_ids": [
+      "dia0097",
+      "dia0107"
+    ],
+    "source": "possible"
+  },
+  "со": {
+    "lemma": "со",
+    "sentence_ids": [
+      "dia0097"
+    ],
+    "source": "possible"
+  },
+  "античного": {
+    "lemma": "античного",
+    "sentence_ids": [
+      "dia0097"
+    ],
+    "source": "possible"
+  },
+  "ренессанса": {
+    "lemma": "ренессанса",
+    "sentence_ids": [
+      "dia0097"
+    ],
+    "source": "possible"
+  },
+  "некоторые": {
+    "lemma": "некоторые",
+    "sentence_ids": [
+      "dia0098"
+    ],
+    "source": "possible"
+  },
+  "до": {
+    "lemma": "до",
+    "sentence_ids": [
+      "dia0098",
+      "dia0115",
+      "dia0120"
+    ],
+    "source": "possible"
+  },
+  "сих": {
+    "lemma": "сих",
+    "sentence_ids": [
+      "dia0098",
+      "dia0120"
+    ],
+    "source": "possible"
+  },
+  "пор": {
+    "lemma": "пор",
+    "sentence_ids": [
+      "dia0098",
+      "dia0120"
+    ],
+    "source": "possible"
+  },
+  "экспонируются": {
+    "lemma": "экспонируются",
+    "sentence_ids": [
+      "dia0098"
+    ],
+    "source": "possible"
+  },
+  "пушкинском": {
+    "lemma": "пушкинском",
+    "sentence_ids": [
+      "dia0098"
+    ],
+    "source": "possible"
+  },
+  "другие": {
+    "lemma": "другие",
+    "sentence_ids": [
+      "dia0098",
+      "dia0120"
+    ],
+    "source": "possible"
+  },
+  "составили": {
+    "lemma": "составили",
+    "sentence_ids": [
+      "dia0098",
+      "dia0107"
+    ],
+    "source": "possible"
+  },
+  "ядро": {
+    "lemma": "ядро",
+    "sentence_ids": [
+      "dia0098"
+    ],
+    "source": "possible"
+  },
+  "экспозиции": {
+    "lemma": "экспозиции",
+    "sentence_ids": [
+      "dia0098"
+    ],
+    "source": "possible"
+  },
+  "университетского": {
+    "lemma": "университетского",
+    "sentence_ids": [
+      "dia0098"
+    ],
+    "source": "possible"
+  },
+  "российского": {
+    "lemma": "российского",
+    "sentence_ids": [
+      "dia0098"
+    ],
+    "source": "possible"
+  },
+  "государственного": {
+    "lemma": "государственного",
+    "sentence_ids": [
+      "dia0098"
+    ],
+    "source": "possible"
+  },
+  "гуманитарного": {
+    "lemma": "гуманитарного",
+    "sentence_ids": [
+      "dia0098"
+    ],
+    "source": "possible"
+  },
+  "рггу": {
+    "lemma": "рггу",
+    "sentence_ids": [
+      "dia0098"
+    ],
+    "source": "possible"
+  },
+  "основную": {
+    "lemma": "основную",
+    "sentence_ids": [
+      "dia0099"
+    ],
+    "source": "possible"
+  },
+  "сумму": {
+    "lemma": "сумму",
+    "sentence_ids": [
+      "dia0099"
+    ],
+    "source": "possible"
+  },
+  "строительство": {
+    "lemma": "строительство",
+    "sentence_ids": [
+      "dia0099"
+    ],
+    "source": "possible"
+  },
+  "более": {
+    "lemma": "более",
+    "sentence_ids": [
+      "dia0099"
+    ],
+    "source": "possible"
+  },
+  "млн": {
+    "lemma": "млн",
+    "sentence_ids": [
+      "dia0099",
+      "dia0101"
+    ],
+    "source": "possible"
+  },
+  "руб": {
+    "lemma": "руб",
+    "sentence_ids": [
+      "dia0099",
+      "dia0101"
+    ],
+    "source": "possible"
+  },
+  "пожертвовал": {
+    "lemma": "пожертвовал",
+    "sentence_ids": [
+      "dia0100"
+    ],
+    "source": "possible"
+  },
+  "владелец": {
+    "lemma": "владелец",
+    "sentence_ids": [
+      "dia0100"
+    ],
+    "source": "possible"
+  },
+  "гусевского": {
+    "lemma": "гусевского",
+    "sentence_ids": [
+      "dia0100"
+    ],
+    "source": "possible"
+  },
+  "стекольного": {
+    "lemma": "стекольного",
+    "sentence_ids": [
+      "dia0100"
+    ],
+    "source": "possible"
+  },
+  "завода": {
+    "lemma": "завода",
+    "sentence_ids": [
+      "dia0100"
+    ],
+    "source": "possible"
+  },
+  "юрий": {
+    "lemma": "юрий",
+    "sentence_ids": [
+      "dia0100"
+    ],
+    "source": "possible"
+  },
+  "нечаев-мальцев": {
+    "lemma": "нечаев-мальцев",
+    "sentence_ids": [
+      "dia0100"
+    ],
+    "source": "possible"
+  },
+  "была": {
+    "lemma": "была",
+    "sentence_ids": [
+      "dia0101",
+      "dia0151"
+    ],
+    "source": "possible"
+  },
+  "большая": {
+    "lemma": "большая",
+    "sentence_ids": [
+      "dia0101"
+    ],
+    "source": "possible"
+  },
+  "часть": {
+    "lemma": "часть",
+    "sentence_ids": [
+      "dia0101"
+    ],
+    "source": "possible"
+  },
+  "состояния": {
+    "lemma": "состояния",
+    "sentence_ids": [
+      "dia0101"
+    ],
+    "source": "possible"
+  },
+  "составлявшего": {
+    "lemma": "составлявшего",
+    "sentence_ids": [
+      "dia0101"
+    ],
+    "source": "possible"
+  },
+  "деньги": {
+    "lemma": "деньги",
+    "sentence_ids": [
+      "dia0102"
+    ],
+    "source": "possible"
+  },
+  "мецената": {
+    "lemma": "мецената",
+    "sentence_ids": [
+      "dia0102"
+    ],
+    "source": "possible"
+  },
+  "привезли": {
+    "lemma": "привезли",
+    "sentence_ids": [
+      "dia0102"
+    ],
+    "source": "possible"
+  },
+  "цветной": {
+    "lemma": "цветной",
+    "sentence_ids": [
+      "dia0102"
+    ],
+    "source": "possible"
+  },
+  "мрамор": {
+    "lemma": "мрамор",
+    "sentence_ids": [
+      "dia0102"
+    ],
+    "source": "possible"
+  },
+  "венгрии": {
+    "lemma": "венгрии",
+    "sentence_ids": [
+      "dia0102"
+    ],
+    "source": "possible"
+  },
+  "морозоустойчивый": {
+    "lemma": "морозоустойчивый",
+    "sentence_ids": [
+      "dia0102"
+    ],
+    "source": "possible"
+  },
+  "урала": {
+    "lemma": "урала",
+    "sentence_ids": [
+      "dia0102"
+    ],
+    "source": "possible"
+  },
+  "доставили": {
+    "lemma": "доставили",
+    "sentence_ids": [
+      "dia0102"
+    ],
+    "source": "possible"
+  },
+  "баржах": {
+    "lemma": "баржах",
+    "sentence_ids": [
+      "dia0102"
+    ],
+    "source": "possible"
+  },
+  "норвегии": {
+    "lemma": "норвегии",
+    "sentence_ids": [
+      "dia0102"
+    ],
+    "source": "possible"
+  },
+  "морю": {
+    "lemma": "морю",
+    "sentence_ids": [
+      "dia0102"
+    ],
+    "source": "possible"
+  },
+  "рекам": {
+    "lemma": "рекам",
+    "sentence_ids": [
+      "dia0102"
+    ],
+    "source": "possible"
+  },
+  "десятиметровые": {
+    "lemma": "десятиметровые",
+    "sentence_ids": [
+      "dia0102"
+    ],
+    "source": "possible"
+  },
+  "колонны": {
+    "lemma": "колонны",
+    "sentence_ids": [
+      "dia0102"
+    ],
+    "source": "possible"
+  },
+  "здание": {
+    "lemma": "здание",
+    "sentence_ids": [
+      "dia0103",
+      "dia0113"
+    ],
+    "source": "possible"
+  },
+  "отвели": {
+    "lemma": "отвели",
+    "sentence_ids": [
+      "dia0103"
+    ],
+    "source": "possible"
+  },
+  "участок": {
+    "lemma": "участок",
+    "sentence_ids": [
+      "dia0103"
+    ],
+    "source": "possible"
+  },
+  "царского": {
+    "lemma": "царского",
+    "sentence_ids": [
+      "dia0103"
+    ],
+    "source": "possible"
+  },
+  "колымажного": {
+    "lemma": "колымажного",
+    "sentence_ids": [
+      "dia0103"
+    ],
+    "source": "possible"
+  },
+  "двора": {
+    "lemma": "двора",
+    "sentence_ids": [
+      "dia0103"
+    ],
+    "source": "possible"
+  },
+  "где": {
+    "lemma": "где",
+    "sentence_ids": [
+      "dia0103"
+    ],
+    "source": "possible"
+  },
+  "веке": {
+    "lemma": "веке",
+    "sentence_ids": [
+      "dia0103"
+    ],
+    "source": "possible"
+  },
+  "архитектор": {
+    "lemma": "архитектор",
+    "sentence_ids": [
+      "dia0103",
+      "dia0104"
+    ],
+    "source": "possible"
+  },
+  "матвей": {
+    "lemma": "матвей",
+    "sentence_ids": [
+      "dia0103"
+    ],
+    "source": "possible"
+  },
+  "казаков": {
+    "lemma": "казаков",
+    "sentence_ids": [
+      "dia0103"
+    ],
+    "source": "possible"
+  },
+  "построил": {
+    "lemma": "построил",
+    "sentence_ids": [
+      "dia0103"
+    ],
+    "source": "possible"
+  },
+  "деревянный": {
+    "lemma": "деревянный",
+    "sentence_ids": [
+      "dia0103"
+    ],
+    "source": "possible"
+  },
+  "дворец": {
+    "lemma": "дворец",
+    "sentence_ids": [
+      "dia0103"
+    ],
+    "source": "possible"
+  },
+  "екатерины": {
+    "lemma": "екатерины",
+    "sentence_ids": [
+      "dia0103"
+    ],
+    "source": "possible"
+  },
+  "императрица": {
+    "lemma": "императрица",
+    "sentence_ids": [
+      "dia0103"
+    ],
+    "source": "possible"
+  },
+  "прожила": {
+    "lemma": "прожила",
+    "sentence_ids": [
+      "dia0103"
+    ],
+    "source": "possible"
+  },
+  "нём": {
+    "lemma": "нём",
+    "sentence_ids": [
+      "dia0103"
+    ],
+    "source": "possible"
+  },
+  "всего": {
+    "lemma": "всего",
+    "sentence_ids": [
+      "dia0103"
+    ],
+    "source": "possible"
+  },
+  "год": {
+    "lemma": "год",
+    "sentence_ids": [
+      "dia0103"
+    ],
+    "source": "possible"
+  },
+  "размещалась": {
+    "lemma": "размещалась",
+    "sentence_ids": [
+      "dia0103"
+    ],
+    "source": "possible"
+  },
+  "пересыльная": {
+    "lemma": "пересыльная",
+    "sentence_ids": [
+      "dia0103"
+    ],
+    "source": "possible"
+  },
+  "тюрьма": {
+    "lemma": "тюрьма",
+    "sentence_ids": [
+      "dia0103"
+    ],
+    "source": "possible"
+  },
+  "конкурс": {
+    "lemma": "конкурс",
+    "sentence_ids": [
+      "dia0104"
+    ],
+    "source": "possible"
+  },
+  "выиграл": {
+    "lemma": "выиграл",
+    "sentence_ids": [
+      "dia0104"
+    ],
+    "source": "possible"
+  },
+  "роман": {
+    "lemma": "роман",
+    "sentence_ids": [
+      "dia0104"
+    ],
+    "source": "possible"
+  },
+  "клейн": {
+    "lemma": "клейн",
+    "sentence_ids": [
+      "dia0104"
+    ],
+    "source": "possible"
+  },
+  "инженер": {
+    "lemma": "инженер",
+    "sentence_ids": [
+      "dia0105"
+    ],
+    "source": "possible"
+  },
+  "владимир": {
+    "lemma": "владимир",
+    "sentence_ids": [
+      "dia0105"
+    ],
+    "source": "possible"
+  },
+  "шухов": {
+    "lemma": "шухов",
+    "sentence_ids": [
+      "dia0105"
+    ],
+    "source": "possible"
+  },
+  "оснастил": {
+    "lemma": "оснастил",
+    "sentence_ids": [
+      "dia0105"
+    ],
+    "source": "possible"
+  },
+  "залы": {
+    "lemma": "залы",
+    "sentence_ids": [
+      "dia0105"
+    ],
+    "source": "possible"
+  },
+  "светопрозрачными": {
+    "lemma": "светопрозрачными",
+    "sentence_ids": [
+      "dia0105"
+    ],
+    "source": "possible"
+  },
+  "перекрытиями": {
+    "lemma": "перекрытиями",
+    "sentence_ids": [
+      "dia0105"
+    ],
+    "source": "possible"
+  },
+  "железного": {
+    "lemma": "железного",
+    "sentence_ids": [
+      "dia0105"
+    ],
+    "source": "possible"
+  },
+  "каркаса": {
+    "lemma": "каркаса",
+    "sentence_ids": [
+      "dia0105"
+    ],
+    "source": "possible"
+  },
+  "стекла": {
+    "lemma": "стекла",
+    "sentence_ids": [
+      "dia0105"
+    ],
+    "source": "possible"
+  },
+  "церемонии": {
+    "lemma": "церемонии",
+    "sentence_ids": [
+      "dia0106"
+    ],
+    "source": "possible"
+  },
+  "открытия": {
+    "lemma": "открытия",
+    "sentence_ids": [
+      "dia0106"
+    ],
+    "source": "possible"
+  },
+  "присутствовал": {
+    "lemma": "присутствовал",
+    "sentence_ids": [
+      "dia0106"
+    ],
+    "source": "possible"
+  },
+  "император": {
+    "lemma": "император",
+    "sentence_ids": [
+      "dia0106"
+    ],
+    "source": "possible"
+  },
+  "николай": {
+    "lemma": "николай",
+    "sentence_ids": [
+      "dia0106"
+    ],
+    "source": "possible"
+  },
+  "коллекцию": {
+    "lemma": "коллекцию",
+    "sentence_ids": [
+      "dia0107",
+      "dia0112"
+    ],
+    "source": "possible"
+  },
+  "купленные": {
+    "lemma": "купленные",
+    "sentence_ids": [
+      "dia0107"
+    ],
+    "source": "possible"
+  },
+  "думой": {
+    "lemma": "думой",
+    "sentence_ids": [
+      "dia0107"
+    ],
+    "source": "possible"
+  },
+  "египетские": {
+    "lemma": "египетские",
+    "sentence_ids": [
+      "dia0107"
+    ],
+    "source": "possible"
+  },
+  "древности": {
+    "lemma": "древности",
+    "sentence_ids": [
+      "dia0107"
+    ],
+    "source": "possible"
+  },
+  "собирателя": {
+    "lemma": "собирателя",
+    "sentence_ids": [
+      "dia0107"
+    ],
+    "source": "possible"
+  },
+  "владимира": {
+    "lemma": "владимира",
+    "sentence_ids": [
+      "dia0107"
+    ],
+    "source": "possible"
+  },
+  "голенищева": {
+    "lemma": "голенищева",
+    "sentence_ids": [
+      "dia0107"
+    ],
+    "source": "possible"
+  },
+  "новая": {
+    "lemma": "новая",
+    "sentence_ids": [
+      "dia0108"
+    ],
+    "source": "possible"
+  },
+  "власть": {
+    "lemma": "власть",
+    "sentence_ids": [
+      "dia0108"
+    ],
+    "source": "possible"
+  },
+  "реорганизовала": {
+    "lemma": "реорганизовала",
+    "sentence_ids": [
+      "dia0108"
+    ],
+    "source": "possible"
+  },
+  "него": {
+    "lemma": "него",
+    "sentence_ids": [
+      "dia0109"
+    ],
+    "source": "possible"
+  },
+  "вошли": {
+    "lemma": "вошли",
+    "sentence_ids": [
+      "dia0109"
+    ],
+    "source": "possible"
+  },
+  "произведения": {
+    "lemma": "произведения",
+    "sentence_ids": [
+      "dia0109"
+    ],
+    "source": "possible"
+  },
+  "румянцевского": {
+    "lemma": "румянцевского",
+    "sentence_ids": [
+      "dia0109"
+    ],
+    "source": "possible"
+  },
+  "эрмитажа": {
+    "lemma": "эрмитажа",
+    "sentence_ids": [
+      "dia0109"
+    ],
+    "source": "possible"
+  },
+  "национализированные": {
+    "lemma": "национализированные",
+    "sentence_ids": [
+      "dia0109"
+    ],
+    "source": "possible"
+  },
+  "коллекции": {
+    "lemma": "коллекции",
+    "sentence_ids": [
+      "dia0109"
+    ],
+    "source": "possible"
+  },
+  "дмитрия": {
+    "lemma": "дмитрия",
+    "sentence_ids": [
+      "dia0109"
+    ],
+    "source": "possible"
+  },
+  "щукина": {
+    "lemma": "щукина",
+    "sentence_ids": [
+      "dia0109",
+      "dia0110"
+    ],
+    "source": "possible"
+  },
+  "генриха": {
+    "lemma": "генриха",
+    "sentence_ids": [
+      "dia0109",
+      "dia0121"
+    ],
+    "source": "possible"
+  },
+  "брокара": {
+    "lemma": "брокара",
+    "sentence_ids": [
+      "dia0109"
+    ],
+    "source": "possible"
+  },
+  "году": {
+    "lemma": "году",
+    "sentence_ids": [
+      "dia0110",
+      "dia0114",
+      "dia0117"
+    ],
+    "source": "possible"
+  },
+  "добавилось": {
+    "lemma": "добавилось",
+    "sentence_ids": [
+      "dia0110"
+    ],
+    "source": "possible"
+  },
+  "собрание": {
+    "lemma": "собрание",
+    "sentence_ids": [
+      "dia0110"
+    ],
+    "source": "possible"
+  },
+  "расформированного": {
+    "lemma": "расформированного",
+    "sentence_ids": [
+      "dia0110"
+    ],
+    "source": "possible"
+  },
+  "западного": {
+    "lemma": "западного",
+    "sentence_ids": [
+      "dia0110"
+    ],
+    "source": "possible"
+  },
+  "открытого": {
+    "lemma": "открытого",
+    "sentence_ids": [
+      "dia0110"
+    ],
+    "source": "possible"
+  },
+  "основе": {
+    "lemma": "основе",
+    "sentence_ids": [
+      "dia0110"
+    ],
+    "source": "possible"
+  },
+  "бывших": {
+    "lemma": "бывших",
+    "sentence_ids": [
+      "dia0110"
+    ],
+    "source": "possible"
+  },
+  "коллекций": {
+    "lemma": "коллекций",
+    "sentence_ids": [
+      "dia0110"
+    ],
+    "source": "possible"
+  },
+  "ивана": {
+    "lemma": "ивана",
+    "sentence_ids": [
+      "dia0110"
+    ],
+    "source": "possible"
+  },
+  "морозова": {
+    "lemma": "морозова",
+    "sentence_ids": [
+      "dia0110"
+    ],
+    "source": "possible"
+  },
+  "сергея": {
+    "lemma": "сергея",
+    "sentence_ids": [
+      "dia0110"
+    ],
+    "source": "possible"
+  },
+  "годы": {
+    "lemma": "годы",
+    "sentence_ids": [
+      "dia0112",
+      "dia0123"
+    ],
+    "source": "possible"
+  },
+  "пушкинского": {
+    "lemma": "пушкинского",
+    "sentence_ids": [
+      "dia0112"
+    ],
+    "source": "possible"
+  },
+  "эвакуировали": {
+    "lemma": "эвакуировали",
+    "sentence_ids": [
+      "dia0112"
+    ],
+    "source": "possible"
+  },
+  "сибирь": {
+    "lemma": "сибирь",
+    "sentence_ids": [
+      "dia0112"
+    ],
+    "source": "possible"
+  },
+  "сотрясавшееся": {
+    "lemma": "сотрясавшееся",
+    "sentence_ids": [
+      "dia0113"
+    ],
+    "source": "possible"
+  },
+  "близких": {
+    "lemma": "близких",
+    "sentence_ids": [
+      "dia0113"
+    ],
+    "source": "possible"
+  },
+  "бомбёжек": {
+    "lemma": "бомбёжек",
+    "sentence_ids": [
+      "dia0113"
+    ],
+    "source": "possible"
+  },
+  "пострадало": {
+    "lemma": "пострадало",
+    "sentence_ids": [
+      "dia0113"
+    ],
+    "source": "possible"
+  },
+  "разрушились": {
+    "lemma": "разрушились",
+    "sentence_ids": [
+      "dia0113"
+    ],
+    "source": "possible"
+  },
+  "стеклянные": {
+    "lemma": "стеклянные",
+    "sentence_ids": [
+      "dia0113",
+      "dia0116"
+    ],
+    "source": "possible"
+  },
+  "перекрытия": {
+    "lemma": "перекрытия",
+    "sentence_ids": [
+      "dia0113"
+    ],
+    "source": "possible"
+  },
+  "ирина": {
+    "lemma": "ирина",
+    "sentence_ids": [
+      "dia0114"
+    ],
+    "source": "possible"
+  },
+  "антонова": {
+    "lemma": "антонова",
+    "sentence_ids": [
+      "dia0114"
+    ],
+    "source": "possible"
+  },
+  "пришедшая": {
+    "lemma": "пришедшая",
+    "sentence_ids": [
+      "dia0114"
+    ],
+    "source": "possible"
+  },
+  "помнит": {
+    "lemma": "помнит",
+    "sentence_ids": [
+      "dia0114"
+    ],
+    "source": "possible"
+  },
+  "вместе": {
+    "lemma": "вместе",
+    "sentence_ids": [
+      "dia0114"
+    ],
+    "source": "possible"
+  },
+  "другими": {
+    "lemma": "другими",
+    "sentence_ids": [
+      "dia0114"
+    ],
+    "source": "possible"
+  },
+  "сотрудниками": {
+    "lemma": "сотрудниками",
+    "sentence_ids": [
+      "dia0114"
+    ],
+    "source": "possible"
+  },
+  "выгребала": {
+    "lemma": "выгребала",
+    "sentence_ids": [
+      "dia0114"
+    ],
+    "source": "possible"
+  },
+  "лопатами": {
+    "lemma": "лопатами",
+    "sentence_ids": [
+      "dia0114"
+    ],
+    "source": "possible"
+  },
+  "снег": {
+    "lemma": "снег",
+    "sentence_ids": [
+      "dia0114"
+    ],
+    "source": "possible"
+  },
+  "залов": {
+    "lemma": "залов",
+    "sentence_ids": [
+      "dia0114"
+    ],
+    "source": "possible"
+  },
+  "парадной": {
+    "lemma": "парадной",
+    "sentence_ids": [
+      "dia0114"
+    ],
+    "source": "possible"
+  },
+  "лестницы": {
+    "lemma": "лестницы",
+    "sentence_ids": [
+      "dia0114"
+    ],
+    "source": "possible"
+  },
+  "дело": {
+    "lemma": "дело",
+    "sentence_ids": [
+      "dia0115"
+    ],
+    "source": "possible"
+  },
+  "поднималась": {
+    "lemma": "поднималась",
+    "sentence_ids": [
+      "dia0115"
+    ],
+    "source": "possible"
+  },
+  "ведром": {
+    "lemma": "ведром",
+    "sentence_ids": [
+      "dia0115"
+    ],
+    "source": "possible"
+  },
+  "тряпкой": {
+    "lemma": "тряпкой",
+    "sentence_ids": [
+      "dia0115"
+    ],
+    "source": "possible"
+  },
+  "вытирать": {
+    "lemma": "вытирать",
+    "sentence_ids": [
+      "dia0115"
+    ],
+    "source": "possible"
+  },
+  "протечки": {
+    "lemma": "протечки",
+    "sentence_ids": [
+      "dia0115"
+    ],
+    "source": "possible"
+  },
+  "угрожавшие": {
+    "lemma": "угрожавшие",
+    "sentence_ids": [
+      "dia0115"
+    ],
+    "source": "possible"
+  },
+  "сохранности": {
+    "lemma": "сохранности",
+    "sentence_ids": [
+      "dia0115"
+    ],
+    "source": "possible"
+  },
+  "произведений": {
+    "lemma": "произведений",
+    "sentence_ids": [
+      "dia0115"
+    ],
+    "source": "possible"
+  },
+  "лишь": {
+    "lemma": "лишь",
+    "sentence_ids": [
+      "dia0116"
+    ],
+    "source": "possible"
+  },
+  "спустя": {
+    "lemma": "спустя",
+    "sentence_ids": [
+      "dia0116"
+    ],
+    "source": "possible"
+  },
+  "несколько": {
+    "lemma": "несколько",
+    "sentence_ids": [
+      "dia0116"
+    ],
+    "source": "possible"
+  },
+  "десятилетий": {
+    "lemma": "десятилетий",
+    "sentence_ids": [
+      "dia0116"
+    ],
+    "source": "possible"
+  },
+  "министр": {
+    "lemma": "министр",
+    "sentence_ids": [
+      "dia0116"
+    ],
+    "source": "possible"
+  },
+  "культуры": {
+    "lemma": "культуры",
+    "sentence_ids": [
+      "dia0116"
+    ],
+    "source": "possible"
+  },
+  "фурцева": {
+    "lemma": "фурцева",
+    "sentence_ids": [
+      "dia0116"
+    ],
+    "source": "possible"
+  },
+  "указанию": {
+    "lemma": "указанию",
+    "sentence_ids": [
+      "dia0116"
+    ],
+    "source": "possible"
+  },
+  "премьера": {
+    "lemma": "премьера",
+    "sentence_ids": [
+      "dia0116"
+    ],
+    "source": "possible"
+  },
+  "косыгина": {
+    "lemma": "косыгина",
+    "sentence_ids": [
+      "dia0116"
+    ],
+    "source": "possible"
+  },
+  "распорядилась": {
+    "lemma": "распорядилась",
+    "sentence_ids": [
+      "dia0116"
+    ],
+    "source": "possible"
+  },
+  "отремонтировать": {
+    "lemma": "отремонтировать",
+    "sentence_ids": [
+      "dia0116"
+    ],
+    "source": "possible"
+  },
+  "плафоны": {
+    "lemma": "плафоны",
+    "sentence_ids": [
+      "dia0116"
+    ],
+    "source": "possible"
+  },
+  "сразу": {
+    "lemma": "сразу",
+    "sentence_ids": [
+      "dia0117"
+    ],
+    "source": "possible"
+  },
+  "пушкинский": {
+    "lemma": "пушкинский",
+    "sentence_ids": [
+      "dia0117"
+    ],
+    "source": "possible"
+  },
+  "был": {
+    "lemma": "был",
+    "sentence_ids": [
+      "dia0117"
+    ],
+    "source": "possible"
+  },
+  "открыт": {
+    "lemma": "открыт",
+    "sentence_ids": [
+      "dia0117"
+    ],
+    "source": "possible"
+  },
+  "широкого": {
+    "lemma": "широкого",
+    "sentence_ids": [
+      "dia0117"
+    ],
+    "source": "possible"
+  },
+  "зрителя": {
+    "lemma": "зрителя",
+    "sentence_ids": [
+      "dia0117"
+    ],
+    "source": "possible"
+  },
+  "музее": {
+    "lemma": "музее",
+    "sentence_ids": [
+      "dia0118"
+    ],
+    "source": "possible"
+  },
+  "образовался": {
+    "lemma": "образовался",
+    "sentence_ids": [
+      "dia0118"
+    ],
+    "source": "possible"
+  },
+  "склад": {
+    "lemma": "склад",
+    "sentence_ids": [
+      "dia0118"
+    ],
+    "source": "possible"
+  },
+  "вернувшихся": {
+    "lemma": "вернувшихся",
+    "sentence_ids": [
+      "dia0118"
+    ],
+    "source": "possible"
+  },
+  "эвакуации": {
+    "lemma": "эвакуации",
+    "sentence_ids": [
+      "dia0118"
+    ],
+    "source": "possible"
+  },
+  "экспонатов": {
+    "lemma": "экспонатов",
+    "sentence_ids": [
+      "dia0118"
+    ],
+    "source": "possible"
+  },
+  "вывезенных": {
+    "lemma": "вывезенных",
+    "sentence_ids": [
+      "dia0118"
+    ],
+    "source": "possible"
+  },
+  "германии": {
+    "lemma": "германии",
+    "sentence_ids": [
+      "dia0118"
+    ],
+    "source": "possible"
+  },
+  "трофейных": {
+    "lemma": "трофейных",
+    "sentence_ids": [
+      "dia0118"
+    ],
+    "source": "possible"
+  },
+  "ценностей": {
+    "lemma": "ценностей",
+    "sentence_ids": [
+      "dia0118"
+    ],
+    "source": "possible"
+  },
+  "подарков": {
+    "lemma": "подарков",
+    "sentence_ids": [
+      "dia0118"
+    ],
+    "source": "possible"
+  },
+  "генералиссимусу": {
+    "lemma": "генералиссимусу",
+    "sentence_ids": [
+      "dia0118"
+    ],
+    "source": "possible"
+  },
+  "сокровища": {
+    "lemma": "сокровища",
+    "sentence_ids": [
+      "dia0119"
+    ],
+    "source": "possible"
+  },
+  "дрезденской": {
+    "lemma": "дрезденской",
+    "sentence_ids": [
+      "dia0119"
+    ],
+    "source": "possible"
+  },
+  "галереи": {
+    "lemma": "галереи",
+    "sentence_ids": [
+      "dia0119"
+    ],
+    "source": "possible"
+  },
+  "включая": {
+    "lemma": "включая",
+    "sentence_ids": [
+      "dia0119"
+    ],
+    "source": "possible"
+  },
+  "сикстинскую": {
+    "lemma": "сикстинскую",
+    "sentence_ids": [
+      "dia0119"
+    ],
+    "source": "possible"
+  },
+  "мадонну": {
+    "lemma": "мадонну",
+    "sentence_ids": [
+      "dia0119"
+    ],
+    "source": "possible"
+  },
+  "рафаэля": {
+    "lemma": "рафаэля",
+    "sentence_ids": [
+      "dia0119"
+    ],
+    "source": "possible"
+  },
+  "хранившиеся": {
+    "lemma": "хранившиеся",
+    "sentence_ids": [
+      "dia0119"
+    ],
+    "source": "possible"
+  },
+  "возвращены": {
+    "lemma": "возвращены",
+    "sentence_ids": [
+      "dia0119"
+    ],
+    "source": "possible"
+  },
+  "гдр": {
+    "lemma": "гдр",
+    "sentence_ids": [
+      "dia0119"
+    ],
+    "source": "possible"
+  },
+  "конце": {
+    "lemma": "конце",
+    "sentence_ids": [
+      "dia0119"
+    ],
+    "source": "possible"
+  },
+  "трофеи": {
+    "lemma": "трофеи",
+    "sentence_ids": [
+      "dia0120"
+    ],
+    "source": "possible"
+  },
+  "хранятся": {
+    "lemma": "хранятся",
+    "sentence_ids": [
+      "dia0120"
+    ],
+    "source": "possible"
+  },
+  "москве": {
+    "lemma": "москве",
+    "sentence_ids": [
+      "dia0120"
+    ],
+    "source": "possible"
+  },
+  "речь": {
+    "lemma": "речь",
+    "sentence_ids": [
+      "dia0121",
+      "dia0144"
+    ],
+    "source": "possible"
+  },
+  "идёт": {
+    "lemma": "идёт",
+    "sentence_ids": [
+      "dia0121"
+    ],
+    "source": "possible"
+  },
+  "древних": {
+    "lemma": "древних",
+    "sentence_ids": [
+      "dia0121"
+    ],
+    "source": "possible"
+  },
+  "находках": {
+    "lemma": "находках",
+    "sentence_ids": [
+      "dia0121"
+    ],
+    "source": "possible"
+  },
+  "шлимана": {
+    "lemma": "шлимана",
+    "sentence_ids": [
+      "dia0121"
+    ],
+    "source": "possible"
+  },
+  "условно": {
+    "lemma": "условно",
+    "sentence_ids": [
+      "dia0121"
+    ],
+    "source": "possible"
+  },
+  "именуемых": {
+    "lemma": "именуемых",
+    "sentence_ids": [
+      "dia0121"
+    ],
+    "source": "possible"
+  },
+  "кладом": {
+    "lemma": "кладом",
+    "sentence_ids": [
+      "dia0121"
+    ],
+    "source": "possible"
+  },
+  "троянского": {
+    "lemma": "троянского",
+    "sentence_ids": [
+      "dia0121"
+    ],
+    "source": "possible"
+  },
+  "царя": {
+    "lemma": "царя",
+    "sentence_ids": [
+      "dia0121"
+    ],
+    "source": "possible"
+  },
+  "приама": {
+    "lemma": "приама",
+    "sentence_ids": [
+      "dia0121"
+    ],
+    "source": "possible"
+  },
+  "хотя": {
+    "lemma": "хотя",
+    "sentence_ids": [
+      "dia0121"
+    ],
+    "source": "possible"
+  },
+  "эти": {
+    "lemma": "эти",
+    "sentence_ids": [
+      "dia0121"
+    ],
+    "source": "possible"
+  },
+  "памятники": {
+    "lemma": "памятники",
+    "sentence_ids": [
+      "dia0121"
+    ],
+    "source": "possible"
+  },
+  "тысячу": {
+    "lemma": "тысячу",
+    "sentence_ids": [
+      "dia0121"
+    ],
+    "source": "possible"
+  },
+  "старше": {
+    "lemma": "старше",
+    "sentence_ids": [
+      "dia0121"
+    ],
+    "source": "possible"
+  },
+  "последние": {
+    "lemma": "последние",
+    "sentence_ids": [
+      "dia0123"
+    ],
+    "source": "possible"
+  },
+  "расширяется": {
+    "lemma": "расширяется",
+    "sentence_ids": [
+      "dia0123"
+    ],
+    "source": "possible"
+  },
+  "передали": {
+    "lemma": "передали",
+    "sentence_ids": [
+      "dia0124"
+    ],
+    "source": "possible"
+  },
+  "соседние": {
+    "lemma": "соседние",
+    "sentence_ids": [
+      "dia0124"
+    ],
+    "source": "possible"
+  },
+  "особняки": {
+    "lemma": "особняки",
+    "sentence_ids": [
+      "dia0124"
+    ],
+    "source": "possible"
+  },
+  "предполагают": {
+    "lemma": "предполагают",
+    "sentence_ids": [
+      "dia0125"
+    ],
+    "source": "possible"
+  },
+  "соединить": {
+    "lemma": "соединить",
+    "sentence_ids": [
+      "dia0125"
+    ],
+    "source": "possible"
+  },
+  "здания": {
+    "lemma": "здания",
+    "sentence_ids": [
+      "dia0125"
+    ],
+    "source": "possible"
+  },
+  "музейного": {
+    "lemma": "музейного",
+    "sentence_ids": [
+      "dia0125"
+    ],
+    "source": "possible"
+  },
+  "городка": {
+    "lemma": "городка",
+    "sentence_ids": [
+      "dia0125"
+    ],
+    "source": "possible"
+  },
+  "подземными": {
+    "lemma": "подземными",
+    "sentence_ids": [
+      "dia0125"
+    ],
+    "source": "possible"
+  },
+  "переходами": {
+    "lemma": "переходами",
+    "sentence_ids": [
+      "dia0125"
+    ],
+    "source": "possible"
+  },
+  "появится": {
+    "lemma": "появится",
+    "sentence_ids": [
+      "dia0126"
+    ],
+    "source": "possible"
+  },
+  "шанс": {
+    "lemma": "шанс",
+    "sentence_ids": [
+      "dia0126"
+    ],
+    "source": "possible"
+  },
+  "превратиться": {
+    "lemma": "превратиться",
+    "sentence_ids": [
+      "dia0126"
+    ],
+    "source": "possible"
+  },
+  "один": {
+    "lemma": "один",
+    "sentence_ids": [
+      "dia0126"
+    ],
+    "source": "possible"
+  },
+  "крупнейших": {
+    "lemma": "крупнейших",
+    "sentence_ids": [
+      "dia0126"
+    ],
+    "source": "possible"
+  },
+  "мире": {
+    "lemma": "мире",
+    "sentence_ids": [
+      "dia0126"
+    ],
+    "source": "possible"
+  },
+  "музейных": {
+    "lemma": "музейных",
+    "sentence_ids": [
+      "dia0126"
+    ],
+    "source": "possible"
+  },
+  "комплексов": {
+    "lemma": "комплексов",
+    "sentence_ids": [
+      "dia0126"
+    ],
+    "source": "possible"
+  },
+  "алексей": {
+    "lemma": "алексей",
+    "sentence_ids": [
+      "dia0130",
+      "dia0131"
+    ],
+    "source": "possible"
+  },
+  "получает": {
+    "lemma": "получает",
+    "sentence_ids": [
+      "dia0130"
+    ],
+    "source": "possible"
+  },
+  "информацию": {
+    "lemma": "информацию",
+    "sentence_ids": [
+      "dia0130"
+    ],
+    "source": "possible"
+  },
+  "задание": {
+    "lemma": "задание",
+    "sentence_ids": [
+      "dia0131"
+    ],
+    "source": "possible"
+  },
+  "мнение": {
+    "lemma": "мнение",
+    "sentence_ids": [
+      "dia0132",
+      "dia0135"
+    ],
+    "source": "possible"
+  },
+  "собеседника": {
+    "lemma": "собеседника",
+    "sentence_ids": [
+      "dia0132",
+      "dia0135"
+    ],
+    "source": "possible"
+  },
+  "алексея": {
+    "lemma": "алексея",
+    "sentence_ids": [
+      "dia0132",
+      "dia0134",
+      "dia0135"
+    ],
+    "source": "possible"
+  },
+  "ситуация": {
+    "lemma": "ситуация",
+    "sentence_ids": [
+      "dia0133",
+      "dia0136"
+    ],
+    "source": "possible"
+  },
+  "характерна": {
+    "lemma": "характерна",
+    "sentence_ids": [
+      "dia0133",
+      "dia0136"
+    ],
+    "source": "possible"
+  },
+  "собеседник": {
+    "lemma": "собеседник",
+    "sentence_ids": [
+      "dia0134"
+    ],
+    "source": "possible"
+  },
+  "действиям": {
+    "lemma": "действиям",
+    "sentence_ids": [
+      "dia0134"
+    ],
+    "source": "possible"
+  },
+  "относится": {
+    "lemma": "относится",
+    "sentence_ids": [
+      "dia0134"
+    ],
+    "source": "possible"
+  },
+  "слышал": {
+    "lemma": "слышал",
+    "sentence_ids": [
+      "dia0137"
+    ],
+    "source": "possible"
+  },
+  "оборудование": {
+    "lemma": "оборудование",
+    "sentence_ids": [
+      "dia0137"
+    ],
+    "source": "possible"
+  },
+  "новое": {
+    "lemma": "новое",
+    "sentence_ids": [
+      "dia0137"
+    ],
+    "source": "possible"
+  },
+  "пришло": {
+    "lemma": "пришло",
+    "sentence_ids": [
+      "dia0137"
+    ],
+    "source": "possible"
+  },
+  "вот": {
+    "lemma": "вот",
+    "sentence_ids": [
+      "dia0138"
+    ],
+    "source": "possible"
+  },
+  "зашёл": {
+    "lemma": "зашёл",
+    "sentence_ids": [
+      "dia0138"
+    ],
+    "source": "possible"
+  },
+  "форум": {
+    "lemma": "форум",
+    "sentence_ids": [
+      "dia0138"
+    ],
+    "source": "possible"
+  },
+  "самому": {
+    "lemma": "самому",
+    "sentence_ids": [
+      "dia0138"
+    ],
+    "source": "possible"
+  },
+  "же": {
+    "lemma": "же",
+    "sentence_ids": [
+      "dia0138",
+      "dia0145"
+    ],
+    "source": "possible"
+  },
+  "нереально": {
+    "lemma": "нереально",
+    "sentence_ids": [
+      "dia0138"
+    ],
+    "source": "possible"
+  },
+  "всё": {
+    "lemma": "всё",
+    "sentence_ids": [
+      "dia0138"
+    ],
+    "source": "possible"
+  },
+  "протестировать": {
+    "lemma": "протестировать",
+    "sentence_ids": [
+      "dia0138"
+    ],
+    "source": "possible"
+  },
+  "есть": {
+    "lemma": "есть",
+    "sentence_ids": [
+      "dia0139"
+    ],
+    "source": "possible"
+  },
+  "настроение": {
+    "lemma": "настроение",
+    "sentence_ids": [
+      "dia0139"
+    ],
+    "source": "possible"
+  },
+  "ответят": {
+    "lemma": "ответят",
+    "sentence_ids": [
+      "dia0139"
+    ],
+    "source": "possible"
+  },
+  "нет": {
+    "lemma": "нет",
+    "sentence_ids": [
+      "dia0139",
+      "dia0141",
+      "dia0146"
+    ],
+    "source": "possible"
+  },
+  "даже": {
+    "lemma": "даже",
+    "sentence_ids": [
+      "dia0139"
+    ],
+    "source": "possible"
+  },
+  "зайдут": {
+    "lemma": "зайдут",
+    "sentence_ids": [
+      "dia0139"
+    ],
+    "source": "possible"
+  },
+  "так": {
+    "lemma": "так",
+    "sentence_ids": [
+      "dia0140"
+    ],
+    "source": "possible"
+  },
+  "особо": {
+    "lemma": "особо",
+    "sentence_ids": [
+      "dia0140"
+    ],
+    "source": "possible"
+  },
+  "рассчитывай": {
+    "lemma": "рассчитывай",
+    "sentence_ids": [
+      "dia0140"
+    ],
+    "source": "possible"
+  },
+  "да": {
+    "lemma": "да",
+    "sentence_ids": [
+      "dia0141"
+    ],
+    "source": "possible"
+  },
+  "себе": {
+    "lemma": "себе",
+    "sentence_ids": [
+      "dia0141"
+    ],
+    "source": "possible"
+  },
+  "знаю": {
+    "lemma": "знаю",
+    "sentence_ids": [
+      "dia0141"
+    ],
+    "source": "possible"
+  },
+  "дорога": {
+    "lemma": "дорога",
+    "sentence_ids": [
+      "dia0141"
+    ],
+    "source": "possible"
+  },
+  "любая": {
+    "lemma": "любая",
+    "sentence_ids": [
+      "dia0141"
+    ],
+    "source": "possible"
+  },
+  "разговоре": {
+    "lemma": "разговоре",
+    "sentence_ids": [
+      "dia0142"
+    ],
+    "source": "possible"
+  },
+  "подругой": {
+    "lemma": "подругой",
+    "sentence_ids": [
+      "dia0142"
+    ],
+    "source": "possible"
+  },
+  "светлана": {
+    "lemma": "светлана",
+    "sentence_ids": [
+      "dia0142"
+    ],
+    "source": "possible"
+  },
+  "светланы": {
+    "lemma": "светланы",
+    "sentence_ids": [
+      "dia0143",
+      "dia0144"
+    ],
+    "source": "possible"
+  },
+  "следует": {
+    "lemma": "следует",
+    "sentence_ids": [
+      "dia0143"
+    ],
+    "source": "possible"
+  },
+  "характеризует": {
+    "lemma": "характеризует",
+    "sentence_ids": [
+      "dia0144"
+    ],
+    "source": "possible"
+  },
+  "её": {
+    "lemma": "её",
+    "sentence_ids": [
+      "dia0144"
+    ],
+    "source": "possible"
+  },
+  "устала": {
+    "lemma": "устала",
+    "sentence_ids": [
+      "dia0145"
+    ],
+    "source": "possible"
+  },
+  "света": {
+    "lemma": "света",
+    "sentence_ids": [
+      "dia0145"
+    ],
+    "source": "possible"
+  },
+  "сил": {
+    "lemma": "сил",
+    "sentence_ids": [
+      "dia0146"
+    ],
+    "source": "possible"
+  },
+  "моих": {
+    "lemma": "моих",
+    "sentence_ids": [
+      "dia0146"
+    ],
+    "source": "possible"
+  },
+  "больше": {
+    "lemma": "больше",
+    "sentence_ids": [
+      "dia0146"
+    ],
+    "source": "possible"
+  },
+  "одна": {
+    "lemma": "одна",
+    "sentence_ids": [
+      "dia0147"
+    ],
+    "source": "possible"
+  },
+  "сплошная": {
+    "lemma": "сплошная",
+    "sentence_ids": [
+      "dia0147"
+    ],
+    "source": "possible"
+  },
+  "работа": {
+    "lemma": "работа",
+    "sentence_ids": [
+      "dia0147"
+    ],
+    "source": "possible"
+  },
+  "сейчас": {
+    "lemma": "сейчас",
+    "sentence_ids": [
+      "dia0148"
+    ],
+    "source": "possible"
+  },
+  "отпуск": {
+    "lemma": "отпуск",
+    "sentence_ids": [
+      "dia0148"
+    ],
+    "source": "possible"
+  },
+  "наслаждаюсь": {
+    "lemma": "наслаждаюсь",
+    "sentence_ids": [
+      "dia0149"
+    ],
+    "source": "possible"
+  },
+  "жизнью": {
+    "lemma": "жизнью",
+    "sentence_ids": [
+      "dia0149"
+    ],
+    "source": "possible"
+  },
+  "читаю": {
+    "lemma": "читаю",
+    "sentence_ids": [
+      "dia0149"
+    ],
+    "source": "possible"
+  },
+  "гуляю": {
+    "lemma": "гуляю",
+    "sentence_ids": [
+      "dia0149"
+    ],
+    "source": "possible"
+  },
+  "вчера": {
+    "lemma": "вчера",
+    "sentence_ids": [
+      "dia0150"
+    ],
+    "source": "possible"
+  },
+  "ходила": {
+    "lemma": "ходила",
+    "sentence_ids": [
+      "dia0150"
+    ],
+    "source": "possible"
+  },
+  "вернисаж": {
+    "lemma": "вернисаж",
+    "sentence_ids": [
+      "dia0150"
+    ],
+    "source": "possible"
+  },
+  "ты": {
+    "lemma": "ты",
+    "sentence_ids": [
+      "dia0152"
+    ],
+    "source": "possible"
+  },
+  "знаешь": {
+    "lemma": "знаешь",
+    "sentence_ids": [
+      "dia0152"
+    ],
+    "source": "possible"
+  },
+  "удивление": {
+    "lemma": "удивление",
+    "sentence_ids": [
+      "dia0152"
+    ],
+    "source": "possible"
+  },
+  "интересные": {
+    "lemma": "интересные",
+    "sentence_ids": [
+      "dia0152"
+    ],
+    "source": "possible"
+  },
+  "особенно": {
+    "lemma": "особенно",
+    "sentence_ids": [
+      "dia0153"
+    ],
+    "source": "possible"
+  },
+  "бурятии": {
+    "lemma": "бурятии",
+    "sentence_ids": [
+      "dia0153"
     ],
     "source": "possible"
   }
