@@ -1,0 +1,15 @@
+{
+  "run_id": "run-20260606-002",
+  "started_at": "2026-06-06T11:00:00",
+  "target_hours": 4,
+  "objective": "全量句子质量审计 + 翻译队列生成 + 验证脚本",
+  "tasks": {
+    "quality_audit": "DONE",
+    "add_quality_fields": "DONE",
+    "translation_queue": "DONE",
+    "fix_source_packages": "DONE",
+    "validation_scripts": "DONE"
+  },
+  "last_validate_status": "PASS",
+  "final_report_written": true
+}
