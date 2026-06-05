@@ -4,12 +4,21 @@
   "target_hours": 8,
   "target_min_success": 5,
   "target_stretch_success": 8,
-  "successful_imports": 0,
+  "successful_imports": 8,
   "failed_sources": 0,
   "current_source_id": null,
-  "last_validate_status": "PENDING",
-  "final_report_written": false,
-  "success_list": [],
+  "last_validate_status": "PASS",
+  "final_report_written": true,
+  "success_list": [
+    "diag-0011",
+    "diag-0002",
+    "diag-0009",
+    "diag-0010",
+    "diag-0001",
+    "diag-0029",
+    "diag-0006",
+    "diag-0008"
+  ],
   "failed_list": [],
   "pending_translation_list": []
 }
