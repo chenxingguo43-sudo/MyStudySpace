@@ -62,18 +62,19 @@ def has_cjk_mojibake(text):
 
 
 def has_garbled_zh(text):
-    """检测中文翻译是否为乱码"""
+    """检测中文翻译是否为乱码 (只检测 UTF-8-as-GBK 模式)"""
     if not text:
         return False
-    # 检查是否有常见 mojibake 模式
-    garbled_patterns = ['鍦', '紬', '绋', '紓', '绋', '鎮', 'ㄥ', '鏂']
+    garbled_patterns = ['鍦', '紬', '绋', '紓', '鎮', '鏂']
     for p in garbled_patterns:
         if p in text:
             return True
-    # CJK 字符占比异常低（应该有大量 CJK）
-    cjk = sum(1 for c in text if 0x4E00 <= ord(c) <= 0x9FFF)
-    if len(text) > 10 and cjk / len(text) < 0.05:
-        return True
+    # CJK 字符占比异常低（排除标点、空白、Cyrillic 后计算）
+    alpha = [c for c in text if c.strip() and not (0x20 <= ord(c) <= 0x7E) and not (0x3000 <= ord(c) <= 0x303F) and not (0xFF00 <= ord(c) <= 0xFFEF) and not (0x0400 <= ord(c) <= 0x04FF)]
+    if alpha:
+        cjk = sum(1 for c in alpha if 0x4E00 <= ord(c) <= 0x9FFF)
+        if len(alpha) > 5 and cjk / len(alpha) < 0.1:
+            return True
     return False
 
 
