@@ -1,0 +1,802 @@
+[
+  {
+    "sentence_id": "ex-000001",
+    "source_id": "diag-0020",
+    "source_title": "《穆罗姆学习手册》：语法详解与单词清单",
+    "source_path": "E:\\Desktop\\俄语资料文档整理\\《穆罗姆学习手册》：语法详解与单词清单.pdf",
+    "page_number": 1,
+    "ru": "Гуляя по городу, не веришь, что несколько лет назад старинные храмы, которыми знаменит Муром, были в плачевном состоянии.",
+    "zh": "当你漫步在城里时，你不相信几年前穆罗姆闻名的古老教堂还处于破败的状态。",
+    "grammar_tags": [
+      "副动词",
+      "关系从句"
+    ],
+    "surface_forms": [
+      "Гуляя",
+      "веришь",
+      "были"
+    ],
+    "lexeme_tags": [
+      "гулять",
+      "верить",
+      "быть"
+    ],
+    "possible_lexemes": [
+      "знаменитый"
+    ],
+    "confidence": "medium",
+    "needs_review": true,
+    "note": "зна́менит的词性标注不确定——是短尾形容词还是特殊形式？需要确认",
+    "extraction": {
+      "method": "pymupdf",
+      "candidate_id": "cand-0002",
+      "match_type": "candidate_in_example",
+      "score": 0.9,
+      "risk": "low",
+      "candidate_ru": "Гуляя по городу, не веришь, что несколько"
+    }
+  },
+  {
+    "sentence_id": "ex-000002",
+    "source_id": "diag-0020",
+    "source_title": "《穆罗姆学习手册》：语法详解与单词清单",
+    "source_path": "E:\\Desktop\\俄语资料文档整理\\《穆罗姆学习手册》：语法详解与单词清单.pdf",
+    "page_number": 3,
+    "ru": "В самом древнем на Руси Спасском монастыре, основанном в 1096 году, квартировала воинская часть.",
+    "zh": "在古俄罗斯最古老的、建于1096年的斯帕斯基修道院里，曾经驻扎过军队。",
+    "grammar_tags": [
+      "被动形动词",
+      "前置格",
+      "过去时"
+    ],
+    "surface_forms": [
+      "основанном",
+      "квартировала"
+    ],
+    "lexeme_tags": [
+      "основать",
+      "квартировать"
+    ],
+    "possible_lexemes": [],
+    "confidence": "high",
+    "needs_review": false,
+    "note": "основанном为被动形动词前置格，与монастыре性数格一致；квартировать为较少用动词，确认原形",
+    "extraction": {
+      "method": "pymupdf",
+      "candidate_id": "cand-0021",
+      "match_type": "prefix_match",
+      "score": 0.85,
+      "risk": "medium",
+      "candidate_ru": "2.В самом древнем на Руси Спасском монастыре, основанном в 1096году, квартировала воинская часть."
+    }
+  },
+  {
+    "sentence_id": "ex-000003",
+    "source_id": "diag-0020",
+    "source_title": "《穆罗姆学习手册》：语法详解与单词清单",
+    "source_path": "E:\\Desktop\\俄语资料文档整理\\《穆罗姆学习手册》：语法详解与单词清单.pdf",
+    "page_number": 2,
+    "ru": "Входишь на территорию — и будто оказался среди декораций фильма о первозданной Руси.",
+    "zh": "一踏入修道院的领地，你就仿佛置身于讲述古俄罗斯的电影布景之中。",
+    "grammar_tags": [
+      "连接词будто"
+    ],
+    "surface_forms": [
+      "Входишь",
+      "оказался"
+    ],
+    "lexeme_tags": [
+      "входить",
+      "оказаться"
+    ],
+    "possible_lexemes": [],
+    "confidence": "high",
+    "needs_review": false,
+    "note": "будто表示仿佛，用于比喻",
+    "extraction": {
+      "method": "pymupdf",
+      "candidate_id": "cand-0006",
+      "match_type": "keyword_match",
+      "score": 0.6,
+      "risk": "medium",
+      "candidate_ru": "Входишь на территорию -и будто оказался среди декораций фильма о первозданной Руси."
+    }
+  },
+  {
+    "sentence_id": "ex-000004",
+    "source_id": "diag-0020",
+    "source_title": "《穆罗姆学习手册》：语法详解与单词清单",
+    "source_path": "E:\\Desktop\\俄语资料文档整理\\《穆罗姆学习手册》：语法详解与单词清单.pdf",
+    "page_number": 3,
+    "ru": "В центре монастыря — громадина Спасо-Преображенского собора, вокруг — церквушки поменьше.",
+    "zh": "修道院的中心，是宏伟的斯帕索-普列奥布拉任斯基大教堂，周围环绕着几座规模更小的小教堂。",
+    "grammar_tags": [
+      "比较级"
+    ],
+    "surface_forms": [
+      "поменьше"
+    ],
+    "lexeme_tags": [
+      "маленький"
+    ],
+    "possible_lexemes": [
+      "помаленьку"
+    ],
+    "confidence": "medium",
+    "needs_review": true,
+    "note": "поменьше是形容词比较级特殊形式，原形归属不确定",
+    "extraction": {
+      "method": "pymupdf",
+      "candidate_id": "cand-0039",
+      "match_type": "candidate_in_example",
+      "score": 0.9,
+      "risk": "low",
+      "candidate_ru": "Спасо-Преображенского"
+    }
+  },
+  {
+    "sentence_id": "ex-000005",
+    "source_id": "diag-0020",
+    "source_title": "《穆罗姆学习手册》：语法详解与单词清单",
+    "source_path": "E:\\Desktop\\俄语资料文档整理\\《穆罗姆学习手册》：语法详解与单词清单.pdf",
+    "page_number": 4,
+    "ru": "И везде опрятные газоны, клумбы — в напоминание о том, что богоугодные заведения были центрами образовательного земледелия.",
+    "zh": "到处都是整洁的草坪和花坛——这也证明，在古俄罗斯，这些宗教场所曾是教育式农耕的中心。",
+    "grammar_tags": [
+      "说明从句"
+    ],
+    "surface_forms": [
+      "опрятные",
+      "были"
+    ],
+    "lexeme_tags": [
+      "опрятный",
+      "быть"
+    ],
+    "possible_lexemes": [],
+    "confidence": "medium",
+    "needs_review": true,
+    "note": "богоугодные的翻译不确定——原文译为宗教场所，但字面意思是慈善/敬神的",
+    "extraction": {
+      "method": "pymupdf",
+      "candidate_id": "cand-0042",
+      "match_type": "keyword_match",
+      "score": 0.6,
+      "risk": "medium",
+      "candidate_ru": "И вездеопрятные газоны, клумбы -в напоминаниео том, что богоугодные заведения были центрами образовательного земледелия."
+    }
+  },
+  {
+    "sentence_id": "ex-000006",
+    "source_id": "diag-0020",
+    "source_title": "《穆罗姆学习手册》：语法详解与单词清单",
+    "source_path": "E:\\Desktop\\俄语资料文档整理\\《穆罗姆学习手册》：语法详解与单词清单.pdf",
+    "page_number": 5,
+    "ru": "На досках читаем имена тех, кто жертвовал средства на реставрацию монастыря и других памятников старины.",
+    "zh": "在木板上，我们可以看到那些为修道院和其他古迹的修复捐赠资金的人的名字。",
+    "grammar_tags": [
+      "关系从句",
+      "动词接格"
+    ],
+    "surface_forms": [
+      "жертвовал",
+      "читаем"
+    ],
+    "lexeme_tags": [
+      "жертвовать",
+      "читать"
+    ],
+    "possible_lexemes": [],
+    "confidence": "high",
+    "needs_review": false,
+    "note": "жертвовать средства на что为固定搭配，确定",
+    "extraction": {
+      "method": "pymupdf",
+      "candidate_id": "cand-0062",
+      "match_type": "exact_normalized",
+      "score": 1.0,
+      "risk": "low",
+      "candidate_ru": "На досках читаем имена тех, кто жертвовал средства на реставрацию монастыря и других памятников старины."
+    }
+  },
+  {
+    "sentence_id": "ex-000007",
+    "source_id": "diag-0020",
+    "source_title": "《穆罗姆学习手册》：语法详解与单词清单",
+    "source_path": "E:\\Desktop\\俄语资料文档整理\\《穆罗姆学习手册》：语法详解与单词清单.pdf",
+    "page_number": 27,
+    "ru": "Многие фамилии есть в списке ста самых богатых людей России, публикуемом журналом «Форбс».",
+    "zh": "其中很多人的姓氏都出现在《福布斯》杂志发布的俄罗斯百大富豪名单上。",
+    "grammar_tags": [
+      "被动形动词"
+    ],
+    "surface_forms": [
+      "публикуемом"
+    ],
+    "lexeme_tags": [
+      "публиковать"
+    ],
+    "possible_lexemes": [],
+    "confidence": "high",
+    "needs_review": false,
+    "note": "публикуемом为现在时被动形动词前置格，确定",
+    "extraction": {
+      "method": "pymupdf",
+      "candidate_id": "cand-0393",
+      "match_type": "candidate_in_example",
+      "score": 0.9,
+      "risk": "low",
+      "candidate_ru": "в списке ста самых богатых людей"
+    }
+  },
+  {
+    "sentence_id": "ex-000008",
+    "source_id": "diag-0020",
+    "source_title": "《穆罗姆学习手册》：语法详解与单词清单",
+    "source_path": "E:\\Desktop\\俄语资料文档整理\\《穆罗姆学习手册》：语法详解与单词清单.pdf",
+    "page_number": 7,
+    "ru": "Муромчане гордятся своими знаменитыми земляками.",
+    "zh": "穆罗姆人为他们著名的同乡感到骄傲。",
+    "grammar_tags": [
+      "动词接格",
+      "工具格"
+    ],
+    "surface_forms": [
+      "гордятся",
+      "земляками"
+    ],
+    "lexeme_tags": [
+      "гордиться",
+      "земляк"
+    ],
+    "possible_lexemes": [],
+    "confidence": "high",
+    "needs_review": false,
+    "note": "гордиться кем-чем为B1必考动词搭配，确定",
+    "extraction": {
+      "method": "pymupdf",
+      "candidate_id": "cand-0087",
+      "match_type": "exact_normalized",
+      "score": 1.0,
+      "risk": "low",
+      "candidate_ru": "Муромчане гордятся своими знаменитыми земляками."
+    }
+  },
+  {
+    "sentence_id": "ex-000009",
+    "source_id": "diag-0020",
+    "source_title": "《穆罗姆学习手册》：语法详解与单词清单",
+    "source_path": "E:\\Desktop\\俄语资料文档整理\\《穆罗姆学习手册》：语法详解与单词清单.pdf",
+    "page_number": 7,
+    "ru": "После революции уехал в Америку, где и изобрёл кинокамеру.",
+    "zh": "十月革命后，他前往美国，并在那里发明了电影摄影机。",
+    "grammar_tags": [
+      "完成体动词"
+    ],
+    "surface_forms": [
+      "уехал",
+      "изобрёл"
+    ],
+    "lexeme_tags": [
+      "уехать",
+      "изобрести"
+    ],
+    "possible_lexemes": [],
+    "confidence": "high",
+    "needs_review": false,
+    "note": "изобрести为完成体动词，原形确定",
+    "extraction": {
+      "method": "pymupdf",
+      "candidate_id": "cand-0092",
+      "match_type": "candidate_in_example",
+      "score": 0.9,
+      "risk": "low",
+      "candidate_ru": "После революции уехал в"
+    }
+  },
+  {
+    "sentence_id": "ex-000010",
+    "source_id": "diag-0020",
+    "source_title": "《穆罗姆学习手册》：语法详解与单词清单",
+    "source_path": "E:\\Desktop\\俄语资料文档整理\\《穆罗姆学习手册》：语法详解与单词清单.pdf",
+    "page_number": 7,
+    "ru": "Ему только казалось, что это тайна, американского туриста всю дорогу вели сотрудники КГБ.",
+    "zh": "他以为的秘密其实并不算秘密——这位美国游客全程都有克格勃的工作人员跟踪。",
+    "grammar_tags": [
+      "无人称动词"
+    ],
+    "surface_forms": [
+      "казалось",
+      "вели"
+    ],
+    "lexeme_tags": [
+      "казаться",
+      "вести"
+    ],
+    "possible_lexemes": [],
+    "confidence": "high",
+    "needs_review": false,
+    "note": "казалось为过去时中性；вели为вести的过去时复数，确定",
+    "extraction": {
+      "method": "pymupdf",
+      "candidate_id": "cand-0095",
+      "match_type": "keyword_match",
+      "score": 0.6,
+      "risk": "medium",
+      "candidate_ru": "Правда, ему только казалось, что это тайна, американского туриста всю дорогу вели сотрудники КГБ."
+    }
+  },
+  {
+    "sentence_id": "ex-000011",
+    "source_id": "diag-0020",
+    "source_title": "《穆罗姆学习手册》：语法详解与单词清单",
+    "source_path": "E:\\Desktop\\俄语资料文档整理\\《穆罗姆学习手册》：语法详解与单词清单.pdf",
+    "page_number": 10,
+    "ru": "За свои богатые коллекции, насчитывающие 87 000 экспонатов, музей получил уважительное название «Малый Эрмитаж».",
+    "zh": "凭借总计8.7万件展品的丰富馆藏，这座博物馆获得了小冬宫的尊称。",
+    "grammar_tags": [
+      "主动形动词"
+    ],
+    "surface_forms": [
+      "насчитывающие",
+      "получил"
+    ],
+    "lexeme_tags": [
+      "насчитывать",
+      "получить"
+    ],
+    "possible_lexemes": [],
+    "confidence": "high",
+    "needs_review": false,
+    "note": "насчитывающие为主动形动词复数，确定",
+    "extraction": {
+      "method": "pymupdf",
+      "candidate_id": "cand-0140",
+      "match_type": "prefix_match",
+      "score": 0.85,
+      "risk": "medium",
+      "candidate_ru": "á句语*+标⻩⽣词À\u0002 1.За свои богатые коллекции, насчитывающие 87 000 экспонатов, музей получилуважительноеназвание \"Малый Эрмитаж\"."
+    }
+  },
+  {
+    "sentence_id": "ex-000012",
+    "source_id": "diag-0020",
+    "source_title": "《穆罗姆学习手册》：语法详解与单词清单",
+    "source_path": "E:\\Desktop\\俄语资料文档整理\\《穆罗姆学习手册》：语法详解与单词清单.pdf",
+    "page_number": 11,
+    "ru": "Неизменный интерес посетителей вызывает фрагмент крестьянской избы с надлежащей утварью: печь, прялка, глиняной и деревянной посудой.",
+    "zh": "始终引起游客兴趣的，是一个配有齐全生活器具的农民木屋展区：炉灶、纺车、陶制和木制的器皿。",
+    "grammar_tags": [
+      "倒装句",
+      "工具格"
+    ],
+    "surface_forms": [
+      "вызывает",
+      "надлежащей"
+    ],
+    "lexeme_tags": [
+      "вызывать",
+      "надлежащий"
+    ],
+    "possible_lexemes": [],
+    "confidence": "high",
+    "needs_review": false,
+    "note": "倒装句，正常语序为Фрагмент избы вызывает интерес",
+    "extraction": {
+      "method": "pymupdf",
+      "candidate_id": "cand-0158",
+      "match_type": "exact_normalized",
+      "score": 1.0,
+      "risk": "low",
+      "candidate_ru": "Неизменный интерес посетителей вызывает фрагмент крестьянской избы с надлежащей утварью: печь, прялка, глиняной и деревянной посудой."
+    }
+  },
+  {
+    "sentence_id": "ex-000013",
+    "source_id": "diag-0020",
+    "source_title": "《穆罗姆学习手册》：语法详解与单词清单",
+    "source_path": "E:\\Desktop\\俄语资料文档整理\\《穆罗姆学习手册》：语法详解与单词清单.pdf",
+    "page_number": 12,
+    "ru": "На столе лежит полотенце с вышитой на нём забавной надписью.",
+    "zh": "桌子上放着一条毛巾，上面绣着一句有趣的话。",
+    "grammar_tags": [
+      "被动形动词",
+      "工具格"
+    ],
+    "surface_forms": [
+      "лежит",
+      "вышитой",
+      "надписью"
+    ],
+    "lexeme_tags": [
+      "лежать",
+      "вышитый",
+      "надпись"
+    ],
+    "possible_lexemes": [],
+    "confidence": "high",
+    "needs_review": false,
+    "note": "с вышитой надписью为工具格结构，确定",
+    "extraction": {
+      "method": "pymupdf",
+      "candidate_id": "cand-0181",
+      "match_type": "substring",
+      "score": 0.95,
+      "risk": "low",
+      "candidate_ru": "￮标⻩⽣词деревянной：形\b词，⽊制的，阴性áö格， 饰посудой 2.На столе лежит полотенце с вышитой на нём забавной надписью..."
+    }
+  },
+  {
+    "sentence_id": "ex-000014",
+    "source_id": "diag-0020",
+    "source_title": "《穆罗姆学习手册》：语法详解与单词清单",
+    "source_path": "E:\\Desktop\\俄语资料文档整理\\《穆罗姆学习手册》：语法详解与单词清单.pdf",
+    "page_number": 13,
+    "ru": "Также вниманию гостей предлагается мужская и женская одежда, сшитая вручную, орудия земледелия.",
+    "zh": "同时，馆内还向游客展示手工缝制的男女服饰、农耕工具。",
+    "grammar_tags": [
+      "被动结构"
+    ],
+    "surface_forms": [
+      "предлагается",
+      "сшитая"
+    ],
+    "lexeme_tags": [
+      "предлагать",
+      "сшитый"
+    ],
+    "possible_lexemes": [],
+    "confidence": "high",
+    "needs_review": false,
+    "note": "предлагается为被动形式，确定",
+    "extraction": {
+      "method": "pymupdf",
+      "candidate_id": "cand-0193",
+      "match_type": "substring",
+      "score": 0.95,
+      "risk": "low",
+      "candidate_ru": "3.Также вниманию гостей предлагается мужская и женская одежда, сшитая вручную, орудия земледелия (плуги и косы), фрагмент первого муромского водопровода, высеченного из ствола дерева, старинный велосипед 1880 года."
+    }
+  },
+  {
+    "sentence_id": "ex-000015",
+    "source_id": "diag-0020",
+    "source_title": "《穆罗姆学习手册》：语法详解与单词清单",
+    "source_path": "E:\\Desktop\\俄语资料文档整理\\《穆罗姆学习手册》：语法详解与单词清单.pdf",
+    "page_number": 11,
+    "ru": "В музее воссоздан фрагмент интерьера купеческой лавки, где «продаются» изысканные кружева, перчатки, духи, фарфор и прочее.",
+    "zh": "博物馆还复原了一间商人店铺的室内场景，里面出售着精致的蕾丝、手套、香水、瓷器等等物品。",
+    "grammar_tags": [
+      "被动形动词"
+    ],
+    "surface_forms": [
+      "воссоздан",
+      "продаются"
+    ],
+    "lexeme_tags": [
+      "воссоздать",
+      "продавать"
+    ],
+    "possible_lexemes": [],
+    "confidence": "high",
+    "needs_review": false,
+    "note": "воссоздан为被动形动词短尾，确定",
+    "extraction": {
+      "method": "pymupdf",
+      "candidate_id": "cand-0165",
+      "match_type": "candidate_in_example",
+      "score": 0.9,
+      "risk": "low",
+      "candidate_ru": "кружева, перчатки, духи, фарфор и прочее."
+    }
+  },
+  {
+    "sentence_id": "ex-000016",
+    "source_id": "diag-0020",
+    "source_title": "《穆罗姆学习手册》：语法详解与单词清单",
+    "source_path": "E:\\Desktop\\俄语资料文档整理\\《穆罗姆学习手册》：语法详解与单词清单.pdf",
+    "page_number": 15,
+    "ru": "Третий этаж дома Зворыкиных занимает экспозиция «Древнерусское церковное искусство».",
+    "zh": "兹沃雷金故居的三楼，是古俄罗斯宗教艺术展区。",
+    "grammar_tags": [
+      "动词接格"
+    ],
+    "surface_forms": [
+      "занимает"
+    ],
+    "lexeme_tags": [
+      "занимать"
+    ],
+    "possible_lexemes": [],
+    "confidence": "high",
+    "needs_review": false,
+    "note": "занимать+第四格表示占据，确定",
+    "extraction": {
+      "method": "pymupdf",
+      "candidate_id": "cand-0237",
+      "match_type": "fuzzy",
+      "score": 0.96,
+      "risk": "medium",
+      "candidate_ru": "1.Третий этаж дома Зворыкиных занимает экспозиция \"Древнерусское церковноеискусство\"."
+    }
+  },
+  {
+    "sentence_id": "ex-000017",
+    "source_id": "diag-0020",
+    "source_title": "《穆罗姆学习手册》：语法详解与单词清单",
+    "source_path": "E:\\Desktop\\俄语资料文档整理\\《穆罗姆学习手册》：语法详解与单词清单.pdf",
+    "page_number": 15,
+    "ru": "Сотрудники музея называют эту коллекцию «золотой кладовой» Мурома.",
+    "zh": "博物馆的工作人员把这批藏品称作穆罗姆的黄金宝库。",
+    "grammar_tags": [
+      "动词接格",
+      "第五格"
+    ],
+    "surface_forms": [
+      "называют",
+      "кладовой"
+    ],
+    "lexeme_tags": [
+      "называть",
+      "кладовая"
+    ],
+    "possible_lexemes": [],
+    "confidence": "high",
+    "needs_review": false,
+    "note": "называть что чем为固定搭配，确定",
+    "extraction": {
+      "method": "pymupdf",
+      "candidate_id": "cand-0244",
+      "match_type": "fuzzy",
+      "score": 0.96,
+      "risk": "medium",
+      "candidate_ru": "2.Сотрудники музея называют эту коллекцию \"золотой кладовой\" Мурома."
+    }
+  },
+  {
+    "sentence_id": "ex-000018",
+    "source_id": "diag-0020",
+    "source_title": "《穆罗姆学习手册》：语法详解与单词清单",
+    "source_path": "E:\\Desktop\\俄语资料文档整理\\《穆罗姆学习手册》：语法详解与单词清单.pdf",
+    "page_number": 15,
+    "ru": "Она не столь велика (около 1800 экспонатов), но имеет высокую историческую и художественную ценность.",
+    "zh": "这批藏品规模虽不算大（约1800件展品），却有着极高的历史和艺术价值。",
+    "grammar_tags": [
+      "短尾形容词"
+    ],
+    "surface_forms": [
+      "велика",
+      "имеет"
+    ],
+    "lexeme_tags": [
+      "великий",
+      "иметь"
+    ],
+    "possible_lexemes": [],
+    "confidence": "high",
+    "needs_review": false,
+    "note": "велика为形容词великий的阴性短尾形式，确定",
+    "extraction": {
+      "method": "pymupdf",
+      "candidate_id": "cand-0236",
+      "match_type": "keyword_match",
+      "score": 0.6,
+      "risk": "medium",
+      "candidate_ru": "Она нестоль велика (около 1800экспонатов), но имеет высокую историческую и художественную ценность."
+    }
+  },
+  {
+    "sentence_id": "ex-000019",
+    "source_id": "diag-0020",
+    "source_title": "《穆罗姆学习手册》：语法详解与单词清单",
+    "source_path": "E:\\Desktop\\俄语资料文档整理\\《穆罗姆学习手册》：语法详解与单词清单.pdf",
+    "page_number": 19,
+    "ru": "И всё-таки главная достопримечательность Мурома — река Ока.",
+    "zh": "但穆罗姆最主要的名胜，还是奥卡河。",
+    "grammar_tags": [
+      "对别连接词"
+    ],
+    "surface_forms": [
+      "всё-таки"
+    ],
+    "lexeme_tags": [
+      "всё-таки"
+    ],
+    "possible_lexemes": [],
+    "confidence": "high",
+    "needs_review": false,
+    "note": "всё-таки为语气词，确定",
+    "extraction": {
+      "method": "pymupdf",
+      "candidate_id": "cand-0301",
+      "match_type": "keyword_match",
+      "score": 0.6,
+      "risk": "medium",
+      "candidate_ru": "【8Ç 】áÄYá⼀句Ивсё-таки главная достопримечательность Мурома"
+    }
+  },
+  {
+    "sentence_id": "ex-000020",
+    "source_id": "diag-0020",
+    "source_title": "《穆罗姆学习手册》：语法详解与单词清单",
+    "source_path": "E:\\Desktop\\俄语资料文档整理\\《穆罗姆学习手册》：语法详解与单词清单.pdf",
+    "page_number": 16,
+    "ru": "В древности за ней заканчивалась Русская земля.",
+    "zh": "在古代，俄罗斯的国土到这条河就结束了。",
+    "grammar_tags": [
+      "反身动词"
+    ],
+    "surface_forms": [
+      "заканчивалась"
+    ],
+    "lexeme_tags": [
+      "заканчиваться"
+    ],
+    "possible_lexemes": [],
+    "confidence": "high",
+    "needs_review": false,
+    "note": "заканчиваться为反身动词，确定",
+    "extraction": {
+      "method": "pymupdf",
+      "candidate_id": "cand-0257",
+      "match_type": "exact_normalized",
+      "score": 1.0,
+      "risk": "low",
+      "candidate_ru": "В древности за ней заканчивалась Русская земля."
+    }
+  },
+  {
+    "sentence_id": "ex-000021",
+    "source_id": "diag-0020",
+    "source_title": "《穆罗姆学习手册》：语法详解与单词清单",
+    "source_path": "E:\\Desktop\\俄语资料文档整理\\《穆罗姆学习手册》：语法详解与单词清单.pdf",
+    "page_number": 45,
+    "ru": "Перед тем как брать Казань, Иван Грозный копил силы и собирал воинов на берегах Оки.",
+    "zh": "伊凡雷帝攻占喀山之前，曾在奥卡河岸积蓄力量、集结军队。",
+    "grammar_tags": [
+      "时间状语从句"
+    ],
+    "surface_forms": [
+      "копил",
+      "собирал"
+    ],
+    "lexeme_tags": [
+      "копить",
+      "собирать"
+    ],
+    "possible_lexemes": [],
+    "confidence": "high",
+    "needs_review": false,
+    "note": "Перед тем как为固定时间连接词，确定",
+    "extraction": {
+      "method": "pymupdf",
+      "candidate_id": "cand-0633",
+      "match_type": "candidate_in_example",
+      "score": 0.9,
+      "risk": "low",
+      "candidate_ru": "собирал воинов на берегах"
+    }
+  },
+  {
+    "sentence_id": "ex-000022",
+    "source_id": "diag-0020",
+    "source_title": "《穆罗姆学习手册》：语法详解与单词清单",
+    "source_path": "E:\\Desktop\\俄语资料文档整理\\《穆罗姆学习手册》：语法详解与单词清单.pdf",
+    "page_number": 17,
+    "ru": "С Оки открывается потрясающая панорама города.",
+    "zh": "从奥卡河上，可以看到城市绝佳的全景。",
+    "grammar_tags": [
+      "反身动词"
+    ],
+    "surface_forms": [
+      "открывается",
+      "потрясающая"
+    ],
+    "lexeme_tags": [
+      "открываться",
+      "потрясающий"
+    ],
+    "possible_lexemes": [],
+    "confidence": "high",
+    "needs_review": false,
+    "note": "открываться表示展现，确定",
+    "extraction": {
+      "method": "pymupdf",
+      "candidate_id": "cand-0272",
+      "match_type": "substring",
+      "score": 0.95,
+      "risk": "low",
+      "candidate_ru": "2.С Оки открывается потрясающая панорама города."
+    }
+  },
+  {
+    "sentence_id": "ex-000023",
+    "source_id": "diag-0020",
+    "source_title": "《穆罗姆学习手册》：语法详解与单词清单",
+    "source_path": "E:\\Desktop\\俄语资料文档整理\\《穆罗姆学习手册》：语法详解与单词清单.pdf",
+    "page_number": 17,
+    "ru": "Именно по Оке и прибывала раньше в Муром масса туристов на круизных теплоходах.",
+    "zh": "过去，正是通过奥卡河，大量乘坐游轮的游客来到穆罗姆。",
+    "grammar_tags": [
+      "加强语气词"
+    ],
+    "surface_forms": [
+      "прибывала"
+    ],
+    "lexeme_tags": [
+      "прибывать"
+    ],
+    "possible_lexemes": [],
+    "confidence": "high",
+    "needs_review": false,
+    "note": "Именно为加强语气词，确定",
+    "extraction": {
+      "method": "pymupdf",
+      "candidate_id": "cand-0275",
+      "match_type": "substring",
+      "score": 0.95,
+      "risk": "low",
+      "candidate_ru": "▪固Ç\u0018配：панорама города 城m½ 3.Именно по Оке и прибывала раньше в Муром масса туристов на круизных теплоходах."
+    }
+  },
+  {
+    "sentence_id": "ex-000024",
+    "source_id": "diag-0020",
+    "source_title": "《穆罗姆学习手册》：语法详解与单词清单",
+    "source_path": "E:\\Desktop\\俄语资料文档整理\\《穆罗姆学习手册》：语法详解与单词清单.pdf",
+    "page_number": 17,
+    "ru": "Теперь водного кольца нет: река обмелела.",
+    "zh": "如今水路环线已经消失了：河流干涸了。",
+    "grammar_tags": [
+      "完成体动词"
+    ],
+    "surface_forms": [
+      "обмелела"
+    ],
+    "lexeme_tags": [
+      "обмелеть"
+    ],
+    "possible_lexemes": [],
+    "confidence": "high",
+    "needs_review": false,
+    "note": "обмелеть为完成体动词，确定",
+    "extraction": {
+      "method": "pymupdf",
+      "candidate_id": "cand-0279",
+      "match_type": "substring",
+      "score": 0.95,
+      "risk": "low",
+      "candidate_ru": "▪теплоход，阳性á词，轮;、b; ▪úfáÊ格形式，на теплоходах 在轮;上 4.Теперь водного кольца нет: река обмелела."
+    }
+  },
+  {
+    "sentence_id": "ex-000025",
+    "source_id": "diag-0020",
+    "source_title": "《穆罗姆学习手册》：语法详解与单词清单",
+    "source_path": "E:\\Desktop\\俄语资料文档整理\\《穆罗姆学习手册》：语法详解与单词清单.pdf",
+    "page_number": 17,
+    "ru": "Вот и добираются до Мурома любители старины кто на чём может.",
+    "zh": "正因如此，现在所有古迹爱好者，想尽各种办法来到穆罗姆。",
+    "grammar_tags": [
+      "固定表达"
+    ],
+    "surface_forms": [
+      "добираются"
+    ],
+    "lexeme_tags": [
+      "добираться"
+    ],
+    "possible_lexemes": [],
+    "confidence": "high",
+    "needs_review": false,
+    "note": "кто на чём может为固定表达，确定",
+    "extraction": {
+      "method": "pymupdf",
+      "candidate_id": "cand-0266",
+      "match_type": "candidate_in_example",
+      "score": 0.9,
+      "risk": "low",
+      "candidate_ru": "Мурома любители старины кто на чём может."
+    }
+  }
+]
