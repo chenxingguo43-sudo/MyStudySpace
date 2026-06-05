@@ -203,6 +203,23 @@ def do_import(pkg_dir, data_dir=DATA_DIR, dry_run=False):
     save_json(f'{data_dir}/grammar_index.json', merged_grammar)
     result["total_grammar_keys"] = len(merged_grammar)
 
+    # 5. 写入追溯文件
+    trace_path = f'{pkg_dir}/import_trace.json'
+    import subprocess
+    try:
+        commit = subprocess.check_output(['git', 'rev-parse', '--short', 'HEAD'], cwd=data_dir).decode().strip()
+    except Exception:
+        commit = 'unknown'
+    trace = {
+        'source_id': source_id,
+        'imported_at': datetime.now().isoformat(),
+        'import_commit': commit,
+        'records_added': len(to_add),
+        'new_lexeme_keys': len(new_lexeme),
+        'new_grammar_keys': len(new_grammar)
+    }
+    save_json(trace_path, trace)
+
     return result
 
 def main():

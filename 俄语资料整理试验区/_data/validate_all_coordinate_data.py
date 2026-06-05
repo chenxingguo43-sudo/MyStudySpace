@@ -155,8 +155,53 @@ def main():
     else:
         ok("grammar_index 所有 sentence_id 都存在于 sentences.json")
 
-    # 6. 反向覆盖检查
-    print("\n--- 6. 覆盖率 ---")
+    # 6. 新增质量字段校验
+    print("\n--- 6. 质量字段校验 ---")
+    missing_qf = sum(1 for r in sentences if "quality_flags" not in r)
+    missing_qs = sum(1 for r in sentences if "quality_score" not in r)
+    missing_ts = sum(1 for r in sentences if "translation_status" not in r)
+    if missing_qf:
+        err(f"缺少 quality_flags: {missing_qf} 条")
+    else:
+        ok(f"quality_flags 全覆盖: {len(sentences)} 条")
+    if missing_qs:
+        err(f"缺少 quality_score: {missing_qs} 条")
+    else:
+        ok(f"quality_score 全覆盖: {len(sentences)} 条")
+    if missing_ts:
+        err(f"缺少 translation_status: {missing_ts} 条")
+    else:
+        ok(f"translation_status 全覆盖: {len(sentences)} 条")
+
+    bad_scores = sum(1 for r in sentences if "quality_score" in r and not (0 <= r["quality_score"] <= 100))
+    if bad_scores:
+        err(f"quality_score 超出 0-100: {bad_scores} 条")
+    else:
+        ok("quality_score 范围正常 (0-100)")
+
+    valid_ts = {"translated", "untranslated"}
+    bad_ts = sum(1 for r in sentences if r.get("translation_status") not in valid_ts)
+    if bad_ts:
+        err(f"translation_status 非法值: {bad_ts} 条")
+    else:
+        ok("translation_status 值合法")
+
+    from collections import Counter
+    ts_counter = Counter(r.get("translation_status") for r in sentences)
+    print(f"  translated: {ts_counter.get('translated', 0)}")
+    print(f"  untranslated: {ts_counter.get('untranslated', 0)}")
+
+    grades = Counter()
+    for r in sentences:
+        s = r.get("quality_score", 0)
+        if s >= 90: grades["A"] += 1
+        elif s >= 70: grades["B"] += 1
+        elif s >= 50: grades["C"] += 1
+        else: grades["D"] += 1
+    print(f"  quality A/B/C/D: {grades['A']}/{grades['B']}/{grades['C']}/{grades['D']}")
+
+    # 7. 反向覆盖检查
+    print("\n--- 7. 覆盖率 ---")
     sentences_in_lexeme = len(lexeme_sids & sid_set)
     sentences_in_grammar = len(grammar_sids & sid_set)
     print(f"  sentences 被 lexeme_index 覆盖: {sentences_in_lexeme}/{len(sid_set)} ({100*sentences_in_lexeme/len(sid_set):.1f}%)")
