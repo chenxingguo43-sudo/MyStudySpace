@@ -105,6 +105,9 @@ def extract_surface_forms(text: str) -> list:
 def build_candidates(pages: list, source_id: str) -> list:
     """从页面构建候选句"""
     candidates = []
+    # 生成唯一前缀: 取 source_id 中的数字部分
+    digits = re.sub(r'[^0-9]', '', source_id)
+    prefix = f"s{digits[-4:]}" if digits else source_id[:6]
     seq = 0
     for page in pages:
         page_num = page["page_number"]
@@ -120,7 +123,7 @@ def build_candidates(pages: list, source_id: str) -> list:
                     continue
                 seq += 1
                 candidates.append({
-                    "candidate_id": f"{source_id[:3]}{seq:04d}",
+                    "candidate_id": f"{prefix}-{seq:04d}",
                     "source_id": source_id,
                     "page_number": page_num,
                     "ru": sent,
@@ -133,6 +136,9 @@ def build_records(candidates: list, source_id: str, source_title: str, source_pa
     """从候选句构建记录"""
     records = []
     for c in candidates:
+        # 跳过没有有效词形的候选
+        if not c["surface_forms"]:
+            continue
         sf = c["surface_forms"]
         # possible_lexemes = 小写的 surface_forms（保守策略）
         possible = list(set(w.lower() for w in sf))
