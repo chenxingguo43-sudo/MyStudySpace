@@ -410,6 +410,39 @@
             font-size: 12px; color: rgba(255,255,255,0.35); line-height: 1.4;
         }
 
+        /* ─── 资料真实例句 ─── */
+        .source-examples-section {
+            width: 100%; text-align: left; margin-top: 8px;
+            padding: 8px 0; border-top: 1px solid rgba(255,255,255,0.06);
+        }
+        .source-examples-title {
+            font-size: 12px; color: rgba(255,255,255,0.40); margin-bottom: 6px; font-weight: 500;
+        }
+        .source-examples-empty {
+            font-size: 12px; color: rgba(255,255,255,0.25); font-style: italic;
+        }
+        .source-ex-item {
+            margin-bottom: 8px; padding: 8px 10px;
+            background: rgba(52,211,153,0.06);
+            border-radius: 6px; border-left: 3px solid rgba(52,211,153,0.4);
+        }
+        .source-ex-ru {
+            font-family: 'Noto Serif', 'Times New Roman', serif;
+            font-size: 14px; color: #e2e8f0; margin-bottom: 3px; line-height: 1.5;
+        }
+        .source-ex-zh {
+            font-size: 12px; color: rgba(255,255,255,0.35); line-height: 1.4; margin-bottom: 4px;
+        }
+        .source-ex-meta {
+            display: flex; gap: 8px; flex-wrap: wrap; font-size: 11px; color: rgba(255,255,255,0.30);
+        }
+        .source-ex-source { }
+        .source-ex-page { }
+        .source-ex-review {
+            background: rgba(251,191,36,0.15); color: #fbbf24;
+            padding: 1px 6px; border-radius: 3px; font-size: 10px;
+        }
+
         /* ─── 背面俄语词 ─── */
         .card-word-back {
             font-family: 'Noto Serif', 'Times New Roman', serif;
@@ -943,6 +976,11 @@
     var sessionStats = { know: 0, fuzzy: 0, dunno: 0 };
     var onlyWrong = false;
     var onlyUnmastered = false;
+
+    // ─── 资料坐标系数据 ─────────────────────────────────────────
+    var coordLexemeIndex = null;  // lexeme_index.json
+    var coordSentences = null;    // sentences.json
+    var coordSources = null;      // sources.json
     var showDueOnly = true;      // 默认只显示今日待复习
     var REVIEW_KEY = 'vocabulary-review-records';
     var EXTRAS_KEY = 'vocabulary-extras';
@@ -984,6 +1022,24 @@
                 document.getElementById('cardArea').innerHTML =
                     '<div class="loading" style="color:#f87171;">❌ 加载失败：' + err.message + '<br>请先运行 node build-vocabulary.js</div>';
             });
+        // 加载资料坐标系（不阻塞主流程）
+        loadCoordinateData();
+    }
+
+    function loadCoordinateData() {
+        Promise.all([
+            fetch('data/lexeme_index.json').then(function(r) { return r.json(); }),
+            fetch('data/sentences.json').then(function(r) { return r.json(); }),
+            fetch('data/sources.json').then(function(r) { return r.json(); })
+        ]).then(function(results) {
+            coordLexemeIndex = results[0];
+            coordSentences = results[1];
+            coordSources = results[2];
+            // 只刷新资料例句区域，不触发 renderCard（避免跳卡）
+            refreshSourceExamplesOnly();
+        }).catch(function(err) {
+            console.warn('资料坐标系加载失败:', err);
+        });
     }
 
     // ─── localStorage 读写 ─────────────────────────────────────────
@@ -1931,6 +1987,169 @@
         return null;
     }
 
+    // ─── 资料坐标系查询 ─────────────────────────────────────────
+    // 从文本中提取俄语 token（拆分短语为单词）
+    function _extractRuTokens(text) {
+        if (!text) return [];
+        var tokens = [];
+        // 匹配连续俄语字母（包括连字符分隔的复合词）
+        var raw = text.match(/[а-яА-ЯёЁ]+(?:-[а-яА-ЯёЁ]+)*/g);
+        if (raw) {
+            raw.forEach(function(t) {
+                var lw = t.toLowerCase();
+                if (lw.length > 1) {
+                    tokens.push(lw);
+                    // 连字符复合词拆开也加入
+                    if (lw.indexOf('-') >= 0) {
+                        lw.split('-').forEach(function(part) {
+                            if (part.length > 1 && tokens.indexOf(part) < 0) tokens.push(part);
+                        });
+                    }
+                }
+            });
+        }
+        return tokens;
+    }
+
+    // 候选词去重添加
+    function _addCandidate(list, word) {
+        if (word && word.length > 1 && list.indexOf(word) < 0) list.push(word);
+    }
+
+    function lookupSourceExamples(word) {
+        if (!coordLexemeIndex || !coordSentences || !coordSources) return [];
+        if (!word) return [];
+
+        var candidates = [];
+        var seen = {};
+
+        // 1. 主查询词的俄语 token
+        _extractRuTokens(word).forEach(function(t) { _addCandidate(candidates, t); });
+
+        // 2. 当前词条的各种字段
+        var w = _currentWord;
+        if (w) {
+            // word 字段（可能是短语，拆成 token）
+            if (w.word) {
+                _extractRuTokens(w.word).forEach(function(t) { _addCandidate(candidates, t); });
+            }
+            // meaning 字段中的俄语词
+            if (w.meaning) {
+                _extractRuTokens(w.meaning).forEach(function(t) { _addCandidate(candidates, t); });
+            }
+            // pair 字段（体对偶）
+            if (w.pair) {
+                _extractRuTokens(w.pair).forEach(function(t) { _addCandidate(candidates, t); });
+            }
+            // 从 word.examples 中提取俄语词
+            if (w.examples) {
+                w.examples.forEach(function(ex) {
+                    if (ex.ru) {
+                        _extractRuTokens(ex.ru).forEach(function(t) { _addCandidate(candidates, t); });
+                    }
+                });
+            }
+        }
+
+        var foundSentenceIds = {};
+        var results = [];
+
+        for (var ci = 0; ci < candidates.length; ci++) {
+            var entry = coordLexemeIndex[candidates[ci]];
+            if (!entry) continue;
+
+            for (var si = 0; si < entry.sentence_ids.length; si++) {
+                var sid = entry.sentence_ids[si];
+                if (foundSentenceIds[sid]) continue;
+                foundSentenceIds[sid] = true;
+
+                // 查 sentences.json
+                var sentence = null;
+                for (var k = 0; k < coordSentences.length; k++) {
+                    if (coordSentences[k].sentence_id === sid) {
+                        sentence = coordSentences[k];
+                        break;
+                    }
+                }
+                if (!sentence) continue;
+
+                // 查 sources.json
+                var source = null;
+                if (sentence.source_id) {
+                    for (var k = 0; k < coordSources.length; k++) {
+                        if (coordSources[k].source_id === sentence.source_id) {
+                            source = coordSources[k];
+                            break;
+                        }
+                    }
+                }
+
+                results.push({
+                    sentence: sentence,
+                    source: source,
+                    matchedVia: candidates[ci]
+                });
+            }
+        }
+
+        return results.slice(0, 3); // 最多显示 3 条
+    }
+
+    function renderSourceExamples(word) {
+        var matches = lookupSourceExamples(word);
+        var html = '<div class="source-examples-section" id="sourceExamplesMount">';
+        html += '<div class="source-examples-title">📚 资料真实例句</div>';
+
+        if (matches.length === 0) {
+            html += '<div class="source-examples-empty">暂无资料例句</div>';
+        } else {
+            for (var i = 0; i < matches.length; i++) {
+                var m = matches[i];
+                var s = m.sentence;
+                var src = m.source;
+                html += '<div class="source-ex-item">';
+                html += '<div class="source-ex-ru">' + esc(s.ru) + '</div>';
+                html += '<div class="source-ex-zh">' + esc(s.zh) + '</div>';
+                html += '<div class="source-ex-meta">';
+                if (src) html += '<span class="source-ex-source">' + esc(src.source_title) + '</span>';
+                if (s.page_or_location) html += '<span class="source-ex-page">第' + esc(s.page_or_location) + '页</span>';
+                if (s.needs_review) html += '<span class="source-ex-review">待复核</span>';
+                html += '</div>';
+                html += '</div>';
+            }
+        }
+
+        html += '</div>';
+        return html;
+    }
+
+    // 只刷新资料例例句区域，不触发 renderCard / getNextCard / 跳卡
+    function refreshSourceExamplesOnly() {
+        if (!_currentWord) return;
+        var mount = document.getElementById('sourceExamplesMount');
+        if (!mount) return;
+        mount.outerHTML = renderSourceExamples(_currentWord.word);
+    }
+
+    // ─── 开发/验收用测试函数（仅控制台调用） ─────────────────────
+    window.__testSourceExamples = function(word) {
+        if (!coordLexemeIndex || !coordSentences || !coordSources) {
+            return { error: '坐标系数据尚未加载' };
+        }
+        var matches = lookupSourceExamples(word);
+        return matches.map(function(m) {
+            return {
+                sentence_id: m.sentence.sentence_id,
+                ru: m.sentence.ru,
+                zh: m.sentence.zh,
+                source: m.source ? m.source.source_title : '',
+                page: m.sentence.page_or_location,
+                needs_review: m.sentence.needs_review,
+                matchedVia: m.matchedVia
+            };
+        });
+    };
+
     // ─── 渲染 ─────────────────────────────────────────────────────
     function renderCard() {
         var area = document.getElementById('cardArea');
@@ -2047,6 +2266,9 @@
             });
         }
         if (exHtml) backContent += '<div class="card-examples">' + exHtml + '</div>';
+
+        // 资料真实例句（从坐标系查询）
+        backContent += renderSourceExamples(w.word);
 
         // 收藏状态
         var extras = getExtras();
