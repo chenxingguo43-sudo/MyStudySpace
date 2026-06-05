@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>📖 俄语阅读器原型 — 俄语学习舱</title>
+<style>
+/* ─── 主题变量 ─── */
+:root {
+  --bg: #020617; --surface: rgba(15,23,42,0.6); --surface-solid: #0f172a;
+  --glass: rgba(255,255,255,0.06); --glass-border: rgba(255,255,255,0.10);
+  --glass-hover: rgba(255,255,255,0.10);
+  --text: rgba(255,255,255,0.90); --text-secondary: rgba(255,255,255,0.48);
+  --text-dim: rgba(255,255,255,0.30);
+  --accent: #818cf8; --accent-dim: rgba(129,140,248,0.20); --accent-border: rgba(129,140,248,0.30);
+  --success: #34d399; --warning: #fbbf24;
+  --ru-text: rgba(255,255,255,0.88); --cn-text: rgba(255,255,255,0.45);
+  --border: rgba(255,255,255,0.06);
+  --shadow: 0 8px 32px rgba(0,0,0,0.4);
+  --highlight: rgba(251,191,36,0.25);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, 'SF Pro Text', 'Inter', 'Noto Sans SC', sans-serif;
+  background: var(--bg); color: var(--text); line-height: 1.8; min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ─── 顶部工具栏 ─── */
+.toolbar {
+  position: sticky; top: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  background: rgba(10,10,20,0.92); backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border); padding: 8px 16px;
+}
+.toolbar-title { font-size: 16px; font-weight: 600; }
+.toolbar-actions { display: flex; gap: 8px; align-items: center; }
+.tb-btn {
+  background: var(--glass); border: 1px solid var(--glass-border); color: var(--text-secondary);
+  font-size: 14px; padding: 6px 14px; cursor: pointer; border-radius: 8px;
+  transition: all 0.15s; font-family: inherit;
+}
+.tb-btn:hover { background: var(--glass-hover); color: var(--text); }
+.tb-btn:active { transform: scale(0.95); }
+.tb-btn.primary { background: var(--accent-dim); color: var(--accent); border-color: var(--accent-border); }
+.tb-btn.primary:hover { background: rgba(129,140,248,0.30); }
+.file-input-hidden { display: none; }
+
+/* ─── 状态栏 ─── */
+.status-bar {
+  display: flex; align-items: center; gap: 12px;
+  padding: 6px 16px; font-size: 12px; color: var(--text-dim);
+  background: var(--surface); border-bottom: 1px solid var(--border);
+}
+.status-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--success); }
+.status-dot.loading { background: var(--warning); animation: pulse 1s infinite; }
+@keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+/* ─── 阅读区域 ─── */
+.reader-container {
+  max-width: 800px; margin: 0 auto; padding: 32px 24px;
+}
+.reader-content {
+  font-size: 17px; line-height: 2; color: var(--ru-text);
+  white-space: pre-wrap; word-wrap: break-word;
+  cursor: text; user-select: text;
+}
+.reader-content .highlight-word {
+  background: var(--highlight); border-radius: 3px; padding: 0 2px;
+}
+
+/* ─── 欢迎页 ─── */
+.welcome {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  min-height: 60vh; text-align: center; color: var(--text-secondary);
+}
+.welcome-icon { font-size: 64px; margin-bottom: 16px; }
+.welcome-title { font-size: 20px; font-weight: 600; color: var(--text); margin-bottom: 8px; }
+.welcome-desc { font-size: 14px; max-width: 400px; line-height: 1.6; }
+.welcome-hint { margin-top: 24px; font-size: 12px; color: var(--text-dim); }
+
+/* ─── 选词弹窗 ─── */
+.selection-popup {
+  display: none; position: absolute; z-index: 200;
+  background: var(--surface-solid); border: 1px solid var(--glass-border);
+  border-radius: 12px; box-shadow: var(--shadow);
+  min-width: 300px; max-width: 400px; overflow: hidden;
+}
+.selection-popup.visible { display: block; }
+.popup-header {
+  padding: 10px 14px; font-size: 14px; font-weight: 600;
+  color: var(--accent); border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; gap: 6px;
+}
+
+/* ─── 词典预览 ─── */
+.dict-section {
+  padding: 10px 14px; border-bottom: 1px solid var(--border);
+}
+.dict-section-title {
+  font-size: 11px; color: var(--text-dim); text-transform: uppercase;
+  letter-spacing: 0.05em; margin-bottom: 6px;
+}
+.dict-word { font-size: 16px; font-weight: 600; color: var(--text); }
+.dict-type { font-size: 12px; color: var(--accent); margin-left: 6px; }
+.dict-meaning { font-size: 14px; color: var(--text-secondary); margin-top: 4px; }
+.dict-extra { font-size: 12px; color: var(--text-dim); margin-top: 4px; }
+.dict-not-found { font-size: 13px; color: var(--text-dim); font-style: italic; }
+
+/* ─── 例句卡片 ─── */
+.examples-section {
+  padding: 10px 14px; border-bottom: 1px solid var(--border);
+}
+.example-card {
+  background: var(--glass); border: 1px solid var(--glass-border);
+  border-radius: 8px; padding: 10px 12px; margin-top: 8px;
+}
+.example-card:first-child { margin-top: 0; }
+.example-ru { font-size: 14px; color: var(--ru-text); line-height: 1.6; }
+.example-zh { font-size: 13px; color: var(--cn-text); margin-top: 4px; line-height: 1.5; }
+.example-meta {
+  display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px;
+  font-size: 11px; color: var(--text-dim);
+}
+.example-tag {
+  background: var(--accent-dim); color: var(--accent);
+  padding: 1px 6px; border-radius: 4px; font-size: 10px;
+}
+.examples-not-found { font-size: 13px; color: var(--text-dim); font-style: italic; }
+
+/* ─── 弹窗按钮 ─── */
+.popup-actions { padding: 6px; }
+.popup-btn {
+  display: flex; align-items: center; gap: 8px;
+  width: 100%; padding: 8px 12px; background: none; border: none;
+  color: var(--text-secondary); font-size: 13px; cursor: pointer;
+  border-radius: 6px; transition: all 0.12s; font-family: inherit;
+}
+.popup-btn:hover { background: var(--glass-hover); color: var(--text); }
+.popup-btn .icon { font-size: 16px; width: 20px; text-align: center; }
+
+/* ─── Toast ─── */
+.toast {
+  position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
+  background: var(--surface-solid); border: 1px solid var(--glass-border);
+  color: var(--text); padding: 10px 20px; border-radius: 10px;
+  font-size: 14px; z-index: 300; opacity: 0; transition: opacity 0.3s;
+  pointer-events: none; box-shadow: var(--shadow);
+}
+.toast.visible { opacity: 1; }
+
+/* ─── 测试面板 ─── */
+.test-panel {
+  position: fixed; bottom: 16px; right: 16px; z-index: 150;
+  background: var(--surface-solid); border: 1px solid var(--glass-border);
+  border-radius: 12px; padding: 12px; font-size: 12px;
+  box-shadow: var(--shadow); max-width: 280px;
+}
+.test-panel-title { font-weight: 600; color: var(--accent); margin-bottom: 8px; }
+.test-btn {
+  display: block; width: 100%; text-align: left;
+  background: var(--glass); border: 1px solid var(--glass-border);
+  color: var(--text-secondary); padding: 6px 10px; margin-top: 4px;
+  border-radius: 6px; cursor: pointer; font-size: 12px; font-family: inherit;
+  transition: all 0.12s;
+}
+.test-btn:hover { background: var(--glass-hover); color: var(--text); }
+.test-result {
+  display: none; margin-top: 8px; padding: 8px 10px;
+  background: rgba(52,211,153,0.10); border: 1px solid rgba(52,211,153,0.20);
+  border-radius: 6px; color: var(--text-secondary); line-height: 1.5;
+  white-space: pre-line;
+}
+.test-result.visible { display: block; }
+</style>
+</head>
+<body>
+
+<!-- 工具栏 -->
+<div class="toolbar">
+  <div class="toolbar-title">📖 俄语阅读器原型</div>
+  <div class="toolbar-actions">
+    <button class="tb-btn primary" onclick="document.getElementById('fileInput').click()">📂 打开文件</button>
+    <button class="tb-btn" onclick="loadSampleText()">📝 加载示例文本</button>
+    <input type="file" id="fileInput" class="file-input-hidden" accept=".txt,.md,.text,.markdown" onchange="openFile(event)">
+  </div>
+</div>
+
+<!-- 状态栏 -->
+<div class="status-bar">
+  <span class="status-dot" id="statusDot"></span>
+  <span id="statusText">等待加载数据...</span>
+  <span style="margin-left:auto" id="dataInfo"></span>
+</div>
+
+<!-- 欢迎页 -->
+<div class="welcome" id="welcomePage">
+  <div class="welcome-icon">📖</div>
+  <div class="welcome-title">俄语阅读器原型</div>
+  <div class="welcome-desc">
+    打开一个 TXT 或 Markdown 文件，或点击「加载示例文本」开始。<br>
+    选中任意俄语词，即可查看词典释义和资料库例句。
+  </div>
+  <div class="welcome-hint">
+    数据源：data/vocabulary.json + data/examples.json
+  </div>
+</div>
+
+<!-- 阅读区域 -->
+<div class="reader-container" id="readerContainer" style="display:none">
+  <div class="reader-content" id="readerContent"></div>
+</div>
+
+<!-- 选词弹窗 -->
+<div class="selection-popup" id="selPopup">
+  <div class="popup-header" id="popupHeader">🔍 —</div>
+
+  <!-- 词典区 -->
+  <div class="dict-section" id="dictSection">
+    <div class="dict-section-title">📖 词典</div>
+    <div id="dictContent"></div>
+  </div>
+
+  <!-- 例句区 -->
+  <div class="examples-section" id="examplesSection">
+    <div class="dict-section-title">📚 资料例句</div>
+    <div id="examplesContent"></div>
+  </div>
+
+  <!-- 按钮 -->
+  <div class="popup-actions">
+    <button class="popup-btn" onclick="doSaveWord()"><span class="icon">⭐</span> 保存到生词本</button>
+    <button class="popup-btn" onclick="doCopyWord()"><span class="icon">📋</span> 复制单词</button>
+    <button class="popup-btn" onclick="hidePopup()"><span class="icon">✕</span> 关闭</button>
+  </div>
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<!-- 测试面板 -->
+<div class="test-panel" id="testPanel">
+  <div class="test-panel-title">🧪 验证测试</div>
+  <button class="test-btn" onclick="testLookup('гордятся')">гордятся → ex-000008</button>
+  <button class="test-btn" onclick="testLookup('Гуляя')">Гуляя → ex-000001</button>
+  <button class="test-btn" onclick="testLookup('монастыре')">монастыре → ex-000002</button>
+  <button class="test-btn" onclick="testLookup('несуществующее')">不存在的词</button>
+  <div class="test-result" id="testResult"></div>
+</div>
+
+<script>
+/* ─── 全局数据 ─── */
+var vocabData = null;
+var examplesData = null;
+var selText = '';
+var dataLoaded = false;
+
+/* ─── 初始化：加载数据 ─── */
+async function loadData() {
+  var dot = document.getElementById('statusDot');
+  var text = document.getElementById('statusText');
+  dot.className = 'status-dot loading';
+  text.textContent = '正在加载数据...';
+
+  try {
+    var resp = await fetch('data/vocabulary.json');
+    vocabData = await resp.json();
+    text.textContent = 'vocabulary.json 已加载，正在加载 examples.json...';
+
+    var resp2 = await fetch('data/examples.json');
+    examplesData = await resp2.json();
+
+    dataLoaded = true;
+    dot.className = 'status-dot';
+    text.textContent = '数据加载完成，可以开始阅读';
+    document.getElementById('dataInfo').textContent =
+      '词汇: ' + vocabData.length + ' | 例句: ' + examplesData.length;
+  } catch (e) {
+    dot.className = 'status-dot';
+    text.textContent = '数据加载失败: ' + e.message;
+  }
+}
+
+/* ─── 打开文件 ─── */
+function openFile(event) {
+  var file = event.target.files[0];
+  if (!file) return;
+  var reader = new FileReader();
+  reader.onload = function(e) {
+    showText(e.target.result, file.name);
+  };
+  reader.readAsText(file, 'UTF-8');
+}
+
+/* ─── 加载示例文本 ─── */
+function loadSampleText() {
+  var sample = 'Гуляя по городу, не веришь, что несколько лет назад старинные храмы, которыми знаменит Муром, были в плачевном состоянии.\n\n' +
+    'В самом древнем на Руси Спасском монастыре, основанном в 1096 году, квартировала воинская часть.\n\n' +
+    'Входишь на территорию — и будто оказался среди декораций фильма о первозданной Руси.\n\n' +
+    'В центре монастыря — громадина Спасо-Преображенского собора, вокруг — церквушки поменьше.\n\n' +
+    'И везде опрятные газоны, клумбы — в напоминание о том, что богоугодные заведения были центрами образовательного земледелия.\n\n' +
+    'На досках читаем имена тех, кто жертвовал средства на реставрацию монастыря и других памятников старины.\n\n' +
+    'Многие фамилии есть в списке ста самых богатых людей России, публикуемом журналом «Форбс».\n\n' +
+    'Муромчане гордятся своими знаменитыми земляками.\n\n' +
+    'Один из них — Владимир Зворыкин, отец телевидения. Родился здесь, учился в Петербурге и начал там опыты по передаче изображения на расстояние.\n\n' +
+    'После революции уехал в Америку, где и изобрёл кинокамеру.\n\n' +
+    'За свои богатые коллекции, насчитывающие 87 000 экспонатов, музей получил уважительное название «Малый Эрмитаж».\n\n' +
+    'Неизменный интерес посетителей вызывает фрагмент крестьянской избы с надлежащей утварью: печь, прялка, глиняной и деревянной посудой.\n\n' +
+    'И всё-таки главная достопримечательность Мурома — река Ока.\n\n' +
+    'Перед тем как брать Казань, Иван Грозный копил силы и собирал воинов на берегах Оки.\n\n' +
+    'Вот и добираются до Мурома любители старины кто на чём может.';
+  showText(sample, '穆罗姆学习手册 — 课文示例');
+}
+
+/* ─── 显示文本 ─── */
+function showText(text, title) {
+  document.getElementById('welcomePage').style.display = 'none';
+  document.getElementById('readerContainer').style.display = 'block';
+  document.getElementById('readerContent').textContent = text;
+  document.title = '📖 ' + (title || '阅读中') + ' — 俄语阅读器原型';
+}
+
+/* ─── 选词事件 ─── */
+document.addEventListener('mouseup', function(e) {
+  if (!dataLoaded) return;
+  var popup = document.getElementById('selPopup');
+  if (popup && popup.contains(e.target)) return;
+
+  setTimeout(function() {
+    var sel = window.getSelection();
+    var text = sel.toString().trim();
+
+    // 只处理俄语词
+    if (!text || !/[а-яА-ЯёЁ]/.test(text)) {
+      return;
+    }
+
+    selText = text;
+    var cleanWord = text.replace(/[^a-zA-Zа-яА-ЯёЁ-]/g, '');
+    if (!cleanWord) return;
+
+    // 查询
+    var vocabMatch = lookupVocab(cleanWord);
+    var exMatches = lookupExamples(cleanWord);
+
+    // 渲染弹窗
+    renderPopup(cleanWord, vocabMatch, exMatches);
+
+    // 定位弹窗
+    var range = sel.getRangeAt(0);
+    var rect = range.getBoundingClientRect();
+    popup.style.top = (rect.bottom + window.scrollY + 8) + 'px';
+    popup.style.left = Math.max(10, Math.min(rect.left, window.innerWidth - 420)) + 'px';
+    popup.classList.add('visible');
+  }, 10);
+});
+
+/* ─── 点击外部关闭弹窗 ─── */
+document.addEventListener('mousedown', function(e) {
+  var popup = document.getElementById('selPopup');
+  if (popup && !popup.contains(e.target)) {
+    hidePopup();
+  }
+});
+
+/* ─── 查询 vocabulary.json ─── */
+function lookupVocab(word) {
+  if (!vocabData) return null;
+  var lower = word.toLowerCase();
+
+  // 精确匹配 word 字段
+  for (var i = 0; i < vocabData.length; i++) {
+    if (vocabData[i].word && vocabData[i].word.toLowerCase() === lower) {
+      return vocabData[i];
+    }
+  }
+
+  // 尝试匹配 word 字段中包含的词（处理短语）
+  for (var i = 0; i < vocabData.length; i++) {
+    var w = vocabData[i].word;
+    if (w && w.toLowerCase().indexOf(lower) !== -1) {
+      return vocabData[i];
+    }
+  }
+
+  return null;
+}
+
+/* ─── 查询 examples.json ─── */
+function lookupExamples(word) {
+  if (!examplesData) return [];
+  var lower = word.toLowerCase();
+  var results = [];
+
+  for (var i = 0; i < examplesData.length; i++) {
+    var ex = examplesData[i];
+    var matched = false;
+
+    // 匹配 surface_forms
+    if (ex.surface_forms) {
+      for (var j = 0; j < ex.surface_forms.length; j++) {
+        if (ex.surface_forms[j].toLowerCase() === lower) {
+          matched = true;
+          break;
+        }
+      }
+    }
+
+    // 匹配 lexeme_tags
+    if (!matched && ex.lexeme_tags) {
+      for (var j = 0; j < ex.lexeme_tags.length; j++) {
+        if (ex.lexeme_tags[j].toLowerCase() === lower) {
+          matched = true;
+          break;
+        }
+      }
+    }
+
+    // 匹配 possible_lexemes
+    if (!matched && ex.possible_lexemes) {
+      for (var j = 0; j < ex.possible_lexemes.length; j++) {
+        if (ex.possible_lexemes[j].toLowerCase() === lower) {
+          matched = true;
+          break;
+        }
+      }
+    }
+
+    // 匹配俄语原文（子串）
+    if (!matched && ex.ru && ex.ru.toLowerCase().indexOf(lower) !== -1) {
+      matched = true;
+    }
+
+    if (matched) {
+      results.push(ex);
+    }
+  }
+
+  return results;
+}
+
+/* ─── 渲染弹窗 ─── */
+function renderPopup(word, vocabMatch, exMatches) {
+  // 标题
+  document.getElementById('popupHeader').textContent = '🔍 ' + word;
+
+  // 词典区
+  var dictHtml = '';
+  if (vocabMatch) {
+    dictHtml += '<div class="dict-word">' + escapeHtml(vocabMatch.word) + '</div>';
+    if (vocabMatch.type) {
+      dictHtml += '<span class="dict-type">' + escapeHtml(vocabMatch.type) + '</span>';
+    }
+    if (vocabMatch.meaning) {
+      dictHtml += '<div class="dict-meaning">' + escapeHtml(vocabMatch.meaning) + '</div>';
+    }
+    if (vocabMatch.extra) {
+      dictHtml += '<div class="dict-extra">' + escapeHtml(vocabMatch.extra) + '</div>';
+    }
+  } else {
+    if (exMatches.length > 0) {
+      dictHtml = '<div class="dict-not-found">词库暂未匹配<br>已从资料库找到相关例句</div>';
+    } else {
+      dictHtml = '<div class="dict-not-found">词库暂未匹配</div>';
+    }
+  }
+  document.getElementById('dictContent').innerHTML = dictHtml;
+
+  // 例句区
+  var exHtml = '';
+  if (exMatches.length > 0) {
+    for (var i = 0; i < Math.min(exMatches.length, 3); i++) {
+      var ex = exMatches[i];
+      exHtml += '<div class="example-card">';
+      exHtml += '<div class="example-ru">' + escapeHtml(ex.ru) + '</div>';
+      exHtml += '<div class="example-zh">' + escapeHtml(ex.zh) + '</div>';
+      exHtml += '<div class="example-meta">';
+      if (ex.source_title) {
+        exHtml += '<span>— ' + escapeHtml(ex.source_title) + '</span>';
+      }
+      if (ex.page_or_location) {
+        exHtml += '<span>第' + escapeHtml(ex.page_or_location) + '页</span>';
+      }
+      if (ex.id) {
+        exHtml += '<span>' + escapeHtml(ex.id) + '</span>';
+      }
+      exHtml += '</div>';
+      if (ex.grammar_tags && ex.grammar_tags.length > 0) {
+        exHtml += '<div class="example-meta">';
+        for (var j = 0; j < ex.grammar_tags.length; j++) {
+          exHtml += '<span class="example-tag">' + escapeHtml(ex.grammar_tags[j]) + '</span>';
+        }
+        exHtml += '</div>';
+      }
+      if (ex.needs_review) {
+        exHtml += '<div class="example-meta"><span class="example-tag" style="background:rgba(251,191,36,0.2);color:#fbbf24">⚠ 需复核</span></div>';
+      }
+      exHtml += '</div>';
+    }
+    if (exMatches.length > 3) {
+      exHtml += '<div style="font-size:11px;color:var(--text-dim);margin-top:6px">还有 ' + (exMatches.length - 3) + ' 条例句...</div>';
+    }
+  } else {
+    exHtml = '<div class="examples-not-found">未找到资料例句</div>';
+  }
+  document.getElementById('examplesContent').innerHTML = exHtml;
+}
+
+/* ─── 保存到生词本 ─── */
+function doSaveWord() {
+  if (!selText) return;
+  var clean = selText.replace(/[^a-zA-Zа-яА-ЯёЁ-]/g, '');
+  if (!clean) { toast('❌ 无效单词'); hidePopup(); return; }
+
+  // 读取现有生词本
+  var saved = [];
+  try { saved = JSON.parse(localStorage.getItem('reader-prototype-vocab') || '[]'); } catch(e) {}
+
+  // 检查重复
+  var exists = saved.some(function(w) { return w.word === clean; });
+  if (exists) { toast('⚠ 已在生词本中'); hidePopup(); return; }
+
+  // 获取释义
+  var meaning = '';
+  var vocabMatch = lookupVocab(clean);
+  if (vocabMatch) {
+    if (vocabMatch.type) meaning += vocabMatch.type + ' ';
+    if (vocabMatch.meaning) meaning += vocabMatch.meaning;
+  }
+
+  saved.push({
+    word: clean,
+    meaning: meaning.trim(),
+    addedAt: new Date().toISOString()
+  });
+
+  localStorage.setItem('reader-prototype-vocab', JSON.stringify(saved));
+  toast('⭐ 已保存: ' + clean);
+  hidePopup();
+}
+
+/* ─── 复制单词 ─── */
+function doCopyWord() {
+  if (!selText) return;
+  var clean = selText.replace(/[^a-zA-Zа-яА-ЯёЁ-]/g, '');
+  navigator.clipboard.writeText(clean).then(function() {
+    toast('📋 已复制: ' + clean);
+  });
+  hidePopup();
+}
+
+/* ─── 隐藏弹窗 ─── */
+function hidePopup() {
+  document.getElementById('selPopup').classList.remove('visible');
+  selText = '';
+}
+
+/* ─── Toast ─── */
+function toast(msg) {
+  var el = document.getElementById('toast');
+  el.textContent = msg;
+  el.classList.add('visible');
+  setTimeout(function() { el.classList.remove('visible'); }, 2000);
+}
+
+/* ─── HTML 转义 ─── */
+function escapeHtml(str) {
+  if (!str) return '';
+  return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+
+/* ─── 测试函数 ─── */
+function testLookup(word) {
+  if (!dataLoaded) { toast('数据尚未加载'); return; }
+
+  var vocabMatch = lookupVocab(word);
+  var exMatches = lookupExamples(word);
+
+  var result = '词: ' + word + '\n';
+  result += '词典: ' + (vocabMatch ? vocabMatch.word + ' (' + (vocabMatch.meaning || '') + ')' : '未找到') + '\n';
+  result += '例句: ' + exMatches.length + ' 条';
+  if (exMatches.length > 0) {
+    result += ' → ' + exMatches[0].id;
+  }
+
+  var resultEl = document.getElementById('testResult');
+  if (resultEl) {
+    resultEl.textContent = result;
+    resultEl.classList.add('visible');
+  }
+  toast('测试完成');
+}
+
+/* ─── 启动 ─── */
+loadData();
+</script>
+</body>
+</html>
