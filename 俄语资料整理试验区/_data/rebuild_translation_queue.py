@@ -66,6 +66,14 @@ def rebuild(batch_size=50):
     sentences = load_sentences()
     print(f"加载 sentences.json: {len(sentences)} 条")
 
+    # 建立上下文查找表: source_id -> [(page, sentence_id, ru), ...]
+    from collections import defaultdict
+    by_source = defaultdict(list)
+    for r in sentences:
+        by_source[r["source_id"]].append(r)
+    for sid in by_source:
+        by_source[sid].sort(key=lambda x: x.get("page_or_location", ""))
+
     pending_items = []
     rejected_items = []
     skipped_translated = 0
@@ -118,12 +126,26 @@ def rebuild(batch_size=50):
         # 构建 items
         items = []
         for idx, r in enumerate(batch_items):
+            # 查找上下文
+            src_list = by_source.get(r["source_id"], [])
+            ctx_before = ""
+            ctx_after = ""
+            for si, sr in enumerate(src_list):
+                if sr["sentence_id"] == r["sentence_id"]:
+                    if si > 0:
+                        ctx_before = src_list[si-1].get("ru", "")[:100]
+                    if si < len(src_list) - 1:
+                        ctx_after = src_list[si+1].get("ru", "")[:100]
+                    break
+
             items.append({
                 "i": idx + 1,
                 "sentence_id": r["sentence_id"],
                 "source_id": r["source_id"],
                 "page_or_location": r.get("page_or_location", ""),
-                "ru": r["ru"]
+                "ru": r["ru"],
+                "context_before": ctx_before,
+                "context_after": ctx_after
             })
 
         batch_data = {
