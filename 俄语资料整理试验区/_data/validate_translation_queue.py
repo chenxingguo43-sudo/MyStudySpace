@@ -82,13 +82,14 @@ def main():
             err(f"{pf.name} 解析失败: {e}")
             continue
 
-        # 检查必需字段
-        for field in ["source_id", "items"]:
+        # 检查必需字段 (batch 级别用 source_ids 复数，item 级别用 source_id 单数)
+        for field in ["items"]:
             if field not in batch:
                 err(f"{pf.name} 缺少字段: {field}")
+        if "source_ids" not in batch and "source_id" not in batch:
+            err(f"{pf.name} 缺少 source_ids 或 source_id")
 
         items = batch.get("items", [])
-        source_id = batch.get("source_id", pf.stem)
         file_sids = []
         file_missing = 0
         file_already_translated = 0
@@ -119,7 +120,7 @@ def main():
         all_pending_sids.extend(file_sids)
         file_stats.append({
             "file": pf.name,
-            "source_id": source_id,
+            "source_ids": batch.get("source_ids", [batch.get("source_id", "?")]),
             "items": len(items),
             "missing": file_missing,
             "already_translated": file_already_translated
