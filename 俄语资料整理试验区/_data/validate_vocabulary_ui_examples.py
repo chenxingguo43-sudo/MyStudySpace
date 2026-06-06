@@ -14,7 +14,8 @@ if sys.platform == 'win32':
     except Exception:
         pass
 
-DATA_DIR = Path(r"D:\MyStudySpace\data")
+PROJECT_DIR = Path(r"D:\MyStudySpace")
+DATA_DIR = PROJECT_DIR / "data"
 
 def main():
     print("=" * 60)
@@ -31,9 +32,17 @@ def main():
     sent_map = {r["sentence_id"]: r for r in sentences}
     src_map = {s["source_id"]: s for s in sources}
 
+    stopwords = {
+        "не", "ни", "что", "как", "это", "если", "или", "уже", "для", "при",
+        "без", "под", "над", "через", "до", "от", "из", "по", "об", "со",
+        "во", "ко", "ли", "же", "бы", "то", "мы", "вы", "он", "она", "они",
+        "оно", "его", "ее", "её", "их"
+    }
+
     # 模拟 lookupSourceExamples 筛选逻辑
     def lookup(word):
-        candidates = [word.lower()]
+        lw = word.lower()
+        candidates = [] if len(lw) <= 2 or lw in stopwords else [lw]
         results = []
         seen = set()
         source_count = {}
@@ -93,6 +102,8 @@ def main():
         if not sfs:
             continue
         sf = sfs[0].lower()
+        if len(sf) <= 2 or sf in stopwords:
+            continue
         results = lookup(sf)
 
         # 检查: lookup 是否返回有效结果 (不一定包含该特定句子)
@@ -126,6 +137,18 @@ def main():
             types = [r.get("example_type", "?") for r in results]
             priorities = [r.get("display_priority", 0) for r in results]
             print(f"  {tw}: {len(results)} 条, types={types}, priorities={priorities}")
+
+    print(f"\n--- 候选词污染回归验证 ---")
+    vocab_html = (PROJECT_DIR / "vocabulary.html").read_text(encoding="utf-8")
+    start = vocab_html.find("function lookupSourceExamples")
+    end = vocab_html.find("var foundSentenceIds", start)
+    lookup_body = vocab_html[start:end] if start >= 0 and end >= 0 else ""
+    polluted = [marker for marker in ("w.meaning", "w.examples") if marker in lookup_body]
+    if polluted:
+        fail_count += 1
+        print(f"  失败: lookupSourceExamples 不应从释义/自带例句抽取候选词: {polluted}")
+    else:
+        print("  通过: lookupSourceExamples 只使用核心词条字段")
 
     if fail_count == 0:
         print(f"\n✅ 全部通过")
