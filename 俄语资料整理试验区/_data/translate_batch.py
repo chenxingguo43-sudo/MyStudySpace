@@ -359,8 +359,11 @@ def process_batch(batch_file: Path, log_lines: list[str]) -> bool:
     # Move batch from pending to processed_pending
     processed_dir = QUEUE_DIR / "processed_pending"
     processed_dir.mkdir(parents=True, exist_ok=True)
-    batch_file.rename(processed_dir / batch_file.name)
-    print(f"  ✓ Moved to processed_pending")
+    if batch_file.exists():
+        batch_file.rename(processed_dir / batch_file.name)
+        print(f"  ✓ Moved to processed_pending")
+    else:
+        print(f"  ✓ Already moved to processed_pending")
 
     # Log
     log_lines.append(f"{batch_id}: {len(successful)} translated, {len(failed)} failed, {elapsed:.1f}s")
