@@ -8,8 +8,12 @@ import re
 import sys
 import time
 import random
+import argparse
+import threading
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime
 from pathlib import Path
+from typing import Callable
 
 if sys.platform == 'win32':
     try:
@@ -45,6 +49,27 @@ MAX_RETRIES = 3
 BATCH_DELAY = 1.0  # seconds between API calls
 
 
+class ApiKeyRotator:
+    """Thread-safe rotator for comma-separated API keys."""
+
+    def __init__(self, raw_keys: str):
+        self._keys = [key.strip() for key in raw_keys.split(",") if key.strip()]
+        if not self._keys:
+            raise ValueError("API key is empty")
+        self._idx = 0
+        self._lock = threading.Lock()
+
+    def next_key(self) -> str:
+        with self._lock:
+            key = self._keys[self._idx]
+            self._idx = (self._idx + 1) % len(self._keys)
+            return key
+
+
+MIMO_KEY_ROTATOR = ApiKeyRotator(MIMO_API_KEY)
+DEEPSEEK_KEY_ROTATOR = ApiKeyRotator(DEEPSEEK_API_KEY)
+
+
 def call_translate_api(items: list[dict]) -> dict | None:
     """Call MiMo API for translation. Returns parsed JSON or None."""
     import httpx
@@ -71,7 +96,7 @@ def call_translate_api(items: list[dict]) -> dict | None:
     }
 
     headers = {
-        "Authorization": f"Bearer {MIMO_API_KEY}",
+        "Authorization": f"Bearer {MIMO_KEY_ROTATOR.next_key()}",
         "Content-Type": "application/json",
     }
 
@@ -112,7 +137,7 @@ def call_deepseek_api(text: str) -> str | None:
     }
 
     headers = {
-        "Authorization": f"Bearer {DEEPSEEK_API_KEY}",
+        "Authorization": f"Bearer {DEEPSEEK_KEY_ROTATOR.next_key()}",
         "Content-Type": "application/json",
     }
 
@@ -371,7 +396,70 @@ def process_batch(batch_file: Path, log_lines: list[str]) -> bool:
     return len(failed) == 0
 
 
-def main():
+def process_pending_batches(
+    batch_files: list[Path],
+    workers: int = 1,
+    process_func: Callable[[Path, list[str]], bool] = process_batch,
+    delay_between_batches: float = BATCH_DELAY,
+) -> dict:
+    """Process pending batch files, optionally in parallel."""
+    workers = max(1, int(workers))
+    log_lines: list[str] = []
+    log_lock = threading.Lock()
+    summary = {
+        "batches_done": 0,
+        "successful_batches": 0,
+        "failed_batches": 0,
+        "log_lines": log_lines,
+    }
+
+    def run_one(batch_file: Path) -> bool | None:
+        if not batch_file.exists():
+            return None
+        local_log: list[str] = []
+        success = process_func(batch_file, local_log)
+        with log_lock:
+            log_lines.extend(local_log)
+        if delay_between_batches > 0:
+            time.sleep(delay_between_batches)
+        return success
+
+    if workers == 1:
+        for batch_file in batch_files:
+            result = run_one(batch_file)
+            if result is None:
+                continue
+            summary["batches_done"] += 1
+            if result:
+                summary["successful_batches"] += 1
+            else:
+                summary["failed_batches"] += 1
+        return summary
+
+    with ThreadPoolExecutor(max_workers=workers) as executor:
+        futures = {executor.submit(run_one, batch_file): batch_file for batch_file in batch_files}
+        for future in as_completed(futures):
+            result = future.result()
+            if result is None:
+                continue
+            summary["batches_done"] += 1
+            if result:
+                summary["successful_batches"] += 1
+            else:
+                summary["failed_batches"] += 1
+
+    return summary
+
+
+def main(argv: list[str] | None = None):
+    parser = argparse.ArgumentParser(description="Process translation queue batches.")
+    parser.add_argument(
+        "--workers",
+        type=int,
+        default=1,
+        help="Number of pending batch files to process concurrently. Default: 1.",
+    )
+    args = parser.parse_args(argv)
     # Cancel the cron job first - we're actively processing
     print("=" * 60)
     print("翻译 agent 启动 - 处理 pending 队列")
@@ -384,28 +472,20 @@ def main():
         return 0
 
     print(f"Found {len(batch_files)} pending batches")
+    print(f"Workers: {max(1, args.workers)}")
 
     log_lines = [f"\n## {datetime.now().strftime('%Y-%m-%d %H:%M')} - 翻译开始\n"]
     log_lines.append(f"待处理批次: {len(batch_files)}")
 
-    total_successful = 0
-    total_failed = 0
-    batches_done = 0
-
-    for batch_file in batch_files:
-        if not batch_file.exists():
-            continue
-
-        success = process_batch(batch_file, log_lines)
-        batches_done += 1
-
-        if success:
-            total_successful += 1
-        else:
-            total_failed += 1
-
-        # Delay between batches
-        time.sleep(BATCH_DELAY)
+    summary = process_pending_batches(
+        batch_files=batch_files,
+        workers=args.workers,
+        delay_between_batches=BATCH_DELAY if args.workers == 1 else 0,
+    )
+    log_lines.extend(summary["log_lines"])
+    batches_done = summary["batches_done"]
+    total_successful = summary["successful_batches"]
+    total_failed = summary["failed_batches"]
 
     # Summary
     log_lines.append(f"\n### 翻译完成")
