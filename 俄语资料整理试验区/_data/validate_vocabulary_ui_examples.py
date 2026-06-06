@@ -66,7 +66,7 @@ def main():
                 if not s.get("vocabulary_card_eligible"):
                     continue
                 et = s.get("example_type", "")
-                if et not in ("natural_sentence", "grammar_example"):
+                if et not in ("natural_sentence", "grammar_example", "real_source"):
                     continue
 
                 src_id = s.get("source_id", "")
@@ -79,7 +79,7 @@ def main():
                 results.append(s)
 
         # 排序
-        type_priority = {"natural_sentence": 1, "grammar_example": 0}
+        type_priority = {"real_source": 2, "natural_sentence": 1, "grammar_example": 0}
         results.sort(key=lambda r: (
             -(r.get("display_priority", 0)),
             -type_priority.get(r.get("example_type", ""), 0),
@@ -121,11 +121,13 @@ def main():
     eligible_t = [r for r in translated if r.get("vocabulary_card_eligible")]
     ns = [r for r in eligible_t if r.get("example_type") == "natural_sentence"]
     ge = [r for r in eligible_t if r.get("example_type") == "grammar_example"]
+    rs = [r for r in eligible_t if r.get("example_type") == "real_source"]
     vt = [r for r in eligible_t if r.get("example_type") == "vocabulary_table"]
     print(f"  translated: {len(translated)}")
     print(f"  eligible: {len(eligible_t)}")
     print(f"  natural_sentence: {len(ns)}")
     print(f"  grammar_example: {len(ge)}")
+    print(f"  real_source: {len(rs)}")
     print(f"  vocabulary_table in eligible (should be 0): {len(vt)}")
 
     # 验证排序: 抽一个有多种类型结果的词
