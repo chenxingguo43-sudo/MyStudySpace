@@ -2019,9 +2019,21 @@
         return tokens;
     }
 
-    // 候选词去重添加
+    var SOURCE_EXAMPLE_STOPWORDS = {
+        'не': 1, 'ни': 1, 'что': 1, 'как': 1, 'это': 1, 'если': 1, 'или': 1,
+        'уже': 1, 'для': 1, 'при': 1, 'без': 1, 'под': 1, 'над': 1, 'через': 1,
+        'до': 1, 'от': 1, 'из': 1, 'по': 1, 'об': 1, 'со': 1, 'во': 1, 'ко': 1,
+        'ли': 1, 'же': 1, 'бы': 1, 'то': 1, 'мы': 1, 'вы': 1, 'он': 1, 'она': 1,
+        'они': 1, 'оно': 1, 'его': 1, 'ее': 1, 'её': 1, 'их': 1
+    };
+
+    // 候选词去重添加。过滤高频虚词，避免短语卡片被无关资料例句污染。
     function _addCandidate(list, word) {
-        if (word && word.length > 1 && list.indexOf(word) < 0) list.push(word);
+        if (!word) return;
+        var normalized = word.toLowerCase();
+        if (normalized.length <= 2) return;
+        if (SOURCE_EXAMPLE_STOPWORDS[normalized]) return;
+        if (list.indexOf(normalized) < 0) list.push(normalized);
     }
 
     function lookupSourceExamples(word) {
@@ -2041,24 +2053,16 @@
         // 1. 主查询词的俄语 token
         _extractRuTokens(word).forEach(function(t) { _addCandidate(candidates, t); });
 
-        // 2. 当前词条的各种字段
+        // 2. 当前词条的核心检索字段
+        // 只使用词条本身和体对偶。不要从释义或自带例句里抽词，
+        // 否则会把例句中的普通词误当成当前卡片的资料例句匹配词。
         var w = _currentWord;
         if (w) {
             if (w.word) {
                 _extractRuTokens(w.word).forEach(function(t) { _addCandidate(candidates, t); });
             }
-            if (w.meaning) {
-                _extractRuTokens(w.meaning).forEach(function(t) { _addCandidate(candidates, t); });
-            }
             if (w.pair) {
                 _extractRuTokens(w.pair).forEach(function(t) { _addCandidate(candidates, t); });
-            }
-            if (w.examples) {
-                w.examples.forEach(function(ex) {
-                    if (ex.ru) {
-                        _extractRuTokens(ex.ru).forEach(function(t) { _addCandidate(candidates, t); });
-                    }
-                });
             }
         }
 
