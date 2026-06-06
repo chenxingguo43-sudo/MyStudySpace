@@ -438,6 +438,14 @@
         }
         .source-ex-source { }
         .source-ex-page { }
+        .source-ex-type {
+            display: inline-block;
+            padding: 1px 6px;
+            border-radius: 3px;
+            font-size: 0.7em;
+            background: rgba(99,102,241,0.15);
+            color: #a5b4fc;
+        }
         .source-ex-review {
             background: rgba(251,191,36,0.15); color: #fbbf24;
             padding: 1px 6px; border-radius: 3px; font-size: 10px;
@@ -2020,8 +2028,15 @@
         if (!coordLexemeIndex || !coordSentences || !coordSources) return [];
         if (!word) return [];
 
+        // 构建 source 查找表
+        var sourceMap = {};
+        coordSources.forEach(function(s) { sourceMap[s.source_id] = s; });
+
+        // 构建 sentence 查找表
+        var sentenceMap = {};
+        coordSentences.forEach(function(s) { sentenceMap[s.sentence_id] = s; });
+
         var candidates = [];
-        var seen = {};
 
         // 1. 主查询词的俄语 token
         _extractRuTokens(word).forEach(function(t) { _addCandidate(candidates, t); });
@@ -2029,19 +2044,15 @@
         // 2. 当前词条的各种字段
         var w = _currentWord;
         if (w) {
-            // word 字段（可能是短语，拆成 token）
             if (w.word) {
                 _extractRuTokens(w.word).forEach(function(t) { _addCandidate(candidates, t); });
             }
-            // meaning 字段中的俄语词
             if (w.meaning) {
                 _extractRuTokens(w.meaning).forEach(function(t) { _addCandidate(candidates, t); });
             }
-            // pair 字段（体对偶）
             if (w.pair) {
                 _extractRuTokens(w.pair).forEach(function(t) { _addCandidate(candidates, t); });
             }
-            // 从 word.examples 中提取俄语词
             if (w.examples) {
                 w.examples.forEach(function(ex) {
                     if (ex.ru) {
@@ -2053,6 +2064,7 @@
 
         var foundSentenceIds = {};
         var results = [];
+        var sourceCount = {};
 
         for (var ci = 0; ci < candidates.length; ci++) {
             var entry = coordLexemeIndex[candidates[ci]];
@@ -2063,26 +2075,27 @@
                 if (foundSentenceIds[sid]) continue;
                 foundSentenceIds[sid] = true;
 
-                // 查 sentences.json
-                var sentence = null;
-                for (var k = 0; k < coordSentences.length; k++) {
-                    if (coordSentences[k].sentence_id === sid) {
-                        sentence = coordSentences[k];
-                        break;
-                    }
-                }
+                var sentence = sentenceMap[sid];
                 if (!sentence) continue;
 
-                // 查 sources.json
-                var source = null;
-                if (sentence.source_id) {
-                    for (var k = 0; k < coordSources.length; k++) {
-                        if (coordSources[k].source_id === sentence.source_id) {
-                            source = coordSources[k];
-                            break;
-                        }
-                    }
-                }
+                // 筛选: 必须已翻译
+                if (sentence.translation_status !== 'translated') continue;
+                if (!sentence.zh || !sentence.zh.trim()) continue;
+
+                // 筛选: 必须 eligible
+                if (!sentence.vocabulary_card_eligible) continue;
+
+                // 筛选: 只要 natural_sentence 和 grammar_example
+                var et = sentence.example_type;
+                if (et !== 'natural_sentence' && et !== 'grammar_example') continue;
+
+                // 每个 source 最多 2 条
+                var srcId = sentence.source_id;
+                if (!sourceCount[srcId]) sourceCount[srcId] = 0;
+                if (sourceCount[srcId] >= 2) continue;
+                sourceCount[srcId]++;
+
+                var source = sourceMap[srcId] || null;
 
                 results.push({
                     sentence: sentence,
@@ -2092,7 +2105,22 @@
             }
         }
 
-        return results.slice(0, 3); // 最多显示 3 条
+        // 排序: display_priority 高的在前, natural_sentence 优先, quality_score 高的在前
+        results.sort(function(a, b) {
+            var sa = a.sentence, sb = b.sentence;
+            // 1. display_priority
+            var pa = sa.display_priority || 0, pb = sb.display_priority || 0;
+            if (pa !== pb) return pb - pa;
+            // 2. natural_sentence > grammar_example
+            var ta = sa.example_type === 'natural_sentence' ? 1 : 0;
+            var tb = sb.example_type === 'natural_sentence' ? 1 : 0;
+            if (ta !== tb) return tb - ta;
+            // 3. quality_score
+            var qa = sa.quality_score || 0, qb = sb.quality_score || 0;
+            return qb - qa;
+        });
+
+        return results.slice(0, 3);
     }
 
     function renderSourceExamples(word) {
@@ -2107,13 +2135,14 @@
                 var m = matches[i];
                 var s = m.sentence;
                 var src = m.source;
+                var typeLabel = s.example_type === 'natural_sentence' ? '自然例句' : '语法例句';
                 html += '<div class="source-ex-item">';
                 html += '<div class="source-ex-ru">' + esc(s.ru) + '</div>';
                 html += '<div class="source-ex-zh">' + esc(s.zh) + '</div>';
                 html += '<div class="source-ex-meta">';
                 if (src) html += '<span class="source-ex-source">' + esc(src.source_title) + '</span>';
-                if (s.page_or_location) html += '<span class="source-ex-page">第' + esc(s.page_or_location) + '页</span>';
-                if (s.needs_review) html += '<span class="source-ex-review">待复核</span>';
+                if (s.page_or_location) html += '<span class="source-ex-page">第' + esc(String(s.page_or_location)) + '页</span>';
+                html += '<span class="source-ex-type">' + esc(typeLabel) + '</span>';
                 html += '</div>';
                 html += '</div>';
             }
