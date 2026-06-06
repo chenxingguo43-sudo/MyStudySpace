@@ -97,13 +97,16 @@ def convert_record_to_unified(r, source_meta):
     # 兼容旧格式: extraction.risk → match_risk
     match_risk = r.get("match_risk", r.get("extraction", {}).get("risk", "low"))
     candidate_id = r.get("candidate_id", r.get("extraction", {}).get("candidate_id", ""))
-    return {
+    zh = r.get("zh", "")
+    zh_stripped = zh.strip() if isinstance(zh, str) else ""
+    translated = bool(zh_stripped)
+    unified = {
         "sentence_id": r["sentence_id"],
         "source_id": r["source_id"],
         "chapter": source_meta.get("category", "auto_extracted"),
         "page_or_location": str(r.get("page_number", "")),
         "ru": r["ru"],
-        "zh": r.get("zh", ""),
+        "zh": zh,
         "confidence": r.get("confidence", "medium"),
         "needs_review": r.get("needs_review", True),
         "note": r.get("note", ""),
@@ -114,6 +117,19 @@ def convert_record_to_unified(r, source_meta):
         "possible_lexemes": r.get("possible_lexemes", []),
         "grammar_tags": r.get("grammar_tags", [])
     }
+    unified["quality_flags"] = r.get("quality_flags", ["clean_sentence_candidate"])
+    unified["quality_score"] = r.get("quality_score", 100 if match_risk == "low" else 80)
+    unified["translation_status"] = "translated" if translated else "untranslated"
+    if translated:
+        unified["translation_confidence"] = r.get("translation_confidence", r.get("confidence", "medium"))
+        unified["phrase_or_fragment"] = r.get("phrase_or_fragment", False)
+        unified["translation_needs_review"] = r.get("translation_needs_review", r.get("needs_review", False))
+        unified["example_type"] = r.get("example_type", "real_source")
+        unified["display_priority"] = r.get("display_priority", 80 if match_risk == "low" else 60)
+        unified["vocabulary_card_eligible"] = bool(
+            r.get("vocabulary_card_eligible", match_risk != "high" and not r.get("needs_review", False))
+        )
+    return unified
 
 def do_import(pkg_dir, data_dir=DATA_DIR, dry_run=False):
     """执行导入。返回结果 dict。"""

@@ -2089,9 +2089,9 @@
                 // 筛选: 必须 eligible
                 if (!sentence.vocabulary_card_eligible) continue;
 
-                // 筛选: 只要 natural_sentence 和 grammar_example
+                // 筛选: 只要 natural_sentence / grammar_example / real_source
                 var et = sentence.example_type;
-                if (et !== 'natural_sentence' && et !== 'grammar_example') continue;
+                if (et !== 'natural_sentence' && et !== 'grammar_example' && et !== 'real_source') continue;
 
                 // 每个 source 最多 2 条
                 var srcId = sentence.source_id;
@@ -2109,15 +2109,16 @@
             }
         }
 
-        // 排序: display_priority 高的在前, natural_sentence 优先, quality_score 高的在前
+        // 排序: display_priority 高的在前, real_source/natural_sentence 优先, quality_score 高的在前
         results.sort(function(a, b) {
             var sa = a.sentence, sb = b.sentence;
             // 1. display_priority
             var pa = sa.display_priority || 0, pb = sb.display_priority || 0;
             if (pa !== pb) return pb - pa;
-            // 2. natural_sentence > grammar_example
-            var ta = sa.example_type === 'natural_sentence' ? 1 : 0;
-            var tb = sb.example_type === 'natural_sentence' ? 1 : 0;
+            // 2. real_source > natural_sentence > grammar_example
+            var typePriority = { real_source: 2, natural_sentence: 1, grammar_example: 0 };
+            var ta = typePriority[sa.example_type] || 0;
+            var tb = typePriority[sb.example_type] || 0;
             if (ta !== tb) return tb - ta;
             // 3. quality_score
             var qa = sa.quality_score || 0, qb = sb.quality_score || 0;
@@ -2139,7 +2140,7 @@
                 var m = matches[i];
                 var s = m.sentence;
                 var src = m.source;
-                var typeLabel = s.example_type === 'natural_sentence' ? '自然例句' : '语法例句';
+                var typeLabel = s.example_type === 'real_source' ? '真实资料' : (s.example_type === 'natural_sentence' ? '自然例句' : '语法例句');
                 html += '<div class="source-ex-item">';
                 html += '<div class="source-ex-ru">' + esc(s.ru) + '</div>';
                 html += '<div class="source-ex-zh">' + esc(s.zh) + '</div>';
