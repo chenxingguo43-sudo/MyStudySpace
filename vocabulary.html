@@ -1038,11 +1038,13 @@
         Promise.all([
             fetch('data/lexeme_index.json').then(function(r) { return r.json(); }),
             fetch('data/sentences.json').then(function(r) { return r.json(); }),
-            fetch('data/sources.json').then(function(r) { return r.json(); })
+            fetch('data/sources.json').then(function(r) { return r.json(); }),
+            fetch('data/source_labels.json').then(function(r) { return r.json(); }).catch(function() { return {}; })
         ]).then(function(results) {
             coordLexemeIndex = results[0];
             coordSentences = results[1];
             coordSources = results[2];
+            window._sourceLabels = results[3] || {};
             // 只刷新资料例句区域，不触发 renderCard（避免跳卡）
             refreshSourceExamplesOnly();
         }).catch(function(err) {
@@ -2140,12 +2142,14 @@
                 var m = matches[i];
                 var s = m.sentence;
                 var src = m.source;
-                var typeLabel = s.example_type === 'real_source' ? '真实资料' : (s.example_type === 'natural_sentence' ? '自然例句' : '语法例句');
+                var typeLabel = s.example_type === 'natural_sentence' ? '自然例句' : '语法例句';
+                // Add source label emoji
+                var srcLabel = (window._sourceLabels && src) ? (window._sourceLabels[s.source_id] || '') : '';
                 html += '<div class="source-ex-item">';
                 html += '<div class="source-ex-ru">' + esc(s.ru) + '</div>';
                 html += '<div class="source-ex-zh">' + esc(s.zh) + '</div>';
                 html += '<div class="source-ex-meta">';
-                if (src) html += '<span class="source-ex-source">' + esc(src.source_title) + '</span>';
+                if (src) html += '<span class="source-ex-source">' + esc(srcLabel + ' ' + src.source_title) + '</span>';
                 if (s.page_or_location) html += '<span class="source-ex-page">第' + esc(String(s.page_or_location)) + '页</span>';
                 html += '<span class="source-ex-type">' + esc(typeLabel) + '</span>';
                 html += '</div>';
