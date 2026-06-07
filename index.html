@@ -83,532 +83,6 @@
             background: transparent;
         }
 
-        /* ====== 灵动岛小组件 — Flex 联动布局 ====== */
-        #floating-widget {
-            position: absolute;
-            top: 2px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 10000;
-            display: none;
-            width: auto;
-            max-width: none;
-            justify-content: center;
-            align-items: flex-start;
-            gap: 10px;
-            user-select: none;
-            -webkit-user-select: none;
-        }
-        #floating-widget.visible { display: flex; }
-        /* 3D 透视容器 */
-        #floating-widget {
-            perspective: 800px;
-        }
-
-        /* 灵动岛基础 */
-        .di-island {
-            flex-shrink: 0;
-        }
-
-        /* === 计时器主岛 — iOS 级多层玻璃 === */
-        .di-timer {
-            position: relative;
-            width: 104px;
-            height: 42px;
-            display: flex;
-            align-items: center;
-            overflow: visible;
-            border-radius: 999px;
-            /* 多层半透明叠加：底部微白 → 模拟玻璃折射 */
-            background:
-                linear-gradient(135deg,
-                    rgba(255,255,255,0.11) 0%,
-                    rgba(255,255,255,0.04) 30%,
-                    rgba(255,255,255,0.02) 60%,
-                    rgba(255,255,255,0.06) 100%);
-            /* iOS 风格 backdrop-filter：模糊 + 饱和 + 亮度 + 对比度 */
-            backdrop-filter: blur(24px) saturate(220%) brightness(1.12) contrast(1.06);
-            -webkit-backdrop-filter: blur(24px) saturate(220%) brightness(1.12) contrast(1.06);
-            /* 玻璃边框 */
-            border: 0.5px solid rgba(255,255,255,0.20);
-            /* 多层阴影：投影 + 镜面内高光 */
-            box-shadow:
-                0 8px 32px rgba(0,0,0,0.18),
-                0 2px 8px rgba(0,0,0,0.10),
-                inset 0 0.5px 0 rgba(255,255,255,0.22),
-                inset 0 -0.5px 0 rgba(255,255,255,0.04),
-                inset 0 0 0 0.5px rgba(255,255,255,0.06);
-            transition: width 240ms cubic-bezier(0.22, 1, 0.36, 1),
-                        border-radius 200ms ease,
-                        box-shadow 240ms ease,
-                        background 240ms ease,
-                        transform 0.3s ease-out;
-            cursor: pointer;
-            transform-origin: center center;
-            transform-style: preserve-3d;
-            will-change: width, border-radius, transform;
-        }
-        /* 噪点纹理覆盖层 */
-        .di-timer::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            border-radius: inherit;
-            background: transparent;
-            filter: url(#di-glass-noise);
-            pointer-events: none;
-            z-index: 9998;
-        }
-        /* 镜面高光 — 可跟随鼠标偏移 */
-        .di-timer::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            border-radius: inherit;
-            background: radial-gradient(
-                ellipse at var(--spec-x, 50%) var(--spec-y, 0%),
-                rgba(255,255,255,0.09) 0%,
-                rgba(255,255,255,0.03) 25%,
-                transparent 55%,
-                rgba(255,255,255,0.02) 100%
-            );
-            pointer-events: none;
-            z-index: 9997;
-            transition: opacity 0.5s;
-        }
-        .di-timer:hover {
-            background:
-                linear-gradient(135deg,
-                    rgba(255,255,255,0.14) 0%,
-                    rgba(255,255,255,0.05) 30%,
-                    rgba(255,255,255,0.03) 60%,
-                    rgba(255,255,255,0.08) 100%);
-            border-color: rgba(255,255,255,0.28);
-        }
-        /* 展开态 */
-        .di-timer.expanded,
-        .di-timer.expanding {
-            width: 316px;
-            border-radius: 22px;
-            cursor: default;
-            background:
-                linear-gradient(160deg,
-                    rgba(255,255,255,0.09) 0%,
-                    rgba(255,255,255,0.03) 40%,
-                    rgba(255,255,255,0.01) 70%,
-                    rgba(255,255,255,0.05) 100%);
-            box-shadow:
-                0 24px 80px rgba(0,0,0,0.22),
-                0 8px 24px rgba(0,0,0,0.12),
-                inset 0 0.5px 0 rgba(255,255,255,0.18),
-                inset 0 -0.5px 0 rgba(255,255,255,0.03),
-                inset 0 0 0 0.5px rgba(255,255,255,0.04);
-        }
-        .di-timer.expanded::before,
-        .di-timer.expanding::before {
-            background: radial-gradient(
-                ellipse at var(--spec-x, 50%) var(--spec-y, 0%),
-                rgba(255,255,255,0.07) 0%,
-                rgba(255,255,255,0.02) 30%,
-                transparent 60%,
-                rgba(255,255,255,0.01) 100%
-            );
-        }
-
-        /* 胶囊内容 */
-        .di-pill {
-            display: flex;
-            align-items: center;
-            gap: 7px;
-            padding: 0 18px 0 14px;
-            height: 42px;
-            white-space: nowrap;
-            flex-shrink: 0;
-            opacity: 1;
-            transform: scale(1);
-            will-change: opacity, transform;
-            transition: opacity 160ms ease, transform 160ms ease;
-        }
-        .di-timer.expanding .di-pill,
-        .di-timer.expanded .di-pill {
-            opacity: 0;
-            transform: scale(0.96);
-            pointer-events: none;
-            position: absolute;
-        }
-        .di-timer.collapsing .di-pill {
-            opacity: 0;
-            transform: scale(0.96);
-            transition: opacity 140ms 160ms ease;
-        }
-
-        .di-icon { font-size: 14px; line-height: 1; }
-        .di-time {
-            font-size: 14px;
-            font-weight: 600;
-            color: rgba(255,255,255,0.90);
-            font-family: -apple-system,'SF Pro Text','Inter',sans-serif;
-            line-height: 1;
-            letter-spacing: 0.02em;
-            text-shadow: 0 0.5px 1px rgba(0,0,0,0.35);
-        }
-
-        /* 面板内容 — 内层玻璃衬底 */
-        .di-panel {
-            display: none;
-            flex-direction: column;
-            gap: 10px;
-            padding: 16px 18px 14px;
-            width: 280px;
-            flex-shrink: 0;
-            position: relative;
-            will-change: opacity, transform;
-        }
-        .di-panel::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background:
-                radial-gradient(ellipse at 50% 0%,
-                    rgba(255,255,255,0.05) 0%,
-                    transparent 70%);
-            border-radius: 22px 22px 0 0;
-            pointer-events: none;
-        }
-
-        /* 面板行 — 默认隐藏，通过 transition 控制错落显隐 */
-        .di-panel > * {
-            opacity: 0;
-            transform: translateY(8px);
-            transition: opacity 180ms ease-out, transform 180ms cubic-bezier(0.22, 1, 0.36, 1);
-        }
-        /* 展开：错落延迟入场（与容器展开重叠，更流畅） */
-        .di-timer.expanding .di-panel > :nth-child(1),
-        .di-timer.expanded .di-panel > :nth-child(1) {
-            opacity: 1; transform: translateY(0); transition-delay: 0.06s;
-        }
-        .di-timer.expanding .di-panel > :nth-child(2),
-        .di-timer.expanded .di-panel > :nth-child(2) {
-            opacity: 1; transform: translateY(0); transition-delay: 0.1s;
-        }
-        .di-timer.expanding .di-panel > :nth-child(3),
-        .di-timer.expanded .di-panel > :nth-child(3) {
-            opacity: 1; transform: translateY(0); transition-delay: 0.14s;
-        }
-        .di-timer.expanding .di-panel > :nth-child(4),
-        .di-timer.expanded .di-panel > :nth-child(4) {
-            opacity: 1; transform: translateY(0); transition-delay: 0.18s;
-        }
-        /* 收起：快速淡出，与容器收缩同时 */
-        .di-timer.collapsing .di-panel > * {
-            opacity: 0;
-            transform: translateY(4px);
-            transition-duration: 60ms;
-            transition-delay: 0s;
-        }
-
-        .di-timer.expanding .di-panel,
-        .di-timer.expanded .di-panel { display: flex; }
-        .di-timer.collapsing .di-panel { display: flex; }
-
-        /* 主岛展开时，音乐岛被推开 + 微缩淡 */
-        #floating-widget.has-expanded .di-music {
-            transform: scale(0.92);
-            opacity: 0.7;
-        }
-
-        /* 面板内部 */
-        .di-top {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            position: relative; z-index: 1;
-        }
-        .di-header {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-        .di-emoji { font-size: 12px; }
-        .di-status {
-            font-size: 11px;
-            color: rgba(255,255,255,0.48);
-            font-weight: 500;
-            letter-spacing: 0.3px;
-            font-family: -apple-system,'SF Pro Text','Inter',sans-serif;
-            text-shadow: 0 0.5px 1px rgba(0,0,0,0.25);
-        }
-        .di-big-time {
-            font-size: 28px;
-            font-weight: 700;
-            color: rgba(255,255,255,0.94);
-            font-family: -apple-system,'SF Pro Display','Inter',sans-serif;
-            line-height: 1;
-            letter-spacing: -0.02em;
-            text-shadow: 0 1px 2px rgba(0,0,0,0.30), 0 0 8px rgba(255,255,255,0.08);
-        }
-        .di-bar {
-            width: 100%;
-            height: 4px;
-            background: rgba(255,255,255,0.08);
-            border-radius: 999px;
-            overflow: hidden;
-            position: relative; z-index: 1;
-            box-shadow: inset 0 0.5px 1px rgba(0,0,0,0.2);
-        }
-        .di-bar-fill {
-            height: 100%;
-            width: 0%;
-            background: linear-gradient(90deg,
-                rgba(255,255,255,0.35) 0%,
-                rgba(255,255,255,0.55) 50%,
-                rgba(255,255,255,0.40) 100%);
-            border-radius: 999px;
-            transition: width 0.5s ease;
-            box-shadow: 0 0 6px rgba(255,255,255,0.15);
-        }
-        .di-btns {
-            display: flex;
-            gap: 8px;
-            position: relative; z-index: 1;
-        }
-        .di-btns .di-btn { flex: 1; }
-
-        /* 按钮 — iOS 微型玻璃 */
-        .di-btn {
-            height: 36px;
-            border-radius: 12px;
-            border: 0.5px solid rgba(255,255,255,0.14);
-            background:
-                linear-gradient(180deg,
-                    rgba(255,255,255,0.14) 0%,
-                    rgba(255,255,255,0.06) 50%,
-                    rgba(255,255,255,0.09) 100%);
-            backdrop-filter: blur(8px) saturate(160%) brightness(1.06);
-            -webkit-backdrop-filter: blur(8px) saturate(160%) brightness(1.06);
-            color: rgba(255,255,255,0.88);
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 5px;
-            font-size: 12px;
-            font-weight: 500;
-            font-family: -apple-system,'SF Pro Text','Inter',sans-serif;
-            transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
-            box-shadow:
-                0 1px 3px rgba(0,0,0,0.12),
-                inset 0 0.5px 0 rgba(255,255,255,0.10);
-        }
-        .di-btn:hover {
-            background:
-                linear-gradient(180deg,
-                    rgba(255,255,255,0.20) 0%,
-                    rgba(255,255,255,0.10) 50%,
-                    rgba(255,255,255,0.13) 100%);
-            border-color: rgba(255,255,255,0.28);
-            color: #fff;
-            box-shadow:
-                0 2px 8px rgba(0,0,0,0.18),
-                inset 0 0.5px 0 rgba(255,255,255,0.16);
-        }
-        .di-btn:active { transform: scale(0.96); }
-        .di-btn.active {
-            background:
-                linear-gradient(180deg,
-                    rgba(255,255,255,0.22) 0%,
-                    rgba(255,255,255,0.14) 50%,
-                    rgba(255,255,255,0.18) 100%);
-            border-color: rgba(255,255,255,0.32);
-            color: #fff;
-            box-shadow:
-                0 1px 4px rgba(0,0,0,0.15),
-                inset 0 0.5px 0 rgba(255,255,255,0.18),
-                0 0 10px rgba(255,255,255,0.06);
-        }
-
-        /* === 音乐副岛 — iOS 玻璃 === */
-        .di-music {
-            position: relative;
-            width: 44px;
-            height: 40px;
-            border-radius: 999px;
-            overflow: visible;
-            will-change: width, border-radius;
-            transition: width 220ms cubic-bezier(0.22, 1, 0.36, 1),
-                        border-radius 200ms ease,
-                        transform 0.5s cubic-bezier(0.34,1.56,0.64,1),
-                        opacity 0.4s ease;
-        }
-        .di-music .di-pill {
-            width: 44px;
-            height: 40px;
-            border-radius: 999px;
-            background:
-                linear-gradient(135deg,
-                    rgba(255,255,255,0.10) 0%,
-                    rgba(255,255,255,0.03) 50%,
-                    rgba(255,255,255,0.06) 100%);
-            backdrop-filter: blur(20px) saturate(200%) brightness(1.10) contrast(1.06);
-            -webkit-backdrop-filter: blur(20px) saturate(200%) brightness(1.10) contrast(1.06);
-            border: 0.5px solid rgba(255,255,255,0.18);
-            box-shadow:
-                0 6px 28px rgba(0,0,0,0.16),
-                0 2px 6px rgba(0,0,0,0.08),
-                inset 0 0.5px 0 rgba(255,255,255,0.20),
-                inset 0 -0.5px 0 rgba(255,255,255,0.03),
-                inset 0 0 0 0.5px rgba(255,255,255,0.05);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-            transition: opacity 160ms ease, transform 0.25s ease-out;
-            transform-style: preserve-3d;
-        }
-        /* 音乐岛噪点纹理 */
-        .di-music .di-pill::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            border-radius: inherit;
-            filter: url(#di-glass-noise);
-            pointer-events: none;
-            z-index: 1;
-        }
-        .di-music .di-pill:hover {
-            background:
-                linear-gradient(135deg,
-                    rgba(255,255,255,0.14) 0%,
-                    rgba(255,255,255,0.05) 50%,
-                    rgba(255,255,255,0.08) 100%);
-            border-color: rgba(255,255,255,0.26);
-            transform: scale(1.06) perspective(400px) rotateY(-2deg) rotateX(2deg);
-        }
-        .di-music .di-pill:active { transform: scale(0.95); }
-        .di-music .di-pill.playing {
-            background:
-                linear-gradient(135deg,
-                    rgba(255,255,255,0.13) 0%,
-                    rgba(255,255,255,0.05) 50%,
-                    rgba(255,255,255,0.08) 100%);
-            border-color: rgba(255,255,255,0.26);
-            box-shadow:
-                0 6px 28px rgba(0,0,0,0.16),
-                0 2px 6px rgba(0,0,0,0.08),
-                inset 0 0.5px 0 rgba(255,255,255,0.20),
-                inset 0 -0.5px 0 rgba(255,255,255,0.03),
-                0 0 16px rgba(255,255,255,0.08);
-        }
-        .di-music-icon {
-            font-size: 15px;
-            line-height: 1;
-            color: rgba(255,255,255,0.7);
-            transition: color 0.2s;
-        }
-        .di-music .di-pill.playing .di-music-icon { color: rgba(255,255,255,0.95); }
-
-        /* 音乐岛展开面板 — overlay 叠在 pill 上方 */
-        .di-music-panel {
-            display: none;
-            align-items: center;
-            gap: 8px;
-            padding: 0 14px;
-            height: 40px;
-            white-space: nowrap;
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            z-index: 1;
-        }
-        .di-music-panel-icon { font-size: 14px; line-height: 1; }
-        .di-music-panel-text {
-            font-size: 12px;
-            font-weight: 500;
-            color: rgba(255,255,255,0.85);
-            font-family: -apple-system,'SF Pro Text','Inter',sans-serif;
-        }
-        .di-music-close {
-            background: rgba(255,255,255,0.15);
-            border: none;
-            border-radius: 50%;
-            width: 20px;
-            height: 20px;
-            color: rgba(255,255,255,0.7);
-            font-size: 10px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-left: 4px;
-            transition: background 0.15s;
-        }
-        .di-music-close:hover { background: rgba(255,255,255,0.25); }
-
-        /* 音乐岛展开态 — pill 不离文档流，panel overlay */
-        .di-music.expanding,
-        .di-music.m-expanded {
-            width: 140px;
-            border-radius: 16px;
-            background:
-                linear-gradient(160deg,
-                    rgba(255,255,255,0.08) 0%,
-                    rgba(255,255,255,0.02) 50%,
-                    rgba(255,255,255,0.04) 100%);
-            backdrop-filter: blur(20px) saturate(200%) brightness(1.10) contrast(1.06);
-            -webkit-backdrop-filter: blur(20px) saturate(200%) brightness(1.10) contrast(1.06);
-            border: 0.5px solid rgba(255,255,255,0.18);
-            box-shadow:
-                0 8px 32px rgba(0,0,0,0.18),
-                0 2px 8px rgba(0,0,0,0.08),
-                inset 0 0.5px 0 rgba(255,255,255,0.18),
-                inset 0 -0.5px 0 rgba(255,255,255,0.03),
-                inset 0 0 0 0.5px rgba(255,255,255,0.04);
-        }
-        .di-music.expanding .di-pill,
-        .di-music.m-expanded .di-pill {
-            opacity: 0;
-            transform: scale(0.96);
-            pointer-events: none;
-        }
-        .di-music.expanding .di-music-panel,
-        .di-music.m-expanded .di-music-panel { display: flex; }
-        .di-music-panel > * {
-            opacity: 0;
-            transform: translateX(-4px);
-            will-change: opacity, transform;
-            transition: opacity 160ms ease-out, transform 180ms cubic-bezier(0.22, 1, 0.36, 1);
-        }
-        .di-music.expanding .di-music-panel > *,
-        .di-music.m-expanded .di-music-panel > * {
-            opacity: 1;
-            transform: translateX(0);
-        }
-        .di-music.expanding .di-music-panel > :nth-child(1),
-        .di-music.m-expanded .di-music-panel > :nth-child(1) { transition-delay: 0.08s; }
-        .di-music.expanding .di-music-panel > :nth-child(2),
-        .di-music.m-expanded .di-music-panel > :nth-child(2) { transition-delay: 0.12s; }
-        .di-music.expanding .di-music-panel > :nth-child(3),
-        .di-music.m-expanded .di-music-panel > :nth-child(3) { transition-delay: 0.16s; }
-
-        /* 音乐岛收起 */
-        .di-music.m-collapsing {
-            background: transparent;
-            border-color: transparent;
-            box-shadow: none;
-        }
-        .di-music.m-collapsing .di-music-panel > * {
-            opacity: 0;
-            transform: translateX(-4px);
-            transition-duration: 80ms;
-            transition-delay: 0s;
-        }
-        .di-music.m-collapsing .di-music-panel { display: flex; }
-        .di-music.m-collapsing .di-pill {
-            opacity: 0;
-            transition: opacity 160ms 200ms ease;
-        }
-
         /* 网易云播放器浮窗 */
         .di-netease-panel {
             position: fixed;
@@ -641,107 +115,6 @@
                 inset 0 0.5px 0 rgba(255,255,255,0.16),
                 inset 0 0 0 0.5px rgba(255,255,255,0.04);
         }
-
-        /* ====== 液态玻璃 + 交互光效 ====== */
-
-        /* 涟漪效果 */
-        .di-ripple {
-            position: absolute;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(255,255,255,0.35) 0%, rgba(255,255,255,0) 70%);
-            transform: scale(0);
-            animation: di-ripple-anim 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-            pointer-events: none;
-            z-index: 10;
-        }
-        @keyframes di-ripple-anim {
-            to { transform: scale(2.5); opacity: 0; }
-        }
-
-        /* 按钮 hover 辉光 */
-        .di-btn::before {
-            content: '';
-            position: absolute;
-            inset: -2px;
-            border-radius: 14px;
-            background: radial-gradient(ellipse at center, var(--di-glow-color, rgba(255,180,100,0.15)) 0%, transparent 70%);
-            opacity: 0;
-            transition: opacity 0.3s;
-            pointer-events: none;
-            z-index: -1;
-        }
-        .di-btn { position: relative; overflow: hidden; }
-        .di-btn:hover::before { opacity: 1; }
-
-        /* 岛体边缘呼吸光 */
-        .di-timer.glow-running {
-            animation: di-edge-glow 2.5s ease-in-out infinite;
-        }
-        @keyframes di-edge-glow {
-            0%, 100% {
-                box-shadow:
-                    0 8px 32px rgba(0,0,0,0.18), 0 2px 8px rgba(0,0,0,0.10),
-                    inset 0 0.5px 0 rgba(255,255,255,0.22), inset 0 -0.5px 0 rgba(255,255,255,0.04),
-                    inset 0 0 0 0.5px rgba(255,255,255,0.06),
-                    0 0 14px rgba(255,180,100,0.15);
-            }
-            50% {
-                box-shadow:
-                    0 8px 32px rgba(0,0,0,0.18), 0 2px 8px rgba(0,0,0,0.10),
-                    inset 0 0.5px 0 rgba(255,255,255,0.22), inset 0 -0.5px 0 rgba(255,255,255,0.04),
-                    inset 0 0 0 0.5px rgba(255,255,255,0.06),
-                    0 0 24px rgba(255,180,100,0.25);
-            }
-        }
-        .di-timer.glow-running.glow-break {
-            animation-name: di-edge-glow-break;
-        }
-        @keyframes di-edge-glow-break {
-            0%, 100% {
-                box-shadow:
-                    0 8px 32px rgba(0,0,0,0.18), 0 2px 8px rgba(0,0,0,0.10),
-                    inset 0 0.5px 0 rgba(255,255,255,0.22), inset 0 -0.5px 0 rgba(255,255,255,0.04),
-                    inset 0 0 0 0.5px rgba(255,255,255,0.06),
-                    0 0 14px rgba(80,200,120,0.15);
-            }
-            50% {
-                box-shadow:
-                    0 8px 32px rgba(0,0,0,0.18), 0 2px 8px rgba(0,0,0,0.10),
-                    inset 0 0.5px 0 rgba(255,255,255,0.22), inset 0 -0.5px 0 rgba(255,255,255,0.04),
-                    inset 0 0 0 0.5px rgba(255,255,255,0.06),
-                    0 0 24px rgba(80,200,120,0.25);
-            }
-        }
-
-        /* 进度条光泽流动 */
-        .di-bar-fill {
-            position: relative;
-            overflow: hidden;
-        }
-        .di-bar-fill::after {
-            content: '';
-            position: absolute;
-            top: 0; left: -100%; width: 60%; height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            animation: di-bar-shimmer 2s ease-in-out infinite;
-        }
-        @keyframes di-bar-shimmer {
-            0% { left: -60%; }
-            100% { left: 160%; }
-        }
-
-        /* 灵动岛液态玻璃 hover 辉光跟随 */
-        .di-timer .di-glow-effect {
-            position: absolute;
-            inset: 0;
-            border-radius: inherit;
-            pointer-events: none;
-            z-index: 0;
-            opacity: 0;
-            transition: opacity 0.3s;
-            background: radial-gradient(circle at var(--glow-x, 50%) var(--glow-y, 50%), rgba(255,255,255,0.06) 0%, transparent 60%);
-        }
-        .di-timer:hover .di-glow-effect { opacity: 1; }
 
         /* ====== 学习数据按钮 ====== */
         #open-stats-btn {
@@ -785,15 +158,14 @@
         /* ===== 统一导航框架 V10.0 ===== */
         #unified-nav{position:fixed;top:0;left:0;right:0;z-index:9600;height:44px;background:rgba(10,10,20,0.88);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.08);display:flex;align-items:center;padding:0 16px;gap:0}
         .unav-logo{font-size:.82em;font-weight:700;color:rgba(255,255,255,.7);margin-right:16px;white-space:nowrap;letter-spacing:.04em}
-        .unav-links{display:flex;align-items:center;gap:2px;flex:1}
+        .unav-links{display:flex;align-items:center;gap:2px;flex:1;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+        .unav-links::-webkit-scrollbar{display:none}
         .unav-link{display:inline-flex;align-items:center;gap:4px;padding:5px 12px;border-radius:18px;font-size:.78em;color:rgba(255,255,255,.55);text-decoration:none;transition:all .2s;white-space:nowrap;border:1px solid transparent}
         .unav-link:hover{color:rgba(255,255,255,.9);background:rgba(255,255,255,.08)}
         .unav-link.active{color:#a5b4fc;background:rgba(99,102,241,.2);border-color:rgba(99,102,241,.3)}
         .unav-right{display:flex;align-items:center;gap:8px;margin-left:auto}
-        .unav-dark-btn{background:none;border:none;cursor:pointer;font-size:1em;padding:4px 8px;border-radius:12px;color:rgba(255,255,255,.5);transition:all .2s}
-        .unav-dark-btn:hover{background:rgba(255,255,255,.08);color:rgba(255,255,255,.9)}
         /* index.html: iframe要为导航栏留出空间 */
-        #russian-frame, #pomodoro-frame, #stats-frame { top: 44px; height: calc(100% - 44px); }
+        #russian-frame, #pomodoro-frame, #stats-frame, #vocab-frame, #reader-frame { top: 44px; height: calc(100% - 44px); }
 
         /* 统计页 iframe */
         #stats-frame {
@@ -806,6 +178,107 @@
             transition: opacity 0.4s ease;
             z-index: 5;
         }
+        /* 背单词页 iframe */
+        #vocab-frame {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            border: none;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+            z-index: 5;
+        }
+        /* 小说阅读页 iframe */
+        #reader-frame {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            border: none;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+            z-index: 5;
+        }
+
+        /* ─── 背词计时小窗 ─── */
+        #vocab-timer-widget {
+            display: none;
+            position: fixed;
+            top: 56px; right: 16px;
+            z-index: 9500;
+            background: rgba(15,23,42,0.92);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(129,140,248,0.25);
+            border-radius: 999px;
+            padding: 8px 16px;
+            font-family: -apple-system, 'Inter', sans-serif;
+            color: #e2e8f0;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+            transition: all 0.25s ease;
+            cursor: pointer;
+            user-select: none;
+            touch-action: none;
+            align-items: center; gap: 8px;
+        }
+        #vocab-timer-widget.visible { display: flex; }
+        #vocab-timer-widget.expanded {
+            width: 200px; border-radius: 14px; padding: 14px 16px;
+            flex-direction: column; cursor: grab;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+        }
+        #vocab-timer-widget .vtw-capsule { display: flex; align-items: center; gap: 6px; font-size: 14px; }
+        #vocab-timer-widget.expanded .vtw-capsule { display: none; }
+        #vocab-timer-widget .vtw-full { display: none; }
+        #vocab-timer-widget.expanded .vtw-full { display: block; }
+        .vtw-capsule-time { font-weight: 600; font-size: 14px; font-variant-numeric: tabular-nums; }
+        #vocab-timer-widget.dragging { transition: none; cursor: grabbing; }
+        #vocab-timer-widget .vtw-time {
+            font-size: 28px; font-weight: 700;
+            color: #f8fafc; text-align: center;
+            letter-spacing: -0.02em; margin-bottom: 4px;
+        }
+        #vocab-timer-widget .vtw-label {
+            font-size: 11px; color: rgba(255,255,255,0.45);
+            text-align: center; margin-bottom: 10px;
+        }
+        #vocab-timer-widget .vtw-stats {
+            display: flex; gap: 6px; justify-content: center;
+            margin-bottom: 10px;
+        }
+        #vocab-timer-widget .vtw-stat {
+            font-size: 11px; padding: 2px 8px;
+            border-radius: 8px; white-space: nowrap;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.06);
+        }
+        #vocab-timer-widget .vtw-stat .vtw-num { font-weight: 600; color: #a5b4fc; }
+        #vocab-timer-widget .vtw-btns {
+            display: flex; gap: 6px;
+        }
+        #vocab-timer-widget .vtw-btn {
+            flex: 1; height: 30px; border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.06);
+            color: rgba(255,255,255,0.7); font-size: 11px;
+            cursor: pointer; font-family: inherit;
+            transition: all 0.15s;
+        }
+        #vocab-timer-widget .vtw-btn:hover { background: rgba(255,255,255,0.12); color: #fff; }
+        /* 移动端 */
+        @media (max-width: 600px) {
+            #vocab-timer-widget { top: 44px; right: 8px; padding: 6px 12px; }
+            #vocab-timer-widget.expanded {
+                right: 0; left: 0; width: auto; border-radius: 0;
+                padding: 6px 16px; flex-direction: row; align-items: center; gap: 12px;
+                border-top: none; border-left: none; border-right: none;
+            }
+            #vocab-timer-widget.expanded .vtw-time { font-size: 18px; margin-bottom: 0; }
+            #vocab-timer-widget.expanded .vtw-label { display: none; }
+            #vocab-timer-widget.expanded .vtw-stats { margin-bottom: 0; gap: 8px; }
+            #vocab-timer-widget.expanded .vtw-btns { display: none; }
+            #vocab-frame { top: calc(44px + 36px); height: calc(100% - 44px - 36px); }
+        }
     </style>
 </head>
 <body>
@@ -815,10 +288,9 @@
     <a href="#" class="unav-link active" data-view="console" onclick="switchView('console');return false">🏠 主控台</a>
     <a href="#" class="unav-link" data-view="pomodoro" onclick="switchView('pomodoro');return false">🍅 番茄钟</a>
     <a href="#" class="unav-link" data-view="russian" onclick="var isIOS=/iPad|iPhone|iPod/.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);if(isIOS){location.href='俄语知识库.html';return false}else{switchView('russian');return false}">🇷🇺 俄语库</a>
-    <a href="#" class="unav-link" data-view="stats" onclick="switchView('stats');return false">📊 统计</a><a href="b2-exam.html" class="unav-link" target="_blank">📋 B2真题</a><a href="vocabulary.html" class="unav-link" target="_blank">📚 背单词</a>
+    <a href="#" class="unav-link" data-view="stats" onclick="switchView('stats');return false">📊 统计</a><a href="#" class="unav-link" data-view="vocab" onclick="switchView('vocab');return false">📚 背单词</a><a href="#" class="unav-link" data-view="reader" onclick="switchView('reader');return false">📖 小说</a><a href="b2-exam.html" class="unav-link" target="_blank">📋 B2真题</a>
   </div>
   <div class="unav-right">
-    <button class="unav-dark-btn" id="unav-dark-btn" title="切换暗色模式">🌙</button>
   </div>
 </div>
 
@@ -826,65 +298,8 @@
     <iframe id="russian-frame" src="俄语知识库.html"></iframe>
     <iframe id="pomodoro-frame" src="pomodoro.html" allow="autoplay; clipboard-write"></iframe>
     <iframe id="stats-frame" src="study-stats.html"></iframe>
-
-    <!-- 灵动岛小组件 — iOS Dynamic Island -->
-    <div id="floating-widget">
-        <!-- iOS 玻璃纹理 SVG（噪点 + 镜面光） -->
-        <svg style="position:absolute;width:0;height:0;pointer-events:none" aria-hidden="true">
-            <defs>
-                <!-- 毛玻璃微噪点纹理 -->
-                <filter id="di-glass-noise">
-                    <feTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="2" stitchTiles="stitch" />
-                    <feColorMatrix type="saturate" values="0" />
-                    <feComponentTransfer>
-                        <feFuncA type="linear" slope="0.04" />
-                    </feComponentTransfer>
-                </filter>
-                <!-- 玻璃边缘辉光 -->
-                <filter id="di-glass-edge">
-                    <feGaussianBlur stdDeviation="1.5" />
-                    <feComposite in="SourceGraphic" />
-                </filter>
-            </defs>
-        </svg>
-        <!-- 计时器主岛 -->
-        <div class="di-island di-timer" id="di-timer">
-            <div class="di-glow-effect" id="di-glow-effect"></div>
-            <div class="di-pill" id="di-pill">
-                <span class="di-icon">🍅</span>
-                <span class="di-time" id="di-time">25:00</span>
-            </div>
-            <div class="di-panel" id="di-panel">
-                <div class="di-top">
-                    <div class="di-header">
-                        <span class="di-emoji">🍅</span>
-                        <span class="di-status" id="di-status">准备开始</span>
-                    </div>
-                    <div class="di-big-time" id="di-big-time">25:00</div>
-                </div>
-                <div class="di-bar"><div class="di-bar-fill" id="di-bar-fill"></div></div>
-                <div class="di-btns">
-                    <button class="di-btn" id="di-play-btn">▶ 开始</button>
-                    <button class="di-btn" id="di-reset-btn">↺ 重置</button>
-                </div>
-                <div class="di-btns">
-                    <button class="di-btn active" id="di-work-btn">📖 学习</button>
-                    <button class="di-btn" id="di-break-btn">☕ 休息</button>
-                </div>
-            </div>
-        </div>
-        <!-- 音乐岛 -->
-        <div class="di-island di-music" id="di-music">
-            <div class="di-pill" id="di-music-pill">
-                <span class="di-music-icon">♫</span>
-            </div>
-            <div class="di-music-panel" id="di-music-panel">
-                <span class="di-music-panel-icon">♫</span>
-                <span class="di-music-panel-text" id="di-music-panel-text">正在播放</span>
-                <button class="di-music-close" id="di-music-close">✕</button>
-            </div>
-        </div>
-    </div>
+    <iframe id="vocab-frame" src="vocabulary.html"></iframe>
+    <iframe id="reader-frame" src="reader-source.html"></iframe>
 
     <!-- 网易云播放器浮窗 -->
     <div id="netease-panel" class="di-netease-panel">
@@ -899,6 +314,32 @@
         📊 学习数据
     </button>
 
+    <!-- 番茄钟胶囊 -->
+    <div id="vocab-timer-widget">
+        <div class="vtw-capsule">
+            <span>🍅</span>
+            <span class="vtw-capsule-time" id="vtw-capsule-time">25:00</span>
+        </div>
+        <div class="vtw-full">
+            <div style="flex-shrink:0;">
+                <div class="vtw-time" id="vtw-time">25:00</div>
+                <div class="vtw-label" id="vtw-label">背单词中</div>
+            </div>
+            <div style="flex:1;min-width:0;">
+                <div class="vtw-stats" id="vtw-stats">
+                    <span class="vtw-stat">✓ <span class="vtw-num" id="vtw-passed">0</span></span>
+                    <span class="vtw-stat">🔄 <span class="vtw-num" id="vtw-delayed">0</span></span>
+                    <span class="vtw-stat">💀 <span class="vtw-num" id="vtw-difficult">0</span></span>
+                </div>
+                <div class="vtw-btns">
+                    <button class="vtw-btn" id="vtw-pause-btn" onclick="_vtwTogglePause()">⏸</button>
+                    <button class="vtw-btn" onclick="_vtwReset()">↺</button>
+                    <button class="vtw-btn" onclick="_vtwWidget.classList.remove('expanded')">▾</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
         // ==========================================
         // 元素引用
@@ -906,6 +347,8 @@
         var russianFrame = document.getElementById('russian-frame');
         var pomodoroFrame = document.getElementById('pomodoro-frame');
         var statsFrame = document.getElementById('stats-frame');
+        var vocabFrame = document.getElementById('vocab-frame');
+        var readerFrame = document.getElementById('reader-frame');
 
         // ==========================================
         // 0. 统一视图切换（单一入口，防止堆叠）
@@ -913,6 +356,8 @@
         var _viewLock = false;
         var _isRussianMode = false;
         var _isStatsMode = false;
+        var _isVocabMode = false;
+        var _isReaderMode = false;
 
         function _setNavActive(view) {
             document.querySelectorAll('.unav-link').forEach(function(l) { l.classList.remove('active'); });
@@ -933,8 +378,7 @@
             pomodoroFrame.style.opacity = '0';
             pomodoroFrame.style.pointerEvents = 'none';
 
-            // 显示悬浮球
-            _showFloatingWidget();
+            // 不再自动显示悬浮球 — 用户通过导航栏 🍅 按钮手动唤出
 
             setTimeout(function() {
                 try { russianFrame.contentWindow.postMessage('OPEN_RUSSIAN', '*'); } catch(e) {}
@@ -954,9 +398,6 @@
             // 恢复番茄钟 iframe
             pomodoroFrame.style.opacity = '';
             pomodoroFrame.style.pointerEvents = '';
-
-            // 隐藏悬浮球
-            _hideFloatingWidget();
 
             try { russianFrame.contentWindow.postMessage('CLOSE_RUSSIAN', '*'); } catch(e) {}
             try { pomodoroFrame.contentWindow.postMessage('CLOSE_RUSSIAN', '*'); } catch(e) {}
@@ -1003,22 +444,115 @@
             if (!internal) setTimeout(function() { _viewLock = false; }, 150);
         }
 
+        // 背单词页模式
+        function _enterVocabMode(internal) {
+            if (!internal && (_viewLock || _isVocabMode)) return;
+            if (!internal) _viewLock = true;
+            _isVocabMode = true;
+
+            _setNavActive('vocab');
+            vocabFrame.style.opacity = '1';
+            vocabFrame.style.pointerEvents = 'auto';
+
+            // 隐藏番茄钟
+            pomodoroFrame.style.opacity = '0';
+            pomodoroFrame.style.pointerEvents = 'none';
+
+            // 隐藏学习数据浮动按钮
+            document.getElementById('open-stats-btn').style.display = 'none';
+
+            if (!internal) setTimeout(function() { _viewLock = false; }, 150);
+        }
+
+        function _exitVocabMode(internal) {
+            if (!internal && (!_isVocabMode || _viewLock)) return;
+            if (!internal) _viewLock = true;
+            _isVocabMode = false;
+
+            vocabFrame.style.opacity = '0';
+            vocabFrame.style.pointerEvents = 'none';
+
+            // 恢复番茄钟
+            pomodoroFrame.style.opacity = '';
+            pomodoroFrame.style.pointerEvents = '';
+
+            // 恢复学习数据浮动按钮
+            document.getElementById('open-stats-btn').style.display = '';
+
+            if (!internal) setTimeout(function() { _viewLock = false; }, 150);
+        }
+
+        function _enterReaderMode(internal) {
+            if (!internal && (_viewLock || _isReaderMode)) return;
+            if (!internal) _viewLock = true;
+            _isReaderMode = true;
+
+            _setNavActive('reader');
+            readerFrame.style.opacity = '1';
+            readerFrame.style.pointerEvents = 'auto';
+
+            // 隐藏番茄钟
+            pomodoroFrame.style.opacity = '0';
+            pomodoroFrame.style.pointerEvents = 'none';
+
+            // 隐藏学习数据浮动按钮
+            document.getElementById('open-stats-btn').style.display = 'none';
+
+            if (!internal) setTimeout(function() { _viewLock = false; }, 150);
+        }
+
+        function _exitReaderMode(internal) {
+            if (!internal && (!_isReaderMode || _viewLock)) return;
+            if (!internal) _viewLock = true;
+            _isReaderMode = false;
+
+            readerFrame.style.opacity = '0';
+            readerFrame.style.pointerEvents = 'none';
+
+            // 恢复番茄钟
+            pomodoroFrame.style.opacity = '';
+            pomodoroFrame.style.pointerEvents = '';
+
+            // 恢复学习数据浮动按钮
+            document.getElementById('open-stats-btn').style.display = '';
+
+            if (!internal) setTimeout(function() { _viewLock = false; }, 150);
+        }
+
         // 导航栏点击入口
         function switchView(view) {
             if (view === 'russian') {
                 _exitStatsMode(true);
+                _exitVocabMode(true);
+                _exitReaderMode(true);
                 _enterRussianMode(true);
             } else if (view === 'stats') {
                 _exitRussianMode(true);
+                _exitVocabMode(true);
+                _exitReaderMode(true);
                 _enterStatsMode(true);
+            } else if (view === 'vocab') {
+                _exitRussianMode(true);
+                _exitStatsMode(true);
+                _exitReaderMode(true);
+                _enterVocabMode(true);
+            } else if (view === 'reader') {
+                _exitRussianMode(true);
+                _exitStatsMode(true);
+                _exitVocabMode(true);
+                _enterReaderMode(true);
             } else if (view === 'pomodoro') {
                 _exitRussianMode(true);
                 _exitStatsMode(true);
+                _exitVocabMode(true);
+                _exitReaderMode(true);
                 _setNavActive('pomodoro');
                 try { pomodoroFrame.contentWindow.postMessage('FULL_MODE', '*'); } catch(e) {}
             } else { // 'console'
                 _exitRussianMode(true);
                 _exitStatsMode(true);
+                _exitVocabMode(true);
+                _exitReaderMode(true);
                 _setNavActive('console');
                 try { pomodoroFrame.contentWindow.postMessage('CONSOLE_MODE', '*'); } catch(e) {}
             }
@@ -1033,11 +567,40 @@
             else if (event.data === 'CLOSE_STATS') {
                 switchView('console');
             }
+            else if (event.data === 'CLOSE_VOCAB') {
+                switchView('console');
+            }
+            else if (event.data === 'CLOSE_READER') {
+                switchView('console');
+            }
+            // ─── 小说阅读完成 ───
+            else if (event.data && event.data.type === 'NOVEL_CHAPTER_DONE') {
+                try {
+                    var today = new Date().toISOString().split('T')[0];
+                    var key = 'novel_reading_' + today;
+                    var existing = JSON.parse(localStorage.getItem(key) || '{"chapters":0,"minutes":0,"books":{}}');
+                    existing.chapters++;
+                    existing.minutes += Math.round((event.data.timeSec || 0) / 60);
+                    if (!existing.books[event.data.bookTitle]) existing.books[event.data.bookTitle] = 0;
+                    existing.books[event.data.bookTitle]++;
+                    localStorage.setItem(key, JSON.stringify(existing));
+                } catch(e) {}
+            }
             else if (event.data && event.data.type === 'TIMER_STATE') {
-                _onTimerState(event.data);
+                _vtwOnTimerState(event.data);
             }
             else if (event.data && event.data.type === 'MUSIC_STATE') {
-                _onMusicState(event.data);
+                // 音乐状态已移除
+            }
+            // ─── 背词会话消息 ───
+            else if (event.data && event.data.type === 'VOCAB_SESSION_START') {
+                _vtwOnSessionStart(event.data);
+            }
+            else if (event.data && event.data.type === 'VOCAB_SESSION_PROGRESS') {
+                _vtwOnSessionProgress(event.data);
+            }
+            else if (event.data && event.data.type === 'VOCAB_SESSION_DONE') {
+                _vtwOnSessionDone(event.data);
             }
         });
 
@@ -1047,467 +610,237 @@
         });
 
         // ==========================================
-        // 2. 灵动岛小组件
+        // 背词计时小窗
         // ==========================================
-        var widget = document.getElementById('floating-widget');
-        var diTimer = document.getElementById('di-timer');
-        var diPill = document.getElementById('di-pill');
-        var diPanel = document.getElementById('di-panel');
-        var diTime = document.getElementById('di-time');
-        var diBigTime = document.getElementById('di-big-time');
-        var diStatus = document.getElementById('di-status');
-        var diBarFill = document.getElementById('di-bar-fill');
-        var diPlayBtn = document.getElementById('di-play-btn');
-        var diResetBtn = document.getElementById('di-reset-btn');
-        var diWorkBtn = document.getElementById('di-work-btn');
-        var diBreakBtn = document.getElementById('di-break-btn');
-        var diMusicPill = document.getElementById('di-music-pill');
+        var _vtwWidget = document.getElementById('vocab-timer-widget');
+        var _vtwTime = document.getElementById('vtw-time');
+        var _vtwLabel = document.getElementById('vtw-label');
+        var _vtwPassed = document.getElementById('vtw-passed');
+        var _vtwDelayed = document.getElementById('vtw-delayed');
+        var _vtwDifficult = document.getElementById('vtw-difficult');
+        var _vtwPauseBtn = document.getElementById('vtw-pause-btn');
+        var _vtwVisible = false;
+        var _vtwPaused = false;
+        var _vtwModeLabel = '';
+        var _vtwPosKey = 'vocab-timer-widget-pos';
 
-        var diExpanded = false;
-        var diIsRunning = false;
-        var diMode = 'work'; // work | break
-        var diAnimating = false;
-        var diMusicPlaying = false;
-        var diNeteasePlaying = false;
-        var diNeteasePanel = document.getElementById('netease-panel');
-        var diNeteaseIframe = document.getElementById('netease-iframe-di');
-
-        // 显示/隐藏
-        function _showFloatingWidget() {
-            widget.classList.add('visible');
-            diExpanded = false;
-            diTimer.classList.remove('expanded', 'expanding', 'collapsing');
-            widget.classList.remove('has-expanded');
-            diBarFill.style.width = '0%';
-        }
-        function _hideFloatingWidget() {
-            widget.classList.remove('visible');
-            diExpanded = false;
-            diTimer.classList.remove('expanded', 'expanding', 'collapsing');
-            widget.classList.remove('has-expanded');
+        function _vtwIsMobile() {
+            return window.matchMedia && window.matchMedia('(max-width: 600px)').matches;
         }
 
-        // 展开/收起动画 — 借鉴 PyIsland: 双层 rAF + transitionend
-        var _diSafetyTimer = null;
-        function _diUnlock() {
-            diAnimating = false;
-            if (_diSafetyTimer) { clearTimeout(_diSafetyTimer); _diSafetyTimer = null; }
+        function _vtwClampPosition(left, top) {
+            var rect = _vtwWidget.getBoundingClientRect();
+            var width = rect.width || 200;
+            var height = rect.height || 120;
+            var margin = 8;
+            var minTop = 52;
+            var maxLeft = Math.max(margin, window.innerWidth - width - margin);
+            var maxTop = Math.max(minTop, window.innerHeight - height - margin);
+            return {
+                left: Math.min(Math.max(left, margin), maxLeft),
+                top: Math.min(Math.max(top, minTop), maxTop)
+            };
         }
-        function _diSafeUnlock(delay) {
-            if (_diSafetyTimer) clearTimeout(_diSafetyTimer);
-            _diSafetyTimer = setTimeout(function() { _diUnlock(); }, delay + 500);
+
+        function _vtwSavePosition(left, top) {
+            try {
+                localStorage.setItem(_vtwPosKey, JSON.stringify(_vtwClampPosition(left, top)));
+            } catch(e) {}
         }
-        function _diToggleExpand() {
-            if (diAnimating) return;
-            diAnimating = true;
-            diExpanded = !diExpanded;
 
-            if (diExpanded) {
-                // === 展开 ===
-                _closeNeteasePanel();
-                if (diMusicExpanded) { diMusicIsland.classList.remove('expanding','m-expanded','m-collapsing'); diMusicExpanded = false; diMusicAnimating = false; }
-
-                // 1. 清理旧状态，设置展开目标
-                diTimer.classList.remove('collapsing');
-                widget.classList.add('has-expanded');
-
-                // 2. 双层 rAF：确保浏览器提交了"无 expanding"状态后再添加
-                requestAnimationFrame(function() {
-                    requestAnimationFrame(function() {
-                        diTimer.classList.add('expanding');
-
-                        // 3. 监听容器过渡完成（width 280ms）
-                        _diSafeUnlock(300);
-                        diTimer.addEventListener('transitionend', function _onExpandEnd(e) {
-                            if (e.propertyName !== 'width') return;
-                            diTimer.removeEventListener('transitionend', _onExpandEnd);
-                            diTimer.classList.remove('expanding');
-                            diTimer.classList.add('expanded');
-                            _diUnlock();
-                        });
-                    });
-                });
-
-            } else {
-                // === 收起（同时进行：面板淡出 + 容器收缩）===
-                diTimer.classList.remove('expanding');
-                diTimer.classList.add('collapsing');
-                widget.classList.remove('has-expanded');
-
-                // 立即触发容器收缩（面板通过 collapsing CSS 同步淡出）
-                requestAnimationFrame(function() {
-                    requestAnimationFrame(function() {
-                        diTimer.classList.remove('expanded');
-
-                        // 监听容器收缩完成
-                        _diSafeUnlock(300);
-                        diTimer.addEventListener('transitionend', function _onCollapseEnd(e) {
-                            if (e.propertyName !== 'width') return;
-                            diTimer.removeEventListener('transitionend', _onCollapseEnd);
-                            diTimer.classList.remove('collapsing');
-                            _diUnlock();
-                        });
-                    });
-                });
+        function _vtwReadPosition() {
+            try {
+                var raw = localStorage.getItem(_vtwPosKey);
+                if (!raw) return null;
+                var pos = JSON.parse(raw);
+                if (typeof pos.left !== 'number' || typeof pos.top !== 'number') return null;
+                return _vtwClampPosition(pos.left, pos.top);
+            } catch(e) {
+                return null;
             }
         }
 
-        // 关闭网易云面板
-        function _closeNeteasePanel() {
-            if (!diNeteasePlaying) return;
-            diNeteaseIframe.src = '';
-            diNeteasePanel.classList.remove('visible');
-            diMusicPill.classList.remove('playing');
-            diNeteasePlaying = false;
-            try { pomodoroFrame.contentWindow.postMessage({type:'WIDGET_CMD',action:'music-netease-off'}, '*'); } catch(e) {}
+        function _vtwApplyStoredPosition() {
+            if (_vtwIsMobile()) {
+                _vtwWidget.style.left = '';
+                _vtwWidget.style.top = '';
+                _vtwWidget.style.right = '';
+                return;
+            }
+            var pos = _vtwReadPosition();
+            if (!pos) return;
+            _vtwWidget.style.left = pos.left + 'px';
+            _vtwWidget.style.top = pos.top + 'px';
+            _vtwWidget.style.right = 'auto';
         }
 
-        // 接收计时器状态
-        function _onTimerState(data) {
+        function _vtwShow() {
+            if (_vtwVisible) return;
+            _vtwVisible = true;
+            _vtwWidget.classList.add('visible');
+            requestAnimationFrame(_vtwApplyStoredPosition);
+        }
+        function _vtwHide() {
+            _vtwVisible = false;
+            _vtwWidget.classList.remove('visible');
+            _vtwWidget.classList.remove('expanded');
+        }
+        function _vtwToggle() {
+            if (_vtwVisible) {
+                _vtwWidget.classList.toggle('expanded');
+            } else {
+                _vtwShow();
+            }
+        }
+        function _vtwUpdateStats(data) {
+            if (data.passed !== undefined) _vtwPassed.textContent = data.passed;
+            if (data.delayed !== undefined) _vtwDelayed.textContent = data.delayed;
+            if (data.difficult !== undefined) _vtwDifficult.textContent = data.difficult;
+        }
+
+        // 背词会话开始
+        function _vtwOnSessionStart(data) {
+            _vtwModeLabel = data.modeLabel || '背单词';
+            _vtwLabel.textContent = '背单词 · ' + _vtwModeLabel;
+            _vtwUpdateStats(data);
+            _vtwShow();
+            // 自动启动番茄钟
+            try { pomodoroFrame.contentWindow.postMessage({type:'WIDGET_CMD', action:'toggle'}, '*'); } catch(e) {}
+            // 设置任务名
+            var taskName = '背单词 · ' + _vtwModeLabel;
+            try { pomodoroFrame.contentWindow.postMessage({type:'WIDGET_CMD', action:'set-task', task: taskName}, '*'); } catch(e) {}
+            localStorage.setItem('pomodoro-current-task', taskName);
+        }
+
+        // 背词进度更新
+        function _vtwOnSessionProgress(data) {
+            _vtwUpdateStats(data);
+        }
+
+        // 背词本轮完成
+        function _vtwOnSessionDone(data) {
+            _vtwUpdateStats(data);
+            _vtwLabel.textContent = '本轮完成 · 继续或休息';
+        }
+
+        // 番茄钟状态同步到小窗
+        function _vtwOnTimerState(data) {
             var timeLeft = data.timeLeft || 0;
             var min = Math.floor(timeLeft / 60);
             var sec = timeLeft % 60;
             var timeStr = String(min).padStart(2,'0') + ':' + String(sec).padStart(2,'0');
-            diIsRunning = !!data.isRunning;
-            diMode = data.mode || 'work';
-
-            // 推算总时长
-            var total = diMode === 'work' ? 25*60 : 5*60;
-            try { var t = localStorage.getItem('pomodoro-settings'); if(t) { var s=JSON.parse(t); total = diMode==='work' ? (s.workTime||25)*60 : (s.breakTime||5)*60; } } catch(e){}
-
-            // 更新时间
-            diTime.textContent = timeStr;
-            diBigTime.textContent = timeStr;
-            // 状态文字
-            diStatus.textContent = diIsRunning ? (diMode === 'work' ? '专注中' : '休息中') : '已暂停';
-            // 播放按钮
-            diPlayBtn.textContent = diIsRunning ? '⏸ 暂停' : '▶ 开始';
-            // 进度条
-            var progress = total > 0 ? (total - timeLeft) / total : 0;
-            diBarFill.style.width = (progress * 100) + '%';
-            // 模式按钮高亮
-            diWorkBtn.classList.toggle('active', diMode === 'work');
-            diBreakBtn.classList.toggle('active', diMode !== 'work');
-            // 进度条颜色微调
-            diBarFill.style.boxShadow = diMode === 'work' ? '0 0 6px rgba(255,120,80,0.25)' : '0 0 6px rgba(80,200,120,0.25)';
-        }
-
-        // 接收音乐状态
-        function _onMusicState(data) {
-            diMusicPlaying = !!data.isPlaying;
-            diMusicPill.classList.toggle('playing', diMusicPlaying);
-        }
-
-        // 按钮事件
-        diPill.addEventListener('click', function() { _diToggleExpand(); });
-        diPlayBtn.addEventListener('click', function(e) {
-            e.stopPropagation();
-            try { pomodoroFrame.contentWindow.postMessage({type:'WIDGET_CMD',action:'toggle'}, '*'); } catch(e) {}
-        });
-        diResetBtn.addEventListener('click', function(e) {
-            e.stopPropagation();
-            try { pomodoroFrame.contentWindow.postMessage({type:'WIDGET_CMD',action:'reset'}, '*'); } catch(e) {}
-        });
-        diWorkBtn.addEventListener('click', function(e) {
-            e.stopPropagation();
-            try { pomodoroFrame.contentWindow.postMessage({type:'WIDGET_CMD',action:'mode-work'}, '*'); } catch(e) {}
-        });
-        diBreakBtn.addEventListener('click', function(e) {
-            e.stopPropagation();
-            try { pomodoroFrame.contentWindow.postMessage({type:'WIDGET_CMD',action:'mode-break'}, '*'); } catch(e) {}
-        });
-        // 音乐岛展开/收起
-        var diMusicIsland = document.getElementById('di-music');
-        var diMusicPanelEl = document.getElementById('di-music-panel');
-        var diMusicCloseBtn = document.getElementById('di-music-close');
-        var diMusicExpanded = false;
-        var diMusicAnimating = false;
-
-        function _diMusicExpand() {
-            if (diMusicAnimating || diMusicExpanded) return;
-            diMusicAnimating = true;
-            var timerWasExpanded = diExpanded;
-            if (timerWasExpanded) _diToggleExpand();
-
-            var _startMusicExpand = function() {
-                diMusicIsland.classList.remove('m-collapsing');
-                diMusicExpanded = true;
-                // 双层 rAF 确保过渡生效
-                requestAnimationFrame(function() {
-                    requestAnimationFrame(function() {
-                        diMusicIsland.classList.add('expanding');
-                        diMusicIsland.addEventListener('transitionend', function _onEnd(e) {
-                            if (e.propertyName !== 'width') return;
-                            diMusicIsland.removeEventListener('transitionend', _onEnd);
-                            diMusicIsland.classList.remove('expanding');
-                            diMusicIsland.classList.add('m-expanded');
-                            diMusicAnimating = false;
-                            _openNeteasePanel();
-                        });
-                    });
-                });
-            };
-
-            if (timerWasExpanded) {
-                setTimeout(_startMusicExpand, 300);
-            } else {
-                _startMusicExpand();
+            _vtwTime.textContent = timeStr;
+            var capsuleTime = document.getElementById('vtw-capsule-time');
+            if (capsuleTime) capsuleTime.textContent = timeStr;
+            _vtwPaused = !data.isRunning && timeLeft > 0;
+            _vtwPauseBtn.textContent = _vtwPaused ? '▶' : '⏸';
+            // 番茄完成 → 背词页休息提示
+            if (timeLeft === 0 && !data.isRunning && _vtwVisible) {
+                _vtwShowRestReminder();
             }
         }
 
-        function _diMusicCollapse() {
-            if (diMusicAnimating || !diMusicExpanded) return;
-            diMusicAnimating = true;
-            _closeNeteasePanel();
-            diMusicIsland.classList.remove('expanding', 'm-expanded');
-            diMusicExpanded = false;
-            requestAnimationFrame(function() {
-                requestAnimationFrame(function() {
-                    diMusicIsland.classList.add('m-collapsing');
-                    diMusicIsland.addEventListener('transitionend', function _onEnd(e) {
-                        if (e.propertyName !== 'width') return;
-                        diMusicIsland.removeEventListener('transitionend', _onEnd);
-                        diMusicIsland.classList.remove('m-collapsing');
-                        diMusicAnimating = false;
-                    });
-                });
-            });
+        // 休息提示
+        function _vtwShowRestReminder() {
+            var existing = document.getElementById('vtw-rest-reminder');
+            if (existing) existing.remove();
+            var el = document.createElement('div');
+            el.id = 'vtw-rest-reminder';
+            el.style.cssText = 'position:fixed;top:56px;left:50%;transform:translateX(-50%);z-index:9501;' +
+                'background:rgba(22,163,74,0.15);border:1px solid rgba(22,163,74,0.3);' +
+                'padding:10px 20px;border-radius:12px;font-size:14px;color:#6ee7b7;' +
+                'backdrop-filter:blur(12px);display:flex;align-items:center;gap:10px;' +
+                'font-family:Inter,sans-serif;box-shadow:0 4px 20px rgba(0,0,0,0.3);';
+            el.innerHTML = '<span>☕ 番茄完成！休息一下吧</span>' +
+                '<button onclick="this.parentElement.remove()" style="padding:4px 10px;border-radius:6px;' +
+                'border:1px solid rgba(22,163,74,0.3);background:rgba(22,163,74,0.2);color:#6ee7b7;' +
+                'cursor:pointer;font-size:12px;font-family:inherit;">知道了</button>';
+            document.body.appendChild(el);
+            setTimeout(function() { if (el.parentElement) el.remove(); }, 15000);
         }
 
-        function _openNeteasePanel() {
-            var playlistId = localStorage.getItem('pomodoro-netease-playlist') || '9237474400';
-            diNeteaseIframe.src = 'https://music.163.com/outchain/player?type=0&id=' + playlistId + '&auto=1&height=110';
-            diNeteasePanel.classList.add('visible');
-            diMusicPill.classList.add('playing');
-            diNeteasePlaying = true;
-            try { pomodoroFrame.contentWindow.postMessage({type:'WIDGET_CMD',action:'music-netease-on'}, '*'); } catch(e) {}
+        // 小窗控制按钮
+        function _vtwTogglePause() {
+            try { pomodoroFrame.contentWindow.postMessage({type:'WIDGET_CMD', action:'toggle'}, '*'); } catch(e) {}
+        }
+        function _vtwReset() {
+            try { pomodoroFrame.contentWindow.postMessage({type:'WIDGET_CMD', action:'reset'}, '*'); } catch(e) {}
         }
 
-        diMusicPill.addEventListener('click', function() {
-            if (diMusicExpanded) {
-                _diMusicCollapse();
-            } else {
-                _diMusicExpand();
-            }
-        });
-        if (diMusicCloseBtn) {
-            diMusicCloseBtn.addEventListener('click', function(e) {
-                e.stopPropagation();
-                _diMusicCollapse();
-            });
-        }
+        function _vtwInitDrag() {
+            if (!_vtwWidget || window.PointerEvent === undefined) return;
+            var dragging = false;
+            var startX = 0, startY = 0, startLeft = 0, startTop = 0;
 
-        // 点击面板背景（非按钮）→ 收起
-        diPanel.addEventListener('click', function(e) {
-            if (e.target.closest('.di-btn')) return;
-            if (diExpanded) _diToggleExpand();
-        });
-
-        // ==========================================
-        // 3. 弹簧物理动画引擎（移植自 liqgui spring-engine.ts）
-        // ==========================================
-        var _springPresets = {
-            liquid:  { stiffness: 170, damping: 26, mass: 1 },
-            bouncy:  { stiffness: 180, damping: 12, mass: 1 },
-            gentle:  { stiffness: 120, damping: 20, mass: 1 },
-            snappy:  { stiffness: 400, damping: 30, mass: 1 }
-        };
-
-        function _springAnimate(from, to, onUpdate, preset, onComplete) {
-            var cfg = _springPresets[preset] || _springPresets.liquid;
-            var velocity = 0, value = from, dt = 1/60, rafId, stopped = false;
-            function step() {
-                if (stopped) return;
-                var force = -cfg.stiffness * (value - to);
-                var dampF = -cfg.damping * velocity;
-                velocity += (force + dampF) / cfg.mass * dt;
-                value += velocity * dt;
-                onUpdate(value);
-                if (Math.abs(velocity) > 0.01 || Math.abs(value - to) > 0.01) {
-                    rafId = requestAnimationFrame(step);
-                } else {
-                    onUpdate(to);
-                    if (onComplete) onComplete();
+            _vtwWidget.addEventListener('pointerdown', function(e) {
+                if (_vtwIsMobile()) return;
+                if (e.target.closest('.vtw-btn')) return;
+                // 胶囊模式：点击展开，不拖拽
+                if (!_vtwWidget.classList.contains('expanded')) {
+                    _vtwWidget.classList.add('expanded');
+                    e.preventDefault();
+                    return;
                 }
-            }
-            rafId = requestAnimationFrame(step);
-            return function() { stopped = true; cancelAnimationFrame(rafId); };
-        }
-
-        // ==========================================
-        // 4. 交互光效（涟漪 + 辉光）
-        // ==========================================
-        function _createRipple(e, container) {
-            var rect = container.getBoundingClientRect();
-            var size = Math.max(rect.width, rect.height) * 2;
-            var ripple = document.createElement('div');
-            ripple.className = 'di-ripple';
-            ripple.style.width = ripple.style.height = size + 'px';
-            ripple.style.left = (e.clientX - rect.left - size / 2) + 'px';
-            ripple.style.top = (e.clientY - rect.top - size / 2) + 'px';
-            container.appendChild(ripple);
-            setTimeout(function() { ripple.remove(); }, 550);
-        }
-
-        var _di3DTiltActive = false;
-        function _initGlowFollow() {
-            var glowEl = document.getElementById('di-glow-effect');
-            if (!glowEl) return;
-
-            function _onMouseMove(e) {
-                var rect = diTimer.getBoundingClientRect();
-                var px = (e.clientX - rect.left) / rect.width;   // 0..1
-                var py = (e.clientY - rect.top) / rect.height;   // 0..1
-
-                // 辉光跟随
-                glowEl.style.setProperty('--glow-x', (px * 100).toFixed(1) + '%');
-                glowEl.style.setProperty('--glow-y', (py * 100).toFixed(1) + '%');
-
-                // 3D 倾斜: 鼠标位置映射到 rotateY(-3..3) / rotateX(-3..3)
-                if (_di3DTiltActive) {
-                    var ry = (px - 0.5) * 6;  // -3 to 3 degrees
-                    var rx = (py - 0.5) * -6; // flipped: top of card tilts back
-                    diTimer.style.transform = 'rotateY(' + ry.toFixed(1) + 'deg) rotateX(' + rx.toFixed(1) + 'deg)';
-
-                    // 镜面高光偏移: 跟随鼠标方向
-                    var sx = (px * 100).toFixed(1);
-                    var sy = (py * 100).toFixed(1);
-                    diTimer.style.setProperty('--spec-x', sx + '%');
-                    diTimer.style.setProperty('--spec-y', sy + '%');
-                }
-            }
-
-            diTimer.addEventListener('mousemove', _onMouseMove);
-
-            diTimer.addEventListener('mouseenter', function() {
-                _di3DTiltActive = true;
+                dragging = true;
+                var rect = _vtwWidget.getBoundingClientRect();
+                startX = e.clientX;
+                startY = e.clientY;
+                startLeft = rect.left;
+                startTop = rect.top;
+                _vtwWidget.style.left = rect.left + 'px';
+                _vtwWidget.style.top = rect.top + 'px';
+                _vtwWidget.style.right = 'auto';
+                _vtwWidget.classList.add('dragging');
+                try { _vtwWidget.setPointerCapture(e.pointerId); } catch(err) {}
+                e.preventDefault();
             });
 
-            diTimer.addEventListener('mouseleave', function() {
-                _di3DTiltActive = false;
-                diTimer.style.transform = 'rotateY(0deg) rotateX(0deg)';
-                diTimer.style.removeProperty('--spec-x');
-                diTimer.style.removeProperty('--spec-y');
+            _vtwWidget.addEventListener('pointermove', function(e) {
+                if (!dragging) return;
+                var next = _vtwClampPosition(startLeft + e.clientX - startX, startTop + e.clientY - startY);
+                _vtwWidget.style.left = next.left + 'px';
+                _vtwWidget.style.top = next.top + 'px';
+            });
+
+            function endDrag(e) {
+                if (!dragging) return;
+                dragging = false;
+                _vtwWidget.classList.remove('dragging');
+                var rect = _vtwWidget.getBoundingClientRect();
+                var pos = _vtwClampPosition(rect.left, rect.top);
+                _vtwWidget.style.left = pos.left + 'px';
+                _vtwWidget.style.top = pos.top + 'px';
+                _vtwSavePosition(pos.left, pos.top);
+                try { _vtwWidget.releasePointerCapture(e.pointerId); } catch(err) {}
+            }
+
+            _vtwWidget.addEventListener('pointerup', endDrag);
+            _vtwWidget.addEventListener('pointercancel', endDrag);
+            window.addEventListener('resize', function() {
+                if (!_vtwVisible || _vtwIsMobile()) {
+                    _vtwApplyStoredPosition();
+                    return;
+                }
+                var rect = _vtwWidget.getBoundingClientRect();
+                var pos = _vtwClampPosition(rect.left, rect.top);
+                _vtwWidget.style.left = pos.left + 'px';
+                _vtwWidget.style.top = pos.top + 'px';
+                _vtwWidget.style.right = 'auto';
+                _vtwSavePosition(pos.left, pos.top);
             });
         }
+        _vtwInitDrag();
 
-        function _updateGlowClass() {
-            diTimer.classList.toggle('glow-running', diIsRunning);
-            diTimer.classList.toggle('glow-break', diMode !== 'work');
-            document.documentElement.style.setProperty('--di-glow-color',
-                diMode === 'work' ? 'rgba(255,180,100,0.15)' : 'rgba(80,200,120,0.15)');
-        }
-
-        // 按钮涟漪（直接绑定，因为按钮有 stopPropagation）
-        var _allDiBtns = diPanel.querySelectorAll('.di-btn');
-        for (var _bi = 0; _bi < _allDiBtns.length; _bi++) {
-            (function(btn) {
-                btn.addEventListener('click', function(e) { _createRipple(e, btn); });
-            })(_allDiBtns[_bi]);
-        }
-
-        // ==========================================
-        // 6. 增强 _diToggleExpand — 弹簧驱动展开/收起
-        // ==========================================
-        var _springCancel = null;
-
-        _diToggleExpand = function() {
-            if (diAnimating) return;
-            diAnimating = true;
-            diExpanded = !diExpanded;
-
-            if (_springCancel) { _springCancel(); _springCancel = null; }
-
-            if (diExpanded) {
-                // === 展开 ===
-                _closeNeteasePanel();
-                if (diMusicExpanded) {
-                    diMusicIsland.classList.remove('expanding','m-expanded','m-collapsing');
-                    diMusicExpanded = false; diMusicAnimating = false;
-                }
-                diTimer.classList.remove('collapsing');
-                widget.classList.add('has-expanded');
-
-                requestAnimationFrame(function() {
-                    requestAnimationFrame(function() {
-                        diTimer.classList.add('expanding');
-                        // Spring 驱动容器宽度
-                        _springCancel = _springAnimate(104, 316, function(v) {
-                            diTimer.style.width = v + 'px';
-                        }, 'bouncy', function() {
-                            diTimer.classList.remove('expanding');
-                            diTimer.classList.add('expanded');
-                            diTimer.style.width = '';
-                            diAnimating = false;
-                        });
-                        // Spring 驱动圆角
-                        _springAnimate(999, 22, function(v) {
-                            diTimer.style.borderRadius = v + 'px';
-                        }, 'bouncy');
-                    });
-                });
-            } else {
-                // === 收起 ===
-                diTimer.classList.remove('expanding');
-                diTimer.classList.add('collapsing');
-                widget.classList.remove('has-expanded');
-
-                requestAnimationFrame(function() {
-                    requestAnimationFrame(function() {
-                        diTimer.classList.remove('expanded');
-                        // Spring 驱动收缩
-                        _springCancel = _springAnimate(316, 104, function(v) {
-                            diTimer.style.width = v + 'px';
-                        }, 'bouncy', function() {
-                            diTimer.classList.remove('collapsing');
-                            diTimer.style.width = '';
-                            diAnimating = false;
-                        });
-                        _springAnimate(22, 999, function(v) {
-                            diTimer.style.borderRadius = v + 'px';
-                        }, 'bouncy', function() {
-                            diTimer.style.borderRadius = '';
-                        });
-                    });
-                });
-            }
+        // 离开背词页时隐藏小窗，进入时恢复
+        var _origEnterVocab = _enterVocabMode;
+        _enterVocabMode = function(internal) {
+            _origEnterVocab(internal);
+            if (_vtwVisible) _vtwShow();
         };
-
-        // ==========================================
-        // 7. 增强 _showFloatingWidget / _hideFloatingWidget
-        // ==========================================
-        _showFloatingWidget = function() {
-            if (_springCancel) { _springCancel(); _springCancel = null; }
-            diAnimating = false;
-            diTimer.style.width = '';
-            diTimer.style.borderRadius = '';
-            widget.classList.add('visible');
-            diExpanded = false;
-            diTimer.classList.remove('expanded', 'expanding', 'collapsing');
-            widget.classList.remove('has-expanded');
-            diBarFill.style.width = '0%';
-            _initGlowFollow();
-        };
-
-        _hideFloatingWidget = function() {
-            if (_springCancel) { _springCancel(); _springCancel = null; }
-            diAnimating = false;
-            diTimer.style.width = '';
-            diTimer.style.borderRadius = '';
-            widget.classList.remove('visible');
-            diExpanded = false;
-            diTimer.classList.remove('expanded', 'expanding', 'collapsing');
-            diTimer.classList.remove('glow-running', 'glow-break');
-            widget.classList.remove('has-expanded');
-        };
-
-        // ==========================================
-        // 8. 增强 _onTimerState — 辉光模式切换
-        // ==========================================
-        var _origOnTimerState = _onTimerState;
-        _onTimerState = function(data) {
-            _origOnTimerState(data);
-            _updateGlowClass();
+        var _origExitVocab = _exitVocabMode;
+        _exitVocabMode = function(internal) {
+            _origExitVocab(internal);
+            // 不隐藏小窗，番茄继续运行
         };
 
     </script>
