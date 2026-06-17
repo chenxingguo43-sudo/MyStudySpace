@@ -229,9 +229,9 @@ body {
 
   <!-- 按钮 -->
   <div class="popup-actions">
-    <button class="popup-btn" onclick="doSaveWord()"><span class="icon">⭐</span> 保存到生词本</button>
-    <button class="popup-btn" onclick="doCopyWord()"><span class="icon">📋</span> 复制单词</button>
-    <button class="popup-btn" onclick="hidePopup()"><span class="icon">✕</span> 关闭</button>
+    <button class="btn-save-vocab" onclick="doSaveWord()"><span class="icon">⭐</span> 加入背单词</button>
+    <button class="btn-icon" onclick="doCopyWord()" title="复制单词"><span class="icon">📋</span></button>
+    <button class="btn-icon" onclick="hidePopup()" title="关闭"><span class="icon">✕</span></button>
   </div>
 </div>
 
@@ -439,6 +439,43 @@ function lookupExamples(word) {
   return results;
 }
 
+/* ─── 从例句中提取原形提示 ─── */
+function extractLemmaHints(exMatches, word) {
+  var lower = word.toLowerCase();
+  var seen = {};
+  var hints = [];
+
+  for (var i = 0; i < exMatches.length; i++) {
+    var ex = exMatches[i];
+
+    // 从 lexeme_tags 提取
+    if (ex.lexeme_tags) {
+      for (var j = 0; j < ex.lexeme_tags.length; j++) {
+        var lemma = ex.lexeme_tags[j];
+        if (lemma.toLowerCase() !== lower && !seen[lemma]) {
+          seen[lemma] = true;
+          hints.push({ word: lemma, source: 'lexeme_tags' });
+        }
+      }
+    }
+
+    // 从 possible_lexemes 提取
+    if (ex.possible_lexemes) {
+      for (var j = 0; j < ex.possible_lexemes.length; j++) {
+        var lemma = ex.possible_lexemes[j];
+        if (lemma.toLowerCase() !== lower && !seen[lemma]) {
+          seen[lemma] = true;
+          hints.push({ word: lemma, source: 'possible_lexemes' });
+        }
+      }
+    }
+
+    if (hints.length >= 3) break;
+  }
+
+  return hints.slice(0, 3);
+}
+
 /* ─── 渲染弹窗 ─── */
 function renderPopup(word, vocabMatch, exMatches) {
   // 标题
@@ -457,12 +494,23 @@ function renderPopup(word, vocabMatch, exMatches) {
     if (vocabMatch.extra) {
       dictHtml += '<div class="dict-extra">' + escapeHtml(vocabMatch.extra) + '</div>';
     }
-  } else {
-    if (exMatches.length > 0) {
-      dictHtml = '<div class="dict-not-found">词库暂未匹配<br>已从资料库找到相关例句</div>';
-    } else {
-      dictHtml = '<div class="dict-not-found">词库暂未匹配</div>';
+  } else if (exMatches.length > 0) {
+    // 词汇库未匹配，但例句命中 → 显示原形提示
+    var hints = extractLemmaHints(exMatches, word);
+    dictHtml = '<div class="dict-not-found">词库暂未匹配</div>';
+    if (hints.length > 0) {
+      dictHtml += '<div style="margin-top:6px;font-size:13px">';
+      dictHtml += '<span style="color:var(--accent)">资料库提示原形：</span>';
+      var hintWords = [];
+      for (var i = 0; i < hints.length; i++) {
+        hintWords.push(escapeHtml(hints[i].word));
+      }
+      dictHtml += hintWords.join(', ');
+      dictHtml += '</div>';
     }
+    dictHtml += '<div style="margin-top:4px;font-size:12px;color:var(--text-dim)">已从资料库找到 ' + exMatches.length + ' 条相关例句</div>';
+  } else {
+    dictHtml = '<div class="dict-not-found">词库暂未匹配</div>';
   }
   document.getElementById('dictContent').innerHTML = dictHtml;
 
@@ -512,13 +560,12 @@ function doSaveWord() {
   var clean = selText.replace(/[^a-zA-Zа-яА-ЯёЁ-]/g, '');
   if (!clean) { toast('❌ 无效单词'); hidePopup(); return; }
 
-  // 读取现有生词本
-  var saved = [];
-  try { saved = JSON.parse(localStorage.getItem('reader-prototype-vocab') || '[]'); } catch(e) {}
+  // 读取统一存储
+  var records = {};
+  try { records = JSON.parse(localStorage.getItem('vocabulary-review-records') || '{}'); } catch(e) {}
 
-  // 检查重复
-  var exists = saved.some(function(w) { return w.word === clean; });
-  if (exists) { toast('⚠ 已在生词本中'); hidePopup(); return; }
+  // 重复检查
+  if (records[clean]) { toast('⭐ 已存在: ' + clean); hidePopup(); return; }
 
   // 获取释义
   var meaning = '';
@@ -528,14 +575,21 @@ function doSaveWord() {
     if (vocabMatch.meaning) meaning += vocabMatch.meaning;
   }
 
-  saved.push({
-    word: clean,
-    meaning: meaning.trim(),
-    addedAt: new Date().toISOString()
-  });
-
-  localStorage.setItem('reader-prototype-vocab', JSON.stringify(saved));
-  toast('⭐ 已保存: ' + clean);
+  // 写入统一存储
+  var today = new Date().toISOString().slice(0, 10);
+  records[clean] = {
+    mastery: 0,
+    nextReview: today,
+    interval: 1,
+    easeFactor: 2.5,
+    count: 0,
+    source: 'novel',
+    sourceBook: null,
+    sourceChapter: null,
+    context: ''
+  };
+  localStorage.setItem('vocabulary-review-records', JSON.stringify(records));
+  toast('⭐ 已加入背单词: ' + clean);
   hidePopup();
 }
 
@@ -575,17 +629,21 @@ function testLookup(word) {
 
   var vocabMatch = lookupVocab(word);
   var exMatches = lookupExamples(word);
+  var hints = extractLemmaHints(exMatches, word);
 
-  var result = '词: ' + word + '\n';
-  result += '词典: ' + (vocabMatch ? vocabMatch.word + ' (' + (vocabMatch.meaning || '') + ')' : '未找到') + '\n';
-  result += '例句: ' + exMatches.length + ' 条';
-  if (exMatches.length > 0) {
-    result += ' → ' + exMatches[0].id;
+  var lines = [];
+  lines.push('词: ' + word);
+  lines.push('词典: ' + (vocabMatch ? vocabMatch.word + ' (' + (vocabMatch.meaning || '') + ')' : '未找到'));
+  lines.push('例句: ' + exMatches.length + ' 条' + (exMatches.length > 0 ? ' → ' + exMatches[0].id : ''));
+  if (hints.length > 0) {
+    var hintWords = [];
+    for (var i = 0; i < hints.length; i++) hintWords.push(hints[i].word);
+    lines.push('提示原形: ' + hintWords.join(', '));
   }
 
   var resultEl = document.getElementById('testResult');
   if (resultEl) {
-    resultEl.textContent = result;
+    resultEl.textContent = lines.join('\n');
     resultEl.classList.add('visible');
   }
   toast('测试完成');
