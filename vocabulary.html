@@ -51,54 +51,156 @@
         /* ─── 主容器 ─── */
         .main-container {
             position: relative; z-index: 1;
-            max-width: 640px; margin: 0 auto; padding: 16px 16px 100px;
+            max-width: 640px; margin: 0 auto; padding: 8px 12px 100px;
         }
 
-        /* ─── 模式栏 ─── */
-        .mode-bar {
-            display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 14px;
-            align-items: center; padding: 4px;
-            background: rgba(255,255,255,0.03);
-            border-radius: 14px; border: 1px solid rgba(255,255,255,0.06);
+        /* ─── 精简顶栏 ─── */
+        .slim-bar {
+            display: flex; align-items: center; gap: 0;
+            height: 40px; padding: 0;
+            background: rgba(15,23,42,0.55);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 14px; margin-bottom: 6px;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            overflow: hidden;
         }
-        .mode-btn {
-            padding: 7px 14px; border: none;
+        .slim-hamburger {
+            width: 40px; height: 100%; border: none;
             background: transparent; color: rgba(255,255,255,0.45);
-            border-radius: 10px; font-size: 13px; font-weight: 500;
-            cursor: pointer; transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+            font-size: 15px; cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            transition: all 0.2s; flex-shrink: 0;
+        }
+        .slim-hamburger:hover { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.9); }
+        .slim-hamburger:active { background: rgba(255,255,255,0.04); }
+        .slim-mode-label {
+            font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.7);
+            white-space: nowrap; flex-shrink: 0; padding: 0 4px 0 2px;
+        }
+        .slim-mode-quick {
+            display: flex; gap: 2px; margin-left: 6px; flex-shrink: 0;
+        }
+        .slim-mode-quick button {
+            padding: 3px 9px; border-radius: 6px; border: none;
+            background: transparent; color: rgba(255,255,255,0.3);
+            font-size: 11px; cursor: pointer; font-family: inherit;
+            transition: all 0.2s;
+        }
+        .slim-mode-quick button:hover { background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.6); }
+        .slim-mode-quick button.active { background: rgba(99,102,241,0.2); color: #a5b4fc; }
+
+        .slim-stats {
+            font-size: 11px; color: rgba(255,255,255,0.4);
+            margin-left: auto; white-space: nowrap; flex-shrink: 0;
+            font-variant-numeric: tabular-nums; padding: 0 8px;
+        }
+        .slim-progress {
+            height: 3px; background: rgba(255,255,255,0.06);
+            border-radius: 2px; overflow: hidden;
+            flex: 1; max-width: 100px; margin-right: 4px;
+        }
+        .slim-progress-fill {
+            display: block; height: 100%; border-radius: inherit;
+            background: linear-gradient(90deg, #6366f1, #a78bfa);
+            transition: width 0.4s ease;
+        }
+        .slim-icon-btn {
+            width: 32px; height: 32px; border: none;
+            background: transparent; color: rgba(255,255,255,0.3);
+            font-size: 14px; cursor: pointer; border-radius: 8px;
+            display: flex; align-items: center; justify-content: center;
+            transition: all 0.2s; flex-shrink: 0; margin-right: 4px;
+        }
+        .slim-icon-btn:hover { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.7); }
+
+        /* ─── 控件面板（展开/收起） ─── */
+        .control-panel {
+            max-height: 0; overflow: hidden;
+            transition: max-height 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+            margin-bottom: 0;
+        }
+        .control-panel.open {
+            max-height: 600px;
+            margin-bottom: 8px;
+        }
+        .cp-section {
+            padding: 10px 12px; margin-bottom: 4px;
+            background: rgba(255,255,255,0.025);
+            border-radius: 10px; border: 1px solid rgba(255,255,255,0.05);
+        }
+        .cp-section-title {
+            font-size: 10px; font-weight: 700; color: rgba(255,255,255,0.3);
+            text-transform: uppercase; letter-spacing: 0.1em;
+            margin-bottom: 8px;
+        }
+        .cp-mode-grid {
+            display: flex; flex-wrap: wrap; gap: 4px;
+        }
+        .cp-search {
+            width: 100%; padding: 6px 10px; margin-bottom: 6px;
+            background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 8px; color: #e2e8f0; font-size: 13px;
+            font-family: 'Inter', sans-serif; outline: none;
+        }
+        .cp-search::placeholder { color: rgba(255,255,255,0.25); }
+        .cp-search:focus { border-color: rgba(99,102,241,0.4); }
+        .cp-row {
+            display: flex; gap: 6px; flex-wrap: wrap;
+        }
+        .cp-row select {
+            flex: 1; min-width: 80px; padding: 5px 8px;
+            background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 6px; color: rgba(255,255,255,0.6); font-size: 12px;
+            font-family: 'Inter', sans-serif; outline: none;
+        }
+        .cp-chip {
+            padding: 4px 10px; border-radius: 6px;
+            background: transparent; border: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.4); font-size: 11px;
+            cursor: pointer; font-family: 'Inter', sans-serif;
+            transition: all 0.2s;
+        }
+        .cp-chip:hover { background: rgba(255,255,255,0.05); }
+        .cp-chip.filter-btn-active {
+            background: rgba(239,68,68,0.15); color: #f87171;
+            border-color: rgba(239,68,68,0.3);
+        }
+        .cp-stats {
+            display: flex; flex-wrap: wrap; gap: 6px;
+        }
+        .cp-stats .stat-pill {
+            display: inline-flex; align-items: center; gap: 4px;
+            padding: 3px 8px; border-radius: 6px;
+            background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06);
+            font-size: 11px;
+        }
+        .cp-stats .stat-pill .pill-label {
+            color: rgba(255,255,255,0.35); font-size: 10px;
+        }
+        .cp-stats .stat-pill .pill-val {
+            color: rgba(255,255,255,0.6); font-weight: 600;
+            font-variant-numeric: tabular-nums;
+        }
+        .cp-stats .stat-primary { border-color: rgba(99,102,241,0.2); }
+
+        /* ─── 模式按钮（在面板内复用） ─── */
+        .mode-btn {
+            padding: 5px 10px; border: none;
+            background: transparent; color: rgba(255,255,255,0.4);
+            border-radius: 8px; font-size: 12px; font-weight: 500;
+            cursor: pointer; transition: all 0.2s;
             font-family: 'Inter', sans-serif;
-            white-space: nowrap; flex-shrink: 0;
-            position: relative;
+            white-space: nowrap;
         }
         .mode-btn:hover { background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.7); }
         .mode-active {
             background: linear-gradient(135deg, rgba(99,102,241,0.25), rgba(139,92,246,0.2)) !important;
             color: #c4b5fd !important;
-            box-shadow: 0 2px 8px rgba(99,102,241,0.15);
             font-weight: 600;
         }
-        .mode-bar-right {
-            margin-left: auto; display: flex; gap: 6px; flex-shrink: 0;
-        }
-        .mode-icon-btn {
-            width: 32px; height: 32px; padding: 0;
-            display: flex; align-items: center; justify-content: center;
-            border: 1px solid rgba(255,255,255,0.1);
-            background: rgba(255,255,255,0.03); color: rgba(255,255,255,0.4);
-            border-radius: 8px; font-size: 15px;
-            cursor: pointer; transition: all 0.2s;
-        }
-        .mode-icon-btn:hover { background: rgba(255,255,255,0.08); color: #e2e8f0; }
-        /* 移动端：单行横向滑动 tabs */
-        @media (max-width: 600px) {
-            .mode-bar {
-                flex-wrap: nowrap; overflow-x: auto;
-                -webkit-overflow-scrolling: touch;
-                scrollbar-width: none; gap: 6px;
-                padding-bottom: 2px;
-            }
-            .mode-bar::-webkit-scrollbar { display: none; }
-            .mode-btn { font-size: 12px; padding: 6px 12px; }
+        .brush-btn {
+            background: linear-gradient(135deg, rgba(239,68,68,0.2), rgba(249,115,22,0.15));
         }
 
         /* ─── 设置弹窗 ─── */
@@ -181,109 +283,34 @@
         }
         .problem-actions button:hover { background: rgba(255,255,255,0.1); color: #e2e8f0; }
 
-        /* ─── 筛选面板 ─── */
-        .filter-bar {
-            display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px;
-            align-items: center;
-        }
-        .filter-bar select, .filter-bar button {
-            font-family: 'Inter', sans-serif; font-size: 12px;
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.1);
-            color: #e2e8f0; border-radius: 8px; padding: 5px 10px;
-            cursor: pointer; transition: all 0.2s;
-        }
-        .filter-bar select:hover, .filter-bar button:hover {
-            background: rgba(255,255,255,0.1);
-            border-color: rgba(255,255,255,0.2);
-        }
-        .filter-bar select:focus, .filter-bar button:focus {
-            outline: none; border-color: #4F46E5;
-        }
-        .filter-bar select option { background: #1e1b4b; color: #e2e8f0; }
+        /* ─── 筛选按钮激活态（给错词/未掌握 Chip 用） ─── */
         .filter-btn-active {
             background: rgba(79,70,229,0.3) !important;
             border-color: rgba(79,70,229,0.5) !important;
             color: #a5b4fc !important;
         }
-        .filter-sep { width: 1px; height: 24px; background: rgba(255,255,255,0.1); }
-        /* 筛选折叠面板（桌面+移动端都默认折叠） */
-        /* 搜索框 */
-        #filterSearch {
-            flex: 1; min-width: 0; max-width: 150px;
-            padding: 6px 10px; border-radius: 10px;
-            border: 1px solid rgba(255,255,255,0.08);
-            background: rgba(255,255,255,0.04);
-            color: #e2e8f0; font-size: 12px;
-            outline: none; transition: all 0.2s;
-            font-family: 'Inter', sans-serif;
-        }
-        #filterSearch:focus {
-            border-color: rgba(99,102,241,0.4);
-            background: rgba(255,255,255,0.06);
-            box-shadow: 0 0 0 2px rgba(99,102,241,0.1);
-        }
-        #filterSearch::placeholder { color: rgba(255,255,255,0.25); }
 
-        .filter-toggle-btn {
-            display: inline-flex;
-            align-items: center; gap: 4px;
-            padding: 5px 12px; border-radius: 8px;
-            border: 1px solid rgba(255,255,255,0.08);
-            background: rgba(255,255,255,0.03);
-            color: rgba(255,255,255,0.4); font-size: 12px;
-            cursor: pointer; font-family: 'Inter', sans-serif;
-            transition: all 0.2s;
-        }
-        .filter-toggle-btn:hover { background: rgba(255,255,255,0.08); color: #e2e8f0; }
-        .filter-drawer {
-            display: none; gap: 6px; align-items: center;
-            flex-wrap: wrap; padding: 8px 0 4px;
-        }
-        .filter-drawer.open { display: flex; }
-        .filter-drawer select { flex: 1; min-width: 0; }
-        @media (max-width: 600px) {
-            .filter-drawer select { flex: 1; min-width: 0; }
-        }
-
-        /* ─── 统计条 ─── */
-        .stats-bar {
-            display: flex; gap: 5px; align-items: center;
-            margin-bottom: 14px; font-size: 11px; color: rgba(255,255,255,0.5);
-            flex-wrap: wrap;
-        }
-        .stat-pill {
-            display: inline-flex; align-items: center; gap: 4px;
-            padding: 4px 10px; border-radius: 20px;
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(255,255,255,0.06);
-            white-space: nowrap; transition: all 0.2s;
-        }
-        .stat-pill:hover { background: rgba(255,255,255,0.06); }
-        .stat-pill .pill-label { color: rgba(255,255,255,0.35); font-size: 10px; }
-        .stat-pill .pill-val { font-weight: 600; color: #c4b5fd; font-variant-numeric: tabular-nums; }
-        .stat-pill.stat-primary {
-            background: linear-gradient(135deg, rgba(99,102,241,0.12), rgba(139,92,246,0.08));
-            border-color: rgba(99,102,241,0.2);
-        }
-        .stat-pill.stat-primary .pill-val { color: #a5b4fc; }
-
-        /* ─── 进度条 ─── */
+        /* ─── 进度条（slim bar 下方，始终可见） ─── */
         .progress-track {
-            width: 100%; height: 4px; background: rgba(255,255,255,0.08);
-            border-radius: 2px; margin-bottom: 16px; overflow: hidden;
+            width: 100%; height: 3px; background: rgba(255,255,255,0.06);
+            border-radius: 2px; margin-bottom: 10px; overflow: hidden;
         }
         .progress-fill {
-            height: 100%; background: linear-gradient(90deg, #4F46E5, #6366F1);
-            border-radius: 2px; transition: width 0.3s ease;
+            height: 100%; background: linear-gradient(90deg, #6366f1, #8b5cf6);
+            border-radius: 2px; transition: width 0.4s ease;
         }
 
         /* ─── 卡片区域 ─── */
         .card-zone {
-            perspective: 1000px; margin-bottom: 16px;
+            perspective: 1000px; margin-bottom: 12px;
+            display: flex; flex-direction: column;
+            /* Fill available space after slim bar + progress */
+            min-height: calc(100dvh - 160px);
         }
         .flashcard {
-            position: relative; width: 100%; min-height: 340px;
+            position: relative; width: 100%;
+            min-height: 340px;
+            flex: 1;
             cursor: pointer; transform-style: preserve-3d;
             transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
@@ -321,28 +348,28 @@
         }
 
         .card-face {
-            position: absolute; top: 0; left: 0; width: 100%; min-height: 340px;
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%; min-height: 340px;
             backface-visibility: hidden; -webkit-backface-visibility: hidden;
             background:
-                linear-gradient(135deg, rgba(255,255,255,0.18), rgba(255,255,255,0.055) 42%, rgba(99,102,241,0.10)),
-                rgba(15,23,42,0.34);
-            border: 1px solid rgba(255,255,255,0.20);
+                linear-gradient(135deg, rgba(255,255,255,0.16), rgba(255,255,255,0.05) 42%, rgba(99,102,241,0.08)),
+                rgba(15,23,42,0.55);
+            border: 1px solid rgba(255,255,255,0.18);
             border-radius: 16px;
             display: flex; flex-direction: column; align-items: center;
-            justify-content: center; padding: 32px 24px; text-align: center;
-            backdrop-filter: blur(28px) saturate(1.45);
-            -webkit-backdrop-filter: blur(28px) saturate(1.45);
+            justify-content: flex-start; padding: 32px 24px 40px; text-align: center;
+            backdrop-filter: blur(24px) saturate(1.35);
+            -webkit-backdrop-filter: blur(24px) saturate(1.35);
             box-shadow:
-                inset 0 1px 0 rgba(255,255,255,0.24),
-                inset 0 -24px 46px rgba(2,6,23,0.20),
+                inset 0 1px 0 rgba(255,255,255,0.20),
+                inset 0 -24px 46px rgba(2,6,23,0.16),
                 0 22px 70px rgba(2,6,23,0.42);
             overflow: hidden;
         }
         .card-face::before {
             content: ''; position: absolute; inset: 0; z-index: 0; pointer-events: none;
             background:
-                radial-gradient(circle at 28% 12%, rgba(255,255,255,0.28), transparent 34%),
-                linear-gradient(180deg, rgba(255,255,255,0.12), transparent 38%);
+                radial-gradient(circle at 28% 12%, rgba(255,255,255,0.24), transparent 34%),
+                linear-gradient(180deg, rgba(255,255,255,0.10), transparent 38%);
             opacity: 0.72;
         }
         .card-face::after {
@@ -357,9 +384,33 @@
         }
         .card-face > * { position: relative; z-index: 1; }
         .card-front, .card-back {
-            overflow-y: auto; justify-content: flex-start;
+            overflow-y: auto;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(255,255,255,0.08) transparent;
+        }
+        .card-front::-webkit-scrollbar,
+        .card-back::-webkit-scrollbar {
+            width: 5px;
+        }
+        .card-front::-webkit-scrollbar-track,
+        .card-back::-webkit-scrollbar-track {
+            background: transparent;
+            margin: 12px 0;
+        }
+        .card-front::-webkit-scrollbar-thumb,
+        .card-back::-webkit-scrollbar-thumb {
+            background: rgba(255,255,255,0.08);
+            border-radius: 3px;
+        }
+        .card-front::-webkit-scrollbar-thumb:hover,
+        .card-back::-webkit-scrollbar-thumb:hover {
+            background: rgba(255,255,255,0.16);
+        }
+        .card-front {
+            justify-content: center;
         }
         .card-back {
+            justify-content: flex-start;
             transform: rotateY(180deg);
         }
 
@@ -394,22 +445,21 @@
             font-size: 13px; color: rgba(255,255,255,0.35);
             margin-bottom: 16px; font-style: italic;
         }
-        .card-examples {
+        .card-examples, .fold-body {
             width: 100%; text-align: left; margin-top: 4px;
         }
-        .card-examples .ex-item {
+        .ex-item, .card-examples .ex-item, .fold-body .ex-item {
             margin-bottom: 8px; padding: 10px 12px;
             background: rgba(255,255,255,0.03);
             border-radius: 8px; border-left: 3px solid rgba(79,70,229,0.4);
         }
-        .card-examples .ex-ru {
+        .ex-ru, .card-examples .ex-ru, .fold-body .ex-ru {
             font-family: 'Noto Serif', 'Times New Roman', serif;
             font-size: 15px; color: #e2e8f0; margin-bottom: 4px; line-height: 1.5;
         }
-        .card-examples .ex-zh {
+        .ex-zh, .card-examples .ex-zh, .fold-body .ex-zh {
             font-size: 12px; color: rgba(255,255,255,0.35); line-height: 1.4;
         }
-
         /* ─── 资料真实例句 ─── */
         .source-examples-section {
             width: 100%; text-align: left; margin-top: 8px;
@@ -537,6 +587,38 @@
             color: rgba(255,255,255,0.3); /* 灰色 - 词尾 */
             border-bottom: 2px solid rgba(255,255,255,0.1);
             padding-bottom: 1px;
+        }
+
+        /* ─── 折叠区块（卡片背面：例句/语法/来源例句） ─── */
+        .fold-section {
+            width: 100%; margin: 4px 0;
+            border-radius: 10px; overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.06);
+            background: rgba(255,255,255,0.015);
+        }
+        .fold-toggle {
+            padding: 7px 12px; cursor: pointer;
+            font-size: 12px; color: rgba(255,255,255,0.42);
+            display: flex; justify-content: space-between; align-items: center;
+            user-select: none; -webkit-user-select: none;
+            transition: background 0.15s, color 0.15s;
+        }
+        .fold-toggle:hover { background: rgba(255,255,255,0.03); color: rgba(255,255,255,0.6); }
+        .fold-toggle .fold-arrow {
+            font-size: 9px; opacity: 0.45;
+            transition: transform 0.25s ease;
+        }
+        .fold-toggle .fold-count {
+            font-size: 10px; color: rgba(255,255,255,0.25); margin-left: 6px;
+        }
+        .fold-body {
+            max-height: 0; overflow: hidden;
+            padding: 0 12px;
+            transition: max-height 0.35s cubic-bezier(0.22, 1, 0.36, 1), padding 0.35s ease;
+        }
+        .fold-body.open {
+            max-height: 2000px;
+            padding: 6px 12px 10px;
         }
 
         /* ─── 语法面板 ─── */
@@ -862,6 +944,22 @@
             font-size: 10px; font-weight: 400; opacity: 0.5;
         }
 
+        /* ─── 刷词 Toast ─── */
+        .brush-toast {
+            position: fixed; top: 16px; left: 50%; transform: translateX(-50%);
+            background: rgba(15,23,42,0.92); backdrop-filter: blur(12px);
+            color: #e2e8f0; padding: 10px 24px; border-radius: 999px;
+            font-size: 14px; font-weight: 500; z-index: 999;
+            border: 1px solid rgba(255,255,255,0.12);
+            opacity: 0; pointer-events: none;
+            transition: opacity 0.25s ease, transform 0.25s ease;
+            transform: translateX(-50%) translateY(-10px);
+        }
+        .brush-toast.show {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+
         /* ─── 响应式 ─── */
         @media (max-width: 480px) {
             .card-word { font-size: 24px; }
@@ -906,61 +1004,84 @@
     <!-- 顶部栏 -->
     <!-- 主内容 -->
     <div class="main-container">
-        <!-- 模式快捷入口 -->
-        <div class="mode-bar" id="modeBar">
-            <button class="mode-btn mode-active" data-mode="due" onclick="switchMode('due')">📅 今日待复习</button>
-            <button class="mode-btn" data-mode="vocab" onclick="switchMode('vocab')">📖 生词本</button>
-            <button class="mode-btn" data-mode="b2" onclick="switchMode('b2')">🇷🇺 B2口语</button>
-            <button class="mode-btn" data-mode="freq" onclick="switchMode('freq')">🔥 高频词</button>
-            <button class="mode-btn" data-mode="novel" onclick="switchMode('novel')">📖 小说</button>
-            <button class="mode-btn" data-mode="wrong" onclick="switchMode('wrong')">❌ 错题本</button>
-            <button class="mode-btn" data-mode="fav" onclick="switchMode('fav')">⭐ 收藏</button>
-            <button class="mode-btn" data-mode="problems" onclick="switchMode('problems')">🚩 问题卡</button>
-            <div class="mode-bar-right">
-                <button class="mode-icon-btn" onclick="showSettings()" title="设置">⚙</button>
+
+        <!-- 精简顶栏：收起时只显示核心状态 -->
+        <div class="slim-bar" id="slimBar">
+            <button class="slim-hamburger" id="slimHamburger" onclick="toggleControlPanel()" title="展开控件面板 (M)">🍔</button>
+            <span class="slim-mode-label" id="slimModeLabel">📅 今日待复习</span>
+            <span class="slim-stats" id="slimStats">0/0</span>
+            <div class="slim-progress">
+                <span class="slim-progress-fill" id="slimProgressFill" style="width:0%"></span>
+            </div>
+            <div class="slim-mode-quick">
+                <button data-mode="due" onclick="switchMode('due')" class="active" title="每日复习">📅</button>
+                <button data-mode="brush" onclick="switchMode('brush')" title="刷词">🚀</button>
+            </div>
+            <button class="slim-icon-btn" onclick="showSettings()" title="设置">⚙</button>
+        </div>
+
+        <!-- 控件抽屉面板（点击🍔或按M展开） -->
+        <div class="control-panel" id="controlPanel">
+            <!-- 模式选择 -->
+            <div class="cp-section">
+                <div class="cp-section-title">📂 模式</div>
+                <div class="cp-mode-grid" id="cpModeGrid">
+                    <button class="mode-btn mode-active" data-mode="due" onclick="switchMode('due')">📅 待复习</button>
+                    <button class="mode-btn" data-mode="vocab" onclick="switchMode('vocab')">📖 生词本</button>
+                    <button class="mode-btn" data-mode="b2" onclick="switchMode('b2')">🇷🇺 B2口语</button>
+                    <button class="mode-btn" data-mode="freq" onclick="switchMode('freq')">🔥 高频词</button>
+                    <button class="mode-btn" data-mode="novel" onclick="switchMode('novel')">📖 小说</button>
+                    <button class="mode-btn" data-mode="wrong" onclick="switchMode('wrong')">❌ 错题</button>
+                    <button class="mode-btn" data-mode="fav" onclick="switchMode('fav')">⭐ 收藏</button>
+                    <button class="mode-btn" data-mode="problems" onclick="switchMode('problems')">🚩 问题</button>
+                    <button class="mode-btn brush-btn" data-mode="brush" onclick="switchMode('brush')">🚀 刷词</button>
+                </div>
+            </div>
+
+            <!-- 筛选 -->
+            <div class="cp-section">
+                <div class="cp-section-title">🔍 筛选</div>
+                <input type="text" id="filterSearch" placeholder="搜索俄语或中文..." oninput="applyFilters()" class="cp-search">
+                <div class="cp-row">
+                    <select id="filterSource">
+                        <option value="all">全部来源</option>
+                        <option value="vocab">📖 生词本</option>
+                        <option value="b2">🇷🇺 B2口语</option>
+                        <option value="freq">🔥 高频词</option>
+                        <option value="novel">📖 小说词汇</option>
+                    </select>
+                    <select id="filterType">
+                        <option value="all">全部词性</option>
+                        <option value="noun">名词</option>
+                        <option value="verb">动词</option>
+                        <option value="adj">形容词</option>
+                        <option value="adv">副词</option>
+                        <option value="particle">功能词</option>
+                    </select>
+                    <select id="filterChapter">
+                        <option value="all">全部章节</option>
+                    </select>
+                </div>
+                <div class="cp-row" style="margin-top:6px;">
+                    <button id="btnOnlyWrong" onclick="toggleOnlyWrong()" class="cp-chip">❌ 错词</button>
+                    <button id="btnOnlyUnmastered" onclick="toggleOnlyUnmastered()" class="cp-chip">⚠ 未掌握</button>
+                </div>
+            </div>
+
+            <!-- 统计 -->
+            <div class="cp-section">
+                <div class="cp-section-title">📊 统计</div>
+                <div class="cp-stats" id="cpStats">
+                    <span class="stat-pill stat-primary"><span class="pill-label">本轮</span> <span class="pill-val"><span id="currentIdx">0</span>/<span id="sessionTotal">0</span></span></span>
+                    <span class="stat-pill"><span class="pill-label">已通过</span> <span class="pill-val" id="passedCount">0</span></span>
+                    <span class="stat-pill"><span class="pill-label">回炉中</span> <span class="pill-val" id="returnCount">0</span></span>
+                    <span class="stat-pill"><span class="pill-label">困难</span> <span class="pill-val" id="leechCount">0</span></span>
+                    <span class="stat-pill"><span class="pill-label">今日</span> <span class="pill-val" id="dailyProgress">0/20</span></span>
+                </div>
             </div>
         </div>
 
-        <!-- 筛选栏 -->
-        <div class="filter-bar" id="filterBar">
-            <input type="text" id="filterSearch" placeholder="🔍 搜索..." oninput="applyFilters()">
-            <button class="filter-toggle-btn" id="filterToggleBtn" onclick="toggleFilterDrawer()">
-                🔍 筛选 <span id="filterToggleIcon">▾</span>
-            </button>
-            <button id="btnOnlyWrong" onclick="toggleOnlyWrong()" style="font-size:11px;padding:4px 10px;">❌ 错词</button>
-            <button id="btnOnlyUnmastered" onclick="toggleOnlyUnmastered()" style="font-size:11px;padding:4px 10px;">⚠ 未掌握</button>
-            <div class="filter-drawer" id="filterSelects">
-                <select id="filterSource">
-                    <option value="all">全部来源</option>
-                    <option value="vocab">📖 生词本</option>
-                    <option value="b2">🇷🇺 B2口语</option>
-                    <option value="freq">🔥 B2高频词</option>
-                    <option value="novel">📖 小说词汇</option>
-                </select>
-                <select id="filterType">
-                    <option value="all">全部词性</option>
-                    <option value="noun">名词</option>
-                    <option value="verb">动词</option>
-                    <option value="adj">形容词</option>
-                    <option value="adv">副词</option>
-                    <option value="particle">功能词</option>
-                </select>
-                <select id="filterChapter">
-                    <option value="all">全部章节</option>
-                </select>
-            </div>
-        </div>
-
-        <!-- 统计条 -->
-        <div class="stats-bar" id="statsBar">
-            <span class="stat-pill stat-primary"><span class="pill-label">本轮</span> <span class="pill-val"><span id="currentIdx">0</span>/<span id="sessionTotal">0</span></span></span>
-            <span class="stat-pill"><span class="pill-label">已通过</span> <span class="pill-val" id="passedCount">0</span></span>
-            <span class="stat-pill"><span class="pill-label">回炉中</span> <span class="pill-val" id="returnCount">0</span></span>
-            <span class="stat-pill"><span class="pill-label">困难</span> <span class="pill-val" id="leechCount">0</span></span>
-            <span class="stat-pill" style="margin-left:auto;opacity:0.6;"><span class="pill-label">今日</span> <span class="pill-val" id="dailyProgress">0/20</span></span>
-        </div>
-
-        <!-- 进度条 -->
+        <!-- 进度条（始终可见） -->
         <div class="progress-track">
             <div class="progress-fill" id="progressFill" style="width: 0%"></div>
         </div>
@@ -1013,10 +1134,65 @@
     var delayedQueue = [];       // 延迟回炉卡队列
     var LEECH_THRESHOLD = 3;     // failCount >= 3 视为困难词
 
+    // ─── 🚀 刷词模式 ─────────────────────────────────────────
+    var brushDeck = [];          // 刷词主队列（全部词，不区分新老）
+    var brushRetryQueue = [];    // [{wordId, retryAfterSeen}]
+    var brushKnown = {};         // wordId → true（本轮已掌握）
+    var brushSeenCount = 0;      // 刷词模式已拉取卡数
+    var brushRetried = {};       // wordId → 回炉次数（统计用）
+    var brushOnePass = 0;        // 一次就过的词数
+    var brushAfterRetry = 0;     // 回炉后通过
+    var brushTotalRetries = 0;   // 总回炉次数
+    var brushTotal = 0;          // 本轮总词数
+
     // ─── 撤销栈（仅保留上一步）──────────────────────────────────
     var _undoSnapshot = null;
 
     // ─── 加载数据 ──────────────────────────────────────────────────
+        // ─── 卡片背面折叠区块切换 ──────────────────────────────────
+    function toggleFold(el, e) {
+        if (e) e.stopPropagation();
+        var body = el.nextElementSibling;
+        if (!body) return;
+        var isOpen = body.classList.toggle('open');
+        // Flip the arrow: ▾ ↔ ▴
+        var arrow = el.querySelector('.fold-arrow');
+        if (arrow) {
+            arrow.textContent = isOpen ? '▴' : '▾';
+            arrow.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(0deg)';
+        }
+        adjustCardHeight();
+    }
+
+    // ─── 控件面板展开/收起 ─────────────────────────────────────
+    var _panelLocked = false;
+    function toggleControlPanel() {
+        _panelLocked = !_panelLocked;
+        var panel = document.getElementById('controlPanel');
+        if (panel) panel.classList.toggle('open', _panelLocked);
+        var btn = document.getElementById('slimHamburger');
+        if (btn) btn.textContent = _panelLocked ? '✕' : '🍔';
+        if (_panelLocked) {
+            // Scroll to show the panel
+            setTimeout(function() { panel.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 100);
+        }
+    }
+
+    // ─── 更新精简顶栏 ─────────────────────────────────────────
+    function updateSlimBar() {
+        document.getElementById('slimModeLabel').textContent =
+            (currentMode === 'brush' ? '🚀 ' : '📅 ') + (currentModeLabel || '学习');
+        var totalCards = currentMode === 'brush' ?
+            brushTotal :
+            (deck.length + getDelayedCount());
+        var processed = currentMode === 'brush' ?
+            Object.keys(brushKnown).length :
+            (getPassedCount() + getLeechCountInSession());
+        document.getElementById('slimStats').textContent = processed + '/' + totalCards;
+        var pct = totalCards > 0 ? Math.round(processed / totalCards * 100) : 0;
+        document.getElementById('slimProgressFill').style.width = pct + '%';
+    }
+
     function loadVocabulary() {
         loadAudioManifest();
         fetch('data/vocabulary.json')
@@ -1178,6 +1354,8 @@
     function getDailyLimit() {
         var s = getSettings();
         var base = s.dailyLimit || 20;
+        // 硬上限：防止误设超大值
+        base = Math.min(base, 50);
         // 自适应：根据昨天表现调整
         var adaptive = s.adaptiveLimit;
         if (adaptive && adaptive.date === getYesterdayKey()) {
@@ -1448,15 +1626,17 @@
             return true;
         });
 
-        startNewDeck();
+        if (currentMode === 'brush') {
+            initBrushDeck();
+        } else {
+            startNewDeck();
+        }
     }
 
     // ─── 筛选抽屉切换 ─────────────────────────────────────────────
     function toggleFilterDrawer() {
-        var drawer = document.getElementById('filterSelects');
-        var icon = document.getElementById('filterToggleIcon');
-        drawer.classList.toggle('open');
-        icon.textContent = drawer.classList.contains('open') ? '▴' : '▾';
+        // The filter panel is now part of the control panel — open the control panel instead
+        toggleControlPanel();
     }
 
     // ─── 更多菜单切换 ─────────────────────────────────────────────
@@ -1579,6 +1759,14 @@
         adjustCardHeight();
     }
 
+    // 快捷键/手柄触发：找到当前卡片的语法面板并切换
+    function toggleGrammarShortcut() {
+        var card = document.getElementById('flashcard');
+        if (!card) return;
+        var toggle = card.querySelector('.grammar-toggle');
+        if (toggle) toggleGrammar(toggle, null);
+    }
+
     // 动态调整卡片高度，防止内容溢出与下方元素重叠
     function adjustCardHeight() {
         requestAnimationFrame(function() {
@@ -1616,14 +1804,17 @@
     }
     var _modeLabels = {
         due: '今日待复习', vocab: '生词本', b2: 'B2口语', novel: '小说词汇',
-        freq: '高频词', wrong: '错题本', fav: '收藏', problems: '问题卡'
+        freq: '高频词', wrong: '错题本', fav: '收藏', problems: '问题卡', brush: '刷词模式'
     };
 
     // ─── 模式切换 ─────────────────────────────────────────────────
     function switchMode(mode) {
-        // 更新按钮状态
-        document.querySelectorAll('.mode-btn').forEach(function(b) { b.classList.remove('mode-active'); });
-        document.querySelector('.mode-btn[data-mode="' + mode + '"]').classList.add('mode-active');
+        // 更新按钮状态（面板内 + slim bar 内）
+        document.querySelectorAll('.mode-btn, .slim-mode-quick button').forEach(function(b) { b.classList.remove('mode-active'); });
+        var panelBtn = document.querySelector('.cp-mode-grid .mode-btn[data-mode="' + mode + '"]');
+        if (panelBtn) panelBtn.classList.add('mode-active');
+        var slimBtn = document.querySelector('.slim-mode-quick button[data-mode="' + mode + '"]');
+        if (slimBtn) slimBtn.classList.add('active');
         currentMode = mode;
         currentModeLabel = _modeLabels[mode] || mode;
 
@@ -1659,6 +1850,11 @@
         } else if (mode === 'problems') {
             _currentSessionCard = null;
             renderProblems();
+            return;
+        } else if (mode === 'brush') {
+            // 🚀 刷词模式：取当前筛选来源的全部词，不加 daily limit
+            showDueOnly = false; // 不限到期日
+            applyFilters();      // 重新构建 filtered 数组 → 内部调 startNewDeck，要改成 brush init
             return;
         }
 
@@ -1913,9 +2109,8 @@
                 dueCards.push(w); // 到期复习
             } else if (!rec) {
                 newCards.push(w); // 从未见过的新卡
-            } else {
-                dueCards.push(w); // 其他（已复习但未到期的，在 showDueOnly 模式已被过滤）
             }
+            // 已复习但未到期的：不加进任何队列（SM-2 间隔还没到）
         });
 
         // 复习卡优先，新卡受限
@@ -1969,6 +2164,58 @@
             i++;
         }
         return result;
+    }
+
+    // ─── 🚀 刷词模式：初始化卡组 ──────────────────────────────
+    function initBrushDeck() {
+        brushDeck = filtered.concat().sort(function() { return Math.random() - 0.5; });
+        brushRetryQueue = [];
+        brushKnown = {};
+        brushSeenCount = 0;
+        brushRetried = {};
+        brushOnePass = 0;
+        brushAfterRetry = 0;
+        brushTotalRetries = 0;
+        brushTotal = brushDeck.length;
+        flipped = false;
+        _currentSessionCard = null;
+        _undoSnapshot = null;
+        renderBrushCard();
+    }
+
+    function getNextBrushCard() {
+        brushSeenCount++;
+        // 1. 检查回炉队列：有没有到期的
+        for (var i = 0; i < brushRetryQueue.length; i++) {
+            if (brushRetryQueue[i].retryAfterSeen <= brushSeenCount) {
+                var item = brushRetryQueue.splice(i, 1)[0];
+                var w = allWords.find(function(x) { return x.id === item.wordId; });
+                if (w && !brushKnown[w.id]) return w;
+            }
+        }
+        // 2. 主队列下一张
+        for (var k = 0; k < brushDeck.length; k++) {
+            var w2 = brushDeck[k];
+            if (w2 && !brushKnown[w2.id]) {
+                brushDeck.splice(k, 1); // 取出，不再在排队中
+                return w2;
+            }
+        }
+        // 3. 主队列已空，强制取出到期的回炉卡
+        while (brushRetryQueue.length > 0) {
+            var item2 = brushRetryQueue.shift();
+            var w3 = allWords.find(function(x) { return x.id === item2.wordId; });
+            if (w3 && !brushKnown[w3.id]) return w3;
+        }
+        return null;
+    }
+
+    function addBrushRetry(wordId, delayCards) {
+        brushRetried[wordId] = (brushRetried[wordId] || 0) + 1;
+        brushTotalRetries++;
+        brushRetryQueue.push({ wordId: wordId, retryAfterSeen: brushSeenCount + delayCards });
+        // Sort by retryAfterSeen ascending
+        brushRetryQueue.sort(function(a, b) { return a.retryAfterSeen - b.retryAfterSeen; });
     }
 
     // ─── 取下一张卡（回炉优先）──────────────────────────────────
@@ -2222,7 +2469,7 @@
         if (w.source === 'b2' && tagCount < 2) { metaTags += '<span class="tag">B2口语</span>'; tagCount++; }
         if (w.source === 'freq' && tagCount < 2) { metaTags += '<span class="tag">高频词</span>'; tagCount++; }
         if (w.source === 'novel' && tagCount < 2) {
-          var novelSrc = w.extra ? w.extra.replace('来源: ', '') : '小说';
+          var novelSrc = (rec && rec.sourceBook) ? rec.sourceBook : (w.extra ? w.extra.replace('来源: ', '') : '小说');
           metaTags += '<span class="tag">📖 ' + esc(novelSrc) + '</span>'; tagCount++;
         }
 
@@ -2303,10 +2550,36 @@
                 }
             });
         }
-        if (exHtml) backContent += '<div class="card-examples">' + exHtml + '</div>';
+        // 例句 — 折叠区块
+        var exCount = w.examples ? w.examples.length : 0;
+        if (exHtml) {
+            backContent +=
+                '<div class="fold-section">' +
+                '  <div class="fold-toggle" onclick="toggleFold(this, event)">' +
+                '    <span>✍️ 例句<span class="fold-count"> ' + exCount + '条</span></span>' +
+                '    <span class="fold-arrow">▾</span>' +
+                '  </div>' +
+                '  <div class="fold-body">' + exHtml + '</div>' +
+                '</div>';
+        }
 
-        // 资料真实例句（从坐标系查询）
-        backContent += renderSourceExamples(w.word);
+        // 资料真实例句 — 折叠区块
+        var srcExHtml = renderSourceExamples(w.word);
+        if (srcExHtml) {
+            backContent +=
+                '<div class="fold-section">' +
+                '  <div class="fold-toggle" onclick="toggleFold(this, event)">' +
+                '    <span>📖 来源例句<span class="fold-count"></span></span>' +
+                '    <span class="fold-arrow">▾</span>' +
+                '  </div>' +
+                '  <div class="fold-body">' + srcExHtml + '</div>' +
+                '</div>';
+        }
+
+        // 查看原文按钮（仅 novel 来源）
+        if (rec && rec.source === 'novel' && rec.sourceBook) {
+            backContent += '<div style="margin:12px 0"><button class="action-btn btn-source" onclick="goToSource(\'' + esc(w.id) + '\',event)" style="width:100%;background:rgba(99,102,241,0.12);border-color:rgba(99,102,241,0.3);color:#818cf8">📖 查看原文</button></div>';
+        }
 
         // 收藏状态
         var extras = getExtras();
@@ -2329,6 +2602,17 @@
 
         // 回炉状态
         var chipHtml = getSessionChipHtml(sc);
+
+        // 查看原文按钮（仅 novel 来源）
+        if (w.source === 'novel' && rec && rec.sourceBook) {
+            backContent +=
+                '<div style="margin:12px 0">' +
+                '  <button class="action-btn" onclick="goToSource(\'' + esc(w.id) + '\', event)" ' +
+                '          style="width:100%;background:rgba(59,130,246,0.15);border-color:rgba(59,130,246,0.3)">' +
+                '    📖 查看原文' +
+                '  </button>' +
+                '</div>';
+        }
 
         // 操作按钮区：正面显示翻面提示，背面显示评分按钮
         var actionHtml = '';
@@ -2414,6 +2698,7 @@
             '  <span class="kbd-hint"><kbd>↓</kbd> 模糊</span>' +
             '  <span class="kbd-hint"><kbd>→</kbd> 认识</span>' +
             '  <span class="kbd-hint"><kbd>↑</kbd> 撤销</span>' +
+            '  <span class="kbd-hint"><kbd>G</kbd> 语法</span>' +
             '</div>';
 
         updateStats();
@@ -2516,21 +2801,32 @@
     }
 
     function updateStats() {
+        // Restore SM-2 stat labels (may have been changed by brush mode)
+        var labels = document.querySelectorAll('.stat-pill .pill-label');
+        var defaultLabels = ['本轮', '已通过', '回炉中', '困难', '今日'];
+        for (var i = 0; i < labels.length && i < defaultLabels.length; i++) {
+            labels[i].textContent = defaultLabels[i];
+        }
+
         var total = sessionStats.know + sessionStats.fuzzy + sessionStats.dunno;
-        var knowPct = total > 0 ? Math.round(sessionStats.know / total * 100) : 0;
         var passed = getPassedCount();
         var leech = getLeechCountInSession();
         var delayed = getDelayedCount();
-        // 本轮进度 = 已通过 / 总卡数（含回炉延迟）
         var totalCards = deck.length + delayed;
-        var processed = passed + leech + (total > 0 ? (total - passed) : 0);
         document.getElementById('currentIdx').textContent = Math.min(seenCount, totalCards || deck.length);
         document.getElementById('sessionTotal').textContent = totalCards || deck.length;
         document.getElementById('passedCount').textContent = passed;
         document.getElementById('returnCount').textContent = delayed;
         document.getElementById('leechCount').textContent = leech;
+
+        // Show "passed / total" in dailyProgress for SM-2 mode
+        var todayCount = getNewCardsToday();
+        var limit = getDailyLimit();
+        document.getElementById('dailyProgress').textContent = todayCount + '/' + limit;
+
         var pct = deck.length > 0 ? Math.round(currentPos / deck.length * 100) : 0;
         document.getElementById('progressFill').style.width = Math.min(pct, 100) + '%';
+        updateSlimBar();
     }
 
     // ─── 交互 ─────────────────────────────────────────────────────
@@ -2542,7 +2838,13 @@
         }
         // 翻面后重新渲染操作区（从翻面提示切换为评分按钮）
         if (flipped) {
-            renderActionBtnsOnly();
+            if (currentMode === 'brush') {
+                // Brush mode: show rating actions
+                var actions = document.getElementById('brushActions');
+                if (actions) actions.style.display = 'flex';
+            } else {
+                renderActionBtnsOnly();
+            }
         }
         adjustCardHeight();
     }
@@ -2573,6 +2875,10 @@
     }
 
     function rate(score) {
+        if (currentMode === 'brush') {
+            rateBrush(score);
+            return;
+        }
         if (!_currentSessionCard) return;
         var sc = _currentSessionCard;
         var w = allWords.find(function(x) { return x.id === sc.id; });
@@ -2673,6 +2979,7 @@
 
     // ─── 撤销上一次评分 ─────────────────────────────────────────
     function undoLastRate() {
+        if (currentMode === 'brush') { undoBrushRate(); return; }
         if (!_undoSnapshot) return;
         var snap = _undoSnapshot;
         _undoSnapshot = null;
@@ -2726,6 +3033,363 @@
         _showUndoToast();
     }
 
+    // ─── 🚀 刷词模式：撤销 ──────────────────────────────
+    function undoBrushRate() {
+        if (!_undoSnapshot) return;
+        var snap = _undoSnapshot;
+        _undoSnapshot = null;
+
+        // 恢复 brushKnown
+        if (snap.brushKnown) brushKnown[snap.wordId] = true;
+        else delete brushKnown[snap.wordId];
+
+        // 恢复 retried counter
+        if (snap.brushRetriedCount > 0) {
+            brushRetried[snap.wordId] = snap.brushRetriedCount;
+        } else {
+            delete brushRetried[snap.wordId];
+        }
+
+        // Restore brush stats
+        brushOnePass = snap.brushOnePass;
+        brushAfterRetry = snap.brushAfterRetry;
+        brushTotalRetries = snap.brushTotalRetries;
+        brushSeenCount = snap.brushSeenCount;
+
+        // Restore retryQueue length
+        while (brushRetryQueue.length > snap.brushRetryQueueLen) brushRetryQueue.pop();
+
+        // Restore the word to brushDeck at front
+        var w = allWords.find(function(x) { return x.id === snap.wordId; });
+        if (w) brushDeck.unshift(w);
+
+        _currentSessionCard = { id: snap.wordId, failCount: 0, fuzzyCount: 0, goodStreak: 0 };
+        flipped = true;
+        renderBrushCard();
+        _showBrushToast('↩ 已撤销');
+    }
+
+    // ─── 🚀 刷词模式：评分逻辑 ──────────────────────────────
+    function rateBrush(score) {
+        if (!_currentSessionCard) return;
+        var w = allWords.find(function(x) { return x.id === _currentSessionCard.id; });
+        if (!w) return;
+
+        // 保存撤销快照
+        _undoSnapshot = {
+            wordId: w.id, score: score,
+            brushKnown: brushKnown[w.id],
+            brushRetriedCount: brushRetried[w.id] || 0,
+            brushOnePass: brushOnePass, brushAfterRetry: brushAfterRetry,
+            brushTotalRetries: brushTotalRetries,
+            brushSeenCount: brushSeenCount,
+            brushRetryQueueLen: brushRetryQueue.length
+        };
+
+        var wasRetried = brushRetried[w.id] > 0;
+
+        if (score < 3) {
+            // 不认识 → 8 张后回炉
+            addBrushRetry(w.id, 8);
+            _showBrushToast('✗ 不认识 — 8张后再来');
+        } else if (score < 5) {
+            // 模糊 → 5 张后回炉
+            addBrushRetry(w.id, 5);
+            _showBrushToast('~ 模糊 — 5张后再来');
+        } else {
+            // 认识 → 通过
+            brushKnown[w.id] = true;
+            if (wasRetried) brushAfterRetry++;
+            else brushOnePass++;
+            _showBrushToast('✓ 认识！');
+        }
+
+        // 始终写入 SM-2 长期记录
+        saveRecord(w.id, score);
+        if (!getRecords()[w.id]) incNewCardsToday();
+        var orig = allWords.find(function(x) { return x.id === w.id; });
+        if (orig) orig.mastery = score;
+
+        _currentSessionCard = null;
+        flipped = false;
+        // _undoSnapshot persists until next rate or undo
+        renderBrushCard();
+        syncToServer();
+
+        var remaining = brushTotal - Object.keys(brushKnown).length;
+        postToParent({ type: 'VOCAB_BRUSH_PROGRESS', total: brushTotal, known: Object.keys(brushKnown).length, queue: brushRetryQueue.length, remaining: remaining });
+    }
+
+    var _brushToastTimer = null;
+    function _showBrushToast(msg) {
+        var t = document.getElementById('brushToast');
+        if (t) { t.textContent = msg; t.classList.add('show'); }
+        if (_brushToastTimer) clearTimeout(_brushToastTimer);
+        _brushToastTimer = setTimeout(function() {
+            var t2 = document.getElementById('brushToast');
+            if (t2) t2.classList.remove('show');
+        }, 1200);
+    }
+
+    // ─── 🚀 刷词模式：渲染卡片 ──────────────────────────────
+    function renderBrushCard() {
+        var w = getNextBrushCard();
+        if (!w) {
+            renderBrushDone();
+            return;
+        }
+        _currentSessionCard = { id: w.id, failCount: 0, fuzzyCount: 0, goodStreak: 0 };
+        var sc = _currentSessionCard;
+        _currentWord = w;
+        flipped = false;
+
+        var records = getRecords();
+        var rec = records[w.id];
+        var mastery = rec ? (rec.mastery || 0) : 0;
+        var masteryPct = Math.min(100, mastery * 20);
+        var masteryColor = mastery >= 4 ? '#4ade80' : mastery >= 2 ? '#facc15' : mastery >= 1 ? '#fb923c' : 'rgba(255,255,255,0.15)';
+        var glowClass = mastery >= 4 ? 'glow-green' : mastery >= 2 ? 'glow-yellow' : mastery >= 1 ? 'glow-orange' : '';
+
+        // Build front content (same as normal card)
+        var wType = w.type || '';
+        var typeLabel = window._sourceLabels && window._sourceLabels[wType] ? window._sourceLabels[wType] : (wType || '');
+        var wordStyle = '';
+        if (w.word && w.word.length > 25) wordStyle += 'font-size:22px;';
+        var cleanWord = w.word.replace(/[́]/g, '');
+        var stressSyllables = generateStressOptions(w.word);
+
+        var chapters = allWords.reduce(function(acc, x) { if (x.chapter) acc.add(x.chapter); return acc; }, new Set());
+        var chapterNames = {};
+        chapters.forEach(function(ch) {
+            var match = ch.match(/^([一二三四五六七八九十]+)[_ ].*?\（(.+?)\）/);
+            chapterNames[ch] = match ? match[2] : ch.replace(/^[一二三四五六七八九十]+[_ ]/, '').replace(/（.+）/, '');
+        });
+        var chapterTag = '';
+        if (w.chapter) {
+            var chName = chapterNames[w.chapter] || '';
+            if (chName) chapterTag = '<span class="tag tag-chapter">' + esc(chName) + '</span>';
+        }
+        var metaTags = '<span class="tag tag-type">' + esc(typeLabel) + '</span>';
+        if (chapterTag) metaTags += chapterTag;
+        if (w.theme) metaTags += '<span class="tag tag-theme">' + esc(w.theme) + '</span>';
+
+        // Build back content (same as normal)
+        var backContent = '<div class="card-word-back">' + esc(w.word) + '</div>';
+        backContent += '<div class="card-meaning">' + esc(w.meaning) + '</div>';
+        var stars = '';
+        for (var si = 1; si <= 5; si++) stars += si <= mastery ? '★' : '☆';
+        backContent += '<div class="card-stars">' + stars + '</div>';
+        if (w.aspect || w.type || w.pair) {
+            var tagLine = [];
+            if (w.aspect) tagLine.push(w.aspect);
+            if (w.type) tagLine.push(w.type);
+            if (w.pair) tagLine.push('搭档:' + w.pair);
+            if (tagLine.length) backContent += '<div class="card-tagline">' + tagLine.join(' · ') + '</div>';
+        }
+        if (w.morphology) backContent += '<div class="morphology-display">' + formatMorphology(w.morphology) + '</div>';
+        if (w.extra) backContent += '<div class="card-extra">' + esc(w.extra) + '</div>';
+
+        // Grammar panel
+        var hasRealTable = w.grammarTable && Array.isArray(w.grammarTable) && w.grammarTable.length > 0;
+        var hasGrammarNote = w.grammarTable && typeof w.grammarTable === 'string' && w.grammarTable.indexOf('|') < 0 && w.grammarTable.length > 2;
+        var hasGrammar = w.case_gov || w.conj_pattern || hasRealTable;
+        if (hasGrammar) {
+            backContent += '<div class="grammar-panel">';
+            backContent += '<div class="grammar-toggle" onclick="toggleGrammar(this, event)">📐 语法信息 <span class="grammar-arrow">▾</span></div>';
+            backContent += '<div class="grammar-content">';
+            if (w.case_gov) backContent += '<div class="grammar-row"><span class="grammar-label">接格</span><span class="grammar-val">' + esc(w.case_gov) + '</span></div>';
+            if (w.conj_pattern) backContent += '<div class="grammar-row"><span class="grammar-label">变位</span><span class="grammar-val">' + esc(w.conj_pattern) + '</span></div>';
+            if (hasRealTable) {
+                var headers = Object.keys(w.grammarTable[0]);
+                backContent += '<table class="grammar-table"><thead><tr>';
+                headers.forEach(function(h) { backContent += '<th>' + esc(h) + '</th>'; });
+                backContent += '</tr></thead><tbody>';
+                w.grammarTable.forEach(function(row) {
+                    backContent += '<tr>';
+                    headers.forEach(function(h) { backContent += '<td>' + esc(row[h] || '') + '</td>'; });
+                    backContent += '</tr>';
+                });
+                backContent += '</tbody></table>';
+            }
+            backContent += '</div></div>';
+        } else if (hasGrammarNote) {
+            backContent += '<div class="grammar-row"><span class="grammar-label">📐</span><span class="grammar-val">' + esc(w.grammarTable) + '</span></div>';
+        }
+
+        // Examples — fold section
+        var exHtml = '';
+        var exCount = w.examples ? w.examples.length : 0;
+        if (w.examples && w.examples.length) {
+            var showEx = w.examples.slice(0, 3);
+            showEx.forEach(function(ex) {
+                var ru = ex.ru || ex.russian || '';
+                var zh = ex.zh || ex.chinese || '';
+                exHtml += '<div class="ex-item"><div class="ex-ru">' + esc(ru) + '</div><div class="ex-zh">' + esc(zh) + '</div></div>';
+            });
+        }
+        if (exHtml) {
+            backContent +=
+                '<div class="fold-section">' +
+                '  <div class="fold-toggle" onclick="toggleFold(this, event)">' +
+                '    <span>✍️ 例句<span class="fold-count"> ' + exCount + '条</span></span>' +
+                '    <span class="fold-arrow">▾</span>' +
+                '  </div>' +
+                '  <div class="fold-body">' + exHtml + '</div>' +
+                '</div>';
+        }
+
+        // Source examples — fold section
+        var srcExHtml2 = renderSourceExamples(w.word);
+        if (srcExHtml2) {
+            backContent +=
+                '<div class="fold-section">' +
+                '  <div class="fold-toggle" onclick="toggleFold(this, event)">' +
+                '    <span>📖 来源例句</span>' +
+                '    <span class="fold-arrow">▾</span>' +
+                '  </div>' +
+                '  <div class="fold-body">' + srcExHtml2 + '</div>' +
+                '</div>';
+        }
+
+        // Due info (always '刷词模式' in brush)
+        var dueInfo = '刷词 · 不限量';
+        var chipHtml = '';
+        var retryCount = brushRetried[w.id] || 0;
+        if (retryCount > 0) {
+            chipHtml = '<span class="session-chip" style="background:rgba(251,191,36,0.15);color:#fbbf24;">🔄 第' + retryCount + '次回炉</span>';
+        }
+
+        var area = document.getElementById('cardArea');
+        area.innerHTML =
+            '<div class="card-zone card-enter">' +
+            '  <div class="flashcard ' + glowClass + (flipped ? ' flipped' : '') + '" id="flashcard" onclick="flipCard()">' +
+            '    <div class="mastery-bar"><div class="mastery-fill" style="width:' + masteryPct + '%;background:' + masteryColor + ';"></div></div>' +
+            '    <div class="card-face card-front">' +
+            '      <div class="card-word" style="' + wordStyle + '">' + esc(cleanWord) + '</div>' +
+            '      <div class="stress-quiz" id="stressQuiz">' + stressSyllables.map(function(s, i) {
+                return '<button class="stress-option' + (s.correct ? ' stress-correct' : '') + '" ' +
+                       'onclick="checkStress(this,' + (s.correct ? 'true' : 'false') + ',event)" data-idx="' + i + '">' + esc(s.text) + '</button>';
+            }).join('') + '</div>' +
+            '      <div class="stress-result" id="stressResult"></div>' +
+            '      <div class="card-meta">' + metaTags + '</div>' +
+            '      <div class="card-hint">🎯 选择重音位置 或 按空格翻转</div>' +
+            '    </div>' +
+            '    <div class="card-face card-back">' + backContent + '</div>' +
+            '  </div>' +
+            '</div>' +
+            '<div class="card-utils">' +
+            '  <button class="audio-btn" onclick="playWordAudio(\'' + esc(w.id) + '\')" title="播放发音">🔊</button>' +
+            '  <span class="due-badge">' + dueInfo + '</span>' + chipHtml +
+            '  <div class="more-menu-wrap">' +
+            '    <button class="util-btn" onclick="toggleMoreMenu(event)" title="更多操作">⋯</button>' +
+            '  </div>' +
+            '</div>' +
+            '<div class="action-btns" id="brushActions" style="display:' + (flipped ? 'flex' : 'none') + ';">' +
+            '  <button class="action-btn btn-dunno" onclick="rate(1)"><span class="btn-label">不认识</span><span class="btn-sub">← 8张后回炉</span></button>' +
+            '  <button class="action-btn btn-fuzzy" onclick="rate(3)"><span class="btn-label">模糊</span><span class="btn-sub">↓ 5张后回炉</span></button>' +
+            '  <button class="action-btn btn-know" onclick="rate(5)"><span class="btn-label">认识</span><span class="btn-sub">→ 通过</span></button>' +
+            '</div>' +
+            '<div class="kbd-hints">' +
+            '  <span class="kbd-hint"><kbd>Space</kbd> 翻转</span>' +
+            '  <span class="kbd-hint"><kbd>←</kbd> 不认识</span>' +
+            '  <span class="kbd-hint"><kbd>↓</kbd> 模糊</span>' +
+            '  <span class="kbd-hint"><kbd>→</kbd> 认识</span>' +
+            '  <span class="kbd-hint"><kbd>↑</kbd> 撤销</span>' +
+            '  <span class="kbd-hint"><kbd>G</kbd> 语法</span>' +
+            '</div>' +
+            '<div class="brush-toast" id="brushToast"></div>';
+
+        updateBrushStats();
+        adjustCardHeight();
+        maybeAutoPlay(w.id);
+
+        // Show action buttons on flip
+        area.querySelector('#flashcard').addEventListener('click', function() {
+            setTimeout(function() {
+                var act = document.getElementById('brushActions');
+                if (act) act.style.display = flipped ? 'flex' : 'none';
+            }, 300);
+        });
+    }
+
+    // ─── 🚀 刷词模式：统计栏 ──────────────────────────────
+    function updateBrushStats() {
+        var known = Object.keys(brushKnown).length;
+        var queue = brushRetryQueue.length;
+        var remaining = brushTotal - known - queue;
+        var pct = brushTotal > 0 ? Math.round(known / brushTotal * 100) : 0;
+
+        document.getElementById('currentIdx').textContent = known;
+        document.getElementById('sessionTotal').textContent = brushTotal;
+        document.getElementById('passedCount').textContent = brushOnePass;
+        document.getElementById('returnCount').textContent = queue;
+        document.getElementById('leechCount').textContent = brushAfterRetry;
+
+        // Override stat labels for brush mode
+        document.querySelector('.stat-pill:nth-child(1) .pill-label').textContent = '已掌握';
+        document.querySelector('.stat-pill:nth-child(2) .pill-label').textContent = '一次过';
+        document.querySelector('.stat-pill:nth-child(3) .pill-label').textContent = '排队';
+        document.querySelector('.stat-pill:nth-child(4) .pill-label').textContent = '回炉过';
+        document.querySelector('.stat-pill:nth-child(5) .pill-label').textContent = '进度';
+
+        document.getElementById('dailyProgress').textContent = pct + '%';
+        document.getElementById('progressFill').style.width = pct + '%';
+        updateSlimBar();
+    }
+
+    // ─── 🚀 刷词模式：完成页 ──────────────────────────────
+    function renderBrushDone() {
+        var known = Object.keys(brushKnown).length;
+        var area = document.getElementById('cardArea');
+        var pct = brushTotal > 0 ? Math.round(brushOnePass / brushTotal * 100) : 0;
+        var msg = '';
+        if (pct >= 70) msg = '🌟 太强了！大部分一次就过！';
+        else if (pct >= 40) msg = '💪 不错，继续巩固～';
+        else msg = '📖 硬骨头不少，多刷几轮就好了！';
+
+        // Build retry-only word list
+        var retriedIds = Object.keys(brushRetried).filter(function(id) { return brushRetried[id] > 0; });
+
+        area.innerHTML =
+            '<div class="done-card" id="doneCard">' +
+            '  <div class="done-emoji">🚀</div>' +
+            '  <div class="done-title">刷词完成！</div>' +
+            '  <div class="done-sub">' + brushTotal + ' 个词全部掌握</div>' +
+            '  <div class="done-stats">' +
+            '    <div class="stat-item"><div class="stat-num" style="color:#4ade80;">' + brushOnePass + '</div><div class="stat-label">一次过 (' + (brushTotal > 0 ? Math.round(brushOnePass/brushTotal*100) : 0) + '%)</div></div>' +
+            '    <div class="stat-item"><div class="stat-num" style="color:#facc15;">' + brushAfterRetry + '</div><div class="stat-label">回炉后通过 (' + (brushTotal > 0 ? Math.round(brushAfterRetry/brushTotal*100) : 0) + '%)</div></div>' +
+            '    <div class="stat-item"><div class="stat-num" style="color:#a78bfa;">' + brushTotalRetries + '</div><div class="stat-label">总回炉次数</div></div>' +
+            '  </div>' +
+            '  <div class="done-meter"><div class="done-meter-fill" id="doneMeterFill" style="width:100%;background:#4ade80;"></div></div>' +
+            '  <div style="margin-bottom:8px;font-size:14px;color:rgba(255,255,255,0.5);">掌握率 100% 🎉</div>' +
+            '  <div class="done-msg">' + msg + '</div>' +
+            '  <div style="margin-bottom:20px;font-size:12px;color:rgba(255,255,255,0.4);">' + retriedIds.length + ' 个词曾回炉，可单独重刷</div>' +
+            '  <button class="restart-btn" onclick="initBrushDeck()" style="margin-right:8px;">🔄 全量重刷</button>' +
+            (retriedIds.length > 0 ?
+            '  <button class="restart-btn" onclick="initBrushRetryOnly()" style="background:rgba(251,191,36,0.15);color:#fbbf24;border:1px solid rgba(251,191,36,0.3);">🔁 只刷回炉过的 (' + retriedIds.length + '个)</button>' : '') +
+            '</div>';
+
+        // Reset stat labels
+        document.querySelector('.stat-pill:nth-child(1) .pill-label').textContent = '本轮';
+        document.querySelector('.stat-pill:nth-child(2) .pill-label').textContent = '已通过';
+        document.querySelector('.stat-pill:nth-child(3) .pill-label').textContent = '回炉中';
+        document.querySelector('.stat-pill:nth-child(4) .pill-label').textContent = '困难';
+        document.querySelector('.stat-pill:nth-child(5) .pill-label').textContent = '今日';
+        document.getElementById('dailyProgress').textContent = '完成';
+        document.getElementById('progressFill').style.width = '100%';
+        updateSlimBar();
+
+        postToParent({ type: 'VOCAB_BRUSH_DONE', total: brushTotal, onePass: brushOnePass, afterRetry: brushAfterRetry, totalRetries: brushTotalRetries });
+    }
+
+    // ─── 🚀 只刷回炉过的词 ───────────────────────────────
+    function initBrushRetryOnly() {
+        var retriedIds = Object.keys(brushRetried).filter(function(id) { return brushRetried[id] > 0; });
+        if (retriedIds.length === 0) return;
+        filtered = retriedIds.map(function(id) { return allWords.find(function(x) { return x.id === id; }); }).filter(Boolean);
+        initBrushDeck();
+    }
+
     function _showUndoToast() {
         var existing = document.getElementById('undo-toast');
         if (existing) existing.remove();
@@ -2759,6 +3423,12 @@
         } else if (e.key === 'ArrowUp') {
             e.preventDefault();
             undoLastRate();
+        } else if (e.key === 'g' || e.key === 'G') {
+            e.preventDefault();
+            toggleGrammarShortcut();
+        } else if (e.key === 'm' || e.key === 'M') {
+            e.preventDefault();
+            toggleControlPanel();
         } else if (e.key === 'ArrowLeft' || e.key === 'ArrowDown' || e.key === 'ArrowRight') {
             e.preventDefault();
             // 正面状态：只翻面，不评分
@@ -2772,6 +3442,163 @@
             else if (e.key === 'ArrowRight') rate(5);
         }
     });
+
+    // ─── 🎮 游戏手柄支持 (Gamepad API) ────────────────────────────
+    (function initGamepad() {
+        var gamepadConnected = false;
+        var prevButtons = {};   // gamepadIndex -> array of previous button states
+        var AXIS_THRESHOLD = 0.5;
+
+        function handleGamepadInput() {
+            var gamepads = navigator.getGamepads ? navigator.getGamepads() : [];
+            if (!gamepads) return;
+
+            for (var i = 0; i < gamepads.length; i++) {
+                var gp = gamepads[i];
+                if (!gp || !gp.connected) continue;
+
+                // Gamepad detected — update hint display once
+                if (!gamepadConnected) {
+                    gamepadConnected = true;
+                    updateGamepadHints(true);
+                }
+
+                var prev = prevButtons[i] || [];
+                var buttons = gp.buttons;
+
+                // Ensure prev array is large enough
+                while (prev.length < buttons.length) prev.push(false);
+
+                for (var b = 0; b < buttons.length; b++) {
+                    var pressed = buttons[b].pressed;
+                    var wasPressed = prev[b];
+
+                    if (pressed && !wasPressed) {
+                        // Button just pressed — trigger action
+                        handleGamepadButton(b, gp);
+                    }
+                    prev[b] = pressed;
+                }
+                prevButtons[i] = prev;
+
+                // 🕹 左摇杆垂直轴 (axis 1) → 滚动卡片背面内容
+                if (flipped && Math.abs(gp.axes[1]) > 0.15) {
+                    var cardBack = document.querySelector('.card-back');
+                    if (cardBack) {
+                        cardBack.scrollTop += gp.axes[1] * 10;
+                    }
+                }
+
+                // D-pad (axe 6 & 7 on standard mapping)
+                var dpadUp = gp.axes[7] < -AXIS_THRESHOLD;
+                var dpadDown = gp.axes[7] > AXIS_THRESHOLD;
+                var dpadLeft = gp.axes[6] < -AXIS_THRESHOLD;
+                var dpadRight = gp.axes[6] > AXIS_THRESHOLD;
+
+                var wasDpadUp = prev['dpadUp'] || false;
+                var wasDpadDown = prev['dpadDown'] || false;
+                var wasDpadLeft = prev['dpadLeft'] || false;
+                var wasDpadRight = prev['dpadRight'] || false;
+
+                if (dpadUp && !wasDpadUp) undoLastRate();
+                if (dpadDown && !wasDpadDown) { if (!flipped) flipCard(); else rate(3); }
+                if (dpadLeft && !wasDpadLeft) { if (!flipped) flipCard(); else rate(1); }
+                if (dpadRight && !wasDpadRight) { if (!flipped) flipCard(); else rate(5); }
+
+                prev['dpadUp'] = dpadUp;
+                prev['dpadDown'] = dpadDown;
+                prev['dpadLeft'] = dpadLeft;
+                prev['dpadRight'] = dpadRight;
+            }
+        }
+
+        function handleGamepadButton(buttonIndex, gp) {
+            // Standard mapping:
+            // 0=A(PS:✕), 1=B(PS:○), 2=X(PS:□), 3=Y(PS:△)
+            // 4=LB, 5=RB, 6=LT, 7=RT
+            // 8=Select, 9=Start, 10=LS, 11=RS
+            // 12=DpadUp, 13=DpadDown, 14=DpadLeft, 15=DpadRight
+            switch (buttonIndex) {
+                case 0: // A / ✕ → 翻牌
+                    flipCard();
+                    break;
+                case 5: // RB → 翻牌（备选，方便两手握持）
+                    flipCard();
+                    break;
+                case 1: // B / ○ → 不认识
+                    if (!flipped) { flipCard(); break; }
+                    rate(1);
+                    break;
+                case 3: // Y / △ → 认识
+                    if (!flipped) { flipCard(); break; }
+                    rate(5);
+                    break;
+                case 2: // X / □ → 模糊
+                    if (!flipped) { flipCard(); break; }
+                    rate(3);
+                    break;
+                case 4: // LB → 撤销
+                    undoLastRate();
+                    break;
+                case 8: // Select/Share → 撤销
+                    undoLastRate();
+                    break;
+                case 9: // Start/Options → 播放发音
+                    if (_currentWord) playWordAudio(_currentWord.id);
+                    break;
+                case 10: // LS (左摇杆按下) → 切换语法面板
+                    toggleGrammarShortcut();
+                    break;
+                case 11: // RS (右摇杆按下) → 切换语法面板
+                    toggleGrammarShortcut();
+                    break;
+                case 12: // D-pad Up (digital)
+                    undoLastRate();
+                    break;
+                case 13: // D-pad Down (digital)
+                    if (!flipped) flipCard(); else rate(3);
+                    break;
+                case 14: // D-pad Left (digital)
+                    if (!flipped) flipCard(); else rate(1);
+                    break;
+                case 15: // D-pad Right (digital)
+                    if (!flipped) flipCard(); else rate(5);
+                    break;
+            }
+        }
+
+        // Update the kbd-hints to show gamepad mapping
+        function updateGamepadHints(show) {
+            var hints = document.querySelector('.kbd-hints');
+            if (!hints) return;
+            if (show) {
+                hints.innerHTML =
+                    '<span class="kbd-hint">🎮 <kbd>A</kbd> 翻转</span>' +
+                    '<span class="kbd-hint"><kbd>B</kbd> 不认识</span>' +
+                    '<span class="kbd-hint"><kbd>X</kbd> 模糊</span>' +
+                    '<span class="kbd-hint"><kbd>Y</kbd> 认识</span>' +
+                    '<span class="kbd-hint"><kbd>LB</kbd> 撤销</span>' +
+                    '<span class="kbd-hint"><kbd>Start</kbd> 发音</span>' +
+                    '<span class="kbd-hint"><kbd>RS</kbd> 语法</span>' +
+                    '<span class="kbd-hint">🕹 <kbd>L摇杆</kbd> 滚动</span>';
+            }
+        }
+
+        // Poll gamepad state at ~20fps (enough for button detection)
+        setInterval(handleGamepadInput, 50);
+
+        // Listen for gamepad connect/disconnect
+        window.addEventListener('gamepadconnected', function(e) {
+            console.log('🎮 手柄已连接:', e.gamepad.id);
+            gamepadConnected = true;
+            updateGamepadHints(true);
+        });
+        window.addEventListener('gamepaddisconnected', function(e) {
+            console.log('🎮 手柄已断开:', e.gamepad.id);
+            gamepadConnected = false;
+            updateGamepadHints(false);
+        });
+    })();
 
     // ─── 筛选事件绑定 ──────────────────────────────────────────────
     document.getElementById('filterSource').addEventListener('change', applyFilters);
@@ -2944,6 +3771,20 @@
                 })(i);
             }
         }
+    }
+
+    // ─── 查看原文来源 ────────────────────────────────────────
+    function goToSource(wordId, event) {
+        if (event) event.stopPropagation();
+        var records = getRecords();
+        var rec = records[wordId];
+        if (!rec || rec.source !== 'novel' || !rec.sourceBook) {
+            alert('该词非来自阅读');
+            return;
+        }
+        var url = 'reader.html?book=' + encodeURIComponent(rec.sourceBook) +
+                  '&ch=' + (rec.sourceChapter != null ? rec.sourceChapter : 0);
+        window.open(url, '_blank');
     }
 
     // ─── 启动 ──────────────────────────────────────────────────────
