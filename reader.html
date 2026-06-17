@@ -381,6 +381,11 @@ var savedWordsData = []; // 完整词汇数据 [{word, meaning, source}]
 var bookmarks = {}; // {bookId: {chIdx: [paraIdx, ...]}}
 var searchMatches = [], searchIdx = -1;
 
+/* ─── URL 参数解析（从背单词跳转） ─── */
+var _urlParams = new URLSearchParams(window.location.search);
+var _jumpBook = _urlParams.get('book');
+var _jumpCh = _urlParams.get('ch');
+
 // 加载持久化
 try { var s = JSON.parse(localStorage.getItem('rr_state_' + NOVEL_ID)); if (s) { Object.assign(state, s); } } catch(e) {}
 try { readStats = JSON.parse(localStorage.getItem('rr_stats_' + NOVEL_ID)) || {}; } catch(e) {}
@@ -678,13 +683,11 @@ function toggleBookmark(idx, e) {
 
 /* ─── 生词高亮 ─── */
 function loadSavedWords() {
-  fetch('/api/novel-vocab-list')
-    .then(function(r) { return r.ok ? r.json() : []; })
-    .then(function(data) {
-      savedWordsData = data || [];
-      savedWords = savedWordsData.map(function(e) { return e.word.toLowerCase(); }).filter(Boolean);
-    })
-    .catch(function() { savedWords = []; savedWordsData = []; });
+  try {
+    var records = JSON.parse(localStorage.getItem('vocabulary-review-records') || '{}');
+    savedWords = Object.keys(records).map(function(w) { return w.toLowerCase(); }).filter(Boolean);
+    savedWordsData = Object.keys(records).map(function(w) { return { word: w, meaning: '', source: records[w].source || '' }; });
+  } catch(e) { savedWords = []; savedWordsData = []; }
 }
 
 function highlightSavedWords() {
@@ -1050,7 +1053,23 @@ function showBookReport() {
 applyTheme();
 loadSavedWords();
 
-if (lr && lr.bookId && typeof lr.chapter === 'number') {
+if (_jumpBook) {
+  fetch('/api/novel/index')
+    .then(function(r) { return r.ok ? r.json() : null; })
+    .then(function(data) {
+      if (!data) { showShelf(); return; }
+      booksData = data.books;
+      var target = booksData.find(function(b) { return b.id === _jumpBook; });
+      if (target) {
+        curBook = target;
+        var chIdx = _jumpCh ? parseInt(_jumpCh, 10) : 0;
+        if (isNaN(chIdx) || chIdx < 0) chIdx = 0;
+        window.history.replaceState({}, '', 'reader.html');
+        _jumpBook = null;
+        goChapter(chIdx);
+      } else { showShelf(); }
+    }).catch(function() { showShelf(); });
+} else if (lr && lr.bookId && typeof lr.chapter === 'number') {
   fetch('/api/novel/index')
     .then(function(r) { return r.ok ? r.json() : null; })
     .then(function(data) {
