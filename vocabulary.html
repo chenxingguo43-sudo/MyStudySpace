@@ -2459,6 +2459,8 @@
 
         _currentSessionCard = sc;
         _currentWord = w;
+        var records = getRecords();
+        var rec = records[w.id];
         var m = getWordMastery(w);
         var typeLabel = w.type ? w.type : '';
         var chapterLabel = w.chapter || w.theme || '';
@@ -2574,11 +2576,6 @@
                 '  </div>' +
                 '  <div class="fold-body">' + srcExHtml + '</div>' +
                 '</div>';
-        }
-
-        // 查看原文按钮（仅 novel 来源）
-        if (rec && rec.source === 'novel' && rec.sourceBook) {
-            backContent += '<div style="margin:12px 0"><button class="action-btn btn-source" onclick="goToSource(\'' + esc(w.id) + '\',event)" style="width:100%;background:rgba(99,102,241,0.12);border-color:rgba(99,102,241,0.3);color:#818cf8">📖 查看原文</button></div>';
         }
 
         // 收藏状态
