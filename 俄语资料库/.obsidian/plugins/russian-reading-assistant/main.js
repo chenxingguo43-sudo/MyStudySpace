@@ -52,7 +52,12 @@ class RussianReadingAssistant extends obsidian.Plugin {
       return;
     }
 
-    if (selection.includes('<mark class="ru-new-word">') || selection.includes('</mark>')) {
+    const cursor = editor.getCursor();
+    const currentLine = editor.getLine(cursor.line);
+    const alreadyMarked = new RegExp(
+      `<mark class="ru-new-word">${parts.word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}</mark>`
+    ).test(currentLine);
+    if (alreadyMarked) {
       new obsidian.Notice('这个词已经标记过');
       return;
     }
