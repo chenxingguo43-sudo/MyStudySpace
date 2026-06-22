@@ -1,0 +1,16 @@
+mark.ru-new-word {
+  background: rgba(245, 190, 80, 0.22);
+  border-bottom: 1px solid rgba(245, 190, 80, 0.55);
+  color: inherit;
+  border-radius: 3px;
+  padding: 0 2px;
+}
+
+.cm-html-embed mark.ru-new-word,
+.markdown-preview-view mark.ru-new-word {
+  background: rgba(245, 190, 80, 0.22);
+}
+
+.ru-zh-hidden-line {
+  display: none !important;
+}
