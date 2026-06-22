@@ -118,6 +118,10 @@ class RussianReadingAssistant extends obsidian.Plugin {
   showZhLines() {
     document.body.classList.remove('ru-hide-zh');
     this.updateZhLineVisibility(false);
+    if (this.zhObserver) {
+      this.zhObserver.disconnect();
+      this.zhObserver = null;
+    }
   }
 
   updateZhLineVisibility(hidden) {
