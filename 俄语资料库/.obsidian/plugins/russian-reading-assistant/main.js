@@ -8,7 +8,7 @@ class RussianReadingAssistant extends obsidian.Plugin {
       id: 'capture-selected-russian-word',
       name: 'Capture Selected Russian Word to Inbox',
       editorCallback: async (editor, view) => {
-        new obsidian.Notice('Russian Reading Assistant skeleton loaded');
+        new obsidian.Notice('Capture: not yet implemented');
       },
     });
 
@@ -29,6 +29,10 @@ class RussianReadingAssistant extends obsidian.Plugin {
         new obsidian.Notice('Intensive mode: ZH visible');
       },
     });
+  }
+
+  onunload() {
+    document.body.classList.remove('ru-hide-zh');
   }
 }
 
