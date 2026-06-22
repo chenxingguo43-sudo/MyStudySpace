@@ -104,13 +104,41 @@ class RussianReadingAssistant extends obsidian.Plugin {
     await this.app.vault.create(payload.inboxPath, content);
   }
 
-  enterImmersionMode() {
+  hideZhLines() {
     document.body.classList.add('ru-hide-zh');
+    this.updateZhLineVisibility(true);
+    if (this.zhObserver) return;
+    this.zhObserver = new MutationObserver(() =>
+      this.updateZhLineVisibility(document.body.classList.contains('ru-hide-zh'))
+    );
+    this.zhObserver.observe(document.body, { childList: true, subtree: true });
+    this.register(() => this.zhObserver?.disconnect());
+  }
+
+  showZhLines() {
+    document.body.classList.remove('ru-hide-zh');
+    this.updateZhLineVisibility(false);
+  }
+
+  updateZhLineVisibility(hidden) {
+    const paragraphs = document.querySelectorAll(
+      '.markdown-preview-view p, .markdown-source-view .cm-line'
+    );
+    for (const el of paragraphs) {
+      const text = el.textContent.trim();
+      if (text.startsWith('ZH:')) {
+        el.classList.toggle('ru-zh-hidden-line', hidden);
+      }
+    }
+  }
+
+  enterImmersionMode() {
+    this.hideZhLines();
     new obsidian.Notice('沉浸模式：中文译文已隐藏');
   }
 
   enterIntensiveMode() {
-    document.body.classList.remove('ru-hide-zh');
+    this.showZhLines();
     new obsidian.Notice('精读模式：中文译文已显示');
   }
 }
