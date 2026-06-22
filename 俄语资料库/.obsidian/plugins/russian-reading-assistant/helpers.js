@@ -104,6 +104,10 @@ function replaceScalar(content, key, value) {
 function appendYamlListItem(content, key, value) {
   const quoted = quoteYaml(value);
   if (content.includes(`  - ${quoted}`)) return content;
+  // Handle inline empty array: sources: []
+  if (content.includes(`${key}: []`)) {
+    return content.replace(`${key}: []`, `${key}:\n  - ${quoted}`);
+  }
   const re = new RegExp(`^${key}:\\n((?:  - .+\\n)*)`, 'm');
   if (re.test(content)) {
     return content.replace(re, (match) => `${match}  - ${quoted}\n`);
