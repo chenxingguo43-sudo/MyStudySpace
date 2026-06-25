@@ -182,6 +182,9 @@ body {
 .answer-block { margin-top: 10px; padding: 12px; background: rgba(76,175,80,0.08); border-radius: 6px; border-left: 3px solid #4caf50; }
 .answer-label { font-size: 14px; margin-bottom: 6px; }
 .answer-explanation { font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
+.answer-section-title { font-size: 14px; font-weight: 700; color: var(--accent); margin: 12px 0 6px; padding-top: 8px; border-top: 1px dashed var(--border); }
+.answer-section-title:first-child { margin-top: 0; border-top: none; padding-top: 0; }
+.answer-para { font-size: 13px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 6px; }
 @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
 .chapter-header { text-align: center; margin-bottom: 2em; }
 .chapter-header h1 { font-size: 1.5em; font-weight: 700; margin-bottom: 4px; }
@@ -760,7 +763,19 @@ function renderExercises(exercises) {
       html += '<button class="answer-toggle" onclick="toggleAnswer(this)">显示答案</button>' +
         '<div class="answer-block" style="display:none">' +
         '<div class="answer-label">答案: <strong>' + escapeHtml(ex.answer) + '</strong></div>';
-      if (ex.explanation) {
+      if (ex.detailed_explanation) {
+        // 详细解析：按段落渲染
+        var paragraphs = ex.detailed_explanation.split('\\n').filter(function(p) { return p.trim(); });
+        for (var p = 0; p < paragraphs.length; p++) {
+          var para = paragraphs[p].trim();
+          if (para.startsWith('【') && para.includes('】')) {
+            // Section header
+            html += '<div class="answer-section-title">' + escapeHtml(para) + '</div>';
+          } else {
+            html += '<div class="answer-para">' + escapeHtml(para) + '</div>';
+          }
+        }
+      } else if (ex.explanation) {
         html += '<div class="answer-explanation">' + escapeHtml(ex.explanation) + '</div>';
       }
       html += '</div>';
