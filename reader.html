@@ -370,7 +370,7 @@ var SORT_OPTIONS = [
 
 var state = { theme: 'dark', fontSize: 'medium', fontFamily: 'serif', sort: 'default' };
 var curView = 'shelf', curBook = null, curCh = -1, chDone = false, chStart = 0;
-var selText = '', selContext = '';
+var selText = '', selContext = '', selTranslationContext = '';
 var booksData = null;
 var chaptersCache = {}, cacheOrder = [], CACHE_LIMIT = 20;
 var readStats = {};
@@ -380,6 +380,9 @@ var savedWords = []; // 当前书的已保存单词 (小写)
 var savedWordsData = []; // 完整词汇数据 [{word, meaning, source}]
 var bookmarks = {}; // {bookId: {chIdx: [paraIdx, ...]}}
 var searchMatches = [], searchIdx = -1;
+var localLookupReady = false;
+var localVocabLookup = {};
+var localLookupCache = {};
 
 /* ─── URL 参数解析（从背单词跳转） ─── */
 var _urlParams = new URLSearchParams(window.location.search);
@@ -504,6 +507,40 @@ function updateProgress() {
 }
 
 /* ══════════════════════════════════════════════
+   数据加载（支持server API和静态文件）
+   ══════════════════════════════════════════════ */
+function fetchJson(url, staticUrl) {
+  return fetch(url)
+    .then(function(r) { if (!r.ok) throw 0; return r.json(); })
+    .catch(function() {
+      if (staticUrl) return fetch(staticUrl).then(function(r) { if (!r.ok) throw 0; return r.json(); });
+      throw 0;
+    });
+}
+function fetchIndex() {
+  return fetchJson('/api/novel/index', 'data/novel/index.json')
+    .then(function(d) { return d; })
+    .catch(function() {
+      // 合并novel和textbook的index
+      return Promise.all([
+        fetchJson('data/novel/index.json', null).catch(function() { return {books:[]}; }),
+        fetchJson('data/textbook/index.json', null).catch(function() { return {books:[]}; })
+      ]).then(function(arr) {
+        return { books: arr[0].books.concat(arr[1].books) };
+      });
+    });
+}
+function fetchChapter(bookId, idx) {
+  var padIdx = String(idx).padStart(4, '0');
+  var isTextbook = bookId === 'reading_speaking';
+  var dataDir = isTextbook ? 'data/textbook' : 'data/novel';
+  return fetchJson(
+    '/api/novel/' + encodeURIComponent(bookId) + '/' + idx,
+    dataDir + '/' + bookId + '/ch' + padIdx + '.json'
+  );
+}
+
+/* ══════════════════════════════════════════════
    书架
    ══════════════════════════════════════════════ */
 function showShelf() {
@@ -513,8 +550,7 @@ function showShelf() {
     '<div class="main-container"><div class="loading"><div class="spinner"></div><div>加载书架...</div></div></div>';
   document.getElementById('searchBar').classList.remove('visible');
 
-  fetch('/api/novel/index')
-    .then(function(r) { if (!r.ok) throw 0; return r.json(); })
+  fetchIndex()
     .then(function(data) { booksData = data.books; renderShelf(); })
     .catch(function() { app.querySelector('.main-container').innerHTML = '<div class="loading">❌ 加载失败</div>'; });
 }
@@ -547,7 +583,7 @@ function renderShelf() {
     var b = sorted[i], done = getBookProgress(b.id), pct = b.chapters > 0 ? Math.round(done / b.chapters * 100) : 0;
     parts.push(
       '<div class="book-card" onclick="showChapters(\'' + escapeHtml(b.id) + '\')">' +
-      '<h3>' + escapeHtml(b.title) + '</h3>' +
+      '<h3>' + (b.id === 'reading_speaking' ? '<span style="color:#4fc3f7;font-size:0.7em;margin-right:4px">📖 教材</span>' : '') + escapeHtml(b.title) + '</h3>' +
       '<div class="book-meta">' + (b.author ? '<span>✍️ ' + escapeHtml(b.author) + '</span>' : '') +
       '<span>📚 ' + b.chapters + ' 章</span>' +
       '<span>' + (b.direction === 'cn→ru' ? '🇨🇳→🇷🇺' : '🇷🇺→🇨🇳') + '</span></div>' +
@@ -614,8 +650,7 @@ function goChapter(idx) {
   var cached = cacheGet(curBook.id, idx);
   if (cached) { renderChapter(cached); return; }
 
-  fetch('/api/novel/' + encodeURIComponent(curBook.id) + '/' + idx)
-    .then(function(r) { if (!r.ok) throw 0; return r.json(); })
+  fetchChapter(curBook.id, idx)
     .then(function(data) { if (localFetchId !== _fetchId) return; cachePut(curBook.id, idx, data); renderChapter(data); })
     .catch(function() { if (localFetchId !== _fetchId) return; document.querySelector('.main-container').innerHTML = '<div class="loading">❌ 加载失败</div>'; });
 }
@@ -688,6 +723,92 @@ function loadSavedWords() {
     savedWords = Object.keys(records).map(function(w) { return w.toLowerCase(); }).filter(Boolean);
     savedWordsData = Object.keys(records).map(function(w) { return { word: w, meaning: '', source: records[w].source || '' }; });
   } catch(e) { savedWords = []; savedWordsData = []; }
+}
+
+function normalizeLookupWord(word) {
+  return String(word || '')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/ё/g, 'е')
+    .replace(/Ё/g, 'е')
+    .toLowerCase()
+    .replace(/[^а-я-]/g, '');
+}
+
+function hasChineseText(text) {
+  return /[\u4e00-\u9fff]/.test(String(text || ''));
+}
+
+function loadLocalLookupData() {
+  try { localLookupCache = JSON.parse(localStorage.getItem('rr_local_lookup_cache') || '{}'); } catch(e) { localLookupCache = {}; }
+  return fetch('data/vocabulary.json')
+    .then(function(r) { return r.ok ? r.json() : []; })
+    .then(function(words) {
+      localVocabLookup = {};
+      if (!Array.isArray(words)) words = [];
+      words.forEach(function(w) {
+        if (!w || !w.word || !w.meaning || !hasChineseText(w.meaning)) return;
+        if (w.source !== 'vocab') return;
+        var key = normalizeLookupWord(w.word);
+        if (!key || localVocabLookup[key]) return;
+        localVocabLookup[key] = {
+          meaning: w.meaning,
+          type: w.type || '',
+          source: '本地词库'
+        };
+      });
+      localLookupReady = true;
+    })
+    .catch(function(err) {
+      console.warn('本地查词数据加载失败:', err);
+      localLookupReady = true;
+    });
+}
+
+function getCachedLocalLookup(word) {
+  var key = normalizeLookupWord(word);
+  return key ? localLookupCache[key] : null;
+}
+
+function saveCachedLocalLookup(word, result) {
+  var key = normalizeLookupWord(word);
+  if (!key || !result) return;
+  localLookupCache[key] = result;
+  try { localStorage.setItem('rr_local_lookup_cache', JSON.stringify(localLookupCache)); } catch(e) {}
+}
+
+function lookupLocalChineseMeaning(word) {
+  var key = normalizeLookupWord(word);
+  if (!key) return null;
+  var cached = getCachedLocalLookup(key);
+  if (cached) return cached;
+  if (localVocabLookup[key]) {
+    saveCachedLocalLookup(key, localVocabLookup[key]);
+    return localVocabLookup[key];
+  }
+  return {
+    meaning: '待补中文释义',
+    type: '',
+    source: '小说上下文',
+    ru: selContext || '',
+    zh: selTranslationContext || ''
+  };
+}
+
+function renderLocalLookup(clean, result) {
+  var contextHtml = '';
+  if (result.ru || result.zh) {
+    contextHtml =
+      '<div class="dict-context">' +
+        (result.ru ? '<div><b>原文</b>：' + escapeHtml(result.ru) + '</div>' : '') +
+        (result.zh ? '<div><b>中文</b>：' + escapeHtml(result.zh) + '</div>' : '') +
+      '</div>';
+  }
+  return '<div class="dict-word">' + escapeHtml(clean) + '</div>' +
+    (result.type ? '<div class="dict-pos">' + escapeHtml(result.type) + '</div>' : '') +
+    '<div class="dict-meaning">' + escapeHtml(result.meaning || '待补中文释义') + '</div>' +
+    '<div class="dict-source">' + escapeHtml(result.source || '本地') + '</div>' +
+    contextHtml;
 }
 
 function highlightSavedWords() {
@@ -785,7 +906,9 @@ document.addEventListener('mouseup', function(e) {
       while (paraBlock && !paraBlock.classList) paraBlock = paraBlock.parentNode;
       if (paraBlock && paraBlock.classList.contains('para-block')) {
         var ruEl = paraBlock.querySelector('.ru-text');
+        var zhEl = paraBlock.querySelector('.cn-text');
         selContext = ruEl ? ruEl.textContent : '';
+        selTranslationContext = zhEl ? zhEl.textContent : '';
       }
       var r = s.getRangeAt(0).getBoundingClientRect();
       var popup = document.getElementById('selPopup');
@@ -806,19 +929,20 @@ function autoLookup(word) {
   if (!clean) return;
   _lastLookupWord = clean;
   var preview = document.getElementById('dictPreview');
-  preview.innerHTML = '<div class="dict-loading">⏳ 查询释义...</div>'; preview.style.display = 'block';
-  fetch('https://en.wiktionary.org/api/rest_v1/page/definition/' + encodeURIComponent(clean))
-    .then(function(r) { return r.ok ? r.json() : null; })
-    .then(function(data) {
-      if (!data || !data.ru || !data.ru.length) { preview.innerHTML = '<div class="dict-loading" style="color:var(--text-dim)">未找到</div>'; return; }
-      var e = data.ru[0], pos = e.partOfSpeech || '', def = (e.definitions && e.definitions[0]) ? e.definitions[0].definition || '' : '';
-      if (def || pos) {
-        preview.innerHTML = '<div class="dict-word">' + escapeHtml(clean) + '</div>' +
-          (pos ? '<div class="dict-pos">' + escapeHtml(pos) + '</div>' : '') +
-          (def ? '<div class="dict-meaning">' + escapeHtml(def) + '</div>' : '');
-      } else { preview.innerHTML = '<div class="dict-loading" style="color:var(--text-dim)">未找到</div>'; }
+  preview.innerHTML = '<div class="dict-loading">⏳ 查询本地词库...</div>'; preview.style.display = 'block';
+  var runLookup = function() {
+    var result = lookupLocalChineseMeaning(clean);
+    preview.innerHTML = renderLocalLookup(clean, result);
+    updateSaveButton(clean);
+  };
+  if (localLookupReady) {
+    runLookup();
+  } else {
+    loadLocalLookupData().then(runLookup).catch(function() {
+      preview.innerHTML = renderLocalLookup(clean, lookupLocalChineseMeaning(clean));
       updateSaveButton(clean);
-    }).catch(function() { preview.innerHTML = '<div class="dict-loading" style="color:var(--text-dim)">查询失败</div>'; updateSaveButton(clean); });
+    });
+  }
 }
 function updateSaveButton(word) {
   var records = {};
@@ -833,7 +957,14 @@ function updateSaveButton(word) {
     saveBtn.innerHTML = '<span class="icon">⭐</span> 加入背单词';
   }
 }
-function doLookup() { if (!selText) return; window.open('https://en.wiktionary.org/wiki/' + encodeURIComponent(selText.replace(/[^a-zA-Zа-яА-ЯёЁ-]/g,'')) + '#Russian', '_blank'); hidePopup(); }
+function doLookup() {
+  if (!selText) return;
+  var text = '单词：' + selText + '\n俄文：' + (selContext || '') + '\n中文：' + (selTranslationContext || '');
+  navigator.clipboard.writeText(text)
+    .then(function() { toast('📋 已复制中俄上下文'); })
+    .catch(function() { toast('❌ 复制失败'); });
+  hidePopup();
+}
 function doAskAI() {
   if (!selText) return;
   navigator.clipboard.writeText('Что означает слово "' + selText + '" в этом контексте? Какая часть речи, форма, начальная форма? Дай краткий перевод на китайский.')
@@ -870,7 +1001,10 @@ function doSaveWord() {
     source: 'novel',
     sourceBook: curBook ? curBook.id : null,
     sourceChapter: curCh,
-    context: selContext ? selContext.substring(0, 300) : ''
+    meaning: meaning.trim(),
+    context: selContext ? selContext.substring(0, 300) : '',
+    sourceSentenceRu: selContext ? selContext.substring(0, 500) : '',
+    sourceSentenceZh: selTranslationContext ? selTranslationContext.substring(0, 500) : ''
   };
   localStorage.setItem('vocabulary-review-records', JSON.stringify(records));
 
@@ -884,7 +1018,15 @@ function doSaveWord() {
   try {
     fetch('/api/novel-vocab', {
       method: 'POST', headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ word: clean, meaning: meaning.trim(), type: posEl ? posEl.textContent : '', source: source, context: selContext ? selContext.substring(0, 300) : '' })
+      body: JSON.stringify({
+        word: clean,
+        meaning: meaning.trim(),
+        type: posEl ? posEl.textContent : '',
+        source: source,
+        context: selContext ? selContext.substring(0, 300) : '',
+        sourceSentenceRu: selContext ? selContext.substring(0, 500) : '',
+        sourceSentenceZh: selTranslationContext ? selTranslationContext.substring(0, 500) : ''
+      })
     });
   } catch(e) {}
   hidePopup();
@@ -938,9 +1080,9 @@ function exportNotes() {
   var tasks = chapterKeys.map(function(chIdx) {
     var cached = cacheGet(bookId, parseInt(chIdx));
     if (cached) return Promise.resolve({ idx: parseInt(chIdx), data: cached });
-    return fetch('/api/novel/' + encodeURIComponent(bookId) + '/' + chIdx)
-      .then(function(r) { return r.ok ? r.json() : null; })
-      .then(function(d) { return d ? { idx: parseInt(chIdx), data: d } : null; });
+    return fetchChapter(bookId, parseInt(chIdx))
+      .then(function(d) { return d ? { idx: parseInt(chIdx), data: d } : null; })
+      .catch(function() { return null; });
   });
 
   Promise.all(tasks).then(function(results) {
@@ -1054,8 +1196,7 @@ applyTheme();
 loadSavedWords();
 
 if (_jumpBook) {
-  fetch('/api/novel/index')
-    .then(function(r) { return r.ok ? r.json() : null; })
+  fetchIndex()
     .then(function(data) {
       if (!data) { showShelf(); return; }
       booksData = data.books;
@@ -1070,8 +1211,7 @@ if (_jumpBook) {
       } else { showShelf(); }
     }).catch(function() { showShelf(); });
 } else if (lr && lr.bookId && typeof lr.chapter === 'number') {
-  fetch('/api/novel/index')
-    .then(function(r) { return r.ok ? r.json() : null; })
+  fetchIndex()
     .then(function(data) {
       if (!data) { showShelf(); return; }
       booksData = data.books;
