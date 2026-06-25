@@ -14,6 +14,113 @@ const INDEX_FILE = path.join(__dirname, '..', 'data', 'textbook', 'index.json');
 // 确保输出目录存在
 fs.mkdirSync(OUTPUT_DIR, { recursive: true });
 
+// 提取练习和答案
+function extractExercises(content) {
+  const exercises = [];
+  const lines = content.split('\n');
+
+  // 找选择题部分
+  let inChoiceSection = false;
+  let currentQuestion = null;
+  let questions = [];
+  let answers = {};
+
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+
+    // 检测选择题开始
+    if (line.match(/### 2\.\d*\s*选择题/) || line.match(/### \d+\.\d*\s*选择题/)) {
+      inChoiceSection = true;
+      continue;
+    }
+
+    // 检测选择题结束（其他section开始）
+    if (inChoiceSection && line.match(/^### \d+\.\d*\s*(?!选择题)/)) {
+      inChoiceSection = false;
+    }
+
+    // 解析选择题
+    if (inChoiceSection) {
+      // 匹配题目: "1. **题目内容**"
+      const qMatch = line.match(/^(\d+)\.\s+\*\*(.+?)\*\*/);
+      if (qMatch) {
+        if (currentQuestion) questions.push(currentQuestion);
+        currentQuestion = {
+          num: parseInt(qMatch[1]),
+          question: qMatch[2],
+          options: [],
+          zhQuestion: '',
+          zhOptions: []
+        };
+        continue;
+      }
+
+      // 匹配选项: "- а) 选项内容"
+      const optMatch = line.match(/^\s+-\s+([а-яё])\)\s+(.+)/);
+      if (optMatch && currentQuestion) {
+        currentQuestion.options.push(optMatch[1] + ') ' + optMatch[2]);
+        continue;
+      }
+    }
+
+    // 解析中文提示（在选择题区域内）
+    if (inChoiceSection && line.includes('[!quote]- 中文提示')) {
+      // 读取后续的中文行
+      let zhLines = [];
+      for (let j = i + 1; j < lines.length; j++) {
+        if (lines[j].startsWith('>') && lines[j].trim().length > 1) {
+          zhLines.push(lines[j].replace(/^>\s*/, '').trim());
+        } else {
+          break;
+        }
+      }
+      if (currentQuestion && zhLines.length > 0) {
+        // 第一行是题目翻译
+        currentQuestion.zhQuestion = zhLines[0];
+        // 后续行是选项翻译
+        for (let z = 1; z < zhLines.length; z++) {
+          const zhOpt = zhLines[z].replace(/^-\s+/, '');
+          if (zhOpt) currentQuestion.zhOptions.push(zhOpt);
+        }
+      }
+    }
+
+    // 解析答案表格
+    if (line.includes('选择题答案与解析') || line.includes('| 题号 | 答案')) {
+      // 读取答案表格
+      for (let j = i + 1; j < lines.length; j++) {
+        const rowMatch = lines[j].match(/\|\s*(\d+)\s*\|\s*([а-яёА-ЯЁ])\s*\|\s*(.+?)\s*\|/);
+        if (rowMatch) {
+          answers[parseInt(rowMatch[1])] = {
+            answer: rowMatch[2],
+            explanation: rowMatch[3].trim()
+          };
+        }
+        if (lines[j].trim() === '' && j > i + 2) break;
+      }
+    }
+  }
+
+  if (currentQuestion) questions.push(currentQuestion);
+
+  // 合并题目和答案
+  for (const q of questions) {
+    const ans = answers[q.num];
+    exercises.push({
+      type: 'choice',
+      num: q.num,
+      question: q.question,
+      zhQuestion: q.zhQuestion,
+      options: q.options,
+      zhOptions: q.zhOptions,
+      answer: ans ? ans.answer : '',
+      explanation: ans ? ans.explanation : ''
+    });
+  }
+
+  return exercises;
+}
+
 // 读取所有学习单元文件
 const files = fs.readdirSync(LEARNING_UNITS_DIR)
   .filter(f => f.endsWith('.md') && f.startsWith('Текст'))
@@ -136,14 +243,12 @@ for (let i = 0; i < files.length; i++) {
   const filteredTranslated = [];
   for (let k = 0; k < cleanOriginal.length; k++) {
     const orig = cleanOriginal[k];
-    // 跳过太短的、练习题、选择题选项等
     if (orig.length < 10) continue;
     if (orig.match(/^(Выберите|Задание|Прослушайте|Прочитайте|Закончите)/)) continue;
     if (orig.match(/^\d+\.\s+[А-ЯЁ]/)) continue;
     if (orig.match(/^-\s+[а-яё]\)/)) continue;
     if (orig.includes('правильный вариант')) continue;
     if (orig.includes('中文译文') || orig.includes('中文提示')) continue;
-    // 保留有效段落
     filteredOriginal.push(orig);
     filteredTranslated.push(cleanTranslated[k] || '');
   }
@@ -153,6 +258,9 @@ for (let i = 0; i < files.length; i++) {
     continue;
   }
 
+  // 提取练习和答案
+  const exercises = extractExercises(content);
+
   // 生成JSON
   const chapter = {
     index: i,
@@ -160,6 +268,9 @@ for (let i = 0; i < files.length; i++) {
     original: filteredOriginal,
     translated: filteredTranslated
   };
+  if (exercises.length > 0) {
+    chapter.exercises = exercises;
+  }
 
   const chFileName = `ch${String(i).padStart(4, '0')}.json`;
   fs.writeFileSync(path.join(OUTPUT_DIR, chFileName), JSON.stringify(chapter, null, 2), 'utf8');
@@ -171,7 +282,7 @@ for (let i = 0; i < files.length; i++) {
     paragraphs: filteredOriginal.length
   });
 
-  console.log(`  ✅ ${title} — ${filteredOriginal.length} paragraphs`);
+  console.log(`  ✅ ${title} — ${filteredOriginal.length} paragraphs${exercises.length > 0 ? ', ' + exercises.length + ' exercises' : ''}`);
 }
 
 // 生成 index.json
