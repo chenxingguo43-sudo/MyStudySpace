@@ -152,6 +152,23 @@ body {
 
 /* ─── 阅读视图 ─── */
 .chapter-content { padding: 20px 0 40px; animation: fadeIn 0.3s ease; }
+/* 练习题 */
+.exercises-section { margin-top: 40px; border-top: 1px dashed var(--border); padding-top: 20px; }
+.exercises-toggle { width: 100%; padding: 12px 16px; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; color: var(--text); font-size: 16px; cursor: pointer; text-align: left; transition: background 0.2s; }
+.exercises-toggle:hover { background: var(--hover); }
+.exercises-list { margin-top: 12px; }
+.exercise-item { padding: 16px; margin-bottom: 12px; background: var(--surface); border-radius: 8px; border: 1px solid var(--border); }
+.exercise-question { font-size: 15px; line-height: 1.6; margin-bottom: 6px; }
+.exercise-num { font-weight: 700; color: var(--accent); margin-right: 4px; }
+.exercise-zh-hint { font-size: 13px; color: var(--text-secondary); margin-bottom: 8px; padding-left: 20px; }
+.exercise-options { margin: 8px 0; padding-left: 20px; }
+.exercise-option { font-size: 14px; line-height: 1.8; color: var(--text); }
+.exercise-option-zh { font-size: 12px; color: var(--text-secondary); padding-left: 16px; margin-bottom: 4px; }
+.answer-toggle { padding: 6px 14px; background: var(--accent); color: #fff; border: none; border-radius: 6px; font-size: 13px; cursor: pointer; margin-top: 8px; transition: opacity 0.2s; }
+.answer-toggle:hover { opacity: 0.85; }
+.answer-block { margin-top: 10px; padding: 12px; background: rgba(76,175,80,0.08); border-radius: 6px; border-left: 3px solid #4caf50; }
+.answer-label { font-size: 14px; margin-bottom: 6px; }
+.answer-explanation { font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
 @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
 .chapter-header { text-align: center; margin-bottom: 2em; }
 .chapter-header h1 { font-size: 1.5em; font-weight: 700; margin-bottom: 4px; }
@@ -676,6 +693,12 @@ function renderChapter(data) {
   }
   if (!visibleCount) parts.push('<div class="loading">📭 本章暂无内容</div>');
 
+  // 练习题部分
+  var exercisesHtml = '';
+  if (data.exercises && data.exercises.length > 0) {
+    exercisesHtml = renderExercises(data.exercises);
+  }
+
   var navP = curCh > 0 ? '<button class="nav-btn" onclick="goChapter(' + (curCh - 1) + ')">← 上一章</button>' : '<span class="nav-btn disabled">← 上一章</span>';
   var navN = curCh < curBook.chapters - 1 ? '<button class="nav-btn" onclick="goChapter(' + (curCh + 1) + ')">下一章 →</button>' : '<span class="nav-btn disabled">下一章 →</span>';
 
@@ -686,7 +709,7 @@ function renderChapter(data) {
     '<div class="peek-counter">👁 查看原文: <span id="peekCnt">0</span> / <span id="totalParas">' + visibleCount + '</span> 段</div>' +
     '<div class="main-container"><div class="chapter-content">' +
     '<div class="chapter-header"><h1>Глава ' + (curCh + 1) + '</h1><h2>' + escapeHtml(data.title || '') + '</h2></div>' +
-    parts.join('') + '</div></div>' +
+    parts.join('') + exercisesHtml + '</div></div>' +
     '<nav class="bottom-nav">' + navP + '<span class="nav-info">第 ' + (curCh + 1) + ' / ' + curBook.chapters + ' 章</span>' + navN + '</nav>';
 
   window.scrollTo(0, 0); applyTheme(); saveLastRead();
@@ -694,6 +717,57 @@ function renderChapter(data) {
   try { var lr2 = JSON.parse(localStorage.getItem('rr_lastread_' + NOVEL_ID)); if (lr2 && lr2.bookId === curBook.id && lr2.chapter === curCh && lr2.scroll > 0) setTimeout(function() { window.scrollTo(0, lr2.scroll); }, 100); } catch(e) {}
   // 高亮已保存单词
   highlightSavedWords();
+}
+
+/* ─── 练习题渲染 ─── */
+function renderExercises(exercises) {
+  var html = '<div class="exercises-section">' +
+    '<button class="exercises-toggle" onclick="toggleExercises(this)">' +
+    '📝 练习题 (' + exercises.length + ' 道) ▼</button>' +
+    '<div class="exercises-list" style="display:none">';
+  for (var i = 0; i < exercises.length; i++) {
+    var ex = exercises[i];
+    html += '<div class="exercise-item">' +
+      '<div class="exercise-question">' +
+        '<span class="exercise-num">' + ex.num + '.</span>' +
+        '<span class="exercise-text">' + escapeHtml(ex.question) + '</span>' +
+      '</div>';
+    if (ex.zhQuestion) {
+      html += '<div class="exercise-zh-hint">' + escapeHtml(ex.zhQuestion) + '</div>';
+    }
+    html += '<div class="exercise-options">';
+    for (var j = 0; j < ex.options.length; j++) {
+      html += '<div class="exercise-option">' + escapeHtml(ex.options[j]) + '</div>';
+      if (ex.zhOptions && ex.zhOptions[j]) {
+        html += '<div class="exercise-option-zh">' + escapeHtml(ex.zhOptions[j]) + '</div>';
+      }
+    }
+    html += '</div>';
+    if (ex.answer) {
+      html += '<button class="answer-toggle" onclick="toggleAnswer(this)">显示答案</button>' +
+        '<div class="answer-block" style="display:none">' +
+        '<div class="answer-label">答案: <strong>' + escapeHtml(ex.answer) + '</strong></div>';
+      if (ex.explanation) {
+        html += '<div class="answer-explanation">' + escapeHtml(ex.explanation) + '</div>';
+      }
+      html += '</div>';
+    }
+    html += '</div>';
+  }
+  html += '</div></div>';
+  return html;
+}
+function toggleExercises(btn) {
+  var list = btn.nextElementSibling;
+  var visible = list.style.display !== 'none';
+  list.style.display = visible ? 'none' : 'block';
+  btn.textContent = btn.textContent.replace(visible ? '▼' : '▲', visible ? '▲' : '▼');
+}
+function toggleAnswer(btn) {
+  var block = btn.nextElementSibling;
+  var visible = block.style.display !== 'none';
+  block.style.display = visible ? 'none' : 'block';
+  btn.textContent = visible ? '显示答案' : '隐藏答案';
 }
 
 /* ─── 段落展开 ─── */
