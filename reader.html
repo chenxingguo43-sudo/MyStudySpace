@@ -32,6 +32,19 @@ body.theme-sepia {
   --para-expanded-border: rgba(212,165,116,0.4);
   --highlight-word: rgba(212,165,116,0.25); --highlight-search: rgba(100,180,220,0.25);
 }
+body.theme-warm {
+  --bg: #ECE1C7; --surface: rgba(236,225,199,0.85); --surface-solid: #E6DABB;
+  --glass: rgba(0,0,0,0.03); --glass-border: rgba(0,0,0,0.08);
+  --glass-hover: rgba(0,0,0,0.06);
+  --text: rgba(40,35,25,0.92); --text-secondary: rgba(80,65,40,0.55);
+  --text-dim: rgba(80,65,40,0.35);
+  --accent: #8b6914; --accent-dim: rgba(139,105,20,0.12); --accent-border: rgba(139,105,20,0.25);
+  --ru-text: rgba(40,35,25,0.92); --cn-text: rgba(80,65,40,0.55);
+  --border: rgba(0,0,0,0.06); --para-hover: rgba(0,0,0,0.03);
+  --para-expanded-border: rgba(139,105,20,0.3);
+  --shadow: 0 4px 16px rgba(0,0,0,0.06);
+  --highlight-word: rgba(200,160,60,0.20); --highlight-search: rgba(60,140,200,0.20);
+}
 body.theme-paper {
   --bg: #f5f0e8; --surface: rgba(245,240,232,0.8); --surface-solid: #efe8dc;
   --glass: rgba(0,0,0,0.03); --glass-border: rgba(0,0,0,0.08);
@@ -375,7 +388,7 @@ body {
    状态管理
    ══════════════════════════════════════════════ */
 var NOVEL_ID = 'study_novel';
-var THEMES = ['dark', 'sepia', 'paper'];
+var THEMES = ['warm', 'dark', 'sepia', 'paper'];
 var THEME_LABELS = { dark: '暗色', sepia: '护眼', paper: '纸质' };
 var SIZES = ['small', 'medium', 'large', 'xlarge'];
 var SIZE_LABELS = { small: '小', medium: '中', large: '大', xlarge: '超大' };
@@ -385,7 +398,7 @@ var SORT_OPTIONS = [
   { value: 'unread', label: '未读优先' }
 ];
 
-var state = { theme: 'dark', fontSize: 'medium', fontFamily: 'serif', sort: 'default' };
+var state = { theme: 'warm', fontSize: 'medium', fontFamily: 'serif', sort: 'default' };
 var curView = 'shelf', curBook = null, curCh = -1, chDone = false, chStart = 0;
 var selText = '', selContext = '', selTranslationContext = '';
 var booksData = null;
@@ -432,7 +445,7 @@ function applyTheme() {
 }
 function cycleTheme() {
   var i = THEMES.indexOf(state.theme);
-  state.theme = THEMES[(i + 1) % 3];
+  state.theme = THEMES[(i + 1) % THEMES.length];
   saveState(); applyTheme();
   toast('主题: ' + THEME_LABELS[state.theme]);
 }
