@@ -417,6 +417,11 @@ var localLookupReady = false;
 var localVocabLookup = {};
 var localLookupCache = {};
 
+/* ─── 形态引擎状态 ─── */
+var morphologyDict = null;         // Object.create(null) 字典
+var morphologyVersion = 0;         // 当前映射表版本
+var morphologyReady = false;       // 就绪标志
+
 /* ─── URL 参数解析（从背单词跳转） ─── */
 var _urlParams = new URLSearchParams(window.location.search);
 var _jumpBook = _urlParams.get('book');
@@ -437,6 +442,70 @@ function saveLastRead() {
       localStorage.setItem('rr_lastread_' + NOVEL_ID, JSON.stringify({ bookId: curBook.id, chapter: curCh, scroll: window.scrollY }));
     }
   } catch(e) {}
+}
+
+/* ══════════════════════════════════════════════
+   IndexedDB 轻量封装
+   ══════════════════════════════════════════════ */
+var _idbName = 'russian_reader_db';
+var _idbStore = 'keyval';
+
+function _idbOpen() {
+  return new Promise(function(resolve, reject) {
+    var req = indexedDB.open(_idbName, 1);
+    req.onupgradeneeded = function() { req.result.createObjectStore(_idbStore); };
+    req.onsuccess = function() { resolve(req.result); };
+    req.onerror = function() { reject(req.error); };
+  });
+}
+
+function _idbExec(mode, cb) {
+  return _idbOpen().then(function(db) {
+    return new Promise(function(resolve, reject) {
+      var tx = db.transaction(_idbStore, mode === 'readonly' ? 'readonly' : 'readwrite');
+      var store = tx.objectStore(_idbStore);
+      var ret = cb(store);
+      if (ret && typeof ret.then === 'function') { ret.then(resolve, reject); }
+      tx.oncomplete = function() { resolve(ret && ret.then ? undefined : ret); };
+      tx.onerror = function() { reject(tx.error); };
+    });
+  });
+}
+
+function idbGet(key) {
+  return _idbExec('readonly', function(store) {
+    return new Promise(function(resolve) {
+      var req = store.get(key);
+      req.onsuccess = function() { resolve(req.result); };
+      req.onerror = function() { reject(req.error); };
+    });
+  });
+}
+
+function idbSet(key, val) {
+  return _idbExec('readwrite', function(store) {
+    return new Promise(function(resolve) {
+      var req = store.put(val, key);
+      req.onsuccess = function() { resolve(); };
+      req.onerror = function() { reject(req.error); };
+    });
+  });
+}
+
+/* ─── 形态引擎：IndexedDB 读写 ─── */
+var MORPH_IDB_KEY = 'morphology_data';
+
+function readMorphologyFromIDB() {
+  return idbGet(MORPH_IDB_KEY).then(function(data) {
+    if (!data || !data.map || Object.keys(data.map).length === 0) {
+      throw new Error('empty morphology data');
+    }
+    return data;
+  });
+}
+
+function writeMorphologyToIDB(data) {
+  return idbSet(MORPH_IDB_KEY, data);
 }
 
 /* ══════════════════════════════════════════════
@@ -515,6 +584,55 @@ function toast(msg) {
   t.textContent = msg; t.classList.add('visible');
   clearTimeout(t._timer);
   t._timer = setTimeout(function() { t.classList.remove('visible'); }, 2500);
+}
+
+/* ─── 形态引擎：初始化 ─── */
+function buildDict(mapData) {
+  morphologyDict = Object.create(null);
+  Object.assign(morphologyDict, mapData);
+  morphologyReady = true;
+}
+
+function initMorphology() {
+  var versionFetchOk = true;
+  var remoteVersion = null;
+
+  fetch('data/morphology-version.json')
+    .then(function(r) {
+      if (!r.ok) throw new Error('version fetch failed');
+      return r.json();
+    })
+    .then(function(v) { remoteVersion = v.version; })
+    .catch(function() { versionFetchOk = false; })
+    .then(function() {
+      return readMorphologyFromIDB()
+        .then(function(localData) {
+          if (versionFetchOk && localData.version === remoteVersion) {
+            buildDict(localData.map);
+            return;
+          }
+          throw new Error('need update');
+        })
+        .catch(function() {
+          if (!versionFetchOk) {
+            return readMorphologyFromIDB().then(function(ld) { buildDict(ld.map); }).catch(function() {});
+          }
+          if (sessionStorage.getItem('morph_retry') === '1') {
+            return readMorphologyFromIDB().then(function(ld) { buildDict(ld.map); }).catch(function() {});
+          }
+          return fetch('data/morphology-map.json')
+            .then(function(r) { return r.json(); })
+            .then(function(json) {
+              return writeMorphologyToIDB(json).then(function() {
+                buildDict(json.map);
+              });
+            })
+            .catch(function() {
+              sessionStorage.setItem('morph_retry', '1');
+              return readMorphologyFromIDB().then(function(ld) { buildDict(ld.map); }).catch(function() {});
+            });
+        });
+    });
 }
 
 /* ─── 计时器 ─── */
@@ -850,7 +968,10 @@ function loadLocalLookupData() {
       if (!Array.isArray(words)) words = [];
       words.forEach(function(w) {
         if (!w || !w.word || !w.meaning || !hasChineseText(w.meaning)) return;
-        if (w.source !== 'vocab') return;
+        // 词性归一化：加载所有单体词（verb/noun/adj/adjective/adv/adverb）
+        var posType = (w.type || '').toLowerCase();
+        var allowedTypes = { verb:1, noun:1, adj:1, adjective:1, adv:1, adverb:1 };
+        if (!allowedTypes[posType]) return;
         var key = normalizeLookupWord(w.word);
         if (!key || localVocabLookup[key]) return;
         localVocabLookup[key] = {
