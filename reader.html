@@ -1485,6 +1485,7 @@ function showBookReport() {
    ══════════════════════════════════════════════ */
 applyTheme();
 loadSavedWords();
+loadLocalLookupData();  // 启动词典加载（异步）
 initMorphology();  // 后台异步加载形态映射表
 
 if (_jumpBook) {
