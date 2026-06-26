@@ -3,20 +3,18 @@
 # 用法: powershell -File scripts/start-chrome-debug.ps1
 
 $ChromePath = "C:\Program Files\Google\Chrome\Application\chrome.exe"
-$UserDataDir = "$env:LOCALAPPDATA\chrome-debug-profile"
+# 使用你日常的 Chrome 用户数据（保持登录状态、Cookie、Gemini 会话）
+$UserDataDir = "$env:LOCALAPPDATA\Google\Chrome\User Data"
 $DebugPort = 9222
+$ProfileDir = "Default"  # 你的默认 Chrome 用户配置
 
-# Kill existing Chrome debug instances
-Get-Process -Name "chrome" -ErrorAction SilentlyContinue | Where-Object {
-    $_.CommandLine -match "remote-debugging-port" -or $_.MainWindowTitle -match "DevTools"
-} | Stop-Process -Force -ErrorAction SilentlyContinue
+Write-Host "[chrome] 使用现有 Chrome 配置"
+Write-Host "[chrome] ⚠️  请先手动关闭所有 Chrome 窗口！"
+Write-Host ""
 
-Start-Sleep -Seconds 1
-
-# 确保用户数据目录存在
-if (-not (Test-Path $UserDataDir)) {
-    New-Item -ItemType Directory -Path $UserDataDir -Force | Out-Null
-}
+# 杀掉所有 Chrome 进程（必须全关才能用 --remote-debugging-port）
+Get-Process -Name "chrome" -ErrorAction SilentlyContinue | Stop-Process -Force -ErrorAction SilentlyContinue
+Start-Sleep -Seconds 2
 
 Write-Host "[chrome] Launching Chrome with remote debugging on port $DebugPort..."
 
