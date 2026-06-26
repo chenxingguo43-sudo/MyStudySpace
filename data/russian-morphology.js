@@ -1,6 +1,6 @@
 /**
  * 俄语词态轻量还原引擎 — 降级兜底
- * 仅覆盖 15-20 条最高频后缀规则，不构建完整语法树。
+ * 覆盖 55 条高频后缀规则（动词/名词/形容词），不构建完整语法树。
  * 规则按后缀长度降序排列（长后缀优先，防截断误伤）。
  */
 var morphologyRules = [
@@ -41,6 +41,7 @@ var morphologyRules = [
   { suffix: 'ете', replacement: 'еть',     posHint: 'v' },
   { suffix: 'ёте', replacement: 'еть',     posHint: 'v' },
   { suffix: 'ите', replacement: 'ить',     posHint: 'v' },
+  { suffix: 'ает', replacement: 'ать',     posHint: 'v' },
   { suffix: 'ают', replacement: 'ать',     posHint: 'v' },
   { suffix: 'яют', replacement: 'ять',     posHint: 'v' },
   { suffix: 'уют', replacement: 'овать',   posHint: 'v' },
@@ -81,6 +82,7 @@ var morphologyRules = [
 
   // ─── 2字符后缀：现在时第三人称单数 ───
   { suffix: 'ит',  replacement: 'еть',     posHint: 'v' },
+  { suffix: 'ит',  replacement: 'ить',     posHint: 'v' },
   { suffix: 'ет',  replacement: 'еть',     posHint: 'v' },
 
   // ─── 2字符后缀：名词格尾 ───
@@ -129,4 +131,9 @@ function morphologyGuess(word) {
     unique.push(c);
   }
   return unique;
+}
+
+// CommonJS export for Node.js test runner
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = { morphologyRules: morphologyRules, morphologyGuess: morphologyGuess };
 }

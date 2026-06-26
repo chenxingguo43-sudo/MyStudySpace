@@ -1,10 +1,7 @@
-// Load the morphology rules as if in a browser environment
-var fs = require('fs');
-var path = require('path');
-
-// Execute the rules file to get morphologyRules and morphologyGuess
-var rulesCode = fs.readFileSync(path.join(__dirname, '..', 'data', 'russian-morphology.js'), 'utf8');
-eval(rulesCode);
+// Load the morphology rules module
+var m = require('../data/russian-morphology.js');
+var morphologyRules = m.morphologyRules;
+var morphologyGuess = m.morphologyGuess;
 
 // 1. Verify rules are sorted by suffix length descending
 var lengths = morphologyRules.map(function(r) { return r.suffix.length; });
@@ -32,6 +29,7 @@ var tests = [
   { input: 'видел',       expectContains: 'видеть' },
   { input: 'читал',       expectContains: 'читать' },
   { input: 'столами',     expectContains: 'стол' },
+  { input: 'работает',    expectContains: 'работать' },
   { input: 'нового',      expectContains: 'новый' },
 ];
 
