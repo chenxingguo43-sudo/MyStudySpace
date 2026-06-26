@@ -126,6 +126,40 @@ body {
 /* ─── 主容器 ─── */
 .main-container { position: relative; z-index: 1; max-width: 720px; margin: 0 auto; padding: 20px 16px 100px; }
 
+/* ─── 分屏布局容器 ─── */
+.reader-layout {
+  position: relative; z-index: 1;
+  max-width: 1100px; margin: 0 auto;
+  display: flex; align-items: flex-start;
+  padding: 0 16px 100px;
+}
+/* 阅读区 */
+.reader-pane { flex: 1; min-width: 0; overflow-y: visible; }
+
+/* ─── 详情面板 ─── */
+.detail-panel {
+  width: 0; flex-shrink: 0; overflow: hidden;
+  background: var(--surface-solid);
+  border: 1px solid var(--glass-border); border-radius: 16px;
+  margin-left: 16px;
+  transition: width 0.3s ease, opacity 0.25s ease;
+  opacity: 0;
+}
+.detail-panel.open { width: 380px; opacity: 1; overflow-y: auto; }
+.detail-panel-inner { padding: 20px; min-width: 340px; max-height: calc(100vh - 160px); overflow-y: auto; }
+
+/* ─── 拖拽分界线 ─── */
+.resize-handle {
+  display: none; width: 6px; flex-shrink: 0; cursor: col-resize;
+  background: transparent; border-radius: 3px; transition: background 0.15s;
+  align-self: stretch; min-height: 200px;
+}
+.resize-handle:hover, .resize-handle.active { background: var(--accent); }
+.resize-handle.visible { display: block; }
+
+/* ─── 叠加遮罩（竖屏）─── */
+.detail-overlay { display: none; }
+
 /* ─── 书架 ─── */
 .bookshelf { display: grid; gap: 16px; padding: 24px 0; }
 .book-card {
@@ -360,6 +394,24 @@ body {
   .search-bar.visible + .peek-counter { top: 88px; }
   .toolbar-timer { display: none; }
   .search-bar { top: 44px; }
+}
+
+@media (max-width: 767px) {
+  .reader-layout { max-width: 100%; padding: 0 12px 80px; }
+  .detail-panel {
+    position: fixed; top: 96px; right: 0; bottom: 56px;
+    z-index: 200; width: 0; border-radius: 12px 0 0 12px;
+    box-shadow: -4px 0 24px rgba(0,0,0,0.4);
+    margin-left: 0; transition: width 0.3s ease, opacity 0.2s ease;
+  }
+  .detail-panel.open { width: 65vw; min-width: 280px; }
+  .resize-handle { display: none !important; }
+  .detail-overlay {
+    display: none; position: fixed; inset: 0; z-index: 199;
+    background: rgba(0,0,0,0.3); backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+  }
+  .detail-overlay.visible { display: block; }
 }
 </style>
 </head>
@@ -865,9 +917,14 @@ function renderChapter(data) {
       '<button class="tb-btn" onclick="toggleSearch()" title="搜索 (Ctrl+F)">🔍</button>' +
       '<button class="tb-btn" onclick="showChapters(\'' + escapeHtml(curBook.id) + '\')" title="目录">☰</button>') +
     '<div class="peek-counter">👁 查看原文: <span id="peekCnt">0</span> / <span id="totalParas">' + visibleCount + '</span> 段</div>' +
-    '<div class="main-container"><div class="chapter-content">' +
+    '<div class="reader-layout">' +
+    '<div class="reader-pane"><div class="chapter-content">' +
     '<div class="chapter-header"><h1>Глава ' + (curCh + 1) + '</h1><h2>' + escapeHtml(data.title || '') + '</h2></div>' +
-    parts.join('') + exercisesHtml + '</div></div>' +
+    parts.join('') + exercisesHtml + '</div></div></div>' +
+    '<div class="detail-panel" id="detailPanel"><div class="detail-panel-inner" id="detailInner"></div></div>' +
+    '<div class="resize-handle" id="resizeHandle"></div>' +
+    '<div class="detail-overlay" id="detailOverlay" onclick="closeDetailPanel()"></div>' +
+    '</div>' +
     '<nav class="bottom-nav">' + navP + '<span class="nav-info">第 ' + (curCh + 1) + ' / ' + curBook.chapters + ' 章</span>' + navN + '</nav>';
 
   window.scrollTo(0, 0); applyTheme(); saveLastRead();
