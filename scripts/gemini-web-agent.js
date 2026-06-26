@@ -116,15 +116,15 @@ async function run(prompt) {
 }
 
 // ── Activate Gemini Pro Extended Thinking ──
-// 基于 AgentChat SKILL.md，适配中文 UI
+// 适配中文 Gemini UI (2026-06):
+//   "打开模式选择器" → "思考等级" → "扩展"
+//   选择器: gem-menu-item
 async function ensureProExtended(page) {
-  // 1. Check current state — look for model selector button
-  const label = page.locator('button[aria-label*="开启模式挑选器"], button[aria-label*="Open model selector"]').first();
+  // 1. Check current state
+  const label = page.locator('button[aria-label*="打开模式选择器"], button[aria-label*="开启模式挑选器"], button[aria-label*="Open model selector"]').first();
   let current = '';
-  try {
-    current = (await label.getAttribute('aria-label')) || '';
-  } catch(e) {}
-  if (current.includes('延长') || current.includes('Extended')) {
+  try { current = (await label.getAttribute('aria-label')) || ''; } catch(e) {}
+  if (current.includes('扩展') || current.includes('延长') || current.includes('Extended')) {
     console.error('[gemini] Pro Extended already active, skipping');
     return;
   }
@@ -134,59 +134,51 @@ async function ensureProExtended(page) {
   await label.click();
   await page.waitForTimeout(1500);
 
-  // 3. Select Pro model
-  const menuItems = await page.evaluate(() => {
-    return [...document.querySelectorAll('gem-menu-item')]
-      .map((el, i) => ({ i, text: el.innerText?.trim() }));
-  });
-  let proIdx = -1;
-  for (const item of menuItems) {
-    if (item.text && item.text.includes('Pro') && !item.text.includes('Flash')) {
-      proIdx = item.i; break;
+  // 3. Click "思考等级" / "Thinking" to expand submenu
+  let items = await page.evaluate(() =>
+    [...document.querySelectorAll('gem-menu-item')].map((el, i) => ({ i, text: el.innerText?.trim() }))
+  );
+  let thinkingIdx = -1;
+  for (const it of items) {
+    if (it.text && (it.text.includes('思考等级') || it.text.includes('思考程度') || it.text.includes('Thinking'))) {
+      thinkingIdx = it.i; break;
     }
   }
-  if (proIdx >= 0) {
-    console.error('[gemini] Selecting Pro model...');
-    await page.locator('gem-menu-item').nth(proIdx).click();
-    await page.waitForTimeout(1000);
+  if (thinkingIdx >= 0) {
+    console.error('[gemini] Expanding thinking level submenu...');
+    await page.locator('gem-menu-item').nth(thinkingIdx).click();
+    await page.waitForTimeout(1500);
   } else {
-    console.error('[gemini] Warning: Pro menu item not found, continuing...');
+    console.error('[gemini] Warning: thinking level item not found');
     await page.keyboard.press('Escape');
     return;
   }
 
-  // 4. Expand thinking level submenu
-  await page.waitForTimeout(500);
-  const thinkingItems = await page.evaluate(() => {
-    return [...document.querySelectorAll('gem-menu-item')]
-      .map((el, i) => ({ i, text: el.innerText?.trim() }));
-  });
-  for (const item of thinkingItems) {
-    if (item.text && (item.text.includes('思考程度') || item.text.includes('Thinking'))) {
-      await page.locator('gem-menu-item').nth(item.i).click();
-      await page.waitForTimeout(1500);
-      break;
+  // 4. Click "扩展" / "Extended" (NOT "标准")
+  items = await page.evaluate(() =>
+    [...document.querySelectorAll('gem-menu-item')].map((el, i) => ({ i, text: el.innerText?.trim() }))
+  );
+  let extendedIdx = -1;
+  for (const it of items) {
+    if (it.text && (it.text.includes('扩展') || it.text.includes('延长') || it.text.includes('Extended')) && !it.text.includes('标准')) {
+      extendedIdx = it.i; break;
     }
   }
-
-  // 5. Select '延长' / 'Extended'
-  const extendedItems = await page.evaluate(() => {
-    return [...document.querySelectorAll('gem-menu-item')]
-      .map((el, i) => ({ i, text: el.innerText?.trim() }));
-  });
-  for (const item of extendedItems) {
-    if (item.text && (item.text.includes('延长') || item.text.includes('Extended')) && !item.text.includes('标准')) {
-      await page.locator('gem-menu-item').nth(item.i).click();
-      await page.waitForTimeout(1000);
-      break;
-    }
+  if (extendedIdx >= 0) {
+    console.error('[gemini] Selecting Extended thinking...');
+    await page.locator('gem-menu-item').nth(extendedIdx).click();
+    await page.waitForTimeout(1000);
+  } else {
+    console.error('[gemini] Warning: extended option not found in submenu');
   }
 
-  // 6. Close menu and verify
+  // 5. Close menu and verify
   await page.keyboard.press('Escape');
   await page.waitForTimeout(1000);
-  const verifyLabel = await page.locator('button[aria-label*="开启模式挑选器"]').first().getAttribute('aria-label');
-  console.error('[gemini] Pro Extended activated:', verifyLabel?.substring(0, 60));
+  try {
+    const verify = (await label.getAttribute('aria-label')) || '';
+    console.error('[gemini] Pro Extended activated:', verify?.substring(0, 60));
+  } catch(e) {}
 }
 
 // ── Find or create Gemini tab ──
