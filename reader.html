@@ -1057,14 +1057,17 @@ function hasChineseText(text) {
 
 function loadLocalLookupData() {
   try { localLookupCache = JSON.parse(localStorage.getItem('rr_local_lookup_cache') || '{}'); } catch(e) { localLookupCache = {}; }
-  return fetch('data/vocabulary.json')
-    .then(function(r) { return r.ok ? r.json() : []; })
-    .then(function(words) {
+  return Promise.all([
+    fetch('data/vocabulary.json').then(function(r) { return r.ok ? r.json() : []; }),
+    fetch('data/external-vocab.json').then(function(r) { return r.ok ? r.json() : {}; }).catch(function() { return {}; })
+  ])
+    .then(function(results) {
+      var words = results[0], extVocab = results[1];
       localVocabLookup = {};
+      // 主词典
       if (!Array.isArray(words)) words = [];
       words.forEach(function(w) {
         if (!w || !w.word || !w.meaning || !hasChineseText(w.meaning)) return;
-        // 词性归一化：加载所有单体词（verb/noun/adj/adjective/adv/adverb）
         var posType = (w.type || '').toLowerCase();
         var allowedTypes = { verb:1, noun:1, adj:1, adjective:1, adv:1, adverb:1 };
         if (!allowedTypes[posType]) return;
@@ -1076,6 +1079,20 @@ function loadLocalLookupData() {
           source: '本地词库'
         };
       });
+      // 外部补充词库 (Gemini 翻译)
+      Object.keys(extVocab).forEach(function(lemma) {
+        var e = extVocab[lemma];
+        var key = normalizeLookupWord(lemma);
+        if (!key) return;
+        if (localVocabLookup[key]) return; // 不覆盖主词典
+        if (!hasChineseText(e.meaning)) return;
+        localVocabLookup[key] = {
+          meaning: e.meaning,
+          type: e.type || '',
+          source: '扩展词库'
+        };
+      });
+      console.log('[Dict] Local:', Object.keys(localVocabLookup).length, 'words (incl. external)');
       localLookupReady = true;
     })
     .catch(function(err) {
