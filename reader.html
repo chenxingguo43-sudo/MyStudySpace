@@ -217,6 +217,11 @@ body {
 .highlight-search { background: var(--highlight-search); border-radius: 2px; padding: 0 1px; outline: 1px solid rgba(56,189,248,0.4); }
 .highlight-search.current { outline: 2px solid rgba(56,189,248,0.8); }
 
+/* ─── 可点击单词 ─── */
+.ru-word { cursor: pointer; border-radius: 2px; transition: background 0.1s; }
+.ru-word:hover { background: var(--highlight-word); }
+.ru-word:active { background: var(--accent-dim); }
+
 /* ─── 底部导航 ─── */
 .bottom-nav {
   position: fixed; bottom: 0; left: 0; right: 0; display: flex; align-items: center; justify-content: space-between;
@@ -840,7 +845,7 @@ function renderChapter(data) {
       '<div class="para-actions">' +
         '<button class="' + (isBm ? 'bookmarked' : '') + '" onclick="toggleBookmark(' + i + ',event)" title="收藏段落">' + (isBm ? '★' : '☆') + '</button>' +
       '</div>' +
-      '<p class="ru-text" onclick="toggleCN(this)">' + escapeHtml(front) + '</p>' +
+      '<p class="ru-text" onclick="toggleCN(this)">' + renderRuText(front) + '</p>' +
       '<p class="cn-text">' + escapeHtml(back) + '</p></div>'
     );
   }
@@ -942,6 +947,47 @@ function toggleCN(el) {
   if (cn.classList.contains('visible')) { cn.classList.remove('visible'); block.classList.remove('expanded'); peekCount = Math.max(0, peekCount - 1); }
   else { cn.classList.add('visible'); block.classList.add('expanded'); peekCount++; }
   var el2 = document.getElementById('peekCnt'); if (el2) el2.textContent = peekCount;
+  updateProgress(); // 展开/收起后刷新进度
+}
+
+/* ─── 单词渲染：把俄语词包成可点击 span ─── */
+function renderRuText(text) {
+  var escaped = escapeHtml(text);
+  return escaped.replace(/([а-яА-ЯёЁ](?:[а-яА-ЯёЁ-]*[а-яА-ЯёЁ])?)/g,
+    '<span class="ru-word" data-word="$1">$1</span>');
+}
+
+/* ─── 点击单词：直接查词 ─── */
+function lookupWord(word, e) {
+  if (!word || word.length < 2) return;
+  e.stopPropagation(); // 阻止冒泡到 ru-text 的 toggleCN
+
+  // 填入选词状态
+  selText = word;
+  var span = e.target;
+  var paraBlock = span.closest('.para-block');
+  if (paraBlock) {
+    var ruEl = paraBlock.querySelector('.ru-text');
+    var zhEl = paraBlock.querySelector('.cn-text');
+    selContext = ruEl ? ruEl.textContent : '';
+    selTranslationContext = zhEl ? zhEl.textContent : '';
+  }
+
+  // 弹窗定位：用点击元素的位置
+  var rect = span.getBoundingClientRect();
+  var popup = document.getElementById('selPopup');
+  document.getElementById('selWord').textContent = '🔍 ' + word;
+  var dp = document.getElementById('dictPreview'); dp.style.display = 'none'; dp.innerHTML = '';
+
+  var top = rect.bottom + 6;
+  if (top > window.innerHeight - 250) top = rect.top - 250;
+  if (top < 10) top = 10;
+  popup.style.top = top + 'px';
+  popup.style.left = Math.max(10, Math.min(rect.left, window.innerWidth - 200)) + 'px';
+  popup.classList.add('visible');
+
+  autoLookup(word);
+}
 }
 
 /* ─── 段落收藏 ─── */
