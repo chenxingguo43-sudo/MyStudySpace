@@ -160,6 +160,52 @@ body {
 /* ─── 叠加遮罩（竖屏）─── */
 .detail-overlay { display: none; }
 
+/* ─── 面板卡片内容 ─── */
+.dp-head { margin-bottom: 16px; }
+.dp-word { font-size: 1.4em; font-weight: 700; color: var(--accent); margin-bottom: 4px; font-family: 'Noto Serif', serif; }
+.dp-pos { font-size: 13px; color: var(--text-dim); }
+.dp-section { margin-bottom: 16px; }
+.dp-meaning { font-size: 1.1em; color: var(--text); line-height: 1.6; }
+.dp-label { font-size: 12px; color: var(--text-dim); margin-right: 6px; }
+.dp-tag { font-size: 12px; background: var(--accent-dim); color: var(--accent); padding: 1px 8px; border-radius: 4px; }
+.dp-pair { font-size: 13px; color: var(--text-secondary); margin-left: 8px; }
+.dp-meta { font-size: 13px; color: var(--text-secondary); margin-top: 6px; }
+.dp-section-title { font-size: 13px; font-weight: 600; color: var(--text-secondary); margin-bottom: 8px; }
+
+/* 搭配 */
+.dp-coll { margin-bottom: 8px; padding: 6px 10px; background: rgba(255,255,255,0.04); border-radius: 6px; }
+.dp-coll-phrase { font-size: 14px; color: var(--accent); font-weight: 500; }
+.dp-coll-ru { font-size: 13px; color: var(--ru-text); margin-top: 2px; }
+.dp-coll-zh { font-size: 12px; color: var(--text-dim); margin-top: 2px; }
+
+/* 折叠 */
+.dp-collapse-toggle { font-size: 13px; color: var(--text-secondary); cursor: pointer; padding: 4px 0; user-select: none; }
+.dp-collapse-toggle:hover { color: var(--accent); }
+.dp-collapse-toggle.expanded::after { content: ' ▾'; }
+.dp-collapse-body { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+.dp-collapse-body.open { max-height: 600px; overflow-y: auto; }
+.dp-detail { font-size: 13px; color: var(--text-secondary); line-height: 1.7; margin-top: 6px; }
+
+/* 例句 */
+.dp-example { margin-bottom: 8px; padding: 6px 10px; background: rgba(255,255,255,0.03); border-radius: 6px; }
+.dp-ex-ru { font-size: 13px; color: var(--ru-text); line-height: 1.6; }
+.dp-ex-zh { font-size: 12px; color: var(--text-dim); margin-top: 4px; }
+
+/* 备选原形 */
+.dp-alt-label { font-size: 12px; color: var(--text-dim); }
+.dp-alt-word { font-size: 12px; color: var(--text-secondary); margin-left: 4px; }
+
+/* 🤖 AI */
+.dp-ai-section { margin-top: 20px; padding-top: 12px; border-top: 1px solid var(--border); }
+.dp-ai-btn { width: 100%; padding: 10px; background: var(--glass); border: 1px solid var(--glass-border); border-radius: 8px; color: var(--text-secondary); cursor: pointer; font-size: 14px; font-family: inherit; transition: all 0.2s; }
+.dp-ai-btn:hover { background: var(--glass-hover); color: var(--accent); }
+.dp-ai-btn.loading { opacity: 0.6; pointer-events: none; }
+.dp-ai-result { margin-top: 12px; font-size: 13px; color: var(--text-secondary); line-height: 1.7; }
+.dp-ai-result:empty { display: none; }
+
+/* 来源 */
+.dp-source { margin-top: 12px; font-size: 11px; color: var(--text-dim); }
+
 /* ─── 书架 ─── */
 .bookshelf { display: grid; gap: 16px; padding: 24px 0; }
 .book-card {
@@ -1040,6 +1086,40 @@ function closeDetailPanel() {
   if (panel) panel.classList.remove('open');
   if (overlay) overlay.classList.remove('visible');
   if (handle) handle.classList.remove('visible');
+}
+
+/* ─── AI 深度解析（clipboard 过渡方案，后续接入 AgentChat）─── */
+var _aiRequesting = false;
+
+function requestAiAnalysis() {
+  if (_aiRequesting) return;
+  _aiRequesting = true;
+  var btn = document.getElementById('dpAiBtn');
+  var resultEl = document.getElementById('dpAiResult');
+  if (btn) { btn.classList.add('loading'); btn.textContent = '⏳ AI 分析中...'; }
+
+  // 构建 prompt
+  var context = selContext ? selContext.substring(0, 500) : '';
+  var zhContext = selTranslationContext ? selTranslationContext.substring(0, 500) : '';
+  var lemma = selText || _detailWord || '';
+  var prompt = '分析俄语单词 "' + lemma + '" 在以下上下文中的用法。\n' +
+    '俄语原文：' + context + '\n中文翻译：' + zhContext + '\n' +
+    '请用中文回答：这个词的原形、词性、在此处的语法形式、接格关系、以及为什么使用这个形式。';
+
+  navigator.clipboard.writeText(prompt).then(function() {
+    if (btn) { btn.classList.remove('loading'); btn.textContent = '✅ 已复制到剪贴板 — 粘贴到 Gemini/豆包'; }
+    if (resultEl) resultEl.innerHTML = '<div style="color:var(--text-dim);margin-top:8px">Prompt 已复制，粘贴到 AI 对话框获取深度解析</div>';
+    _aiRequesting = false;
+    setTimeout(function() {
+      if (btn) { btn.classList.remove('loading'); btn.textContent = '🤖 AI 深度解析'; }
+    }, 3000);
+  }).catch(function() {
+    if (btn) { btn.classList.remove('loading'); btn.textContent = '❌ 复制失败'; }
+    _aiRequesting = false;
+    setTimeout(function() {
+      if (btn) btn.textContent = '🤖 AI 深度解析';
+    }, 2000);
+  });
 }
 
 function toggleDetailPanel(word) {
