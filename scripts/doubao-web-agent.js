@@ -106,16 +106,11 @@ async function run(prompt) {
 
 // ── Switch to expert mode ──
 async function switchToExpert(page) {
-  // Click the 专家 button
   const expertBtn = page.locator('button:has-text("专家")').first();
   try {
-    await expertBtn.click({ timeout: 5000 });
+    await expertBtn.click({ force: true, timeout: 5000 });
     await page.waitForTimeout(1500);
     console.error('[doubao] 专家 mode activated');
-
-    // Verify: the expert button should now have active styling
-    const cls = await expertBtn.getAttribute('class');
-    console.error('[doubao] Expert btn class:', cls?.substring(0, 60));
   } catch(e) {
     console.error('[doubao] Could not click 专家 button:', e.message);
   }
@@ -126,8 +121,6 @@ async function sendDoubaoPrompt(page, text) {
   // Doubao uses a textarea with placeholder "发消息..."
   const editor = page.locator('textarea[placeholder*="发消息"]').first();
   await editor.waitFor({ timeout: 10000 });
-  await editor.click();
-  await page.waitForTimeout(500);
 
   if (text.length > 5000) {
     // Clipboard paste for large text
@@ -140,13 +133,20 @@ async function sendDoubaoPrompt(page, text) {
     await page.keyboard.press('Control+v');
     await page.waitForTimeout(1000);
   } else {
-    await editor.fill(text);
-    await page.waitForTimeout(500);
+    // Use evaluate()+native setter to bypass pointer interception
+    await page.evaluate((t) => {
+      const ta = document.querySelector('textarea[placeholder*="发消息"]');
+      if (ta) {
+        ta.focus();
+        const nativeSetter = Object.getOwnPropertyDescriptor(HTMLTextAreaElement.prototype, 'value').set;
+        nativeSetter.call(ta, t);
+        ta.dispatchEvent(new Event('input', { bubbles: true }));
+      }
+    }, text);
+    await page.waitForTimeout(800);
   }
 
-  // Click send — doubao's send button appears as a submit button near the textarea
-  // Or press Enter
-  await page.waitForTimeout(500);
+  // Send via Enter
   await page.keyboard.press('Enter');
   await page.waitForTimeout(2000);
   console.error('[doubao] Prompt sent');
@@ -159,12 +159,15 @@ async function waitForDoubaoResponse(page, tStart) {
   while (Date.now() < deadline) {
     await page.waitForTimeout(POLL_INTERVAL);
 
-    // Check if textarea is enabled again (means response done)
-    const editor = page.locator('textarea[placeholder*="发消息"]').first();
+    // Check for "已完成思考" or Russian text = response done
     try {
-      const isDisabled = await editor.isDisabled();
-      if (!isDisabled) {
-        await page.waitForTimeout(2000); // let final chars render
+      const hasResponse = await page.evaluate(() => {
+        const body = document.body.innerText || '';
+        return body.includes('已完成思考') || /[а-яА-ЯёЁ]/.test(body);
+      });
+      if (hasResponse) {
+        // Wait a bit more for full rendering
+        await page.waitForTimeout(5000);
         return extractDoubaoResponse(page);
       }
     } catch(e) {}
@@ -185,29 +188,53 @@ async function extractDoubaoResponse(page) {
     return await page.evaluate(() => {
       const body = document.body.innerText || '';
 
-      // Doubao format: user message → assistant reply
-      // Find the last "豆包" (or model name) before the response
-      // Responses typically come after the user prompt
+      // Doubao expert mode output format:
+      //   ... thinking process ... "已完成思考" ... actual response
+      // Response is the main content block after thinking is done
 
-      // Method: the response is the large text block between the user's message
-      // and the next user message or the page footer
+      // Method 1: find "已完成思考" or similar completion markers
+      const doneMarkers = ['已完成思考', '已完成', '回答'];
+      let startIdx = -1;
+      for (const marker of doneMarkers) {
+        const idx = body.indexOf(marker);
+        if (idx >= 0) { startIdx = idx; break; }
+      }
 
-      // Look for AI-generated content markers
-      const aiHint = body.indexOf('AI 生成可能有误');
-      const userMsgIdx = body.lastIndexOf('你\n');
-      if (userMsgIdx < 0) return body;
+      let response = '';
+      if (startIdx >= 0) {
+        // Get everything after the marker
+        response = body.substring(startIdx).trim();
+        // Remove the marker line itself
+        const nl = response.indexOf('\n');
+        if (nl > 0 && nl < 50) response = response.substring(nl).trim();
+      } else {
+        // Fallback: look for content after user's prompt
+        const userIdx = body.lastIndexOf('你\n');
+        if (userIdx >= 0) response = body.substring(userIdx).trim();
+        else response = body;
+      }
 
-      const afterUser = body.substring(userMsgIdx);
-      const lines = afterUser.split('\n');
-      // First line after user message is usually the prompt text
-      // Skip user's own message text, then everything after is the response
-      const userEnd = afterUser.indexOf('\n\n');
-      if (userEnd < 0) return afterUser;
+      // Remove footer suggestions (doubao suggests follow-up questions after the response)
+      const suggestionIdx = response.indexOf('用俄语完成体');
+      if (suggestionIdx < 0) {
+        const extraFooter = ['AI 生成可能有误', '专家\n帮我写作', '新对话'];
+        for (const f of extraFooter) {
+          const fi = response.indexOf(f);
+          if (fi > 50) response = response.substring(0, fi).trim();
+        }
+      } else if (suggestionIdx > 50) {
+        response = response.substring(0, suggestionIdx).trim();
+      }
 
-      let response = afterUser.substring(userEnd).trim();
-      // Remove footer
-      const footerIdx = response.indexOf('AI 生成可能有误');
-      if (footerIdx > 0) response = response.substring(0, footerIdx).trim();
+      // Clean up leading thinking process noise
+      const cleanMarkers = ['规划回答内容结构', '明确回答内容'];
+      for (const cm of cleanMarkers) {
+        const ci = response.indexOf(cm);
+        if (ci >= 0 && ci < 100) {
+          const nextNl = response.indexOf('\n', ci);
+          if (nextNl > 0) response = response.substring(nextNl).trim();
+        }
+      }
 
       return response;
     });
