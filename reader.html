@@ -1021,7 +1021,13 @@ function openDetailPanel(word) {
   var panel = document.getElementById('detailPanel');
   var overlay = document.getElementById('detailOverlay');
   var handle = document.getElementById('resizeHandle');
-  if (panel) panel.classList.add('open');
+  if (panel) {
+    // 恢复用户拖拽偏好宽度
+    var savedW = null;
+    try { savedW = localStorage.getItem('rr_panel_width'); } catch(e) {}
+    if (savedW) { panel.style.width = savedW; }
+    panel.classList.add('open');
+  }
   if (overlay) overlay.classList.add('visible');
   if (handle) handle.classList.add('visible');
 }
@@ -1107,13 +1113,13 @@ document.addEventListener('click', function(e) {
 
   // 2. 点到了弹窗内部 → 什么都不做
   var popup = document.getElementById('selPopup');
-  if (popup && popup.contains(e.target)) return;
-  var panel = document.getElementById('detailPanel');
-  if (panel && panel.contains(e.target)) return;
+  if (popup && popup.contains(e.target)) return;
+  var panel = document.getElementById('detailPanel');
+  if (panel && panel.contains(e.target)) return;
 
-  // 3. 点到了外部 → 关闭弹窗 + 面板
+  // 3. 点到了外部 → 关闭弹窗 + 面板
   if (popup) popup.classList.remove('visible');
-  closeDetailPanel();
+  closeDetailPanel();
 
   // 4. 点到了 ru-text 空白区域 → 展开/收起翻译
   var ruEl = e.target.closest('.ru-text');
