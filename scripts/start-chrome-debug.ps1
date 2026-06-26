@@ -6,7 +6,7 @@ $ChromePath = "C:\Program Files\Google\Chrome\Application\chrome.exe"
 # 使用你日常的 Chrome 用户数据（保持登录状态、Cookie、Gemini 会话）
 $UserDataDir = "$env:LOCALAPPDATA\Google\Chrome\User Data"
 $DebugPort = 9222
-$ProfileDir = "Default"  # 你的默认 Chrome 用户配置
+$ProfileDir = "Profile 1"  # 你的默认 Chrome 用户配置
 
 Write-Host "[chrome] 使用现有 Chrome 配置"
 Write-Host "[chrome] ⚠️  请先手动关闭所有 Chrome 窗口！"
@@ -21,6 +21,7 @@ Write-Host "[chrome] Launching Chrome with remote debugging on port $DebugPort..
 $Args = @(
     "--remote-debugging-port=$DebugPort",
     "--user-data-dir=$UserDataDir",
+    "--profile-directory=$ProfileDir",
     "--no-first-run",
     "--no-default-browser-check",
     "--disable-features=OptimizationHints,Translate,HttpsUpgrades",
