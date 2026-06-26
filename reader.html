@@ -1199,7 +1199,8 @@ function loadLocalLookupData() {
         localVocabLookup[key] = {
           meaning: w.meaning,
           type: w.type || '',
-          source: '本地词库'
+          source: '本地词库',
+          _raw: w  // 保留原始词条用于详情面板渲染
         };
       });
       // 外部补充词库 (Gemini 翻译)
@@ -1288,6 +1289,132 @@ function renderLocalLookup(clean, result) {
     guessLabel +
     altHtml +
     contextHtml;
+}
+
+/* ─── 详情面板渲染（按词性展示富字段）─── */
+function renderDetailPanel(word, result) {
+  if (!result || !result.meaning || result.meaning === '暂未收录') {
+    return '<div class="dict-word">' + escapeHtml(word) + '</div>' +
+      '<div class="dict-meaning" style="color:var(--text-dim)">暂未收录</div>';
+  }
+
+  var raw = result._raw || {};
+  var posType = ((raw.type || result.type || '')).toLowerCase();
+
+  var html = '';
+
+  // ── 头部：单词 + 词性 ──
+  html += '<div class="dp-head">';
+  html += '<div class="dp-word">' + escapeHtml(word) + '</div>';
+  var posLabel = raw.type || result.type || '';
+  html += '<div class="dp-pos">' + escapeHtml(posLabel) + '</div>';
+  html += '</div>';
+
+  // ── 释义 ──
+  html += '<div class="dp-section">';
+  html += '<div class="dp-meaning">' + escapeHtml(result.meaning) + '</div>';
+  html += '</div>';
+
+  // ── 体 / 性 ──
+  if (posType === 'verb') {
+    var hasVerbMeta = raw.aspect || raw.pair || raw.case_gov;
+    if (hasVerbMeta) {
+      html += '<div class="dp-section">';
+      if (raw.aspect) {
+        var aspectRaw = raw.aspect.toLowerCase();
+        var aspectCN = aspectRaw.indexOf('несов') >= 0 || aspectRaw.indexOf('нсв') >= 0 ? '未完成体' :
+                       ((aspectRaw.indexOf('сов') >= 0 && aspectRaw.indexOf('несов') < 0) || aspectRaw.indexOf('св') >= 0) ? '完成体' : raw.aspect;
+        html += '<span class="dp-tag">' + escapeHtml(aspectCN) + '</span>';
+      }
+      if (raw.pair) {
+        html += ' <span class="dp-pair">→ ' + escapeHtml(raw.pair) + '</span>';
+      }
+      if (raw.case_gov) {
+        html += '<div class="dp-meta"><span class="dp-label">接格</span> ' + escapeHtml(raw.case_gov) + '</div>';
+      }
+      html += '</div>';
+    }
+  } else if (posType === 'noun' || posType === 'adj' || posType === 'adjective') {
+    if (raw.gender) {
+      var genLabel = raw.gender === 'masculine' || raw.gender === 'm' ? '阳性' :
+                     raw.gender === 'feminine' || raw.gender === 'f' ? '阴性' :
+                     raw.gender === 'neuter' || raw.gender === 'n' ? '中性' : raw.gender;
+      html += '<div class="dp-section"><span class="dp-label">性</span> <span class="dp-tag">' + escapeHtml(genLabel) + '</span></div>';
+    }
+  }
+
+  // ── 常用搭配 ──
+  var colls = raw.collocations || [];
+  if (colls.length > 0) {
+    html += '<div class="dp-section">';
+    html += '<div class="dp-section-title">常用搭配</div>';
+    var maxColl = Math.min(colls.length, 4);
+    for (var c = 0; c < maxColl; c++) {
+      var col = colls[c];
+      html += '<div class="dp-coll">';
+      html += '<div class="dp-coll-phrase">' + escapeHtml(col.phrase || col.word || '') + '</div>';
+      if (col.ru) html += '<div class="dp-coll-ru">' + escapeHtml(col.ru) + '</div>';
+      if (col.zh) html += '<div class="dp-coll-zh">' + escapeHtml(col.zh) + '</div>';
+      html += '</div>';
+    }
+    html += '</div>';
+  }
+
+  // ── 详细释义（折叠）───
+  if (raw.detailZh && raw.detailZh.length > 5 && raw.detailZh !== '（待补充）') {
+    html += '<div class="dp-section">';
+    html += '<div class="dp-collapse-toggle" onclick="var n=this.nextElementSibling;n.classList.toggle(\'open\');this.classList.toggle(\'expanded\')">详细释义</div>';
+    html += '<div class="dp-collapse-body"><div class="dp-detail">' + escapeHtml(raw.detailZh) + '</div></div>';
+    html += '</div>';
+  }
+
+  // ── 例句 ──
+  var examples = raw.examples || [];
+  if (examples.length > 0) {
+    html += '<div class="dp-section">';
+    html += '<div class="dp-collapse-toggle" onclick="var n=this.nextElementSibling;n.classList.toggle(\'open\');this.classList.toggle(\'expanded\')">例句</div>';
+    html += '<div class="dp-collapse-body">';
+    var maxEx = Math.min(examples.length, 5);
+    for (var e = 0; e < maxEx; e++) {
+      var ex = examples[e];
+      html += '<div class="dp-example">';
+      if (ex.ru) html += '<div class="dp-ex-ru">' + escapeHtml(ex.ru) + '</div>';
+      if (ex.zh) html += '<div class="dp-ex-zh">' + escapeHtml(ex.zh) + '</div>';
+      html += '</div>';
+    }
+    html += '</div></div>';
+  }
+
+  // ── 变位/变格表（折叠）───
+  if (raw.grammarTable && raw.grammarTable.length > 10 && raw.grammarTable !== '（待补充）') {
+    html += '<div class="dp-section">';
+    html += '<div class="dp-collapse-toggle" onclick="var n=this.nextElementSibling;n.classList.toggle(\'open\');this.classList.toggle(\'expanded\')">变位/变格表</div>';
+    html += '<div class="dp-collapse-body" style="white-space:pre-wrap;font-size:13px">' + escapeHtml(raw.grammarTable) + '</div>';
+    html += '</div>';
+  }
+
+  // ── 备选原形 ──
+  if (result._alternatives && result._alternatives.length) {
+    html += '<div class="dp-section">';
+    html += '<span class="dp-alt-label">也作：</span>';
+    html += result._alternatives.map(function(a) { return '<span class="dp-alt-word">' + escapeHtml(a) + '</span>'; }).join('、');
+    html += '</div>';
+  }
+
+  // ── 猜测标注 ──
+  if (result._guessed) {
+    html += '<div class="dict-guess-label">形态推测还原</div>';
+  }
+
+  // ── AI 解析按钮 ──
+  html += '<div class="dp-ai-section">';
+  html += '<button class="dp-ai-btn" id="dpAiBtn" onclick="requestAiAnalysis()">AI 深度解析</button>';
+  html += '</div>';
+
+  // ── 来源标注 ──
+  html += '<div class="dp-source">来源：' + escapeHtml(result.source || '本地词库') + '</div>';
+
+  return html;
 }
 
 function highlightSavedWords() {
@@ -1424,7 +1551,8 @@ function autoLookup(word) {
     result = lookupLocalChineseMeaning(clean);
   }
 
-  preview.innerHTML = renderLocalLookup(clean, result);
+  var inner = document.getElementById('detailInner');
+  if (inner) inner.innerHTML = renderDetailPanel(clean, result);
   updateSaveButton(clean);
 }
 function updateSaveButton(word) {
