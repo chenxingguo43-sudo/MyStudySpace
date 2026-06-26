@@ -13,6 +13,7 @@
  *   node scripts/gemini-web-agent.js "переведите слова..."
  *   node scripts/gemini-web-agent.js --file data/gemini-translate-prompt.txt
  *   node scripts/gemini-web-agent.js --smoke
+ *   node scripts/gemini-web-agent.js --pro --file prompt.txt    # Pro Extended 模式
  */
 
 const { chromium } = require('playwright-core');
@@ -28,6 +29,7 @@ const INIT_TIMEOUT      = 30_000;   // 30s for initial page load
 // ── CLI ──
 const args = process.argv.slice(2);
 const isSmoke = args.includes('--smoke');
+const isPro    = args.includes('--pro');
 const fileIdx = args.indexOf('--file');
 let prompt = '';
 
@@ -84,8 +86,11 @@ async function run(prompt) {
       process.exit(0);
     }
 
-    // 3. Ensure model selector (optional — Flash is fine for translation)
-    // Skip Pro Extended for batch translation to save time
+    // 3. Switch model if needed
+    if (isPro) {
+      console.error('[gemini] Switching to Pro Extended...');
+      await ensureProExtended(page);
+    }
 
     // 4. Send prompt
     console.error(`[gemini] Sending prompt (${prompt.length} chars)...`);
@@ -108,6 +113,80 @@ async function run(prompt) {
       try { await browser.close(); } catch(e) {}
     }
   }
+}
+
+// ── Activate Gemini Pro Extended Thinking ──
+// 基于 AgentChat SKILL.md，适配中文 UI
+async function ensureProExtended(page) {
+  // 1. Check current state — look for model selector button
+  const label = page.locator('button[aria-label*="开启模式挑选器"], button[aria-label*="Open model selector"]').first();
+  let current = '';
+  try {
+    current = (await label.getAttribute('aria-label')) || '';
+  } catch(e) {}
+  if (current.includes('延长') || current.includes('Extended')) {
+    console.error('[gemini] Pro Extended already active, skipping');
+    return;
+  }
+
+  // 2. Open model selector
+  console.error('[gemini] Opening model selector...');
+  await label.click();
+  await page.waitForTimeout(1500);
+
+  // 3. Select Pro model
+  const menuItems = await page.evaluate(() => {
+    return [...document.querySelectorAll('gem-menu-item')]
+      .map((el, i) => ({ i, text: el.innerText?.trim() }));
+  });
+  let proIdx = -1;
+  for (const item of menuItems) {
+    if (item.text && item.text.includes('Pro') && !item.text.includes('Flash')) {
+      proIdx = item.i; break;
+    }
+  }
+  if (proIdx >= 0) {
+    console.error('[gemini] Selecting Pro model...');
+    await page.locator('gem-menu-item').nth(proIdx).click();
+    await page.waitForTimeout(1000);
+  } else {
+    console.error('[gemini] Warning: Pro menu item not found, continuing...');
+    await page.keyboard.press('Escape');
+    return;
+  }
+
+  // 4. Expand thinking level submenu
+  await page.waitForTimeout(500);
+  const thinkingItems = await page.evaluate(() => {
+    return [...document.querySelectorAll('gem-menu-item')]
+      .map((el, i) => ({ i, text: el.innerText?.trim() }));
+  });
+  for (const item of thinkingItems) {
+    if (item.text && (item.text.includes('思考程度') || item.text.includes('Thinking'))) {
+      await page.locator('gem-menu-item').nth(item.i).click();
+      await page.waitForTimeout(1500);
+      break;
+    }
+  }
+
+  // 5. Select '延长' / 'Extended'
+  const extendedItems = await page.evaluate(() => {
+    return [...document.querySelectorAll('gem-menu-item')]
+      .map((el, i) => ({ i, text: el.innerText?.trim() }));
+  });
+  for (const item of extendedItems) {
+    if (item.text && (item.text.includes('延长') || item.text.includes('Extended')) && !item.text.includes('标准')) {
+      await page.locator('gem-menu-item').nth(item.i).click();
+      await page.waitForTimeout(1000);
+      break;
+    }
+  }
+
+  // 6. Close menu and verify
+  await page.keyboard.press('Escape');
+  await page.waitForTimeout(1000);
+  const verifyLabel = await page.locator('button[aria-label*="开启模式挑选器"]').first().getAttribute('aria-label');
+  console.error('[gemini] Pro Extended activated:', verifyLabel?.substring(0, 60));
 }
 
 // ── Find or create Gemini tab ──
