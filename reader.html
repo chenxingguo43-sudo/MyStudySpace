@@ -980,8 +980,9 @@ function _showPopupForWord(word, span) {
   autoLookup(word);
 }
 
-// 桌面：click 事件委托（鼠标点击）
+// ─── 统一的点击处理（只此一个 click 监听器）───
 document.addEventListener('click', function(e) {
+  // 1. 点到了俄语单词 span → 弹出查词
   var span = e.target.closest('.ru-word');
   if (span) {
     e.preventDefault();
@@ -989,31 +990,25 @@ document.addEventListener('click', function(e) {
     if (word && word.length >= 2) _showPopupForWord(word, span);
     return;
   }
+
+  // 2. 点到了弹窗内部 → 什么都不做
+  var popup = document.getElementById('selPopup');
+  if (popup && popup.contains(e.target)) return;
+
+  // 3. 点到了弹窗外部 → 关闭弹窗
+  if (popup) popup.classList.remove('visible');
+
+  // 4. 点到了 ru-text 空白区域 → 展开/收起翻译
   var ruEl = e.target.closest('.ru-text');
   if (ruEl) toggleCN(ruEl);
 });
 
-// 移动端：touchend 直捕，不经过 click 的300ms延迟
-var _lastTouchTime = 0;
-var _touchMoved = false;
+// 移动端：阻止 Safari 在 .ru-word 上的原生选词（黄底蓝杆）
 document.addEventListener('touchstart', function(e) {
-  _touchMoved = false;
-}, { passive: true });
-document.addEventListener('touchmove', function(e) {
-  _touchMoved = true;
-}, { passive: true });
-document.addEventListener('touchend', function(e) {
-  var now = Date.now();
-  if (_touchMoved) return;
-  var span = e.target.closest('.ru-word');
-  if (!span) return;
-  e.preventDefault();
-  // 防止双击触发过近的两次请求
-  if (now - _lastTouchTime < 500) return;
-  _lastTouchTime = now;
-  var word = span.getAttribute('data-word');
-  if (word && word.length >= 2) _showPopupForWord(word, span);
-});
+  if (e.target.closest('.ru-word')) {
+    e.preventDefault(); // 阻止 Safari 选中文字
+  }
+}, { passive: false });
 
 
 /* ─── 段落收藏 ─── */
@@ -1230,12 +1225,8 @@ document.getElementById('searchInput').addEventListener('keydown', function(e) {
 
 /* ══════════════════════════════════════════════
    选词系统
-   桌面：click委托到 .ru-word  移动端：touchend直捕
-   已在上面统一用 _showPopupForWord 处理
+   统一 click 事件在段落展开区块（上方）
    ══════════════════════════════════════════════ */
-
-// 点击页面空白处关闭弹窗
-document.addEventListener('click', function(e) { var p = document.getElementById('selPopup'); if (p && !p.contains(e.target)) p.classList.remove('visible'); });
 
 var _lastLookupWord = '';
 function autoLookup(word) {
