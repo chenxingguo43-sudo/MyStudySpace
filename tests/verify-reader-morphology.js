@@ -121,6 +121,92 @@ assert(
   'saved vocabulary includes source sentence context'
 );
 
+console.log('\n=== v2 Split Panel Integration Tests ===\n');
+
+// 1. 分屏布局结构
+assert(
+  readerPage.includes('reader-layout'),
+  'reader.html has .reader-layout container'
+);
+assert(
+  readerPage.includes('reader-pane'),
+  'reader.html has .reader-pane reading area'
+);
+assert(
+  readerPage.includes('detail-panel'),
+  'reader.html has .detail-panel for word cards'
+);
+assert(
+  readerPage.includes('detail-panel-inner'),
+  'reader.html has .detail-panel-inner for card content'
+);
+
+// 2. 面板开关函数
+assert(
+  /function openDetailPanel\(/.test(readerPage),
+  'openDetailPanel function exists'
+);
+assert(
+  /function closeDetailPanel\(/.test(readerPage),
+  'closeDetailPanel function exists'
+);
+assert(
+  /function toggleDetailPanel\(/.test(readerPage),
+  'toggleDetailPanel function exists'
+);
+
+// 3. 拖拽分界线
+assert(
+  readerPage.includes('resize-handle'),
+  'resize-handle CSS class exists'
+);
+assert(
+  readerPage.includes('resizeHandle'),
+  'resizeHandle id referenced in JS'
+);
+
+// 4. 富卡片渲染
+assert(
+  /function renderDetailPanel\(/.test(readerPage),
+  'renderDetailPanel function exists'
+);
+assert(
+  readerPage.includes('dp-head'),
+  'dp-head CSS class for card header'
+);
+assert(
+  readerPage.includes('dp-word'),
+  'dp-word class for card title'
+);
+
+// 5. _raw 字段
+assert(
+  /_raw:\s*w/.test(readerPage),
+  '_raw field stored in localVocabLookup entry'
+);
+
+// 6. 响应式
+assert(
+  readerPage.includes('@media (max-width: 767px)'),
+  '@media query for portrait/tablet mode exists'
+);
+
+// 7. autoLookup 填充 detailInner
+assert(
+  readerPage.includes('detailInner'),
+  'autoLookup fills detailInner'
+);
+assert(
+  /renderDetailPanel\(clean,\s*result\)/.test(readerPage),
+  'autoLookup calls renderDetailPanel'
+);
+
+// 8. selPopup 保留但不再用于查词
+assert(
+  readerPage.includes('selPopup'),
+  'selPopup HTML preserved (non-reading views)'
+);
+
 console.log('\n=== All integration tests passed ===');
 
 // Helper: extract a function body from the source
