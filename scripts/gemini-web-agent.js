@@ -231,41 +231,21 @@ async function waitForResponse(page, tStart) {
 // ── Extract response text from the page ──
 async function extractResponse(page) {
   try {
-    // Gemini puts the model response in the last large text block
     const text = await page.evaluate(() => {
-      // Find message-content (Gemini's response container)
-      const msgContent = document.querySelector('.message-content, .response-content');
-      if (msgContent && msgContent.innerText && msgContent.innerText.length > 10) {
-        return msgContent.innerText;
-      }
-
-      // Fallback: get full page text and extract the model response portion
       const body = document.body.innerText || '';
-      // Remove the footer text that appears after the response
-      const footerIdx = body.lastIndexOf('Gemini 是一款 AI 工具');
-      const clean = footerIdx > 0 ? body.substring(0, footerIdx).trim() : body.trim();
 
-      // Remove the user's prompt from the beginning (it appears before the model response)
-      // The model response typically starts after "Переведите следующие..." or the last occurrence of user prompt marker
-      // Just return the cleaned text — it should contain only the translation now
-      return clean;
+      // Look for the LAST model response — starts after "Gemini 说" and ends before "Flash"
+      const geminiSayIdx = body.lastIndexOf('Gemini 说');
+      if (geminiSayIdx < 0) return body;
+
+      const afterSay = body.substring(geminiSayIdx + 7); // skip "Gemini 说"
+      const flashIdx = afterSay.lastIndexOf('\nFlash');
+      const response = flashIdx > 0 ? afterSay.substring(0, flashIdx).trim() : afterSay.trim();
+
+      return response;
     });
 
-    if (!text) return '';
-
-    // If text contains the original prompt, try to strip it — keep only the model response
-    // The model response is the large block after "Переведите следующие русские слова"
-    const promptStart = text.indexOf('Переведите следующие русские слова');
-    if (promptStart >= 0) {
-      // Find where the model response starts (after the initial prompt text and the "1. ..." part)
-      // The model response starts with the first translation entry
-      const responseMatch = text.match(/\n\d+\.\s+\S+\s+[—–-]\s+\S+/);
-      if (responseMatch) {
-        return text.substring(text.indexOf(responseMatch[0]));
-      }
-    }
-
-    return text;
+    return text || '';
   } catch(e) {
     console.error('[gemini] Extract error:', e.message);
     return '';
