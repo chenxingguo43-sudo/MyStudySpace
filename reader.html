@@ -1157,31 +1157,42 @@ document.getElementById('searchInput').addEventListener('keydown', function(e) {
 });
 
 /* ══════════════════════════════════════════════
-   选词系统
+   选词系统（支持桌面鼠标 + 移动端触控）
    ══════════════════════════════════════════════ */
+function _showPopupForSelection() {
+  var s = window.getSelection(), t = s.toString().trim();
+  if (!t || t.length < 2 || t.length > 60 || !/[а-яА-ЯёЁ]/.test(t)) return;
+  hidePopup();
+  selText = t;
+  var paraBlock = s.anchorNode;
+  while (paraBlock && !paraBlock.classList) paraBlock = paraBlock.parentNode;
+  if (paraBlock && paraBlock.classList.contains('para-block')) {
+    var ruEl = paraBlock.querySelector('.ru-text');
+    var zhEl = paraBlock.querySelector('.cn-text');
+    selContext = ruEl ? ruEl.textContent : '';
+    selTranslationContext = zhEl ? zhEl.textContent : '';
+  }
+  var r = s.getRangeAt(0).getBoundingClientRect();
+  var popup = document.getElementById('selPopup');
+  document.getElementById('selWord').textContent = '🔍 ' + t;
+  var dp = document.getElementById('dictPreview'); dp.style.display = 'none'; dp.innerHTML = '';
+  // popup 是 position:fixed，用视口坐标（不加 scrollY）
+  var top = r.bottom + 8;
+  if (top > window.innerHeight - 250) top = r.top - 260;
+  if (top < 10) top = 10;
+  popup.style.top = top + 'px';
+  popup.style.left = Math.max(10, Math.min(r.left, window.innerWidth - 200)) + 'px';
+  popup.classList.add('visible');
+  autoLookup(t);
+}
+
 document.addEventListener('mouseup', function(e) {
-  setTimeout(function() {
-    var s = window.getSelection(), t = s.toString().trim();
-    if (t && t.length > 1 && t.length < 60 && /[а-яА-ЯёЁ]/.test(t)) {
-      selText = t;
-      var paraBlock = s.anchorNode;
-      while (paraBlock && !paraBlock.classList) paraBlock = paraBlock.parentNode;
-      if (paraBlock && paraBlock.classList.contains('para-block')) {
-        var ruEl = paraBlock.querySelector('.ru-text');
-        var zhEl = paraBlock.querySelector('.cn-text');
-        selContext = ruEl ? ruEl.textContent : '';
-        selTranslationContext = zhEl ? zhEl.textContent : '';
-      }
-      var r = s.getRangeAt(0).getBoundingClientRect();
-      var popup = document.getElementById('selPopup');
-      document.getElementById('selWord').textContent = '🔍 ' + t;
-      var dp = document.getElementById('dictPreview'); dp.style.display = 'none'; dp.innerHTML = '';
-      popup.style.top = Math.min(r.bottom + window.scrollY + 8, window.innerHeight + window.scrollY - 200) + 'px';
-      popup.style.left = Math.max(10, Math.min(r.left, window.innerWidth - 200)) + 'px';
-      popup.classList.add('visible');
-      autoLookup(t);
-    }
-  }, 50);
+  setTimeout(_showPopupForSelection, 80);
+});
+
+document.addEventListener('touchend', function(e) {
+  // 移动端：手指离开后稍等一下让 Safari 完成选词
+  setTimeout(_showPopupForSelection, 300);
 });
 document.addEventListener('click', function(e) { var p = document.getElementById('selPopup'); if (p && !p.contains(e.target)) p.classList.remove('visible'); });
 
