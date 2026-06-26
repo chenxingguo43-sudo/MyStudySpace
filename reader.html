@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
@@ -1013,6 +1013,66 @@ function renderRuText(text) {
     '<span class="ru-word" data-word="$1">$1</span>');
 }
 
+/* ─── 详情面板开关 ─── */
+var _detailWord = '';
+
+function openDetailPanel(word) {
+  _detailWord = word;
+  var panel = document.getElementById('detailPanel');
+  var overlay = document.getElementById('detailOverlay');
+  var handle = document.getElementById('resizeHandle');
+  if (panel) panel.classList.add('open');
+  if (overlay) overlay.classList.add('visible');
+  if (handle) handle.classList.add('visible');
+}
+
+function closeDetailPanel() {
+  _detailWord = '';
+  var panel = document.getElementById('detailPanel');
+  var overlay = document.getElementById('detailOverlay');
+  var handle = document.getElementById('resizeHandle');
+  if (panel) panel.classList.remove('open');
+  if (overlay) overlay.classList.remove('visible');
+  if (handle) handle.classList.remove('visible');
+}
+
+function toggleDetailPanel(word) {
+  if (_detailWord === word) { closeDetailPanel(); return; }
+  openDetailPanel(word);
+}
+
+/* ─── 拖拽分界线 ─── */
+(function() {
+  var handleEl = null, panelEl = null, startX = 0, startW = 0;
+  document.addEventListener('pointerdown', function(e) {
+    if (!e.target.closest('#resizeHandle')) return;
+    handleEl = e.target.closest('#resizeHandle');
+    panelEl = document.getElementById('detailPanel');
+    if (!panelEl) return;
+    handleEl.classList.add('active');
+    startX = e.clientX;
+    startW = panelEl.offsetWidth || 380;
+    handleEl.setPointerCapture(e.pointerId);
+  });
+  document.addEventListener('pointermove', function(e) {
+    if (!handleEl) return;
+    var delta = startX - e.clientX;
+    var w = Math.max(280, Math.min(520, startW + delta));
+    panelEl.style.width = w + 'px';
+  });
+  document.addEventListener('pointerup', function() {
+    if (!handleEl) return;
+    handleEl.classList.remove('active');
+    handleEl = null;
+    panelEl = null;
+    // 保存偏好
+    try {
+      var pw = document.getElementById('detailPanel');
+      if (pw) localStorage.setItem('rr_panel_width', pw.style.width);
+    } catch(err) {}
+  });
+})();
+
 // ─── 查词弹窗共用逻辑 ───
 function _showPopupForWord(word, span) {
   hidePopup();
@@ -1024,17 +1084,14 @@ function _showPopupForWord(word, span) {
     selContext = ruEl ? ruEl.textContent : '';
     selTranslationContext = zhEl ? zhEl.textContent : '';
   }
-  var rect = span.getBoundingClientRect();
-  var popup = document.getElementById('selPopup');
-  document.getElementById('selWord').textContent = '🔍 ' + word;
-  var dp = document.getElementById('dictPreview'); dp.style.display = 'none'; dp.innerHTML = '';
-  var top = rect.bottom + 6;
-  if (top > window.innerHeight - 250) top = rect.top - 250;
-  if (top < 10) top = 10;
-  popup.style.top = top + 'px';
-  popup.style.left = Math.max(10, Math.min(rect.left, window.innerWidth - 200)) + 'px';
-  popup.classList.add('visible');
-  autoLookup(word);
+  // 打开详情面板
+  toggleDetailPanel(word);
+  // 填充面板内容
+  var inner = document.getElementById('detailInner');
+  if (inner) {
+    inner.innerHTML = '';
+    autoLookup(word); // autoLookup will fill #detailInner
+  }
 }
 
 // ─── 统一的点击处理（只此一个 click 监听器）───
@@ -1050,10 +1107,13 @@ document.addEventListener('click', function(e) {
 
   // 2. 点到了弹窗内部 → 什么都不做
   var popup = document.getElementById('selPopup');
-  if (popup && popup.contains(e.target)) return;
+  if (popup && popup.contains(e.target)) return;
+  var panel = document.getElementById('detailPanel');
+  if (panel && panel.contains(e.target)) return;
 
-  // 3. 点到了弹窗外部 → 关闭弹窗
+  // 3. 点到了外部 → 关闭弹窗 + 面板
   if (popup) popup.classList.remove('visible');
+  closeDetailPanel();
 
   // 4. 点到了 ru-text 空白区域 → 展开/收起翻译
   var ruEl = e.target.closest('.ru-text');
@@ -1318,9 +1378,8 @@ function autoLookup(word) {
   if (!clean) return;
   _lastLookupWord = clean;
 
-  var preview = document.getElementById('dictPreview');
+  var preview = document.getElementById('detailInner');
   preview.innerHTML = '<div class="dict-loading">查询中...</div>';
-  preview.style.display = 'block';
 
   var result = null;
 
@@ -1381,30 +1440,30 @@ function doLookup() {
   navigator.clipboard.writeText(text)
     .then(function() { toast('📋 已复制中俄上下文'); })
     .catch(function() { toast('❌ 复制失败'); });
-  hidePopup();
+  closeDetailPanel();
 }
 function doAskAI() {
   if (!selText) return;
   navigator.clipboard.writeText('Что означает слово "' + selText + '" в этом контексте? Какая часть речи, форма, начальная форма? Дай краткий перевод на китайский.')
     .then(function() { toast('✅ 已复制'); }).catch(function() { toast('❌ 复制失败'); });
-  hidePopup();
+  closeDetailPanel();
 }
 function doSaveWord() {
   if (!selText) return;
-  var preview = document.getElementById('dictPreview');
+  var preview = document.getElementById('detailInner');
   if (preview && preview.querySelector('.dict-loading')) { toast('⏳ 释义加载中，请稍候'); return; }
   var clean = selText.replace(/[^a-zA-Zа-яА-ЯёЁ-]/g, '').trim();
-  if (!clean) { toast('❌ 无效'); hidePopup(); return; }
+  if (!clean) { toast('❌ 无效'); closeDetailPanel(); return; }
 
   // 读取统一存储
   var records = {};
   try { records = JSON.parse(localStorage.getItem('vocabulary-review-records') || '{}'); } catch(e) {}
 
   // 重复检查
-  if (records[clean]) { toast('⭐ 已存在: ' + clean); hidePopup(); return; }
+  if (records[clean]) { toast('⭐ 已存在: ' + clean); closeDetailPanel(); return; }
 
   // 获取释义
-  var meaning = '', posEl = document.querySelector('#dictPreview .dict-pos'), defEl = document.querySelector('#dictPreview .dict-meaning');
+  var meaning = '', posEl = document.querySelector('#detailInner .dict-pos'), defEl = document.querySelector('#detailInner .dict-meaning');
   if (posEl) meaning += posEl.textContent + ' ';
   if (defEl) meaning += defEl.textContent;
 
@@ -1447,7 +1506,7 @@ function doSaveWord() {
       })
     });
   } catch(e) {}
-  hidePopup();
+  closeDetailPanel();
 }
 function hidePopup() { document.getElementById('selPopup').classList.remove('visible'); selText = ''; }
 
