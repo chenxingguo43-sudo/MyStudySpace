@@ -956,42 +956,63 @@ function renderRuText(text) {
     '<span class="ru-word" data-word="$1">$1</span>');
 }
 
-// 在 .ru-text 上用事件委托：点单词 span → 查词，点空白 → 展开翻译
+// ─── 查词弹窗共用逻辑 ───
+function _showPopupForWord(word, span) {
+  hidePopup();
+  selText = word;
+  var paraBlock = span.closest('.para-block');
+  if (paraBlock) {
+    var ruEl = paraBlock.querySelector('.ru-text');
+    var zhEl = paraBlock.querySelector('.cn-text');
+    selContext = ruEl ? ruEl.textContent : '';
+    selTranslationContext = zhEl ? zhEl.textContent : '';
+  }
+  var rect = span.getBoundingClientRect();
+  var popup = document.getElementById('selPopup');
+  document.getElementById('selWord').textContent = '🔍 ' + word;
+  var dp = document.getElementById('dictPreview'); dp.style.display = 'none'; dp.innerHTML = '';
+  var top = rect.bottom + 6;
+  if (top > window.innerHeight - 250) top = rect.top - 250;
+  if (top < 10) top = 10;
+  popup.style.top = top + 'px';
+  popup.style.left = Math.max(10, Math.min(rect.left, window.innerWidth - 200)) + 'px';
+  popup.classList.add('visible');
+  autoLookup(word);
+}
+
+// 桌面：click 事件委托（鼠标点击）
 document.addEventListener('click', function(e) {
   var span = e.target.closest('.ru-word');
   if (span) {
-    // 点到了俄语单词
     e.preventDefault();
     var word = span.getAttribute('data-word');
-    if (!word || word.length < 2) return;
-    hidePopup();
-    selText = word;
-    var paraBlock = span.closest('.para-block');
-    if (paraBlock) {
-      var ruEl = paraBlock.querySelector('.ru-text');
-      var zhEl = paraBlock.querySelector('.cn-text');
-      selContext = ruEl ? ruEl.textContent : '';
-      selTranslationContext = zhEl ? zhEl.textContent : '';
-    }
-    var rect = span.getBoundingClientRect();
-    var popup = document.getElementById('selPopup');
-    document.getElementById('selWord').textContent = '🔍 ' + word;
-    var dp = document.getElementById('dictPreview'); dp.style.display = 'none'; dp.innerHTML = '';
-    var top = rect.bottom + 6;
-    if (top > window.innerHeight - 250) top = rect.top - 250;
-    if (top < 10) top = 10;
-    popup.style.top = top + 'px';
-    popup.style.left = Math.max(10, Math.min(rect.left, window.innerWidth - 200)) + 'px';
-    popup.classList.add('visible');
-    autoLookup(word);
+    if (word && word.length >= 2) _showPopupForWord(word, span);
     return;
   }
-
-  // 点到了 ru-text 但没点到单词 → 展开翻译
   var ruEl = e.target.closest('.ru-text');
-  if (ruEl) {
-    toggleCN(ruEl);
-  }
+  if (ruEl) toggleCN(ruEl);
+});
+
+// 移动端：touchend 直捕，不经过 click 的300ms延迟
+var _lastTouchTime = 0;
+var _touchMoved = false;
+document.addEventListener('touchstart', function(e) {
+  _touchMoved = false;
+}, { passive: true });
+document.addEventListener('touchmove', function(e) {
+  _touchMoved = true;
+}, { passive: true });
+document.addEventListener('touchend', function(e) {
+  var now = Date.now();
+  if (_touchMoved) return;
+  var span = e.target.closest('.ru-word');
+  if (!span) return;
+  e.preventDefault();
+  // 防止双击触发过近的两次请求
+  if (now - _lastTouchTime < 500) return;
+  _lastTouchTime = now;
+  var word = span.getAttribute('data-word');
+  if (word && word.length >= 2) _showPopupForWord(word, span);
 });
 
 
@@ -1208,43 +1229,12 @@ document.getElementById('searchInput').addEventListener('keydown', function(e) {
 });
 
 /* ══════════════════════════════════════════════
-   选词系统（支持桌面鼠标 + 移动端触控）
+   选词系统
+   桌面：click委托到 .ru-word  移动端：touchend直捕
+   已在上面统一用 _showPopupForWord 处理
    ══════════════════════════════════════════════ */
-function _showPopupForSelection() {
-  var s = window.getSelection(), t = s.toString().trim();
-  if (!t || t.length < 2 || t.length > 60 || !/[а-яА-ЯёЁ]/.test(t)) return;
-  hidePopup();
-  selText = t;
-  var paraBlock = s.anchorNode;
-  while (paraBlock && !paraBlock.classList) paraBlock = paraBlock.parentNode;
-  if (paraBlock && paraBlock.classList.contains('para-block')) {
-    var ruEl = paraBlock.querySelector('.ru-text');
-    var zhEl = paraBlock.querySelector('.cn-text');
-    selContext = ruEl ? ruEl.textContent : '';
-    selTranslationContext = zhEl ? zhEl.textContent : '';
-  }
-  var r = s.getRangeAt(0).getBoundingClientRect();
-  var popup = document.getElementById('selPopup');
-  document.getElementById('selWord').textContent = '🔍 ' + t;
-  var dp = document.getElementById('dictPreview'); dp.style.display = 'none'; dp.innerHTML = '';
-  // popup 是 position:fixed，用视口坐标（不加 scrollY）
-  var top = r.bottom + 8;
-  if (top > window.innerHeight - 250) top = r.top - 260;
-  if (top < 10) top = 10;
-  popup.style.top = top + 'px';
-  popup.style.left = Math.max(10, Math.min(r.left, window.innerWidth - 200)) + 'px';
-  popup.classList.add('visible');
-  autoLookup(t);
-}
 
-document.addEventListener('mouseup', function(e) {
-  setTimeout(_showPopupForSelection, 80);
-});
-
-document.addEventListener('touchend', function(e) {
-  // 移动端：手指离开后稍等一下让 Safari 完成选词
-  setTimeout(_showPopupForSelection, 300);
-});
+// 点击页面空白处关闭弹窗
 document.addEventListener('click', function(e) { var p = document.getElementById('selPopup'); if (p && !p.contains(e.target)) p.classList.remove('visible'); });
 
 var _lastLookupWord = '';
