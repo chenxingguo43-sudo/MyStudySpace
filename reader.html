@@ -248,6 +248,24 @@ body {
 .dict-preview .dict-pos { font-style: italic; color: var(--text-dim); font-size: 12px; }
 .dict-preview .dict-meaning { margin-top: 4px; }
 .dict-loading { padding: 8px 14px; font-size: 12px; color: var(--text-dim); border-bottom: 1px solid var(--border); }
+/* ─── 备选原形 ─── */
+.dict-alternatives {
+  margin-top: 8px; padding: 6px 10px;
+  background: rgba(255,255,255,0.04); border-radius: 6px;
+  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  font-size: 12px; color: var(--text-dim); line-height: 1.6;
+}
+.dict-alt-label { color: var(--text-dim); }
+.dict-alt-word { color: var(--text-secondary); }
+.dict-guess-label {
+  margin-top: 4px; font-size: 11px; color: var(--text-dim);
+  font-style: italic;
+}
+.dict-context {
+  margin-top: 8px; padding: 6px 8px;
+  background: rgba(255,255,255,0.03); border-radius: 4px;
+  font-size: 12px; color: var(--text-secondary); line-height: 1.6;
+}
 .popup-actions { display: flex; gap: 8px; align-items: center; padding: 8px 10px; }
 .btn-save-vocab {
   flex: 1; padding: 8px 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2);
@@ -386,6 +404,7 @@ body {
   </div>
 </div>
 
+<script src="data/russian-morphology.js"></script>
 <script>
 /* ══════════════════════════════════════════════
    状态管理
@@ -1027,10 +1046,30 @@ function renderLocalLookup(clean, result) {
         (result.zh ? '<div><b>中文</b>：' + escapeHtml(result.zh) + '</div>' : '') +
       '</div>';
   }
+
+  // 备选原形区块
+  var altHtml = '';
+  if (result._alternatives && result._alternatives.length) {
+    altHtml = '<div class="dict-alternatives">' +
+      '<span class="dict-alt-label">也作：</span>' +
+      result._alternatives.map(function(a) {
+        return '<span class="dict-alt-word">' + escapeHtml(a) + '</span>';
+      }).join('、') +
+      '</div>';
+  }
+
+  // 猜测标注
+  var guessLabel = '';
+  if (result._guessed) {
+    guessLabel = '<div class="dict-guess-label">形态推测还原</div>';
+  }
+
   return '<div class="dict-word">' + escapeHtml(clean) + '</div>' +
     (result.type ? '<div class="dict-pos">' + escapeHtml(result.type) + '</div>' : '') +
-    '<div class="dict-meaning">' + escapeHtml(result.meaning || '待补中文释义') + '</div>' +
+    '<div class="dict-meaning">' + escapeHtml(result.meaning || '暂未收录') + '</div>' +
     '<div class="dict-source">' + escapeHtml(result.source || '本地') + '</div>' +
+    guessLabel +
+    altHtml +
     contextHtml;
 }
 
@@ -1148,24 +1187,53 @@ document.addEventListener('click', function(e) { var p = document.getElementById
 
 var _lastLookupWord = '';
 function autoLookup(word) {
-  var clean = word.replace(/[^a-zA-Zа-яА-ЯёЁ-]/g, '');
+  var clean = normalizeLookupWord(word);
   if (!clean) return;
   _lastLookupWord = clean;
+
   var preview = document.getElementById('dictPreview');
-  preview.innerHTML = '<div class="dict-loading">⏳ 查询本地词库...</div>'; preview.style.display = 'block';
-  var runLookup = function() {
-    var result = lookupLocalChineseMeaning(clean);
-    preview.innerHTML = renderLocalLookup(clean, result);
-    updateSaveButton(clean);
-  };
-  if (localLookupReady) {
-    runLookup();
-  } else {
-    loadLocalLookupData().then(runLookup).catch(function() {
-      preview.innerHTML = renderLocalLookup(clean, lookupLocalChineseMeaning(clean));
-      updateSaveButton(clean);
-    });
+  preview.innerHTML = '<div class="dict-loading">查询中...</div>';
+  preview.style.display = 'block';
+
+  var result = null;
+
+  // 第1级：查内存映射表
+  if (morphologyReady && morphologyDict[clean]) {
+    var lemmas = morphologyDict[clean];
+    for (var i = 0; i < lemmas.length; i++) {
+      var r = lookupLocalChineseMeaning(lemmas[i]);
+      if (r && r.meaning !== '待补中文释义') {
+        result = r;
+        result._morphoLemma = lemmas[i];
+        if (lemmas.length > 1) {
+          result._alternatives = lemmas.filter(function(l) { return l !== lemmas[i]; });
+        }
+        break;
+      }
+    }
   }
+
+  // 第2级：JS 规则引擎
+  if (!result && typeof morphologyGuess === 'function') {
+    var guesses = morphologyGuess(clean);
+    for (var g = 0; g < guesses.length; g++) {
+      var r2 = lookupLocalChineseMeaning(guesses[g]);
+      if (r2 && r2.meaning !== '待补中文释义') {
+        result = r2;
+        result._morphoLemma = guesses[g];
+        result._guessed = true;
+        break;
+      }
+    }
+  }
+
+  // 第3级：原词直查
+  if (!result) {
+    result = lookupLocalChineseMeaning(clean);
+  }
+
+  preview.innerHTML = renderLocalLookup(clean, result);
+  updateSaveButton(clean);
 }
 function updateSaveButton(word) {
   var records = {};
@@ -1417,6 +1485,7 @@ function showBookReport() {
    ══════════════════════════════════════════════ */
 applyTheme();
 loadSavedWords();
+initMorphology();  // 后台异步加载形态映射表
 
 if (_jumpBook) {
   fetchIndex()
