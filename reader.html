@@ -218,7 +218,7 @@ body {
 .highlight-search.current { outline: 2px solid rgba(56,189,248,0.8); }
 
 /* ─── 可点击单词 ─── */
-.ru-word { cursor: pointer; border-radius: 2px; transition: background 0.1s; }
+.ru-word { cursor: pointer; border-radius: 2px; transition: background 0.1s; user-select: none; -webkit-user-select: none; -webkit-touch-callout: none; }
 .ru-word:hover { background: var(--highlight-word); }
 .ru-word:active { background: var(--accent-dim); }
 
@@ -1003,12 +1003,22 @@ document.addEventListener('click', function(e) {
   if (ruEl) toggleCN(ruEl);
 });
 
-// 移动端：阻止 Safari 在 .ru-word 上的原生选词（黄底蓝杆）
+// iPad：touchend 直接触发查词（click 在 iOS 上有延迟且可能被吞）
+var _touchMoved = false;
 document.addEventListener('touchstart', function(e) {
-  if (e.target.closest('.ru-word')) {
-    e.preventDefault(); // 阻止 Safari 选中文字
-  }
-}, { passive: false });
+  _touchMoved = false;
+}, { passive: true });
+document.addEventListener('touchmove', function(e) {
+  _touchMoved = true;
+}, { passive: true });
+document.addEventListener('touchend', function(e) {
+  if (_touchMoved) return; // 滑动不触发
+  var span = e.target.closest('.ru-word');
+  if (!span) return;
+  e.preventDefault();
+  var word = span.getAttribute('data-word');
+  if (word && word.length >= 2) _showPopupForWord(word, span);
+});
 
 
 /* ─── 段落收藏 ─── */
