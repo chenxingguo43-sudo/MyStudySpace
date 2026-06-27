@@ -1089,28 +1089,15 @@ var _detailWord = '';
 
 function openDetailPanel(word) {
   _detailWord = word;
-  var panel = document.getElementById('detailPanel');
-  var overlay = document.getElementById('detailOverlay');
-  var handle = document.getElementById('resizeHandle');
-  if (panel) {
-    // 恢复用户拖拽偏好宽度
-    var savedW = null;
-    try { savedW = localStorage.getItem('rr_panel_width'); } catch(e) {}
-    if (savedW) { panel.style.width = savedW; }
-    panel.classList.add('open');
-  }
-  if (overlay) overlay.classList.add('visible');
-  if (handle) handle.classList.add('visible');
+  // 面板始终可见，内容由 autoLookup → renderDetailPanel 填充
 }
 
 function closeDetailPanel() {
   _detailWord = '';
-  var panel = document.getElementById('detailPanel');
-  var overlay = document.getElementById('detailOverlay');
-  var handle = document.getElementById('resizeHandle');
-  if (panel) panel.classList.remove('open');
-  if (overlay) overlay.classList.remove('visible');
-  if (handle) handle.classList.remove('visible');
+  var inner = document.getElementById('detailInner');
+  if (inner) {
+    inner.innerHTML = '<div class="detail-placeholder">👆 点击俄语单词查看详情</div>';
+  }
 }
 
 /* ─── AI 深度解析（clipboard 过渡方案，后续接入 AgentChat）─── */
