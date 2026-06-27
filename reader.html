@@ -130,8 +130,8 @@ body {
 .reader-layout {
   position: relative; z-index: 1;
   display: flex; flex-direction: row;
-  width: 100%; max-width: 1100px; margin: 0 auto;
-  padding: 0 16px 100px;
+  width: 100%; max-width: none;
+  padding: 0 0 100px;
   /* 减去 toolbar(48px) + peek-counter(~36px) + bottom-nav(52px) 的近似值 */
   min-height: calc(100vh - 140px);
 }
@@ -141,7 +141,7 @@ body {
   min-width: 25%;   /* 最小 25% */
   max-width: 85%;   /* 最大 85% */
   overflow-y: auto;
-  padding-right: 8px;
+  padding-left: 16px; padding-right: 8px;
 }
 /* 分割线 */
 .resize-handle {
@@ -160,9 +160,6 @@ body {
   flex: 1;                    /* 自动填满剩余空间 */
   min-width: 0;               /* 允许收缩 */
   overflow-y: auto;
-  background: var(--surface-solid);
-  border: 1px solid var(--glass-border); border-radius: 16px;
-  margin-left: 8px;
   /* 注意：无 transition！拖拽需要即时响应 */
 }
 .detail-panel-inner { padding: 20px; }
@@ -460,14 +457,14 @@ body {
   /* ─── 竖屏分栏：上下布局 ─── */
   .reader-layout {
     flex-direction: column;
-    max-width: 100%; padding: 0 12px 80px;
+    max-width: 100%; padding: 0 0 80px;
   }
   .reader-pane {
     flex: 0 0 55%;        /* 竖屏默认上方 55% */
     min-width: 0; max-width: 100%;
     min-height: 25%; max-height: 85%;
     width: 100%;
-    padding-right: 0;
+    padding-right: 0; padding-left: 12px;
     padding-bottom: 4px;
   }
   .resize-handle {
@@ -482,7 +479,6 @@ body {
     top: -18px; bottom: -18px;  /* 总触控区域 = 8 + 36 = 44px */
   }
   .detail-panel {
-    margin-left: 0; margin-top: 4px;
     min-height: 15%;
     width: 100%;
   }
@@ -1270,9 +1266,9 @@ document.addEventListener('click', function(e) {
   var panel = document.getElementById('detailPanel');
   if (panel && panel.contains(e.target)) return;
 
-  // 3. 点到了外部 → 关闭弹窗 + 面板
+  // 3. 点到了外部 → 关闭弹窗 + 面板（拖拽分割线不触发关闭）
   if (popup) popup.classList.remove('visible');
-  if (_detailWord) closeDetailPanel();
+  if (_detailWord && !e.target.closest('#resizeHandle')) closeDetailPanel();
 
   // 4. 点到了 ru-text 空白区域 → 展开/收起翻译
   var ruEl = e.target.closest('.ru-text');
