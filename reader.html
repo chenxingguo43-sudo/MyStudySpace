@@ -131,16 +131,13 @@ body {
   position: relative; z-index: 1;
   display: flex; flex-direction: row;
   width: 100%; max-width: none;
-  padding: 0 0 100px;
-  /* 减去 toolbar(48px) + peek-counter(~36px) + bottom-nav(52px) 的近似值 */
-  min-height: calc(100vh - 140px);
+  padding: 0 0 60px;
 }
 /* 阅读区：flex-basis 百分比由 JS 动态控制 */
 .reader-pane {
   flex: 0 0 70%;   /* 默认 70%，JS 可覆盖 */
   min-width: 25%;   /* 最小 25% */
   max-width: 85%;   /* 最大 85% */
-  overflow-y: auto;
   padding-left: 16px; padding-right: 8px;
 }
 /* 分割线 */
@@ -159,7 +156,8 @@ body {
 .detail-panel {
   flex: 1;                    /* 自动填满剩余空间 */
   min-width: 0;               /* 允许收缩 */
-  overflow-y: auto;
+  position: sticky; top: 0; align-self: flex-start;
+  max-height: 100vh; overflow-y: auto;
   /* 注意：无 transition！拖拽需要即时响应 */
 }
 .detail-panel-inner { padding: 20px; }
