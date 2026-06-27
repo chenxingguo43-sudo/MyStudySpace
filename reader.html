@@ -1008,9 +1008,12 @@ function renderChapter(data) {
   var navN = curCh < curBook.chapters - 1 ? '<button class="nav-btn" onclick="goChapter(' + (curCh + 1) + ')">下一章 →</button>' : '<span class="nav-btn disabled">下一章 →</span>';
 
   document.getElementById('app').innerHTML =
-    toolbar('第 ' + (curCh + 1) + ' 章',
-      '<button class="tb-btn" onclick="toggleSearch()" title="搜索 (Ctrl+F)">🔍</button>' +
-      '<button class="tb-btn" onclick="showChapters(\'' + escapeHtml(curBook.id) + '\')" title="目录">☰</button>') +
+    '<div class="floating-toolbar">' +
+    '<button class="ft-btn" onclick="cycleTheme()" title="切换主题">🎨</button>' +
+    '<button class="ft-btn" onclick="cycleFont()" title="字号">Aa</button>' +
+    '<button class="ft-btn" onclick="toggleSearch()" title="搜索 (Ctrl+F)">🔍</button>' +
+    '<button class="ft-btn" onclick="showChapters(\'' + escapeHtml(curBook.id) + '\')" title="目录">☰</button>' +
+    '</div>' +
     '<div class="peek-counter">👁 查看原文: <span id="peekCnt">0</span> / <span id="totalParas">' + visibleCount + '</span> 段</div>' +
     '<div class="reader-layout" id="readerLayout">' +
     '<div class="reader-pane" id="readerPane"><div class="chapter-content">' +
@@ -1018,6 +1021,7 @@ function renderChapter(data) {
     parts.join('') + exercisesHtml + '</div></div>' +
     '<div class="resize-handle" id="resizeHandle"></div>' +
     '<div class="detail-panel" id="detailPanel"><div class="detail-panel-inner" id="detailInner">' +
+    '<div class="detail-close" onclick="event.stopPropagation();closeDetailPanel()" title="关闭">✕</div>' +
     '<div class="detail-placeholder">👆 点击俄语单词查看详情</div>' +
     '</div></div>' +
     '</div>' +
