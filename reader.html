@@ -129,36 +129,50 @@ body {
 /* ─── 分屏布局容器 ─── */
 .reader-layout {
   position: relative; z-index: 1;
-  max-width: 1100px; margin: 0 auto;
-  display: flex; align-items: flex-start;
+  display: flex; flex-direction: row;
+  width: 100%; max-width: 1100px; margin: 0 auto;
   padding: 0 16px 100px;
+  /* 减去 toolbar(48px) + peek-counter(~36px) + bottom-nav(52px) 的近似值 */
+  min-height: calc(100vh - 140px);
 }
-/* 阅读区 */
-.reader-pane { flex: 1; min-width: 0; overflow-y: visible; }
-
-/* ─── 详情面板 ─── */
+/* 阅读区：flex-basis 百分比由 JS 动态控制 */
+.reader-pane {
+  flex: 0 0 70%;   /* 默认 70%，JS 可覆盖 */
+  min-width: 25%;   /* 最小 25% */
+  max-width: 85%;   /* 最大 85% */
+  overflow-y: auto;
+  padding-right: 8px;
+}
+/* 分割线 */
+.resize-handle {
+  width: 8px; flex-shrink: 0; cursor: col-resize;
+  background: transparent; border-radius: 4px;
+  transition: background 0.2s;
+  touch-action: none;         /* 禁止浏览器默认手势 */
+  align-self: stretch;
+  user-select: none;          /* 防止拖拽时选中文字 */
+  -webkit-user-select: none;
+}
+.resize-handle:hover { background: var(--accent); opacity: 0.5; }
+.resize-handle.active { background: var(--accent); opacity: 1; box-shadow: 0 0 12px var(--accent-dim); }
+/* 详情面板 */
 .detail-panel {
-  width: 0; flex-shrink: 0; overflow: hidden;
+  flex: 1;                    /* 自动填满剩余空间 */
+  min-width: 0;               /* 允许收缩 */
+  overflow-y: auto;
   background: var(--surface-solid);
   border: 1px solid var(--glass-border); border-radius: 16px;
-  margin-left: 16px;
-  transition: width 0.3s ease, opacity 0.25s ease;
-  opacity: 0;
+  margin-left: 8px;
+  /* 注意：无 transition！拖拽需要即时响应 */
 }
-.detail-panel.open { width: 380px; opacity: 1; overflow-y: auto; }
-.detail-panel-inner { padding: 20px; min-width: 340px; max-height: calc(100vh - 160px); overflow-y: auto; }
-
-/* ─── 拖拽分界线 ─── */
-.resize-handle {
-  display: none; width: 6px; flex-shrink: 0; cursor: col-resize;
-  background: transparent; border-radius: 3px; transition: background 0.15s;
-  align-self: stretch; min-height: 200px;
+.detail-panel-inner { padding: 20px; }
+/* 面板占位提示 */
+.detail-placeholder {
+  display: flex; align-items: center; justify-content: center;
+  min-height: 200px; color: var(--text-dim); font-size: 14px;
+  text-align: center; line-height: 1.8; padding: 20px;
 }
-.resize-handle:hover, .resize-handle.active { background: var(--accent); }
-.resize-handle.visible { display: block; }
-
-/* ─── 叠加遮罩（竖屏）─── */
-.detail-overlay { display: none; }
+/* ─── 叠加遮罩（竖屏）─── 已移除 .detail-overlay ─── */
 
 /* ─── 面板卡片内容 ─── */
 .dp-head { margin-bottom: 16px; }
@@ -443,21 +457,35 @@ body {
 }
 
 @media (max-width: 767px) {
-  .reader-layout { max-width: 100%; padding: 0 12px 80px; }
+  /* ─── 竖屏分栏：上下布局 ─── */
+  .reader-layout {
+    flex-direction: column;
+    max-width: 100%; padding: 0 12px 80px;
+  }
+  .reader-pane {
+    flex: 0 0 55%;        /* 竖屏默认上方 55% */
+    min-width: 0; max-width: 100%;
+    min-height: 25%; max-height: 85%;
+    width: 100%;
+    padding-right: 0;
+    padding-bottom: 4px;
+  }
+  .resize-handle {
+    width: 100%; height: 8px;
+    cursor: row-resize;    /* 上下拖拽光标 */
+    align-self: auto;
+    position: relative;
+  }
+  /* 扩大移动端触控区域（44px 最小触控目标） */
+  .resize-handle::after {
+    content: ''; position: absolute; left: 0; right: 0;
+    top: -18px; bottom: -18px;  /* 总触控区域 = 8 + 36 = 44px */
+  }
   .detail-panel {
-    position: fixed; top: 96px; right: 0; bottom: 56px;
-    z-index: 200; width: 0; border-radius: 12px 0 0 12px;
-    box-shadow: -4px 0 24px rgba(0,0,0,0.4);
-    margin-left: 0; transition: width 0.3s ease, opacity 0.2s ease;
+    margin-left: 0; margin-top: 4px;
+    min-height: 15%;
+    width: 100%;
   }
-  .detail-panel.open { width: 65vw; min-width: 280px; }
-  .resize-handle { display: none !important; }
-  .detail-overlay {
-    display: none; position: fixed; inset: 0; z-index: 199;
-    background: rgba(0,0,0,0.3); backdrop-filter: blur(2px);
-    -webkit-backdrop-filter: blur(2px);
-  }
-  .detail-overlay.visible { display: block; }
 }
 </style>
 </head>
@@ -963,17 +991,20 @@ function renderChapter(data) {
       '<button class="tb-btn" onclick="toggleSearch()" title="搜索 (Ctrl+F)">🔍</button>' +
       '<button class="tb-btn" onclick="showChapters(\'' + escapeHtml(curBook.id) + '\')" title="目录">☰</button>') +
     '<div class="peek-counter">👁 查看原文: <span id="peekCnt">0</span> / <span id="totalParas">' + visibleCount + '</span> 段</div>' +
-    '<div class="reader-layout">' +
-    '<div class="reader-pane"><div class="chapter-content">' +
+    '<div class="reader-layout" id="readerLayout">' +
+    '<div class="reader-pane" id="readerPane"><div class="chapter-content">' +
     '<div class="chapter-header"><h1>Глава ' + (curCh + 1) + '</h1><h2>' + escapeHtml(data.title || '') + '</h2></div>' +
     parts.join('') + exercisesHtml + '</div></div>' +
-    '<div class="detail-panel" id="detailPanel"><div class="detail-panel-inner" id="detailInner"></div></div>' +
     '<div class="resize-handle" id="resizeHandle"></div>' +
-    '<div class="detail-overlay" id="detailOverlay" onclick="closeDetailPanel()"></div>' +
+    '<div class="detail-panel" id="detailPanel"><div class="detail-panel-inner" id="detailInner">' +
+    '<div class="detail-placeholder">👆 点击俄语单词查看详情</div>' +
+    '</div></div>' +
     '</div>' +
     '<nav class="bottom-nav">' + navP + '<span class="nav-info">第 ' + (curCh + 1) + ' / ' + curBook.chapters + ' 章</span>' + navN + '</nav>';
 
   window.scrollTo(0, 0); applyTheme(); saveLastRead();
+  // 恢复分栏比例
+  restoreSplitRatio();
   // 恢复滚动
   try { var lr2 = JSON.parse(localStorage.getItem('rr_lastread_' + NOVEL_ID)); if (lr2 && lr2.bookId === curBook.id && lr2.chapter === curCh && lr2.scroll > 0) setTimeout(function() { window.scrollTo(0, lr2.scroll); }, 100); } catch(e) {}
   // 高亮已保存单词
@@ -1064,28 +1095,15 @@ var _detailWord = '';
 
 function openDetailPanel(word) {
   _detailWord = word;
-  var panel = document.getElementById('detailPanel');
-  var overlay = document.getElementById('detailOverlay');
-  var handle = document.getElementById('resizeHandle');
-  if (panel) {
-    // 恢复用户拖拽偏好宽度
-    var savedW = null;
-    try { savedW = localStorage.getItem('rr_panel_width'); } catch(e) {}
-    if (savedW) { panel.style.width = savedW; }
-    panel.classList.add('open');
-  }
-  if (overlay) overlay.classList.add('visible');
-  if (handle) handle.classList.add('visible');
+  // 面板始终可见，内容由 autoLookup → renderDetailPanel 填充
 }
 
 function closeDetailPanel() {
   _detailWord = '';
-  var panel = document.getElementById('detailPanel');
-  var overlay = document.getElementById('detailOverlay');
-  var handle = document.getElementById('resizeHandle');
-  if (panel) panel.classList.remove('open');
-  if (overlay) overlay.classList.remove('visible');
-  if (handle) handle.classList.remove('visible');
+  var inner = document.getElementById('detailInner');
+  if (inner) {
+    inner.innerHTML = '<div class="detail-placeholder">👆 点击俄语单词查看详情</div>';
+  }
 }
 
 /* ─── AI 深度解析（clipboard 过渡方案，后续接入 AgentChat）─── */
@@ -1123,41 +1141,95 @@ function requestAiAnalysis() {
 }
 
 function toggleDetailPanel(word) {
-  if (_detailWord === word) { closeDetailPanel(); return; }
+  if (_detailWord === word) { closeDetailPanel(); return true; }
   openDetailPanel(word);
+  return false;
+}
+
+/* ─── 恢复分栏比例 ─── */
+function restoreSplitRatio() {
+  var layout = document.getElementById('readerLayout');
+  var pane = document.getElementById('readerPane');
+  if (!layout || !pane) return;
+
+  var isH = getComputedStyle(layout).flexDirection === 'row';
+  _lastSplitOrientation = isH ? 'h' : 'v';
+  var key = isH ? 'rr_split_h' : 'rr_split_v';
+  var saved = null;
+  try { saved = localStorage.getItem(key); } catch(e) {}
+
+  if (saved) {
+    pane.style.flexBasis = saved;
+  } else {
+    // 默认值：横屏 70%，竖屏 55%
+    pane.style.flexBasis = isH ? '70%' : '55%';
+  }
 }
 
 /* ─── 拖拽分界线 ─── */
 (function() {
-  var handleEl = null, panelEl = null, startX = 0, startW = 0;
+  var layoutEl = null, paneEl = null, handleEl = null;
+  var dragging = false, isHorizontal = true;
+
+  function refreshRefs() {
+    layoutEl = document.getElementById('readerLayout');
+    paneEl = document.getElementById('readerPane');
+    handleEl = document.getElementById('resizeHandle');
+  }
+
+  function getDirection() {
+    if (!layoutEl) return 'row';
+    return getComputedStyle(layoutEl).flexDirection;
+  }
+
   document.addEventListener('pointerdown', function(e) {
+    refreshRefs();
     if (!e.target.closest('#resizeHandle')) return;
-    handleEl = e.target.closest('#resizeHandle');
-    panelEl = document.getElementById('detailPanel');
-    if (!panelEl) return;
+    if (!paneEl) return;
+    dragging = true;
+    isHorizontal = getDirection() === 'row';
     handleEl.classList.add('active');
-    startX = e.clientX;
-    startW = panelEl.offsetWidth || 380;
     handleEl.setPointerCapture(e.pointerId);
   });
+
   document.addEventListener('pointermove', function(e) {
-    if (!handleEl) return;
-    var delta = startX - e.clientX;
-    var w = Math.max(280, Math.min(520, startW + delta));
-    panelEl.style.width = w + 'px';
+    if (!dragging || !paneEl || !layoutEl) return;
+    var rect = layoutEl.getBoundingClientRect();
+    var percentage;
+    if (isHorizontal) {
+      percentage = ((e.clientX - rect.left) / rect.width) * 100;
+    } else {
+      percentage = ((e.clientY - rect.top) / rect.height) * 100;
+    }
+    percentage = Math.max(25, Math.min(85, percentage));
+    paneEl.style.flexBasis = percentage + '%';
   });
-  document.addEventListener('pointerup', function() {
-    if (!handleEl) return;
-    handleEl.classList.remove('active');
-    handleEl = null;
-    panelEl = null;
-    // 保存偏好
+
+  document.addEventListener('pointerup', function(e) {
+    if (!dragging) return;
+    dragging = false;
+    if (handleEl) handleEl.classList.remove('active');
+    if (handleEl) handleEl.releasePointerCapture(e.pointerId);
+    // 持久化：横屏/竖屏各存一份
     try {
-      var pw = document.getElementById('detailPanel');
-      if (pw) localStorage.setItem('rr_panel_width', pw.style.width);
+      var key = isHorizontal ? 'rr_split_h' : 'rr_split_v';
+      if (paneEl) localStorage.setItem(key, paneEl.style.flexBasis);
     } catch(err) {}
   });
 })();
+
+// ─── 屏幕旋转时恢复分栏比例 ───
+var _lastSplitOrientation = null;
+window.addEventListener('resize', function() {
+  var layout = document.getElementById('readerLayout');
+  if (!layout) return;
+  var isH = getComputedStyle(layout).flexDirection === 'row';
+  var cur = isH ? 'h' : 'v';
+  if (cur !== _lastSplitOrientation) {
+    _lastSplitOrientation = cur;
+    restoreSplitRatio();
+  }
+});
 
 // ─── 查词弹窗共用逻辑 ───
 function _showPopupForWord(word, span) {
@@ -1171,7 +1243,8 @@ function _showPopupForWord(word, span) {
     selTranslationContext = zhEl ? zhEl.textContent : '';
   }
   // 打开详情面板
-  toggleDetailPanel(word);
+  var didClose = toggleDetailPanel(word);
+  if (didClose) return;
   // 填充面板内容
   var inner = document.getElementById('detailInner');
   if (inner) {
@@ -1199,7 +1272,7 @@ document.addEventListener('click', function(e) {
 
   // 3. 点到了外部 → 关闭弹窗 + 面板
   if (popup) popup.classList.remove('visible');
-  closeDetailPanel();
+  if (_detailWord) closeDetailPanel();
 
   // 4. 点到了 ru-text 空白区域 → 展开/收起翻译
   var ruEl = e.target.closest('.ru-text');
