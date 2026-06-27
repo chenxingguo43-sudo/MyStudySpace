@@ -1135,8 +1135,9 @@ function requestAiAnalysis() {
 }
 
 function toggleDetailPanel(word) {
-  if (_detailWord === word) { closeDetailPanel(); return; }
+  if (_detailWord === word) { closeDetailPanel(); return true; }
   openDetailPanel(word);
+  return false;
 }
 
 /* ─── 恢复分栏比例 ─── */
@@ -1188,7 +1189,8 @@ function _showPopupForWord(word, span) {
     selTranslationContext = zhEl ? zhEl.textContent : '';
   }
   // 打开详情面板
-  toggleDetailPanel(word);
+  var didClose = toggleDetailPanel(word);
+  if (didClose) return;
   // 填充面板内容
   var inner = document.getElementById('detailInner');
   if (inner) {
@@ -1216,7 +1218,7 @@ document.addEventListener('click', function(e) {
 
   // 3. 点到了外部 → 关闭弹窗 + 面板
   if (popup) popup.classList.remove('visible');
-  closeDetailPanel();
+  if (_detailWord) closeDetailPanel();
 
   // 4. 点到了 ru-text 空白区域 → 展开/收起翻译
   var ruEl = e.target.closest('.ru-text');
