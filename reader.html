@@ -1142,37 +1142,71 @@ function toggleDetailPanel(word) {
 
 /* ─── 恢复分栏比例 ─── */
 function restoreSplitRatio() {
-  // TODO(Task 4): restore split ratio from localStorage
+  var layout = document.getElementById('readerLayout');
+  var pane = document.getElementById('readerPane');
+  if (!layout || !pane) return;
+
+  var isH = getComputedStyle(layout).flexDirection === 'row';
+  var key = isH ? 'rr_split_h' : 'rr_split_v';
+  var saved = null;
+  try { saved = localStorage.getItem(key); } catch(e) {}
+
+  if (saved) {
+    pane.style.flexBasis = saved;
+  } else {
+    // 默认值：横屏 70%，竖屏 55%
+    pane.style.flexBasis = isH ? '70%' : '55%';
+  }
 }
 
 /* ─── 拖拽分界线 ─── */
 (function() {
-  var handleEl = null, panelEl = null, startX = 0, startW = 0;
+  var layoutEl = null, paneEl = null, handleEl = null;
+  var dragging = false, isHorizontal = true;
+
+  function refreshRefs() {
+    layoutEl = document.getElementById('readerLayout');
+    paneEl = document.getElementById('readerPane');
+    handleEl = document.getElementById('resizeHandle');
+  }
+
+  function getDirection() {
+    if (!layoutEl) return 'row';
+    return getComputedStyle(layoutEl).flexDirection;
+  }
+
   document.addEventListener('pointerdown', function(e) {
+    refreshRefs();
     if (!e.target.closest('#resizeHandle')) return;
-    handleEl = e.target.closest('#resizeHandle');
-    panelEl = document.getElementById('detailPanel');
-    if (!panelEl) return;
+    if (!paneEl) return;
+    dragging = true;
+    isHorizontal = getDirection() === 'row';
     handleEl.classList.add('active');
-    startX = e.clientX;
-    startW = panelEl.offsetWidth || 380;
     handleEl.setPointerCapture(e.pointerId);
   });
+
   document.addEventListener('pointermove', function(e) {
-    if (!handleEl) return;
-    var delta = startX - e.clientX;
-    var w = Math.max(280, Math.min(520, startW + delta));
-    panelEl.style.width = w + 'px';
+    if (!dragging || !paneEl || !layoutEl) return;
+    var rect = layoutEl.getBoundingClientRect();
+    var percentage;
+    if (isHorizontal) {
+      percentage = ((e.clientX - rect.left) / rect.width) * 100;
+    } else {
+      percentage = ((e.clientY - rect.top) / rect.height) * 100;
+    }
+    percentage = Math.max(25, Math.min(85, percentage));
+    paneEl.style.flexBasis = percentage + '%';
   });
-  document.addEventListener('pointerup', function() {
-    if (!handleEl) return;
-    handleEl.classList.remove('active');
-    handleEl = null;
-    panelEl = null;
-    // 保存偏好
+
+  document.addEventListener('pointerup', function(e) {
+    if (!dragging) return;
+    dragging = false;
+    if (handleEl) handleEl.classList.remove('active');
+    if (handleEl) handleEl.releasePointerCapture(e.pointerId);
+    // 持久化：横屏/竖屏各存一份
     try {
-      var pw = document.getElementById('detailPanel');
-      if (pw) localStorage.setItem('rr_panel_width', pw.style.width);
+      var key = isHorizontal ? 'rr_split_h' : 'rr_split_v';
+      localStorage.setItem(key, paneEl.style.flexBasis);
     } catch(err) {}
   });
 })();
