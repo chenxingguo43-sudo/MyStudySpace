@@ -1295,9 +1295,8 @@ document.addEventListener('click', function(e) {
   var panel = document.getElementById('detailPanel');
   if (panel && panel.contains(e.target)) return;
 
-  // 3. 点到了外部 → 关闭弹窗 + 面板（拖拽分割线不触发关闭）
+  // 3. 点到了外部 → 关闭弹窗（面板不关闭，用户主动点 ✕ 关闭）
   if (popup) popup.classList.remove('visible');
-  if (_detailWord && !e.target.closest('#resizeHandle')) closeDetailPanel();
 
   // 4. 点到了 ru-text 空白区域 → 展开/收起翻译
   var ruEl = e.target.closest('.ru-text');
