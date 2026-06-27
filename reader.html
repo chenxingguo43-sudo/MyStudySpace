@@ -985,17 +985,20 @@ function renderChapter(data) {
       '<button class="tb-btn" onclick="toggleSearch()" title="搜索 (Ctrl+F)">🔍</button>' +
       '<button class="tb-btn" onclick="showChapters(\'' + escapeHtml(curBook.id) + '\')" title="目录">☰</button>') +
     '<div class="peek-counter">👁 查看原文: <span id="peekCnt">0</span> / <span id="totalParas">' + visibleCount + '</span> 段</div>' +
-    '<div class="reader-layout">' +
-    '<div class="reader-pane"><div class="chapter-content">' +
+    '<div class="reader-layout" id="readerLayout">' +
+    '<div class="reader-pane" id="readerPane"><div class="chapter-content">' +
     '<div class="chapter-header"><h1>Глава ' + (curCh + 1) + '</h1><h2>' + escapeHtml(data.title || '') + '</h2></div>' +
     parts.join('') + exercisesHtml + '</div></div>' +
-    '<div class="detail-panel" id="detailPanel"><div class="detail-panel-inner" id="detailInner"></div></div>' +
     '<div class="resize-handle" id="resizeHandle"></div>' +
-    '<div class="detail-overlay" id="detailOverlay" onclick="closeDetailPanel()"></div>' +
+    '<div class="detail-panel" id="detailPanel"><div class="detail-panel-inner" id="detailInner">' +
+    '<div class="detail-placeholder">👆 点击俄语单词查看详情</div>' +
+    '</div></div>' +
     '</div>' +
     '<nav class="bottom-nav">' + navP + '<span class="nav-info">第 ' + (curCh + 1) + ' / ' + curBook.chapters + ' 章</span>' + navN + '</nav>';
 
   window.scrollTo(0, 0); applyTheme(); saveLastRead();
+  // 恢复分栏比例
+  restoreSplitRatio();
   // 恢复滚动
   try { var lr2 = JSON.parse(localStorage.getItem('rr_lastread_' + NOVEL_ID)); if (lr2 && lr2.bookId === curBook.id && lr2.chapter === curCh && lr2.scroll > 0) setTimeout(function() { window.scrollTo(0, lr2.scroll); }, 100); } catch(e) {}
   // 高亮已保存单词
