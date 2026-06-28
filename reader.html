@@ -311,21 +311,6 @@ body {
 .ru-word:hover { background: var(--highlight-word); }
 .ru-word:active { background: var(--accent-dim); }
 
-/* ─── 悬浮工具栏 ─── */
-.floating-toolbar {
-  position: fixed; top: 12px; left: 12px; z-index: 150;
-  display: flex; flex-direction: column; gap: 6px;
-}
-.floating-toolbar .ft-btn {
-  width: 36px; height: 36px; border-radius: 50%;
-  background: var(--glass); border: 1px solid var(--glass-border);
-  color: var(--text-secondary); font-size: 16px; cursor: pointer;
-  display: flex; align-items: center; justify-content: center;
-  opacity: 0.4; transition: opacity 0.2s, background 0.2s;
-}
-.floating-toolbar .ft-btn:hover { opacity: 0.95; background: var(--glass-hover); }
-.floating-toolbar .ft-btn:active { transform: scale(0.92); }
-
 /* ─── 面板关闭按钮 ─── */
 .detail-close {
   position: sticky; top: 0; right: 0; z-index: 10;
@@ -989,12 +974,6 @@ function renderChapter(data) {
   }
 
   document.getElementById('app').innerHTML =
-    '<div class="floating-toolbar">' +
-    '<button class="ft-btn" onclick="cycleTheme()" title="切换主题">🎨</button>' +
-    '<button class="ft-btn" onclick="cycleFont()" title="字号">Aa</button>' +
-    '<button class="ft-btn" onclick="toggleSearch()" title="搜索 (Ctrl+F)">🔍</button>' +
-    '<button class="ft-btn" onclick="showChapters(\'' + escapeHtml(curBook.id) + '\')" title="目录">☰</button>' +
-    '</div>' +
     '<div class="peek-counter">👁 查看原文: <span id="peekCnt">0</span> / <span id="totalParas">' + visibleCount + '</span> 段</div>' +
     '<div class="reader-layout" id="readerLayout">' +
     '<div class="reader-pane" id="readerPane"><div class="chapter-content">' +
