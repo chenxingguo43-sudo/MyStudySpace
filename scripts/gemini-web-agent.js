@@ -289,15 +289,36 @@ async function waitForResponse(page, tStart) {
     const thumbsUp = await page.$('button[aria-label*="Good response"], button[aria-label*="好"]');
 
     if ((copyBtn || thumbsUp) && hasNewContent) {
-      console.error('[gemini] Response complete (toolbar + new content)');
-      await page.waitForTimeout(1000);
+      console.error('[gemini] Response completion detected, stabilizing...');
+      // Wait for streaming to finish — text should be stable
+      let lastLen = curLen;
+      for (let s = 0; s < 6; s++) {
+        await page.waitForTimeout(2000);
+        const newLen = await page.evaluate(() => document.body.innerText?.length || 0);
+        if (newLen === lastLen) {
+          console.error('[gemini] Text stabilized, extracting');
+          await page.waitForTimeout(500);
+          return extractResponse(page);
+        }
+        console.error(`[gemini] Still streaming... ${lastLen} → ${newLen}`);
+        lastLen = newLen;
+      }
+      console.error('[gemini] Stabilize timeout, extracting current state');
       return extractResponse(page);
     }
 
     // Check if input editor is re-enabled with new content
     const editor = await page.$('[role="textbox"][aria-disabled="false"]');
     if (editor && hasNewContent) {
-      await page.waitForTimeout(1000);
+      console.error('[gemini] Editor re-enabled, stabilizing...');
+      let lastLen = curLen;
+      for (let s = 0; s < 4; s++) {
+        await page.waitForTimeout(1500);
+        const newLen = await page.evaluate(() => document.body.innerText?.length || 0);
+        if (newLen === lastLen) break;
+        lastLen = newLen;
+      }
+      await page.waitForTimeout(500);
       return extractResponse(page);
     }
 
