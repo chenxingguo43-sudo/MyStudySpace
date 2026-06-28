@@ -338,22 +338,6 @@ body {
 }
 .detail-close:hover { color: var(--text); background: var(--glass-hover); }
 
-/* ─── 底部导航 ─── */
-.bottom-nav {
-  position: fixed; bottom: 0; left: 0; right: 0; display: flex; align-items: center; justify-content: space-between;
-  background: rgba(10,10,20,0.5);
-  border-top: 1px solid var(--border); padding: 0 16px; z-index: 90; min-height: 36px;
-}
-.nav-btn {
-  padding: 4px 12px; border: 1px solid var(--glass-border); border-radius: 8px;
-  color: var(--text-secondary); text-decoration: none; font-size: 13px; cursor: pointer;
-  background: var(--glass); transition: all 0.15s; font-family: inherit;
-}
-.nav-btn:hover { background: var(--glass-hover); color: var(--accent); }
-.nav-btn:active { transform: scale(0.95); }
-.nav-btn.disabled { color: var(--text-dim); opacity: 0.3; pointer-events: none; }
-.nav-info { font-size: 12px; color: var(--text-dim); }
-
 /* ─── 选词弹窗 ─── */
 .selection-popup {
   position: fixed; z-index: 200; background: var(--surface-solid); border: 1px solid var(--glass-border);
@@ -1004,9 +988,6 @@ function renderChapter(data) {
     exercisesHtml = renderExercises(data.exercises);
   }
 
-  var navP = curCh > 0 ? '<button class="nav-btn" onclick="goChapter(' + (curCh - 1) + ')">← 上一章</button>' : '<span class="nav-btn disabled">← 上一章</span>';
-  var navN = curCh < curBook.chapters - 1 ? '<button class="nav-btn" onclick="goChapter(' + (curCh + 1) + ')">下一章 →</button>' : '<span class="nav-btn disabled">下一章 →</span>';
-
   document.getElementById('app').innerHTML =
     '<div class="floating-toolbar">' +
     '<button class="ft-btn" onclick="cycleTheme()" title="切换主题">🎨</button>' +
@@ -1024,8 +1005,7 @@ function renderChapter(data) {
     '<div class="detail-close" onclick="event.stopPropagation();closeDetailPanel()" title="关闭">✕</div>' +
     '<div class="detail-placeholder">👆 点击俄语单词查看详情</div>' +
     '</div></div>' +
-    '</div>' +
-    '<nav class="bottom-nav">' + navP + '<span class="nav-info">第 ' + (curCh + 1) + ' / ' + curBook.chapters + ' 章</span>' + navN + '</nav>';
+    '</div>';
 
   window.scrollTo(0, 0); applyTheme(); saveLastRead();
   // 恢复分栏比例
