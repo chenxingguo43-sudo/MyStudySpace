@@ -25,6 +25,7 @@ const RESPONSE_TIMEOUT  = 600_000; // 10 min
 const POLL_INTERVAL     = 3_000;   // 3s
 const MAX_RETRIES       = 2;
 const INIT_TIMEOUT      = 30_000;   // 30s for initial page load
+let   _preSendTextLen   = 0;        // tracked in sendPrompt, checked in waitForResponse
 
 // ── CLI ──
 const args = process.argv.slice(2);
@@ -259,6 +260,10 @@ async function sendPrompt(page, text) {
     return;
   }
 
+  // Snapshot current body text length before sending
+  _preSendTextLen = await page.evaluate(() => document.body.innerText?.length || 0);
+  console.error(`[gemini] Pre-send text length: ${_preSendTextLen}`);
+
   await page.click(sendSelector);
   console.error('[gemini] Prompt sent, waiting for generation...');
 }
@@ -275,14 +280,22 @@ async function waitForResponse(page, tStart) {
     const thumbsUp = await page.$('button[aria-label*="Good response"], button[aria-label*="好"]');
 
     if (copyBtn || thumbsUp) {
-      console.error('[gemini] Response complete (toolbar detected)');
-      await page.waitForTimeout(1000); // stabilize
+      // Verify NEW content appeared (not just old toolbar)
+      const curLen = await page.evaluate(() => document.body.innerText?.length || 0);
+      if (_preSendTextLen > 0 && curLen <= _preSendTextLen + 50) {
+        // Text hasn't grown enough — ignore this stale toolbar
+        continue;
+      }
+      console.error('[gemini] Response complete (toolbar detected + new content)');
+      await page.waitForTimeout(1000);
       return extractResponse(page);
     }
 
-    // Also check if input editor is re-enabled (means response done)
+    // Check if input editor is re-enabled AND new content appeared
     const editor = await page.$('[role="textbox"][aria-disabled="false"]');
     if (editor) {
+      const curLen = await page.evaluate(() => document.body.innerText?.length || 0);
+      if (_preSendTextLen > 0 && curLen <= _preSendTextLen + 50) continue;
       await page.waitForTimeout(500);
       return extractResponse(page);
     }
