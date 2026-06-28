@@ -172,6 +172,22 @@ function walkMd(dir) {
     return results;
 }
 
+// ─── type 字段规范化 ────────────────────────────────────────────────────
+function normalizeType(type) {
+  if (!type) return 'vocab';
+  const map = {
+    'adj': 'adjective',
+    'adv': 'adverb',
+    'n': 'noun',
+    'v': 'verb',
+    '高频词': 'vocab',
+    'prep': 'preposition',
+    'conj': 'conjunction',
+    '小说': 'vocab',
+  };
+  return (map[type] || type).toLowerCase();
+}
+
 // ─── 条目提取 ────────────────────────────────────────────────────────
 
 function extractVocab(file) {
@@ -190,7 +206,7 @@ function extractVocab(file) {
             meaning: normalizeStress(String(fm.meaning)),
             extra: '',
             examples: normalizeExamples(fm.examples),
-            type: fm.type || '',
+            type: normalizeType(fm.type || ''),
             source: 'vocab',
             chapter: chapter,
             section: '',
@@ -211,6 +227,9 @@ function extractVocab(file) {
         // 从 body 提取变位/变格表格
         const grammarTable = extractGrammarTable(src);
         if (grammarTable) entry.grammarTable = grammarTable;
+        const rich = extractRichVocabFields(src);
+        if (rich.detailZh) entry.detailZh = rich.detailZh;
+        if (rich.collocations && rich.collocations.length) entry.collocations = rich.collocations;
         return entry;
     }
 
@@ -289,7 +308,7 @@ function extractVocab(file) {
             meaning: normalizeStress(String(fm.meaning || '')),
             extra: source ? '来源: ' + source : '',
             examples: novExamples,
-            type: '小说',
+            type: normalizeType('小说'),
             source: 'novel',
             chapter: chapter,
             section: '',
@@ -334,7 +353,7 @@ function extractVocab(file) {
             meaning: normalizeStress(meaning),
             extra: normalizeStress(extraParts.join(' | ')),
             examples: examples,
-            type: '高频词',
+            type: normalizeType('高频词'),
             source: 'freq',
             chapter: 'B2高频词',
             section: '',
@@ -407,6 +426,85 @@ function normalizeStress(s) {
         result += ch;
     }
     return result;
+}
+
+function extractSection(src, title) {
+    const escaped = title.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const re = new RegExp('##\\s*(?:[^\\r\\n#]*?\\s*)?' + escaped + '\\s*\\r?\\n([\\s\\S]*?)(?=\\r?\\n##\\s|\\r?\\n---|$)');
+    const m = src.match(re);
+    return m ? m[1].trim() : '';
+}
+
+function isUsefulRichText(text) {
+    if (!text) return false;
+    const compact = String(text).replace(/\s+/g, '');
+    if (!compact) return false;
+    return !/(待补充|待AI补充|暂无|无常见|无固定|无特别|无特殊)/.test(compact);
+}
+
+function cleanRichLine(line) {
+    return String(line || '')
+        .replace(/^\s*[-*+]\s*/, '')
+        .replace(/\*\*/g, '')
+        .replace(/\*/g, '')
+        .replace(/^中文解释[:：]\s*/, '')
+        .replace(/^俄语解释[:：]\s*/, '')
+        .trim();
+}
+
+function extractDetailZh(src) {
+    const section = extractSection(src, '详细释义');
+    if (!section) return '';
+    const lines = section.split(/\r?\n/)
+        .map(cleanRichLine)
+        .filter(function(line) {
+            return line && !line.startsWith('|') && !/^[-:|]+$/.test(line);
+        });
+    const markedZh = lines.filter(function(line) {
+        return line.indexOf('中文解释') >= 0;
+    }).map(function(line) {
+        return line.replace(/^.*?中文解释[:：]\s*/, '').trim();
+    });
+    const sourceLines = markedZh.length ? markedZh : lines;
+    const zhLines = sourceLines.filter(function(line) {
+        return /[\u4e00-\u9fff]/.test(line) && line.indexOf('俄语解释') < 0;
+    });
+    const detail = zhLines.join(' ').replace(/\s+/g, ' ').trim();
+    return isUsefulRichText(detail) ? detail.slice(0, 260) : '';
+}
+
+function extractCollocations(src) {
+    const section = extractSection(src, '补充搭配');
+    if (!section) return [];
+    const rows = [];
+    section.split(/\r?\n/).forEach(function(rawLine) {
+        const line = rawLine.trim();
+        if (!line.startsWith('|') || !line.endsWith('|')) return;
+        if (/^\|?\s*-+\s*\|/.test(line)) return;
+        const cells = line.split('|').slice(1, -1).map(function(cell) {
+            return cell.replace(/\*\*/g, '').trim();
+        });
+        if (cells.length < 2) return;
+        if (cells.some(function(cell) { return /搭配|例句|翻译/.test(cell); })) return;
+        const phrase = cells[0] || '';
+        const ru = cells[1] || '';
+        const zh = cells[2] || '';
+        const joined = [phrase, ru, zh].join(' ');
+        if (!isUsefulRichText(joined)) return;
+        rows.push({
+            phrase: normalizeStress(phrase),
+            ru: normalizeStress(ru),
+            zh: zh
+        });
+    });
+    return rows.slice(0, 5);
+}
+
+function extractRichVocabFields(src) {
+    return {
+        detailZh: extractDetailZh(src),
+        collocations: extractCollocations(src)
+    };
 }
 
 
