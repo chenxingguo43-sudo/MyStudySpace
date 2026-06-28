@@ -1,0 +1,164 @@
+/* ============================================
+   Typography Enhancement — 笔记正文字体排版优化
+   适用: 阅读模式 + 实时预览
+   ============================================ */
+
+/* === 段落与行距 === */
+.markdown-preview-view,
+.markdown-source-view {
+  --font-text-size: 19px;
+  --text-normal: #BEC9C2;
+  --text-muted: #95A49C;
+  --text-faint: #6D7C75;
+}
+
+.markdown-preview-sizer,
+.markdown-source-view .cm-content {
+  max-width: 860px;
+  margin-inline: auto;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+.markdown-source-view .cm-line,
+.markdown-reading-view p {
+  font-size: 19px;
+  line-height: 1.76;
+  color: #BEC9C2;
+  font-weight: 400;
+  text-shadow: none;
+}
+
+.markdown-reading-view p {
+  margin-block: 1em;
+}
+
+.markdown-reading-view,
+.markdown-source-view {
+  color: #BEC9C2;
+}
+
+/* === 标题层级 === */
+.markdown-reading-view h1,
+.cm-header-1 {
+  font-size: 1.8em;
+  font-weight: 650;
+  margin-top: 1.5em;
+  margin-bottom: 0.4em;
+  letter-spacing: -0.02em;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.18);
+  padding-bottom: 0.25em;
+  color: #CAD4CE;
+}
+
+.markdown-reading-view h2,
+.cm-header-2 {
+  font-size: 1.4em;
+  font-weight: 620;
+  margin-top: 1.3em;
+  margin-bottom: 0.3em;
+  letter-spacing: -0.01em;
+  color: #C5D0C9;
+}
+
+.markdown-reading-view h3,
+.cm-header-3 {
+  font-size: 1.15em;
+  font-weight: 580;
+  margin-top: 1.1em;
+  margin-bottom: 0.25em;
+  color: #C0CBC4;
+}
+
+.markdown-reading-view h4,
+.cm-header-4 {
+  font-size: 1em;
+  font-weight: 600;
+  margin-top: 0.9em;
+  margin-bottom: 0.2em;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+}
+
+/* === 引用块 === */
+.markdown-reading-view blockquote {
+  border-left: 3px solid var(--interactive-accent);
+  background: rgba(128, 128, 128, 0.04);
+  padding: 0.6em 1em;
+  margin: 1em 0;
+  border-radius: 0 8px 8px 0;
+  font-style: italic;
+  color: var(--text-muted);
+}
+
+.HyperMD-quote {
+  border-left: 3px solid var(--interactive-accent) !important;
+  background: rgba(128, 128, 128, 0.03);
+}
+
+/* === 行内代码 === */
+.markdown-reading-view code,
+.cm-inline-code {
+  font-family: var(--font-monospace);
+  background: rgba(128, 128, 128, 0.1);
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+  font-size: 0.9em;
+  color: #e83e8c;
+}
+
+/* === 代码块 === */
+.markdown-reading-view pre,
+.markdown-source-view .cm-s-obsidian .HyperMD-codeblock {
+  border-radius: 8px;
+  border: 1px solid rgba(128, 128, 128, 0.12);
+}
+
+/* === 水平线 === */
+.markdown-reading-view hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(128,128,128,0.2), transparent);
+  margin: 1.8em 0;
+}
+
+/* === 链接 === */
+.markdown-reading-view a:not(.tag),
+.cm-s-obsidian span.cm-url {
+  color: var(--interactive-accent);
+  text-decoration: none;
+  border-bottom: 1px solid color-mix(in srgb, var(--interactive-accent) 25%, transparent);
+  transition: border-color 0.2s;
+}
+
+.markdown-reading-view a:hover {
+  border-bottom-color: var(--interactive-accent);
+}
+
+/* === 列表间距 === */
+.markdown-reading-view ul > li,
+.markdown-reading-view ol > li {
+  margin-bottom: 0.2em;
+}
+
+/* === 粗体与斜体 === */
+.markdown-reading-view strong,
+.cm-strong {
+  color: var(--text-normal);
+  font-weight: 700;
+}
+
+.markdown-reading-view em,
+.cm-em {
+  color: var(--text-muted);
+}
+
+/* === 脚注 === */
+.markdown-reading-view .footnotes {
+  font-size: 0.88em;
+  color: var(--text-muted);
+  border-top: 1px solid rgba(128, 128, 128, 0.12);
+  padding-top: 1em;
+  margin-top: 2em;
+}

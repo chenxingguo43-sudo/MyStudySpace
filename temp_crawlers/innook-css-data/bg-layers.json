@@ -1,0 +1,29 @@
+[
+  {
+    "classes": "background-media fixed inset-0 z-0 h-full w-full object-cover",
+    "tag": "IMG",
+    "position": "fixed",
+    "zIndex": "0",
+    "opacity": "1",
+    "background": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+    "backdropFilter": "none"
+  },
+  {
+    "classes": "background-media fixed inset-0 z-0 h-full w-full object-cover transition-opacity duration-700 opacity-100",
+    "tag": "VIDEO",
+    "position": "fixed",
+    "zIndex": "0",
+    "opacity": "1",
+    "background": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+    "backdropFilter": "none"
+  },
+  {
+    "classes": "pointer-events-none fixed inset-0 z-[2] bg-[radial-gradient(circle_at_18%_12%,rgba(244,231,211,0.16),transparent_30%),linear-gradient(180deg,rgba(0,0,0,0.05),rgba(0,0,0,0.34))] transition-opacity duration-700 opacity-100",
+    "tag": "DIV",
+    "position": "fixed",
+    "zIndex": "2",
+    "opacity": "1",
+    "background": "radial-gradient(circle at 18% 12%, rgba(244, 231, 211, 0.16), rgba(0, 0, 0, 0) 30%) repeat scroll 0% 0% / auto padding-box border-box, rgba(0, 0, 0, 0) linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, ",
+    "backdropFilter": "none"
+  }
+]

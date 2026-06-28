@@ -1,0 +1,2937 @@
+{
+  "metadata": {
+    "project": "V mire lyudei reading speaking Markdown",
+    "agent": "Agent A: Real Source Example Matcher",
+    "generated_at": "2026-06-19T22:04:59.238Z",
+    "execution_mode": "batch-full-practical",
+    "matching_method": "exact",
+    "match_unit": "standalone normalized Russian token",
+    "target_entries": "full practical exact-token set",
+    "excluded_ranges": [
+      "167-186"
+    ],
+    "excluded_source_files": [
+      "章节/методический-комментарий.md",
+      "章节/приложение-лексика.md",
+      "章节/раздел2-тест.md",
+      "章节/раздел3-ключи-тест.md"
+    ],
+    "vocabulary_sources": [
+      "project appendix used as vocabulary seed only",
+      "D:/MyStudySpace/data/vocabulary.json source=vocab|freq single-token entries"
+    ]
+  },
+  "corpus": {
+    "chapter_dir": "章节/",
+    "source_files_read_for_examples": [
+      "章节/предисловие.md",
+      "章节/раздел1-продолжение.md",
+      "章节/раздел2-завершение.md",
+      "章节/раздел2-начало.md",
+      "章节/раздел3-завершение.md",
+      "章节/раздел3-начало.md",
+      "章节/样章.md"
+    ],
+    "sentence_candidates": 433,
+    "file_sentence_candidates": {
+      "предисловие.md": {
+        "sentences": 93
+      },
+      "раздел1-продолжение.md": {
+        "sentences": 74
+      },
+      "раздел2-завершение.md": {
+        "sentences": 94
+      },
+      "раздел2-начало.md": {
+        "sentences": 55
+      },
+      "раздел3-завершение.md": {
+        "sentences": 36
+      },
+      "раздел3-начало.md": {
+        "sentences": 28
+      },
+      "样章.md": {
+        "sentences": 53
+      }
+    }
+  },
+  "vocabulary": {
+    "considered_after_filter_dedup": 597,
+    "exact_match_candidates_available": 97,
+    "selected_for_batch": 97,
+    "unmatched_exact": 500,
+    "matched_not_selected": 0
+  },
+  "coverage": {
+    "matched_entries_by_source_file": {
+      "章节/раздел2-начало.md": 43,
+      "章节/раздел3-завершение.md": 5,
+      "章节/предисловие.md": 9,
+      "章节/раздел2-завершение.md": 16,
+      "章节/样章.md": 14,
+      "章节/раздел1-продолжение.md": 8,
+      "章节/раздел3-начало.md": 2
+    },
+    "examples_by_source_file": {
+      "章节/раздел2-начало.md": 56,
+      "章节/раздел3-завершение.md": 5,
+      "章节/предисловие.md": 11,
+      "章节/样章.md": 17,
+      "章节/раздел2-завершение.md": 20,
+      "章节/раздел1-продолжение.md": 12,
+      "章节/раздел3-начало.md": 3
+    },
+    "candidate_high_examples": 124,
+    "needs_review_examples": 0
+  },
+  "matches": [
+    {
+      "batch_id": "vmire-batch-0001",
+      "lemma": "расширять",
+      "display_word": "расширять",
+      "normalized_word": "расширять",
+      "meaning": "扩展, 扩大",
+      "type": "动词, 未完成体",
+      "source_entry": "章节/приложение-лексика.md",
+      "vocabulary_source": "project_ai_appendix_vocabulary_only",
+      "status": "candidate_high",
+      "match_mode": "exact",
+      "examples": [
+        {
+          "sentence": "Москву надо не расширять, а расселять.",
+          "highlighted_sentence": "Москву надо не **расширять**, а расселять.",
+          "matched_form": "расширять",
+          "source_file": "章节/раздел2-начало.md",
+          "page": "56",
+          "section_title": "Текст 2.1.1 — Новая российская столица как национальный проект",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00262"
+        }
+      ]
+    },
+    {
+      "batch_id": "vmire-batch-0002",
+      "lemma": "расселять",
+      "display_word": "расселять",
+      "normalized_word": "расселять",
+      "meaning": "疏散, 分散安置",
+      "type": "动词, 未完成体",
+      "source_entry": "章节/приложение-лексика.md",
+      "vocabulary_source": "project_ai_appendix_vocabulary_only",
+      "status": "candidate_high",
+      "match_mode": "exact",
+      "examples": [
+        {
+          "sentence": "Москву надо не расширять, а расселять.",
+          "highlighted_sentence": "Москву надо не расширять, а **расселять**.",
+          "matched_form": "расселять",
+          "source_file": "章节/раздел2-начало.md",
+          "page": "56",
+          "section_title": "Текст 2.1.1 — Новая российская столица как национальный проект",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00262"
+        }
+      ]
+    },
+    {
+      "batch_id": "vmire-batch-0003",
+      "lemma": "высказал",
+      "display_word": "высказал",
+      "normalized_word": "высказал",
+      "meaning": "表达, 说出, 发表",
+      "type": "动词 высказать, 完成体, 过去时, 阳性单数",
+      "source_entry": "章节/приложение-лексика.md",
+      "vocabulary_source": "project_ai_appendix_vocabulary_only",
+      "status": "candidate_high",
+      "match_mode": "exact",
+      "examples": [
+        {
+          "sentence": "Такое мнение высказал на Красноярском экономическом форуме миллиардер, владелец компании «Русал» Олег Дерипаска. «Каждый раз, подлетая к Москве, я задумываюсь: что эти люди там делают?",
+          "highlighted_sentence": "Такое мнение **высказал** на Красноярском экономическом форуме миллиардер, владелец компании «Русал» Олег Дерипаска. «Каждый раз, подлетая к Москве, я задумываюсь: что эти люди там делают?",
+          "matched_form": "высказал",
+          "source_file": "章节/раздел2-начало.md",
+          "page": "56",
+          "section_title": "Текст 2.1.1 — Новая российская столица как национальный проект",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00263"
+        }
+      ]
+    },
+    {
+      "batch_id": "vmire-batch-0004",
+      "lemma": "красноярском",
+      "display_word": "Красноярском",
+      "normalized_word": "красноярском",
+      "meaning": "克拉斯诺亚尔斯克的",
+      "type": "形容词, 专有, 阳性单数第六格",
+      "source_entry": "章节/приложение-лексика.md",
+      "vocabulary_source": "project_ai_appendix_vocabulary_only",
+      "status": "candidate_high",
+      "match_mode": "exact",
+      "examples": [
+        {
+          "sentence": "Такое мнение высказал на Красноярском экономическом форуме миллиардер, владелец компании «Русал» Олег Дерипаска. «Каждый раз, подлетая к Москве, я задумываюсь: что эти люди там делают?",
+          "highlighted_sentence": "Такое мнение высказал на **Красноярском** экономическом форуме миллиардер, владелец компании «Русал» Олег Дерипаска. «Каждый раз, подлетая к Москве, я задумываюсь: что эти люди там делают?",
+          "matched_form": "Красноярском",
+          "source_file": "章节/раздел2-начало.md",
+          "page": "56",
+          "section_title": "Текст 2.1.1 — Новая российская столица как национальный проект",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00263"
+        }
+      ]
+    },
+    {
+      "batch_id": "vmire-batch-0005",
+      "lemma": "экономическом",
+      "display_word": "экономическом",
+      "normalized_word": "экономическом",
+      "meaning": "经济的",
+      "type": "形容词, 阳性单数第六格",
+      "source_entry": "章节/приложение-лексика.md",
+      "vocabulary_source": "project_ai_appendix_vocabulary_only",
+      "status": "candidate_high",
+      "match_mode": "exact",
+      "examples": [
+        {
+          "sentence": "Такое мнение высказал на Красноярском экономическом форуме миллиардер, владелец компании «Русал» Олег Дерипаска. «Каждый раз, подлетая к Москве, я задумываюсь: что эти люди там делают?",
+          "highlighted_sentence": "Такое мнение высказал на Красноярском **экономическом** форуме миллиардер, владелец компании «Русал» Олег Дерипаска. «Каждый раз, подлетая к Москве, я задумываюсь: что эти люди там делают?",
+          "matched_form": "экономическом",
+          "source_file": "章节/раздел2-начало.md",
+          "page": "56",
+          "section_title": "Текст 2.1.1 — Новая российская столица как национальный проект",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00263"
+        }
+      ]
+    },
+    {
+      "batch_id": "vmire-batch-0006",
+      "lemma": "форуме",
+      "display_word": "форуме",
+      "normalized_word": "форуме",
+      "meaning": "论坛",
+      "type": "名词 форум, 阳性单数第六格",
+      "source_entry": "章节/приложение-лексика.md",
+      "vocabulary_source": "project_ai_appendix_vocabulary_only",
+      "status": "candidate_high",
+      "match_mode": "exact",
+      "examples": [
+        {
+          "sentence": "Ранее, на форуме в Давосе, олигарх заявил, что российским властям стоит подумать о переносе столицы страны из Москвы в Сибирь, если они хотят успешно развивать этот регион.",
+          "highlighted_sentence": "Ранее, на **форуме** в Давосе, олигарх заявил, что российским властям стоит подумать о переносе столицы страны из Москвы в Сибирь, если они хотят успешно развивать этот регион.",
+          "matched_form": "форуме",
+          "source_file": "章节/раздел2-начало.md",
+          "page": "56",
+          "section_title": "Текст 2.1.1 — Новая российская столица как национальный проект",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00265"
+        },
+        {
+          "sentence": "Такое мнение высказал на Красноярском экономическом форуме миллиардер, владелец компании «Русал» Олег Дерипаска. «Каждый раз, подлетая к Москве, я задумываюсь: что эти люди там делают?",
+          "highlighted_sentence": "Такое мнение высказал на Красноярском экономическом **форуме** миллиардер, владелец компании «Русал» Олег Дерипаска. «Каждый раз, подлетая к Москве, я задумываюсь: что эти люди там делают?",
+          "matched_form": "форуме",
+          "source_file": "章节/раздел2-начало.md",
+          "page": "56",
+          "section_title": "Текст 2.1.1 — Новая российская столица как национальный проект",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00263"
+        }
+      ]
+    },
+    {
+      "batch_id": "vmire-batch-0007",
+      "lemma": "подлетая",
+      "display_word": "подлетая",
+      "normalized_word": "подлетая",
+      "meaning": "飞近, 接近",
+      "type": "副动词, 未完成体",
+      "source_entry": "章节/приложение-лексика.md",
+      "vocabulary_source": "project_ai_appendix_vocabulary_only",
+      "status": "candidate_high",
+      "match_mode": "exact",
+      "examples": [
+        {
+          "sentence": "Такое мнение высказал на Красноярском экономическом форуме миллиардер, владелец компании «Русал» Олег Дерипаска. «Каждый раз, подлетая к Москве, я задумываюсь: что эти люди там делают?",
+          "highlighted_sentence": "Такое мнение высказал на Красноярском экономическом форуме миллиардер, владелец компании «Русал» Олег Дерипаска. «Каждый раз, **подлетая** к Москве, я задумываюсь: что эти люди там делают?",
+          "matched_form": "подлетая",
+          "source_file": "章节/раздел2-начало.md",
+          "page": "56",
+          "section_title": "Текст 2.1.1 — Новая российская столица как национальный проект",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00263"
+        }
+      ]
+    },
+    {
+      "batch_id": "vmire-batch-0008",
+      "lemma": "задумываюсь",
+      "display_word": "задумываюсь",
+      "normalized_word": "задумываюсь",
+      "meaning": "思索, 思考, 琢磨",
+      "type": "动词 задумываться, 未完成体, 现在时第一人称单数",
+      "source_entry": "章节/приложение-лексика.md",
+      "vocabulary_source": "project_ai_appendix_vocabulary_only",
+      "status": "candidate_high",
+      "match_mode": "exact",
+      "examples": [
+        {
+          "sentence": "Такое мнение высказал на Красноярском экономическом форуме миллиардер, владелец компании «Русал» Олег Дерипаска. «Каждый раз, подлетая к Москве, я задумываюсь: что эти люди там делают?",
+          "highlighted_sentence": "Такое мнение высказал на Красноярском экономическом форуме миллиардер, владелец компании «Русал» Олег Дерипаска. «Каждый раз, подлетая к Москве, я **задумываюсь**: что эти люди там делают?",
+          "matched_form": "задумываюсь",
+          "source_file": "章节/раздел2-начало.md",
+          "page": "56",
+          "section_title": "Текст 2.1.1 — Новая российская столица как национальный проект",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00263"
+        }
+      ]
+    },
+    {
+      "batch_id": "vmire-batch-0009",
+      "lemma": "нагрузка",
+      "display_word": "нагрузка",
+      "normalized_word": "нагрузка",
+      "meaning": "负担, 负荷",
+      "type": "名词, 阴性, 单数第一格",
+      "source_entry": "章节/приложение-лексика.md",
+      "vocabulary_source": "project_ai_appendix_vocabulary_only",
+      "status": "candidate_high",
+      "match_mode": "exact",
+      "examples": [
+        {
+          "sentence": "Какая нагрузка на нашу экономику» — пояснил он свою мысль.",
+          "highlighted_sentence": "Какая **нагрузка** на нашу экономику» — пояснил он свою мысль.",
+          "matched_form": "нагрузка",
+          "source_file": "章节/раздел2-начало.md",
+          "page": "56",
+          "section_title": "Текст 2.1.1 — Новая российская столица как национальный проект",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00264"
+        }
+      ]
+    },
+    {
+      "batch_id": "vmire-batch-0010",
+      "lemma": "экономику",
+      "display_word": "экономику",
+      "normalized_word": "экономику",
+      "meaning": "经济",
+      "type": "名词 экономика, 阴性, 单数第四格",
+      "source_entry": "章节/приложение-лексика.md",
+      "vocabulary_source": "project_ai_appendix_vocabulary_only",
+      "status": "candidate_high",
+      "match_mode": "exact",
+      "examples": [
+        {
+          "sentence": "Какая нагрузка на нашу экономику» — пояснил он свою мысль.",
+          "highlighted_sentence": "Какая нагрузка на нашу **экономику**» — пояснил он свою мысль.",
+          "matched_form": "экономику",
+          "source_file": "章节/раздел2-начало.md",
+          "page": "56",
+          "section_title": "Текст 2.1.1 — Новая российская столица как национальный проект",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00264"
+        }
+      ]
+    },
+    {
+      "batch_id": "vmire-batch-0011",
+      "lemma": "пояснил",
+      "display_word": "пояснил",
+      "normalized_word": "пояснил",
+      "meaning": "解释, 说明",
+      "type": "动词 пояснить, 完成体, 过去时, 阳性单数",
+      "source_entry": "章节/приложение-лексика.md",
+      "vocabulary_source": "project_ai_appendix_vocabulary_only",
+      "status": "candidate_high",
+      "match_mode": "exact",
+      "examples": [
+        {
+          "sentence": "Какая нагрузка на нашу экономику» — пояснил он свою мысль.",
+          "highlighted_sentence": "Какая нагрузка на нашу экономику» — **пояснил** он свою мысль.",
+          "matched_form": "пояснил",
+          "source_file": "章节/раздел2-начало.md",
+          "page": "56",
+          "section_title": "Текст 2.1.1 — Новая российская столица как национальный проект",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00264"
+        }
+      ]
+    },
+    {
+      "batch_id": "vmire-batch-0012",
+      "lemma": "ранее",
+      "display_word": "Ранее",
+      "normalized_word": "ранее",
+      "meaning": "此前, 早先, 之前",
+      "type": "时间副词",
+      "source_entry": "章节/приложение-лексика.md",
+      "vocabulary_source": "project_ai_appendix_vocabulary_only",
+      "status": "candidate_high",
+      "match_mode": "exact",
+      "examples": [
+        {
+          "sentence": "Ранее, на форуме в Давосе, олигарх заявил, что российским властям стоит подумать о переносе столицы страны из Москвы в Сибирь, если они хотят успешно развивать этот регион.",
+          "highlighted_sentence": "**Ранее**, на форуме в Давосе, олигарх заявил, что российским властям стоит подумать о переносе столицы страны из Москвы в Сибирь, если они хотят успешно развивать этот регион.",
+          "matched_form": "Ранее",
+          "source_file": "章节/раздел2-начало.md",
+          "page": "56",
+          "section_title": "Текст 2.1.1 — Новая российская столица как национальный проект",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00265"
+        }
+      ]
+    },
+    {
+      "batch_id": "vmire-batch-0013",
+      "lemma": "давосе",
+      "display_word": "Давосе",
+      "normalized_word": "давосе",
+      "meaning": "达沃斯",
+      "type": "名词 Давос, 阳性单数第六格",
+      "source_entry": "章节/приложение-лексика.md",
+      "vocabulary_source": "project_ai_appendix_vocabulary_only",
+      "status": "candidate_high",
+      "match_mode": "exact",
+      "examples": [
+        {
+          "sentence": "Ранее, на форуме в Давосе, олигарх заявил, что российским властям стоит подумать о переносе столицы страны из Москвы в Сибирь, если они хотят успешно развивать этот регион.",
+          "highlighted_sentence": "Ранее, на форуме в **Давосе**, олигарх заявил, что российским властям стоит подумать о переносе столицы страны из Москвы в Сибирь, если они хотят успешно развивать этот регион.",
+          "matched_form": "Давосе",
+          "source_file": "章节/раздел2-начало.md",
+          "page": "56",
+          "section_title": "Текст 2.1.1 — Новая российская столица как национальный проект",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00265"
+        }
+      ]
+    },
+    {
+      "batch_id": "vmire-batch-0014",
+      "lemma": "олигарх",
+      "display_word": "олигарх",
+      "normalized_word": "олигарх",
+      "meaning": "寡头",
+      "type": "名词, 阳性, 单数第一格",
+      "source_entry": "章节/приложение-лексика.md",
+      "vocabulary_source": "project_ai_appendix_vocabulary_only",
+      "status": "candidate_high",
+      "match_mode": "exact",
+      "examples": [
+        {
+          "sentence": "Ранее, на форуме в Давосе, олигарх заявил, что российским властям стоит подумать о переносе столицы страны из Москвы в Сибирь, если они хотят успешно развивать этот регион.",
+          "highlighted_sentence": "Ранее, на форуме в Давосе, **олигарх** заявил, что российским властям стоит подумать о переносе столицы страны из Москвы в Сибирь, если они хотят успешно развивать этот регион.",
+          "matched_form": "олигарх",
+          "source_file": "章节/раздел2-начало.md",
+          "page": "56",
+          "section_title": "Текст 2.1.1 — Новая российская столица как национальный проект",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00265"
+        }
+      ]
+    },
+    {
+      "batch_id": "vmire-batch-0015",
+      "lemma": "заявил",
+      "display_word": "заявил",
+      "normalized_word": "заявил",
+      "meaning": "声明, 宣称, 表示",
+      "type": "动词 заявить, 完成体, 过去时, 阳性单数",
+      "source_entry": "章节/приложение-лексика.md",
+      "vocabulary_source": "project_ai_appendix_vocabulary_only",
+      "status": "candidate_high",
+      "match_mode": "exact",
+      "examples": [
+        {
+          "sentence": "Поначалу Переслегиным хотели закончить концерт, но композитор заявил: «Нет!» По мнению Переслегина, Прокофьев мог спасти репутацию оркестра и после провала его симфонии.",
+          "highlighted_sentence": "Поначалу Переслегиным хотели закончить концерт, но композитор **заявил**: «Нет!» По мнению Переслегина, Прокофьев мог спасти репутацию оркестра и после провала его симфонии.",
+          "matched_form": "заявил",
+          "source_file": "章节/раздел3-завершение.md",
+          "page": "135",
+          "section_title": "Текст 3.5.2 — Альтист Данилов",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00349"
+        },
+        {
+          "sentence": "Ранее, на форуме в Давосе, олигарх заявил, что российским властям стоит подумать о переносе столицы страны из Москвы в Сибирь, если они хотят успешно развивать этот регион.",
+          "highlighted_sentence": "Ранее, на форуме в Давосе, олигарх **заявил**, что российским властям стоит подумать о переносе столицы страны из Москвы в Сибирь, если они хотят успешно развивать этот регион.",
+          "matched_form": "заявил",
+          "source_file": "章节/раздел2-начало.md",
+          "page": "56",
+          "section_title": "Текст 2.1.1 — Новая российская столица как национальный проект",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00265"
+        }
+      ]
+    },
+    {
+      "batch_id": "vmire-batch-0016",
+      "lemma": "россииским",
+      "display_word": "российским",
+      "normalized_word": "россииским",
+      "meaning": "俄罗斯的",
+      "type": "形容词, 复数第三格",
+      "source_entry": "章节/приложение-лексика.md",
+      "vocabulary_source": "project_ai_appendix_vocabulary_only",
+      "status": "candidate_high",
+      "match_mode": "exact",
+      "examples": [
+        {
+          "sentence": "Ранее, на форуме в Давосе, олигарх заявил, что российским властям стоит подумать о переносе столицы страны из Москвы в Сибирь, если они хотят успешно развивать этот регион.",
+          "highlighted_sentence": "Ранее, на форуме в Давосе, олигарх заявил, что **российским** властям стоит подумать о переносе столицы страны из Москвы в Сибирь, если они хотят успешно развивать этот регион.",
+          "matched_form": "российским",
+          "source_file": "章节/раздел2-начало.md",
+          "page": "56",
+          "section_title": "Текст 2.1.1 — Новая российская столица как национальный проект",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00265"
+        }
+      ]
+    },
+    {
+      "batch_id": "vmire-batch-0017",
+      "lemma": "властям",
+      "display_word": "властям",
+      "normalized_word": "властям",
+      "meaning": "当局, 权力",
+      "type": "名词 власть, 复数第三格",
+      "source_entry": "章节/приложение-лексика.md",
+      "vocabulary_source": "project_ai_appendix_vocabulary_only",
+      "status": "candidate_high",
+      "match_mode": "exact",
+      "examples": [
+        {
+          "sentence": "Ранее, на форуме в Давосе, олигарх заявил, что российским властям стоит подумать о переносе столицы страны из Москвы в Сибирь, если они хотят успешно развивать этот регион.",
+          "highlighted_sentence": "Ранее, на форуме в Давосе, олигарх заявил, что российским **властям** стоит подумать о переносе столицы страны из Москвы в Сибирь, если они хотят успешно развивать этот регион.",
+          "matched_form": "властям",
+          "source_file": "章节/раздел2-начало.md",
+          "page": "56",
+          "section_title": "Текст 2.1.1 — Новая российская столица как национальный проект",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00265"
+        }
+      ]
+    },
+    {
+      "batch_id": "vmire-batch-0018",
+      "lemma": "стоит",
+      "display_word": "стоит",
+      "normalized_word": "стоит",
+      "meaning": "应当, 值得, 应该",
+      "type": "状态动词, 现在时第三人称单数",
+      "source_entry": "章节/приложение-лексика.md",
+      "vocabulary_source": "project_ai_appendix_vocabulary_only",
+      "status": "candidate_high",
+      "match_mode": "exact",
+      "examples": [
+        {
+          "sentence": "Ранее, на форуме в Давосе, олигарх заявил, что российским властям стоит подумать о переносе столицы страны из Москвы в Сибирь, если они хотят успешно развивать этот регион.",
+          "highlighted_sentence": "Ранее, на форуме в Давосе, олигарх заявил, что российским властям **стоит** подумать о переносе столицы страны из Москвы в Сибирь, если они хотят успешно развивать этот регион.",
+          "matched_form": "стоит",
+          "source_file": "章节/раздел2-начало.md",
+          "page": "56",
+          "section_title": "Текст 2.1.1 — Новая российская столица как национальный проект",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00265"
+        }
+      ]
+    },
+    {
+      "batch_id": "vmire-batch-0019",
+      "lemma": "подумать",
+      "display_word": "подумать",
+      "normalized_word": "подумать",
+      "meaning": "考虑, 思考",
+      "type": "动词, 完成体, 不定式",
+      "source_entry": "章节/приложение-лексика.md",
+      "vocabulary_source": "project_ai_appendix_vocabulary_only",
+      "status": "candidate_high",
+      "match_mode": "exact",
+      "examples": [
+        {
+          "sentence": "Ранее, на форуме в Давосе, олигарх заявил, что российским властям стоит подумать о переносе столицы страны из Москвы в Сибирь, если они хотят успешно развивать этот регион.",
+          "highlighted_sentence": "Ранее, на форуме в Давосе, олигарх заявил, что российским властям стоит **подумать** о переносе столицы страны из Москвы в Сибирь, если они хотят успешно развивать этот регион.",
+          "matched_form": "подумать",
+          "source_file": "章节/раздел2-начало.md",
+          "page": "56",
+          "section_title": "Текст 2.1.1 — Новая российская столица как национальный проект",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00265"
+        },
+        {
+          "sentence": "Кто бы мог подумать, что через столько лет я сам буду руководить выпуском таких клоунов!",
+          "highlighted_sentence": "Кто бы мог **подумать**, что через столько лет я сам буду руководить выпуском таких клоунов!",
+          "matched_form": "подумать",
+          "source_file": "章节/предисловие.md",
+          "page": "14-16",
+          "section_title": "Текст 1.2.1 — «Люди истосковались по красивым, добрым игрушкам»",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00080"
+        }
+      ]
+    },
+    {
+      "batch_id": "vmire-batch-0020",
+      "lemma": "переносе",
+      "display_word": "переносе",
+      "normalized_word": "переносе",
+      "meaning": "迁移, 转移, 搬迁",
+      "type": "名词 перенос, 阳性单数第六格",
+      "source_entry": "章节/приложение-лексика.md",
+      "vocabulary_source": "project_ai_appendix_vocabulary_only",
+      "status": "candidate_high",
+      "match_mode": "exact",
+      "examples": [
+        {
+          "sentence": "Ранее, на форуме в Давосе, олигарх заявил, что российским властям стоит подумать о переносе столицы страны из Москвы в Сибирь, если они хотят успешно развивать этот регион.",
+          "highlighted_sentence": "Ранее, на форуме в Давосе, олигарх заявил, что российским властям стоит подумать о **переносе** столицы страны из Москвы в Сибирь, если они хотят успешно развивать этот регион.",
+          "matched_form": "переносе",
+          "source_file": "章节/раздел2-начало.md",
+          "page": "56",
+          "section_title": "Текст 2.1.1 — Новая российская столица как национальный проект",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00265"
+        }
+      ]
+    },
+    {
+      "batch_id": "vmire-batch-0021",
+      "lemma": "столицы",
+      "display_word": "столицы",
+      "normalized_word": "столицы",
+      "meaning": "首都",
+      "type": "名词 столица, 阴性, 单数第二格",
+      "source_entry": "章节/приложение-лексика.md",
+      "vocabulary_source": "project_ai_appendix_vocabulary_only",
+      "status": "candidate_high",
+      "match_mode": "exact",
+      "examples": [
+        {
+          "sentence": "До него о необходимости переноса столицы на восток говорили, в частности, писатель и политик Эдуард Лимонов и нынешний министр обороны Сергей Шойгу.",
+          "highlighted_sentence": "До него о необходимости переноса **столицы** на восток говорили, в частности, писатель и политик Эдуард Лимонов и нынешний министр обороны Сергей Шойгу.",
+          "matched_form": "столицы",
+          "source_file": "章节/раздел2-начало.md",
+          "page": "56",
+          "section_title": "Текст 2.1.1 — Новая российская столица как национальный проект",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00270"
+        },
+        {
+          "sentence": "Ранее, на форуме в Давосе, олигарх заявил, что российским властям стоит подумать о переносе столицы страны из Москвы в Сибирь, если они хотят успешно развивать этот регион.",
+          "highlighted_sentence": "Ранее, на форуме в Давосе, олигарх заявил, что российским властям стоит подумать о переносе **столицы** страны из Москвы в Сибирь, если они хотят успешно развивать этот регион.",
+          "matched_form": "столицы",
+          "source_file": "章节/раздел2-начало.md",
+          "page": "56",
+          "section_title": "Текст 2.1.1 — Новая российская столица как национальный проект",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00265"
+        }
+      ]
+    },
+    {
+      "batch_id": "vmire-batch-0022",
+      "lemma": "сибирь",
+      "display_word": "Сибирь",
+      "normalized_word": "сибирь",
+      "meaning": "西伯利亚",
+      "type": "名词, 阴性, 单数第四格",
+      "source_entry": "章节/приложение-лексика.md",
+      "vocabulary_source": "project_ai_appendix_vocabulary_only",
+      "status": "candidate_high",
+      "match_mode": "exact",
+      "examples": [
+        {
+          "sentence": "Ранее, на форуме в Давосе, олигарх заявил, что российским властям стоит подумать о переносе столицы страны из Москвы в Сибирь, если они хотят успешно развивать этот регион.",
+          "highlighted_sentence": "Ранее, на форуме в Давосе, олигарх заявил, что российским властям стоит подумать о переносе столицы страны из Москвы в **Сибирь**, если они хотят успешно развивать этот регион.",
+          "matched_form": "Сибирь",
+          "source_file": "章节/раздел2-начало.md",
+          "page": "56",
+          "section_title": "Текст 2.1.1 — Новая российская столица как национальный проект",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00265"
+        },
+        {
+          "sentence": "Россия даст Сибири столицу, а Сибирь России — динамику развития лет на двести вперёд.",
+          "highlighted_sentence": "Россия даст Сибири столицу, а **Сибирь** России — динамику развития лет на двести вперёд.",
+          "matched_form": "Сибирь",
+          "source_file": "章节/раздел2-начало.md",
+          "page": "56",
+          "section_title": "Текст 2.1.1 — Новая российская столица как национальный проект",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00278"
+        }
+      ]
+    },
+    {
+      "batch_id": "vmire-batch-0023",
+      "lemma": "успешно",
+      "display_word": "успешно",
+      "normalized_word": "успешно",
+      "meaning": "成功地, 顺利地",
+      "type": "副词",
+      "source_entry": "章节/приложение-лексика.md",
+      "vocabulary_source": "project_ai_appendix_vocabulary_only",
+      "status": "candidate_high",
+      "match_mode": "exact",
+      "examples": [
+        {
+          "sentence": "Ранее, на форуме в Давосе, олигарх заявил, что российским властям стоит подумать о переносе столицы страны из Москвы в Сибирь, если они хотят успешно развивать этот регион.",
+          "highlighted_sentence": "Ранее, на форуме в Давосе, олигарх заявил, что российским властям стоит подумать о переносе столицы страны из Москвы в Сибирь, если они хотят **успешно** развивать этот регион.",
+          "matched_form": "успешно",
+          "source_file": "章节/раздел2-начало.md",
+          "page": "56",
+          "section_title": "Текст 2.1.1 — Новая российская столица как национальный проект",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00265"
+        }
+      ]
+    },
+    {
+      "batch_id": "vmire-batch-0024",
+      "lemma": "развивать",
+      "display_word": "развивать",
+      "normalized_word": "развивать",
+      "meaning": "发展, 开发, 培养",
+      "type": "动词, 未完成体, 不定式",
+      "source_entry": "章节/приложение-лексика.md",
+      "vocabulary_source": "project_ai_appendix_vocabulary_only",
+      "status": "candidate_high",
+      "match_mode": "exact",
+      "examples": [
+        {
+          "sentence": "Ранее, на форуме в Давосе, олигарх заявил, что российским властям стоит подумать о переносе столицы страны из Москвы в Сибирь, если они хотят успешно развивать этот регион.",
+          "highlighted_sentence": "Ранее, на форуме в Давосе, олигарх заявил, что российским властям стоит подумать о переносе столицы страны из Москвы в Сибирь, если они хотят успешно **развивать** этот регион.",
+          "matched_form": "развивать",
+          "source_file": "章节/раздел2-начало.md",
+          "page": "56",
+          "section_title": "Текст 2.1.1 — Новая российская столица как национальный проект",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00265"
+        },
+        {
+          "sentence": "В качестве успешного примера такой тактики Дерипаска назвал Олимпиаду в Сочи. «Чтобы развивать юг России, было принято решение провести там Олимпиаду. <…> Страна напряглась, и на юге появился новый кластер», — цитировали СМИ его слова.",
+          "highlighted_sentence": "В качестве успешного примера такой тактики Дерипаска назвал Олимпиаду в Сочи. «Чтобы **развивать** юг России, было принято решение провести там Олимпиаду. <…> Страна напряглась, и на юге появился новый кластер», — цитировали СМИ его слова.",
+          "matched_form": "развивать",
+          "source_file": "章节/раздел2-начало.md",
+          "page": "56",
+          "section_title": "Текст 2.1.1 — Новая российская столица как национальный проект",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00266"
+        }
+      ]
+    },
+    {
+      "batch_id": "vmire-batch-0025",
+      "lemma": "регион",
+      "display_word": "регион",
+      "normalized_word": "регион",
+      "meaning": "地区, 区域",
+      "type": "名词, 阳性, 单数第四格",
+      "source_entry": "章节/приложение-лексика.md",
+      "vocabulary_source": "project_ai_appendix_vocabulary_only",
+      "status": "candidate_high",
+      "match_mode": "exact",
+      "examples": [
+        {
+          "sentence": "Ранее, на форуме в Давосе, олигарх заявил, что российским властям стоит подумать о переносе столицы страны из Москвы в Сибирь, если они хотят успешно развивать этот регион.",
+          "highlighted_sentence": "Ранее, на форуме в Давосе, олигарх заявил, что российским властям стоит подумать о переносе столицы страны из Москвы в Сибирь, если они хотят успешно развивать этот **регион**.",
+          "matched_form": "регион",
+          "source_file": "章节/раздел2-начало.md",
+          "page": "56",
+          "section_title": "Текст 2.1.1 — Новая российская столица как национальный проект",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00265"
+        }
+      ]
+    },
+    {
+      "batch_id": "vmire-batch-0026",
+      "lemma": "качестве",
+      "display_word": "качестве",
+      "normalized_word": "качестве",
+      "meaning": "质量, 身份, 作为",
+      "type": "名词 качество, 中性, 单数第六格",
+      "source_entry": "章节/приложение-лексика.md",
+      "vocabulary_source": "project_ai_appendix_vocabulary_only",
+      "status": "candidate_high",
+      "match_mode": "exact",
+      "examples": [
+        {
+          "sentence": "Допущено УМО по направлениям педагогического образования Минобрнауки РФ в качестве учебного пособия.",
+          "highlighted_sentence": "Допущено УМО по направлениям педагогического образования Минобрнауки РФ в **качестве** учебного пособия.",
+          "matched_form": "качестве",
+          "source_file": "章节/предисловие.md",
+          "page": "1-3",
+          "section_title": "Выходные данные",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00003"
+        },
+        {
+          "sentence": "Но бесплатное обучение мы можем предложить только зарегистрированным в качестве безработных, а это лица с московской регистрацией», — сообщил замглавы департамента труда и соцзащиты населения Андрей Бесштанько.",
+          "highlighted_sentence": "Но бесплатное обучение мы можем предложить только зарегистрированным в **качестве** безработных, а это лица с московской регистрацией», — сообщил замглавы департамента труда и соцзащиты населения Андрей Бесштанько.",
+          "matched_form": "качестве",
+          "source_file": "章节/样章.md",
+          "page": "20",
+          "section_title": "Текст 1.3.1 — Милости не просим",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00415"
+        }
+      ]
+    },
+    {
+      "batch_id": "vmire-batch-0027",
+      "lemma": "успешного",
+      "display_word": "успешного",
+      "normalized_word": "успешного",
+      "meaning": "成功的",
+      "type": "形容词, 阳性单数第二格",
+      "source_entry": "章节/приложение-лексика.md",
+      "vocabulary_source": "project_ai_appendix_vocabulary_only",
+      "status": "candidate_high",
+      "match_mode": "exact",
+      "examples": [
+        {
+          "sentence": "После успешного полёта Белка и Стрелка прожили долгую жизнь в Институте авиационной и космической медицины.",
+          "highlighted_sentence": "После **успешного** полёта Белка и Стрелка прожили долгую жизнь в Институте авиационной и космической медицины.",
+          "matched_form": "успешного",
+          "source_file": "章节/раздел2-завершение.md",
+          "page": "72",
+          "section_title": "Текст 2.4.1 — Зверьё в космосе",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00228"
+        },
+        {
+          "sentence": "В качестве успешного примера такой тактики Дерипаска назвал Олимпиаду в Сочи. «Чтобы развивать юг России, было принято решение провести там Олимпиаду. <…> Страна напряглась, и на юге появился новый кластер», — цитировали СМИ его слова.",
+          "highlighted_sentence": "В качестве **успешного** примера такой тактики Дерипаска назвал Олимпиаду в Сочи. «Чтобы развивать юг России, было принято решение провести там Олимпиаду. <…> Страна напряглась, и на юге появился новый кластер», — цитировали СМИ его слова.",
+          "matched_form": "успешного",
+          "source_file": "章节/раздел2-начало.md",
+          "page": "56",
+          "section_title": "Текст 2.1.1 — Новая российская столица как национальный проект",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00266"
+        }
+      ]
+    },
+    {
+      "batch_id": "vmire-batch-0028",
+      "lemma": "примера",
+      "display_word": "примера",
+      "normalized_word": "примера",
+      "meaning": "例子, 范例",
+      "type": "名词 пример, 阳性, 单数第二格",
+      "source_entry": "章节/приложение-лексика.md",
+      "vocabulary_source": "project_ai_appendix_vocabulary_only",
+      "status": "candidate_high",
+      "match_mode": "exact",
+      "examples": [
+        {
+          "sentence": "В качестве успешного примера такой тактики Дерипаска назвал Олимпиаду в Сочи. «Чтобы развивать юг России, было принято решение провести там Олимпиаду. <…> Страна напряглась, и на юге появился новый кластер», — цитировали СМИ его слова.",
+          "highlighted_sentence": "В качестве успешного **примера** такой тактики Дерипаска назвал Олимпиаду в Сочи. «Чтобы развивать юг России, было принято решение провести там Олимпиаду. <…> Страна напряглась, и на юге появился новый кластер», — цитировали СМИ его слова.",
+          "matched_form": "примера",
+          "source_file": "章节/раздел2-начало.md",
+          "page": "56",
+          "section_title": "Текст 2.1.1 — Новая российская столица как национальный проект",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00266"
+        }
+      ]
+    },
+    {
+      "batch_id": "vmire-batch-0029",
+      "lemma": "тактики",
+      "display_word": "тактики",
+      "normalized_word": "тактики",
+      "meaning": "策略, 战术",
+      "type": "名词 тактика, 阴性, 单数第二格",
+      "source_entry": "章节/приложение-лексика.md",
+      "vocabulary_source": "project_ai_appendix_vocabulary_only",
+      "status": "candidate_high",
+      "match_mode": "exact",
+      "examples": [
+        {
+          "sentence": "В качестве успешного примера такой тактики Дерипаска назвал Олимпиаду в Сочи. «Чтобы развивать юг России, было принято решение провести там Олимпиаду. <…> Страна напряглась, и на юге появился новый кластер», — цитировали СМИ его слова.",
+          "highlighted_sentence": "В качестве успешного примера такой **тактики** Дерипаска назвал Олимпиаду в Сочи. «Чтобы развивать юг России, было принято решение провести там Олимпиаду. <…> Страна напряглась, и на юге появился новый кластер», — цитировали СМИ его слова.",
+          "matched_form": "тактики",
+          "source_file": "章节/раздел2-начало.md",
+          "page": "56",
+          "section_title": "Текст 2.1.1 — Новая российская столица как национальный проект",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00266"
+        }
+      ]
+    },
+    {
+      "batch_id": "vmire-batch-0030",
+      "lemma": "назвал",
+      "display_word": "назвал",
+      "normalized_word": "назвал",
+      "meaning": "称作, 命名",
+      "type": "动词 назвать, 完成体, 过去时阳性单数",
+      "source_entry": "章节/приложение-лексика.md",
+      "vocabulary_source": "project_ai_appendix_vocabulary_only",
+      "status": "candidate_high",
+      "match_mode": "exact",
+      "examples": [
+        {
+          "sentence": "В качестве успешного примера такой тактики Дерипаска назвал Олимпиаду в Сочи. «Чтобы развивать юг России, было принято решение провести там Олимпиаду. <…> Страна напряглась, и на юге появился новый кластер», — цитировали СМИ его слова.",
+          "highlighted_sentence": "В качестве успешного примера такой тактики Дерипаска **назвал** Олимпиаду в Сочи. «Чтобы развивать юг России, было принято решение провести там Олимпиаду. <…> Страна напряглась, и на юге появился новый кластер», — цитировали СМИ его слова.",
+          "matched_form": "назвал",
+          "source_file": "章节/раздел2-начало.md",
+          "page": "56",
+          "section_title": "Текст 2.1.1 — Новая российская столица как национальный проект",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00266"
+        }
+      ]
+    },
+    {
+      "batch_id": "vmire-batch-0031",
+      "lemma": "олимпиаду",
+      "display_word": "Олимпиаду",
+      "normalized_word": "олимпиаду",
+      "meaning": "奥运",
+      "type": "名词 Олимпиада, 阴性, 单数第四格",
+      "source_entry": "章节/приложение-лексика.md",
+      "vocabulary_source": "project_ai_appendix_vocabulary_only",
+      "status": "candidate_high",
+      "match_mode": "exact",
+      "examples": [
+        {
+          "sentence": "В качестве успешного примера такой тактики Дерипаска назвал Олимпиаду в Сочи. «Чтобы развивать юг России, было принято решение провести там Олимпиаду. <…> Страна напряглась, и на юге появился новый кластер», — цитировали СМИ его слова.",
+          "highlighted_sentence": "В качестве успешного примера такой тактики Дерипаска назвал **Олимпиаду** в Сочи. «Чтобы развивать юг России, было принято решение провести там **Олимпиаду**. <…> Страна напряглась, и на юге появился новый кластер», — цитировали СМИ его слова.",
+          "matched_form": "Олимпиаду",
+          "source_file": "章节/раздел2-начало.md",
+          "page": "56",
+          "section_title": "Текст 2.1.1 — Новая российская столица как национальный проект",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00266"
+        }
+      ]
+    },
+    {
+      "batch_id": "vmire-batch-0032",
+      "lemma": "принято",
+      "display_word": "принято",
+      "normalized_word": "принято",
+      "meaning": "被接受, 被通过",
+      "type": "被动形动词短尾, 中性单数",
+      "source_entry": "章节/приложение-лексика.md",
+      "vocabulary_source": "project_ai_appendix_vocabulary_only",
+      "status": "candidate_high",
+      "match_mode": "exact",
+      "examples": [
+        {
+          "sentence": "С тех пор с 1851 года принято отсчитывать историю российской школы скалолазания, зарождение которой тесно связано со Столбами.",
+          "highlighted_sentence": "С тех пор с 1851 года **принято** отсчитывать историю российской школы скалолазания, зарождение которой тесно связано со Столбами.",
+          "matched_form": "принято",
+          "source_file": "章节/предисловие.md",
+          "page": "11-13",
+          "section_title": "Текст 1.1.2 — Красноярские Столбы — заповедник скалолазов",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00058"
+        },
+        {
+          "sentence": "В качестве успешного примера такой тактики Дерипаска назвал Олимпиаду в Сочи. «Чтобы развивать юг России, было принято решение провести там Олимпиаду. <…> Страна напряглась, и на юге появился новый кластер», — цитировали СМИ его слова.",
+          "highlighted_sentence": "В качестве успешного примера такой тактики Дерипаска назвал Олимпиаду в Сочи. «Чтобы развивать юг России, было **принято** решение провести там Олимпиаду. <…> Страна напряглась, и на юге появился новый кластер», — цитировали СМИ его слова.",
+          "matched_form": "принято",
+          "source_file": "章节/раздел2-начало.md",
+          "page": "56",
+          "section_title": "Текст 2.1.1 — Новая российская столица как национальный проект",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00266"
+        }
+      ]
+    },
+    {
+      "batch_id": "vmire-batch-0033",
+      "lemma": "решение",
+      "display_word": "решение",
+      "normalized_word": "решение",
+      "meaning": "决定, 决议",
+      "type": "名词, 中性, 单数第一格",
+      "source_entry": "章节/приложение-лексика.md",
+      "vocabulary_source": "project_ai_appendix_vocabulary_only",
+      "status": "candidate_high",
+      "match_mode": "exact",
+      "examples": [
+        {
+          "sentence": "Это пусть и временное, но всё же решение квартирного вопроса.",
+          "highlighted_sentence": "Это пусть и временное, но всё же **решение** квартирного вопроса.",
+          "matched_form": "решение",
+          "source_file": "章节/样章.md",
+          "page": "20",
+          "section_title": "Текст 1.3.1 — Милости не просим",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00427"
+        },
+        {
+          "sentence": "В качестве успешного примера такой тактики Дерипаска назвал Олимпиаду в Сочи. «Чтобы развивать юг России, было принято решение провести там Олимпиаду. <…> Страна напряглась, и на юге появился новый кластер», — цитировали СМИ его слова.",
+          "highlighted_sentence": "В качестве успешного примера такой тактики Дерипаска назвал Олимпиаду в Сочи. «Чтобы развивать юг России, было принято **решение** провести там Олимпиаду. <…> Страна напряглась, и на юге появился новый кластер», — цитировали СМИ его слова.",
+          "matched_form": "решение",
+          "source_file": "章节/раздел2-начало.md",
+          "page": "56",
+          "section_title": "Текст 2.1.1 — Новая российская столица как национальный проект",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00266"
+        }
+      ]
+    },
+    {
+      "batch_id": "vmire-batch-0034",
+      "lemma": "провести",
+      "display_word": "провести",
+      "normalized_word": "провести",
+      "meaning": "举办, 进行",
+      "type": "动词, 完成体, 不定式",
+      "source_entry": "章节/приложение-лексика.md",
+      "vocabulary_source": "project_ai_appendix_vocabulary_only",
+      "status": "candidate_high",
+      "match_mode": "exact",
+      "examples": [
+        {
+          "sentence": "Но стоило попроситься самой сесть за верстак и попробовать провести хоть одну линию, как стало понятно: нет, вся эта лёгкость обманчива.",
+          "highlighted_sentence": "Но стоило попроситься самой сесть за верстак и попробовать **провести** хоть одну линию, как стало понятно: нет, вся эта лёгкость обманчива.",
+          "matched_form": "провести",
+          "source_file": "章节/样章.md",
+          "page": "17",
+          "section_title": "Текст 1.2.2 — Голос камня",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00405"
+        },
+        {
+          "sentence": "В качестве успешного примера такой тактики Дерипаска назвал Олимпиаду в Сочи. «Чтобы развивать юг России, было принято решение провести там Олимпиаду. <…> Страна напряглась, и на юге появился новый кластер», — цитировали СМИ его слова.",
+          "highlighted_sentence": "В качестве успешного примера такой тактики Дерипаска назвал Олимпиаду в Сочи. «Чтобы развивать юг России, было принято решение **провести** там Олимпиаду. <…> Страна напряглась, и на юге появился новый кластер», — цитировали СМИ его слова.",
+          "matched_form": "провести",
+          "source_file": "章节/раздел2-начало.md",
+          "page": "56",
+          "section_title": "Текст 2.1.1 — Новая российская столица как национальный проект",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00266"
+        }
+      ]
+    },
+    {
+      "batch_id": "vmire-batch-0035",
+      "lemma": "напряглась",
+      "display_word": "напряглась",
+      "normalized_word": "напряглась",
+      "meaning": "集中力量, 紧张起来",
+      "type": "动词 напрячься, 完成体, 过去时阴性单数",
+      "source_entry": "章节/приложение-лексика.md",
+      "vocabulary_source": "project_ai_appendix_vocabulary_only",
+      "status": "candidate_high",
+      "match_mode": "exact",
+      "examples": [
+        {
+          "sentence": "В качестве успешного примера такой тактики Дерипаска назвал Олимпиаду в Сочи. «Чтобы развивать юг России, было принято решение провести там Олимпиаду. <…> Страна напряглась, и на юге появился новый кластер», — цитировали СМИ его слова.",
+          "highlighted_sentence": "В качестве успешного примера такой тактики Дерипаска назвал Олимпиаду в Сочи. «Чтобы развивать юг России, было принято решение провести там Олимпиаду. <…> Страна **напряглась**, и на юге появился новый кластер», — цитировали СМИ его слова.",
+          "matched_form": "напряглась",
+          "source_file": "章节/раздел2-начало.md",
+          "page": "56",
+          "section_title": "Текст 2.1.1 — Новая российская столица как национальный проект",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00266"
+        }
+      ]
+    },
+    {
+      "batch_id": "vmire-batch-0036",
+      "lemma": "место",
+      "display_word": "место",
+      "normalized_word": "место",
+      "meaning": "地方, 地点",
+      "type": "名词, 中性, 单数第四格",
+      "source_entry": "章节/приложение-лексика.md",
+      "vocabulary_source": "project_ai_appendix_vocabulary_only",
+      "status": "candidate_high",
+      "match_mode": "exact",
+      "examples": [
+        {
+          "sentence": "Легко догадаться, что далеко не все чиновники готовы будут столь круто изменить свою жизнь и переехать на новое место работы. <…> И это хорошо.",
+          "highlighted_sentence": "Легко догадаться, что далеко не все чиновники готовы будут столь круто изменить свою жизнь и переехать на новое **место** работы. <…> И это хорошо.",
+          "matched_form": "место",
+          "source_file": "章节/раздел2-начало.md",
+          "page": "56",
+          "section_title": "Текст 2.1.1 — Новая российская столица как национальный проект",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00276"
+        }
+      ]
+    },
+    {
+      "batch_id": "vmire-batch-0037",
+      "lemma": "работы",
+      "display_word": "работы",
+      "normalized_word": "работы",
+      "meaning": "工作",
+      "type": "名词 работа, 阴性, 单数第二格",
+      "source_entry": "章节/приложение-лексика.md",
+      "vocabulary_source": "project_ai_appendix_vocabulary_only",
+      "status": "candidate_high",
+      "match_mode": "exact",
+      "examples": [
+        {
+          "sentence": "Легко догадаться, что далеко не все чиновники готовы будут столь круто изменить свою жизнь и переехать на новое место работы. <…> И это хорошо.",
+          "highlighted_sentence": "Легко догадаться, что далеко не все чиновники готовы будут столь круто изменить свою жизнь и переехать на новое место **работы**. <…> И это хорошо.",
+          "matched_form": "работы",
+          "source_file": "章节/раздел2-начало.md",
+          "page": "56",
+          "section_title": "Текст 2.1.1 — Новая российская столица как национальный проект",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00276"
+        },
+        {
+          "sentence": "Группе Бармина поручили одну из самых ответственных частей работы — создание стартовых комплексов для баллистических ракет.",
+          "highlighted_sentence": "Группе Бармина поручили одну из самых ответственных частей **работы** — создание стартовых комплексов для баллистических ракет.",
+          "matched_form": "работы",
+          "source_file": "章节/раздел1-продолжение.md",
+          "page": "26",
+          "section_title": "Текст 1.4.1 — Отец Байконура",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00125"
+        }
+      ]
+    },
+    {
+      "batch_id": "vmire-batch-0038",
+      "lemma": "появится",
+      "display_word": "Появится",
+      "normalized_word": "появится",
+      "meaning": "出现, 产生",
+      "type": "动词 появиться, 完成体, 第三人称单数",
+      "source_entry": "章节/приложение-лексика.md",
+      "vocabulary_source": "project_ai_appendix_vocabulary_only",
+      "status": "candidate_high",
+      "match_mode": "exact",
+      "examples": [
+        {
+          "sentence": "Появится шанс омолодить управляющий класс страны. <…> Богатство России Сибирью прирастать будет, был уверен Михайло Ломоносов.",
+          "highlighted_sentence": "**Появится** шанс омолодить управляющий класс страны. <…> Богатство России Сибирью прирастать будет, был уверен Михайло Ломоносов.",
+          "matched_form": "Появится",
+          "source_file": "章节/раздел2-начало.md",
+          "page": "56",
+          "section_title": "Текст 2.1.1 — Новая российская столица как национальный проект",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00277"
+        }
+      ]
+    },
+    {
+      "batch_id": "vmire-batch-0039",
+      "lemma": "шанс",
+      "display_word": "шанс",
+      "normalized_word": "шанс",
+      "meaning": "机会, 可能性",
+      "type": "名词, 阳性, 单数第一格",
+      "source_entry": "章节/приложение-лексика.md",
+      "vocabulary_source": "project_ai_appendix_vocabulary_only",
+      "status": "candidate_high",
+      "match_mode": "exact",
+      "examples": [
+        {
+          "sentence": "Появится шанс омолодить управляющий класс страны. <…> Богатство России Сибирью прирастать будет, был уверен Михайло Ломоносов.",
+          "highlighted_sentence": "Появится **шанс** омолодить управляющий класс страны. <…> Богатство России Сибирью прирастать будет, был уверен Михайло Ломоносов.",
+          "matched_form": "шанс",
+          "source_file": "章节/раздел2-начало.md",
+          "page": "56",
+          "section_title": "Текст 2.1.1 — Новая российская столица как национальный проект",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00277"
+        }
+      ]
+    },
+    {
+      "batch_id": "vmire-batch-0040",
+      "lemma": "омолодить",
+      "display_word": "омолодить",
+      "normalized_word": "омолодить",
+      "meaning": "使…年轻化, 更新",
+      "type": "动词, 完成体, 不定式",
+      "source_entry": "章节/приложение-лексика.md",
+      "vocabulary_source": "project_ai_appendix_vocabulary_only",
+      "status": "candidate_high",
+      "match_mode": "exact",
+      "examples": [
+        {
+          "sentence": "Появится шанс омолодить управляющий класс страны. <…> Богатство России Сибирью прирастать будет, был уверен Михайло Ломоносов.",
+          "highlighted_sentence": "Появится шанс **омолодить** управляющий класс страны. <…> Богатство России Сибирью прирастать будет, был уверен Михайло Ломоносов.",
+          "matched_form": "омолодить",
+          "source_file": "章节/раздел2-начало.md",
+          "page": "56",
+          "section_title": "Текст 2.1.1 — Новая российская столица как национальный проект",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00277"
+        }
+      ]
+    },
+    {
+      "batch_id": "vmire-batch-0041",
+      "lemma": "будет",
+      "display_word": "будет",
+      "normalized_word": "будет",
+      "meaning": "将, 会",
+      "type": "动词 быть, 将来时, 第三人称单数",
+      "source_entry": "章节/приложение-лексика.md",
+      "vocabulary_source": "project_ai_appendix_vocabulary_only",
+      "status": "candidate_high",
+      "match_mode": "exact",
+      "examples": [
+        {
+          "sentence": "Появится шанс омолодить управляющий класс страны. <…> Богатство России Сибирью прирастать будет, был уверен Михайло Ломоносов.",
+          "highlighted_sentence": "Появится шанс омолодить управляющий класс страны. <…> Богатство России Сибирью прирастать **будет**, был уверен Михайло Ломоносов.",
+          "matched_form": "будет",
+          "source_file": "章节/раздел2-начало.md",
+          "page": "56",
+          "section_title": "Текст 2.1.1 — Новая российская столица как национальный проект",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00277"
+        },
+        {
+          "sentence": "Там можно будет освоить самые востребованные рабочие профессии, причём совершенно бесплатно.",
+          "highlighted_sentence": "Там можно **будет** освоить самые востребованные рабочие профессии, причём совершенно бесплатно.",
+          "matched_form": "будет",
+          "source_file": "章节/样章.md",
+          "page": "20",
+          "section_title": "Текст 1.3.1 — Милости не просим",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00413"
+        }
+      ]
+    },
+    {
+      "batch_id": "vmire-batch-0042",
+      "lemma": "уверен",
+      "display_word": "уверен",
+      "normalized_word": "уверен",
+      "meaning": "确信的, 有信心的",
+      "type": "形容词短尾, 阳性单数",
+      "source_entry": "章节/приложение-лексика.md",
+      "vocabulary_source": "project_ai_appendix_vocabulary_only",
+      "status": "candidate_high",
+      "match_mode": "exact",
+      "examples": [
+        {
+          "sentence": "Появится шанс омолодить управляющий класс страны. <…> Богатство России Сибирью прирастать будет, был уверен Михайло Ломоносов.",
+          "highlighted_sentence": "Появится шанс омолодить управляющий класс страны. <…> Богатство России Сибирью прирастать будет, был **уверен** Михайло Ломоносов.",
+          "matched_form": "уверен",
+          "source_file": "章节/раздел2-начало.md",
+          "page": "56",
+          "section_title": "Текст 2.1.1 — Новая российская столица как национальный проект",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00277"
+        },
+        {
+          "sentence": "Уверен, что состоявшиеся переговоры поспособствуют укреплению и дальнейшему развитию доверительных партнёрских отношений.",
+          "highlighted_sentence": "**Уверен**, что состоявшиеся переговоры поспособствуют укреплению и дальнейшему развитию доверительных партнёрских отношений.",
+          "matched_form": "Уверен",
+          "source_file": "章节/раздел2-завершение.md",
+          "page": "80-82",
+          "section_title": "Письмо-благодарность",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00254"
+        }
+      ]
+    },
+    {
+      "batch_id": "vmire-batch-0043",
+      "lemma": "россия",
+      "display_word": "Россия",
+      "normalized_word": "россия",
+      "meaning": "俄罗斯",
+      "type": "名词, 阴性, 单数第一格",
+      "source_entry": "章节/приложение-лексика.md",
+      "vocabulary_source": "project_ai_appendix_vocabulary_only",
+      "status": "candidate_high",
+      "match_mode": "exact",
+      "examples": [
+        {
+          "sentence": "Организаторами проекта выступили телеканал «Россия К», музей-усадьба «Ясная Поляна» и компания Google.",
+          "highlighted_sentence": "Организаторами проекта выступили телеканал «**Россия** К», музей-усадьба «Ясная Поляна» и компания Google.",
+          "matched_form": "Россия",
+          "source_file": "章节/раздел2-завершение.md",
+          "page": "77",
+          "section_title": "Текст 2.5.1 — Марафон чтения: «Война и мир»",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00242"
+        },
+        {
+          "sentence": "Россия даст Сибири столицу, а Сибирь России — динамику развития лет на двести вперёд.",
+          "highlighted_sentence": "**Россия** даст Сибири столицу, а Сибирь России — динамику развития лет на двести вперёд.",
+          "matched_form": "Россия",
+          "source_file": "章节/раздел2-начало.md",
+          "page": "56",
+          "section_title": "Текст 2.1.1 — Новая российская столица как национальный проект",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00278"
+        }
+      ]
+    },
+    {
+      "batch_id": "vmire-batch-0044",
+      "lemma": "даст",
+      "display_word": "даст",
+      "normalized_word": "даст",
+      "meaning": "给, 给予",
+      "type": "动词 дать, 完成体, 将来时第三人称单数",
+      "source_entry": "章节/приложение-лексика.md",
+      "vocabulary_source": "project_ai_appendix_vocabulary_only",
+      "status": "candidate_high",
+      "match_mode": "exact",
+      "examples": [
+        {
+          "sentence": "Россия даст Сибири столицу, а Сибирь России — динамику развития лет на двести вперёд.",
+          "highlighted_sentence": "Россия **даст** Сибири столицу, а Сибирь России — динамику развития лет на двести вперёд.",
+          "matched_form": "даст",
+          "source_file": "章节/раздел2-начало.md",
+          "page": "56",
+          "section_title": "Текст 2.1.1 — Новая российская столица как национальный проект",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00278"
+        }
+      ]
+    },
+    {
+      "batch_id": "vmire-batch-0045",
+      "lemma": "двести",
+      "display_word": "двести",
+      "normalized_word": "двести",
+      "meaning": "二百",
+      "type": "数词",
+      "source_entry": "章节/приложение-лексика.md",
+      "vocabulary_source": "project_ai_appendix_vocabulary_only",
+      "status": "candidate_high",
+      "match_mode": "exact",
+      "examples": [
+        {
+          "sentence": "Россия даст Сибири столицу, а Сибирь России — динамику развития лет на двести вперёд.",
+          "highlighted_sentence": "Россия даст Сибири столицу, а Сибирь России — динамику развития лет на **двести** вперёд.",
+          "matched_form": "двести",
+          "source_file": "章节/раздел2-начало.md",
+          "page": "56",
+          "section_title": "Текст 2.1.1 — Новая российская столица как национальный проект",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00278"
+        }
+      ]
+    },
+    {
+      "batch_id": "vmire-batch-0046",
+      "lemma": "вперед",
+      "display_word": "вперёд",
+      "normalized_word": "вперед",
+      "meaning": "向前, 未来",
+      "type": "副词",
+      "source_entry": "章节/приложение-лексика.md",
+      "vocabulary_source": "project_ai_appendix_vocabulary_only",
+      "status": "candidate_high",
+      "match_mode": "exact",
+      "examples": [
+        {
+          "sentence": "Его эксперименты долгое время считались спорными, однако сегодня, спустя десятилетия, становится ясно: учёный заглянул далеко вперёд.",
+          "highlighted_sentence": "Его эксперименты долгое время считались спорными, однако сегодня, спустя десятилетия, становится ясно: учёный заглянул далеко **вперёд**.",
+          "matched_form": "вперёд",
+          "source_file": "章节/раздел1-продолжение.md",
+          "page": "29",
+          "section_title": "Текст 1.4.2 — Пересадка головы: от фантастики к реальности",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00141"
+        },
+        {
+          "sentence": "Россия даст Сибири столицу, а Сибирь России — динамику развития лет на двести вперёд.",
+          "highlighted_sentence": "Россия даст Сибири столицу, а Сибирь России — динамику развития лет на двести **вперёд**.",
+          "matched_form": "вперёд",
+          "source_file": "章节/раздел2-начало.md",
+          "page": "56",
+          "section_title": "Текст 2.1.1 — Новая российская столица как национальный проект",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00278"
+        }
+      ]
+    },
+    {
+      "batch_id": "vmire-batch-0047",
+      "lemma": "совершить",
+      "display_word": "соверши́ть",
+      "normalized_word": "совершить",
+      "meaning": "完成，实现，犯(错误)",
+      "type": "verb",
+      "source_entry": "词汇/动词/совершить.md",
+      "vocabulary_source": "vocabulary_json:vocab",
+      "status": "candidate_high",
+      "match_mode": "exact",
+      "examples": [
+        {
+          "sentence": "Забавно, что прорыв в скалолазании первые из них смогли совершить лишь после того, как поступились своими принципами.",
+          "highlighted_sentence": "Забавно, что прорыв в скалолазании первые из них смогли **совершить** лишь после того, как поступились своими принципами.",
+          "matched_form": "совершить",
+          "source_file": "章节/предисловие.md",
+          "page": "11-13",
+          "section_title": "Текст 1.1.2 — Красноярские Столбы — заповедник скалолазов",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00060"
+        }
+      ]
+    },
+    {
+      "batch_id": "vmire-batch-0048",
+      "lemma": "начинать",
+      "display_word": "начина́ть",
+      "normalized_word": "начинать",
+      "meaning": "开始",
+      "type": "verb",
+      "source_entry": "词汇/动词/начинать.md",
+      "vocabulary_source": "vocabulary_json:vocab",
+      "status": "candidate_high",
+      "match_mode": "exact",
+      "examples": [
+        {
+          "sentence": "Русский император принял дары и согласился не начинать военных действий.",
+          "highlighted_sentence": "Русский император принял дары и согласился не **начинать** военных действий.",
+          "matched_form": "начинать",
+          "source_file": "章节/раздел1-продолжение.md",
+          "page": "35",
+          "section_title": "Текст 1.5.2 — Плата за пролитую кровь",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00165"
+        }
+      ]
+    },
+    {
+      "batch_id": "vmire-batch-0049",
+      "lemma": "осуществить",
+      "display_word": "осуществи́ть",
+      "normalized_word": "осуществить",
+      "meaning": "实现，实行",
+      "type": "verb",
+      "source_entry": "词汇/动词/осуществить.md",
+      "vocabulary_source": "vocabulary_json:vocab",
+      "status": "candidate_high",
+      "match_mode": "exact",
+      "examples": [
+        {
+          "sentence": "На основании ст. 26.1, ст. 23.1 Закона о защите прав потребителей, требую в течение 10 дней с даты получения настоящей претензии осуществить возврат оплаченной мною суммы в полном размере, а также выплатить неустойку в связи с нарушением срока поставки (в размере 0,5% суммы предварительной оплаты).",
+          "highlighted_sentence": "На основании ст. 26.1, ст. 23.1 Закона о защите прав потребителей, требую в течение 10 дней с даты получения настоящей претензии **осуществить** возврат оплаченной мною суммы в полном размере, а также выплатить неустойку в связи с нарушением срока поставки (в размере 0,5% суммы предварительной оплаты).",
+          "matched_form": "осуществить",
+          "source_file": "章节/раздел2-завершение.md",
+          "page": "70-71",
+          "section_title": "Претензия",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00211"
+        }
+      ]
+    },
+    {
+      "batch_id": "vmire-batch-0050",
+      "lemma": "особенно",
+      "display_word": "осо́бенно",
+      "normalized_word": "особенно",
+      "meaning": "特别，非常",
+      "type": "adv",
+      "source_entry": "词汇/副词/осо́бенно.md",
+      "vocabulary_source": "vocabulary_json:vocab",
+      "status": "candidate_high",
+      "match_mode": "exact",
+      "examples": [
+        {
+          "sentence": "Особенно ребятам понравился зал «Боевой славы», посвящённый Великой Отечественной войне.",
+          "highlighted_sentence": "**Особенно** ребятам понравился зал «Боевой славы», посвящённый Великой Отечественной войне.",
+          "matched_form": "Особенно",
+          "source_file": "章节/раздел2-начало.md",
+          "page": "59",
+          "section_title": "Текст 2.1.2 — Отчёт об экскурсии в музей",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00283"
+        }
+      ]
+    },
+    {
+      "batch_id": "vmire-batch-0051",
+      "lemma": "спасти",
+      "display_word": "спасти́",
+      "normalized_word": "спасти",
+      "meaning": "拯救，挽救",
+      "type": "verb",
+      "source_entry": "词汇/动词/спасти.md",
+      "vocabulary_source": "vocabulary_json:vocab",
+      "status": "candidate_high",
+      "match_mode": "exact",
+      "examples": [
+        {
+          "sentence": "Поначалу Переслегиным хотели закончить концерт, но композитор заявил: «Нет!» По мнению Переслегина, Прокофьев мог спасти репутацию оркестра и после провала его симфонии.",
+          "highlighted_sentence": "Поначалу Переслегиным хотели закончить концерт, но композитор заявил: «Нет!» По мнению Переслегина, Прокофьев мог **спасти** репутацию оркестра и после провала его симфонии.",
+          "matched_form": "спасти",
+          "source_file": "章节/раздел3-завершение.md",
+          "page": "135",
+          "section_title": "Текст 3.5.2 — Альтист Данилов",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00349"
+        }
+      ]
+    },
+    {
+      "batch_id": "vmire-batch-0052",
+      "lemma": "взгляд",
+      "display_word": "взгляд",
+      "normalized_word": "взгляд",
+      "meaning": "目光，观点，看法",
+      "type": "noun",
+      "source_entry": "词汇/名词/взгляд.md",
+      "vocabulary_source": "vocabulary_json:vocab",
+      "status": "candidate_high",
+      "match_mode": "exact",
+      "examples": [
+        {
+          "sentence": "Та же хаотичная, на первый взгляд беспорядочная застройка: рядом с европейским каменным особняком — японский деревянный домик с раздвижными бумажными стенами, а через дорогу — буддийский храм с загнутыми краями крыши.",
+          "highlighted_sentence": "Та же хаотичная, на первый **взгляд** беспорядочная застройка: рядом с европейским каменным особняком — японский деревянный домик с раздвижными бумажными стенами, а через дорогу — буддийский храм с загнутыми краями крыши.",
+          "matched_form": "взгляд",
+          "source_file": "章节/раздел3-начало.md",
+          "page": "100",
+          "section_title": "Текст 3.1.1 — Алмазная колесница",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00355"
+        }
+      ]
+    },
+    {
+      "batch_id": "vmire-batch-0053",
+      "lemma": "вырезать",
+      "display_word": "вы́резать",
+      "normalized_word": "вырезать",
+      "meaning": "刻出，剪下，切除",
+      "type": "verb",
+      "source_entry": "词汇/动词/вырезать.md",
+      "vocabulary_source": "vocabulary_json:vocab",
+      "status": "candidate_high",
+      "match_mode": "exact",
+      "examples": [
+        {
+          "sentence": "Не человек выбирает, что вырезать из агальматолита, а он сам говорит ему, чем он хочет стать.",
+          "highlighted_sentence": "Не человек выбирает, что **вырезать** из агальматолита, а он сам говорит ему, чем он хочет стать.",
+          "matched_form": "вырезать",
+          "source_file": "章节/样章.md",
+          "page": "17",
+          "section_title": "Текст 1.2.2 — Голос камня",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00400"
+        },
+        {
+          "sentence": "Чтобы за час вырезать из агальматолита хотя бы простой кубик, нужны годы тренировок.",
+          "highlighted_sentence": "Чтобы за час **вырезать** из агальматолита хотя бы простой кубик, нужны годы тренировок.",
+          "matched_form": "вырезать",
+          "source_file": "章节/样章.md",
+          "page": "17",
+          "section_title": "Текст 1.2.2 — Голос камня",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00406"
+        }
+      ]
+    },
+    {
+      "batch_id": "vmire-batch-0054",
+      "lemma": "духи",
+      "display_word": "духи́",
+      "normalized_word": "духи",
+      "meaning": "香水 / дух (精神, 灵魂) 的复数",
+      "type": "noun",
+      "source_entry": "词汇/名词/духи.md",
+      "vocabulary_source": "vocabulary_json:vocab",
+      "status": "candidate_high",
+      "match_mode": "exact",
+      "examples": [
+        {
+          "sentence": "В музее воссоздан фрагмент интерьера купеческой лавки, где «продаются» изысканные кружева, перчатки, духи, фарфор и прочее.",
+          "highlighted_sentence": "В музее воссоздан фрагмент интерьера купеческой лавки, где «продаются» изысканные кружева, перчатки, **духи**, фарфор и прочее.",
+          "matched_form": "духи",
+          "source_file": "章节/предисловие.md",
+          "page": "8-10",
+          "section_title": "Текст 1.1.1 — Достопримечательности Мурома",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00035"
+        }
+      ]
+    },
+    {
+      "batch_id": "vmire-batch-0055",
+      "lemma": "спорить",
+      "display_word": "спо́рить",
+      "normalized_word": "спорить",
+      "meaning": "争论；辩论",
+      "type": "verb",
+      "source_entry": "词汇/动词/спорить.md",
+      "vocabulary_source": "vocabulary_json:vocab",
+      "status": "candidate_high",
+      "match_mode": "exact",
+      "examples": [
+        {
+          "sentence": "Может быть, многим подобная приверженность женщины к чисто мужской профессии покажется слишком экстравагантной, однако вряд ли кто-то будет спорить с тем, что Людмила Ивановна по натуре своей — победительница, а потому смогла дать достойные ответы на самые трудные вопросы судьбы.",
+          "highlighted_sentence": "Может быть, многим подобная приверженность женщины к чисто мужской профессии покажется слишком экстравагантной, однако вряд ли кто-то будет **спорить** с тем, что Людмила Ивановна по натуре своей — победительница, а потому смогла дать достойные ответы на самые трудные вопросы судьбы.",
+          "matched_form": "спорить",
+          "source_file": "章节/раздел1-продолжение.md",
+          "page": "23",
+          "section_title": "Текст 1.3.2 — Я феминистка с юности",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00112"
+        }
+      ]
+    },
+    {
+      "batch_id": "vmire-batch-0056",
+      "lemma": "предоставить",
+      "display_word": "предоста́вить",
+      "normalized_word": "предоставить",
+      "meaning": "提供，给予，交给",
+      "type": "verb",
+      "source_entry": "词汇/动词/предоставить.md",
+      "vocabulary_source": "vocabulary_json:vocab",
+      "status": "candidate_high",
+      "match_mode": "exact",
+      "examples": [
+        {
+          "sentence": "Прошу предоставить мне отпуск без сохранения содержания продолжительностью 1 (один) календарный день 25.12.20...",
+          "highlighted_sentence": "Прошу **предоставить** мне отпуск без сохранения содержания продолжительностью 1 (один) календарный день 25.12.20...",
+          "matched_form": "предоставить",
+          "source_file": "章节/раздел2-завершение.md",
+          "page": "70-71",
+          "section_title": "Заявление",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00213"
+        }
+      ]
+    },
+    {
+      "batch_id": "vmire-batch-0057",
+      "lemma": "комплекс",
+      "display_word": "компле́кс",
+      "normalized_word": "комплекс",
+      "meaning": "综合体，建筑群，全套",
+      "type": "noun",
+      "source_entry": "词汇/名词/комплекс.md",
+      "vocabulary_source": "vocabulary_json:vocab",
+      "status": "candidate_high",
+      "match_mode": "exact",
+      "examples": [
+        {
+          "sentence": "Речь идёт о проекте, который в 2009 году запустило пивоваренное предприятие — производственный комплекс АО «САН ИнБев».",
+          "highlighted_sentence": "Речь идёт о проекте, который в 2009 году запустило пивоваренное предприятие — производственный **комплекс** АО «САН ИнБев».",
+          "matched_form": "комплекс",
+          "source_file": "章节/раздел2-начало.md",
+          "page": "61",
+          "section_title": "Текст 2.2.1 — Туристы поехали по цехам",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00299"
+        },
+        {
+          "sentence": "Учебный комплекс «В мире людей» адресован иностранцам, изучающим русский язык.",
+          "highlighted_sentence": "Учебный **комплекс** «В мире людей» адресован иностранцам, изучающим русский язык.",
+          "matched_form": "комплекс",
+          "source_file": "章节/предисловие.md",
+          "page": "5-6",
+          "section_title": "Предисловие",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00004"
+        }
+      ]
+    },
+    {
+      "batch_id": "vmire-batch-0058",
+      "lemma": "часто",
+      "display_word": "ча́сто",
+      "normalized_word": "часто",
+      "meaning": "经常",
+      "type": "adv",
+      "source_entry": "词汇/副词/часто.md",
+      "vocabulary_source": "vocabulary_json:vocab",
+      "status": "candidate_high",
+      "match_mode": "exact",
+      "examples": [
+        {
+          "sentence": "Нет, вот к ним заходят часто и охотно.",
+          "highlighted_sentence": "Нет, вот к ним заходят **часто** и охотно.",
+          "matched_form": "часто",
+          "source_file": "章节/раздел3-завершение.md",
+          "page": "131",
+          "section_title": "Текст 3.5.1 — Шестой дозор",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00343"
+        }
+      ]
+    },
+    {
+      "batch_id": "vmire-batch-0059",
+      "lemma": "парус",
+      "display_word": "па́рус",
+      "normalized_word": "парус",
+      "meaning": "帆",
+      "type": "noun",
+      "source_entry": "词汇/名词/парус.md",
+      "vocabulary_source": "vocabulary_json:vocab",
+      "status": "candidate_high",
+      "match_mode": "exact",
+      "examples": [
+        {
+          "sentence": "Однажды утром в морской дали под солнцем сверкнёт алый парус.",
+          "highlighted_sentence": "Однажды утром в морской дали под солнцем сверкнёт алый **парус**.",
+          "matched_form": "парус",
+          "source_file": "章节/раздел3-начало.md",
+          "page": "116",
+          "section_title": "Текст 3.3.1 — Алые паруса",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00379"
+        }
+      ]
+    },
+    {
+      "batch_id": "vmire-batch-0060",
+      "lemma": "держать",
+      "display_word": "держа́ть",
+      "normalized_word": "держать",
+      "meaning": "拿，保持，遵守",
+      "type": "verb",
+      "source_entry": "词汇/动词/держать.md",
+      "vocabulary_source": "vocabulary_json:vocab",
+      "status": "candidate_high",
+      "match_mode": "exact",
+      "examples": [
+        {
+          "sentence": "Каждый камень следует долго держать в руках, рассматривать — и тогда он сам подскажет, что из него нужно сделать.",
+          "highlighted_sentence": "Каждый камень следует долго **держать** в руках, рассматривать — и тогда он сам подскажет, что из него нужно сделать.",
+          "matched_form": "держать",
+          "source_file": "章节/样章.md",
+          "page": "17",
+          "section_title": "Текст 1.2.2 — Голос камня",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00399"
+        }
+      ]
+    },
+    {
+      "batch_id": "vmire-batch-0061",
+      "lemma": "материал",
+      "display_word": "материа́л",
+      "normalized_word": "материал",
+      "meaning": "材料，资料，素材",
+      "type": "noun",
+      "source_entry": "词汇/名词/материал.md",
+      "vocabulary_source": "vocabulary_json:vocab",
+      "status": "candidate_high",
+      "match_mode": "exact",
+      "examples": [
+        {
+          "sentence": "Главное, что ни тот, ни другой материал не пахнет и абсолютно не токсичен.",
+          "highlighted_sentence": "Главное, что ни тот, ни другой **материал** не пахнет и абсолютно не токсичен.",
+          "matched_form": "материал",
+          "source_file": "章节/предисловие.md",
+          "page": "14-16",
+          "section_title": "Текст 1.2.1 — «Люди истосковались по красивым, добрым игрушкам»",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00076"
+        }
+      ]
+    },
+    {
+      "batch_id": "vmire-batch-0062",
+      "lemma": "постепенно",
+      "display_word": "постепе́нно",
+      "normalized_word": "постепенно",
+      "meaning": "逐渐地",
+      "type": "adv",
+      "source_entry": "词汇/副词/постепенно.md",
+      "vocabulary_source": "vocabulary_json:vocab",
+      "status": "candidate_high",
+      "match_mode": "exact",
+      "examples": [
+        {
+          "sentence": "Так девушка-слесарь с Московского автозавода, куда устроилась Люда на свою первую работу, постепенно превратилась в инженера-подполковника танковых войск.",
+          "highlighted_sentence": "Так девушка-слесарь с Московского автозавода, куда устроилась Люда на свою первую работу, **постепенно** превратилась в инженера-подполковника танковых войск.",
+          "matched_form": "постепенно",
+          "source_file": "章节/раздел1-продолжение.md",
+          "page": "23",
+          "section_title": "Текст 1.3.2 — Я феминистка с юности",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00109"
+        }
+      ]
+    },
+    {
+      "batch_id": "vmire-batch-0063",
+      "lemma": "благо",
+      "display_word": "благо",
+      "normalized_word": "благо",
+      "meaning": "财富，幸福，利益",
+      "type": "noun",
+      "source_entry": "词汇/名词/благо.md",
+      "vocabulary_source": "vocabulary_json:vocab",
+      "status": "candidate_high",
+      "match_mode": "exact",
+      "examples": [
+        {
+          "sentence": "Андрей Аршавин в любви к пению никогда замечен не был, благо у героя Евро есть и другие таланты.",
+          "highlighted_sentence": "Андрей Аршавин в любви к пению никогда замечен не был, **благо** у героя Евро есть и другие таланты.",
+          "matched_form": "благо",
+          "source_file": "章节/раздел2-завершение.md",
+          "page": "67",
+          "section_title": "Текст 2.3.1 — Спортивный «Голос»",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00201"
+        }
+      ]
+    },
+    {
+      "batch_id": "vmire-batch-0064",
+      "lemma": "политик",
+      "display_word": "поли́тик",
+      "normalized_word": "политик",
+      "meaning": "政治家",
+      "type": "noun",
+      "source_entry": "词汇/名词/политик.md",
+      "vocabulary_source": "vocabulary_json:vocab",
+      "status": "candidate_high",
+      "match_mode": "exact",
+      "examples": [
+        {
+          "sentence": "До него о необходимости переноса столицы на восток говорили, в частности, писатель и политик Эдуард Лимонов и нынешний министр обороны Сергей Шойгу.",
+          "highlighted_sentence": "До него о необходимости переноса столицы на восток говорили, в частности, писатель и **политик** Эдуард Лимонов и нынешний министр обороны Сергей Шойгу.",
+          "matched_form": "политик",
+          "source_file": "章节/раздел2-начало.md",
+          "page": "56",
+          "section_title": "Текст 2.1.1 — Новая российская столица как национальный проект",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00270"
+        }
+      ]
+    },
+    {
+      "batch_id": "vmire-batch-0065",
+      "lemma": "ведь",
+      "display_word": "ведь",
+      "normalized_word": "ведь",
+      "meaning": "毕竟，要知道（语气词/连词）",
+      "type": "particle",
+      "source_entry": "词汇/功能词/ведь.md",
+      "vocabulary_source": "vocabulary_json:vocab",
+      "status": "candidate_high",
+      "match_mode": "exact",
+      "examples": [
+        {
+          "sentence": "— А как же, — сказал Вадим. — Ведь что такое свобода?",
+          "highlighted_sentence": "— А как же, — сказал Вадим. — **Ведь** что такое свобода?",
+          "matched_form": "Ведь",
+          "source_file": "章节/раздел3-завершение.md",
+          "page": "122",
+          "section_title": "Текст 3.4.1 — Попытка к бегству",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00328"
+        },
+        {
+          "sentence": "Ты пустила яхту поплавать, а она сбежала — ведь так?",
+          "highlighted_sentence": "Ты пустила яхту поплавать, а она сбежала — **ведь** так?",
+          "matched_form": "ведь",
+          "source_file": "章节/раздел3-начало.md",
+          "page": "116",
+          "section_title": "Текст 3.3.1 — Алые паруса",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00376"
+        }
+      ]
+    },
+    {
+      "batch_id": "vmire-batch-0066",
+      "lemma": "затягивать",
+      "display_word": "затя́гивать",
+      "normalized_word": "затягивать",
+      "meaning": "拖延，勒紧，吸引(卷入)",
+      "type": "verb",
+      "source_entry": "词汇/动词/затягивать.md",
+      "vocabulary_source": "vocabulary_json:vocab",
+      "status": "candidate_high",
+      "match_mode": "exact",
+      "examples": [
+        {
+          "sentence": "Причём затягивать с обработкой нельзя — агальматолит мягок и податлив только в первое время после того, как извлечён из земли.",
+          "highlighted_sentence": "Причём **затягивать** с обработкой нельзя — агальматолит мягок и податлив только в первое время после того, как извлечён из земли.",
+          "matched_form": "затягивать",
+          "source_file": "章节/样章.md",
+          "page": "17",
+          "section_title": "Текст 1.2.2 — Голос камня",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00393"
+        }
+      ]
+    },
+    {
+      "batch_id": "vmire-batch-0067",
+      "lemma": "множество",
+      "display_word": "мно́жество",
+      "normalized_word": "множество",
+      "meaning": "许多，大量",
+      "type": "noun",
+      "source_entry": "词汇/名词/мно́жество.md",
+      "vocabulary_source": "vocabulary_json:vocab",
+      "status": "candidate_high",
+      "match_mode": "exact",
+      "examples": [
+        {
+          "sentence": "В здании, где располагается фабрика, множество офисов. «Кукольники» занимают комнаты на двух этажах.",
+          "highlighted_sentence": "В здании, где располагается фабрика, **множество** офисов. «Кукольники» занимают комнаты на двух этажах.",
+          "matched_form": "множество",
+          "source_file": "章节/предисловие.md",
+          "page": "14-16",
+          "section_title": "Текст 1.2.1 — «Люди истосковались по красивым, добрым игрушкам»",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00072"
+        }
+      ]
+    },
+    {
+      "batch_id": "vmire-batch-0068",
+      "lemma": "завод",
+      "display_word": "заво́д",
+      "normalized_word": "завод",
+      "meaning": "工厂，制造厂",
+      "type": "noun",
+      "source_entry": "词汇/名词/завод.md",
+      "vocabulary_source": "vocabulary_json:vocab",
+      "status": "candidate_high",
+      "match_mode": "exact",
+      "examples": [
+        {
+          "sentence": "В самом начале войны завод «Котлоаппарат», как и многие другие заводы, был переведён на производство военной продукции.",
+          "highlighted_sentence": "В самом начале войны **завод** «Котлоаппарат», как и многие другие заводы, был переведён на производство военной продукции.",
+          "matched_form": "завод",
+          "source_file": "章节/раздел1-продолжение.md",
+          "page": "26",
+          "section_title": "Текст 1.4.1 — Отец Байконура",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00120"
+        },
+        {
+          "sentence": "За всё время работы экскурсионной программы завод посетило около 5 тысяч человек, говорит Сокольская.",
+          "highlighted_sentence": "За всё время работы экскурсионной программы **завод** посетило около 5 тысяч человек, говорит Сокольская.",
+          "matched_form": "завод",
+          "source_file": "章节/раздел2-начало.md",
+          "page": "61",
+          "section_title": "Текст 2.2.1 — Туристы поехали по цехам",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00300"
+        }
+      ]
+    },
+    {
+      "batch_id": "vmire-batch-0069",
+      "lemma": "вклад",
+      "display_word": "вклад",
+      "normalized_word": "вклад",
+      "meaning": "贡献；存款",
+      "type": "noun",
+      "source_entry": "词汇/名词/вклад.md",
+      "vocabulary_source": "vocabulary_json:vocab",
+      "status": "candidate_high",
+      "match_mode": "exact",
+      "examples": [
+        {
+          "sentence": "Благодаря высокому уровню Вашего профессионализма нам совместно удаётся выполнять такую важную миссию — вносить свой вклад в успешное развитие машиностроения страны!",
+          "highlighted_sentence": "Благодаря высокому уровню Вашего профессионализма нам совместно удаётся выполнять такую важную миссию — вносить свой **вклад** в успешное развитие машиностроения страны!",
+          "matched_form": "вклад",
+          "source_file": "章节/раздел2-завершение.md",
+          "page": "70-71",
+          "section_title": "Письмо-поздравление",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00205"
+        }
+      ]
+    },
+    {
+      "batch_id": "vmire-batch-0070",
+      "lemma": "процесс",
+      "display_word": "проце́сс",
+      "normalized_word": "процесс",
+      "meaning": "过程，进程",
+      "type": "noun",
+      "source_entry": "词汇/名词/процесс.md",
+      "vocabulary_source": "vocabulary_json:vocab",
+      "status": "candidate_high",
+      "match_mode": "exact",
+      "examples": [
+        {
+          "sentence": "Процесс, похоже, принимает лавинообразный характер.",
+          "highlighted_sentence": "**Процесс**, похоже, принимает лавинообразный характер.",
+          "matched_form": "Процесс",
+          "source_file": "章节/раздел2-начало.md",
+          "page": "61",
+          "section_title": "Текст 2.2.1 — Туристы поехали по цехам",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00312"
+        }
+      ]
+    },
+    {
+      "batch_id": "vmire-batch-0071",
+      "lemma": "редкии",
+      "display_word": "ре́дкий",
+      "normalized_word": "редкии",
+      "meaning": "不罕见地，常常",
+      "type": "adj",
+      "source_entry": "词汇/形容词/редкий.md",
+      "vocabulary_source": "vocabulary_json:vocab",
+      "status": "candidate_high",
+      "match_mode": "exact",
+      "examples": [
+        {
+          "sentence": "Элен Киллоран была ирландкой — случай для московского Ночного Дозора редкий.",
+          "highlighted_sentence": "Элен Киллоран была ирландкой — случай для московского Ночного Дозора **редкий**.",
+          "matched_form": "редкий",
+          "source_file": "章节/раздел3-завершение.md",
+          "page": "131",
+          "section_title": "Текст 3.5.1 — Шестой дозор",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00341"
+        }
+      ]
+    },
+    {
+      "batch_id": "vmire-batch-0072",
+      "lemma": "рассматривать",
+      "display_word": "рассма́тривать",
+      "normalized_word": "рассматривать",
+      "meaning": "审视，考虑，审查",
+      "type": "verb",
+      "source_entry": "词汇/动词/рассматривать.md",
+      "vocabulary_source": "vocabulary_json:vocab",
+      "status": "candidate_high",
+      "match_mode": "exact",
+      "examples": [
+        {
+          "sentence": "Каждый камень следует долго держать в руках, рассматривать — и тогда он сам подскажет, что из него нужно сделать.",
+          "highlighted_sentence": "Каждый камень следует долго держать в руках, **рассматривать** — и тогда он сам подскажет, что из него нужно сделать.",
+          "matched_form": "рассматривать",
+          "source_file": "章节/样章.md",
+          "page": "17",
+          "section_title": "Текст 1.2.2 — Голос камня",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00399"
+        }
+      ]
+    },
+    {
+      "batch_id": "vmire-batch-0073",
+      "lemma": "обувь",
+      "display_word": "о́бувь",
+      "normalized_word": "обувь",
+      "meaning": "鞋类",
+      "type": "noun",
+      "source_entry": "词汇/名词/обувь.md",
+      "vocabulary_source": "vocabulary_json:vocab",
+      "status": "candidate_high",
+      "match_mode": "exact",
+      "examples": [
+        {
+          "sentence": "Поэтому, когда в 1894 году первая в России женщина-альпинистка Александра Качалова, обутая в тривиальные лыковые лапти, сумела взойти на Слоник (так называется одна из скал), столбисты были поражены, а когда оправились от первого изумления, быстро освоили новую обувь — резиновые калоши.",
+          "highlighted_sentence": "Поэтому, когда в 1894 году первая в России женщина-альпинистка Александра Качалова, обутая в тривиальные лыковые лапти, сумела взойти на Слоник (так называется одна из скал), столбисты были поражены, а когда оправились от первого изумления, быстро освоили новую **обувь** — резиновые калоши.",
+          "matched_form": "обувь",
+          "source_file": "章节/предисловие.md",
+          "page": "11-13",
+          "section_title": "Текст 1.1.2 — Красноярские Столбы — заповедник скалолазов",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00063"
+        }
+      ]
+    },
+    {
+      "batch_id": "vmire-batch-0074",
+      "lemma": "кровь",
+      "display_word": "кровь",
+      "normalized_word": "кровь",
+      "meaning": "血，血液",
+      "type": "noun",
+      "source_entry": "词汇/名词/кровь.md",
+      "vocabulary_source": "vocabulary_json:vocab",
+      "status": "candidate_high",
+      "match_mode": "exact",
+      "examples": [
+        {
+          "sentence": "Так камень стал своеобразной платой за пролитую кровь.",
+          "highlighted_sentence": "Так камень стал своеобразной платой за пролитую **кровь**.",
+          "matched_form": "кровь",
+          "source_file": "章节/раздел1-продолжение.md",
+          "page": "35",
+          "section_title": "Текст 1.5.2 — Плата за пролитую кровь",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00164"
+        },
+        {
+          "sentence": "В артериальную магистраль между донором и реципиентом можно вмонтировать датчик, который позволит постоянно и строго дозированно поставлять в кровь иммунодепрессивные препараты для защиты головы-трансплантата от развития реакции отторжения, а в венозную магистраль — специальный фильтр для очистки крови.",
+          "highlighted_sentence": "В артериальную магистраль между донором и реципиентом можно вмонтировать датчик, который позволит постоянно и строго дозированно поставлять в **кровь** иммунодепрессивные препараты для защиты головы-трансплантата от развития реакции отторжения, а в венозную магистраль — специальный фильтр для очистки крови.",
+          "matched_form": "кровь",
+          "source_file": "章节/раздел1-продолжение.md",
+          "page": "29",
+          "section_title": "Текст 1.4.2 — Пересадка головы: от фантастики к реальности",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00139"
+        }
+      ]
+    },
+    {
+      "batch_id": "vmire-batch-0075",
+      "lemma": "выбор",
+      "display_word": "вы́бор",
+      "normalized_word": "выбор",
+      "meaning": "选择",
+      "type": "noun",
+      "source_entry": "词汇/名词/выбор.md",
+      "vocabulary_source": "vocabulary_json:vocab",
+      "status": "candidate_high",
+      "match_mode": "exact",
+      "examples": [
+        {
+          "sentence": "Выбор четвероногих космонавтов не был случайным.",
+          "highlighted_sentence": "**Выбор** четвероногих космонавтов не был случайным.",
+          "matched_form": "Выбор",
+          "source_file": "章节/раздел2-завершение.md",
+          "page": "72",
+          "section_title": "Текст 2.4.1 — Зверьё в космосе",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00222"
+        }
+      ]
+    },
+    {
+      "batch_id": "vmire-batch-0076",
+      "lemma": "развитие",
+      "display_word": "разви́тие",
+      "normalized_word": "развитие",
+      "meaning": "发展；发育",
+      "type": "noun",
+      "source_entry": "词汇/名词/развитие.md",
+      "vocabulary_source": "vocabulary_json:vocab",
+      "status": "candidate_high",
+      "match_mode": "exact",
+      "examples": [
+        {
+          "sentence": "Почти в каждой профильной региональной программе есть ссылка на его развитие, а также на развитие близкого агротуризма.",
+          "highlighted_sentence": "Почти в каждой профильной региональной программе есть ссылка на его **развитие**, а также на **развитие** близкого агротуризма.",
+          "matched_form": "развитие",
+          "source_file": "章节/раздел2-начало.md",
+          "page": "61",
+          "section_title": "Текст 2.2.1 — Туристы поехали по цехам",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00311"
+        },
+        {
+          "sentence": "Благодаря высокому уровню Вашего профессионализма нам совместно удаётся выполнять такую важную миссию — вносить свой вклад в успешное развитие машиностроения страны!",
+          "highlighted_sentence": "Благодаря высокому уровню Вашего профессионализма нам совместно удаётся выполнять такую важную миссию — вносить свой вклад в успешное **развитие** машиностроения страны!",
+          "matched_form": "развитие",
+          "source_file": "章节/раздел2-завершение.md",
+          "page": "70-71",
+          "section_title": "Письмо-поздравление",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00205"
+        }
+      ]
+    },
+    {
+      "batch_id": "vmire-batch-0077",
+      "lemma": "сформировать",
+      "display_word": "сформи́ровать",
+      "normalized_word": "сформировать",
+      "meaning": "形成，塑造，组建",
+      "type": "verb",
+      "source_entry": "词汇/动词/сформировать.md",
+      "vocabulary_source": "vocabulary_json:vocab",
+      "status": "candidate_high",
+      "match_mode": "exact",
+      "examples": [
+        {
+          "sentence": "И очень важно сформировать систему социальных лифтов.",
+          "highlighted_sentence": "И очень важно **сформировать** систему социальных лифтов.",
+          "matched_form": "сформировать",
+          "source_file": "章节/样章.md",
+          "page": "20",
+          "section_title": "Текст 1.3.1 — Милости не просим",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00431"
+        }
+      ]
+    },
+    {
+      "batch_id": "vmire-batch-0078",
+      "lemma": "отличие",
+      "display_word": "отли́чие",
+      "normalized_word": "отличие",
+      "meaning": "区别，不同，卓越",
+      "type": "noun",
+      "source_entry": "词汇/名词/отличие.md",
+      "vocabulary_source": "vocabulary_json:vocab",
+      "status": "candidate_high",
+      "match_mode": "exact",
+      "examples": [
+        {
+          "sentence": "Сибиряки гордились тем, что, в отличие от жителей европейской части России, не были лапотниками — никогда не носили лапти, только сапоги.",
+          "highlighted_sentence": "Сибиряки гордились тем, что, в **отличие** от жителей европейской части России, не были лапотниками — никогда не носили лапти, только сапоги.",
+          "matched_form": "отличие",
+          "source_file": "章节/предисловие.md",
+          "page": "11-13",
+          "section_title": "Текст 1.1.2 — Красноярские Столбы — заповедник скалолазов",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00061"
+        },
+        {
+          "sentence": "…В отличие от большинства других знаменитых конструкторов космической техники — Сергея Королёва, Валентина Глушко, Михаила Тихонравова, Юрия Победоносцева, которые начали изучать вопросы реактивного движения ещё в 20–30-е годы ХХ века, Владимир Бармин пришёл в ракетостроение относительно поздно — лишь в годы войны.",
+          "highlighted_sentence": "…В **отличие** от большинства других знаменитых конструкторов космической техники — Сергея Королёва, Валентина Глушко, Михаила Тихонравова, Юрия Победоносцева, которые начали изучать вопросы реактивного движения ещё в 20–30-е годы ХХ века, Владимир Бармин пришёл в ракетостроение относительно поздно — лишь в годы войны.",
+          "matched_form": "отличие",
+          "source_file": "章节/раздел1-продолжение.md",
+          "page": "26",
+          "section_title": "Текст 1.4.1 — Отец Байконура",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00114"
+        }
+      ]
+    },
+    {
+      "batch_id": "vmire-batch-0079",
+      "lemma": "проект",
+      "display_word": "прое́кт",
+      "normalized_word": "проект",
+      "meaning": "项目，计划，草案",
+      "type": "noun",
+      "source_entry": "词汇/名词/проект.md",
+      "vocabulary_source": "vocabulary_json:vocab",
+      "status": "candidate_high",
+      "match_mode": "exact",
+      "examples": [
+        {
+          "sentence": "…И наконец, начали работы над стартовым комплексом первой в мире межконтинентальной баллистической ракеты Р-7, эскизный проект которой был закончен в 1954 году.",
+          "highlighted_sentence": "…И наконец, начали работы над стартовым комплексом первой в мире межконтинентальной баллистической ракеты Р-7, эскизный **проект** которой был закончен в 1954 году.",
+          "matched_form": "проект",
+          "source_file": "章节/раздел1-продолжение.md",
+          "page": "26",
+          "section_title": "Текст 1.4.1 — Отец Байконура",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00126"
+        },
+        {
+          "sentence": "Проект оказался настолько популярным, что на некоторые экскурсии просто невозможно было попасть.",
+          "highlighted_sentence": "**Проект** оказался настолько популярным, что на некоторые экскурсии просто невозможно было попасть.",
+          "matched_form": "Проект",
+          "source_file": "章节/раздел2-начало.md",
+          "page": "61",
+          "section_title": "Текст 2.2.1 — Туристы поехали по цехам",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00305"
+        }
+      ]
+    },
+    {
+      "batch_id": "vmire-batch-0080",
+      "lemma": "команда",
+      "display_word": "кома́нда",
+      "normalized_word": "команда",
+      "meaning": "团队；命令",
+      "type": "noun",
+      "source_entry": "词汇/名词/команда.md",
+      "vocabulary_source": "vocabulary_json:vocab",
+      "status": "candidate_high",
+      "match_mode": "exact",
+      "examples": [
+        {
+          "sentence": "В 2014 году они снялись в клипе группы «Руки вверх» на песню «Команда молодости нашей».",
+          "highlighted_sentence": "В 2014 году они снялись в клипе группы «Руки вверх» на песню «**Команда** молодости нашей».",
+          "matched_form": "Команда",
+          "source_file": "章节/раздел2-завершение.md",
+          "page": "67",
+          "section_title": "Текст 2.3.1 — Спортивный «Голос»",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00196"
+        }
+      ]
+    },
+    {
+      "batch_id": "vmire-batch-0081",
+      "lemma": "неподалеку",
+      "display_word": "неподалёку",
+      "normalized_word": "неподалеку",
+      "meaning": "在不远处，附近",
+      "type": "adv",
+      "source_entry": "词汇/副词/неподалёку.md",
+      "vocabulary_source": "vocabulary_json:vocab",
+      "status": "candidate_high",
+      "match_mode": "exact",
+      "examples": [
+        {
+          "sentence": "Практически все жители села, расположенного неподалёку от месторождения, владеют искусством резьбы.",
+          "highlighted_sentence": "Практически все жители села, расположенного **неподалёку** от месторождения, владеют искусством резьбы.",
+          "matched_form": "неподалёку",
+          "source_file": "章节/样章.md",
+          "page": "17",
+          "section_title": "Текст 1.2.2 — Голос камня",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00386"
+        }
+      ]
+    },
+    {
+      "batch_id": "vmire-batch-0082",
+      "lemma": "ценность",
+      "display_word": "це́нность",
+      "normalized_word": "ценность",
+      "meaning": "价值，珍贵物品",
+      "type": "noun",
+      "source_entry": "词汇/名词/ценность.md",
+      "vocabulary_source": "vocabulary_json:vocab",
+      "status": "candidate_high",
+      "match_mode": "exact",
+      "examples": [
+        {
+          "sentence": "Она не столь велика (около 1800 экспонатов), но имеет высокую историческую и художественную ценность.",
+          "highlighted_sentence": "Она не столь велика (около 1800 экспонатов), но имеет высокую историческую и художественную **ценность**.",
+          "matched_form": "ценность",
+          "source_file": "章节/предисловие.md",
+          "page": "8-10",
+          "section_title": "Текст 1.1.1 — Достопримечательности Мурома",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00038"
+        }
+      ]
+    },
+    {
+      "batch_id": "vmire-batch-0083",
+      "lemma": "спутник",
+      "display_word": "спу́тник",
+      "normalized_word": "спутник",
+      "meaning": "伴侣，旅伴，卫星",
+      "type": "noun",
+      "source_entry": "词汇/名词/спутник.md",
+      "vocabulary_source": "vocabulary_json:vocab",
+      "status": "candidate_high",
+      "match_mode": "exact",
+      "examples": [
+        {
+          "sentence": "Именно этой ракете предстояло вывести на орбиту сперва первый искусственный спутник Земли, а затем и первого космонавта.",
+          "highlighted_sentence": "Именно этой ракете предстояло вывести на орбиту сперва первый искусственный **спутник** Земли, а затем и первого космонавта.",
+          "matched_form": "спутник",
+          "source_file": "章节/раздел1-продолжение.md",
+          "page": "26",
+          "section_title": "Текст 1.4.1 — Отец Байконура",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00127"
+        }
+      ]
+    },
+    {
+      "batch_id": "vmire-batch-0084",
+      "lemma": "корабль",
+      "display_word": "кора́бль",
+      "normalized_word": "корабль",
+      "meaning": "船，舰",
+      "type": "noun",
+      "source_entry": "词汇/名词/корабль.md",
+      "vocabulary_source": "vocabulary_json:vocab",
+      "status": "candidate_high",
+      "match_mode": "exact",
+      "examples": [
+        {
+          "sentence": "За это время корабль совершил 17 витков вокруг Земли.",
+          "highlighted_sentence": "За это время **корабль** совершил 17 витков вокруг Земли.",
+          "matched_form": "корабль",
+          "source_file": "章节/раздел2-завершение.md",
+          "page": "72",
+          "section_title": "Текст 2.4.1 — Зверьё в космосе",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00221"
+        }
+      ]
+    },
+    {
+      "batch_id": "vmire-batch-0085",
+      "lemma": "практически",
+      "display_word": "практи́чески",
+      "normalized_word": "практически",
+      "meaning": "实际上，几乎",
+      "type": "adv",
+      "source_entry": "词汇/副词/практически.md",
+      "vocabulary_source": "vocabulary_json:vocab",
+      "status": "candidate_high",
+      "match_mode": "exact",
+      "examples": [
+        {
+          "sentence": "Практически все жители села, расположенного неподалёку от месторождения, владеют искусством резьбы.",
+          "highlighted_sentence": "**Практически** все жители села, расположенного неподалёку от месторождения, владеют искусством резьбы.",
+          "matched_form": "Практически",
+          "source_file": "章节/样章.md",
+          "page": "17",
+          "section_title": "Текст 1.2.2 — Голос камня",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00386"
+        }
+      ]
+    },
+    {
+      "batch_id": "vmire-batch-0086",
+      "lemma": "отпуск",
+      "display_word": "о́тпуск",
+      "normalized_word": "отпуск",
+      "meaning": "假期，休假",
+      "type": "noun",
+      "source_entry": "词汇/名词/отпуск.md",
+      "vocabulary_source": "vocabulary_json:vocab",
+      "status": "candidate_high",
+      "match_mode": "exact",
+      "examples": [
+        {
+          "sentence": "Прошу предоставить мне отпуск без сохранения содержания продолжительностью 1 (один) календарный день 25.12.20...",
+          "highlighted_sentence": "Прошу предоставить мне **отпуск** без сохранения содержания продолжительностью 1 (один) календарный день 25.12.20...",
+          "matched_form": "отпуск",
+          "source_file": "章节/раздел2-завершение.md",
+          "page": "70-71",
+          "section_title": "Заявление",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00213"
+        }
+      ]
+    },
+    {
+      "batch_id": "vmire-batch-0087",
+      "lemma": "пусть",
+      "display_word": "пусть",
+      "normalized_word": "пусть",
+      "meaning": "让，愿，哪怕（语气词）",
+      "type": "particle",
+      "source_entry": "词汇/功能词/пусть.md",
+      "vocabulary_source": "vocabulary_json:vocab",
+      "status": "candidate_high",
+      "match_mode": "exact",
+      "examples": [
+        {
+          "sentence": "Это пусть и временное, но всё же решение квартирного вопроса.",
+          "highlighted_sentence": "Это **пусть** и временное, но всё же решение квартирного вопроса.",
+          "matched_form": "пусть",
+          "source_file": "章节/样章.md",
+          "page": "20",
+          "section_title": "Текст 1.3.1 — Милости не просим",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00427"
+        }
+      ]
+    },
+    {
+      "batch_id": "vmire-batch-0088",
+      "lemma": "переговоры",
+      "display_word": "перегово́ры",
+      "normalized_word": "переговоры",
+      "meaning": "谈判，交涉 (只用复数)",
+      "type": "noun",
+      "source_entry": "词汇/名词/переговоры.md",
+      "vocabulary_source": "vocabulary_json:vocab",
+      "status": "candidate_high",
+      "match_mode": "exact",
+      "examples": [
+        {
+          "sentence": "Уверен, что состоявшиеся переговоры поспособствуют укреплению и дальнейшему развитию доверительных партнёрских отношений.",
+          "highlighted_sentence": "Уверен, что состоявшиеся **переговоры** поспособствуют укреплению и дальнейшему развитию доверительных партнёрских отношений.",
+          "matched_form": "переговоры",
+          "source_file": "章节/раздел2-завершение.md",
+          "page": "80-82",
+          "section_title": "Письмо-благодарность",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00254"
+        }
+      ]
+    },
+    {
+      "batch_id": "vmire-batch-0089",
+      "lemma": "минерал",
+      "display_word": "минера́л",
+      "normalized_word": "минерал",
+      "meaning": "矿物",
+      "type": "noun",
+      "source_entry": "词汇/名词/минерал.md",
+      "vocabulary_source": "vocabulary_json:vocab",
+      "status": "candidate_high",
+      "match_mode": "exact",
+      "examples": [
+        {
+          "sentence": "Владимир Салчак любит пересказывать тувинскую легенду о том, как появился этот уникальный минерал.",
+          "highlighted_sentence": "Владимир Салчак любит пересказывать тувинскую легенду о том, как появился этот уникальный **минерал**.",
+          "matched_form": "минерал",
+          "source_file": "章节/样章.md",
+          "page": "17",
+          "section_title": "Текст 1.2.2 — Голос камня",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00394"
+        }
+      ]
+    },
+    {
+      "batch_id": "vmire-batch-0090",
+      "lemma": "проведение",
+      "display_word": "проведе́ние",
+      "normalized_word": "проведение",
+      "meaning": "举行，进行，引导",
+      "type": "noun",
+      "source_entry": "词汇/名词/проведение.md",
+      "vocabulary_source": "vocabulary_json:vocab",
+      "status": "candidate_high",
+      "match_mode": "exact",
+      "examples": [
+        {
+          "sentence": "Цель командировки: участие в международной выставке «Технопром-20...», презентация продукции компании, проведение переговоров с потенциальными партнёрами.",
+          "highlighted_sentence": "Цель командировки: участие в международной выставке «Технопром-20...», презентация продукции компании, **проведение** переговоров с потенциальными партнёрами.",
+          "matched_form": "проведение",
+          "source_file": "章节/раздел2-завершение.md",
+          "page": "80-82",
+          "section_title": "Отчёт",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00256"
+        }
+      ]
+    },
+    {
+      "batch_id": "vmire-batch-0091",
+      "lemma": "общество",
+      "display_word": "о́бщество",
+      "normalized_word": "общество",
+      "meaning": "社会；协会；公司",
+      "type": "noun",
+      "source_entry": "词汇/名词/общество.md",
+      "vocabulary_source": "vocabulary_json:vocab",
+      "status": "candidate_high",
+      "match_mode": "exact",
+      "examples": [
+        {
+          "sentence": "Нужно сделать всё возможное, чтобы вернуть их в общество, а главное, не дать им опуститься до уровня попрошаек.",
+          "highlighted_sentence": "Нужно сделать всё возможное, чтобы вернуть их в **общество**, а главное, не дать им опуститься до уровня попрошаек.",
+          "matched_form": "общество",
+          "source_file": "章节/样章.md",
+          "page": "20",
+          "section_title": "Текст 1.3.1 — Милости не просим",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00424"
+        }
+      ]
+    },
+    {
+      "batch_id": "vmire-batch-0092",
+      "lemma": "срок",
+      "display_word": "срок",
+      "normalized_word": "срок",
+      "meaning": "期限",
+      "type": "noun",
+      "source_entry": "词汇/名词/срок.md",
+      "vocabulary_source": "vocabulary_json:vocab",
+      "status": "candidate_high",
+      "match_mode": "exact",
+      "examples": [
+        {
+          "sentence": "Согласно информации о доставке, размещённой на сайте, срок поставки телефона — 15 дней, однако на сегодняшний день — 30.05.20...",
+          "highlighted_sentence": "Согласно информации о доставке, размещённой на сайте, **срок** поставки телефона — 15 дней, однако на сегодняшний день — 30.05.20...",
+          "matched_form": "срок",
+          "source_file": "章节/раздел2-завершение.md",
+          "page": "70-71",
+          "section_title": "Претензия",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00210"
+        },
+        {
+          "sentence": "Комова как грамотного, квалифицированного работника, добросовестно и в срок выполняющего свои служебные обязанности.",
+          "highlighted_sentence": "Комова как грамотного, квалифицированного работника, добросовестно и в **срок** выполняющего свои служебные обязанности.",
+          "matched_form": "срок",
+          "source_file": "章节/раздел2-завершение.md",
+          "page": "64-66",
+          "section_title": "Служебная записка",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00175"
+        }
+      ]
+    },
+    {
+      "batch_id": "vmire-batch-0093",
+      "lemma": "свет",
+      "display_word": "свет",
+      "normalized_word": "свет",
+      "meaning": "光；世界",
+      "type": "noun",
+      "source_entry": "词汇/名词/свет.md",
+      "vocabulary_source": "vocabulary_json:vocab",
+      "status": "candidate_high",
+      "match_mode": "exact",
+      "examples": [
+        {
+          "sentence": "Кажется, что мастер просто помогает птице появиться на свет, и сделать это легко и просто.",
+          "highlighted_sentence": "Кажется, что мастер просто помогает птице появиться на **свет**, и сделать это легко и просто.",
+          "matched_form": "свет",
+          "source_file": "章节/样章.md",
+          "page": "17",
+          "section_title": "Текст 1.2.2 — Голос камня",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00404"
+        }
+      ]
+    },
+    {
+      "batch_id": "vmire-batch-0094",
+      "lemma": "течение",
+      "display_word": "тече́ние",
+      "normalized_word": "течение",
+      "meaning": "水流；流派；过程",
+      "type": "noun",
+      "source_entry": "词汇/名词/течение.md",
+      "vocabulary_source": "vocabulary_json:vocab",
+      "status": "candidate_high",
+      "match_mode": "exact",
+      "examples": [
+        {
+          "sentence": "Чтение шло непрерывно в течение 60 часов.",
+          "highlighted_sentence": "Чтение шло непрерывно в **течение** 60 часов.",
+          "matched_form": "течение",
+          "source_file": "章节/раздел2-завершение.md",
+          "page": "77",
+          "section_title": "Текст 2.5.1 — Марафон чтения: «Война и мир»",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00249"
+        },
+        {
+          "sentence": "На основании ст. 26.1, ст. 23.1 Закона о защите прав потребителей, требую в течение 10 дней с даты получения настоящей претензии осуществить возврат оплаченной мною суммы в полном размере, а также выплатить неустойку в связи с нарушением срока поставки (в размере 0,5% суммы предварительной оплаты).",
+          "highlighted_sentence": "На основании ст. 26.1, ст. 23.1 Закона о защите прав потребителей, требую в **течение** 10 дней с даты получения настоящей претензии осуществить возврат оплаченной мною суммы в полном размере, а также выплатить неустойку в связи с нарушением срока поставки (в размере 0,5% суммы предварительной оплаты).",
+          "matched_form": "течение",
+          "source_file": "章节/раздел2-завершение.md",
+          "page": "70-71",
+          "section_title": "Претензия",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00211"
+        }
+      ]
+    },
+    {
+      "batch_id": "vmire-batch-0095",
+      "lemma": "простои",
+      "display_word": "просто́й",
+      "normalized_word": "простои",
+      "meaning": "简单的，普通的",
+      "type": "adj",
+      "source_entry": "词汇/形容词/простой.md",
+      "vocabulary_source": "vocabulary_json:vocab",
+      "status": "candidate_high",
+      "match_mode": "exact",
+      "examples": [
+        {
+          "sentence": "Чтобы за час вырезать из агальматолита хотя бы простой кубик, нужны годы тренировок.",
+          "highlighted_sentence": "Чтобы за час вырезать из агальматолита хотя бы **простой** кубик, нужны годы тренировок.",
+          "matched_form": "простой",
+          "source_file": "章节/样章.md",
+          "page": "17",
+          "section_title": "Текст 1.2.2 — Голос камня",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00406"
+        }
+      ]
+    },
+    {
+      "batch_id": "vmire-batch-0096",
+      "lemma": "формат",
+      "display_word": "форма́т",
+      "normalized_word": "формат",
+      "meaning": "格式；形式",
+      "type": "noun",
+      "source_entry": "词汇/名词/формат.md",
+      "vocabulary_source": "vocabulary_json:vocab",
+      "status": "candidate_high",
+      "match_mode": "exact",
+      "examples": [
+        {
+          "sentence": "Тексты писем восстановлены консервативно — оригинальный формат с реквизитами и бланками сохранён.",
+          "highlighted_sentence": "Тексты писем восстановлены консервативно — оригинальный **формат** с реквизитами и бланками сохранён.",
+          "matched_form": "формат",
+          "source_file": "章节/раздел2-завершение.md",
+          "page": "75-76",
+          "section_title": "Текст 2.4.2 — Информационные письма",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00238"
+        }
+      ]
+    },
+    {
+      "batch_id": "vmire-batch-0097",
+      "lemma": "живои",
+      "display_word": "живо́й",
+      "normalized_word": "живои",
+      "meaning": "活的，生动的，有生命的",
+      "type": "adj",
+      "source_entry": "词汇/形容词/живой.md",
+      "vocabulary_source": "vocabulary_json:vocab",
+      "status": "candidate_high",
+      "match_mode": "exact",
+      "examples": [
+        {
+          "sentence": "На своё тридцатилетие он сделал себе и друзьям необычный подарок — «живой» концерт.",
+          "highlighted_sentence": "На своё тридцатилетие он сделал себе и друзьям необычный подарок — «**живой**» концерт.",
+          "matched_form": "живой",
+          "source_file": "章节/раздел2-завершение.md",
+          "page": "67",
+          "section_title": "Текст 2.3.1 — Спортивный «Голос»",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00187"
+        },
+        {
+          "sentence": "Талантливый юноша, проявлявший живой интерес к теплотехнике, в 1926 году он поступил на механический факультет Московского механико-машиностроительного института (впоследствии переименованного в МВТУ имени Н.Э.",
+          "highlighted_sentence": "Талантливый юноша, проявлявший **живой** интерес к теплотехнике, в 1926 году он поступил на механический факультет Московского механико-машиностроительного института (впоследствии переименованного в МВТУ имени Н.Э.",
+          "matched_form": "живой",
+          "source_file": "章节/раздел1-продолжение.md",
+          "page": "26",
+          "section_title": "Текст 1.4.1 — Отец Байконура",
+          "confidence": "candidate_high",
+          "match_method": "exact-token",
+          "source_risk": "",
+          "sentence_id": "vmire-batch-s00116"
+        }
+      ]
+    }
+  ]
+}

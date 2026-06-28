@@ -1,6 +1,15 @@
 {
   "enabledCssSnippets": [
-    "dashboard"
+    "dashboard",
+    "components",
+    "extended-colorschemes",
+    "index",
+    "fix-cyrillic",
+    "russian-reading-mode",
+    "sidebar",
+    "typography",
+    "wallpaper",
+    "card-layout-fix"
   ],
   "baseFontSize": 16,
   "theme": "obsidian",
@@ -10,5 +19,6 @@
   "monospaceFontFamily": "JetBrains Mono, Fira Code, monospace",
   "translucency": false,
   "showViewHeader": true,
-  "nativeMenus": false
+  "nativeMenus": false,
+  "cssTheme": "AnuPpuccin"
 }

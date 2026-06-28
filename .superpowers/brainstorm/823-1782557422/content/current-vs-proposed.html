@@ -1,0 +1,90 @@
+<h2>reader.html 分栏布局改造 — 现状 vs 目标</h2>
+<p class="subtitle">先确认我对现状的理解是否正确，然后回答一个关键问题</p>
+
+<div class="split">
+  <div class="mockup">
+    <div class="mockup-header">📱 现状：横屏时（iPad）</div>
+    <div class="mockup-body">
+      <div style="background:var(--glass);border-radius:8px;padding:8px;text-align:center;font-size:12px;color:var(--text-dim);margin-bottom:8px">📌 工具栏</div>
+      <div style="display:flex;gap:6px;min-height:180px">
+        <div style="flex:1;background:rgba(129,140,248,0.1);border-radius:8px;padding:12px;font-size:13px">
+          <strong>阅读区</strong><br>
+          <span style="font-size:11px;color:var(--text-dim)">flex: 1（自动填充）</span>
+          <div style="margin-top:8px;background:rgba(255,255,255,0.05);padding:6px;border-radius:4px;font-size:11px">俄语段落...</div>
+          <div style="margin-top:4px;background:rgba(255,255,255,0.05);padding:6px;border-radius:4px;font-size:11px">俄语段落...</div>
+        </div>
+        <div style="width:6px;background:var(--accent);border-radius:3px;text-align:center;font-size:9px;color:var(--accent);writing-mode:vertical-lr;cursor:col-resize" title="拖拽手柄">↕</div>
+        <div style="width:180px;background:rgba(251,191,36,0.08);border-radius:8px;padding:10px;font-size:11px;border:1px dashed var(--accent-border)">
+          <strong>详情面板</strong><br>
+          <span style="font-size:10px;color:var(--text-dim)">width: px 固定宽度<br>transition: 0.3s ease<br>❌ 拖拽时动画卡顿</span>
+        </div>
+      </div>
+      <div style="margin-top:6px;background:rgba(255,100,100,0.1);padding:4px 8px;border-radius:4px;font-size:10px;color:#f87171">
+        ⚠️ 问题：px 宽度 + CSS transition，拖拽不跟手
+      </div>
+    </div>
+  </div>
+
+  <div class="mockup">
+    <div class="mockup-header">✅ 目标：横屏时（iPad）</div>
+    <div class="mockup-body">
+      <div style="background:var(--glass);border-radius:8px;padding:8px;text-align:center;font-size:12px;color:var(--text-dim);margin-bottom:8px">📌 工具栏</div>
+      <div style="display:flex;gap:0;min-height:180px">
+        <div style="background:rgba(129,140,248,0.1);border-radius:8px 0 0 8px;padding:12px;font-size:13px">
+          <strong>阅读区</strong><br>
+          <span style="font-size:11px;color:var(--text-dim)">flex-basis: 60%</span>
+          <div style="margin-top:8px;background:rgba(255,255,255,0.05);padding:6px;border-radius:4px;font-size:11px">俄语段落...</div>
+          <div style="margin-top:4px;background:rgba(255,255,255,0.05);padding:6px;border-radius:4px;font-size:11px">俄语段落...</div>
+        </div>
+        <div style="width:8px;background:var(--accent);border-radius:0;text-align:center;font-size:9px;cursor:col-resize;touch-action:none;display:flex;align-items:center;justify-content:center;min-height:100%" title="拖拽手柄">∥</div>
+        <div style="flex:1;background:rgba(251,191,36,0.08);border-radius:0 8px 8px 0;padding:10px;font-size:11px;border:1px dashed var(--accent-border);min-width:20%">
+          <strong>详情面板</strong><br>
+          <span style="font-size:10px;color:var(--text-dim)">flex: 1（自动填满）<br>无 transition<br>✅ 拖拽实时跟手</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="margin-top:24px"></div>
+
+<div class="split">
+  <div class="mockup">
+    <div class="mockup-header">📱 现状：竖屏时（手机）</div>
+    <div class="mockup-body">
+      <div style="background:var(--glass);border-radius:8px;padding:8px;text-align:center;font-size:12px;color:var(--text-dim);margin-bottom:8px">📌 工具栏</div>
+      <div style="display:flex;flex-direction:column;min-height:200px;position:relative">
+        <div style="flex:1;background:rgba(129,140,248,0.1);border-radius:8px;padding:12px;font-size:13px">
+          <strong>阅读区</strong><br>
+          <span style="font-size:11px;color:var(--text-dim)">全宽显示</span>
+        </div>
+        <div style="position:absolute;top:60px;right:0;bottom:0;width:65%;background:rgba(251,191,36,0.12);border-radius:12px 0 0 12px;padding:10px;font-size:10px;border:1px dashed var(--accent-border);box-shadow:-4px 0 20px rgba(0,0,0,0.5);z-index:200">
+          <strong>详情面板（浮层）</strong><br>
+          <span style="font-size:9px;color:var(--text-dim)">fixed 定位<br>覆盖阅读区<br>半透明遮罩</span>
+        </div>
+        <div style="background:rgba(0,0,0,0.3);position:absolute;inset:0;border-radius:8px;z-index:199;display:flex;align-items:center;justify-content:center;font-size:10px;color:var(--text-dim)">半透明遮罩</div>
+      </div>
+      <div style="margin-top:6px;background:rgba(255,100,100,0.1);padding:4px 8px;border-radius:4px;font-size:10px;color:#f87171">
+        ⚠️ 问题：浮层遮挡阅读内容，无法同时看
+      </div>
+    </div>
+  </div>
+
+  <div class="mockup">
+    <div class="mockup-header">✅ 目标：竖屏时（手机）</div>
+    <div class="mockup-body">
+      <div style="background:var(--glass);border-radius:8px;padding:8px;text-align:center;font-size:12px;color:var(--text-dim);margin-bottom:8px">📌 工具栏</div>
+      <div style="display:flex;flex-direction:column;min-height:200px;gap:0">
+        <div style="background:rgba(129,140,248,0.1);border-radius:8px 8px 0 0;padding:10px;font-size:12px">
+          <strong>阅读区</strong><br>
+          <span style="font-size:10px;color:var(--text-dim)">flex-basis: 55%</span>
+        </div>
+        <div style="height:8px;background:var(--accent);text-align:center;font-size:9px;cursor:row-resize;touch-action:none;display:flex;align-items:center;justify-content:center" title="拖拽手柄">≡</div>
+        <div style="flex:1;background:rgba(251,191,36,0.08);border-radius:0 0 8px 8px;padding:10px;font-size:11px;border:1px dashed var(--accent-border);min-height:20%">
+          <strong>详情面板</strong><br>
+          <span style="font-size:10px;color:var(--text-dim)">flex: 1（自动填满）<br>✅ 上下分栏，可以同时看</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

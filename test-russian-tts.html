@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>俄语 TTS 对比测试</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', sans-serif; background: #1a1a2e; color: #eee; padding: 20px; }
+    h1 { text-align: center; margin-bottom: 20px; color: #e94560; }
+    .section { background: #16213e; border-radius: 12px; padding: 20px; margin-bottom: 20px; }
+    .section h2 { color: #0f3460; margin-bottom: 15px; font-size: 18px; }
+    .word-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 12px; }
+    .word-card { background: #0f3460; border-radius: 8px; padding: 15px; display: flex; align-items: center; justify-content: space-between; }
+    .word-info { flex: 1; }
+    .word-ru { font-size: 20px; font-weight: bold; color: #e94560; }
+    .word-zh { font-size: 14px; color: #aaa; margin-top: 4px; }
+    .play-btn { background: #e94560; border: none; color: white; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-size: 14px; margin-left: 10px; }
+    .play-btn:hover { background: #c73e54; }
+    .play-btn:disabled { background: #555; cursor: not-allowed; }
+    .voice-select { margin-bottom: 15px; }
+    .voice-select select { background: #0f3460; color: #eee; border: 1px solid #333; padding: 8px 12px; border-radius: 6px; font-size: 14px; width: 100%; }
+    .status { text-align: center; padding: 10px; color: #aaa; font-size: 13px; }
+    .mimo-section { background: #1a2a1a; }
+    .mimo-section h2 { color: #4caf50; }
+  </style>
+</head>
+<body>
+  <h1>🎤 俄语 TTS 对比测试</h1>
+
+  <!-- 浏览器 Web Speech API -->
+  <div class="section">
+    <h2>📱 浏览器内置 TTS (Web Speech API)</h2>
+    <div class="voice-select">
+      <label>选择俄语语音：</label>
+      <select id="voiceSelect"></select>
+    </div>
+    <div class="word-list" id="wordList"></div>
+    <div class="status" id="status">正在加载语音列表...</div>
+  </div>
+
+  <!-- Edge TTS 高质量语音 -->
+  <div class="section" style="background: #1a2e1a;">
+    <h2 style="color: #4caf50;">🔊 Edge TTS 高质量语音 (微软神经网络) ⭐推荐</h2>
+    <div class="word-list">
+      <div class="word-card">
+        <div class="word-info">
+          <div class="word-ru">Привет</div>
+          <div class="word-zh">你好</div>
+        </div>
+        <button class="play-btn" style="background:#4caf50" onclick="playFile('edge_privet_m.mp3')">👨</button>
+        <button class="play-btn" style="background:#e91e63" onclick="playFile('edge_privet_f.mp3')">👩</button>
+      </div>
+      <div class="word-card">
+        <div class="word-info">
+          <div class="word-ru">Спасибо</div>
+          <div class="word-zh">谢谢</div>
+        </div>
+        <button class="play-btn" style="background:#4caf50" onclick="playFile('edge_spasibo_m.mp3')">👨</button>
+        <button class="play-btn" style="background:#e91e63" onclick="playFile('edge_spasibo_f.mp3')">👩</button>
+      </div>
+      <div class="word-card">
+        <div class="word-info">
+          <div class="word-ru">Здравствуйте</div>
+          <div class="word-zh">您好(正式)</div>
+        </div>
+        <button class="play-btn" style="background:#4caf50" onclick="playFile('edge_zdravstvuyte_m.mp3')">👨</button>
+        <button class="play-btn" style="background:#e91e63" onclick="playFile('edge_zdravstvuyte_f.mp3')">👩</button>
+      </div>
+      <div class="word-card">
+        <div class="word-info">
+          <div class="word-ru">До свидания</div>
+          <div class="word-zh">再见</div>
+        </div>
+        <button class="play-btn" style="background:#4caf50" onclick="playFile('edge_dosvidaniya_m.mp3')">👨</button>
+        <button class="play-btn" style="background:#e91e63" onclick="playFile('edge_dosvidaniya_f.mp3')">👩</button>
+      </div>
+      <div class="word-card">
+        <div class="word-info">
+          <div class="word-ru">Извините</div>
+          <div class="word-zh">对不起/请问</div>
+        </div>
+        <button class="play-btn" style="background:#4caf50" onclick="playFile('edge_izvinite_m.mp3')">👨</button>
+        <button class="play-btn" style="background:#e91e63" onclick="playFile('edge_izvinite_f.mp3')">👩</button>
+      </div>
+      <div class="word-card">
+        <div class="word-info">
+          <div class="word-ru">Мне очень нравится Россия</div>
+          <div class="word-zh">我非常喜欢俄罗斯</div>
+        </div>
+        <button class="play-btn" style="background:#4caf50" onclick="playFile('edge_mneochen_m.mp3')">👨</button>
+        <button class="play-btn" style="background:#e91e63" onclick="playFile('edge_mneochen_f.mp3')">👩</button>
+      </div>
+      <div class="word-card">
+        <div class="word-info">
+          <div class="word-ru">Я изучаю русский язык...</div>
+          <div class="word-zh">长句测试</div>
+        </div>
+        <button class="play-btn" style="background:#4caf50" onclick="playFile('edge_dmitry_long.mp3')">👨</button>
+        <button class="play-btn" style="background:#e91e63" onclick="playFile('edge_svetlana_long.mp3')">👩</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MiMo VoiceClone 对比 -->
+  <div class="section" style="background: #2a1a2e;">
+    <h2 style="color: #ff9800;">🧬 MiMo VoiceClone (用Edge音色克隆)</h2>
+    <p style="color: #aaa; font-size: 13px; margin-bottom: 15px;">用 Edge TTS 的俄语音频做样本，MiMo 克隆后读同样的文本。对比发音质量！</p>
+    <div class="word-list">
+      <div class="word-card">
+        <div class="word-info">
+          <div class="word-ru">Привет</div>
+          <div class="word-zh">你好</div>
+        </div>
+        <button class="play-btn" style="background:#4caf50" onclick="playFile('edge_privet_m.mp3')">🔊 Edge</button>
+        <button class="play-btn" style="background:#ff9800" onclick="playFile('clone_m_0.wav')">🧬 Clone</button>
+      </div>
+      <div class="word-card">
+        <div class="word-info">
+          <div class="word-ru">Спасибо</div>
+          <div class="word-zh">谢谢</div>
+        </div>
+        <button class="play-btn" style="background:#4caf50" onclick="playFile('edge_spasibo_m.mp3')">🔊 Edge</button>
+        <button class="play-btn" style="background:#ff9800" onclick="playFile('clone_m_1.wav')">🧬 Clone</button>
+      </div>
+      <div class="word-card">
+        <div class="word-info">
+          <div class="word-ru">Здравствуйте</div>
+          <div class="word-zh">您好</div>
+        </div>
+        <button class="play-btn" style="background:#4caf50" onclick="playFile('edge_zdravstvuyte_m.mp3')">🔊 Edge</button>
+        <button class="play-btn" style="background:#ff9800" onclick="playFile('clone_m_2.wav')">🧬 Clone</button>
+      </div>
+      <div class="word-card">
+        <div class="word-info">
+          <div class="word-ru">До свидания</div>
+          <div class="word-zh">再见</div>
+        </div>
+        <button class="play-btn" style="background:#4caf50" onclick="playFile('edge_dosvidaniya_m.mp3')">🔊 Edge</button>
+        <button class="play-btn" style="background:#ff9800" onclick="playFile('clone_m_3.wav')">🧬 Clone</button>
+      </div>
+      <div class="word-card">
+        <div class="word-info">
+          <div class="word-ru">Я изучаю русский язык</div>
+          <div class="word-zh">我在学俄语</div>
+        </div>
+        <button class="play-btn" style="background:#4caf50" onclick="playFile('edge_privet_m.mp3')">🔊 Edge</button>
+        <button class="play-btn" style="background:#ff9800" onclick="playFile('clone_m_4.wav')">🧬 Clone</button>
+      </div>
+      <div class="word-card">
+        <div class="word-info">
+          <div class="word-ru">После обеда я читал роман...</div>
+          <div class="word-zh">B2长句</div>
+        </div>
+        <button class="play-btn" style="background:#4caf50" onclick="playFile('edge_dmitry_long.mp3')">🔊 Edge</button>
+        <button class="play-btn" style="background:#ff9800" onclick="playFile('clone_m_5.wav')">🧬 Clone</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MiMo VoiceDesign 对比 -->
+  <div class="section" style="background: #1a1a2e;">
+    <h2 style="color: #9c27b0;">🎨 MiMo VoiceDesign (AI设计俄语音色)</h2>
+    <p style="color: #aaa; font-size: 13px; margin-bottom: 15px;">用文字描述设计俄语音色，MiMo 自动生成。听听效果如何？</p>
+    <div class="word-list">
+      <div class="word-card">
+        <div class="word-info">
+          <div class="word-ru">Привет, как дела?</div>
+          <div class="word-zh">年轻俄罗斯女性</div>
+        </div>
+        <button class="play-btn" style="background:#9c27b0" onclick="playFile('design_0.wav')">▶ 播放</button>
+      </div>
+      <div class="word-card">
+        <div class="word-info">
+          <div class="word-ru">Привет, как дела?</div>
+          <div class="word-zh">低沉俄罗斯男性</div>
+        </div>
+        <button class="play-btn" style="background:#9c27b0" onclick="playFile('design_1.wav')">▶ 播放</button>
+      </div>
+      <div class="word-card">
+        <div class="word-info">
+          <div class="word-ru">Привет, как дела?</div>
+          <div class="word-zh">友善俄语老师</div>
+        </div>
+        <button class="play-btn" style="background:#9c27b0" onclick="playFile('design_2.wav')">▶ 播放</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // 测试用的俄语词汇
+    const words = [
+      { ru: 'Привет', zh: '你好' },
+      { ru: 'Спасибо', zh: '谢谢' },
+      { ru: 'Здравствуйте', zh: '您好(正式)' },
+      { ru: 'До свидания', zh: '再见' },
+      { ru: 'Извините', zh: '对不起/请问' },
+      { ru: 'Я изучаю русский язык', zh: '我在学俄语' },
+      { ru: 'После обеда я читал роман', zh: '午饭后我读了小说' },
+      { ru: 'Мне очень нравится Россия', zh: '我非常喜欢俄罗斯' },
+    ];
+
+    // 渲染词汇卡片
+    const wordList = document.getElementById('wordList');
+    words.forEach((w, i) => {
+      const card = document.createElement('div');
+      card.className = 'word-card';
+      card.innerHTML = `
+        <div class="word-info">
+          <div class="word-ru">${w.ru}</div>
+          <div class="word-zh">${w.zh}</div>
+        </div>
+        <button class="play-btn" onclick="speak(${i})">▶ 播放</button>
+      `;
+      wordList.appendChild(card);
+    });
+
+    // 加载语音列表
+    let voices = [];
+    let ruVoice = null;
+
+    function loadVoices() {
+      voices = speechSynthesis.getVoices();
+      const select = document.getElementById('voiceSelect');
+      select.innerHTML = '';
+
+      // 筛选俄语语音
+      const ruVoices = voices.filter(v => v.lang.startsWith('ru'));
+
+      if (ruVoices.length === 0) {
+        document.getElementById('status').textContent = '⚠️ 未找到俄语语音，请检查系统语音包';
+        // 显示所有语音供参考
+        voices.forEach(v => {
+          const opt = document.createElement('option');
+          opt.value = v.name;
+          opt.textContent = `${v.name} (${v.lang})`;
+          select.appendChild(opt);
+        });
+        return;
+      }
+
+      ruVoices.forEach(v => {
+        const opt = document.createElement('option');
+        opt.value = v.name;
+        opt.textContent = `${v.name} (${v.lang})`;
+        select.appendChild(opt);
+      });
+
+      ruVoice = ruVoices[0];
+      document.getElementById('status').textContent = `✅ 找到 ${ruVoices.length} 个俄语语音，默认: ${ruVoice.name}`;
+    }
+
+    speechSynthesis.onvoiceschanged = loadVoices;
+    loadVoices();
+
+    // 播放语音
+    function speak(index) {
+      const w = words[index];
+      const utterance = new SpeechSynthesisUtterance(w.ru);
+      utterance.lang = 'ru-RU';
+      utterance.rate = 0.8; // 稍慢一点，方便学习
+      utterance.pitch = 1;
+
+      const select = document.getElementById('voiceSelect');
+      const selectedVoice = voices.find(v => v.name === select.value);
+      if (selectedVoice) {
+        utterance.voice = selectedVoice;
+      }
+
+      speechSynthesis.cancel(); // 取消之前的
+      speechSynthesis.speak(utterance);
+    }
+
+    // 播放音频文件
+    function playFile(filename) {
+      const audio = new Audio(filename);
+      audio.play().catch(e => {
+        alert('无法播放音频文件: ' + filename + '\n' + e.message);
+      });
+    }
+  </script>
+</body>
+</html>

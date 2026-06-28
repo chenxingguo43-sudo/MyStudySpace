@@ -1,0 +1,80 @@
+<h2>📐 设计方案总结：可拖拽分栏布局</h2>
+<p class="subtitle">基于我们的讨论，这是完整的设计方案。请逐项确认。</p>
+
+<div class="section">
+  <h3>📋 需求确认清单</h3>
+  <table style="width:100%;border-collapse:collapse;font-size:13px">
+    <tr style="border-bottom:1px solid var(--glass-border)">
+      <td style="padding:8px;color:var(--text-dim)">1. 手机竖屏</td>
+      <td style="padding:8px;color:var(--success)">✅ 上下真分栏（flex-direction: column）</td>
+    </tr>
+    <tr style="border-bottom:1px solid var(--glass-border)">
+      <td style="padding:8px;color:var(--text-dim)">2. 比例记忆</td>
+      <td style="padding:8px;color:var(--success)">✅ localStorage 持久化，横/竖屏各存一份</td>
+    </tr>
+    <tr style="border-bottom:1px solid var(--glass-border)">
+      <td style="padding:8px;color:var(--text-dim)">3. 拖拽边界</td>
+      <td style="padding:8px;color:var(--success)">✅ 默认 70%，最小 25%，最大 85%</td>
+    </tr>
+    <tr style="border-bottom:1px solid var(--glass-border)">
+      <td style="padding:8px;color:var(--text-dim)">4. 分割线风格</td>
+      <td style="padding:8px;color:var(--success)">✅ 低调透明 → 悬停高亮 → 拖拽发光</td>
+    </tr>
+    <tr>
+      <td style="padding:8px;color:var(--text-dim)">5. 面板显示</td>
+      <td style="padding:8px;color:var(--success)">✅ 始终显示双栏，面板空时显示占位提示</td>
+    </tr>
+  </table>
+</div>
+
+<div class="section">
+  <h3>🏗️ 技术方案</h3>
+
+  <div style="background:var(--glass);border:1px solid var(--glass-border);border-radius:12px;padding:16px;margin-bottom:12px">
+    <h4 style="margin-bottom:8px">核心技术栈</h4>
+    <ul style="font-size:13px;color:var(--text-secondary);padding-left:20px">
+      <li><strong>Pointer Events</strong> — 统一鼠标+触控，替代现有 mousedown</li>
+      <li><strong>Flexbox + flex-basis 百分比</strong> — 替代现有 px 宽度</li>
+      <li><strong>CSS Media Query</strong> — @media (max-width: 767px) 切换 flex-direction</li>
+      <li><strong>移除 CSS transition</strong> — 拖拽时不能有动画，否则不跟手</li>
+      <li><strong>touch-action: none</strong> — 禁用浏览器默认手势</li>
+    </ul>
+  </div>
+
+  <div style="background:var(--glass);border:1px solid var(--glass-border);border-radius:12px;padding:16px">
+    <h4 style="margin-bottom:8px">改动范围</h4>
+    <p style="font-size:13px;color:var(--text-secondary)">只改 <code style="background:rgba(255,255,255,0.06);padding:2px 6px;border-radius:4px">reader.html</code> 一个文件：</p>
+    <ul style="font-size:13px;color:var(--text-secondary);padding-left:20px">
+      <li><strong>CSS</strong> — 重写 .reader-layout、.reader-pane、.detail-panel、.resize-handle，新增竖屏媒体查询</li>
+      <li><strong>HTML</strong> — 调整 .reader-layout 内的元素顺序</li>
+      <li><strong>JS</strong> — 重写拖拽逻辑（pointerdown→move→up），新增 localStorage 读写</li>
+      <li><strong>移除</strong> — .detail-panel 的 CSS transition、.detail-overlay（不再需要浮层）</li>
+    </ul>
+  </div>
+</div>
+
+<div class="section">
+  <h3>🔄 行为对比</h3>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;font-size:12px">
+    <div style="background:rgba(255,100,100,0.08);border-radius:8px;padding:12px">
+      <strong style="color:#f87171">❌ 改前</strong>
+      <ul style="padding-left:16px;color:var(--text-secondary);margin-top:6px">
+        <li>面板 px 宽度 + transition 动画</li>
+        <li>拖拽不跟手</li>
+        <li>手机浮层覆盖</li>
+        <li>overflow: hidden 面板</li>
+        <li>mousedown 驱动拖拽</li>
+      </ul>
+    </div>
+    <div style="background:rgba(52,211,153,0.08);border-radius:8px;padding:12px">
+      <strong style="color:#34d399">✅ 改后</strong>
+      <ul style="padding-left:16px;color:var(--text-secondary);margin-top:6px">
+        <li>阅读区 flex-basis 百分比</li>
+        <li>拖拽实时跟手</li>
+        <li>手机上下分栏</li>
+        <li>面板 flex: 1 自动填满</li>
+        <li>pointer events 统一驱动</li>
+      </ul>
+    </div>
+  </div>
+</div>

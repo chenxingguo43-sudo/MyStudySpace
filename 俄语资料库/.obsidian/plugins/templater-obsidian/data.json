@@ -1,0 +1,40 @@
+{
+  "command_timeout": 5,
+  "templates_folder": "模板",
+  "templates_pairs": [
+    ["", ""]
+  ],
+  "trigger_on_file_creation": true,
+  "auto_jump_to_cursor": true,
+  "enable_system_commands": false,
+  "shell_path": "",
+  "user_scripts_folder": "",
+  "enable_folder_templates": true,
+  "folder_templates": [
+    {
+      "folder": "词汇",
+      "template": "模板/生词模板.md"
+    },
+    {
+      "folder": "语法",
+      "template": "模板/语法模板.md"
+    },
+    {
+      "folder": "每日练习/六级",
+      "template": "模板/六级-每日练习模板.md"
+    },
+    {
+      "folder": "每日练习/对外二级",
+      "template": "模板/对外二级-每日练习模板.md"
+    }
+  ],
+  "syntax_highlighting": true,
+  "enabled_templates_hotkeys": [
+    "模板/生词模板.md",
+    "模板/语法模板.md",
+    "模板/六级-每日练习模板.md",
+    "模板/对外二级-每日练习模板.md"
+  ],
+  "startup_templates": [],
+  "enable_ribbon_icon": true
+}

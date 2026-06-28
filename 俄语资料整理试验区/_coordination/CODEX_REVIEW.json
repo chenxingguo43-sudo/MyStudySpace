@@ -1,0 +1,42 @@
+{
+  "type": "codex-review",
+  "status": "REQUEST_CHANGES",
+  "reviewed_source_id": "diag-0011",
+  "last_checked": "2026-06-06 01:28",
+  "summary": "diag-0011 is improved but not ready for import because source positioning is broken.",
+  "passed_checks": {
+    "records": 84,
+    "unique_sentence_ids": 84,
+    "missing_top_level_fields": 0,
+    "empty_surface_forms": 0,
+    "empty_possible_lexemes": 0,
+    "top_level_candidate_id_count": 84,
+    "top_level_match_risk_count": 84,
+    "match_risk_high": 0,
+    "dry_run_would_add": 84,
+    "formal_data_changed": false,
+    "reported_records": 175,
+    "actual_records_on_disk": 84,
+    "rechecked_page_number_zero_or_less": 84,
+    "rechecked_records_match_risk_low": 84,
+    "rechecked_dry_run_package_low_risk": 0
+  },
+  "blocking_issues": [
+    "All records have page_number = 0, so source positioning is invalid.",
+    "candidate_id equals sentence_id for all records; prefer linking to real sentence_candidates ids.",
+    "dry-run report risk statistics do not match top-level match_risk values in sentence_records.json.",
+    "Claude's reported counts do not match the files on disk."
+  ],
+  "required_next_action": "Fix diag-0011 page_number and dry-run risk statistics, or choose another source. Do not import formal data yet.",
+  "acceptance": {
+    "records_gt_zero": true,
+    "page_number_gt_zero_for_all_records": true,
+    "empty_surface_forms": 0,
+    "empty_possible_lexemes": 0,
+    "top_level_candidate_id_count_must_equal_records": true,
+    "top_level_match_risk_count_must_equal_records": true,
+    "package_high_risk": 0,
+    "dry_run_would_add_gt_zero": true,
+    "formal_data_unchanged": true
+  }
+}

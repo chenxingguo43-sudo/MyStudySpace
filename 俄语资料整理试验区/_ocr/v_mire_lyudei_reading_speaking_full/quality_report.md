@@ -1,0 +1,78 @@
+# OCR quality report
+
+- PDF pages: 186
+- Processed pages: 186
+- Class counts: {'poor': 16, 'needs_review': 54, 'good': 116}
+
+## Pages needing review
+
+- Page 001: poor, score=35, psm=cached, chars=159, cyr=121, han=0
+- Page 002: needs_review, score=40, psm=cached, chars=341, cyr=275, han=0
+- Page 004: needs_review, score=62, psm=cached, chars=7376, cyr=5095, han=0
+- Page 006: needs_review, score=51, psm=cached, chars=852, cyr=632, han=0
+- Page 007: needs_review, score=41, psm=cached, chars=470, cyr=324, han=0
+- Page 041: needs_review, score=62, psm=cached, chars=1370, cyr=1007, han=0
+- Page 043: needs_review, score=55, psm=cached, chars=1100, cyr=776, han=0
+- Page 045: needs_review, score=62, psm=cached, chars=1402, cyr=969, han=0
+- Page 049: needs_review, score=64, psm=cached, chars=1557, cyr=1031, han=0
+- Page 050: needs_review, score=61, psm=cached, chars=1355, cyr=960, han=0
+- Page 051: needs_review, score=43, psm=cached, chars=664, cyr=387, han=0
+- Page 052: poor, score=37, psm=cached, chars=600, cyr=238, han=0
+- Page 053: poor, score=38, psm=cached, chars=487, cyr=254, han=0
+- Page 054: poor, score=33, psm=cached, chars=478, cyr=167, han=19
+- Page 055: needs_review, score=46, psm=cached, chars=641, cyr=464, han=0
+- Page 064: needs_review, score=57, psm=cached, chars=1093, cyr=822, han=0
+- Page 066: needs_review, score=50, psm=cached, chars=812, cyr=610, han=0
+- Page 071: needs_review, score=63, psm=cached, chars=1331, cyr=1015, han=1
+- Page 084: needs_review, score=62, psm=cached, chars=1381, cyr=974, han=1
+- Page 085: needs_review, score=60, psm=cached, chars=1333, cyr=931, han=0
+- Page 086: needs_review, score=63, psm=cached, chars=1453, cyr=1024, han=1
+- Page 089: needs_review, score=59, psm=cached, chars=1356, cyr=915, han=0
+- Page 093: needs_review, score=61, psm=cached, chars=1342, cyr=962, han=0
+- Page 094: needs_review, score=42, psm=cached, chars=617, cyr=354, han=2
+- Page 095: poor, score=34, psm=cached, chars=875, cyr=167, han=0
+- Page 096: poor, score=35, psm=cached, chars=740, cyr=191, han=21
+- Page 097: poor, score=30, psm=cached, chars=152, cyr=83, han=0
+- Page 098: poor, score=31, psm=cached, chars=391, cyr=152, han=2
+- Page 099: needs_review, score=47, psm=cached, chars=781, cyr=559, han=0
+- Page 117: needs_review, score=57, psm=cached, chars=1205, cyr=812, han=0
+- Page 125: needs_review, score=61, psm=cached, chars=1277, cyr=963, han=0
+- Page 130: needs_review, score=63, psm=cached, chars=1314, cyr=1020, han=0
+- Page 134: needs_review, score=56, psm=cached, chars=997, cyr=780, han=1
+- Page 142: needs_review, score=50, psm=cached, chars=908, cyr=636, han=0
+- Page 144: needs_review, score=64, psm=cached, chars=1476, cyr=1030, han=0
+- Page 145: needs_review, score=61, psm=cached, chars=1365, cyr=914, han=0
+- Page 146: needs_review, score=61, psm=cached, chars=1409, cyr=941, han=0
+- Page 147: needs_review, score=64, psm=cached, chars=1513, cyr=1040, han=0
+- Page 149: needs_review, score=57, psm=cached, chars=1278, cyr=835, han=0
+- Page 153: needs_review, score=64, psm=cached, chars=1561, cyr=1046, han=1
+- Page 154: needs_review, score=49, psm=cached, chars=960, cyr=602, han=0
+- Page 155: poor, score=39, psm=cached, chars=506, cyr=273, han=2
+- Page 156: poor, score=39, psm=cached, chars=605, cyr=286, han=0
+- Page 157: poor, score=28, psm=cached, chars=157, cyr=67, han=0
+- Page 158: poor, score=34, psm=cached, chars=731, cyr=183, han=0
+- Page 159: poor, score=29, psm=cached, chars=477, cyr=145, han=14
+- Page 160: poor, score=32, psm=cached, chars=353, cyr=135, han=6
+- Page 164: needs_review, score=53, psm=cached, chars=2107, cyr=43, han=0
+- Page 165: needs_review, score=46, psm=cached, chars=1014, cyr=338, han=0
+- Page 166: needs_review, score=64, psm=cached, chars=1369, cyr=1018, han=5
+- Page 167: needs_review, score=40, psm=cached, chars=1401, cyr=81, han=566
+- Page 168: needs_review, score=42, psm=cached, chars=993, cyr=281, han=259
+- Page 169: needs_review, score=40, psm=cached, chars=981, cyr=259, han=249
+- Page 170: needs_review, score=40, psm=cached, chars=1052, cyr=194, han=292
+- Page 171: needs_review, score=41, psm=cached, chars=1159, cyr=245, han=282
+- Page 172: needs_review, score=40, psm=cached, chars=1049, cyr=218, han=289
+- Page 173: needs_review, score=41, psm=cached, chars=1029, cyr=249, han=268
+- Page 174: needs_review, score=42, psm=cached, chars=1062, cyr=252, han=274
+- Page 175: poor, score=39, psm=cached, chars=1029, cyr=185, han=322
+- Page 176: needs_review, score=40, psm=cached, chars=1022, cyr=232, han=242
+- Page 177: needs_review, score=43, psm=cached, chars=1075, cyr=264, han=254
+- Page 178: needs_review, score=44, psm=cached, chars=1119, cyr=278, han=304
+- Page 179: needs_review, score=40, psm=cached, chars=1110, cyr=255, han=263
+- Page 180: needs_review, score=42, psm=cached, chars=1170, cyr=219, han=306
+- Page 181: needs_review, score=40, psm=6, chars=1074, cyr=183, han=322
+- Page 182: needs_review, score=42, psm=6, chars=1075, cyr=279, han=278
+- Page 183: needs_review, score=42, psm=6, chars=1050, cyr=261, han=266
+- Page 184: needs_review, score=41, psm=6, chars=1092, cyr=233, han=285
+- Page 185: needs_review, score=40, psm=11, chars=1156, cyr=184, han=315
+- Page 186: poor, score=26, psm=3, chars=192, cyr=44, han=57

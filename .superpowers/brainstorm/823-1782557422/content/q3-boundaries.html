@@ -1,0 +1,46 @@
+<h2>问题 3：拖拽的边界限制和默认比例</h2>
+<p class="subtitle">阅读区不能被挤得太窄，详情面板也需要最小空间</p>
+
+<div class="options">
+  <div class="option" data-choice="a" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content">
+      <h3>阅读区 30%–80%，默认 60%（推荐）</h3>
+      <div style="margin-top:8px;font-size:13px">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px">
+          <span style="min-width:70px;font-size:11px;color:var(--text-dim)">横屏:</span>
+          <span style="width:30%;background:rgba(129,140,248,0.2);padding:4px 0;text-align:center;border-radius:4px;font-size:11px">30% 最小</span>
+          <span style="flex:1;text-align:center;font-size:11px;color:var(--text-dim)">← 拖拽范围 →</span>
+          <span style="width:50%;background:rgba(129,140,248,0.2);padding:4px 0;text-align:center;border-radius:4px;font-size:11px">80% 最大</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px">
+          <span style="min-width:70px;font-size:11px;color:var(--text-dim)">竖屏:</span>
+          <span style="width:30%;background:rgba(251,191,36,0.2);padding:4px 0;text-align:center;border-radius:4px;font-size:11px">30% 最小</span>
+          <span style="flex:1;text-align:center;font-size:11px;color:var(--text-dim)">← 拖拽范围 →</span>
+          <span style="width:50%;background:rgba(251,191,36,0.2);padding:4px 0;text-align:center;border-radius:4px;font-size:11px">80% 最大</span>
+        </div>
+        <p style="margin-top:8px;color:var(--text-secondary)">够宽的范围，阅读为主时拖到 80%，查词时拖到 40%<br>默认 60% 是偏阅读的平衡点</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="b" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content">
+      <h3>阅读区 40%–70%，默认 50%</h3>
+      <div style="margin-top:8px;font-size:13px">
+        <p style="color:var(--text-secondary)">更窄的拖拽范围，保证两边都不会太极端<br>默认 50% 严格对称</p>
+        <p style="color:var(--text-dim);margin-top:4px">⚠️ 灵活性稍低，但不会出现"阅读区只剩 30% 太挤"的情况</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="c" onclick="toggleSelect(this)">
+    <div class="letter">C</div>
+    <div class="content">
+      <h3>自定义</h3>
+      <p style="font-size:13px;color:var(--text-secondary)">你来说默认比例和最小/最大边界</p>
+      <p style="font-size:12px;color:var(--text-dim)">例如：默认 70%，最小 25%，最大 85%</p>
+    </div>
+  </div>
+</div>

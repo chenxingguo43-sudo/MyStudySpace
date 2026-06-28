@@ -1,0 +1,1434 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>番茄计时器 · 专注一隅</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.2/lib/anime.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <style>
+        /* ============================================
+           Innook Design System — Adapted for 学习舱
+           ============================================ */
+
+        :root {
+            --ink-warm: rgba(244,231,211,0.9);
+            --ink-soft: rgba(244,231,211,0.6);
+            --ink-dim: rgba(244,231,211,0.38);
+            --glass-warm-bg: rgba(244,231,211,0.08);
+            --glass-warm-hover: rgba(244,231,211,0.14);
+            --glass-border: rgba(244,231,211,0.12);
+            --glass-glow: rgba(244,231,211,0.06);
+            --radius-card: 1.75rem;
+            --radius-dock: 2rem;
+            --radius-btn: 999px;
+            --transition-smooth: 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+            --adaptive: #C45C48;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html, body {
+            height: 100%; width: 100%;
+            overflow: hidden;
+            background: #050504;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        /* ============ VIDEO BACKGROUND LAYER ============ */
+        .bg-layer {
+            position: fixed; inset: 0; z-index: 0;
+            pointer-events: none;
+        }
+        .bg-layer video, .bg-layer img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            transition: opacity 0.7s ease;
+        }
+        .bg-overlay-1 {
+            position: fixed; inset: 0; z-index: 1;
+            background: rgba(0,0,0,0.3);
+            transition: background 0.7s ease;
+        }
+        .bg-overlay-2 {
+            position: fixed; inset: 0; z-index: 2;
+            pointer-events: none;
+            background:
+                radial-gradient(circle at 18% 12%, rgba(244,231,211,0.16), transparent 30%),
+                linear-gradient(180deg, rgba(0,0,0,0.05), rgba(0,0,0,0.34));
+        }
+
+        /* ============ LIQUID GLASS ============ */
+        .liquid-glass {
+            background: var(--glass-warm-bg);
+            backdrop-filter: blur(9px);
+            -webkit-backdrop-filter: blur(9px);
+            border: none;
+            position: relative;
+            overflow: hidden;
+            box-shadow: inset 0 1px 1px rgba(255,255,255,0.16), 0 18px 60px rgba(0,0,0,0.2);
+        }
+        .liquid-glass::before {
+            content: '';
+            position: absolute; inset: 0;
+            border-radius: inherit;
+            pointer-events: none;
+            background: linear-gradient(
+                rgba(244,231,211,0.58) 0%,
+                rgba(244,231,211,0.22) 24%,
+                rgba(244,231,211,0.04) 48%,
+                rgba(244,231,211,0.06) 68%,
+                rgba(244,231,211,0.28) 100%
+            );
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+        }
+
+        .glass-control {
+            background: rgba(244,231,211,0.08);
+            border: 1px solid var(--glass-border);
+            transition: all var(--transition-smooth);
+        }
+        .glass-control:hover {
+            background: rgba(244,231,211,0.16);
+            border-color: rgba(244,231,211,0.22);
+        }
+
+        /* ============ APP SHELL ============ */
+        .app-shell {
+            position: relative; z-index: 10;
+            display: flex; flex-direction: column;
+            min-height: 100dvh; height: 100dvh;
+            color: var(--ink-warm);
+        }
+
+        /* ============ HEADER ============ */
+        .site-header {
+            display: flex; align-items: center; justify-content: space-between;
+            gap: 0.75rem;
+            padding: 1rem 1.25rem 0.75rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            flex-shrink: 0;
+            color: var(--ink-warm);
+        }
+        @media (min-width: 768px) {
+            .site-header { padding: 1.25rem 2.5rem 1rem; }
+        }
+        .brand-lockup {
+            display: flex; align-items: center; gap: 0.5rem;
+            background: none; border: none; cursor: pointer;
+            color: var(--ink-warm); font-size: 1.1rem;
+            font-weight: 600; letter-spacing: 0.04em;
+        }
+        .brand-lockup .logo-icon {
+            width: 36px; height: 36px;
+            background: var(--adaptive);
+            border-radius: 10px;
+            display: grid; place-items: center;
+            font-size: 1.2rem; color: #fff;
+        }
+        .site-nav {
+            display: none; align-items: center; gap: 2.5rem;
+            font-size: 0.95rem; color: var(--ink-soft);
+        }
+        @media (min-width: 768px) { .site-nav { display: flex; } }
+        .site-nav button {
+            background: none; border: none; cursor: pointer;
+            color: var(--ink-soft); font-size: inherit;
+            transition: color 0.2s; padding: 0.25rem 0;
+        }
+        .site-nav button:hover, .site-nav button.active {
+            color: var(--ink-warm);
+        }
+        .header-actions {
+            display: flex; align-items: center; gap: 0.5rem;
+        }
+        .header-icon-btn {
+            width: 2.5rem; height: 2.5rem;
+            border-radius: 50%;
+            display: grid; place-items: center;
+            cursor: pointer; font-size: 1rem;
+            color: rgba(244,231,211,0.82);
+        }
+        @media (min-width: 768px) {
+            .header-icon-btn { width: 2.75rem; height: 2.75rem; }
+        }
+
+        /* ============ STAGE AREA ============ */
+        .study-stage {
+            flex: 1; min-height: 0;
+            position: relative;
+            display: flex; align-items: center; justify-content: center;
+        }
+
+        /* Floating Timer Card */
+        .floating-timer {
+            position: absolute;
+            top: clamp(2rem, 8vh, 5rem);
+            left: 50%; transform: translateX(-50%);
+            z-index: 20;
+            transition: opacity 0.35s ease, transform 0.35s ease;
+        }
+        .floating-timer.hidden {
+            opacity: 0; pointer-events: none;
+            transform: translateX(-50%) translateY(20px);
+        }
+        .timer-card {
+            width: min(17rem, 70vw);
+            padding: 1.25rem 1.5rem;
+            border-radius: var(--radius-card);
+            text-align: center;
+            color: var(--ink-warm);
+        }
+        @media (min-width: 640px) {
+            .timer-card { width: 17rem; padding: 1.5rem 1.75rem; }
+        }
+        .timer-card-label {
+            font-size: 0.68rem; letter-spacing: 0.24em;
+            text-transform: uppercase; color: rgba(255,255,255,0.45);
+            margin-bottom: 0.35rem;
+        }
+        .timer-card-status {
+            display: inline-flex; align-items: center; gap: 0.35rem;
+            font-size: 0.7rem; padding: 0.2rem 0.65rem;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.7);
+        }
+        .timer-card-status .dot {
+            width: 6px; height: 6px; border-radius: 50%;
+            background: #6ee7b7;
+        }
+        .timer-card-status .dot.paused { background: #fbbf24; }
+        .timer-card-time {
+            font-size: 3.4rem; font-weight: 500;
+            line-height: 1; letter-spacing: -0.02em;
+            color: #fff; margin: 0.5rem 0;
+        }
+        @media (min-width: 640px) {
+            .timer-card-time { font-size: 3.75rem; }
+        }
+        .timer-card-progress {
+            height: 0.35rem; border-radius: 999px;
+            background: rgba(255,255,255,0.15);
+            overflow: hidden; margin-top: 1rem;
+        }
+        .timer-card-progress-fill {
+            height: 100%; border-radius: inherit;
+            background: rgba(255,255,255,0.7);
+            transition: width 0.5s ease;
+        }
+        .timer-card-info {
+            display: flex; justify-content: space-between;
+            font-size: 0.68rem; color: rgba(255,255,255,0.4);
+            margin-top: 0.4rem;
+        }
+        .timer-card-controls {
+            display: flex; gap: 0.5rem; margin-top: 0.9rem;
+            justify-content: center;
+        }
+        .timer-card-controls button {
+            flex: 1; padding: 0.5rem 0.8rem;
+            border-radius: 999px; border: none; cursor: pointer;
+            font-size: 0.8rem; color: var(--ink-warm);
+            transition: all var(--transition-smooth);
+        }
+        .btn-play {
+            background: var(--adaptive) !important;
+            color: #fff !important; font-weight: 500;
+        }
+        .btn-play:hover { filter: brightness(1.1); }
+        .btn-reset {
+            background: rgba(255,255,255,0.08) !important;
+        }
+        .btn-reset:hover { background: rgba(255,255,255,0.14) !important; }
+
+        /* Mode Switch — pill selector inside timer card */
+        .mode-switch {
+            display: flex; gap: 0; margin-bottom: 0.75rem;
+            background: rgba(255,255,255,0.06);
+            border-radius: 999px; padding: 0.2rem;
+        }
+        .mode-switch button {
+            flex: 1; padding: 0.35rem 0.8rem;
+            border-radius: 999px; border: none; cursor: pointer;
+            font-size: 0.75rem; background: transparent;
+            color: rgba(255,255,255,0.5); transition: all 0.25s ease;
+        }
+        .mode-switch button.active {
+            background: rgba(255,255,255,0.15);
+            color: var(--ink-warm); font-weight: 500;
+        }
+
+        /* ============ TIME SETTINGS (inside timer) ============ */
+        .time-settings {
+            display: flex; gap: 0.75rem; justify-content: center;
+            margin-bottom: 0.75rem;
+        }
+        .time-chip {
+            padding: 0.25rem 0.7rem; border-radius: 999px;
+            font-size: 0.72rem; cursor: pointer;
+            border: 1px solid rgba(255,255,255,0.15);
+            background: transparent; color: var(--ink-soft);
+            transition: all 0.2s;
+        }
+        .time-chip.active {
+            background: rgba(255,255,255,0.15);
+            color: var(--ink-warm); border-color: rgba(255,255,255,0.3);
+        }
+
+        /* ============ BOTTOM DOCK ============ */
+        .study-dock {
+            position: absolute; bottom: 1rem; left: 50%;
+            transform: translateX(-50%); z-index: 30;
+            width: min(78rem, calc(100% - 2rem));
+        }
+        .dock-shell {
+            display: grid;
+            grid-template-columns: 1fr;
+            color: rgba(244,231,211,0.76);
+            border-radius: var(--radius-dock);
+            min-height: auto;
+            overflow: visible;
+        }
+        @media (min-width: 768px) {
+            .dock-shell {
+                grid-template-columns: minmax(12rem, 0.55fr) minmax(20rem, 1.2fr) minmax(9.5rem, 0.42fr);
+                min-height: clamp(5.9rem, 12vh, 6.8rem);
+            }
+        }
+        @media (max-width: 767px) {
+            .dock-shell {
+                grid-template-columns: 1fr 1fr;
+                border-radius: 1.25rem;
+            }
+            .dock-focus-btn { grid-column: 1 / -1; }
+        }
+
+        /* Dock: Timer Section */
+        .dock-timer {
+            display: flex; flex-direction: column; justify-content: center;
+            padding: 0.9rem 1.25rem;
+            border-right: 1px solid rgba(244,231,211,0.12);
+        }
+        @media (max-width: 767px) {
+            .dock-timer { border-right: none; border-bottom: 1px solid rgba(244,231,211,0.12); }
+        }
+        .dock-timer-top {
+            display: flex; justify-content: space-between; align-items: center;
+            font-size: 0.68rem; letter-spacing: 0.2em;
+            text-transform: uppercase; color: rgba(244,231,211,0.42);
+            margin-bottom: 0.25rem;
+        }
+        .dock-time {
+            font-size: 1.5rem; font-weight: 500;
+            line-height: 1.2; color: var(--ink-warm);
+        }
+        .dock-progress {
+            height: 0.25rem; border-radius: 999px;
+            background: rgba(244,231,211,0.14);
+            overflow: hidden; margin-top: 0.6rem;
+        }
+        .dock-progress span {
+            display: block; height: 100%; border-radius: inherit;
+            background: rgba(244,231,211,0.72);
+            transition: width 0.3s ease;
+        }
+
+        /* Dock: Goals Section */
+        .dock-goal {
+            display: flex; flex-direction: column; justify-content: center;
+            padding: 0.9rem 1.25rem;
+            border-right: 1px solid rgba(244,231,211,0.12);
+            cursor: pointer;
+            transition: background 0.18s;
+        }
+        .dock-goal:hover { background: rgba(244,231,211,0.04); }
+        @media (max-width: 767px) {
+            .dock-goal { border-right: none; border-bottom: 1px solid rgba(244,231,211,0.12); }
+        }
+        .dock-goal-head {
+            display: flex; justify-content: space-between; align-items: center;
+            font-size: 0.78rem; margin-bottom: 0.2rem;
+        }
+        .dock-goal-head em {
+            font-style: normal; font-size: 0.85rem;
+            color: var(--ink-soft);
+        }
+        .dock-goal p {
+            font-size: 0.75rem; color: rgba(244,231,211,0.3);
+            margin-top: 0.15rem;
+        }
+        .dock-goal-chips {
+            display: flex; gap: 0.4rem; margin-top: 0.35rem;
+            flex-wrap: wrap;
+        }
+        .goal-chip {
+            font-size: 0.65rem; padding: 0.15rem 0.55rem;
+            border-radius: 999px;
+            background: rgba(244,231,211,0.1);
+            color: var(--ink-soft);
+            cursor: pointer; border: none;
+            transition: all 0.2s;
+        }
+        .goal-chip:hover { background: rgba(244,231,211,0.18); }
+        .goal-chip.done {
+            text-decoration: line-through;
+            opacity: 0.4;
+        }
+        .goal-input-wrap {
+            display: flex; gap: 0.3rem; margin-top: 0.3rem;
+        }
+        .goal-input-wrap input {
+            flex: 1; background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 999px; padding: 0.25rem 0.7rem;
+            font-size: 0.7rem; color: var(--ink-warm);
+            outline: none;
+        }
+        .goal-input-wrap button {
+            background: var(--adaptive); border: none;
+            color: #fff; border-radius: 999px;
+            padding: 0.25rem 0.7rem; font-size: 0.7rem; cursor: pointer;
+        }
+
+        /* Dock: Focus Mode Button */
+        .dock-focus-btn {
+            display: flex; align-items: center; justify-content: center;
+            gap: 0.5rem; padding: 0.9rem;
+            color: rgba(244,231,211,0.82);
+            border: 1px solid rgba(244,231,211,0.16);
+            border-radius: 999px; cursor: pointer;
+            margin: auto; width: calc(100% - 2rem);
+            min-height: 3.35rem; font-size: 0.92rem;
+            transition: all 0.18s;
+            background: transparent;
+        }
+        .dock-focus-btn:hover {
+            color: rgba(244,231,211,0.96);
+            border-color: rgba(244,231,211,0.3);
+        }
+
+        /* ============ SCENE SELECTOR (in stage) ============ */
+        .scene-panel {
+            display: none; flex-wrap: wrap; gap: 0.75rem;
+            justify-content: center; padding: 1rem;
+            max-width: 56rem; margin: 0 auto;
+        }
+        .scene-panel.active { display: flex; }
+        .scene-card {
+            width: 9rem; padding: 0.8rem; border-radius: 1.25rem;
+            cursor: pointer; text-align: center;
+            transition: all 0.25s ease;
+            background: rgba(244,231,211,0.04);
+            border: 2px solid transparent;
+        }
+        .scene-card:hover { background: rgba(244,231,211,0.1); }
+        .scene-card.selected { border-color: var(--ink-warm); background: rgba(244,231,211,0.1); }
+        .scene-card .scene-icon {
+            font-size: 2rem; margin-bottom: 0.35rem;
+        }
+        .scene-card .scene-name {
+            font-size: 0.72rem; color: var(--ink-soft);
+            margin-bottom: 0.2rem;
+        }
+        .scene-card .scene-desc {
+            font-size: 0.62rem; color: var(--ink-dim);
+        }
+
+        /* ============ FAB BUTTONS ============ */
+        .fab-container {
+            position: fixed; bottom: 7rem; right: 1.25rem;
+            z-index: 100; display: flex; flex-direction: column; gap: 0.6rem;
+        }
+        @media (min-width: 768px) {
+            .fab-container { bottom: 7.5rem; right: 2rem; }
+        }
+        .fab-btn {
+            width: 3rem; height: 3rem; border-radius: 50%;
+            display: grid; place-items: center;
+            cursor: pointer; font-size: 1.25rem;
+            color: var(--ink-warm);
+            border: 1px solid rgba(244,231,211,0.2);
+        }
+        .fab-btn.russian { background: rgba(99,102,241,0.25); }
+        .fab-btn.vocab { background: rgba(196,92,72,0.25); }
+        .fab-btn:hover { transform: scale(1.08); }
+        .fab-btn:active { transform: scale(0.95); }
+
+        /* ============ MODALS (simplified glass) ============ */
+        .modal-overlay {
+            position: fixed; inset: 0; z-index: 200;
+            background: rgba(0,0,0,0.5);
+            display: none; align-items: center; justify-content: center;
+            padding: 1rem;
+        }
+        .modal-overlay.show { display: flex; }
+        .modal-panel {
+            width: 100%; max-width: 28rem;
+            max-height: 85vh; overflow-y: auto;
+            border-radius: 1.5rem; padding: 1.5rem;
+            color: var(--ink-warm);
+        }
+        .modal-panel h3 {
+            font-size: 1.1rem; font-weight: 600;
+            margin-bottom: 1rem;
+            display: flex; justify-content: space-between;
+        }
+        .modal-close {
+            background: none; border: none; color: var(--ink-soft);
+            cursor: pointer; font-size: 1.1rem;
+        }
+
+        /* Toggle switch */
+        .toggle-input:checked + .toggle-slider { background: var(--adaptive) !important; }
+        .toggle-input:checked ~ .toggle-dot { transform: translateX(1.3rem); }
+
+        /* ============ UTILITY ============ */
+        .text-warm { color: var(--ink-warm); }
+        .text-soft { color: var(--ink-soft); }
+        .text-dim { color: var(--ink-dim); }
+        .transition-all { transition: all var(--transition-smooth); }
+
+        /* Stats grid (small cards inside stats modal) */
+        .stat-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            gap: 0.6rem; margin-bottom: 1rem;
+        }
+        .stat-card {
+            padding: 0.8rem; border-radius: 1rem; text-align: center;
+            background: rgba(244,231,211,0.06);
+            border: 1px solid rgba(244,231,211,0.1);
+        }
+        .stat-card .num {
+            font-size: 1.6rem; font-weight: 600; color: #fff;
+        }
+        .stat-card .lbl {
+            font-size: 0.65rem; color: var(--ink-dim);
+            margin-top: 0.15rem;
+        }
+
+        /* ============ RESPONSIVE ============ */
+        @media (max-width: 480px) {
+            .timer-card { width: 85vw; }
+            .timer-card-time { font-size: 2.8rem; }
+            .fab-container { bottom: 6rem; right: 0.75rem; }
+            .fab-btn { width: 2.5rem; height: 2.5rem; font-size: 1rem; }
+            .dock-timer { padding: 0.7rem 1rem; }
+            .dock-goal { padding: 0.7rem 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ============ VIDEO BACKGROUND ============ -->
+    <div class="bg-layer">
+        <video id="bg-video" autoplay loop muted playsinline
+               poster="https://innook-media-1348991120.cos.ap-guangzhou.myqcloud.com/media/scenes/morning-window/cover.jpg?v=20260601final"
+               src="https://innook-media-1348991120.cos.ap-guangzhou.myqcloud.com/media/scenes/morning-window/video.mp4?v=20260601final">
+        </video>
+        <img id="bg-fallback" src="" alt="" style="display:none;">
+    </div>
+    <div class="bg-overlay-1"></div>
+    <div class="bg-overlay-2"></div>
+
+    <!-- ============ APP SHELL ============ -->
+    <div class="app-shell" id="app-shell">
+
+        <!-- HEADER -->
+        <header class="site-header">
+            <button class="brand-lockup" id="brand-btn">
+                <span class="logo-icon">🍅</span>
+                <span>专注一隅</span>
+            </button>
+            <nav class="site-nav">
+                <button data-tab="scenes" class="active">场景</button>
+                <button data-tab="music">音乐</button>
+                <button data-tab="goals">计划</button>
+            </nav>
+            <div class="header-actions">
+                <button class="header-icon-btn glass-control" id="btn-stats" title="学习统计">
+                    <i class="fa fa-bar-chart"></i>
+                </button>
+                <button class="header-icon-btn glass-control" id="btn-settings" title="设置">
+                    <i class="fa fa-sliders"></i>
+                </button>
+            </div>
+        </header>
+
+        <!-- STAGE -->
+        <section class="study-stage" id="study-stage" style="position:relative;">
+
+            <!-- Floating Timer Card -->
+            <div class="floating-timer" id="floating-timer-card">
+                <div class="timer-card liquid-glass">
+                    <!-- Mode Switch -->
+                    <div class="mode-switch">
+                        <button id="mode-work-btn" class="active">📖 学习</button>
+                        <button id="mode-break-btn">☕ 休息</button>
+                    </div>
+                    <!-- Label -->
+                    <div class="timer-card-label" id="pomodoro-label">Pomodoro #1</div>
+                    <!-- Time -->
+                    <div class="timer-card-time" id="timer-display">25:00</div>
+                    <!-- Status -->
+                    <div style="display:flex;justify-content:center;margin-bottom:0.3rem;">
+                        <span class="timer-card-status" id="timer-status-badge">
+                            <span class="dot" id="status-dot"></span>
+                            <span id="timer-status">准备开始</span>
+                        </span>
+                    </div>
+                    <!-- Time Settings (shown when paused) -->
+                    <div class="time-settings" id="time-settings">
+                        <button class="time-chip active" data-time="25">25</button>
+                        <button class="time-chip" data-time="45">45</button>
+                        <button class="time-chip" data-time="50">50</button>
+                        <button class="time-chip" data-time="90">90</button>
+                    </div>
+                    <!-- Progress -->
+                    <div class="timer-card-progress">
+                        <div class="timer-card-progress-fill" id="progress-fill" style="width:100%"></div>
+                    </div>
+                    <div class="timer-card-info">
+                        <span>进度</span>
+                        <span id="progress-pct">100%</span>
+                    </div>
+                    <!-- Controls -->
+                    <div class="timer-card-controls">
+                        <button class="btn-play" id="start-btn">
+                            <i class="fa fa-play"></i> 开始
+                        </button>
+                        <button class="btn-reset" id="reset-btn">
+                            <i class="fa fa-refresh"></i> 重置
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scene Selector Panel -->
+            <div class="scene-panel" id="scene-panel">
+                <!-- Populated by JS -->
+            </div>
+
+        </section>
+
+        <!-- BOTTOM DOCK -->
+        <div class="study-dock" id="study-dock">
+            <div class="dock-shell liquid-glass">
+                <!-- Timer Summary -->
+                <div class="dock-timer">
+                    <div class="dock-timer-top">
+                        <span id="dock-pomodoro-label">Pomodoro #1</span>
+                        <span id="dock-status">
+                            <span style="color:#6ee7b7;">●</span> 准备中
+                        </span>
+                    </div>
+                    <div class="dock-time" id="dock-time">25:00</div>
+                    <div class="dock-progress">
+                        <span id="dock-progress-fill" style="width:100%"></span>
+                    </div>
+                </div>
+                <!-- Goals -->
+                <div class="dock-goal" id="dock-goal-section">
+                    <div class="dock-goal-head">
+                        <span>🎯 今日目标</span>
+                        <em id="goal-count">0 项</em>
+                    </div>
+                    <p id="goal-placeholder">写下今天想完成的事...</p>
+                    <div class="dock-goal-chips" id="goal-chips"></div>
+                    <div class="goal-input-wrap" id="goal-input-wrap" style="display:none;">
+                        <input type="text" id="goal-input" placeholder="添加目标..." maxlength="40">
+                        <button id="goal-add-btn">+</button>
+                    </div>
+                </div>
+                <!-- Focus Mode -->
+                <button class="dock-focus-btn" id="focus-mode-btn" title="专注模式">
+                    ⛶ 专注模式
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- FAB Buttons -->
+    <div class="fab-container">
+        <button class="fab-btn russian" id="russian-fab" title="俄语素材库">🌐</button>
+        <button class="fab-btn vocab" id="vocab-fab" title="背词卡片">📚</button>
+    </div>
+
+    <!-- ============ STATS MODAL ============ -->
+    <div class="modal-overlay" id="stats-modal">
+        <div class="modal-panel liquid-glass">
+            <h3>📊 学习统计
+                <button class="modal-close" id="close-stats">&times;</button>
+            </h3>
+            <div class="stat-grid">
+                <div class="stat-card">
+                    <div class="num" id="stats-today-count">0</div>
+                    <div class="lbl">今日番茄</div>
+                </div>
+                <div class="stat-card">
+                    <div class="num" id="stats-today-minutes">0</div>
+                    <div class="lbl">专注时长(分)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="num" id="stats-streak">0</div>
+                    <div class="lbl">连续天数</div>
+                </div>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.4rem;margin-bottom:1rem;">
+                <div class="stat-card"><div class="lbl">本周</div><div class="num" style="font-size:1.2rem" id="stats-week-count">0</div></div>
+                <div class="stat-card"><div class="lbl">本月</div><div class="num" style="font-size:1.2rem" id="stats-month-count">0</div></div>
+                <div class="stat-card"><div class="lbl">总计</div><div class="num" style="font-size:1.2rem" id="stats-total-count">0</div></div>
+                <div class="stat-card"><div class="lbl">总时长(h)</div><div class="num" style="font-size:1.2rem" id="stats-total-hours">0</div></div>
+            </div>
+            <div style="display:flex;gap:0.5rem;">
+                <button id="export-data" class="btn-play" style="flex:1;padding:0.5rem;border-radius:999px;border:none;cursor:pointer;font-size:0.8rem;">
+                    📥 导出数据
+                </button>
+                <button id="clear-data" class="btn-reset" style="flex:1;padding:0.5rem;border-radius:999px;border:none;cursor:pointer;font-size:0.8rem;color:var(--ink-soft);">
+                    🗑 清除数据
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============ SETTINGS MODAL ============ -->
+    <div class="modal-overlay" id="settings-modal">
+        <div class="modal-panel liquid-glass">
+            <h3>⚙️ 设置
+                <button class="modal-close" id="close-settings">&times;</button>
+            </h3>
+            <div style="display:flex;flex-direction:column;gap:0.8rem;">
+                <div style="display:flex;justify-content:space-between;align-items:center;">
+                    <span>工作时间 (分钟)</span>
+                    <input type="number" id="work-time-input" value="25" min="1" max="120"
+                           style="width:4rem;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:0.5rem;padding:0.3rem 0.5rem;color:var(--ink-warm);text-align:center;">
+                </div>
+                <div style="display:flex;justify-content:space-between;align-items:center;">
+                    <span>休息时间 (分钟)</span>
+                    <input type="number" id="break-time-input" value="5" min="1" max="60"
+                           style="width:4rem;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:0.5rem;padding:0.3rem 0.5rem;color:var(--ink-warm);text-align:center;">
+                </div>
+                <div style="display:flex;justify-content:space-between;align-items:center;">
+                    <span>启用视频背景</span>
+                    <label style="position:relative;display:inline-block;width:2.8rem;height:1.5rem;cursor:pointer;">
+                        <input type="checkbox" id="video-bg-toggle" class="toggle-input" checked style="opacity:0;width:0;height:0;position:absolute;">
+                        <span class="toggle-slider" style="position:absolute;cursor:pointer;inset:0;background:rgba(255,255,255,0.15);border-radius:999px;transition:0.3s;"></span>
+                        <span class="toggle-dot" style="position:absolute;height:1.1rem;width:1.1rem;left:0.2rem;top:0.2rem;background:#fff;border-radius:50%;transition:0.3s;"></span>
+                    </label>
+                </div>
+                <div style="display:flex;justify-content:space-between;align-items:center;">
+                    <span>启用音乐</span>
+                    <label style="position:relative;display:inline-block;width:2.8rem;height:1.5rem;cursor:pointer;">
+                        <input type="checkbox" id="music-toggle" class="toggle-input" style="opacity:0;width:0;height:0;position:absolute;">
+                        <span class="toggle-slider" style="position:absolute;cursor:pointer;inset:0;background:rgba(255,255,255,0.15);border-radius:999px;transition:0.3s;"></span>
+                        <span class="toggle-dot" style="position:absolute;height:1.1rem;width:1.1rem;left:0.2rem;top:0.2rem;background:#fff;border-radius:50%;transition:0.3s;"></span>
+                    </label>
+                </div>
+                <div style="display:flex;justify-content:space-between;align-items:center;">
+                    <span>场景视频</span>
+                    <select id="scene-select"
+                            style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:0.5rem;padding:0.3rem 0.5rem;color:var(--ink-warm);">
+                        <option value="morning-window">清晨窗边</option>
+                        <option value="snow-study">雪山书房</option>
+                        <option value="seaside">海边书房</option>
+                        <option value="rain-night">雨夜书桌</option>
+                        <option value="high-window">高窗雨景</option>
+                        <option value="cabin">机舱晨昏线</option>
+                        <option value="pixel-train">像素火车</option>
+                        <option value="custom">自定义</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Audio elements -->
+    <audio id="bg-music" preload="none" loop crossorigin="anonymous"></audio>
+    <audio id="bg-ambience" preload="none" loop crossorigin="anonymous"></audio>
+
+<script>
+// ============================================================
+//  🍅 POMODORO TIMER — Innook Edition
+//  Core logic preserved from original pomodoro.html
+// ============================================================
+
+(function() {
+    'use strict';
+
+    // ==================== STATE ====================
+    let isRunning = false;
+    let isWorkMode = true;
+    let timeLeft = 25 * 60;
+    let workTime = 25 * 60;
+    let breakTime = 5 * 60;
+    let timer = null;
+    let timerStartTime = null;
+    let timerPausedTimeLeft = null;
+    let completedPomodoros = 0;
+    let totalFocusTime = 0;
+    let streak = 0;
+    let musicEnabled = false;
+    let videoBgEnabled = true;
+    let currentScene = 'morning-window';
+    let goals = [];
+    let focusMode = false;
+
+    // ==================== DOM REFS ====================
+    const $ = (s) => document.querySelector(s);
+    const $$ = (s) => document.querySelectorAll(s);
+
+    const timerDisplay = $('#timer-display');
+    const timerStatus = $('#timer-status');
+    const timerStatusBadge = $('#timer-status-badge');
+    const statusDot = $('#status-dot');
+    const progressFill = $('#progress-fill');
+    const progressPct = $('#progress-pct');
+    const pomodoroLabel = $('#pomodoro-label');
+    const startBtn = $('#start-btn');
+    const resetBtn = $('#reset-btn');
+    const modeWorkBtn = $('#mode-work-btn');
+    const modeBreakBtn = $('#mode-break-btn');
+    const workTimeInput = $('#work-time-input');
+    const breakTimeInput = $('#break-time-input');
+    const dockTime = $('#dock-time');
+    const dockStatus = $('#dock-status');
+    const dockPomodoroLabel = $('#dock-pomodoro-label');
+    const dockProgressFill = $('#dock-progress-fill');
+    const floatingTimerCard = $('#floating-timer-card');
+    const timeSettings = $('#time-settings');
+    const bgVideo = $('#bg-video');
+    const bgFallback = $('#bg-fallback');
+    const bgMusic = $('#bg-music');
+    const bgAmbience = $('#bg-ambience');
+    const goalCount = $('#goal-count');
+    const goalPlaceholder = $('#goal-placeholder');
+    const goalChips = $('#goal-chips');
+    const goalInput = $('#goal-input');
+    const goalInputWrap = $('#goal-input-wrap');
+    const focusModeBtn = $('#focus-mode-btn');
+    const scenePanel = $('#scene-panel');
+
+    // ==================== SCENE CONFIG ====================
+    const sceneConfig = {
+        'morning-window': {
+            name: '清晨窗边', desc: '晨光、植物、安静书桌',
+            video: 'morning-window/video.mp4',
+            cover: 'morning-window/cover.jpg',
+            ambience: 'morning-window/ambience.mp3'
+        },
+        'snow-study': {
+            name: '雪山书房', desc: '雪峰、冷光、安静桌面',
+            video: 'snow-study/video.mp4',
+            cover: 'snow-study/cover.jpg',
+            ambience: 'snow-study/ambience.mp3'
+        },
+        'seaside': {
+            name: '海边书房', desc: '海风、蓝光、开阔视野',
+            video: 'seaside-study/video.mp4',
+            cover: 'seaside-study/cover.jpg',
+            ambience: 'seaside-study/ambience.mp3'
+        },
+        'rain-night': {
+            name: '雨夜书桌', desc: '雨窗、台灯、安静桌面',
+            video: 'rainy-desk/video.mp4',
+            cover: 'rainy-desk/cover.jpg',
+            ambience: 'rainy-desk/ambience.mp3'
+        },
+        'high-window': {
+            name: '高窗雨景', desc: '高窗、雨幕、安静书桌',
+            video: 'high-window-rain/video.mp4',
+            cover: 'high-window-rain/cover.jpg',
+            ambience: 'high-window-rain/ambience.mp3'
+        },
+        'cabin': {
+            name: '机舱晨昏线', desc: '云海、舷窗、晨昏光线',
+            video: 'cabin-twilight/video.mp4',
+            cover: 'cabin-twilight/cover.jpg',
+            ambience: 'cabin-twilight/ambience.mp3'
+        },
+        'pixel-train': {
+            name: '像素火车', desc: '车窗、像素光影、移动风景',
+            video: 'pixel-train/video.mp4',
+            cover: 'pixel-train/cover.jpg',
+            ambience: 'pixel-train/ambience.mp3'
+        }
+    };
+
+    const CDN_BASE = 'https://innook-media-1348991120.cos.ap-guangzhou.myqcloud.com/media/scenes/';
+
+    // ==================== AUDIO ====================
+    // Ambient piano track (can be any)
+    const AMBIENT_PIANO = 'https://innook-media-1348991120.cos.ap-guangzhou.myqcloud.com/media/audio/ambient-piano/e-phrygian-drift.mp3?v=20260601final';
+
+    // ==================== PERSISTENCE ====================
+    function saveState() {
+        const state = {
+            workTime, breakTime, timeLeft, isWorkMode,
+            completedPomodoros, totalFocusTime, streak,
+            currentScene, goals, focusMode,
+            musicEnabled, videoBgEnabled
+        };
+        localStorage.setItem('pomodoro-state', JSON.stringify(state));
+    }
+
+    function loadState() {
+        try {
+            const raw = localStorage.getItem('pomodoro-state');
+            if (!raw) return;
+            const s = JSON.parse(raw);
+            workTime = s.workTime || 25 * 60;
+            breakTime = s.breakTime || 5 * 60;
+            timeLeft = s.timeLeft || workTime;
+            isWorkMode = s.isWorkMode !== false;
+            completedPomodoros = s.completedPomodoros || 0;
+            totalFocusTime = s.totalFocusTime || 0;
+            streak = s.streak || 0;
+            currentScene = s.currentScene || 'morning-window';
+            goals = s.goals || [];
+            focusMode = s.focusMode || false;
+            musicEnabled = s.musicEnabled || false;
+            videoBgEnabled = s.videoBgEnabled !== false;
+        } catch(e) { /* ignore */ }
+    }
+
+    // Session history (for stats)
+    function saveSession(minutes, type) {
+        const today = new Date().toISOString().split('T')[0];
+        let sessions = [];
+        try { sessions = JSON.parse(localStorage.getItem('pomodoro-sessions') || '[]'); } catch(e) {}
+        sessions.push({ date: today, minutes, type, timestamp: Date.now() });
+        // Keep last 500
+        if (sessions.length > 500) sessions = sessions.slice(-500);
+        localStorage.setItem('pomodoro-sessions', JSON.stringify(sessions));
+    }
+
+    function getSessions() {
+        try { return JSON.parse(localStorage.getItem('pomodoro-sessions') || '[]'); } catch(e) { return []; }
+    }
+
+    // ==================== FORMAT ====================
+    function formatTime(seconds) {
+        const m = Math.floor(seconds / 60);
+        const s = seconds % 60;
+        return `${m.toString().padStart(2,'0')}:${s.toString().padStart(2,'0')}`;
+    }
+
+    // ==================== UPDATE UI ====================
+    function updateDisplay() {
+        const fmt = formatTime(timeLeft);
+        timerDisplay.textContent = fmt;
+        dockTime.textContent = fmt;
+        document.title = isRunning ? `(${fmt}) 专注一隅` : '专注一隅 · 番茄钟';
+
+        const total = isWorkMode ? workTime : breakTime;
+        const progress = timeLeft / total;
+        const pct = Math.round(progress * 100);
+
+        progressFill.style.width = progress * 100 + '%';
+        dockProgressFill.style.width = progress * 100 + '%';
+        progressPct.textContent = pct + '%';
+
+        // Status
+        if (isRunning) {
+            timerStatus.textContent = isWorkMode ? '学习中' : '休息中';
+            statusDot.className = 'dot';
+            dockStatus.innerHTML = '<span style="color:#6ee7b7;">●</span> ' + (isWorkMode ? '学习中' : '休息中');
+        } else {
+            timerStatus.textContent = isWorkMode ? '准备开始' : '准备休息';
+            statusDot.className = 'dot paused';
+            dockStatus.innerHTML = '<span style="color:#fbbf24;">●</span> 暂停中';
+        }
+
+        // Update button
+        const icon = isRunning ? 'fa-pause' : 'fa-play';
+        const label = isRunning ? '暂停' : '开始';
+        startBtn.innerHTML = `<i class="fa ${icon}"></i> ${label}`;
+
+        // Mode button states
+        if (isWorkMode) {
+            modeWorkBtn.classList.add('active');
+            modeBreakBtn.classList.remove('active');
+        } else {
+            modeBreakBtn.classList.add('active');
+            modeWorkBtn.classList.remove('active');
+        }
+    }
+
+    // ==================== TIMER ====================
+    function toggleTimer() {
+        if (isRunning) {
+            // PAUSE
+            clearInterval(timer);
+            timer = null;
+            isRunning = false;
+            timerPausedTimeLeft = timeLeft;
+            stopMusic();
+            updateDisplay();
+            try { window.parent.postMessage({type:'TIMER_STATE', timeLeft, isRunning:false, mode:isWorkMode?'work':'break'}, '*'); } catch(e) {}
+        } else {
+            // START
+            isRunning = true;
+            timerPausedTimeLeft = null;
+            playMusic();
+            updateDisplay();
+
+            timerStartTime = Date.now();
+            const initialTimeLeft = timeLeft;
+
+            timer = setInterval(() => {
+                const elapsed = Math.floor((Date.now() - timerStartTime) / 1000);
+                timeLeft = Math.max(0, initialTimeLeft - elapsed);
+                updateDisplay();
+
+                try { window.parent.postMessage({type:'TIMER_STATE', timeLeft, isRunning:true, mode:isWorkMode?'work':'break'}, '*'); } catch(e) {}
+
+                if (timeLeft <= 0) {
+                    completeSession();
+                }
+            }, 250);
+        }
+    }
+
+    function completeSession() {
+        clearInterval(timer);
+        timer = null;
+        isRunning = false;
+        timerPausedTimeLeft = null;
+        timeLeft = 0;
+        updateDisplay();
+        stopMusic();
+
+        try { window.parent.postMessage({type:'TIMER_STATE', timeLeft:0, isRunning:false, mode:isWorkMode?'work':'break'}, '*'); } catch(e) {}
+
+        // Sound
+        try {
+            const alertSound = new Audio('https://assets.mixkit.co/sfx/preview/mixkit-alarm-digital-clock-beep-989.mp3');
+            alertSound.play().catch(()=>{});
+        } catch(e) {}
+
+        // Notification
+        if (isWorkMode) {
+            sendNotification('番茄钟完成！', '专注时间结束，休息一下吧~');
+            completedPomodoros++;
+            totalFocusTime += workTime / 60;
+            saveSession(workTime / 60, 'work');
+            timerStatus.textContent = '学习完成！';
+        } else {
+            sendNotification('休息结束！', '准备好开始新的专注了吗？');
+            saveSession(breakTime / 60, 'break');
+            timerStatus.textContent = '休息结束！';
+        }
+
+        // Auto-switch mode: work → break, break → work
+        isWorkMode = !isWorkMode;
+        timeLeft = isWorkMode ? workTime : breakTime;
+
+        if (isWorkMode) {
+            streak++;
+            pomodoroLabel.textContent = `Pomodoro #${completedPomodoros + 1}`;
+            dockPomodoroLabel.textContent = `Pomodoro #${completedPomodoros + 1}`;
+        }
+
+        updateDisplay();
+        updateModeButtons();
+        saveState();
+    }
+
+    function resetTimer() {
+        clearInterval(timer);
+        timer = null;
+        isRunning = false;
+        timerPausedTimeLeft = null;
+        timeLeft = isWorkMode ? workTime : breakTime;
+        stopMusic();
+        updateDisplay();
+        try { window.parent.postMessage({type:'TIMER_STATE', timeLeft, isRunning:false, mode:isWorkMode?'work':'break'}, '*'); } catch(e) {}
+        saveState();
+    }
+
+    // ==================== MODE SWITCH ====================
+    function switchMode(mode) {
+        if (isRunning) return;
+        if (mode === 'work') {
+            isWorkMode = true;
+            timeLeft = workTime;
+        } else {
+            isWorkMode = false;
+            timeLeft = breakTime;
+        }
+        updateDisplay();
+        updateModeButtons();
+        saveState();
+    }
+
+    function updateModeButtons() {
+        modeWorkBtn.classList.toggle('active', isWorkMode);
+        modeBreakBtn.classList.toggle('active', !isWorkMode);
+    }
+
+    // ==================== TIME SETTINGS ====================
+    function setWorkTime(minutes) {
+        if (isRunning) return;
+        workTime = minutes * 60;
+        if (isWorkMode) timeLeft = workTime;
+        workTimeInput.value = minutes;
+        updateDisplay();
+        updateTimeChips();
+        saveState();
+    }
+
+    function setBreakTime(minutes) {
+        if (isRunning) return;
+        breakTime = minutes * 60;
+        if (!isWorkMode) timeLeft = breakTime;
+        breakTimeInput.value = minutes;
+        updateDisplay();
+        saveState();
+    }
+
+    function updateTimeChips() {
+        $$('#time-settings .time-chip').forEach(chip => {
+            const t = parseInt(chip.dataset.time);
+            chip.classList.toggle('active', t === workTime / 60);
+        });
+    }
+
+    // ==================== MUSIC ====================
+    function playMusic() {
+        if (!musicEnabled) return;
+        try {
+            bgMusic.volume = 0.3;
+            bgMusic.play().catch(()=>{});
+        } catch(e) {}
+    }
+
+    function stopMusic() {
+        try { bgMusic.pause(); } catch(e) {}
+    }
+
+    // ==================== SCENE ====================
+    function setScene(sceneId) {
+        if (sceneId === currentScene) return;
+        currentScene = sceneId;
+        const scene = sceneConfig[sceneId];
+        if (!scene) return;
+
+        const videoUrl = CDN_BASE + scene.video + '?v=20260601final';
+        const coverUrl = CDN_BASE + scene.cover + '?v=20260601final';
+        const ambienceUrl = CDN_BASE + scene.ambience + '?v=20260601final';
+
+        bgVideo.poster = coverUrl;
+        bgVideo.src = videoUrl;
+        bgVideo.load();
+        if (videoBgEnabled) bgVideo.play().catch(()=>{});
+
+        bgFallback.src = coverUrl;
+        bgFallback.style.display = 'none';
+
+        // Ambience
+        try {
+            bgAmbience.src = ambienceUrl;
+            bgAmbience.volume = 0.25;
+            if (musicEnabled) bgAmbience.play().catch(()=>{});
+        } catch(e) {}
+
+        // Music track
+        bgMusic.src = AMBIENT_PIANO;
+
+        saveState();
+        updateSceneUI();
+    }
+
+    function updateSceneUI() {
+        $$('.scene-card').forEach(card => {
+            card.classList.toggle('selected', card.dataset.scene === currentScene);
+        });
+        const sel = $('#scene-select');
+        if (sel) sel.value = currentScene;
+    }
+
+    function buildScenePanel() {
+        const panel = $('#scene-panel');
+        if (!panel) return;
+        panel.innerHTML = Object.entries(sceneConfig).map(([id, sc]) => `
+            <div class="scene-card liquid-glass" data-scene="${id}" onclick="window._setScene('${id}')">
+                <div class="scene-icon">${id === 'morning-window' ? '🌅' : id === 'snow-study' ? '🏔️' : id === 'seaside' ? '🌊' : id === 'rain-night' ? '🌧️' : id === 'high-window' ? '🪟' : id === 'cabin' ? '✈️' : '🚂'}</div>
+                <div class="scene-name">${sc.name}</div>
+                <div class="scene-desc">${sc.desc}</div>
+            </div>
+        `).join('');
+    }
+
+    // Expose for onclick
+    window._setScene = setScene;
+
+    // ==================== GOALS ====================
+    function renderGoals() {
+        goalCount.textContent = goals.length + ' 项';
+        goalPlaceholder.style.display = goals.length ? 'none' : 'block';
+        goalChips.innerHTML = goals.map((g, i) => `
+            <button class="goal-chip ${g.done ? 'done' : ''}" onclick="window._toggleGoal(${i})" title="点击标记完成/未完成">
+                ${g.done ? '✓ ' : ''}${g.text}
+            </button>
+        `).join('');
+        // Also allow adding
+        if (goals.length > 0 || goalInputWrap.style.display === 'flex') {
+            // keep input visible
+        }
+    }
+
+    function addGoal(text) {
+        if (!text.trim()) return;
+        goals.push({ text: text.trim(), done: false });
+        renderGoals();
+        saveState();
+        goalInput.value = '';
+    }
+
+    function toggleGoal(index) {
+        goals[index].done = !goals[index].done;
+        renderGoals();
+        saveState();
+    }
+
+    window._toggleGoal = toggleGoal;
+    window._addGoal = addGoal;
+
+    // ==================== NOTIFICATIONS ====================
+    function sendNotification(title, body) {
+        if (!('Notification' in window)) return;
+        if (Notification.permission === 'granted') {
+            new Notification(title, { body, icon: '🍅' });
+        } else if (Notification.permission !== 'denied') {
+            Notification.requestPermission().then(p => {
+                if (p === 'granted') new Notification(title, { body, icon: '🍅' });
+            });
+        }
+    }
+
+    // ==================== STATS ====================
+    function updateStatsUI() {
+        const sessions = getSessions();
+        const today = new Date().toISOString().split('T')[0];
+        const todaySessions = sessions.filter(s => s.date === today);
+        const todayCount = todaySessions.filter(s => s.type === 'work').length;
+        const todayMinutes = Math.round(todaySessions.reduce((sum, s) => sum + s.minutes, 0));
+
+        // Week
+        const weekAgo = new Date(Date.now() - 7*86400000).toISOString().split('T')[0];
+        const weekSessions = sessions.filter(s => s.date >= weekAgo);
+        const weekCount = weekSessions.filter(s => s.type === 'work').length;
+
+        // Month
+        const monthStart = today.substring(0,7) + '-01';
+        const monthSessions = sessions.filter(s => s.date >= monthStart);
+        const monthCount = monthSessions.filter(s => s.type === 'work').length;
+
+        // Total
+        const totalCount = sessions.filter(s => s.type === 'work').length;
+        const totalMinutes = Math.round(sessions.reduce((sum, s) => sum + s.minutes, 0));
+
+        // Streak (consecutive days)
+        let streakDays = 0;
+        const dateSet = new Set(sessions.filter(s=>s.type==='work').map(s=>s.date));
+        let d = new Date(today);
+        while (dateSet.has(d.toISOString().split('T')[0])) {
+            streakDays++;
+            d.setDate(d.getDate() - 1);
+        }
+
+        $('#stats-today-count').textContent = todayCount;
+        $('#stats-today-minutes').textContent = todayMinutes;
+        $('#stats-streak').textContent = streakDays;
+        $('#stats-week-count').textContent = weekCount;
+        $('#stats-month-count').textContent = monthCount;
+        $('#stats-total-count').textContent = totalCount;
+        $('#stats-total-hours').textContent = (totalMinutes / 60).toFixed(1);
+    }
+
+    // ==================== FOCUS MODE ====================
+    function toggleFocusMode() {
+        focusMode = !focusMode;
+        if (focusMode) {
+            $('#app-shell').requestFullscreen?.().catch(()=>{});
+            floatingTimerCard.classList.add('hidden');
+            focusModeBtn.innerHTML = '⛶ 退出专注';
+        } else {
+            if (document.fullscreenElement) document.exitFullscreen().catch(()=>{});
+            floatingTimerCard.classList.remove('hidden');
+            focusModeBtn.innerHTML = '⛶ 专注模式';
+        }
+        saveState();
+    }
+
+    // ==================== INIT ====================
+    function init() {
+        // Load saved state
+        loadState();
+
+        // Update DOM from loaded state
+        workTimeInput.value = workTime / 60;
+        breakTimeInput.value = breakTime / 60;
+        updateDisplay();
+        updateModeButtons();
+        updateTimeChips();
+        updateSceneUI();
+        buildScenePanel();
+        renderGoals();
+        updateStatsUI();
+        pomodoroLabel.textContent = `Pomodoro #${completedPomodoros + 1}`;
+        dockPomodoroLabel.textContent = `Pomodoro #${completedPomodoros + 1}`;
+        $('#scene-select').value = currentScene;
+
+        // Set video from saved scene
+        const scene = sceneConfig[currentScene];
+        if (scene) {
+            bgVideo.src = CDN_BASE + scene.video + '?v=20260601final';
+            bgVideo.poster = CDN_BASE + scene.cover + '?v=20260601final';
+            bgFallback.src = CDN_BASE + scene.cover + '?v=20260601final';
+            if (videoBgEnabled) bgVideo.play().catch(()=>{});
+        }
+        bgMusic.src = AMBIENT_PIANO;
+
+        // Music toggle
+        $('#music-toggle').checked = musicEnabled;
+        $('#video-bg-toggle').checked = videoBgEnabled;
+
+        // Event Listeners
+        startBtn.addEventListener('click', toggleTimer);
+        resetBtn.addEventListener('click', resetTimer);
+        modeWorkBtn.addEventListener('click', () => switchMode('work'));
+        modeBreakBtn.addEventListener('click', () => switchMode('break'));
+        focusModeBtn.addEventListener('click', toggleFocusMode);
+
+        workTimeInput.addEventListener('change', () => setWorkTime(parseInt(workTimeInput.value) || 25));
+        breakTimeInput.addEventListener('change', () => setBreakTime(parseInt(breakTimeInput.value) || 5));
+
+        $$('#time-settings .time-chip').forEach(chip => {
+            chip.addEventListener('click', () => {
+                const t = parseInt(chip.dataset.time);
+                if (t) {
+                    if (isWorkMode) setWorkTime(t);
+                    else setBreakTime(t);
+                }
+            });
+        });
+
+        // Goal interactions
+        $('#dock-goal-section').addEventListener('click', (e) => {
+            if (e.target.classList.contains('goal-chip') || e.target.closest('.goal-chip')) return;
+            goalInputWrap.style.display = 'flex';
+            goalPlaceholder.style.display = 'none';
+            goalInput.focus();
+        });
+        $('#goal-add-btn').addEventListener('click', () => addGoal(goalInput.value));
+        goalInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') addGoal(goalInput.value);
+            if (e.key === 'Escape') goalInputWrap.style.display = 'none';
+        });
+
+        // Modals
+        $('#btn-stats').addEventListener('click', () => {
+            updateStatsUI();
+            $('#stats-modal').classList.add('show');
+        });
+        $('#close-stats').addEventListener('click', () => $('#stats-modal').classList.remove('show'));
+        $('#stats-modal').addEventListener('click', (e) => {
+            if (e.target === $('#stats-modal')) $('#stats-modal').classList.remove('show');
+        });
+
+        $('#btn-settings').addEventListener('click', () => $('#settings-modal').classList.add('show'));
+        $('#close-settings').addEventListener('click', () => $('#settings-modal').classList.remove('show'));
+        $('#settings-modal').addEventListener('click', (e) => {
+            if (e.target === $('#settings-modal')) $('#settings-modal').classList.remove('show');
+        });
+
+        // Settings changes
+        $('#music-toggle').addEventListener('change', (e) => {
+            musicEnabled = e.target.checked;
+            if (musicEnabled) playMusic(); else stopMusic();
+            saveState();
+        });
+        $('#video-bg-toggle').addEventListener('change', (e) => {
+            videoBgEnabled = e.target.checked;
+            if (videoBgEnabled) bgVideo.play().catch(()=>{}); else bgVideo.pause();
+            saveState();
+        });
+        $('#scene-select').addEventListener('change', (e) => setScene(e.target.value));
+
+        // Data export
+        $('#export-data').addEventListener('click', () => {
+            const data = {
+                state: JSON.parse(localStorage.getItem('pomodoro-state') || '{}'),
+                sessions: getSessions(),
+                exportedAt: new Date().toISOString()
+            };
+            const blob = new Blob([JSON.stringify(data, null, 2)], {type:'application/json'});
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url; a.download = `pomodoro-backup-${new Date().toISOString().split('T')[0]}.json`;
+            a.click();
+            URL.revokeObjectURL(url);
+        });
+
+        // Data clear
+        $('#clear-data').addEventListener('click', () => {
+            if (confirm('确定清除所有番茄钟数据？此操作不可恢复。')) {
+                localStorage.removeItem('pomodoro-state');
+                localStorage.removeItem('pomodoro-sessions');
+                location.reload();
+            }
+        });
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', (e) => {
+            if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+            if (e.code === 'Space') { e.preventDefault(); toggleTimer(); }
+            if (e.code === 'KeyR') resetTimer();
+        });
+
+        // FAB Buttons
+        $('#russian-fab').addEventListener('click', () => {
+            try { window.parent.postMessage('OPEN_RUSSIAN', '*'); } catch(e) {}
+        });
+        $('#vocab-fab').addEventListener('click', () => {
+            window.open('vocabulary.html', '_blank');
+        });
+
+        // PostMessage listeners
+        window.addEventListener('message', (event) => {
+            if (event.data === 'OPEN_RUSSIAN' || event.data === 'CLOSE_RUSSIAN') {
+                // No-op: pomodoro stays in background
+            } else if (event.data && event.data.type === 'WIDGET_CMD') {
+                if (event.data.action === 'toggle') toggleTimer();
+                else if (event.data.action === 'reset') resetTimer();
+            } else if (event.data && event.data.type === 'TIMER_STATE') {
+                // Receive timer state from parent (for sync)
+            }
+        });
+
+        // Auto-save on unload
+        window.addEventListener('beforeunload', saveState);
+        // Periodic save
+        setInterval(saveState, 10000);
+
+        console.log('🍅 专注一隅 · Innook Edition 已就绪');
+    }
+
+    // Boot
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
+
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo '=== 上次会话记录 ===' && tail -25 wiki/log.md 2>/dev/null || echo '(日志为空)'",
+            "statusMessage": "读取上次操作日志..."
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python -X utf8 -c \"import sys,json,re; d=json.load(sys.stdin); sys.exit(0 if re.search(r'提交|commit|health', d.get('prompt',''), re.I) else 1)\" && python -X utf8 scripts/health_check.py",
+            "statusMessage": "健康检查中..."
+          }
+        ]
+      }
+    ]
+  }
+}

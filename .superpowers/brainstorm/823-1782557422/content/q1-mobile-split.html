@@ -1,0 +1,38 @@
+<h2>问题 1：手机竖屏时，详情面板应该怎么显示？</h2>
+<p class="subtitle">这决定了整体架构的方向</p>
+
+<div class="options">
+  <div class="option" data-choice="a" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content">
+      <h3>上下分栏（真分栏）</h3>
+      <div style="display:flex;flex-direction:column;border:1px solid var(--glass-border);border-radius:8px;overflow:hidden;margin-top:8px">
+        <div style="background:rgba(129,140,248,0.15);padding:10px;font-size:12px">📖 阅读区（上） flex-basis: 55%<br><span style="font-size:10px;color:var(--text-dim)">可上下拖拽分割线调节</span></div>
+        <div style="height:6px;background:var(--accent)"></div>
+        <div style="background:rgba(251,191,36,0.1);padding:10px;font-size:12px">📋 详情面板（下） flex: 1<br><span style="font-size:10px;color:var(--text-dim)">自动填满剩余空间</span></div>
+      </div>
+      <p style="margin-top:8px;font-size:13px;color:var(--text-secondary)">✅ 可以同时看到阅读区和面板<br>⚠️ 每部分空间较小<br>✅ 实现逻辑和横屏统一</p>
+    </div>
+  </div>
+
+  <div class="option" data-choice="b" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content">
+      <h3>浮层叠加（保持现状）</h3>
+      <div style="position:relative;border:1px solid var(--glass-border);border-radius:8px;overflow:hidden;margin-top:8px;min-height:120px">
+        <div style="background:rgba(129,140,248,0.15);padding:10px;font-size:12px">📖 阅读区（全屏）</div>
+        <div style="position:absolute;top:30px;right:0;bottom:0;width:65%;background:rgba(251,191,36,0.15);padding:6px;font-size:10px;border-left:2px solid var(--accent);box-shadow:-4px 0 20px rgba(0,0,0,0.4)">📋 面板<br><span style="font-size:9px;color:var(--text-dim)">从右侧滑出覆盖</span></div>
+      </div>
+      <p style="margin-top:8px;font-size:13px;color:var(--text-secondary)">✅ 阅读区空间不受挤压<br>⚠️ 无法同时查看两边内容<br>✅ 改动最小</p>
+    </div>
+  </div>
+
+  <div class="option" data-choice="c" onclick="toggleSelect(this)">
+    <div class="letter">C</div>
+    <div class="content">
+      <h3>混合：浮层 + 可选上下分栏</h3>
+      <p style="font-size:13px;color:var(--text-secondary)">默认用浮层（方案 B），但面板打开后出现水平分割线可以往下拖变成上下分栏。用户可以根据需要自由切换。</p>
+      <p style="font-size:13px;color:var(--text-dim)">⚠️ 实现复杂度较高，但灵活性最好</p>
+    </div>
+  </div>
+</div>

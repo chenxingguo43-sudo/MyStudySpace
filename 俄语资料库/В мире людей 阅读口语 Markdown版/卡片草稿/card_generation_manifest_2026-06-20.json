@@ -1,0 +1,107 @@
+{
+  "project": "В мире людей 阅读口语 Markdown版",
+  "manifest_id": "card_generation_manifest_2026-06-20",
+  "status": "draft",
+  "output_dir": "卡片草稿/manifest_batch_2026-06-20/",
+  "global_rules": [
+    "Do not modify sealed source files, translation files, or previous pilot folders.",
+    "Preserve source metadata on every card.",
+    "Separate original Russian, Chinese translation, source examples, and generated notes.",
+    "Preserve visible caution blocks for review_allowed items.",
+    "Do not use pages 167-186 as original reading text.",
+    "Do not create cards from unrecoverable matrix pages."
+  ],
+  "included": [
+    {
+      "id": "vml-2-1-1",
+      "source_file": "章节/раздел2-начало.md",
+      "source_pages": "56",
+      "source_anchor": "Текст 2.1.1",
+      "translation_file": "翻译版/agent_b_pilot_2026-06-20/Текст_2.1.1_Новая_российская_столица_aligned.md",
+      "translation_status": "PASS",
+      "review_reason": "Agent B pilot PASS; Agent C2 schema validated.",
+      "ocr_caution": "Page 56 quotation zones include <…> omission/source caution.",
+      "allowed_card_types": ["article", "theme", "vocabulary", "task"]
+    },
+    {
+      "id": "vml-1-1-1",
+      "source_file": "章节/предисловие.md",
+      "source_pages": "8-10",
+      "source_anchor": "Текст 1.1.1",
+      "translation_file": "翻译版/repair_2026-06-20/part1_front_and_section1/предисловие.zh.md",
+      "translation_status": "review_allowed",
+      "review_reason": "Repaired from incomplete/structure-only draft; still has OCR/layout risk.",
+      "ocr_caution": "Double-column page and source reconstruction cautions remain.",
+      "allowed_card_types": ["article", "theme", "vocabulary"]
+    },
+    {
+      "id": "vml-1-1-2",
+      "source_file": "章节/предисловие.md",
+      "source_pages": "11-13",
+      "source_anchor": "Текст 1.1.2",
+      "translation_file": "翻译版/repair_2026-06-20/part1_front_and_section1/предисловие.zh.md",
+      "translation_status": "review_allowed",
+      "review_reason": "Repaired from incomplete/structure-only draft; proper names and source quality need review.",
+      "ocr_caution": "Double-column page and source reconstruction cautions remain.",
+      "allowed_card_types": ["article", "theme", "vocabulary"]
+    },
+    {
+      "id": "vml-1-4-1",
+      "source_file": "章节/раздел1-продолжение.md",
+      "source_pages": "26-28",
+      "source_anchor": "Текст 1.4.1",
+      "translation_file": "翻译版/repair_2026-06-20/part1_front_and_section1/раздел1-продолжение.zh.md",
+      "translation_status": "review_allowed",
+      "review_reason": "Repaired from incomplete/structure-only draft; aerospace terminology needs review.",
+      "ocr_caution": "OCR/layout and terminology cautions remain.",
+      "allowed_card_types": ["article", "theme", "vocabulary"]
+    },
+    {
+      "id": "vml-1-4-2",
+      "source_file": "章节/раздел1-продолжение.md",
+      "source_pages": "29-31",
+      "source_anchor": "Текст 1.4.2",
+      "translation_file": "翻译版/repair_2026-06-20/part1_front_and_section1/раздел1-продолжение.zh.md",
+      "translation_status": "review_allowed",
+      "review_reason": "Repaired from incomplete/structure-only draft; medical terminology needs review.",
+      "ocr_caution": "OCR/layout and medical-term cautions remain.",
+      "allowed_card_types": ["article", "theme", "vocabulary"]
+    },
+    {
+      "id": "vml-3-beginning",
+      "source_file": "章节/раздел3-начало.md",
+      "source_pages": "99-118",
+      "source_anchor": "Раздел 3 начало",
+      "translation_file": "翻译版/repair_2026-06-20/part3_section3/section3-beginning-zh-aligned.md",
+      "translation_status": "repaired_pass",
+      "review_reason": "Machine-translation failure markers removed; OCR-risk warnings remain.",
+      "ocr_caution": "Pages 99 and 117 retain needs_review cautions.",
+      "allowed_card_types": ["article", "theme", "vocabulary", "task"]
+    },
+    {
+      "id": "vml-3-ending",
+      "source_file": "章节/раздел3-завершение.md",
+      "source_pages": "119-138",
+      "source_anchor": "Раздел 3 завершение",
+      "translation_file": "翻译版/repair_2026-06-20/part3_section3/section3-ending-zh-aligned.md",
+      "translation_status": "repaired_pass",
+      "review_reason": "Machine-translation failure markers removed; OCR-risk warnings remain.",
+      "ocr_caution": "Pages 125, 130, and 134 retain needs_review cautions.",
+      "allowed_card_types": ["article", "theme", "vocabulary", "task"]
+    }
+  ],
+  "excluded": [
+    {"source": "章节/раздел2-тест.md", "reason": "Dense test/matrix material; alignment rules not yet card-safe."},
+    {"source": "章节/раздел3-ключи-тест.md", "reason": "Keys and tests are dense; use later after task-card policy is stricter."},
+    {"source": "章节/методический-комментарий.md", "reason": "Methodology comments need separate card strategy."},
+    {"source": "章节/приложение-лексика.md", "reason": "AI vocabulary appendix layer, not original reading text."},
+    {"source": "pages 52-54, 95-98, 155-160", "reason": "Unrecoverable or matrix-heavy pages."},
+    {"source": "pages 167-186", "reason": "AI appendix; not original reading text."}
+  ],
+  "batch_size_guidance": {
+    "max_article_cards_per_block": 1,
+    "max_theme_cards_per_block": 2,
+    "max_vocabulary_cards_per_block": 3,
+    "target_total_cards": "25-45"
+  }
+}

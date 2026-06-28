@@ -1,0 +1,91 @@
+{
+  "generated_at": "2026-06-20T12:31:23.838Z",
+  "description": "Unified translation manifest — canonical translation file for each chapter. Agent C must use this.",
+  "deprecated": [
+    "翻译版/full_run_2026-06-20/part3_section3/section3-beginning-zh-aligned.md",
+    "翻译版/full_run_2026-06-20/part3_section3/section3-ending-zh-aligned.md",
+    "翻译版/full_run_2026-06-20/part3_section3/section3-keys-test-zh-aligned.md",
+    "翻译版/full_run_2026-06-20/part1_front_and_section1/предисловие.zh.md",
+    "翻译版/full_run_2026-06-20/part1_front_and_section1/раздел1-продолжение.zh.md"
+  ],
+  "deprecation_reason": "known MT failures or incomplete body sections replaced by repair versions",
+  "chapters": [
+    {
+      "chapter": "предисловие.md",
+      "translation_file": "翻译版/repair_2026-06-20/part1_front_and_section1/предисловие.zh.md",
+      "status": "repaired_pass",
+      "risk": "double-column OCR, proper names",
+      "usable_for_cards": true
+    },
+    {
+      "chapter": "样章.md",
+      "translation_file": "翻译版/full_run_2026-06-20/part1_front_and_section1/样章.zh.md",
+      "status": "PASS",
+      "risk": null,
+      "usable_for_cards": true
+    },
+    {
+      "chapter": "раздел1-продолжение.md",
+      "translation_file": "翻译版/repair_2026-06-20/part1_front_and_section1/раздел1-продолжение.zh.md",
+      "status": "repaired_pass",
+      "risk": "aerospace terms, proper names",
+      "usable_for_cards": true
+    },
+    {
+      "chapter": "раздел2-начало.md",
+      "translation_file": "翻译版/full_run_2026-06-20/part2_section2/раздел2-начало.zh.md",
+      "status": "PASS",
+      "risk": null,
+      "usable_for_cards": true
+    },
+    {
+      "chapter": "раздел2-завершение.md",
+      "translation_file": "翻译版/full_run_2026-06-20/part2_section2/раздел2-завершение.zh.md",
+      "status": "PASS",
+      "risk": "page 82-83 exercise fragments",
+      "usable_for_cards": true
+    },
+    {
+      "chapter": "раздел2-тест.md",
+      "translation_file": "翻译版/full_run_2026-06-20/part2_section2/раздел2-тест.zh.md",
+      "status": "draft",
+      "risk": "dense test material, Б/В labels",
+      "usable_for_cards": true
+    },
+    {
+      "chapter": "раздел3-начало.md",
+      "translation_file": "翻译版/repair_2026-06-20/part3_section3/section3-beginning-zh-aligned.md",
+      "status": "repaired_pass",
+      "risk": "literary OCR, pages 99,117",
+      "usable_for_cards": true
+    },
+    {
+      "chapter": "раздел3-завершение.md",
+      "translation_file": "翻译版/repair_2026-06-20/part3_section3/section3-ending-zh-aligned.md",
+      "status": "repaired_pass",
+      "risk": "literary OCR, pages 125,130,134",
+      "usable_for_cards": true
+    },
+    {
+      "chapter": "раздел3-ключи-тест.md",
+      "translation_file": "翻译版/repair_2026-06-20/part3_section3/section3-keys-test-zh-aligned.md",
+      "status": "repaired_pass",
+      "risk": "test keys, unrecoverable matrix",
+      "usable_for_cards": true
+    },
+    {
+      "chapter": "методический-комментарий.md",
+      "translation_file": "翻译版/full_run_2026-06-20/part4_commentary_appendix/методический-комментарий.zh-aligned.md",
+      "status": "excluded",
+      "risk": "methodology, not reading text",
+      "usable_for_cards": false
+    },
+    {
+      "chapter": "приложение-лексика.md",
+      "translation_file": "翻译版/full_run_2026-06-20/part4_commentary_appendix/приложение-лексика.zh-aligned.md",
+      "status": "excluded",
+      "risk": "AI appendix, not original text",
+      "usable_for_cards": false
+    }
+  ]
+}

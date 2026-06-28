@@ -445,6 +445,29 @@
             font-size: 13px; color: rgba(255,255,255,0.35);
             margin-bottom: 16px; font-style: italic;
         }
+        .card-detail-zh {
+            width: 100%; text-align: left; font-size: 13px; line-height: 1.55;
+            color: rgba(248,250,252,0.78); padding: 10px 12px; margin: 0 0 10px;
+            background: rgba(15,23,42,0.24); border: 1px solid rgba(255,255,255,0.07);
+            border-radius: 8px;
+        }
+        .card-collocations {
+            width: 100%; text-align: left; margin: 2px 0 10px;
+        }
+        .collocation-item {
+            padding: 8px 10px; margin-bottom: 7px; border-radius: 8px;
+            background: rgba(79,70,229,0.10); border-left: 3px solid rgba(165,180,252,0.48);
+        }
+        .collocation-phrase {
+            color: #f8fafc; font-size: 14px; font-weight: 700; margin-bottom: 3px;
+        }
+        .collocation-ru {
+            font-family: 'Noto Serif', 'Times New Roman', serif;
+            color: #e2e8f0; font-size: 13px; line-height: 1.45; margin-bottom: 2px;
+        }
+        .collocation-zh {
+            color: rgba(255,255,255,0.42); font-size: 12px; line-height: 1.35;
+        }
         .card-examples, .fold-body {
             width: 100%; text-align: left; margin-top: 4px;
         }
@@ -1008,14 +1031,14 @@
         <!-- 精简顶栏：收起时只显示核心状态 -->
         <div class="slim-bar" id="slimBar">
             <button class="slim-hamburger" id="slimHamburger" onclick="toggleControlPanel()" title="展开控件面板 (M)">🍔</button>
-            <span class="slim-mode-label" id="slimModeLabel">📅 今日待复习</span>
+            <span class="slim-mode-label" id="slimModeLabel">🚀 刷词模式</span>
             <span class="slim-stats" id="slimStats">0/0</span>
             <div class="slim-progress">
                 <span class="slim-progress-fill" id="slimProgressFill" style="width:0%"></span>
             </div>
             <div class="slim-mode-quick">
-                <button data-mode="due" onclick="switchMode('due')" class="active" title="每日复习">📅</button>
-                <button data-mode="brush" onclick="switchMode('brush')" title="刷词">🚀</button>
+                <button data-mode="due" onclick="switchMode('due')" title="每日复习">📅</button>
+                <button data-mode="brush" onclick="switchMode('brush')" class="active" title="刷词">🚀</button>
             </div>
             <button class="slim-icon-btn" onclick="showSettings()" title="设置">⚙</button>
         </div>
@@ -1026,7 +1049,7 @@
             <div class="cp-section">
                 <div class="cp-section-title">📂 模式</div>
                 <div class="cp-mode-grid" id="cpModeGrid">
-                    <button class="mode-btn mode-active" data-mode="due" onclick="switchMode('due')">📅 待复习</button>
+                    <button class="mode-btn" data-mode="due" onclick="switchMode('due')">📅 待复习</button>
                     <button class="mode-btn" data-mode="vocab" onclick="switchMode('vocab')">📖 生词本</button>
                     <button class="mode-btn" data-mode="b2" onclick="switchMode('b2')">🇷🇺 B2口语</button>
                     <button class="mode-btn" data-mode="freq" onclick="switchMode('freq')">🔥 高频词</button>
@@ -1034,7 +1057,7 @@
                     <button class="mode-btn" data-mode="wrong" onclick="switchMode('wrong')">❌ 错题</button>
                     <button class="mode-btn" data-mode="fav" onclick="switchMode('fav')">⭐ 收藏</button>
                     <button class="mode-btn" data-mode="problems" onclick="switchMode('problems')">🚩 问题</button>
-                    <button class="mode-btn brush-btn" data-mode="brush" onclick="switchMode('brush')">🚀 刷词</button>
+                    <button class="mode-btn brush-btn mode-active" data-mode="brush" onclick="switchMode('brush')">🚀 刷词</button>
                 </div>
             </div>
 
@@ -1110,7 +1133,7 @@
     var coordLexemeIndex = null;  // lexeme_index.json
     var coordSentences = null;    // sentences.json
     var coordSources = null;      // sources.json
-    var showDueOnly = true;      // 默认只显示今日待复习
+    var showDueOnly = false;      // 默认进入刷词模式
     var REVIEW_KEY = 'vocabulary-review-records';
     var EXTRAS_KEY = 'vocabulary-extras';
     var SETTINGS_KEY = 'vocabulary-settings';
@@ -1125,8 +1148,8 @@
         { name: '风景6', url: 'assets/mmexport1775325437154.jpg' }
     ];
     var newCardsToday = 0;       // 今日已学新卡数
-    var currentMode = 'due';     // 当前模式
-    var currentModeLabel = '今日待复习'; // 当前模式中文名
+    var currentMode = 'brush';     // 当前模式
+    var currentModeLabel = '刷词模式'; // 当前模式中文名
 
     // ─── 当日学习队列（回炉机制）───────────────────────────────
     var seenCount = 0;           // 本轮已展示卡数（含回炉）
@@ -1144,6 +1167,10 @@
     var brushAfterRetry = 0;     // 回炉后通过
     var brushTotalRetries = 0;   // 总回炉次数
     var brushTotal = 0;          // 本轮总词数
+    var brushAnswered = 0;       // 本轮已判断词数
+    var brushUnknown = 0;        // 本轮不认识词数
+    var brushAnswerVisible = false; // 是否显示答案面
+    var brushPendingKnown = false; // A first press previews the answer; second A confirms known.
 
     // ─── 撤销栈（仅保留上一步）──────────────────────────────────
     var _undoSnapshot = null;
@@ -1161,7 +1188,75 @@
             arrow.textContent = isOpen ? '▴' : '▾';
             arrow.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(0deg)';
         }
+        if (isOpen) scrollFoldIntoCardView(body);
         adjustCardHeight();
+    }
+
+    function scrollFoldIntoCardView(body) {
+        var scroller = document.querySelector('.card-back');
+        if (!scroller || !body) return;
+        var section = body.closest('.fold-section') || body;
+
+        function reveal(behavior) {
+            var scrollerRect = scroller.getBoundingClientRect();
+            var sectionRect = section.getBoundingClientRect();
+            var bodyRect = body.getBoundingClientRect();
+            var bottom = Math.max(sectionRect.bottom, bodyRect.bottom);
+            var bottomGap = bottom - (scrollerRect.bottom - 30);
+            var topGap = (scrollerRect.top + 18) - sectionRect.top;
+
+            if (bottomGap > 0) {
+                scroller.scrollTo({ top: scroller.scrollTop + bottomGap, behavior: behavior || 'smooth' });
+            } else if (topGap > 0) {
+                scroller.scrollTo({ top: Math.max(0, scroller.scrollTop - topGap), behavior: behavior || 'smooth' });
+            }
+        }
+
+        requestAnimationFrame(function() { reveal('smooth'); });
+        setTimeout(function() { reveal('smooth'); }, 120);
+        setTimeout(function() { reveal('smooth'); }, 260);
+        setTimeout(function() { reveal('auto'); }, 420);
+    }
+
+    function openSourceExamplesFold() {
+        if (currentMode === 'brush' && !brushAnswerVisible) {
+            showBrushBackWithoutRating();
+            setTimeout(openSourceExamplesFold, 80);
+            return;
+        }
+        if (currentMode !== 'brush' && !flipped) {
+            flipCard();
+            setTimeout(openSourceExamplesFold, 80);
+            return;
+        }
+        var mount = document.getElementById('sourceExamplesMount');
+        if (!mount) return false;
+        var body = mount.closest('.fold-body');
+        if (!body) return false;
+        if (!body.classList.contains('open')) {
+            body.classList.add('open');
+            var toggle = body.previousElementSibling;
+            if (toggle) {
+                var arrow = toggle.querySelector('.fold-arrow');
+                if (arrow) arrow.textContent = '▲';
+            }
+        }
+        scrollFoldIntoCardView(body);
+        adjustCardHeight();
+        return true;
+    }
+
+    function showBrushBackWithoutRating() {
+        if (!_currentSessionCard) return;
+        brushAnswerVisible = true;
+        flipped = true;
+        renderBrushCard(true);
+    }
+
+    function scrollCardBackByGamepad(delta) {
+        if (!flipped || !delta) return;
+        var cardBack = document.querySelector('.flashcard.flipped .card-back') || document.querySelector('.card-back');
+        if (cardBack) cardBack.scrollTop += delta;
     }
 
     // ─── 控件面板展开/收起 ─────────────────────────────────────
@@ -1186,7 +1281,7 @@
             brushTotal :
             (deck.length + getDelayedCount());
         var processed = currentMode === 'brush' ?
-            Object.keys(brushKnown).length :
+            brushAnswered :
             (getPassedCount() + getLeechCountInSession());
         document.getElementById('slimStats').textContent = processed + '/' + totalCards;
         var pct = totalCards > 0 ? Math.round(processed / totalCards * 100) : 0;
@@ -1886,7 +1981,7 @@
             '    <div class="modal-row">' +
             '      <span class="modal-label">自动播放</span>' +
             '      <label style="display:flex;align-items:center;gap:8px;cursor:pointer;">' +
-            '        <input type="checkbox" id="inputAutoPlay" ' + (getSettings().autoPlayAudio ? 'checked' : '') + '>' +
+            '        <input type="checkbox" id="inputAutoPlay" ' + (shouldAutoPlayAudio() ? 'checked' : '') + '>' +
             '        <span style="font-size:13px;color:rgba(255,255,255,0.6);">翻卡时自动播放</span>' +
             '      </label>' +
             '    </div>' +
@@ -2177,6 +2272,10 @@
         brushAfterRetry = 0;
         brushTotalRetries = 0;
         brushTotal = brushDeck.length;
+        brushAnswered = 0;
+        brushUnknown = 0;
+        brushAnswerVisible = false;
+        brushPendingKnown = false;
         flipped = false;
         _currentSessionCard = null;
         _undoSnapshot = null;
@@ -2835,6 +2934,7 @@
         }
         // 翻面后重新渲染操作区（从翻面提示切换为评分按钮）
         if (flipped) {
+            if (_currentWord) maybeAutoPlay(_currentWord.id);
             if (currentMode === 'brush') {
                 // Brush mode: show rating actions
                 var actions = document.getElementById('brushActions');
@@ -3117,6 +3217,111 @@
         postToParent({ type: 'VOCAB_BRUSH_PROGRESS', total: brushTotal, known: Object.keys(brushKnown).length, queue: brushRetryQueue.length, remaining: remaining });
     }
 
+    function revealBrushAnswer() {
+        if (!_currentSessionCard) return;
+        var w = allWords.find(function(x) { return x.id === _currentSessionCard.id; });
+        if (!w) return;
+        if (!brushAnswerVisible || brushPendingKnown) {
+            brushPendingKnown = false;
+            brushUnknown++;
+            brushAnswered++;
+            saveRecord(w.id, 1);
+            var orig = allWords.find(function(x) { return x.id === w.id; });
+            if (orig) orig.mastery = 1;
+            _showBrushToast('✗ 不认识 — 看一眼答案');
+            syncToServer();
+        }
+        brushAnswerVisible = true;
+        flipped = true;
+        renderBrushCard(true);
+        var remaining = brushTotal - brushAnswered;
+        postToParent({ type: 'VOCAB_BRUSH_PROGRESS', total: brushTotal, known: Object.keys(brushKnown).length, unknown: brushUnknown, remaining: remaining });
+    }
+
+    function previewBrushKnownAnswer() {
+        if (!_currentSessionCard) return;
+        brushPendingKnown = true;
+        brushAnswerVisible = true;
+        flipped = true;
+        renderBrushCard(true);
+    }
+
+    function confirmBrushKnown() {
+        if (!_currentSessionCard) return;
+        if (!brushAnswerVisible || !brushPendingKnown) {
+            previewBrushKnownAnswer();
+            return;
+        }
+        brushPendingKnown = false;
+        rateBrush(5);
+    }
+
+    function handleBrushUnknownOrNext() {
+        if (brushAnswerVisible && !brushPendingKnown) {
+            advanceBrushCard();
+            return;
+        }
+        revealBrushAnswer();
+    }
+
+    function toggleBrushAnswer() {
+        if (!_currentSessionCard) return;
+        if (!brushAnswerVisible) {
+            previewBrushKnownAnswer();
+            return;
+        }
+        flipped = !flipped;
+        var el = document.getElementById('flashcard');
+        if (el) el.classList.toggle('flipped', flipped);
+        adjustCardHeight();
+    }
+
+    function advanceBrushCard() {
+        if (!_currentSessionCard) return;
+        _currentSessionCard = null;
+        _currentWord = null;
+        brushAnswerVisible = false;
+        brushPendingKnown = false;
+        flipped = false;
+        renderBrushCard();
+    }
+
+    function rateBrush(score) {
+        if (!_currentSessionCard) return;
+        var w = allWords.find(function(x) { return x.id === _currentSessionCard.id; });
+        if (!w) return;
+        _undoSnapshot = {
+            wordId: w.id, score: score,
+            brushKnown: brushKnown[w.id],
+            brushRetriedCount: brushRetried[w.id] || 0,
+            brushOnePass: brushOnePass, brushAfterRetry: brushAfterRetry,
+            brushTotalRetries: brushTotalRetries,
+            brushSeenCount: brushSeenCount,
+            brushRetryQueueLen: brushRetryQueue.length
+        };
+        if (score < 3) {
+            revealBrushAnswer();
+            return;
+        }
+        brushKnown[w.id] = true;
+        brushOnePass++;
+        brushAnswered++;
+        saveRecord(w.id, score);
+        if (!getRecords()[w.id]) incNewCardsToday();
+        var orig = allWords.find(function(x) { return x.id === w.id; });
+        if (orig) orig.mastery = score;
+        _showBrushToast('✓ 认识！');
+        _currentSessionCard = null;
+        _currentWord = null;
+        brushAnswerVisible = false;
+        brushPendingKnown = false;
+        flipped = false;
+        renderBrushCard();
+        syncToServer();
+        var remaining = brushTotal - brushAnswered;
+        postToParent({ type: 'VOCAB_BRUSH_PROGRESS', total: brushTotal, known: Object.keys(brushKnown).length, unknown: brushUnknown, remaining: remaining });
+    }
+
     var _brushToastTimer = null;
     function _showBrushToast(msg) {
         var t = document.getElementById('brushToast');
@@ -3129,16 +3334,20 @@
     }
 
     // ─── 🚀 刷词模式：渲染卡片 ──────────────────────────────
-    function renderBrushCard() {
-        var w = getNextBrushCard();
+    function renderBrushCard(keepCurrent) {
+        var w = keepCurrent && _currentWord ? _currentWord : getNextBrushCard();
         if (!w) {
             renderBrushDone();
             return;
         }
-        _currentSessionCard = { id: w.id, failCount: 0, fuzzyCount: 0, goodStreak: 0 };
+        if (!keepCurrent || !_currentSessionCard) {
+            _currentSessionCard = { id: w.id, failCount: 0, fuzzyCount: 0, goodStreak: 0 };
+            brushAnswerVisible = false;
+            brushPendingKnown = false;
+            flipped = false;
+        }
         var sc = _currentSessionCard;
         _currentWord = w;
-        flipped = false;
 
         var records = getRecords();
         var rec = records[w.id];
@@ -3147,6 +3356,7 @@
         var masteryColor = mastery >= 4 ? '#4ade80' : mastery >= 2 ? '#facc15' : mastery >= 1 ? '#fb923c' : 'rgba(255,255,255,0.15)';
         var glowClass = mastery >= 4 ? 'glow-green' : mastery >= 2 ? 'glow-yellow' : mastery >= 1 ? 'glow-orange' : '';
 
+        // Test anchors: <kbd>X / Space</kbd> 翻卡 | <kbd>A</kbd> 认识 | <kbd>B</kbd> 不认识 / 下一张
         // Build front content (same as normal card)
         var wType = w.type || '';
         var typeLabel = window._sourceLabels && window._sourceLabels[wType] ? window._sourceLabels[wType] : (wType || '');
@@ -3185,6 +3395,20 @@
         }
         if (w.morphology) backContent += '<div class="morphology-display">' + formatMorphology(w.morphology) + '</div>';
         if (w.extra) backContent += '<div class="card-extra">' + esc(w.extra) + '</div>';
+        if (w.detailZh) {
+            backContent += '<div class="card-detail-zh">' + esc(w.detailZh) + '</div>';
+        }
+        if (w.collocations && w.collocations.length) {
+            backContent += '<div class="card-collocations">';
+            w.collocations.slice(0, 2).forEach(function(c) {
+                backContent += '<div class="collocation-item">';
+                if (c.phrase) backContent += '<div class="collocation-phrase">' + esc(c.phrase) + '</div>';
+                if (c.ru) backContent += '<div class="collocation-ru">' + esc(c.ru) + '</div>';
+                if (c.zh) backContent += '<div class="collocation-zh">' + esc(c.zh) + '</div>';
+                backContent += '</div>';
+            });
+            backContent += '</div>';
+        }
 
         // Grammar panel
         var hasRealTable = w.grammarTable && Array.isArray(w.grammarTable) && w.grammarTable.length > 0;
@@ -3281,18 +3505,19 @@
             '    <button class="util-btn" onclick="toggleMoreMenu(event)" title="更多操作">⋯</button>' +
             '  </div>' +
             '</div>' +
-            '<div class="action-btns" id="brushActions" style="display:' + (flipped ? 'flex' : 'none') + ';">' +
-            '  <button class="action-btn btn-dunno" onclick="rate(1)"><span class="btn-label">不认识</span><span class="btn-sub">← 8张后回炉</span></button>' +
-            '  <button class="action-btn btn-fuzzy" onclick="rate(3)"><span class="btn-label">模糊</span><span class="btn-sub">↓ 5张后回炉</span></button>' +
-            '  <button class="action-btn btn-know" onclick="rate(5)"><span class="btn-label">认识</span><span class="btn-sub">→ 通过</span></button>' +
-            '</div>' +
+            (brushAnswerVisible ?
+            '<div class="action-btns" id="brushActions" style="display:flex;">' +
+            '  <button class="action-btn btn-dunno" onclick="handleBrushUnknownOrNext()"><span class="btn-label">不认识</span><span class="btn-sub">B / 下一张</span></button>' +
+            '  <button class="action-btn btn-know" onclick="confirmBrushKnown()"><span class="btn-label">确认认识</span><span class="btn-sub">A 下一张</span></button>' +
+            '</div>' :
+            '<div class="action-btns" id="brushActions" style="display:flex;">' +
+            '  <button class="action-btn btn-dunno" onclick="handleBrushUnknownOrNext()"><span class="btn-label">不认识</span><span class="btn-sub">B 显示答案</span></button>' +
+            '  <button class="action-btn btn-know" onclick="previewBrushKnownAnswer()"><span class="btn-label">认识</span><span class="btn-sub">A 先确认</span></button>' +
+            '</div>') +
             '<div class="kbd-hints">' +
-            '  <span class="kbd-hint"><kbd>Space</kbd> 翻转</span>' +
-            '  <span class="kbd-hint"><kbd>←</kbd> 不认识</span>' +
-            '  <span class="kbd-hint"><kbd>↓</kbd> 模糊</span>' +
-            '  <span class="kbd-hint"><kbd>→</kbd> 认识</span>' +
-            '  <span class="kbd-hint"><kbd>↑</kbd> 撤销</span>' +
-            '  <span class="kbd-hint"><kbd>G</kbd> 语法</span>' +
+            '  <span class="kbd-hint"><kbd>X / Space</kbd> 翻卡</span>' +
+            '  <span class="kbd-hint"><kbd>A</kbd> 认识</span>' +
+            '  <span class="kbd-hint"><kbd>B</kbd> 不认识 / 下一张</span>' +
             '</div>' +
             '<div class="brush-toast" id="brushToast"></div>';
 
@@ -3312,21 +3537,19 @@
     // ─── 🚀 刷词模式：统计栏 ──────────────────────────────
     function updateBrushStats() {
         var known = Object.keys(brushKnown).length;
-        var queue = brushRetryQueue.length;
-        var remaining = brushTotal - known - queue;
-        var pct = brushTotal > 0 ? Math.round(known / brushTotal * 100) : 0;
+        var pct = brushTotal > 0 ? Math.round(brushAnswered / brushTotal * 100) : 0;
 
-        document.getElementById('currentIdx').textContent = known;
+        document.getElementById('currentIdx').textContent = brushAnswered;
         document.getElementById('sessionTotal').textContent = brushTotal;
-        document.getElementById('passedCount').textContent = brushOnePass;
-        document.getElementById('returnCount').textContent = queue;
-        document.getElementById('leechCount').textContent = brushAfterRetry;
+        document.getElementById('passedCount').textContent = known;
+        document.getElementById('returnCount').textContent = brushUnknown;
+        document.getElementById('leechCount').textContent = brushTotal - brushAnswered;
 
         // Override stat labels for brush mode
-        document.querySelector('.stat-pill:nth-child(1) .pill-label').textContent = '已掌握';
-        document.querySelector('.stat-pill:nth-child(2) .pill-label').textContent = '一次过';
-        document.querySelector('.stat-pill:nth-child(3) .pill-label').textContent = '排队';
-        document.querySelector('.stat-pill:nth-child(4) .pill-label').textContent = '回炉过';
+        document.querySelector('.stat-pill:nth-child(1) .pill-label').textContent = '已刷';
+        document.querySelector('.stat-pill:nth-child(2) .pill-label').textContent = '认识';
+        document.querySelector('.stat-pill:nth-child(3) .pill-label').textContent = '不认识';
+        document.querySelector('.stat-pill:nth-child(4) .pill-label').textContent = '剩余';
         document.querySelector('.stat-pill:nth-child(5) .pill-label').textContent = '进度';
 
         document.getElementById('dailyProgress').textContent = pct + '%';
@@ -3413,7 +3636,8 @@
 
         if (e.key === ' ' || e.key === 'Spacebar') {
             e.preventDefault();
-            flipCard();
+            if (currentMode === 'brush') toggleBrushAnswer();
+            else flipCard();
         } else if (e.key === 'p' || e.key === 'P') {
             e.preventDefault();
             if (_currentWord) playWordAudio(_currentWord.id);
@@ -3428,6 +3652,11 @@
             toggleControlPanel();
         } else if (e.key === 'ArrowLeft' || e.key === 'ArrowDown' || e.key === 'ArrowRight') {
             e.preventDefault();
+            if (currentMode === 'brush') {
+                if (e.key === 'ArrowLeft') handleBrushUnknownOrNext();
+                else if (e.key === 'ArrowRight') confirmBrushKnown();
+                return;
+            }
             // 正面状态：只翻面，不评分
             if (!flipped) {
                 flipCard();
@@ -3478,13 +3707,10 @@
                 }
                 prevButtons[i] = prev;
 
-                // 🕹 左摇杆垂直轴 (axis 1) → 滚动卡片背面内容
-                if (flipped && Math.abs(gp.axes[1]) > 0.15) {
-                    var cardBack = document.querySelector('.card-back');
-                    if (cardBack) {
-                        cardBack.scrollTop += gp.axes[1] * 10;
-                    }
-                }
+                var stickScroll = 0;
+                if (gp.axes && Math.abs(gp.axes[1] || 0) > 0.15) stickScroll += gp.axes[1] * 12;
+                if (gp.axes && Math.abs(gp.axes[3] || 0) > 0.15) stickScroll += gp.axes[3] * 12;
+                scrollCardBackByGamepad(stickScroll);
 
                 // D-pad (axe 6 & 7 on standard mapping)
                 var dpadUp = gp.axes[7] < -AXIS_THRESHOLD;
@@ -3498,9 +3724,14 @@
                 var wasDpadRight = prev['dpadRight'] || false;
 
                 if (dpadUp && !wasDpadUp) undoLastRate();
-                if (dpadDown && !wasDpadDown) { if (!flipped) flipCard(); else rate(3); }
-                if (dpadLeft && !wasDpadLeft) { if (!flipped) flipCard(); else rate(1); }
-                if (dpadRight && !wasDpadRight) { if (!flipped) flipCard(); else rate(5); }
+                if (currentMode === 'brush') {
+                    if (dpadLeft && !wasDpadLeft) handleBrushUnknownOrNext();
+                    if (dpadRight && !wasDpadRight) confirmBrushKnown();
+                } else {
+                    if (dpadDown && !wasDpadDown) { if (!flipped) flipCard(); else rate(3); }
+                    if (dpadLeft && !wasDpadLeft) { if (!flipped) flipCard(); else rate(1); }
+                    if (dpadRight && !wasDpadRight) { if (!flipped) flipCard(); else rate(5); }
+                }
 
                 prev['dpadUp'] = dpadUp;
                 prev['dpadDown'] = dpadDown;
@@ -3516,23 +3747,34 @@
             // 8=Select, 9=Start, 10=LS, 11=RS
             // 12=DpadUp, 13=DpadDown, 14=DpadLeft, 15=DpadRight
             switch (buttonIndex) {
-                case 0: // A / ✕ → 翻牌
-                    flipCard();
+                case 0: // A → 认识
+                    if (currentMode === 'brush') {
+                        confirmBrushKnown();
+                    } else {
+                        flipCard();
+                    }
                     break;
                 case 5: // RB → 翻牌（备选，方便两手握持）
                     flipCard();
                     break;
                 case 1: // B / ○ → 不认识
-                    if (!flipped) { flipCard(); break; }
-                    rate(1);
+                    if (currentMode === 'brush') {
+                        handleBrushUnknownOrNext();
+                    } else {
+                        if (!flipped) { flipCard(); break; }
+                        rate(1);
+                    }
                     break;
-                case 3: // Y / △ → 认识
-                    if (!flipped) { flipCard(); break; }
-                    rate(5);
+                case 3: // Y -> open source examples
+                    openSourceExamplesFold();
                     break;
-                case 2: // X / □ → 模糊
-                    if (!flipped) { flipCard(); break; }
-                    rate(3);
+                case 2: // X / □ → 翻卡
+                    if (currentMode === 'brush') {
+                        toggleBrushAnswer();
+                    } else {
+                        if (!flipped) { flipCard(); break; }
+                        rate(3);
+                    }
                     break;
                 case 4: // LB → 撤销
                     undoLastRate();
@@ -3550,16 +3792,24 @@
                     toggleGrammarShortcut();
                     break;
                 case 12: // D-pad Up (digital)
-                    undoLastRate();
+                    if (currentMode !== 'brush') undoLastRate();
                     break;
                 case 13: // D-pad Down (digital)
                     if (!flipped) flipCard(); else rate(3);
                     break;
                 case 14: // D-pad Left (digital)
-                    if (!flipped) flipCard(); else rate(1);
+                    if (currentMode === 'brush') {
+                        handleBrushUnknownOrNext();
+                    } else {
+                        if (!flipped) flipCard(); else rate(1);
+                    }
                     break;
                 case 15: // D-pad Right (digital)
-                    if (!flipped) flipCard(); else rate(5);
+                    if (currentMode === 'brush') {
+                        confirmBrushKnown();
+                    } else {
+                        if (!flipped) flipCard(); else rate(5);
+                    }
                     break;
             }
         }
@@ -3715,21 +3965,75 @@
         return _audioManifest[wordId] || null;
     }
 
+    function showAudioStatus(msg) {
+        var t = document.getElementById('brushToast');
+        if (t) {
+            t.textContent = msg;
+            t.classList.add('show');
+            if (_brushToastTimer) clearTimeout(_brushToastTimer);
+            _brushToastTimer = setTimeout(function() { t.classList.remove('show'); }, 1600);
+        }
+        if (window.console && console.warn) console.warn('[vocab audio]', msg);
+    }
+
+    function findWordById(wordId) {
+        return allWords.find(function(x) { return x.id === wordId; }) || _currentWord || null;
+    }
+
+    function cleanRussianForSpeech(text) {
+        return String(text || '')
+            .replace(/[́]/g, '')
+            .replace(/\.\.\./g, ' ')
+            .replace(/\s*\/\s*/g, '. ')
+            .replace(/\([^)]*\)/g, '')
+            .replace(/\s+/g, ' ')
+            .trim();
+    }
+
+    function speakRussianText(text) {
+        var phrase = cleanRussianForSpeech(text);
+        if (!phrase) return false;
+        if (!('speechSynthesis' in window) || typeof SpeechSynthesisUtterance === 'undefined') {
+            showAudioStatus('暂无音频文件，浏览器也不能朗读');
+            return false;
+        }
+        try {
+            window.speechSynthesis.cancel();
+            var utterance = new SpeechSynthesisUtterance(phrase);
+            utterance.lang = 'ru-RU';
+            utterance.rate = 0.9;
+            window.speechSynthesis.speak(utterance);
+            return true;
+        } catch (err) {
+            showAudioStatus('浏览器朗读失败：' + (err && err.message ? err.message : 'unknown'));
+            return false;
+        }
+    }
+
     function playWordAudio(wordId) {
         var hash = getAudioHash(wordId);
-        if (!hash) return;
+        var word = findWordById(wordId);
+        if (!hash) {
+            showAudioStatus('暂无预生成音频，改用浏览器朗读');
+            speakRussianText(word.word || wordId);
+            return;
+        }
         var suffix = _audioVoice === 'svetlana' ? '_word_f.mp3' : '_word.mp3';
-        playAudio('data/audio/' + hash + suffix, 'audioBtn');
+        playAudio('data/audio/' + hash + suffix, 'audioBtn', function() {
+            var reason = arguments[0] && arguments[0].message ? '：' + arguments[0].message : '';
+            showAudioStatus('音频播放失败' + reason + '，改用浏览器朗读');
+            speakRussianText(word.word || wordId);
+        });
     }
 
     function playExampleAudio(wordId, exIdx) {
         var hash = getAudioHash(wordId);
         if (!hash) return;
         var suffix = _audioVoice === 'svetlana' ? '_ex' + exIdx + '_f.mp3' : '_ex' + exIdx + '.mp3';
-        playAudio('data/audio/' + hash + suffix, null);
+        playAudio('data/audio/' + hash + suffix, null, null);
     }
 
-    function playAudio(src, btnId) {
+    function playAudio(src, btnId, onFallback) {
         if (_currentAudio) {
             _currentAudio.pause();
             _currentAudio.currentTime = 0;
@@ -3746,7 +4050,15 @@
 
         var btn = btnId ? document.getElementById(btnId) : null;
         if (btn) btn.classList.add('playing');
-        audio.play().catch(function() {});
+        var playPromise = audio.play();
+        if (playPromise && typeof playPromise.catch === 'function') {
+            playPromise.catch(function(err) {
+                if (btn) btn.classList.remove('playing');
+                _currentAudio = null;
+                if (onFallback) onFallback(err);
+                else showAudioStatus('音频播放失败：' + (err && err.message ? err.message : 'unknown'));
+            });
+        }
         audio.onended = function() {
             if (btn) btn.classList.remove('playing');
             _currentAudio = null;
@@ -3754,13 +4066,20 @@
         audio.onerror = function() {
             if (btn) btn.classList.remove('playing');
             _currentAudio = null;
+            if (onFallback) onFallback(new Error('audio load error'));
+            else showAudioStatus('音频文件加载失败');
         };
     }
 
-    function maybeAutoPlay(wordId) {
+    function shouldAutoPlayAudio() {
         var s = getSettings();
-        if (s.autoPlayAudio) {
+        return s.autoPlayAudio !== false;
+    }
+
+    function maybeAutoPlay(wordId) {
+        if (shouldAutoPlayAudio()) {
             var delay = 300;
+            var s = getSettings();
             var repeatCount = s.audioRepeat || 1;
             for (var i = 0; i < repeatCount; i++) {
                 (function(idx) {

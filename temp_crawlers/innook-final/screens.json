@@ -1,0 +1,11 @@
+[
+  {
+    "screen": "home",
+    "classes": "app-shell relative min-h-screen w-full overflow-x-hidden bg-black font-sans selection:bg-white/20 selection:text-white"
+  },
+  {
+    "screen": "home",
+    "immersive": "false",
+    "classes": "app-container relative z-10 mx-auto flex min-h-screen w-full max-w-[1440px] flex-col px-4 py-5 text-[var(--ink-warm)] sm:px-5 sm:py-7 md:px-12 md:py-12"
+  }
+]

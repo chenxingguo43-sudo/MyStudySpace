@@ -1,0 +1,62 @@
+# Full OCR Candidate Quality
+
+- records: 120
+- low risk records: 117
+- medium risk records: 3
+- pages with records: 53
+
+## Page Coverage
+
+- page 010: 1
+- page 013: 1
+- page 016: 4
+- page 019: 1
+- page 020: 2
+- page 022: 3
+- page 023: 1
+- page 025: 2
+- page 026: 3
+- page 028: 2
+- page 029: 2
+- page 031: 2
+- page 032: 3
+- page 034: 2
+- page 037: 1
+- page 056: 2
+- page 058: 2
+- page 060: 4
+- page 063: 2
+- page 065: 1
+- page 067: 1
+- page 069: 4
+- page 070: 1
+- page 072: 2
+- page 074: 2
+- page 076: 1
+- page 081: 4
+- page 100: 2
+- page 102: 4
+- page 103: 4
+- page 104: 2
+- page 106: 1
+- page 107: 2
+- page 108: 1
+- page 111: 1
+- page 112: 1
+- page 113: 1
+- page 114: 2
+- page 115: 2
+- page 118: 1
+- page 120: 2
+- page 121: 2
+- page 125: 1
+- page 126: 6
+- page 129: 12
+- page 130: 1
+- page 131: 3
+- page 133: 2
+- page 135: 2
+- page 137: 3
+- page 138: 4
+- page 146: 1
+- page 152: 1

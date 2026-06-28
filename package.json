@@ -4,7 +4,8 @@
   "description": "",
   "main": "cloudsync-config.example.js",
   "directories": {
-    "doc": "docs"
+    "doc": "docs",
+    "test": "tests"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -24,6 +25,7 @@
   },
   "homepage": "https://github.com/chenxingguo43-sudo/MyStudySpace#readme",
   "dependencies": {
-    "cheerio": "^1.2.0"
+    "cheerio": "^1.2.0",
+    "playwright-core": "^1.61.1"
   }
 }

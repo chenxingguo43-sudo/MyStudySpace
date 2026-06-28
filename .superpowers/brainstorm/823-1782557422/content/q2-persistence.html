@@ -1,0 +1,29 @@
+<h2>问题 2：拖拽后的分栏比例需要记住吗？</h2>
+<p class="subtitle">用户拖拽调节分栏后，这个比例应该如何处理？</p>
+
+<div class="options">
+  <div class="option" data-choice="a" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content">
+      <h3>记住比例，持久化到 localStorage</h3>
+      <p style="margin-top:8px;font-size:13px;color:var(--text-secondary)">
+        ✅ 用户每次打开都是上次调节好的比例<br>
+        ✅ 横屏/竖屏各存一份，互不干扰<br>
+        ✅ 符合现有代码风格（已有 <code>rr_panel_width</code> localStorage 键）<br>
+        ⚠️ 需要处理默认值（首次使用时）
+      </p>
+    </div>
+  </div>
+
+  <div class="option" data-choice="b" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content">
+      <h3>不记住，每次刷新恢复默认比例</h3>
+      <p style="margin-top:8px;font-size:13px;color:var(--text-secondary)">
+        ✅ 实现最简单<br>
+        ✅ 用户不需要关心"上次调成了什么比例"<br>
+        ⚠️ 每次打开都要重新拖拽，体验不佳
+      </p>
+    </div>
+  </div>
+</div>

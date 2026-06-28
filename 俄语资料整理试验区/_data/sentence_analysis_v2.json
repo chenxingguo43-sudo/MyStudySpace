@@ -1,0 +1,295 @@
+{
+  "version": "v2",
+  "total_candidates": 711,
+  "pages_with_candidates": 52,
+  "examples_total": 25,
+  "examples_matched": 25,
+  "examples_unmatched": 0,
+  "match_rate": 100.0,
+  "v1_matched": 16,
+  "improvement": 9,
+  "matched_ids": [
+    "ex-000001",
+    "ex-000002",
+    "ex-000003",
+    "ex-000004",
+    "ex-000005",
+    "ex-000006",
+    "ex-000007",
+    "ex-000008",
+    "ex-000009",
+    "ex-000010",
+    "ex-000011",
+    "ex-000012",
+    "ex-000013",
+    "ex-000014",
+    "ex-000015",
+    "ex-000016",
+    "ex-000017",
+    "ex-000018",
+    "ex-000019",
+    "ex-000020",
+    "ex-000021",
+    "ex-000022",
+    "ex-000023",
+    "ex-000024",
+    "ex-000025"
+  ],
+  "unmatched_ids": [],
+  "match_details": [
+    {
+      "example_id": "ex-000001",
+      "matched": true,
+      "match_type": "prefix_match",
+      "candidate_id": "cand-0002",
+      "page_number": 1,
+      "score": 0.9
+    },
+    {
+      "example_id": "ex-000002",
+      "matched": true,
+      "match_type": "keyword_match",
+      "candidate_id": "cand-0005",
+      "page_number": 2,
+      "score": 0.6
+    },
+    {
+      "example_id": "ex-000003",
+      "matched": true,
+      "match_type": "keyword_match",
+      "candidate_id": "cand-0006",
+      "page_number": 2,
+      "score": 0.6
+    },
+    {
+      "example_id": "ex-000004",
+      "matched": true,
+      "match_type": "prefix_match",
+      "candidate_id": "cand-0038",
+      "page_number": 3,
+      "score": 0.9
+    },
+    {
+      "example_id": "ex-000005",
+      "matched": true,
+      "match_type": "keyword_match",
+      "candidate_id": "cand-0042",
+      "page_number": 4,
+      "score": 0.6
+    },
+    {
+      "example_id": "ex-000006",
+      "matched": true,
+      "match_type": "exact_normalized",
+      "candidate_id": "cand-0062",
+      "page_number": 5,
+      "score": 1.0
+    },
+    {
+      "example_id": "ex-000007",
+      "matched": true,
+      "match_type": "exact_normalized",
+      "candidate_id": "cand-0078",
+      "page_number": 6,
+      "score": 1.0
+    },
+    {
+      "example_id": "ex-000008",
+      "matched": true,
+      "match_type": "exact_normalized",
+      "candidate_id": "cand-0087",
+      "page_number": 7,
+      "score": 1.0
+    },
+    {
+      "example_id": "ex-000009",
+      "matched": true,
+      "match_type": "prefix_match",
+      "candidate_id": "cand-0092",
+      "page_number": 7,
+      "score": 0.9
+    },
+    {
+      "example_id": "ex-000010",
+      "matched": true,
+      "match_type": "keyword_match",
+      "candidate_id": "cand-0095",
+      "page_number": 7,
+      "score": 0.6
+    },
+    {
+      "example_id": "ex-000011",
+      "matched": true,
+      "match_type": "prefix_match",
+      "candidate_id": "cand-0132",
+      "page_number": 9,
+      "score": 0.9
+    },
+    {
+      "example_id": "ex-000012",
+      "matched": true,
+      "match_type": "exact_normalized",
+      "candidate_id": "cand-0158",
+      "page_number": 11,
+      "score": 1.0
+    },
+    {
+      "example_id": "ex-000013",
+      "matched": true,
+      "match_type": "exact_normalized",
+      "candidate_id": "cand-0181",
+      "page_number": 12,
+      "score": 1.0
+    },
+    {
+      "example_id": "ex-000014",
+      "matched": true,
+      "match_type": "prefix_match",
+      "candidate_id": "cand-0193",
+      "page_number": 13,
+      "score": 0.9
+    },
+    {
+      "example_id": "ex-000015",
+      "matched": true,
+      "match_type": "prefix_match",
+      "candidate_id": "cand-0164",
+      "page_number": 11,
+      "score": 0.9
+    },
+    {
+      "example_id": "ex-000016",
+      "matched": true,
+      "match_type": "prefix_match",
+      "candidate_id": "cand-0230",
+      "page_number": 14,
+      "score": 0.9
+    },
+    {
+      "example_id": "ex-000017",
+      "matched": true,
+      "match_type": "exact_normalized",
+      "candidate_id": "cand-0244",
+      "page_number": 15,
+      "score": 1.0
+    },
+    {
+      "example_id": "ex-000018",
+      "matched": true,
+      "match_type": "keyword_match",
+      "candidate_id": "cand-0236",
+      "page_number": 15,
+      "score": 0.6
+    },
+    {
+      "example_id": "ex-000019",
+      "matched": true,
+      "match_type": "prefix_match",
+      "candidate_id": "cand-0255",
+      "page_number": 16,
+      "score": 0.9
+    },
+    {
+      "example_id": "ex-000020",
+      "matched": true,
+      "match_type": "exact_normalized",
+      "candidate_id": "cand-0257",
+      "page_number": 16,
+      "score": 1.0
+    },
+    {
+      "example_id": "ex-000021",
+      "matched": true,
+      "match_type": "prefix_match",
+      "candidate_id": "cand-0633",
+      "page_number": 45,
+      "score": 0.9
+    },
+    {
+      "example_id": "ex-000022",
+      "matched": true,
+      "match_type": "exact_normalized",
+      "candidate_id": "cand-0272",
+      "page_number": 17,
+      "score": 1.0
+    },
+    {
+      "example_id": "ex-000023",
+      "matched": true,
+      "match_type": "exact_normalized",
+      "candidate_id": "cand-0275",
+      "page_number": 17,
+      "score": 1.0
+    },
+    {
+      "example_id": "ex-000024",
+      "matched": true,
+      "match_type": "exact_normalized",
+      "candidate_id": "cand-0279",
+      "page_number": 17,
+      "score": 1.0
+    },
+    {
+      "example_id": "ex-000025",
+      "matched": true,
+      "match_type": "exact_normalized",
+      "candidate_id": null,
+      "page_number": null,
+      "score": 1.0
+    }
+  ],
+  "per_page": {
+    "1": 2,
+    "2": 18,
+    "3": 20,
+    "4": 15,
+    "5": 14,
+    "6": 17,
+    "7": 15,
+    "8": 25,
+    "9": 13,
+    "10": 18,
+    "11": 8,
+    "12": 23,
+    "13": 24,
+    "14": 19,
+    "15": 18,
+    "16": 14,
+    "17": 19,
+    "18": 14,
+    "19": 10,
+    "20": 9,
+    "21": 10,
+    "22": 9,
+    "23": 12,
+    "24": 10,
+    "25": 14,
+    "26": 13,
+    "27": 15,
+    "28": 15,
+    "29": 12,
+    "30": 13,
+    "31": 15,
+    "32": 13,
+    "33": 12,
+    "34": 16,
+    "35": 15,
+    "36": 14,
+    "37": 14,
+    "38": 12,
+    "39": 11,
+    "40": 10,
+    "41": 12,
+    "42": 6,
+    "43": 14,
+    "44": 17,
+    "45": 14,
+    "46": 11,
+    "47": 11,
+    "48": 18,
+    "49": 17,
+    "50": 7,
+    "51": 13,
+    "52": 1
+  }
+}

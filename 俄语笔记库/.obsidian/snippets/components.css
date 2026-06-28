@@ -1,0 +1,245 @@
+/* ============================================
+   UI Components — Callout · Tag · Checkbox · Table
+   适用: 阅读模式 + 实时预览
+   ============================================ */
+
+/* ========================================
+   📦 Callout 美化
+   ======================================== */
+
+/* 通用 callout 样式 */
+.markdown-reading-view .callout,
+.callout {
+  border-radius: 10px;
+  border: 1px solid rgba(128, 128, 128, 0.12);
+  padding: 14px 18px;
+  margin: 1em 0;
+  background: rgba(128, 128, 128, 0.03);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Callout 标题 */
+.callout-title {
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+/* info callout — 跟随主题强调色 */
+.callout[data-callout="info"] {
+  background: color-mix(in srgb, var(--interactive-accent) 6%, transparent);
+  border-color: color-mix(in srgb, var(--interactive-accent) 18%, transparent);
+}
+.callout[data-callout="info"] .callout-title {
+  color: var(--interactive-accent);
+}
+
+/* tip / success */
+.callout[data-callout="tip"],
+.callout[data-callout="success"] {
+  background: rgba(16, 185, 129, 0.06);
+  border-color: rgba(16, 185, 129, 0.18);
+}
+.callout[data-callout="tip"] .callout-title,
+.callout[data-callout="success"] .callout-title {
+  color: #10b981;
+}
+
+/* warning */
+.callout[data-callout="warning"],
+.callout[data-callout="caution"] {
+  background: rgba(245, 158, 11, 0.06);
+  border-color: rgba(245, 158, 11, 0.18);
+}
+.callout[data-callout="warning"] .callout-title,
+.callout[data-callout="caution"] .callout-title {
+  color: #f59e0b;
+}
+
+/* danger / error */
+.callout[data-callout="danger"],
+.callout[data-callout="error"] {
+  background: rgba(239, 68, 68, 0.06);
+  border-color: rgba(239, 68, 68, 0.18);
+}
+.callout[data-callout="danger"] .callout-title,
+.callout[data-callout="error"] .callout-title {
+  color: #ef4444;
+}
+
+/* quote / note */
+.callout[data-callout="quote"],
+.callout[data-callout="note"] {
+  background: rgba(139, 92, 246, 0.05);
+  border-color: rgba(139, 92, 246, 0.15);
+}
+.callout[data-callout="quote"] .callout-title,
+.callout[data-callout="note"] .callout-title {
+  color: #8b5cf6;
+}
+
+/* example */
+.callout[data-callout="example"] {
+  background: rgba(6, 182, 212, 0.05);
+  border-color: rgba(6, 182, 212, 0.15);
+}
+.callout[data-callout="example"] .callout-title {
+  color: #06b6d4;
+}
+
+/* foldable callout - smooth */
+.callout-fold {
+  transition: opacity 0.2s ease;
+}
+
+/* ========================================
+   🏷️ 标签药丸
+   ======================================== */
+
+.tag,
+.cm-hashtag {
+  display: inline-block;
+  background: color-mix(in srgb, var(--interactive-accent) 8%, transparent);
+  color: var(--interactive-accent);
+  border-radius: 999px;
+  padding: 0.12em 0.65em;
+  font-size: 0.82em;
+  font-weight: 500;
+  border: 1px solid color-mix(in srgb, var(--interactive-accent) 12%, transparent);
+  transition: background 0.15s;
+  text-decoration: none !important;
+}
+
+.tag:hover,
+.cm-hashtag:hover {
+  background: color-mix(in srgb, var(--interactive-accent) 15%, transparent);
+}
+
+/* 俄语相关标签用暖色系 */
+a[href*="#B2"],
+a[href*="#口语"],
+a[href*="#俄语"] {
+  background: rgba(245, 158, 11, 0.08) !important;
+  color: #d97706 !important;
+  border-color: rgba(245, 158, 11, 0.15) !important;
+}
+
+/* 考试标签 */
+a[href*="#考试"] {
+  background: rgba(239, 68, 68, 0.08) !important;
+  color: #dc2626 !important;
+  border-color: rgba(239, 68, 68, 0.15) !important;
+}
+
+/* ========================================
+   ✅ 自定义复选框
+   ======================================== */
+
+/* 未完成 */
+.markdown-reading-view ul > li.task-list-item input[type="checkbox"],
+.markdown-source-view .task-list-item-checkbox {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 1.05em;
+  height: 1.05em;
+  border: 1.5px solid rgba(128, 128, 128, 0.3);
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 0.5em;
+  transition: all 0.15s;
+  position: relative;
+}
+
+/* 已完成 */
+.markdown-reading-view ul > li.task-list-item input[type="checkbox"]:checked,
+.markdown-source-view .task-list-item-checkbox:checked {
+  background: #10b981;
+  border-color: #10b981;
+}
+
+.markdown-reading-view ul > li.task-list-item input[type="checkbox"]:checked::after,
+.markdown-source-view .task-list-item-checkbox:checked::after {
+  content: "✓";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 0.7em;
+  font-weight: 700;
+}
+
+/* 已完成行 → 删除线 + 变淡 */
+.markdown-reading-view ul > li.task-list-item:has(input:checked),
+.HyperMD-task-line[data-task="x"] {
+  text-decoration: line-through;
+  color: var(--text-faint);
+}
+
+/* ========================================
+   📊 表格增强
+   ======================================== */
+
+/* 表头 — 跟随主题强调色 */
+.markdown-reading-view table thead th {
+  background: color-mix(in srgb, var(--interactive-accent) 6%, transparent);
+  font-weight: 600;
+  text-transform: none;
+  letter-spacing: 0;
+  border-bottom: 2px solid color-mix(in srgb, var(--interactive-accent) 18%, transparent);
+}
+
+/* 单元格 */
+.markdown-reading-view table td,
+.markdown-reading-view table th {
+  padding: 6px 12px;
+  border-color: rgba(128, 128, 128, 0.08);
+}
+
+/* 斑马纹 */
+.markdown-reading-view table tbody tr:nth-child(even) {
+  background: rgba(128, 128, 128, 0.02);
+}
+
+/* 表容器圆角 */
+.markdown-reading-view table {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* ========================================
+   📋 属性面板 (Properties)
+   ======================================== */
+
+/* 属性面板美化 */
+.metadata-container {
+  border-bottom: 1px solid rgba(128, 128, 128, 0.1);
+  padding-bottom: 0.5em;
+}
+
+.metadata-property-key {
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.metadata-property-value {
+  color: var(--text-normal);
+}
+
+/* 属性标签 pill */
+.metadata-property-value .multi-select-pill,
+.metadata-property-value .tag {
+  font-size: 0.78em;
+}
+
+/* ========================================
+   🔍 搜索高亮
+   ======================================== */
+
+.markdown-reading-view mark,
+.cm-s-obsidian span.cm-highlight {
+  background: rgba(245, 158, 11, 0.2);
+  padding: 0.1em 0.25em;
+  border-radius: 3px;
+  color: inherit;
+}

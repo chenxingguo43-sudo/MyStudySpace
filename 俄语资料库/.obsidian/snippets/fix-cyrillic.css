@@ -1,0 +1,53 @@
+/* ============================================
+   Fix Cyrillic Stress Marks
+   解决 AnuPpuccin 主题下西里尔重音符偏移问题
+   策略：覆盖主题字体变量 → 用 Georgia 渲染正文
+   Georgia 有原生西里尔 OpenType mark 定位表
+   ============================================ */
+
+/* 覆盖 AnuPpuccin 的文本字体变量 */
+body {
+  --font-text: "Noto Serif", "DejaVu Serif", "Times New Roman", serif !important;
+  --font-text-theme: "Noto Serif", "DejaVu Serif", "Times New Roman", serif !important;
+}
+
+/* 确保正文区域使用正确字体 */
+.markdown-source-view .cm-line,
+.markdown-reading-view p,
+.markdown-reading-view li,
+.markdown-reading-view td,
+.markdown-reading-view th,
+.markdown-reading-view blockquote,
+.cm-content {
+  font-family: "Noto Serif", "DejaVu Serif", "Times New Roman", serif !important;
+  letter-spacing: 0 !important;
+  font-variant-ligatures: normal !important;
+}
+
+/* 标题保留 Inter（界面字）+ 可变字体 */
+.markdown-reading-view h1,
+.markdown-reading-view h2,
+.markdown-reading-view h3,
+.markdown-reading-view h4,
+.markdown-reading-view h5,
+.markdown-reading-view h6,
+.cm-header {
+  font-family: "Noto Serif", "DejaVu Serif", "Times New Roman", serif !important;
+  letter-spacing: 0 !important;
+  font-variant-ligatures: normal !important;
+}
+
+/* 代码块和行内代码保持等宽字 */
+.markdown-reading-view code,
+.cm-inline-code,
+.markdown-source-view .HyperMD-codeblock {
+  font-family: var(--font-monospace) !important;
+}
+
+/* 确保 YAML frontmatter 也用正确字体 */
+.metadata-container,
+.cm-def.cm-hmd-frontmatter {
+  font-family: "Noto Serif", "DejaVu Serif", "Times New Roman", serif !important;
+  letter-spacing: 0 !important;
+  font-variant-ligatures: normal !important;
+}

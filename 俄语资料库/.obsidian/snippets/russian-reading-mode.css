@@ -1,0 +1,259 @@
+/*
+ * Russian Reading Mode — CSS snippet
+ *
+ * 用法：
+ *   - 插件命令 "Toggle Russian Reading Mode" 会给当前笔记自动添加
+ *     cssclasses: [russian-reading]
+ *   - 或者手动在笔记属性中添加 cssclasses: russian-reading
+ *   - 此 snippet 在阅读视图和 Live Preview 中生效
+ *   - 侧边栏、文件列表、工具栏不受影响
+ *
+ * 注意：Obsidian 会把 cssclasses 直接加到 .markdown-preview-view
+ *       或 .markdown-source-view 元素上，所以用复合选择器
+ *       `.markdown-preview-view.russian-reading` 精确匹配。
+ */
+
+/* ============================================================
+   1. 阅读模式基础排版（Reading View）
+   ============================================================ */
+
+.markdown-preview-view.russian-reading .markdown-preview-sizer {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2em 1.5em;
+  font-size: 19px !important;
+  line-height: 1.7 !important;
+}
+
+/* 标题间距 */
+.markdown-preview-view.russian-reading h1,
+.markdown-preview-view.russian-reading h2,
+.markdown-preview-view.russian-reading h3 {
+  margin-top: 1.8em;
+  margin-bottom: 0.6em;
+}
+
+/* 段落间距 */
+.markdown-preview-view.russian-reading p {
+  margin-bottom: 1em;
+}
+
+/* 表格更宽松 */
+.markdown-preview-view.russian-reading table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5em 0;
+}
+
+.markdown-preview-view.russian-reading th,
+.markdown-preview-view.russian-reading td {
+  padding: 0.6em 0.8em;
+  border: 1px solid var(--background-modifier-border);
+}
+
+/* ============================================================
+   2. 阅读模式基础排版（Live Preview / Source View）
+   ============================================================ */
+
+.markdown-source-view.russian-reading .cm-content {
+  font-size: 19px !important;
+  line-height: 1.7 !important;
+}
+
+.markdown-source-view.russian-reading .cm-scroller {
+  font-size: 19px !important;
+  line-height: 1.7 !important;
+}
+
+/* Live Preview 的 sizer（如果存在） */
+.markdown-source-view.russian-reading .markdown-preview-sizer {
+  max-width: 720px;
+  margin: 0 auto;
+  font-size: 19px !important;
+  line-height: 1.7 !important;
+}
+
+/* ============================================================
+   3. 词性分色标记（<mark class="ru-pos-*">）
+   ============================================================ */
+
+/* 名词 — 柔和蓝色 */
+mark.ru-pos-noun,
+span.ru-pos-noun {
+  background: rgba(66, 133, 244, 0.15);
+  color: inherit;
+  border-radius: 3px;
+  padding: 0 2px;
+  border-bottom: 2px solid rgba(66, 133, 244, 0.5);
+}
+
+/* 动词 — 柔和红色 */
+mark.ru-pos-verb,
+span.ru-pos-verb {
+  background: rgba(219, 68, 55, 0.12);
+  color: inherit;
+  border-radius: 3px;
+  padding: 0 2px;
+  border-bottom: 2px solid rgba(219, 68, 55, 0.5);
+}
+
+/* 形容词 — 柔和绿色 */
+mark.ru-pos-adj,
+span.ru-pos-adj {
+  background: rgba(15, 157, 88, 0.12);
+  color: inherit;
+  border-radius: 3px;
+  padding: 0 2px;
+  border-bottom: 2px solid rgba(15, 157, 88, 0.5);
+}
+
+/* 其他词性 — 柔和灰色 */
+mark.ru-pos-other,
+span.ru-pos-other {
+  background: rgba(189, 189, 189, 0.15);
+  color: inherit;
+  border-radius: 3px;
+  padding: 0 2px;
+  border-bottom: 2px solid rgba(189, 189, 189, 0.5);
+}
+
+/* ============================================================
+   4. 双语折叠 — 译文行
+   ============================================================ */
+
+/* 译文行（用 <span class="ru-translation"> 包裹译文） */
+.ru-translation {
+  display: block;
+  color: var(--text-muted);
+  font-size: 0.9em;
+  margin: 0.2em 0 0.8em 1.5em;
+  padding-left: 0.8em;
+  border-left: 2px solid var(--text-faint);
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+
+.ru-translation:hover {
+  opacity: 1;
+}
+
+/* 沉浸模式：隐藏译文 */
+body.ru-immersive-mode .ru-translation {
+  display: none !important;
+}
+
+/* 精读模式：译文可见 */
+body.ru-intensive-mode .ru-translation {
+  display: block;
+}
+
+/* ============================================================
+   5. 阅读模式下的引用块
+   ============================================================ */
+
+.markdown-preview-view.russian-reading blockquote {
+  border-left: 3px solid var(--text-faint);
+  padding-left: 1em;
+  margin: 1em 0;
+  color: var(--text-muted);
+}
+
+/* ============================================================
+   6. 暗色模式适配
+   ============================================================ */
+
+.theme-dark mark.ru-pos-noun,
+.theme-dark span.ru-pos-noun {
+  background: rgba(138, 180, 248, 0.15);
+  border-bottom-color: rgba(138, 180, 248, 0.5);
+}
+
+.theme-dark mark.ru-pos-verb,
+.theme-dark span.ru-pos-verb {
+  background: rgba(248, 113, 113, 0.12);
+  border-bottom-color: rgba(248, 113, 113, 0.5);
+}
+
+.theme-dark mark.ru-pos-adj,
+.theme-dark span.ru-pos-adj {
+  background: rgba(74, 222, 128, 0.12);
+  border-bottom-color: rgba(74, 222, 128, 0.5);
+}
+
+.theme-dark mark.ru-pos-other,
+.theme-dark span.ru-pos-other {
+  background: rgba(163, 163, 163, 0.15);
+  border-bottom-color: rgba(163, 163, 163, 0.5);
+}
+
+/* Compact folded hints for study units */
+.markdown-preview-view.russian-reading .callout {
+  max-width: 100%;
+  margin: 0.35em 0 0.95em 0;
+  padding: 7px 11px;
+  border-radius: 7px;
+  font-size: 0.82em;
+  line-height: 1.45;
+  background: rgba(128, 128, 128, 0.025);
+  border-color: rgba(128, 128, 128, 0.1);
+}
+
+.markdown-preview-view.russian-reading .callout-title {
+  min-height: 1.35em;
+  padding: 0;
+  font-size: 0.9em;
+}
+
+.markdown-preview-view.russian-reading .callout-content {
+  padding-top: 0.45em;
+}
+
+.markdown-preview-view.russian-reading .callout-content p,
+.markdown-preview-view.russian-reading .callout-content ul,
+.markdown-preview-view.russian-reading .callout-content ol,
+.markdown-preview-view.russian-reading .callout-content table {
+  margin-top: 0.35em;
+  margin-bottom: 0.35em;
+}
+
+.markdown-preview-view.russian-reading .callout.is-collapsed {
+  width: fit-content;
+  max-width: min(46%, 360px);
+  min-width: 180px;
+  padding: 2px 4px;
+  margin-top: -0.2em;
+  margin-bottom: 1.05em;
+  background: transparent;
+  border-color: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.markdown-preview-view.russian-reading .callout.is-collapsed .callout-title {
+  font-size: 0.8em;
+  line-height: 1.25;
+  color: color-mix(in srgb, var(--interactive-accent) 72%, var(--text-muted));
+  opacity: 0.82;
+}
+
+.markdown-preview-view.russian-reading .callout.is-collapsed .callout-icon {
+  display: none;
+}
+
+.markdown-preview-view.russian-reading .callout.is-collapsed:hover .callout-title {
+  opacity: 1;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+@media (max-width: 760px) {
+  .markdown-preview-view.russian-reading .callout {
+    max-width: 100%;
+    margin-left: 0;
+  }
+
+  .markdown-preview-view.russian-reading .callout.is-collapsed {
+    max-width: 100%;
+  }
+}

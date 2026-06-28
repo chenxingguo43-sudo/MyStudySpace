@@ -1,0 +1,100 @@
+{
+  "manifest": "card_generation_manifest_full",
+  "version": "v1-full",
+  "generated_at": "2026-06-20T13:00:00.000Z",
+  "description": "Full card generation manifest — all 9 chapters with usable translations. Excludes methodology commentary and AI appendix.",
+  "output_dir": "卡片草稿/full_batch_2026-06-20/",
+  "translation_manifest": "翻译版/translation_manifest_2026-06-20.json",
+  "schema": "卡片草稿/agent_c_pilot2_2026-06-20/card_schema_v2.md",
+  "existing_cards": "卡片草稿/manifest_batch_2026-06-20/ — 29 cards covering 5 chapters. Do NOT duplicate. Generate NEW cards for uncovered texts or different learning angles.",
+  "target": "40-60 new cards total across all 9 chapters, covering texts not yet carded.",
+  "excluded": [
+    "章节/методический-комментарий.md",
+    "章节/приложение-лексика.md",
+    "pages 52-54, 95-98, 155-160 (unrecoverable matrix)",
+    "pages 167-186 (AI appendix)"
+  ],
+  "included": [
+    {
+      "id": "full-00-sample",
+      "chapter": "样章.md",
+      "pages": "17-22",
+      "texts": "Текст 1.2.2 Голос камня; Текст 1.3.1 Милости не просим",
+      "translation_file": "翻译版/full_run_2026-06-20/part1_front_and_section1/样章.zh.md",
+      "status": "PASS",
+      "reason": "not covered by manifest_batch"
+    },
+    {
+      "id": "full-01-preface-extra",
+      "chapter": "предисловие.md",
+      "pages": "7-16",
+      "texts": "Текст 1.2.1 Люди истосковались по красивым игрушкам",
+      "translation_file": "翻译版/repair_2026-06-20/part1_front_and_section1/предисловие.zh.md",
+      "status": "repaired_pass",
+      "reason": "manifest_batch only covered Текст 1.1.1"
+    },
+    {
+      "id": "full-02-section1-extra",
+      "chapter": "раздел1-продолжение.md",
+      "pages": "23-40",
+      "texts": "Текст 1.3.2 Я феминистка с юности; Текст 1.5.1 Музей изящных искусств; Текст 1.5.2 Плата за пролитую кровь",
+      "translation_file": "翻译版/repair_2026-06-20/part1_front_and_section1/раздел1-продолжение.zh.md",
+      "status": "repaired_pass",
+      "reason": "manifest_batch only covered Текст 1.4.1 and 1.4.2"
+    },
+    {
+      "id": "full-03-section2-beginning-extra",
+      "chapter": "раздел2-начало.md",
+      "pages": "41-63",
+      "texts": "Текст 2.1.2 Отчёт об экскурсии в музей; Текст 2.2.1 Туристы поехали по цехам",
+      "translation_file": "翻译版/full_run_2026-06-20/part2_section2/раздел2-начало.zh.md",
+      "status": "PASS",
+      "reason": "manifest_batch only covered Текст 2.1.1"
+    },
+    {
+      "id": "full-04-section2-ending",
+      "chapter": "раздел2-завершение.md",
+      "pages": "64-83",
+      "texts": "Текст 2.2.2 Деловые документы; Текст 2.3.1 Спортивный Голос; Текст 2.4.1 Зверьё в космосе; Текст 2.4.2 Информационные письма; Текст 2.5.1 Марафон чтения Война и мир",
+      "translation_file": "翻译版/full_run_2026-06-20/part2_section2/раздел2-завершение.zh.md",
+      "status": "PASS",
+      "reason": "entirely new chapter"
+    },
+    {
+      "id": "full-05-section2-test",
+      "chapter": "раздел2-тест.md",
+      "pages": "84-98",
+      "texts": "Лексико-грамматический тест к Разделу 2 (100 заданий)",
+      "translation_file": "翻译版/full_run_2026-06-20/part2_section2/раздел2-тест.zh.md",
+      "status": "draft",
+      "reason": "entirely new chapter; card only the task instructions + 5-8 sample vocabulary items, skip matrix pages 94-98"
+    },
+    {
+      "id": "full-06-section3-beginning-extra",
+      "chapter": "раздел3-начало.md",
+      "pages": "99-118",
+      "texts": "Текст 3.2.1; Текст 3.2.2 Моя автобиография; Текст 3.3.1 Алые паруса",
+      "translation_file": "翻译版/repair_2026-06-20/part3_section3/section3-beginning-zh-aligned.md",
+      "status": "repaired_pass",
+      "reason": "manifest_batch focused on Текст 3.1.1"
+    },
+    {
+      "id": "full-07-section3-ending-extra",
+      "chapter": "раздел3-завершение.md",
+      "pages": "119-138",
+      "texts": "Текст 3.4.1; Текст 3.4.2; Текст 3.5.1 Шестой дозор; Текст 3.5.2 Альтист Данилов",
+      "translation_file": "翻译版/repair_2026-06-20/part3_section3/section3-ending-zh-aligned.md",
+      "status": "repaired_pass",
+      "reason": "manifest_batch focused on Текст 3.5.1 and 3.5.2"
+    },
+    {
+      "id": "full-08-section3-keys",
+      "chapter": "раздел3-ключи-тест.md",
+      "pages": "139-158",
+      "texts": "Ключи к заданиям + Лексико-грамматический тест (125 заданий)",
+      "translation_file": "翻译版/repair_2026-06-20/part3_section3/section3-keys-test-zh-aligned.md",
+      "status": "repaired_pass",
+      "reason": "entirely new chapter; card only the task frame + 3-5 vocabulary items from test, skip unrecoverable matrix pages 155-158"
+    }
+  ]
+}

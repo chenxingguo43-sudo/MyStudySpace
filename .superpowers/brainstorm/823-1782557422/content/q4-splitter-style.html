@@ -1,0 +1,63 @@
+<h2>问题 4：分割线的视觉风格</h2>
+<p class="subtitle">分割线是拖拽的"把手"，需要醒目但又不能太抢眼</p>
+
+<div class="options">
+  <div class="option" data-choice="a" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content">
+      <h3>低调透明 + 悬停高亮（推荐）</h3>
+      <div style="margin-top:8px;display:flex;flex-direction:column;gap:8px">
+        <div style="display:flex;align-items:center;gap:12px;padding:8px;background:var(--glass);border-radius:8px">
+          <span style="font-size:11px;min-width:50px;color:var(--text-dim)">默认:</span>
+          <div style="height:8px;flex:1;background:rgba(255,255,255,0.06);border-radius:4px;transition:background 0.2s"></div>
+          <span style="font-size:10px;color:var(--text-dim)">几乎不可见</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;padding:8px;background:var(--glass);border-radius:8px">
+          <span style="font-size:11px;min-width:50px;color:var(--text-dim)">悬停:</span>
+          <div style="height:8px;flex:1;background:var(--accent);border-radius:4px;opacity:0.6"></div>
+          <span style="font-size:10px;color:var(--text-dim)">主题色高亮</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;padding:8px;background:var(--glass);border-radius:8px">
+          <span style="font-size:11px;min-width:50px;color:var(--text-dim)">拖拽中:</span>
+          <div style="height:8px;flex:1;background:var(--accent);border-radius:4px;opacity:1;box-shadow:0 0 12px var(--accent-dim)"></div>
+          <span style="font-size:10px;color:var(--text-dim)">发光强化</span>
+        </div>
+        <p style="font-size:12px;color:var(--text-secondary)">
+          ✅ 符合现有玻璃拟态风格<br>
+          ✅ 不阅读时不干扰，拖拽时清晰反馈
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="b" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content">
+      <h3>始终可见的线条</h3>
+      <div style="margin-top:8px;padding:8px;background:var(--glass);border-radius:8px">
+        <div style="height:8px;background:var(--accent);border-radius:4px;opacity:0.4"></div>
+      </div>
+      <p style="margin-top:8px;font-size:12px;color:var(--text-secondary)">
+        ✅ 始终知道分界线在哪<br>
+        ⚠️ 一直有个彩色线条，阅读时可能分心
+      </p>
+    </div>
+  </div>
+
+  <div class="option" data-choice="c" onclick="toggleSelect(this)">
+    <div class="letter">C</div>
+    <div class="content">
+      <h3>添加拖拽手柄图标（⋮ 或 三）</h3>
+      <div style="margin-top:8px;padding:12px;background:var(--glass);border-radius:8px;text-align:center">
+        <div style="height:8px;background:rgba(255,255,255,0.08);border-radius:4px;display:flex;align-items:center;justify-content:center;position:relative">
+          <span style="background:var(--surface-solid);padding:2px 8px;border-radius:4px;font-size:12px;color:var(--text-dim);border:1px solid var(--glass-border)">⋮</span>
+        </div>
+      </div>
+      <p style="margin-top:8px;font-size:12px;color:var(--text-secondary)">
+        ✅ 明确提示"这里可以拖拽"<br>
+        ⚠️ 增加视觉噪音<br>
+        ⚠️ 竖屏时图标需要旋转
+      </p>
+    </div>
+  </div>
+</div>
