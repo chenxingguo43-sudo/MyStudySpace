@@ -266,6 +266,11 @@ async function sendPrompt(page, text) {
 
   await page.click(sendSelector);
   console.error('[gemini] Prompt sent, waiting for generation...');
+
+  // After sending, the prompt appears in conversation history — re-snapshot
+  await page.waitForTimeout(3000);
+  _preSendTextLen = await page.evaluate(() => document.body.innerText?.length || 0);
+  console.error(`[gemini] Post-send text baseline: ${_preSendTextLen}`);
 }
 
 // ── Wait for response completion ──
@@ -275,28 +280,24 @@ async function waitForResponse(page, tStart) {
   while (Date.now() < deadline) {
     await page.waitForTimeout(POLL_INTERVAL);
 
+    // Check that body text has grown significantly (new Gemini response appeared)
+    const curLen = await page.evaluate(() => document.body.innerText?.length || 0);
+    const hasNewContent = curLen > _preSendTextLen + 200;
+
     // Check for completion markers
     const copyBtn = await page.$('button[aria-label*="复制"], button[aria-label*="Copy"]');
     const thumbsUp = await page.$('button[aria-label*="Good response"], button[aria-label*="好"]');
 
-    if (copyBtn || thumbsUp) {
-      // Verify NEW content appeared (not just old toolbar)
-      const curLen = await page.evaluate(() => document.body.innerText?.length || 0);
-      if (_preSendTextLen > 0 && curLen <= _preSendTextLen + 50) {
-        // Text hasn't grown enough — ignore this stale toolbar
-        continue;
-      }
-      console.error('[gemini] Response complete (toolbar detected + new content)');
+    if ((copyBtn || thumbsUp) && hasNewContent) {
+      console.error('[gemini] Response complete (toolbar + new content)');
       await page.waitForTimeout(1000);
       return extractResponse(page);
     }
 
-    // Check if input editor is re-enabled AND new content appeared
+    // Check if input editor is re-enabled with new content
     const editor = await page.$('[role="textbox"][aria-disabled="false"]');
-    if (editor) {
-      const curLen = await page.evaluate(() => document.body.innerText?.length || 0);
-      if (_preSendTextLen > 0 && curLen <= _preSendTextLen + 50) continue;
-      await page.waitForTimeout(500);
+    if (editor && hasNewContent) {
+      await page.waitForTimeout(1000);
       return extractResponse(page);
     }
 
