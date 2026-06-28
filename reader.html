@@ -311,20 +311,41 @@ body {
 .ru-word:hover { background: var(--highlight-word); }
 .ru-word:active { background: var(--accent-dim); }
 
-/* ─── 悬浮工具栏 ─── */
-.floating-toolbar {
-  position: fixed; top: 12px; left: 12px; z-index: 150;
-  display: flex; flex-direction: column; gap: 6px;
+/* ─── 右上悬浮功能按钮 ─── */
+.fab-group-top {
+  position: fixed; top: 12px; right: 12px; z-index: 150;
+  display: flex; gap: 8px;
 }
-.floating-toolbar .ft-btn {
-  width: 36px; height: 36px; border-radius: 50%;
-  background: var(--glass); border: 1px solid var(--glass-border);
+.fab-btn {
+  width: 38px; height: 38px; border-radius: 50%;
+  background: rgba(10,10,20,0.55); border: 1px solid var(--glass-border);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
   color: var(--text-secondary); font-size: 16px; cursor: pointer;
   display: flex; align-items: center; justify-content: center;
-  opacity: 0.4; transition: opacity 0.2s, background 0.2s;
+  transition: background 0.2s, color 0.2s;
 }
-.floating-toolbar .ft-btn:hover { opacity: 0.95; background: var(--glass-hover); }
-.floating-toolbar .ft-btn:active { transform: scale(0.92); }
+.fab-btn:hover { background: var(--glass-hover); color: var(--text); }
+.fab-btn:active { transform: scale(0.92); }
+
+/* ─── 右下悬浮章节导航 ─── */
+.fab-group-bottom {
+  position: fixed; bottom: 16px; right: 12px; z-index: 150;
+  display: flex; align-items: center; gap: 8px;
+}
+.fab-nav {
+  height: 36px; padding: 0 14px; border-radius: 18px;
+  background: rgba(10,10,20,0.55); border: 1px solid var(--glass-border);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  color: var(--text-secondary); font-size: 13px; cursor: pointer;
+  display: flex; align-items: center; gap: 4px;
+  transition: background 0.2s, color 0.2s; font-family: inherit;
+}
+.fab-nav:hover { background: var(--glass-hover); color: var(--text); }
+.fab-nav:active { transform: scale(0.95); }
+.fab-nav.disabled { color: var(--text-dim); opacity: 0.3; pointer-events: none; }
+.fab-chapter {
+  font-size: 12px; color: var(--text-dim); padding: 0 4px;
+}
 
 /* ─── 面板关闭按钮 ─── */
 .detail-close {
@@ -337,22 +358,6 @@ body {
   transition: all 0.15s;
 }
 .detail-close:hover { color: var(--text); background: var(--glass-hover); }
-
-/* ─── 底部导航 ─── */
-.bottom-nav {
-  position: fixed; bottom: 0; left: 0; right: 0; display: flex; align-items: center; justify-content: space-between;
-  background: rgba(10,10,20,0.5);
-  border-top: 1px solid var(--border); padding: 0 16px; z-index: 90; min-height: 36px;
-}
-.nav-btn {
-  padding: 4px 12px; border: 1px solid var(--glass-border); border-radius: 8px;
-  color: var(--text-secondary); text-decoration: none; font-size: 13px; cursor: pointer;
-  background: var(--glass); transition: all 0.15s; font-family: inherit;
-}
-.nav-btn:hover { background: var(--glass-hover); color: var(--accent); }
-.nav-btn:active { transform: scale(0.95); }
-.nav-btn.disabled { color: var(--text-dim); opacity: 0.3; pointer-events: none; }
-.nav-info { font-size: 12px; color: var(--text-dim); }
 
 /* ─── 选词弹窗 ─── */
 .selection-popup {
@@ -1004,15 +1009,15 @@ function renderChapter(data) {
     exercisesHtml = renderExercises(data.exercises);
   }
 
-  var navP = curCh > 0 ? '<button class="nav-btn" onclick="goChapter(' + (curCh - 1) + ')">← 上一章</button>' : '<span class="nav-btn disabled">← 上一章</span>';
-  var navN = curCh < curBook.chapters - 1 ? '<button class="nav-btn" onclick="goChapter(' + (curCh + 1) + ')">下一章 →</button>' : '<span class="nav-btn disabled">下一章 →</span>';
+  var navP = curCh > 0 ? '<button class="fab-nav" onclick="goChapter(' + (curCh - 1) + ')">← 上一章</button>' : '<span class="fab-nav disabled">← 上一章</span>';
+  var navN = curCh < curBook.chapters - 1 ? '<button class="fab-nav" onclick="goChapter(' + (curCh + 1) + ')">下一章 →</button>' : '<span class="fab-nav disabled">下一章 →</span>';
 
   document.getElementById('app').innerHTML =
-    '<div class="floating-toolbar">' +
-    '<button class="ft-btn" onclick="cycleTheme()" title="切换主题">🎨</button>' +
-    '<button class="ft-btn" onclick="cycleFont()" title="字号">Aa</button>' +
-    '<button class="ft-btn" onclick="toggleSearch()" title="搜索 (Ctrl+F)">🔍</button>' +
-    '<button class="ft-btn" onclick="showChapters(\'' + escapeHtml(curBook.id) + '\')" title="目录">☰</button>' +
+    '<div class="fab-group-top">' +
+    '<button class="fab-btn" onclick="cycleTheme()" title="切换主题">🎨</button>' +
+    '<button class="fab-btn" onclick="cycleFont()" title="字号">Aa</button>' +
+    '<button class="fab-btn" onclick="toggleSearch()" title="搜索 (Ctrl+F)">🔍</button>' +
+    '<button class="fab-btn" onclick="showChapters(\'' + escapeHtml(curBook.id) + '\')" title="目录">☰</button>' +
     '</div>' +
     '<div class="peek-counter">👁 查看原文: <span id="peekCnt">0</span> / <span id="totalParas">' + visibleCount + '</span> 段</div>' +
     '<div class="reader-layout" id="readerLayout">' +
@@ -1025,7 +1030,7 @@ function renderChapter(data) {
     '<div class="detail-placeholder">👆 点击俄语单词查看详情</div>' +
     '</div></div>' +
     '</div>' +
-    '<nav class="bottom-nav">' + navP + '<span class="nav-info">第 ' + (curCh + 1) + ' / ' + curBook.chapters + ' 章</span>' + navN + '</nav>';
+    '<div class="fab-group-bottom">' + navP + '<span class="fab-chapter">第 ' + (curCh + 1) + ' / ' + curBook.chapters + ' 章</span>' + navN + '</div>';
 
   window.scrollTo(0, 0); applyTheme(); saveLastRead();
   // 恢复分栏比例
