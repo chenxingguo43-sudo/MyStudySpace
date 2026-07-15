@@ -1,5 +1,8 @@
 # 俄语 B2 原书复刻与学习版：设计规范
 
+> [!warning] 已被替代
+> 2026-07-16 起，本规范的“Obsidian 主学习端”定位已被 `2026-07-16-russian-b2-web-reader-study-design.md` 替代。原书证据、OCR、可追溯性与质量门槛继续有效；主要学习界面改为现有 `reader.html`，Obsidian 改为资料仓库和自动生成的 Markdown 归档。
+
 ## 目标
 
 在 `D:\MyStudySpace\俄语资料库\` 新建一个独立的 Obsidian Markdown 学习项目。它必须保留 `E:\Desktop\俄语B2.pdf` 的 190 页原书证据，同时以“刷题优先”的阅读方式提供可搜索文本、语法逐题解析和按需展开的学习辅助。
