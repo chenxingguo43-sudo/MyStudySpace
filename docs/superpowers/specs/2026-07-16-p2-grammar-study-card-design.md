@@ -44,7 +44,7 @@
 
 ```json
 {
-  "kind": "grammar-book | study-supplement",
+  "kind": "grammar-book | b2-original | study-supplement",
   "sourceFile": "08 前置词.md",
   "sourceSection": "表示时间意义的前置词辨析",
   "sourcePages": [297],
@@ -52,7 +52,7 @@
 }
 ```
 
-`kind: study-supplement` 不得填写或伪装成语法书来源。
+`kind: study-supplement` 不得填写或伪装成语法书来源；`kind: b2-original` 只能概括该组题明确考查的结构，不得写入选项、正确答案、错项排除或原书逐题解析。
 
 ## 交互与数据流
 

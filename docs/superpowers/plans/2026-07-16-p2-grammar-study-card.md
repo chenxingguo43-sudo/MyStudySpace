@@ -12,6 +12,7 @@
 
 - Do not modify any source Markdown under `D:\MyStudySpace\俄语资料库\新编俄语语法`.
 - Use grammar-book examples as the primary examples; mark every added pair as `学习补充`.
+- When `08 前置词.md` lacks a structure explicitly tested by P2-Q051–Q058, use `B2 原书考点` for a rule-only summary; never expose an option, answer, elimination, or per-question explanation.
 - Do not include B2 correct answers, option elimination, or original per-question explanations in the study card.
 - Keep the original answer/analysis reveal in the quiz page unchanged.
 - The card’s practice scope is exactly `P2-Q051` through `P2-Q058`.
@@ -65,7 +66,8 @@ test('P2 time-and-cause card is source-traceable and scoped to Q051–Q058', () 
   const card = result.cards[0];
   assert.equal(card.id, 'p2-time-cause');
   assert.deepEqual(card.exerciseIds, ['P2-Q051','P2-Q052','P2-Q053','P2-Q054','P2-Q055','P2-Q056','P2-Q057','P2-Q058']);
-  assert.ok(card.rules.every(rule => rule.source.kind === 'grammar-book'));
+  assert.ok(card.rules.every(rule => ['grammar-book', 'b2-original'].includes(rule.source.kind)));
+  assert.ok(card.rules.filter(rule => rule.source.kind === 'b2-original').every(rule => rule.source.label === 'B2 原书考点'));
   assert.ok(card.examples.filter(example => example.source.kind === 'study-supplement').length <= 2);
   assert.deepEqual(card.answerAnalysis, undefined);
 });
@@ -126,7 +128,7 @@ Create `p2-time-cause-study-card.json` using this shape. Preserve the source lab
 }
 ```
 
-Fill `comparisons` with `через / за` and `благодаря / из-за`; fill `examples` with four to six grammar-book examples that are verifiably present in the cited Markdown. Add no more than two supplementary paired examples, each with `source: { "kind": "study-supplement", "label": "学习补充" }`.
+Fill `comparisons` with `через / за` and `благодаря / из-за`; fill `examples` with four to six grammar-book examples that are verifiably present in the cited Markdown. Add the structures `через + 时间`, `после + 第二格`, and `за … до …` as rule-only `b2-original` records with the label `B2 原书考点`; do not copy question choices, answers, or per-question explanation text. Add no more than two supplementary paired examples, each with `source: { "kind": "study-supplement", "label": "学习补充" }`.
 
 - [ ] **Step 4: Implement source discovery, validation, and publication**
 
@@ -147,6 +149,7 @@ function validateStudyCard({ card, chapter, grammarText }) {
   for (const item of [...(card.rules || []), ...(card.examples || [])]) {
     const source = item.source || {};
     if (source.kind === 'grammar-book' && (!source.section || !grammarText.includes(source.section))) errors.push(`${card.id}: grammar section ${source.section || '(missing)'} was not found`);
+    if (source.kind === 'b2-original' && source.label !== 'B2 原书考点') errors.push(`${card.id}: B2 原书考点 must use the B2 原书考点 label`);
     if (source.kind === 'study-supplement' && source.label !== '学习补充') errors.push(`${card.id}: 学习补充 must use the 学习补充 label`);
   }
   if ('answerAnalysis' in card) errors.push(`${card.id}: answerAnalysis is not allowed in a study card`);
