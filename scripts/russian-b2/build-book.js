@@ -38,7 +38,7 @@ function buildBook({ root }) {
   const qualityReportPath = path.join(root, ...VAULT, '质量报告', 'grammar-units.json');
   writeJson(rangeMapPath, { entries });
   writeJson(qualityReportPath, { units: units.map(unit => ({ id: unit.id, chapterIndex: unit.chapterIndex, exercises: unit.exercises.length, printedNumbers: unit.exercises.map(exercise => exercise.printedNumber), reviewStatus: unit.exercises.map(exercise => exercise.reviewStatus) })) });
-  const indexPath = path.join(root, 'data', 'textbook', 'index.json'), index = readJson(indexPath), book = index.books.find(item => item.id === 'russian_b2'); book.chapters = published.length; writeJson(indexPath, index);
+  const indexPath = path.join(root, 'data', 'textbook', 'index.json'), index = readJson(indexPath), book = index.books.find(item => item.id === 'russian_b2'); book.chapters = published.length; book.unitIds = units.map(unit => unit.id); writeJson(indexPath, index);
   return { readerPaths, markdownPaths, rangeMapPath, qualityReportPath };
 }
 if (require.main === module) console.log(buildBook({ root: path.resolve(__dirname, '..', '..') }));

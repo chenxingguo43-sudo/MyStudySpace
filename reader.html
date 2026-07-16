@@ -930,6 +930,8 @@ function showShelf() {
 }
 
 function getBookProgress(bookId) {
+  var book = getBookById(bookId);
+  if (isQuizFirstBook(book)) return getB2CompletedUnits(bookId).length;
   var stats = readStats[bookId] || {}, done = 0;
   for (var k in stats) { if (stats[k] && stats[k].completed) done++; }
   return done;
@@ -981,8 +983,7 @@ function showChapters(bookId) {
     if (booksData[i].id === bookId) { curBook = booksData[i]; break; }
   }
   if (!curBook) return;
-  var stats = readStats[bookId] || {}, done = 0;
-  for (var k in stats) { if (stats[k] && stats[k].completed) done++; }
+  var stats = readStats[bookId] || {}, done = getBookProgress(bookId);
 
   var html = toolbar(escapeHtml(curBook.title),
     '<button class="tb-btn" onclick="exportNotes()" title="导出阅读笔记">📋</button>' +
@@ -994,7 +995,7 @@ function showChapters(bookId) {
     (curBook.direction ? ' · ' + (curBook.direction === 'cn→ru' ? '中文→俄语' : '俄语→中文') : '') +
     '</div></div><div class="chapter-grid">';
   for (var i = 0; i < curBook.chapters; i++) {
-    var isDone = stats[i] && stats[i].completed;
+    var isDone = isQuizFirstBook(curBook) ? isB2ChapterComplete(bookId, i) : (stats[i] && stats[i].completed);
     html += '<div class="ch-item' + (isDone ? ' done' : '') + '" onclick="goChapter(' + i + ')">' +
       '<span class="ch-num">' + (isDone ? '✓' : (i + 1)) + '</span>' +
       '<span class="ch-title">第' + (i + 1) + '章</span></div>';
@@ -1052,6 +1053,15 @@ function migrateB2Progress(progress) {
   return progress;
 }
 function getQuizUnitKey() { return curBook.id + ':' + currentQuizData.id; }
+function getB2CompletionKey() { return getQuizUnitKey(); }
+function getB2CompletedUnits(bookId) {
+  var completed = getB2Progress().__completed || {}, prefix = bookId + ':';
+  return Object.keys(completed).filter(function(key) { return key.indexOf(prefix) === 0 && completed[key] && completed[key].completed; });
+}
+function isB2ChapterComplete(bookId, chapterIndex) {
+  var book = getBookById(bookId), unitId = book && book.unitIds && book.unitIds[chapterIndex];
+  return !!unitId && getB2CompletedUnits(bookId).indexOf(bookId + ':' + unitId) !== -1;
+}
 function getQuizRecord(questionId) {
   var chapterKey = getQuizUnitKey();
   var all = getB2Progress();
@@ -1137,9 +1147,10 @@ function finishQuizChapter() {
   var records = getB2Progress()[getQuizUnitKey()] || {};
   var complete = currentQuizExercises.length > 0 && currentQuizExercises.every(function(exercise) { return records[exercise.id] && records[exercise.id].submitted; });
   if (!complete) { toast('请先确认全部题目，再结束本单元'); return; }
-  if (!readStats[curBook.id]) readStats[curBook.id] = {};
-  readStats[curBook.id][curCh] = { completed: true, completed_at: new Date().toISOString(), quiz: true };
-  saveStats(); toast('本单元已完成');
+  var all = getB2Progress();
+  if (!all.__completed) all.__completed = {};
+  all.__completed[getB2CompletionKey()] = { completed: true, completed_at: new Date().toISOString(), quiz: true };
+  saveB2Progress(all); toast('本单元已完成');
 }
 
 function renderChapter(data) {

@@ -119,11 +119,14 @@ test('manifest build creates matching reader JSON, Markdown, range map, and qual
   const markdown = fs.readFileSync(result.markdownPaths[0], 'utf8');
   const rangeMap = JSON.parse(fs.readFileSync(result.rangeMapPath, 'utf8'));
   const quality = JSON.parse(fs.readFileSync(result.qualityReportPath, 'utf8'));
+  const textbookIndex = JSON.parse(fs.readFileSync(path.join(root, 'data', 'textbook', 'index.json'), 'utf8'));
+  const b2Book = textbookIndex.books.find(book => book.id === 'russian_b2');
   assert.equal(readerChapter.exercises.length, 10);
   assert.match(markdown, /P2-Q001/);
   assert.match(markdown, /答案与解析/);
   assert.deepEqual(rangeMap.entries[0].question_pages, [18, 19]);
   assert.deepEqual(rangeMap.entries[0].answer_pages, [25, 26, 27]);
   assert.equal(quality.units[0].id, 'p2-q001-q010');
+  assert.deepEqual(b2Book.unitIds, ['p2-q001-q010']);
   assert.equal(buildPilot({ root }).readerPaths.length, 1);
 });

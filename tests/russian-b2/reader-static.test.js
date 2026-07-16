@@ -55,3 +55,12 @@ test('B2 progress uses permanent unit identifiers and migrates the pilot once', 
   assert.match(reader, /russian_b2:p2-q001-q010/);
   assert.doesNotMatch(reader, /var chapterKey = curBook\.id \+ ':' \+ curCh/);
 });
+
+test('B2 completion uses the permanent unit key instead of the chapter index', () => {
+  assert.match(reader, /function getB2CompletionKey\(\)/);
+  assert.match(reader, /function getB2CompletedUnits\(bookId\)/);
+  const finishBody = reader.match(/function finishQuizChapter\(\) \{([\s\S]*?)\n\}/);
+  assert.ok(finishBody);
+  assert.match(finishBody[1], /getB2CompletionKey\(\)/);
+  assert.doesNotMatch(finishBody[1], /readStats\[curBook\.id\]/);
+});
