@@ -151,7 +151,23 @@ test('manifest build creates matching reader JSON, Markdown, range map, and qual
   assert.match(markdown, /答案与解析/);
   assert.deepEqual(rangeMap.entries[0].question_pages, [18, 19]);
   assert.deepEqual(rangeMap.entries[0].answer_pages, [25, 26, 27]);
-  assert.equal(quality.units[0].id, 'p2-q001-q010');
-  assert.deepEqual(b2Book.unitIds, ['p2-q001-q010']);
-  assert.equal(buildPilot({ root }).readerPaths.length, 1);
+  assert.deepEqual(quality.units.map(unit => unit.id), [
+    'p2-q001-q010', 'p2-q011-q020', 'p2-q021-q030', 'p2-q031-q040',
+    'p2-q041-q050', 'p2-q051-q060', 'p2-q061-q070'
+  ]);
+  assert.deepEqual(b2Book.unitIds, [
+    'p2-q001-q010', 'p2-q011-q020', 'p2-q021-q030', 'p2-q031-q040',
+    'p2-q041-q050', 'p2-q051-q060', 'p2-q061-q070'
+  ]);
+  assert.equal(buildPilot({ root }).readerPaths.length, 7);
+});
+
+test('published Part 2 units cover every verified source-ledger question', () => {
+  const base = path.join('俄语资料库', '俄语B2·原书复刻与学习版', '规范数据', '语法词汇');
+  const manifest = JSON.parse(fs.readFileSync(path.join(base, 'index.json'), 'utf8'));
+  const ledger = JSON.parse(fs.readFileSync(path.join(base, 'part-02-source-ledger.json'), 'utf8'));
+  const units = manifest.units.filter(entry => entry.published).map(entry => JSON.parse(fs.readFileSync(path.join(base, entry.source), 'utf8')));
+  assert.equal(units.length, 7);
+  assert.deepEqual(units.flatMap(unit => unit.exercises.map(exercise => exercise.printedNumber)), Array.from({ length: 70 }, (_, index) => index + 1));
+  assert.deepEqual(verifySourceLedger({ ledger, units }), []);
 });
