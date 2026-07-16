@@ -1,0 +1,439 @@
+{
+  "id": "p4-direct-indirect",
+  "partId": "p4",
+  "knowledgePointId": "p4-direct-indirect",
+  "title": "直接引语与间接引语",
+  "exerciseIds": [
+    "P4-Q050"
+  ],
+  "overview": "转换引语时，要把引用内容变成合适的从句，并同步调整人称、指示词和祈使/疑问结构。",
+  "decisionSteps": [
+    "识别原话类型",
+    "选择 что/чтобы/疑问词",
+    "调整人称与指示"
+  ],
+  "reviewStatus": "approved",
+  "quickReference": {
+    "semanticQuestions": [
+      "原话是陈述、命令还是疑问？",
+      "说话者和听话者改变了吗？"
+    ],
+    "structures": [
+      "сказал, что",
+      "попросил, чтобы",
+      "спросил, ли",
+      "спросил, где"
+    ]
+  },
+  "lessons": [
+    {
+      "id": "l1",
+      "title": "陈述句",
+      "scope": "core",
+      "meaning": "陈述内容通常变为 что 从句。",
+      "conditions": [
+        "原话陈述事实。"
+      ],
+      "structure": "сказал, что",
+      "caseChanges": [
+        {
+          "from": "«Я приду»",
+          "to": "сказал, что придёт"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Он сказал, что придёт позже.",
+          "zh": "他说他会晚些来。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "人称要从引用场景调整。"
+      ],
+      "instantChecks": [
+        {
+          "id": "l1-check",
+          "type": "judgment",
+          "prompt": "сказал, что 要根据句中关系选择。",
+          "answer": true,
+          "rationale": "陈述句用 что 连接。",
+          "source": {
+            "kind": "grammar-book",
+            "label": "新编俄语语法",
+            "file": "21 引语.md",
+            "section": "用间接引语代换直接引语",
+            "pages": [
+              355,
+              356
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book",
+          "label": "新编俄语语法",
+          "file": "21 引语.md",
+          "section": "用间接引语代换直接引语",
+          "pages": [
+            355,
+            356
+          ]
+        }
+      ]
+    },
+    {
+      "id": "l2",
+      "title": "命令与请求",
+      "scope": "core",
+      "meaning": "祈使句通常变为 чтобы 从句。",
+      "conditions": [
+        "原话表达要求或请求。"
+      ],
+      "structure": "попросил, чтобы",
+      "caseChanges": [
+        {
+          "from": "«Позвони мне»",
+          "to": "попросил, чтобы позвонил"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Он попросил, чтобы я позвонил ему.",
+          "zh": "他请求我给他打电话。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "不能保留直接引语的祈使形。"
+      ],
+      "instantChecks": [
+        {
+          "id": "l2-check",
+          "type": "judgment",
+          "prompt": "попросил, чтобы 要根据句中关系选择。",
+          "answer": true,
+          "rationale": "间接表达改为 чтобы 从句。",
+          "source": {
+            "kind": "grammar-book",
+            "label": "新编俄语语法",
+            "file": "21 引语.md",
+            "section": "用间接引语代换直接引语",
+            "pages": [
+              355,
+              356
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book",
+          "label": "新编俄语语法",
+          "file": "21 引语.md",
+          "section": "用间接引语代换直接引语",
+          "pages": [
+            355,
+            356
+          ]
+        }
+      ]
+    },
+    {
+      "id": "l3",
+      "title": "一般疑问",
+      "scope": "core",
+      "meaning": "是非问句多用 ли。",
+      "conditions": [
+        "原话没有疑问词。"
+      ],
+      "structure": "спросил, ли",
+      "caseChanges": [
+        {
+          "from": "«Ты готов?»",
+          "to": "спросил, готов ли"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Он спросил, готов ли я.",
+          "zh": "他问我是否准备好了。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "ли 的位置要紧跟被询问成分。"
+      ],
+      "instantChecks": [
+        {
+          "id": "l3-check",
+          "type": "judgment",
+          "prompt": "спросил, ли 要根据句中关系选择。",
+          "answer": true,
+          "rationale": "这是“是否”而非什么/谁的问题。",
+          "source": {
+            "kind": "grammar-book",
+            "label": "新编俄语语法",
+            "file": "21 引语.md",
+            "section": "用间接引语代换直接引语",
+            "pages": [
+              355,
+              356
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book",
+          "label": "新编俄语语法",
+          "file": "21 引语.md",
+          "section": "用间接引语代换直接引语",
+          "pages": [
+            355,
+            356
+          ]
+        }
+      ]
+    },
+    {
+      "id": "l4",
+      "title": "特殊疑问",
+      "scope": "core",
+      "meaning": "有疑问词时保留谁、什么、哪里等。",
+      "conditions": [
+        "原话有疑问代词/副词。"
+      ],
+      "structure": "спросил, где",
+      "caseChanges": [
+        {
+          "from": "«Где ты был?»",
+          "to": "спросил, где я был"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Он спросил, где я был.",
+          "zh": "他问我在哪里。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "人称与时间指示必须随转述场景变。"
+      ],
+      "instantChecks": [
+        {
+          "id": "l4-check",
+          "type": "judgment",
+          "prompt": "спросил, где 要根据句中关系选择。",
+          "answer": true,
+          "rationale": "疑问词保留并连接从句。",
+          "source": {
+            "kind": "grammar-book",
+            "label": "新编俄语语法",
+            "file": "21 引语.md",
+            "section": "用间接引语代换直接引语",
+            "pages": [
+              355,
+              356
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book",
+          "label": "新编俄语语法",
+          "file": "21 引语.md",
+          "section": "用间接引语代换直接引语",
+          "pages": [
+            355,
+            356
+          ]
+        }
+      ]
+    }
+  ],
+  "relatedExtensions": [],
+  "checks": [
+    {
+      "id": "review-1",
+      "type": "judgment",
+      "prompt": "Он сказал, что придёт позже. 中的结构符合本节规则。",
+      "answer": true,
+      "rationale": "陈述句用 что 连接。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "21 引语.md",
+        "section": "用间接引语代换直接引语",
+        "pages": [
+          355,
+          356
+        ]
+      }
+    },
+    {
+      "id": "review-2",
+      "type": "judgment",
+      "prompt": "Он попросил, чтобы я позвонил ему. 中的结构符合本节规则。",
+      "answer": true,
+      "rationale": "间接表达改为 чтобы 从句。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "21 引语.md",
+        "section": "用间接引语代换直接引语",
+        "pages": [
+          355,
+          356
+        ]
+      }
+    },
+    {
+      "id": "review-3",
+      "type": "judgment",
+      "prompt": "Он спросил, готов ли я. 中的结构符合本节规则。",
+      "answer": true,
+      "rationale": "这是“是否”而非什么/谁的问题。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "21 引语.md",
+        "section": "用间接引语代换直接引语",
+        "pages": [
+          355,
+          356
+        ]
+      }
+    }
+  ],
+  "rules": [
+    {
+      "text": "сказал, что：陈述内容通常变为 что 从句。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "21 引语.md",
+        "section": "用间接引语代换直接引语",
+        "pages": [
+          355,
+          356
+        ]
+      }
+    },
+    {
+      "text": "попросил, чтобы：祈使句通常变为 чтобы 从句。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "21 引语.md",
+        "section": "用间接引语代换直接引语",
+        "pages": [
+          355,
+          356
+        ]
+      }
+    },
+    {
+      "text": "спросил, ли：是非问句多用 ли。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "21 引语.md",
+        "section": "用间接引语代换直接引语",
+        "pages": [
+          355,
+          356
+        ]
+      }
+    },
+    {
+      "text": "спросил, где：有疑问词时保留谁、什么、哪里等。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "21 引语.md",
+        "section": "用间接引语代换直接引语",
+        "pages": [
+          355,
+          356
+        ]
+      }
+    }
+  ],
+  "comparisons": [
+    {
+      "left": "сказал, что",
+      "right": "попросил, чтобы",
+      "note": "陈述事实用 что；要求/愿望用 чтобы。",
+      "source": {
+        "kind": "learning-explanation",
+        "label": "学习讲解"
+      }
+    }
+  ],
+  "examples": [
+    {
+      "ru": "Он сказал, что придёт позже.",
+      "zh": "他说他会晚些来。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    },
+    {
+      "ru": "Он попросил, чтобы я позвонил ему.",
+      "zh": "他请求我给他打电话。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    },
+    {
+      "ru": "Он спросил, готов ли я.",
+      "zh": "他问我是否准备好了。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    },
+    {
+      "ru": "Он спросил, где я был.",
+      "zh": "他问我在哪里。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    }
+  ],
+  "pitfalls": [
+    "转换时必须重新核对人称。",
+    "直接引语标点不会原样保留。"
+  ],
+  "sources": [
+    {
+      "kind": "grammar-book",
+      "label": "新编俄语语法",
+      "file": "21 引语.md",
+      "section": "用间接引语代换直接引语",
+      "pages": [
+        355,
+        356
+      ]
+    }
+  ]
+}

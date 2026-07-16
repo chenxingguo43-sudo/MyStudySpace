@@ -1,0 +1,445 @@
+{
+  "id": "p4-gerund-infinitive-purpose",
+  "partId": "p4",
+  "knowledgePointId": "p4-gerund-infinitive-purpose",
+  "title": "时间关系与目的表达",
+  "exerciseIds": [
+    "P4-Q039",
+    "P4-Q040",
+    "P4-Q041",
+    "P4-Q042",
+    "P4-Q043",
+    "P4-Q044",
+    "P4-Q045"
+  ],
+  "overview": "本卡区分副动词的伴随/先后关系与目的不定式。一个说明如何、何时做，另一个说明为什么去做。",
+  "decisionSteps": [
+    "判断第二个动作是伴随还是目标",
+    "确认主体是否一致",
+    "选择副动词或 чтобы + 不定式"
+  ],
+  "reviewStatus": "approved",
+  "quickReference": {
+    "semanticQuestions": [
+      "行动是同时发生还是为了达成？",
+      "两动作主体是否相同？"
+    ],
+    "structures": [
+      "улыбаясь",
+      "чтобы + инфинитив",
+      "после того как",
+      "когда + 从句"
+    ]
+  },
+  "lessons": [
+    {
+      "id": "l1",
+      "title": "伴随动作",
+      "scope": "core",
+      "meaning": "副动词表示伴随或先后。",
+      "conditions": [
+        "同一主体执行两动作。"
+      ],
+      "structure": "улыбаясь",
+      "caseChanges": [
+        {
+          "from": "улыбаться",
+          "to": "улыбаясь, он вошёл"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Улыбаясь, он вошёл в комнату.",
+          "zh": "他微笑着走进房间。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "不要把伴随动作当目的。"
+      ],
+      "instantChecks": [
+        {
+          "id": "l1-check",
+          "type": "judgment",
+          "prompt": "улыбаясь 要根据句中关系选择。",
+          "answer": true,
+          "rationale": "微笑与进入同时发生。",
+          "source": {
+            "kind": "grammar-book",
+            "label": "新编俄语语法",
+            "file": "06 动词.md",
+            "section": "动词",
+            "pages": [
+              205,
+              206
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book",
+          "label": "新编俄语语法",
+          "file": "06 动词.md",
+          "section": "动词",
+          "pages": [
+            205,
+            206
+          ]
+        }
+      ]
+    },
+    {
+      "id": "l2",
+      "title": "目的不定式",
+      "scope": "core",
+      "meaning": "чтобы + 不定式说明做主句动作的目的。",
+      "conditions": [
+        "主句动作服务于目标。"
+      ],
+      "structure": "чтобы + инфинитив",
+      "caseChanges": [
+        {
+          "from": "учиться",
+          "to": "чтобы учиться"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Она приехала, чтобы учиться.",
+          "zh": "她来是为了学习。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "目的不是伴随动作。"
+      ],
+      "instantChecks": [
+        {
+          "id": "l2-check",
+          "type": "judgment",
+          "prompt": "чтобы + инфинитив 要根据句中关系选择。",
+          "answer": true,
+          "rationale": "来是为了实现学习。",
+          "source": {
+            "kind": "grammar-book",
+            "label": "新编俄语语法",
+            "file": "06 动词.md",
+            "section": "动词",
+            "pages": [
+              205,
+              206
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book",
+          "label": "新编俄语语法",
+          "file": "06 动词.md",
+          "section": "动词",
+          "pages": [
+            205,
+            206
+          ]
+        }
+      ]
+    },
+    {
+      "id": "l3",
+      "title": "固定时间短语",
+      "scope": "core",
+      "meaning": "после того как 等明确先后关系。",
+      "conditions": [
+        "主体不同也可使用。"
+      ],
+      "structure": "после того как",
+      "caseChanges": [
+        {
+          "from": "он пришёл",
+          "to": "после того как он пришёл"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "После того как он пришёл, мы начали.",
+          "zh": "他来了以后，我们开始了。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "副动词要求共同主体，时间从句不要求。"
+      ],
+      "instantChecks": [
+        {
+          "id": "l3-check",
+          "type": "judgment",
+          "prompt": "после того как 要根据句中关系选择。",
+          "answer": true,
+          "rationale": "从句适合不同主体。",
+          "source": {
+            "kind": "grammar-book",
+            "label": "新编俄语语法",
+            "file": "06 动词.md",
+            "section": "动词",
+            "pages": [
+              205,
+              206
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book",
+          "label": "新编俄语语法",
+          "file": "06 动词.md",
+          "section": "动词",
+          "pages": [
+            205,
+            206
+          ]
+        }
+      ]
+    },
+    {
+      "id": "l4",
+      "title": "避免歧义",
+      "scope": "core",
+      "meaning": "主体不一致时优先改用从句。",
+      "conditions": [
+        "副动词会造成逻辑歧义。"
+      ],
+      "structure": "когда + 从句",
+      "caseChanges": [
+        {
+          "from": "звонок",
+          "to": "когда прозвенел звонок"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Когда прозвенел звонок, студенты вышли.",
+          "zh": "铃响后学生们出去了。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "不要写“Прозвенев, студенты вышли”。"
+      ],
+      "instantChecks": [
+        {
+          "id": "l4-check",
+          "type": "judgment",
+          "prompt": "когда + 从句 要根据句中关系选择。",
+          "answer": true,
+          "rationale": "铃不是学生执行的动作。",
+          "source": {
+            "kind": "grammar-book",
+            "label": "新编俄语语法",
+            "file": "06 动词.md",
+            "section": "动词",
+            "pages": [
+              205,
+              206
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book",
+          "label": "新编俄语语法",
+          "file": "06 动词.md",
+          "section": "动词",
+          "pages": [
+            205,
+            206
+          ]
+        }
+      ]
+    }
+  ],
+  "relatedExtensions": [],
+  "checks": [
+    {
+      "id": "review-1",
+      "type": "judgment",
+      "prompt": "Улыбаясь, он вошёл в комнату. 中的结构符合本节规则。",
+      "answer": true,
+      "rationale": "微笑与进入同时发生。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "06 动词.md",
+        "section": "动词",
+        "pages": [
+          205,
+          206
+        ]
+      }
+    },
+    {
+      "id": "review-2",
+      "type": "judgment",
+      "prompt": "Она приехала, чтобы учиться. 中的结构符合本节规则。",
+      "answer": true,
+      "rationale": "来是为了实现学习。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "06 动词.md",
+        "section": "动词",
+        "pages": [
+          205,
+          206
+        ]
+      }
+    },
+    {
+      "id": "review-3",
+      "type": "judgment",
+      "prompt": "После того как он пришёл, мы начали. 中的结构符合本节规则。",
+      "answer": true,
+      "rationale": "从句适合不同主体。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "06 动词.md",
+        "section": "动词",
+        "pages": [
+          205,
+          206
+        ]
+      }
+    }
+  ],
+  "rules": [
+    {
+      "text": "улыбаясь：副动词表示伴随或先后。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "06 动词.md",
+        "section": "动词",
+        "pages": [
+          205,
+          206
+        ]
+      }
+    },
+    {
+      "text": "чтобы + инфинитив：чтобы + 不定式说明做主句动作的目的。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "06 动词.md",
+        "section": "动词",
+        "pages": [
+          205,
+          206
+        ]
+      }
+    },
+    {
+      "text": "после того как：после того как 等明确先后关系。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "06 动词.md",
+        "section": "动词",
+        "pages": [
+          205,
+          206
+        ]
+      }
+    },
+    {
+      "text": "когда + 从句：主体不一致时优先改用从句。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "06 动词.md",
+        "section": "动词",
+        "pages": [
+          205,
+          206
+        ]
+      }
+    }
+  ],
+  "comparisons": [
+    {
+      "left": "улыбаясь вошёл",
+      "right": "пришёл, чтобы учиться",
+      "note": "前者伴随，后者目的。",
+      "source": {
+        "kind": "learning-explanation",
+        "label": "学习讲解"
+      }
+    }
+  ],
+  "examples": [
+    {
+      "ru": "Улыбаясь, он вошёл в комнату.",
+      "zh": "他微笑着走进房间。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    },
+    {
+      "ru": "Она приехала, чтобы учиться.",
+      "zh": "她来是为了学习。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    },
+    {
+      "ru": "После того как он пришёл, мы начали.",
+      "zh": "他来了以后，我们开始了。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    },
+    {
+      "ru": "Когда прозвенел звонок, студенты вышли.",
+      "zh": "铃响后学生们出去了。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    }
+  ],
+  "pitfalls": [
+    "副动词必须有共同主体。",
+    "目的表达要说明主句行动的目标。"
+  ],
+  "sources": [
+    {
+      "kind": "grammar-book",
+      "label": "新编俄语语法",
+      "file": "06 动词.md",
+      "section": "动词",
+      "pages": [
+        205,
+        206
+      ]
+    }
+  ]
+}

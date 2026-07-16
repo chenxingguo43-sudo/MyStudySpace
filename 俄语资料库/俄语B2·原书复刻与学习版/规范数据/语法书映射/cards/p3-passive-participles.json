@@ -1,0 +1,446 @@
+{
+  "id": "p3-passive-participles",
+  "partId": "p3",
+  "knowledgePointId": "p3-passive-participles",
+  "title": "被动形动词的一致",
+  "exerciseIds": [
+    "P3-Q016",
+    "P3-Q017",
+    "P3-Q018",
+    "P3-Q019",
+    "P3-Q020",
+    "P3-Q021",
+    "P3-Q022",
+    "P3-Q023"
+  ],
+  "overview": "被动形动词说明名词是动作的承受者。先判断谁被做了什么，再处理体和性数格。",
+  "decisionSteps": [
+    "找承受动作的名词",
+    "判断动作是否完成",
+    "使形动词一致"
+  ],
+  "reviewStatus": "approved",
+  "quickReference": {
+    "semanticQuestions": [
+      "谁是受事？",
+      "动作有结果吗？"
+    ],
+    "structures": [
+      "написанный + 名词",
+      "читаемый + 名词",
+      "письмо написано",
+      "о написанном письме"
+    ]
+  },
+  "lessons": [
+    {
+      "id": "l1",
+      "title": "完成后的结果",
+      "scope": "core",
+      "meaning": "完成体被动形动词常表示已完成结果。",
+      "conditions": [
+        "名词承受了完成动作。"
+      ],
+      "structure": "написанный + 名词",
+      "caseChanges": [
+        {
+          "from": "написанное письмо",
+          "to": "написанного письма"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Написанное письмо лежит на столе.",
+          "zh": "写好的信放在桌上。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "不要把执行者误作中心名词。"
+      ],
+      "instantChecks": [
+        {
+          "id": "l1-check",
+          "type": "judgment",
+          "prompt": "написанный + 名词 要根据句中关系选择。",
+          "answer": true,
+          "rationale": "信是被写的对象。",
+          "source": {
+            "kind": "grammar-book",
+            "label": "新编俄语语法",
+            "file": "06 动词.md",
+            "section": "动词",
+            "pages": [
+              194,
+              195
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book",
+          "label": "新编俄语语法",
+          "file": "06 动词.md",
+          "section": "动词",
+          "pages": [
+            194,
+            195
+          ]
+        }
+      ]
+    },
+    {
+      "id": "l2",
+      "title": "现在/过程性",
+      "scope": "core",
+      "meaning": "未完成体形式可强调经常或进行的承受关系。",
+      "conditions": [
+        "语境强调一般过程。"
+      ],
+      "structure": "читаемый + 名词",
+      "caseChanges": [
+        {
+          "from": "читаемая книга",
+          "to": "читаемую книгу"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Читаемая книга очень интересна.",
+          "zh": "正在读的书很有意思。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "过程性不等于所有动词都能构成该形式。"
+      ],
+      "instantChecks": [
+        {
+          "id": "l2-check",
+          "type": "judgment",
+          "prompt": "читаемый + 名词 要根据句中关系选择。",
+          "answer": true,
+          "rationale": "先按教材给出的词形判断。",
+          "source": {
+            "kind": "grammar-book",
+            "label": "新编俄语语法",
+            "file": "06 动词.md",
+            "section": "动词",
+            "pages": [
+              194,
+              195
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book",
+          "label": "新编俄语语法",
+          "file": "06 动词.md",
+          "section": "动词",
+          "pages": [
+            194,
+            195
+          ]
+        }
+      ]
+    },
+    {
+      "id": "l3",
+      "title": "短尾被动形动词",
+      "scope": "core",
+      "meaning": "短尾形式多作谓语，仍与主语一致。",
+      "conditions": [
+        "强调状态或结果。"
+      ],
+      "structure": "письмо написано",
+      "caseChanges": [
+        {
+          "from": "письмо",
+          "to": "работа сделана"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Работа сделана вовремя.",
+          "zh": "工作按时完成了。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "短尾形式不是工具格。"
+      ],
+      "instantChecks": [
+        {
+          "id": "l3-check",
+          "type": "judgment",
+          "prompt": "письмо написано 要根据句中关系选择。",
+          "answer": true,
+          "rationale": "中性单数与 работа 的阴性单数词尾不同。",
+          "source": {
+            "kind": "grammar-book",
+            "label": "新编俄语语法",
+            "file": "06 动词.md",
+            "section": "动词",
+            "pages": [
+              194,
+              195
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book",
+          "label": "新编俄语语法",
+          "file": "06 动词.md",
+          "section": "动词",
+          "pages": [
+            194,
+            195
+          ]
+        }
+      ]
+    },
+    {
+      "id": "l4",
+      "title": "格的一致",
+      "scope": "core",
+      "meaning": "长尾被动形动词随中心名词格变化。",
+      "conditions": [
+        "位于介词短语或宾语位置时要同步变化。"
+      ],
+      "structure": "о написанном письме",
+      "caseChanges": [
+        {
+          "from": "написанное письмо",
+          "to": "о написанном письме"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Мы говорили о написанном письме.",
+          "zh": "我们谈了那封写好的信。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "介词决定名词和形动词的格。"
+      ],
+      "instantChecks": [
+        {
+          "id": "l4-check",
+          "type": "judgment",
+          "prompt": "о написанном письме 要根据句中关系选择。",
+          "answer": true,
+          "rationale": "о 要求第六格。",
+          "source": {
+            "kind": "grammar-book",
+            "label": "新编俄语语法",
+            "file": "06 动词.md",
+            "section": "动词",
+            "pages": [
+              194,
+              195
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book",
+          "label": "新编俄语语法",
+          "file": "06 动词.md",
+          "section": "动词",
+          "pages": [
+            194,
+            195
+          ]
+        }
+      ]
+    }
+  ],
+  "relatedExtensions": [],
+  "checks": [
+    {
+      "id": "review-1",
+      "type": "judgment",
+      "prompt": "Написанное письмо лежит на столе. 中的结构符合本节规则。",
+      "answer": true,
+      "rationale": "信是被写的对象。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "06 动词.md",
+        "section": "动词",
+        "pages": [
+          194,
+          195
+        ]
+      }
+    },
+    {
+      "id": "review-2",
+      "type": "judgment",
+      "prompt": "Читаемая книга очень интересна. 中的结构符合本节规则。",
+      "answer": true,
+      "rationale": "先按教材给出的词形判断。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "06 动词.md",
+        "section": "动词",
+        "pages": [
+          194,
+          195
+        ]
+      }
+    },
+    {
+      "id": "review-3",
+      "type": "judgment",
+      "prompt": "Работа сделана вовремя. 中的结构符合本节规则。",
+      "answer": true,
+      "rationale": "中性单数与 работа 的阴性单数词尾不同。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "06 动词.md",
+        "section": "动词",
+        "pages": [
+          194,
+          195
+        ]
+      }
+    }
+  ],
+  "rules": [
+    {
+      "text": "написанный + 名词：完成体被动形动词常表示已完成结果。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "06 动词.md",
+        "section": "动词",
+        "pages": [
+          194,
+          195
+        ]
+      }
+    },
+    {
+      "text": "читаемый + 名词：未完成体形式可强调经常或进行的承受关系。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "06 动词.md",
+        "section": "动词",
+        "pages": [
+          194,
+          195
+        ]
+      }
+    },
+    {
+      "text": "письмо написано：短尾形式多作谓语，仍与主语一致。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "06 动词.md",
+        "section": "动词",
+        "pages": [
+          194,
+          195
+        ]
+      }
+    },
+    {
+      "text": "о написанном письме：长尾被动形动词随中心名词格变化。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "06 动词.md",
+        "section": "动词",
+        "pages": [
+          194,
+          195
+        ]
+      }
+    }
+  ],
+  "comparisons": [
+    {
+      "left": "написанное письмо",
+      "right": "письмо написано",
+      "note": "前者是定语短语，后者是谓语结果。",
+      "source": {
+        "kind": "learning-explanation",
+        "label": "学习讲解"
+      }
+    }
+  ],
+  "examples": [
+    {
+      "ru": "Написанное письмо лежит на столе.",
+      "zh": "写好的信放在桌上。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    },
+    {
+      "ru": "Читаемая книга очень интересна.",
+      "zh": "正在读的书很有意思。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    },
+    {
+      "ru": "Работа сделана вовремя.",
+      "zh": "工作按时完成了。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    },
+    {
+      "ru": "Мы говорили о написанном письме.",
+      "zh": "我们谈了那封写好的信。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    }
+  ],
+  "pitfalls": [
+    "先区分长尾定语和短尾谓语。",
+    "被动形动词说明承受者。"
+  ],
+  "sources": [
+    {
+      "kind": "grammar-book",
+      "label": "新编俄语语法",
+      "file": "06 动词.md",
+      "section": "动词",
+      "pages": [
+        194,
+        195
+      ]
+    }
+  ]
+}

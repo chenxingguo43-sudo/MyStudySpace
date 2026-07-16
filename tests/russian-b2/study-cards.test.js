@@ -56,6 +56,19 @@ test('P2 publishes all eight approved rich cards in navigation order', () => {
   assert.ok(cards.every(card => card.lessons.length >= 4 && card.checks.length >= 3));
 });
 
+test('P3 and P4 publish every planned rich study card', () => {
+  const expected = {
+    p3: ['p3-active-participles', 'p3-passive-participles', 'p3-gerund-meanings', 'p3-gerund-subject'],
+    p4: ['p4-connectors', 'p4-relative-pronouns', 'p4-time-concession-purpose', 'p4-gerund-infinitive-purpose', 'p4-cause-and-particles', 'p4-direct-indirect']
+  };
+  const cards = buildStudyCards({ root, write: false }).cards;
+  Object.entries(expected).forEach(([partId, ids]) => {
+    const partCards = cards.filter(card => card.partId === partId);
+    assert.deepEqual(partCards.map(card => card.id), ids);
+    assert.ok(partCards.every(card => card.reviewStatus === 'approved' && card.lessons.length >= 4 && card.checks.length >= 3));
+  });
+});
+
 test('P2 time-and-cause card is source-traceable and scoped to Q051–Q058', () => {
   const result = buildStudyCards({ root, write: false });
   const card = result.cards.find(item => item.id === 'p2-time-cause');

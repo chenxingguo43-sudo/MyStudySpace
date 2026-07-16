@@ -1,0 +1,450 @@
+{
+  "id": "p4-relative-pronouns",
+  "partId": "p4",
+  "knowledgePointId": "p4-relative-pronouns",
+  "title": "关系代词与疑问代词",
+  "exerciseIds": [
+    "P4-Q015",
+    "P4-Q016",
+    "P4-Q017",
+    "P4-Q018",
+    "P4-Q019",
+    "P4-Q020",
+    "P4-Q021",
+    "P4-Q022",
+    "P4-Q023",
+    "P4-Q024",
+    "P4-Q025",
+    "P4-Q026"
+  ],
+  "overview": "关系词同时受两套规则约束：性数来自先行词，格来自它在从句中的作用。",
+  "decisionSteps": [
+    "找先行词",
+    "确定关系词在从句中担当什么成分",
+    "组合性数与格"
+  ],
+  "reviewStatus": "approved",
+  "quickReference": {
+    "semanticQuestions": [
+      "关系词指谁/什么？",
+      "它在从句中是主语、宾语还是介词补语？"
+    ],
+    "structures": [
+      "который / которая",
+      "которую",
+      "о котором",
+      "тот, кто"
+    ]
+  },
+  "lessons": [
+    {
+      "id": "l1",
+      "title": "性数来自先行词",
+      "scope": "core",
+      "meaning": "который 与先行词性数一致。",
+      "conditions": [
+        "先行词明确。"
+      ],
+      "structure": "который / которая",
+      "caseChanges": [
+        {
+          "from": "книга",
+          "to": "книга, которая"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Книга, которая лежит на столе, новая.",
+          "zh": "桌上的书是新的。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "不要按从句动词选择性别。"
+      ],
+      "instantChecks": [
+        {
+          "id": "l1-check",
+          "type": "judgment",
+          "prompt": "который / которая 要根据句中关系选择。",
+          "answer": true,
+          "rationale": "книга 为阴性。",
+          "source": {
+            "kind": "grammar-book",
+            "label": "新编俄语语法",
+            "file": "19 主从复合句.md",
+            "section": "主从复合句",
+            "pages": [
+              360,
+              361
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book",
+          "label": "新编俄语语法",
+          "file": "19 主从复合句.md",
+          "section": "主从复合句",
+          "pages": [
+            360,
+            361
+          ]
+        }
+      ]
+    },
+    {
+      "id": "l2",
+      "title": "格来自从句",
+      "scope": "core",
+      "meaning": "关系词在从句里的成分决定格。",
+      "conditions": [
+        "从句动词要求宾语。"
+      ],
+      "structure": "которую",
+      "caseChanges": [
+        {
+          "from": "книга",
+          "to": "которую я читаю"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Книга, которую я читаю, интересна.",
+          "zh": "我正在读的书很有趣。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "先行词不是直接决定格的唯一因素。"
+      ],
+      "instantChecks": [
+        {
+          "id": "l2-check",
+          "type": "judgment",
+          "prompt": "которую 要根据句中关系选择。",
+          "answer": true,
+          "rationale": "читать 要求第四格。",
+          "source": {
+            "kind": "grammar-book",
+            "label": "新编俄语语法",
+            "file": "19 主从复合句.md",
+            "section": "主从复合句",
+            "pages": [
+              360,
+              361
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book",
+          "label": "新编俄语语法",
+          "file": "19 主从复合句.md",
+          "section": "主从复合句",
+          "pages": [
+            360,
+            361
+          ]
+        }
+      ]
+    },
+    {
+      "id": "l3",
+      "title": "介词结构",
+      "scope": "core",
+      "meaning": "介词直接支配关系词的格。",
+      "conditions": [
+        "从句有固定介词。"
+      ],
+      "structure": "о котором",
+      "caseChanges": [
+        {
+          "from": "проект",
+          "to": "о котором говорим"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Проект, о котором мы говорим, важен.",
+          "zh": "我们谈论的项目很重要。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "介词不能遗失。"
+      ],
+      "instantChecks": [
+        {
+          "id": "l3-check",
+          "type": "judgment",
+          "prompt": "о котором 要根据句中关系选择。",
+          "answer": true,
+          "rationale": "говорить о 要求第六格。",
+          "source": {
+            "kind": "grammar-book",
+            "label": "新编俄语语法",
+            "file": "19 主从复合句.md",
+            "section": "主从复合句",
+            "pages": [
+              360,
+              361
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book",
+          "label": "新编俄语语法",
+          "file": "19 主从复合句.md",
+          "section": "主从复合句",
+          "pages": [
+            360,
+            361
+          ]
+        }
+      ]
+    },
+    {
+      "id": "l4",
+      "title": "谁与什么",
+      "scope": "core",
+      "meaning": "кто 指人，что 指物或整体情况。",
+      "conditions": [
+        "没有明确名词先行词时常用。"
+      ],
+      "structure": "тот, кто",
+      "caseChanges": [
+        {
+          "from": "человек",
+          "to": "тот, кто пришёл"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Тот, кто пришёл первым, получил приз.",
+          "zh": "第一个来的人得了奖。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "不要把 кто 变成与人称一致的形式。"
+      ],
+      "instantChecks": [
+        {
+          "id": "l4-check",
+          "type": "judgment",
+          "prompt": "тот, кто 要根据句中关系选择。",
+          "answer": true,
+          "rationale": "кто 固定形式，但谓语依语义处理。",
+          "source": {
+            "kind": "grammar-book",
+            "label": "新编俄语语法",
+            "file": "19 主从复合句.md",
+            "section": "主从复合句",
+            "pages": [
+              360,
+              361
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book",
+          "label": "新编俄语语法",
+          "file": "19 主从复合句.md",
+          "section": "主从复合句",
+          "pages": [
+            360,
+            361
+          ]
+        }
+      ]
+    }
+  ],
+  "relatedExtensions": [],
+  "checks": [
+    {
+      "id": "review-1",
+      "type": "judgment",
+      "prompt": "Книга, которая лежит на столе, новая. 中的结构符合本节规则。",
+      "answer": true,
+      "rationale": "книга 为阴性。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "19 主从复合句.md",
+        "section": "主从复合句",
+        "pages": [
+          360,
+          361
+        ]
+      }
+    },
+    {
+      "id": "review-2",
+      "type": "judgment",
+      "prompt": "Книга, которую я читаю, интересна. 中的结构符合本节规则。",
+      "answer": true,
+      "rationale": "читать 要求第四格。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "19 主从复合句.md",
+        "section": "主从复合句",
+        "pages": [
+          360,
+          361
+        ]
+      }
+    },
+    {
+      "id": "review-3",
+      "type": "judgment",
+      "prompt": "Проект, о котором мы говорим, важен. 中的结构符合本节规则。",
+      "answer": true,
+      "rationale": "говорить о 要求第六格。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "19 主从复合句.md",
+        "section": "主从复合句",
+        "pages": [
+          360,
+          361
+        ]
+      }
+    }
+  ],
+  "rules": [
+    {
+      "text": "который / которая：который 与先行词性数一致。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "19 主从复合句.md",
+        "section": "主从复合句",
+        "pages": [
+          360,
+          361
+        ]
+      }
+    },
+    {
+      "text": "которую：关系词在从句里的成分决定格。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "19 主从复合句.md",
+        "section": "主从复合句",
+        "pages": [
+          360,
+          361
+        ]
+      }
+    },
+    {
+      "text": "о котором：介词直接支配关系词的格。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "19 主从复合句.md",
+        "section": "主从复合句",
+        "pages": [
+          360,
+          361
+        ]
+      }
+    },
+    {
+      "text": "тот, кто：кто 指人，что 指物或整体情况。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "19 主从复合句.md",
+        "section": "主从复合句",
+        "pages": [
+          360,
+          361
+        ]
+      }
+    }
+  ],
+  "comparisons": [
+    {
+      "left": "книга, которую читаю",
+      "right": "проект, о котором говорим",
+      "note": "格来自从句中的动词或介词。",
+      "source": {
+        "kind": "learning-explanation",
+        "label": "学习讲解"
+      }
+    }
+  ],
+  "examples": [
+    {
+      "ru": "Книга, которая лежит на столе, новая.",
+      "zh": "桌上的书是新的。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    },
+    {
+      "ru": "Книга, которую я читаю, интересна.",
+      "zh": "我正在读的书很有趣。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    },
+    {
+      "ru": "Проект, о котором мы говорим, важен.",
+      "zh": "我们谈论的项目很重要。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    },
+    {
+      "ru": "Тот, кто пришёл первым, получил приз.",
+      "zh": "第一个来的人得了奖。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    }
+  ],
+  "pitfalls": [
+    "两步走：先性数，后格。",
+    "不要被先行词在主句中的格误导。"
+  ],
+  "sources": [
+    {
+      "kind": "grammar-book",
+      "label": "新编俄语语法",
+      "file": "19 主从复合句.md",
+      "section": "主从复合句",
+      "pages": [
+        360,
+        361
+      ]
+    }
+  ]
+}

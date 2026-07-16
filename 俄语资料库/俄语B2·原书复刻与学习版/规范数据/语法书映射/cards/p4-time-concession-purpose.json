@@ -1,0 +1,450 @@
+{
+  "id": "p4-time-concession-purpose",
+  "partId": "p4",
+  "knowledgePointId": "p4-time-concession-purpose",
+  "title": "时间、让步、目的与原因从句",
+  "exerciseIds": [
+    "P4-Q027",
+    "P4-Q028",
+    "P4-Q029",
+    "P4-Q030",
+    "P4-Q031",
+    "P4-Q032",
+    "P4-Q033",
+    "P4-Q034",
+    "P4-Q035",
+    "P4-Q036",
+    "P4-Q037",
+    "P4-Q038"
+  ],
+  "overview": "从句连接词首先编码逻辑：何时、为何、尽管什么、为了什么。做题时先用中文关系词定位功能。",
+  "decisionSteps": [
+    "问两分句关系",
+    "选对应连接词",
+    "检查语气和时态提示"
+  ],
+  "reviewStatus": "approved",
+  "quickReference": {
+    "semanticQuestions": [
+      "这是时间、原因、让步还是目的？",
+      "结果是否与预期相反？"
+    ],
+    "structures": [
+      "когда",
+      "потому что",
+      "хотя",
+      "чтобы"
+    ]
+  },
+  "lessons": [
+    {
+      "id": "l1",
+      "title": "时间",
+      "scope": "core",
+      "meaning": "когда 引出发生时间。",
+      "conditions": [
+        "主从句有明确时间关系。"
+      ],
+      "structure": "когда",
+      "caseChanges": [
+        {
+          "from": "он пришёл",
+          "to": "когда он пришёл"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Когда он пришёл, мы начали урок.",
+          "zh": "他来后，我们开始上课。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "不要把时间关系误用为原因。"
+      ],
+      "instantChecks": [
+        {
+          "id": "l1-check",
+          "type": "judgment",
+          "prompt": "когда 要根据句中关系选择。",
+          "answer": true,
+          "rationale": "从句说明开始的时间。",
+          "source": {
+            "kind": "grammar-book",
+            "label": "新编俄语语法",
+            "file": "09 连接词.md",
+            "section": "连接词",
+            "pages": [
+              304,
+              305
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book",
+          "label": "新编俄语语法",
+          "file": "09 连接词.md",
+          "section": "连接词",
+          "pages": [
+            304,
+            305
+          ]
+        }
+      ]
+    },
+    {
+      "id": "l2",
+      "title": "原因",
+      "scope": "core",
+      "meaning": "потому что 说明造成主句结果的原因。",
+      "conditions": [
+        "后句给出理由。"
+      ],
+      "structure": "потому что",
+      "caseChanges": [
+        {
+          "from": "был болен",
+          "to": "потому что был болен"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Он не пришёл, потому что был болен.",
+          "zh": "他没来，因为生病了。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "原因不是目的。"
+      ],
+      "instantChecks": [
+        {
+          "id": "l2-check",
+          "type": "judgment",
+          "prompt": "потому что 要根据句中关系选择。",
+          "answer": true,
+          "rationale": "生病解释没来。",
+          "source": {
+            "kind": "grammar-book",
+            "label": "新编俄语语法",
+            "file": "09 连接词.md",
+            "section": "连接词",
+            "pages": [
+              304,
+              305
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book",
+          "label": "新编俄语语法",
+          "file": "09 连接词.md",
+          "section": "连接词",
+          "pages": [
+            304,
+            305
+          ]
+        }
+      ]
+    },
+    {
+      "id": "l3",
+      "title": "让步",
+      "scope": "core",
+      "meaning": "хотя 表示不阻止主句发生的反差条件。",
+      "conditions": [
+        "语义有“尽管”。"
+      ],
+      "structure": "хотя",
+      "caseChanges": [
+        {
+          "from": "устал",
+          "to": "хотя устал"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Хотя он устал, он продолжал работать.",
+          "zh": "尽管累了，他仍继续工作。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "让步常与 но / всё же 的反差有关。"
+      ],
+      "instantChecks": [
+        {
+          "id": "l3-check",
+          "type": "judgment",
+          "prompt": "хотя 要根据句中关系选择。",
+          "answer": true,
+          "rationale": "疲劳没有阻止工作。",
+          "source": {
+            "kind": "grammar-book",
+            "label": "新编俄语语法",
+            "file": "09 连接词.md",
+            "section": "连接词",
+            "pages": [
+              304,
+              305
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book",
+          "label": "新编俄语语法",
+          "file": "09 连接词.md",
+          "section": "连接词",
+          "pages": [
+            304,
+            305
+          ]
+        }
+      ]
+    },
+    {
+      "id": "l4",
+      "title": "目的",
+      "scope": "core",
+      "meaning": "чтобы 表示主句动作的目的。",
+      "conditions": [
+        "主句行动为实现从句。"
+      ],
+      "structure": "чтобы",
+      "caseChanges": [
+        {
+          "from": "успеть",
+          "to": "чтобы успеть"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Мы вышли раньше, чтобы успеть на поезд.",
+          "zh": "我们早些出门以赶上火车。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "目的不是已发生的事实。"
+      ],
+      "instantChecks": [
+        {
+          "id": "l4-check",
+          "type": "judgment",
+          "prompt": "чтобы 要根据句中关系选择。",
+          "answer": true,
+          "rationale": "早出门服务于赶火车。",
+          "source": {
+            "kind": "grammar-book",
+            "label": "新编俄语语法",
+            "file": "09 连接词.md",
+            "section": "连接词",
+            "pages": [
+              304,
+              305
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book",
+          "label": "新编俄语语法",
+          "file": "09 连接词.md",
+          "section": "连接词",
+          "pages": [
+            304,
+            305
+          ]
+        }
+      ]
+    }
+  ],
+  "relatedExtensions": [],
+  "checks": [
+    {
+      "id": "review-1",
+      "type": "judgment",
+      "prompt": "Когда он пришёл, мы начали урок. 中的结构符合本节规则。",
+      "answer": true,
+      "rationale": "从句说明开始的时间。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "09 连接词.md",
+        "section": "连接词",
+        "pages": [
+          304,
+          305
+        ]
+      }
+    },
+    {
+      "id": "review-2",
+      "type": "judgment",
+      "prompt": "Он не пришёл, потому что был болен. 中的结构符合本节规则。",
+      "answer": true,
+      "rationale": "生病解释没来。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "09 连接词.md",
+        "section": "连接词",
+        "pages": [
+          304,
+          305
+        ]
+      }
+    },
+    {
+      "id": "review-3",
+      "type": "judgment",
+      "prompt": "Хотя он устал, он продолжал работать. 中的结构符合本节规则。",
+      "answer": true,
+      "rationale": "疲劳没有阻止工作。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "09 连接词.md",
+        "section": "连接词",
+        "pages": [
+          304,
+          305
+        ]
+      }
+    }
+  ],
+  "rules": [
+    {
+      "text": "когда：когда 引出发生时间。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "09 连接词.md",
+        "section": "连接词",
+        "pages": [
+          304,
+          305
+        ]
+      }
+    },
+    {
+      "text": "потому что：потому что 说明造成主句结果的原因。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "09 连接词.md",
+        "section": "连接词",
+        "pages": [
+          304,
+          305
+        ]
+      }
+    },
+    {
+      "text": "хотя：хотя 表示不阻止主句发生的反差条件。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "09 连接词.md",
+        "section": "连接词",
+        "pages": [
+          304,
+          305
+        ]
+      }
+    },
+    {
+      "text": "чтобы：чтобы 表示主句动作的目的。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "09 连接词.md",
+        "section": "连接词",
+        "pages": [
+          304,
+          305
+        ]
+      }
+    }
+  ],
+  "comparisons": [
+    {
+      "left": "потому что",
+      "right": "чтобы",
+      "note": "前者解释原因，后者说明目的。",
+      "source": {
+        "kind": "learning-explanation",
+        "label": "学习讲解"
+      }
+    }
+  ],
+  "examples": [
+    {
+      "ru": "Когда он пришёл, мы начали урок.",
+      "zh": "他来后，我们开始上课。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    },
+    {
+      "ru": "Он не пришёл, потому что был болен.",
+      "zh": "他没来，因为生病了。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    },
+    {
+      "ru": "Хотя он устал, он продолжал работать.",
+      "zh": "尽管累了，他仍继续工作。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    },
+    {
+      "ru": "Мы вышли раньше, чтобы успеть на поезд.",
+      "zh": "我们早些出门以赶上火车。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    }
+  ],
+  "pitfalls": [
+    "先判断逻辑箭头是“因为”还是“为了”。",
+    "让步不能只看 хотя 的字面。"
+  ],
+  "sources": [
+    {
+      "kind": "grammar-book",
+      "label": "新编俄语语法",
+      "file": "09 连接词.md",
+      "section": "连接词",
+      "pages": [
+        304,
+        305
+      ]
+    }
+  ]
+}
