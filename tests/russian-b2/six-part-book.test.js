@@ -3,6 +3,7 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
 const { validateStudyNavigation, getStudyPointExerciseIds } = require('../../scripts/russian-b2/lib/contracts');
+const { buildSixPartBook } = require('../../scripts/russian-b2/build-six-part-book');
 
 const ROOT = path.resolve(__dirname, '..', '..');
 const DATA = path.join(ROOT, '俄语资料库', '俄语B2·原书复刻与学习版', '规范数据', '语法词汇');
@@ -42,4 +43,13 @@ test('published navigation covers every published exercise once in original part
     const actual = part.knowledgePoints.flatMap(point => getStudyPointExerciseIds(point, part.part, byExercise));
     assert.deepEqual(actual, expected, part.id + ' must cover each published exercise once in order');
   }
+});
+
+test('six-part builder preserves all published exercises and their stable order', () => {
+  const result = buildSixPartBook({ root: ROOT, write: false });
+  assert.equal(result.parts.length, 6);
+  const p2 = result.parts.find(part => part.id === 'p2');
+  assert.deepEqual(p2.exercises.slice(54, 58).map(item => item.id), ['P2-Q055', 'P2-Q056', 'P2-Q057', 'P2-Q058']);
+  const ids = result.parts.flatMap(part => part.exercises.map(item => item.id));
+  assert.equal(new Set(ids).size, ids.length);
 });

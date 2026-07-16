@@ -503,6 +503,16 @@ body {
 .size-xlarge .ru-text { font-size: 1.35em; } .size-xlarge .cn-text { font-size: 1.25em; }
 .font-sans .ru-text, .font-sans .cn-text { font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; }
 
+/* ─── B2 知识点导航 ─── */
+.b2-knowledge-nav { margin: 18px 0 24px; padding: 16px; border: 1px solid var(--accent-border); background: var(--accent-dim); border-radius: 14px; }
+.b2-knowledge-nav h2 { font-size: 1em; margin-bottom: 10px; }
+.b2-knowledge-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 8px; }
+.b2-knowledge-card { font: inherit; text-align: left; padding: 10px; border: 1px solid var(--glass-border); border-radius: 10px; background: var(--surface-solid); color: var(--text); cursor: pointer; }
+.b2-knowledge-card strong, .b2-knowledge-card span, .b2-knowledge-card small { display: block; }
+.b2-knowledge-card span { color: var(--accent); font-size: 12px; }
+.b2-knowledge-card small { color: var(--text-secondary); line-height: 1.5; margin-top: 3px; }
+.b2-quiz-target { outline: 3px solid var(--accent); outline-offset: 5px; border-radius: 10px; }
+
 /* ─── 移动端 ─── */
 @media (max-width: 600px) {
   .main-container { padding: 12px 12px 80px; }
@@ -996,9 +1006,10 @@ function showChapters(bookId) {
     '</div></div><div class="chapter-grid">';
   for (var i = 0; i < curBook.chapters; i++) {
     var isDone = isQuizFirstBook(curBook) ? isB2ChapterComplete(bookId, i) : (stats[i] && stats[i].completed);
+    var chapterLabel = isQuizFirstBook(curBook) && curBook.chapterTitles ? curBook.chapterTitles[i] : '第' + (i + 1) + '章';
     html += '<div class="ch-item' + (isDone ? ' done' : '') + '" onclick="goChapter(' + i + ')">' +
       '<span class="ch-num">' + (isDone ? '✓' : (i + 1)) + '</span>' +
-      '<span class="ch-title">第' + (i + 1) + '章</span></div>';
+      '<span class="ch-title">' + escapeHtml(chapterLabel) + '</span></div>';
   }
   html += '</div></div>';
   document.getElementById('app').innerHTML = html;
@@ -1050,6 +1061,16 @@ function migrateB2Progress(progress) {
     Object.keys(progress[legacyKey]).forEach(function(oldId) { progress[stableKey]['P2-' + oldId] = progress[legacyKey][oldId]; });
     delete progress[legacyKey];
   }
+  Object.keys(progress).filter(function(key) { return /^russian_b2:p[1-6]-q\d{3}-q\d{3}$/.test(key); }).forEach(function(oldKey) {
+    var partKey = oldKey.replace(/^(russian_b2:p[1-6])-q\d{3}-q\d{3}$/, '$1');
+    if (!progress[partKey]) progress[partKey] = {};
+    Object.keys(progress[oldKey] || {}).forEach(function(questionId) {
+      var oldRecord = progress[oldKey][questionId], current = progress[partKey][questionId];
+      if (!current || ((oldRecord.submitted ? 1 : 0) > (current.submitted ? 1 : 0)) || ((oldRecord.attempts || 0) > (current.attempts || 0))) progress[partKey][questionId] = oldRecord;
+    });
+    delete progress[oldKey];
+  });
+  if (progress.__completed) Object.keys(progress.__completed).filter(function(key) { return /^russian_b2:p[1-6]-q\d{3}-q\d{3}$/.test(key); }).forEach(function(key) { delete progress.__completed[key]; });
   return progress;
 }
 function getQuizUnitKey() { return curBook.id + ':' + currentQuizData.id; }
@@ -1105,11 +1126,32 @@ function renderQuizItem(exercise, record) {
   html += '<div class="b2-explanation"' + (record.explanationOpen ? '' : ' hidden') + '>' + renderQuizExplanation(exercise) + '</div></section>';
   return html;
 }
+function formatQuestionRange(exerciseIds) {
+  if (!exerciseIds || !exerciseIds.length) return '';
+  var first = exerciseIds[0].slice(-3).replace(/^0+/, ''), last = exerciseIds[exerciseIds.length - 1].slice(-3).replace(/^0+/, '');
+  return first === last ? '题 ' + first : '题 ' + first + '–' + last;
+}
+function renderKnowledgePointNav(points) {
+  if (!Array.isArray(points) || !points.length) return '';
+  var html = '<section class="b2-knowledge-nav"><h2>知识点导航</h2><div class="b2-knowledge-grid">';
+  points.forEach(function(point) {
+    var first = point.exerciseIds && point.exerciseIds[0];
+    html += '<button class="b2-knowledge-card" onclick="jumpToQuizExercise(\'' + escapeHtml(first) + '\')"><strong>' + escapeHtml(point.title) + '</strong><span>' + escapeHtml(formatQuestionRange(point.exerciseIds)) + '</span><small>' + escapeHtml(point.rule) + '</small></button>';
+  });
+  return html + '</div></section>';
+}
+function jumpToQuizExercise(exerciseId) {
+  var target = document.querySelector('[data-question-id="' + exerciseId + '"]');
+  if (!target) { toast('未找到对应题目'); return; }
+  target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  target.classList.add('b2-quiz-target');
+  setTimeout(function() { target.classList.remove('b2-quiz-target'); }, 1600);
+}
 function renderQuizChapter(data, scrollPosition) {
   currentQuizData = data; currentQuizExercises = data.exercises || [];
   var html = '<div class="main-container b2-quiz-page"><div class="b2-quiz-header">' +
     '<button class="tb-btn" onclick="showShelf()">← 书架</button><h1>' + escapeHtml(data.title || '') + '</h1>' +
-    '<p>先独立作答；确认后只显示对错。答案与解析需要你手动展开。</p></div>';
+    '<p>先独立作答；确认后只显示对错。答案与解析需要你手动展开。</p></div>' + renderKnowledgePointNav(data.knowledgePoints);
   for (var i = 0; i < currentQuizExercises.length; i++) html += renderQuizItem(currentQuizExercises[i], getQuizRecord(currentQuizExercises[i].id));
   html += '<button class="b2-finish" onclick="finishQuizChapter()">结束本单元</button>';
   html += '<div class="b2-quiz-nav">' +

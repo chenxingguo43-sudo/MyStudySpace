@@ -64,3 +64,11 @@ test('B2 completion uses the permanent unit key instead of the chapter index', (
   assert.match(finishBody[1], /getB2CompletionKey\(\)/);
   assert.doesNotMatch(finishBody[1], /readStats\[curBook\.id\]/);
 });
+
+test('quiz reader renders knowledge-point navigation and migrates old unit progress', () => {
+  assert.match(reader, /function renderKnowledgePointNav\(points\)/);
+  assert.match(reader, /function jumpToQuizExercise\(exerciseId\)/);
+  assert.match(reader, /scrollIntoView/);
+  assert.match(reader, /russian_b2:p2-q001-q010/);
+  assert.match(reader, /russian_b2:p2/);
+});
