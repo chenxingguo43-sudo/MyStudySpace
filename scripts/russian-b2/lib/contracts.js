@@ -12,9 +12,10 @@ function validateExercise(exercise) {
   if (!/^(?:Q\d{3}|P\d+-Q\d{3})$/.test(exercise.id || '')) errors.push('exercise.id must be QNNN or Pn-Qnnn');
   if (exercise.type !== 'single-choice') errors.push(`${exercise.id}: type must be single-choice`);
   if (!exercise.question) errors.push(`${exercise.id}: question is required`);
-  if (!Array.isArray(exercise.options) || exercise.options.length !== 4) errors.push(`${exercise.id}: exactly four options are required`);
-  if (Array.isArray(exercise.options) && exercise.options.map(option => option.key).join(',') !== OPTION_KEYS.join(',')) errors.push(`${exercise.id}: option keys must be А,Б,В,Г`);
-  if (!OPTION_KEYS.includes(exercise.answer)) errors.push(`${exercise.id}: invalid answer`);
+  if (!Array.isArray(exercise.options) || exercise.options.length < 2 || exercise.options.length > 4) errors.push(`${exercise.id}: two to four options are required`);
+  const optionKeys = Array.isArray(exercise.options) ? exercise.options.map(option => option.key) : [];
+  if (optionKeys.join(',') !== OPTION_KEYS.slice(0, optionKeys.length).join(',')) errors.push(`${exercise.id}: option keys must be a leading sequence of А,Б,В,Г`);
+  if (!optionKeys.includes(exercise.answer)) errors.push(`${exercise.id}: invalid answer`);
   if (exercise.answer !== exercise.sourceAnswer) errors.push(`${exercise.id}: answer must equal sourceAnswer`);
   if (!exercise.sourceEvidence) errors.push(`${exercise.id}: sourceEvidence is required`);
   if (!exercise.sourceExplanation) errors.push(`${exercise.id}: sourceExplanation is required`);

@@ -63,6 +63,15 @@ test('requires permanent unit and exercise identifiers', () => {
   assert.match(errors, /printedNumber/);
 });
 
+test('accepts original two-choice exercises without adding invented options', () => {
+  const exercise = makeExercise('P1-Q001', 'А');
+  exercise.options = exercise.options.slice(0, 2);
+  exercise.sourceAnswer = 'А';
+  exercise.answer = 'А';
+  exercise.printedNumber = 1;
+  assert.deepEqual(validateUnit(Object.assign(makeUnit(), { part: 1, exercises: [exercise] })), []);
+});
+
 test('rejects duplicate reader chapter indexes in the unit manifest', () => {
   const another = makeUnit();
   another.id = 'p2-q011-q020';
