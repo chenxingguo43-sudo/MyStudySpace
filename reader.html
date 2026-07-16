@@ -247,9 +247,17 @@ body {
 .b2-explanation { margin-top: 12px; padding: 16px; border-left: 3px solid var(--accent); background: var(--glass); }
 .b2-explanation p { margin: 0 0 10px; }.b2-explanation p:last-child { margin-bottom: 0; }
 .b2-quiz-header { margin: 0 0 20px; }.b2-quiz-header p { color: var(--text-secondary); }
+.b2-quiz-page { max-width: 1200px; }
 .b2-quiz-nav { display: flex; gap: 10px; justify-content: space-between; margin-top: 28px; }
+.b2-quiz-layout { display: flex; min-width: 0; gap: 18px; }.b2-quiz-pane { min-width: 0; flex: 1 1 62%; }
+.b2-source-viewer { width: min(38%, 480px); flex: 0 0 min(38%, 480px); position: sticky; top: 72px; align-self: flex-start; }
+.b2-source-viewer img { width: 100%; max-height: calc(100vh - 110px); object-fit: contain; border: 1px solid var(--border); border-radius: 10px; background: #111; }
+.b2-source-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; }.b2-source-page { min-height: 38px; border: 1px solid var(--accent-border); border-radius: 8px; padding: 6px 10px; background: var(--glass); color: var(--text); cursor: pointer; }
+.b2-source-mobile { display: none; }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; }
 @media (max-width: 767px) { .b2-quiz-item { padding: 16px; } .b2-options label { font-size: 16px; } }
+@media (max-width: 959px) { .b2-source-viewer { display: none; } .b2-source-viewer.is-open { display: block; position: fixed; inset: 56px 12px 70px; z-index: 220; width: auto; background: var(--bg); padding: 12px; overflow: auto; box-shadow: var(--shadow); } .b2-source-mobile { display: inline-flex; } }
+@media (max-width: 767px) { .b2-quiz-layout { display: block; } .b2-source-viewer.is-open { inset: 48px 8px 60px; } }
 .progress-bar { height: 4px; background: var(--glass); border-radius: 2px; overflow: hidden; }
 .progress-fill { height: 100%; background: var(--accent); border-radius: 2px; transition: width 0.3s; }
 .progress-text { font-size: 12px; color: var(--text-dim); margin-top: 4px; }
@@ -1067,6 +1075,28 @@ function renderQuizExplanation(exercise) {
     '<p><strong>易错点</strong><br>' + escapeHtml(exercise.pitfalls.join('；')) + '</p>' +
     '<p><strong>原书页</strong><br>' + escapeHtml(questionPages + '；' + answerPages) + '</p>';
 }
+function sourcePageUrl(pageNumber) {
+  return 'data/textbook/russian_b2/pages/PDF-' + String(pageNumber).padStart(3, '0') + '.webp';
+}
+function renderSourceViewer(sourcePages) {
+  var pages = [].concat(sourcePages.questions || [], sourcePages.rules || [], sourcePages.answers || []);
+  var unique = pages.filter(function(page, index) { return pages.indexOf(page) === index; });
+  var buttons = unique.map(function(page) { return '<button class="b2-source-page" onclick="setSourcePage(' + page + ')">PDF ' + page + '</button>'; }).join('');
+  return '<aside class="b2-source-viewer" id="b2SourceViewer" aria-label="原书页对照">' +
+    '<div class="b2-source-tabs">' + buttons + '</div>' +
+    '<img id="b2SourceImage" src="' + sourcePageUrl(unique[0]) + '" alt="原书 PDF 第 ' + unique[0] + ' 页">' +
+    '</aside>';
+}
+function setSourcePage(pageNumber) {
+  var image = document.getElementById('b2SourceImage');
+  if (!image) return;
+  image.src = sourcePageUrl(pageNumber);
+  image.alt = '原书 PDF 第 ' + pageNumber + ' 页';
+}
+function openQuizSourceViewer() {
+  var viewer = document.getElementById('b2SourceViewer');
+  if (viewer) viewer.classList.toggle('is-open');
+}
 function renderQuizItem(exercise, record) {
   var html = '<section class="b2-quiz-item" data-question-id="' + escapeHtml(exercise.id) + '">';
   html += '<h3>' + escapeHtml(exercise.id) + '. ' + escapeHtml(exercise.question) + '</h3>';
@@ -1088,14 +1118,15 @@ function renderQuizItem(exercise, record) {
 function renderQuizChapter(data) {
   currentQuizData = data; currentQuizExercises = data.exercises || [];
   var html = '<div class="main-container b2-quiz-page"><div class="b2-quiz-header">' +
-    '<button class="tb-btn" onclick="showShelf()">← 书架</button><h1>' + escapeHtml(data.title || '') + '</h1>' +
+    '<button class="tb-btn" onclick="showShelf()">← 书架</button><button class="tb-btn b2-source-mobile" onclick="openQuizSourceViewer()">查看原书页</button><h1>' + escapeHtml(data.title || '') + '</h1>' +
     '<p>先独立作答；确认后只显示对错。答案与解析需要你手动展开。</p></div>';
+  html += '<div class="b2-quiz-layout"><main class="b2-quiz-pane">';
   for (var i = 0; i < currentQuizExercises.length; i++) html += renderQuizItem(currentQuizExercises[i], getQuizRecord(currentQuizExercises[i].id));
   html += '<button class="b2-finish" onclick="finishQuizChapter()">结束本单元</button>';
   html += '<div class="b2-quiz-nav">' +
     (curCh > 0 ? '<button class="fab-nav" onclick="goChapter(' + (curCh - 1) + ')">← 上一章</button>' : '<span class="fab-nav disabled">← 上一章</span>') +
     (curCh < curBook.chapters - 1 ? '<button class="fab-nav" onclick="goChapter(' + (curCh + 1) + ')">下一章 →</button>' : '<span class="fab-nav disabled">下一章 →</span>') +
-    '</div></div>';
+    '</div></main>' + renderSourceViewer(data.sourcePages) + '</div></div>';
   document.getElementById('app').innerHTML = html;
   window.scrollTo(0, 0); applyTheme(); saveLastRead();
 }

@@ -26,3 +26,10 @@ test('reader provides quiz-first interaction without auto-revealing answers', ()
   assert.ok(submitBody);
   assert.doesNotMatch(submitBody[1], /toggleQuizExplanation\(/);
 });
+
+test('quiz source pages use local WebP assets and completion is not scroll-triggered', () => {
+  assert.match(reader, /function setSourcePage\(pageNumber\)/);
+  assert.match(reader, /PDF-' \+ String\(pageNumber\)\.padStart\(3, '0'\) \+ '\.webp'/);
+  assert.match(reader, /function finishQuizChapter\(\)/);
+  assert.doesNotMatch(reader, /renderQuizChapter[\s\S]{0,6000}markChapterDone\(/);
+});
