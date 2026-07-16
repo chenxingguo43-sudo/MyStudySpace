@@ -1,0 +1,468 @@
+{
+  "id": "p1-imperative-aspect",
+  "partId": "p1",
+  "knowledgePointId": "p1-imperative-aspect",
+  "title": "命令式中的体与否定",
+  "exerciseIds": [
+    "P1-Q038",
+    "P1-Q039",
+    "P1-Q040",
+    "P1-Q041",
+    "P1-Q042",
+    "P1-Q043",
+    "P1-Q044"
+  ],
+  "overview": "命令式不仅是“命令”，还会表达请求、建议、提醒和禁止。体的选择决定动作被理解为一次完成、过程性行动还是避免不良行为。",
+  "decisionSteps": [
+    "先判断是请求、建议、禁止还是提醒。",
+    "确定希望对方做一次结果还是进行活动。",
+    "看到 не 时区分一般禁止和防止某次不良后果。",
+    "最后选体和命令式形式。"
+  ],
+  "reviewStatus": "approved",
+  "quickReference": {
+    "semanticQuestions": [
+      "是肯定命令还是否定？",
+      "强调一次完成还是过程？",
+      "是在禁止习惯还是提醒避免一次后果？"
+    ],
+    "structures": [
+      {
+        "question": "请求完成",
+        "structure": "完成体命令式",
+        "shortcut": "常用于请对方完成一次具体行为。"
+      },
+      {
+        "question": "一般禁止",
+        "structure": "не + 未完成体命令式",
+        "shortcut": "强调不要做这种行为。"
+      }
+    ],
+    "comparison": "Не опаздывай：别迟到（一般）；Не опоздай：别迟到这一次。",
+    "mnemonic": "肯定看结果，否定先分一般禁止和一次警告。"
+  },
+  "lessons": [
+    {
+      "id": "p1-imperative-aspect-l1",
+      "title": "肯定请求",
+      "scope": "core",
+      "meaning": "请人完成一件具体事情时常选完成体命令式。",
+      "conditions": [
+        "目标是一项可完成的动作。"
+      ],
+      "structure": "完成体命令式",
+      "caseChanges": [
+        {
+          "from": "написать",
+          "to": "Напиши письмо"
+        },
+        {
+          "from": "открыть",
+          "to": "Открой окно"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Напиши письмо сегодня.",
+          "zh": "今天把信写好。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "不是所有礼貌请求都必须完成体。"
+      ],
+      "instantChecks": [
+        {
+          "id": "p1-imperative-aspect-l1-check",
+          "type": "judgment",
+          "prompt": "一次具体结果常用完成体命令式。",
+          "answer": true,
+          "rationale": "请人完成一件具体事情时常选完成体命令式。",
+          "source": {
+            "kind": "grammar-book-rule",
+            "label": "新编俄语语法",
+            "file": "06 动词.md",
+            "section": "未完成体第二人称命令式的用法",
+            "pages": [
+              207,
+              209
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book-rule",
+          "label": "新编俄语语法",
+          "file": "06 动词.md",
+          "section": "未完成体第二人称命令式的用法",
+          "pages": [
+            207,
+            209
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p1-imperative-aspect-l2",
+      "title": "过程性指示",
+      "scope": "core",
+      "meaning": "要求持续、重复或按步骤进行时可用未完成体。",
+      "conditions": [
+        "强调活动过程或常规。"
+      ],
+      "structure": "未完成体命令式",
+      "caseChanges": [
+        {
+          "from": "читать",
+          "to": "Читайте внимательно"
+        },
+        {
+          "from": "писать",
+          "to": "Пишите медленнее"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Читайте текст внимательно.",
+          "zh": "请认真阅读课文。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "不要把过程性命令当成结果命令。"
+      ],
+      "instantChecks": [
+        {
+          "id": "p1-imperative-aspect-l2-check",
+          "type": "judgment",
+          "prompt": "未完成体可突出过程和持续方式。",
+          "answer": true,
+          "rationale": "要求持续、重复或按步骤进行时可用未完成体。",
+          "source": {
+            "kind": "grammar-book-rule",
+            "label": "新编俄语语法",
+            "file": "06 动词.md",
+            "section": "未完成体第二人称命令式的用法",
+            "pages": [
+              207,
+              209
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book-rule",
+          "label": "新编俄语语法",
+          "file": "06 动词.md",
+          "section": "未完成体第二人称命令式的用法",
+          "pages": [
+            207,
+            209
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p1-imperative-aspect-l3",
+      "title": "否定禁止",
+      "scope": "core",
+      "meaning": "一般规则、习惯性禁止常用 не + 未完成体。",
+      "conditions": [
+        "禁止某类行为。"
+      ],
+      "structure": "не + 未完成体命令式",
+      "caseChanges": [
+        {
+          "from": "опаздывать",
+          "to": "Не опаздывай"
+        },
+        {
+          "from": "курить",
+          "to": "Не курите здесь"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Не опаздывай на занятия.",
+          "zh": "上课不要迟到。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "一次警告可需要完成体。"
+      ],
+      "instantChecks": [
+        {
+          "id": "p1-imperative-aspect-l3-check",
+          "type": "judgment",
+          "prompt": "一般禁止常用未完成体。",
+          "answer": true,
+          "rationale": "一般规则、习惯性禁止常用 не + 未完成体。",
+          "source": {
+            "kind": "grammar-book-rule",
+            "label": "新编俄语语法",
+            "file": "06 动词.md",
+            "section": "未完成体第二人称命令式的用法",
+            "pages": [
+              207,
+              209
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book-rule",
+          "label": "新编俄语语法",
+          "file": "06 动词.md",
+          "section": "未完成体第二人称命令式的用法",
+          "pages": [
+            207,
+            209
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p1-imperative-aspect-l4",
+      "title": "提醒与警告",
+      "scope": "core",
+      "meaning": "担心某次不希望的结果发生时，не + 完成体可作提醒。",
+      "conditions": [
+        "预防一次具体后果。"
+      ],
+      "structure": "не + 完成体命令式",
+      "caseChanges": [
+        {
+          "from": "опоздать",
+          "to": "Не опоздай"
+        },
+        {
+          "from": "забыть",
+          "to": "Не забудь документы"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Не опоздай на поезд.",
+          "zh": "别误了火车。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "不要把这类提醒误当作长期禁令。"
+      ],
+      "instantChecks": [
+        {
+          "id": "p1-imperative-aspect-l4-check",
+          "type": "judgment",
+          "prompt": "一次后果警告可用完成体。",
+          "answer": true,
+          "rationale": "担心某次不希望的结果发生时，не + 完成体可作提醒。",
+          "source": {
+            "kind": "grammar-book-rule",
+            "label": "新编俄语语法",
+            "file": "06 动词.md",
+            "section": "未完成体第二人称命令式的用法",
+            "pages": [
+              207,
+              209
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book-rule",
+          "label": "新编俄语语法",
+          "file": "06 动词.md",
+          "section": "未完成体第二人称命令式的用法",
+          "pages": [
+            207,
+            209
+          ]
+        }
+      ]
+    }
+  ],
+  "relatedExtensions": [],
+  "checks": [
+    {
+      "id": "p1-imperative-aspect-check-1",
+      "type": "choice",
+      "prompt": "“Не курите здесь”更像哪类意思？",
+      "options": [
+        "一般禁止",
+        "一次结果提醒"
+      ],
+      "answer": "一般禁止",
+      "rationale": "禁止一种行为通常用未完成体。",
+      "source": {
+        "kind": "grammar-book-rule",
+        "label": "新编俄语语法",
+        "file": "06 动词.md",
+        "section": "未完成体第二人称命令式的用法",
+        "pages": [
+          207,
+          209
+        ]
+      }
+    },
+    {
+      "id": "p1-imperative-aspect-check-2",
+      "type": "choice",
+      "prompt": "“Не забудь документы”是在提醒避免一次后果。",
+      "options": [
+        "正确",
+        "错误"
+      ],
+      "answer": "正确",
+      "rationale": "强调不要发生一次忘带的结果。",
+      "source": {
+        "kind": "grammar-book-rule",
+        "label": "新编俄语语法",
+        "file": "06 动词.md",
+        "section": "未完成体第二人称命令式的用法",
+        "pages": [
+          207,
+          209
+        ]
+      }
+    },
+    {
+      "id": "p1-imperative-aspect-check-3",
+      "type": "choice",
+      "prompt": "命令式体的选择不影响语气。",
+      "options": [
+        "正确",
+        "错误"
+      ],
+      "answer": "错误",
+      "rationale": "体会改变结果、过程和警告的侧重点。",
+      "source": {
+        "kind": "grammar-book-rule",
+        "label": "新编俄语语法",
+        "file": "06 动词.md",
+        "section": "未完成体第二人称命令式的用法",
+        "pages": [
+          207,
+          209
+        ]
+      }
+    }
+  ],
+  "rules": [
+    {
+      "structure": "完成体命令式",
+      "meaning": "常用于一次具体请求、建议或预期结果。",
+      "source": {
+        "kind": "grammar-book-rule",
+        "label": "新编俄语语法",
+        "file": "06 动词.md",
+        "section": "未完成体第二人称命令式的用法",
+        "pages": [
+          207,
+          209
+        ]
+      }
+    },
+    {
+      "structure": "не + 未完成体/完成体",
+      "meaning": "分别偏向一般禁止与一次后果提醒。",
+      "source": {
+        "kind": "grammar-book-rule",
+        "label": "新编俄语语法",
+        "file": "06 动词.md",
+        "section": "未完成体第二人称命令式的用法",
+        "pages": [
+          207,
+          209
+        ]
+      }
+    }
+  ],
+  "comparisons": [
+    {
+      "left": "Не опаздывай",
+      "right": "Не опоздай",
+      "note": "一般习惯性禁止与一次性提醒。",
+      "source": {
+        "kind": "learning-explanation",
+        "label": "学习讲解"
+      }
+    }
+  ],
+  "examples": [
+    {
+      "ru": "Напиши мне завтра.",
+      "zh": "明天给我写信。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    },
+    {
+      "ru": "Читайте текст внимательно.",
+      "zh": "请认真读文章。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    },
+    {
+      "ru": "Не курите здесь.",
+      "zh": "不要在这里吸烟。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    },
+    {
+      "ru": "Не забудь паспорт.",
+      "zh": "别忘了护照。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    }
+  ],
+  "pitfalls": [
+    "不要把所有否定命令一律选未完成体。",
+    "命令式也可表达建议和提醒。",
+    "先判语义再判体。"
+  ],
+  "sources": [
+    {
+      "kind": "grammar-book-rule",
+      "label": "新编俄语语法",
+      "file": "06 动词.md",
+      "section": "未完成体第二人称命令式的用法",
+      "pages": [
+        207,
+        209
+      ]
+    },
+    {
+      "kind": "b2-original",
+      "label": "B2 原书考点",
+      "pages": [
+        15,
+        16
+      ]
+    }
+  ]
+}

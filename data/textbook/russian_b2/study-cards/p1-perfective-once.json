@@ -1,0 +1,456 @@
+{
+  "id": "p1-perfective-once",
+  "partId": "p1",
+  "knowledgePointId": "p1-perfective-once",
+  "title": "完成体：一次动作与结果",
+  "exerciseIds": [
+    "P1-Q021",
+    "P1-Q022",
+    "P1-Q023",
+    "P1-Q024",
+    "P1-Q025",
+    "P1-Q026",
+    "P1-Q027",
+    "P1-Q028",
+    "P1-Q029"
+  ],
+  "overview": "完成体强调动作作为一个整体、一次完成或已经达到的结果。重点不是动词有没有前缀，而是语境是否把动作看作有界结果。",
+  "decisionSteps": [
+    "判断是否问一次完成或结果。",
+    "寻找完成、达到、开始等界限信号。",
+    "确认不是习惯、过程或重复。",
+    "再核对对应体和时态。"
+  ],
+  "reviewStatus": "approved",
+  "quickReference": {
+    "semanticQuestions": [
+      "动作是否有明确终点？",
+      "句子是否强调一次结果？",
+      "是否在叙述重复习惯？"
+    ],
+    "structures": [
+      {
+        "question": "一次完成",
+        "structure": "完成体动词",
+        "shortcut": "把动作看成一个有终点的整体。"
+      },
+      {
+        "question": "结果",
+        "structure": "完成体过去/将来时",
+        "shortcut": "关注结果已到达或将到达。"
+      }
+    ],
+    "comparison": "прочитал книгу：读完；читал книгу：在读/读过/经常读。",
+    "mnemonic": "有结果、看整体，优先想完成体。"
+  },
+  "lessons": [
+    {
+      "id": "p1-perfective-once-l1",
+      "title": "动作边界",
+      "scope": "core",
+      "meaning": "完成体把动作作为有开始和终点的整体。",
+      "conditions": [
+        "句子指向一个完整事件。"
+      ],
+      "structure": "完成体 + 一次语境",
+      "caseChanges": [
+        {
+          "from": "читать книгу",
+          "to": "прочитать книгу"
+        },
+        {
+          "from": "писать письмо",
+          "to": "написать письмо"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Я прочитал книгу за вечер.",
+          "zh": "我一个晚上读完了书。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "不能仅凭前缀判断，仍需看语境。"
+      ],
+      "instantChecks": [
+        {
+          "id": "p1-perfective-once-l1-check",
+          "type": "judgment",
+          "prompt": "完成体突出动作的整体和结果。",
+          "answer": true,
+          "rationale": "完成体把动作作为有开始和终点的整体。",
+          "source": {
+            "kind": "grammar-book-rule",
+            "label": "新编俄语语法",
+            "file": "06 动词.md",
+            "section": "动词体的基本意义和用法",
+            "pages": [
+              176
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book-rule",
+          "label": "新编俄语语法",
+          "file": "06 动词.md",
+          "section": "动词体的基本意义和用法",
+          "pages": [
+            176
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p1-perfective-once-l2",
+      "title": "一次结果",
+      "scope": "core",
+      "meaning": "一次具体动作完成后，重点落在结果。",
+      "conditions": [
+        "结果已出现或被期待。"
+      ],
+      "structure": "完成体过去时/将来时",
+      "caseChanges": [
+        {
+          "from": "Я",
+          "to": "написал письмо"
+        },
+        {
+          "from": "Она",
+          "to": "решит задачу"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Он написал письмо и отправил его.",
+          "zh": "他写完信并寄出了。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "若强调过程本身，应转向未完成体。"
+      ],
+      "instantChecks": [
+        {
+          "id": "p1-perfective-once-l2-check",
+          "type": "judgment",
+          "prompt": "完成体适合表达一次完成的结果。",
+          "answer": true,
+          "rationale": "一次具体动作完成后，重点落在结果。",
+          "source": {
+            "kind": "grammar-book-rule",
+            "label": "新编俄语语法",
+            "file": "06 动词.md",
+            "section": "动词体的基本意义和用法",
+            "pages": [
+              176
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book-rule",
+          "label": "新编俄语语法",
+          "file": "06 动词.md",
+          "section": "动词体的基本意义和用法",
+          "pages": [
+            176
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p1-perfective-once-l3",
+      "title": "顺序叙述",
+      "scope": "core",
+      "meaning": "连续事件叙述常以完成体标出一个个完成节点。",
+      "conditions": [
+        "前一动作被看成已经完成。"
+      ],
+      "structure": "完成体 + 后续事件",
+      "caseChanges": [
+        {
+          "from": "сначала",
+          "to": "прочитал"
+        },
+        {
+          "from": "потом",
+          "to": "ответил"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Сначала он прочитал статью, потом ответил.",
+          "zh": "他先读完文章，随后作答。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "不是所有过去时事件都必须完成体。"
+      ],
+      "instantChecks": [
+        {
+          "id": "p1-perfective-once-l3-check",
+          "type": "judgment",
+          "prompt": "完成体可标出叙事中的完成节点。",
+          "answer": true,
+          "rationale": "连续事件叙述常以完成体标出一个个完成节点。",
+          "source": {
+            "kind": "grammar-book-rule",
+            "label": "新编俄语语法",
+            "file": "06 动词.md",
+            "section": "动词体的基本意义和用法",
+            "pages": [
+              176
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book-rule",
+          "label": "新编俄语语法",
+          "file": "06 动词.md",
+          "section": "动词体的基本意义和用法",
+          "pages": [
+            176
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p1-perfective-once-l4",
+      "title": "结果与目的",
+      "scope": "core",
+      "meaning": "目的已经达到、任务已经做完时，要区分过程和达成。",
+      "conditions": [
+        "问题问是否完成而非是否从事。"
+      ],
+      "structure": "完成体不定式/未来时",
+      "caseChanges": [
+        {
+          "from": "успеть",
+          "to": "сделать"
+        },
+        {
+          "from": "решить",
+          "to": "задачу"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Мы успели сделать работу до вечера.",
+          "zh": "我们及时在傍晚前完成了工作。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "持续性动词不应强行改完成体。"
+      ],
+      "instantChecks": [
+        {
+          "id": "p1-perfective-once-l4-check",
+          "type": "judgment",
+          "prompt": "完成体与结果、达成密切相关。",
+          "answer": true,
+          "rationale": "目的已经达到、任务已经做完时，要区分过程和达成。",
+          "source": {
+            "kind": "grammar-book-rule",
+            "label": "新编俄语语法",
+            "file": "06 动词.md",
+            "section": "动词体的基本意义和用法",
+            "pages": [
+              176
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book-rule",
+          "label": "新编俄语语法",
+          "file": "06 动词.md",
+          "section": "动词体的基本意义和用法",
+          "pages": [
+            176
+          ]
+        }
+      ]
+    }
+  ],
+  "relatedExtensions": [],
+  "checks": [
+    {
+      "id": "p1-perfective-once-check-1",
+      "type": "choice",
+      "prompt": "“我一个晚上读完这本书”更强调什么？",
+      "options": [
+        "完成结果",
+        "阅读过程"
+      ],
+      "answer": "完成结果",
+      "rationale": "读完突出结果。",
+      "source": {
+        "kind": "grammar-book-rule",
+        "label": "新编俄语语法",
+        "file": "06 动词.md",
+        "section": "动词体的基本意义和用法",
+        "pages": [
+          176
+        ]
+      }
+    },
+    {
+      "id": "p1-perfective-once-check-2",
+      "type": "choice",
+      "prompt": "完成体只由动词前缀决定。",
+      "options": [
+        "正确",
+        "错误"
+      ],
+      "answer": "错误",
+      "rationale": "语境决定体的使用。",
+      "source": {
+        "kind": "grammar-book-rule",
+        "label": "新编俄语语法",
+        "file": "06 动词.md",
+        "section": "动词体的基本意义和用法",
+        "pages": [
+          176
+        ]
+      }
+    },
+    {
+      "id": "p1-perfective-once-check-3",
+      "type": "choice",
+      "prompt": "叙述一次已完成的动作，通常优先考虑完成体。",
+      "options": [
+        "正确",
+        "错误"
+      ],
+      "answer": "正确",
+      "rationale": "完成体强调一次整体事件。",
+      "source": {
+        "kind": "grammar-book-rule",
+        "label": "新编俄语语法",
+        "file": "06 动词.md",
+        "section": "动词体的基本意义和用法",
+        "pages": [
+          176
+        ]
+      }
+    }
+  ],
+  "rules": [
+    {
+      "structure": "完成体",
+      "meaning": "表达一次完整动作、结果或达到界限。",
+      "source": {
+        "kind": "grammar-book-rule",
+        "label": "新编俄语语法",
+        "file": "06 动词.md",
+        "section": "动词体的基本意义和用法",
+        "pages": [
+          176
+        ]
+      }
+    },
+    {
+      "structure": "结果语境",
+      "meaning": "当题干关注是否完成、是否达到时优先考虑完成体。",
+      "source": {
+        "kind": "grammar-book-rule",
+        "label": "新编俄语语法",
+        "file": "06 动词.md",
+        "section": "动词体的基本意义和用法",
+        "pages": [
+          176
+        ]
+      }
+    }
+  ],
+  "comparisons": [
+    {
+      "left": "читал книгу",
+      "right": "прочитал книгу",
+      "note": "过程/经历与读完结果的差别。",
+      "source": {
+        "kind": "learning-explanation",
+        "label": "学习讲解"
+      }
+    }
+  ],
+  "examples": [
+    {
+      "ru": "Я прочитал книгу за вечер.",
+      "zh": "我一个晚上读完了书。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    },
+    {
+      "ru": "Она написала письмо.",
+      "zh": "她写完了信。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    },
+    {
+      "ru": "Мы решим задачу завтра.",
+      "zh": "我们明天将解决这个题。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    },
+    {
+      "ru": "Он наконец понял вопрос.",
+      "zh": "他终于理解了问题。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    }
+  ],
+  "pitfalls": [
+    "不要只凭前缀选完成体。",
+    "“一次”不等于所有场合都排除未完成体。",
+    "先判断题目问过程还是结果。"
+  ],
+  "sources": [
+    {
+      "kind": "grammar-book-rule",
+      "label": "新编俄语语法",
+      "file": "06 动词.md",
+      "section": "动词体的基本意义和用法",
+      "pages": [
+        176
+      ]
+    },
+    {
+      "kind": "b2-original",
+      "label": "B2 原书考点",
+      "pages": [
+        13,
+        14
+      ]
+    }
+  ]
+}

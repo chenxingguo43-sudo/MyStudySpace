@@ -27,10 +27,28 @@ test('six-part grammar data attaches approved study-card IDs to knowledge points
   assert.equal(p2.knowledgePoints.find(item => item.id === 'p2-adjective-case').studyCardId, undefined);
 });
 
+test('P1 publishes six approved rich cards in navigation order', () => {
+  const expected = [
+    'p1-subject-predicate',
+    'p1-perfective-once',
+    'p1-imperfective-process',
+    'p1-imperative-aspect',
+    'p1-infinitive-negation',
+    'p1-motion-return'
+  ];
+  const cards = buildStudyCards({ root, write: false }).cards.filter(card => card.partId === 'p1');
+  assert.deepEqual(cards.map(card => card.id), expected);
+  assert.ok(cards.every(card => card.reviewStatus === 'approved'));
+  assert.ok(cards.every(card => card.lessons.length >= 4 && card.checks.length >= 3));
+  const lessonExamples = cards.flatMap(card => card.lessons.flatMap(lesson => lesson.examples));
+  assert.ok(lessonExamples.every(example => example.zh !== '示例：请结合该结构理解句子成分。'));
+  assert.ok(lessonExamples.every(example => /[.!?。！？]$/.test(example.ru)));
+});
+
 test('P2 time-and-cause card is source-traceable and scoped to Q051–Q058', () => {
   const result = buildStudyCards({ root, write: false });
-  assert.equal(result.cards.length, 1);
-  const card = result.cards[0];
+  const card = result.cards.find(item => item.id === 'p2-time-cause');
+  assert.ok(card);
   assert.equal(card.id, 'p2-time-cause');
   assert.deepEqual(card.exerciseIds, ['P2-Q051', 'P2-Q052', 'P2-Q053', 'P2-Q054', 'P2-Q055', 'P2-Q056', 'P2-Q057', 'P2-Q058']);
   assert.ok(card.rules.every(rule => ['grammar-book', 'b2-original'].includes(rule.source.kind)));
@@ -52,7 +70,7 @@ test('study-card validation rejects missing grammar headings and unlabelled supp
 });
 
 test('rich P2 card requires approved layered lesson content', () => {
-  const card = structuredClone(buildStudyCards({ root, write: false }).cards[0]);
+  const card = structuredClone(buildStudyCards({ root, write: false }).cards.find(item => item.id === 'p2-time-cause'));
   const chapter = buildSixPartBook({ root, write: false }).parts.find(part => part.id === card.partId);
   const grammarText = fs.readFileSync(path.join(resolveGrammarRoot(root), '08 前置词.md'), 'utf8');
   Object.assign(card, {
@@ -79,7 +97,7 @@ test('rich P2 card requires approved layered lesson content', () => {
 });
 
 test('P2 rich card covers the approved lesson sequence and independent checks', () => {
-  const card = buildStudyCards({ root, write: false }).cards[0];
+  const card = buildStudyCards({ root, write: false }).cards.find(item => item.id === 'p2-time-cause');
   assert.equal(card.reviewStatus, 'approved');
   assert.deepEqual(card.lessons.map(lesson => lesson.title), [
     '持续多久', '计划或维持多久', '多久以后发生', '在多久内完成',

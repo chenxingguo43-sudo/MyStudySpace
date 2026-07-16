@@ -1,0 +1,472 @@
+{
+  "id": "p1-subject-predicate",
+  "partId": "p1",
+  "knowledgePointId": "p1-subject-predicate",
+  "title": "主谓一致与谓语形式",
+  "exerciseIds": [
+    "P1-Q001",
+    "P1-Q002",
+    "P1-Q003",
+    "P1-Q004",
+    "P1-Q005",
+    "P1-Q006",
+    "P1-Q007",
+    "P1-Q008",
+    "P1-Q009",
+    "P1-Q010",
+    "P1-Q011",
+    "P1-Q012",
+    "P1-Q013",
+    "P1-Q014",
+    "P1-Q015",
+    "P1-Q016",
+    "P1-Q017",
+    "P1-Q018",
+    "P1-Q019",
+    "P1-Q020"
+  ],
+  "overview": "本卡处理过去时性数一致、复数主语、职业名称和数量结构。做题时先找语法主语，再决定谓语形式。",
+  "decisionSteps": [
+    "找出真正作主语的名词或代词。",
+    "确认主语是单数、复数还是数量结构。",
+    "过去时先看性与数；现在时先看人称与数。",
+    "最后排除受近邻名词干扰的形式。"
+  ],
+  "reviewStatus": "approved",
+  "quickReference": {
+    "semanticQuestions": [
+      "谁是句子的语法主语？",
+      "谓语在什么时态？",
+      "主语的性和数是什么？"
+    ],
+    "structures": [
+      {
+        "question": "过去时",
+        "structure": "主语 + -л/-ла/-ло/-ли",
+        "shortcut": "单数按性，复数用 -ли。"
+      },
+      {
+        "question": "职业名词",
+        "structure": "女性主语 + 语境化谓语",
+        "shortcut": "先看实际指代者，不只看职业名词词尾。"
+      }
+    ],
+    "comparison": "Иванова выступила：主语为女性单数；студенты выступили：主语为复数。",
+    "mnemonic": "先定主语，再定时态，最后定词尾。"
+  },
+  "lessons": [
+    {
+      "id": "p1-subject-predicate-l1",
+      "title": "识别语法主语",
+      "scope": "core",
+      "meaning": "确认真正控制谓语形式的成分。",
+      "conditions": [
+        "主语可能与最近名词不相邻。"
+      ],
+      "structure": "谁/什么（主格）→ 谓语",
+      "caseChanges": [
+        {
+          "from": "Иванова",
+          "to": "Иванова выступила"
+        },
+        {
+          "from": "студенты",
+          "to": "Студенты выступили"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Дирижёр Иванова выступила на концерте.",
+          "zh": "指挥伊万诺娃在音乐会上演出。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "不要让介词短语中的名词替代主语。"
+      ],
+      "instantChecks": [
+        {
+          "id": "p1-subject-predicate-l1-check",
+          "type": "judgment",
+          "prompt": "主语是谓语形式的首要依据。",
+          "answer": true,
+          "rationale": "确认真正控制谓语形式的成分。",
+          "source": {
+            "kind": "grammar-book-rule",
+            "label": "新编俄语语法",
+            "file": "13 双部句.md",
+            "section": "主语和谓语的协调关系",
+            "pages": [
+              348
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book-rule",
+          "label": "新编俄语语法",
+          "file": "13 双部句.md",
+          "section": "主语和谓语的协调关系",
+          "pages": [
+            348
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p1-subject-predicate-l2",
+      "title": "过去时的性数",
+      "scope": "core",
+      "meaning": "过去时单数显性标出性别，复数不再区分性别。",
+      "conditions": [
+        "先判断单数或复数。"
+      ],
+      "structure": "он -л；она -ла；оно -ло；они -ли",
+      "caseChanges": [
+        {
+          "from": "он",
+          "to": "пришёл"
+        },
+        {
+          "from": "она",
+          "to": "пришла"
+        },
+        {
+          "from": "они",
+          "to": "пришли"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Он пришёл домой поздно.",
+          "zh": "他很晚才回到家。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "职业词形式不必然等于实际人物性别。"
+      ],
+      "instantChecks": [
+        {
+          "id": "p1-subject-predicate-l2-check",
+          "type": "judgment",
+          "prompt": "女性单数主语通常要求过去时 -ла。",
+          "answer": true,
+          "rationale": "过去时单数显性标出性别，复数不再区分性别。",
+          "source": {
+            "kind": "grammar-book-rule",
+            "label": "新编俄语语法",
+            "file": "13 双部句.md",
+            "section": "主语和谓语的协调关系",
+            "pages": [
+              348
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book-rule",
+          "label": "新编俄语语法",
+          "file": "13 双部句.md",
+          "section": "主语和谓语的协调关系",
+          "pages": [
+            348
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p1-subject-predicate-l3",
+      "title": "数量与集合结构",
+      "scope": "core",
+      "meaning": "数量词短语需要结合整体数量和行为主体来判断。",
+      "conditions": [
+        "先判断句子强调数量整体还是多个行动者。"
+      ],
+      "structure": "数量词短语 + 单/复数谓语",
+      "caseChanges": [
+        {
+          "from": "пять студентов",
+          "to": "пришли"
+        },
+        {
+          "from": "пять минут",
+          "to": "прошло"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Студенты пришли вовремя.",
+          "zh": "学生们准时到了。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "时间量常作为整体处理。"
+      ],
+      "instantChecks": [
+        {
+          "id": "p1-subject-predicate-l3-check",
+          "type": "judgment",
+          "prompt": "数量短语不能机械只按最后一个名词判断。",
+          "answer": true,
+          "rationale": "数量词短语需要结合整体数量和行为主体来判断。",
+          "source": {
+            "kind": "grammar-book-rule",
+            "label": "新编俄语语法",
+            "file": "13 双部句.md",
+            "section": "主语和谓语的协调关系",
+            "pages": [
+              348
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book-rule",
+          "label": "新编俄语语法",
+          "file": "13 双部句.md",
+          "section": "主语和谓语的协调关系",
+          "pages": [
+            348
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p1-subject-predicate-l4",
+      "title": "特殊主语",
+      "scope": "core",
+      "meaning": "职业名称、缩写和不变格名词需要按实际语义确定一致。",
+      "conditions": [
+        "确认说的是谁、多少人。"
+      ],
+      "structure": "实际指代 + 谓语形式",
+      "caseChanges": [
+        {
+          "from": "врач Иванова",
+          "to": "выступила"
+        },
+        {
+          "from": "жюри",
+          "to": "решило"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Врач Иванова выступила на собрании.",
+          "zh": "伊万诺娃医生在会议上发言。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "先看实际指代和语境，而非外形。"
+      ],
+      "instantChecks": [
+        {
+          "id": "p1-subject-predicate-l4-check",
+          "type": "judgment",
+          "prompt": "职业名称可由女性实际指代触发阴性过去时。",
+          "answer": true,
+          "rationale": "职业名称、缩写和不变格名词需要按实际语义确定一致。",
+          "source": {
+            "kind": "grammar-book-rule",
+            "label": "新编俄语语法",
+            "file": "13 双部句.md",
+            "section": "主语和谓语的协调关系",
+            "pages": [
+              348
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book-rule",
+          "label": "新编俄语语法",
+          "file": "13 双部句.md",
+          "section": "主语和谓语的协调关系",
+          "pages": [
+            348
+          ]
+        }
+      ]
+    }
+  ],
+  "relatedExtensions": [],
+  "checks": [
+    {
+      "id": "p1-subject-predicate-check-1",
+      "type": "choice",
+      "prompt": "Иванова ___ на конференции.",
+      "options": [
+        "выступил",
+        "выступила"
+      ],
+      "answer": "выступила",
+      "rationale": "女性单数主语在过去时通常用阴性形式。",
+      "source": {
+        "kind": "grammar-book-rule",
+        "label": "新编俄语语法",
+        "file": "13 双部句.md",
+        "section": "主语和谓语的协调关系",
+        "pages": [
+          348
+        ]
+      }
+    },
+    {
+      "id": "p1-subject-predicate-check-2",
+      "type": "choice",
+      "prompt": "五名学生作为行动者时，谓语常用复数。",
+      "options": [
+        "正确",
+        "错误"
+      ],
+      "answer": "正确",
+      "rationale": "强调多个行动者时常用复数。",
+      "source": {
+        "kind": "grammar-book-rule",
+        "label": "新编俄语语法",
+        "file": "13 双部句.md",
+        "section": "主语和谓语的协调关系",
+        "pages": [
+          348
+        ]
+      }
+    },
+    {
+      "id": "p1-subject-predicate-check-3",
+      "type": "choice",
+      "prompt": "介词短语中的名词一定控制谓语。",
+      "options": [
+        "正确",
+        "错误"
+      ],
+      "answer": "错误",
+      "rationale": "应先找主格主语。",
+      "source": {
+        "kind": "grammar-book-rule",
+        "label": "新编俄语语法",
+        "file": "13 双部句.md",
+        "section": "主语和谓语的协调关系",
+        "pages": [
+          348
+        ]
+      }
+    }
+  ],
+  "rules": [
+    {
+      "structure": "主语与谓语的一致",
+      "meaning": "谓语形式受主语的人称、数及过去时性别控制。",
+      "source": {
+        "kind": "grammar-book-rule",
+        "label": "新编俄语语法",
+        "file": "13 双部句.md",
+        "section": "主语和谓语的协调关系",
+        "pages": [
+          348
+        ]
+      }
+    },
+    {
+      "structure": "过去时",
+      "meaning": "单数过去时按性变化，复数形式为 -ли。",
+      "source": {
+        "kind": "grammar-book-rule",
+        "label": "新编俄语语法",
+        "file": "13 双部句.md",
+        "section": "主语和谓语的协调关系",
+        "pages": [
+          348
+        ]
+      }
+    }
+  ],
+  "comparisons": [
+    {
+      "left": "врач Иванова выступила",
+      "right": "врачи выступили",
+      "note": "前者按女性单数实际指代，后者按复数主语。",
+      "source": {
+        "kind": "learning-explanation",
+        "label": "学习讲解"
+      }
+    }
+  ],
+  "examples": [
+    {
+      "ru": "Иванова выступила с докладом.",
+      "zh": "伊万诺娃作了报告。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    },
+    {
+      "ru": "Студенты пришли вовремя.",
+      "zh": "学生们准时到了。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    },
+    {
+      "ru": "Пять минут прошло быстро.",
+      "zh": "五分钟很快过去了。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    },
+    {
+      "ru": "Врач Иванова осмотрела пациента.",
+      "zh": "伊万诺娃医生检查了病人。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    }
+  ],
+  "pitfalls": [
+    "不要按离谓语最近的名词选形式。",
+    "过去时先分单复数，再判单数性别。",
+    "职业名词要看实际指代。"
+  ],
+  "sources": [
+    {
+      "kind": "grammar-book-rule",
+      "label": "新编俄语语法",
+      "file": "13 双部句.md",
+      "section": "主语和谓语的协调关系",
+      "pages": [
+        348
+      ]
+    },
+    {
+      "kind": "b2-original",
+      "label": "B2 原书考点",
+      "pages": [
+        10,
+        11,
+        12
+      ]
+    }
+  ]
+}

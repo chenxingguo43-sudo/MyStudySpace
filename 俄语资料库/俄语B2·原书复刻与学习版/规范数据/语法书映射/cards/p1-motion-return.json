@@ -1,0 +1,466 @@
+{
+  "id": "p1-motion-return",
+  "partId": "p1",
+  "knowledgePointId": "p1-motion-return",
+  "title": "运动动词：去过、返回与未归",
+  "exerciseIds": [
+    "P1-Q055",
+    "P1-Q056",
+    "P1-Q057",
+    "P1-Q058",
+    "P1-Q059",
+    "P1-Q060"
+  ],
+  "overview": "运动动词题的核心是方向、次数、是否已返回，以及前缀是否把“离开、到达、返回”变成结果。不要只按中文“去”选一个动词。",
+  "decisionSteps": [
+    "先判断动作是一条单向路线还是来回/多向。",
+    "判断说话时主体是否已返回。",
+    "检查是否强调离开、到达或返回的结果。",
+    "最后选择定向、不定向或带前缀形式。"
+  ],
+  "reviewStatus": "approved",
+  "quickReference": {
+    "semanticQuestions": [
+      "是一方向移动还是往返/多向？",
+      "人现在在原地、目的地还是途中？",
+      "动词是否要表达离开或返回结果？"
+    ],
+    "structures": [
+      {
+        "question": "去过又回",
+        "structure": "ходил/ездил + 地点",
+        "shortcut": "过去经历且已返回。"
+      },
+      {
+        "question": "单向进行",
+        "structure": "идти/ехать + 地点",
+        "shortcut": "正沿一个方向移动或强调单程。"
+      }
+    ],
+    "comparison": "Я ходил в магазин：去过并回来了；Я шёл в магазин：正在/当时往商店去。",
+    "mnemonic": "先问：人现在回来了吗？路线是一条还是来回？"
+  },
+  "lessons": [
+    {
+      "id": "p1-motion-return-l1",
+      "title": "定向与不定向",
+      "scope": "core",
+      "meaning": "定向动词描写一条具体方向；不定向动词适合往返、多向或一般活动。",
+      "conditions": [
+        "先判断路线和次数。"
+      ],
+      "structure": "идти/ехать vs ходить/ездить",
+      "caseChanges": [
+        {
+          "from": "идти",
+          "to": "Иду в школу"
+        },
+        {
+          "from": "ходить",
+          "to": "Хожу в школу"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Сейчас я иду в школу.",
+          "zh": "我现在正去学校。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "不要用中文“去”直接决定。"
+      ],
+      "instantChecks": [
+        {
+          "id": "p1-motion-return-l1-check",
+          "type": "judgment",
+          "prompt": "方向与重复是第一层判断。",
+          "answer": true,
+          "rationale": "定向动词描写一条具体方向；不定向动词适合往返、多向或一般活动。",
+          "source": {
+            "kind": "grammar-book-rule",
+            "label": "新编俄语语法",
+            "file": "06 动词.md",
+            "section": "运动动词",
+            "pages": [
+              218,
+              223
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book-rule",
+          "label": "新编俄语语法",
+          "file": "06 动词.md",
+          "section": "运动动词",
+          "pages": [
+            218,
+            223
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p1-motion-return-l2",
+      "title": "去过又回",
+      "scope": "core",
+      "meaning": "过去时不定向动词常说明去过某地并已回来。",
+      "conditions": [
+        "说话时主体不在目的地。"
+      ],
+      "structure": "ходил/ездил + 地点",
+      "caseChanges": [
+        {
+          "from": "ходить",
+          "to": "Я ходил в магазин"
+        },
+        {
+          "from": "ездить",
+          "to": "Мы ездили в город"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Я ходил в магазин и уже вернулся.",
+          "zh": "我去过商店，已经回来了。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "若强调抵达或单程，需考虑定向或前缀动词。"
+      ],
+      "instantChecks": [
+        {
+          "id": "p1-motion-return-l2-check",
+          "type": "judgment",
+          "prompt": "去过又回是高频信号。",
+          "answer": true,
+          "rationale": "过去时不定向动词常说明去过某地并已回来。",
+          "source": {
+            "kind": "grammar-book-rule",
+            "label": "新编俄语语法",
+            "file": "06 动词.md",
+            "section": "运动动词",
+            "pages": [
+              218,
+              223
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book-rule",
+          "label": "新编俄语语法",
+          "file": "06 动词.md",
+          "section": "运动动词",
+          "pages": [
+            218,
+            223
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p1-motion-return-l3",
+      "title": "离开与到达",
+      "scope": "core",
+      "meaning": "前缀使移动带上离开、到达、进入或返回的结果。",
+      "conditions": [
+        "题目强调状态变化或终点。"
+      ],
+      "structure": "уехать/приехать/вернуться",
+      "caseChanges": [
+        {
+          "from": "уехать",
+          "to": "Он уехал"
+        },
+        {
+          "from": "вернуться",
+          "to": "Она вернулась"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Он уехал из города утром.",
+          "zh": "他早上离开了这座城市。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "前缀不只改变方向，也常改变体和结果。"
+      ],
+      "instantChecks": [
+        {
+          "id": "p1-motion-return-l3-check",
+          "type": "judgment",
+          "prompt": "离开、到达、返回需单独辨认。",
+          "answer": true,
+          "rationale": "前缀使移动带上离开、到达、进入或返回的结果。",
+          "source": {
+            "kind": "grammar-book-rule",
+            "label": "新编俄语语法",
+            "file": "06 动词.md",
+            "section": "运动动词",
+            "pages": [
+              218,
+              223
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book-rule",
+          "label": "新编俄语语法",
+          "file": "06 动词.md",
+          "section": "运动动词",
+          "pages": [
+            218,
+            223
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p1-motion-return-l4",
+      "title": "尚未返回",
+      "scope": "core",
+      "meaning": "表示人仍在外或尚未回来时，要避免误用“去过又回”的形式。",
+      "conditions": [
+        "结果状态仍持续。"
+      ],
+      "structure": "уехал/ушёл и ещё не вернулся",
+      "caseChanges": [
+        {
+          "from": "уехать",
+          "to": "Он уехал в Москву"
+        },
+        {
+          "from": "вернуться",
+          "to": "Он ещё не вернулся"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Он уехал в Москву и ещё не вернулся.",
+          "zh": "他去了莫斯科，还没有回来。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "不能用 ездил 表示尚在目的地。"
+      ],
+      "instantChecks": [
+        {
+          "id": "p1-motion-return-l4-check",
+          "type": "judgment",
+          "prompt": "是否回来是最后关键问题。",
+          "answer": true,
+          "rationale": "表示人仍在外或尚未回来时，要避免误用“去过又回”的形式。",
+          "source": {
+            "kind": "grammar-book-rule",
+            "label": "新编俄语语法",
+            "file": "06 动词.md",
+            "section": "运动动词",
+            "pages": [
+              218,
+              223
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book-rule",
+          "label": "新编俄语语法",
+          "file": "06 动词.md",
+          "section": "运动动词",
+          "pages": [
+            218,
+            223
+          ]
+        }
+      ]
+    }
+  ],
+  "relatedExtensions": [],
+  "checks": [
+    {
+      "id": "p1-motion-return-check-1",
+      "type": "choice",
+      "prompt": "“Я ходил в магазин”通常暗示什么？",
+      "options": [
+        "去过并回来了",
+        "正在去商店"
+      ],
+      "answer": "去过并回来了",
+      "rationale": "过去时不定向动词常表往返经历。",
+      "source": {
+        "kind": "grammar-book-rule",
+        "label": "新编俄语语法",
+        "file": "06 动词.md",
+        "section": "运动动词",
+        "pages": [
+          218,
+          223
+        ]
+      }
+    },
+    {
+      "id": "p1-motion-return-check-2",
+      "type": "choice",
+      "prompt": "идти 更适合表达一条具体方向的移动。",
+      "options": [
+        "正确",
+        "错误"
+      ],
+      "answer": "正确",
+      "rationale": "定向动词强调单向路线。",
+      "source": {
+        "kind": "grammar-book-rule",
+        "label": "新编俄语语法",
+        "file": "06 动词.md",
+        "section": "运动动词",
+        "pages": [
+          218,
+          223
+        ]
+      }
+    },
+    {
+      "id": "p1-motion-return-check-3",
+      "type": "choice",
+      "prompt": "ездил 一定表示人仍在目的地。",
+      "options": [
+        "正确",
+        "错误"
+      ],
+      "answer": "错误",
+      "rationale": "常表示去过并已返回。",
+      "source": {
+        "kind": "grammar-book-rule",
+        "label": "新编俄语语法",
+        "file": "06 动词.md",
+        "section": "运动动词",
+        "pages": [
+          218,
+          223
+        ]
+      }
+    }
+  ],
+  "rules": [
+    {
+      "structure": "定向/不定向运动动词",
+      "meaning": "分别突出具体单向移动与往返、重复或多向活动。",
+      "source": {
+        "kind": "grammar-book-rule",
+        "label": "新编俄语语法",
+        "file": "06 动词.md",
+        "section": "运动动词",
+        "pages": [
+          218,
+          223
+        ]
+      }
+    },
+    {
+      "structure": "带前缀运动动词",
+      "meaning": "可表达离开、到达、返回等结果状态。",
+      "source": {
+        "kind": "grammar-book-rule",
+        "label": "新编俄语语法",
+        "file": "06 动词.md",
+        "section": "运动动词",
+        "pages": [
+          218,
+          223
+        ]
+      }
+    }
+  ],
+  "comparisons": [
+    {
+      "left": "ходил в магазин",
+      "right": "шёл в магазин",
+      "note": "去过又回与正在/当时单向去。",
+      "source": {
+        "kind": "learning-explanation",
+        "label": "学习讲解"
+      }
+    }
+  ],
+  "examples": [
+    {
+      "ru": "Я ходил в магазин утром.",
+      "zh": "我早上去过商店。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    },
+    {
+      "ru": "Сейчас я иду в библиотеку.",
+      "zh": "我现在正去图书馆。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    },
+    {
+      "ru": "Он уехал в Москву.",
+      "zh": "他去了莫斯科（已离开）。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    },
+    {
+      "ru": "Она ещё не вернулась.",
+      "zh": "她还没有回来。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    }
+  ],
+  "pitfalls": [
+    "先判断是否回来，再选过去时运动动词。",
+    "前缀动词常带结果，不可只按方向理解。",
+    "定向与不定向的区别不是单纯现在/过去。"
+  ],
+  "sources": [
+    {
+      "kind": "grammar-book-rule",
+      "label": "新编俄语语法",
+      "file": "06 动词.md",
+      "section": "运动动词",
+      "pages": [
+        218,
+        223
+      ]
+    },
+    {
+      "kind": "b2-original",
+      "label": "B2 原书考点",
+      "pages": [
+        18
+      ]
+    }
+  ]
+}

@@ -1,0 +1,455 @@
+{
+  "id": "p1-imperfective-process",
+  "partId": "p1",
+  "knowledgePointId": "p1-imperfective-process",
+  "title": "未完成体：经常、过程与往返",
+  "exerciseIds": [
+    "P1-Q030",
+    "P1-Q031",
+    "P1-Q032",
+    "P1-Q033",
+    "P1-Q034",
+    "P1-Q035",
+    "P1-Q036",
+    "P1-Q037"
+  ],
+  "overview": "未完成体关注动作的进行、重复、习惯或一般事实。它不把动作封闭成一次结果，而是让你看到过程或可重复的活动。",
+  "decisionSteps": [
+    "先看是否表达习惯、频率或过程。",
+    "判断是否缺少明确结果边界。",
+    "检查是否是去过又回的经历。",
+    "再选择未完成体及相应时态。"
+  ],
+  "reviewStatus": "approved",
+  "quickReference": {
+    "semanticQuestions": [
+      "动作在进行吗？",
+      "是经常发生还是一次完成？",
+      "是否只说明去过/做过的经历？"
+    ],
+    "structures": [
+      {
+        "question": "过程",
+        "structure": "未完成体",
+        "shortcut": "关注正在做或进行中。"
+      },
+      {
+        "question": "习惯",
+        "structure": "未完成体 + 常用频率词",
+        "shortcut": "经常、通常、每天提示重复。"
+      }
+    ],
+    "comparison": "Я читал книгу：在读/读过；Я прочитал книгу：读完。",
+    "mnemonic": "讲过程、讲习惯、讲往返，先想未完成体。"
+  },
+  "lessons": [
+    {
+      "id": "p1-imperfective-process-l1",
+      "title": "过程进行",
+      "scope": "core",
+      "meaning": "未完成体呈现动作正在展开。",
+      "conditions": [
+        "不强调动作终点。"
+      ],
+      "structure": "未完成体 + 时间/场景",
+      "caseChanges": [
+        {
+          "from": "читать",
+          "to": "читал книгу"
+        },
+        {
+          "from": "писать",
+          "to": "писал письмо"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Она читала книгу весь вечер.",
+          "zh": "她整个晚上都在读书。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "不能把“过去时”自动理解成完成。"
+      ],
+      "instantChecks": [
+        {
+          "id": "p1-imperfective-process-l1-check",
+          "type": "judgment",
+          "prompt": "未完成体强调过程。",
+          "answer": true,
+          "rationale": "未完成体呈现动作正在展开。",
+          "source": {
+            "kind": "grammar-book-rule",
+            "label": "新编俄语语法",
+            "file": "06 动词.md",
+            "section": "动词体的基本意义和用法",
+            "pages": [
+              176
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book-rule",
+          "label": "新编俄语语法",
+          "file": "06 动词.md",
+          "section": "动词体的基本意义和用法",
+          "pages": [
+            176
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p1-imperfective-process-l2",
+      "title": "习惯与重复",
+      "scope": "core",
+      "meaning": "经常、通常、每周等频率语境突出重复活动。",
+      "conditions": [
+        "动作可反复发生。"
+      ],
+      "structure": "未完成体 + 频率词",
+      "caseChanges": [
+        {
+          "from": "каждый день",
+          "to": "читаю"
+        },
+        {
+          "from": "часто",
+          "to": "встречался"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Я каждый день читаю по-русски.",
+          "zh": "我每天读俄语。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "一次结果语境通常不适合。"
+      ],
+      "instantChecks": [
+        {
+          "id": "p1-imperfective-process-l2-check",
+          "type": "judgment",
+          "prompt": "习惯和重复通常选未完成体。",
+          "answer": true,
+          "rationale": "经常、通常、每周等频率语境突出重复活动。",
+          "source": {
+            "kind": "grammar-book-rule",
+            "label": "新编俄语语法",
+            "file": "06 动词.md",
+            "section": "动词体的基本意义和用法",
+            "pages": [
+              176
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book-rule",
+          "label": "新编俄语语法",
+          "file": "06 动词.md",
+          "section": "动词体的基本意义和用法",
+          "pages": [
+            176
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p1-imperfective-process-l3",
+      "title": "一般事实",
+      "scope": "core",
+      "meaning": "说明能力、职业、经历或一般情况时，常不强调完成边界。",
+      "conditions": [
+        "句子重在事实而非一次结果。"
+      ],
+      "structure": "未完成体说明活动",
+      "caseChanges": [
+        {
+          "from": "он",
+          "to": "работал учителем"
+        },
+        {
+          "from": "я",
+          "to": "изучал русский"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Он долго работал учителем.",
+          "zh": "他长期当教师。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "是否完成任务要另看语境。"
+      ],
+      "instantChecks": [
+        {
+          "id": "p1-imperfective-process-l3-check",
+          "type": "judgment",
+          "prompt": "一般事实不等于一次成功。",
+          "answer": true,
+          "rationale": "说明能力、职业、经历或一般情况时，常不强调完成边界。",
+          "source": {
+            "kind": "grammar-book-rule",
+            "label": "新编俄语语法",
+            "file": "06 动词.md",
+            "section": "动词体的基本意义和用法",
+            "pages": [
+              176
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book-rule",
+          "label": "新编俄语语法",
+          "file": "06 动词.md",
+          "section": "动词体的基本意义和用法",
+          "pages": [
+            176
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p1-imperfective-process-l4",
+      "title": "往返经历",
+      "scope": "core",
+      "meaning": "无前缀不定向运动动词过去时可表达去过又回。",
+      "conditions": [
+        "说话时人已回到原处。"
+      ],
+      "structure": "ходил/ездил + 地点",
+      "caseChanges": [
+        {
+          "from": "я",
+          "to": "ходил в магазин"
+        },
+        {
+          "from": "мы",
+          "to": "ездили в Петербург"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Я ходил в магазин и уже вернулся.",
+          "zh": "我去过商店，已经回来了。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "若人尚在路上或强调单向行程，要重新判断。"
+      ],
+      "instantChecks": [
+        {
+          "id": "p1-imperfective-process-l4-check",
+          "type": "judgment",
+          "prompt": "去过又回常用不定向运动动词过去时。",
+          "answer": true,
+          "rationale": "无前缀不定向运动动词过去时可表达去过又回。",
+          "source": {
+            "kind": "grammar-book-rule",
+            "label": "新编俄语语法",
+            "file": "06 动词.md",
+            "section": "动词体的基本意义和用法",
+            "pages": [
+              176
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book-rule",
+          "label": "新编俄语语法",
+          "file": "06 动词.md",
+          "section": "动词体的基本意义和用法",
+          "pages": [
+            176
+          ]
+        }
+      ]
+    }
+  ],
+  "relatedExtensions": [],
+  "checks": [
+    {
+      "id": "p1-imperfective-process-check-1",
+      "type": "choice",
+      "prompt": "“我每天读俄语”强调什么？",
+      "options": [
+        "习惯重复",
+        "一次读完"
+      ],
+      "answer": "习惯重复",
+      "rationale": "每天提示经常性。",
+      "source": {
+        "kind": "grammar-book-rule",
+        "label": "新编俄语语法",
+        "file": "06 动词.md",
+        "section": "动词体的基本意义和用法",
+        "pages": [
+          176
+        ]
+      }
+    },
+    {
+      "id": "p1-imperfective-process-check-2",
+      "type": "choice",
+      "prompt": "未完成体只能表示现在发生。",
+      "options": [
+        "正确",
+        "错误"
+      ],
+      "answer": "错误",
+      "rationale": "它也可表示过去过程、习惯和一般事实。",
+      "source": {
+        "kind": "grammar-book-rule",
+        "label": "新编俄语语法",
+        "file": "06 动词.md",
+        "section": "动词体的基本意义和用法",
+        "pages": [
+          176
+        ]
+      }
+    },
+    {
+      "id": "p1-imperfective-process-check-3",
+      "type": "choice",
+      "prompt": "ходил в магазин 常可表示去过并已回来。",
+      "options": [
+        "正确",
+        "错误"
+      ],
+      "answer": "正确",
+      "rationale": "不定向运动动词过去时可表往返经历。",
+      "source": {
+        "kind": "grammar-book-rule",
+        "label": "新编俄语语法",
+        "file": "06 动词.md",
+        "section": "动词体的基本意义和用法",
+        "pages": [
+          176
+        ]
+      }
+    }
+  ],
+  "rules": [
+    {
+      "structure": "未完成体",
+      "meaning": "表达过程、重复、习惯或一般事实。",
+      "source": {
+        "kind": "grammar-book-rule",
+        "label": "新编俄语语法",
+        "file": "06 动词.md",
+        "section": "动词体的基本意义和用法",
+        "pages": [
+          176
+        ]
+      }
+    },
+    {
+      "structure": "不定向运动动词过去时",
+      "meaning": "可表达去过某地又返回的经历。",
+      "source": {
+        "kind": "grammar-book-rule",
+        "label": "新编俄语语法",
+        "file": "06 动词.md",
+        "section": "动词体的基本意义和用法",
+        "pages": [
+          176
+        ]
+      }
+    }
+  ],
+  "comparisons": [
+    {
+      "left": "читал",
+      "right": "прочитал",
+      "note": "过程/经历与完成结果。",
+      "source": {
+        "kind": "learning-explanation",
+        "label": "学习讲解"
+      }
+    }
+  ],
+  "examples": [
+    {
+      "ru": "Я каждый день читаю по-русски.",
+      "zh": "我每天读俄语。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    },
+    {
+      "ru": "Она писала письмо весь вечер.",
+      "zh": "她整个晚上都在写信。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    },
+    {
+      "ru": "Мы ездили в Петербург.",
+      "zh": "我们去过彼得堡。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    },
+    {
+      "ru": "Он работал учителем.",
+      "zh": "他当过教师。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    }
+  ],
+  "pitfalls": [
+    "频率词是强提示，但仍要看句子完整语义。",
+    "不要把去过又回和单向到达混为一谈。",
+    "过程与结果是选择体的核心。"
+  ],
+  "sources": [
+    {
+      "kind": "grammar-book-rule",
+      "label": "新编俄语语法",
+      "file": "06 动词.md",
+      "section": "动词体的基本意义和用法",
+      "pages": [
+        176
+      ]
+    },
+    {
+      "kind": "b2-original",
+      "label": "B2 原书考点",
+      "pages": [
+        14,
+        15
+      ]
+    }
+  ]
+}
