@@ -47,3 +47,11 @@ test('quiz interactions preserve the reader scroll position', () => {
   assert.match(submitBody[1], /rerenderQuizChapterPreservingScroll\(\)/);
   assert.match(explanationBody[1], /rerenderQuizChapterPreservingScroll\(\)/);
 });
+
+test('B2 progress uses permanent unit identifiers and migrates the pilot once', () => {
+  assert.match(reader, /function getQuizUnitKey\(\)/);
+  assert.match(reader, /function migrateB2Progress\(progress\)/);
+  assert.match(reader, /currentQuizData\.id/);
+  assert.match(reader, /russian_b2:p2-q001-q010/);
+  assert.doesNotMatch(reader, /var chapterKey = curBook\.id \+ ':' \+ curCh/);
+});

@@ -1035,15 +1035,25 @@ var currentQuizData = null;
 var currentQuizExercises = [];
 
 function getB2Progress() {
-  try { return JSON.parse(localStorage.getItem(B2_PROGRESS_KEY)) || {}; }
+  try { return migrateB2Progress(JSON.parse(localStorage.getItem(B2_PROGRESS_KEY)) || {}); }
   catch (e) { return {}; }
 }
 function saveB2Progress(progress) {
   quizProgress = progress;
   try { localStorage.setItem(B2_PROGRESS_KEY, JSON.stringify(progress)); } catch (e) {}
 }
+function migrateB2Progress(progress) {
+  var legacyKey = 'russian_b2:0', stableKey = 'russian_b2:p2-q001-q010';
+  if (progress[legacyKey] && !progress[stableKey]) {
+    progress[stableKey] = {};
+    Object.keys(progress[legacyKey]).forEach(function(oldId) { progress[stableKey]['P2-' + oldId] = progress[legacyKey][oldId]; });
+    delete progress[legacyKey];
+  }
+  return progress;
+}
+function getQuizUnitKey() { return curBook.id + ':' + currentQuizData.id; }
 function getQuizRecord(questionId) {
-  var chapterKey = curBook.id + ':' + curCh;
+  var chapterKey = getQuizUnitKey();
   var all = getB2Progress();
   if (!all[chapterKey]) all[chapterKey] = {};
   if (!all[chapterKey][questionId]) all[chapterKey][questionId] = { selected: '', submitted: false, attempts: 0, wrong: false, explanationOpen: false };
@@ -1106,25 +1116,25 @@ function selectQuizOption(questionId, key) {
   var record = getQuizRecord(questionId);
   if (record.submitted) return;
   record.selected = key;
-  var all = getB2Progress(); all[curBook.id + ':' + curCh][questionId] = record; saveB2Progress(all);
+  var all = getB2Progress(); all[getQuizUnitKey()][questionId] = record; saveB2Progress(all);
   rerenderQuizChapterPreservingScroll();
 }
 function submitQuizQuestion(questionId) {
   var exercise = getQuizExercise(questionId), record = getQuizRecord(questionId);
   if (!exercise || !record.selected || record.submitted) return;
   record.submitted = true; record.attempts += 1; record.wrong = record.selected !== exercise.answer;
-  var all = getB2Progress(); all[curBook.id + ':' + curCh][questionId] = record; saveB2Progress(all);
+  var all = getB2Progress(); all[getQuizUnitKey()][questionId] = record; saveB2Progress(all);
   rerenderQuizChapterPreservingScroll();
 }
 function toggleQuizExplanation(questionId) {
   var record = getQuizRecord(questionId);
   if (!record.submitted) return;
   record.explanationOpen = !record.explanationOpen;
-  var all = getB2Progress(); all[curBook.id + ':' + curCh][questionId] = record; saveB2Progress(all);
+  var all = getB2Progress(); all[getQuizUnitKey()][questionId] = record; saveB2Progress(all);
   rerenderQuizChapterPreservingScroll();
 }
 function finishQuizChapter() {
-  var records = getB2Progress()[curBook.id + ':' + curCh] || {};
+  var records = getB2Progress()[getQuizUnitKey()] || {};
   var complete = currentQuizExercises.length > 0 && currentQuizExercises.every(function(exercise) { return records[exercise.id] && records[exercise.id].submitted; });
   if (!complete) { toast('请先确认全部题目，再结束本单元'); return; }
   if (!readStats[curBook.id]) readStats[curBook.id] = {};
