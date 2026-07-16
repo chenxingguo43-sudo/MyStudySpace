@@ -512,6 +512,28 @@ body {
 .b2-knowledge-card span { color: var(--accent); font-size: 12px; }
 .b2-knowledge-card small { color: var(--text-secondary); line-height: 1.5; margin-top: 3px; }
 .b2-study-card { max-width: 860px; }
+.b2-study-quick { border: 1px solid var(--accent-border); background: var(--accent-dim); }
+.b2-study-outline { position: sticky; top: 50px; z-index: 20; display: flex; flex-wrap: wrap; gap: 6px; padding: 8px; margin: 0 0 16px; border: 1px solid var(--glass-border); border-radius: 10px; background: color-mix(in srgb, var(--surface-solid) 92%, transparent); backdrop-filter: blur(10px); }
+.b2-study-outline a { color: var(--accent); text-decoration: none; font-size: 12px; padding: 4px 7px; border-radius: 6px; background: var(--glass); }
+.b2-study-outline a:hover { background: var(--accent-dim); }
+.b2-study-lesson { margin: 24px 0; padding: 20px; border: 1px solid var(--glass-border); border-radius: 14px; background: var(--surface-solid); scroll-margin-top: 90px; }
+.b2-study-lesson.related { border-color: var(--warning); }
+.b2-study-lesson h2 { margin-bottom: 8px; }
+.b2-study-lesson h3 { margin: 16px 0 6px; font-size: 14px; color: var(--accent); }
+.b2-study-conditions, .b2-study-boundaries { margin: 8px 0 0 20px; }
+.b2-study-case-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 8px; }
+.b2-study-case-change { padding: 9px; border: 1px solid var(--glass-border); border-radius: 9px; background: var(--glass); }
+.b2-study-case-change code { color: var(--accent); font-family: Georgia, serif; }
+.b2-study-example .kind, .b2-study-source-disclosure summary { color: var(--text-secondary); font-size: 12px; cursor: pointer; }
+.b2-study-source-disclosure { margin-top: 8px; }
+.b2-study-check { margin-top: 12px; padding: 12px; border: 1px dashed var(--accent-border); border-radius: 10px; background: var(--accent-dim); }
+.b2-study-check-options { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+.b2-study-check-options button { font: inherit; color: var(--text); background: var(--surface-solid); border: 1px solid var(--glass-border); border-radius: 8px; padding: 7px 10px; cursor: pointer; }
+.b2-study-check-options button:hover { border-color: var(--accent); }
+.b2-study-check-result { margin-top: 8px; color: var(--text-secondary); }
+.b2-study-check-result.correct { color: var(--success); }
+.b2-study-check-result.wrong { color: var(--warning); }
+.b2-study-synthesis { border-left: 3px solid var(--accent); padding-left: 12px; }
 .b2-study-section { margin: 18px 0; padding: 16px; border: 1px solid var(--border); border-radius: 14px; background: var(--surface-solid); }
 .b2-study-section h2 { margin-bottom: 8px; font-size: 1.1em; }
 .b2-study-status { color: var(--accent); font-size: 13px; font-weight: 600; }
@@ -1123,6 +1145,56 @@ function renderStudySource(source) {
   var location = source.file ? ' · ' + escapeHtml(source.file) + (source.section ? ' → ' + escapeHtml(source.section) : '') : '';
   return '<small class="b2-study-source">' + escapeHtml(source.label || '') + location + pages + '</small>';
 }
+function renderStudySourceDisclosure(source) {
+  if (!source) return '';
+  var details = [];
+  if (source.file) details.push('文件：' + source.file);
+  if (source.section) details.push('小节：' + source.section);
+  if (Array.isArray(source.pages) && source.pages.length) details.push('页码：' + source.pages.join('、'));
+  return '<details class="b2-study-source-disclosure"><summary>' + escapeHtml(source.label || '来源') + '</summary><small class="b2-study-source">' + escapeHtml(details.join(' · ') || '已标记来源身份') + '</small></details>';
+}
+function renderStudyAnchorNav(card) {
+  var lessons = (card.lessons || []).filter(function(lesson) { return lesson && lesson.id; });
+  if (!lessons.length) return '';
+  return '<nav class="b2-study-outline" aria-label="知识点目录"><a href="#study-quick">速查</a>' + lessons.map(function(lesson) {
+    return '<a href="#study-lesson-' + escapeHtml(lesson.id) + '">' + escapeHtml(lesson.title) + '</a>';
+  }).join('') + '<a href="#study-checks">自测</a></nav>';
+}
+function renderStudyQuickLayer(card) {
+  var quick = card.quickReference || {}, structures = quick.structures || [];
+  return '<section class="b2-study-section b2-study-quick" id="study-quick"><h2>3 分钟速查</h2>' +
+    '<p>' + escapeHtml(card.overview || '') + '</p>' +
+    '<h3>先问自己</h3><ul>' + (quick.semanticQuestions || card.decisionSteps || []).map(function(item) { return '<li>' + escapeHtml(item) + '</li>'; }).join('') + '</ul>' +
+    '<div class="b2-study-rule-grid">' + structures.map(function(item) {
+      if (typeof item === 'string') return '<article class="b2-study-rule"><strong>' + escapeHtml(item) + '</strong></article>';
+      return '<article class="b2-study-rule"><strong>' + escapeHtml(item.question || '') + '</strong><p>' + escapeHtml(item.structure || '') + '</p><p>' + escapeHtml(item.shortcut || '') + '</p></article>';
+    }).join('') + '</div>' +
+    (quick.comparison ? '<p><strong>最小易混对比：</strong>' + escapeHtml(quick.comparison) + '</p>' : '') +
+    (quick.mnemonic ? '<p><strong>做题口诀：</strong>' + escapeHtml(quick.mnemonic) + '</p>' : '') + '</section>';
+}
+function renderStudyCaseChanges(changes) {
+  if (!changes || !changes.length) return '';
+  return '<div class="b2-study-case-grid">' + changes.map(function(change) {
+    return '<div class="b2-study-case-change"><code>' + escapeHtml(change.from || '') + '</code><span> → </span><code>' + escapeHtml(change.to || '') + '</code></div>';
+  }).join('') + '</div>';
+}
+function renderStudyLesson(lesson, index) {
+  var related = lesson.scope === 'related-extension' ? ' related' : '';
+  var examples = (lesson.examples || []).map(function(item) {
+    return '<article class="b2-study-example"><p class="ru">' + escapeHtml(item.ru || '') + '</p><p class="zh">' + escapeHtml(item.zh || '') + '</p>' + renderStudySourceDisclosure(item.source) + '</article>';
+  }).join('');
+  var checks = (lesson.instantChecks || []).map(function(check) {
+    return '<div class="b2-study-check" data-study-check-id="' + escapeHtml(check.id || '') + '"><strong>即时检查</strong><p>' + escapeHtml(check.prompt || '') + '</p><div class="b2-study-check-result">答案默认隐藏，先自己判断。</div></div>';
+  }).join('');
+  return '<section class="b2-study-lesson' + related + '" id="study-lesson-' + escapeHtml(lesson.id) + '"><h2>' + escapeHtml((index + 1) + '. ' + lesson.title) + '</h2>' +
+    '<p>' + escapeHtml(lesson.meaning || '') + '</p><h3>使用条件</h3><ul class="b2-study-conditions">' + (lesson.conditions || []).map(function(item) { return '<li>' + escapeHtml(item) + '</li>'; }).join('') + '</ul>' +
+    '<h3>结构公式</h3><p><strong>' + escapeHtml(lesson.structure || '') + '</strong></p><h3>就地格变化</h3>' + renderStudyCaseChanges(lesson.caseChanges) +
+    '<h3>例句</h3>' + examples + '<h3>易错边界</h3><ul class="b2-study-boundaries">' + (lesson.boundaries || []).map(function(item) { return '<li>' + escapeHtml(item) + '</li>'; }).join('') + '</ul>' + checks + '</section>';
+}
+function renderStudyLessons(card) {
+  var lessons = card.lessons || [];
+  return lessons.length ? '<section aria-label="详细学习">' + lessons.map(renderStudyLesson).join('') + '</section>' : '';
+}
 function renderStudyComparisons(comparisons) {
   if (!comparisons || !comparisons.length) return '';
   return '<section class="b2-study-section"><h2>易混对比</h2>' + comparisons.map(function(item) {
@@ -1145,11 +1217,13 @@ function renderStudyCard(card, point) {
   var rules = card.rules.map(function(rule) {
     return '<article class="b2-study-rule"><strong>' + escapeHtml(rule.structure) + '</strong><p>' + escapeHtml(rule.meaning) + '</p>' + renderStudySource(rule.source) + '</article>';
   }).join('');
-  return '<div class="main-container b2-study-card"><button class="tb-btn" onclick="goChapter(' + (card.partId.slice(1) - 1) + ')">← 返回 ' + escapeHtml(card.partId.toUpperCase()) + '</button>' +
-    '<header class="b2-quiz-header"><h1>' + escapeHtml(card.title) + '</h1><p>对应练习：' + escapeHtml(formatQuestionRange(card.exerciseIds)) + '</p><div class="b2-study-status">已答 ' + progress.answered + ' · 历史错 ' + progress.everWrong + ' · 待掌握 ' + progress.pending + '</div></header>' +
+  var richBody = card.lessons ? renderStudyQuickLayer(card) + renderStudyAnchorNav(card) + renderStudyLessons(card) :
     '<section class="b2-study-section"><h2>这一组题考什么</h2><p>' + escapeHtml(card.overview) + '</p></section>' +
     '<section class="b2-study-section"><h2>做题判断顺序</h2><ol>' + card.decisionSteps.map(function(step) { return '<li>' + escapeHtml(step) + '</li>'; }).join('') + '</ol></section>' +
-    '<section class="b2-study-section"><h2>核心规则</h2><div class="b2-study-rule-grid">' + rules + '</div></section>' +
+    '<section class="b2-study-section"><h2>核心规则</h2><div class="b2-study-rule-grid">' + rules + '</div></section>';
+  return '<div class="main-container b2-study-card"><button class="tb-btn" onclick="goChapter(' + (card.partId.slice(1) - 1) + ')">← 返回 ' + escapeHtml(card.partId.toUpperCase()) + '</button>' +
+    '<header class="b2-quiz-header"><h1>' + escapeHtml(card.title) + '</h1><p>对应练习：' + escapeHtml(formatQuestionRange(card.exerciseIds)) + '</p><div class="b2-study-status">已答 ' + progress.answered + ' · 历史错 ' + progress.everWrong + ' · 待掌握 ' + progress.pending + '</div></header>' +
+    richBody +
     renderStudyComparisons(card.comparisons) + renderStudyExamples(card.examples) + renderStudyPitfalls(card.pitfalls) +
     '<section class="b2-study-actions"><button class="b2-finish" onclick="openStudyCardPractice(\'' + card.partId + '\',' + quizIds + ',false)">做本知识点全部题目</button><button class="b2-finish" onclick="openStudyCardPractice(\'' + card.partId + '\',' + quizIds + ',true)">只重做本点错题</button><button class="b2-finish" onclick="showWrongAnswerBook(\'' + card.partId + '\',\'' + escapeHtml(point.title) + '\')">查看错题本</button></section></div>';
 }

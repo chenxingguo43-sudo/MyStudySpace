@@ -105,3 +105,19 @@ test('reader provides a source-labelled study card without duplicating answer an
   assert.ok(cardBody);
   assert.doesNotMatch(cardBody[1], /sourceAnswer|sourceExplanation|referenceExplanation/);
 });
+
+test('reader renders the layered rich P2 card with anchored lessons and checks', () => {
+  assert.match(reader, /function renderStudyQuickLayer\(card\)/);
+  assert.match(reader, /function renderStudyLessons\(card\)/);
+  assert.match(reader, /function renderStudyLesson\(lesson, index\)/);
+  assert.match(reader, /function renderStudySourceDisclosure\(source\)/);
+  assert.match(reader, /function renderStudyAnchorNav\(card\)/);
+  assert.match(reader, /b2-study-quick/);
+  assert.match(reader, /b2-study-lesson/);
+  assert.match(reader, /b2-study-case-change/);
+  assert.match(reader, /b2-study-source-disclosure/);
+  assert.match(reader, /id=\"study-lesson-/);
+  const cardBody = reader.match(/function renderStudyCard\(card, point\) \{([\s\S]*?)\n\}/);
+  assert.ok(cardBody);
+  assert.doesNotMatch(cardBody[1], /sourceAnswer|referenceExplanation|correctOption/);
+});
