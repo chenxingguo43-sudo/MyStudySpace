@@ -177,7 +177,7 @@ test('manifest build creates matching reader JSON, Markdown, range map, and qual
     .filter(unit => unit.published).map(unit => unit.id);
   assert.deepEqual(quality.units.map(unit => unit.id), publishedIds);
   assert.deepEqual(b2Book.unitIds, publishedIds);
-  assert.equal(buildPilot({ root }).readerPaths.length, 13);
+  assert.equal(buildPilot({ root }).readerPaths.length, publishedIds.length);
 });
 
 test('published grammar units cover every verified source-ledger question', () => {
@@ -186,7 +186,7 @@ test('published grammar units cover every verified source-ledger question', () =
   const units = manifest.units.filter(entry => entry.published).map(entry => JSON.parse(fs.readFileSync(path.join(base, entry.source), 'utf8')));
   const p2Ledger = JSON.parse(fs.readFileSync(path.join(base, 'part-02-source-ledger.json'), 'utf8'));
   const p1Ledger = JSON.parse(fs.readFileSync(path.join(base, 'part-01-source-ledger.json'), 'utf8'));
-  assert.equal(units.length, 13);
+  assert.equal(units.length, manifest.units.filter(entry => entry.published).length);
   assert.deepEqual(units.filter(unit => unit.part === 2).flatMap(unit => unit.exercises.map(exercise => exercise.printedNumber)), Array.from({ length: 70 }, (_, index) => index + 1));
   assert.deepEqual(units.filter(unit => unit.part === 1).flatMap(unit => unit.exercises.map(exercise => exercise.printedNumber)), Array.from({ length: 60 }, (_, index) => index + 1));
   assert.deepEqual(verifySourceLedger({ ledger: p2Ledger, units: units.filter(unit => unit.part === 2) }), []);

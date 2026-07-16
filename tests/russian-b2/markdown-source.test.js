@@ -44,3 +44,8 @@ test('markdown source extractor normalizes OCR Greek gamma to the original Г op
   const drafts = extractAnswerDrafts('2. 答案: Γ。解析: 规则。译文: 译文。');
   assert.equal(drafts[0].answer, 'Г');
 });
+
+test('markdown source extractor accepts a LaTex-wrapped Greek gamma answer', () => {
+  const answers = extractAnswerDrafts('9. 答案: $\\Gamma$。解析: 规则。译文: 翻译。\n');
+  assert.equal(answers[0].answer, 'Г');
+});

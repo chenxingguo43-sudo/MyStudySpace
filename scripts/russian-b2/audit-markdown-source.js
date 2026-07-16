@@ -24,7 +24,7 @@ function auditMarkdownSource({ questions, answers }) {
 }
 
 function normalizeOptionKey(key) {
-  return ({ A: 'А', B: 'Б', C: 'В', D: 'Г', Γ: 'Г' })[key] || key;
+  return ({ A: 'А', B: 'Б', C: 'В', D: 'Г', Γ: 'Г', '\\Gamma': 'Г' })[key] || key;
 }
 
 function cleanDraftText(text) {
@@ -56,7 +56,7 @@ function extractQuestionDrafts(markdown) {
 }
 
 function extractAnswerDrafts(markdown) {
-  const pattern = /^\s*(\d+)\.\s*答案[:：]\s*([АБВГΓABCD])\s*[。.]?\s*解析[:：]\s*([\s\S]*?)\s*译文[:：]\s*([^\r\n]+)/gm;
+  const pattern = /^\s*(\d+)\.\s*答案[:：]\s*\$?\s*([АБВГΓABCD]|\\Gamma)\s*\$?\s*[。.]?\s*解析[:：]\s*([\s\S]*?)\s*译文[:：]\s*([^\r\n]+)/gm;
   return [...String(markdown || '').matchAll(pattern)].map(match => ({
     printedNumber: Number(match[1]),
     answer: normalizeOptionKey(match[2]),
