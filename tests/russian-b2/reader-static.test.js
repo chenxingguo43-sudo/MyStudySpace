@@ -27,10 +27,12 @@ test('reader provides quiz-first interaction without auto-revealing answers', ()
   assert.doesNotMatch(submitBody[1], /toggleQuizExplanation\(/);
 });
 
-test('quiz source pages use local WebP assets and completion is not scroll-triggered', () => {
-  assert.match(reader, /function setSourcePage\(pageNumber\)/);
-  assert.match(reader, /PDF-' \+ String\(pageNumber\)\.padStart\(3, '0'\) \+ '\.webp'/);
+test('quiz shows verified source explanations inline and completion is not scroll-triggered', () => {
+  assert.match(reader, /原书解析（已核对）/);
+  assert.match(reader, /exercise\.sourceExplanation/);
+  assert.doesNotMatch(reader, /function renderSourceViewer\(/);
+  assert.doesNotMatch(reader, /function openQuizSourceViewer\(/);
+  assert.doesNotMatch(reader, /查看原书页/);
   assert.match(reader, /function finishQuizChapter\(\)/);
   assert.doesNotMatch(reader, /renderQuizChapter[\s\S]{0,6000}markChapterDone\(/);
-  assert.match(reader, /关闭原书页/);
 });

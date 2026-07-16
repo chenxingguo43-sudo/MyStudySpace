@@ -17,6 +17,7 @@ function validateExercise(exercise) {
   if (!OPTION_KEYS.includes(exercise.answer)) errors.push(`${exercise.id}: invalid answer`);
   if (exercise.answer !== exercise.sourceAnswer) errors.push(`${exercise.id}: answer must equal sourceAnswer`);
   if (!exercise.sourceEvidence) errors.push(`${exercise.id}: sourceEvidence is required`);
+  if (!exercise.sourceExplanation) errors.push(`${exercise.id}: sourceExplanation is required`);
   if (!String(exercise.referenceExplanation || '').includes('参考解析（AI，待复核）')) errors.push(`${exercise.id}: referenceExplanation needs 参考解析（AI，待复核） label`);
   if (!Array.isArray(exercise.questionPages) || !exercise.questionPages.length) errors.push(`${exercise.id}: questionPages is required`);
   if (!Array.isArray(exercise.answerPages) || !exercise.answerPages.length) errors.push(`${exercise.id}: answerPages is required`);
