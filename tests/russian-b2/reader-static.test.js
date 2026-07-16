@@ -121,3 +121,18 @@ test('reader renders the layered rich P2 card with anchored lessons and checks',
   assert.ok(cardBody);
   assert.doesNotMatch(cardBody[1], /sourceAnswer|referenceExplanation|correctOption/);
 });
+
+test('reader stores study-card self-test mastery separately from B2 wrong answers', () => {
+  assert.match(reader, /STUDY_CARD_PROGRESS_KEY/);
+  assert.match(reader, /russian_b2_study_card_progress_v1/);
+  assert.match(reader, /function loadStudyCardProgress\(\)/);
+  assert.match(reader, /function saveStudyCardProgress\(progress\)/);
+  assert.match(reader, /function recordStudyCardAttempt\(cardId, result\)/);
+  assert.match(reader, /function renderStudyChecks\(card\)/);
+  assert.match(reader, /function renderStudyCheck\(check, index\)/);
+  assert.match(reader, /function answerStudyCheck\(cardId, checkId, selectedValue\)/);
+  assert.match(reader, /再做本卡自测/);
+  const progressBody = reader.match(/function recordStudyCardAttempt\(cardId, result\) \{([\s\S]*?)\n\}/);
+  assert.ok(progressBody);
+  assert.doesNotMatch(progressBody[1], /getB2Progress|everWrong|wrongAnswerBook/);
+});

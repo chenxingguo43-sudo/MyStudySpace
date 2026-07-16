@@ -1139,6 +1139,81 @@ function getStudyCardProgress(partId, exerciseIds) {
     return total;
   }, { answered: 0, everWrong: 0, pending: 0 });
 }
+var STUDY_CARD_PROGRESS_KEY = 'russian_b2_study_card_progress_v1';
+var studyCardCheckRegistry = {};
+function loadStudyCardProgress() {
+  try { return JSON.parse(localStorage.getItem(STUDY_CARD_PROGRESS_KEY) || '{}'); } catch (e) { return {}; }
+}
+function saveStudyCardProgress(progress) {
+  try { localStorage.setItem(STUDY_CARD_PROGRESS_KEY, JSON.stringify(progress)); } catch (e) {}
+}
+function recordStudyCardAttempt(cardId, result) {
+  var progress = loadStudyCardProgress(), current = progress[cardId] || { attempts: 0, lastScore: 0, bestScore: 0, answers: {}, answeredCheckIds: [], lastStudiedAt: '' };
+  current.attempts += 1;
+  current.lastScore = result.score || 0;
+  current.bestScore = Math.max(current.bestScore || 0, current.lastScore);
+  current.lastStudiedAt = new Date().toISOString();
+  progress[cardId] = current;
+  saveStudyCardProgress(progress);
+  return current;
+}
+function getStudyCardMastery(cardId) {
+  var item = loadStudyCardProgress()[cardId] || {};
+  return { attempts: item.attempts || 0, lastScore: item.lastScore || 0, bestScore: item.bestScore || 0, lastStudiedAt: item.lastStudiedAt || '' };
+}
+function formatStudyCardDate(value) {
+  if (!value) return '尚未自测';
+  try { return new Date(value).toLocaleDateString('zh-CN', { month: 'numeric', day: 'numeric' }); } catch (e) { return '已记录'; }
+}
+function renderStudyCheck(check, index) {
+  var cardId = check._cardId || '';
+  var safeCardId = escapeHtml(cardId || ''), safeCheckId = escapeHtml(check.id || ('check-' + index));
+  var controls = '';
+  if (check.type === 'choice') controls = (check.options || []).map(function(option) {
+    var value = escapeHtml(String(option)).replace(/'/g, '&#39;');
+    return '<button type="button" onclick="answerStudyCheck(\'' + safeCardId + '\',\'' + safeCheckId + '\',\'' + value + '\')">' + escapeHtml(String(option)) + '</button>';
+  }).join('');
+  else if (check.type === 'judgment') controls = '<button type="button" onclick="answerStudyCheck(\'' + safeCardId + '\',\'' + safeCheckId + '\',\'true\')">正确</button><button type="button" onclick="answerStudyCheck(\'' + safeCardId + '\',\'' + safeCheckId + '\',\'false\')">错误</button>';
+  else controls = '<button type="button" onclick="answerStudyCheck(\'' + safeCardId + '\',\'' + safeCheckId + '\',\'reveal\')">展开答案与依据</button>';
+  return '<div class="b2-study-check" data-study-check-id="' + safeCheckId + '"><strong>' + (check.type === 'reveal' ? '先思考，再展开' : '即时检查') + '</strong><p>' + escapeHtml(check.prompt || '') + '</p><div class="b2-study-check-options">' + controls + '</div><div class="b2-study-check-result" data-study-result="' + safeCheckId + '">答案默认隐藏。</div></div>';
+}
+function renderStudyChecks(card) {
+  studyCardCheckRegistry[card.id] = card;
+  var mastery = getStudyCardMastery(card.id);
+  return '<section class="b2-study-section" id="study-checks"><h2>综合自测</h2><p class="b2-study-status">最近自测 ' + mastery.lastScore + '/' + (card.checks || []).length + ' · 最高 ' + mastery.bestScore + '/' + (card.checks || []).length + ' · 已练习 ' + mastery.attempts + ' 次 · ' + formatStudyCardDate(mastery.lastStudiedAt) + '</p>' + (card.checks || []).map(function(check, index) { return renderStudyCheck(Object.assign({ _cardId: card.id }, check), index); }).join('') + '<button class="b2-finish" type="button" onclick="resetStudyCardChecks(\'' + escapeHtml(card.id) + '\')">再做本卡自测</button></section>';
+}
+function answerStudyCheck(cardId, checkId, selectedValue) {
+  var card = studyCardCheckRegistry[cardId], check = card && (card.checks || []).concat((card.lessons || []).flatMap(function(lesson) { return lesson.instantChecks || []; })).find(function(item) { return item.id === checkId; });
+  if (!check) return;
+  var progress = loadStudyCardProgress(), current = progress[cardId] || { attempts: 0, lastScore: 0, bestScore: 0, answers: {}, answeredCheckIds: [], lastStudiedAt: '' };
+  var result = document.querySelector('[data-study-result="' + checkId + '"]');
+  if (selectedValue === 'reveal') {
+    if (result) result.innerHTML = '依据：' + escapeHtml(check.rationale || '请回看本节规则。');
+    return;
+  }
+  var normalized = check.type === 'judgment' ? selectedValue === 'true' : selectedValue;
+  var correct = normalized === check.answer;
+  current.answers[checkId] = { selected: normalized, correct: correct };
+  current.answeredCheckIds = Object.keys(current.answers);
+  progress[cardId] = current;
+  saveStudyCardProgress(progress);
+  if (result) { result.className = 'b2-study-check-result ' + (correct ? 'correct' : 'wrong'); result.innerHTML = (correct ? '正确。' : '再想想。') + ' ' + escapeHtml(check.rationale || ''); }
+  var comprehensiveIds = (card.checks || []).map(function(item) { return item.id; });
+  var answeredComprehensive = comprehensiveIds.filter(function(id) { return current.answers[id]; });
+  if (answeredComprehensive.length === comprehensiveIds.length && comprehensiveIds.length) {
+    var score = comprehensiveIds.filter(function(id) { return current.answers[id].correct; }).length;
+    recordStudyCardAttempt(cardId, { score: score });
+  }
+}
+function resetStudyCardChecks(cardId) {
+  var progress = loadStudyCardProgress(), current = progress[cardId] || {};
+  current.answers = {};
+  current.answeredCheckIds = [];
+  progress[cardId] = current;
+  saveStudyCardProgress(progress);
+  var card = studyCardCheckRegistry[cardId];
+  if (card) { var node = document.getElementById('study-checks'); if (node) node.outerHTML = renderStudyChecks(card); }
+}
 function renderStudySource(source) {
   if (!source) return '';
   var pages = Array.isArray(source.pages) && source.pages.length ? ' · 第 ' + source.pages.join('、') + ' 页' : '';
@@ -1183,9 +1258,7 @@ function renderStudyLesson(lesson, index) {
   var examples = (lesson.examples || []).map(function(item) {
     return '<article class="b2-study-example"><p class="ru">' + escapeHtml(item.ru || '') + '</p><p class="zh">' + escapeHtml(item.zh || '') + '</p>' + renderStudySourceDisclosure(item.source) + '</article>';
   }).join('');
-  var checks = (lesson.instantChecks || []).map(function(check) {
-    return '<div class="b2-study-check" data-study-check-id="' + escapeHtml(check.id || '') + '"><strong>即时检查</strong><p>' + escapeHtml(check.prompt || '') + '</p><div class="b2-study-check-result">答案默认隐藏，先自己判断。</div></div>';
-  }).join('');
+  var checks = (lesson.instantChecks || []).map(function(check, checkIndex) { return renderStudyCheck(Object.assign({ _cardId: lesson.cardId || '' }, check), checkIndex); }).join('');
   return '<section class="b2-study-lesson' + related + '" id="study-lesson-' + escapeHtml(lesson.id) + '"><h2>' + escapeHtml((index + 1) + '. ' + lesson.title) + '</h2>' +
     '<p>' + escapeHtml(lesson.meaning || '') + '</p><h3>使用条件</h3><ul class="b2-study-conditions">' + (lesson.conditions || []).map(function(item) { return '<li>' + escapeHtml(item) + '</li>'; }).join('') + '</ul>' +
     '<h3>结构公式</h3><p><strong>' + escapeHtml(lesson.structure || '') + '</strong></p><h3>就地格变化</h3>' + renderStudyCaseChanges(lesson.caseChanges) +
@@ -1193,7 +1266,7 @@ function renderStudyLesson(lesson, index) {
 }
 function renderStudyLessons(card) {
   var lessons = card.lessons || [];
-  return lessons.length ? '<section aria-label="详细学习">' + lessons.map(renderStudyLesson).join('') + '</section>' : '';
+  return lessons.length ? '<section aria-label="详细学习">' + lessons.map(function(lesson, index) { return renderStudyLesson(Object.assign({ cardId: card.id }, lesson), index); }).join('') + '</section>' : '';
 }
 function renderStudyComparisons(comparisons) {
   if (!comparisons || !comparisons.length) return '';
@@ -1224,7 +1297,7 @@ function renderStudyCard(card, point) {
   return '<div class="main-container b2-study-card"><button class="tb-btn" onclick="goChapter(' + (card.partId.slice(1) - 1) + ')">← 返回 ' + escapeHtml(card.partId.toUpperCase()) + '</button>' +
     '<header class="b2-quiz-header"><h1>' + escapeHtml(card.title) + '</h1><p>对应练习：' + escapeHtml(formatQuestionRange(card.exerciseIds)) + '</p><div class="b2-study-status">已答 ' + progress.answered + ' · 历史错 ' + progress.everWrong + ' · 待掌握 ' + progress.pending + '</div></header>' +
     richBody +
-    renderStudyComparisons(card.comparisons) + renderStudyExamples(card.examples) + renderStudyPitfalls(card.pitfalls) +
+    (card.lessons ? renderStudyChecks(card) : '') + renderStudyComparisons(card.comparisons) + renderStudyExamples(card.examples) + renderStudyPitfalls(card.pitfalls) +
     '<section class="b2-study-actions"><button class="b2-finish" onclick="openStudyCardPractice(\'' + card.partId + '\',' + quizIds + ',false)">做本知识点全部题目</button><button class="b2-finish" onclick="openStudyCardPractice(\'' + card.partId + '\',' + quizIds + ',true)">只重做本点错题</button><button class="b2-finish" onclick="showWrongAnswerBook(\'' + card.partId + '\',\'' + escapeHtml(point.title) + '\')">查看错题本</button></section></div>';
 }
 function showStudyCard(partId, pointId) {
