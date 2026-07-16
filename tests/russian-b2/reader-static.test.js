@@ -73,10 +73,12 @@ test('quiz reader renders knowledge-point navigation and migrates old unit progr
   assert.match(reader, /russian_b2:p2/);
 });
 
-test('P2 distinguishes its available study card from exercise-only navigation', () => {
+test('knowledge-point navigation uses generated study-card IDs instead of a P2 hardcode', () => {
   assert.match(reader, /b2-knowledge-study-card/);
   assert.match(reader, /打开学习卡/);
   assert.match(reader, /对应练习导航/);
+  assert.match(reader, /point\.studyCardId/);
+  assert.doesNotMatch(reader, /partId === 'p2' && point\.id === 'p2-time-cause'/);
 });
 
 test('quiz supports single-click answers and retry history', () => {

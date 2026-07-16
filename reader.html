@@ -1422,8 +1422,8 @@ function renderKnowledgePointNav(points, partId) {
   var studyCards = '', exerciseNav = '';
   points.forEach(function(point) {
     var range = escapeHtml(formatQuestionRange(point.exerciseIds));
-    if (partId === 'p2' && point.id === 'p2-time-cause') {
-      studyCards += '<button class="b2-knowledge-card b2-knowledge-study-card" onclick="showStudyCard(\'p2\',\'p2-time-cause\')"><strong>' + escapeHtml(point.title) + '</strong><span>知识点学习卡 · ' + range + '</span><small>' + escapeHtml(point.rule) + '</small><em>打开学习卡 →</em></button>';
+    if (point.studyCardId) {
+      studyCards += '<button class="b2-knowledge-card b2-knowledge-study-card" onclick="showStudyCard(\'' + escapeHtml(partId) + '\',\'' + escapeHtml(point.studyCardId) + '\')"><strong>' + escapeHtml(point.title) + '</strong><span>知识点学习卡 · ' + range + '</span><small>' + escapeHtml(point.rule) + '</small><em>打开学习卡 →</em></button>';
     } else {
       exerciseNav += '<button class="b2-knowledge-card" onclick="restartQuiz(\'knowledge\',' + escapeHtml(JSON.stringify(point.exerciseIds)).replace(/"/g, '&quot;') + ')"><strong>' + escapeHtml(point.title) + '</strong><span>对应练习导航 · ' + range + '</span><small>' + escapeHtml(point.rule) + '</small><em>去练习 →</em></button>';
     }

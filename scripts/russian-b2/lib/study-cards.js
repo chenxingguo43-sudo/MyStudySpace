@@ -2,7 +2,8 @@ const fs = require('node:fs');
 const path = require('node:path');
 const { buildSixPartBook } = require('../build-six-part-book');
 
-const CARD_RELATIVE_PATH = ['俄语资料库', '俄语B2·原书复刻与学习版', '规范数据', '语法书映射', 'p2-time-cause-study-card.json'];
+const CARD_DIRECTORY_RELATIVE_PATH = ['俄语资料库', '俄语B2·原书复刻与学习版', '规范数据', '语法书映射'];
+const CARD_INDEX_RELATIVE_PATH = [...CARD_DIRECTORY_RELATIVE_PATH, 'index.json'];
 
 function readJson(filePath) { return JSON.parse(fs.readFileSync(filePath, 'utf8')); }
 function writeJson(filePath, value) {
@@ -14,6 +15,39 @@ function resolveGrammarRoot(root) {
   const shared = path.resolve(root, '..', '..', '俄语资料库', '新编俄语语法');
   return fs.existsSync(direct) ? direct : shared;
 }
+function loadStudyCardIndex(root) {
+  const index = readJson(path.join(root, ...CARD_INDEX_RELATIVE_PATH));
+  if (!Array.isArray(index.cards)) throw new Error('study-card index requires cards');
+  const ids = new Set();
+  index.cards.forEach(entry => {
+    if (!entry || !/^[a-z0-9-]+$/.test(entry.id || '')) throw new Error('study-card index requires stable card ids');
+    if (ids.has(entry.id)) throw new Error(`duplicate study-card id ${entry.id}`);
+    if (!/^(p[1-6])$/.test(entry.partId || '')) throw new Error(`${entry.id}: partId must be p1 through p6`);
+    if (entry.knowledgePointId !== entry.id) throw new Error(`${entry.id}: knowledgePointId must equal card id`);
+    if (!String(entry.source || '').trim()) throw new Error(`${entry.id}: source is required`);
+    if (!['planned', 'approved'].includes(entry.status)) throw new Error(`${entry.id}: invalid card status`);
+    ids.add(entry.id);
+  });
+  return index;
+}
+function grammarFilesForCard(card) {
+  const files = new Set();
+  const visit = value => {
+    if (!value || typeof value !== 'object') return;
+    if (Array.isArray(value)) return value.forEach(visit);
+    if (typeof value.file === 'string') files.add(value.file);
+    Object.values(value).forEach(visit);
+  };
+  visit(card);
+  return [...files];
+}
+function loadGrammarTexts(root, card) {
+  const grammarRoot = resolveGrammarRoot(root);
+  return grammarFilesForCard(card).reduce((texts, file) => {
+    texts[file] = fs.readFileSync(path.join(grammarRoot, file), 'utf8');
+    return texts;
+  }, {});
+}
 function isExactArray(left, right) { return JSON.stringify(left) === JSON.stringify(right); }
 function validateSource(card, source, grammarText) {
   const errors = [];
@@ -24,7 +58,8 @@ function validateSource(card, source, grammarText) {
   const labelledKinds = new Set(['learning-explanation', 'related-extension']);
   if (grammarKinds.has(source.kind)) {
     if (!source.file || !source.section || !Array.isArray(source.pages) || !source.pages.length) errors.push(`${card.id}: grammar-book source is incomplete`);
-    if (source.section && !grammarText.includes(source.section)) errors.push(`${card.id}: grammar section ${source.section} was not found`);
+    const text = typeof grammarText === 'string' ? grammarText : grammarText && grammarText[source.file];
+    if (source.section && (!text || !text.includes(source.section))) errors.push(`${card.id}: grammar section ${source.section} was not found`);
   } else if (b2Kinds.has(source.kind)) {
     if (source.label !== 'B2 原书考点') errors.push(`${card.id}: B2 原书考点 must use the B2 原书考点 label`);
   } else if (supplementKinds.has(source.kind)) {
@@ -85,15 +120,27 @@ function validateStudyCard({ card, chapter, grammarText }) {
   return errors;
 }
 function buildStudyCards({ root, write = true }) {
-  const card = readJson(path.join(root, ...CARD_RELATIVE_PATH));
-  const chapter = buildSixPartBook({ root, write: false }).parts.find(part => part.id === card.partId);
-  const grammarRoot = resolveGrammarRoot(root);
-  const grammarText = fs.readFileSync(path.join(grammarRoot, '08 前置词.md'), 'utf8');
-  const errors = validateStudyCard({ card, chapter, grammarText });
-  if (errors.length) throw new Error(errors.join('\n'));
-  const outputPath = path.join(root, 'data', 'textbook', 'russian_b2', 'study-cards', `${card.id}.json`);
-  if (write) writeJson(outputPath, card);
-  return { cards: [card], outputPaths: write ? [outputPath] : [] };
+  const index = loadStudyCardIndex(root);
+  const parts = buildSixPartBook({ root, write: false }).parts;
+  const cardDirectory = path.join(root, ...CARD_DIRECTORY_RELATIVE_PATH);
+  const cards = index.cards.filter(entry => entry.status === 'approved').map(entry => {
+    const card = readJson(path.join(cardDirectory, entry.source));
+    if (card.id !== entry.id || card.partId !== entry.partId || card.knowledgePointId !== entry.knowledgePointId) {
+      throw new Error(`${entry.id}: card metadata does not match index`);
+    }
+    const chapter = parts.find(part => part.id === card.partId);
+    const errors = validateStudyCard({ card, chapter, grammarText: loadGrammarTexts(root, card) });
+    if (errors.length) throw new Error(errors.join('\n'));
+    return card;
+  });
+  const outputDirectory = path.join(root, 'data', 'textbook', 'russian_b2', 'study-cards');
+  const outputPaths = cards.map(card => path.join(outputDirectory, `${card.id}.json`));
+  const indexPath = path.join(outputDirectory, 'index.json');
+  if (write) {
+    cards.forEach((card, index) => writeJson(outputPaths[index], card));
+    writeJson(indexPath, { cards: cards.map(card => ({ id: card.id, partId: card.partId, knowledgePointId: card.knowledgePointId })) });
+  }
+  return { cards, outputPaths: write ? outputPaths : [], indexPath };
 }
 
-module.exports = { buildStudyCards, validateStudyCard, validateRichSection, validateCheck, resolveGrammarRoot };
+module.exports = { buildStudyCards, loadStudyCardIndex, validateStudyCard, validateRichSection, validateCheck, resolveGrammarRoot };

@@ -3,9 +3,29 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
 const { buildSixPartBook } = require('../../scripts/russian-b2/build-six-part-book');
-const { buildStudyCards, validateStudyCard, resolveGrammarRoot } = require('../../scripts/russian-b2/lib/study-cards');
+const { buildStudyCards, loadStudyCardIndex, validateStudyCard, resolveGrammarRoot } = require('../../scripts/russian-b2/lib/study-cards');
 
 const root = path.resolve(__dirname, '..', '..');
+
+test('study-card index reserves all 32 stable knowledge-point cards', () => {
+  const index = loadStudyCardIndex(root);
+  assert.equal(index.cards.length, 32);
+  assert.equal(new Set(index.cards.map(card => card.id)).size, 32);
+  assert.deepEqual(index.cards.find(card => card.knowledgePointId === 'p2-time-cause'), {
+    id: 'p2-time-cause',
+    partId: 'p2',
+    knowledgePointId: 'p2-time-cause',
+    source: 'p2-time-cause-study-card.json',
+    status: 'approved'
+  });
+});
+
+test('six-part grammar data attaches approved study-card IDs to knowledge points', () => {
+  const p2 = buildSixPartBook({ root, write: false }).parts.find(part => part.id === 'p2');
+  const point = p2.knowledgePoints.find(item => item.id === 'p2-time-cause');
+  assert.equal(point.studyCardId, 'p2-time-cause');
+  assert.equal(p2.knowledgePoints.find(item => item.id === 'p2-adjective-case').studyCardId, undefined);
+});
 
 test('P2 time-and-cause card is source-traceable and scoped to Q051–Q058', () => {
   const result = buildStudyCards({ root, write: false });

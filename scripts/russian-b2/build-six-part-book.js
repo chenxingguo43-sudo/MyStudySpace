@@ -4,6 +4,7 @@ const { validateChapter, validateStudyNavigation, getStudyPointExerciseIds } = r
 
 const VAULT = ['俄语资料库', '俄语B2·原书复刻与学习版'];
 const DATA = [...VAULT, '规范数据', '语法词汇'];
+const STUDY_CARD_INDEX = [...VAULT, '规范数据', '语法书映射', 'index.json'];
 
 function readJson(filePath) { return JSON.parse(fs.readFileSync(filePath, 'utf8')); }
 function writeJson(filePath, value) {
@@ -13,13 +14,14 @@ function writeJson(filePath, value) {
 function mergePages(units, key) {
   return [...new Set(units.flatMap(unit => (unit.sourcePages && unit.sourcePages[key]) || []))].sort((a, b) => a - b);
 }
-function normalizeKnowledgePoints(part, byExercise) {
+function normalizeKnowledgePoints(part, byExercise, studyCardIds) {
   return part.knowledgePoints.map(point => ({
     ...point,
-    exerciseIds: getStudyPointExerciseIds(point, part.part, byExercise)
+    exerciseIds: getStudyPointExerciseIds(point, part.part, byExercise),
+    ...(studyCardIds.get(point.id) ? { studyCardId: studyCardIds.get(point.id) } : {})
   }));
 }
-function buildPart(part, units, byExercise) {
+function buildPart(part, units, byExercise, studyCardIds) {
   const byUnit = new Map(units.map(unit => [unit.id, unit]));
   const selected = part.unitIds.map(id => byUnit.get(id));
   return {
@@ -34,7 +36,7 @@ function buildPart(part, units, byExercise) {
       rules: mergePages(selected, 'rules'),
       answers: mergePages(selected, 'answers')
     },
-    knowledgePoints: normalizeKnowledgePoints(part, byExercise),
+    knowledgePoints: normalizeKnowledgePoints(part, byExercise, studyCardIds),
     exercises: selected.flatMap(unit => unit.exercises)
   };
 }
@@ -43,15 +45,19 @@ function loadPublished(root) {
   const manifest = readJson(path.join(base, 'index.json'));
   const units = manifest.units.filter(unit => unit.published)
     .map(unit => readJson(path.join(base, unit.source)));
-  return { base, manifest, units };
+  const cardIndex = readJson(path.join(root, ...STUDY_CARD_INDEX));
+  const studyCardIds = new Map((cardIndex.cards || [])
+    .filter(card => card.status === 'approved')
+    .map(card => [card.knowledgePointId, card.id]));
+  return { base, manifest, units, studyCardIds };
 }
 function buildSixPartBook({ root, write = true }) {
-  const { base, units } = loadPublished(root);
+  const { base, units, studyCardIds } = loadPublished(root);
   const navigation = readJson(path.join(base, 'part-study-navigation.json'));
   const navigationErrors = validateStudyNavigation({ navigation, units });
   if (navigationErrors.length) throw new Error(navigationErrors.join('\n'));
   const byExercise = new Map(units.flatMap(unit => unit.exercises.map(exercise => [exercise.id, { exercise, unit }])));
-  const parts = navigation.parts.map(part => buildPart(part, units, byExercise));
+  const parts = navigation.parts.map(part => buildPart(part, units, byExercise, studyCardIds));
   const chapterErrors = parts.flatMap(part => validateChapter(part).map(error => `${part.id}: ${error}`));
   if (chapterErrors.length) throw new Error(chapterErrors.join('\n'));
   if (!write) return { parts, readerPaths: [], indexPath: path.join(root, 'data', 'textbook', 'index.json') };
