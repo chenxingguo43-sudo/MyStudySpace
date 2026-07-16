@@ -170,9 +170,17 @@ test('pilot source content has exactly ten sequential verified permanent questio
 });
 
 test('manifest build creates matching reader JSON, Markdown, range map, and quality report', () => {
-  const root = path.resolve('.');
+  const sourceRoot = path.resolve('.');
+  const root = fs.mkdtempSync(path.join(require('node:os').tmpdir(), 'russian-b2-build-'));
+  const sourceData = path.join(sourceRoot, '俄语资料库', '俄语B2·原书复刻与学习版', '规范数据', '语法词汇');
+  const fixtureData = path.join(root, '俄语资料库', '俄语B2·原书复刻与学习版', '规范数据', '语法词汇');
+  fs.mkdirSync(path.join(root, 'data', 'textbook'), { recursive: true });
+  fs.copyFileSync(path.join(sourceRoot, 'data', 'textbook', 'index.json'), path.join(root, 'data', 'textbook', 'index.json'));
+  fs.cpSync(sourceData, fixtureData, { recursive: true });
+
+  try {
   const result = buildBook({ root });
-  const readerChapter = require('../../data/textbook/russian_b2/ch0000.json');
+  const readerChapter = JSON.parse(fs.readFileSync(result.readerPaths[0], 'utf8'));
   const markdown = fs.readFileSync(result.markdownPaths[0], 'utf8');
   const rangeMap = JSON.parse(fs.readFileSync(result.rangeMapPath, 'utf8'));
   const quality = JSON.parse(fs.readFileSync(result.qualityReportPath, 'utf8'));
@@ -188,6 +196,16 @@ test('manifest build creates matching reader JSON, Markdown, range map, and qual
   assert.deepEqual(quality.units.map(unit => unit.id), publishedIds);
   assert.deepEqual(b2Book.unitIds, publishedIds);
   assert.equal(buildPilot({ root }).readerPaths.length, publishedIds.length);
+  } finally {
+    fs.rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test('legacy manifest build must not replace the six-part reader shelf', () => {
+  const textbookIndex = JSON.parse(fs.readFileSync(path.join(path.resolve('.'), 'data', 'textbook', 'index.json'), 'utf8'));
+  const b2Book = textbookIndex.books.find(book => book.id === 'russian_b2');
+  assert.equal(b2Book.chapters, 6);
+  assert.deepEqual(b2Book.unitIds, ['p1', 'p2', 'p3', 'p4', 'p5', 'p6']);
 });
 
 test('published grammar units cover every verified source-ledger question', () => {
