@@ -16,7 +16,8 @@ const mimeTypes = {
     '.mp4': 'video/mp4',
     '.mp3': 'audio/mpeg',
     '.woff': 'font/woff',
-    '.woff2': 'font/woff2'
+    '.woff2': 'font/woff2',
+    '.webp': 'image/webp'
 };
 
 function stripHtmlText(value) {
