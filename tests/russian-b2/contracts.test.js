@@ -53,3 +53,24 @@ test('rejects answer/sourceAnswer mismatches and missing AI label', () => {
 test('escapes unsafe text before reader HTML rendering', () => {
   assert.equal(toSafeText('<img src=x onerror=alert(1)>'), '&lt;img src=x onerror=alert(1)&gt;');
 });
+
+test('requires all pilot question, rule, and answer page references', () => {
+  const chapter = require('../../俄语资料库/俄语B2·原书复刻与学习版/规范数据/语法词汇/02-名词与形容词接格-题1-10.json');
+  const pages = new Set([
+    ...chapter.sourcePages.questions,
+    ...chapter.sourcePages.rules,
+    ...chapter.sourcePages.answers
+  ]);
+  assert.deepEqual([...pages].sort((a, b) => a - b), [18, 19, 24, 25, 26, 27]);
+});
+
+test('pilot source content has exactly ten sequential verified questions', () => {
+  const chapter = require('../../俄语资料库/俄语B2·原书复刻与学习版/规范数据/语法词汇/02-名词与形容词接格-题1-10.json');
+  assert.equal(chapter.exercises.length, 10);
+  assert.deepEqual(chapter.exercises.map(exercise => exercise.id), [
+    'Q001', 'Q002', 'Q003', 'Q004', 'Q005',
+    'Q006', 'Q007', 'Q008', 'Q009', 'Q010'
+  ]);
+  assert.ok(chapter.exercises.every(exercise => exercise.reviewStatus === 'verified'));
+  assert.doesNotThrow(() => assertPilotAnswerVector(chapter));
+});
