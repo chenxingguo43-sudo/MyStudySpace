@@ -511,6 +511,19 @@ body {
 .b2-knowledge-card strong, .b2-knowledge-card span, .b2-knowledge-card small { display: block; }
 .b2-knowledge-card span { color: var(--accent); font-size: 12px; }
 .b2-knowledge-card small { color: var(--text-secondary); line-height: 1.5; margin-top: 3px; }
+.b2-study-card { max-width: 860px; }
+.b2-study-section { margin: 18px 0; padding: 16px; border: 1px solid var(--border); border-radius: 14px; background: var(--surface-solid); }
+.b2-study-section h2 { margin-bottom: 8px; font-size: 1.1em; }
+.b2-study-status { color: var(--accent); font-size: 13px; font-weight: 600; }
+.b2-study-rule-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px; }
+.b2-study-rule, .b2-study-comparison, .b2-study-example { padding: 12px; border: 1px solid var(--glass-border); border-radius: 10px; background: var(--glass); }
+.b2-study-rule p, .b2-study-example p { margin-top: 6px; }
+.b2-study-source { display: block; margin-top: 9px; color: var(--text-secondary); font-size: 12px; line-height: 1.45; }
+.b2-study-comparison + .b2-study-comparison, .b2-study-example + .b2-study-example { margin-top: 10px; }
+.b2-study-comparison strong { color: var(--accent); }
+.b2-study-example .ru { color: var(--ru-text); font-family: Georgia, serif; font-size: 1.06em; }
+.b2-study-example .zh { color: var(--text-secondary); }
+.b2-study-actions { display: flex; flex-wrap: wrap; gap: 10px; margin: 24px 0 48px; }
 .b2-quiz-target { outline: 3px solid var(--accent); outline-offset: 5px; border-radius: 10px; }
 
 /* ─── 移动端 ─── */
@@ -963,7 +976,8 @@ function renderShelf() {
   SORT_OPTIONS.forEach(function(o) {
     parts.push('<option value="' + o.value + '"' + (state.sort === o.value ? ' selected' : '') + '>' + o.label + '</option>');
   });
-  parts.push('</select></div><div class="bookshelf">');
+  var wrongCount = getWrongAnswerItems().filter(function(item) { return item.status === 'pending'; }).length;
+  parts.push('</select></div><div class="bookshelf"><div class="book-card" onclick="showWrongAnswerBook()"><h3>📕 错题复习</h3><div class="book-desc">待掌握 ' + wrongCount + ' 题</div></div>');
 
   for (var i = 0; i < sorted.length; i++) {
     var b = sorted[i], done = getBookProgress(b.id), pct = b.chapters > 0 ? Math.round(done / b.chapters * 100) : 0;
@@ -1046,6 +1060,9 @@ var B2_QUIZ_SETTINGS_KEY = 'rr_b2_quiz_settings_v1';
 var quizProgress = {};
 var currentQuizData = null;
 var currentQuizExercises = [];
+var currentQuizAllExercises = [];
+var pendingQuizJumpId = '';
+var pendingQuizPractice = null;
 
 function getB2Progress() {
   try { return migrateB2Progress(JSON.parse(localStorage.getItem(B2_PROGRESS_KEY)) || {}); }
@@ -1083,6 +1100,119 @@ function getB2CompletionKey() { return getQuizUnitKey(); }
 function getB2CompletedUnits(bookId) {
   var completed = getB2Progress().__completed || {}, prefix = bookId + ':';
   return Object.keys(completed).filter(function(key) { return key.indexOf(prefix) === 0 && completed[key] && completed[key].completed; });
+}
+function fetchStudyCard(pointId) {
+  return fetch('data/textbook/russian_b2/study-cards/' + encodeURIComponent(pointId) + '.json').then(function(response) {
+    if (!response.ok) throw new Error('study card not found');
+    return response.json();
+  });
+}
+function getStudyCardProgress(partId, exerciseIds) {
+  var records = getB2Progress()['russian_b2:' + partId] || {};
+  return exerciseIds.reduce(function(total, exerciseId) {
+    var record = records[exerciseId] || {};
+    total.answered += record.submitted ? 1 : 0;
+    total.everWrong += record.everWrong ? 1 : 0;
+    total.pending += record.lastResult === 'wrong' ? 1 : 0;
+    return total;
+  }, { answered: 0, everWrong: 0, pending: 0 });
+}
+function renderStudySource(source) {
+  if (!source) return '';
+  var pages = Array.isArray(source.pages) && source.pages.length ? ' · 第 ' + source.pages.join('、') + ' 页' : '';
+  var location = source.file ? ' · ' + escapeHtml(source.file) + (source.section ? ' → ' + escapeHtml(source.section) : '') : '';
+  return '<small class="b2-study-source">' + escapeHtml(source.label || '') + location + pages + '</small>';
+}
+function renderStudyComparisons(comparisons) {
+  if (!comparisons || !comparisons.length) return '';
+  return '<section class="b2-study-section"><h2>易混对比</h2>' + comparisons.map(function(item) {
+    return '<article class="b2-study-comparison"><strong>' + escapeHtml(item.left) + '</strong> / <strong>' + escapeHtml(item.right) + '</strong><p>' + escapeHtml(item.note) + '</p>' + renderStudySource(item.source) + '</article>';
+  }).join('') + '</section>';
+}
+function renderStudyExamples(examples) {
+  if (!examples || !examples.length) return '';
+  return '<section class="b2-study-section"><h2>语法书例句</h2>' + examples.map(function(item) {
+    return '<article class="b2-study-example"><p class="ru">' + escapeHtml(item.ru) + '</p><p class="zh">' + escapeHtml(item.zh) + '</p>' + renderStudySource(item.source) + '</article>';
+  }).join('') + '</section>';
+}
+function renderStudyPitfalls(pitfalls) {
+  if (!pitfalls || !pitfalls.length) return '';
+  return '<section class="b2-study-section"><h2>高频误区</h2><ul>' + pitfalls.map(function(item) { return '<li>' + escapeHtml(item) + '</li>'; }).join('') + '</ul></section>';
+}
+function renderStudyCard(card, point) {
+  var progress = getStudyCardProgress(card.partId, card.exerciseIds);
+  var quizIds = escapeHtml(JSON.stringify(card.exerciseIds)).replace(/"/g, '&quot;');
+  var rules = card.rules.map(function(rule) {
+    return '<article class="b2-study-rule"><strong>' + escapeHtml(rule.structure) + '</strong><p>' + escapeHtml(rule.meaning) + '</p>' + renderStudySource(rule.source) + '</article>';
+  }).join('');
+  return '<div class="main-container b2-study-card"><button class="tb-btn" onclick="goChapter(' + (card.partId.slice(1) - 1) + ')">← 返回 ' + escapeHtml(card.partId.toUpperCase()) + '</button>' +
+    '<header class="b2-quiz-header"><h1>' + escapeHtml(card.title) + '</h1><p>对应练习：' + escapeHtml(formatQuestionRange(card.exerciseIds)) + '</p><div class="b2-study-status">已答 ' + progress.answered + ' · 历史错 ' + progress.everWrong + ' · 待掌握 ' + progress.pending + '</div></header>' +
+    '<section class="b2-study-section"><h2>这一组题考什么</h2><p>' + escapeHtml(card.overview) + '</p></section>' +
+    '<section class="b2-study-section"><h2>做题判断顺序</h2><ol>' + card.decisionSteps.map(function(step) { return '<li>' + escapeHtml(step) + '</li>'; }).join('') + '</ol></section>' +
+    '<section class="b2-study-section"><h2>核心规则</h2><div class="b2-study-rule-grid">' + rules + '</div></section>' +
+    renderStudyComparisons(card.comparisons) + renderStudyExamples(card.examples) + renderStudyPitfalls(card.pitfalls) +
+    '<section class="b2-study-actions"><button class="b2-finish" onclick="openStudyCardPractice(\'' + card.partId + '\',' + quizIds + ',false)">做本知识点全部题目</button><button class="b2-finish" onclick="openStudyCardPractice(\'' + card.partId + '\',' + quizIds + ',true)">只重做本点错题</button><button class="b2-finish" onclick="showWrongAnswerBook(\'' + card.partId + '\',\'' + escapeHtml(point.title) + '\')">查看错题本</button></section></div>';
+}
+function showStudyCard(partId, pointId) {
+  curView = 'study-card'; stopTimer();
+  var app = document.getElementById('app');
+  app.innerHTML = toolbar('知识点复习', '<button class="tb-btn" onclick="showChapters(\'russian_b2\')">← 目录</button>') + '<div class="main-container"><div class="loading"><div class="spinner"></div><div>加载知识点卡...</div></div></div>';
+  var book = getBookById('russian_b2'), index = book && book.unitIds.indexOf(partId);
+  if (index < 0) { app.innerHTML = toolbar('知识点复习', '<button class="tb-btn" onclick="showChapters(\'russian_b2\')">← 目录</button>') + '<div class="main-container"><div class="loading">❌ 知识点卡加载失败</div></div>'; return; }
+  Promise.all([fetchChapter(book.id, index), fetchStudyCard(pointId)]).then(function(result) {
+    var chapter = result[0], card = result[1], point = (chapter.knowledgePoints || []).find(function(item) { return item.id === pointId; });
+    if (!point || card.partId !== partId || card.knowledgePointId !== pointId) throw new Error('study card mismatch');
+    app.innerHTML = toolbar('知识点复习', '<button class="tb-btn" onclick="goChapter(' + index + ')">← 返回练习</button>') + renderStudyCard(card, point);
+    window.scrollTo(0, 0); applyTheme();
+  }).catch(function() {
+    app.innerHTML = toolbar('知识点复习', '<button class="tb-btn" onclick="showChapters(\'russian_b2\')">← 目录</button>') + '<div class="main-container"><div class="loading">❌ 知识点卡加载失败</div></div>';
+  });
+}
+function openStudyCardPractice(partId, exerciseIds, wrongOnly) {
+  var book = getBookById('russian_b2'), index = book && book.unitIds.indexOf(partId);
+  if (index < 0) return;
+  pendingQuizPractice = { partId: partId, exerciseIds: exerciseIds, wrongOnly: !!wrongOnly };
+  curBook = book;
+  goChapter(index);
+}
+function getWrongAnswerItems() {
+  var progress = getB2Progress(), items = [];
+  Object.keys(progress).filter(function(key) { return /^russian_b2:p[1-6]$/.test(key); }).forEach(function(partKey) {
+    Object.keys(progress[partKey] || {}).forEach(function(exerciseId) {
+      var record = progress[partKey][exerciseId];
+      if (record && record.everWrong) items.push({ partId: partKey.split(':')[1], exerciseId: exerciseId, status: record.lastResult === 'wrong' ? 'pending' : 'mastered', lastAnsweredAt: record.lastAnsweredAt || '' });
+    });
+  });
+  return items.sort(function(a, b) { return b.lastAnsweredAt.localeCompare(a.lastAnsweredAt); });
+}
+var wrongAnswerBookMeta = null;
+function showWrongAnswerBook(partFilter, pointFilter) {
+  curView = 'wrong-book'; stopTimer();
+  if (!wrongAnswerBookMeta) {
+    document.getElementById('app').innerHTML = toolbar('错题复习', '<button class="tb-btn" onclick="showShelf()">← 书架</button>') + '<div class="main-container"><div class="loading"><div class="spinner"></div><div>加载错题本...</div></div></div>';
+    var book = getBookById('russian_b2');
+    Promise.all(book.unitIds.map(function(id, index) { return fetchChapter(book.id, index); })).then(function(parts) {
+      wrongAnswerBookMeta = {};
+      parts.forEach(function(part) { (part.knowledgePoints || []).forEach(function(point) { point.exerciseIds.forEach(function(exerciseId) { wrongAnswerBookMeta[exerciseId] = { title: point.title, partId: part.id }; }); }); });
+      showWrongAnswerBook(partFilter, pointFilter);
+    }).catch(function() { document.querySelector('.main-container').innerHTML = '<div class="loading">❌ 错题本加载失败</div>'; });
+    return;
+  }
+  var items = getWrongAnswerItems(), pending = items.filter(function(item) { return item.status === 'pending'; }), mastered = items.filter(function(item) { return item.status === 'mastered'; });
+  items.forEach(function(item) { item.knowledge = wrongAnswerBookMeta[item.exerciseId] || { title: '未分类', partId: item.partId }; });
+  var filtered = pending.concat(mastered).filter(function(item) { return (!partFilter || item.partId === partFilter) && (!pointFilter || item.knowledge.title === pointFilter); });
+  var select = '<select class="sort-select" onchange="showWrongAnswerBook(this.value)"><option value="">全部部分</option>' + ['p1','p2','p3','p4','p5','p6'].map(function(part) { return '<option value="' + part + '"' + (part === partFilter ? ' selected' : '') + '>' + part.toUpperCase() + '</option>'; }).join('') + '</select>';
+  var points = [...new Set(items.map(function(item) { return item.knowledge.title; }))];
+  var pointSelect = '<select class="sort-select" onchange="showWrongAnswerBook(\'' + (partFilter || '') + '\',this.value)"><option value="">全部知识点</option>' + points.map(function(point) { return '<option value="' + escapeHtml(point) + '"' + (point === pointFilter ? ' selected' : '') + '>' + escapeHtml(point) + '</option>'; }).join('') + '</select>';
+  var rows = filtered.map(function(item) { return '<button class="b2-finish" onclick="openWrongAnswerItem(\'' + item.partId + '\',\'' + item.exerciseId + '\')">' + (item.status === 'pending' ? '待掌握 · ' : '已掌握 · ') + item.partId.toUpperCase() + ' · ' + escapeHtml(item.knowledge.title) + ' · ' + item.exerciseId + '</button>'; }).join('');
+  document.getElementById('app').innerHTML = toolbar('错题复习', '<button class="tb-btn" onclick="showShelf()">← 书架</button>') + '<div class="main-container"><div class="b2-quiz-header"><h1>错题复习</h1><p>待掌握 ' + pending.length + ' 题 · 已掌握 ' + mastered.length + ' 题</p>' + select + pointSelect + '</div>' + (rows || '<div class="loading">这个筛选下还没有错题。</div>') + '</div>';
+}
+function openWrongAnswerItem(partId, exerciseId) {
+  var book = getBookById('russian_b2'), index = book.unitIds.indexOf(partId);
+  if (index < 0) return;
+  pendingQuizJumpId = exerciseId;
+  curBook = book;
+  goChapter(index);
 }
 function isB2ChapterComplete(bookId, chapterIndex) {
   var book = getBookById(bookId), unitId = book && book.unitIds && book.unitIds[chapterIndex];
@@ -1136,12 +1266,14 @@ function formatQuestionRange(exerciseIds) {
   var first = exerciseIds[0].slice(-3).replace(/^0+/, ''), last = exerciseIds[exerciseIds.length - 1].slice(-3).replace(/^0+/, '');
   return first === last ? '题 ' + first : '题 ' + first + '–' + last;
 }
-function renderKnowledgePointNav(points) {
+function renderKnowledgePointNav(points, partId) {
   if (!Array.isArray(points) || !points.length) return '';
   var html = '<section class="b2-knowledge-nav"><h2>知识点导航</h2><div class="b2-knowledge-grid">';
   points.forEach(function(point) {
-    var first = point.exerciseIds && point.exerciseIds[0];
-    html += '<button class="b2-knowledge-card" onclick="restartQuiz(\'knowledge\',' + escapeHtml(JSON.stringify(point.exerciseIds)).replace(/"/g, '&quot;') + ')"><strong>' + escapeHtml(point.title) + '</strong><span>' + escapeHtml(formatQuestionRange(point.exerciseIds)) + '</span><small>' + escapeHtml(point.rule) + '</small></button>';
+    var action = partId === 'p2' && point.id === 'p2-time-cause'
+      ? 'showStudyCard(\'p2\',\'p2-time-cause\')'
+      : 'restartQuiz(\'knowledge\',' + escapeHtml(JSON.stringify(point.exerciseIds)).replace(/"/g, '&quot;') + ')';
+    html += '<button class="b2-knowledge-card" onclick="' + action + '"><strong>' + escapeHtml(point.title) + '</strong><span>' + escapeHtml(formatQuestionRange(point.exerciseIds)) + '</span><small>' + escapeHtml(point.rule) + '</small></button>';
   });
   return html + '</div></section>';
 }
@@ -1153,10 +1285,14 @@ function jumpToQuizExercise(exerciseId) {
   setTimeout(function() { target.classList.remove('b2-quiz-target'); }, 1600);
 }
 function renderQuizChapter(data, scrollPosition) {
-  currentQuizData = data; currentQuizExercises = data.exercises || [];
+  var isNewPart = !currentQuizData || currentQuizData.id !== data.id;
+  currentQuizData = data;
+  if (isNewPart) currentQuizAllExercises = data.exercises || [];
+  currentQuizExercises = data.exercises || [];
+  var partWrongCount = getWrongAnswerItems().filter(function(item) { return item.partId === data.id && item.status === 'pending'; }).length;
   var html = '<div class="main-container b2-quiz-page"><div class="b2-quiz-header">' +
     '<button class="tb-btn" onclick="showShelf()">← 书架</button><h1>' + escapeHtml(data.title || '') + '</h1>' +
-    '<p>先独立作答；确认后只显示对错。答案与解析需要你手动展开。</p></div>' + renderKnowledgePointNav(data.knowledgePoints);
+    '<p>先独立作答；确认后只显示对错。答案与解析需要你手动展开。</p><button class="tb-btn" onclick="showWrongAnswerBook(\'' + data.id + '\')">本部分错题 ' + partWrongCount + ' 题</button></div>' + renderKnowledgePointNav(data.knowledgePoints, data.id);
   for (var i = 0; i < currentQuizExercises.length; i++) html += renderQuizItem(currentQuizExercises[i], getQuizRecord(currentQuizExercises[i].id));
   html += '<button class="b2-finish" onclick="finishQuizChapter()">结束本部分</button>' +
     '<div class="b2-retry-actions"><button class="b2-finish" onclick="restartQuiz(\'all\')">再做全部</button><button class="b2-finish" onclick="restartQuiz(\'wrong\')">只重做错题</button></div>';
@@ -1166,6 +1302,16 @@ function renderQuizChapter(data, scrollPosition) {
     '</div></div>';
   document.getElementById('app').innerHTML = html;
   window.scrollTo(0, typeof scrollPosition === 'number' ? scrollPosition : 0); applyTheme(); saveLastRead();
+  if (pendingQuizJumpId) {
+    var pendingJump = pendingQuizJumpId;
+    pendingQuizJumpId = '';
+    setTimeout(function() { jumpToQuizExercise(pendingJump); }, 0);
+  }
+  if (pendingQuizPractice && pendingQuizPractice.partId === data.id) {
+    var practiceRequest = pendingQuizPractice;
+    pendingQuizPractice = null;
+    restartQuiz(practiceRequest.wrongOnly ? 'knowledge-wrong' : 'knowledge', practiceRequest.exerciseIds);
+  }
 }
 function rerenderQuizChapterPreservingScroll() {
   renderQuizChapter(currentQuizData, window.scrollY);
@@ -1197,7 +1343,7 @@ function toggleQuizExplanation(questionId) {
 }
 function finishQuizChapter() {
   var records = getB2Progress()[getQuizUnitKey()] || {};
-  var complete = currentQuizExercises.length > 0 && currentQuizExercises.every(function(exercise) { return records[exercise.id] && records[exercise.id].submitted; });
+  var complete = currentQuizAllExercises.length > 0 && currentQuizAllExercises.every(function(exercise) { return records[exercise.id] && records[exercise.id].submitted; });
   if (!complete) { toast('请先确认全部题目，再结束本单元'); return; }
   var all = getB2Progress();
   if (!all.__completed) all.__completed = {};
@@ -1206,9 +1352,11 @@ function finishQuizChapter() {
 }
 function restartQuiz(mode, exerciseIds) {
   var all = getB2Progress(), key = getQuizUnitKey(), records = all[key] || {};
-  currentQuizExercises = (currentQuizData.exercises || []).filter(function(exercise) {
-    return mode !== 'wrong' || records[exercise.id] && records[exercise.id].everWrong;
-  }).filter(function(exercise) { return mode !== 'knowledge' || (exerciseIds || []).indexOf(exercise.id) !== -1; });
+  var needsWrongHistory = mode === 'wrong' || mode === 'knowledge-wrong';
+  var needsKnowledgeScope = mode === 'knowledge' || mode === 'knowledge-wrong';
+  currentQuizExercises = currentQuizAllExercises.filter(function(exercise) {
+    return !needsWrongHistory || records[exercise.id] && records[exercise.id].everWrong;
+  }).filter(function(exercise) { return !needsKnowledgeScope || (exerciseIds || []).indexOf(exercise.id) !== -1; });
   currentQuizExercises.forEach(function(exercise) {
     var old = records[exercise.id] || {}, fresh = { selected: '', submitted: false, attempts: old.attempts || 0, wrong: false, everWrong: !!old.everWrong, lastResult: old.lastResult || '', lastAnsweredAt: old.lastAnsweredAt || '', explanationOpen: false };
     records[exercise.id] = fresh;

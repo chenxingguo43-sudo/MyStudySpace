@@ -66,7 +66,7 @@ test('B2 completion uses the permanent unit key instead of the chapter index', (
 });
 
 test('quiz reader renders knowledge-point navigation and migrates old unit progress', () => {
-  assert.match(reader, /function renderKnowledgePointNav\(points\)/);
+  assert.match(reader, /function renderKnowledgePointNav\(points(?:, partId)?\)/);
   assert.match(reader, /function jumpToQuizExercise\(exerciseId\)/);
   assert.match(reader, /scrollIntoView/);
   assert.match(reader, /russian_b2:p2-q001-q010/);
@@ -78,4 +78,30 @@ test('quiz supports single-click answers and retry history', () => {
   assert.match(reader, /function submitQuizOption\(questionId, key\)/);
   assert.match(reader, /everWrong/);
   assert.match(reader, /function restartQuiz\(mode/);
+});
+
+test('reader provides a B2 wrong-answer book', () => {
+  assert.match(reader, /function getWrongAnswerItems\(\)/);
+  assert.match(reader, /function showWrongAnswerBook\(partFilter, pointFilter\)/);
+  assert.match(reader, /function openWrongAnswerItem\(partId, exerciseId\)/);
+  assert.match(reader, /var pendingQuizJumpId = '';/);
+  assert.match(reader, /pendingQuizJumpId = exerciseId;/);
+  assert.match(reader, /jumpToQuizExercise\(pendingJump\)/);
+});
+
+test('retrying a subset cannot mark the whole part complete', () => {
+  const finishBody = reader.match(/function finishQuizChapter\(\) \{([\s\S]*?)\n\}/);
+  assert.ok(finishBody);
+  assert.match(finishBody[1], /currentQuizAllExercises/);
+});
+
+test('reader provides a source-labelled study card without duplicating answer analysis', () => {
+  assert.match(reader, /function showStudyCard\(partId, pointId\)/);
+  assert.match(reader, /function renderStudyCard\(card, point\)/);
+  assert.match(reader, /function getStudyCardProgress\(partId, exerciseIds\)/);
+  assert.match(reader, /function openStudyCardPractice\(partId, exerciseIds, wrongOnly\)/);
+  assert.match(reader, /study-cards\//);
+  const cardBody = reader.match(/function renderStudyCard\(card, point\) \{([\s\S]*?)\n\}/);
+  assert.ok(cardBody);
+  assert.doesNotMatch(cardBody[1], /sourceAnswer|sourceExplanation|referenceExplanation/);
 });
