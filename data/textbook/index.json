@@ -2,12 +2,25 @@
   "books": [
     {
       "id": "reading_speaking",
+      "kind": "textbook",
+      "format": "reading",
       "title": "В мире людей — 阅读口语",
       "author": "М.Н. Макова, О.А. Ускова",
       "direction": "ru→cn",
       "chapters": 30,
       "dir": "reading_speaking",
       "description": "ТРКИ-2 阅读口语教材，30篇阅读文章（中俄对照）"
+    },
+    {
+      "id": "russian_b2",
+      "kind": "textbook",
+      "format": "quiz-first",
+      "title": "俄语 B2 全模块",
+      "author": "原版教材学习版",
+      "direction": "ru→cn",
+      "chapters": 1,
+      "dir": "russian_b2",
+      "description": "原书对照、逐题解析与错题复习"
     }
   ]
 }

@@ -232,6 +232,7 @@ body {
 .book-card .book-meta { font-size: 13px; color: var(--text-secondary); display: flex; gap: 12px; }
 .book-card .book-desc { font-size: 13px; color: var(--text-dim); margin-top: 8px; }
 .book-card .book-progress { margin-top: 12px; }
+.book-kind { color: var(--accent); font-size: 0.7em; margin-right: 6px; font-weight: 600; letter-spacing: 0.04em; }
 .progress-bar { height: 4px; background: var(--glass); border-radius: 2px; overflow: hidden; }
 .progress-fill { height: 100%; background: var(--accent); border-radius: 2px; transition: width 0.3s; }
 .progress-text { font-size: 12px; color: var(--text-dim); margin-top: 4px; }
@@ -872,13 +873,27 @@ function fetchIndex() {
       });
     });
 }
+function getBookById(bookId) {
+  for (var i = 0; i < booksData.length; i++) {
+    if (booksData[i].id === bookId) return booksData[i];
+  }
+  return null;
+}
+function getBookDataDir(bookId) {
+  var book = getBookById(bookId);
+  return book && book.kind === 'textbook' ? 'data/textbook' : 'data/novel';
+}
+function isQuizFirstBook(book) {
+  return !!book && book.kind === 'textbook' && book.format === 'quiz-first';
+}
 function fetchChapter(bookId, idx) {
   var padIdx = String(idx).padStart(4, '0');
-  var isTextbook = bookId === 'reading_speaking';
-  var dataDir = isTextbook ? 'data/textbook' : 'data/novel';
+  var book = getBookById(bookId);
+  var dataDir = getBookDataDir(bookId);
+  var directory = book && book.dir ? book.dir : bookId;
   return fetchJson(
     '/api/novel/' + encodeURIComponent(bookId) + '/' + idx,
-    dataDir + '/' + bookId + '/ch' + padIdx + '.json'
+    dataDir + '/' + directory + '/ch' + padIdx + '.json'
   );
 }
 
@@ -925,7 +940,7 @@ function renderShelf() {
     var b = sorted[i], done = getBookProgress(b.id), pct = b.chapters > 0 ? Math.round(done / b.chapters * 100) : 0;
     parts.push(
       '<div class="book-card" onclick="showChapters(\'' + escapeHtml(b.id) + '\')">' +
-      '<h3>' + (b.id === 'reading_speaking' ? '<span style="color:#4fc3f7;font-size:0.7em;margin-right:4px">📖 教材</span>' : '') + escapeHtml(b.title) + '</h3>' +
+      '<h3>' + (b.kind === 'textbook' ? '<span class="book-kind">教材</span>' : '') + escapeHtml(b.title) + '</h3>' +
       '<div class="book-meta">' + (b.author ? '<span>✍️ ' + escapeHtml(b.author) + '</span>' : '') +
       '<span>📚 ' + b.chapters + ' 章</span>' +
       '<span>' + (b.direction === 'cn→ru' ? '🇨🇳→🇷🇺' : '🇷🇺→🇨🇳') + '</span></div>' +
