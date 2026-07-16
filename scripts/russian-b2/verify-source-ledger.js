@@ -53,12 +53,26 @@ function loadPublishedUnits(root) {
   return manifest.units.filter(entry => entry.published).map(entry => loadJson(path.join(base, entry.source)));
 }
 
+function verifyAllPublishedSourceLedgers({ base, manifest }) {
+  const units = (manifest.units || []).filter(entry => entry.published)
+    .map(entry => loadJson(path.join(base, entry.source)));
+  return fs.readdirSync(base)
+    .filter(name => /^part-\d{2}-source-ledger\.json$/.test(name))
+    .sort()
+    .flatMap(name => {
+      const ledger = loadJson(path.join(base, name));
+      return verifySourceLedger({ ledger, units: units.filter(unit => unit.part === ledger.part) })
+        .map(error => `${name}: ${error}`);
+    });
+}
+
 if (require.main === module) {
   const root = path.resolve(__dirname, '..', '..');
   const base = path.join(root, ...DATA);
-  const errors = verifySourceLedger({ ledger: loadJson(path.join(base, 'part-02-source-ledger.json')), units: loadPublishedUnits(root) });
+  const manifest = loadJson(path.join(base, 'index.json'));
+  const errors = verifyAllPublishedSourceLedgers({ base, manifest });
   if (errors.length) { console.error(errors.join('\n')); process.exitCode = 1; }
-  else console.log('Source ledger verified.');
+  else console.log('All published source ledgers verified.');
 }
 
-module.exports = { verifySourceLedger };
+module.exports = { verifySourceLedger, verifyAllPublishedSourceLedgers, loadPublishedUnits };

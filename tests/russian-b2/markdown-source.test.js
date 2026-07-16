@@ -27,6 +27,11 @@ test('markdown source extractor accepts OCR option markers without an opening pa
   assert.deepEqual(drafts[0].options, [{ key: 'А', text: 'первый вариант' }, { key: 'Б', text: 'второй вариант' }]);
 });
 
+test('markdown source extractor repairs repeated Latin B option markers by their printed position', () => {
+  const questions = extractQuestionDrafts('3. Озеро ...\n(A) первый (Б) второй\n(B) третий (Г) четвёртый\n');
+  assert.deepEqual(questions[0].options.map(option => option.key), ['А', 'Б', 'В', 'Г']);
+});
+
 test('markdown source extractor reads answer, explanation, and translation drafts', () => {
   const drafts = extractAnswerDrafts('1. 答案: В。解析: 规则说明。译文: 中文翻译。\n2. 答案: Б。解析: 第二条。译文: 第二个翻译。');
   assert.deepEqual(drafts, [

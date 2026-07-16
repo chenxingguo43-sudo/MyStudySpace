@@ -11,7 +11,7 @@ const {
 } = require('../../scripts/russian-b2/lib/contracts');
 const { buildPilot } = require('../../scripts/russian-b2/build-pilot');
 const { buildBook } = require('../../scripts/russian-b2/build-book');
-const { verifySourceLedger } = require('../../scripts/russian-b2/verify-source-ledger');
+const { verifySourceLedger, verifyAllPublishedSourceLedgers } = require('../../scripts/russian-b2/verify-source-ledger');
 
 function makeExercise(id, answer) {
   return {
@@ -173,23 +173,23 @@ test('manifest build creates matching reader JSON, Markdown, range map, and qual
   assert.match(markdown, /答案与解析/);
   assert.deepEqual(rangeMap.entries[0].question_pages, [18, 19]);
   assert.deepEqual(rangeMap.entries[0].answer_pages, [25, 26, 27]);
-  assert.deepEqual(quality.units.map(unit => unit.id), [
-    'p2-q001-q010', 'p2-q011-q020', 'p2-q021-q030', 'p2-q031-q040',
-    'p2-q041-q050', 'p2-q051-q060', 'p2-q061-q070'
-  ]);
-  assert.deepEqual(b2Book.unitIds, [
-    'p2-q001-q010', 'p2-q011-q020', 'p2-q021-q030', 'p2-q031-q040',
-    'p2-q041-q050', 'p2-q051-q060', 'p2-q061-q070'
-  ]);
-  assert.equal(buildPilot({ root }).readerPaths.length, 7);
+  const publishedIds = JSON.parse(fs.readFileSync(path.join(root, '俄语资料库', '俄语B2·原书复刻与学习版', '规范数据', '语法词汇', 'index.json'), 'utf8')).units
+    .filter(unit => unit.published).map(unit => unit.id);
+  assert.deepEqual(quality.units.map(unit => unit.id), publishedIds);
+  assert.deepEqual(b2Book.unitIds, publishedIds);
+  assert.equal(buildPilot({ root }).readerPaths.length, 13);
 });
 
-test('published Part 2 units cover every verified source-ledger question', () => {
+test('published grammar units cover every verified source-ledger question', () => {
   const base = path.join('俄语资料库', '俄语B2·原书复刻与学习版', '规范数据', '语法词汇');
   const manifest = JSON.parse(fs.readFileSync(path.join(base, 'index.json'), 'utf8'));
-  const ledger = JSON.parse(fs.readFileSync(path.join(base, 'part-02-source-ledger.json'), 'utf8'));
   const units = manifest.units.filter(entry => entry.published).map(entry => JSON.parse(fs.readFileSync(path.join(base, entry.source), 'utf8')));
-  assert.equal(units.length, 7);
-  assert.deepEqual(units.flatMap(unit => unit.exercises.map(exercise => exercise.printedNumber)), Array.from({ length: 70 }, (_, index) => index + 1));
-  assert.deepEqual(verifySourceLedger({ ledger, units }), []);
+  const p2Ledger = JSON.parse(fs.readFileSync(path.join(base, 'part-02-source-ledger.json'), 'utf8'));
+  const p1Ledger = JSON.parse(fs.readFileSync(path.join(base, 'part-01-source-ledger.json'), 'utf8'));
+  assert.equal(units.length, 13);
+  assert.deepEqual(units.filter(unit => unit.part === 2).flatMap(unit => unit.exercises.map(exercise => exercise.printedNumber)), Array.from({ length: 70 }, (_, index) => index + 1));
+  assert.deepEqual(units.filter(unit => unit.part === 1).flatMap(unit => unit.exercises.map(exercise => exercise.printedNumber)), Array.from({ length: 60 }, (_, index) => index + 1));
+  assert.deepEqual(verifySourceLedger({ ledger: p2Ledger, units: units.filter(unit => unit.part === 2) }), []);
+  assert.deepEqual(verifySourceLedger({ ledger: p1Ledger, units: units.filter(unit => unit.part === 1) }), []);
+  assert.deepEqual(verifyAllPublishedSourceLedgers({ base, manifest }), []);
 });

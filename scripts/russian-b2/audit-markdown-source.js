@@ -44,7 +44,10 @@ function extractQuestionDrafts(markdown) {
     if (matches.length < 2 || matches.length > 4) return [];
     const question = cleanDraftText(body.slice(0, matches[0].index));
     const options = matches.map((match, index) => ({
-      key: normalizeOptionKey(match[1] || match[2]),
+      // The OCR occasionally reads Cyrillic В as Latin B.  The original
+      // multiple-choice layout is always ordered А, Б, В, Г, so position is
+      // the reliable identifier while the extracted text remains unchanged.
+      key: ['А', 'Б', 'В', 'Г'][index],
       text: cleanDraftText(body.slice(match.index + match[0].length, index + 1 < matches.length ? matches[index + 1].index : body.length))
     }));
     if (!question || options.some(option => !option.text)) return [];
