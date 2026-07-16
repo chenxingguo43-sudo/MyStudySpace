@@ -10,9 +10,11 @@ function samePages(left, right) {
 
 function verifySourceLedger({ ledger, units }) {
   const errors = [], entries = (ledger && ledger.entries) || [], byExercise = new Map(), printedNumbers = new Set();
+  const part = ledger && ledger.part;
+  const idPattern = new RegExp('^P' + part + '-Q\\d{3}$');
   entries.forEach(entry => {
     const label = entry.exerciseId || 'unknown exercise';
-    if (!/^P2-Q\d{3}$/.test(entry.exerciseId || '')) errors.push(label + ': exerciseId must be P2-Qnnn');
+    if (!idPattern.test(entry.exerciseId || '')) errors.push(label + ': exerciseId must be P' + part + '-Qnnn');
     if (!Number.isInteger(entry.printedNumber) || entry.printedNumber < 1) errors.push(label + ': printedNumber is required');
     if (printedNumbers.has(entry.printedNumber)) errors.push(label + ': printedNumber must be unique');
     printedNumbers.add(entry.printedNumber);
@@ -31,6 +33,8 @@ function verifySourceLedger({ ledger, units }) {
     }
   }
   (units || []).forEach(unit => (unit.exercises || []).forEach(exercise => {
+    if (unit.part !== part) errors.push(unit.id + ': unit part differs from source ledger');
+    if (!idPattern.test(exercise.id || '')) errors.push((exercise.id || 'unknown exercise') + ': exerciseId must be P' + part + '-Qnnn');
     const entry = byExercise.get(exercise.id);
     if (!entry) { errors.push(exercise.id + ': missing verified source-ledger entry'); return; }
     if (entry.printedNumber !== exercise.printedNumber) errors.push(exercise.id + ': printedNumber differs from source ledger');

@@ -78,6 +78,19 @@ test('source ledger requires verified explanation and translation for each canon
   assert.match(verifySourceLedger({ ledger: { part: 2, entries: [broken] }, units: [unit] }).join('\n'), /translation/);
 });
 
+test('source ledger derives exercise ID format from its declared part', () => {
+  const unit = makeUnit();
+  unit.id = 'p1-q001-q010';
+  unit.part = 1;
+  unit.exercises[0].id = 'P1-Q001';
+  const entry = makeLedgerEntry();
+  entry.exerciseId = 'P1-Q001';
+  unit.exercises[0].sourceExplanation = '原书解析：' + entry.sourceExplanation + '；译文：' + entry.translation;
+  assert.deepEqual(verifySourceLedger({ ledger: { part: 1, entries: [entry] }, units: [unit] }), []);
+  unit.exercises[0].id = 'P2-Q001';
+  assert.match(verifySourceLedger({ ledger: { part: 1, entries: [entry] }, units: [unit] }).join('\n'), /P1-Qnnn/);
+});
+
 test('source ledger rejects a declared Part 2 range with a missing printed question', () => {
   const first = makeLedgerEntry();
   const second = Object.assign(makeLedgerEntry(), { exerciseId: 'P2-Q003', printedNumber: 3 });
