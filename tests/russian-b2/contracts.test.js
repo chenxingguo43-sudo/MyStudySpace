@@ -133,6 +133,16 @@ test('rejects answer/sourceAnswer mismatches, missing source explanation, and mi
   assert.match(errors.join('\n'), /参考解析（AI，待复核）/);
 });
 
+test('P1 Q001 answer label matches the original explained form', () => {
+  const fs = require('node:fs');
+  const path = require('node:path');
+  const unit = JSON.parse(fs.readFileSync(path.join('俄语资料库', '俄语B2·原书复刻与学习版', '规范数据', '语法词汇', 'p1-q001-q010.json'), 'utf8'));
+  const exercise = unit.exercises.find(item => item.id === 'P1-Q001');
+  assert.equal(exercise.answer, 'В');
+  assert.equal(exercise.sourceAnswer, 'В');
+  assert.equal(exercise.options.find(item => item.key === exercise.answer).text, 'выступила');
+});
+
 test('escapes unsafe text before reader HTML rendering', () => {
   assert.equal(toSafeText('<img src=x onerror=alert(1)>'), '&lt;img src=x onerror=alert(1)&gt;');
 });
