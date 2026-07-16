@@ -2,7 +2,7 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:executing-plans to implement task-by-task. Steps use checkbox syntax.
 
-**Goal:** 发布第 1、3、4 部分全部语法题和第 6 部分可独立作答的语法题。
+**Goal:** 发布全部语法模块 P1–P6；P2 已完成，P1、P3、P4、P5 的独立语法题全部发布，P6 发布可独立作答的语法题。
 
 **Architecture:** 使用同一份发布清单和通用构建器。来源台账校验器按 `part` 验证 `P<part>-Qnnn`，每部分拥有独立的题号范围与证据台账。
 
