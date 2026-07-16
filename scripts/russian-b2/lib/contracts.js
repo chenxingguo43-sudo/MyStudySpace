@@ -9,7 +9,7 @@ function toSafeText(value) {
 
 function validateExercise(exercise) {
   const errors = [];
-  if (!/^Q\d{3}$/.test(exercise.id || '')) errors.push('exercise.id must be QNNN');
+  if (!/^(?:Q\d{3}|P\d+-Q\d{3})$/.test(exercise.id || '')) errors.push('exercise.id must be QNNN or Pn-Qnnn');
   if (exercise.type !== 'single-choice') errors.push(`${exercise.id}: type must be single-choice`);
   if (!exercise.question) errors.push(`${exercise.id}: question is required`);
   if (!Array.isArray(exercise.options) || exercise.options.length !== 4) errors.push(`${exercise.id}: exactly four options are required`);
@@ -36,9 +36,40 @@ function validateChapter(chapter) {
   return errors;
 }
 
+function validateUnit(unit) {
+  const errors = [];
+  if (!/^[a-z0-9-]+$/.test(unit.id || '')) errors.push('unit.id must be a stable slug');
+  if (!Number.isInteger(unit.chapterIndex) || unit.chapterIndex < 0) errors.push('unit.chapterIndex must be non-negative');
+  if (!Number.isInteger(unit.part) || unit.part < 1) errors.push('unit.part must be positive');
+  errors.push(...validateChapter({
+    index: unit.chapterIndex,
+    title: unit.title,
+    module: unit.module,
+    format: unit.format,
+    sourcePages: unit.sourcePages,
+    exercises: unit.exercises
+  }));
+  (unit.exercises || []).forEach(exercise => {
+    if (!/^P\d+-Q\d{3}$/.test(exercise.id || '')) errors.push(`${exercise.id}: exercise id must be Pn-Qnnn`);
+    if (!Number.isInteger(exercise.printedNumber) || exercise.printedNumber < 1) errors.push(`${exercise.id}: printedNumber is required`);
+  });
+  return errors;
+}
+
+function validateUnitManifest(manifest) {
+  const errors = [], chapterIndexes = new Set(), unitIds = new Set();
+  (manifest.units || []).forEach(unit => {
+    errors.push(...validateUnit(unit));
+    if (chapterIndexes.has(unit.chapterIndex)) errors.push(`${unit.id}: chapterIndex must be unique`);
+    if (unitIds.has(unit.id)) errors.push(`${unit.id}: unit.id must be unique`);
+    chapterIndexes.add(unit.chapterIndex); unitIds.add(unit.id);
+  });
+  return errors;
+}
+
 function assertPilotAnswerVector(chapter) {
   const actual = chapter.exercises.map(exercise => exercise.answer);
   if (actual.join('|') !== PILOT_ANSWERS.join('|')) throw new Error(`Pilot answers differ: ${actual.join(', ')}`);
 }
 
-module.exports = { PILOT_ANSWERS, validateExercise, validateChapter, assertPilotAnswerVector, toSafeText };
+module.exports = { PILOT_ANSWERS, validateExercise, validateChapter, validateUnit, validateUnitManifest, assertPilotAnswerVector, toSafeText };

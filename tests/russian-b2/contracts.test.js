@@ -4,6 +4,8 @@ const fs = require('node:fs');
 const path = require('node:path');
 const {
   validateChapter,
+  validateUnit,
+  validateUnitManifest,
   assertPilotAnswerVector,
   toSafeText
 } = require('../../scripts/russian-b2/lib/contracts');
@@ -29,6 +31,33 @@ function makeExercise(id, answer) {
     reviewStatus: 'verified'
   };
 }
+
+function makeUnit() {
+  return {
+    id: 'p2-q001-q010', chapterIndex: 0, part: 2,
+    title: '接格关系（题 1-10）', module: '语法词汇', format: 'quiz-first',
+    sourcePages: { questions: [18], rules: [24], answers: [25] },
+    exercises: [Object.assign(makeExercise('P2-Q001', 'В'), { printedNumber: 1 })]
+  };
+}
+
+test('requires permanent unit and exercise identifiers', () => {
+  const unit = makeUnit();
+  assert.deepEqual(validateUnit(unit), []);
+  unit.id = '';
+  unit.exercises[0].id = 'Q001';
+  delete unit.exercises[0].printedNumber;
+  const errors = validateUnit(unit).join('\n');
+  assert.match(errors, /unit.id/);
+  assert.match(errors, /Pn-Qnnn/);
+  assert.match(errors, /printedNumber/);
+});
+
+test('rejects duplicate reader chapter indexes in the unit manifest', () => {
+  const another = makeUnit();
+  another.id = 'p2-q011-q020';
+  assert.match(validateUnitManifest({ units: [makeUnit(), another] }).join('\n'), /chapterIndex.*unique/);
+});
 
 test('accepts the complete Q001–Q010 pilot answer vector', () => {
   const answers = ['В', 'В', 'Б', 'А', 'Г', 'Г', 'А', 'А', 'А', 'Б'];
@@ -70,13 +99,14 @@ test('requires all pilot question, rule, and answer page references', () => {
   assert.deepEqual([...pages].sort((a, b) => a - b), [18, 19, 24, 25, 26, 27]);
 });
 
-test('pilot source content has exactly ten sequential verified questions', () => {
+test('pilot source content has exactly ten sequential verified permanent questions', () => {
   const chapter = require('../../俄语资料库/俄语B2·原书复刻与学习版/规范数据/语法词汇/02-名词与形容词接格-题1-10.json');
   assert.equal(chapter.exercises.length, 10);
   assert.deepEqual(chapter.exercises.map(exercise => exercise.id), [
-    'Q001', 'Q002', 'Q003', 'Q004', 'Q005',
-    'Q006', 'Q007', 'Q008', 'Q009', 'Q010'
+    'P2-Q001', 'P2-Q002', 'P2-Q003', 'P2-Q004', 'P2-Q005',
+    'P2-Q006', 'P2-Q007', 'P2-Q008', 'P2-Q009', 'P2-Q010'
   ]);
+  assert.deepEqual(chapter.exercises.map(exercise => exercise.printedNumber), [1,2,3,4,5,6,7,8,9,10]);
   assert.ok(chapter.exercises.every(exercise => exercise.reviewStatus === 'verified'));
   assert.doesNotThrow(() => assertPilotAnswerVector(chapter));
 });
