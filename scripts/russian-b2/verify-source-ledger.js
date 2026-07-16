@@ -25,6 +25,11 @@ function verifySourceLedger({ ledger, units }) {
     if (entry.status !== 'verified') errors.push(label + ': status must be verified');
     byExercise.set(entry.exerciseId, entry);
   });
+  if (Array.isArray(ledger && ledger.expectedRange) && ledger.expectedRange.length === 2) {
+    for (let printedNumber = ledger.expectedRange[0]; printedNumber <= ledger.expectedRange[1]; printedNumber++) {
+      if (!printedNumbers.has(printedNumber)) errors.push('missing printedNumber ' + printedNumber);
+    }
+  }
   (units || []).forEach(unit => (unit.exercises || []).forEach(exercise => {
     const entry = byExercise.get(exercise.id);
     if (!entry) { errors.push(exercise.id + ': missing verified source-ledger entry'); return; }

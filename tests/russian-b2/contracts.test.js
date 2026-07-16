@@ -78,6 +78,13 @@ test('source ledger requires verified explanation and translation for each canon
   assert.match(verifySourceLedger({ ledger: { part: 2, entries: [broken] }, units: [unit] }).join('\n'), /translation/);
 });
 
+test('source ledger rejects a declared Part 2 range with a missing printed question', () => {
+  const first = makeLedgerEntry();
+  const second = Object.assign(makeLedgerEntry(), { exerciseId: 'P2-Q003', printedNumber: 3 });
+  const errors = verifySourceLedger({ ledger: { part: 2, expectedRange: [1, 3], entries: [first, second] }, units: [] });
+  assert.match(errors.join('\n'), /missing printedNumber 2/);
+});
+
 test('accepts the complete Q001–Q010 pilot answer vector', () => {
   const answers = ['В', 'В', 'Б', 'А', 'Г', 'Г', 'А', 'А', 'А', 'Б'];
   const chapter = {
