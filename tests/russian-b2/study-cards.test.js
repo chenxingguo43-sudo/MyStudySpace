@@ -57,3 +57,20 @@ test('rich P2 card requires approved layered lesson content', () => {
   card.reviewStatus = 'pending-review';
   assert.match(validateStudyCard({ card, chapter, grammarText }).join('\n'), /approved/);
 });
+
+test('P2 rich card covers the approved lesson sequence and independent checks', () => {
+  const card = buildStudyCards({ root, write: false }).cards[0];
+  assert.equal(card.reviewStatus, 'approved');
+  assert.deepEqual(card.lessons.map(lesson => lesson.title), [
+    '持续多久', '计划或维持多久', '多久以后发生', '在多久内完成',
+    '先后与期限', '原因关系', '关联扩展', '综合辨析'
+  ]);
+  assert.ok(card.lessons.some(lesson => lesson.scope === 'related-extension'));
+  const caseChanges = JSON.stringify(card.lessons.flatMap(lesson => lesson.caseChanges));
+  ['дождь', 'из-за дождя', 'ошибка', 'из-за ошибки', 'плохая погода', 'из-за плохой погоды', 'проблемы', 'из-за проблем'].forEach(value => assert.match(caseChanges, new RegExp(value)));
+  const comparisons = JSON.stringify(card.comparisons);
+  assert.match(comparisons, /через неделю/);
+  assert.match(comparisons, /за неделю/);
+  assert.ok(card.checks.length >= 3 && card.checks.length <= 5);
+  assert.equal(card.answerAnalysis, undefined);
+});
