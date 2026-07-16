@@ -24,7 +24,7 @@ test('six-part grammar data attaches approved study-card IDs to knowledge points
   const p2 = buildSixPartBook({ root, write: false }).parts.find(part => part.id === 'p2');
   const point = p2.knowledgePoints.find(item => item.id === 'p2-time-cause');
   assert.equal(point.studyCardId, 'p2-time-cause');
-  assert.equal(p2.knowledgePoints.find(item => item.id === 'p2-adjective-case').studyCardId, undefined);
+  assert.equal(p2.knowledgePoints.find(item => item.id === 'p2-adjective-case').studyCardId, 'p2-adjective-case');
 });
 
 test('P1 publishes six approved rich cards in navigation order', () => {
@@ -43,6 +43,17 @@ test('P1 publishes six approved rich cards in navigation order', () => {
   const lessonExamples = cards.flatMap(card => card.lessons.flatMap(lesson => lesson.examples));
   assert.ok(lessonExamples.every(example => example.zh !== '示例：请结合该结构理解句子成分。'));
   assert.ok(lessonExamples.every(example => /[.!?。！？]$/.test(example.ru)));
+});
+
+test('P2 publishes all eight approved rich cards in navigation order', () => {
+  const expected = [
+    'p2-adjective-case', 'p2-verb-case-1', 'p2-verb-case-2', 'p2-verb-objects',
+    'p2-lexical-phrases', 'p2-time-cause', 'p2-prepositional-phrases', 'p2-nonconcordant-attribute'
+  ];
+  const cards = buildStudyCards({ root, write: false }).cards.filter(card => card.partId === 'p2');
+  assert.deepEqual(cards.map(card => card.id), expected);
+  assert.ok(cards.every(card => card.reviewStatus === 'approved'));
+  assert.ok(cards.every(card => card.lessons.length >= 4 && card.checks.length >= 3));
 });
 
 test('P2 time-and-cause card is source-traceable and scoped to Q051–Q058', () => {

@@ -1,0 +1,448 @@
+{
+  "id": "p2-prepositional-phrases",
+  "partId": "p2",
+  "knowledgePointId": "p2-prepositional-phrases",
+  "title": "前置词结构的语义与格",
+  "exerciseIds": [
+    "P2-Q059",
+    "P2-Q060",
+    "P2-Q061",
+    "P2-Q062",
+    "P2-Q063",
+    "P2-Q064",
+    "P2-Q065",
+    "P2-Q066",
+    "P2-Q067",
+    "P2-Q068",
+    "P2-Q069"
+  ],
+  "overview": "本卡按空间、时间、依据和目的来辨别前置词。先问关系是什么，再确定前置词和格。",
+  "decisionSteps": [
+    "判断语义关系",
+    "选择固定前置词",
+    "检查名词与形容词的格"
+  ],
+  "reviewStatus": "approved",
+  "quickReference": {
+    "semanticQuestions": [
+      "是地点、方向、时间还是依据？",
+      "动作是到达还是所在？"
+    ],
+    "structures": [
+      "в + В.п./П.п.",
+      "по + Д.п.",
+      "для + Р.п."
+    ]
+  },
+  "lessons": [
+    {
+      "id": "l1",
+      "title": "方向与地点",
+      "scope": "core",
+      "meaning": "в + 第四格表示去向，в + 第六格表示所在。",
+      "conditions": [
+        "先找支配词或前置词，再判断所需的格与语义。"
+      ],
+      "structure": "в школу / в школе",
+      "caseChanges": [
+        {
+          "from": "школа",
+          "to": "в школе"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Дети идут в школу.",
+          "zh": "孩子们正去学校。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "先问“куда”还是“где”。"
+      ],
+      "instantChecks": [
+        {
+          "id": "l1-check",
+          "type": "judgment",
+          "prompt": "в школу / в школе 的选择必须由支配关系和语义共同决定。",
+          "answer": true,
+          "rationale": "先确认结构要求，再检查词形。",
+          "source": {
+            "kind": "grammar-book",
+            "label": "新编俄语语法",
+            "file": "08 前置词.md",
+            "section": "前置词的意义和语法特征",
+            "pages": [
+              21,
+              22
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book",
+          "label": "新编俄语语法",
+          "file": "08 前置词.md",
+          "section": "前置词的意义和语法特征",
+          "pages": [
+            21,
+            22
+          ]
+        }
+      ]
+    },
+    {
+      "id": "l2",
+      "title": "依据与分配",
+      "scope": "core",
+      "meaning": "по 常与第三格连用，可表示依据、方式或分配。",
+      "conditions": [
+        "先找支配词或前置词，再判断所需的格与语义。"
+      ],
+      "structure": "по + Д.п.",
+      "caseChanges": [
+        {
+          "from": "план",
+          "to": "по плану"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Мы работаем по плану.",
+          "zh": "我们按计划工作。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "不要把 по 后一律当地点。"
+      ],
+      "instantChecks": [
+        {
+          "id": "l2-check",
+          "type": "judgment",
+          "prompt": "по + Д.п. 的选择必须由支配关系和语义共同决定。",
+          "answer": true,
+          "rationale": "先确认结构要求，再检查词形。",
+          "source": {
+            "kind": "grammar-book",
+            "label": "新编俄语语法",
+            "file": "08 前置词.md",
+            "section": "前置词的意义和语法特征",
+            "pages": [
+              21,
+              22
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book",
+          "label": "新编俄语语法",
+          "file": "08 前置词.md",
+          "section": "前置词的意义和语法特征",
+          "pages": [
+            21,
+            22
+          ]
+        }
+      ]
+    },
+    {
+      "id": "l3",
+      "title": "目的对象",
+      "scope": "core",
+      "meaning": "для + 第二格表示“为了、给……用”。",
+      "conditions": [
+        "先找支配词或前置词，再判断所需的格与语义。"
+      ],
+      "structure": "для + Р.п.",
+      "caseChanges": [
+        {
+          "from": "студент",
+          "to": "для студента"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Это задание для студента.",
+          "zh": "这项任务是给学生的。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "目的对象不是直接宾语。"
+      ],
+      "instantChecks": [
+        {
+          "id": "l3-check",
+          "type": "judgment",
+          "prompt": "для + Р.п. 的选择必须由支配关系和语义共同决定。",
+          "answer": true,
+          "rationale": "先确认结构要求，再检查词形。",
+          "source": {
+            "kind": "grammar-book",
+            "label": "新编俄语语法",
+            "file": "08 前置词.md",
+            "section": "前置词的意义和语法特征",
+            "pages": [
+              21,
+              22
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book",
+          "label": "新编俄语语法",
+          "file": "08 前置词.md",
+          "section": "前置词的意义和语法特征",
+          "pages": [
+            21,
+            22
+          ]
+        }
+      ]
+    },
+    {
+      "id": "l4",
+      "title": "来源与离开",
+      "scope": "core",
+      "meaning": "из + 第二格表示从内部或来源离开。",
+      "conditions": [
+        "先找支配词或前置词，再判断所需的格与语义。"
+      ],
+      "structure": "из + Р.п.",
+      "caseChanges": [
+        {
+          "from": "город",
+          "to": "из города"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Он вернулся из города.",
+          "zh": "他从城里回来了。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "从内部出来与从表面离开用法不同。"
+      ],
+      "instantChecks": [
+        {
+          "id": "l4-check",
+          "type": "judgment",
+          "prompt": "из + Р.п. 的选择必须由支配关系和语义共同决定。",
+          "answer": true,
+          "rationale": "先确认结构要求，再检查词形。",
+          "source": {
+            "kind": "grammar-book",
+            "label": "新编俄语语法",
+            "file": "08 前置词.md",
+            "section": "前置词的意义和语法特征",
+            "pages": [
+              21,
+              22
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book",
+          "label": "新编俄语语法",
+          "file": "08 前置词.md",
+          "section": "前置词的意义和语法特征",
+          "pages": [
+            21,
+            22
+          ]
+        }
+      ]
+    }
+  ],
+  "relatedExtensions": [],
+  "checks": [
+    {
+      "id": "review-1",
+      "type": "judgment",
+      "prompt": "в школу / в школе 的选择必须由支配关系和语义共同决定。",
+      "answer": true,
+      "rationale": "先确认结构要求，再检查词形。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "08 前置词.md",
+        "section": "前置词的意义和语法特征",
+        "pages": [
+          21,
+          22
+        ]
+      }
+    },
+    {
+      "id": "review-2",
+      "type": "judgment",
+      "prompt": "по + Д.п. 的选择必须由支配关系和语义共同决定。",
+      "answer": true,
+      "rationale": "先确认结构要求，再检查词形。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "08 前置词.md",
+        "section": "前置词的意义和语法特征",
+        "pages": [
+          21,
+          22
+        ]
+      }
+    },
+    {
+      "id": "review-3",
+      "type": "judgment",
+      "prompt": "для + Р.п. 的选择必须由支配关系和语义共同决定。",
+      "answer": true,
+      "rationale": "先确认结构要求，再检查词形。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "08 前置词.md",
+        "section": "前置词的意义和语法特征",
+        "pages": [
+          21,
+          22
+        ]
+      }
+    }
+  ],
+  "rules": [
+    {
+      "text": "в школу / в школе：в + 第四格表示去向，в + 第六格表示所在。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "08 前置词.md",
+        "section": "前置词的意义和语法特征",
+        "pages": [
+          21,
+          22
+        ]
+      }
+    },
+    {
+      "text": "по + Д.п.：по 常与第三格连用，可表示依据、方式或分配。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "08 前置词.md",
+        "section": "前置词的意义和语法特征",
+        "pages": [
+          21,
+          22
+        ]
+      }
+    },
+    {
+      "text": "для + Р.п.：для + 第二格表示“为了、给……用”。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "08 前置词.md",
+        "section": "前置词的意义和语法特征",
+        "pages": [
+          21,
+          22
+        ]
+      }
+    },
+    {
+      "text": "из + Р.п.：из + 第二格表示从内部或来源离开。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "08 前置词.md",
+        "section": "前置词的意义和语法特征",
+        "pages": [
+          21,
+          22
+        ]
+      }
+    }
+  ],
+  "comparisons": [
+    {
+      "left": "в школу",
+      "right": "в школе",
+      "note": "同一前置词因方向/地点语义而改变格。",
+      "source": {
+        "kind": "learning-explanation",
+        "label": "学习讲解"
+      }
+    }
+  ],
+  "examples": [
+    {
+      "ru": "Дети идут в школу.",
+      "zh": "孩子们正去学校。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    },
+    {
+      "ru": "Мы работаем по плану.",
+      "zh": "我们按计划工作。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    },
+    {
+      "ru": "Это задание для студента.",
+      "zh": "这项任务是给学生的。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    },
+    {
+      "ru": "Он вернулся из города.",
+      "zh": "他从城里回来了。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    }
+  ],
+  "pitfalls": [
+    "先判语义问题词：куда、где、откуда。",
+    "前置词和格必须一起记。"
+  ],
+  "sources": [
+    {
+      "kind": "grammar-book",
+      "label": "新编俄语语法",
+      "file": "08 前置词.md",
+      "section": "前置词的意义和语法特征",
+      "pages": [
+        21,
+        22
+      ]
+    }
+  ]
+}

@@ -1,0 +1,445 @@
+{
+  "id": "p2-verb-objects",
+  "partId": "p2",
+  "knowledgePointId": "p2-verb-objects",
+  "title": "双宾语与固定动词搭配",
+  "exerciseIds": [
+    "P2-Q041",
+    "P2-Q042",
+    "P2-Q043",
+    "P2-Q044",
+    "P2-Q045",
+    "P2-Q046",
+    "P2-Q047",
+    "P2-Q048"
+  ],
+  "overview": "本卡训练“给谁什么、感谢谁什么、祝愿谁什么”等双对象结构。先决定人和物分别承担什么角色。",
+  "decisionSteps": [
+    "找出人和物",
+    "确认动词要求",
+    "把“谁”与“什么”分开变格"
+  ],
+  "reviewStatus": "approved",
+  "quickReference": {
+    "semanticQuestions": [
+      "谁是接受者？",
+      "什么是被给予、感谢或祝愿的内容？"
+    ],
+    "structures": [
+      "дать кому что",
+      "благодарить кого за что",
+      "поздравить кого с чем"
+    ]
+  },
+  "lessons": [
+    {
+      "id": "l1",
+      "title": "授予与传递",
+      "scope": "core",
+      "meaning": "дать 把接受者放在第三格，把物放在第四格。",
+      "conditions": [
+        "先找支配词或前置词，再判断所需的格与语义。"
+      ],
+      "structure": "дать кому что",
+      "caseChanges": [
+        {
+          "from": "студент",
+          "to": "студенту книгу"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Преподаватель дал студенту книгу.",
+          "zh": "老师给了学生一本书。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "人不是直接宾语。"
+      ],
+      "instantChecks": [
+        {
+          "id": "l1-check",
+          "type": "judgment",
+          "prompt": "дать кому что 的选择必须由支配关系和语义共同决定。",
+          "answer": true,
+          "rationale": "先确认结构要求，再检查词形。",
+          "source": {
+            "kind": "grammar-book",
+            "label": "新编俄语语法",
+            "file": "02 名词.md",
+            "section": "要求各种接格关系的动词及形容词",
+            "pages": [
+              53,
+              54
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book",
+          "label": "新编俄语语法",
+          "file": "02 名词.md",
+          "section": "要求各种接格关系的动词及形容词",
+          "pages": [
+            53,
+            54
+          ]
+        }
+      ]
+    },
+    {
+      "id": "l2",
+      "title": "感谢原因",
+      "scope": "core",
+      "meaning": "благодарить 接人用第四格，原因用 за + 第四格。",
+      "conditions": [
+        "先找支配词或前置词，再判断所需的格与语义。"
+      ],
+      "structure": "благодарить кого за что",
+      "caseChanges": [
+        {
+          "from": "друг",
+          "to": "друга за помощь"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Я поблагодарил друга за помощь.",
+          "zh": "我感谢朋友的帮助。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "不要把被感谢的人改成与格。"
+      ],
+      "instantChecks": [
+        {
+          "id": "l2-check",
+          "type": "judgment",
+          "prompt": "благодарить кого за что 的选择必须由支配关系和语义共同决定。",
+          "answer": true,
+          "rationale": "先确认结构要求，再检查词形。",
+          "source": {
+            "kind": "grammar-book",
+            "label": "新编俄语语法",
+            "file": "02 名词.md",
+            "section": "要求各种接格关系的动词及形容词",
+            "pages": [
+              53,
+              54
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book",
+          "label": "新编俄语语法",
+          "file": "02 名词.md",
+          "section": "要求各种接格关系的动词及形容词",
+          "pages": [
+            53,
+            54
+          ]
+        }
+      ]
+    },
+    {
+      "id": "l3",
+      "title": "祝贺事件",
+      "scope": "core",
+      "meaning": "поздравить 接人用第四格，事件用 с + 工具格。",
+      "conditions": [
+        "先找支配词或前置词，再判断所需的格与语义。"
+      ],
+      "structure": "поздравить кого с чем",
+      "caseChanges": [
+        {
+          "from": "коллега",
+          "to": "коллегу с победой"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Мы поздравили коллегу с победой.",
+          "zh": "我们祝贺同事获胜。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "с 后的事件是工具格。"
+      ],
+      "instantChecks": [
+        {
+          "id": "l3-check",
+          "type": "judgment",
+          "prompt": "поздравить кого с чем 的选择必须由支配关系和语义共同决定。",
+          "answer": true,
+          "rationale": "先确认结构要求，再检查词形。",
+          "source": {
+            "kind": "grammar-book",
+            "label": "新编俄语语法",
+            "file": "02 名词.md",
+            "section": "要求各种接格关系的动词及形容词",
+            "pages": [
+              53,
+              54
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book",
+          "label": "新编俄语语法",
+          "file": "02 名词.md",
+          "section": "要求各种接格关系的动词及形容词",
+          "pages": [
+            53,
+            54
+          ]
+        }
+      ]
+    },
+    {
+      "id": "l4",
+      "title": "请求对象",
+      "scope": "core",
+      "meaning": "просить 接人用第二格，内容常用不定式或第四格。",
+      "conditions": [
+        "先找支配词或前置词，再判断所需的格与语义。"
+      ],
+      "structure": "просить кого о чём",
+      "caseChanges": [
+        {
+          "from": "преподаватель",
+          "to": "преподавателя о совете"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Я попросил преподавателя о совете.",
+          "zh": "我向老师请教。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "просить 的人不是第四格。"
+      ],
+      "instantChecks": [
+        {
+          "id": "l4-check",
+          "type": "judgment",
+          "prompt": "просить кого о чём 的选择必须由支配关系和语义共同决定。",
+          "answer": true,
+          "rationale": "先确认结构要求，再检查词形。",
+          "source": {
+            "kind": "grammar-book",
+            "label": "新编俄语语法",
+            "file": "02 名词.md",
+            "section": "要求各种接格关系的动词及形容词",
+            "pages": [
+              53,
+              54
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book",
+          "label": "新编俄语语法",
+          "file": "02 名词.md",
+          "section": "要求各种接格关系的动词及形容词",
+          "pages": [
+            53,
+            54
+          ]
+        }
+      ]
+    }
+  ],
+  "relatedExtensions": [],
+  "checks": [
+    {
+      "id": "review-1",
+      "type": "judgment",
+      "prompt": "дать кому что 的选择必须由支配关系和语义共同决定。",
+      "answer": true,
+      "rationale": "先确认结构要求，再检查词形。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "02 名词.md",
+        "section": "要求各种接格关系的动词及形容词",
+        "pages": [
+          53,
+          54
+        ]
+      }
+    },
+    {
+      "id": "review-2",
+      "type": "judgment",
+      "prompt": "благодарить кого за что 的选择必须由支配关系和语义共同决定。",
+      "answer": true,
+      "rationale": "先确认结构要求，再检查词形。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "02 名词.md",
+        "section": "要求各种接格关系的动词及形容词",
+        "pages": [
+          53,
+          54
+        ]
+      }
+    },
+    {
+      "id": "review-3",
+      "type": "judgment",
+      "prompt": "поздравить кого с чем 的选择必须由支配关系和语义共同决定。",
+      "answer": true,
+      "rationale": "先确认结构要求，再检查词形。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "02 名词.md",
+        "section": "要求各种接格关系的动词及形容词",
+        "pages": [
+          53,
+          54
+        ]
+      }
+    }
+  ],
+  "rules": [
+    {
+      "text": "дать кому что：дать 把接受者放在第三格，把物放在第四格。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "02 名词.md",
+        "section": "要求各种接格关系的动词及形容词",
+        "pages": [
+          53,
+          54
+        ]
+      }
+    },
+    {
+      "text": "благодарить кого за что：благодарить 接人用第四格，原因用 за + 第四格。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "02 名词.md",
+        "section": "要求各种接格关系的动词及形容词",
+        "pages": [
+          53,
+          54
+        ]
+      }
+    },
+    {
+      "text": "поздравить кого с чем：поздравить 接人用第四格，事件用 с + 工具格。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "02 名词.md",
+        "section": "要求各种接格关系的动词及形容词",
+        "pages": [
+          53,
+          54
+        ]
+      }
+    },
+    {
+      "text": "просить кого о чём：просить 接人用第二格，内容常用不定式或第四格。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "02 名词.md",
+        "section": "要求各种接格关系的动词及形容词",
+        "pages": [
+          53,
+          54
+        ]
+      }
+    }
+  ],
+  "comparisons": [
+    {
+      "left": "дать студенту книгу",
+      "right": "поблагодарить студента",
+      "note": "给予的接受者用第三格；感谢的对象用第四格。",
+      "source": {
+        "kind": "learning-explanation",
+        "label": "学习讲解"
+      }
+    }
+  ],
+  "examples": [
+    {
+      "ru": "Преподаватель дал студенту книгу.",
+      "zh": "老师给了学生一本书。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    },
+    {
+      "ru": "Я поблагодарил друга за помощь.",
+      "zh": "我感谢朋友的帮助。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    },
+    {
+      "ru": "Мы поздравили коллегу с победой.",
+      "zh": "我们祝贺同事获胜。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    },
+    {
+      "ru": "Я попросил преподавателя о совете.",
+      "zh": "我向老师请教。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    }
+  ],
+  "pitfalls": [
+    "先给语义角色命名：接受者、内容、原因、事件。",
+    "双宾语常混合不同格。"
+  ],
+  "sources": [
+    {
+      "kind": "grammar-book",
+      "label": "新编俄语语法",
+      "file": "02 名词.md",
+      "section": "要求各种接格关系的动词及形容词",
+      "pages": [
+        53,
+        54
+      ]
+    }
+  ]
+}

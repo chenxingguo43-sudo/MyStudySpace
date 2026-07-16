@@ -1,0 +1,438 @@
+{
+  "id": "p2-nonconcordant-attribute",
+  "partId": "p2",
+  "knowledgePointId": "p2-nonconcordant-attribute",
+  "title": "非一致定语",
+  "exerciseIds": [
+    "P2-Q070"
+  ],
+  "overview": "本卡学习名词后置不定式如何说明“计划、愿望、机会”等抽象名词。它不是与名词变格一致的普通形容词定语。",
+  "decisionSteps": [
+    "找到中心抽象名词",
+    "判断后置不定式说明什么内容",
+    "不要强行让不定式变格"
+  ],
+  "reviewStatus": "approved",
+  "quickReference": {
+    "semanticQuestions": [
+      "不定式说明哪一个名词？",
+      "该名词是否表示愿望、计划或机会？"
+    ],
+    "structures": [
+      "желание + инфинитив",
+      "возможность + инфинитив",
+      "план + инфинитив"
+    ]
+  },
+  "lessons": [
+    {
+      "id": "l1",
+      "title": "愿望的内容",
+      "scope": "core",
+      "meaning": "不定式可后置说明愿望的具体内容。",
+      "conditions": [
+        "先找支配词或前置词，再判断所需的格与语义。"
+      ],
+      "structure": "желание + инфинитив",
+      "caseChanges": [
+        {
+          "from": "желание",
+          "to": "желание учиться"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "У него есть желание учиться.",
+          "zh": "他有学习的愿望。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "不定式不是名词的格形式。"
+      ],
+      "instantChecks": [
+        {
+          "id": "l1-check",
+          "type": "judgment",
+          "prompt": "желание + инфинитив 的选择必须由支配关系和语义共同决定。",
+          "answer": true,
+          "rationale": "先确认结构要求，再检查词形。",
+          "source": {
+            "kind": "grammar-book",
+            "label": "新编俄语语法",
+            "file": "06 动词.md",
+            "section": "动词不定式",
+            "pages": [
+              163,
+              164
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book",
+          "label": "新编俄语语法",
+          "file": "06 动词.md",
+          "section": "动词不定式",
+          "pages": [
+            163,
+            164
+          ]
+        }
+      ]
+    },
+    {
+      "id": "l2",
+      "title": "机会与能力",
+      "scope": "core",
+      "meaning": "不定式可说明机会或能力指向的动作。",
+      "conditions": [
+        "先找支配词或前置词，再判断所需的格与语义。"
+      ],
+      "structure": "возможность + инфинитив",
+      "caseChanges": [
+        {
+          "from": "возможность",
+          "to": "возможность поехать"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "У нас появилась возможность поехать.",
+          "zh": "我们有了出行的机会。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "中心词决定整个名词短语的功能。"
+      ],
+      "instantChecks": [
+        {
+          "id": "l2-check",
+          "type": "judgment",
+          "prompt": "возможность + инфинитив 的选择必须由支配关系和语义共同决定。",
+          "answer": true,
+          "rationale": "先确认结构要求，再检查词形。",
+          "source": {
+            "kind": "grammar-book",
+            "label": "新编俄语语法",
+            "file": "06 动词.md",
+            "section": "动词不定式",
+            "pages": [
+              163,
+              164
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book",
+          "label": "新编俄语语法",
+          "file": "06 动词.md",
+          "section": "动词不定式",
+          "pages": [
+            163,
+            164
+          ]
+        }
+      ]
+    },
+    {
+      "id": "l3",
+      "title": "计划与任务",
+      "scope": "core",
+      "meaning": "计划、任务后常用不定式具体化内容。",
+      "conditions": [
+        "先找支配词或前置词，再判断所需的格与语义。"
+      ],
+      "structure": "план + инфинитив",
+      "caseChanges": [
+        {
+          "from": "план",
+          "to": "план закончить работу"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "У меня есть план закончить работу.",
+          "zh": "我有完成工作的计划。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "不定式说明内容，不与名词作性数格一致。"
+      ],
+      "instantChecks": [
+        {
+          "id": "l3-check",
+          "type": "judgment",
+          "prompt": "план + инфинитив 的选择必须由支配关系和语义共同决定。",
+          "answer": true,
+          "rationale": "先确认结构要求，再检查词形。",
+          "source": {
+            "kind": "grammar-book",
+            "label": "新编俄语语法",
+            "file": "06 动词.md",
+            "section": "动词不定式",
+            "pages": [
+              163,
+              164
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book",
+          "label": "新编俄语语法",
+          "file": "06 动词.md",
+          "section": "动词不定式",
+          "pages": [
+            163,
+            164
+          ]
+        }
+      ]
+    },
+    {
+      "id": "l4",
+      "title": "与一致定语对比",
+      "scope": "core",
+      "meaning": "形容词一致定语要随名词变格；不定式不变。",
+      "conditions": [
+        "先找支配词或前置词，再判断所需的格与语义。"
+      ],
+      "structure": "новый план / план поехать",
+      "caseChanges": [
+        {
+          "from": "новый план",
+          "to": "нового плана"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Мы обсудили новый план поехать в Москву.",
+          "zh": "我们讨论了去莫斯科的新计划。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "只有形容词 новый 随名词变格。"
+      ],
+      "instantChecks": [
+        {
+          "id": "l4-check",
+          "type": "judgment",
+          "prompt": "новый план / план поехать 的选择必须由支配关系和语义共同决定。",
+          "answer": true,
+          "rationale": "先确认结构要求，再检查词形。",
+          "source": {
+            "kind": "grammar-book",
+            "label": "新编俄语语法",
+            "file": "06 动词.md",
+            "section": "动词不定式",
+            "pages": [
+              163,
+              164
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book",
+          "label": "新编俄语语法",
+          "file": "06 动词.md",
+          "section": "动词不定式",
+          "pages": [
+            163,
+            164
+          ]
+        }
+      ]
+    }
+  ],
+  "relatedExtensions": [],
+  "checks": [
+    {
+      "id": "review-1",
+      "type": "judgment",
+      "prompt": "желание + инфинитив 的选择必须由支配关系和语义共同决定。",
+      "answer": true,
+      "rationale": "先确认结构要求，再检查词形。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "06 动词.md",
+        "section": "动词不定式",
+        "pages": [
+          163,
+          164
+        ]
+      }
+    },
+    {
+      "id": "review-2",
+      "type": "judgment",
+      "prompt": "возможность + инфинитив 的选择必须由支配关系和语义共同决定。",
+      "answer": true,
+      "rationale": "先确认结构要求，再检查词形。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "06 动词.md",
+        "section": "动词不定式",
+        "pages": [
+          163,
+          164
+        ]
+      }
+    },
+    {
+      "id": "review-3",
+      "type": "judgment",
+      "prompt": "план + инфинитив 的选择必须由支配关系和语义共同决定。",
+      "answer": true,
+      "rationale": "先确认结构要求，再检查词形。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "06 动词.md",
+        "section": "动词不定式",
+        "pages": [
+          163,
+          164
+        ]
+      }
+    }
+  ],
+  "rules": [
+    {
+      "text": "желание + инфинитив：不定式可后置说明愿望的具体内容。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "06 动词.md",
+        "section": "动词不定式",
+        "pages": [
+          163,
+          164
+        ]
+      }
+    },
+    {
+      "text": "возможность + инфинитив：不定式可说明机会或能力指向的动作。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "06 动词.md",
+        "section": "动词不定式",
+        "pages": [
+          163,
+          164
+        ]
+      }
+    },
+    {
+      "text": "план + инфинитив：计划、任务后常用不定式具体化内容。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "06 动词.md",
+        "section": "动词不定式",
+        "pages": [
+          163,
+          164
+        ]
+      }
+    },
+    {
+      "text": "новый план / план поехать：形容词一致定语要随名词变格；不定式不变。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "06 动词.md",
+        "section": "动词不定式",
+        "pages": [
+          163,
+          164
+        ]
+      }
+    }
+  ],
+  "comparisons": [
+    {
+      "left": "новый план",
+      "right": "план поехать",
+      "note": "形容词与名词一致；不定式以内容方式后置说明名词。",
+      "source": {
+        "kind": "learning-explanation",
+        "label": "学习讲解"
+      }
+    }
+  ],
+  "examples": [
+    {
+      "ru": "У него есть желание учиться.",
+      "zh": "他有学习的愿望。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    },
+    {
+      "ru": "У нас появилась возможность поехать.",
+      "zh": "我们有了出行的机会。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    },
+    {
+      "ru": "У меня есть план закончить работу.",
+      "zh": "我有完成工作的计划。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    },
+    {
+      "ru": "Мы обсудили новый план поехать в Москву.",
+      "zh": "我们讨论了去莫斯科的新计划。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    }
+  ],
+  "pitfalls": [
+    "不要把后置不定式当作需要变格的定语。",
+    "先找它修饰的抽象名词。"
+  ],
+  "sources": [
+    {
+      "kind": "grammar-book",
+      "label": "新编俄语语法",
+      "file": "06 动词.md",
+      "section": "动词不定式",
+      "pages": [
+        163,
+        164
+      ]
+    }
+  ]
+}
