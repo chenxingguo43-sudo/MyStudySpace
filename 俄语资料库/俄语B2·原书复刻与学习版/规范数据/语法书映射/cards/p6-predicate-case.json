@@ -1,0 +1,446 @@
+{
+  "id": "p6-predicate-case",
+  "partId": "p6",
+  "knowledgePointId": "p6-predicate-case",
+  "title": "判断结构与工具格",
+  "exerciseIds": [
+    "P6-Q001",
+    "P6-Q002",
+    "P6-Q003",
+    "P6-Q004",
+    "P6-Q005",
+    "P6-Q006",
+    "P6-Q007",
+    "P6-Q008"
+  ],
+  "overview": "判断结构要区分“是什么/成为什么/被认为是什么”；很多动词要求工具格，而静词性谓语也有固定形式。",
+  "decisionSteps": [
+    "识别判断动词",
+    "确定是身份、职务还是评价",
+    "核对名词或形容词形式"
+  ],
+  "reviewStatus": "approved",
+  "quickReference": {
+    "semanticQuestions": [
+      "谓语说明身份还是动作？",
+      "动词是否要求工具格？"
+    ],
+    "structures": [
+      "являться + Т.п.",
+      "служить + Т.п.",
+      "считаться + Т.п.",
+      "назвать + Т.п."
+    ]
+  },
+  "lessons": [
+    {
+      "id": "l1",
+      "title": "являться + 工具格",
+      "scope": "core",
+      "meaning": "являться 表示正式的“是/属于”，后接工具格。",
+      "conditions": [
+        "书面或正式判断。"
+      ],
+      "structure": "являться + Т.п.",
+      "caseChanges": [
+        {
+          "from": "основа",
+          "to": "основой"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Язык является основой общения.",
+          "zh": "语言是交流的基础。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "不要把它写成第一格并列。"
+      ],
+      "instantChecks": [
+        {
+          "id": "l1-check",
+          "type": "judgment",
+          "prompt": "“Язык является основой общения.”符合本节结构。",
+          "answer": true,
+          "rationale": "являться 固定支配工具格。",
+          "source": {
+            "kind": "grammar-book",
+            "label": "新编俄语语法",
+            "file": "12 句子分类.md",
+            "section": "句子分类",
+            "pages": [
+              344,
+              348
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book",
+          "label": "新编俄语语法",
+          "file": "12 句子分类.md",
+          "section": "句子分类",
+          "pages": [
+            344,
+            348
+          ]
+        }
+      ]
+    },
+    {
+      "id": "l2",
+      "title": "служить + 工具格",
+      "scope": "core",
+      "meaning": "служить 可表示充当某种用途或作用。",
+      "conditions": [
+        "说明功能、目的或角色。"
+      ],
+      "structure": "служить + Т.п.",
+      "caseChanges": [
+        {
+          "from": "пример",
+          "to": "примером"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Этот текст служит примером.",
+          "zh": "这篇文本作为例子。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "不是“服务某人”的意思。"
+      ],
+      "instantChecks": [
+        {
+          "id": "l2-check",
+          "type": "judgment",
+          "prompt": "“Этот текст служит примером.”符合本节结构。",
+          "answer": true,
+          "rationale": "这里说明充当的角色。",
+          "source": {
+            "kind": "grammar-book",
+            "label": "新编俄语语法",
+            "file": "12 句子分类.md",
+            "section": "句子分类",
+            "pages": [
+              344,
+              348
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book",
+          "label": "新编俄语语法",
+          "file": "12 句子分类.md",
+          "section": "句子分类",
+          "pages": [
+            344,
+            348
+          ]
+        }
+      ]
+    },
+    {
+      "id": "l3",
+      "title": "считаться + 工具格",
+      "scope": "core",
+      "meaning": "считаться 表示被认为、被视为。",
+      "conditions": [
+        "社会评价或普遍看法。"
+      ],
+      "structure": "считаться + Т.п.",
+      "caseChanges": [
+        {
+          "from": "специалист",
+          "to": "специалистом"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Он считается хорошим специалистом.",
+          "zh": "他被认为是优秀专家。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "不要混同主动判断动词。"
+      ],
+      "instantChecks": [
+        {
+          "id": "l3-check",
+          "type": "judgment",
+          "prompt": "“Он считается хорошим специалистом.”符合本节结构。",
+          "answer": true,
+          "rationale": "评价结果使用工具格。",
+          "source": {
+            "kind": "grammar-book",
+            "label": "新编俄语语法",
+            "file": "12 句子分类.md",
+            "section": "句子分类",
+            "pages": [
+              344,
+              348
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book",
+          "label": "新编俄语语法",
+          "file": "12 句子分类.md",
+          "section": "句子分类",
+          "pages": [
+            344,
+            348
+          ]
+        }
+      ]
+    },
+    {
+      "id": "l4",
+      "title": "назвать + 工具格",
+      "scope": "core",
+      "meaning": "назвать 可表示把某人/物称为某种身份。",
+      "conditions": [
+        "宾语被赋予名称或评价。"
+      ],
+      "structure": "назвать + Т.п.",
+      "caseChanges": [
+        {
+          "from": "герой",
+          "to": "героем"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Его назвали героем.",
+          "zh": "人们称他为英雄。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "宾语仍是第四格或代词，表语为工具格。"
+      ],
+      "instantChecks": [
+        {
+          "id": "l4-check",
+          "type": "judgment",
+          "prompt": "“Его назвали героем.”符合本节结构。",
+          "answer": true,
+          "rationale": "героем 是对 его 的称谓。",
+          "source": {
+            "kind": "grammar-book",
+            "label": "新编俄语语法",
+            "file": "12 句子分类.md",
+            "section": "句子分类",
+            "pages": [
+              344,
+              348
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book",
+          "label": "新编俄语语法",
+          "file": "12 句子分类.md",
+          "section": "句子分类",
+          "pages": [
+            344,
+            348
+          ]
+        }
+      ]
+    }
+  ],
+  "relatedExtensions": [],
+  "checks": [
+    {
+      "id": "review-1",
+      "type": "judgment",
+      "prompt": "“Язык является основой общения.”符合本节结构。",
+      "answer": true,
+      "rationale": "являться 固定支配工具格。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "12 句子分类.md",
+        "section": "句子分类",
+        "pages": [
+          344,
+          348
+        ]
+      }
+    },
+    {
+      "id": "review-2",
+      "type": "judgment",
+      "prompt": "“Этот текст служит примером.”符合本节结构。",
+      "answer": true,
+      "rationale": "这里说明充当的角色。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "12 句子分类.md",
+        "section": "句子分类",
+        "pages": [
+          344,
+          348
+        ]
+      }
+    },
+    {
+      "id": "review-3",
+      "type": "judgment",
+      "prompt": "“Он считается хорошим специалистом.”符合本节结构。",
+      "answer": true,
+      "rationale": "评价结果使用工具格。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "12 句子分类.md",
+        "section": "句子分类",
+        "pages": [
+          344,
+          348
+        ]
+      }
+    }
+  ],
+  "rules": [
+    {
+      "text": "являться + Т.п.：являться 表示正式的“是/属于”，后接工具格。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "12 句子分类.md",
+        "section": "句子分类",
+        "pages": [
+          344,
+          348
+        ]
+      }
+    },
+    {
+      "text": "служить + Т.п.：служить 可表示充当某种用途或作用。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "12 句子分类.md",
+        "section": "句子分类",
+        "pages": [
+          344,
+          348
+        ]
+      }
+    },
+    {
+      "text": "считаться + Т.п.：считаться 表示被认为、被视为。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "12 句子分类.md",
+        "section": "句子分类",
+        "pages": [
+          344,
+          348
+        ]
+      }
+    },
+    {
+      "text": "назвать + Т.п.：назвать 可表示把某人/物称为某种身份。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "12 句子分类.md",
+        "section": "句子分类",
+        "pages": [
+          344,
+          348
+        ]
+      }
+    }
+  ],
+  "comparisons": [
+    {
+      "left": "Он врач.",
+      "right": "Он является врачом.",
+      "note": "前者中性陈述，后者正式书面且要求工具格。",
+      "source": {
+        "kind": "learning-explanation",
+        "label": "学习讲解"
+      }
+    }
+  ],
+  "examples": [
+    {
+      "ru": "Язык является основой общения.",
+      "zh": "语言是交流的基础。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    },
+    {
+      "ru": "Этот текст служит примером.",
+      "zh": "这篇文本作为例子。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    },
+    {
+      "ru": "Он считается хорошим специалистом.",
+      "zh": "他被认为是优秀专家。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    },
+    {
+      "ru": "Его назвали героем.",
+      "zh": "人们称他为英雄。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    }
+  ],
+  "pitfalls": [
+    "判断动词的支配必须整体记。",
+    "不要把短尾形容词和工具格名词混成同一结构。"
+  ],
+  "sources": [
+    {
+      "kind": "grammar-book",
+      "label": "新编俄语语法",
+      "file": "12 句子分类.md",
+      "section": "句子分类",
+      "pages": [
+        344,
+        348
+      ]
+    }
+  ]
+}

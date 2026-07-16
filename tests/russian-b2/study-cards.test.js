@@ -69,6 +69,19 @@ test('P3 and P4 publish every planned rich study card', () => {
   });
 });
 
+test('P5 and P6 publish every planned rich study card', () => {
+  const expected = {
+    p5: ['p5-derivation', 'p5-indefinite-pronouns', 'p5-prefix-verbs-1', 'p5-prefix-verbs-2', 'p5-impersonal-dative', 'p5-modal-infinitive'],
+    p6: ['p6-predicate-case', 'p6-journalistic-collocations']
+  };
+  const cards = buildStudyCards({ root, write: false }).cards;
+  Object.entries(expected).forEach(([partId, ids]) => {
+    const partCards = cards.filter(card => card.partId === partId);
+    assert.deepEqual(partCards.map(card => card.id), ids);
+    assert.ok(partCards.every(card => card.reviewStatus === 'approved' && card.lessons.length >= 4 && card.checks.length >= 3));
+  });
+});
+
 test('P2 time-and-cause card is source-traceable and scoped to Q051–Q058', () => {
   const result = buildStudyCards({ root, write: false });
   const card = result.cards.find(item => item.id === 'p2-time-cause');

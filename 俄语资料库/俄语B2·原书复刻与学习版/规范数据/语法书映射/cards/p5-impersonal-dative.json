@@ -1,0 +1,441 @@
+{
+  "id": "p5-impersonal-dative",
+  "partId": "p5",
+  "knowledgePointId": "p5-impersonal-dative",
+  "title": "无人称动词与与格主体",
+  "exerciseIds": [
+    "P5-Q045",
+    "P5-Q046",
+    "P5-Q047"
+  ],
+  "overview": "无人称结构里，体验者通常用与格；语法主语可能不存在，但意义上的“谁”仍然明确。",
+  "decisionSteps": [
+    "找出体验者",
+    "把体验者改为与格",
+    "判断谓语表达的状态或遭遇"
+  ],
+  "reviewStatus": "approved",
+  "quickReference": {
+    "semanticQuestions": [
+      "谁感到、遇到或不得不做？",
+      "句中有没有主格主语？"
+    ],
+    "structures": [
+      "мне / ему + 谓语副词",
+      "кому + повезло",
+      "кому + приходится + 不定式",
+      "кому + удалось + 不定式"
+    ]
+  },
+  "lessons": [
+    {
+      "id": "l1",
+      "title": "与格体验者",
+      "scope": "core",
+      "meaning": "心理、生理或状态谓语常以与格表示体验者。",
+      "conditions": [
+        "句子没有普通主格主语。"
+      ],
+      "structure": "мне / ему + 谓语副词",
+      "caseChanges": [
+        {
+          "from": "я",
+          "to": "мне"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Мне трудно говорить по-русски.",
+          "zh": "我很难说俄语。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "不要把 я 留在第一格。"
+      ],
+      "instantChecks": [
+        {
+          "id": "l1-check",
+          "type": "judgment",
+          "prompt": "“Мне трудно говорить по-русски.”符合本节结构。",
+          "answer": true,
+          "rationale": "体验者在无人称句中用与格。",
+          "source": {
+            "kind": "grammar-book",
+            "label": "新编俄语语法",
+            "file": "07 副词.md",
+            "section": "副词",
+            "pages": [
+              274,
+              276
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book",
+          "label": "新编俄语语法",
+          "file": "07 副词.md",
+          "section": "副词",
+          "pages": [
+            274,
+            276
+          ]
+        }
+      ]
+    },
+    {
+      "id": "l2",
+      "title": "走运与遭遇",
+      "scope": "core",
+      "meaning": "везти / повезти 等无人称动词说明某人走运。",
+      "conditions": [
+        "强调偶然顺利或不顺利。"
+      ],
+      "structure": "кому + повезло",
+      "caseChanges": [
+        {
+          "from": "он",
+          "to": "ему"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Ему повезло с работой.",
+          "zh": "他在工作方面很走运。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "谓语为中性过去时不代表主语是中性。"
+      ],
+      "instantChecks": [
+        {
+          "id": "l2-check",
+          "type": "judgment",
+          "prompt": "“Ему повезло с работой.”符合本节结构。",
+          "answer": true,
+          "rationale": "与格 ему 是逻辑体验者。",
+          "source": {
+            "kind": "grammar-book",
+            "label": "新编俄语语法",
+            "file": "07 副词.md",
+            "section": "副词",
+            "pages": [
+              274,
+              276
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book",
+          "label": "新编俄语语法",
+          "file": "07 副词.md",
+          "section": "副词",
+          "pages": [
+            274,
+            276
+          ]
+        }
+      ]
+    },
+    {
+      "id": "l3",
+      "title": "不得不",
+      "scope": "core",
+      "meaning": "приходиться 表示客观上不得不做。",
+      "conditions": [
+        "行动由外部条件迫使。"
+      ],
+      "structure": "кому + приходится + 不定式",
+      "caseChanges": [
+        {
+          "from": "мы",
+          "to": "нам"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Нам приходится много работать.",
+          "zh": "我们不得不努力工作。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "不要误写成主格 мы 作主语。"
+      ],
+      "instantChecks": [
+        {
+          "id": "l3-check",
+          "type": "judgment",
+          "prompt": "“Нам приходится много работать.”符合本节结构。",
+          "answer": true,
+          "rationale": "нам 是被迫行动的体验者。",
+          "source": {
+            "kind": "grammar-book",
+            "label": "新编俄语语法",
+            "file": "07 副词.md",
+            "section": "副词",
+            "pages": [
+              274,
+              276
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book",
+          "label": "新编俄语语法",
+          "file": "07 副词.md",
+          "section": "副词",
+          "pages": [
+            274,
+            276
+          ]
+        }
+      ]
+    },
+    {
+      "id": "l4",
+      "title": "成功与失败",
+      "scope": "core",
+      "meaning": "удаться 的内容是主语，执行者为与格。",
+      "conditions": [
+        "强调事情是否成功。"
+      ],
+      "structure": "кому + удалось + 不定式",
+      "caseChanges": [
+        {
+          "from": "она",
+          "to": "ей"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Ей удалось решить задачу.",
+          "zh": "她成功解决了这道题。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "不要把 ей 当直接宾语。"
+      ],
+      "instantChecks": [
+        {
+          "id": "l4-check",
+          "type": "judgment",
+          "prompt": "“Ей удалось решить задачу.”符合本节结构。",
+          "answer": true,
+          "rationale": "成功的是“解决”这一行动。",
+          "source": {
+            "kind": "grammar-book",
+            "label": "新编俄语语法",
+            "file": "07 副词.md",
+            "section": "副词",
+            "pages": [
+              274,
+              276
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book",
+          "label": "新编俄语语法",
+          "file": "07 副词.md",
+          "section": "副词",
+          "pages": [
+            274,
+            276
+          ]
+        }
+      ]
+    }
+  ],
+  "relatedExtensions": [],
+  "checks": [
+    {
+      "id": "review-1",
+      "type": "judgment",
+      "prompt": "“Мне трудно говорить по-русски.”符合本节结构。",
+      "answer": true,
+      "rationale": "体验者在无人称句中用与格。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "07 副词.md",
+        "section": "副词",
+        "pages": [
+          274,
+          276
+        ]
+      }
+    },
+    {
+      "id": "review-2",
+      "type": "judgment",
+      "prompt": "“Ему повезло с работой.”符合本节结构。",
+      "answer": true,
+      "rationale": "与格 ему 是逻辑体验者。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "07 副词.md",
+        "section": "副词",
+        "pages": [
+          274,
+          276
+        ]
+      }
+    },
+    {
+      "id": "review-3",
+      "type": "judgment",
+      "prompt": "“Нам приходится много работать.”符合本节结构。",
+      "answer": true,
+      "rationale": "нам 是被迫行动的体验者。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "07 副词.md",
+        "section": "副词",
+        "pages": [
+          274,
+          276
+        ]
+      }
+    }
+  ],
+  "rules": [
+    {
+      "text": "мне / ему + 谓语副词：心理、生理或状态谓语常以与格表示体验者。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "07 副词.md",
+        "section": "副词",
+        "pages": [
+          274,
+          276
+        ]
+      }
+    },
+    {
+      "text": "кому + повезло：везти / повезти 等无人称动词说明某人走运。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "07 副词.md",
+        "section": "副词",
+        "pages": [
+          274,
+          276
+        ]
+      }
+    },
+    {
+      "text": "кому + приходится + 不定式：приходиться 表示客观上不得不做。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "07 副词.md",
+        "section": "副词",
+        "pages": [
+          274,
+          276
+        ]
+      }
+    },
+    {
+      "text": "кому + удалось + 不定式：удаться 的内容是主语，执行者为与格。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "07 副词.md",
+        "section": "副词",
+        "pages": [
+          274,
+          276
+        ]
+      }
+    }
+  ],
+  "comparisons": [
+    {
+      "left": "Я решил задачу.",
+      "right": "Мне удалось решить задачу.",
+      "note": "前者直接陈述行动，后者强调成功达成。",
+      "source": {
+        "kind": "learning-explanation",
+        "label": "学习讲解"
+      }
+    }
+  ],
+  "examples": [
+    {
+      "ru": "Мне трудно говорить по-русски.",
+      "zh": "我很难说俄语。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    },
+    {
+      "ru": "Ему повезло с работой.",
+      "zh": "他在工作方面很走运。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    },
+    {
+      "ru": "Нам приходится много работать.",
+      "zh": "我们不得不努力工作。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    },
+    {
+      "ru": "Ей удалось решить задачу.",
+      "zh": "她成功解决了这道题。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    }
+  ],
+  "pitfalls": [
+    "逻辑主体不一定用第一格。",
+    "注意过去时无人称形式常为中性。"
+  ],
+  "sources": [
+    {
+      "kind": "grammar-book",
+      "label": "新编俄语语法",
+      "file": "07 副词.md",
+      "section": "副词",
+      "pages": [
+        274,
+        276
+      ]
+    }
+  ]
+}

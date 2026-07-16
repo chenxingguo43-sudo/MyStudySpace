@@ -1,0 +1,442 @@
+{
+  "id": "p5-indefinite-pronouns",
+  "partId": "p5",
+  "knowledgePointId": "p5-indefinite-pronouns",
+  "title": "不定代词：-нибудь 与 кое-",
+  "exerciseIds": [
+    "P5-Q018",
+    "P5-Q019",
+    "P5-Q020",
+    "P5-Q021"
+  ],
+  "overview": "不定代词选择取决于说话人是否知道对象、句子是否是假设或请求，以及语体是否书面。",
+  "decisionSteps": [
+    "判断对象是否完全不确定",
+    "看是否为条件、疑问或祈使",
+    "区分说话人知道与不知道"
+  ],
+  "reviewStatus": "approved",
+  "quickReference": {
+    "semanticQuestions": [
+      "说话人知道这个人/物吗？",
+      "这是一种任意选择还是暗示已知对象？"
+    ],
+    "structures": [
+      "кто-нибудь / что-нибудь",
+      "кое-кто / кое-что",
+      "кто-то / что-то",
+      "кому-нибудь"
+    ]
+  },
+  "lessons": [
+    {
+      "id": "l1",
+      "title": "-нибудь 的任意性",
+      "scope": "core",
+      "meaning": "-нибудь 表示不指定的任意对象。",
+      "conditions": [
+        "疑问、请求、条件和未来计划。"
+      ],
+      "structure": "кто-нибудь / что-нибудь",
+      "caseChanges": [
+        {
+          "from": "кто",
+          "to": "кто-нибудь"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Позвоните мне, если кто-нибудь придёт.",
+          "zh": "如果有人来，请给我打电话。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "不要把它理解为说话人知道的特定人。"
+      ],
+      "instantChecks": [
+        {
+          "id": "l1-check",
+          "type": "judgment",
+          "prompt": "“Позвоните мне, если кто-нибудь придёт.”符合本节结构。",
+          "answer": true,
+          "rationale": "条件语境强调不确定对象。",
+          "source": {
+            "kind": "grammar-book",
+            "label": "新编俄语语法",
+            "file": "05 代词.md",
+            "section": "不定代词的变格和用法",
+            "pages": [
+              157,
+              160
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book",
+          "label": "新编俄语语法",
+          "file": "05 代词.md",
+          "section": "不定代词的变格和用法",
+          "pages": [
+            157,
+            160
+          ]
+        }
+      ]
+    },
+    {
+      "id": "l2",
+      "title": "кое- 的已知性",
+      "scope": "core",
+      "meaning": "кое- 表示说话人知道但暂不说明。",
+      "conditions": [
+        "叙述中暗示具体但未点明的信息。"
+      ],
+      "structure": "кое-кто / кое-что",
+      "caseChanges": [
+        {
+          "from": "кто",
+          "to": "кое-кто"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Кое-кто уже знает об этом решении.",
+          "zh": "有些人已经知道这个决定。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "它不等于任意一个人。"
+      ],
+      "instantChecks": [
+        {
+          "id": "l2-check",
+          "type": "judgment",
+          "prompt": "“Кое-кто уже знает об этом решении.”符合本节结构。",
+          "answer": true,
+          "rationale": "说话人暗示对象范围可知。",
+          "source": {
+            "kind": "grammar-book",
+            "label": "新编俄语语法",
+            "file": "05 代词.md",
+            "section": "不定代词的变格和用法",
+            "pages": [
+              157,
+              160
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book",
+          "label": "新编俄语语法",
+          "file": "05 代词.md",
+          "section": "不定代词的变格和用法",
+          "pages": [
+            157,
+            160
+          ]
+        }
+      ]
+    },
+    {
+      "id": "l3",
+      "title": "-то 的具体出现",
+      "scope": "core",
+      "meaning": "-то 常指已经出现但未具体命名的人或物。",
+      "conditions": [
+        "叙述一个实际发生的事件。"
+      ],
+      "structure": "кто-то / что-то",
+      "caseChanges": [
+        {
+          "from": "что",
+          "to": "что-то"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Кто-то оставил книгу на столе.",
+          "zh": "有人把书留在桌上了。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "不要与假设性的 -нибудь 混用。"
+      ],
+      "instantChecks": [
+        {
+          "id": "l3-check",
+          "type": "judgment",
+          "prompt": "“Кто-то оставил книгу на столе.”符合本节结构。",
+          "answer": true,
+          "rationale": "事件中确实有某个未知的人。",
+          "source": {
+            "kind": "grammar-book",
+            "label": "新编俄语语法",
+            "file": "05 代词.md",
+            "section": "不定代词的变格和用法",
+            "pages": [
+              157,
+              160
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book",
+          "label": "新编俄语语法",
+          "file": "05 代词.md",
+          "section": "不定代词的变格和用法",
+          "pages": [
+            157,
+            160
+          ]
+        }
+      ]
+    },
+    {
+      "id": "l4",
+      "title": "变格只变代词",
+      "scope": "core",
+      "meaning": "带词缀的不定代词变格时，词缀保持不变。",
+      "conditions": [
+        "代词在句中需要非第一格。"
+      ],
+      "structure": "кому-нибудь",
+      "caseChanges": [
+        {
+          "from": "кто-нибудь",
+          "to": "кому-нибудь"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Я помогу кому-нибудь из студентов.",
+          "zh": "我会帮助某个学生。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "不能把词缀与词尾混为一体。"
+      ],
+      "instantChecks": [
+        {
+          "id": "l4-check",
+          "type": "judgment",
+          "prompt": "“Я помогу кому-нибудь из студентов.”符合本节结构。",
+          "answer": true,
+          "rationale": "与格变化发生在 кто 的部分。",
+          "source": {
+            "kind": "grammar-book",
+            "label": "新编俄语语法",
+            "file": "05 代词.md",
+            "section": "不定代词的变格和用法",
+            "pages": [
+              157,
+              160
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book",
+          "label": "新编俄语语法",
+          "file": "05 代词.md",
+          "section": "不定代词的变格和用法",
+          "pages": [
+            157,
+            160
+          ]
+        }
+      ]
+    }
+  ],
+  "relatedExtensions": [],
+  "checks": [
+    {
+      "id": "review-1",
+      "type": "judgment",
+      "prompt": "“Позвоните мне, если кто-нибудь придёт.”符合本节结构。",
+      "answer": true,
+      "rationale": "条件语境强调不确定对象。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "05 代词.md",
+        "section": "不定代词的变格和用法",
+        "pages": [
+          157,
+          160
+        ]
+      }
+    },
+    {
+      "id": "review-2",
+      "type": "judgment",
+      "prompt": "“Кое-кто уже знает об этом решении.”符合本节结构。",
+      "answer": true,
+      "rationale": "说话人暗示对象范围可知。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "05 代词.md",
+        "section": "不定代词的变格和用法",
+        "pages": [
+          157,
+          160
+        ]
+      }
+    },
+    {
+      "id": "review-3",
+      "type": "judgment",
+      "prompt": "“Кто-то оставил книгу на столе.”符合本节结构。",
+      "answer": true,
+      "rationale": "事件中确实有某个未知的人。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "05 代词.md",
+        "section": "不定代词的变格和用法",
+        "pages": [
+          157,
+          160
+        ]
+      }
+    }
+  ],
+  "rules": [
+    {
+      "text": "кто-нибудь / что-нибудь：-нибудь 表示不指定的任意对象。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "05 代词.md",
+        "section": "不定代词的变格和用法",
+        "pages": [
+          157,
+          160
+        ]
+      }
+    },
+    {
+      "text": "кое-кто / кое-что：кое- 表示说话人知道但暂不说明。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "05 代词.md",
+        "section": "不定代词的变格和用法",
+        "pages": [
+          157,
+          160
+        ]
+      }
+    },
+    {
+      "text": "кто-то / что-то：-то 常指已经出现但未具体命名的人或物。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "05 代词.md",
+        "section": "不定代词的变格和用法",
+        "pages": [
+          157,
+          160
+        ]
+      }
+    },
+    {
+      "text": "кому-нибудь：带词缀的不定代词变格时，词缀保持不变。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "05 代词.md",
+        "section": "不定代词的变格和用法",
+        "pages": [
+          157,
+          160
+        ]
+      }
+    }
+  ],
+  "comparisons": [
+    {
+      "left": "кто-нибудь",
+      "right": "кое-кто",
+      "note": "前者完全不定，后者暗示说话人知道对象。",
+      "source": {
+        "kind": "learning-explanation",
+        "label": "学习讲解"
+      }
+    }
+  ],
+  "examples": [
+    {
+      "ru": "Позвоните мне, если кто-нибудь придёт.",
+      "zh": "如果有人来，请给我打电话。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    },
+    {
+      "ru": "Кое-кто уже знает об этом решении.",
+      "zh": "有些人已经知道这个决定。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    },
+    {
+      "ru": "Кто-то оставил книгу на столе.",
+      "zh": "有人把书留在桌上了。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    },
+    {
+      "ru": "Я помогу кому-нибудь из студентов.",
+      "zh": "我会帮助某个学生。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    }
+  ],
+  "pitfalls": [
+    "先判断信息是否已知。",
+    "注意代词本身仍按句法需要变格。"
+  ],
+  "sources": [
+    {
+      "kind": "grammar-book",
+      "label": "新编俄语语法",
+      "file": "05 代词.md",
+      "section": "不定代词的变格和用法",
+      "pages": [
+        157,
+        160
+      ]
+    }
+  ]
+}

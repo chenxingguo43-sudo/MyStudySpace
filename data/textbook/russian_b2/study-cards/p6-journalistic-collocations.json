@@ -1,0 +1,416 @@
+{
+  "id": "p6-journalistic-collocations",
+  "partId": "p6",
+  "knowledgePointId": "p6-journalistic-collocations",
+  "title": "报刊语体的固定搭配",
+  "exerciseIds": [
+    "P6-Q027",
+    "P6-Q028",
+    "P6-Q029",
+    "P6-Q030",
+    "P6-Q031",
+    "P6-Q032",
+    "P6-Q033",
+    "P6-Q034",
+    "P6-Q035",
+    "P6-Q036"
+  ],
+  "overview": "报刊语体偏好正式、固定的动宾搭配。学习时把整组搭配记住，再判断语体是否需要书面表达。",
+  "decisionSteps": [
+    "识别是否为报刊/正式语境",
+    "找出名词中心词",
+    "选择与之固定搭配的动词"
+  ],
+  "reviewStatus": "approved",
+  "quickReference": {
+    "semanticQuestions": [
+      "这里是日常口语还是正式报道？",
+      "名词通常和哪个动词连用？"
+    ],
+    "structures": [
+      "принять меры",
+      "принять решение",
+      "играть роль",
+      "привлечь внимание"
+    ]
+  },
+  "lessons": [
+    {
+      "id": "l1",
+      "title": "采取措施",
+      "scope": "core",
+      "meaning": "принять меры 是正式报道中的固定搭配。",
+      "conditions": [
+        "需要表达采取行动。"
+      ],
+      "structure": "принять меры",
+      "caseChanges": [
+        {
+          "from": "меры",
+          "to": "принять меры"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Власти приняли необходимые меры.",
+          "zh": "当局采取了必要措施。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "不要直译为 делать меры。"
+      ],
+      "instantChecks": [
+        {
+          "id": "l1-check",
+          "type": "judgment",
+          "prompt": "“Власти приняли необходимые меры.”符合本节结构。",
+          "answer": true,
+          "rationale": "措施用 принять。",
+          "source": {
+            "kind": "b2-original",
+            "label": "B2 原书考点",
+            "pages": [
+              71,
+              72
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "b2-original",
+          "label": "B2 原书考点",
+          "pages": [
+            71,
+            72
+          ]
+        }
+      ]
+    },
+    {
+      "id": "l2",
+      "title": "作出决定",
+      "scope": "core",
+      "meaning": "принять решение 表示正式作出决定。",
+      "conditions": [
+        "报道机构或个人的决定。"
+      ],
+      "structure": "принять решение",
+      "caseChanges": [
+        {
+          "from": "решение",
+          "to": "принять решение"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Комиссия приняла решение.",
+          "zh": "委员会作出了决定。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "решить 与 принять решение 语体不同。"
+      ],
+      "instantChecks": [
+        {
+          "id": "l2-check",
+          "type": "judgment",
+          "prompt": "“Комиссия приняла решение.”符合本节结构。",
+          "answer": true,
+          "rationale": "正式名词搭配选择 принять。",
+          "source": {
+            "kind": "b2-original",
+            "label": "B2 原书考点",
+            "pages": [
+              71,
+              72
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "b2-original",
+          "label": "B2 原书考点",
+          "pages": [
+            71,
+            72
+          ]
+        }
+      ]
+    },
+    {
+      "id": "l3",
+      "title": "发挥作用",
+      "scope": "core",
+      "meaning": "играть роль 表示发挥作用或具有意义。",
+      "conditions": [
+        "描述因素的重要性。"
+      ],
+      "structure": "играть роль",
+      "caseChanges": [
+        {
+          "from": "роль",
+          "to": "играть роль"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Образование играет важную роль.",
+          "zh": "教育发挥重要作用。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "不要用 делать роль。"
+      ],
+      "instantChecks": [
+        {
+          "id": "l3-check",
+          "type": "judgment",
+          "prompt": "“Образование играет важную роль.”符合本节结构。",
+          "answer": true,
+          "rationale": "роль 的固定动词是 играть。",
+          "source": {
+            "kind": "b2-original",
+            "label": "B2 原书考点",
+            "pages": [
+              71,
+              72
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "b2-original",
+          "label": "B2 原书考点",
+          "pages": [
+            71,
+            72
+          ]
+        }
+      ]
+    },
+    {
+      "id": "l4",
+      "title": "引起关注",
+      "scope": "core",
+      "meaning": "привлечь внимание 表示引起公众注意。",
+      "conditions": [
+        "报道某事受到注意。"
+      ],
+      "structure": "привлечь внимание",
+      "caseChanges": [
+        {
+          "from": "внимание",
+          "to": "привлечь внимание"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Эта проблема привлекла внимание общества.",
+          "zh": "这个问题引起了社会关注。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "注意完成体强调已经引起。"
+      ],
+      "instantChecks": [
+        {
+          "id": "l4-check",
+          "type": "judgment",
+          "prompt": "“Эта проблема привлекла внимание общества.”符合本节结构。",
+          "answer": true,
+          "rationale": "报道结果已发生。",
+          "source": {
+            "kind": "b2-original",
+            "label": "B2 原书考点",
+            "pages": [
+              71,
+              72
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "b2-original",
+          "label": "B2 原书考点",
+          "pages": [
+            71,
+            72
+          ]
+        }
+      ]
+    }
+  ],
+  "relatedExtensions": [],
+  "checks": [
+    {
+      "id": "review-1",
+      "type": "judgment",
+      "prompt": "“Власти приняли необходимые меры.”符合本节结构。",
+      "answer": true,
+      "rationale": "措施用 принять。",
+      "source": {
+        "kind": "b2-original",
+        "label": "B2 原书考点",
+        "pages": [
+          71,
+          72
+        ]
+      }
+    },
+    {
+      "id": "review-2",
+      "type": "judgment",
+      "prompt": "“Комиссия приняла решение.”符合本节结构。",
+      "answer": true,
+      "rationale": "正式名词搭配选择 принять。",
+      "source": {
+        "kind": "b2-original",
+        "label": "B2 原书考点",
+        "pages": [
+          71,
+          72
+        ]
+      }
+    },
+    {
+      "id": "review-3",
+      "type": "judgment",
+      "prompt": "“Образование играет важную роль.”符合本节结构。",
+      "answer": true,
+      "rationale": "роль 的固定动词是 играть。",
+      "source": {
+        "kind": "b2-original",
+        "label": "B2 原书考点",
+        "pages": [
+          71,
+          72
+        ]
+      }
+    }
+  ],
+  "rules": [
+    {
+      "text": "принять меры：принять меры 是正式报道中的固定搭配。",
+      "source": {
+        "kind": "b2-original",
+        "label": "B2 原书考点",
+        "pages": [
+          71,
+          72
+        ]
+      }
+    },
+    {
+      "text": "принять решение：принять решение 表示正式作出决定。",
+      "source": {
+        "kind": "b2-original",
+        "label": "B2 原书考点",
+        "pages": [
+          71,
+          72
+        ]
+      }
+    },
+    {
+      "text": "играть роль：играть роль 表示发挥作用或具有意义。",
+      "source": {
+        "kind": "b2-original",
+        "label": "B2 原书考点",
+        "pages": [
+          71,
+          72
+        ]
+      }
+    },
+    {
+      "text": "привлечь внимание：привлечь внимание 表示引起公众注意。",
+      "source": {
+        "kind": "b2-original",
+        "label": "B2 原书考点",
+        "pages": [
+          71,
+          72
+        ]
+      }
+    }
+  ],
+  "comparisons": [
+    {
+      "left": "принять решение",
+      "right": "решить",
+      "note": "两者都可表决定；前者更正式、名词化。",
+      "source": {
+        "kind": "learning-explanation",
+        "label": "学习讲解"
+      }
+    }
+  ],
+  "examples": [
+    {
+      "ru": "Власти приняли необходимые меры.",
+      "zh": "当局采取了必要措施。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    },
+    {
+      "ru": "Комиссия приняла решение.",
+      "zh": "委员会作出了决定。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    },
+    {
+      "ru": "Образование играет важную роль.",
+      "zh": "教育发挥重要作用。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    },
+    {
+      "ru": "Эта проблема привлекла внимание общества.",
+      "zh": "这个问题引起了社会关注。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    }
+  ],
+  "pitfalls": [
+    "固定搭配优先于逐词直译。",
+    "正式语体常偏好名词化结构。"
+  ],
+  "sources": [
+    {
+      "kind": "b2-original",
+      "label": "B2 原书考点",
+      "pages": [
+        71,
+        72
+      ]
+    }
+  ]
+}
