@@ -32,4 +32,5 @@ test('quiz source pages use local WebP assets and completion is not scroll-trigg
   assert.match(reader, /PDF-' \+ String\(pageNumber\)\.padStart\(3, '0'\) \+ '\.webp'/);
   assert.match(reader, /function finishQuizChapter\(\)/);
   assert.doesNotMatch(reader, /renderQuizChapter[\s\S]{0,6000}markChapterDone\(/);
+  assert.match(reader, /关闭原书页/);
 });

@@ -254,9 +254,10 @@ body {
 .b2-source-viewer img { width: 100%; max-height: calc(100vh - 110px); object-fit: contain; border: 1px solid var(--border); border-radius: 10px; background: #111; }
 .b2-source-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; }.b2-source-page { min-height: 38px; border: 1px solid var(--accent-border); border-radius: 8px; padding: 6px 10px; background: var(--glass); color: var(--text); cursor: pointer; }
 .b2-source-mobile { display: none; }
+.b2-source-close { display: none; }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; }
 @media (max-width: 767px) { .b2-quiz-item { padding: 16px; } .b2-options label { font-size: 16px; } }
-@media (max-width: 959px) { .b2-source-viewer { display: none; } .b2-source-viewer.is-open { display: block; position: fixed; inset: 56px 12px 70px; z-index: 220; width: auto; background: var(--bg); padding: 12px; overflow: auto; box-shadow: var(--shadow); } .b2-source-mobile { display: inline-flex; } }
+@media (max-width: 959px) { .b2-source-viewer { display: none; } .b2-source-viewer.is-open { display: block; position: fixed; inset: 56px 12px 70px; z-index: 220; width: auto; background: var(--bg); padding: 12px; overflow: auto; box-shadow: var(--shadow); } .b2-source-mobile, .b2-source-close { display: inline-flex; } }
 @media (max-width: 767px) { .b2-quiz-layout { display: block; } .b2-source-viewer.is-open { inset: 48px 8px 60px; } }
 .progress-bar { height: 4px; background: var(--glass); border-radius: 2px; overflow: hidden; }
 .progress-fill { height: 100%; background: var(--accent); border-radius: 2px; transition: width 0.3s; }
@@ -1083,7 +1084,7 @@ function renderSourceViewer(sourcePages) {
   var unique = pages.filter(function(page, index) { return pages.indexOf(page) === index; });
   var buttons = unique.map(function(page) { return '<button class="b2-source-page" onclick="setSourcePage(' + page + ')">PDF ' + page + '</button>'; }).join('');
   return '<aside class="b2-source-viewer" id="b2SourceViewer" aria-label="原书页对照">' +
-    '<div class="b2-source-tabs">' + buttons + '</div>' +
+    '<div class="b2-source-tabs"><button class="b2-source-page b2-source-close" onclick="openQuizSourceViewer()">关闭原书页</button>' + buttons + '</div>' +
     '<img id="b2SourceImage" src="' + sourcePageUrl(unique[0]) + '" alt="原书 PDF 第 ' + unique[0] + ' 页">' +
     '</aside>';
 }
