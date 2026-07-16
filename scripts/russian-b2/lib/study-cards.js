@@ -1,5 +1,6 @@
 const fs = require('node:fs');
 const path = require('node:path');
+const { buildSixPartBook } = require('../build-six-part-book');
 
 const CARD_RELATIVE_PATH = ['俄语资料库', '俄语B2·原书复刻与学习版', '规范数据', '语法书映射', 'p2-time-cause-study-card.json'];
 
@@ -46,7 +47,7 @@ function validateStudyCard({ card, chapter, grammarText }) {
 }
 function buildStudyCards({ root, write = true }) {
   const card = readJson(path.join(root, ...CARD_RELATIVE_PATH));
-  const chapter = readJson(path.join(root, 'data', 'textbook', 'russian_b2', 'ch0001.json'));
+  const chapter = buildSixPartBook({ root, write: false }).parts.find(part => part.id === card.partId);
   const grammarRoot = resolveGrammarRoot(root);
   const grammarText = fs.readFileSync(path.join(grammarRoot, '08 前置词.md'), 'utf8');
   const errors = validateStudyCard({ card, chapter, grammarText });
