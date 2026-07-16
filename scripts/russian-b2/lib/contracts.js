@@ -73,4 +73,48 @@ function assertPilotAnswerVector(chapter) {
   if (actual.join('|') !== PILOT_ANSWERS.join('|')) throw new Error(`Pilot answers differ: ${actual.join(', ')}`);
 }
 
-module.exports = { PILOT_ANSWERS, validateExercise, validateChapter, validateUnit, validateUnitManifest, assertPilotAnswerVector, toSafeText };
+function getStudyPointExerciseIds(point, part, byExercise) {
+  if (Array.isArray(point.exerciseIds)) return point.exerciseIds;
+  return (point.questionRanges || []).flatMap(range => {
+    if (!Array.isArray(range) || range.length !== 2 || !Number.isInteger(range[0]) || !Number.isInteger(range[1]) || range[0] > range[1]) return [];
+    const ids = [];
+    for (let number = range[0]; number <= range[1]; number++) {
+      const id = `P${part}-Q${String(number).padStart(3, '0')}`;
+      if (byExercise.has(id)) ids.push(id);
+    }
+    return ids;
+  });
+}
+
+function validateStudyNavigation({ navigation, units }) {
+  const errors = [];
+  const byUnit = new Map((units || []).map(unit => [unit.id, unit]));
+  const byExercise = new Map((units || []).flatMap(unit =>
+    (unit.exercises || []).map(exercise => [exercise.id, { exercise, unit }])
+  ));
+  const seenParts = new Set();
+  const seenExercises = new Set();
+  (navigation && navigation.parts || []).forEach(part => {
+    if (seenParts.has(part.id)) errors.push(`${part.id}: part id must be unique`);
+    seenParts.add(part.id);
+    (part.unitIds || []).forEach(unitId => {
+      const unit = byUnit.get(unitId);
+      if (!unit || unit.part !== part.part) errors.push(`${part.id}: unit ${unitId} is not in part ${part.part}`);
+    });
+    (part.knowledgePoints || []).forEach(point => {
+      const exerciseIds = getStudyPointExerciseIds(point, part.part, byExercise);
+      if (!exerciseIds.length) errors.push(`${point.id}: exerciseIds or questionRanges is required`);
+      exerciseIds.forEach(exerciseId => {
+        const found = byExercise.get(exerciseId);
+        if (!found || found.unit.part !== part.part) errors.push(`${point.id}: exercise ${exerciseId} is not in part ${part.part}`);
+        else if (seenExercises.has(exerciseId)) errors.push(`${point.id}: exercise ${exerciseId} is repeated in navigation`);
+        else seenExercises.add(exerciseId);
+      });
+      if (!point.rule) errors.push(`${point.id}: rule is required`);
+      if (!Array.isArray(point.sourcePages) || !point.sourcePages.length) errors.push(`${point.id}: sourcePages is required`);
+    });
+  });
+  return errors;
+}
+
+module.exports = { PILOT_ANSWERS, validateExercise, validateChapter, validateUnit, validateUnitManifest, validateStudyNavigation, getStudyPointExerciseIds, assertPilotAnswerVector, toSafeText };
