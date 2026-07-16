@@ -233,6 +233,23 @@ body {
 .book-card .book-desc { font-size: 13px; color: var(--text-dim); margin-top: 8px; }
 .book-card .book-progress { margin-top: 12px; }
 .book-kind { color: var(--accent); font-size: 0.7em; margin-right: 6px; font-weight: 600; letter-spacing: 0.04em; }
+.b2-quiz-item { margin: 0 0 18px; padding: 20px; border: 1px solid var(--border); border-radius: 12px; background: var(--surface); }
+.b2-options { display: grid; gap: 10px; margin: 16px 0; border: 0; padding: 0; }
+.b2-options input { position: absolute; opacity: 0; }
+.b2-options label, .b2-confirm, .b2-explanation-toggle, .b2-finish { min-height: 44px; display: flex; align-items: center; border-radius: 9px; }
+.b2-options label { padding: 10px 14px; border: 1px solid var(--border); cursor: pointer; }
+.b2-options input:focus-visible + label { outline: 3px solid var(--accent); outline-offset: 2px; }
+.b2-options input:checked + label { border-color: var(--accent); background: var(--accent-dim); }
+.b2-confirm, .b2-explanation-toggle, .b2-finish { border: 1px solid var(--accent-border); background: var(--accent-dim); color: var(--text); padding: 8px 14px; cursor: pointer; font: inherit; }
+.b2-confirm:disabled, .b2-explanation-toggle:disabled { opacity: 0.45; cursor: not-allowed; }
+.b2-result.is-correct, .b2-result.is-wrong { font-weight: 700; margin-top: 12px; }
+.b2-result.is-correct { color: var(--success); }.b2-result.is-wrong { color: var(--warning); }
+.b2-explanation { margin-top: 12px; padding: 16px; border-left: 3px solid var(--accent); background: var(--glass); }
+.b2-explanation p { margin: 0 0 10px; }.b2-explanation p:last-child { margin-bottom: 0; }
+.b2-quiz-header { margin: 0 0 20px; }.b2-quiz-header p { color: var(--text-secondary); }
+.b2-quiz-nav { display: flex; gap: 10px; justify-content: space-between; margin-top: 28px; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; }
+@media (max-width: 767px) { .b2-quiz-item { padding: 16px; } .b2-options label { font-size: 16px; } }
 .progress-bar { height: 4px; background: var(--glass); border-radius: 2px; overflow: hidden; }
 .progress-fill { height: 100%; background: var(--accent); border-radius: 2px; transition: width 0.3s; }
 .progress-text { font-size: 12px; color: var(--text-dim); margin-top: 4px; }
@@ -1012,7 +1029,108 @@ function goChapter(idx) {
     .catch(function() { if (localFetchId !== _fetchId) return; document.querySelector('.main-container').innerHTML = '<div class="loading">❌ 加载失败</div>'; });
 }
 
+var B2_PROGRESS_KEY = 'rr_b2_progress_v1';
+var quizProgress = {};
+var currentQuizData = null;
+var currentQuizExercises = [];
+
+function getB2Progress() {
+  try { return JSON.parse(localStorage.getItem(B2_PROGRESS_KEY)) || {}; }
+  catch (e) { return {}; }
+}
+function saveB2Progress(progress) {
+  quizProgress = progress;
+  try { localStorage.setItem(B2_PROGRESS_KEY, JSON.stringify(progress)); } catch (e) {}
+}
+function getQuizRecord(questionId) {
+  var chapterKey = curBook.id + ':' + curCh;
+  var all = getB2Progress();
+  if (!all[chapterKey]) all[chapterKey] = {};
+  if (!all[chapterKey][questionId]) all[chapterKey][questionId] = { selected: '', submitted: false, attempts: 0, wrong: false, explanationOpen: false };
+  saveB2Progress(all);
+  return all[chapterKey][questionId];
+}
+function getQuizExercise(questionId) {
+  for (var i = 0; i < currentQuizExercises.length; i++) if (currentQuizExercises[i].id === questionId) return currentQuizExercises[i];
+  return null;
+}
+function renderQuizResult(exercise, record) {
+  if (!record.submitted) return '';
+  return record.wrong ? '<span class="is-wrong">错误：你的答案是 ' + escapeHtml(record.selected) + '。</span>' : '<span class="is-correct">正确：你的答案是 ' + escapeHtml(record.selected) + '。</span>';
+}
+function renderQuizExplanation(exercise) {
+  var questionPages = exercise.questionPages.map(function(page) { return 'PDF-' + String(page).padStart(3, '0'); }).join('、');
+  var answerPages = exercise.answerPages.map(function(page) { return 'PDF-' + String(page).padStart(3, '0'); }).join('、');
+  return '<p><strong>原书答案（已核对）</strong><br>' + escapeHtml(exercise.sourceAnswer) + '</p>' +
+    '<p><strong>原书依据</strong><br>' + escapeHtml(exercise.sourceEvidence) + '</p>' +
+    '<p><strong>参考解析（AI，待复核）</strong><br>' + escapeHtml(exercise.referenceExplanation) + '</p>' +
+    '<p><strong>易错点</strong><br>' + escapeHtml(exercise.pitfalls.join('；')) + '</p>' +
+    '<p><strong>原书页</strong><br>' + escapeHtml(questionPages + '；' + answerPages) + '</p>';
+}
+function renderQuizItem(exercise, record) {
+  var html = '<section class="b2-quiz-item" data-question-id="' + escapeHtml(exercise.id) + '">';
+  html += '<h3>' + escapeHtml(exercise.id) + '. ' + escapeHtml(exercise.question) + '</h3>';
+  html += '<fieldset class="b2-options"><legend class="sr-only">选择答案</legend>';
+  for (var i = 0; i < exercise.options.length; i++) {
+    var option = exercise.options[i], inputId = 'b2-' + exercise.id + '-' + option.key;
+    var checked = record.selected === option.key ? ' checked' : '';
+    var disabled = record.submitted ? ' disabled' : '';
+    html += '<input type="radio" id="' + inputId + '" name="b2-' + exercise.id + '" value="' + option.key + '"' + checked + disabled + ' onchange="selectQuizOption(\'' + exercise.id + '\',\'' + option.key + '\')">';
+    html += '<label for="' + inputId + '"><strong>' + option.key + '.</strong> ' + escapeHtml(option.text) + '</label>';
+  }
+  html += '</fieldset>';
+  html += '<button class="b2-confirm" onclick="submitQuizQuestion(\'' + exercise.id + '\')"' + (!record.selected || record.submitted ? ' disabled' : '') + '>确认答案</button>';
+  html += '<div class="b2-result" aria-live="polite">' + renderQuizResult(exercise, record) + '</div>';
+  html += '<button class="b2-explanation-toggle" onclick="toggleQuizExplanation(\'' + exercise.id + '\')"' + (!record.submitted ? ' disabled' : '') + '>查看答案与解析</button>';
+  html += '<div class="b2-explanation"' + (record.explanationOpen ? '' : ' hidden') + '>' + renderQuizExplanation(exercise) + '</div></section>';
+  return html;
+}
+function renderQuizChapter(data) {
+  currentQuizData = data; currentQuizExercises = data.exercises || [];
+  var html = '<div class="main-container b2-quiz-page"><div class="b2-quiz-header">' +
+    '<button class="tb-btn" onclick="showShelf()">← 书架</button><h1>' + escapeHtml(data.title || '') + '</h1>' +
+    '<p>先独立作答；确认后只显示对错。答案与解析需要你手动展开。</p></div>';
+  for (var i = 0; i < currentQuizExercises.length; i++) html += renderQuizItem(currentQuizExercises[i], getQuizRecord(currentQuizExercises[i].id));
+  html += '<button class="b2-finish" onclick="finishQuizChapter()">结束本单元</button>';
+  html += '<div class="b2-quiz-nav">' +
+    (curCh > 0 ? '<button class="fab-nav" onclick="goChapter(' + (curCh - 1) + ')">← 上一章</button>' : '<span class="fab-nav disabled">← 上一章</span>') +
+    (curCh < curBook.chapters - 1 ? '<button class="fab-nav" onclick="goChapter(' + (curCh + 1) + ')">下一章 →</button>' : '<span class="fab-nav disabled">下一章 →</span>') +
+    '</div></div>';
+  document.getElementById('app').innerHTML = html;
+  window.scrollTo(0, 0); applyTheme(); saveLastRead();
+}
+function selectQuizOption(questionId, key) {
+  var record = getQuizRecord(questionId);
+  if (record.submitted) return;
+  record.selected = key;
+  var all = getB2Progress(); all[curBook.id + ':' + curCh][questionId] = record; saveB2Progress(all);
+  renderQuizChapter(currentQuizData);
+}
+function submitQuizQuestion(questionId) {
+  var exercise = getQuizExercise(questionId), record = getQuizRecord(questionId);
+  if (!exercise || !record.selected || record.submitted) return;
+  record.submitted = true; record.attempts += 1; record.wrong = record.selected !== exercise.answer;
+  var all = getB2Progress(); all[curBook.id + ':' + curCh][questionId] = record; saveB2Progress(all);
+  renderQuizChapter(currentQuizData);
+}
+function toggleQuizExplanation(questionId) {
+  var record = getQuizRecord(questionId);
+  if (!record.submitted) return;
+  record.explanationOpen = !record.explanationOpen;
+  var all = getB2Progress(); all[curBook.id + ':' + curCh][questionId] = record; saveB2Progress(all);
+  renderQuizChapter(currentQuizData);
+}
+function finishQuizChapter() {
+  var records = getB2Progress()[curBook.id + ':' + curCh] || {};
+  var complete = currentQuizExercises.length > 0 && currentQuizExercises.every(function(exercise) { return records[exercise.id] && records[exercise.id].submitted; });
+  if (!complete) { toast('请先确认全部题目，再结束本单元'); return; }
+  if (!readStats[curBook.id]) readStats[curBook.id] = {};
+  readStats[curBook.id][curCh] = { completed: true, completed_at: new Date().toISOString(), quiz: true };
+  saveStats(); toast('本单元已完成');
+}
+
 function renderChapter(data) {
+  if (isQuizFirstBook(curBook) && data.format === 'quiz-first') { renderQuizChapter(data); return; }
   var paras = data.original || [], trans = data.translated || [], dir = curBook.direction || 'cn→ru';
   var bookMarks = (bookmarks[curBook.id] && bookmarks[curBook.id][curCh]) || [];
   var parts = [], visibleCount = 0;
@@ -1865,7 +1983,7 @@ window.addEventListener('scroll', function() {
   clearTimeout(_scrollTimer); _scrollTimer = setTimeout(saveLastRead, 500);
   var btn = document.getElementById('backTop');
   if (btn) { if (window.scrollY > 400) btn.classList.add('visible'); else btn.classList.remove('visible'); }
-  if (chDone || curView !== 'reading' || curCh < 0) return;
+  if (chDone || curView !== 'reading' || curCh < 0 || isQuizFirstBook(curBook)) return;
   if (window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 100) {
     chDone = true; stopTimer();
     if (!readStats[curBook.id]) readStats[curBook.id] = {};
