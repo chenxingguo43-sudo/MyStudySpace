@@ -73,6 +73,12 @@ test('quiz reader renders knowledge-point navigation and migrates old unit progr
   assert.match(reader, /russian_b2:p2/);
 });
 
+test('P2 distinguishes its available study card from exercise-only navigation', () => {
+  assert.match(reader, /b2-knowledge-study-card/);
+  assert.match(reader, /打开学习卡/);
+  assert.match(reader, /对应练习导航/);
+});
+
 test('quiz supports single-click answers and retry history', () => {
   assert.match(reader, /function getQuizSettings\(\)/);
   assert.match(reader, /function submitQuizOption\(questionId, key\)/);

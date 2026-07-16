@@ -506,11 +506,15 @@ body {
 /* ─── B2 知识点导航 ─── */
 .b2-knowledge-nav { margin: 18px 0 24px; padding: 16px; border: 1px solid var(--accent-border); background: var(--accent-dim); border-radius: 14px; }
 .b2-knowledge-nav h2 { font-size: 1em; margin-bottom: 10px; }
+.b2-knowledge-nav h2 + p { color: var(--text-secondary); font-size: 13px; margin: -5px 0 10px; }
 .b2-knowledge-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 8px; }
 .b2-knowledge-card { font: inherit; text-align: left; padding: 10px; border: 1px solid var(--glass-border); border-radius: 10px; background: var(--surface-solid); color: var(--text); cursor: pointer; }
 .b2-knowledge-card strong, .b2-knowledge-card span, .b2-knowledge-card small { display: block; }
 .b2-knowledge-card span { color: var(--accent); font-size: 12px; }
 .b2-knowledge-card small { color: var(--text-secondary); line-height: 1.5; margin-top: 3px; }
+.b2-knowledge-study-card { border-color: var(--accent); box-shadow: 0 4px 14px var(--accent-dim); }
+.b2-knowledge-card em { display: block; margin-top: 8px; color: var(--accent); font-size: 12px; font-style: normal; font-weight: 600; }
+.b2-knowledge-exercise-nav { margin-top: 16px; }
 .b2-study-card { max-width: 860px; }
 .b2-study-quick { border: 1px solid var(--accent-border); background: var(--accent-dim); }
 .b2-study-outline { position: sticky; top: 50px; z-index: 20; display: flex; flex-wrap: wrap; gap: 6px; padding: 8px; margin: 0 0 16px; border: 1px solid var(--glass-border); border-radius: 10px; background: color-mix(in srgb, var(--surface-solid) 92%, transparent); backdrop-filter: blur(10px); }
@@ -1415,14 +1419,19 @@ function formatQuestionRange(exerciseIds) {
 }
 function renderKnowledgePointNav(points, partId) {
   if (!Array.isArray(points) || !points.length) return '';
-  var html = '<section class="b2-knowledge-nav"><h2>知识点导航</h2><div class="b2-knowledge-grid">';
+  var studyCards = '', exerciseNav = '';
   points.forEach(function(point) {
-    var action = partId === 'p2' && point.id === 'p2-time-cause'
-      ? 'showStudyCard(\'p2\',\'p2-time-cause\')'
-      : 'restartQuiz(\'knowledge\',' + escapeHtml(JSON.stringify(point.exerciseIds)).replace(/"/g, '&quot;') + ')';
-    html += '<button class="b2-knowledge-card" onclick="' + action + '"><strong>' + escapeHtml(point.title) + '</strong><span>' + escapeHtml(formatQuestionRange(point.exerciseIds)) + '</span><small>' + escapeHtml(point.rule) + '</small></button>';
+    var range = escapeHtml(formatQuestionRange(point.exerciseIds));
+    if (partId === 'p2' && point.id === 'p2-time-cause') {
+      studyCards += '<button class="b2-knowledge-card b2-knowledge-study-card" onclick="showStudyCard(\'p2\',\'p2-time-cause\')"><strong>' + escapeHtml(point.title) + '</strong><span>知识点学习卡 · ' + range + '</span><small>' + escapeHtml(point.rule) + '</small><em>打开学习卡 →</em></button>';
+    } else {
+      exerciseNav += '<button class="b2-knowledge-card" onclick="restartQuiz(\'knowledge\',' + escapeHtml(JSON.stringify(point.exerciseIds)).replace(/"/g, '&quot;') + ')"><strong>' + escapeHtml(point.title) + '</strong><span>对应练习导航 · ' + range + '</span><small>' + escapeHtml(point.rule) + '</small><em>去练习 →</em></button>';
+    }
   });
-  return html + '</div></section>';
+  var html = '<section class="b2-knowledge-nav">';
+  if (studyCards) html += '<h2>知识点学习卡</h2><p>系统整理的独立学习内容；点击后打开完整卡片。</p><div class="b2-knowledge-grid">' + studyCards + '</div>';
+  if (exerciseNav) html += '<div class="b2-knowledge-exercise-nav"><h2>对应练习导航</h2><p>这些知识点暂未制作独立学习卡，点击后进入对应练习。</p><div class="b2-knowledge-grid">' + exerciseNav + '</div></div>';
+  return html + '</section>';
 }
 function jumpToQuizExercise(exerciseId) {
   var target = document.querySelector('[data-question-id="' + exerciseId + '"]');
