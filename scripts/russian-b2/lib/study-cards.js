@@ -18,16 +18,44 @@ function isExactArray(left, right) { return JSON.stringify(left) === JSON.string
 function validateSource(card, source, grammarText) {
   const errors = [];
   if (!source || !source.kind) return [`${card.id}: source.kind is required`];
-  if (source.kind === 'grammar-book') {
+  const grammarKinds = new Set(['grammar-book', 'grammar-book-rule', 'grammar-book-example']);
+  const b2Kinds = new Set(['b2-original', 'b2-original-focus']);
+  const supplementKinds = new Set(['study-supplement', 'supplement-example']);
+  const labelledKinds = new Set(['learning-explanation', 'related-extension']);
+  if (grammarKinds.has(source.kind)) {
     if (!source.file || !source.section || !Array.isArray(source.pages) || !source.pages.length) errors.push(`${card.id}: grammar-book source is incomplete`);
     if (source.section && !grammarText.includes(source.section)) errors.push(`${card.id}: grammar section ${source.section} was not found`);
-  } else if (source.kind === 'b2-original') {
+  } else if (b2Kinds.has(source.kind)) {
     if (source.label !== 'B2 原书考点') errors.push(`${card.id}: B2 原书考点 must use the B2 原书考点 label`);
-  } else if (source.kind === 'study-supplement') {
-    if (source.label !== '学习补充') errors.push(`${card.id}: 学习补充 must use the 学习补充 label`);
+  } else if (supplementKinds.has(source.kind)) {
+    if (!['学习补充', '补充例句'].includes(source.label)) errors.push(`${card.id}: 学习补充 source requires a supplement label`);
+  } else if (labelledKinds.has(source.kind)) {
+    if (!source.label) errors.push(`${card.id}: ${source.kind} requires a visible label`);
   } else {
     errors.push(`${card.id}: unsupported source kind ${source.kind}`);
   }
+  return errors;
+}
+
+function validateCheck(card, check) {
+  const errors = [];
+  if (!check || !['choice', 'judgment', 'reveal'].includes(check.type)) errors.push(`${card.id}: unsupported study check type`);
+  if (!check || !check.id || !check.prompt || !check.rationale) errors.push(`${card.id}: study check requires id, prompt, and rationale`);
+  if (check && check.type !== 'reveal' && !('answer' in check)) errors.push(`${card.id}: scored study check requires answer`);
+  if (check && check.type === 'choice' && (!Array.isArray(check.options) || check.options.length < 2)) errors.push(`${card.id}: choice study check requires at least two options`);
+  return errors;
+}
+
+function validateRichSection(card, section, grammarText) {
+  const errors = [];
+  const requiredArrays = ['conditions', 'caseChanges', 'examples', 'boundaries', 'instantChecks', 'sources'];
+  if (!section || !section.id || !section.title || !section.meaning || !section.structure) errors.push(`${card.id}: rich lesson requires id, title, meaning, and structure`);
+  requiredArrays.forEach(field => {
+    if (!section || !Array.isArray(section[field]) || !section[field].length) errors.push(`${card.id}: rich lesson ${section && section.id || 'unknown'} requires ${field}`);
+  });
+  (section && section.instantChecks || []).forEach(check => errors.push(...validateCheck(card, check)));
+  (section && section.examples || []).forEach(example => errors.push(...validateSource(card, example.source, grammarText)));
+  (section && section.sources || []).forEach(source => errors.push(...validateSource(card, source, grammarText)));
   return errors;
 }
 function validateStudyCard({ card, chapter, grammarText }) {
@@ -43,6 +71,17 @@ function validateStudyCard({ card, chapter, grammarText }) {
   [...(card.rules || []), ...(card.comparisons || []), ...examples, ...(card.sources || [])].forEach(item => {
     errors.push(...validateSource(card, item.source || item, grammarText));
   });
+  const isRich = 'reviewStatus' in card || 'lessons' in card || 'quickReference' in card || 'checks' in card;
+  if (isRich) {
+    if (card.reviewStatus !== 'approved') errors.push(`${card.id}: rich study card must be approved before publication`);
+    if (!card.quickReference || !Array.isArray(card.quickReference.semanticQuestions) || !Array.isArray(card.quickReference.structures)) errors.push(`${card.id}: quickReference requires semanticQuestions and structures`);
+    if (!Array.isArray(card.lessons) || !card.lessons.length) errors.push(`${card.id}: rich lessons are required`);
+    if (!Array.isArray(card.relatedExtensions)) errors.push(`${card.id}: relatedExtensions must be an array`);
+    if (!Array.isArray(card.checks) || card.checks.length < 3 || card.checks.length > 5) errors.push(`${card.id}: three to five comprehensive checks are required`);
+    (card.lessons || []).forEach(section => errors.push(...validateRichSection(card, section, grammarText)));
+    (card.relatedExtensions || []).forEach(section => errors.push(...validateRichSection(card, section, grammarText)));
+    (card.checks || []).forEach(check => errors.push(...validateCheck(card, check)));
+  }
   return errors;
 }
 function buildStudyCards({ root, write = true }) {
@@ -57,4 +96,4 @@ function buildStudyCards({ root, write = true }) {
   return { cards: [card], outputPaths: write ? [outputPath] : [] };
 }
 
-module.exports = { buildStudyCards, validateStudyCard, resolveGrammarRoot };
+module.exports = { buildStudyCards, validateStudyCard, validateRichSection, validateCheck, resolveGrammarRoot };

@@ -1,7 +1,9 @@
 const test = require('node:test');
 const assert = require('node:assert/strict');
+const fs = require('node:fs');
 const path = require('node:path');
-const { buildStudyCards, validateStudyCard } = require('../../scripts/russian-b2/lib/study-cards');
+const { buildSixPartBook } = require('../../scripts/russian-b2/build-six-part-book');
+const { buildStudyCards, validateStudyCard, resolveGrammarRoot } = require('../../scripts/russian-b2/lib/study-cards');
 
 const root = path.resolve(__dirname, '..', '..');
 
@@ -27,4 +29,31 @@ test('study-card validation rejects missing grammar headings and unlabelled supp
   const errors = validateStudyCard({ card, chapter, grammarText: '# 前置词' });
   assert.ok(errors.some(error => error.includes('不存在的小节')));
   assert.ok(errors.some(error => error.includes('学习补充')));
+});
+
+test('rich P2 card requires approved layered lesson content', () => {
+  const card = structuredClone(buildStudyCards({ root, write: false }).cards[0]);
+  const chapter = buildSixPartBook({ root, write: false }).parts.find(part => part.id === card.partId);
+  const grammarText = fs.readFileSync(path.join(resolveGrammarRoot(root), '08 前置词.md'), 'utf8');
+  Object.assign(card, {
+    reviewStatus: 'approved',
+    quickReference: { semanticQuestions: ['持续多久'], structures: ['за + В.п.'] },
+    lessons: [{
+      id: 'duration', title: '持续多久', scope: 'core', meaning: '持续时间', conditions: ['动作持续'],
+      structure: 'В.п.', caseChanges: [{ from: 'день', to: 'день' }],
+      examples: [{ ru: 'Я ждал день', zh: '我等了一天', source: { kind: 'b2-original', label: 'B2 原书考点', pages: [34] } }],
+      boundaries: ['不表示未来起点'],
+      instantChecks: [{ id: 'duration-check', type: 'judgment', prompt: '判断', answer: true, rationale: '持续', source: { kind: 'b2-original', label: 'B2 原书考点', pages: [34] } }],
+      sources: [{ kind: 'b2-original', label: 'B2 原书考点', pages: [34] }]
+    }],
+    relatedExtensions: [],
+    checks: [
+      { id: 'check-1', type: 'judgment', prompt: '判断1', answer: true, rationale: '依据1', source: { kind: 'b2-original', label: 'B2 原书考点', pages: [34] } },
+      { id: 'check-2', type: 'judgment', prompt: '判断2', answer: false, rationale: '依据2', source: { kind: 'b2-original', label: 'B2 原书考点', pages: [34] } },
+      { id: 'check-3', type: 'reveal', prompt: '回忆', rationale: '依据3', source: { kind: 'b2-original', label: 'B2 原书考点', pages: [35] } }
+    ]
+  });
+  assert.deepEqual(validateStudyCard({ card, chapter, grammarText }), []);
+  card.reviewStatus = 'pending-review';
+  assert.match(validateStudyCard({ card, chapter, grammarText }).join('\n'), /approved/);
 });
