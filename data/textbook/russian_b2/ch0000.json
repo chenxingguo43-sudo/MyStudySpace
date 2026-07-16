@@ -1,412 +1,2757 @@
 {
-  "id": "p2-q001-q010",
+  "id": "p1",
   "index": 0,
-  "part": 2,
-  "title": "名词与形容词接格（题 1–10）",
-  "module": "语法词汇",
+  "part": 1,
+  "title": "P1 句法一致与动词体",
+  "module": "P1 句法一致与动词体",
   "format": "quiz-first",
   "sourcePages": {
     "questions": [
-      18,
-      19
+      6,
+      7,
+      8,
+      9,
+      10
     ],
     "rules": [
-      24
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18
     ],
     "answers": [
-      25,
-      26,
-      27
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18
     ]
   },
+  "knowledgePoints": [
+    {
+      "id": "p1-subject-predicate",
+      "title": "主谓一致与谓语形式",
+      "questionRanges": [
+        [
+          1,
+          20
+        ]
+      ],
+      "rule": "按主语的性、数和结构选择谓语、短尾形容词或被动形动词形式。",
+      "pitfalls": "数量词、集合名词和无人称/短尾结构容易干扰主语判断。",
+      "sourcePages": [
+        10,
+        11,
+        12
+      ],
+      "exerciseIds": [
+        "P1-Q001",
+        "P1-Q002",
+        "P1-Q003",
+        "P1-Q004",
+        "P1-Q005",
+        "P1-Q006",
+        "P1-Q007",
+        "P1-Q008",
+        "P1-Q009",
+        "P1-Q010",
+        "P1-Q011",
+        "P1-Q012",
+        "P1-Q013",
+        "P1-Q014",
+        "P1-Q015",
+        "P1-Q016",
+        "P1-Q017",
+        "P1-Q018",
+        "P1-Q019",
+        "P1-Q020"
+      ]
+    },
+    {
+      "id": "p1-perfective-once",
+      "title": "完成体：一次动作与结果",
+      "questionRanges": [
+        [
+          21,
+          29
+        ]
+      ],
+      "rule": "一次完成的行为或明确结果通常选完成体。",
+      "pitfalls": "不要只看动词前缀；先判断语境是否指向一次完成。",
+      "sourcePages": [
+        13,
+        14
+      ],
+      "exerciseIds": [
+        "P1-Q021",
+        "P1-Q022",
+        "P1-Q023",
+        "P1-Q024",
+        "P1-Q025",
+        "P1-Q026",
+        "P1-Q027",
+        "P1-Q028",
+        "P1-Q029"
+      ]
+    },
+    {
+      "id": "p1-imperfective-process",
+      "title": "未完成体：经常、过程与往返",
+      "questionRanges": [
+        [
+          30,
+          37
+        ]
+      ],
+      "rule": "经常性、持续过程和多次往返的语境通常要求未完成体。",
+      "pitfalls": "时间长度不单独决定体，通常性和过程性优先。",
+      "sourcePages": [
+        14,
+        15
+      ],
+      "exerciseIds": [
+        "P1-Q030",
+        "P1-Q031",
+        "P1-Q032",
+        "P1-Q033",
+        "P1-Q034",
+        "P1-Q035",
+        "P1-Q036",
+        "P1-Q037"
+      ]
+    },
+    {
+      "id": "p1-imperative-aspect",
+      "title": "命令式中的体与否定",
+      "questionRanges": [
+        [
+          38,
+          44
+        ]
+      ],
+      "rule": "区分一次性命令、过程性命令、否定禁止和提醒的体形式。",
+      "pitfalls": "否定命令式不总是同一种语义，要区分禁止、劝告与提醒。",
+      "sourcePages": [
+        15,
+        16
+      ],
+      "exerciseIds": [
+        "P1-Q038",
+        "P1-Q039",
+        "P1-Q040",
+        "P1-Q041",
+        "P1-Q042",
+        "P1-Q043",
+        "P1-Q044"
+      ]
+    },
+    {
+      "id": "p1-infinitive-negation",
+      "title": "不定式否定结构",
+      "questionRanges": [
+        [
+          45,
+          54
+        ]
+      ],
+      "rule": "按 нельзя、не + 不定式、можно/невозможно 等结构判断体和可能性语义。",
+      "pitfalls": "“不应该”“不可能”“可以不做”“禁止”对应的结构不同。",
+      "sourcePages": [
+        16,
+        17
+      ],
+      "exerciseIds": [
+        "P1-Q045",
+        "P1-Q046",
+        "P1-Q047",
+        "P1-Q048",
+        "P1-Q049",
+        "P1-Q050",
+        "P1-Q051",
+        "P1-Q052",
+        "P1-Q053",
+        "P1-Q054"
+      ]
+    },
+    {
+      "id": "p1-motion-return",
+      "title": "运动动词：去过、返回与未归",
+      "questionRanges": [
+        [
+          55,
+          60
+        ]
+      ],
+      "rule": "根据动作是否已经返回、外出时长及是否仍在外面选择运动动词。",
+      "pitfalls": "区分“去过又回”“出去很久后回来”和“尚未回来”。",
+      "sourcePages": [
+        18
+      ],
+      "exerciseIds": [
+        "P1-Q055",
+        "P1-Q056",
+        "P1-Q057",
+        "P1-Q058",
+        "P1-Q059",
+        "P1-Q060"
+      ]
+    }
+  ],
   "exercises": [
     {
-      "id": "P2-Q001",
+      "id": "P1-Q001",
       "printedNumber": 1,
       "type": "single-choice",
-      "question": "В центре Петербурга поставили памятник ... в 1782 г.",
+      "question": "Дирижер Иванова прекрасно ... вчера на концерте.",
       "options": [
         {
           "key": "А",
-          "text": "Петр Первый"
+          "text": "выступил"
         },
         {
           "key": "Б",
-          "text": "Петром Первым"
+          "text": "выступает"
         },
         {
           "key": "В",
-          "text": "Петру Первому"
+          "text": "выступила"
         },
         {
           "key": "Г",
-          "text": "Петра Первого"
+          "text": "выступал"
         }
       ],
-      "answer": "В",
-      "sourceAnswer": "В",
-      "sourceEvidence": "PDF-025：原书答案 1 为 В；解析：памятник кому。",
-      "sourceExplanation": "原书解析：памятник кому；译文：1782 年在彼得堡的市中心建起了彼得一世的纪念碑。",
-      "referenceExplanation": "参考解析（AI，待复核）：поставить памятник кому 是固定支配，纪念碑‘献给某人’要用第三格，所以选 Петру Первому。",
+      "answer": "Б",
+      "sourceAnswer": "Б",
+      "sourceEvidence": "PDF-006–PDF-018",
+      "sourceExplanation": "原书解析：谓语 выступила 和 Иванова 保持一致。；译文：指挥伊万诺娃在昨天的音乐会上演出很出色。",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
       "pitfalls": [
-        "不要把动作主语 Петр Первый 的第一格误当作 памятник 的补语。"
+        "先识别原书给出的规则，再结合语境判断。"
       ],
       "questionPages": [
-        18
+        6
       ],
       "answerPages": [
-        25
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
       ],
       "reviewStatus": "verified"
     },
     {
-      "id": "P2-Q002",
+      "id": "P1-Q002",
       "printedNumber": 2,
       "type": "single-choice",
-      "question": "Занятия ... развивают волю и повышают уверенность в себе.",
+      "question": "Начальник отдела Денисова ... сегодня на работу поздно.",
       "options": [
         {
           "key": "А",
-          "text": "спорта"
+          "text": "приходил"
         },
         {
           "key": "Б",
-          "text": "спорту"
+          "text": "приходила"
         },
         {
           "key": "В",
-          "text": "спортом"
+          "text": "пришел"
         },
         {
           "key": "Г",
-          "text": "за спортом"
+          "text": "пришла"
         }
       ],
-      "answer": "В",
-      "sourceAnswer": "В",
-      "sourceEvidence": "PDF-025：原书答案 2 为 В；解析：занятие чем。",
-      "sourceExplanation": "原书解析：занятие чем；译文：体育运动可以锻炼意志，提高自信心。",
-      "referenceExplanation": "参考解析（AI，待复核）：занятия спортом 表示‘从事体育活动’，занятие 要求工具格；复数主语 занятия 后仍使用 спортом。",
+      "answer": "Г",
+      "sourceAnswer": "Г",
+      "sourceEvidence": "PDF-006–PDF-018",
+      "sourceExplanation": "原书解析：谓语 пришла 和 Денисова 保持一致。；译文：杰尼索娃处长今天上班迟到了。",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
       "pitfalls": [
-        "за спортом 表示‘在体育之后/追随体育’，不是 занятия 的支配形式。"
+        "先识别原书给出的规则，再结合语境判断。"
       ],
       "questionPages": [
-        18
+        6
       ],
       "answerPages": [
-        25
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
       ],
       "reviewStatus": "verified"
     },
     {
-      "id": "P2-Q003",
+      "id": "P1-Q003",
       "printedNumber": 3,
       "type": "single-choice",
-      "question": "Студенты окружают заведующего ... русского языка.",
+      "question": "Озеро Байкал ... в Восточной Сибири.",
       "options": [
         {
           "key": "А",
-          "text": "кафедры"
+          "text": "расположен"
         },
         {
           "key": "Б",
-          "text": "кафедрой"
+          "text": "расположена"
         },
         {
           "key": "В",
-          "text": "кафедре"
+          "text": "расположено"
         },
         {
           "key": "Г",
-          "text": "кафедру"
+          "text": "расположены"
         }
       ],
       "answer": "Б",
       "sourceAnswer": "Б",
-      "sourceEvidence": "PDF-025：原书答案 3 为 Б；解析：заведующий чем。",
-      "sourceExplanation": "原书解析：заведующий чем；译文：学生们围在俄语教研室主任周围。",
-      "referenceExplanation": "参考解析（AI，待复核）：заведующий（负责人、主任）固定要求工具格：заведующий кафедрой；кафедрой 是 кафедра 的工具格。",
+      "sourceEvidence": "PDF-006–PDF-018",
+      "sourceExplanation": "原书解析：谓语 расположено 和 озеро 保持一致。；译文：贝加尔湖位于东西伯利亚。",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
       "pitfalls": [
-        "кафедры 是属格，常见于 заведующий кафедры 的非规范类比，考试按原书固定搭配判。"
+        "先识别原书给出的规则，再结合语境判断。"
       ],
       "questionPages": [
-        18
+        6
       ],
       "answerPages": [
-        25
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
       ],
       "reviewStatus": "verified"
     },
     {
-      "id": "P2-Q004",
+      "id": "P1-Q004",
       "printedNumber": 4,
       "type": "single-choice",
-      "question": "Это лечение и забота ... наших верных друзей.",
+      "question": "До отлета самолета ... еще полчаса.",
       "options": [
         {
           "key": "А",
-          "text": "о здоровье"
+          "text": "остались"
         },
         {
           "key": "Б",
-          "text": "к здоровью"
+          "text": "останутся"
         },
         {
           "key": "В",
-          "text": "по здоровью"
+          "text": "остаются"
         },
         {
           "key": "Г",
-          "text": "за здоровье"
+          "text": "осталось"
         }
       ],
-      "answer": "А",
-      "sourceAnswer": "А",
-      "sourceEvidence": "PDF-025：原书答案 4 为 А；解析：забота о ком-чем。",
-      "sourceExplanation": "原书解析：забота о ком-чем；译文：这是对我们忠诚朋友健康的治疗和关心。",
-      "referenceExplanation": "参考解析（AI，待复核）：забота о ком-чем 表示‘对……的关心’，о 后用前置格：о здоровье。",
+      "answer": "Г",
+      "sourceAnswer": "Г",
+      "sourceEvidence": "PDF-006–PDF-018",
+      "sourceExplanation": "原书解析：полчаса 是主语, осталось 是谓语。；译文：离飞机起飞还有半小时。",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
       "pitfalls": [
-        "за здоровье 常出现在‘为健康干杯’一类语境，不能替代 забота о。"
+        "先识别原书给出的规则，再结合语境判断。"
       ],
       "questionPages": [
-        18
+        6
       ],
       "answerPages": [
-        25
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
       ],
       "reviewStatus": "verified"
     },
     {
-      "id": "P2-Q005",
+      "id": "P1-Q005",
       "printedNumber": 5,
       "type": "single-choice",
-      "question": "Увлечение ... лишило его работы.",
+      "question": "До отхода поезда ... полчаса, мы успеем выпить по чашечке кофе.",
       "options": [
         {
           "key": "А",
-          "text": "компьютерной игры"
+          "text": "остались"
         },
         {
           "key": "Б",
-          "text": "компьютерной игре"
+          "text": "останутся"
         },
         {
           "key": "В",
-          "text": "компьютерную игру"
+          "text": "остаются"
         },
         {
           "key": "Г",
-          "text": "компьютерной игрой"
+          "text": "остается"
         }
       ],
       "answer": "Г",
       "sourceAnswer": "Г",
-      "sourceEvidence": "PDF-025：原书答案 5 为 Г；解析：увлечение чем。",
-      "sourceExplanation": "原书解析：увлечение чем；译文：痴迷电子游戏使他丢了工作。",
-      "referenceExplanation": "参考解析（AI，待复核）：увлечение чем 表示‘对……的痴迷’，要求工具格；компьютерной игрой 为阴性名词短语的工具格。",
+      "sourceEvidence": "PDF-006–PDF-018",
+      "sourceExplanation": "原书解析：полчаса 是主语, остается 是谓语。；译文：离火车开车还有半小时, 我们还来得及喝杯咖啡。",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
       "pitfalls": [
-        "不要因 лишило 的宾语是 его 而把前面的 увлечение 搭配改成第四格。"
+        "先识别原书给出的规则，再结合语境判断。"
       ],
       "questionPages": [
+        6
+      ],
+      "answerPages": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
         18
       ],
-      "answerPages": [
-        25
-      ],
       "reviewStatus": "verified"
     },
     {
-      "id": "P2-Q006",
+      "id": "P1-Q006",
       "printedNumber": 6,
       "type": "single-choice",
-      "question": "Из уважения ... молодые люди оказали нам большую услугу.",
+      "question": "Много статей в сборнике ... совсем молодыми авторами.",
       "options": [
         {
           "key": "А",
-          "text": "старших"
+          "text": "написали"
         },
         {
           "key": "Б",
-          "text": "за старшими"
+          "text": "напишут ◎俄罗斯对外俄语等级考试真题与解析(B2级)"
         },
         {
           "key": "В",
-          "text": "по старшим"
+          "text": "написано"
         },
         {
           "key": "Г",
-          "text": "к старшим"
-        }
-      ],
-      "answer": "Г",
-      "sourceAnswer": "Г",
-      "sourceEvidence": "PDF-025：原书答案 6 为 Г；解析：уважение к кому。",
-      "sourceExplanation": "原书解析：уважение к кому；译文：出于对长者的尊重，年轻人给了我们很大的帮助。",
-      "referenceExplanation": "参考解析（AI，待复核）：уважение к кому-чему 要用 к 加第三格；старшим 是复数与格。",
-      "pitfalls": [
-        "из уважения 是原因状语；空格仍由 уважение 的固定支配决定。"
-      ],
-      "questionPages": [
-        19
-      ],
-      "answerPages": [
-        25
-      ],
-      "reviewStatus": "verified"
-    },
-    {
-      "id": "P2-Q007",
-      "printedNumber": 7,
-      "type": "single-choice",
-      "question": "... на своем заседании принял важные решения.",
-      "options": [
-        {
-          "key": "А",
-          "text": "Комитет по туризму"
-        },
-        {
-          "key": "Б",
-          "text": "Комитет туризма"
-        },
-        {
-          "key": "В",
-          "text": "Комитет — туризм"
-        },
-        {
-          "key": "Г",
-          "text": "Туристический комитет"
-        }
-      ],
-      "answer": "А",
-      "sourceAnswer": "А",
-      "sourceEvidence": "PDF-025：原书答案 7 为 А；解析：комитет по туризму。",
-      "sourceExplanation": "原书解析：комитет по туризму；译文：旅游委员会在会上做出了重要决定。",
-      "referenceExplanation": "参考解析（AI，待复核）：这里考查机构名称的规范搭配：комитет по туризму；по 加前置格说明委员会负责的领域。",
-      "pitfalls": [
-        "Комитет туризма 虽可被理解，但不符合原书给出的规范机构名称。"
-      ],
-      "questionPages": [
-        19
-      ],
-      "answerPages": [
-        25
-      ],
-      "reviewStatus": "verified"
-    },
-    {
-      "id": "P2-Q008",
-      "printedNumber": 8,
-      "type": "single-choice",
-      "question": "Если университет не живет свободной наукой, то в таком случае он не достоин ... университета.",
-      "options": [
-        {
-          "key": "А",
-          "text": "звания"
-        },
-        {
-          "key": "Б",
-          "text": "званию"
-        },
-        {
-          "key": "В",
-          "text": "званием"
-        },
-        {
-          "key": "Г",
-          "text": "звании"
-        }
-      ],
-      "answer": "А",
-      "sourceAnswer": "А",
-      "sourceEvidence": "PDF-026：原书答案 8 为 А；解析：достойный чего。",
-      "sourceExplanation": "原书解析：достойный чего；译文：如果大学不能以学术自由为己任，那么它就不配称为大学。",
-      "referenceExplanation": "参考解析（AI，待复核）：достойный 要求属格，звания 是 звание 的属格单数；не достоин 不改变这一支配。",
-      "pitfalls": [
-        "не достоин 后不是与格；把‘配得上’误联想到 достоин кому 会导致选错。"
-      ],
-      "questionPages": [
-        19
-      ],
-      "answerPages": [
-        26
-      ],
-      "reviewStatus": "verified"
-    },
-    {
-      "id": "P2-Q009",
-      "printedNumber": 9,
-      "type": "single-choice",
-      "question": "Я очень благодарен ..., кто помогал мне в трудные моменты.",
-      "options": [
-        {
-          "key": "А",
-          "text": "всем"
-        },
-        {
-          "key": "Б",
-          "text": "к всем"
-        },
-        {
-          "key": "В",
-          "text": "всеми"
-        },
-        {
-          "key": "Г",
-          "text": "всех"
-        }
-      ],
-      "answer": "А",
-      "sourceAnswer": "А",
-      "sourceEvidence": "PDF-026：原书答案 9 为 А；解析：благодарный кому。",
-      "sourceExplanation": "原书解析：благодарный кому；译文：我非常感谢所有在困难时刻帮助过我的人。",
-      "referenceExplanation": "参考解析（AI，待复核）：благодарен / благодарный 要求与格；всем 是 весь 的复数与格，后面的 кто 引出定语从句。",
-      "pitfalls": [
-        "благодарен всем 不需要介词 к；к всем 是多加介词。"
-      ],
-      "questionPages": [
-        19
-      ],
-      "answerPages": [
-        26
-      ],
-      "reviewStatus": "verified"
-    },
-    {
-      "id": "P2-Q010",
-      "printedNumber": 10,
-      "type": "single-choice",
-      "question": "Задача легкая и понятна даже ... .",
-      "options": [
-        {
-          "key": "А",
-          "text": "самыми слабыми учениками"
-        },
-        {
-          "key": "Б",
-          "text": "самым слабым ученикам"
-        },
-        {
-          "key": "В",
-          "text": "самых слабых учеников"
-        },
-        {
-          "key": "Г",
-          "text": "самые слабые ученики"
+          "text": "написан"
         }
       ],
       "answer": "Б",
       "sourceAnswer": "Б",
-      "sourceEvidence": "PDF-027：原书答案 10 为 Б；解析：понятный кому-чему 或 для кого-чего。",
-      "sourceExplanation": "原书解析：понятный кому-чему 或 для кого-чего；译文：题目简单，甚至最差的学生都明白。",
-      "referenceExplanation": "参考解析（AI，待复核）：понятна кому-чему 表示‘对某人而言容易懂’，用与格：самым слабым ученикам；也可说 понятна для самых слабых учеников。",
+      "sourceEvidence": "PDF-006–PDF-018",
+      "sourceExplanation": "原书解析：主语是 много статей, 谓语是被动形动词短尾 написано (单数、中性), молодыми авторами (第五格) 是 написано 行为的主体。；译文：这本论文集的很多文章都是年轻作者写的。",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
       "pitfalls": [
-        "题中没有 для，因此不能选择属格短语 самых слабых учеников。"
+        "先识别原书给出的规则，再结合语境判断。"
       ],
       "questionPages": [
-        19
+        6
       ],
       "answerPages": [
-        27
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P1-Q007",
+      "printedNumber": 7,
+      "type": "single-choice",
+      "question": "Московским метро ежедневно ... более 8 миллионов человек.",
+      "options": [
+        {
+          "key": "А",
+          "text": "пользуется"
+        },
+        {
+          "key": "Б",
+          "text": "пользуются"
+        },
+        {
+          "key": "В",
+          "text": "пользовался"
+        },
+        {
+          "key": "Г",
+          "text": "пользовались"
+        }
+      ],
+      "answer": "А",
+      "sourceAnswer": "А",
+      "sourceEvidence": "PDF-006–PDF-018",
+      "sourceExplanation": "原书解析：主语是 более 8 миллионов человек, 谓语 пользуется 用单数。；译文：每天有八百多万人乘坐莫斯科地铁。",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        7
+      ],
+      "answerPages": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P1-Q008",
+      "printedNumber": 8,
+      "type": "single-choice",
+      "question": "Большинство школьников ... поступить в хороший вуз.",
+      "options": [
+        {
+          "key": "А",
+          "text": "мечтает"
+        },
+        {
+          "key": "Б",
+          "text": "мечтают"
+        },
+        {
+          "key": "В",
+          "text": "мечтал"
+        },
+        {
+          "key": "Г",
+          "text": "мечтали"
+        }
+      ],
+      "answer": "А",
+      "sourceAnswer": "А",
+      "sourceEvidence": "PDF-006–PDF-018",
+      "sourceExplanation": "原书解析：主语是 большинство, 谓语用单数 мечтает。；译文：大多数中学生都希望考入好的大学。",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        7
+      ],
+      "answerPages": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P1-Q009",
+      "printedNumber": 9,
+      "type": "single-choice",
+      "question": "Группа туристов долго ... автобус.",
+      "options": [
+        {
+          "key": "А",
+          "text": "ждал"
+        },
+        {
+          "key": "Б",
+          "text": "ждало"
+        },
+        {
+          "key": "В",
+          "text": "ждала"
+        },
+        {
+          "key": "Г",
+          "text": "ждали"
+        }
+      ],
+      "answer": "Б",
+      "sourceAnswer": "Б",
+      "sourceEvidence": "PDF-006–PDF-018",
+      "sourceExplanation": "原书解析：主语是 группа, 谓语用阴性 ждала 与主语保持一致。；译文：一群游客等了很长时间公共汽车。",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        7
+      ],
+      "answerPages": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P1-Q010",
+      "printedNumber": 10,
+      "type": "single-choice",
+      "question": "Первая группа студентов уже ... экзамен.",
+      "options": [
+        {
+          "key": "А",
+          "text": "сдала"
+        },
+        {
+          "key": "Б",
+          "text": "сдали"
+        },
+        {
+          "key": "В",
+          "text": "сдадут"
+        },
+        {
+          "key": "Г",
+          "text": "сдаст"
+        }
+      ],
+      "answer": "А",
+      "sourceAnswer": "А",
+      "sourceEvidence": "PDF-006–PDF-018",
+      "sourceExplanation": "原书解析：主语是 группа, 谓语用阴性 сдала 与主语保持一致。；译文：一班的学生已经考完试了。",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        7
+      ],
+      "answerPages": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P1-Q011",
+      "printedNumber": 11,
+      "type": "single-choice",
+      "question": "Я не успеваю подготовиться к экзамену: мне ... еще хотя бы два дня.",
+      "options": [
+        {
+          "key": "А",
+          "text": "можно"
+        },
+        {
+          "key": "Б",
+          "text": "понадобиться"
+        },
+        {
+          "key": "В",
+          "text": "понадобилось"
+        },
+        {
+          "key": "Г",
+          "text": "понадобятся"
+        }
+      ],
+      "answer": "Б",
+      "sourceAnswer": "Б",
+      "sourceEvidence": "PDF-006–PDF-018",
+      "sourceExplanation": "原书解析：два дня 做主语, 谓语用单数, 因为句中有语气词 6ы, 所以 понадобилось 用过去时。；译文：我没准备好考试, 要是再有两天就好了。",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        7
+      ],
+      "answerPages": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P1-Q012",
+      "printedNumber": 12,
+      "type": "single-choice",
+      "question": "Нашему институту в будущем году ... 30 лет.",
+      "options": [
+        {
+          "key": "А",
+          "text": "будет"
+        },
+        {
+          "key": "Б",
+          "text": "будут"
+        },
+        {
+          "key": "В",
+          "text": "было"
+        },
+        {
+          "key": "Г",
+          "text": "бывало"
+        }
+      ],
+      "answer": "А",
+      "sourceAnswer": "А",
+      "sourceEvidence": "PDF-006–PDF-018",
+      "sourceExplanation": "原书解析：主语是 30 лет, 谓语 будет(单数第三人称)表示将来时。；译文：我们学院明年成立 30 周年。",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        7
+      ],
+      "answerPages": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P1-Q013",
+      "printedNumber": 13,
+      "type": "single-choice",
+      "question": "Читать то, что написано русскими классиками, ....",
+      "options": [
+        {
+          "key": "А",
+          "text": "трудные, но интересные"
+        },
+        {
+          "key": "Б",
+          "text": "трудное, но интересное"
+        },
+        {
+          "key": "В",
+          "text": "трудно, но интересно"
+        },
+        {
+          "key": "Г",
+          "text": "трудны, но интересны"
+        }
+      ],
+      "answer": "Б",
+      "sourceAnswer": "Б",
+      "sourceEvidence": "PDF-006–PDF-018",
+      "sourceExplanation": "原书解析：动词不定式 читать 做主语, 所以 трудно, но интересно 用中性。；译文：读俄罗斯经典作家的东西很难但有趣。",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        7
+      ],
+      "answerPages": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P1-Q014",
+      "printedNumber": 14,
+      "type": "single-choice",
+      "question": "Глаза у девушки ...",
+      "options": [
+        {
+          "key": "А",
+          "text": "большие и грустные"
+        },
+        {
+          "key": "Б",
+          "text": "больше и грустнее"
+        },
+        {
+          "key": "В",
+          "text": "большими и грустными"
+        },
+        {
+          "key": "Г",
+          "text": "большой и грустный"
+        }
+      ],
+      "answer": "А",
+      "sourceAnswer": "А",
+      "sourceEvidence": "PDF-006–PDF-018",
+      "sourceExplanation": "原书解析：глаза(复数)做主语, 谓语是 большие и грустные。；译文：姑娘的大眼睛充满忧郁。",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        7
+      ],
+      "answerPages": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P1-Q015",
+      "printedNumber": 15,
+      "type": "single-choice",
+      "question": "Дверь в комнату оказалась ...",
+      "options": [
+        {
+          "key": "А",
+          "text": "закрыт"
+        },
+        {
+          "key": "Б",
+          "text": "закрытой"
+        },
+        {
+          "key": "В",
+          "text": "закрыли"
+        },
+        {
+          "key": "Г",
+          "text": "закрыто"
+        }
+      ],
+      "answer": "Б",
+      "sourceAnswer": "Б",
+      "sourceEvidence": "PDF-006–PDF-018",
+      "sourceExplanation": "原书解析：оказалась 在句中做系动词(要求第五格), 相当于 была。如果备选答案有短尾 закрыта, 也是正确的。；译文：房间的门是关着的。",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        7
+      ],
+      "answerPages": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P1-Q016",
+      "printedNumber": 16,
+      "type": "single-choice",
+      "question": "Пироги, которые печет твоя бабушка, кажутся мне очень ....",
+      "options": [
+        {
+          "key": "А",
+          "text": "вкусные"
+        },
+        {
+          "key": "Б",
+          "text": "вкусными"
+        },
+        {
+          "key": "В",
+          "text": "вкусно"
+        },
+        {
+          "key": "Г",
+          "text": "вкусным"
+        }
+      ],
+      "answer": "Б",
+      "sourceAnswer": "Б",
+      "sourceEvidence": "PDF-006–PDF-018",
+      "sourceExplanation": "原书解析：кажутся 要求第五格, 所以 вкусными 用第五格, 主语 пироги 是复数形式, 所以 вкусными 用复数第五格。；译文：你奶奶烤的馅饼我觉得非常好吃。",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        7
+      ],
+      "answerPages": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P1-Q017",
+      "printedNumber": 17,
+      "type": "single-choice",
+      "question": "Как ни ... грамматика русского языка, ее надо выучить.",
+      "options": [
+        {
+          "key": "А",
+          "text": "труднее"
+        },
+        {
+          "key": "Б",
+          "text": "трудно"
+        },
+        {
+          "key": "В",
+          "text": "трудная"
+        },
+        {
+          "key": "Г",
+          "text": "трудна"
+        }
+      ],
+      "answer": "Г",
+      "sourceAnswer": "Г",
+      "sourceEvidence": "PDF-006–PDF-018",
+      "sourceExplanation": "原书解析：как 要求 трудна 用短尾, 主语是 грамматика。；译文：无论俄语语法多难, 都应该学会。",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        7
+      ],
+      "answerPages": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P1-Q018",
+      "printedNumber": 18,
+      "type": "single-choice",
+      "question": "Туристы поднялись на вершину горы ....",
+      "options": [
+        {
+          "key": "А",
+          "text": "устало, но довольно"
+        },
+        {
+          "key": "Б",
+          "text": "устали, но довольны"
+        },
+        {
+          "key": "В",
+          "text": "усталые, но довольные"
+        },
+        {
+          "key": "Г",
+          "text": "усталый, но довольный"
+        }
+      ],
+      "answer": "Б",
+      "sourceAnswer": "Б",
+      "sourceEvidence": "PDF-006–PDF-018",
+      "sourceExplanation": "原书解析：устальные, но довольные 和 поднялись 一起做静词性合成谓语, 也可以用 усталыми, но довольными (第五格)。；译文：游客们疲惫而满足地登上山顶。",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        7
+      ],
+      "answerPages": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P1-Q019",
+      "printedNumber": 19,
+      "type": "single-choice",
+      "question": "Я так поздно проснулся, что пришел на лекцию ...",
+      "options": [
+        {
+          "key": "А",
+          "text": "последним"
+        },
+        {
+          "key": "Б",
+          "text": "последней"
+        },
+        {
+          "key": "В",
+          "text": "последних"
+        },
+        {
+          "key": "Г",
+          "text": "последними"
+        }
+      ],
+      "answer": "А",
+      "sourceAnswer": "А",
+      "sourceEvidence": "PDF-006–PDF-018",
+      "sourceExplanation": "原书解析：последним 用阳性单数第五格, 因为主语是阳性(проснулся)。；译文：我醒得太晚, 以至于最后一个来到课堂。",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        7
+      ],
+      "answerPages": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P1-Q020",
+      "printedNumber": 20,
+      "type": "single-choice",
+      "question": "Всё, что вы рассказали, очень ....",
+      "options": [
+        {
+          "key": "А",
+          "text": "поучителен"
+        },
+        {
+          "key": "Б",
+          "text": "поучительный"
+        },
+        {
+          "key": "В",
+          "text": "поучительное"
+        },
+        {
+          "key": "Г",
+          "text": "поучительно"
+        }
+      ],
+      "answer": "Г",
+      "sourceAnswer": "Г",
+      "sourceEvidence": "PDF-006–PDF-018",
+      "sourceExplanation": "原书解析：主语是 всё, 谓语 поучительно 用短尾形式。；译文：你们讲的一切都很有教育意义。",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        8
+      ],
+      "answerPages": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P1-Q021",
+      "printedNumber": 21,
+      "type": "single-choice",
+      "question": "Что тебе ...? Чай или кофе?",
+      "options": [
+        {
+          "key": "А",
+          "text": "заказывать"
+        },
+        {
+          "key": "Б",
+          "text": "заказать"
+        }
+      ],
+      "answer": "Б",
+      "sourceAnswer": "Б",
+      "sourceEvidence": "PDF-006–PDF-018",
+      "sourceExplanation": "原书解析：完成体 заказать 表示一次的动作。；译文：你点什么? 茶还是咖啡?",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        8
+      ],
+      "answerPages": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P1-Q022",
+      "printedNumber": 22,
+      "type": "single-choice",
+      "question": "Что ..., если он все равно не хочет нас понять!",
+      "options": [
+        {
+          "key": "А",
+          "text": "объяснять"
+        },
+        {
+          "key": "Б",
+          "text": "объяснить"
+        }
+      ],
+      "answer": "Б",
+      "sourceAnswer": "Б",
+      "sourceEvidence": "PDF-006–PDF-018",
+      "sourceExplanation": "原书解析：完成体 объяснить 表示一次的动作。；译文：如果他不想明白我们的意思, 有啥可讲的!",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        8
+      ],
+      "answerPages": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P1-Q023",
+      "printedNumber": 23,
+      "type": "single-choice",
+      "question": "Я никак не могу ... свое расписание.",
+      "options": [
+        {
+          "key": "А",
+          "text": "запомнить"
+        },
+        {
+          "key": "Б",
+          "text": "запоминать"
+        }
+      ],
+      "answer": "А",
+      "sourceAnswer": "А",
+      "sourceEvidence": "PDF-006–PDF-018",
+      "sourceExplanation": "原书解析：完成体 запомнить 表示结果, 即“记住”。；译文：我怎么也记不住课程表。",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        8
+      ],
+      "answerPages": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P1-Q024",
+      "printedNumber": 24,
+      "type": "single-choice",
+      "question": "Можно ... мне свой конспект?",
+      "options": [
+        {
+          "key": "А",
+          "text": "показать"
+        },
+        {
+          "key": "Б",
+          "text": "показывать"
+        }
+      ],
+      "answer": "А",
+      "sourceAnswer": "А",
+      "sourceEvidence": "PDF-006–PDF-018",
+      "sourceExplanation": "原书解析：完成体 показать 表示一次完成的动作。；译文：能给我看一下提纲吗?",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        8
+      ],
+      "answerPages": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P1-Q025",
+      "printedNumber": 25,
+      "type": "single-choice",
+      "question": "Возможно, я не смогу ... тебе вечером.",
+      "options": [
+        {
+          "key": "А",
+          "text": "звонить"
+        },
+        {
+          "key": "Б",
+          "text": "позвонить"
+        }
+      ],
+      "answer": "Б",
+      "sourceAnswer": "Б",
+      "sourceEvidence": "PDF-006–PDF-018",
+      "sourceExplanation": "原书解析：完成体 позвонить 表示一次的动作。；译文：可能晚上我不能给你打电话。",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        8
+      ],
+      "answerPages": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P1-Q026",
+      "printedNumber": 26,
+      "type": "single-choice",
+      "question": "Хочешь ... вечером новый фильм?",
+      "options": [
+        {
+          "key": "А",
+          "text": "смотреть"
+        },
+        {
+          "key": "Б",
+          "text": "посмотреть"
+        }
+      ],
+      "answer": "Б",
+      "sourceAnswer": "Б",
+      "sourceEvidence": "PDF-006–PDF-018",
+      "sourceExplanation": "原书解析：完成体 посмотреть 表示一次的动作。；译文：晚上你想看新电影吗?",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        8
+      ],
+      "answerPages": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P1-Q027",
+      "printedNumber": 27,
+      "type": "single-choice",
+      "question": "Советую вам ... вашу работу.",
+      "options": [
+        {
+          "key": "А",
+          "text": "переделывать"
+        },
+        {
+          "key": "Б",
+          "text": "переделать"
+        }
+      ],
+      "answer": "Б",
+      "sourceAnswer": "Б",
+      "sourceEvidence": "PDF-006–PDF-018",
+      "sourceExplanation": "原书解析：советовать 之后的 переделать 表示一次完成的行为。；译文：我建议你重做你的工作。",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        8
+      ],
+      "answerPages": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P1-Q028",
+      "printedNumber": 28,
+      "type": "single-choice",
+      "question": "В этот раз туристы ... в этом городе на несколько дней.",
+      "options": [
+        {
+          "key": "А",
+          "text": "задержались"
+        },
+        {
+          "key": "Б",
+          "text": "задерживались"
+        }
+      ],
+      "answer": "А",
+      "sourceAnswer": "А",
+      "sourceEvidence": "PDF-006–PDF-018",
+      "sourceExplanation": "原书解析：в этот раз 表示动作是一次行为。；译文：这次游客在这座城市停留了几天。",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        8
+      ],
+      "answerPages": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P1-Q029",
+      "printedNumber": 29,
+      "type": "single-choice",
+      "question": "Неожиданно ... громкий стук в дверь.",
+      "options": [
+        {
+          "key": "А",
+          "text": "слышался"
+        },
+        {
+          "key": "Б",
+          "text": "послышался"
+        }
+      ],
+      "answer": "Б",
+      "sourceAnswer": "Б",
+      "sourceEvidence": "PDF-006–PDF-018",
+      "sourceExplanation": "原书解析：неожиданно(突然)表示动作一次完成。；译文：突然听见很响的敲门声。",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        8
+      ],
+      "answerPages": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P1-Q030",
+      "printedNumber": 30,
+      "type": "single-choice",
+      "question": "Нужно чаще ... свежие фрукты.",
+      "options": [
+        {
+          "key": "А",
+          "text": "есть"
+        },
+        {
+          "key": "Б",
+          "text": "поесть"
+        }
+      ],
+      "answer": "А",
+      "sourceAnswer": "А",
+      "sourceEvidence": "PDF-006–PDF-018",
+      "sourceExplanation": "原书解析：句中 чаще (часто 的比较级) 要求动词用未完成体。；译文：要经常吃新鲜水果。",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        8
+      ],
+      "answerPages": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P1-Q031",
+      "printedNumber": 31,
+      "type": "single-choice",
+      "question": "Мы обычно ... изложение в классе за 2 часа.",
+      "options": [
+        {
+          "key": "А",
+          "text": "напишем"
+        },
+        {
+          "key": "Б",
+          "text": "пишем"
+        }
+      ],
+      "answer": "Б",
+      "sourceAnswer": "Б",
+      "sourceEvidence": "PDF-006–PDF-018",
+      "sourceExplanation": "原书解析：虽然句中有 за 2 часа, 但 обычно (通常) 在动词体的使用中起决定性作用, 所以正确答案是 пишем。；译文：我们通常在教室里两小时内写出一篇书面作文。",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        8
+      ],
+      "answerPages": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P1-Q032",
+      "printedNumber": 32,
+      "type": "single-choice",
+      "question": "Старший брат регулярно ... утреннюю зарядку.",
+      "options": [
+        {
+          "key": "А",
+          "text": "делает"
+        },
+        {
+          "key": "Б",
+          "text": "сделает"
+        }
+      ],
+      "answer": "А",
+      "sourceAnswer": "А",
+      "sourceEvidence": "PDF-006–PDF-018",
+      "sourceExplanation": "原书解析：регулярно(有规律地)表示动作是经常的。；译文：哥哥经常做早操。",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        8
+      ],
+      "answerPages": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P1-Q033",
+      "printedNumber": 33,
+      "type": "single-choice",
+      "question": "Почему вы так долго не ... на наше письмо?",
+      "options": [
+        {
+          "key": "А",
+          "text": "отвечали"
+        },
+        {
+          "key": "Б",
+          "text": "ответили"
+        }
+      ],
+      "answer": "А",
+      "sourceAnswer": "А",
+      "sourceEvidence": "PDF-006–PDF-018",
+      "sourceExplanation": "原书解析：долго(长时间)要求动词用未完成体。；译文：你为什么那么长时间没给我们回信?",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        8
+      ],
+      "answerPages": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P1-Q034",
+      "printedNumber": 34,
+      "type": "single-choice",
+      "question": "С каждым днем ... теплее.",
+      "options": [
+        {
+          "key": "А",
+          "text": "стало ____"
+        },
+        {
+          "key": "Б",
+          "text": "становилось"
+        }
+      ],
+      "answer": "Б",
+      "sourceAnswer": "Б",
+      "sourceEvidence": "PDF-006–PDF-018",
+      "sourceExplanation": "原书解析：с каждым днем 要求 становилось 用未完成体。；译文：天气一天比一天暖和。",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        8
+      ],
+      "answerPages": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P1-Q035",
+      "printedNumber": 35,
+      "type": "single-choice",
+      "question": "Илья упорно ... над своей магистерской диссертацией.",
+      "options": [
+        {
+          "key": "А",
+          "text": "работал"
+        },
+        {
+          "key": "Б",
+          "text": "поработал"
+        }
+      ],
+      "answer": "А",
+      "sourceAnswer": "А",
+      "sourceEvidence": "PDF-006–PDF-018",
+      "sourceExplanation": "原书解析：写论文是长时间的过程, 所以用未完成体 работал。；译文：伊利亚努力地写自己的硕士论文。",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        8
+      ],
+      "answerPages": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P1-Q036",
+      "printedNumber": 36,
+      "type": "single-choice",
+      "question": "На курсы иностранных языков придется ... по субботам.",
+      "options": [
+        {
+          "key": "А",
+          "text": "ходить"
+        },
+        {
+          "key": "Б",
+          "text": "идти"
+        }
+      ],
+      "answer": "А",
+      "sourceAnswer": "А",
+      "sourceEvidence": "PDF-006–PDF-018",
+      "sourceExplanation": "原书解析：ходить 表示多次往返的运动。；译文：周六不得不去外语培训班。",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        8
+      ],
+      "answerPages": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P1-Q037",
+      "printedNumber": 37,
+      "type": "single-choice",
+      "question": "Не успел я ... в кабинет, как позвонил директор.",
+      "options": [
+        {
+          "key": "А",
+          "text": "входить"
+        },
+        {
+          "key": "Б",
+          "text": "войти"
+        }
+      ],
+      "answer": "Б",
+      "sourceAnswer": "Б",
+      "sourceEvidence": "PDF-006–PDF-018",
+      "sourceExplanation": "原书解析：успеть 要求与其连用的 войти 用完成体。；译文：我还没来得及走进办公室, 经理就打来了电话。",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        8
+      ],
+      "answerPages": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P1-Q038",
+      "printedNumber": 38,
+      "type": "single-choice",
+      "question": "... мне свой номер телефона, пожалуйста.",
+      "options": [
+        {
+          "key": "А",
+          "text": "Говори"
+        },
+        {
+          "key": "Б",
+          "text": "Скажи"
+        }
+      ],
+      "answer": "Б",
+      "sourceAnswer": "Б",
+      "sourceEvidence": "PDF-006–PDF-018",
+      "sourceExplanation": "原书解析：表示一次的动作用完成体命令式。；译文：请告诉我你的电话号码。",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        8
+      ],
+      "answerPages": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P1-Q039",
+      "printedNumber": 39,
+      "type": "single-choice",
+      "question": "— Как ты себя чувствуешь? Пожалуйста, ... хоть слово!",
+      "options": [
+        {
+          "key": "А",
+          "text": "говори"
+        },
+        {
+          "key": "Б",
+          "text": "скажи"
+        }
+      ],
+      "answer": "Б",
+      "sourceAnswer": "Б",
+      "sourceEvidence": "PDF-006–PDF-018",
+      "sourceExplanation": "原书解析：“说一句话” (скажи слово) 是一个简单的动作, 所以用完成体命令式。；译文：你感觉怎么样? 哪怕说一句话!",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        8
+      ],
+      "answerPages": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P1-Q040",
+      "printedNumber": 40,
+      "type": "single-choice",
+      "question": "— У вас есть последний номер «Невы»? — Да. Вот он, на полке. Только ... аккуратно, не уроните другие журналы.",
+      "options": [
+        {
+          "key": "А",
+          "text": "берите"
+        },
+        {
+          "key": "Б",
+          "text": "возьмите"
+        }
+      ],
+      "answer": "А",
+      "sourceAnswer": "А",
+      "sourceEvidence": "PDF-006–PDF-018",
+      "sourceExplanation": "原书解析：表示过程时用未完成体动词命令式。；译文：“你有最近一期的《涅瓦》杂志吗?”“有, 在书架上。拿的时候小心点儿, 别把其他杂志弄掉。”",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        9
+      ],
+      "answerPages": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P1-Q041",
+      "printedNumber": 41,
+      "type": "single-choice",
+      "question": "— Леночка, не ... старшим, когда они разговаривают.",
+      "options": [
+        {
+          "key": "А",
+          "text": "помешай"
+        },
+        {
+          "key": "Б",
+          "text": "мешай"
+        }
+      ],
+      "answer": "Б",
+      "sourceAnswer": "Б",
+      "sourceEvidence": "PDF-006–PDF-018",
+      "sourceExplanation": "原书解析：否定的未完成体动词命令式表示禁止做某事, 或请求、劝告不应该做某事。；译文：小列娜, 年长者谈话时, 不要打扰他们。",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        9
+      ],
+      "answerPages": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P1-Q042",
+      "printedNumber": 42,
+      "type": "single-choice",
+      "question": "Не ... меня, пожалуйста, я стесняюсь.",
+      "options": [
+        {
+          "key": "А",
+          "text": "фотографируй"
+        },
+        {
+          "key": "Б",
+          "text": "сфотографируй"
+        }
+      ],
+      "answer": "А",
+      "sourceAnswer": "А",
+      "sourceEvidence": "PDF-006–PDF-018",
+      "sourceExplanation": "原书解析：否定的未完成体动词命令式表示不应该。；译文：别给我拍照,我害羞。",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        9
+      ],
+      "answerPages": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P1-Q043",
+      "printedNumber": 43,
+      "type": "single-choice",
+      "question": "Не ... к работе, пока не поймешь хорошо задание.",
+      "options": [
+        {
+          "key": "А",
+          "text": "приступай"
+        },
+        {
+          "key": "Б",
+          "text": "приступи"
+        }
+      ],
+      "answer": "А",
+      "sourceAnswer": "А",
+      "sourceEvidence": "PDF-006–PDF-018",
+      "sourceExplanation": "原书解析：当从句是否定句时, пока не ... 中的话 “即” 定意义, 主句中通常有指示词 до тех пор 与 пока не 呼应, 译成汉语常用肯定句“直到……为止”。连接词除了表示主句行为在从句行为之前, 还表示主句行为的终止界限, 即延续到从句行为结束为止。因此, 主句的动词谓语用未完成体表示, 从句的动词谓语用完成体 (可以用过去时或将来时) 表示。例如: Бабушка следила за внуком, пока он не скрылся. (奶奶注视着孙子, 直到他不见了为止。也可译为: 在孙子不见之前, 奶奶一直注视着他。)；译文：没弄明白题目之前, 不要着手去做。",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        9
+      ],
+      "answerPages": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P1-Q044",
+      "printedNumber": 44,
+      "type": "single-choice",
+      "question": "Осторожно, не ..., пол скользкий.",
+      "options": [
+        {
+          "key": "А",
+          "text": "упади"
+        },
+        {
+          "key": "Б",
+          "text": "падай"
+        }
+      ],
+      "answer": "А",
+      "sourceAnswer": "А",
+      "sourceEvidence": "PDF-006–PDF-018",
+      "sourceExplanation": "原书解析：完成体动词命令式的否定形式 не упади 表示提醒。；译文：地滑,当心别",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        9
+      ],
+      "answerPages": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P1-Q045",
+      "printedNumber": 45,
+      "type": "single-choice",
+      "question": "У меня аллергия, мне нельзя ... апельсиновый сок.",
+      "options": [
+        {
+          "key": "А",
+          "text": "выпить"
+        },
+        {
+          "key": "Б",
+          "text": "пить"
+        }
+      ],
+      "answer": "Б",
+      "sourceAnswer": "Б",
+      "sourceEvidence": "PDF-006–PDF-018",
+      "sourceExplanation": "原书解析：“нельзя + 未完成体不定式” 表示“不应该”。；译文：我过敏, 不能喝橙汁。",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        9
+      ],
+      "answerPages": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P1-Q046",
+      "printedNumber": 46,
+      "type": "single-choice",
+      "question": "Тебе не... диплом за две недели.",
+      "options": [
+        {
+          "key": "А",
+          "text": "писать"
+        },
+        {
+          "key": "Б",
+          "text": "написать"
+        }
+      ],
+      "answer": "Б",
+      "sourceAnswer": "Б",
+      "sourceEvidence": "PDF-006–PDF-018",
+      "sourceExplanation": "原书解析：“нельзя + 未完成体不定式” 表示“不反应”。；译文：两周内你不可能写完毕业论文。",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        9
+      ],
+      "answerPages": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P1-Q047",
+      "printedNumber": 47,
+      "type": "single-choice",
+      "question": "Я так устал за эту неделю, что в субботу мне не ... в 8 утра.",
+      "options": [
+        {
+          "key": "А",
+          "text": "просыпаться"
+        },
+        {
+          "key": "Б",
+          "text": "проснуться"
+        }
+      ],
+      "answer": "Б",
+      "sourceAnswer": "Б",
+      "sourceEvidence": "PDF-006–PDF-018",
+      "sourceExplanation": "原书解析：“He + 完成体不定式” 则表示“不可能、做不成”。；译文：这星期我太累了, 以至于星期六 8 点钟醒不了。",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        9
+      ],
+      "answerPages": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P1-Q048",
+      "printedNumber": 48,
+      "type": "single-choice",
+      "question": "Зрительный зал был переполнен, и ... было некуда.",
+      "options": [
+        {
+          "key": "А",
+          "text": "садиться"
+        },
+        {
+          "key": "Б",
+          "text": "сесть"
+        }
+      ],
+      "answer": "Б",
+      "sourceAnswer": "Б",
+      "sourceEvidence": "PDF-006–PDF-018",
+      "sourceExplanation": "原书解析：不定式否定句中, “he + 完成体动词不定式” 表示“不可能”。；译文：观众大厅挤满了人, 无处可坐。",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        9
+      ],
+      "answerPages": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P1-Q049",
+      "printedNumber": 49,
+      "type": "single-choice",
+      "question": "До яблока на ветке никому не ....",
+      "options": [
+        {
+          "key": "А",
+          "text": "дотягиваться"
+        },
+        {
+          "key": "Б",
+          "text": "дотянуться"
+        }
+      ],
+      "answer": "Б",
+      "sourceAnswer": "Б",
+      "sourceEvidence": "PDF-006–PDF-018",
+      "sourceExplanation": "原书解析：不定式否定句中, “he + 完成体动词不定式” 表示“不可能”。；译文：谁也够不到树枝上的苹果。",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        9
+      ],
+      "answerPages": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P1-Q050",
+      "printedNumber": 50,
+      "type": "single-choice",
+      "question": "Так быстро мне эту книгу не ....",
+      "options": [
+        {
+          "key": "А",
+          "text": "читать"
+        },
+        {
+          "key": "Б",
+          "text": "прочитать"
+        }
+      ],
+      "answer": "Б",
+      "sourceAnswer": "Б",
+      "sourceEvidence": "PDF-006–PDF-018",
+      "sourceExplanation": "原书解析：不定式否定句中, “he + 完成体动词不定式” 表示“不可能”。；译文：这么快我不可能读完这本书。",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        9
+      ],
+      "answerPages": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P1-Q051",
+      "printedNumber": 51,
+      "type": "single-choice",
+      "question": "С вами невозможно не ...",
+      "options": [
+        {
+          "key": "А",
+          "text": "соглашаться"
+        },
+        {
+          "key": "Б",
+          "text": "согласиться"
+        }
+      ],
+      "answer": "Б",
+      "sourceAnswer": "Б",
+      "sourceEvidence": "PDF-006–PDF-018",
+      "sourceExplanation": "原书解析：невозможно не (不可能不) 之后与完成体动词连用时, 表示达到目的, 可能做到某事。例如: Ему невозможно не ответить на этот вопрос. (他不可能回答不上这个问题。)；译文：不可能不同意你的意见。",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        9
+      ],
+      "answerPages": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P1-Q052",
+      "printedNumber": 52,
+      "type": "single-choice",
+      "question": "Саша, ты можешь не ..., твоя помощь нам не понадо",
+      "options": [
+        {
+          "key": "А",
+          "text": "приходить"
+        },
+        {
+          "key": "Б",
+          "text": "прийти"
+        }
+      ],
+      "answer": "А",
+      "sourceAnswer": "А",
+      "sourceEvidence": "PDF-006–PDF-018",
+      "sourceExplanation": "原书解析：можешь не приходить 表示“可以不来”。；译文：萨沙, 你可以不来, 我们不再需要你的帮助。",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        9
+      ],
+      "answerPages": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P1-Q053",
+      "printedNumber": 53,
+      "type": "single-choice",
+      "question": "В институте запрещено ....",
+      "options": [
+        {
+          "key": "А",
+          "text": "курить"
+        },
+        {
+          "key": "Б",
+          "text": "покурить"
+        }
+      ],
+      "answer": "А",
+      "sourceAnswer": "А",
+      "sourceEvidence": "PDF-006–PDF-018",
+      "sourceExplanation": "原书解析：запрещено 要求 курить 用未完成体动词不定式。；译文：学校里禁止吸烟。",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        9
+      ],
+      "answerPages": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P1-Q054",
+      "printedNumber": 54,
+      "type": "single-choice",
+      "question": "Пассажирам не разрешается ... двери вагона во время движения поезда.",
+      "options": [
+        {
+          "key": "А",
+          "text": "открывать"
+        },
+        {
+          "key": "Б",
+          "text": "открыть"
+        }
+      ],
+      "answer": "А",
+      "sourceAnswer": "А",
+      "sourceEvidence": "PDF-006–PDF-018",
+      "sourceExplanation": "原书解析：не разрешается 表示“禁止”, 其后接未完成体动词不定式。；译文：火车运行时禁止乘客打开车门。",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        9
+      ],
+      "answerPages": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P1-Q055",
+      "printedNumber": 55,
+      "type": "single-choice",
+      "question": "Почему книга такая грязная? Кто ее ... ?",
+      "options": [
+        {
+          "key": "А",
+          "text": "брал"
+        },
+        {
+          "key": "Б",
+          "text": "взял"
+        },
+        {
+          "key": "В",
+          "text": "бери"
+        },
+        {
+          "key": "Г",
+          "text": "возьми"
+        }
+      ],
+      "answer": "А",
+      "sourceAnswer": "А",
+      "sourceEvidence": "PDF-006–PDF-018",
+      "sourceExplanation": "原书解析：6pal 表示“书被拿走, 又被拿回来了”。；译文：为什么书这么脏? 谁动过?",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        9
+      ],
+      "answerPages": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P1-Q056",
+      "printedNumber": 56,
+      "type": "single-choice",
+      "question": "Я только что ... на третий этаж, мне не хочется еще раз идти туда.",
+      "options": [
+        {
+          "key": "А",
+          "text": "поднялся"
+        },
+        {
+          "key": "Б",
+          "text": "поднимался"
+        },
+        {
+          "key": "В",
+          "text": "поднимаюсь"
+        },
+        {
+          "key": "Г",
+          "text": "поднимусь"
+        }
+      ],
+      "answer": "Б",
+      "sourceAnswer": "Б",
+      "sourceEvidence": "PDF-006–PDF-018",
+      "sourceExplanation": "原书解析：поднимался 表示“上了三楼, 又下来了”。；译文：我刚刚到过三楼, 我不想去那里了。",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        9
+      ],
+      "answerPages": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P1-Q057",
+      "printedNumber": 57,
+      "type": "single-choice",
+      "question": "К тебе утром ... товарищ, он оставил тебе записку.",
+      "options": [
+        {
+          "key": "А",
+          "text": "приходил"
+        },
+        {
+          "key": "Б",
+          "text": "пришел"
+        },
+        {
+          "key": "В",
+          "text": "уходил"
+        },
+        {
+          "key": "Г",
+          "text": "ушел"
+        }
+      ],
+      "answer": "А",
+      "sourceAnswer": "А",
+      "sourceEvidence": "PDF-006–PDF-018",
+      "sourceExplanation": "原书解析：приходил 表示“来了, 又走了”。；译文：早上一个同学来找你, 他给你留了字条。",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        9
+      ],
+      "answerPages": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P1-Q058",
+      "printedNumber": 58,
+      "type": "single-choice",
+      "question": "— Петя, почему ты не подходил к телефону? — Я.",
+      "options": [
+        {
+          "key": "А",
+          "text": "выходил"
+        },
+        {
+          "key": "Б",
+          "text": "уходил"
+        },
+        {
+          "key": "В",
+          "text": "вышел"
+        },
+        {
+          "key": "Г",
+          "text": "ушел"
+        }
+      ],
+      "answer": "А",
+      "sourceAnswer": "А",
+      "sourceEvidence": "PDF-006–PDF-018",
+      "sourceExplanation": "原书解析：BEXHODIL 表示“出去了, 又回来了, 出去时间短暂”, YXODIL 表示“出去了, 又回来了, 但出去时间很长或距离很远”。；译文：“别佳, 你为什么不接电话?” “我刚才出去了。”",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        10
+      ],
+      "answerPages": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P1-Q059",
+      "printedNumber": 59,
+      "type": "single-choice",
+      "question": "— Где ты был вчера? — Я ... в центр города.",
+      "options": [
+        {
+          "key": "А",
+          "text": "ехал"
+        },
+        {
+          "key": "Б",
+          "text": "поехал"
+        },
+        {
+          "key": "В",
+          "text": "уезжал"
+        },
+        {
+          "key": "Г",
+          "text": "ездит"
+        }
+      ],
+      "answer": "Б",
+      "sourceAnswer": "Б",
+      "sourceEvidence": "PDF-006–PDF-018",
+      "sourceExplanation": "原书解析：уезжал 表示“去了市中心, 现在回来了”；译文：“昨天你去哪儿了?”“我去了市中心。”",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        10
+      ],
+      "answerPages": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P1-Q060",
+      "printedNumber": 60,
+      "type": "single-choice",
+      "question": "Антона нет дома, он ... на занятия.",
+      "options": [
+        {
+          "key": "А",
+          "text": "уходил"
+        },
+        {
+          "key": "Б",
+          "text": "ушел"
+        },
+        {
+          "key": "В",
+          "text": "уйдет"
+        },
+        {
+          "key": "Г",
+          "text": "уходит"
+        }
+      ],
+      "answer": "Б",
+      "sourceAnswer": "Б",
+      "sourceEvidence": "PDF-006–PDF-018",
+      "sourceExplanation": "原书解析：ушел 表示“出去了, 现在还在课堂上”。；译文：安东没在家, 他去上课了。",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        10
+      ],
+      "answerPages": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
       ],
       "reviewStatus": "verified"
     }
