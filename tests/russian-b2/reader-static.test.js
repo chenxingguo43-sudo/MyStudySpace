@@ -72,3 +72,10 @@ test('quiz reader renders knowledge-point navigation and migrates old unit progr
   assert.match(reader, /russian_b2:p2-q001-q010/);
   assert.match(reader, /russian_b2:p2/);
 });
+
+test('quiz supports single-click answers and retry history', () => {
+  assert.match(reader, /function getQuizSettings\(\)/);
+  assert.match(reader, /function submitQuizOption\(questionId, key\)/);
+  assert.match(reader, /everWrong/);
+  assert.match(reader, /function restartQuiz\(mode/);
+});

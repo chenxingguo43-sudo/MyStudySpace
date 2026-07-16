@@ -1042,6 +1042,7 @@ function goChapter(idx) {
 }
 
 var B2_PROGRESS_KEY = 'rr_b2_progress_v1';
+var B2_QUIZ_SETTINGS_KEY = 'rr_b2_quiz_settings_v1';
 var quizProgress = {};
 var currentQuizData = null;
 var currentQuizExercises = [];
@@ -1049,6 +1050,10 @@ var currentQuizExercises = [];
 function getB2Progress() {
   try { return migrateB2Progress(JSON.parse(localStorage.getItem(B2_PROGRESS_KEY)) || {}); }
   catch (e) { return {}; }
+}
+function getQuizSettings() {
+  try { return Object.assign({ confirmBeforeSubmit: false }, JSON.parse(localStorage.getItem(B2_QUIZ_SETTINGS_KEY)) || {}); }
+  catch (e) { return { confirmBeforeSubmit: false }; }
 }
 function saveB2Progress(progress) {
   quizProgress = progress;
@@ -1087,7 +1092,7 @@ function getQuizRecord(questionId) {
   var chapterKey = getQuizUnitKey();
   var all = getB2Progress();
   if (!all[chapterKey]) all[chapterKey] = {};
-  if (!all[chapterKey][questionId]) all[chapterKey][questionId] = { selected: '', submitted: false, attempts: 0, wrong: false, explanationOpen: false };
+  if (!all[chapterKey][questionId]) all[chapterKey][questionId] = { selected: '', submitted: false, attempts: 0, wrong: false, everWrong: false, lastResult: '', lastAnsweredAt: '', explanationOpen: false };
   saveB2Progress(all);
   return all[chapterKey][questionId];
 }
@@ -1116,11 +1121,11 @@ function renderQuizItem(exercise, record) {
     var option = exercise.options[i], inputId = 'b2-' + exercise.id + '-' + option.key;
     var checked = record.selected === option.key ? ' checked' : '';
     var disabled = record.submitted ? ' disabled' : '';
-    html += '<input type="radio" id="' + inputId + '" name="b2-' + exercise.id + '" value="' + option.key + '"' + checked + disabled + ' onchange="selectQuizOption(\'' + exercise.id + '\',\'' + option.key + '\')">';
+    html += '<input type="radio" id="' + inputId + '" name="b2-' + exercise.id + '" value="' + option.key + '"' + checked + disabled + ' onchange="submitQuizOption(\'' + exercise.id + '\',\'' + option.key + '\')">';
     html += '<label for="' + inputId + '"><strong>' + option.key + '.</strong> ' + escapeHtml(option.text) + '</label>';
   }
   html += '</fieldset>';
-  html += '<button class="b2-confirm" onclick="submitQuizQuestion(\'' + exercise.id + '\')"' + (!record.selected || record.submitted ? ' disabled' : '') + '>确认答案</button>';
+  if (getQuizSettings().confirmBeforeSubmit) html += '<button class="b2-confirm" onclick="submitQuizQuestion(\'' + exercise.id + '\')"' + (!record.selected || record.submitted ? ' disabled' : '') + '>确认答案</button>';
   html += '<div class="b2-result" aria-live="polite">' + renderQuizResult(exercise, record) + '</div>';
   html += '<button class="b2-explanation-toggle" onclick="toggleQuizExplanation(\'' + exercise.id + '\')"' + (!record.submitted ? ' disabled' : '') + '>查看答案与解析</button>';
   html += '<div class="b2-explanation"' + (record.explanationOpen ? '' : ' hidden') + '>' + renderQuizExplanation(exercise) + '</div></section>';
@@ -1136,7 +1141,7 @@ function renderKnowledgePointNav(points) {
   var html = '<section class="b2-knowledge-nav"><h2>知识点导航</h2><div class="b2-knowledge-grid">';
   points.forEach(function(point) {
     var first = point.exerciseIds && point.exerciseIds[0];
-    html += '<button class="b2-knowledge-card" onclick="jumpToQuizExercise(\'' + escapeHtml(first) + '\')"><strong>' + escapeHtml(point.title) + '</strong><span>' + escapeHtml(formatQuestionRange(point.exerciseIds)) + '</span><small>' + escapeHtml(point.rule) + '</small></button>';
+    html += '<button class="b2-knowledge-card" onclick="restartQuiz(\'knowledge\',' + escapeHtml(JSON.stringify(point.exerciseIds)).replace(/"/g, '&quot;') + ')"><strong>' + escapeHtml(point.title) + '</strong><span>' + escapeHtml(formatQuestionRange(point.exerciseIds)) + '</span><small>' + escapeHtml(point.rule) + '</small></button>';
   });
   return html + '</div></section>';
 }
@@ -1153,7 +1158,8 @@ function renderQuizChapter(data, scrollPosition) {
     '<button class="tb-btn" onclick="showShelf()">← 书架</button><h1>' + escapeHtml(data.title || '') + '</h1>' +
     '<p>先独立作答；确认后只显示对错。答案与解析需要你手动展开。</p></div>' + renderKnowledgePointNav(data.knowledgePoints);
   for (var i = 0; i < currentQuizExercises.length; i++) html += renderQuizItem(currentQuizExercises[i], getQuizRecord(currentQuizExercises[i].id));
-  html += '<button class="b2-finish" onclick="finishQuizChapter()">结束本单元</button>';
+  html += '<button class="b2-finish" onclick="finishQuizChapter()">结束本部分</button>' +
+    '<div class="b2-retry-actions"><button class="b2-finish" onclick="restartQuiz(\'all\')">再做全部</button><button class="b2-finish" onclick="restartQuiz(\'wrong\')">只重做错题</button></div>';
   html += '<div class="b2-quiz-nav">' +
     (curCh > 0 ? '<button class="fab-nav" onclick="goChapter(' + (curCh - 1) + ')">← 上一章</button>' : '<span class="fab-nav disabled">← 上一章</span>') +
     (curCh < curBook.chapters - 1 ? '<button class="fab-nav" onclick="goChapter(' + (curCh + 1) + ')">下一章 →</button>' : '<span class="fab-nav disabled">下一章 →</span>') +
@@ -1171,10 +1177,14 @@ function selectQuizOption(questionId, key) {
   var all = getB2Progress(); all[getQuizUnitKey()][questionId] = record; saveB2Progress(all);
   rerenderQuizChapterPreservingScroll();
 }
+function submitQuizOption(questionId, key) {
+  selectQuizOption(questionId, key);
+  if (!getQuizSettings().confirmBeforeSubmit) submitQuizQuestion(questionId);
+}
 function submitQuizQuestion(questionId) {
   var exercise = getQuizExercise(questionId), record = getQuizRecord(questionId);
   if (!exercise || !record.selected || record.submitted) return;
-  record.submitted = true; record.attempts += 1; record.wrong = record.selected !== exercise.answer;
+  record.submitted = true; record.attempts += 1; record.wrong = record.selected !== exercise.answer; record.everWrong = record.everWrong || record.wrong; record.lastResult = record.wrong ? 'wrong' : 'correct'; record.lastAnsweredAt = new Date().toISOString();
   var all = getB2Progress(); all[getQuizUnitKey()][questionId] = record; saveB2Progress(all);
   rerenderQuizChapterPreservingScroll();
 }
@@ -1193,6 +1203,17 @@ function finishQuizChapter() {
   if (!all.__completed) all.__completed = {};
   all.__completed[getB2CompletionKey()] = { completed: true, completed_at: new Date().toISOString(), quiz: true };
   saveB2Progress(all); toast('本单元已完成');
+}
+function restartQuiz(mode, exerciseIds) {
+  var all = getB2Progress(), key = getQuizUnitKey(), records = all[key] || {};
+  currentQuizExercises = (currentQuizData.exercises || []).filter(function(exercise) {
+    return mode !== 'wrong' || records[exercise.id] && records[exercise.id].everWrong;
+  }).filter(function(exercise) { return mode !== 'knowledge' || (exerciseIds || []).indexOf(exercise.id) !== -1; });
+  currentQuizExercises.forEach(function(exercise) {
+    var old = records[exercise.id] || {}, fresh = { selected: '', submitted: false, attempts: old.attempts || 0, wrong: false, everWrong: !!old.everWrong, lastResult: old.lastResult || '', lastAnsweredAt: old.lastAnsweredAt || '', explanationOpen: false };
+    records[exercise.id] = fresh;
+  });
+  all[key] = records; saveB2Progress(all); renderQuizChapter(Object.assign({}, currentQuizData, { exercises: currentQuizExercises }), 0);
 }
 
 function renderChapter(data) {
