@@ -11,6 +11,7 @@ const {
 } = require('../../scripts/russian-b2/lib/contracts');
 const { buildPilot } = require('../../scripts/russian-b2/build-pilot');
 const { buildBook } = require('../../scripts/russian-b2/build-book');
+const { verifySourceLedger } = require('../../scripts/russian-b2/verify-source-ledger');
 
 function makeExercise(id, answer) {
   return {
@@ -42,6 +43,14 @@ function makeUnit() {
   };
 }
 
+function makeLedgerEntry() {
+  return {
+    exerciseId: 'P2-Q001', printedNumber: 1,
+    questionPages: [18], rulePages: [24], answerPages: [25],
+    answer: 'В', sourceExplanation: 'памятник кому', translation: '测试译文', status: 'verified'
+  };
+}
+
 test('requires permanent unit and exercise identifiers', () => {
   const unit = makeUnit();
   assert.deepEqual(validateUnit(unit), []);
@@ -58,6 +67,15 @@ test('rejects duplicate reader chapter indexes in the unit manifest', () => {
   const another = makeUnit();
   another.id = 'p2-q011-q020';
   assert.match(validateUnitManifest({ units: [makeUnit(), another] }).join('\n'), /chapterIndex.*unique/);
+});
+
+test('source ledger requires verified explanation and translation for each canonical exercise', () => {
+  const unit = makeUnit();
+  unit.exercises[0].sourceExplanation = '原书解析：памятник кому；译文：测试译文';
+  assert.deepEqual(verifySourceLedger({ ledger: { part: 2, entries: [makeLedgerEntry()] }, units: [unit] }), []);
+  const broken = makeLedgerEntry();
+  broken.translation = '';
+  assert.match(verifySourceLedger({ ledger: { part: 2, entries: [broken] }, units: [unit] }).join('\n'), /translation/);
 });
 
 test('accepts the complete Q001–Q010 pilot answer vector', () => {
