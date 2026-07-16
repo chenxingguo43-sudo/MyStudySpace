@@ -10,6 +10,7 @@ const {
   toSafeText
 } = require('../../scripts/russian-b2/lib/contracts');
 const { buildPilot } = require('../../scripts/russian-b2/build-pilot');
+const { buildBook } = require('../../scripts/russian-b2/build-book');
 
 function makeExercise(id, answer) {
   return {
@@ -111,15 +112,18 @@ test('pilot source content has exactly ten sequential verified permanent questio
   assert.doesNotThrow(() => assertPilotAnswerVector(chapter));
 });
 
-test('build creates matching reader JSON, Markdown, and range map', () => {
+test('manifest build creates matching reader JSON, Markdown, range map, and quality report', () => {
   const root = path.resolve('.');
-  const result = buildPilot({ root });
+  const result = buildBook({ root });
   const readerChapter = require('../../data/textbook/russian_b2/ch0000.json');
-  const markdown = fs.readFileSync(result.markdownPath, 'utf8');
+  const markdown = fs.readFileSync(result.markdownPaths[0], 'utf8');
   const rangeMap = JSON.parse(fs.readFileSync(result.rangeMapPath, 'utf8'));
+  const quality = JSON.parse(fs.readFileSync(result.qualityReportPath, 'utf8'));
   assert.equal(readerChapter.exercises.length, 10);
-  assert.match(markdown, /Q001/);
+  assert.match(markdown, /P2-Q001/);
   assert.match(markdown, /答案与解析/);
   assert.deepEqual(rangeMap.entries[0].question_pages, [18, 19]);
   assert.deepEqual(rangeMap.entries[0].answer_pages, [25, 26, 27]);
+  assert.equal(quality.units[0].id, 'p2-q001-q010');
+  assert.equal(buildPilot({ root }).readerPaths.length, 1);
 });
