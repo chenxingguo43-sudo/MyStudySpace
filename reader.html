@@ -1085,7 +1085,7 @@ function renderQuizItem(exercise, record) {
   html += '<div class="b2-explanation"' + (record.explanationOpen ? '' : ' hidden') + '>' + renderQuizExplanation(exercise) + '</div></section>';
   return html;
 }
-function renderQuizChapter(data) {
+function renderQuizChapter(data, scrollPosition) {
   currentQuizData = data; currentQuizExercises = data.exercises || [];
   var html = '<div class="main-container b2-quiz-page"><div class="b2-quiz-header">' +
     '<button class="tb-btn" onclick="showShelf()">← 书架</button><h1>' + escapeHtml(data.title || '') + '</h1>' +
@@ -1097,28 +1097,31 @@ function renderQuizChapter(data) {
     (curCh < curBook.chapters - 1 ? '<button class="fab-nav" onclick="goChapter(' + (curCh + 1) + ')">下一章 →</button>' : '<span class="fab-nav disabled">下一章 →</span>') +
     '</div></div>';
   document.getElementById('app').innerHTML = html;
-  window.scrollTo(0, 0); applyTheme(); saveLastRead();
+  window.scrollTo(0, typeof scrollPosition === 'number' ? scrollPosition : 0); applyTheme(); saveLastRead();
+}
+function rerenderQuizChapterPreservingScroll() {
+  renderQuizChapter(currentQuizData, window.scrollY);
 }
 function selectQuizOption(questionId, key) {
   var record = getQuizRecord(questionId);
   if (record.submitted) return;
   record.selected = key;
   var all = getB2Progress(); all[curBook.id + ':' + curCh][questionId] = record; saveB2Progress(all);
-  renderQuizChapter(currentQuizData);
+  rerenderQuizChapterPreservingScroll();
 }
 function submitQuizQuestion(questionId) {
   var exercise = getQuizExercise(questionId), record = getQuizRecord(questionId);
   if (!exercise || !record.selected || record.submitted) return;
   record.submitted = true; record.attempts += 1; record.wrong = record.selected !== exercise.answer;
   var all = getB2Progress(); all[curBook.id + ':' + curCh][questionId] = record; saveB2Progress(all);
-  renderQuizChapter(currentQuizData);
+  rerenderQuizChapterPreservingScroll();
 }
 function toggleQuizExplanation(questionId) {
   var record = getQuizRecord(questionId);
   if (!record.submitted) return;
   record.explanationOpen = !record.explanationOpen;
   var all = getB2Progress(); all[curBook.id + ':' + curCh][questionId] = record; saveB2Progress(all);
-  renderQuizChapter(currentQuizData);
+  rerenderQuizChapterPreservingScroll();
 }
 function finishQuizChapter() {
   var records = getB2Progress()[curBook.id + ':' + curCh] || {};

@@ -16,7 +16,7 @@ test('reader shows the textbook badge from metadata', () => {
 });
 
 test('reader provides quiz-first interaction without auto-revealing answers', () => {
-  assert.match(reader, /function renderQuizChapter\(data\)/);
+  assert.match(reader, /function renderQuizChapter\(data(?:, scrollPosition)?\)/);
   assert.match(reader, /function selectQuizOption\(questionId, key\)/);
   assert.match(reader, /function submitQuizQuestion\(questionId\)/);
   assert.match(reader, /function toggleQuizExplanation\(questionId\)/);
@@ -35,4 +35,15 @@ test('quiz shows verified source explanations inline and completion is not scrol
   assert.doesNotMatch(reader, /查看原书页/);
   assert.match(reader, /function finishQuizChapter\(\)/);
   assert.doesNotMatch(reader, /renderQuizChapter[\s\S]{0,6000}markChapterDone\(/);
+});
+
+test('quiz interactions preserve the reader scroll position', () => {
+  assert.match(reader, /function rerenderQuizChapterPreservingScroll\(\)/);
+  const selectBody = reader.match(/function selectQuizOption\(questionId, key\) \{([\s\S]*?)\n\}/);
+  const submitBody = reader.match(/function submitQuizQuestion\(questionId\) \{([\s\S]*?)\n\}/);
+  const explanationBody = reader.match(/function toggleQuizExplanation\(questionId\) \{([\s\S]*?)\n\}/);
+  assert.ok(selectBody && submitBody && explanationBody);
+  assert.match(selectBody[1], /rerenderQuizChapterPreservingScroll\(\)/);
+  assert.match(submitBody[1], /rerenderQuizChapterPreservingScroll\(\)/);
+  assert.match(explanationBody[1], /rerenderQuizChapterPreservingScroll\(\)/);
 });
