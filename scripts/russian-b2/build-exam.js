@@ -3,7 +3,7 @@ const path = require('node:path');
 
 const SECTION_IDS = ['grammar', 'reading', 'writing', 'listening', 'speaking', 'review'];
 const EXAM_DIR = path.join('俄语资料库', '俄语B2·原书复刻与学习版', '规范数据', '真题');
-const LEGACY_READING_PATH = path.join('俄语资料库', '俄语B2 全模块 Markdown版', '章节', '06c-真题-阅读.md');
+const LEGACY_READING_SEGMENTS = ['俄语资料库', '俄语B2 全模块 Markdown版', '章节', '06c-真题-阅读.md'];
 const PRINTED_OPTION_LABELS = ['А', 'Б', 'В'];
 
 function readingQuestionPdfPages(printedNumber) {
@@ -18,7 +18,15 @@ function readJson(filePath) {
 }
 
 function resolveLegacyReadingPath(root) {
-  return path.resolve(root, '..', '..', LEGACY_READING_PATH);
+  let candidateRoot = path.resolve(root);
+  while (true) {
+    const candidate = path.join(candidateRoot, ...LEGACY_READING_SEGMENTS);
+    if (fs.existsSync(candidate)) return candidate;
+    const parent = path.dirname(candidateRoot);
+    if (parent === candidateRoot) break;
+    candidateRoot = parent;
+  }
+  throw new Error('Cannot locate the canonical B2 exam reading Markdown source');
 }
 
 function importReadingQuestions({ root, write = false } = {}) {

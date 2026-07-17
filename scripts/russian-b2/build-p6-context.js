@@ -2,7 +2,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const { extractQuestionDrafts } = require('./audit-markdown-source');
 
-const SOURCE_ROOT = path.join(path.resolve(__dirname, '..', '..', '..', '..'), '俄语资料库', '俄语B2 全模块 Markdown版', '_data', 'grammar_clean');
+const LEGACY_GRAMMAR_SEGMENTS = ['俄语资料库', '俄语B2 全模块 Markdown版', '_data', 'grammar_clean'];
 const OPTION_KEYS = ['А', 'Б', 'В', 'Г'];
 const pad = number => String(number).padStart(3, '0');
 
@@ -94,7 +94,19 @@ function makeExercise(number, question, options, answer, sourceExplanation, tran
     questionPages, answerPages, reviewStatus: 'verified'
   };
 }
-function buildP6ContextUnits({ sourceRoot = SOURCE_ROOT } = {}) {
+function resolveLegacyGrammarSourceRoot(startRoot = path.resolve(__dirname, '..', '..')) {
+  let candidateRoot = path.resolve(startRoot);
+  while (true) {
+    const candidate = path.join(candidateRoot, ...LEGACY_GRAMMAR_SEGMENTS);
+    if (fs.existsSync(candidate)) return candidate;
+    const parent = path.dirname(candidateRoot);
+    if (parent === candidateRoot) break;
+    candidateRoot = parent;
+  }
+  throw new Error('Cannot locate the canonical B2 grammar Markdown source');
+}
+
+function buildP6ContextUnits({ sourceRoot = resolveLegacyGrammarSourceRoot() } = {}) {
   const questions = new Map(extractQuestionDrafts(fs.readFileSync(path.join(sourceRoot, 'P6_questions.md'), 'utf8')).map(item => [item.printedNumber, cleanOptions(item)]));
   const readingExercises = Array.from({ length: 18 }, (_, index) => index + 9).map(number => {
     const question = questions.get(number);
