@@ -104,3 +104,12 @@ test('phrase selection is available only for read-only lookup contexts', () => {
   assert.match(reader, /renderPhraseDetail/);
   assert.match(reader, /ensurePanel: ensureDictionaryPanel/);
 });
+
+test('exam lookup is locked until the attempt is explicitly marked assisted', () => {
+  assert.match(reader, /function unlockExamLookup\(attemptId\)/);
+  assert.match(reader, /lookupAssisted/);
+  assert.match(reader, /lookupUnlockedAt/);
+  assert.match(reader, /使用查词辅助/);
+  assert.match(reader, /不计入正式模拟趋势/);
+  assert.match(reader, /function getOfficialExamAttempts/);
+});

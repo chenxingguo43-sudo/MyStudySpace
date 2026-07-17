@@ -1751,7 +1751,24 @@ var currentExamData = null;
 function getExamProgress() { try { return JSON.parse(localStorage.getItem(EXAM_PROGRESS_KEY) || '{}'); } catch (e) { return {}; } }
 function saveExamProgress(progress) { try { localStorage.setItem(EXAM_PROGRESS_KEY, JSON.stringify(progress)); } catch (e) {} }
 function getExamRecord(questionId) { return getExamProgress()[questionId] || { selected: '', answered: false, answerOpen: false }; }
+function getExamAttempt(attemptId) {
+  var record = getExamProgress()[attemptId] || {};
+  return { id: attemptId, lookupAssisted: record.lookupAssisted === true, lookupUnlockedAt: record.lookupUnlockedAt || '' };
+}
+function getOfficialExamAttempts(attempts) {
+  return (attempts || []).filter(function(attempt) { return attempt && attempt.lookupAssisted !== true; });
+}
 function rerenderExamPracticePreservingScroll() { renderExamPracticeChapter(currentExamData, window.scrollY); }
+function unlockExamLookup(attemptId) {
+  if (!window.confirm('解锁查词后，本次只保留为辅助练习，不计入正式模拟趋势。继续吗？')) return;
+  var progress = getExamProgress(), attempt = progress[attemptId] || {};
+  attempt.lookupAssisted = true;
+  attempt.lookupUnlockedAt = new Date().toISOString();
+  progress[attemptId] = attempt;
+  saveExamProgress(progress);
+  dictionaryController.setExamPolicy({ mode: 'exam', lookupUnlocked: true });
+  rerenderExamPracticePreservingScroll();
+}
 function answerExamQuestion(questionId, selected) {
   var progress = getExamProgress(), record = progress[questionId] || { selected: '', answered: false, answerOpen: false };
   if (record.answered) return;
@@ -1770,17 +1787,30 @@ function saveExamWritingDraft(taskId, value) {
   var status = document.getElementById('exam-writing-status-' + taskId);
   if (status) status.textContent = '已本地保存 · ' + countWritingWords(value) + ' 词';
 }
+function renderExamLookupOption(question, option, record, lookupUnlocked) {
+  var selected = record.selected === option.label;
+  var state = record.answered ? (option.label === question.answer ? ' correct' : selected ? ' wrong' : '') : '';
+  if (!lookupUnlocked) {
+    return '<button class="b2-option' + state + '" onclick="answerExamQuestion(\'' + escapeHtml(question.id) + '\',\'' + escapeHtml(option.label) + '\')"' + (record.answered ? ' disabled' : '') + '><b>' + escapeHtml(option.label) + '.</b> ' + escapeHtml(option.text) + '</button>';
+  }
+  var pages = question.answerSource && question.answerSource.pdfPages || [];
+  var context = lookupContext('exam', question.id, 'exam-option', option.text, '', pages);
+  return '<div class="b2-option-row' + state + '"><button type="button" class="b2-option-radio" role="radio" aria-checked="' + (selected ? 'true' : 'false') + '" aria-label="选择 ' + escapeHtml(option.label) + '" onclick="answerExamQuestion(\'' + escapeHtml(question.id) + '\',\'' + escapeHtml(option.label) + '\')"' + (record.answered ? ' disabled' : '') + '>' + escapeHtml(option.label) + '.</button><span class="b2-option-text">' + renderRuText(option.text, context) + '</span></div>';
+}
 function renderExamQuestion(question) {
   var record = getExamRecord(question.id), selected = record.selected;
+  var attempt = getExamAttempt(currentExamData && currentExamData.id || '');
   var options = question.options.map(function(option) {
-    var state = record.answered ? (option.label === question.answer ? ' correct' : option.label === selected ? ' wrong' : '') : '';
-    return '<button class="b2-option' + state + '" onclick="answerExamQuestion(\'' + escapeHtml(question.id) + '\',\'' + escapeHtml(option.label) + '\')"' + (record.answered ? ' disabled' : '') + '><b>' + escapeHtml(option.label) + '.</b> ' + escapeHtml(option.text) + '</button>';
+    return renderExamLookupOption(question, option, record, attempt.lookupAssisted);
   }).join('');
   var result = record.answered ? '<p class="b2-quiz-result ' + (selected === question.answer ? 'correct' : 'wrong') + '">' + (selected === question.answer ? '回答正确' : '回答错误') + '</p>' : '';
   var pages = (question.answerSource && question.answerSource.pdfPages || []).map(function(page) { return 'PDF-' + String(page).padStart(3, '0'); }).join('、');
   var answer = record.answerOpen ? '<div class="b2-explanation"><strong>原书答案（已核对）：' + escapeHtml(question.answer) + '</strong><small class="reading-answer-source">原书参考答案与依据：' + escapeHtml(pages) + '</small></div>' : '';
   var toggle = record.answered ? '<button class="tb-btn" onclick="toggleExamAnswer(\'' + escapeHtml(question.id) + '\')">' + (record.answerOpen ? '收起答案' : '查看答案') + '</button>' : '';
-  return '<article class="reading-practice-question"><p><b>' + escapeHtml(String(question.printedNumber)) + '.</b> ' + escapeHtml(question.prompt) + '</p><div class="b2-options">' + options + '</div>' + result + toggle + answer + '</article>';
+  var prompt = attempt.lookupAssisted
+    ? renderRuText(question.prompt, lookupContext('exam', question.id, 'exam-prompt', question.prompt, '', question.answerSource && question.answerSource.pdfPages || []))
+    : escapeHtml(question.prompt);
+  return '<article class="reading-practice-question"><p><b>' + escapeHtml(String(question.printedNumber)) + '.</b> ' + prompt + '</p><div class="b2-options">' + options + '</div>' + result + toggle + answer + '</article>';
 }
 function renderExamWritingTask(task) {
   var draft = (getExamWritingDrafts()[task.id] || {}).value || '';
@@ -1790,6 +1820,8 @@ function renderExamWritingTask(task) {
 }
 function renderExamPracticeChapter(data, scrollPosition) {
   currentExamData = data;
+  var attempt = getExamAttempt(data.id);
+  dictionaryController.setExamPolicy({ mode: 'exam', lookupUnlocked: attempt.lookupAssisted === true });
   var pages = (data.sourcePages || []).map(function(page) { return 'PDF-' + String(page).padStart(3, '0'); }).join('–');
   var hasVerifiedQuestions = data.importStatus === 'source-verified' && Array.isArray(data.questions) && data.questions.length > 0;
   var hasVerifiedWriting = data.importStatus === 'source-verified' && Array.isArray(data.tasks) && data.tasks.length > 0;
@@ -1800,7 +1832,10 @@ function renderExamPracticeChapter(data, scrollPosition) {
     : data.importStatus === 'source-indexed'
     ? '<section class="source-warning"><strong>原卷内容正在逐项核对导入</strong><p>本页已绑定原书范围、时长和题量；题干、选项与答案尚未逐项核验前，不显示未经核对的 OCR 内容。</p></section>'
     : '<section class="source-warning"><strong>真题来源状态未知</strong><p>此单元暂不可开始模拟。</p></section>';
-  var details = '<section><h2>本分测验</h2><p>时长：' + escapeHtml(String(data.durationMinutes || '')) + ' 分钟</p><p>原卷题量：' + escapeHtml(String(data.questionCount || '')) + ' 题</p><p class="reading-answer-source">原书页：' + escapeHtml(pages) + '</p></section>';
+  var lookupState = attempt.lookupAssisted
+    ? '<section class="source-warning"><strong>使用查词辅助</strong><p>本次已解锁查词，因此只作为辅助练习，不计入正式模拟趋势。</p></section>'
+    : '<section><button class="tb-btn" type="button" onclick="unlockExamLookup(\'' + escapeHtml(data.id) + '\')">解锁查词辅助</button><p class="writing-status">考试模式默认关闭查词；主动解锁后本次成绩不计入正式模拟趋势。</p></section>';
+  var details = '<section><h2>本分测验</h2><p>时长：' + escapeHtml(String(data.durationMinutes || '')) + ' 分钟</p><p>原卷题量：' + escapeHtml(String(data.questionCount || '')) + ' 题</p><p class="reading-answer-source">原书页：' + escapeHtml(pages) + '</p></section>' + lookupState;
   var body = hasVerifiedQuestions ? '<section><h2>原卷练习</h2>' + data.questions.map(renderExamQuestion).join('') + '</section>' : hasVerifiedWriting ? '<section><h2>原卷写作</h2>' + data.tasks.map(renderExamWritingTask).join('') + '</section>' : '<section><h2>完整模拟</h2><p>完整计时与分模块练习会在题干、选项、原书答案和说明逐项核验后开放。</p></section>';
   document.getElementById('app').innerHTML = toolbar(data.title || '真题模拟', '<button class="tb-btn" onclick="showShelf()">← 书架</button><button class="tb-btn" onclick="showChapters(\'' + escapeHtml(curBook.id) + '\')">☰</button>') + '<main class="main-container speaking-practice"><header class="chapter-header"><h1>' + escapeHtml(data.title || '') + '</h1><p class="reading-answer-source">B2 原书真题 · ' + (hasVerifiedQuestions ? '题面与答案已核验' : '来源已索引') + '</p></header>' + sourceState + details + body + '</main>';
   window.scrollTo(0, typeof scrollPosition === 'number' ? scrollPosition : 0); applyTheme(); saveLastRead();
@@ -1895,6 +1930,7 @@ function restartQuiz(mode, exerciseIds) {
 }
 
 function renderChapter(data) {
+  if (data.format !== 'exam-practice') dictionaryController.setExamPolicy({ mode: 'learning', lookupUnlocked: true });
   if (isQuizFirstBook(curBook) && data.format === 'quiz-first') { renderQuizChapter(data); return; }
   if (data.format === 'reading-practice') { renderReadingPracticeChapter(data); return; }
   if (data.format === 'writing-workbench') { renderWritingWorkbench(data); return; }

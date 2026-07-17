@@ -169,6 +169,12 @@ test('reader gives reading practice its own answer-reveal flow', () => {
   assert.doesNotMatch(answerBody[1], /toggleReadingAnswer\(/);
 });
 
+test('mock exams separate answer controls from lookup after an assisted unlock', () => {
+  assert.match(reader, /function renderExamLookupOption/);
+  assert.match(reader, /dictionaryController\.setExamPolicy\(\{ mode: 'exam'/);
+  assert.match(reader, /lookupAssisted !== true/);
+});
+
 test('reading interactions preserve scroll position and display source pages', () => {
   assert.match(reader, /function rerenderReadingPracticePreservingScroll\(\)/);
   const answerBody = reader.match(/function answerReadingQuestion\(questionId, selected\) \{([\s\S]*?)\n\}/);
