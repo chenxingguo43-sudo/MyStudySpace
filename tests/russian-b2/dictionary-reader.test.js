@@ -118,6 +118,12 @@ test('reader loads generated morphology and attributed dictionary supplements', 
   assert.match(reader, /data\/dictionary\/function-word-forms\.json/);
   assert.match(reader, /data\/dictionary\/corpus-morphology\.json/);
   assert.match(reader, /data\/dictionary\/freedict-rus-zh\.json/);
+  assert.match(reader, /data\/dictionary\/markdown-glossary\.json/);
+  assert.match(reader, /data\/dictionary\/reviewed-function-entries\.json/);
+  assert.match(reader, /data\/dictionary\/openrussian-en\.json/);
+  assert.match(reader, /OpenRussian · 英文释义 · CC BY-SA 4\.0/);
+  assert.match(reader, /data\/dictionary\/wiktionary-ru\.json/);
+  assert.match(reader, /Русский Викисловарь · CC BY-SA 4\.0/);
   assert.match(reader, /reviewed-function-form/);
   assert.match(reader, /dictionaryStorage\.recordMissing/);
   assert.doesNotMatch(reader, /meaning: '待补中文释义'/);

@@ -1,10 +1,10 @@
 {
   "morphology": {
     "engine": "pymorphy3",
-    "sourceFiles": 115,
-    "formCount": 9271,
+    "sourceFiles": 384,
+    "formCount": 56456,
     "output": "data/dictionary/corpus-morphology.json",
-    "sha256": "8509ffa948bab105962e4490ff29024f271ea96d5dc54832e4b57e0ccb79e4b2"
+    "sha256": "a26b8bec802d01094ad1241648c274a25174997652372b214f9f6c76d72626df"
   },
   "freedict": {
     "dictionary": "zho-rus",
@@ -14,5 +14,31 @@
     "entryCount": 95769,
     "output": "data/dictionary/freedict-rus-zh.json",
     "sha256": "d096262230710b2f170452c39d457da0b128c33e7d61df8959bcf6abd748c430"
+  },
+  "markdownGlossary": {
+    "sourceRoot": "俄语资料库",
+    "entryCount": 1147,
+    "output": "data/dictionary/markdown-glossary.json",
+    "sha256": "124ddcc8edead4ed23078f79dd606036e4447b9a020f8b8fe22cd7dcf00b6eb5"
+  },
+  "openRussian": {
+    "commit": "50e210c4803237779cb562bc1abcea529066031c",
+    "license": "CC-BY-SA-4.0",
+    "entryCount": 45644,
+    "sourceHashes": {
+      "nouns.csv": "c388f9e6dde51932832be8d7e9afdbe9f0acee72fcf70677f0fe25ea61293c84",
+      "verbs.csv": "8659de6799b949fb35f080b08088fb7d347ed300490954ebb380a31642646e1d",
+      "adjectives.csv": "89ab5d10dcd2f21f6b485de704aef372f32251468e3aa96f18b21e259f26b80a",
+      "others.csv": "9f22a16b17fc9a564298112168b667fced11aafb254ccebf5b7544fc37cdaa92"
+    },
+    "output": "data/dictionary/openrussian-en.json",
+    "sha256": "2dba4f104f7a3f39674d3c258c30bdf33546d219077d6b3998b2ae4517c64bad"
+  },
+  "wiktionaryRu": {
+    "license": "CC-BY-SA-4.0",
+    "api": "https://ru.wiktionary.org/w/api.php",
+    "entryCount": 425,
+    "output": "data/dictionary/wiktionary-ru.json",
+    "sha256": "b5b9088a9165a37f52d2095a8245604f86b54c7d937e743051f60926b262b08e"
   }
 }

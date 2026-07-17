@@ -741,6 +741,10 @@ var localLookupCache = {};
 var corpusMorphology = {};
 var functionWordForms = {};
 var freeDictLookup = {};
+var markdownGlossaryLookup = {};
+var reviewedFunctionLookup = {};
+var openRussianLookup = {};
+var wiktionaryRuLookup = {};
 
 /* ─── 形态引擎状态 ─── */
 var morphologyDict = null;         // Object.create(null) 字典
@@ -2333,13 +2337,21 @@ function loadLocalLookupData() {
     fetch('data/external-vocab.json').then(function(r) { return r.ok ? r.json() : {}; }).catch(function() { return {}; }),
     fetch('data/dictionary/function-word-forms.json').then(function(r) { return r.ok ? r.json() : {}; }).catch(function() { return {}; }),
     fetch('data/dictionary/corpus-morphology.json').then(function(r) { return r.ok ? r.json() : {}; }).catch(function() { return {}; }),
-    fetch('data/dictionary/freedict-rus-zh.json').then(function(r) { return r.ok ? r.json() : {}; }).catch(function() { return {}; })
+    fetch('data/dictionary/freedict-rus-zh.json').then(function(r) { return r.ok ? r.json() : {}; }).catch(function() { return {}; }),
+    fetch('data/dictionary/markdown-glossary.json').then(function(r) { return r.ok ? r.json() : {}; }).catch(function() { return {}; }),
+    fetch('data/dictionary/reviewed-function-entries.json').then(function(r) { return r.ok ? r.json() : {}; }).catch(function() { return {}; }),
+    fetch('data/dictionary/openrussian-en.json').then(function(r) { return r.ok ? r.json() : {}; }).catch(function() { return {}; }),
+    fetch('data/dictionary/wiktionary-ru.json').then(function(r) { return r.ok ? r.json() : {}; }).catch(function() { return {}; })
   ])
     .then(function(results) {
       var words = results[0], extVocab = results[1];
       functionWordForms = results[2] || {};
       corpusMorphology = results[3] || {};
       freeDictLookup = results[4] || {};
+      markdownGlossaryLookup = results[5] || {};
+      reviewedFunctionLookup = results[6] || {};
+      openRussianLookup = results[7] || {};
+      wiktionaryRuLookup = results[8] || {};
       localVocabLookup = {};
       // 主词典
       if (!Array.isArray(words)) words = [];
@@ -2395,11 +2407,36 @@ function lookupLocalChineseMeaning(word) {
     saveCachedLocalLookup(key, localVocabLookup[key]);
     return localVocabLookup[key];
   }
+  if (reviewedFunctionLookup[key]) {
+    return { meaning: reviewedFunctionLookup[key].meaning, type: 'function word', source: reviewedFunctionLookup[key].source, _raw: {} };
+  }
+  if (markdownGlossaryLookup[key] && Array.isArray(markdownGlossaryLookup[key].meanings)) {
+    return {
+      meaning: markdownGlossaryLookup[key].meanings.slice(0, 6).join('；'), type: '',
+      source: markdownGlossaryLookup[key].source || '项目 Markdown 已核对词汇表', _raw: {}
+    };
+  }
   if (freeDictLookup[key] && Array.isArray(freeDictLookup[key].meanings) && freeDictLookup[key].meanings.length) {
     return {
       meaning: freeDictLookup[key].meanings.slice(0, 8).join('；'),
       type: '',
       source: freeDictLookup[key].source || 'FreeDict zho-rus 2025.11.23',
+      _raw: {}
+    };
+  }
+  if (openRussianLookup[key] && Array.isArray(openRussianLookup[key].meaningsEn) && openRussianLookup[key].meaningsEn.length) {
+    return {
+      meaning: openRussianLookup[key].meaningsEn.slice(0, 6).join('; '),
+      type: '英文释义',
+      source: openRussianLookup[key].source || 'OpenRussian · 英文释义 · CC BY-SA 4.0',
+      _raw: {}
+    };
+  }
+  if (wiktionaryRuLookup[key] && Array.isArray(wiktionaryRuLookup[key].definitionsRu) && wiktionaryRuLookup[key].definitionsRu.length) {
+    return {
+      meaning: wiktionaryRuLookup[key].definitionsRu.slice(0, 6).join('；'),
+      type: '俄文释义',
+      source: wiktionaryRuLookup[key].source || 'Русский Викисловарь · CC BY-SA 4.0',
       _raw: {}
     };
   }

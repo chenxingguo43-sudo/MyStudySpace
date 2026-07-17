@@ -34,6 +34,7 @@ forms = json.load(sys.stdin)
 morph = pymorphy3.MorphAnalyzer()
 out = {}
 function_pos = {'PREP','CONJ','PRCL','INTJ','NPRO','PRED'}
+proper_markers = {'Name','Surn','Patr','Geox'}
 for form in forms:
     parses = morph.parse(form)[:3]
     lemmas = []
@@ -46,7 +47,9 @@ for form in forms:
         for item in grammemes:
             if item not in tags: tags.append(item)
         if parsed.tag.POS: pos.add(str(parsed.tag.POS))
-    classification = 'function-word' if pos and pos.issubset(function_pos) else ('lexical' if parses else 'unknown')
+    parse_grammemes = [set(str(item) for item in parsed.tag.grammemes) for parsed in parses]
+    all_proper = bool(parse_grammemes) and all(bool(items & proper_markers) for items in parse_grammemes)
+    classification = 'proper-name' if all_proper else ('function-word' if pos and pos.issubset(function_pos) else ('lexical' if parses else 'unknown'))
     out[form] = {'lemmas': lemmas, 'tags': tags, 'classification': classification}
 json.dump(out, sys.stdout, ensure_ascii=False, sort_keys=True)
 `;
@@ -86,7 +89,9 @@ function updateManifest(patch) {
 }
 
 function buildCorpusMorphology(options = {}) {
-  const roots = options.roots || [path.join(ROOT, 'data', 'textbook'), path.join(ROOT, 'data', 'novel')];
+  const localNovel = path.join(ROOT, 'data', 'novel');
+  const canonicalNovel = path.resolve(ROOT, '..', '..', 'data', 'novel');
+  const roots = options.roots || [path.join(ROOT, 'data', 'textbook'), fs.existsSync(localNovel) ? localNovel : canonicalNovel];
   const files = roots.flatMap(walkJson);
   const forms = new Set();
   files.forEach(file => extractRussianForms(JSON.parse(fs.readFileSync(file, 'utf8'))).forEach(form => forms.add(form)));
