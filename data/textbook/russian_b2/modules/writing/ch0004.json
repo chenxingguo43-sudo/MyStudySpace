@@ -1,0 +1,47 @@
+{
+  "id": "receipt",
+  "format": "writing-workbench",
+  "title": "收据（Расписка）",
+  "sourcePages": [
+    97
+  ],
+  "reviewStatus": "source-verified",
+  "task": {
+    "prompt": "确认收到钱款或物品，写清来源、数量、日期和签名。",
+    "wordTarget": "50–70 词"
+  },
+  "formatGuide": {
+    "requiredBlocks": [
+      "标题 Расписка",
+      "本人身份",
+      "收到内容与数量",
+      "来源",
+      "日期与签字"
+    ],
+    "notes": [
+      "金额通常同时写俄语文字和阿拉伯数字。"
+    ]
+  },
+  "model": {
+    "text": "Расписка\n\nЯ, Ван Лан (студенческий билет №201550617), получила стипендию за март в сумме пять тысяч рублей (5 000 рублей) от старосты Екатерины Глуховой.\n\n30 марта 2022 года\nВан Лан",
+    "source": {
+      "kind": "b2-original",
+      "pages": [
+        97
+      ],
+      "label": "B2 原书范文"
+    }
+  },
+  "studySupport": {
+    "label": "学习辅助",
+    "outline": [
+      "确认谁收到",
+      "说明收到什么、多少、从谁处",
+      "金额写双重形式"
+    ]
+  },
+  "ai": {
+    "mode": "server-or-copy-prompt",
+    "rubric": []
+  }
+}

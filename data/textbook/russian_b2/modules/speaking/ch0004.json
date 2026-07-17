@@ -1,0 +1,58 @@
+{
+  "id": "editorial-phone-call",
+  "title": "任务 14 · 致电咨询实习竞赛",
+  "reviewStatus": "source-verified",
+  "sourcePages": [
+    116,
+    117
+  ],
+  "task": {
+    "prompt": "读完短期实习竞赛广告后致电编辑部。考生在整个对话中只能提问，以评估自己获胜的机会。",
+    "responseMode": "phone-inquiry",
+    "preparationMinutes": 3,
+    "responseMinutes": "3–5"
+  },
+  "progression": [
+    {
+      "id": "frames",
+      "title": "问题框架",
+      "instruction": "先按地点、语言要求、俄罗斯相关主题、发表与会议经历分组准备问题。"
+    },
+    {
+      "id": "short-response",
+      "title": "逐项咨询",
+      "instruction": "用礼貌问句逐项询问，避免把问题说成陈述。"
+    },
+    {
+      "id": "recording",
+      "title": "完整录音",
+      "instruction": "模拟完整电话：问候、至少四个问题、结束致谢。"
+    }
+  ],
+  "sourceAnswer": {
+    "text": "Здравствуйте! Я прочитал ваше объявление, которое меня заинтересовало. Скажите, пожалуйста, в каком университете будет стажировка? А какими иностранными языками надо овладеть, чтобы принять участие в конкурсе? Расскажите, пожалуйста, подробнее об актуальности темы для условий России. Что включают симпозиумы и конференции? Спасибо за информацию!",
+    "source": {
+      "kind": "b2-original",
+      "label": "B2 原书参考提问",
+      "pages": [
+        116,
+        117
+      ]
+    }
+  },
+  "media": {
+    "provenance": "source-text-only"
+  },
+  "recording": {
+    "storage": "IndexedDB:russian_b2_recordings"
+  },
+  "studySupport": {
+    "label": "学习辅助",
+    "checklist": [
+      "全程以提问者身份说话",
+      "礼貌开场和收尾",
+      "问题覆盖广告条件"
+    ]
+  },
+  "format": "speaking-practice"
+}

@@ -1,0 +1,55 @@
+{
+  "id": "attitude-dialogue",
+  "title": "任务 5–8 · 表达指定交际意图",
+  "reviewStatus": "source-verified",
+  "sourcePages": [
+    114,
+    115
+  ],
+  "task": {
+    "prompt": "与院长谈论即将到来的俄罗斯语言实习。针对对方的话分别表达高兴、惊讶、遗憾和祝愿。",
+    "responseMode": "four-intentions"
+  },
+  "progression": [
+    {
+      "id": "frames",
+      "title": "句型替换",
+      "instruction": "先练习表达情绪与意图的开头：Здорово… / А именно…? / Очень жаль… / Желаю…"
+    },
+    {
+      "id": "short-response",
+      "title": "短答",
+      "instruction": "听到情境后，在一句或两句中表达指定意图。"
+    },
+    {
+      "id": "recording",
+      "title": "完整录音",
+      "instruction": "不看范例，连续完成四项回应。"
+    }
+  ],
+  "sourceAnswer": {
+    "text": "Здорово, я уже давно мечтаю побывать в России. А именно я выиграл конкурс? Очень жаль, только две недели. Желаю всем удачной стажировки.",
+    "source": {
+      "kind": "b2-original",
+      "label": "B2 原书参考回答",
+      "pages": [
+        114,
+        115
+      ]
+    }
+  },
+  "media": {
+    "provenance": "source-text-only"
+  },
+  "recording": {
+    "storage": "IndexedDB:russian_b2_recordings"
+  },
+  "studySupport": {
+    "label": "学习辅助",
+    "checklist": [
+      "意图必须明显",
+      "回应要紧扣对方信息",
+      "避免只重复题干"
+    ]
+  }
+}

@@ -192,7 +192,7 @@ test('manifest build creates matching reader JSON, Markdown, range map, and qual
   assert.deepEqual(rangeMap.entries[0].question_pages, [18, 19]);
   assert.deepEqual(rangeMap.entries[0].answer_pages, [25, 26, 27]);
   const publishedIds = JSON.parse(fs.readFileSync(path.join(root, '俄语资料库', '俄语B2·原书复刻与学习版', '规范数据', '语法词汇', 'index.json'), 'utf8')).units
-    .filter(unit => unit.published).map(unit => unit.id);
+    .filter(unit => unit.published).sort((left, right) => left.chapterIndex - right.chapterIndex).map(unit => unit.id);
   assert.deepEqual(quality.units.map(unit => unit.id), publishedIds);
   assert.deepEqual(b2Book.unitIds, publishedIds);
   assert.equal(buildPilot({ root }).readerPaths.length, publishedIds.length);

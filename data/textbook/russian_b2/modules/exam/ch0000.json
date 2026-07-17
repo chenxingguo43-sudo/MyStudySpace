@@ -1,0 +1,50 @@
+{
+  "id": "grammar-lexicon",
+  "title": "语法和词汇",
+  "printedSubtest": 1,
+  "durationMinutes": 90,
+  "questionCount": 150,
+  "sourcePages": [
+    118,
+    149
+  ],
+  "reviewStatus": "source-verified",
+  "sourceMarkdown": "章节/06a-真题-语法词汇.md",
+  "importStatus": "source-indexed",
+  "format": "exam-practice",
+  "instructions": {
+    "id": "b2-exam-instructions",
+    "sourcePages": [
+      1,
+      2,
+      118,
+      119
+    ],
+    "reviewStatus": "source-verified",
+    "schedule": {
+      "dayOne": [
+        "reading",
+        "grammar-lexicon",
+        "writing"
+      ],
+      "dayTwo": [
+        "listening",
+        "speaking"
+      ]
+    },
+    "scoring": {
+      "grammar-lexicon": {
+        "questions": 150,
+        "passingCorrect": 99
+      },
+      "reading": {
+        "questions": 25,
+        "passingCorrect": 17
+      },
+      "listening": {
+        "questions": 25,
+        "passingCorrect": 17
+      }
+    }
+  }
+}

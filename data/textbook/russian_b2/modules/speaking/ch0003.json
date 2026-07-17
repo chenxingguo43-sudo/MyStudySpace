@@ -1,0 +1,59 @@
+{
+  "id": "video-description",
+  "title": "任务 13 · 描述视频人物与情节",
+  "reviewStatus": "source-verified",
+  "sourcePages": [
+    115,
+    116
+  ],
+  "task": {
+    "prompt": "向朋友讲述所见视频：交代情境、人物与事件，并说明你认为这一情境为何发生。原始视频未随资料保存。",
+    "responseMode": "narrative-description",
+    "preparationMinutes": 10,
+    "responseMinutes": "3–5"
+  },
+  "progression": [
+    {
+      "id": "frames",
+      "title": "叙述框架",
+      "instruction": "按“地点—人物—动作顺序—可能原因”列提纲。"
+    },
+    {
+      "id": "short-response",
+      "title": "一分钟概述",
+      "instruction": "使用原书给出的情节摘要，完成一段不超过一分钟的叙述。"
+    },
+    {
+      "id": "recording",
+      "title": "完整录音",
+      "instruction": "以 3–5 分钟为目标完成描述；说明不确定处是个人推测。"
+    }
+  ],
+  "sourceAnswer": {
+    "text": "Молодая женщина поднимается на этаж с тортом; в лифте находится мужчина с ёлкой. Дома она готовится к праздничному ужину и неожиданно обнаруживает незнакомого мужчину, который считает квартиру своей. Они пытаются выяснить причину путаницы.",
+    "source": {
+      "kind": "b2-original",
+      "label": "B2 原书参考叙述（摘要）",
+      "pages": [
+        115,
+        116
+      ]
+    }
+  },
+  "media": {
+    "provenance": "missing-original-media",
+    "note": "原书任务要求观看电影片段，但原始视频文件未随教材资料保存；此处仅提供已核对的原书文字情节摘要。"
+  },
+  "recording": {
+    "storage": "IndexedDB:russian_b2_recordings"
+  },
+  "studySupport": {
+    "label": "学习辅助",
+    "checklist": [
+      "区分所见与推测",
+      "按时间顺序叙述",
+      "交代冲突或误会的可能原因"
+    ]
+  },
+  "format": "speaking-practice"
+}

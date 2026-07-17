@@ -73,7 +73,7 @@ function buildReadingUnits({ markdown }) {
   return { units };
 }
 
-function buildReadingBook({ markdown }) {
+function buildReadingBook({ markdown, supportById = {} }) {
   const { units } = buildReadingUnits({ markdown });
   const publishedUnits = units.map(unit => ({
     ...unit,
@@ -82,7 +82,8 @@ function buildReadingBook({ markdown }) {
     translationStatus: 'pending',
     structure: [],
     reusableExpressions: [],
-    retelling: null
+    retelling: null,
+    ...(supportById[unit.id] || {})
   }));
   return {
     index: {
@@ -101,8 +102,8 @@ function buildReadingBook({ markdown }) {
   };
 }
 
-function publishReadingBook({ markdown, outputDir }) {
-  const book = buildReadingBook({ markdown });
+function publishReadingBook({ markdown, outputDir, supportById = {} }) {
+  const book = buildReadingBook({ markdown, supportById });
   fs.mkdirSync(outputDir, { recursive: true });
   const paths = [];
   const write = (fileName, value) => {
@@ -115,4 +116,110 @@ function publishReadingBook({ markdown, outputDir }) {
   return { ...book, paths };
 }
 
-module.exports = { buildReadingUnits, buildReadingBook, publishReadingBook };
+function buildReadingReaderModule({ markdown, supportById = {} }) {
+  const book = buildReadingBook({ markdown, supportById });
+  const chapters = book.units.map(unit => ({
+    id: unit.id,
+    format: 'reading-practice',
+    title: unit.title,
+    original: unit.paragraphs,
+    translated: [],
+    sourcePages: unit.sourcePages,
+    reviewStatus: unit.reviewStatus,
+    translationStatus: unit.translationStatus,
+    translations: unit.translations || [],
+    structure: unit.structure || [],
+    reusableExpressions: unit.reusableExpressions || [],
+    retelling: unit.retelling || null,
+    questions: unit.questions.map(question => ({
+      id: `${unit.id}-q${String(question.printedNumber).padStart(2, '0')}`,
+      printedNumber: question.printedNumber,
+      prompt: question.prompt,
+      options: question.options,
+      answer: question.answer,
+      answerSource: question.answerSource
+    }))
+  }));
+  return {
+    index: {
+      id: 'russian-b2-reading',
+      title: book.index.title,
+      format: 'reading-practice',
+      chapters: chapters.length,
+      reviewStatus: 'source-verified',
+      units: chapters.map((chapter, index) => ({
+        id: chapter.id,
+        chapter: index,
+        title: chapter.title,
+        sourcePages: chapter.sourcePages
+      }))
+    },
+    chapters
+  };
+}
+
+function publishReadingReaderModule({ markdown, outputDir, supportById = {} }) {
+  const module = buildReadingReaderModule({ markdown, supportById });
+  fs.mkdirSync(outputDir, { recursive: true });
+  const paths = [];
+  const write = (fileName, value) => {
+    const filePath = path.join(outputDir, fileName);
+    fs.writeFileSync(filePath, JSON.stringify(value, null, 2) + '\n', 'utf8');
+    paths.push(filePath);
+  };
+  write('index.json', module.index);
+  module.chapters.forEach((chapter, index) => write(`ch${String(index).padStart(4, '0')}.json`, chapter));
+  return { ...module, paths };
+}
+
+function resolveReadingSourcePath(root) {
+  const segments = ['\u4fc4\u8bed\u8d44\u6599\u5e93', '\u4fc4\u8bedB2 \u5168\u6a21\u5757 Markdown\u7248', '\u7ae0\u8282', '02-\u9605\u8bfb.md'];
+  let candidateRoot = path.resolve(root);
+  while (true) {
+    const candidate = path.join(candidateRoot, ...segments);
+    if (fs.existsSync(candidate)) return candidate;
+    const parent = path.dirname(candidateRoot);
+    if (parent === candidateRoot) break;
+    candidateRoot = parent;
+  }
+  throw new Error('Cannot locate the canonical B2 reading Markdown source');
+}
+
+function resolveReadingSupportDirectory(root) {
+  const segments = ['俄语资料库', '俄语B2·原书复刻与学习版', '规范数据', '阅读'];
+  let candidateRoot = path.resolve(root);
+  while (true) {
+    const candidate = path.join(candidateRoot, ...segments);
+    if (fs.existsSync(candidate)) return candidate;
+    const parent = path.dirname(candidateRoot);
+    if (parent === candidateRoot) break;
+    candidateRoot = parent;
+  }
+  throw new Error('Cannot locate canonical B2 reading support directory');
+}
+
+function loadReadingSupport(root) {
+  const directory = resolveReadingSupportDirectory(root);
+  const supportById = {};
+  for (let index = 1; index <= 10; index += 1) {
+    const file = path.join(directory, `text-${String(index).padStart(2, '0')}.json`);
+    if (!fs.existsSync(file)) continue;
+    const source = JSON.parse(fs.readFileSync(file, 'utf8'));
+    const keys = ['translationStatus', 'translations', 'structure', 'reusableExpressions', 'retelling'];
+    supportById[source.id] = keys.reduce((result, key) => {
+      if (Object.prototype.hasOwnProperty.call(source, key)) result[key] = source[key];
+      return result;
+    }, {});
+  }
+  return supportById;
+}
+
+module.exports = { buildReadingUnits, buildReadingBook, publishReadingBook, buildReadingReaderModule, publishReadingReaderModule, resolveReadingSourcePath, loadReadingSupport };
+
+if (require.main === module) {
+  const root = path.resolve(__dirname, '..', '..');
+  const sourcePath = resolveReadingSourcePath(root);
+  const outputDir = path.join(root, 'data', 'textbook', 'russian_b2', 'modules', 'reading');
+  const result = publishReadingReaderModule({ markdown: fs.readFileSync(sourcePath, 'utf8'), outputDir, supportById: loadReadingSupport(root) });
+  process.stdout.write(`Published ${result.chapters.length} reading chapters to ${outputDir}\n`);
+}

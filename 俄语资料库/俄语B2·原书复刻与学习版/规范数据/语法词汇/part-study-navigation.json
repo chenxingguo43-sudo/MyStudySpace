@@ -1,65 +1,637 @@
 {
   "parts": [
     {
-      "id": "p1", "part": 1, "title": "P1 句法一致与动词体", "unitIds": ["p1-q001-q010", "p1-q011-q020", "p1-q021-q030", "p1-q031-q040", "p1-q041-q050", "p1-q051-q060"],
+      "id": "p1",
+      "part": 1,
+      "title": "P1 句法一致与动词体",
+      "unitIds": [
+        "p1-q001-q010",
+        "p1-q011-q020",
+        "p1-q021-q030",
+        "p1-q031-q040",
+        "p1-q041-q050",
+        "p1-q051-q060"
+      ],
       "knowledgePoints": [
-        {"id":"p1-subject-predicate","title":"主谓一致与谓语形式","questionRanges":[[1,20]],"rule":"按主语的性、数和结构选择谓语、短尾形容词或被动形动词形式。","pitfalls":"数量词、集合名词和无人称/短尾结构容易干扰主语判断。","sourcePages":[10,11,12]},
-        {"id":"p1-perfective-once","title":"完成体：一次动作与结果","questionRanges":[[21,29]],"rule":"一次完成的行为或明确结果通常选完成体。","pitfalls":"不要只看动词前缀；先判断语境是否指向一次完成。","sourcePages":[13,14]},
-        {"id":"p1-imperfective-process","title":"未完成体：经常、过程与往返","questionRanges":[[30,37]],"rule":"经常性、持续过程和多次往返的语境通常要求未完成体。","pitfalls":"时间长度不单独决定体，通常性和过程性优先。","sourcePages":[14,15]},
-        {"id":"p1-imperative-aspect","title":"命令式中的体与否定","questionRanges":[[38,44]],"rule":"区分一次性命令、过程性命令、否定禁止和提醒的体形式。","pitfalls":"否定命令式不总是同一种语义，要区分禁止、劝告与提醒。","sourcePages":[15,16]},
-        {"id":"p1-infinitive-negation","title":"不定式否定结构","questionRanges":[[45,54]],"rule":"按 нельзя、не + 不定式、можно/невозможно 等结构判断体和可能性语义。","pitfalls":"“不应该”“不可能”“可以不做”“禁止”对应的结构不同。","sourcePages":[16,17]},
-        {"id":"p1-motion-return","title":"运动动词：去过、返回与未归","questionRanges":[[55,60]],"rule":"根据动作是否已经返回、外出时长及是否仍在外面选择运动动词。","pitfalls":"区分“去过又回”“出去很久后回来”和“尚未回来”。","sourcePages":[18]}
+        {
+          "id": "p1-subject-predicate",
+          "title": "主谓一致与谓语形式",
+          "questionRanges": [
+            [
+              1,
+              20
+            ]
+          ],
+          "rule": "按主语的性、数和结构选择谓语、短尾形容词或被动形动词形式。",
+          "pitfalls": "数量词、集合名词和无人称/短尾结构容易干扰主语判断。",
+          "sourcePages": [
+            10,
+            11,
+            12
+          ]
+        },
+        {
+          "id": "p1-perfective-once",
+          "title": "完成体：一次动作与结果",
+          "questionRanges": [
+            [
+              21,
+              29
+            ]
+          ],
+          "rule": "一次完成的行为或明确结果通常选完成体。",
+          "pitfalls": "不要只看动词前缀；先判断语境是否指向一次完成。",
+          "sourcePages": [
+            13,
+            14
+          ]
+        },
+        {
+          "id": "p1-imperfective-process",
+          "title": "未完成体：经常、过程与往返",
+          "questionRanges": [
+            [
+              30,
+              37
+            ]
+          ],
+          "rule": "经常性、持续过程和多次往返的语境通常要求未完成体。",
+          "pitfalls": "时间长度不单独决定体，通常性和过程性优先。",
+          "sourcePages": [
+            14,
+            15
+          ]
+        },
+        {
+          "id": "p1-imperative-aspect",
+          "title": "命令式中的体与否定",
+          "questionRanges": [
+            [
+              38,
+              44
+            ]
+          ],
+          "rule": "区分一次性命令、过程性命令、否定禁止和提醒的体形式。",
+          "pitfalls": "否定命令式不总是同一种语义，要区分禁止、劝告与提醒。",
+          "sourcePages": [
+            15,
+            16
+          ]
+        },
+        {
+          "id": "p1-infinitive-negation",
+          "title": "不定式否定结构",
+          "questionRanges": [
+            [
+              45,
+              54
+            ]
+          ],
+          "rule": "按 нельзя、не + 不定式、можно/невозможно 等结构判断体和可能性语义。",
+          "pitfalls": "“不应该”“不可能”“可以不做”“禁止”对应的结构不同。",
+          "sourcePages": [
+            16,
+            17
+          ]
+        },
+        {
+          "id": "p1-motion-return",
+          "title": "运动动词：去过、返回与未归",
+          "questionRanges": [
+            [
+              55,
+              60
+            ]
+          ],
+          "rule": "根据动作是否已经返回、外出时长及是否仍在外面选择运动动词。",
+          "pitfalls": "区分“去过又回”“出去很久后回来”和“尚未回来”。",
+          "sourcePages": [
+            18
+          ]
+        }
       ]
     },
     {
-      "id": "p2", "part": 2, "title": "P2 名词、形容词与接格", "unitIds": ["p2-q001-q010", "p2-q011-q020", "p2-q021-q030", "p2-q031-q040", "p2-q041-q050", "p2-q051-q060", "p2-q061-q070"],
+      "id": "p2",
+      "part": 2,
+      "title": "P2 名词、形容词与接格",
+      "unitIds": [
+        "p2-q001-q010",
+        "p2-q011-q020",
+        "p2-q021-q030",
+        "p2-q031-q040",
+        "p2-q041-q050",
+        "p2-q051-q060",
+        "p2-q061-q070"
+      ],
       "knowledgePoints": [
-        {"id":"p2-adjective-case","title":"名词与形容词的支配格","questionRanges":[[1,20]],"rule":"按名词、形容词和短尾被动形动词的固定支配关系选择格。","pitfalls":"形容词、形动词和名词的搭配不能只按中文意思猜。","sourcePages":[24,25,26]},
-        {"id":"p2-verb-case-1","title":"动词支配格（获得、归属与干涉）","questionRanges":[[21,30]],"rule":"掌握达到、获得、失去、反驳、属于、干涉等动词的固定格关系。","pitfalls":"同义动词的支配格并不一定相同。","sourcePages":[25,26,27]},
-        {"id":"p2-verb-case-2","title":"动词支配格（工具、对象与介词）","questionRanges":[[31,40]],"rule":"按支配关系选择工具格、与格及带前置词的格形式。","pitfalls":"地点短语与动词支配结构要分开判断。","sourcePages":[27,28,29]},
-        {"id":"p2-verb-objects","title":"双宾语与固定动词搭配","questionRanges":[[41,48]],"rule":"根据动词要求确定人、物、原因或目标的格与前置词。","pitfalls":"感谢、招待、授予、迁移等动词的搭配各不相同。","sourcePages":[30,31,33]},
-        {"id":"p2-lexical-phrases","title":"固定词组与常用表达","questionRanges":[[49,50]],"rule":"用原书给出的固定名词和动词词组完成句子。","pitfalls":"熟词在固定搭配中常不能按字面替换。","sourcePages":[33]},
-        {"id":"p2-time-cause","title":"持续、原因与时间关系","questionRanges":[[51,58]],"rule":"区分持续时间第四格、原因前置词，以及 через、после、за … до …、за + 时间的时间结构。","pitfalls":"不要把时点、先后关系和所用时长混用。","sourcePages":[34,35]},
-        {"id":"p2-prepositional-phrases","title":"前置词结构的语义与格","questionRanges":[[59,69]],"rule":"按时间、地点、条件、过程和依据等语义选择固定前置词结构。","pitfalls":"同一个中文介词常对应不同俄语结构。","sourcePages":[35,36]},
-        {"id":"p2-nonconcordant-attribute","title":"非一致定语","questionRanges":[[70,70]],"rule":"抽象名词后的不定式可作非一致定语。","pitfalls":"先确定中心名词与后置不定式之间的语义关系。","sourcePages":[36]}
+        {
+          "id": "p2-adjective-case",
+          "title": "名词与形容词的支配格",
+          "questionRanges": [
+            [
+              1,
+              20
+            ]
+          ],
+          "rule": "按名词、形容词和短尾被动形动词的固定支配关系选择格。",
+          "pitfalls": "形容词、形动词和名词的搭配不能只按中文意思猜。",
+          "sourcePages": [
+            24,
+            25,
+            26
+          ]
+        },
+        {
+          "id": "p2-verb-case-1",
+          "title": "动词支配格（获得、归属与干涉）",
+          "questionRanges": [
+            [
+              21,
+              30
+            ]
+          ],
+          "rule": "掌握达到、获得、失去、反驳、属于、干涉等动词的固定格关系。",
+          "pitfalls": "同义动词的支配格并不一定相同。",
+          "sourcePages": [
+            25,
+            26,
+            27
+          ]
+        },
+        {
+          "id": "p2-verb-case-2",
+          "title": "动词支配格（工具、对象与介词）",
+          "questionRanges": [
+            [
+              31,
+              40
+            ]
+          ],
+          "rule": "按支配关系选择工具格、与格及带前置词的格形式。",
+          "pitfalls": "地点短语与动词支配结构要分开判断。",
+          "sourcePages": [
+            27,
+            28,
+            29
+          ]
+        },
+        {
+          "id": "p2-verb-objects",
+          "title": "双宾语与固定动词搭配",
+          "questionRanges": [
+            [
+              41,
+              48
+            ]
+          ],
+          "rule": "根据动词要求确定人、物、原因或目标的格与前置词。",
+          "pitfalls": "感谢、招待、授予、迁移等动词的搭配各不相同。",
+          "sourcePages": [
+            30,
+            31,
+            33
+          ]
+        },
+        {
+          "id": "p2-lexical-phrases",
+          "title": "固定词组与常用表达",
+          "questionRanges": [
+            [
+              49,
+              50
+            ]
+          ],
+          "rule": "用原书给出的固定名词和动词词组完成句子。",
+          "pitfalls": "熟词在固定搭配中常不能按字面替换。",
+          "sourcePages": [
+            33
+          ]
+        },
+        {
+          "id": "p2-time-cause",
+          "title": "持续、原因与时间关系",
+          "questionRanges": [
+            [
+              51,
+              58
+            ]
+          ],
+          "rule": "区分持续时间第四格、原因前置词，以及 через、после、за … до …、за + 时间的时间结构。",
+          "pitfalls": "不要把时点、先后关系和所用时长混用。",
+          "sourcePages": [
+            34,
+            35
+          ]
+        },
+        {
+          "id": "p2-prepositional-phrases",
+          "title": "前置词结构的语义与格",
+          "questionRanges": [
+            [
+              59,
+              69
+            ]
+          ],
+          "rule": "按时间、地点、条件、过程和依据等语义选择固定前置词结构。",
+          "pitfalls": "同一个中文介词常对应不同俄语结构。",
+          "sourcePages": [
+            35,
+            36
+          ]
+        },
+        {
+          "id": "p2-nonconcordant-attribute",
+          "title": "非一致定语",
+          "questionRanges": [
+            [
+              70,
+              70
+            ]
+          ],
+          "rule": "抽象名词后的不定式可作非一致定语。",
+          "pitfalls": "先确定中心名词与后置不定式之间的语义关系。",
+          "sourcePages": [
+            36
+          ]
+        }
       ]
     },
     {
-      "id": "p3", "part": 3, "title": "P3 形动词与副动词", "unitIds": ["p3-q001-q010", "p3-q011-q020", "p3-q021-q030", "p3-q031-q040", "p3-q041-q050"],
+      "id": "p3",
+      "part": 3,
+      "title": "P3 形动词与副动词",
+      "unitIds": [
+        "p3-q001-q010",
+        "p3-q011-q020",
+        "p3-q021-q030",
+        "p3-q031-q040",
+        "p3-q041-q050"
+      ],
       "knowledgePoints": [
-        {"id":"p3-active-participles","title":"主动形动词的一致","questionRanges":[[1,15]],"rule":"主动形动词与所修饰名词保持性、数、格一致。","pitfalls":"先找被修饰名词，再确定形动词词尾。","sourcePages":[41,42,43]},
-        {"id":"p3-passive-participles","title":"被动形动词的一致","questionRanges":[[16,23]],"rule":"被动形动词也须与中心名词保持性、数、格一致。","pitfalls":"不要把完成体/未完成体词形与格变化混为一谈。","sourcePages":[43,44]},
-        {"id":"p3-gerund-meanings","title":"副动词的时间、条件、原因与让步","questionRanges":[[24,44]],"rule":"按上下文判断副动词与主句之间的时间、条件、原因或让步关系。","pitfalls":"副动词不能只译为“……着”；必须还原其逻辑关系。","sourcePages":[44,45,46]},
-        {"id":"p3-gerund-subject","title":"副动词的主体一致","questionRanges":[[45,50]],"rule":"副动词动作的实施者应与主句主语一致。","pitfalls":"主句无共同主体时不能直接使用副动词。","sourcePages":[46,47]}
+        {
+          "id": "p3-active-participles",
+          "title": "主动形动词的一致",
+          "questionRanges": [
+            [
+              1,
+              15
+            ]
+          ],
+          "rule": "主动形动词与所修饰名词保持性、数、格一致。",
+          "pitfalls": "先找被修饰名词，再确定形动词词尾。",
+          "sourcePages": [
+            41,
+            42,
+            43
+          ]
+        },
+        {
+          "id": "p3-passive-participles",
+          "title": "被动形动词的一致",
+          "questionRanges": [
+            [
+              16,
+              23
+            ]
+          ],
+          "rule": "被动形动词也须与中心名词保持性、数、格一致。",
+          "pitfalls": "不要把完成体/未完成体词形与格变化混为一谈。",
+          "sourcePages": [
+            43,
+            44
+          ]
+        },
+        {
+          "id": "p3-gerund-meanings",
+          "title": "副动词的时间、条件、原因与让步",
+          "questionRanges": [
+            [
+              24,
+              44
+            ]
+          ],
+          "rule": "按上下文判断副动词与主句之间的时间、条件、原因或让步关系。",
+          "pitfalls": "副动词不能只译为“……着”；必须还原其逻辑关系。",
+          "sourcePages": [
+            44,
+            45,
+            46
+          ]
+        },
+        {
+          "id": "p3-gerund-subject",
+          "title": "副动词的主体一致",
+          "questionRanges": [
+            [
+              45,
+              50
+            ]
+          ],
+          "rule": "副动词动作的实施者应与主句主语一致。",
+          "pitfalls": "主句无共同主体时不能直接使用副动词。",
+          "sourcePages": [
+            46,
+            47
+          ]
+        }
       ]
     },
     {
-      "id": "p4", "part": 4, "title": "P4 复句连接与指代", "unitIds": ["p4-q001-q010", "p4-q011-q020", "p4-q021-q030", "p4-q031-q040", "p4-q041-q050"],
+      "id": "p4",
+      "part": 4,
+      "title": "P4 复句连接与指代",
+      "unitIds": [
+        "p4-q001-q010",
+        "p4-q011-q020",
+        "p4-q021-q030",
+        "p4-q031-q040",
+        "p4-q041-q050"
+      ],
       "knowledgePoints": [
-        {"id":"p4-connectors","title":"并列与说明连接词","questionRanges":[[1,14]],"rule":"按对比、转折、说明、相信、希望和请求等关系选择连接词或连接结构。","pitfalls":"连接词的逻辑作用和动词支配的格关系需要同时判断。","sourcePages":[52,53]},
-        {"id":"p4-relative-pronouns","title":"关系代词与疑问代词","questionRanges":[[15,26]],"rule":"关系词须同时满足先行词的性数及其在从句中的格要求。","pitfalls":"先行词决定性数，从句动词或前置词决定格。","sourcePages":[53,54]},
-        {"id":"p4-time-concession-purpose","title":"时间、让步、目的与原因从句","questionRanges":[[27,38]],"rule":"按同时、先后、让步、目的、原因和条件关系选择从句连接结构。","pitfalls":"相近中文连词在俄语中对语义和搭配限制不同。","sourcePages":[54,55,56]},
-        {"id":"p4-gerund-infinitive-purpose","title":"时间关系与目的表达","questionRanges":[[39,45]],"rule":"区分副动词的时间意义、目的不定式和固定时间短语。","pitfalls":"目的不定式与表示伴随时间的结构不可混用。","sourcePages":[56,57]},
-        {"id":"p4-cause-and-particles","title":"原因结构与连接助词","questionRanges":[[46,49]],"rule":"辨别原因前置词和用于连接的助词。","pitfalls":"先看词组整体功能，不按单个词直译。","sourcePages":[57,58]},
-        {"id":"p4-direct-indirect","title":"直接引语与间接引语","questionRanges":[[50,50]],"rule":"按人称、时态和连接方式完成直接、间接引语转换。","pitfalls":"转换时要检查代词指向是否随说话人变化。","sourcePages":[59]}
+        {
+          "id": "p4-connectors",
+          "title": "并列与说明连接词",
+          "questionRanges": [
+            [
+              1,
+              14
+            ]
+          ],
+          "rule": "按对比、转折、说明、相信、希望和请求等关系选择连接词或连接结构。",
+          "pitfalls": "连接词的逻辑作用和动词支配的格关系需要同时判断。",
+          "sourcePages": [
+            52,
+            53
+          ]
+        },
+        {
+          "id": "p4-relative-pronouns",
+          "title": "关系代词与疑问代词",
+          "questionRanges": [
+            [
+              15,
+              26
+            ]
+          ],
+          "rule": "关系词须同时满足先行词的性数及其在从句中的格要求。",
+          "pitfalls": "先行词决定性数，从句动词或前置词决定格。",
+          "sourcePages": [
+            53,
+            54
+          ]
+        },
+        {
+          "id": "p4-time-concession-purpose",
+          "title": "时间、让步、目的与原因从句",
+          "questionRanges": [
+            [
+              27,
+              38
+            ]
+          ],
+          "rule": "按同时、先后、让步、目的、原因和条件关系选择从句连接结构。",
+          "pitfalls": "相近中文连词在俄语中对语义和搭配限制不同。",
+          "sourcePages": [
+            54,
+            55,
+            56
+          ]
+        },
+        {
+          "id": "p4-gerund-infinitive-purpose",
+          "title": "时间关系与目的表达",
+          "questionRanges": [
+            [
+              39,
+              45
+            ]
+          ],
+          "rule": "区分副动词的时间意义、目的不定式和固定时间短语。",
+          "pitfalls": "目的不定式与表示伴随时间的结构不可混用。",
+          "sourcePages": [
+            56,
+            57
+          ]
+        },
+        {
+          "id": "p4-cause-and-particles",
+          "title": "原因结构与连接助词",
+          "questionRanges": [
+            [
+              46,
+              49
+            ]
+          ],
+          "rule": "辨别原因前置词和用于连接的助词。",
+          "pitfalls": "先看词组整体功能，不按单个词直译。",
+          "sourcePages": [
+            57,
+            58
+          ]
+        },
+        {
+          "id": "p4-direct-indirect",
+          "title": "直接引语与间接引语",
+          "questionRanges": [
+            [
+              50,
+              50
+            ]
+          ],
+          "rule": "按人称、时态和连接方式完成直接、间接引语转换。",
+          "pitfalls": "转换时要检查代词指向是否随说话人变化。",
+          "sourcePages": [
+            59
+          ]
+        }
       ]
     },
     {
-      "id": "p5", "part": 5, "title": "P5 构词、词义辨析与无人称结构", "unitIds": ["p5-q001-q010", "p5-q011-q020", "p5-q021-q030", "p5-q031-q040", "p5-q041-q050"],
+      "id": "p5",
+      "part": 5,
+      "title": "P5 构词、词义辨析与无人称结构",
+      "unitIds": [
+        "p5-q001-q010",
+        "p5-q011-q020",
+        "p5-q021-q030",
+        "p5-q031-q040",
+        "p5-q041-q050"
+      ],
       "knowledgePoints": [
-        {"id":"p5-derivation","title":"构词与近义词辨析","questionRanges":[[1,17]],"rule":"根据后缀、词性、词义范围和搭配选择派生词或近义词。","pitfalls":"词形相近不等于语义或使用场景相同。","sourcePages":[63,64]},
-        {"id":"p5-indefinite-pronouns","title":"不定代词：-нибудь 与 кое-","questionRanges":[[18,21]],"rule":"-нибудь 表示不确定或未指定，кое-表示说话人知道但不明说。","pitfalls":"条件句、祈使句和叙述语境对不定代词选择不同。","sourcePages":[64]},
-        {"id":"p5-prefix-verbs-1","title":"前缀动词与词义辨析（一）","questionRanges":[[22,31]],"rule":"根据动作方向、阶段、持续时间和结果辨别前缀动词。","pitfalls":"不要只凭前缀猜意思，要放回完整搭配和语境。","sourcePages":[64,65]},
-        {"id":"p5-prefix-verbs-2","title":"前缀动词与支配关系（二）","questionRanges":[[32,44]],"rule":"结合动词词义、宾语支配和固定短语选择正确前缀动词。","pitfalls":"相似前缀动词往往要求不同格或不同前置词。","sourcePages":[65]},
-        {"id":"p5-impersonal-dative","title":"无人称动词与与格主体","questionRanges":[[45,47]],"rule":"走运、不得不、成功等无人称结构要求体验者用与格。","pitfalls":"句子里的逻辑主体不一定是主格。","sourcePages":[65,66]},
-        {"id":"p5-modal-infinitive","title":"情态词与不定式","questionRanges":[[48,50]],"rule":"按技能、可能性、困难程度和无力完成等意义选择情态结构。","pitfalls":"уметь、мочь、с трудом、не в силах 的搭配和句法位置不同。","sourcePages":[66]}
+        {
+          "id": "p5-derivation",
+          "title": "构词与近义词辨析",
+          "questionRanges": [
+            [
+              1,
+              17
+            ]
+          ],
+          "rule": "根据后缀、词性、词义范围和搭配选择派生词或近义词。",
+          "pitfalls": "词形相近不等于语义或使用场景相同。",
+          "sourcePages": [
+            63,
+            64
+          ]
+        },
+        {
+          "id": "p5-indefinite-pronouns",
+          "title": "不定代词：-нибудь 与 кое-",
+          "questionRanges": [
+            [
+              18,
+              21
+            ]
+          ],
+          "rule": "-нибудь 表示不确定或未指定，кое-表示说话人知道但不明说。",
+          "pitfalls": "条件句、祈使句和叙述语境对不定代词选择不同。",
+          "sourcePages": [
+            64
+          ]
+        },
+        {
+          "id": "p5-prefix-verbs-1",
+          "title": "前缀动词与词义辨析（一）",
+          "questionRanges": [
+            [
+              22,
+              31
+            ]
+          ],
+          "rule": "根据动作方向、阶段、持续时间和结果辨别前缀动词。",
+          "pitfalls": "不要只凭前缀猜意思，要放回完整搭配和语境。",
+          "sourcePages": [
+            64,
+            65
+          ]
+        },
+        {
+          "id": "p5-prefix-verbs-2",
+          "title": "前缀动词与支配关系（二）",
+          "questionRanges": [
+            [
+              32,
+              44
+            ]
+          ],
+          "rule": "结合动词词义、宾语支配和固定短语选择正确前缀动词。",
+          "pitfalls": "相似前缀动词往往要求不同格或不同前置词。",
+          "sourcePages": [
+            65
+          ]
+        },
+        {
+          "id": "p5-impersonal-dative",
+          "title": "无人称动词与与格主体",
+          "questionRanges": [
+            [
+              45,
+              47
+            ]
+          ],
+          "rule": "走运、不得不、成功等无人称结构要求体验者用与格。",
+          "pitfalls": "句子里的逻辑主体不一定是主格。",
+          "sourcePages": [
+            65,
+            66
+          ]
+        },
+        {
+          "id": "p5-modal-infinitive",
+          "title": "情态词与不定式",
+          "questionRanges": [
+            [
+              48,
+              50
+            ]
+          ],
+          "rule": "按技能、可能性、困难程度和无力完成等意义选择情态结构。",
+          "pitfalls": "уметь、мочь、с трудом、не в силах 的搭配和句法位置不同。",
+          "sourcePages": [
+            66
+          ]
+        }
       ]
     },
     {
-      "id": "p6", "part": 6, "title": "P6 独立语法题与报刊语体", "unitIds": ["p6-q001-q028", "p6-q029-q036"],
+      "id": "p6",
+      "part": 6,
+      "title": "P6 独立语法题与报刊语体",
+      "unitIds": [
+        "p6-q001-q028",
+        "p6-context-q009-q050",
+        "p6-q029-q036"
+      ],
       "knowledgePoints": [
-        {"id":"p6-predicate-case","title":"判断结构与工具格","questionRanges":[[1,8]],"rule":"按 являться、служить、называть、считаться 等判断结构选择工具格或谓语形式。","pitfalls":"短尾比较级和工具格名词在句中承担的功能不同。","sourcePages":[70,71]},
-        {"id":"p6-journalistic-collocations","title":"报刊语体的固定搭配","questionRanges":[[27,36]],"rule":"报刊文体偏好使用正式的动宾结构和固定表达。","pitfalls":"日常口语中可用的简单动词，在报刊语体中常不是标准搭配。","sourcePages":[71,72]}
+        {
+          "id": "p6-predicate-case",
+          "title": "判断结构与工具格",
+          "questionRanges": [
+            [
+              1,
+              8
+            ]
+          ],
+          "rule": "按 являться、считаться、называться 等判断结构选择工具格或谓语形式。",
+          "pitfalls": "短尾比较级和工具格名词在句中承担的功能不同。",
+          "sourcePages": [
+            66,
+            71
+          ]
+        },
+        {
+          "id": "p6-context-texts",
+          "title": "材料语境中的谓语、形动词与支配",
+          "questionRanges": [
+            [
+              9,
+              26
+            ]
+          ],
+          "rule": "保留人物词典、脑部循环和儿童实验材料的语境，再判断谓语、形动词、副动词和固定支配。",
+          "pitfalls": "不能脱离材料中的指代、语体和句子主干孤立选择词形。",
+          "sourcePages": [
+            67,
+            68,
+            71
+          ]
+        },
+        {
+          "id": "p6-journalistic-collocations",
+          "title": "报刊语体的固定搭配",
+          "questionRanges": [
+            [
+              27,
+              36
+            ]
+          ],
+          "rule": "报刊文体偏好使用正式的动宾结构和固定表达。",
+          "pitfalls": "日常口语中的简单动词在报刊语体中常不是标准搭配。",
+          "sourcePages": [
+            68,
+            69,
+            72
+          ]
+        },
+        {
+          "id": "p6-official-documents",
+          "title": "申请书与解释信的公文格式",
+          "questionRanges": [
+            [
+              37,
+              50
+            ]
+          ],
+          "rule": "按收件人、署名、日期、书面请求和原因说明的规范格式完成公文。",
+          "pitfalls": "公文格式中的格、日期、称呼和书面连接词都不能按口语随意替换。",
+          "sourcePages": [
+            69,
+            70,
+            74,
+            75
+          ]
+        }
       ]
     }
   ]

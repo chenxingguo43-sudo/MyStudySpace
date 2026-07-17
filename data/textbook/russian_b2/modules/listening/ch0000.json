@@ -1,0 +1,49 @@
+{
+  "id": "dialogues",
+  "title": "任务 1–5 · 对话",
+  "reviewStatus": "source-verified",
+  "sourcePages": [
+    104,
+    105
+  ],
+  "transcriptSegments": [
+    {
+      "speaker": "原书录音材料",
+      "text": "A: Привет! Б: Как дела? A: Какие тут дела! Ну и погодка у нас в Петербурге то дождь пойдет, то солнце светит. А эти прогнозы погоды, они всегда ошибаются. Возьмешь зонтик, точно не будет дождя. Не возьмешь, обязательно промокнешь до нитки. И так бы хотелось, чтобы настроение не зависело от погоды."
+    }
+  ],
+  "questions": [
+    {
+      "id": "l01",
+      "prompt": "天气在彼得堡……",
+      "answer": "А"
+    },
+    {
+      "id": "l02",
+      "prompt": "说话者认为天气预报……",
+      "answer": "Б"
+    },
+    {
+      "id": "l03",
+      "prompt": "说话者希望……",
+      "answer": "Б"
+    },
+    {
+      "id": "l04",
+      "prompt": "说话者的话表达……",
+      "answer": "Б"
+    },
+    {
+      "id": "l05",
+      "prompt": "两位说话者……",
+      "answer": "А"
+    }
+  ],
+  "media": {
+    "provenance": "reconstructed-tts",
+    "file": "media/listening/dialogues.mp3",
+    "captions": "media/listening/dialogues.vtt",
+    "voice": "ru-RU-SvetlanaNeural"
+  },
+  "format": "listening-practice"
+}

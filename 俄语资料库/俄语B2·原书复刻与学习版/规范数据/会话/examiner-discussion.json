@@ -1,0 +1,54 @@
+{
+  "id": "examiner-discussion",
+  "title": "任务 15 · 与考官讨论问题",
+  "reviewStatus": "source-verified",
+  "sourcePages": [
+    117
+  ],
+  "task": {
+    "prompt": "与考官讨论“远足和 экскурсия 有什么益处？”；坚持观点并回答追问。无准备时间，讨论不少于十分钟。",
+    "responseMode": "examiner-discussion",
+    "responseMinutes": "10+"
+  },
+  "progression": [
+    {
+      "id": "frames",
+      "title": "论点框架",
+      "instruction": "准备观点、两个理由、一个例子和一条建议。"
+    },
+    {
+      "id": "short-response",
+      "title": "追问短答",
+      "instruction": "针对益处、安全建议和最重要能力分别作答。"
+    },
+    {
+      "id": "recording",
+      "title": "完整录音",
+      "instruction": "录制一段立场清楚的讨论；用连接词组织观点。"
+    }
+  ],
+  "sourceAnswer": {
+    "text": "Польза похода и экскурсии очевидна: совместные мероприятия сплачивают, помогают лучше узнать человека, знакомят с природой и расширяют кругозор. Важно соблюдать технику безопасности, слушать взрослых и брать только необходимое. Для похода нужны выносливость и умение ориентироваться; на экскурсии важно слушать экскурсовода.",
+    "source": {
+      "kind": "b2-original",
+      "label": "B2 原书参考观点（摘要）",
+      "pages": [
+        117
+      ]
+    }
+  },
+  "media": {
+    "provenance": "source-text-only"
+  },
+  "recording": {
+    "storage": "IndexedDB:russian_b2_recordings"
+  },
+  "studySupport": {
+    "label": "学习辅助",
+    "checklist": [
+      "先给出明确观点",
+      "用至少两个理由支撑",
+      "回应追问时保持同一立场"
+    ]
+  }
+}

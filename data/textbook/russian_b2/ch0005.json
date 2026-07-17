@@ -10,17 +10,22 @@
       66,
       67,
       68,
-      69
+      69,
+      70
     ],
     "rules": [
       70,
       71,
-      72
+      72,
+      74,
+      75
     ],
     "answers": [
       70,
       71,
-      72
+      72,
+      74,
+      75
     ]
   },
   "knowledgePoints": [
@@ -33,10 +38,10 @@
           8
         ]
       ],
-      "rule": "按 являться、служить、называть、считаться 等判断结构选择工具格或谓语形式。",
+      "rule": "按 являться、считаться、называться 等判断结构选择工具格或谓语形式。",
       "pitfalls": "短尾比较级和工具格名词在句中承担的功能不同。",
       "sourcePages": [
-        70,
+        66,
         71
       ],
       "exerciseIds": [
@@ -52,6 +57,43 @@
       "studyCardId": "p6-predicate-case"
     },
     {
+      "id": "p6-context-texts",
+      "title": "材料语境中的谓语、形动词与支配",
+      "questionRanges": [
+        [
+          9,
+          26
+        ]
+      ],
+      "rule": "保留人物词典、脑部循环和儿童实验材料的语境，再判断谓语、形动词、副动词和固定支配。",
+      "pitfalls": "不能脱离材料中的指代、语体和句子主干孤立选择词形。",
+      "sourcePages": [
+        67,
+        68,
+        71
+      ],
+      "exerciseIds": [
+        "P6-Q009",
+        "P6-Q010",
+        "P6-Q011",
+        "P6-Q012",
+        "P6-Q013",
+        "P6-Q014",
+        "P6-Q015",
+        "P6-Q016",
+        "P6-Q017",
+        "P6-Q018",
+        "P6-Q019",
+        "P6-Q020",
+        "P6-Q021",
+        "P6-Q022",
+        "P6-Q023",
+        "P6-Q024",
+        "P6-Q025",
+        "P6-Q026"
+      ]
+    },
+    {
       "id": "p6-journalistic-collocations",
       "title": "报刊语体的固定搭配",
       "questionRanges": [
@@ -61,9 +103,10 @@
         ]
       ],
       "rule": "报刊文体偏好使用正式的动宾结构和固定表达。",
-      "pitfalls": "日常口语中可用的简单动词，在报刊语体中常不是标准搭配。",
+      "pitfalls": "日常口语中的简单动词在报刊语体中常不是标准搭配。",
       "sourcePages": [
-        71,
+        68,
+        69,
         72
       ],
       "exerciseIds": [
@@ -79,6 +122,149 @@
         "P6-Q036"
       ],
       "studyCardId": "p6-journalistic-collocations"
+    },
+    {
+      "id": "p6-official-documents",
+      "title": "申请书与解释信的公文格式",
+      "questionRanges": [
+        [
+          37,
+          50
+        ]
+      ],
+      "rule": "按收件人、署名、日期、书面请求和原因说明的规范格式完成公文。",
+      "pitfalls": "公文格式中的格、日期、称呼和书面连接词都不能按口语随意替换。",
+      "sourcePages": [
+        69,
+        70,
+        74,
+        75
+      ],
+      "exerciseIds": [
+        "P6-Q037",
+        "P6-Q038",
+        "P6-Q039",
+        "P6-Q040",
+        "P6-Q041",
+        "P6-Q042",
+        "P6-Q043",
+        "P6-Q044",
+        "P6-Q045",
+        "P6-Q046",
+        "P6-Q047",
+        "P6-Q048",
+        "P6-Q049",
+        "P6-Q050"
+      ]
+    }
+  ],
+  "contextGroups": [
+    {
+      "id": "p6-context-reading-materials",
+      "title": "人物简介与短文材料",
+      "sourcePages": [
+        67,
+        68,
+        71
+      ],
+      "materials": [
+        {
+          "id": "p6-famous-russians",
+          "title": "题 9–14：人物词典简介",
+          "body": "根据《著名俄罗斯人：传记词典-参考书》的简介作答。原书以各题句子保留该简介的可见语境。",
+          "sourcePages": [
+            67,
+            71
+          ]
+        },
+        {
+          "id": "p6-brain-circulation",
+          "title": "题 15–19：脑部血液循环短文",
+          "body": "根据关于头部穴位、针灸与血液循环的短文作答。原书在本题组中保留了关键语境句。",
+          "sourcePages": [
+            67,
+            68,
+            71
+          ]
+        },
+        {
+          "id": "p6-children-experiment",
+          "title": "题 20–26：儿童实验短文",
+          "body": "根据关于中国儿童计算机实验的短文作答；题干涉及哈尔滨、互联网、儿童学习与实验结果。",
+          "sourcePages": [
+            68,
+            71
+          ]
+        }
+      ],
+      "exerciseIds": [
+        "P6-Q009",
+        "P6-Q010",
+        "P6-Q011",
+        "P6-Q012",
+        "P6-Q013",
+        "P6-Q014",
+        "P6-Q015",
+        "P6-Q016",
+        "P6-Q017",
+        "P6-Q018",
+        "P6-Q019",
+        "P6-Q020",
+        "P6-Q021",
+        "P6-Q022",
+        "P6-Q023",
+        "P6-Q024",
+        "P6-Q025",
+        "P6-Q026"
+      ]
+    },
+    {
+      "id": "p6-context-official-documents",
+      "title": "公文格式材料",
+      "sourcePages": [
+        69,
+        70,
+        74,
+        75
+      ],
+      "materials": [
+        {
+          "id": "p6-application",
+          "title": "题 37–42：申请书（Заявление）",
+          "sourcePages": [
+            69,
+            70,
+            74
+          ],
+          "body": "致“阿斯坦卡”商店经理\n彼得·亚当斯\n\n申请\n\n由于在贵店所购的电熨斗不能正常工作并且无法修理，本人申请更换。\n\n彼得·亚当斯\n2022 年 8 月 5 日"
+        },
+        {
+          "id": "p6-explanatory-note",
+          "title": "题 43–50：解释信（Объяснительная записка）",
+          "sourcePages": [
+            70,
+            74,
+            75
+          ],
+          "body": "致尊敬的医学系系主任\n学生安娜·伊万诺娃\n\n解释信\n\n今年 5 月我在市立医院住院一周，即 5 月 15–22 日，为了治疗肺炎。医院证明附后。\n\n2022 年 5 月 25 日\n安娜·伊万诺娃"
+        }
+      ],
+      "exerciseIds": [
+        "P6-Q037",
+        "P6-Q038",
+        "P6-Q039",
+        "P6-Q040",
+        "P6-Q041",
+        "P6-Q042",
+        "P6-Q043",
+        "P6-Q044",
+        "P6-Q045",
+        "P6-Q046",
+        "P6-Q047",
+        "P6-Q048",
+        "P6-Q049",
+        "P6-Q050"
+      ]
     }
   ],
   "exercises": [
@@ -407,6 +593,708 @@
         70,
         71,
         72
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P6-Q009",
+      "printedNumber": 9,
+      "type": "single-choice",
+      "question": "В словаре-справочнике ... сведения о 500 знаменитых россиянах.",
+      "options": [
+        {
+          "key": "А",
+          "text": "представлен"
+        },
+        {
+          "key": "Б",
+          "text": "представляют"
+        },
+        {
+          "key": "В",
+          "text": "представлены"
+        },
+        {
+          "key": "Г",
+          "text": "представляются"
+        }
+      ],
+      "answer": "В",
+      "sourceAnswer": "В",
+      "sourceEvidence": "PDF-067 / PDF-071",
+      "sourceExplanation": "原书解析：сведения 是主语，представлены 是谓语。；译文：该手册介绍 500 位俄罗斯名人的信息。",
+      "referenceExplanation": "参考解析（AI，待复核）：先识别材料中的语法结构或公文格式，再结合语境判断。",
+      "pitfalls": [
+        "先保留材料语境，再判断固定结构、格或书面格式。"
+      ],
+      "questionPages": [
+        67
+      ],
+      "answerPages": [
+        71
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P6-Q010",
+      "printedNumber": 10,
+      "type": "single-choice",
+      "question": "Большое внимание ... не только известным политикам, ученым, деятелям культуры, но и философам.",
+      "options": [
+        {
+          "key": "А",
+          "text": "уделяется"
+        },
+        {
+          "key": "Б",
+          "text": "уделяются"
+        },
+        {
+          "key": "В",
+          "text": "уделяют"
+        },
+        {
+          "key": "Г",
+          "text": "уделены"
+        }
+      ],
+      "answer": "А",
+      "sourceAnswer": "А",
+      "sourceEvidence": "PDF-067 / PDF-071",
+      "sourceExplanation": "原书解析：уделяться-уделиться кому-чему。；译文：不仅关注著名政治家、学者和文化人士，也关注哲学家。",
+      "referenceExplanation": "参考解析（AI，待复核）：先识别材料中的语法结构或公文格式，再结合语境判断。",
+      "pitfalls": [
+        "先保留材料语境，再判断固定结构、格或书面格式。"
+      ],
+      "questionPages": [
+        67
+      ],
+      "answerPages": [
+        71
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P6-Q011",
+      "printedNumber": 11,
+      "type": "single-choice",
+      "question": "Словарь-справочник ... на данных новейших исследований отечественных историков и публицистов.",
+      "options": [
+        {
+          "key": "А",
+          "text": "базируются"
+        },
+        {
+          "key": "Б",
+          "text": "базируется"
+        },
+        {
+          "key": "В",
+          "text": "базирующийся"
+        },
+        {
+          "key": "Г",
+          "text": "базируясь"
+        }
+      ],
+      "answer": "Б",
+      "sourceAnswer": "Б",
+      "sourceEvidence": "PDF-067 / PDF-071",
+      "sourceExplanation": "原书解析：базироваться на чём 表示“以……为基础”。；译文：该手册以俄罗斯国内历史学家和评论家最新研究数据为基础。",
+      "referenceExplanation": "参考解析（AI，待复核）：先识别材料中的语法结构或公文格式，再结合语境判断。",
+      "pitfalls": [
+        "先保留材料语境，再判断固定结构、格或书面格式。"
+      ],
+      "questionPages": [
+        67
+      ],
+      "answerPages": [
+        71
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P6-Q012",
+      "printedNumber": 12,
+      "type": "single-choice",
+      "question": "Книга ... самой широкой аудитории,",
+      "options": [
+        {
+          "key": "А",
+          "text": "будет адресована"
+        },
+        {
+          "key": "Б",
+          "text": "адресовалась"
+        },
+        {
+          "key": "В",
+          "text": "будет адресоваться"
+        },
+        {
+          "key": "Г",
+          "text": "адресована"
+        }
+      ],
+      "answer": "Г",
+      "sourceAnswer": "Г",
+      "sourceEvidence": "PDF-067 / PDF-071",
+      "sourceExplanation": "原书解析：адресован кому-чему，表示“面向、针对”。；译文：该书面向广大读者。",
+      "referenceExplanation": "参考解析（AI，待复核）：先识别材料中的语法结构或公文格式，再结合语境判断。",
+      "pitfalls": [
+        "先保留材料语境，再判断固定结构、格或书面格式。"
+      ],
+      "questionPages": [
+        67
+      ],
+      "answerPages": [
+        71
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P6-Q013",
+      "printedNumber": 13,
+      "type": "single-choice",
+      "question": "а также ... в качестве дополнительной справочной литературы для школьного образования.",
+      "options": [
+        {
+          "key": "А",
+          "text": "используется"
+        },
+        {
+          "key": "Б",
+          "text": "может быть использована"
+        },
+        {
+          "key": "В",
+          "text": "должна использоваться"
+        },
+        {
+          "key": "Г",
+          "text": "будет использована"
+        }
+      ],
+      "answer": "Б",
+      "sourceAnswer": "Б",
+      "sourceEvidence": "PDF-067 / PDF-071",
+      "sourceExplanation": "原书解析：может быть использована 表示“可以作为”。；译文：它还可以作为中学生补充查询文献。",
+      "referenceExplanation": "参考解析（AI，待复核）：先识别材料中的语法结构或公文格式，再结合语境判断。",
+      "pitfalls": [
+        "先保留材料语境，再判断固定结构、格或书面格式。"
+      ],
+      "questionPages": [
+        67
+      ],
+      "answerPages": [
+        71
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P6-Q014",
+      "printedNumber": 14,
+      "type": "single-choice",
+      "question": "Словарь-справочник ... в издательстве «Просвещение» тиражом 40 000 экземпляров.",
+      "options": [
+        {
+          "key": "А",
+          "text": "будет выходить"
+        },
+        {
+          "key": "Б",
+          "text": "вышел"
+        },
+        {
+          "key": "В",
+          "text": "выходил"
+        },
+        {
+          "key": "Г",
+          "text": "выйдет"
+        }
+      ],
+      "answer": "Г",
+      "sourceAnswer": "Г",
+      "sourceEvidence": "PDF-067 / PDF-071",
+      "sourceExplanation": "原书解析：выходить-выйти в свет 表示“出版、问世”。；译文：该手册在教育出版社出版，印数 4 万册。",
+      "referenceExplanation": "参考解析（AI，待复核）：先识别材料中的语法结构或公文格式，再结合语境判断。",
+      "pitfalls": [
+        "先保留材料语境，再判断固定结构、格或书面格式。"
+      ],
+      "questionPages": [
+        67
+      ],
+      "answerPages": [
+        71
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P6-Q015",
+      "printedNumber": 15,
+      "type": "single-choice",
+      "question": "Активные точки головы ... в двух сантиметрах позади верхнего края уха.",
+      "options": [
+        {
+          "key": "А",
+          "text": "располагают"
+        },
+        {
+          "key": "Б",
+          "text": "располагаются"
+        },
+        {
+          "key": "В",
+          "text": "будут расположены"
+        },
+        {
+          "key": "Г",
+          "text": "располагались"
+        }
+      ],
+      "answer": "Б",
+      "sourceAnswer": "Б",
+      "sourceEvidence": "PDF-067 / PDF-071",
+      "sourceExplanation": "原书解析：располагаться-расположиться 表示“位于”。；译文：脑部的活跃穴位位于耳廓上方两厘米的地方。",
+      "referenceExplanation": "参考解析（AI，待复核）：先识别材料中的语法结构或公文格式，再结合语境判断。",
+      "pitfalls": [
+        "先保留材料语境，再判断固定结构、格或书面格式。"
+      ],
+      "questionPages": [
+        67
+      ],
+      "answerPages": [
+        71
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P6-Q016",
+      "printedNumber": 16,
+      "type": "single-choice",
+      "question": "Иглоукалыватели ... их ответственными за кровообращение головы.",
+      "options": [
+        {
+          "key": "А",
+          "text": "считается"
+        },
+        {
+          "key": "Б",
+          "text": "считались"
+        },
+        {
+          "key": "В",
+          "text": "считают"
+        },
+        {
+          "key": "Г",
+          "text": "обсчитали"
+        }
+      ],
+      "answer": "Б",
+      "sourceAnswer": "Б",
+      "sourceEvidence": "PDF-067 / PDF-071",
+      "sourceExplanation": "原书解析：считать кого-что каким。；译文：针灸被认为是加速脑部血液循环的有效方法。",
+      "referenceExplanation": "参考解析（AI，待复核）：先识别材料中的语法结构或公文格式，再结合语境判断。",
+      "pitfalls": [
+        "先保留材料语境，再判断固定结构、格或书面格式。"
+      ],
+      "questionPages": [
+        67
+      ],
+      "answerPages": [
+        71
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P6-Q017",
+      "printedNumber": 17,
+      "type": "single-choice",
+      "question": "... эту точку, можно добиться большей ясности мышления.",
+      "options": [
+        {
+          "key": "А",
+          "text": "Массировать"
+        },
+        {
+          "key": "Б",
+          "text": "Массируют"
+        },
+        {
+          "key": "В",
+          "text": "Массируя"
+        },
+        {
+          "key": "Г",
+          "text": "Массируется"
+        }
+      ],
+      "answer": "А",
+      "sourceAnswer": "А",
+      "sourceEvidence": "PDF-068 / PDF-071",
+      "sourceExplanation": "原书解析：массируя 是副动词。；译文：按摩这个穴位，可以使思维更清晰。",
+      "referenceExplanation": "参考解析（AI，待复核）：先识别材料中的语法结构或公文格式，再结合语境判断。",
+      "pitfalls": [
+        "先保留材料语境，再判断固定结构、格或书面格式。"
+      ],
+      "questionPages": [
+        68
+      ],
+      "answerPages": [
+        71
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P6-Q018",
+      "printedNumber": 18,
+      "type": "single-choice",
+      "question": "При этом ... отток отработанной крови.",
+      "options": [
+        {
+          "key": "А",
+          "text": "ускоряется"
+        },
+        {
+          "key": "Б",
+          "text": "ускорил"
+        },
+        {
+          "key": "В",
+          "text": "ускоряют"
+        },
+        {
+          "key": "Г",
+          "text": "ускорялось"
+        }
+      ],
+      "answer": "А",
+      "sourceAnswer": "А",
+      "sourceEvidence": "PDF-068 / PDF-071",
+      "sourceExplanation": "原书解析：主语是 отток，因此用 ускоряется。；译文：同时，废血的流出加快。",
+      "referenceExplanation": "参考解析（AI，待复核）：先识别材料中的语法结构或公文格式，再结合语境判断。",
+      "pitfalls": [
+        "先保留材料语境，再判断固定结构、格或书面格式。"
+      ],
+      "questionPages": [
+        68
+      ],
+      "answerPages": [
+        71
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P6-Q019",
+      "printedNumber": 19,
+      "type": "single-choice",
+      "question": "... кислородом кровь активнее приливает к мозгу.",
+      "options": [
+        {
+          "key": "А",
+          "text": "Обогащена"
+        },
+        {
+          "key": "Б",
+          "text": "Обогащенная"
+        },
+        {
+          "key": "В",
+          "text": "Обогатилась"
+        },
+        {
+          "key": "Г",
+          "text": "Обогатится"
+        }
+      ],
+      "answer": "Б",
+      "sourceAnswer": "Б",
+      "sourceEvidence": "PDF-068 / PDF-071",
+      "sourceExplanation": "原书解析：обогащённая 是被动形动词作定语。；译文：富氧血更积极地流向大脑。",
+      "referenceExplanation": "参考解析（AI，待复核）：先识别材料中的语法结构或公文格式，再结合语境判断。",
+      "pitfalls": [
+        "先保留材料语境，再判断固定结构、格或书面格式。"
+      ],
+      "questionPages": [
+        68
+      ],
+      "answerPages": [
+        71
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P6-Q020",
+      "printedNumber": 20,
+      "type": "single-choice",
+      "question": "Эксперимент, ... китайским правительством, был проведен в Харбине.",
+      "options": [
+        {
+          "key": "А",
+          "text": "поддержанным"
+        },
+        {
+          "key": "Б",
+          "text": "поддержанный"
+        },
+        {
+          "key": "В",
+          "text": "поддержанного"
+        },
+        {
+          "key": "Г",
+          "text": "поддержанному"
+        }
+      ],
+      "answer": "Б",
+      "sourceAnswer": "Б",
+      "sourceEvidence": "PDF-068 / PDF-071",
+      "sourceExplanation": "原书解析：поддержанный 是 поддержать 的被动形动词。；译文：中国政府支持的实验在哈尔滨进行。",
+      "referenceExplanation": "参考解析（AI，待复核）：先识别材料中的语法结构或公文格式，再结合语境判断。",
+      "pitfalls": [
+        "先保留材料语境，再判断固定结构、格或书面格式。"
+      ],
+      "questionPages": [
+        68
+      ],
+      "answerPages": [
+        71
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P6-Q021",
+      "printedNumber": 21,
+      "type": "single-choice",
+      "question": "В стену здания был вмонтирован компьютер ... в Интернет.",
+      "options": [
+        {
+          "key": "А",
+          "text": "в доступе"
+        },
+        {
+          "key": "Б",
+          "text": "с доступом"
+        },
+        {
+          "key": "В",
+          "text": "из доступа"
+        },
+        {
+          "key": "Г",
+          "text": "к доступу"
+        }
+      ],
+      "answer": "Б",
+      "sourceAnswer": "Б",
+      "sourceEvidence": "PDF-068 / PDF-071",
+      "sourceExplanation": "原书解析：доступ в Интернет 是固定结构。；译文：建筑的墙体里装入了联网的计算机。",
+      "referenceExplanation": "参考解析（AI，待复核）：先识别材料中的语法结构或公文格式，再结合语境判断。",
+      "pitfalls": [
+        "先保留材料语境，再判断固定结构、格或书面格式。"
+      ],
+      "questionPages": [
+        68
+      ],
+      "answerPages": [
+        71
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P6-Q022",
+      "printedNumber": 22,
+      "type": "single-choice",
+      "question": "Дети из этого района заинтересовались ... на экране компьютера.",
+      "options": [
+        {
+          "key": "А",
+          "text": "яркими картинками"
+        },
+        {
+          "key": "Б",
+          "text": "ярким картинкам"
+        },
+        {
+          "key": "В",
+          "text": "ярких картинок"
+        },
+        {
+          "key": "Г",
+          "text": "яркие картинки"
+        }
+      ],
+      "answer": "Б",
+      "sourceAnswer": "Б",
+      "sourceEvidence": "PDF-068 / PDF-071",
+      "sourceExplanation": "原书解析：интересоваться чем。；译文：该区的孩子对电脑屏幕鲜艳的画面感兴趣。",
+      "referenceExplanation": "参考解析（AI，待复核）：先识别材料中的语法结构或公文格式，再结合语境判断。",
+      "pitfalls": [
+        "先保留材料语境，再判断固定结构、格或书面格式。"
+      ],
+      "questionPages": [
+        68
+      ],
+      "answerPages": [
+        71
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P6-Q023",
+      "printedNumber": 23,
+      "type": "single-choice",
+      "question": "Дети быстро научились обращаться ... .",
+      "options": [
+        {
+          "key": "А",
+          "text": "с компьютером"
+        },
+        {
+          "key": "Б",
+          "text": "без компьютера"
+        },
+        {
+          "key": "В",
+          "text": "для компьютера"
+        },
+        {
+          "key": "Г",
+          "text": "за компьютер"
+        }
+      ],
+      "answer": "А",
+      "sourceAnswer": "А",
+      "sourceEvidence": "PDF-068 / PDF-071",
+      "sourceExplanation": "原书解析：обращаться-обратиться с чем 表示“使用”。；译文：孩子们学会了使用计算机。",
+      "referenceExplanation": "参考解析（AI，待复核）：先识别材料中的语法结构或公文格式，再结合语境判断。",
+      "pitfalls": [
+        "先保留材料语境，再判断固定结构、格或书面格式。"
+      ],
+      "questionPages": [
+        68
+      ],
+      "answerPages": [
+        71
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P6-Q024",
+      "printedNumber": 24,
+      "type": "single-choice",
+      "question": "... картинки, они соревновались в быстроте.",
+      "options": [
+        {
+          "key": "А",
+          "text": "Рисуя"
+        },
+        {
+          "key": "Б",
+          "text": "Рисующий"
+        },
+        {
+          "key": "В",
+          "text": "Нарисованный"
+        },
+        {
+          "key": "Г",
+          "text": "Нарисовав"
+        }
+      ],
+      "answer": "А",
+      "sourceAnswer": "А",
+      "sourceEvidence": "PDF-068 / PDF-071",
+      "sourceExplanation": "原书解析：рисуя 是副动词。；译文：他们画画的时候，会比速度。",
+      "referenceExplanation": "参考解析（AI，待复核）：先识别材料中的语法结构或公文格式，再结合语境判断。",
+      "pitfalls": [
+        "先保留材料语境，再判断固定结构、格或书面格式。"
+      ],
+      "questionPages": [
+        68
+      ],
+      "answerPages": [
+        71
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P6-Q025",
+      "printedNumber": 25,
+      "type": "single-choice",
+      "question": "Самые способные ребята обучали ... .",
+      "options": [
+        {
+          "key": "А",
+          "text": "отстающих"
+        },
+        {
+          "key": "Б",
+          "text": "отстающие"
+        },
+        {
+          "key": "В",
+          "text": "отстающим"
+        },
+        {
+          "key": "Г",
+          "text": "об отстающих"
+        }
+      ],
+      "answer": "А",
+      "sourceAnswer": "А",
+      "sourceEvidence": "PDF-068 / PDF-071",
+      "sourceExplanation": "原书解析：обучать-обучить кого。；译文：最有能力的孩子教会了落后的孩子。",
+      "referenceExplanation": "参考解析（AI，待复核）：先识别材料中的语法结构或公文格式，再结合语境判断。",
+      "pitfalls": [
+        "先保留材料语境，再判断固定结构、格或书面格式。"
+      ],
+      "questionPages": [
+        68
+      ],
+      "answerPages": [
+        71
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P6-Q026",
+      "printedNumber": 26,
+      "type": "single-choice",
+      "question": "Данный эксперимент был проведен в разных городах Китая и везде дал такие же ....",
+      "options": [
+        {
+          "key": "А",
+          "text": "результатам"
+        },
+        {
+          "key": "Б",
+          "text": "результатами"
+        },
+        {
+          "key": "В",
+          "text": "результатов"
+        },
+        {
+          "key": "Г",
+          "text": "результаты"
+        }
+      ],
+      "answer": "Г",
+      "sourceAnswer": "Г",
+      "sourceEvidence": "PDF-068 / PDF-071",
+      "sourceExplanation": "原书解析：дать 要求第四格。；译文：在中国不同城市进行了该实验，并取得了同样的结果。",
+      "referenceExplanation": "参考解析（AI，待复核）：先识别材料中的语法结构或公文格式，再结合语境判断。",
+      "pitfalls": [
+        "先保留材料语境，再判断固定结构、格或书面格式。"
+      ],
+      "questionPages": [
+        68
+      ],
+      "answerPages": [
+        71
       ],
       "reviewStatus": "verified"
     },
@@ -817,6 +1705,566 @@
         70,
         71,
         72
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P6-Q037",
+      "printedNumber": 37,
+      "type": "single-choice",
+      "question": "… магазина «Астек»",
+      "options": [
+        {
+          "key": "А",
+          "text": "Директору"
+        },
+        {
+          "key": "Б",
+          "text": "Господину директору"
+        },
+        {
+          "key": "В",
+          "text": "Господин директор"
+        },
+        {
+          "key": "Г",
+          "text": "Уважаемому директору"
+        }
+      ],
+      "answer": "А",
+      "sourceAnswer": "А",
+      "sourceEvidence": "PDF-069 / PDF-074 / PDF-075",
+      "sourceExplanation": "原书解析：Директору 用第三格，表示写给经理。；译文：致“阿斯坦卡”商店经理。",
+      "referenceExplanation": "参考解析（AI，待复核）：先识别材料中的语法结构或公文格式，再结合语境判断。",
+      "pitfalls": [
+        "先保留材料语境，再判断固定结构、格或书面格式。"
+      ],
+      "questionPages": [
+        69
+      ],
+      "answerPages": [
+        74,
+        75
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P6-Q038",
+      "printedNumber": 38,
+      "type": "single-choice",
+      "question": "…",
+      "options": [
+        {
+          "key": "А",
+          "text": "Питер Адамс"
+        },
+        {
+          "key": "Б",
+          "text": "г. Питера Адамса"
+        },
+        {
+          "key": "В",
+          "text": "Питера Адамса"
+        },
+        {
+          "key": "Г",
+          "text": "Господина П. Адамса"
+        }
+      ],
+      "answer": "В",
+      "sourceAnswer": "В",
+      "sourceEvidence": "PDF-069 / PDF-074 / PDF-075",
+      "sourceExplanation": "原书解析：Питера Адамса 用第二格，即声明是由彼得·亚当斯写的。；译文：彼得·亚当斯。",
+      "referenceExplanation": "参考解析（AI，待复核）：先识别材料中的语法结构或公文格式，再结合语境判断。",
+      "pitfalls": [
+        "先保留材料语境，再判断固定结构、格或书面格式。"
+      ],
+      "questionPages": [
+        69
+      ],
+      "answerPages": [
+        74,
+        75
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P6-Q039",
+      "printedNumber": 39,
+      "type": "single-choice",
+      "question": "… обменять купленный в Вашем магазине утюг",
+      "options": [
+        {
+          "key": "А",
+          "text": "Убедительно прошу"
+        },
+        {
+          "key": "Б",
+          "text": "Прошу Вас"
+        },
+        {
+          "key": "В",
+          "text": "Очень прошу"
+        },
+        {
+          "key": "Г",
+          "text": "Прошу"
+        }
+      ],
+      "answer": "Б",
+      "sourceAnswer": "Б",
+      "sourceEvidence": "PDF-069 / PDF-074 / PDF-075",
+      "sourceExplanation": "原书解析：Прошу Вас 是书面请求的标准表达。；译文：我请求您更换在贵店购买的电熨斗。",
+      "referenceExplanation": "参考解析（AI，待复核）：先识别材料中的语法结构或公文格式，再结合语境判断。",
+      "pitfalls": [
+        "先保留材料语境，再判断固定结构、格或书面格式。"
+      ],
+      "questionPages": [
+        69
+      ],
+      "answerPages": [
+        74,
+        75
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P6-Q040",
+      "printedNumber": 40,
+      "type": "single-choice",
+      "question": "… он не работает и не может быть отремонтирован",
+      "options": [
+        {
+          "key": "А",
+          "text": "в связи с тем, что"
+        },
+        {
+          "key": "Б",
+          "text": "из-за того, что"
+        },
+        {
+          "key": "В",
+          "text": "потому, что"
+        },
+        {
+          "key": "Г",
+          "text": "вследствие того, что"
+        }
+      ],
+      "answer": "А",
+      "sourceAnswer": "А",
+      "sourceEvidence": "PDF-069 / PDF-074 / PDF-075",
+      "sourceExplanation": "原书解析：в связи с тем, что 表示“由于、因为”，适合书面语。；译文：由于它不能工作且无法修理。",
+      "referenceExplanation": "参考解析（AI，待复核）：先识别材料中的语法结构或公文格式，再结合语境判断。",
+      "pitfalls": [
+        "先保留材料语境，再判断固定结构、格或书面格式。"
+      ],
+      "questionPages": [
+        69
+      ],
+      "answerPages": [
+        74,
+        75
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P6-Q041",
+      "printedNumber": 41,
+      "type": "single-choice",
+      "question": "…",
+      "options": [
+        {
+          "key": "А",
+          "text": "Питер Адамс"
+        },
+        {
+          "key": "Б",
+          "text": "С уважением П. П. Адамс"
+        },
+        {
+          "key": "В",
+          "text": "От Питера Адамса"
+        },
+        {
+          "key": "Г",
+          "text": "Спасибо. Питер Адамс."
+        }
+      ],
+      "answer": "А",
+      "sourceAnswer": "А",
+      "sourceEvidence": "PDF-069 / PDF-074 / PDF-075",
+      "sourceExplanation": "原书解析：签名写姓名，使用第一格。；译文：彼得·亚当斯。",
+      "referenceExplanation": "参考解析（AI，待复核）：先识别材料中的语法结构或公文格式，再结合语境判断。",
+      "pitfalls": [
+        "先保留材料语境，再判断固定结构、格或书面格式。"
+      ],
+      "questionPages": [
+        69
+      ],
+      "answerPages": [
+        74,
+        75
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P6-Q042",
+      "printedNumber": 42,
+      "type": "single-choice",
+      "question": "…",
+      "options": [
+        {
+          "key": "А",
+          "text": "5 августа 2022 года"
+        },
+        {
+          "key": "Б",
+          "text": "август, 5. 2022 – 08–15"
+        },
+        {
+          "key": "В",
+          "text": "август, 2022, 5"
+        },
+        {
+          "key": "Г",
+          "text": "5, август, 2022 год"
+        }
+      ],
+      "answer": "А",
+      "sourceAnswer": "А",
+      "sourceEvidence": "PDF-069 / PDF-074 / PDF-075",
+      "sourceExplanation": "原书解析：日期写作：5 августа 2022 года。；译文：2022 年 8 月 5 日。",
+      "referenceExplanation": "参考解析（AI，待复核）：先识别材料中的语法结构或公文格式，再结合语境判断。",
+      "pitfalls": [
+        "先保留材料语境，再判断固定结构、格或书面格式。"
+      ],
+      "questionPages": [
+        69
+      ],
+      "answerPages": [
+        74,
+        75
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P6-Q043",
+      "printedNumber": 43,
+      "type": "single-choice",
+      "question": "…",
+      "options": [
+        {
+          "key": "А",
+          "text": "Уважаемому господину декану"
+        },
+        {
+          "key": "Б",
+          "text": "Господину декану"
+        },
+        {
+          "key": "В",
+          "text": "Уважаемому декану"
+        },
+        {
+          "key": "Г",
+          "text": "Декану медицинского факультета"
+        }
+      ],
+      "answer": "Г",
+      "sourceAnswer": "Г",
+      "sourceEvidence": "PDF-070 / PDF-074 / PDF-075",
+      "sourceExplanation": "原书解析：Декану 用第三格，表示写给系主任；这里不使用 Уважаемому。；译文：致医学系系主任。",
+      "referenceExplanation": "参考解析（AI，待复核）：先识别材料中的语法结构或公文格式，再结合语境判断。",
+      "pitfalls": [
+        "先保留材料语境，再判断固定结构、格或书面格式。"
+      ],
+      "questionPages": [
+        70
+      ],
+      "answerPages": [
+        74,
+        75
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P6-Q044",
+      "printedNumber": 44,
+      "type": "single-choice",
+      "question": "…",
+      "options": [
+        {
+          "key": "А",
+          "text": "госпожи студентки"
+        },
+        {
+          "key": "Б",
+          "text": "от госпожи студентки"
+        },
+        {
+          "key": "В",
+          "text": "от госпожи"
+        },
+        {
+          "key": "Г",
+          "text": "студентки Анны Ивановой"
+        }
+      ],
+      "answer": "Г",
+      "sourceAnswer": "Г",
+      "sourceEvidence": "PDF-070 / PDF-074 / PDF-075",
+      "sourceExplanation": "原书解析：студентки 用第二格，即 Объяснительная записка студентки Анны Ивановой。；译文：学生安娜·伊万诺娃。",
+      "referenceExplanation": "参考解析（AI，待复核）：先识别材料中的语法结构或公文格式，再结合语境判断。",
+      "pitfalls": [
+        "先保留材料语境，再判断固定结构、格或书面格式。"
+      ],
+      "questionPages": [
+        70
+      ],
+      "answerPages": [
+        74,
+        75
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P6-Q045",
+      "printedNumber": 45,
+      "type": "single-choice",
+      "question": "… этого года я находилась в городской больнице №5",
+      "options": [
+        {
+          "key": "А",
+          "text": "Май"
+        },
+        {
+          "key": "Б",
+          "text": "В мае"
+        },
+        {
+          "key": "В",
+          "text": "На май"
+        },
+        {
+          "key": "Г",
+          "text": "От мая"
+        }
+      ],
+      "answer": "Б",
+      "sourceAnswer": "Б",
+      "sourceEvidence": "PDF-070 / PDF-074 / PDF-075",
+      "sourceExplanation": "原书解析：в мае 表示“在五月”。；译文：今年五月我在市立第五医院。",
+      "referenceExplanation": "参考解析（AI，待复核）：先识别材料中的语法结构或公文格式，再结合语境判断。",
+      "pitfalls": [
+        "先保留材料语境，再判断固定结构、格或书面格式。"
+      ],
+      "questionPages": [
+        70
+      ],
+      "answerPages": [
+        74,
+        75
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P6-Q046",
+      "printedNumber": 46,
+      "type": "single-choice",
+      "question": "…",
+      "options": [
+        {
+          "key": "А",
+          "text": "на неделю"
+        },
+        {
+          "key": "Б",
+          "text": "в течение недели"
+        },
+        {
+          "key": "В",
+          "text": "за неделю"
+        },
+        {
+          "key": "Г",
+          "text": "Г неделю"
+        }
+      ],
+      "answer": "Б",
+      "sourceAnswer": "Б",
+      "sourceEvidence": "PDF-070 / PDF-074 / PDF-075",
+      "sourceExplanation": "原书解析：в течение недели 表示“一周的过程中”。；译文：住院一周。",
+      "referenceExplanation": "参考解析（AI，待复核）：先识别材料中的语法结构或公文格式，再结合语境判断。",
+      "pitfalls": [
+        "先保留材料语境，再判断固定结构、格或书面格式。"
+      ],
+      "questionPages": [
+        70
+      ],
+      "answerPages": [
+        74,
+        75
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P6-Q047",
+      "printedNumber": 47,
+      "type": "single-choice",
+      "question": "…",
+      "options": [
+        {
+          "key": "А",
+          "text": "от 15 до 22 мая"
+        },
+        {
+          "key": "Б",
+          "text": "по 15 по 22 мая"
+        },
+        {
+          "key": "В",
+          "text": "с 15 по 22 мая"
+        },
+        {
+          "key": "Г",
+          "text": "с 15 по 21 мая"
+        }
+      ],
+      "answer": "В",
+      "sourceAnswer": "В",
+      "sourceEvidence": "PDF-070 / PDF-074 / PDF-075",
+      "sourceExplanation": "原书解析：с 15 по 22 мая 包括 22 日，共 8 天。；译文：即 5 月 15 日至 22 日。",
+      "referenceExplanation": "参考解析（AI，待复核）：先识别材料中的语法结构或公文格式，再结合语境判断。",
+      "pitfalls": [
+        "先保留材料语境，再判断固定结构、格或书面格式。"
+      ],
+      "questionPages": [
+        70
+      ],
+      "answerPages": [
+        74,
+        75
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P6-Q048",
+      "printedNumber": 48,
+      "type": "single-choice",
+      "question": "…",
+      "options": [
+        {
+          "key": "А",
+          "text": "для лечения пневмонии"
+        },
+        {
+          "key": "Б",
+          "text": "от лечения пневмонии"
+        },
+        {
+          "key": "В",
+          "text": "по лечению пневмонии"
+        },
+        {
+          "key": "Г",
+          "text": "в лечении пневмонии"
+        }
+      ],
+      "answer": "А",
+      "sourceAnswer": "А",
+      "sourceEvidence": "PDF-070 / PDF-074 / PDF-075",
+      "sourceExplanation": "原书解析：для лечения пневмонии 表示“为了治疗肺炎”。；译文：为了治疗肺炎。",
+      "referenceExplanation": "参考解析（AI，待复核）：先识别材料中的语法结构或公文格式，再结合语境判断。",
+      "pitfalls": [
+        "先保留材料语境，再判断固定结构、格或书面格式。"
+      ],
+      "questionPages": [
+        70
+      ],
+      "answerPages": [
+        74,
+        75
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P6-Q049",
+      "printedNumber": 49,
+      "type": "single-choice",
+      "question": "…",
+      "options": [
+        {
+          "key": "А",
+          "text": "май, 25, 2022 г."
+        },
+        {
+          "key": "Б",
+          "text": "25 мая 2022 г."
+        },
+        {
+          "key": "В",
+          "text": "2022, май, 25"
+        },
+        {
+          "key": "Г",
+          "text": "25, май, 2022 г."
+        }
+      ],
+      "answer": "Б",
+      "sourceAnswer": "Б",
+      "sourceEvidence": "PDF-070 / PDF-074 / PDF-075",
+      "sourceExplanation": "原书解析：日期写作：25 мая 2022 г.。；译文：2022 年 5 月 25 日。",
+      "referenceExplanation": "参考解析（AI，待复核）：先识别材料中的语法结构或公文格式，再结合语境判断。",
+      "pitfalls": [
+        "先保留材料语境，再判断固定结构、格或书面格式。"
+      ],
+      "questionPages": [
+        70
+      ],
+      "answerPages": [
+        74,
+        75
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P6-Q050",
+      "printedNumber": 50,
+      "type": "single-choice",
+      "question": "…",
+      "options": [
+        {
+          "key": "А",
+          "text": "Анна"
+        },
+        {
+          "key": "Б",
+          "text": "С приветом Анна Иванова"
+        },
+        {
+          "key": "В",
+          "text": "Анна Иванова"
+        },
+        {
+          "key": "Г",
+          "text": "С дружеским приветом Анна Иванова"
+        }
+      ],
+      "answer": "В",
+      "sourceAnswer": "В",
+      "sourceEvidence": "PDF-070 / PDF-074 / PDF-075",
+      "sourceExplanation": "原书解析：Анна Иванова 是姓名，使用第一格。；译文：安娜·伊万诺娃。",
+      "referenceExplanation": "参考解析（AI，待复核）：先识别材料中的语法结构或公文格式，再结合语境判断。",
+      "pitfalls": [
+        "先保留材料语境，再判断固定结构、格或书面格式。"
+      ],
+      "questionPages": [
+        70
+      ],
+      "answerPages": [
+        74,
+        75
       ],
       "reviewStatus": "verified"
     }

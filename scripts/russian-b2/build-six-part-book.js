@@ -37,7 +37,8 @@ function buildPart(part, units, byExercise, studyCardIds) {
       answers: mergePages(selected, 'answers')
     },
     knowledgePoints: normalizeKnowledgePoints(part, byExercise, studyCardIds),
-    exercises: selected.flatMap(unit => unit.exercises)
+    contextGroups: selected.flatMap(unit => unit.contextGroups || []),
+    exercises: selected.flatMap(unit => unit.exercises).sort((left, right) => left.printedNumber - right.printedNumber)
   };
 }
 function loadPublished(root) {

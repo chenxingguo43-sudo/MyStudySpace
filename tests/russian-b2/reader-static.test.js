@@ -10,6 +10,13 @@ test('reader resolves textbook paths from metadata instead of a B2-specific bran
   assert.match(reader, /data\/textbook/);
 });
 
+test('reader plays reconstructed listening media with captions while retaining provenance', () => {
+  assert.match(reader, /function renderListeningPractice\(data, scrollPosition\)/);
+  assert.match(reader, /<audio controls>/);
+  assert.match(reader, /kind="subtitles"/);
+  assert.match(reader, /data\.media\.provenance/);
+});
+
 test('reader shows the textbook badge from metadata', () => {
   assert.match(reader, /b\.kind === 'textbook'/);
   assert.doesNotMatch(reader, /b\.id === 'reading_speaking'/);
@@ -130,6 +137,13 @@ test('reader renders the layered rich P2 card with anchored lessons and checks',
   assert.doesNotMatch(cardBody[1], /sourceAnswer|referenceExplanation|correctOption/);
 });
 
+test('reader renders retained P6 source materials before their linked question ranges', () => {
+  assert.match(reader, /function renderQuizContextGroups\(groups\)/);
+  assert.match(reader, /group\.materials/);
+  assert.match(reader, /contextGroupByExercise/);
+  assert.match(reader, /renderQuizContextGroup\(contextGroupByExercise\[exercise\.id\]\)/);
+});
+
 test('reader stores study-card self-test mastery separately from B2 wrong answers', () => {
   assert.match(reader, /STUDY_CARD_PROGRESS_KEY/);
   assert.match(reader, /russian_b2_study_card_progress_v1/);
@@ -143,4 +157,89 @@ test('reader stores study-card self-test mastery separately from B2 wrong answer
   const progressBody = reader.match(/function recordStudyCardAttempt\(cardId, result\) \{([\s\S]*?)\n\}/);
   assert.ok(progressBody);
   assert.doesNotMatch(progressBody[1], /getB2Progress|everWrong|wrongAnswerBook/);
+});
+
+test('reader gives reading practice its own answer-reveal flow', () => {
+  assert.match(reader, /function renderReadingPracticeChapter\(data(?:, scrollPosition)?\)/);
+  assert.match(reader, /function answerReadingQuestion\(questionId, selected\)/);
+  assert.match(reader, /function toggleReadingAnswer\(questionId\)/);
+  assert.match(reader, /reading-practice/);
+  const answerBody = reader.match(/function answerReadingQuestion\(questionId, selected\) \{([\s\S]*?)\n\}/);
+  assert.ok(answerBody);
+  assert.doesNotMatch(answerBody[1], /toggleReadingAnswer\(/);
+});
+
+test('reading interactions preserve scroll position and display source pages', () => {
+  assert.match(reader, /function rerenderReadingPracticePreservingScroll\(\)/);
+  const answerBody = reader.match(/function answerReadingQuestion\(questionId, selected\) \{([\s\S]*?)\n\}/);
+  const revealBody = reader.match(/function toggleReadingAnswer\(questionId\) \{([\s\S]*?)\n\}/);
+  assert.ok(answerBody && revealBody);
+  assert.match(answerBody[1], /rerenderReadingPracticePreservingScroll\(\)/);
+  assert.match(revealBody[1], /rerenderReadingPracticePreservingScroll\(\)/);
+  assert.match(reader, /data\.sourcePages/);
+  assert.match(reader, /原书原文页/);
+});
+
+test('textbook chapter titles come from metadata beyond quiz-first chapters', () => {
+  assert.match(reader, /curBook\.chapterTitles \? curBook\.chapterTitles\[i\]/);
+  assert.doesNotMatch(reader, /isQuizFirstBook\(curBook\) && curBook\.chapterTitles/);
+});
+
+test('reader provides a locally persisted writing workbench without browser-held credentials', () => {
+  assert.match(reader, /function renderWritingWorkbench\(data(?:, scrollPosition)?\)/);
+  assert.match(reader, /function saveWritingDraft\(taskId, value\)/);
+  assert.match(reader, /russian_b2_writing_drafts_v1/);
+  assert.match(reader, /function copyWritingFeedbackPrompt\(taskId\)/);
+  assert.match(reader, /writing-workbench/);
+  assert.doesNotMatch(reader, /OPENAI_API_KEY/);
+});
+
+test('interactive B2 workbenches are never marked complete merely by scrolling', () => {
+  assert.match(reader, /function shouldUseScrollCompletion\(\)/);
+  assert.match(reader, /reading-practice/);
+  assert.match(reader, /writing-workbench/);
+  assert.match(reader, /curBook\.format !== 'speaking-practice'/);
+  assert.match(reader, /curBook\.format !== 'listening-practice'/);
+  assert.match(reader, /if \(!shouldUseScrollCompletion\(\)\) return;/);
+});
+
+test('reader gives source-indexed exam chapters a distinct, non-fabricated exam view', () => {
+  assert.match(reader, /data\.format === 'exam-practice'/);
+  assert.match(reader, /renderExamPracticeChapter/);
+  assert.match(reader, /source-indexed/);
+});
+
+test('reader gives source-verified exam questions their own answer and progress flow', () => {
+  assert.match(reader, /EXAM_PROGRESS_KEY/);
+  assert.match(reader, /russian_b2_exam_progress_v1/);
+  assert.match(reader, /function answerExamQuestion\(questionId, selected\)/);
+  assert.match(reader, /function toggleExamAnswer\(questionId\)/);
+  assert.match(reader, /source-verified/);
+  assert.match(reader, /data\.questions/);
+});
+
+test('reader gives source-verified exam writing tasks local drafts without browser credentials', () => {
+  assert.match(reader, /EXAM_WRITING_DRAFTS_KEY/);
+  assert.match(reader, /russian_b2_exam_writing_drafts_v1/);
+  assert.match(reader, /function saveExamWritingDraft\(taskId, value\)/);
+  assert.match(reader, /function renderExamWritingTask\(task\)/);
+  assert.doesNotMatch(reader, /exam.*OPENAI_API_KEY/i);
+});
+
+test('reader exposes a scoped B2 archive export and merge-only import flow', () => {
+  assert.match(reader, /js\/russian-b2\/dashboard\.js/);
+  assert.match(reader, /function exportB2LearningArchive\(\)/);
+  assert.match(reader, /function importB2LearningArchive\(event\)/);
+  assert.match(reader, /RussianB2Dashboard\.createArchive/);
+  assert.match(reader, /RussianB2Dashboard\.validateArchive/);
+  assert.match(reader, /RussianB2Dashboard\.mergeArchive/);
+  assert.match(reader, /学习记录备份/);
+});
+
+test('reader renders approved reading learning support separately from original questions', () => {
+  assert.match(reader, /function renderReadingLearningSupport\(data\)/);
+  assert.match(reader, /学习辅助·逐段译文/);
+  assert.match(reader, /学习辅助·文章结构/);
+  assert.match(reader, /学习辅助·可复用表达/);
+  assert.match(reader, /data\.translationStatus === 'learning-support-approved'/);
 });

@@ -35,11 +35,12 @@ test('published navigation covers every published exercise once in original part
   const { navigation, units } = loadPublishedNavigationFixture();
   assert.deepEqual(validateStudyNavigation({ navigation, units }), []);
   assert.equal(navigation.parts.length, 6);
-  assert.deepEqual(navigation.parts.find(part => part.id === 'p6').unitIds, ['p6-q001-q028', 'p6-q029-q036']);
+  assert.deepEqual(navigation.parts.find(part => part.id === 'p6').unitIds, ['p6-q001-q028', 'p6-context-q009-q050', 'p6-q029-q036']);
 
   const byExercise = new Map(units.flatMap(unit => unit.exercises.map(exercise => [exercise.id, { exercise, unit }])));
   for (const part of navigation.parts) {
-    const expected = units.filter(unit => unit.part === part.part).flatMap(unit => unit.exercises).map(exercise => exercise.id);
+    const expected = units.filter(unit => unit.part === part.part).flatMap(unit => unit.exercises)
+      .sort((left, right) => left.printedNumber - right.printedNumber).map(exercise => exercise.id);
     const actual = part.knowledgePoints.flatMap(point => getStudyPointExerciseIds(point, part.part, byExercise));
     assert.deepEqual(actual, expected, part.id + ' must cover each published exercise once in order');
   }
@@ -52,4 +53,11 @@ test('six-part builder preserves all published exercises and their stable order'
   assert.deepEqual(p2.exercises.slice(54, 58).map(item => item.id), ['P2-Q055', 'P2-Q056', 'P2-Q057', 'P2-Q058']);
   const ids = result.parts.flatMap(part => part.exercises.map(item => item.id));
   assert.equal(new Set(ids).size, ids.length);
+});
+
+test('P6 is a continuous 50-question part with retained source-material groups', () => {
+  const result = buildSixPartBook({ root: ROOT, write: false });
+  const p6 = result.parts.find(part => part.id === 'p6');
+  assert.deepEqual(p6.exercises.map(exercise => exercise.printedNumber), Array.from({ length: 50 }, (_, index) => index + 1));
+  assert.deepEqual(p6.contextGroups.map(group => group.exerciseIds.length), [18, 14]);
 });
