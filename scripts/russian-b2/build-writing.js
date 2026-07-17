@@ -1,5 +1,6 @@
 const fs = require('node:fs');
 const path = require('node:path');
+const { validateWritingTask } = require('./lib/listening-writing-contracts');
 
 const WRITING_DIR = path.join('俄语资料库', '俄语B2·原书复刻与学习版', '规范数据', '写作');
 
@@ -20,6 +21,7 @@ function validateWritingUnit(unit) {
   if (!unit.format || !Array.isArray(unit.format.requiredBlocks) || !unit.format.requiredBlocks.length) errors.push(`${unit.id}: missing format blocks`);
   if (!unit.model || !unit.model.text || !unit.model.source || unit.model.source.kind !== 'b2-original') errors.push(`${unit.id}: model must retain B2-original source`);
   if (!unit.studySupport || unit.studySupport.label !== '学习辅助') errors.push(`${unit.id}: study support must be labelled 学习辅助`);
+  if (unit.source) errors.push(...validateWritingTask(unit));
   return errors;
 }
 
@@ -38,11 +40,14 @@ function toReaderChapter(unit) {
     format: 'writing-workbench',
     title: unit.title,
     sourcePages: unit.sourcePages,
+    source: unit.source,
     reviewStatus: unit.reviewStatus,
     task: unit.task,
+    materials: unit.materials || [],
     formatGuide: unit.format,
     model: unit.model,
     studySupport: unit.studySupport,
+    rubric: unit.rubric || [],
     ai: { mode: 'server-or-copy-prompt', rubric: unit.rubric || [] }
   };
 }

@@ -3,12 +3,12 @@
   "title": "俄语 B2 全模块",
   "format": "b2-full",
   "modules": [
-    { "id": "grammar", "title": "语法词汇", "status": "available" },
-    { "id": "reading", "title": "阅读", "status": "planned" },
-    { "id": "writing", "title": "写作", "status": "planned" },
-    { "id": "listening", "title": "听力", "status": "planned" },
-    { "id": "speaking", "title": "会话", "status": "planned" },
-    { "id": "exam", "title": "真题模拟", "status": "planned" },
-    { "id": "review", "title": "统一复习", "status": "planned" }
+    { "id": "grammar", "title": "语法词汇", "status": "available", "format": "quiz-first", "dir": "russian_b2", "chapters": 6, "chapterTitles": ["P1 句法一致与动词体", "P2 名词、形容词与接格", "P3 形动词与副动词", "P4 复句连接与指代", "P5 构词、词义辨析与无人称结构", "P6 独立语法题与报刊语体"], "unitIds": ["p1", "p2", "p3", "p4", "p5", "p6"] },
+    { "id": "reading", "title": "阅读", "status": "available", "format": "reading-practice", "dir": "russian_b2/modules/reading", "chapters": 10 },
+    { "id": "writing", "title": "写作", "status": "available", "format": "writing-workbench", "dir": "russian_b2/modules/writing", "chapters": 13 },
+    { "id": "listening", "title": "听力", "status": "available", "format": "listening-practice", "dir": "russian_b2/modules/listening", "chapters": 5 },
+    { "id": "speaking", "title": "会话", "status": "available", "format": "speaking-practice", "dir": "russian_b2/modules/speaking", "chapters": 6 },
+    { "id": "exam", "title": "真题模拟", "status": "available", "format": "exam-practice", "dir": "russian_b2/modules/exam", "chapters": 5 },
+    { "id": "review", "title": "统一复习", "status": "available", "format": "b2-review", "dir": "russian_b2", "chapters": 0 }
   ]
 }

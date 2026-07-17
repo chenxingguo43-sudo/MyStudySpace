@@ -2,47 +2,55 @@
   "id": "dialogues",
   "title": "任务 1–5 · 对话",
   "reviewStatus": "source-verified",
-  "sourcePages": [
-    104,
-    105
-  ],
+  "sourcePages": [104, 105],
+  "instructionsRu": "Задания 1–5. Прослушайте начальные реплики диалога двух людей при их встрече и выберите вариант ответа к каждому из заданий.",
   "transcriptSegments": [
-    {
-      "speaker": "原书录音材料",
-      "text": "A: Привет! Б: Как дела? A: Какие тут дела! Ну и погодка у нас в Петербурге то дождь пойдет, то солнце светит. А эти прогнозы погоды, они всегда ошибаются. Возьмешь зонтик, точно не будет дождя. Не возьмешь, обязательно промокнешь до нитки. И так бы хотелось, чтобы настроение не зависело от погоды."
-    }
+    { "id": "dialogues-s01", "speaker": "A", "displayLabel": "А", "text": "Привет!", "speechText": "Привет!", "voice": "ru-RU-DmitryNeural", "pauseAfterMs": 450 },
+    { "id": "dialogues-s02", "speaker": "B", "displayLabel": "Б", "text": "Как дела?", "speechText": "Как дела?", "voice": "ru-RU-SvetlanaNeural", "pauseAfterMs": 450 },
+    { "id": "dialogues-s03", "speaker": "A", "displayLabel": "А", "text": "Какие тут дела!", "speechText": "Какие тут дела!", "voice": "ru-RU-DmitryNeural", "pauseAfterMs": 180 },
+    { "id": "dialogues-s04", "speaker": "A", "displayLabel": "А", "text": "Ну и погодка у нас в Петербурге: то дождь пойдет, то солнце светит.", "speechText": "Ну и погодка у нас в Петербурге: то дождь пойдет, то солнце светит.", "voice": "ru-RU-DmitryNeural", "pauseAfterMs": 180 },
+    { "id": "dialogues-s05", "speaker": "A", "displayLabel": "А", "text": "А эти прогнозы погоды, они всегда ошибаются.", "speechText": "А эти прогнозы погоды, они всегда ошибаются.", "voice": "ru-RU-DmitryNeural", "pauseAfterMs": 180 },
+    { "id": "dialogues-s06", "speaker": "A", "displayLabel": "А", "text": "Возьмешь зонтик — точно не будет дождя.", "speechText": "Возьмешь зонтик — точно не будет дождя.", "voice": "ru-RU-DmitryNeural", "pauseAfterMs": 180 },
+    { "id": "dialogues-s07", "speaker": "A", "displayLabel": "А", "text": "Не возьмешь — обязательно промокнешь до нитки.", "speechText": "Не возьмешь — обязательно промокнешь до нитки.", "voice": "ru-RU-DmitryNeural", "pauseAfterMs": 180 },
+    { "id": "dialogues-s08", "speaker": "A", "displayLabel": "А", "text": "И так бы хотелось, чтобы настроение не зависело от погоды.", "speechText": "И так бы хотелось, чтобы настроение не зависело от погоды.", "voice": "ru-RU-DmitryNeural", "pauseAfterMs": 0 }
   ],
   "questions": [
     {
-      "id": "l01",
-      "prompt": "天气在彼得堡……",
-      "answer": "А"
+      "id": "B2-LISTEN-T01-Q01", "printedNumber": 1,
+      "prompt": "说话者认为彼得堡的天气……", "promptRu": "Говорящий считает, что погода в Петербурге ...",
+      "options": [{ "key": "А", "text": "очень часто меняется" }, { "key": "Б", "text": "слишком дождливая" }, { "key": "В", "text": "всегда солнечная" }],
+      "answer": "А", "evidence": { "pages": [104, 105], "quote": "то дождь пойдет, то солнце светит" }
     },
     {
-      "id": "l02",
-      "prompt": "说话者认为天气预报……",
-      "answer": "Б"
+      "id": "B2-LISTEN-T01-Q02", "printedNumber": 2,
+      "prompt": "说话者认为天气预报……", "promptRu": "По мнению говорящего, прогнозы погоды ...",
+      "options": [{ "key": "А", "text": "всегда сбываются" }, { "key": "Б", "text": "иногда ошибаются" }, { "key": "В", "text": "никогда не бывают верными" }],
+      "answer": "Б", "evidence": { "pages": [104, 105], "quote": "эти прогнозы погоды, они всегда ошибаются" }
     },
     {
-      "id": "l03",
-      "prompt": "说话者希望……",
-      "answer": "Б"
+      "id": "B2-LISTEN-T01-Q03", "printedNumber": 3,
+      "prompt": "说话者希望……", "promptRu": "Говорящий хотел бы, чтобы ...",
+      "options": [{ "key": "А", "text": "прогнозы погоды всегда сбывались" }, { "key": "Б", "text": "его настроение не определялось погодой" }, { "key": "В", "text": "в Петербурге реже шел дождь" }],
+      "answer": "Б", "evidence": { "pages": [104, 105], "quote": "чтобы настроение не зависело от погоды" }
     },
     {
-      "id": "l04",
-      "prompt": "说话者的话表达……",
-      "answer": "Б"
+      "id": "B2-LISTEN-T01-Q04", "printedNumber": 4,
+      "prompt": "说话者谈论天气时流露出……", "promptRu": "В словах говорящего о погоде звучит ...",
+      "options": [{ "key": "А", "text": "возмущение" }, { "key": "Б", "text": "сожаление" }, { "key": "В", "text": "безразличие" }],
+      "answer": "Б", "evidence": { "pages": [104, 105], "quote": "И так бы хотелось, чтобы настроение не зависело от погоды" }
     },
     {
-      "id": "l05",
-      "prompt": "两位说话者……",
-      "answer": "А"
+      "id": "B2-LISTEN-T01-Q05", "printedNumber": 5,
+      "prompt": "说话者与其交谈对象……", "promptRu": "Говорящий и его собеседник ...",
+      "options": [{ "key": "А", "text": "люди одного социального статуса" }, { "key": "Б", "text": "люди разного возраста и социального положения" }, { "key": "В", "text": "мало знакомы друг с другом" }],
+      "answer": "А", "evidence": { "pages": [105], "quote": "Привет! Как дела?" }
     }
   ],
   "media": {
     "provenance": "reconstructed-tts",
     "file": "media/listening/dialogues.mp3",
     "captions": "media/listening/dialogues.vtt",
-    "voice": "ru-RU-SvetlanaNeural"
+    "voices": { "A": "ru-RU-DmitryNeural", "B": "ru-RU-SvetlanaNeural" },
+    "generationRule": "display labels remain visible; speechText excludes speaker labels"
   }
 }

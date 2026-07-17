@@ -66,10 +66,10 @@ test('exam writing keeps the three original tasks with their distinct genre and 
   assert.ok(writing.tasks.every(task => task.prompt.length > 50 && task.source.kind === 'b2-original'));
 });
 
-test('exam shelf metadata distinguishes published subtests from source-indexed ones', () => {
-  const catalogue = JSON.parse(fs.readFileSync(path.join('data', 'textbook', 'index.json'), 'utf8'));
-  const examBook = catalogue.books.find(book => book.id === 'russian_b2_exam');
-  assert.ok(examBook);
-  assert.match(examBook.description, /阅读与写作/);
-  assert.match(examBook.description, /来源索引/);
+test('exam module remains source-indexed inside the unified B2 dashboard', () => {
+  const dashboard = JSON.parse(fs.readFileSync(path.join('data', 'textbook', 'russian_b2', 'book.json'), 'utf8'));
+  const examModule = dashboard.modules.find(module => module.id === 'exam');
+  assert.ok(examModule);
+  assert.equal(examModule.format, 'exam-practice');
+  assert.equal(examModule.chapters, 5);
 });

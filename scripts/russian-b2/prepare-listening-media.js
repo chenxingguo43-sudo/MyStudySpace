@@ -14,12 +14,23 @@ function prepareListeningMedia({ root, write = false }) {
   const units = index.units.map(fileName => {
     const filePath = path.join(sourceDir, fileName);
     const unit = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+    const segmentVoices = Object.fromEntries(
+      (unit.transcriptSegments || [])
+        .filter(segment => segment.displayLabel && segment.voice)
+        .map(segment => [segment.displayLabel, segment.voice])
+    );
     unit.media = {
+      ...unit.media,
       provenance: 'reconstructed-tts',
       file: `media/listening/${unit.id}.mp3`,
-      captions: `media/listening/${unit.id}.vtt`,
-      voice: 'ru-RU-SvetlanaNeural'
+      captions: `media/listening/${unit.id}.vtt`
     };
+    if (Object.keys(segmentVoices).length > 1) {
+      unit.media.voices = segmentVoices;
+      delete unit.media.voice;
+    } else if (!unit.media.voice) {
+      unit.media.voice = Object.values(segmentVoices)[0] || 'ru-RU-SvetlanaNeural';
+    }
     if (write) fs.writeFileSync(filePath, `${JSON.stringify(unit, null, 2)}\n`, 'utf8');
     return unit;
   });

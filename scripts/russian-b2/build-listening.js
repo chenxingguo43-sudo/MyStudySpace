@@ -1,5 +1,6 @@
 const fs = require('node:fs');
 const path = require('node:path');
+const { validateListeningQuestion, validateListeningSegments } = require('./lib/listening-writing-contracts');
 const LISTENING_DIR = path.join('俄语资料库', '俄语B2·原书复刻与学习版', '规范数据', '听力');
 const readJson = file => JSON.parse(fs.readFileSync(file, 'utf8'));
 function validateListeningUnit(unit) {
@@ -9,6 +10,8 @@ function validateListeningUnit(unit) {
   if (!Array.isArray(unit.transcriptSegments) || !unit.transcriptSegments.length) errors.push(`${unit.id}: transcript required`);
   if (!Array.isArray(unit.questions) || unit.questions.length !== 5) errors.push(`${unit.id}: five questions required`);
   if (unit.questions && unit.questions.some(q => !q.answer || !q.prompt)) errors.push(`${unit.id}: question answer and prompt required`);
+  if (unit.questions) errors.push(...unit.questions.flatMap(validateListeningQuestion));
+  if (unit.id === 'dialogues') errors.push(...validateListeningSegments(unit));
   if (unit.media?.provenance !== 'reconstructed-tts') errors.push(`${unit.id}: reconstructed TTS provenance required`);
   return errors;
 }
