@@ -55,6 +55,18 @@ test('six-part builder preserves all published exercises and their stable order'
   assert.equal(new Set(ids).size, ids.length);
 });
 
+test('P2-Q030 preserves the four source-verified interference options across its page break', () => {
+  const result = buildSixPartBook({ root: ROOT, write: false });
+  const exercise = result.parts.find(part => part.id === 'p2').exercises.find(item => item.id === 'P2-Q030');
+  assert.deepEqual(exercise.options, [
+    { key: 'А', text: 'мои дела' },
+    { key: 'Б', text: 'моим делам' },
+    { key: 'В', text: 'в мои дела' },
+    { key: 'Г', text: 'к моим делам' }
+  ]);
+  assert.deepEqual(exercise.questionPages, [20, 21]);
+});
+
 test('P6 is a continuous 50-question part with retained source-material groups', () => {
   const result = buildSixPartBook({ root: ROOT, write: false });
   const p6 = result.parts.find(part => part.id === 'p6');
