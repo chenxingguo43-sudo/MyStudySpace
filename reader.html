@@ -268,6 +268,20 @@ body {
 .b2-options label { padding: 10px 14px; border: 1px solid var(--border); cursor: pointer; }
 .b2-options input:focus-visible + label { outline: 3px solid var(--accent); outline-offset: 2px; }
 .b2-options input:checked + label { border-color: var(--accent); background: var(--accent-dim); }
+.b2-option-row { display: flex; align-items: stretch; gap: 10px; min-height: 44px; }
+.b2-option-radio {
+  flex: 0 0 44px; min-height: 44px; border: 1px solid var(--border); border-radius: 9px;
+  background: var(--glass); color: var(--text); cursor: pointer; font-weight: 700;
+}
+.b2-option-radio[aria-checked="true"] { border-color: var(--accent); background: var(--accent-dim); color: var(--accent); }
+.b2-option-radio:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.b2-option-radio:disabled { cursor: default; opacity: 0.7; }
+.b2-option-text { flex: 1; padding: 10px 14px; border: 1px solid var(--border); border-radius: 9px; }
+.b2-option-row.correct .b2-option-text { border-color: var(--success); }
+.b2-option-row.wrong .b2-option-text { border-color: #ef4444; }
+.b2-study-check-choice { display: flex; align-items: center; gap: 8px; margin: 6px 0; }
+.b2-study-check-choice > button { flex: 0 0 36px; min-height: 36px; }
+.b2-study-check-choice > span { flex: 1; }
 .b2-confirm, .b2-explanation-toggle, .b2-finish { border: 1px solid var(--accent-border); background: var(--accent-dim); color: var(--text); padding: 8px 14px; cursor: pointer; font: inherit; }
 .b2-confirm:disabled, .b2-explanation-toggle:disabled { opacity: 0.45; cursor: not-allowed; }
 .b2-result.is-correct, .b2-result.is-wrong { font-weight: 700; margin-top: 12px; }
@@ -1212,6 +1226,18 @@ function fetchStudyCard(pointId) {
     return response.json();
   });
 }
+function lookupContext(moduleId, taskId, regionType, sentenceRu, sentenceZh, sourcePages) {
+  return {
+    bookId: curBook && curBook.id || '',
+    moduleId: moduleId || '',
+    taskId: taskId || '',
+    regionType: regionType || '',
+    sentenceRu: sentenceRu || '',
+    sentenceZh: sentenceZh || '',
+    sourceLabel: 'B2 原书',
+    sourcePages: Array.isArray(sourcePages) ? sourcePages : []
+  };
+}
 function getStudyCardProgress(partId, exerciseIds) {
   var records = getB2Progress()['russian_b2:' + partId] || {};
   return exerciseIds.reduce(function(total, exerciseId) {
@@ -1252,13 +1278,14 @@ function renderStudyCheck(check, index) {
   var cardId = check._cardId || '';
   var safeCardId = escapeHtml(cardId || ''), safeCheckId = escapeHtml(check.id || ('check-' + index));
   var controls = '';
-  if (check.type === 'choice') controls = (check.options || []).map(function(option) {
+  if (check.type === 'choice') controls = (check.options || []).map(function(option, optionIndex) {
     var value = escapeHtml(String(option)).replace(/'/g, '&#39;');
-    return '<button type="button" onclick="answerStudyCheck(\'' + safeCardId + '\',\'' + safeCheckId + '\',\'' + value + '\')">' + escapeHtml(String(option)) + '</button>';
+    var context = lookupContext('grammar', cardId, 'study-check-option', String(option), '', check.source && check.source.pages || []);
+    return '<span class="b2-study-check-choice"><button type="button" aria-label="选择选项 ' + (optionIndex + 1) + '" onclick="answerStudyCheck(\'' + safeCardId + '\',\'' + safeCheckId + '\',\'' + value + '\')">' + (optionIndex + 1) + '</button><span>' + renderRuText(String(option), context) + '</span></span>';
   }).join('');
   else if (check.type === 'judgment') controls = '<button type="button" onclick="answerStudyCheck(\'' + safeCardId + '\',\'' + safeCheckId + '\',\'true\')">正确</button><button type="button" onclick="answerStudyCheck(\'' + safeCardId + '\',\'' + safeCheckId + '\',\'false\')">错误</button>';
   else controls = '<button type="button" onclick="answerStudyCheck(\'' + safeCardId + '\',\'' + safeCheckId + '\',\'reveal\')">展开答案与依据</button>';
-  return '<div class="b2-study-check" data-study-check-id="' + safeCheckId + '"><strong>' + (check.type === 'reveal' ? '先思考，再展开' : '即时检查') + '</strong><p>' + escapeHtml(check.prompt || '') + '</p><div class="b2-study-check-options">' + controls + '</div><div class="b2-study-check-result" data-study-result="' + safeCheckId + '">答案默认隐藏。</div></div>';
+  return '<div class="b2-study-check" data-study-check-id="' + safeCheckId + '"><strong>' + (check.type === 'reveal' ? '先思考，再展开' : '即时检查') + '</strong><p>' + renderRuText(check.prompt || '', lookupContext('grammar', cardId, 'study-check-prompt', check.prompt || '', '', check.source && check.source.pages || [])) + '</p><div class="b2-study-check-options">' + controls + '</div><div class="b2-study-check-result" data-study-result="' + safeCheckId + '">答案默认隐藏。</div></div>';
 }
 function renderStudyChecks(card) {
   studyCardCheckRegistry[card.id] = card;
@@ -1324,43 +1351,44 @@ function renderStudyQuickLayer(card) {
     '<p>' + escapeHtml(card.overview || '') + '</p>' +
     '<h3>先问自己</h3><ul>' + (quick.semanticQuestions || card.decisionSteps || []).map(function(item) { return '<li>' + escapeHtml(item) + '</li>'; }).join('') + '</ul>' +
     '<div class="b2-study-rule-grid">' + structures.map(function(item) {
-      if (typeof item === 'string') return '<article class="b2-study-rule"><strong>' + escapeHtml(item) + '</strong></article>';
-      return '<article class="b2-study-rule"><strong>' + escapeHtml(item.question || '') + '</strong><p>' + escapeHtml(item.structure || '') + '</p><p>' + escapeHtml(item.shortcut || '') + '</p></article>';
+      if (typeof item === 'string') return '<article class="b2-study-rule"><strong>' + renderRuText(item, lookupContext('grammar', card.id, 'study-structure', item)) + '</strong></article>';
+      return '<article class="b2-study-rule"><strong>' + escapeHtml(item.question || '') + '</strong><p>' + renderRuText(item.structure || '', lookupContext('grammar', card.id, 'study-structure', item.structure || '')) + '</p><p>' + escapeHtml(item.shortcut || '') + '</p></article>';
     }).join('') + '</div>' +
     (quick.comparison ? '<p><strong>最小易混对比：</strong>' + escapeHtml(quick.comparison) + '</p>' : '') +
     (quick.mnemonic ? '<p><strong>做题口诀：</strong>' + escapeHtml(quick.mnemonic) + '</p>' : '') + '</section>';
 }
-function renderStudyCaseChanges(changes) {
+function renderStudyCaseChanges(changes, cardId) {
   if (!changes || !changes.length) return '';
   return '<div class="b2-study-case-grid">' + changes.map(function(change) {
-    return '<div class="b2-study-case-change"><code>' + escapeHtml(change.from || '') + '</code><span> → </span><code>' + escapeHtml(change.to || '') + '</code></div>';
+    return '<div class="b2-study-case-change"><code>' + renderRuText(change.from || '', lookupContext('grammar', cardId, 'study-case-change', change.from || '')) + '</code><span> → </span><code>' + renderRuText(change.to || '', lookupContext('grammar', cardId, 'study-case-change', change.to || '')) + '</code></div>';
   }).join('') + '</div>';
 }
 function renderStudyLesson(lesson, index) {
   var related = lesson.scope === 'related-extension' ? ' related' : '';
   var examples = (lesson.examples || []).map(function(item) {
-    return '<article class="b2-study-example"><p class="ru">' + escapeHtml(item.ru || '') + '</p><p class="zh">' + escapeHtml(item.zh || '') + '</p>' + renderStudySourceDisclosure(item.source) + '</article>';
+    var context = lookupContext('grammar', lesson.cardId, 'study-example', item.ru || '', item.zh || '', item.source && item.source.pages || []);
+    return '<article class="b2-study-example"><p class="ru">' + renderRuText(item.ru || '', context) + '</p><p class="zh">' + escapeHtml(item.zh || '') + '</p>' + renderStudySourceDisclosure(item.source) + '</article>';
   }).join('');
   var checks = (lesson.instantChecks || []).map(function(check, checkIndex) { return renderStudyCheck(Object.assign({ _cardId: lesson.cardId || '' }, check), checkIndex); }).join('');
   return '<section class="b2-study-lesson' + related + '" id="study-lesson-' + escapeHtml(lesson.id) + '"><h2>' + escapeHtml((index + 1) + '. ' + lesson.title) + '</h2>' +
     '<p>' + escapeHtml(lesson.meaning || '') + '</p><h3>使用条件</h3><ul class="b2-study-conditions">' + (lesson.conditions || []).map(function(item) { return '<li>' + escapeHtml(item) + '</li>'; }).join('') + '</ul>' +
-    '<h3>结构公式</h3><p><strong>' + escapeHtml(lesson.structure || '') + '</strong></p><h3>就地格变化</h3>' + renderStudyCaseChanges(lesson.caseChanges) +
+    '<h3>结构公式</h3><p><strong>' + renderRuText(lesson.structure || '', lookupContext('grammar', lesson.cardId, 'study-structure', lesson.structure || '')) + '</strong></p><h3>就地格变化</h3>' + renderStudyCaseChanges(lesson.caseChanges, lesson.cardId) +
     '<h3>例句</h3>' + examples + '<h3>易错边界</h3><ul class="b2-study-boundaries">' + (lesson.boundaries || []).map(function(item) { return '<li>' + escapeHtml(item) + '</li>'; }).join('') + '</ul>' + checks + '</section>';
 }
 function renderStudyLessons(card) {
   var lessons = card.lessons || [];
   return lessons.length ? '<section aria-label="详细学习">' + lessons.map(function(lesson, index) { return renderStudyLesson(Object.assign({ cardId: card.id }, lesson), index); }).join('') + '</section>' : '';
 }
-function renderStudyComparisons(comparisons) {
+function renderStudyComparisons(comparisons, cardId) {
   if (!comparisons || !comparisons.length) return '';
   return '<section class="b2-study-section"><h2>易混对比</h2>' + comparisons.map(function(item) {
-    return '<article class="b2-study-comparison"><strong>' + escapeHtml(item.left) + '</strong> / <strong>' + escapeHtml(item.right) + '</strong><p>' + escapeHtml(item.note) + '</p>' + renderStudySource(item.source) + '</article>';
+    return '<article class="b2-study-comparison"><strong>' + renderRuText(item.left, lookupContext('grammar', cardId, 'study-comparison', item.left)) + '</strong> / <strong>' + renderRuText(item.right, lookupContext('grammar', cardId, 'study-comparison', item.right)) + '</strong><p>' + escapeHtml(item.note) + '</p>' + renderStudySource(item.source) + '</article>';
   }).join('') + '</section>';
 }
-function renderStudyExamples(examples) {
+function renderStudyExamples(examples, cardId) {
   if (!examples || !examples.length) return '';
   return '<section class="b2-study-section"><h2>语法书例句</h2>' + examples.map(function(item) {
-    return '<article class="b2-study-example"><p class="ru">' + escapeHtml(item.ru) + '</p><p class="zh">' + escapeHtml(item.zh) + '</p>' + renderStudySource(item.source) + '</article>';
+    return '<article class="b2-study-example"><p class="ru">' + renderRuText(item.ru, lookupContext('grammar', cardId, 'study-example', item.ru, item.zh, item.source && item.source.pages || [])) + '</p><p class="zh">' + escapeHtml(item.zh) + '</p>' + renderStudySource(item.source) + '</article>';
   }).join('') + '</section>';
 }
 function renderStudyPitfalls(pitfalls) {
@@ -1371,7 +1399,7 @@ function renderStudyCard(card, point) {
   var progress = getStudyCardProgress(card.partId, card.exerciseIds);
   var quizIds = escapeHtml(JSON.stringify(card.exerciseIds)).replace(/"/g, '&quot;');
   var rules = card.rules.map(function(rule) {
-    return '<article class="b2-study-rule"><strong>' + escapeHtml(rule.structure) + '</strong><p>' + escapeHtml(rule.meaning) + '</p>' + renderStudySource(rule.source) + '</article>';
+    return '<article class="b2-study-rule"><strong>' + renderRuText(rule.structure, lookupContext('grammar', card.id, 'study-structure', rule.structure, '', rule.source && rule.source.pages || [])) + '</strong><p>' + escapeHtml(rule.meaning) + '</p>' + renderStudySource(rule.source) + '</article>';
   }).join('');
   var richBody = card.lessons ? renderStudyQuickLayer(card) + renderStudyAnchorNav(card) + renderStudyLessons(card) :
     '<section class="b2-study-section"><h2>这一组题考什么</h2><p>' + escapeHtml(card.overview) + '</p></section>' +
@@ -1380,7 +1408,7 @@ function renderStudyCard(card, point) {
   return '<div class="main-container b2-study-card"><button class="tb-btn" onclick="goChapter(' + (card.partId.slice(1) - 1) + ')">← 返回 ' + escapeHtml(card.partId.toUpperCase()) + '</button>' +
     '<header class="b2-quiz-header"><h1>' + escapeHtml(card.title) + '</h1><p>对应练习：' + escapeHtml(formatQuestionRange(card.exerciseIds)) + '</p><div class="b2-study-status">已答 ' + progress.answered + ' · 历史错 ' + progress.everWrong + ' · 待掌握 ' + progress.pending + '</div></header>' +
     richBody +
-    (card.lessons ? renderStudyChecks(card) : '') + renderStudyComparisons(card.comparisons) + renderStudyExamples(card.examples) + renderStudyPitfalls(card.pitfalls) +
+    (card.lessons ? renderStudyChecks(card) : '') + renderStudyComparisons(card.comparisons, card.id) + renderStudyExamples(card.examples, card.id) + renderStudyPitfalls(card.pitfalls) +
     '<section class="b2-study-actions"><button class="b2-finish" onclick="openStudyCardPractice(\'' + card.partId + '\',' + quizIds + ',false)">做本知识点全部题目</button><button class="b2-finish" onclick="openStudyCardPractice(\'' + card.partId + '\',' + quizIds + ',true)">只重做本点错题</button><button class="b2-finish" onclick="showWrongAnswerBook(\'' + card.partId + '\',\'' + escapeHtml(point.title) + '\')">查看错题本</button></section></div>';
 }
 function showStudyCard(partId, pointId) {
@@ -1468,21 +1496,26 @@ function renderQuizExplanation(exercise) {
   var questionPages = exercise.questionPages.map(function(page) { return 'PDF-' + String(page).padStart(3, '0'); }).join('、');
   var answerPages = exercise.answerPages.map(function(page) { return 'PDF-' + String(page).padStart(3, '0'); }).join('、');
   return '<p><strong>原书答案（已核对）</strong><br>' + escapeHtml(exercise.sourceAnswer) + '</p>' +
-    '<p><strong>原书解析（已核对）</strong><br>' + escapeHtml(exercise.sourceExplanation) + '</p>' +
-    '<p><strong>参考解析（AI，待复核）</strong><br>' + escapeHtml(exercise.referenceExplanation) + '</p>' +
+    '<p><strong>原书解析（已核对）</strong><br>' + renderRuText(exercise.sourceExplanation, lookupContext('grammar', exercise.id, 'quiz-explanation', exercise.sourceExplanation, '', exercise.answerPages)) + '</p>' +
+    '<p><strong>参考解析（AI，待复核）</strong><br>' + renderRuText(exercise.referenceExplanation, lookupContext('grammar', exercise.id, 'quiz-explanation', exercise.referenceExplanation, '', exercise.answerPages)) + '</p>' +
     '<p><strong>易错点</strong><br>' + escapeHtml(exercise.pitfalls.join('；')) + '</p>' +
     '<p><strong>原书页</strong><br>' + escapeHtml(questionPages + '；' + answerPages) + '</p>';
 }
+function renderLookupOption(exercise, option, record) {
+  var selected = record.selected === option.key;
+  var state = record.submitted ? (option.key === exercise.answer ? ' correct' : selected ? ' wrong' : '') : '';
+  var pages = (exercise.questionPages || []).concat(exercise.answerPages || []);
+  var context = lookupContext('grammar', exercise.id, 'quiz-option', option.text, '', pages);
+  return '<div class="b2-option-row' + state + '">' +
+    '<button type="button" class="b2-option-radio" role="radio" aria-checked="' + (selected ? 'true' : 'false') + '" aria-label="选择 ' + escapeHtml(option.key) + '" onclick="submitQuizOption(\'' + escapeHtml(exercise.id) + '\',\'' + escapeHtml(option.key) + '\')"' + (record.submitted ? ' disabled' : '') + '>' + escapeHtml(option.key) + '.</button>' +
+    '<span class="b2-option-text">' + renderRuText(option.text, context) + '</span></div>';
+}
 function renderQuizItem(exercise, record) {
   var html = '<section class="b2-quiz-item" data-question-id="' + escapeHtml(exercise.id) + '">';
-  html += '<h3>' + escapeHtml(exercise.id) + '. ' + escapeHtml(exercise.question) + '</h3>';
+  html += '<h3>' + escapeHtml(exercise.id) + '. ' + renderRuText(exercise.question, lookupContext('grammar', exercise.id, 'quiz-prompt', exercise.question, '', exercise.questionPages)) + '</h3>';
   html += '<fieldset class="b2-options"><legend class="sr-only">选择答案</legend>';
   for (var i = 0; i < exercise.options.length; i++) {
-    var option = exercise.options[i], inputId = 'b2-' + exercise.id + '-' + option.key;
-    var checked = record.selected === option.key ? ' checked' : '';
-    var disabled = record.submitted ? ' disabled' : '';
-    html += '<input type="radio" id="' + inputId + '" name="b2-' + exercise.id + '" value="' + option.key + '"' + checked + disabled + ' onchange="submitQuizOption(\'' + exercise.id + '\',\'' + option.key + '\')">';
-    html += '<label for="' + inputId + '"><strong>' + option.key + '.</strong> ' + escapeHtml(option.text) + '</label>';
+    html += renderLookupOption(exercise, exercise.options[i], record);
   }
   html += '</fieldset>';
   if (getQuizSettings().confirmBeforeSubmit) html += '<button class="b2-confirm" onclick="submitQuizQuestion(\'' + exercise.id + '\')"' + (!record.selected || record.submitted ? ' disabled' : '') + '>确认答案</button>';
@@ -1531,7 +1564,7 @@ function renderQuizContextGroup(group) {
   var html = '<section class="b2-context-group"><h2>材料语境 · ' + escapeHtml(group.title) + '</h2>';
   (group.materials || []).forEach(function(material) {
     var pages = (material.sourcePages || []).map(function(page) { return 'PDF-' + String(page).padStart(3, '0'); }).join('、');
-    html += '<article class="b2-context-material"><h3>' + escapeHtml(material.title) + '</h3><p>' + escapeHtml(material.body) + '</p><small class="b2-context-source">原书材料依据：' + escapeHtml(pages) + '</small></article>';
+    html += '<article class="b2-context-material"><h3>' + escapeHtml(material.title) + '</h3><p>' + renderRuText(material.body, lookupContext('grammar', group.id || group.title, 'quiz-material', material.body, '', material.sourcePages || [])) + '</p><small class="b2-context-source">原书材料依据：' + escapeHtml(pages) + '</small></article>';
   });
   return html + '</section>';
 }
@@ -1751,28 +1784,35 @@ function renderExamPracticeChapter(data, scrollPosition) {
   document.getElementById('app').innerHTML = toolbar(data.title || '真题模拟', '<button class="tb-btn" onclick="showShelf()">← 书架</button><button class="tb-btn" onclick="showChapters(\'' + escapeHtml(curBook.id) + '\')">☰</button>') + '<main class="main-container speaking-practice"><header class="chapter-header"><h1>' + escapeHtml(data.title || '') + '</h1><p class="reading-answer-source">B2 原书真题 · ' + (hasVerifiedQuestions ? '题面与答案已核验' : '来源已索引') + '</p></header>' + sourceState + details + body + '</main>';
   window.scrollTo(0, typeof scrollPosition === 'number' ? scrollPosition : 0); applyTheme(); saveLastRead();
 }
+function renderReadingLookupOption(question, option, record) {
+  var selected = record.selected === option.label;
+  var state = record.answered ? (option.label === question.answer ? ' correct' : selected ? ' wrong' : '') : '';
+  var pages = question.answerSource && question.answerSource.pdfPage ? [question.answerSource.pdfPage] : [];
+  var context = lookupContext('reading', question.id, 'reading-option', option.text, '', pages);
+  return '<div class="b2-option-row' + state + '"><button type="button" class="b2-option-radio" role="radio" aria-checked="' + (selected ? 'true' : 'false') + '" aria-label="选择 ' + escapeHtml(option.label) + '" onclick="answerReadingQuestion(\'' + escapeHtml(question.id) + '\',\'' + escapeHtml(option.label) + '\')"' + (record.answered ? ' disabled' : '') + '>' + escapeHtml(option.label) + '.</button><span class="b2-option-text">' + renderRuText(option.text, context) + '</span></div>';
+}
 function renderReadingPracticeQuestion(question) {
   var record = getReadingRecord(question.id), selected = record.selected;
   var options = question.options.map(function(option) {
-    var state = record.answered ? (option.label === question.answer ? ' correct' : option.label === selected ? ' wrong' : '') : '';
-    return '<button class="b2-option' + state + '" onclick="answerReadingQuestion(\'' + escapeHtml(question.id) + '\',\'' + escapeHtml(option.label) + '\')"' + (record.answered ? ' disabled' : '') + '><b>' + escapeHtml(option.label) + '.</b> ' + escapeHtml(option.text) + '</button>';
+    return renderReadingLookupOption(question, option, record);
   }).join('');
   var result = record.answered ? '<p class="b2-quiz-result ' + (selected === question.answer ? 'correct' : 'wrong') + '">' + (selected === question.answer ? '回答正确' : '回答错误') + '</p>' : '';
   var answer = record.answerOpen ? '<div class="b2-explanation"><strong>原书答案（已核对）：' + escapeHtml(question.answer) + '</strong><small class="reading-answer-source">原书参考答案表：PDF-' + String(question.answerSource.pdfPage).padStart(3, '0') + '</small></div>' : '';
   var toggle = record.answered ? '<button class="tb-btn" onclick="toggleReadingAnswer(\'' + escapeHtml(question.id) + '\')">' + (record.answerOpen ? '收起答案' : '查看答案') + '</button>' : '';
-  return '<article class="reading-practice-question"><p><b>' + question.printedNumber + '.</b> ' + escapeHtml(question.prompt) + '</p><div class="b2-options">' + options + '</div>' + result + toggle + answer + '</article>';
+  var promptPages = question.answerSource && question.answerSource.pdfPage ? [question.answerSource.pdfPage] : [];
+  return '<article class="reading-practice-question"><p><b>' + question.printedNumber + '.</b> ' + renderRuText(question.prompt, lookupContext('reading', question.id, 'reading-prompt', question.prompt, '', promptPages)) + '</p><div class="b2-options">' + options + '</div>' + result + toggle + answer + '</article>';
 }
 function renderReadingLearningSupport(data) {
   if (data.translationStatus !== 'learning-support-approved') return '';
   var translations = (data.translations || []).map(function(text, index) { return '<li><b>第 ' + (index + 1) + ' 段：</b>' + escapeHtml(text) + '</li>'; }).join('');
   var structure = (data.structure || []).map(function(item) { return '<li><b>' + escapeHtml(item.role) + '：</b>第 ' + escapeHtml(item.paragraphs.join('、')) + ' 段；' + escapeHtml(item.note) + '</li>'; }).join('');
-  var expressions = (data.reusableExpressions || []).map(function(item) { return '<li><b>' + escapeHtml(item.ru) + '</b>：' + escapeHtml(item.zh) + '</li>'; }).join('');
+  var expressions = (data.reusableExpressions || []).map(function(item, index) { return '<li><b>' + renderRuText(item.ru, lookupContext('reading', data.id + '-expression-' + (index + 1), 'reading-support', item.ru, item.zh, data.sourcePages || [])) + '</b>：' + escapeHtml(item.zh) + '</li>'; }).join('');
   var retelling = data.retelling && data.retelling.steps ? '<section><h2>学习辅助·复述框架</h2><ol>' + data.retelling.steps.map(function(step) { return '<li>' + escapeHtml(step) + '</li>'; }).join('') + '</ol></section>' : '';
   return '<section class="source-warning"><strong>以下是学习辅助，不属于原书逐题解析</strong><p>译文、结构和表达用于理解与复述；原书题目仍需独立完成后查看答案。</p></section><section><h2>学习辅助·逐段译文</h2><ol>' + translations + '</ol></section><section><h2>学习辅助·文章结构</h2><ol>' + structure + '</ol></section><section><h2>学习辅助·可复用表达</h2><ul>' + expressions + '</ul></section>' + retelling;
 }
 function renderReadingPracticeChapter(data, scrollPosition) {
   currentReadingData = data;
-  var paragraphs = (data.original || []).map(function(paragraph) { return '<p class="ru-text">' + renderRuText(paragraph) + '</p>'; }).join('');
+  var paragraphs = (data.original || []).map(function(paragraph, index) { return '<p class="ru-text">' + renderRuText(paragraph, lookupContext('reading', data.id + '-paragraph-' + (index + 1), 'reading-body', paragraph, (data.translations || [])[index] || '', data.sourcePages || [])) + '</p>'; }).join('');
   var questions = (data.questions || []).map(renderReadingPracticeQuestion).join('');
   var navP = curCh > 0 ? '<button class="fab-nav" onclick="goChapter(' + (curCh - 1) + ')">← 上一篇</button>' : '<span class="fab-nav disabled">← 上一篇</span>';
   var navN = curCh < curBook.chapters - 1 ? '<button class="fab-nav" onclick="goChapter(' + (curCh + 1) + ')">下一篇 →</button>' : '<span class="fab-nav disabled">下一篇 →</span>';
@@ -1854,7 +1894,7 @@ function renderChapter(data) {
       '<div class="para-actions">' +
         '<button class="' + (isBm ? 'bookmarked' : '') + '" onclick="toggleBookmark(' + i + ',event)" title="收藏段落">' + (isBm ? '★' : '☆') + '</button>' +
       '</div>' +
-      '<p class="ru-text">' + renderRuText(front) + '</p>' +
+      '<p class="ru-text">' + renderRuText(front, lookupContext('reading', (curBook && curBook.id || 'reader') + '-ch' + curCh + '-p' + i, 'reading-body', front, back, [])) + '</p>' +
       '<p class="cn-text">' + escapeHtml(back) + '</p></div>'
     );
   }

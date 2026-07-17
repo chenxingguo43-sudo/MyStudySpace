@@ -60,3 +60,17 @@ test('dictionary uses a desktop panel and accessible narrow-screen drawer', () =
   assert.match(reader, /#detailPanel\[data-dictionary-state="half"\]/);
   assert.match(reader, /#detailPanel\[data-dictionary-state="full"\]/);
 });
+
+test('grammar, study cards, and reading pass explicit lookup contexts', () => {
+  assert.match(reader, /function renderLookupOption\(exercise, option/);
+  assert.match(reader, /lookupContext\('grammar',[^\n]+ 'quiz-option'/);
+  assert.match(reader, /lookupContext\('grammar',[^\n]+ 'study-example'/);
+  assert.match(reader, /lookupContext\('reading',[^\n]+ 'reading-body'/);
+  assert.match(reader, /lookupContext\('reading',[^\n]+ 'reading-option'/);
+});
+
+test('learning options separate the answer control from lookup words', () => {
+  assert.match(reader, /class="b2-option-radio"/);
+  assert.match(reader, /class="b2-option-text"/);
+  assert.match(reader, /submitQuizOption/);
+});
