@@ -113,3 +113,13 @@ test('exam lookup is locked until the attempt is explicitly marked assisted', ()
   assert.match(reader, /不计入正式模拟趋势/);
   assert.match(reader, /function getOfficialExamAttempts/);
 });
+
+test('reader loads generated morphology and attributed dictionary supplements', () => {
+  assert.match(reader, /data\/dictionary\/function-word-forms\.json/);
+  assert.match(reader, /data\/dictionary\/corpus-morphology\.json/);
+  assert.match(reader, /data\/dictionary\/freedict-rus-zh\.json/);
+  assert.match(reader, /reviewed-function-form/);
+  assert.match(reader, /dictionaryStorage\.recordMissing/);
+  assert.doesNotMatch(reader, /meaning: '待补中文释义'/);
+  assert.doesNotMatch(reader, /allowedTypes/);
+});

@@ -46,6 +46,19 @@ test('resolves a function-word form to its reviewed lemma', () => {
   assert.equal(result.reliability, 'reviewed-function-form');
 });
 
+test('resolves common declined pronouns before definition lookup', () => {
+  const forms = { тех: ['тот'], этих: ['этот'], всех: ['весь'], кого: ['кто'], чего: ['что'] };
+  for (const [form, expected] of Object.entries({ тех: 'тот', этих: 'этот', всех: 'весь', кого: 'кто', чего: 'что' })) {
+    const result = Core.resolveLemma(form, {
+      functionForms: forms,
+      morphology: {},
+      lookupLemma: lemma => ({ word: lemma, meaning: lemma })
+    });
+    assert.equal(result.lemma, expected);
+    assert.equal(result.reliability, 'reviewed-function-form');
+  }
+});
+
 test('phrase lookup prefers an exact collocation and otherwise returns components', () => {
   const exact = Core.analyzePhrase('в состоянии', {
     lookupPhrase: value => value === 'в состоянии' ? { meaning: '处于……状态' } : null,

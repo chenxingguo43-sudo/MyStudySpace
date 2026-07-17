@@ -735,8 +735,12 @@ var savedWordsData = []; // 完整词汇数据 [{word, meaning, source}]
 var bookmarks = {}; // {bookId: {chIdx: [paraIdx, ...]}}
 var searchMatches = [], searchIdx = -1;
 var localLookupReady = false;
+var localLookupPromise = null;
 var localVocabLookup = {};
 var localLookupCache = {};
+var corpusMorphology = {};
+var functionWordForms = {};
+var freeDictLookup = {};
 
 /* ─── 形态引擎状态 ─── */
 var morphologyDict = null;         // Object.create(null) 字典
@@ -2110,20 +2114,7 @@ function closeDetailPanel() {
 }
 
 function resolvePhraseWord(word) {
-  var clean = normalizeLookupWord(word);
-  var candidates = [];
-  if (morphologyReady && morphologyDict[clean]) candidates = candidates.concat(morphologyDict[clean]);
-  if (typeof morphologyGuess === 'function') candidates = candidates.concat(morphologyGuess(clean));
-  if (clean === 'тех') candidates.unshift('тот');
-  candidates.push(clean);
-  candidates = candidates.filter(function(value, index, all) { return value && all.indexOf(value) === index; });
-  for (var i = 0; i < candidates.length; i++) {
-    var found = lookupLocalChineseMeaning(candidates[i]);
-    if (found && found.meaning && found.meaning !== '待补中文释义') {
-      return { form: clean, lemma: candidates[i], entry: found, reliability: candidates[i] === clean ? 'dictionary-exact' : 'morphology-map' };
-    }
-  }
-  return { form: clean, lemma: candidates[0] || clean, entry: null, reliability: 'not-found' };
+  return resolveDictionaryLookup(word, {}, false);
 }
 
 function renderPhraseDetail(analysis, context) {
@@ -2339,18 +2330,21 @@ function loadLocalLookupData() {
   try { localLookupCache = JSON.parse(localStorage.getItem('rr_local_lookup_cache') || '{}'); } catch(e) { localLookupCache = {}; }
   return Promise.all([
     fetch('data/vocabulary.json').then(function(r) { return r.ok ? r.json() : []; }),
-    fetch('data/external-vocab.json').then(function(r) { return r.ok ? r.json() : {}; }).catch(function() { return {}; })
+    fetch('data/external-vocab.json').then(function(r) { return r.ok ? r.json() : {}; }).catch(function() { return {}; }),
+    fetch('data/dictionary/function-word-forms.json').then(function(r) { return r.ok ? r.json() : {}; }).catch(function() { return {}; }),
+    fetch('data/dictionary/corpus-morphology.json').then(function(r) { return r.ok ? r.json() : {}; }).catch(function() { return {}; }),
+    fetch('data/dictionary/freedict-rus-zh.json').then(function(r) { return r.ok ? r.json() : {}; }).catch(function() { return {}; })
   ])
     .then(function(results) {
       var words = results[0], extVocab = results[1];
+      functionWordForms = results[2] || {};
+      corpusMorphology = results[3] || {};
+      freeDictLookup = results[4] || {};
       localVocabLookup = {};
       // 主词典
       if (!Array.isArray(words)) words = [];
       words.forEach(function(w) {
         if (!w || !w.word || !w.meaning || !hasChineseText(w.meaning)) return;
-        var posType = (w.type || '').toLowerCase();
-        var allowedTypes = { verb:1, noun:1, adj:1, adjective:1, adv:1, adverb:1 };
-        if (!allowedTypes[posType]) return;
         var key = normalizeLookupWord(w.word);
         if (!key || localVocabLookup[key]) return;
         localVocabLookup[key] = {
@@ -2373,7 +2367,7 @@ function loadLocalLookupData() {
           source: '扩展词库'
         };
       });
-      console.log('[Dict] Local:', Object.keys(localVocabLookup).length, 'words (incl. external)');
+      console.log('[Dict] Local:', Object.keys(localVocabLookup).length, 'formal entries; FreeDict:', Object.keys(freeDictLookup).length, 'entries');
       localLookupReady = true;
     })
     .catch(function(err) {
@@ -2397,19 +2391,59 @@ function saveCachedLocalLookup(word, result) {
 function lookupLocalChineseMeaning(word) {
   var key = normalizeLookupWord(word);
   if (!key) return null;
-  var cached = getCachedLocalLookup(key);
-  if (cached) return cached;
   if (localVocabLookup[key]) {
     saveCachedLocalLookup(key, localVocabLookup[key]);
     return localVocabLookup[key];
   }
-  return {
-    meaning: '待补中文释义',
-    type: '',
-    source: '小说上下文',
-    ru: selContext || '',
-    zh: selTranslationContext || ''
-  };
+  if (freeDictLookup[key] && Array.isArray(freeDictLookup[key].meanings) && freeDictLookup[key].meanings.length) {
+    return {
+      meaning: freeDictLookup[key].meanings.slice(0, 8).join('；'),
+      type: '',
+      source: freeDictLookup[key].source || 'FreeDict zho-rus 2025.11.23',
+      _raw: {}
+    };
+  }
+  var provisional = dictionaryStorage && dictionaryStorage.getProvisional ? dictionaryStorage.getProvisional(key) : null;
+  if (provisional && (provisional.meaningZh || provisional.meaningRu)) {
+    return {
+      meaning: provisional.meaningZh || provisional.meaningRu,
+      type: '',
+      source: (provisional.provider || '联网查询') + ' · 未复核',
+      _provisional: true,
+      _raw: {}
+    };
+  }
+  return null;
+}
+
+function combinedMorphologyFor(form) {
+  var normalized = normalizeLookupWord(form);
+  var corpus = corpusMorphology[normalized] || {};
+  var legacy = morphologyReady && morphologyDict[normalized] || [];
+  var lemmas = [];
+  (corpus.lemmas || []).concat(Array.isArray(legacy) ? legacy : (legacy.lemmas || [])).forEach(function(lemma) {
+    lemma = normalizeLookupWord(lemma);
+    if (lemma && lemmas.indexOf(lemma) === -1) lemmas.push(lemma);
+  });
+  return { lemmas: lemmas };
+}
+
+function resolveDictionaryLookup(word, context, recordMissing) {
+  var clean = normalizeLookupWord(word);
+  var resolved = RussianDictionaryCore.resolveLemma(clean, {
+    functionForms: functionWordForms,
+    morphology: (function() { var map = {}; map[clean] = combinedMorphologyFor(clean); return map; })(),
+    lookupLemma: lookupLocalChineseMeaning
+  });
+  if (!resolved.entry && recordMissing !== false) {
+    dictionaryStorage.recordMissing({
+      form: word,
+      lemmaCandidates: [resolved.lemma].concat(resolved.alternatives || []),
+      failureStage: 'definition-resolution',
+      context: context || {}
+    });
+  }
+  return resolved;
 }
 
 function renderLocalLookup(clean, result) {
@@ -2562,6 +2596,18 @@ function renderDetailPanel(word, result) {
   if (result._guessed) {
     html += '<div class="dict-guess-label">形态推测还原</div>';
   }
+  if (result._morphoLemma) {
+    html += '<div class="dp-meta"><span class="dp-label">原形</span> ' + escapeHtml(result._morphoLemma) + '</div>';
+  }
+  if (result._reliability) {
+    var reliabilityLabels = {
+      'reviewed-function-form': '人工核对的功能词词形',
+      'morphology-map': '语料词形分析',
+      'dictionary-exact': '词典原形直查',
+      'morphology-guess': '规则推测'
+    };
+    html += '<div class="dict-guess-label">' + escapeHtml(reliabilityLabels[result._reliability] || result._reliability) + '</div>';
+  }
 
   // ── AI 解析按钮 ──
   html += '<div class="dp-ai-section">';
@@ -2669,47 +2715,27 @@ function autoLookup(word) {
   _lastLookupWord = clean;
 
   var preview = document.getElementById('detailInner');
+  if (!preview) return;
   preview.innerHTML = '<div class="dict-loading">查询中...</div>';
-
-  var result = null;
-
-  // 第1级：查内存映射表
-  if (morphologyReady && morphologyDict[clean]) {
-    var lemmas = morphologyDict[clean];
-    for (var i = 0; i < lemmas.length; i++) {
-      var r = lookupLocalChineseMeaning(lemmas[i]);
-      if (r && r.meaning !== '待补中文释义') {
-        result = r;
-        result._morphoLemma = lemmas[i];
-        if (lemmas.length > 1) {
-          result._alternatives = lemmas.filter(function(l) { return l !== lemmas[i]; });
-        }
-        break;
-      }
-    }
+  if (!localLookupReady) {
+    Promise.resolve(localLookupPromise).then(function() { if (_lastLookupWord === clean) autoLookup(word); });
+    return;
   }
-
-  // 第2级：JS 规则引擎
-  if (!result && typeof morphologyGuess === 'function') {
-    var guesses = morphologyGuess(clean);
-    for (var g = 0; g < guesses.length; g++) {
-      var r2 = lookupLocalChineseMeaning(guesses[g]);
-      if (r2 && r2.meaning !== '待补中文释义') {
-        result = r2;
-        result._morphoLemma = guesses[g];
-        result._guessed = true;
-        break;
-      }
-    }
+  var context = dictionaryController.getCurrent() && dictionaryController.getCurrent().context || {};
+  var resolved = resolveDictionaryLookup(clean, context, true);
+  var result = resolved.entry;
+  if (result) {
+    result = Object.assign({}, result, {
+      _morphoLemma: resolved.lemma !== clean ? resolved.lemma : '',
+      _alternatives: resolved.alternatives || [],
+      _reliability: resolved.reliability,
+      _guessed: resolved.reliability === 'morphology-guess'
+    });
   }
-
-  // 第3级：原词直查
-  if (!result) {
-    result = lookupLocalChineseMeaning(clean);
-  }
-
   var inner = document.getElementById('detailInner');
-  if (inner) inner.innerHTML = renderDetailPanel(clean, result);
+  if (inner) inner.innerHTML = result
+    ? renderDetailPanel(clean, result)
+    : '<button class="detail-close" type="button" onclick="event.stopPropagation();dictionaryController.close()" aria-label="关闭词典">✕</button><div class="dict-word">' + escapeHtml(clean) + '</div><div class="dict-meaning" style="color:var(--text-dim)">本地词典暂未收录</div><div class="dict-source">已加入缺词清单</div>';
   updateSaveButton(clean);
 }
 function updateSaveButton(word) {
@@ -3016,7 +3042,7 @@ dictionaryController.init();
 
 applyTheme();
 loadSavedWords();
-loadLocalLookupData();  // 启动词典加载（异步）
+localLookupPromise = loadLocalLookupData();  // 启动词典加载（异步）
 initMorphology();  // 后台异步加载形态映射表
 
 if (_jumpBook) {
