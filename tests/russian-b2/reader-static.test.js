@@ -222,6 +222,20 @@ test('writing workbench reproduces structured source materials before learning s
   assert.match(reader, /评分自查/);
 });
 
+test('writing workbench keeps immutable draft versions and records model unlocks', () => {
+  assert.match(reader, /russian_b2_writing_versions_v1/);
+  assert.match(reader, /function saveWritingVersion/);
+  assert.match(reader, /function restoreWritingVersion/);
+  assert.match(reader, /保存当前版本/);
+  assert.match(reader, /function recordWritingModelUnlock/);
+});
+
+test('writing workbench omits unavailable time limits instead of showing dash-minute badges', () => {
+  assert.match(reader, /function renderWritingMetadata/);
+  assert.match(reader, /if \(task\.readingMinutes\)/);
+  assert.match(reader, /if \(task\.writingMinutes\)/);
+});
+
 test('unified B2 modules use module-scoped chapter cache keys', () => {
   assert.match(reader, /function getChapterCacheBookId\(book\)/);
   assert.match(reader, /book\.id \+ ':' \+ book\.moduleId/);

@@ -137,12 +137,12 @@ test('Text 10 has approved paragraph-level learning support with a retelling pat
   assert.ok(support.retelling.steps.length >= 3);
 });
 
-test('reading textbook shelf metadata states that all approved study support is available', () => {
-  const catalogue = JSON.parse(fs.readFileSync(path.join('data', 'textbook', 'index.json'), 'utf8'));
-  const readingBook = catalogue.books.find(book => book.id === 'russian_b2_reading');
-  assert.ok(readingBook);
-  assert.match(readingBook.description, /十篇/);
-  assert.doesNotMatch(readingBook.description, /分批审核发布/);
+test('reading module remains available inside the unified B2 dashboard', () => {
+  const dashboard = JSON.parse(fs.readFileSync(path.join('data', 'textbook', 'russian_b2', 'book.json'), 'utf8'));
+  const readingModule = dashboard.modules.find(module => module.id === 'reading');
+  assert.ok(readingModule);
+  assert.equal(readingModule.format, 'reading-practice');
+  assert.equal(readingModule.chapters, 10);
 });
 
 test('reading publisher writes one index and ten stable unit files', () => {

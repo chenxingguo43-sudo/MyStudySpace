@@ -201,11 +201,13 @@ test('manifest build creates matching reader JSON, Markdown, range map, and qual
   }
 });
 
-test('legacy manifest build must not replace the six-part reader shelf', () => {
+test('unified B2 shelf keeps the six grammar parts inside its seven-module dashboard', () => {
   const textbookIndex = JSON.parse(fs.readFileSync(path.join(path.resolve('.'), 'data', 'textbook', 'index.json'), 'utf8'));
   const b2Book = textbookIndex.books.find(book => book.id === 'russian_b2');
-  assert.equal(b2Book.chapters, 6);
+  const dashboard = JSON.parse(fs.readFileSync(path.join(path.resolve('.'), 'data', 'textbook', 'russian_b2', 'book.json'), 'utf8'));
+  assert.equal(b2Book.chapters, 7);
   assert.deepEqual(b2Book.unitIds, ['p1', 'p2', 'p3', 'p4', 'p5', 'p6']);
+  assert.deepEqual(dashboard.modules.map(module => module.id), ['grammar', 'reading', 'writing', 'listening', 'speaking', 'exam', 'review']);
 });
 
 test('published grammar units cover every verified source-ledger question', () => {

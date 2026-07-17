@@ -40,6 +40,22 @@ test('recommendation task reproduces book pages 90-92 with complete materials an
   assert.ok((recommendation.model?.text || '').length > 400);
 });
 
+test('all thirteen writing genres publish a complete source-backed learning contract', () => {
+  const { units } = buildWritingModule({ root, write: false });
+  assert.equal(units.length, 13);
+  for (const unit of units) {
+    assert.ok(unit.source?.printedPages?.length, `${unit.id}: printed pages`);
+    assert.ok(unit.source?.pdfPages?.length, `${unit.id}: PDF pages`);
+    assert.match(unit.task?.instructionsRu || '', /[А-Яа-яЁё]/, `${unit.id}: Russian instructions`);
+    assert.ok(Array.isArray(unit.materials), `${unit.id}: materials/no-material contract`);
+    assert.ok(unit.format?.requiredBlocks?.length >= 4, `${unit.id}: document regions`);
+    assert.ok(unit.rubric?.length >= 4, `${unit.id}: rubric`);
+    assert.ok((unit.model?.text || '').length >= 80, `${unit.id}: complete source model`);
+    assert.equal(unit.model?.source?.kind, 'b2-original', `${unit.id}: model provenance`);
+    assert.equal(unit.reviewStatus, 'source-verified', `${unit.id}: review status`);
+  }
+});
+
 test('writing module labels model texts as source material and keeps generated assistance separate', () => {
   const { units } = buildWritingModule({ root, write: false });
   const complaint = units.find(unit => unit.id === 'complaint');

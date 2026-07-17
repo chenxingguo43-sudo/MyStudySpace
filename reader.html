@@ -1760,6 +1760,8 @@ function rerenderReadingPracticePreservingScroll() {
 }
 
 var WRITING_DRAFTS_KEY = 'russian_b2_writing_drafts_v1';
+var WRITING_VERSIONS_KEY = 'russian_b2_writing_versions_v1';
+var WRITING_MODEL_UNLOCKS_KEY = 'russian_b2_writing_model_unlocks_v1';
 var currentWritingData = null;
 function getWritingDrafts() {
   try { return JSON.parse(localStorage.getItem(WRITING_DRAFTS_KEY) || '{}'); } catch (e) { return {}; }
@@ -1775,12 +1777,59 @@ function countWritingWords(value) {
   var trimmed = String(value || '').trim();
   return trimmed ? trimmed.split(/\s+/).length : 0;
 }
+function renderWritingMetadata(task) {
+  var items = [];
+  if (task.readingMinutes) items.push('阅读材料 ' + escapeHtml(String(task.readingMinutes)) + ' 分钟');
+  if (task.writingMinutes) items.push('写作 ' + escapeHtml(String(task.writingMinutes)) + ' 分钟');
+  if (task.wordTarget) items.push(escapeHtml(task.wordTarget));
+  return items.length ? '<div class="writing-metadata"><span>' + items.join('</span><span>') + '</span></div>' : '';
+}
 function copyWritingFeedbackPrompt(taskId) {
   var draft = (getWritingDrafts()[taskId] || {}).value || '';
   var prompt = '请按俄语 B2 写作要求反馈下面的草稿。先指出格式、任务覆盖、语法和表达问题，再给可执行修改建议；不要代替我直接重写全文。\n\n任务：' + (currentWritingData ? currentWritingData.task.prompt : '') + '\n\n草稿：\n' + draft;
   if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(prompt);
   var status = document.getElementById('writing-draft-status');
   if (status) status.textContent = '反馈提示已复制；可粘贴给已配置的 AI 服务。';
+}
+function getWritingVersions() {
+  try { return JSON.parse(localStorage.getItem(WRITING_VERSIONS_KEY) || '{}'); } catch (e) { return {}; }
+}
+function renderWritingVersions(taskId) {
+  var versions = (getWritingVersions()[taskId] || []).slice().reverse();
+  if (!versions.length) return '<p class="writing-status">尚未保存版本。自动保存负责防丢；版本用于保留初稿、修改稿和定稿。</p>';
+  return '<ol class="writing-version-list">' + versions.map(function(version) {
+    return '<li><strong>' + escapeHtml(new Date(version.createdAt).toLocaleString()) + '</strong> · ' + escapeHtml(String(version.wordCount)) + ' 词 <button class="tb-btn" onclick="restoreWritingVersion(\'' + escapeHtml(taskId) + '\',\'' + escapeHtml(version.id) + '\')">恢复为当前草稿</button></li>';
+  }).join('') + '</ol>';
+}
+function saveWritingVersion(taskId) {
+  var textarea = document.getElementById('writing-draft');
+  var value = textarea ? textarea.value : '';
+  if (!String(value).trim()) { toast('草稿为空，未保存版本'); return; }
+  var all = getWritingVersions();
+  var versions = all[taskId] || [];
+  versions.push({ id: taskId + '-' + Date.now(), value: value, wordCount: countWritingWords(value), createdAt: new Date().toISOString() });
+  all[taskId] = versions;
+  try { localStorage.setItem(WRITING_VERSIONS_KEY, JSON.stringify(all)); } catch (e) {}
+  var list = document.getElementById('writing-version-list');
+  if (list) list.innerHTML = renderWritingVersions(taskId);
+  toast('当前版本已保存；旧版本不会被覆盖');
+}
+function restoreWritingVersion(taskId, versionId) {
+  var version = (getWritingVersions()[taskId] || []).find(function(item) { return item.id === versionId; });
+  var textarea = document.getElementById('writing-draft');
+  if (!version || !textarea) return;
+  textarea.value = version.value;
+  saveWritingDraft(taskId, version.value);
+  toast('已恢复到当前草稿；版本历史仍保留');
+}
+function recordWritingModelUnlock(taskId, open) {
+  if (!open) return;
+  var records = {};
+  try { records = JSON.parse(localStorage.getItem(WRITING_MODEL_UNLOCKS_KEY) || '{}'); } catch (e) {}
+  if (!records[taskId]) records[taskId] = { firstOpenedAt: new Date().toISOString(), count: 0 };
+  records[taskId].count += 1;
+  records[taskId].lastOpenedAt = new Date().toISOString();
+  try { localStorage.setItem(WRITING_MODEL_UNLOCKS_KEY, JSON.stringify(records)); } catch (e) {}
 }
 function renderWritingMaterial(material, taskId, index) {
   var source = material.source || {};
@@ -1807,10 +1856,10 @@ function renderWritingWorkbench(data, scrollPosition) {
   var taskPrompt = instructionsRu ? renderRuText(instructionsRu, lookupContext('writing', data.id + '-instructions', 'writing-material', instructionsRu, data.task.prompt || '', data.sourcePages || [])) : renderRuText(data.task.prompt, lookupContext('writing', data.id, 'writing-material', data.task.prompt, '', data.sourcePages || []));
   var source = data.source || {};
   var printedPages = (source.printedPages || []).join('、');
-  var metadata = '<div class="writing-metadata"><span>阅读材料 ' + escapeHtml(String(data.task.readingMinutes || '—')) + ' 分钟</span><span>写作 ' + escapeHtml(String(data.task.writingMinutes || '—')) + ' 分钟</span><span>' + escapeHtml(data.task.wordTarget || '按题目要求') + '</span></div>';
+  var metadata = renderWritingMetadata(data.task || {});
   var sourceMaterialSection = materials ? '<section><h2>原书材料</h2><p class="writing-status">以下广告按原书逐项整理；点击俄语单词可查词。</p><div class="writing-materials-grid">' + materials + '</div></section>' : '';
   var supportSection = (outline || patterns) ? '<section class="writing-support-box"><h2>学习辅助（非原书内容）</h2>' + (outline ? '<h3>起草顺序</h3><ol>' + outline + '</ol>' : '') + (patterns ? '<h3>可复用表达</h3><ul>' + patterns + '</ul>' : '') + '</section>' : '';
-  document.getElementById('app').innerHTML = toolbar(data.title || '写作练习', '<button class="tb-btn" onclick="showShelf()">← 书架</button><button class="tb-btn" onclick="showChapters(\'' + escapeHtml(curBook.id) + '\')" title="目录">☰</button>') + '<main class="main-container writing-workbench"><header class="chapter-header"><h1>' + escapeHtml(data.title || '') + '</h1><p>原书印刷页：' + escapeHtml(printedPages || '—') + ' · PDF：' + escapeHtml(sourcePages) + '</p></header><section class="writing-source-task"><h2>原书任务</h2><p class="ru-text">' + taskPrompt + '</p>' + (instructionsRu && data.task.prompt ? '<p class="question-translation">' + escapeHtml(data.task.prompt) + '</p>' : '') + metadata + '</section>' + sourceMaterialSection + '<section><h2>格式与内容清单</h2><ol>' + blocks + '</ol>' + (notes ? '<ul class="writing-status">' + notes + '</ul>' : '') + '</section><section><h2>你的草稿</h2><textarea class="writing-draft" id="writing-draft" placeholder="在这里用俄语起草…" oninput="saveWritingDraft(\'' + escapeHtml(data.id) + '\', this.value)">' + escapeHtml(draft) + '</textarea><p id="writing-draft-status" class="writing-status">本地自动保存 · ' + countWritingWords(draft) + ' 词</p><button class="tb-btn" onclick="copyWritingFeedbackPrompt(\'' + escapeHtml(data.id) + '\')">复制反馈提示</button></section>' + (rubric ? '<section><h2>评分自查</h2><ul>' + rubric + '</ul></section>' : '') + '<details><summary>原书范文（完成后查看）</summary><p class="ru-text">' + model + '</p><small class="reading-answer-source">' + escapeHtml(data.model.source.label || 'B2 原书范文') + '</small></details>' + supportSection + '</main>';
+  document.getElementById('app').innerHTML = toolbar(data.title || '写作练习', '<button class="tb-btn" onclick="showShelf()">← 书架</button><button class="tb-btn" onclick="showChapters(\'' + escapeHtml(curBook.id) + '\')" title="目录">☰</button>') + '<main class="main-container writing-workbench"><header class="chapter-header"><h1>' + escapeHtml(data.title || '') + '</h1><p>原书印刷页：' + escapeHtml(printedPages || '—') + ' · PDF：' + escapeHtml(sourcePages) + '</p></header><section class="writing-source-task"><h2>原书任务</h2><p class="ru-text">' + taskPrompt + '</p>' + (instructionsRu && data.task.prompt ? '<p class="question-translation">' + escapeHtml(data.task.prompt) + '</p>' : '') + metadata + '</section>' + sourceMaterialSection + '<section><h2>格式与内容清单</h2><ol>' + blocks + '</ol>' + (notes ? '<ul class="writing-status">' + notes + '</ul>' : '') + '</section><section><h2>你的草稿</h2><textarea class="writing-draft" id="writing-draft" placeholder="在这里用俄语起草…" oninput="saveWritingDraft(\'' + escapeHtml(data.id) + '\', this.value)">' + escapeHtml(draft) + '</textarea><p id="writing-draft-status" class="writing-status">本地自动保存 · ' + countWritingWords(draft) + ' 词</p><div class="writing-actions"><button class="tb-btn" onclick="copyWritingFeedbackPrompt(\'' + escapeHtml(data.id) + '\')">复制反馈提示</button><button class="tb-btn" onclick="saveWritingVersion(\'' + escapeHtml(data.id) + '\')">保存当前版本</button></div><div id="writing-version-list">' + renderWritingVersions(data.id) + '</div></section>' + (rubric ? '<section><h2>评分自查</h2><ul>' + rubric + '</ul></section>' : '') + '<details ontoggle="recordWritingModelUnlock(\'' + escapeHtml(data.id) + '\', this.open)"><summary>原书范文（完成后查看）</summary><p class="ru-text">' + model + '</p><small class="reading-answer-source">' + escapeHtml(data.model.source.label || 'B2 原书范文') + '</small></details>' + supportSection + '</main>';
   window.scrollTo(0, typeof scrollPosition === 'number' ? scrollPosition : 0); applyTheme(); saveLastRead();
 }
 var SPEAKING_DRAFTS_KEY = 'russian_b2_speaking_notes_v1';
