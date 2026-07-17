@@ -123,3 +123,11 @@ test('reader loads generated morphology and attributed dictionary supplements', 
   assert.doesNotMatch(reader, /meaning: '待补中文释义'/);
   assert.doesNotMatch(reader, /allowedTypes/);
 });
+
+test('true misses expose only an explicit source-labelled online fallback', () => {
+  assert.match(reader, /function onlineDictionaryLookup\(\)/);
+  assert.match(reader, /\/api\/dictionary\/lookup/);
+  assert.match(reader, /dictionaryStorage\.saveProvisional/);
+  assert.match(reader, /俄文释义（未翻译）/);
+  assert.match(reader, /一键联网查询/);
+});

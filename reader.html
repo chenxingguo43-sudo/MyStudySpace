@@ -2446,6 +2446,36 @@ function resolveDictionaryLookup(word, context, recordMissing) {
   return resolved;
 }
 
+function onlineDictionaryLookup() {
+  var term = normalizeLookupWord(selText || _lastLookupWord);
+  if (!term) return;
+  var includeContext = Boolean(selContext) && window.confirm('是否把当前俄语句子附在本地查询记录中？词典服务只查询单词本身。');
+  var inner = document.getElementById('detailInner');
+  if (inner) inner.innerHTML = '<div class="dict-loading">正在查询 Russian Wiktionary…</div>';
+  var params = new URLSearchParams({ term: term, includeContext: includeContext ? '1' : '0', context: includeContext ? (selContext || '').slice(0, 500) : '' });
+  fetch('/api/dictionary/lookup?' + params.toString())
+    .then(function(response) { if (!response.ok) throw new Error('lookup failed'); return response.json(); })
+    .then(function(result) {
+      if (!result.found) {
+        if (inner) inner.innerHTML = '<div class="dict-word">' + escapeHtml(term) + '</div><div class="dict-meaning">Russian Wiktionary 也未找到可用词条。</div>';
+        return;
+      }
+      dictionaryStorage.saveProvisional({
+        form: term, lemma: term, provider: result.provider, sourceUrl: result.sourceUrl,
+        queriedAt: result.queriedAt, meaningRu: result.meaningRu, meaningZh: '',
+        context: includeContext ? (dictionaryController.getCurrent() && dictionaryController.getCurrent().context || {}) : {}
+      });
+      if (inner) inner.innerHTML = '<button class="detail-close" type="button" onclick="event.stopPropagation();dictionaryController.close()" aria-label="关闭词典">✕</button>' +
+        '<div class="dict-word">' + escapeHtml(term) + '</div><div class="dict-pos">俄文释义（未翻译）</div>' +
+        '<div class="dict-meaning" style="white-space:pre-wrap">' + escapeHtml(result.meaningRu) + '</div>' +
+        '<div class="dict-source">' + escapeHtml(result.provider) + ' · 未复核</div>' +
+        '<a class="tb-btn" href="' + escapeHtml(result.sourceUrl) + '" target="_blank" rel="noopener noreferrer">查看来源页面</a>';
+    })
+    .catch(function() {
+      if (inner) inner.innerHTML = '<div class="dict-word">' + escapeHtml(term) + '</div><div class="dict-meaning">联网查询失败，请稍后再试。</div><button class="tb-btn" type="button" onclick="onlineDictionaryLookup()">重试</button>';
+    });
+}
+
 function renderLocalLookup(clean, result) {
   var contextHtml = '';
   if (result.ru || result.zh) {
@@ -2735,7 +2765,7 @@ function autoLookup(word) {
   var inner = document.getElementById('detailInner');
   if (inner) inner.innerHTML = result
     ? renderDetailPanel(clean, result)
-    : '<button class="detail-close" type="button" onclick="event.stopPropagation();dictionaryController.close()" aria-label="关闭词典">✕</button><div class="dict-word">' + escapeHtml(clean) + '</div><div class="dict-meaning" style="color:var(--text-dim)">本地词典暂未收录</div><div class="dict-source">已加入缺词清单</div>';
+    : '<button class="detail-close" type="button" onclick="event.stopPropagation();dictionaryController.close()" aria-label="关闭词典">✕</button><div class="dict-word">' + escapeHtml(clean) + '</div><div class="dict-meaning" style="color:var(--text-dim)">本地词典暂未收录</div><div class="dict-source">已加入缺词清单</div><button class="tb-btn" type="button" onclick="onlineDictionaryLookup()">一键联网查询</button>';
   updateSaveButton(clean);
 }
 function updateSaveButton(word) {
