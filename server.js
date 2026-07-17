@@ -1,8 +1,10 @@
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
+const { createRussianDictionaryLookup } = require('./server/russian-dictionary');
 
 const PORT = Number(process.env.PORT) || 3000;
+const lookupRussianDictionary = createRussianDictionaryLookup({});
 
 const mimeTypes = {
     '.html': 'text/html; charset=utf-8',
@@ -34,6 +36,7 @@ function stripHtmlText(value) {
 }
 
 const server = http.createServer((req, res) => {
+    const requestUrl = new URL(req.url, `http://${req.headers.host || 'localhost'}`);
     let urlPath = req.url === '/' ? '/index.html' : req.url;
     // 去除查询参数
     urlPath = urlPath.split('?')[0];
@@ -48,6 +51,25 @@ const server = http.createServer((req, res) => {
     }
     urlPath = resolvedPath.substring(__dirname.length).replace(/\\/g, '/');
     if (!urlPath.startsWith('/')) urlPath = '/' + urlPath;
+
+    // ─── API: GET /api/dictionary/lookup ─────────────────────────
+    if (req.method === 'GET' && urlPath === '/api/dictionary/lookup') {
+        const term = requestUrl.searchParams.get('term') || '';
+        const context = (requestUrl.searchParams.get('context') || '').slice(0, 500);
+        const includeContext = requestUrl.searchParams.get('includeContext') === '1';
+        lookupRussianDictionary(term)
+            .then(result => {
+                res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
+                res.end(JSON.stringify({ ...result, contextIncluded: includeContext && Boolean(context) }));
+            })
+            .catch(error => {
+                const invalid = error instanceof TypeError;
+                const timeout = error && error.name === 'AbortError';
+                res.writeHead(invalid ? 400 : timeout ? 504 : 502, { 'Content-Type': 'application/json; charset=utf-8' });
+                res.end(JSON.stringify({ error: invalid ? 'Invalid Russian dictionary term' : timeout ? 'Dictionary lookup timed out' : 'Dictionary lookup failed' }));
+            });
+        return;
+    }
 
     // ─── API: POST /api/vocab-sync ───────────────────────────────
     if (req.method === 'POST' && urlPath === '/api/vocab-sync') {
