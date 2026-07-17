@@ -1,0 +1,448 @@
+{
+  "id": "p5-prefix-verbs-1",
+  "partId": "p5",
+  "knowledgePointId": "p5-prefix-verbs-1",
+  "title": "前缀动词与词义辨析（一）",
+  "exerciseIds": [
+    "P5-Q022",
+    "P5-Q023",
+    "P5-Q024",
+    "P5-Q025",
+    "P5-Q026",
+    "P5-Q027",
+    "P5-Q028",
+    "P5-Q029",
+    "P5-Q030",
+    "P5-Q031"
+  ],
+  "overview": "前缀动词并非简单加义：它会改变方向、起点、终点或动作阶段。",
+  "decisionSteps": [
+    "找出基本运动或动作",
+    "判断方向和结果",
+    "核对时间与搭配"
+  ],
+  "reviewStatus": "approved",
+  "quickReference": {
+    "semanticQuestions": [
+      "动作是进入、离开还是到达？",
+      "强调开始、完成还是短暂尝试？"
+    ],
+    "structures": [
+      "прийти / уйти",
+      "запеть / заговорить",
+      "поговорить",
+      "сделать / написать"
+    ]
+  },
+  "lessons": [
+    {
+      "id": "l1",
+      "title": "到达与离开",
+      "scope": "core",
+      "meaning": "при- 表示到达，у- 常表示离开。",
+      "conditions": [
+        "句子有明确终点或离开点。"
+      ],
+      "structure": "прийти / уйти",
+      "caseChanges": [
+        {
+          "from": "дом",
+          "to": "уйти из дома"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Он пришёл в школу вовремя.",
+          "zh": "他准时到了学校。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "不要只按中文“去”选动词。"
+      ],
+      "instantChecks": [
+        {
+          "id": "l1-check",
+          "type": "judgment",
+          "prompt": "“Он пришёл в школу вовремя.”符合本节结构。",
+          "answer": true,
+          "rationale": "到达学校要求 при-。",
+          "source": {
+            "kind": "grammar-book",
+            "label": "新编俄语语法",
+            "file": "06 动词.md",
+            "section": "动词",
+            "pages": [
+              223,
+              230
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book",
+          "label": "新编俄语语法",
+          "file": "06 动词.md",
+          "section": "动词",
+          "pages": [
+            223,
+            230
+          ]
+        }
+      ]
+    },
+    {
+      "id": "l2",
+      "title": "开始动作",
+      "scope": "core",
+      "meaning": "за- 可表示开始进行某种持续动作。",
+      "conditions": [
+        "句子强调动作刚开始。"
+      ],
+      "structure": "запеть / заговорить",
+      "caseChanges": [
+        {
+          "from": "петь",
+          "to": "запеть"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Дети вдруг запели.",
+          "zh": "孩子们突然唱了起来。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "不是所有 за- 都表示开始。"
+      ],
+      "instantChecks": [
+        {
+          "id": "l2-check",
+          "type": "judgment",
+          "prompt": "“Дети вдруг запели.”符合本节结构。",
+          "answer": true,
+          "rationale": "这里突然发生提示起始意义。",
+          "source": {
+            "kind": "grammar-book",
+            "label": "新编俄语语法",
+            "file": "06 动词.md",
+            "section": "动词",
+            "pages": [
+              223,
+              230
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book",
+          "label": "新编俄语语法",
+          "file": "06 动词.md",
+          "section": "动词",
+          "pages": [
+            223,
+            230
+          ]
+        }
+      ]
+    },
+    {
+      "id": "l3",
+      "title": "短暂尝试",
+      "scope": "core",
+      "meaning": "по- 有时表示短暂做一下。",
+      "conditions": [
+        "动作持续时间短或带试试意味。"
+      ],
+      "structure": "поговорить",
+      "caseChanges": [
+        {
+          "from": "говорить",
+          "to": "поговорить"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Давайте немного поговорим после урока.",
+          "zh": "我们课后聊一会儿吧。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "不要把它一律当完成体结果。"
+      ],
+      "instantChecks": [
+        {
+          "id": "l3-check",
+          "type": "judgment",
+          "prompt": "“Давайте немного поговорим после урока.”符合本节结构。",
+          "answer": true,
+          "rationale": "немного 提示短暂动作。",
+          "source": {
+            "kind": "grammar-book",
+            "label": "新编俄语语法",
+            "file": "06 动词.md",
+            "section": "动词",
+            "pages": [
+              223,
+              230
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book",
+          "label": "新编俄语语法",
+          "file": "06 动词.md",
+          "section": "动词",
+          "pages": [
+            223,
+            230
+          ]
+        }
+      ]
+    },
+    {
+      "id": "l4",
+      "title": "完成结果",
+      "scope": "core",
+      "meaning": "с-/вы- 等前缀可突出完成或做出结果。",
+      "conditions": [
+        "句子强调产出已完成。"
+      ],
+      "structure": "сделать / написать",
+      "caseChanges": [
+        {
+          "from": "делать",
+          "to": "сделать"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Студент сделал домашнее задание.",
+          "zh": "学生完成了家庭作业。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "结果意义需与语境一致。"
+      ],
+      "instantChecks": [
+        {
+          "id": "l4-check",
+          "type": "judgment",
+          "prompt": "“Студент сделал домашнее задание.”符合本节结构。",
+          "answer": true,
+          "rationale": "作业已有完成结果。",
+          "source": {
+            "kind": "grammar-book",
+            "label": "新编俄语语法",
+            "file": "06 动词.md",
+            "section": "动词",
+            "pages": [
+              223,
+              230
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book",
+          "label": "新编俄语语法",
+          "file": "06 动词.md",
+          "section": "动词",
+          "pages": [
+            223,
+            230
+          ]
+        }
+      ]
+    }
+  ],
+  "relatedExtensions": [],
+  "checks": [
+    {
+      "id": "review-1",
+      "type": "judgment",
+      "prompt": "“Он пришёл в школу вовремя.”符合本节结构。",
+      "answer": true,
+      "rationale": "到达学校要求 при-。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "06 动词.md",
+        "section": "动词",
+        "pages": [
+          223,
+          230
+        ]
+      }
+    },
+    {
+      "id": "review-2",
+      "type": "judgment",
+      "prompt": "“Дети вдруг запели.”符合本节结构。",
+      "answer": true,
+      "rationale": "这里突然发生提示起始意义。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "06 动词.md",
+        "section": "动词",
+        "pages": [
+          223,
+          230
+        ]
+      }
+    },
+    {
+      "id": "review-3",
+      "type": "judgment",
+      "prompt": "“Давайте немного поговорим после урока.”符合本节结构。",
+      "answer": true,
+      "rationale": "немного 提示短暂动作。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "06 动词.md",
+        "section": "动词",
+        "pages": [
+          223,
+          230
+        ]
+      }
+    }
+  ],
+  "rules": [
+    {
+      "text": "прийти / уйти：при- 表示到达，у- 常表示离开。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "06 动词.md",
+        "section": "动词",
+        "pages": [
+          223,
+          230
+        ]
+      }
+    },
+    {
+      "text": "запеть / заговорить：за- 可表示开始进行某种持续动作。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "06 动词.md",
+        "section": "动词",
+        "pages": [
+          223,
+          230
+        ]
+      }
+    },
+    {
+      "text": "поговорить：по- 有时表示短暂做一下。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "06 动词.md",
+        "section": "动词",
+        "pages": [
+          223,
+          230
+        ]
+      }
+    },
+    {
+      "text": "сделать / написать：с-/вы- 等前缀可突出完成或做出结果。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "06 动词.md",
+        "section": "动词",
+        "pages": [
+          223,
+          230
+        ]
+      }
+    }
+  ],
+  "comparisons": [
+    {
+      "left": "прийти",
+      "right": "уйти",
+      "note": "前者到达，后者离开。",
+      "source": {
+        "kind": "learning-explanation",
+        "label": "学习讲解"
+      }
+    }
+  ],
+  "examples": [
+    {
+      "ru": "Он пришёл в школу вовремя.",
+      "zh": "他准时到了学校。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    },
+    {
+      "ru": "Дети вдруг запели.",
+      "zh": "孩子们突然唱了起来。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    },
+    {
+      "ru": "Давайте немного поговорим после урока.",
+      "zh": "我们课后聊一会儿吧。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    },
+    {
+      "ru": "Студент сделал домашнее задание.",
+      "zh": "学生完成了家庭作业。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    }
+  ],
+  "pitfalls": [
+    "前缀意义必须结合动词根和语境。",
+    "不要忽略方向补语。"
+  ],
+  "sources": [
+    {
+      "kind": "grammar-book",
+      "label": "新编俄语语法",
+      "file": "06 动词.md",
+      "section": "动词",
+      "pages": [
+        223,
+        230
+      ]
+    }
+  ]
+}

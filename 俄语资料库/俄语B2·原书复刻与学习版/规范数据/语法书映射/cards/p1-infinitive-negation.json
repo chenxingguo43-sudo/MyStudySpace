@@ -1,0 +1,457 @@
+{
+  "id": "p1-infinitive-negation",
+  "partId": "p1",
+  "knowledgePointId": "p1-infinitive-negation",
+  "title": "不定式否定结构",
+  "exerciseIds": [
+    "P1-Q045",
+    "P1-Q046",
+    "P1-Q047",
+    "P1-Q048",
+    "P1-Q049",
+    "P1-Q050",
+    "P1-Q051",
+    "P1-Q052",
+    "P1-Q053",
+    "P1-Q054"
+  ],
+  "overview": "本卡梳理禁止、必要性、可能性与主观意愿中的不定式否定。先辨清“不能”“不该”“不必”“禁止”分别是谁在作判断。",
+  "decisionSteps": [
+    "找出核心谓词：нельзя、не надо、не мочь、не хотеть 等。",
+    "确认是客观禁止、建议、能力限制还是主观意愿。",
+    "判断不定式动作应作为结果还是过程。",
+    "核对否定词位置和体。"
+  ],
+  "reviewStatus": "approved",
+  "quickReference": {
+    "semanticQuestions": [
+      "是客观禁止还是个人不愿？",
+      "是否表示能力/可能性不足？",
+      "否定作用在核心谓词还是不定式动作？"
+    ],
+    "structures": [
+      {
+        "question": "禁止",
+        "structure": "нельзя + 不定式",
+        "shortcut": "强调客观不允许。"
+      },
+      {
+        "question": "没必要",
+        "structure": "не надо + 不定式",
+        "shortcut": "表示建议或不必做。"
+      }
+    ],
+    "comparison": "нельзя курить：不准吸烟；не хочу курить：我不想吸烟。",
+    "mnemonic": "先找判断者：规则、能力、建议，还是个人意愿。"
+  },
+  "lessons": [
+    {
+      "id": "p1-infinitive-negation-l1",
+      "title": "客观禁止",
+      "scope": "core",
+      "meaning": "нельзя + 不定式表达规则或环境不允许。",
+      "conditions": [
+        "限制来自规则、场所或客观条件。"
+      ],
+      "structure": "нельзя + 不定式",
+      "caseChanges": [
+        {
+          "from": "курить",
+          "to": "Нельзя курить"
+        },
+        {
+          "from": "входить",
+          "to": "Нельзя входить"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Здесь нельзя курить.",
+          "zh": "这里禁止吸烟。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "不要翻成单纯“我不想”。"
+      ],
+      "instantChecks": [
+        {
+          "id": "p1-infinitive-negation-l1-check",
+          "type": "judgment",
+          "prompt": "нельзя 表示客观禁止。",
+          "answer": true,
+          "rationale": "нельзя + 不定式表达规则或环境不允许。",
+          "source": {
+            "kind": "grammar-book-rule",
+            "label": "新编俄语语法",
+            "file": "06 动词.md",
+            "section": "动词不定式",
+            "pages": [
+              149
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book-rule",
+          "label": "新编俄语语法",
+          "file": "06 动词.md",
+          "section": "动词不定式",
+          "pages": [
+            149
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p1-infinitive-negation-l2",
+      "title": "建议与不必",
+      "scope": "core",
+      "meaning": "не надо/не нужно + 不定式给出建议或说明无必要。",
+      "conditions": [
+        "说话人评价某动作没有必要。"
+      ],
+      "structure": "не надо + 不定式",
+      "caseChanges": [
+        {
+          "from": "торопиться",
+          "to": "Не надо торопиться"
+        },
+        {
+          "from": "волноваться",
+          "to": "Не нужно волноваться"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Не надо торопиться с ответом.",
+          "zh": "回答时不必着急。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "语气通常比直接禁止柔和。"
+      ],
+      "instantChecks": [
+        {
+          "id": "p1-infinitive-negation-l2-check",
+          "type": "judgment",
+          "prompt": "不必做与禁止做不是同一语义。",
+          "answer": true,
+          "rationale": "не надо/не нужно + 不定式给出建议或说明无必要。",
+          "source": {
+            "kind": "grammar-book-rule",
+            "label": "新编俄语语法",
+            "file": "06 动词.md",
+            "section": "动词不定式",
+            "pages": [
+              149
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book-rule",
+          "label": "新编俄语语法",
+          "file": "06 动词.md",
+          "section": "动词不定式",
+          "pages": [
+            149
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p1-infinitive-negation-l3",
+      "title": "能力与可能",
+      "scope": "core",
+      "meaning": "не мочь + 不定式说明能力、条件或可能性不足。",
+      "conditions": [
+        "主体无法完成动作。"
+      ],
+      "structure": "не мочь + 不定式",
+      "caseChanges": [
+        {
+          "from": "прийти",
+          "to": "Не могу прийти"
+        },
+        {
+          "from": "понять",
+          "to": "Не мог понять"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Я не могу прийти сегодня.",
+          "zh": "我今天不能来。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "这不是规则禁止。"
+      ],
+      "instantChecks": [
+        {
+          "id": "p1-infinitive-negation-l3-check",
+          "type": "judgment",
+          "prompt": "не мочь 表示不能做到。",
+          "answer": true,
+          "rationale": "не мочь + 不定式说明能力、条件或可能性不足。",
+          "source": {
+            "kind": "grammar-book-rule",
+            "label": "新编俄语语法",
+            "file": "06 动词.md",
+            "section": "动词不定式",
+            "pages": [
+              149
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book-rule",
+          "label": "新编俄语语法",
+          "file": "06 动词.md",
+          "section": "动词不定式",
+          "pages": [
+            149
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p1-infinitive-negation-l4",
+      "title": "否定与体",
+      "scope": "core",
+      "meaning": "不定式的体仍由动作过程或结果决定。",
+      "conditions": [
+        "先确定结构语义，再看动作边界。"
+      ],
+      "structure": "否定结构 + 合适体",
+      "caseChanges": [
+        {
+          "from": "не забыть",
+          "to": "Не забудь позвонить"
+        },
+        {
+          "from": "не опаздывать",
+          "to": "Не надо опаздывать"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Не забудь позвонить маме.",
+          "zh": "别忘了给妈妈打电话。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "不要只看否定词就忽略体。"
+      ],
+      "instantChecks": [
+        {
+          "id": "p1-infinitive-negation-l4-check",
+          "type": "judgment",
+          "prompt": "否定不取消体的语义差别。",
+          "answer": true,
+          "rationale": "不定式的体仍由动作过程或结果决定。",
+          "source": {
+            "kind": "grammar-book-rule",
+            "label": "新编俄语语法",
+            "file": "06 动词.md",
+            "section": "动词不定式",
+            "pages": [
+              149
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book-rule",
+          "label": "新编俄语语法",
+          "file": "06 动词.md",
+          "section": "动词不定式",
+          "pages": [
+            149
+          ]
+        }
+      ]
+    }
+  ],
+  "relatedExtensions": [],
+  "checks": [
+    {
+      "id": "p1-infinitive-negation-check-1",
+      "type": "choice",
+      "prompt": "“Нельзя входить”主要表达什么？",
+      "options": [
+        "客观禁止",
+        "个人不愿"
+      ],
+      "answer": "客观禁止",
+      "rationale": "нельзя 表示不允许。",
+      "source": {
+        "kind": "grammar-book-rule",
+        "label": "新编俄语语法",
+        "file": "06 动词.md",
+        "section": "动词不定式",
+        "pages": [
+          149
+        ]
+      }
+    },
+    {
+      "id": "p1-infinitive-negation-check-2",
+      "type": "choice",
+      "prompt": "“Не надо волноваться”更接近“不必担心”。",
+      "options": [
+        "正确",
+        "错误"
+      ],
+      "answer": "正确",
+      "rationale": "是建议或安慰。",
+      "source": {
+        "kind": "grammar-book-rule",
+        "label": "新编俄语语法",
+        "file": "06 动词.md",
+        "section": "动词不定式",
+        "pages": [
+          149
+        ]
+      }
+    },
+    {
+      "id": "p1-infinitive-negation-check-3",
+      "type": "choice",
+      "prompt": "не мочь + 不定式表示规则禁止。",
+      "options": [
+        "正确",
+        "错误"
+      ],
+      "answer": "错误",
+      "rationale": "它表示能力或条件限制。",
+      "source": {
+        "kind": "grammar-book-rule",
+        "label": "新编俄语语法",
+        "file": "06 动词.md",
+        "section": "动词不定式",
+        "pages": [
+          149
+        ]
+      }
+    }
+  ],
+  "rules": [
+    {
+      "structure": "нельзя + 不定式",
+      "meaning": "表示客观禁止或不允许。",
+      "source": {
+        "kind": "grammar-book-rule",
+        "label": "新编俄语语法",
+        "file": "06 动词.md",
+        "section": "动词不定式",
+        "pages": [
+          149
+        ]
+      }
+    },
+    {
+      "structure": "не надо/не нужно + 不定式",
+      "meaning": "表示不必做或建议不要做。",
+      "source": {
+        "kind": "grammar-book-rule",
+        "label": "新编俄语语法",
+        "file": "06 动词.md",
+        "section": "动词不定式",
+        "pages": [
+          149
+        ]
+      }
+    }
+  ],
+  "comparisons": [
+    {
+      "left": "нельзя курить",
+      "right": "не хочу курить",
+      "note": "客观禁止与个人意愿。",
+      "source": {
+        "kind": "learning-explanation",
+        "label": "学习讲解"
+      }
+    }
+  ],
+  "examples": [
+    {
+      "ru": "Нельзя входить без билета.",
+      "zh": "没有票不准进入。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    },
+    {
+      "ru": "Не надо торопиться.",
+      "zh": "不用着急。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    },
+    {
+      "ru": "Я не могу прийти сегодня.",
+      "zh": "我今天不能来。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    },
+    {
+      "ru": "Не нужно волноваться.",
+      "zh": "不必担心。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    }
+  ],
+  "pitfalls": [
+    "不要把不能、不必、禁止混成同一个否定。",
+    "体的选择仍取决于过程和结果。",
+    "先找核心谓词。"
+  ],
+  "sources": [
+    {
+      "kind": "grammar-book-rule",
+      "label": "新编俄语语法",
+      "file": "06 动词.md",
+      "section": "动词不定式",
+      "pages": [
+        149
+      ]
+    },
+    {
+      "kind": "b2-original",
+      "label": "B2 原书考点",
+      "pages": [
+        16,
+        17
+      ]
+    }
+  ]
+}

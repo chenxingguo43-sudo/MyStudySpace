@@ -1,0 +1,56 @@
+{
+  "id": "negative-dialogue",
+  "title": "任务 1–4 · 用反义评价回应对话",
+  "reviewStatus": "source-verified",
+  "sourcePages": [
+    113,
+    114
+  ],
+  "task": {
+    "prompt": "想象你和朋友参加公交 экскурсия。朋友喜欢这次 экскурсия，而你不喜欢。用反义的评价词反驳对方。",
+    "responseMode": "four-short-responses"
+  },
+  "progression": [
+    {
+      "id": "frames",
+      "title": "句型替换",
+      "instruction": "先保留反驳框架：А я считаю, что… / Совсем не…"
+    },
+    {
+      "id": "short-response",
+      "title": "短答",
+      "instruction": "依次口头回应四个评价。"
+    },
+    {
+      "id": "recording",
+      "title": "完整录音",
+      "instruction": "连续录下四个回应；结束后回听并检查评价词是否构成反义。"
+    }
+  ],
+  "sourceAnswer": {
+    "text": "А я считаю, что его рассказ очень скучный. Места совсем некрасивые. Автобус был очень грязным. Они невоспитанные, громко шумели.",
+    "source": {
+      "kind": "b2-original",
+      "label": "B2 原书参考回答",
+      "pages": [
+        113,
+        114
+      ]
+    }
+  },
+  "media": {
+    "provenance": "source-text-only"
+  },
+  "recording": {
+    "storage": "IndexedDB:russian_b2_recordings"
+  },
+  "studySupport": {
+    "label": "学习辅助",
+    "checklist": [
+      "先确认原评价词",
+      "选择语义相反的评价",
+      "句子保持自然完整"
+    ]
+  },
+  "format": "speaking-practice"
+}

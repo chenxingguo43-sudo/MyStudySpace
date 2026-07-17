@@ -1,0 +1,2507 @@
+{
+  "id": "p4",
+  "index": 3,
+  "part": 4,
+  "title": "P4 复句连接与指代",
+  "module": "P4 复句连接与指代",
+  "format": "quiz-first",
+  "sourcePages": {
+    "questions": [
+      47,
+      48,
+      49,
+      50,
+      51,
+      52
+    ],
+    "rules": [
+      52,
+      53,
+      54,
+      55,
+      56,
+      57,
+      58,
+      59
+    ],
+    "answers": [
+      52,
+      53,
+      54,
+      55,
+      56,
+      57,
+      58,
+      59
+    ]
+  },
+  "knowledgePoints": [
+    {
+      "id": "p4-connectors",
+      "title": "并列与说明连接词",
+      "questionRanges": [
+        [
+          1,
+          14
+        ]
+      ],
+      "rule": "按对比、转折、说明、相信、希望和请求等关系选择连接词或连接结构。",
+      "pitfalls": "连接词的逻辑作用和动词支配的格关系需要同时判断。",
+      "sourcePages": [
+        52,
+        53
+      ],
+      "exerciseIds": [
+        "P4-Q001",
+        "P4-Q002",
+        "P4-Q003",
+        "P4-Q004",
+        "P4-Q005",
+        "P4-Q006",
+        "P4-Q007",
+        "P4-Q008",
+        "P4-Q009",
+        "P4-Q010",
+        "P4-Q011",
+        "P4-Q012",
+        "P4-Q013",
+        "P4-Q014"
+      ],
+      "studyCardId": "p4-connectors"
+    },
+    {
+      "id": "p4-relative-pronouns",
+      "title": "关系代词与疑问代词",
+      "questionRanges": [
+        [
+          15,
+          26
+        ]
+      ],
+      "rule": "关系词须同时满足先行词的性数及其在从句中的格要求。",
+      "pitfalls": "先行词决定性数，从句动词或前置词决定格。",
+      "sourcePages": [
+        53,
+        54
+      ],
+      "exerciseIds": [
+        "P4-Q015",
+        "P4-Q016",
+        "P4-Q017",
+        "P4-Q018",
+        "P4-Q019",
+        "P4-Q020",
+        "P4-Q021",
+        "P4-Q022",
+        "P4-Q023",
+        "P4-Q024",
+        "P4-Q025",
+        "P4-Q026"
+      ],
+      "studyCardId": "p4-relative-pronouns"
+    },
+    {
+      "id": "p4-time-concession-purpose",
+      "title": "时间、让步、目的与原因从句",
+      "questionRanges": [
+        [
+          27,
+          38
+        ]
+      ],
+      "rule": "按同时、先后、让步、目的、原因和条件关系选择从句连接结构。",
+      "pitfalls": "相近中文连词在俄语中对语义和搭配限制不同。",
+      "sourcePages": [
+        54,
+        55,
+        56
+      ],
+      "exerciseIds": [
+        "P4-Q027",
+        "P4-Q028",
+        "P4-Q029",
+        "P4-Q030",
+        "P4-Q031",
+        "P4-Q032",
+        "P4-Q033",
+        "P4-Q034",
+        "P4-Q035",
+        "P4-Q036",
+        "P4-Q037",
+        "P4-Q038"
+      ],
+      "studyCardId": "p4-time-concession-purpose"
+    },
+    {
+      "id": "p4-gerund-infinitive-purpose",
+      "title": "时间关系与目的表达",
+      "questionRanges": [
+        [
+          39,
+          45
+        ]
+      ],
+      "rule": "区分副动词的时间意义、目的不定式和固定时间短语。",
+      "pitfalls": "目的不定式与表示伴随时间的结构不可混用。",
+      "sourcePages": [
+        56,
+        57
+      ],
+      "exerciseIds": [
+        "P4-Q039",
+        "P4-Q040",
+        "P4-Q041",
+        "P4-Q042",
+        "P4-Q043",
+        "P4-Q044",
+        "P4-Q045"
+      ],
+      "studyCardId": "p4-gerund-infinitive-purpose"
+    },
+    {
+      "id": "p4-cause-and-particles",
+      "title": "原因结构与连接助词",
+      "questionRanges": [
+        [
+          46,
+          49
+        ]
+      ],
+      "rule": "辨别原因前置词和用于连接的助词。",
+      "pitfalls": "先看词组整体功能，不按单个词直译。",
+      "sourcePages": [
+        57,
+        58
+      ],
+      "exerciseIds": [
+        "P4-Q046",
+        "P4-Q047",
+        "P4-Q048",
+        "P4-Q049"
+      ],
+      "studyCardId": "p4-cause-and-particles"
+    },
+    {
+      "id": "p4-direct-indirect",
+      "title": "直接引语与间接引语",
+      "questionRanges": [
+        [
+          50,
+          50
+        ]
+      ],
+      "rule": "按人称、时态和连接方式完成直接、间接引语转换。",
+      "pitfalls": "转换时要检查代词指向是否随说话人变化。",
+      "sourcePages": [
+        59
+      ],
+      "exerciseIds": [
+        "P4-Q050"
+      ],
+      "studyCardId": "p4-direct-indirect"
+    }
+  ],
+  "contextGroups": [],
+  "exercises": [
+    {
+      "id": "P4-Q001",
+      "printedNumber": 1,
+      "type": "single-choice",
+      "question": "Сегодня погода очень плохая, ... на завтра обещают, что день будет теплый, солнечный.",
+      "options": [
+        {
+          "key": "А",
+          "text": "и"
+        },
+        {
+          "key": "Б",
+          "text": "против"
+        },
+        {
+          "key": "В",
+          "text": "а"
+        },
+        {
+          "key": "Г",
+          "text": "тоже"
+        }
+      ],
+      "answer": "Б",
+      "sourceAnswer": "Б",
+      "sourceEvidence": "PDF-047–PDF-059",
+      "sourceExplanation": "原书解析：a 表示对比。；译文：今天天气不好, 而预报明天天气暖和、阳光明媚。",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        47
+      ],
+      "answerPages": [
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P4-Q002",
+      "printedNumber": 2,
+      "type": "single-choice",
+      "question": "Прозвенел звонок, ... школьники остались сидеть за партами, заканчивая сочинение.",
+      "options": [
+        {
+          "key": "А",
+          "text": "но"
+        },
+        {
+          "key": "Б",
+          "text": "и"
+        },
+        {
+          "key": "В",
+          "text": "а"
+        },
+        {
+          "key": "Г",
+          "text": "зато"
+        }
+      ],
+      "answer": "А",
+      "sourceAnswer": "А",
+      "sourceEvidence": "PDF-047–PDF-059",
+      "sourceExplanation": "原书解析：HO 表示转折。；译文：下课铃响了, 但学生们仍坐在座位上写作文。",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        47
+      ],
+      "answerPages": [
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P4-Q003",
+      "printedNumber": 3,
+      "type": "single-choice",
+      "question": "Я уже выходил из квартиры, ... телефонный звонок задержал меня.",
+      "options": [
+        {
+          "key": "А",
+          "text": "зато"
+        },
+        {
+          "key": "Б",
+          "text": "так как"
+        },
+        {
+          "key": "В",
+          "text": "но"
+        },
+        {
+          "key": "Г",
+          "text": "раз"
+        }
+      ],
+      "answer": "Б",
+      "sourceAnswer": "Б",
+      "sourceEvidence": "PDF-047–PDF-059",
+      "sourceExplanation": "原书解析：no 表示转折。；译文：我正要走出房间, 但电话铃把我耽搁了。",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        47
+      ],
+      "answerPages": [
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P4-Q004",
+      "printedNumber": 4,
+      "type": "single-choice",
+      "question": "В Москве туристы осмотрели Кремль, познакомились они ... с известными пригородными ансамблями.",
+      "options": [
+        {
+          "key": "А",
+          "text": "а"
+        },
+        {
+          "key": "Б",
+          "text": "также"
+        },
+        {
+          "key": "В",
+          "text": "но"
+        },
+        {
+          "key": "Г",
+          "text": "зато"
+        }
+      ],
+      "answer": "Б",
+      "sourceAnswer": "Б",
+      "sourceEvidence": "PDF-047–PDF-059",
+      "sourceExplanation": "原书解析：также 甚至。；译文：在莫斯科, 游客参观了克里姆林宫, 他们甚至了解了城外著名的建筑群。",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        47
+      ],
+      "answerPages": [
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P4-Q005",
+      "printedNumber": 5,
+      "type": "single-choice",
+      "question": "Мой руководитель не сомневается ..., что я закончу работу в срок.",
+      "options": [
+        {
+          "key": "А",
+          "text": "в том"
+        },
+        {
+          "key": "Б",
+          "text": "с тем"
+        },
+        {
+          "key": "В",
+          "text": "к тому"
+        },
+        {
+          "key": "Г",
+          "text": "при том"
+        }
+      ],
+      "answer": "А",
+      "sourceAnswer": "А",
+      "sourceEvidence": "PDF-047–PDF-059",
+      "sourceExplanation": "原书解析：сомневаться в чем 怀疑。；译文：我的领导不怀疑我能按期完成工作。",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        47
+      ],
+      "answerPages": [
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P4-Q006",
+      "printedNumber": 6,
+      "type": "single-choice",
+      "question": "Проблема заключается ..., чтобы успеть закончить исследования в такой короткий срок.",
+      "options": [
+        {
+          "key": "А",
+          "text": "о том"
+        },
+        {
+          "key": "Б",
+          "text": "с тем"
+        },
+        {
+          "key": "В",
+          "text": "на том"
+        },
+        {
+          "key": "Г",
+          "text": "в том"
+        }
+      ],
+      "answer": "Г",
+      "sourceAnswer": "Г",
+      "sourceEvidence": "PDF-047–PDF-059",
+      "sourceExplanation": "原书解析：заключаться в чем 在于。；译文：问题在于, 必须在那么短的期限内要完成研究。",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        47
+      ],
+      "answerPages": [
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P4-Q007",
+      "printedNumber": 7,
+      "type": "single-choice",
+      "question": "Преимущество уровневого тестирования по русскому языку состоит ..., что обучающийся хорошо знает свои плюсы и минусы.",
+      "options": [
+        {
+          "key": "А",
+          "text": "в том"
+        },
+        {
+          "key": "Б",
+          "text": "на том"
+        },
+        {
+          "key": "В",
+          "text": "при том"
+        },
+        {
+          "key": "Г",
+          "text": "о том"
+        }
+      ],
+      "answer": "А",
+      "sourceAnswer": "А",
+      "sourceEvidence": "PDF-047–PDF-059",
+      "sourceExplanation": "原书解析：某стоять в чем 在于。；译文：俄语水平等级考试的优势在于, 学习者能够了解自己的长处与短处。",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        47
+      ],
+      "answerPages": [
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P4-Q008",
+      "printedNumber": 8,
+      "type": "single-choice",
+      "question": "Каждый руководитель должен быть уверен ..., что его концепция успешна.",
+      "options": [
+        {
+          "key": "А",
+          "text": "в том"
+        },
+        {
+          "key": "Б",
+          "text": "на то"
+        },
+        {
+          "key": "В",
+          "text": "о том"
+        },
+        {
+          "key": "Г",
+          "text": "для того"
+        }
+      ],
+      "answer": "А",
+      "sourceAnswer": "А",
+      "sourceEvidence": "PDF-047–PDF-059",
+      "sourceExplanation": "原书解析：уверен в чем 相信。；译文：每个领导都应该相信他的观念是有成效的。",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        47
+      ],
+      "answerPages": [
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P4-Q009",
+      "printedNumber": 9,
+      "type": "single-choice",
+      "question": "Моряки на потерпевшей аварию подводной лодке были уверены, ... им обязательно помогут.",
+      "options": [
+        {
+          "key": "А",
+          "text": "чтобы"
+        },
+        {
+          "key": "Б",
+          "text": "будто"
+        },
+        {
+          "key": "В",
+          "text": "как"
+        },
+        {
+          "key": "Г",
+          "text": "что"
+        }
+      ],
+      "answer": "Г",
+      "sourceAnswer": "Г",
+      "sourceEvidence": "PDF-047–PDF-059",
+      "sourceExplanation": "原书解析：уверен 接连接词 что, 表示相信。；译文：失事的潜水艇上的船员相信, 一定会有人救他们。",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        47
+      ],
+      "answerPages": [
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P4-Q010",
+      "printedNumber": 10,
+      "type": "single-choice",
+      "question": "В газете я прочитал, ....",
+      "options": [
+        {
+          "key": "А",
+          "text": "что лето будет холодным"
+        },
+        {
+          "key": "Б",
+          "text": "чтобы лето было холодным"
+        },
+        {
+          "key": "В",
+          "text": "было ли лето холодным"
+        },
+        {
+          "key": "Г",
+          "text": "холодное лето"
+        }
+      ],
+      "answer": "А",
+      "sourceAnswer": "А",
+      "sourceEvidence": "PDF-047–PDF-059",
+      "sourceExplanation": "原书解析：$\\eta$ 是说明从句的连接词。；译文：我在报纸里读到, 夏天会很凉。",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        48
+      ],
+      "answerPages": [
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P4-Q011",
+      "printedNumber": 11,
+      "type": "single-choice",
+      "question": "Надеясь, ... родители приедут завтра, брат решил их встретить сам.",
+      "options": [
+        {
+          "key": "А",
+          "text": "что"
+        },
+        {
+          "key": "Б",
+          "text": "чтобы"
+        },
+        {
+          "key": "В",
+          "text": "как"
+        },
+        {
+          "key": "Г",
+          "text": "когда"
+        }
+      ],
+      "answer": "А",
+      "sourceAnswer": "А",
+      "sourceEvidence": "PDF-047–PDF-059",
+      "sourceExplanation": "原书解析：надеяться 接连接词 что。；译文：哥哥希望父母明天能来, 他要亲自去接。",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        48
+      ],
+      "answerPages": [
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P4-Q012",
+      "printedNumber": 12,
+      "type": "single-choice",
+      "question": "Трудно предвидеть, ... вы рискуете, путешествуя по Африке.",
+      "options": [
+        {
+          "key": "А",
+          "text": "чем"
+        },
+        {
+          "key": "Б",
+          "text": "чему"
+        },
+        {
+          "key": "В",
+          "text": "чего"
+        },
+        {
+          "key": "Г",
+          "text": "что"
+        }
+      ],
+      "answer": "А",
+      "sourceAnswer": "А",
+      "sourceEvidence": "PDF-047–PDF-059",
+      "sourceExplanation": "原书解析：姓名是关联词, 受 рисковать 要求变第五格。；译文：很难预见你在非洲旅行时会有什么危险。",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        48
+      ],
+      "answerPages": [
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P4-Q013",
+      "printedNumber": 13,
+      "type": "single-choice",
+      "question": "Человек уникален, и трудно представить себе, ... может приспособиться человек.",
+      "options": [
+        {
+          "key": "А",
+          "text": "для кого"
+        },
+        {
+          "key": "Б",
+          "text": "к чему"
+        },
+        {
+          "key": "В",
+          "text": "о ком"
+        },
+        {
+          "key": "Г",
+          "text": "без чего"
+        }
+      ],
+      "answer": "Б",
+      "sourceAnswer": "Б",
+      "sourceEvidence": "PDF-047–PDF-059",
+      "sourceExplanation": "原书解析：что 是关联词, 受 приспособиться 要求变 к чему。；译文：人都是独一无二的, 很难想象他能适应什么。",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        48
+      ],
+      "answerPages": [
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P4-Q014",
+      "printedNumber": 14,
+      "type": "single-choice",
+      "question": "Мне передали просьбу друзей, ... завтра я пришел на вечеринку пораньше.",
+      "options": [
+        {
+          "key": "А",
+          "text": "будто"
+        },
+        {
+          "key": "Б",
+          "text": "чтобы"
+        },
+        {
+          "key": "В",
+          "text": "что"
+        },
+        {
+          "key": "Г",
+          "text": "как"
+        }
+      ],
+      "answer": "Б",
+      "sourceAnswer": "Б",
+      "sourceEvidence": "PDF-047–PDF-059",
+      "sourceExplanation": "原书解析：句中有 просьба, 所以用 чтобы。；译文：有人转告朋友的请求, 让我明天早点儿去参加晚会。",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        48
+      ],
+      "answerPages": [
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P4-Q015",
+      "printedNumber": 15,
+      "type": "single-choice",
+      "question": "Новая песня, ... исполнил молодой певец, всем понравилась.",
+      "options": [
+        {
+          "key": "А",
+          "text": "на которую"
+        },
+        {
+          "key": "Б",
+          "text": "которой"
+        },
+        {
+          "key": "В",
+          "text": "о которой"
+        },
+        {
+          "key": "Г",
+          "text": "которую"
+        }
+      ],
+      "answer": "Г",
+      "sourceAnswer": "Г",
+      "sourceEvidence": "PDF-047–PDF-059",
+      "sourceExplanation": "原书解析：которую 用阴性与 песня 一致, 用第四格受 исполнил 要求。；译文：年轻歌手演唱的新歌大家都喜欢。",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        48
+      ],
+      "answerPages": [
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P4-Q016",
+      "printedNumber": 16,
+      "type": "single-choice",
+      "question": "Мы хорошо ответили на вопросы, ... задал преподаватель.",
+      "options": [
+        {
+          "key": "А",
+          "text": "который"
+        },
+        {
+          "key": "Б",
+          "text": "которые"
+        },
+        {
+          "key": "В",
+          "text": "которым"
+        },
+        {
+          "key": "Г",
+          "text": "на которые"
+        }
+      ],
+      "answer": "Б",
+      "sourceAnswer": "Б",
+      "sourceEvidence": "PDF-047–PDF-059",
+      "sourceExplanation": "原书解析：которые 用复数与 вопросы 一致, 用第四格受 задал要求。；译文：我们很好地回答了老师提出的问题。",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        48
+      ],
+      "answerPages": [
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P4-Q017",
+      "printedNumber": 17,
+      "type": "single-choice",
+      "question": "Вчера я встретила подругу, ... мы не виделись несколько лет.",
+      "options": [
+        {
+          "key": "А",
+          "text": "которой"
+        },
+        {
+          "key": "Б",
+          "text": "которую"
+        },
+        {
+          "key": "В",
+          "text": "с которой"
+        },
+        {
+          "key": "Г",
+          "text": "у которой"
+        }
+      ],
+      "answer": "Б",
+      "sourceAnswer": "Б",
+      "sourceEvidence": "PDF-047–PDF-059",
+      "sourceExplanation": "原书解析：с которой 用阴性与 подругу 一致, 用前置词 с 受 видеться 要求。；译文：昨天我遇见了朋友, 我和她已经几年没见了。",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        48
+      ],
+      "answerPages": [
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P4-Q018",
+      "printedNumber": 18,
+      "type": "single-choice",
+      "question": "Здесь уже нет школы, ... они учились.",
+      "options": [
+        {
+          "key": "А",
+          "text": "которую"
+        },
+        {
+          "key": "Б",
+          "text": "на которой"
+        },
+        {
+          "key": "В",
+          "text": "который"
+        },
+        {
+          "key": "Г",
+          "text": "в которой"
+        }
+      ],
+      "answer": "Г",
+      "sourceAnswer": "Г",
+      "sourceEvidence": "PDF-047–PDF-059",
+      "sourceExplanation": "原书解析：в которой 用阴性与 школа 一致, 用前置词 в 受 учиться 要求。；译文：他们一起上学的学校已经没有了。",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        48
+      ],
+      "answerPages": [
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P4-Q019",
+      "printedNumber": 19,
+      "type": "single-choice",
+      "question": "Известный ученый, с работами ... знакомы все студенты-филологи, прочитает лекцию на Пушкинских чтениях.",
+      "options": [
+        {
+          "key": "А",
+          "text": "которого"
+        },
+        {
+          "key": "Б",
+          "text": "какого"
+        },
+        {
+          "key": "В",
+          "text": "которому"
+        },
+        {
+          "key": "Г",
+          "text": "чьими"
+        }
+      ],
+      "answer": "А",
+      "sourceAnswer": "А",
+      "sourceEvidence": "PDF-047–PDF-059",
+      "sourceExplanation": "原书解析：которого 用阳性与 ученый 一致, 用第二格做 работами 的非一致定语。；译文：语文系大学生都相当熟悉其作品的著名学者将在普希金阅读会上做演讲。",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        49
+      ],
+      "answerPages": [
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P4-Q020",
+      "printedNumber": 20,
+      "type": "single-choice",
+      "question": "Недавно мои однокурсники ездили в Волгоград, подвигом ... восхищается весь мир.",
+      "options": [
+        {
+          "key": "А",
+          "text": "которого"
+        },
+        {
+          "key": "Б",
+          "text": "которым"
+        },
+        {
+          "key": "В",
+          "text": "который"
+        },
+        {
+          "key": "Г",
+          "text": "которому"
+        }
+      ],
+      "answer": "А",
+      "sourceAnswer": "А",
+      "sourceEvidence": "PDF-047–PDF-059",
+      "sourceExplanation": "原书解析：которого 用阳性与 Волгоград 一致, 用第二格做 подвигом 的非一致定语。；译文：不久前我的同年级同学去了功勋为世界赞叹的伏尔加格勒。",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        49
+      ],
+      "answerPages": [
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P4-Q021",
+      "printedNumber": 21,
+      "type": "single-choice",
+      "question": "Недавно я прочитал такую интересную книгу, ... еще никогда не читал.",
+      "options": [
+        {
+          "key": "А",
+          "text": "какую"
+        },
+        {
+          "key": "Б",
+          "text": "которую"
+        },
+        {
+          "key": "В",
+          "text": "чью"
+        },
+        {
+          "key": "Г",
+          "text": "такую"
+        }
+      ],
+      "answer": "А",
+      "sourceAnswer": "А",
+      "sourceEvidence": "PDF-047–PDF-059",
+      "sourceExplanation": "原书解析：какую 用阴性与 книгу 一致, 用第四格受 читал 要求。；译文：不久前我读了一本特别有趣的书, 那样的书以前没读过。",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        49
+      ],
+      "answerPages": [
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P4-Q022",
+      "printedNumber": 22,
+      "type": "single-choice",
+      "question": "Это была такая ночь, ... уже я никогда не видела после.",
+      "options": [
+        {
+          "key": "А",
+          "text": "чтобы"
+        },
+        {
+          "key": "Б",
+          "text": "будто"
+        },
+        {
+          "key": "В",
+          "text": "как"
+        },
+        {
+          "key": "Г",
+          "text": "что"
+        }
+      ],
+      "answer": "Б",
+      "sourceAnswer": "Б",
+      "sourceEvidence": "PDF-047–PDF-059",
+      "sourceExplanation": "原书解析：какой(阴性第二格)用阴性与 ночь一致,用第二格是及物动词被否定之后接第二格。；译文：这样的夜晚后来我再也没见过。",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        49
+      ],
+      "answerPages": [
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P4-Q023",
+      "printedNumber": 23,
+      "type": "single-choice",
+      "question": "Поздравлять с праздниками тех людей, ... вы работаете — залог успешной коммуникации.",
+      "options": [
+        {
+          "key": "А",
+          "text": "о ком"
+        },
+        {
+          "key": "Б",
+          "text": "с кем"
+        },
+        {
+          "key": "В",
+          "text": "без кого"
+        },
+        {
+          "key": "Г",
+          "text": "перед кем"
+        }
+      ],
+      "answer": "Б",
+      "sourceAnswer": "Б",
+      "sourceEvidence": "PDF-047–PDF-059",
+      "sourceExplanation": "原书解析：кто 指代 людей, 用前置词 с 受 работаете 要求。；译文：祝贺和你一起工作的同事节日快乐, 这是交际成功的保证。",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        49
+      ],
+      "answerPages": [
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P4-Q024",
+      "printedNumber": 24,
+      "type": "single-choice",
+      "question": "Сегодня состоится встреча с писателем, ... рассказами мы уже успели познакомиться.",
+      "options": [
+        {
+          "key": "А",
+          "text": "в чьих"
+        },
+        {
+          "key": "Б",
+          "text": "с чьими"
+        },
+        {
+          "key": "В",
+          "text": "о чьих"
+        },
+        {
+          "key": "Г",
+          "text": "по чьим"
+        }
+      ],
+      "answer": "Б",
+      "sourceAnswer": "Б",
+      "sourceEvidence": "PDF-047–PDF-059",
+      "sourceExplanation": "原书解析：с чьими рассказами 受 познакомиться 要求。；译文：今天要举办和作家的见面会, 他的小说我们已经了解了。",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        49
+      ],
+      "answerPages": [
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P4-Q025",
+      "printedNumber": 25,
+      "type": "single-choice",
+      "question": "Нам никогда не забыть город, ... мы недавно должны были уехать.",
+      "options": [
+        {
+          "key": "А",
+          "text": "откуда"
+        },
+        {
+          "key": "Б",
+          "text": "где"
+        },
+        {
+          "key": "В",
+          "text": "какого"
+        },
+        {
+          "key": "Г",
+          "text": "которого"
+        }
+      ],
+      "answer": "А",
+      "sourceAnswer": "А",
+      "sourceEvidence": "PDF-047–PDF-059",
+      "sourceExplanation": "原书解析：用 откуда 受 уехать 要求。；译文：我们永远不可能忘记我们不久前应该离开的城市。",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        49
+      ],
+      "answerPages": [
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P4-Q026",
+      "printedNumber": 26,
+      "type": "single-choice",
+      "question": "В Москве работает обновленный планетарий, ... проходят необыкновенно интересные экскурсии для детей и взрослых.",
+      "options": [
+        {
+          "key": "А",
+          "text": "откуда"
+        },
+        {
+          "key": "Б",
+          "text": "поэтому"
+        },
+        {
+          "key": "В",
+          "text": "когда"
+        },
+        {
+          "key": "Г",
+          "text": "где"
+        }
+      ],
+      "answer": "Г",
+      "sourceAnswer": "Г",
+      "sourceEvidence": "PDF-047–PDF-059",
+      "sourceExplanation": "原书解析：где相当于 в котором。；译文：莫斯科有一座重新装修的天文馆, 在那儿孩子和成人进行特别有意思的参观。",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        49
+      ],
+      "answerPages": [
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P4-Q027",
+      "printedNumber": 27,
+      "type": "single-choice",
+      "question": "Нам довелось жить в XX столетии, ... мир не раз был на краю пропасти.",
+      "options": [
+        {
+          "key": "А",
+          "text": "где"
+        },
+        {
+          "key": "Б",
+          "text": "когда"
+        },
+        {
+          "key": "В",
+          "text": "в каком"
+        },
+        {
+          "key": "Г",
+          "text": "откуда"
+        }
+      ],
+      "answer": "Б",
+      "sourceAnswer": "Б",
+      "sourceEvidence": "PDF-047–PDF-059",
+      "sourceExplanation": "原书解析：。；译文：我们生活在世界不止一次处于深渊边缘的 20 世纪。",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        49
+      ],
+      "answerPages": [
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P4-Q028",
+      "printedNumber": 28,
+      "type": "single-choice",
+      "question": "Отложи все свои дела, ... начальник незамедлительно требует отчет.",
+      "options": [
+        {
+          "key": "А",
+          "text": "когда"
+        },
+        {
+          "key": "Б",
+          "text": "из-за чего"
+        },
+        {
+          "key": "В",
+          "text": "хотя"
+        },
+        {
+          "key": "Г",
+          "text": "поэтому"
+        }
+      ],
+      "answer": "А",
+      "sourceAnswer": "А",
+      "sourceEvidence": "PDF-047–PDF-059",
+      "sourceExplanation": "原书解析：когда 表示同时关系。；译文：当领导马上需要报告, 你就要放下自己的事。",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        49
+      ],
+      "answerPages": [
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P4-Q029",
+      "printedNumber": 29,
+      "type": "single-choice",
+      "question": "Студенты сразу зашумели, ... прозвенел звонок.",
+      "options": [
+        {
+          "key": "А",
+          "text": "перед тем как"
+        },
+        {
+          "key": "Б",
+          "text": "как только"
+        },
+        {
+          "key": "В",
+          "text": "пока"
+        },
+        {
+          "key": "Г",
+          "text": "пока не"
+        }
+      ],
+      "answer": "Б",
+      "sourceAnswer": "Б",
+      "sourceEvidence": "PDF-047–PDF-059",
+      "sourceExplanation": "原书解析：как только 刚……。；译文：刚一响铃,学生们马上喧哗起来。",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        50
+      ],
+      "answerPages": [
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P4-Q030",
+      "printedNumber": 30,
+      "type": "single-choice",
+      "question": "Нужно все тщательно взвесить, ... поступать в медицинский вуз.",
+      "options": [
+        {
+          "key": "А",
+          "text": "прежде чем"
+        },
+        {
+          "key": "Б",
+          "text": "пока"
+        },
+        {
+          "key": "В",
+          "text": "после того как"
+        },
+        {
+          "key": "Г",
+          "text": "как только"
+        }
+      ],
+      "answer": "А",
+      "sourceAnswer": "А",
+      "sourceEvidence": "PDF-047–PDF-059",
+      "sourceExplanation": "原书解析：перед чем 在……以前。；译文：报考医科大学之前, 要认真衡量。",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        50
+      ],
+      "answerPages": [
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P4-Q031",
+      "printedNumber": 31,
+      "type": "single-choice",
+      "question": "... ты переведешь текст, сможешь пойти погулять.",
+      "options": [
+        {
+          "key": "А",
+          "text": "По мере того, как"
+        },
+        {
+          "key": "Б",
+          "text": "Пока"
+        },
+        {
+          "key": "В",
+          "text": "С тех пор, как"
+        },
+        {
+          "key": "Г",
+          "text": "После того, как"
+        }
+      ],
+      "answer": "Г",
+      "sourceAnswer": "Г",
+      "sourceEvidence": "PDF-047–PDF-059",
+      "sourceExplanation": "原书解析：после того, как... 在……以后。；译文：翻译完课文之后, 你可以出去逛逛。",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        50
+      ],
+      "answerPages": [
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P4-Q032",
+      "printedNumber": 32,
+      "type": "single-choice",
+      "question": "Таня продолжает курить, ... врачи давно рекомендовали ей бросить.",
+      "options": [
+        {
+          "key": "А",
+          "text": "так как"
+        },
+        {
+          "key": "Б",
+          "text": "поэтому"
+        },
+        {
+          "key": "В",
+          "text": "хотя"
+        },
+        {
+          "key": "Г",
+          "text": "или"
+        }
+      ],
+      "answer": "Б",
+      "sourceAnswer": "Б",
+      "sourceEvidence": "PDF-047–PDF-059",
+      "sourceExplanation": "原书解析：XOYI 尽管。；译文：塔尼亚继续放, 1985.",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        50
+      ],
+      "answerPages": [
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P4-Q033",
+      "printedNumber": 33,
+      "type": "single-choice",
+      "question": "... стояла морозная погода, мы продолжали спать на открытой террасе.",
+      "options": [
+        {
+          "key": "А",
+          "text": "Если"
+        },
+        {
+          "key": "Б",
+          "text": "Несмотря на то что"
+        },
+        {
+          "key": "В",
+          "text": "Раз"
+        },
+        {
+          "key": "Г",
+          "text": "Благодаря тому что"
+        }
+      ],
+      "answer": "Б",
+      "sourceAnswer": "Б",
+      "sourceEvidence": "PDF-047–PDF-059",
+      "sourceExplanation": "原书解析：不 symmetry na to what 尽管。；译文：尽管天气很冷, 我们还是睡在开放的凉台上。",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        50
+      ],
+      "answerPages": [
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P4-Q034",
+      "printedNumber": 34,
+      "type": "single-choice",
+      "question": "Мы остановились, ... полюбоваться на разведение мостов над Невой.",
+      "options": [
+        {
+          "key": "А",
+          "text": "что"
+        },
+        {
+          "key": "Б",
+          "text": "чтобы"
+        },
+        {
+          "key": "В",
+          "text": "как"
+        },
+        {
+          "key": "Г",
+          "text": "когда"
+        }
+      ],
+      "answer": "Б",
+      "sourceAnswer": "Б",
+      "sourceEvidence": "PDF-047–PDF-059",
+      "sourceExplanation": "原书解析：чтобы 表示目的。；译文：我们停下来, 想欣赏一下涅瓦河上的开桥。",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        50
+      ],
+      "answerPages": [
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P4-Q035",
+      "printedNumber": 35,
+      "type": "single-choice",
+      "question": "... были построены мощные очистные комплексы, экологическая обстановка на Балтике • 46 • значительно улучшилась.",
+      "options": [
+        {
+          "key": "А",
+          "text": "Хотя"
+        },
+        {
+          "key": "Б",
+          "text": "Если"
+        },
+        {
+          "key": "В",
+          "text": "Так как"
+        },
+        {
+          "key": "Г",
+          "text": "Что"
+        }
+      ],
+      "answer": "В",
+      "sourceAnswer": "В",
+      "sourceEvidence": "PDF-047–PDF-059",
+      "sourceExplanation": "原书解析：так как 因为。；译文：因为建了很强大的净化工程, 波罗的海的生态状况明",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        50
+      ],
+      "answerPages": [
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P4-Q036",
+      "printedNumber": 36,
+      "type": "single-choice",
+      "question": "... солнечные лучи вредны после 12 часов, мы уходим рано с пляжа.",
+      "options": [
+        {
+          "key": "А",
+          "text": "Как"
+        },
+        {
+          "key": "Б",
+          "text": "Из-за того что"
+        },
+        {
+          "key": "В",
+          "text": "Потому что"
+        },
+        {
+          "key": "Г",
+          "text": "С тем чтобы"
+        }
+      ],
+      "answer": "Б",
+      "sourceAnswer": "Б",
+      "sourceEvidence": "PDF-047–PDF-059",
+      "sourceExplanation": "原书解析：из-за того что(因为)常用表示阻碍行为实现的不利原因,译成“因为”。；译文：因为12点以后太阳光线有害,我们早早就离开了浴场。",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        50
+      ],
+      "answerPages": [
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P4-Q037",
+      "printedNumber": 37,
+      "type": "single-choice",
+      "question": "При предъявлении паспорта на границе, необходимо снять с него обложку.",
+      "options": [
+        {
+          "key": "А",
+          "text": "Хотя вы предъявляете паспорт на границе"
+        },
+        {
+          "key": "Б",
+          "text": "Если вы предъявили паспорт на границе"
+        },
+        {
+          "key": "В",
+          "text": "Когда предъявляете паспорт на границе"
+        },
+        {
+          "key": "Г",
+          "text": "Поэтому вы предъявляете паспорт на границе"
+        }
+      ],
+      "answer": "Б",
+      "sourceAnswer": "Б",
+      "sourceEvidence": "PDF-047–PDF-059",
+      "sourceExplanation": "原书解析：при чем 在……情况下。；译文：在边境出示护照时, 必须拿掉护照皮。",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        50
+      ],
+      "answerPages": [
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P4-Q038",
+      "printedNumber": 38,
+      "type": "single-choice",
+      "question": "При прослушивании текста найдите ответы на несколько вопросов.",
+      "options": [
+        {
+          "key": "А",
+          "text": "Так, как будете слушать текст"
+        },
+        {
+          "key": "Б",
+          "text": "Как только прослушаете текст"
+        },
+        {
+          "key": "В",
+          "text": "После того, как прослушаете текст"
+        },
+        {
+          "key": "Г",
+          "text": "В то время как будете слушать текст"
+        }
+      ],
+      "answer": "Г",
+      "sourceAnswer": "Г",
+      "sourceEvidence": "PDF-047–PDF-059",
+      "sourceExplanation": "原书解析：при чем 在……情况下。；译文：在听课文的时候, 请找出几个问题的答案。",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        50
+      ],
+      "answerPages": [
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P4-Q039",
+      "printedNumber": 39,
+      "type": "single-choice",
+      "question": "Думая о прочитанном, как бы видишь перед собой события собственной жизни.",
+      "options": [
+        {
+          "key": "А",
+          "text": "Когда я думаю о прочитанном"
+        },
+        {
+          "key": "Б",
+          "text": "Если я думаю о прочитанном"
+        },
+        {
+          "key": "В",
+          "text": "Когда думаешь о прочитанном"
+        },
+        {
+          "key": "Г",
+          "text": "Если думаю о прочитанном"
+        }
+      ],
+      "answer": "Б",
+      "sourceAnswer": "Б",
+      "sourceEvidence": "PDF-047–PDF-059",
+      "sourceExplanation": "原书解析：副动词表示时间意义。；译文：当你想起读过的东西, 就好像你眼前看见自己生活的点点滴滴。",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        51
+      ],
+      "answerPages": [
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P4-Q040",
+      "printedNumber": 40,
+      "type": "single-choice",
+      "question": "Подростки и молодые люди, побывав в разных странах, запоминают много нового и интересного.",
+      "options": [
+        {
+          "key": "А",
+          "text": "когда бывают в разных странах"
+        },
+        {
+          "key": "Б",
+          "text": "потому что бывают в разных странах"
+        },
+        {
+          "key": "В",
+          "text": "хотя побывают в разных странах"
+        },
+        {
+          "key": "Г",
+          "text": "поэтому бывают в разных странах"
+        }
+      ],
+      "answer": "А",
+      "sourceAnswer": "А",
+      "sourceEvidence": "PDF-047–PDF-059",
+      "sourceExplanation": "原书解析：副动词表示时间意义。；译文：当孩子和年轻人身处异国他乡时, 就会记住很多新鲜有趣的东西。",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        51
+      ],
+      "answerPages": [
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P4-Q041",
+      "printedNumber": 41,
+      "type": "single-choice",
+      "question": "Рассмотрев данные примеры, мы поняли новое грамматическое правило.",
+      "options": [
+        {
+          "key": "А",
+          "text": "Когда мы рассмотрели данные примеры"
+        },
+        {
+          "key": "Б",
+          "text": "Несмотря на то что мы рассмотрели данные примеры"
+        },
+        {
+          "key": "В",
+          "text": "Поэтому мы рассмотрели данные примеры"
+        },
+        {
+          "key": "Г",
+          "text": "Перед тем как мы рассмотрели данные примеры"
+        }
+      ],
+      "answer": "А",
+      "sourceAnswer": "А",
+      "sourceEvidence": "PDF-047–PDF-059",
+      "sourceExplanation": "原书解析：副动词表示时间意义。；译文：看完给出的例子, 我们就明白新的语法规则。",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        51
+      ],
+      "answerPages": [
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P4-Q042",
+      "printedNumber": 42,
+      "type": "single-choice",
+      "question": "Перед поездкой на дачу мы пошли в магазин купить продукты.",
+      "options": [
+        {
+          "key": "А",
+          "text": "чтобы купить продукты"
+        },
+        {
+          "key": "Б",
+          "text": "раз купить продукты"
+        },
+        {
+          "key": "В",
+          "text": "поэтому купить продукты"
+        },
+        {
+          "key": "Г",
+          "text": "прежде чем купить продукты"
+        }
+      ],
+      "answer": "А",
+      "sourceAnswer": "А",
+      "sourceEvidence": "PDF-047–PDF-059",
+      "sourceExplanation": "原书解析：动词不定式做补语表示目的意义。；译文：在去别墅之前我们去了商店买食品。",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        51
+      ],
+      "answerPages": [
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P4-Q043",
+      "printedNumber": 43,
+      "type": "single-choice",
+      "question": "Татьяна снова приехала в наш город навестить свою старую учительницу.",
+      "options": [
+        {
+          "key": "А",
+          "text": "когда навестила свою старую учительницу"
+        },
+        {
+          "key": "Б",
+          "text": "потому что навестила свою старую учительницу"
+        },
+        {
+          "key": "В",
+          "text": "чтобы навестить свою старую учительницу"
+        },
+        {
+          "key": "Г",
+          "text": "если хотела навестить свою старую учительницу"
+        }
+      ],
+      "answer": "Б",
+      "sourceAnswer": "Б",
+      "sourceEvidence": "PDF-047–PDF-059",
+      "sourceExplanation": "原书解析：动词不定式做补语表示目的意义。；译文：塔季扬娜又来到我们的城市看望自己以前的老师。",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        51
+      ],
+      "answerPages": [
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P4-Q044",
+      "printedNumber": 44,
+      "type": "single-choice",
+      "question": "Родители дали Лене совет продолжить учебу в Петербурге.",
+      "options": [
+        {
+          "key": "А",
+          "text": "как она продолжит учебу в Петербурге"
+        },
+        {
+          "key": "Б",
+          "text": "если она продолжит учебу в Петербурге"
+        },
+        {
+          "key": "В",
+          "text": "чтобы она продолжила учебу в Петербург"
+        },
+        {
+          "key": "Г",
+          "text": "что она продолжит учебу в Петербурге"
+        }
+      ],
+      "answer": "Б",
+      "sourceAnswer": "Б",
+      "sourceEvidence": "PDF-047–PDF-059",
+      "sourceExplanation": "原书解析：动词不定式做补语表示目的意义。；译文：父母给列娜建议让她继续在彼得堡学习。",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        51
+      ],
+      "answerPages": [
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P4-Q045",
+      "printedNumber": 45,
+      "type": "single-choice",
+      "question": "За работой мы совсем забыли об обеде.",
+      "options": [
+        {
+          "key": "А",
+          "text": "После работы"
+        },
+        {
+          "key": "Б",
+          "text": "Во время работы"
+        },
+        {
+          "key": "В",
+          "text": "Перед работой"
+        },
+        {
+          "key": "Г",
+          "text": "От работы"
+        }
+      ],
+      "answer": "Б",
+      "sourceAnswer": "Б",
+      "sourceEvidence": "PDF-047–PDF-059",
+      "sourceExplanation": "原书解析：за работой 在工作的时候。；译文：工作的时候我们忘了吃饭。",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        51
+      ],
+      "answerPages": [
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P4-Q046",
+      "printedNumber": 46,
+      "type": "single-choice",
+      "question": "По невнимательности он совершил ошибки, которые мог бы избежать.",
+      "options": [
+        {
+          "key": "А",
+          "text": "Благодаря невнимательности"
+        },
+        {
+          "key": "Б",
+          "text": "Когда он был невнимательным"
+        },
+        {
+          "key": "В",
+          "text": "Ибо он был невнимательным"
+        },
+        {
+          "key": "Г",
+          "text": "Из-за невнимательности"
+        }
+      ],
+      "answer": "Г",
+      "sourceAnswer": "Г",
+      "sourceEvidence": "PDF-047–PDF-059",
+      "sourceExplanation": "原书解析：前置词 no 和 из-за 都表示原因。；译文：因为不认真他犯了本可以避免的错误。",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        52
+      ],
+      "answerPages": [
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P4-Q047",
+      "printedNumber": 47,
+      "type": "single-choice",
+      "question": "Виктор промолчал из уважения к своим собеседникам.",
+      "options": [
+        {
+          "key": "А",
+          "text": "так как уважал своих собеседников"
+        },
+        {
+          "key": "Б",
+          "text": "хотя уважал своих собеседников"
+        },
+        {
+          "key": "В",
+          "text": "когда уважал своих собеседников"
+        },
+        {
+          "key": "Г",
+          "text": "если уважал своих собеседников"
+        }
+      ],
+      "answer": "А",
+      "sourceAnswer": "А",
+      "sourceEvidence": "PDF-047–PDF-059",
+      "sourceExplanation": "原书解析：前置词 из 表示原因。；译文：维克托出于对交谈者的尊重保持沉默。",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        52
+      ],
+      "answerPages": [
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P4-Q048",
+      "printedNumber": 48,
+      "type": "single-choice",
+      "question": "Секретарь спросила посетителя: «Могу я вам предложить чай?»",
+      "options": [
+        {
+          "key": "А",
+          "text": "что она может предложить чай"
+        },
+        {
+          "key": "Б",
+          "text": "может ли она предложить чай"
+        },
+        {
+          "key": "В",
+          "text": "как она может предложить чай"
+        },
+        {
+          "key": "Г",
+          "text": "когда он может предложить чай"
+        }
+      ],
+      "answer": "Б",
+      "sourceAnswer": "Б",
+      "sourceEvidence": "PDF-047–PDF-059",
+      "sourceExplanation": "原书解析：ли 在句中做连接词。；译文：秘书问来访者: “您想喝杯茶吗?”",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        52
+      ],
+      "answerPages": [
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P4-Q049",
+      "printedNumber": 49,
+      "type": "single-choice",
+      "question": "Дедушка спросил меня: «Ты уже обедал»?",
+      "options": [
+        {
+          "key": "А",
+          "text": "обедал я ли уже"
+        },
+        {
+          "key": "Б",
+          "text": "обедал ли я уже"
+        },
+        {
+          "key": "В",
+          "text": "если я уже обедал"
+        },
+        {
+          "key": "Г",
+          "text": "обедал я уже"
+        }
+      ],
+      "answer": "Б",
+      "sourceAnswer": "Б",
+      "sourceEvidence": "PDF-047–PDF-059",
+      "sourceExplanation": "原书解析：Ⅱ 在句中做连接词。；译文：爷爷问我: “你吃饭了吗?”",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        52
+      ],
+      "answerPages": [
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "P4-Q050",
+      "printedNumber": 50,
+      "type": "single-choice",
+      "question": "Мой научный руководитель высказал мне пожелание: «Читайте больше!»",
+      "options": [
+        {
+          "key": "А",
+          "text": "что я читаю больше"
+        },
+        {
+          "key": "Б",
+          "text": "чтобы прочитал больше"
+        },
+        {
+          "key": "В",
+          "text": "чтобы я читал больше"
+        },
+        {
+          "key": "Г",
+          "text": "что читал больше"
+        }
+      ],
+      "answer": "Б",
+      "sourceAnswer": "Б",
+      "sourceEvidence": "PDF-047–PDF-059",
+      "sourceExplanation": "原书解析：直接引语和间接引语相互转换。；译文：我的导师说出了对我的祝愿: “多读书!”",
+      "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
+      "pitfalls": [
+        "先识别原书给出的规则，再结合语境判断。"
+      ],
+      "questionPages": [
+        52
+      ],
+      "answerPages": [
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59
+      ],
+      "reviewStatus": "verified"
+    }
+  ]
+}

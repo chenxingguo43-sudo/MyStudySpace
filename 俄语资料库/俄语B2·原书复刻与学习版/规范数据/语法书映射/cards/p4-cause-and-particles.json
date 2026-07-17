@@ -1,0 +1,442 @@
+{
+  "id": "p4-cause-and-particles",
+  "partId": "p4",
+  "knowledgePointId": "p4-cause-and-particles",
+  "title": "原因结构与连接助词",
+  "exerciseIds": [
+    "P4-Q046",
+    "P4-Q047",
+    "P4-Q048",
+    "P4-Q049"
+  ],
+  "overview": "原因可以用从属连接词、前置词短语或连接助词表达。要识别整个结构的功能，而非逐字翻译。",
+  "decisionSteps": [
+    "找原因与结果",
+    "判断需要句子还是名词短语",
+    "选择连接结构"
+  ],
+  "reviewStatus": "approved",
+  "quickReference": {
+    "semanticQuestions": [
+      "原因后面是完整从句还是名词？",
+      "语体是中性还是书面？"
+    ],
+    "structures": [
+      "так как",
+      "из-за + Р.п.",
+      "так что",
+      "ведь"
+    ]
+  },
+  "lessons": [
+    {
+      "id": "l1",
+      "title": "原因从句",
+      "scope": "core",
+      "meaning": "так как 用完整从句给出理由。",
+      "conditions": [
+        "原因是一个分句。"
+      ],
+      "structure": "так как",
+      "caseChanges": [
+        {
+          "from": "было поздно",
+          "to": "так как было поздно"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Так как было поздно, мы ушли.",
+          "zh": "因为很晚了，我们离开了。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "不能把 так как 后只接孤立名词。"
+      ],
+      "instantChecks": [
+        {
+          "id": "l1-check",
+          "type": "judgment",
+          "prompt": "так как 要根据句中关系选择。",
+          "answer": true,
+          "rationale": "后面是完整原因分句。",
+          "source": {
+            "kind": "grammar-book",
+            "label": "新编俄语语法",
+            "file": "09 连接词.md",
+            "section": "连接词",
+            "pages": [
+              306,
+              307
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book",
+          "label": "新编俄语语法",
+          "file": "09 连接词.md",
+          "section": "连接词",
+          "pages": [
+            306,
+            307
+          ]
+        }
+      ]
+    },
+    {
+      "id": "l2",
+      "title": "名词原因",
+      "scope": "core",
+      "meaning": "из-за + 第二格连接名词性原因。",
+      "conditions": [
+        "原因是名词短语。"
+      ],
+      "structure": "из-за + Р.п.",
+      "caseChanges": [
+        {
+          "from": "дождь",
+          "to": "из-за дождя"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Из-за дождя матч отменили.",
+          "zh": "由于下雨，比赛取消了。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "不要在 из-за 后接完整句子。"
+      ],
+      "instantChecks": [
+        {
+          "id": "l2-check",
+          "type": "judgment",
+          "prompt": "из-за + Р.п. 要根据句中关系选择。",
+          "answer": true,
+          "rationale": "前置词短语说明原因。",
+          "source": {
+            "kind": "grammar-book",
+            "label": "新编俄语语法",
+            "file": "09 连接词.md",
+            "section": "连接词",
+            "pages": [
+              306,
+              307
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book",
+          "label": "新编俄语语法",
+          "file": "09 连接词.md",
+          "section": "连接词",
+          "pages": [
+            306,
+            307
+          ]
+        }
+      ]
+    },
+    {
+      "id": "l3",
+      "title": "结果连接",
+      "scope": "core",
+      "meaning": "так что 说明前句带来的结果。",
+      "conditions": [
+        "后句是结果而非原因。"
+      ],
+      "structure": "так что",
+      "caseChanges": [
+        {
+          "from": "устали",
+          "to": "так что устали"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Мы долго шли, так что устали.",
+          "zh": "我们走了很久，因此累了。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "原因与结果方向不能倒置。"
+      ],
+      "instantChecks": [
+        {
+          "id": "l3-check",
+          "type": "judgment",
+          "prompt": "так что 要根据句中关系选择。",
+          "answer": true,
+          "rationale": "走很久导致疲劳。",
+          "source": {
+            "kind": "grammar-book",
+            "label": "新编俄语语法",
+            "file": "09 连接词.md",
+            "section": "连接词",
+            "pages": [
+              306,
+              307
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book",
+          "label": "新编俄语语法",
+          "file": "09 连接词.md",
+          "section": "连接词",
+          "pages": [
+            306,
+            307
+          ]
+        }
+      ]
+    },
+    {
+      "id": "l4",
+      "title": "强调助词",
+      "scope": "core",
+      "meaning": "ведь 等助词加强已知或显然的理由。",
+      "conditions": [
+        "语境已有共同知识。"
+      ],
+      "structure": "ведь",
+      "caseChanges": [
+        {
+          "from": "ты знаешь",
+          "to": "ведь ты знаешь"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Ведь ты знаешь это правило.",
+          "zh": "你明明知道这条规则。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "助词不替代完整逻辑关系。"
+      ],
+      "instantChecks": [
+        {
+          "id": "l4-check",
+          "type": "judgment",
+          "prompt": "ведь 要根据句中关系选择。",
+          "answer": true,
+          "rationale": "它加强说话人的提醒。",
+          "source": {
+            "kind": "grammar-book",
+            "label": "新编俄语语法",
+            "file": "09 连接词.md",
+            "section": "连接词",
+            "pages": [
+              306,
+              307
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book",
+          "label": "新编俄语语法",
+          "file": "09 连接词.md",
+          "section": "连接词",
+          "pages": [
+            306,
+            307
+          ]
+        }
+      ]
+    }
+  ],
+  "relatedExtensions": [],
+  "checks": [
+    {
+      "id": "review-1",
+      "type": "judgment",
+      "prompt": "Так как было поздно, мы ушли. 中的结构符合本节规则。",
+      "answer": true,
+      "rationale": "后面是完整原因分句。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "09 连接词.md",
+        "section": "连接词",
+        "pages": [
+          306,
+          307
+        ]
+      }
+    },
+    {
+      "id": "review-2",
+      "type": "judgment",
+      "prompt": "Из-за дождя матч отменили. 中的结构符合本节规则。",
+      "answer": true,
+      "rationale": "前置词短语说明原因。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "09 连接词.md",
+        "section": "连接词",
+        "pages": [
+          306,
+          307
+        ]
+      }
+    },
+    {
+      "id": "review-3",
+      "type": "judgment",
+      "prompt": "Мы долго шли, так что устали. 中的结构符合本节规则。",
+      "answer": true,
+      "rationale": "走很久导致疲劳。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "09 连接词.md",
+        "section": "连接词",
+        "pages": [
+          306,
+          307
+        ]
+      }
+    }
+  ],
+  "rules": [
+    {
+      "text": "так как：так как 用完整从句给出理由。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "09 连接词.md",
+        "section": "连接词",
+        "pages": [
+          306,
+          307
+        ]
+      }
+    },
+    {
+      "text": "из-за + Р.п.：из-за + 第二格连接名词性原因。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "09 连接词.md",
+        "section": "连接词",
+        "pages": [
+          306,
+          307
+        ]
+      }
+    },
+    {
+      "text": "так что：так что 说明前句带来的结果。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "09 连接词.md",
+        "section": "连接词",
+        "pages": [
+          306,
+          307
+        ]
+      }
+    },
+    {
+      "text": "ведь：ведь 等助词加强已知或显然的理由。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "09 连接词.md",
+        "section": "连接词",
+        "pages": [
+          306,
+          307
+        ]
+      }
+    }
+  ],
+  "comparisons": [
+    {
+      "left": "так как",
+      "right": "так что",
+      "note": "前者引原因，后者引结果。",
+      "source": {
+        "kind": "learning-explanation",
+        "label": "学习讲解"
+      }
+    }
+  ],
+  "examples": [
+    {
+      "ru": "Так как было поздно, мы ушли.",
+      "zh": "因为很晚了，我们离开了。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    },
+    {
+      "ru": "Из-за дождя матч отменили.",
+      "zh": "由于下雨，比赛取消了。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    },
+    {
+      "ru": "Мы долго шли, так что устали.",
+      "zh": "我们走了很久，因此累了。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    },
+    {
+      "ru": "Ведь ты знаешь это правило.",
+      "zh": "你明明知道这条规则。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    }
+  ],
+  "pitfalls": [
+    "先看后面接的是句子还是名词短语。",
+    "不要颠倒因果方向。"
+  ],
+  "sources": [
+    {
+      "kind": "grammar-book",
+      "label": "新编俄语语法",
+      "file": "09 连接词.md",
+      "section": "连接词",
+      "pages": [
+        306,
+        307
+      ]
+    }
+  ]
+}

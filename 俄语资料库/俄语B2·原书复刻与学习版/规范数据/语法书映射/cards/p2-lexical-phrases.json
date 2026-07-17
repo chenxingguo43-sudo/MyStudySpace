@@ -1,0 +1,439 @@
+{
+  "id": "p2-lexical-phrases",
+  "partId": "p2",
+  "knowledgePointId": "p2-lexical-phrases",
+  "title": "固定词组与常用表达",
+  "exerciseIds": [
+    "P2-Q049",
+    "P2-Q050"
+  ],
+  "overview": "本卡提醒你把固定搭配作为整体识别。词典义正确，不代表放进惯用表达后仍然正确。",
+  "decisionSteps": [
+    "识别固定搭配",
+    "不要逐词替换",
+    "检查名词格与前置词"
+  ],
+  "reviewStatus": "approved",
+  "quickReference": {
+    "semanticQuestions": [
+      "这里是不是固定表达？",
+      "替换后的词是否仍保留原搭配？"
+    ],
+    "structures": [
+      "обратить внимание на",
+      "принять участие в",
+      "иметь в виду"
+    ]
+  },
+  "lessons": [
+    {
+      "id": "l1",
+      "title": "注意事项",
+      "scope": "core",
+      "meaning": "обратить внимание 固定与 на + 第四格连用。",
+      "conditions": [
+        "先找支配词或前置词，再判断所需的格与语义。"
+      ],
+      "structure": "обратить внимание на + В.п.",
+      "caseChanges": [
+        {
+          "from": "ошибка",
+          "to": "ошибку"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Обратите внимание на эту ошибку.",
+          "zh": "请注意这个错误。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "不能把注意的对象改成第二格。"
+      ],
+      "instantChecks": [
+        {
+          "id": "l1-check",
+          "type": "judgment",
+          "prompt": "обратить внимание на + В.п. 的选择必须由支配关系和语义共同决定。",
+          "answer": true,
+          "rationale": "先确认结构要求，再检查词形。",
+          "source": {
+            "kind": "grammar-book",
+            "label": "新编俄语语法",
+            "file": "02 名词.md",
+            "section": "要求各种接格关系的动词及形容词",
+            "pages": [
+              54,
+              55
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book",
+          "label": "新编俄语语法",
+          "file": "02 名词.md",
+          "section": "要求各种接格关系的动词及形容词",
+          "pages": [
+            54,
+            55
+          ]
+        }
+      ]
+    },
+    {
+      "id": "l2",
+      "title": "参加活动",
+      "scope": "core",
+      "meaning": "принять участие 固定与 в + 第六格连用。",
+      "conditions": [
+        "先找支配词或前置词，再判断所需的格与语义。"
+      ],
+      "structure": "принять участие в + П.п.",
+      "caseChanges": [
+        {
+          "from": "конференция",
+          "to": "конференции"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Она приняла участие в конференции.",
+          "zh": "她参加了会议。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "участие 与前置词共同构成整体。"
+      ],
+      "instantChecks": [
+        {
+          "id": "l2-check",
+          "type": "judgment",
+          "prompt": "принять участие в + П.п. 的选择必须由支配关系和语义共同决定。",
+          "answer": true,
+          "rationale": "先确认结构要求，再检查词形。",
+          "source": {
+            "kind": "grammar-book",
+            "label": "新编俄语语法",
+            "file": "02 名词.md",
+            "section": "要求各种接格关系的动词及形容词",
+            "pages": [
+              54,
+              55
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book",
+          "label": "新编俄语语法",
+          "file": "02 名词.md",
+          "section": "要求各种接格关系的动词及形容词",
+          "pages": [
+            54,
+            55
+          ]
+        }
+      ]
+    },
+    {
+      "id": "l3",
+      "title": "考虑到",
+      "scope": "core",
+      "meaning": "иметь в виду 表示“考虑、意指”，搭配固定。",
+      "conditions": [
+        "先找支配词或前置词，再判断所需的格与语义。"
+      ],
+      "structure": "иметь в виду + В.п.",
+      "caseChanges": [
+        {
+          "from": "план",
+          "to": "план"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Имейте в виду наш план.",
+          "zh": "请考虑我们的计划。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "不能把 в виду 拆开按字面替换。"
+      ],
+      "instantChecks": [
+        {
+          "id": "l3-check",
+          "type": "judgment",
+          "prompt": "иметь в виду + В.п. 的选择必须由支配关系和语义共同决定。",
+          "answer": true,
+          "rationale": "先确认结构要求，再检查词形。",
+          "source": {
+            "kind": "grammar-book",
+            "label": "新编俄语语法",
+            "file": "02 名词.md",
+            "section": "要求各种接格关系的动词及形容词",
+            "pages": [
+              54,
+              55
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book",
+          "label": "新编俄语语法",
+          "file": "02 名词.md",
+          "section": "要求各种接格关系的动词及形容词",
+          "pages": [
+            54,
+            55
+          ]
+        }
+      ]
+    },
+    {
+      "id": "l4",
+      "title": "作出决定",
+      "scope": "core",
+      "meaning": "принять решение 是固定名词搭配。",
+      "conditions": [
+        "先找支配词或前置词，再判断所需的格与语义。"
+      ],
+      "structure": "принять решение",
+      "caseChanges": [
+        {
+          "from": "решение",
+          "to": "решение"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Мы приняли важное решение.",
+          "zh": "我们作出了重要决定。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "俄语常用动词+名词整体表达一个动作。"
+      ],
+      "instantChecks": [
+        {
+          "id": "l4-check",
+          "type": "judgment",
+          "prompt": "принять решение 的选择必须由支配关系和语义共同决定。",
+          "answer": true,
+          "rationale": "先确认结构要求，再检查词形。",
+          "source": {
+            "kind": "grammar-book",
+            "label": "新编俄语语法",
+            "file": "02 名词.md",
+            "section": "要求各种接格关系的动词及形容词",
+            "pages": [
+              54,
+              55
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book",
+          "label": "新编俄语语法",
+          "file": "02 名词.md",
+          "section": "要求各种接格关系的动词及形容词",
+          "pages": [
+            54,
+            55
+          ]
+        }
+      ]
+    }
+  ],
+  "relatedExtensions": [],
+  "checks": [
+    {
+      "id": "review-1",
+      "type": "judgment",
+      "prompt": "обратить внимание на + В.п. 的选择必须由支配关系和语义共同决定。",
+      "answer": true,
+      "rationale": "先确认结构要求，再检查词形。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "02 名词.md",
+        "section": "要求各种接格关系的动词及形容词",
+        "pages": [
+          54,
+          55
+        ]
+      }
+    },
+    {
+      "id": "review-2",
+      "type": "judgment",
+      "prompt": "принять участие в + П.п. 的选择必须由支配关系和语义共同决定。",
+      "answer": true,
+      "rationale": "先确认结构要求，再检查词形。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "02 名词.md",
+        "section": "要求各种接格关系的动词及形容词",
+        "pages": [
+          54,
+          55
+        ]
+      }
+    },
+    {
+      "id": "review-3",
+      "type": "judgment",
+      "prompt": "иметь в виду + В.п. 的选择必须由支配关系和语义共同决定。",
+      "answer": true,
+      "rationale": "先确认结构要求，再检查词形。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "02 名词.md",
+        "section": "要求各种接格关系的动词及形容词",
+        "pages": [
+          54,
+          55
+        ]
+      }
+    }
+  ],
+  "rules": [
+    {
+      "text": "обратить внимание на + В.п.：обратить внимание 固定与 на + 第四格连用。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "02 名词.md",
+        "section": "要求各种接格关系的动词及形容词",
+        "pages": [
+          54,
+          55
+        ]
+      }
+    },
+    {
+      "text": "принять участие в + П.п.：принять участие 固定与 в + 第六格连用。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "02 名词.md",
+        "section": "要求各种接格关系的动词及形容词",
+        "pages": [
+          54,
+          55
+        ]
+      }
+    },
+    {
+      "text": "иметь в виду + В.п.：иметь в виду 表示“考虑、意指”，搭配固定。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "02 名词.md",
+        "section": "要求各种接格关系的动词及形容词",
+        "pages": [
+          54,
+          55
+        ]
+      }
+    },
+    {
+      "text": "принять решение：принять решение 是固定名词搭配。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "02 名词.md",
+        "section": "要求各种接格关系的动词及形容词",
+        "pages": [
+          54,
+          55
+        ]
+      }
+    }
+  ],
+  "comparisons": [
+    {
+      "left": "принять участие в",
+      "right": "участвовать в",
+      "note": "两者意义接近，但前者是固定名词结构。",
+      "source": {
+        "kind": "learning-explanation",
+        "label": "学习讲解"
+      }
+    }
+  ],
+  "examples": [
+    {
+      "ru": "Обратите внимание на эту ошибку.",
+      "zh": "请注意这个错误。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    },
+    {
+      "ru": "Она приняла участие в конференции.",
+      "zh": "她参加了会议。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    },
+    {
+      "ru": "Имейте в виду наш план.",
+      "zh": "请考虑我们的计划。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    },
+    {
+      "ru": "Мы приняли важное решение.",
+      "zh": "我们作出了重要决定。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    }
+  ],
+  "pitfalls": [
+    "熟词在固定搭配中往往不能自由换同义词。",
+    "优先记“动词+前置词+格”的完整块。"
+  ],
+  "sources": [
+    {
+      "kind": "grammar-book",
+      "label": "新编俄语语法",
+      "file": "02 名词.md",
+      "section": "要求各种接格关系的动词及形容词",
+      "pages": [
+        54,
+        55
+      ]
+    }
+  ]
+}

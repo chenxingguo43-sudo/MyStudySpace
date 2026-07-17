@@ -1,0 +1,455 @@
+{
+  "id": "p5-derivation",
+  "partId": "p5",
+  "knowledgePointId": "p5-derivation",
+  "title": "构词与近义词辨析",
+  "exerciseIds": [
+    "P5-Q001",
+    "P5-Q002",
+    "P5-Q003",
+    "P5-Q004",
+    "P5-Q005",
+    "P5-Q006",
+    "P5-Q007",
+    "P5-Q008",
+    "P5-Q009",
+    "P5-Q010",
+    "P5-Q011",
+    "P5-Q012",
+    "P5-Q013",
+    "P5-Q014",
+    "P5-Q015",
+    "P5-Q016",
+    "P5-Q017"
+  ],
+  "overview": "构词题先看词根和词缀提供的词性、方向和语义，再把候选词放回固定搭配。",
+  "decisionSteps": [
+    "确认空格需要的词性",
+    "看前后缀改变了什么意义",
+    "最后核对搭配"
+  ],
+  "reviewStatus": "approved",
+  "quickReference": {
+    "semanticQuestions": [
+      "需要名词、形容词还是动词？",
+      "词缀表达方向、否定还是结果？"
+    ],
+    "structures": [
+      "в-/вы-/у- + 词根",
+      "-ость / -ный / -но",
+      "обсуждать + В.п.",
+      "词义 + 语境"
+    ]
+  },
+  "lessons": [
+    {
+      "id": "l1",
+      "title": "前缀改变词义",
+      "scope": "core",
+      "meaning": "前缀常补充方向、开始或结果意义。",
+      "conditions": [
+        "同一词根出现多个前缀形式。"
+      ],
+      "structure": "в-/вы-/у- + 词根",
+      "caseChanges": [
+        {
+          "from": "ход",
+          "to": "выход"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Пассажиры вышли на следующей станции.",
+          "zh": "乘客在下一站下车。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "不能只按词根翻译。"
+      ],
+      "instantChecks": [
+        {
+          "id": "l1-check",
+          "type": "judgment",
+          "prompt": "“Пассажиры вышли на следующей станции.”符合本节结构。",
+          "answer": true,
+          "rationale": "вы- 表示向外离开。",
+          "source": {
+            "kind": "grammar-book",
+            "label": "新编俄语语法",
+            "file": "01 词的构成.md",
+            "section": "词的构成",
+            "pages": [
+              16,
+              21
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book",
+          "label": "新编俄语语法",
+          "file": "01 词的构成.md",
+          "section": "词的构成",
+          "pages": [
+            16,
+            21
+          ]
+        }
+      ]
+    },
+    {
+      "id": "l2",
+      "title": "后缀决定词性",
+      "scope": "core",
+      "meaning": "后缀常决定派生词属于名词、形容词或副词。",
+      "conditions": [
+        "空格位置要求特定词性。"
+      ],
+      "structure": "-ость / -ный / -но",
+      "caseChanges": [
+        {
+          "from": "интересный",
+          "to": "интересность"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Его рассказ вызвал большой интерес.",
+          "zh": "他的故事引起了很大兴趣。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "词形相似不等于词性可替换。"
+      ],
+      "instantChecks": [
+        {
+          "id": "l2-check",
+          "type": "judgment",
+          "prompt": "“Его рассказ вызвал большой интерес.”符合本节结构。",
+          "answer": true,
+          "rationale": "名词位置需要名词形式。",
+          "source": {
+            "kind": "grammar-book",
+            "label": "新编俄语语法",
+            "file": "01 词的构成.md",
+            "section": "词的构成",
+            "pages": [
+              16,
+              21
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book",
+          "label": "新编俄语语法",
+          "file": "01 词的构成.md",
+          "section": "词的构成",
+          "pages": [
+            16,
+            21
+          ]
+        }
+      ]
+    },
+    {
+      "id": "l3",
+      "title": "近义动词的搭配",
+      "scope": "core",
+      "meaning": "近义词的宾语和语体可能不同。",
+      "conditions": [
+        "候选动词意思接近。"
+      ],
+      "structure": "обсуждать + В.п.",
+      "caseChanges": [
+        {
+          "from": "вопрос",
+          "to": "обсуждать вопрос"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Мы обсуждали этот вопрос на собрании.",
+          "zh": "我们在会上讨论了这个问题。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "不能只看中文“讨论”。"
+      ],
+      "instantChecks": [
+        {
+          "id": "l3-check",
+          "type": "judgment",
+          "prompt": "“Мы обсуждали этот вопрос на собрании.”符合本节结构。",
+          "answer": true,
+          "rationale": "固定宾语搭配决定选择。",
+          "source": {
+            "kind": "grammar-book",
+            "label": "新编俄语语法",
+            "file": "01 词的构成.md",
+            "section": "词的构成",
+            "pages": [
+              16,
+              21
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book",
+          "label": "新编俄语语法",
+          "file": "01 词的构成.md",
+          "section": "词的构成",
+          "pages": [
+            16,
+            21
+          ]
+        }
+      ]
+    },
+    {
+      "id": "l4",
+      "title": "语境限制词义",
+      "scope": "core",
+      "meaning": "派生词必须符合完整句子的逻辑。",
+      "conditions": [
+        "多个词形都看似可能。"
+      ],
+      "structure": "词义 + 语境",
+      "caseChanges": [
+        {
+          "from": "экономичный",
+          "to": "экономический"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Эта машина очень экономичная.",
+          "zh": "这辆车很省油。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "专业形容词不一定描述日常特征。"
+      ],
+      "instantChecks": [
+        {
+          "id": "l4-check",
+          "type": "judgment",
+          "prompt": "“Эта машина очень экономичная.”符合本节结构。",
+          "answer": true,
+          "rationale": "这里描述的是耗费少。",
+          "source": {
+            "kind": "grammar-book",
+            "label": "新编俄语语法",
+            "file": "01 词的构成.md",
+            "section": "词的构成",
+            "pages": [
+              16,
+              21
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book",
+          "label": "新编俄语语法",
+          "file": "01 词的构成.md",
+          "section": "词的构成",
+          "pages": [
+            16,
+            21
+          ]
+        }
+      ]
+    }
+  ],
+  "relatedExtensions": [],
+  "checks": [
+    {
+      "id": "review-1",
+      "type": "judgment",
+      "prompt": "“Пассажиры вышли на следующей станции.”符合本节结构。",
+      "answer": true,
+      "rationale": "вы- 表示向外离开。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "01 词的构成.md",
+        "section": "词的构成",
+        "pages": [
+          16,
+          21
+        ]
+      }
+    },
+    {
+      "id": "review-2",
+      "type": "judgment",
+      "prompt": "“Его рассказ вызвал большой интерес.”符合本节结构。",
+      "answer": true,
+      "rationale": "名词位置需要名词形式。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "01 词的构成.md",
+        "section": "词的构成",
+        "pages": [
+          16,
+          21
+        ]
+      }
+    },
+    {
+      "id": "review-3",
+      "type": "judgment",
+      "prompt": "“Мы обсуждали этот вопрос на собрании.”符合本节结构。",
+      "answer": true,
+      "rationale": "固定宾语搭配决定选择。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "01 词的构成.md",
+        "section": "词的构成",
+        "pages": [
+          16,
+          21
+        ]
+      }
+    }
+  ],
+  "rules": [
+    {
+      "text": "в-/вы-/у- + 词根：前缀常补充方向、开始或结果意义。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "01 词的构成.md",
+        "section": "词的构成",
+        "pages": [
+          16,
+          21
+        ]
+      }
+    },
+    {
+      "text": "-ость / -ный / -но：后缀常决定派生词属于名词、形容词或副词。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "01 词的构成.md",
+        "section": "词的构成",
+        "pages": [
+          16,
+          21
+        ]
+      }
+    },
+    {
+      "text": "обсуждать + В.п.：近义词的宾语和语体可能不同。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "01 词的构成.md",
+        "section": "词的构成",
+        "pages": [
+          16,
+          21
+        ]
+      }
+    },
+    {
+      "text": "词义 + 语境：派生词必须符合完整句子的逻辑。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "01 词的构成.md",
+        "section": "词的构成",
+        "pages": [
+          16,
+          21
+        ]
+      }
+    }
+  ],
+  "comparisons": [
+    {
+      "left": "экономичный",
+      "right": "экономический",
+      "note": "前者表示节省，后者表示经济学或经济领域。",
+      "source": {
+        "kind": "learning-explanation",
+        "label": "学习讲解"
+      }
+    }
+  ],
+  "examples": [
+    {
+      "ru": "Пассажиры вышли на следующей станции.",
+      "zh": "乘客在下一站下车。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    },
+    {
+      "ru": "Его рассказ вызвал большой интерес.",
+      "zh": "他的故事引起了很大兴趣。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    },
+    {
+      "ru": "Мы обсуждали этот вопрос на собрании.",
+      "zh": "我们在会上讨论了这个问题。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    },
+    {
+      "ru": "Эта машина очень экономичная.",
+      "zh": "这辆车很省油。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    }
+  ],
+  "pitfalls": [
+    "先定词性，再看构词成分。",
+    "近义词必须回到搭配和语境判断。"
+  ],
+  "sources": [
+    {
+      "kind": "grammar-book",
+      "label": "新编俄语语法",
+      "file": "01 词的构成.md",
+      "section": "词的构成",
+      "pages": [
+        16,
+        21
+      ]
+    }
+  ]
+}

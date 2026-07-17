@@ -1,0 +1,453 @@
+{
+  "id": "p3-active-participles",
+  "partId": "p3",
+  "knowledgePointId": "p3-active-participles",
+  "title": "主动形动词的一致",
+  "exerciseIds": [
+    "P3-Q001",
+    "P3-Q002",
+    "P3-Q003",
+    "P3-Q004",
+    "P3-Q005",
+    "P3-Q006",
+    "P3-Q007",
+    "P3-Q008",
+    "P3-Q009",
+    "P3-Q010",
+    "P3-Q011",
+    "P3-Q012",
+    "P3-Q013",
+    "P3-Q014",
+    "P3-Q015"
+  ],
+  "overview": "主动形动词描述主动执行动作的名词。先找被修饰名词，再让形动词与它保持性、数、格一致。",
+  "decisionSteps": [
+    "找中心名词",
+    "判断主动关系",
+    "同步调整性数格"
+  ],
+  "reviewStatus": "approved",
+  "quickReference": {
+    "semanticQuestions": [
+      "谁执行动作？",
+      "形动词修饰哪个名词？"
+    ],
+    "structures": [
+      "читающий + 名词",
+      "прочитавший + 名词",
+      "читавшая / читавшие",
+      "студент, читающий статью"
+    ]
+  },
+  "lessons": [
+    {
+      "id": "l1",
+      "title": "主动现在时",
+      "scope": "core",
+      "meaning": "表示与主要动作同时发生的主动行为。",
+      "conditions": [
+        "动作正在或通常进行。"
+      ],
+      "structure": "читающий + 名词",
+      "caseChanges": [
+        {
+          "from": "читающий студент",
+          "to": "читающего студента"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Читающий студент задал вопрос.",
+          "zh": "正在阅读的学生提出了问题。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "不要把动作执行者和受事者混淆。"
+      ],
+      "instantChecks": [
+        {
+          "id": "l1-check",
+          "type": "judgment",
+          "prompt": "читающий + 名词 要根据句中关系选择。",
+          "answer": true,
+          "rationale": "主动形动词的性数格由中心名词决定。",
+          "source": {
+            "kind": "grammar-book",
+            "label": "新编俄语语法",
+            "file": "06 动词.md",
+            "section": "动词",
+            "pages": [
+              190,
+              191
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book",
+          "label": "新编俄语语法",
+          "file": "06 动词.md",
+          "section": "动词",
+          "pages": [
+            190,
+            191
+          ]
+        }
+      ]
+    },
+    {
+      "id": "l2",
+      "title": "主动过去时",
+      "scope": "core",
+      "meaning": "表示先前完成或发生的主动行为。",
+      "conditions": [
+        "动作发生在被说明的状态之前。"
+      ],
+      "structure": "прочитавший + 名词",
+      "caseChanges": [
+        {
+          "from": "прочитавший книгу",
+          "to": "прочитавшего книгу"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Студент, прочитавший книгу, написал отзыв.",
+          "zh": "读完书的学生写了评论。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "完成体常突出已完成的结果。"
+      ],
+      "instantChecks": [
+        {
+          "id": "l2-check",
+          "type": "judgment",
+          "prompt": "прочитавший + 名词 要根据句中关系选择。",
+          "answer": true,
+          "rationale": "先找“谁读了书”，它就是形动词说明的名词。",
+          "source": {
+            "kind": "grammar-book",
+            "label": "新编俄语语法",
+            "file": "06 动词.md",
+            "section": "动词",
+            "pages": [
+              190,
+              191
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book",
+          "label": "新编俄语语法",
+          "file": "06 动词.md",
+          "section": "动词",
+          "pages": [
+            190,
+            191
+          ]
+        }
+      ]
+    },
+    {
+      "id": "l3",
+      "title": "性数一致",
+      "scope": "core",
+      "meaning": "形动词像形容词一样随中心名词变化。",
+      "conditions": [
+        "中心名词为阴性或复数时必须改词尾。"
+      ],
+      "structure": "читавшая / читавшие",
+      "caseChanges": [
+        {
+          "from": "читавший студент",
+          "to": "читавшая студентка"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Читавшая студентка ответила первой.",
+          "zh": "读过书的女学生第一个回答。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "不要只记阳性单数词典形式。"
+      ],
+      "instantChecks": [
+        {
+          "id": "l3-check",
+          "type": "judgment",
+          "prompt": "читавшая / читавшие 要根据句中关系选择。",
+          "answer": true,
+          "rationale": "形动词必须与实际中心名词一致。",
+          "source": {
+            "kind": "grammar-book",
+            "label": "新编俄语语法",
+            "file": "06 动词.md",
+            "section": "动词",
+            "pages": [
+              190,
+              191
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book",
+          "label": "新编俄语语法",
+          "file": "06 动词.md",
+          "section": "动词",
+          "pages": [
+            190,
+            191
+          ]
+        }
+      ]
+    },
+    {
+      "id": "l4",
+      "title": "形动词短语",
+      "scope": "core",
+      "meaning": "带补语的形动词短语仍整体修饰名词。",
+      "conditions": [
+        "先划出短语，再找中心名词。"
+      ],
+      "structure": "студент, читающий статью",
+      "caseChanges": [
+        {
+          "from": "студент",
+          "to": "студента, читающего статью"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Я видел студента, читающего статью.",
+          "zh": "我看见一名正在读文章的学生。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "短语内部宾语不决定形动词词尾。"
+      ],
+      "instantChecks": [
+        {
+          "id": "l4-check",
+          "type": "judgment",
+          "prompt": "студент, читающий статью 要根据句中关系选择。",
+          "answer": true,
+          "rationale": "第四格来自 видел 的宾语，形动词随 студент 变化。",
+          "source": {
+            "kind": "grammar-book",
+            "label": "新编俄语语法",
+            "file": "06 动词.md",
+            "section": "动词",
+            "pages": [
+              190,
+              191
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book",
+          "label": "新编俄语语法",
+          "file": "06 动词.md",
+          "section": "动词",
+          "pages": [
+            190,
+            191
+          ]
+        }
+      ]
+    }
+  ],
+  "relatedExtensions": [],
+  "checks": [
+    {
+      "id": "review-1",
+      "type": "judgment",
+      "prompt": "Читающий студент задал вопрос. 中的结构符合本节规则。",
+      "answer": true,
+      "rationale": "主动形动词的性数格由中心名词决定。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "06 动词.md",
+        "section": "动词",
+        "pages": [
+          190,
+          191
+        ]
+      }
+    },
+    {
+      "id": "review-2",
+      "type": "judgment",
+      "prompt": "Студент, прочитавший книгу, написал отзыв. 中的结构符合本节规则。",
+      "answer": true,
+      "rationale": "先找“谁读了书”，它就是形动词说明的名词。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "06 动词.md",
+        "section": "动词",
+        "pages": [
+          190,
+          191
+        ]
+      }
+    },
+    {
+      "id": "review-3",
+      "type": "judgment",
+      "prompt": "Читавшая студентка ответила первой. 中的结构符合本节规则。",
+      "answer": true,
+      "rationale": "形动词必须与实际中心名词一致。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "06 动词.md",
+        "section": "动词",
+        "pages": [
+          190,
+          191
+        ]
+      }
+    }
+  ],
+  "rules": [
+    {
+      "text": "читающий + 名词：表示与主要动作同时发生的主动行为。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "06 动词.md",
+        "section": "动词",
+        "pages": [
+          190,
+          191
+        ]
+      }
+    },
+    {
+      "text": "прочитавший + 名词：表示先前完成或发生的主动行为。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "06 动词.md",
+        "section": "动词",
+        "pages": [
+          190,
+          191
+        ]
+      }
+    },
+    {
+      "text": "читавшая / читавшие：形动词像形容词一样随中心名词变化。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "06 动词.md",
+        "section": "动词",
+        "pages": [
+          190,
+          191
+        ]
+      }
+    },
+    {
+      "text": "студент, читающий статью：带补语的形动词短语仍整体修饰名词。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "06 动词.md",
+        "section": "动词",
+        "pages": [
+          190,
+          191
+        ]
+      }
+    }
+  ],
+  "comparisons": [
+    {
+      "left": "читающий студент",
+      "right": "прочитавший студент",
+      "note": "前者强调进行/同时，后者强调已完成。",
+      "source": {
+        "kind": "learning-explanation",
+        "label": "学习讲解"
+      }
+    }
+  ],
+  "examples": [
+    {
+      "ru": "Читающий студент задал вопрос.",
+      "zh": "正在阅读的学生提出了问题。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    },
+    {
+      "ru": "Студент, прочитавший книгу, написал отзыв.",
+      "zh": "读完书的学生写了评论。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    },
+    {
+      "ru": "Читавшая студентка ответила первой.",
+      "zh": "读过书的女学生第一个回答。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    },
+    {
+      "ru": "Я видел студента, читающего статью.",
+      "zh": "我看见一名正在读文章的学生。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    }
+  ],
+  "pitfalls": [
+    "先找被修饰名词，不要被短语里的名词干扰。",
+    "体与性数格是两层不同判断。"
+  ],
+  "sources": [
+    {
+      "kind": "grammar-book",
+      "label": "新编俄语语法",
+      "file": "06 动词.md",
+      "section": "动词",
+      "pages": [
+        190,
+        191
+      ]
+    }
+  ]
+}

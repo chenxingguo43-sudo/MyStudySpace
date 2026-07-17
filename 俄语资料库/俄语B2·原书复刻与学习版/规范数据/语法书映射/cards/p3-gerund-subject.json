@@ -1,0 +1,444 @@
+{
+  "id": "p3-gerund-subject",
+  "partId": "p3",
+  "knowledgePointId": "p3-gerund-subject",
+  "title": "副动词的主体一致",
+  "exerciseIds": [
+    "P3-Q045",
+    "P3-Q046",
+    "P3-Q047",
+    "P3-Q048",
+    "P3-Q049",
+    "P3-Q050"
+  ],
+  "overview": "副动词动作的执行者必须与主句逻辑主语一致。若主句没有共同主体，就不能直接使用副动词结构。",
+  "decisionSteps": [
+    "找副动词的执行者",
+    "找主句逻辑主语",
+    "比较二者是否相同"
+  ],
+  "reviewStatus": "approved",
+  "quickReference": {
+    "semanticQuestions": [
+      "谁在做副动词动作？",
+      "主句是谁完成的？"
+    ],
+    "structures": [
+      "идя, он",
+      "когда + 从句",
+      "когда + 从句",
+      "когда / после того как"
+    ]
+  },
+  "lessons": [
+    {
+      "id": "l1",
+      "title": "共同主语",
+      "scope": "core",
+      "meaning": "副动词与主句主语必须同一人或物。",
+      "conditions": [
+        "句中主体明确一致。"
+      ],
+      "structure": "идя, он",
+      "caseChanges": [
+        {
+          "from": "он",
+          "to": "он, идя домой"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Идя домой, он встретил друга.",
+          "zh": "他回家时遇到了朋友。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "不要让宾语承担副动词动作。"
+      ],
+      "instantChecks": [
+        {
+          "id": "l1-check",
+          "type": "judgment",
+          "prompt": "идя, он 要根据句中关系选择。",
+          "answer": true,
+          "rationale": "两个动作都由 он 完成。",
+          "source": {
+            "kind": "grammar-book",
+            "label": "新编俄语语法",
+            "file": "06 动词.md",
+            "section": "动词",
+            "pages": [
+              207,
+              208
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book",
+          "label": "新编俄语语法",
+          "file": "06 动词.md",
+          "section": "动词",
+          "pages": [
+            207,
+            208
+          ]
+        }
+      ]
+    },
+    {
+      "id": "l2",
+      "title": "无人称结构限制",
+      "scope": "core",
+      "meaning": "无人称句通常无法给副动词提供共同主体。",
+      "conditions": [
+        "主句没有明确执行者时要改写。"
+      ],
+      "structure": "когда + 从句",
+      "caseChanges": [
+        {
+          "from": "идти",
+          "to": "когда идёшь по улице"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Когда идёшь по улице, не кури.",
+          "zh": "走在街上时，不要抽烟。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "不要把副动词硬接到无人称谓语后。"
+      ],
+      "instantChecks": [
+        {
+          "id": "l2-check",
+          "type": "judgment",
+          "prompt": "когда + 从句 要根据句中关系选择。",
+          "answer": true,
+          "rationale": "无人称结构缺少可共享的主语，应改为从句。",
+          "source": {
+            "kind": "grammar-book",
+            "label": "新编俄语语法",
+            "file": "06 动词.md",
+            "section": "动词",
+            "pages": [
+              207,
+              208
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book",
+          "label": "新编俄语语法",
+          "file": "06 动词.md",
+          "section": "动词",
+          "pages": [
+            207,
+            208
+          ]
+        }
+      ]
+    },
+    {
+      "id": "l3",
+      "title": "被动句限制",
+      "scope": "core",
+      "meaning": "被动句的主语是受事，常与副动词执行者不同。",
+      "conditions": [
+        "需要改为从句或主动句。"
+      ],
+      "structure": "когда + 从句",
+      "caseChanges": [
+        {
+          "from": "письмо",
+          "to": "письмо, написав"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Письмо было отправлено после того, как я его написал.",
+          "zh": "信是在我写完之后寄出的。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "不要写成“Написав письмо, оно было отправлено”。"
+      ],
+      "instantChecks": [
+        {
+          "id": "l3-check",
+          "type": "judgment",
+          "prompt": "когда + 从句 要根据句中关系选择。",
+          "answer": true,
+          "rationale": "写信的人不是 письмо。",
+          "source": {
+            "kind": "grammar-book",
+            "label": "新编俄语语法",
+            "file": "06 动词.md",
+            "section": "动词",
+            "pages": [
+              207,
+              208
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book",
+          "label": "新编俄语语法",
+          "file": "06 动词.md",
+          "section": "动词",
+          "pages": [
+            207,
+            208
+          ]
+        }
+      ]
+    },
+    {
+      "id": "l4",
+      "title": "改写策略",
+      "scope": "core",
+      "meaning": "主体不同就用从句或两个分句。",
+      "conditions": [
+        "先保留真实执行者。"
+      ],
+      "structure": "когда / после того как",
+      "caseChanges": [
+        {
+          "from": "студент",
+          "to": "когда студент пришёл"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Когда студент пришёл, занятие началось.",
+          "zh": "学生到了以后，课程开始了。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "改写比错误副动词更自然。"
+      ],
+      "instantChecks": [
+        {
+          "id": "l4-check",
+          "type": "judgment",
+          "prompt": "когда / после того как 要根据句中关系选择。",
+          "answer": true,
+          "rationale": "两个动作主体不同，因此使用从句。",
+          "source": {
+            "kind": "grammar-book",
+            "label": "新编俄语语法",
+            "file": "06 动词.md",
+            "section": "动词",
+            "pages": [
+              207,
+              208
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book",
+          "label": "新编俄语语法",
+          "file": "06 动词.md",
+          "section": "动词",
+          "pages": [
+            207,
+            208
+          ]
+        }
+      ]
+    }
+  ],
+  "relatedExtensions": [],
+  "checks": [
+    {
+      "id": "review-1",
+      "type": "judgment",
+      "prompt": "Идя домой, он встретил друга. 中的结构符合本节规则。",
+      "answer": true,
+      "rationale": "两个动作都由 он 完成。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "06 动词.md",
+        "section": "动词",
+        "pages": [
+          207,
+          208
+        ]
+      }
+    },
+    {
+      "id": "review-2",
+      "type": "judgment",
+      "prompt": "Когда идёшь по улице, не кури. 中的结构符合本节规则。",
+      "answer": true,
+      "rationale": "无人称结构缺少可共享的主语，应改为从句。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "06 动词.md",
+        "section": "动词",
+        "pages": [
+          207,
+          208
+        ]
+      }
+    },
+    {
+      "id": "review-3",
+      "type": "judgment",
+      "prompt": "Письмо было отправлено после того, как я его написал. 中的结构符合本节规则。",
+      "answer": true,
+      "rationale": "写信的人不是 письмо。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "06 动词.md",
+        "section": "动词",
+        "pages": [
+          207,
+          208
+        ]
+      }
+    }
+  ],
+  "rules": [
+    {
+      "text": "идя, он：副动词与主句主语必须同一人或物。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "06 动词.md",
+        "section": "动词",
+        "pages": [
+          207,
+          208
+        ]
+      }
+    },
+    {
+      "text": "когда + 从句：无人称句通常无法给副动词提供共同主体。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "06 动词.md",
+        "section": "动词",
+        "pages": [
+          207,
+          208
+        ]
+      }
+    },
+    {
+      "text": "когда + 从句：被动句的主语是受事，常与副动词执行者不同。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "06 动词.md",
+        "section": "动词",
+        "pages": [
+          207,
+          208
+        ]
+      }
+    },
+    {
+      "text": "когда / после того как：主体不同就用从句或两个分句。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "06 动词.md",
+        "section": "动词",
+        "pages": [
+          207,
+          208
+        ]
+      }
+    }
+  ],
+  "comparisons": [
+    {
+      "left": "Идя домой, он...",
+      "right": "Когда студент пришёл, занятие...",
+      "note": "前者共主体，后者主体不同需从句。",
+      "source": {
+        "kind": "learning-explanation",
+        "label": "学习讲解"
+      }
+    }
+  ],
+  "examples": [
+    {
+      "ru": "Идя домой, он встретил друга.",
+      "zh": "他回家时遇到了朋友。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    },
+    {
+      "ru": "Когда идёшь по улице, не кури.",
+      "zh": "走在街上时，不要抽烟。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    },
+    {
+      "ru": "Письмо было отправлено после того, как я его написал.",
+      "zh": "信是在我写完之后寄出的。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    },
+    {
+      "ru": "Когда студент пришёл, занятие началось.",
+      "zh": "学生到了以后，课程开始了。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    }
+  ],
+  "pitfalls": [
+    "副动词并非万能连接手段。",
+    "先确认逻辑主体再选结构。"
+  ],
+  "sources": [
+    {
+      "kind": "grammar-book",
+      "label": "新编俄语语法",
+      "file": "06 动词.md",
+      "section": "动词",
+      "pages": [
+        207,
+        208
+      ]
+    }
+  ]
+}

@@ -2,12 +2,111 @@
   "books": [
     {
       "id": "reading_speaking",
+      "kind": "textbook",
+      "format": "reading",
       "title": "В мире людей — 阅读口语",
       "author": "М.Н. Макова, О.А. Ускова",
       "direction": "ru→cn",
       "chapters": 30,
       "dir": "reading_speaking",
       "description": "ТРКИ-2 阅读口语教材，30篇阅读文章（中俄对照）"
+    },
+    {
+      "id": "russian_b2",
+      "kind": "textbook",
+      "format": "quiz-first",
+      "title": "俄语 B2 全模块",
+      "author": "原版教材学习版",
+      "direction": "ru→cn",
+      "chapters": 6,
+      "dir": "russian_b2",
+      "description": "原书对照、逐题解析与错题复习",
+      "unitIds": [
+        "p1",
+        "p2",
+        "p3",
+        "p4",
+        "p5",
+        "p6"
+      ],
+      "chapterTitles": [
+        "P1 句法一致与动词体",
+        "P2 名词、形容词与接格",
+        "P3 形动词与副动词",
+        "P4 复句连接与指代",
+        "P5 构词、词义辨析与无人称结构",
+        "P6 独立语法题与报刊语体"
+      ]
+    },
+    {
+      "id": "russian_b2_reading",
+      "kind": "textbook",
+      "format": "reading-practice",
+      "title": "俄语 B2 全模块 · 阅读",
+      "author": "原版教材学习版",
+      "direction": "ru→cn",
+      "chapters": 10,
+      "dir": "russian_b2/modules/reading",
+      "chapterTitles": [
+        "Текст 1", "Текст 2", "Текст 3", "Текст 4", "Текст 5",
+        "Текст 6", "Текст 7", "Текст 8", "Текст 9", "Текст 10"
+      ],
+      "description": "十篇原文、阅读理解与可追溯答案表；每篇均提供已审核的译文、结构、表达与复述框架。"
+    },
+    {
+      "id": "russian_b2_writing",
+      "kind": "textbook",
+      "format": "writing-workbench",
+      "title": "俄语 B2 全模块 · 写作",
+      "author": "原版教材学习版",
+      "direction": "ru→cn",
+      "chapters": 13,
+      "dir": "russian_b2/modules/writing",
+      "chapterTitles": ["推荐信", "申请书", "邀请信", "履历", "收据", "证明", "感谢信", "贺信", "布告", "投诉信", "解释信", "实习报告", "介绍信"],
+      "description": "原书任务、格式清单、可本地保存的俄语草稿与来源标注范文。"
+    },
+    {
+      "id": "russian_b2_speaking",
+      "kind": "textbook",
+      "format": "speaking-practice",
+      "title": "俄语 B2 全模块 · 会话",
+      "author": "原版教材学习版",
+      "direction": "ru→cn",
+      "chapters": 6,
+      "dir": "russian_b2/modules/speaking",
+      "chapterTitles": [
+        "任务 1–4 · 反义评价对话",
+        "任务 5–8 · 表达交际意图",
+        "任务 9–12 · 语调朗读",
+        "任务 13 · 视频描述",
+        "任务 14 · 电话咨询",
+        "任务 15 · 讨论"
+      ],
+      "description": "来源核对的会话任务、渐进练习与本地录音。"
+    },
+    {
+      "id": "russian_b2_listening",
+      "kind": "textbook",
+      "format": "listening-practice",
+      "title": "俄语 B2 全模块 · 听力",
+      "author": "原版教材学习版",
+      "direction": "ru→cn",
+      "chapters": 5,
+      "dir": "russian_b2/modules/listening",
+      "chapterTitles": ["任务 1–5 · 对话", "任务 6–10 · 广告", "任务 11–15 · 电影", "任务 16–20 · 新闻", "任务 21–25 · 采访"],
+      "description": "原书文字稿、选择题与明确标注的重建 TTS；文字稿与页码已核对，重建音频用于精听和跟读。"
+    },
+    {
+      "id": "russian_b2_exam",
+      "kind": "textbook",
+      "format": "exam-practice",
+      "title": "俄语 B2 全模块 · 真题模拟",
+      "author": "原版教材学习版",
+      "direction": "ru→cn",
+      "chapters": 5,
+      "dir": "russian_b2/modules/exam",
+      "chapterTitles": ["语法和词汇", "阅读", "写作", "听力", "会话"],
+      "description": "B2 原卷分测验入口：阅读与写作题面已核验发布；语法、听力与会话保留可追溯来源索引。"
     }
   ]
 }

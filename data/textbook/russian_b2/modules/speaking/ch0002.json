@@ -1,0 +1,54 @@
+{
+  "id": "intonation",
+  "title": "任务 9–12 · 按交际意图朗读",
+  "reviewStatus": "source-verified",
+  "sourcePages": [
+    115
+  ],
+  "task": {
+    "prompt": "按指定情绪朗读四句话：愤怒、高兴、沮丧、称赞。",
+    "responseMode": "intonation-reading"
+  },
+  "progression": [
+    {
+      "id": "frames",
+      "title": "重音标记",
+      "instruction": "先划出表达情绪的词，并决定句末语调。"
+    },
+    {
+      "id": "short-response",
+      "title": "分句朗读",
+      "instruction": "逐句读出，先确保情绪与语义一致。"
+    },
+    {
+      "id": "recording",
+      "title": "完整录音",
+      "instruction": "连续朗读四句，回听检查停顿、重音和语调。"
+    }
+  ],
+  "sourceAnswer": {
+    "text": "Мне надоела музыка за стеной! Ну, сколько можно просить её выключить! Как здорово, что завтра суббота! Можно, наконец, выспаться! Опять я опоздал на автобус. Опять опоздаю на урок… Как хорошо вы говорите по-английски!",
+    "source": {
+      "kind": "b2-original",
+      "label": "B2 原书朗读材料",
+      "pages": [
+        115
+      ]
+    }
+  },
+  "media": {
+    "provenance": "source-text-only"
+  },
+  "recording": {
+    "storage": "IndexedDB:russian_b2_recordings"
+  },
+  "studySupport": {
+    "label": "学习辅助",
+    "checklist": [
+      "重音服务于情绪",
+      "问句、感叹句和省略号分别处理",
+      "回听时比较四种意图是否可区分"
+    ]
+  },
+  "format": "speaking-practice"
+}

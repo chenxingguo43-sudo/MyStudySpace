@@ -1,0 +1,447 @@
+{
+  "id": "p2-verb-case-1",
+  "partId": "p2",
+  "knowledgePointId": "p2-verb-case-1",
+  "title": "动词支配格：获得、归属与干涉",
+  "exerciseIds": [
+    "P2-Q021",
+    "P2-Q022",
+    "P2-Q023",
+    "P2-Q024",
+    "P2-Q025",
+    "P2-Q026",
+    "P2-Q027",
+    "P2-Q028",
+    "P2-Q029",
+    "P2-Q030"
+  ],
+  "overview": "本卡处理“达到、获得、失去、属于、妨碍”等动词的固定支配。把动词和它需要的格作为一个整体记忆。",
+  "decisionSteps": [
+    "先确定动作类型",
+    "背出动词的固定问法",
+    "再让名词完成相应变格"
+  ],
+  "reviewStatus": "approved",
+  "quickReference": {
+    "semanticQuestions": [
+      "这是获得的目标还是被妨碍的对象？",
+      "动词是否带固定前置词？"
+    ],
+    "structures": [
+      "достичь чего",
+      "принадлежать кому-чему",
+      "мешать кому-чему"
+    ]
+  },
+  "lessons": [
+    {
+      "id": "l1",
+      "title": "达到目标",
+      "scope": "core",
+      "meaning": "достичь 表示达到某一目标，要求第二格。",
+      "conditions": [
+        "先找支配词或前置词，再判断所需的格与语义。"
+      ],
+      "structure": "достичь + Р.п.",
+      "caseChanges": [
+        {
+          "from": "цель",
+          "to": "цели"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Команда достигла цели.",
+          "zh": "团队达到了目标。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "不能按汉语“达到目标”直接套第四格。"
+      ],
+      "instantChecks": [
+        {
+          "id": "l1-check",
+          "type": "judgment",
+          "prompt": "достичь + Р.п. 的选择必须由支配关系和语义共同决定。",
+          "answer": true,
+          "rationale": "先确认结构要求，再检查词形。",
+          "source": {
+            "kind": "grammar-book",
+            "label": "新编俄语语法",
+            "file": "02 名词.md",
+            "section": "要求各种接格关系的动词及形容词",
+            "pages": [
+              49,
+              50
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book",
+          "label": "新编俄语语法",
+          "file": "02 名词.md",
+          "section": "要求各种接格关系的动词及形容词",
+          "pages": [
+            49,
+            50
+          ]
+        }
+      ]
+    },
+    {
+      "id": "l2",
+      "title": "归属关系",
+      "scope": "core",
+      "meaning": "принадлежать 表示属于，要求第三格。",
+      "conditions": [
+        "先找支配词或前置词，再判断所需的格与语义。"
+      ],
+      "structure": "принадлежать + Д.п.",
+      "caseChanges": [
+        {
+          "from": "университет",
+          "to": "университету"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Эта библиотека принадлежит университету.",
+          "zh": "这座图书馆属于大学。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "拥有者在俄语里是第三格，不是所有格定语。"
+      ],
+      "instantChecks": [
+        {
+          "id": "l2-check",
+          "type": "judgment",
+          "prompt": "принадлежать + Д.п. 的选择必须由支配关系和语义共同决定。",
+          "answer": true,
+          "rationale": "先确认结构要求，再检查词形。",
+          "source": {
+            "kind": "grammar-book",
+            "label": "新编俄语语法",
+            "file": "02 名词.md",
+            "section": "要求各种接格关系的动词及形容词",
+            "pages": [
+              49,
+              50
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book",
+          "label": "新编俄语语法",
+          "file": "02 名词.md",
+          "section": "要求各种接格关系的动词及形容词",
+          "pages": [
+            49,
+            50
+          ]
+        }
+      ]
+    },
+    {
+      "id": "l3",
+      "title": "干扰与帮助",
+      "scope": "core",
+      "meaning": "мешать / помогать 都常要求第三格。",
+      "conditions": [
+        "先找支配词或前置词，再判断所需的格与语义。"
+      ],
+      "structure": "мешать + Д.п.",
+      "caseChanges": [
+        {
+          "from": "работа",
+          "to": "работе"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Шум мешает работе.",
+          "zh": "噪音妨碍工作。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "不要把受影响者误写成第四格。"
+      ],
+      "instantChecks": [
+        {
+          "id": "l3-check",
+          "type": "judgment",
+          "prompt": "мешать + Д.п. 的选择必须由支配关系和语义共同决定。",
+          "answer": true,
+          "rationale": "先确认结构要求，再检查词形。",
+          "source": {
+            "kind": "grammar-book",
+            "label": "新编俄语语法",
+            "file": "02 名词.md",
+            "section": "要求各种接格关系的动词及形容词",
+            "pages": [
+              49,
+              50
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book",
+          "label": "新编俄语语法",
+          "file": "02 名词.md",
+          "section": "要求各种接格关系的动词及形容词",
+          "pages": [
+            49,
+            50
+          ]
+        }
+      ]
+    },
+    {
+      "id": "l4",
+      "title": "失去与避免",
+      "scope": "core",
+      "meaning": "лишиться 表示失去，要求第二格。",
+      "conditions": [
+        "先找支配词或前置词，再判断所需的格与语义。"
+      ],
+      "structure": "лишиться + Р.п.",
+      "caseChanges": [
+        {
+          "from": "документ",
+          "to": "документа"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Он лишился важного документа.",
+          "zh": "他丢失了一份重要文件。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "词义像“失去”，但结构不同于 потерять + 第四格。"
+      ],
+      "instantChecks": [
+        {
+          "id": "l4-check",
+          "type": "judgment",
+          "prompt": "лишиться + Р.п. 的选择必须由支配关系和语义共同决定。",
+          "answer": true,
+          "rationale": "先确认结构要求，再检查词形。",
+          "source": {
+            "kind": "grammar-book",
+            "label": "新编俄语语法",
+            "file": "02 名词.md",
+            "section": "要求各种接格关系的动词及形容词",
+            "pages": [
+              49,
+              50
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book",
+          "label": "新编俄语语法",
+          "file": "02 名词.md",
+          "section": "要求各种接格关系的动词及形容词",
+          "pages": [
+            49,
+            50
+          ]
+        }
+      ]
+    }
+  ],
+  "relatedExtensions": [],
+  "checks": [
+    {
+      "id": "review-1",
+      "type": "judgment",
+      "prompt": "достичь + Р.п. 的选择必须由支配关系和语义共同决定。",
+      "answer": true,
+      "rationale": "先确认结构要求，再检查词形。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "02 名词.md",
+        "section": "要求各种接格关系的动词及形容词",
+        "pages": [
+          49,
+          50
+        ]
+      }
+    },
+    {
+      "id": "review-2",
+      "type": "judgment",
+      "prompt": "принадлежать + Д.п. 的选择必须由支配关系和语义共同决定。",
+      "answer": true,
+      "rationale": "先确认结构要求，再检查词形。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "02 名词.md",
+        "section": "要求各种接格关系的动词及形容词",
+        "pages": [
+          49,
+          50
+        ]
+      }
+    },
+    {
+      "id": "review-3",
+      "type": "judgment",
+      "prompt": "мешать + Д.п. 的选择必须由支配关系和语义共同决定。",
+      "answer": true,
+      "rationale": "先确认结构要求，再检查词形。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "02 名词.md",
+        "section": "要求各种接格关系的动词及形容词",
+        "pages": [
+          49,
+          50
+        ]
+      }
+    }
+  ],
+  "rules": [
+    {
+      "text": "достичь + Р.п.：достичь 表示达到某一目标，要求第二格。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "02 名词.md",
+        "section": "要求各种接格关系的动词及形容词",
+        "pages": [
+          49,
+          50
+        ]
+      }
+    },
+    {
+      "text": "принадлежать + Д.п.：принадлежать 表示属于，要求第三格。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "02 名词.md",
+        "section": "要求各种接格关系的动词及形容词",
+        "pages": [
+          49,
+          50
+        ]
+      }
+    },
+    {
+      "text": "мешать + Д.п.：мешать / помогать 都常要求第三格。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "02 名词.md",
+        "section": "要求各种接格关系的动词及形容词",
+        "pages": [
+          49,
+          50
+        ]
+      }
+    },
+    {
+      "text": "лишиться + Р.п.：лишиться 表示失去，要求第二格。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "02 名词.md",
+        "section": "要求各种接格关系的动词及形容词",
+        "pages": [
+          49,
+          50
+        ]
+      }
+    }
+  ],
+  "comparisons": [
+    {
+      "left": "достичь цели",
+      "right": "видеть цель",
+      "note": "前者由动词固定要求第二格，后者是普通第四格宾语。",
+      "source": {
+        "kind": "learning-explanation",
+        "label": "学习讲解"
+      }
+    }
+  ],
+  "examples": [
+    {
+      "ru": "Команда достигла цели.",
+      "zh": "团队达到了目标。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    },
+    {
+      "ru": "Эта библиотека принадлежит университету.",
+      "zh": "这座图书馆属于大学。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    },
+    {
+      "ru": "Шум мешает работе.",
+      "zh": "噪音妨碍工作。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    },
+    {
+      "ru": "Он лишился важного документа.",
+      "zh": "他丢失了一份重要文件。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    }
+  ],
+  "pitfalls": [
+    "固定支配不能由中文译法推出。",
+    "同义动词可能要求不同的格。"
+  ],
+  "sources": [
+    {
+      "kind": "grammar-book",
+      "label": "新编俄语语法",
+      "file": "02 名词.md",
+      "section": "要求各种接格关系的动词及形容词",
+      "pages": [
+        49,
+        50
+      ]
+    }
+  ]
+}

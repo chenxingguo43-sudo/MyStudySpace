@@ -1,0 +1,457 @@
+{
+  "id": "p2-adjective-case",
+  "partId": "p2",
+  "knowledgePointId": "p2-adjective-case",
+  "title": "名词与形容词的支配格",
+  "exerciseIds": [
+    "P2-Q001",
+    "P2-Q002",
+    "P2-Q003",
+    "P2-Q004",
+    "P2-Q005",
+    "P2-Q006",
+    "P2-Q007",
+    "P2-Q008",
+    "P2-Q009",
+    "P2-Q010",
+    "P2-Q011",
+    "P2-Q012",
+    "P2-Q013",
+    "P2-Q014",
+    "P2-Q015",
+    "P2-Q016",
+    "P2-Q017",
+    "P2-Q018",
+    "P2-Q019",
+    "P2-Q020"
+  ],
+  "overview": "本卡把形容词、短尾形式与名词的固定支配关系分开学习。做题时不要按中文直译，先问“这个词要求谁、什么，用什么格”。",
+  "decisionSteps": [
+    "找形容词或名词中心词",
+    "写出它要求的格",
+    "让修饰语与名词一同变格"
+  ],
+  "reviewStatus": "approved",
+  "quickReference": {
+    "semanticQuestions": [
+      "谁/什么被评价？",
+      "补语由哪个词支配？"
+    ],
+    "structures": [
+      "полный чего",
+      "интересный кому-чему",
+      "доволен кем-чем"
+    ]
+  },
+  "lessons": [
+    {
+      "id": "l1",
+      "title": "第二格补语",
+      "scope": "core",
+      "meaning": "表示“充满、缺少、值得”等关系时，形容词常要求第二格。",
+      "conditions": [
+        "先找支配词或前置词，再判断所需的格与语义。"
+      ],
+      "structure": "полный + Р.п.",
+      "caseChanges": [
+        {
+          "from": "полный",
+          "to": "полный интересных книг"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Зал был полон интересных книг.",
+          "zh": "大厅里摆满了有趣的书。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "不要把“满”后的内容误作第四格直接宾语。"
+      ],
+      "instantChecks": [
+        {
+          "id": "l1-check",
+          "type": "judgment",
+          "prompt": "полный + Р.п. 的选择必须由支配关系和语义共同决定。",
+          "answer": true,
+          "rationale": "先确认结构要求，再检查词形。",
+          "source": {
+            "kind": "grammar-book",
+            "label": "新编俄语语法",
+            "file": "03 形容词.md",
+            "section": "形容词的格",
+            "pages": [
+              83,
+              84
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book",
+          "label": "新编俄语语法",
+          "file": "03 形容词.md",
+          "section": "形容词的格",
+          "pages": [
+            83,
+            84
+          ]
+        }
+      ]
+    },
+    {
+      "id": "l2",
+      "title": "第三格补语",
+      "scope": "core",
+      "meaning": "表示“对……有用、感兴趣、相似”等面向对象的关系。",
+      "conditions": [
+        "先找支配词或前置词，再判断所需的格与语义。"
+      ],
+      "structure": "интересный + Д.п.",
+      "caseChanges": [
+        {
+          "from": "интересный студентам",
+          "to": "интересный студентам"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Этот курс интересен студентам.",
+          "zh": "这门课对学生很有趣。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "形容词短尾形式的补语常不是主格。"
+      ],
+      "instantChecks": [
+        {
+          "id": "l2-check",
+          "type": "judgment",
+          "prompt": "интересный + Д.п. 的选择必须由支配关系和语义共同决定。",
+          "answer": true,
+          "rationale": "先确认结构要求，再检查词形。",
+          "source": {
+            "kind": "grammar-book",
+            "label": "新编俄语语法",
+            "file": "03 形容词.md",
+            "section": "形容词的格",
+            "pages": [
+              83,
+              84
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book",
+          "label": "新编俄语语法",
+          "file": "03 形容词.md",
+          "section": "形容词的格",
+          "pages": [
+            83,
+            84
+          ]
+        }
+      ]
+    },
+    {
+      "id": "l3",
+      "title": "工具格补语",
+      "scope": "core",
+      "meaning": "表示满意、骄傲、相似或熟悉的对象。",
+      "conditions": [
+        "先找支配词或前置词，再判断所需的格与语义。"
+      ],
+      "structure": "доволен + Т.п.",
+      "caseChanges": [
+        {
+          "from": "друг",
+          "to": "другом"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Она довольна новым результатом.",
+          "zh": "她对新结果感到满意。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "满意的是“对象”，不是动作的直接宾语。"
+      ],
+      "instantChecks": [
+        {
+          "id": "l3-check",
+          "type": "judgment",
+          "prompt": "доволен + Т.п. 的选择必须由支配关系和语义共同决定。",
+          "answer": true,
+          "rationale": "先确认结构要求，再检查词形。",
+          "source": {
+            "kind": "grammar-book",
+            "label": "新编俄语语法",
+            "file": "03 形容词.md",
+            "section": "形容词的格",
+            "pages": [
+              83,
+              84
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book",
+          "label": "新编俄语语法",
+          "file": "03 形容词.md",
+          "section": "形容词的格",
+          "pages": [
+            83,
+            84
+          ]
+        }
+      ]
+    },
+    {
+      "id": "l4",
+      "title": "形容词与名词同步变化",
+      "scope": "core",
+      "meaning": "形容词作定语时，性、数、格要与名词一致。",
+      "conditions": [
+        "先找支配词或前置词，再判断所需的格与语义。"
+      ],
+      "structure": "с хорошим другом",
+      "caseChanges": [
+        {
+          "from": "хороший друг",
+          "to": "с хорошим другом"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Мы говорили с хорошим другом.",
+          "zh": "我们和一位好朋友交谈。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "先定名词格，再改形容词词尾。"
+      ],
+      "instantChecks": [
+        {
+          "id": "l4-check",
+          "type": "judgment",
+          "prompt": "с хорошим другом 的选择必须由支配关系和语义共同决定。",
+          "answer": true,
+          "rationale": "先确认结构要求，再检查词形。",
+          "source": {
+            "kind": "grammar-book",
+            "label": "新编俄语语法",
+            "file": "03 形容词.md",
+            "section": "形容词的格",
+            "pages": [
+              83,
+              84
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book",
+          "label": "新编俄语语法",
+          "file": "03 形容词.md",
+          "section": "形容词的格",
+          "pages": [
+            83,
+            84
+          ]
+        }
+      ]
+    }
+  ],
+  "relatedExtensions": [],
+  "checks": [
+    {
+      "id": "review-1",
+      "type": "judgment",
+      "prompt": "полный + Р.п. 的选择必须由支配关系和语义共同决定。",
+      "answer": true,
+      "rationale": "先确认结构要求，再检查词形。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "03 形容词.md",
+        "section": "形容词的格",
+        "pages": [
+          83,
+          84
+        ]
+      }
+    },
+    {
+      "id": "review-2",
+      "type": "judgment",
+      "prompt": "интересный + Д.п. 的选择必须由支配关系和语义共同决定。",
+      "answer": true,
+      "rationale": "先确认结构要求，再检查词形。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "03 形容词.md",
+        "section": "形容词的格",
+        "pages": [
+          83,
+          84
+        ]
+      }
+    },
+    {
+      "id": "review-3",
+      "type": "judgment",
+      "prompt": "доволен + Т.п. 的选择必须由支配关系和语义共同决定。",
+      "answer": true,
+      "rationale": "先确认结构要求，再检查词形。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "03 形容词.md",
+        "section": "形容词的格",
+        "pages": [
+          83,
+          84
+        ]
+      }
+    }
+  ],
+  "rules": [
+    {
+      "text": "полный + Р.п.：表示“充满、缺少、值得”等关系时，形容词常要求第二格。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "03 形容词.md",
+        "section": "形容词的格",
+        "pages": [
+          83,
+          84
+        ]
+      }
+    },
+    {
+      "text": "интересный + Д.п.：表示“对……有用、感兴趣、相似”等面向对象的关系。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "03 形容词.md",
+        "section": "形容词的格",
+        "pages": [
+          83,
+          84
+        ]
+      }
+    },
+    {
+      "text": "доволен + Т.п.：表示满意、骄傲、相似或熟悉的对象。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "03 形容词.md",
+        "section": "形容词的格",
+        "pages": [
+          83,
+          84
+        ]
+      }
+    },
+    {
+      "text": "с хорошим другом：形容词作定语时，性、数、格要与名词一致。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "03 形容词.md",
+        "section": "形容词的格",
+        "pages": [
+          83,
+          84
+        ]
+      }
+    }
+  ],
+  "comparisons": [
+    {
+      "left": "интересен студентам",
+      "right": "интересный студент",
+      "note": "短尾谓语形容词常支配补语；定语形容词则与名词一致。",
+      "source": {
+        "kind": "learning-explanation",
+        "label": "学习讲解"
+      }
+    }
+  ],
+  "examples": [
+    {
+      "ru": "Зал был полон интересных книг.",
+      "zh": "大厅里摆满了有趣的书。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    },
+    {
+      "ru": "Этот курс интересен студентам.",
+      "zh": "这门课对学生很有趣。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    },
+    {
+      "ru": "Она довольна новым результатом.",
+      "zh": "她对新结果感到满意。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    },
+    {
+      "ru": "Мы говорили с хорошим другом.",
+      "zh": "我们和一位好朋友交谈。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    }
+  ],
+  "pitfalls": [
+    "不要只按中文“对”猜第三格。",
+    "短尾形容词和定语形容词的句法位置不同。"
+  ],
+  "sources": [
+    {
+      "kind": "grammar-book",
+      "label": "新编俄语语法",
+      "file": "03 形容词.md",
+      "section": "形容词的格",
+      "pages": [
+        83,
+        84
+      ]
+    }
+  ]
+}

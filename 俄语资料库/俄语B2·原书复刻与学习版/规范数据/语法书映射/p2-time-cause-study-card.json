@@ -1,0 +1,234 @@
+{
+  "id": "p2-time-cause",
+  "partId": "p2",
+  "knowledgePointId": "p2-time-cause",
+  "title": "持续、原因与时间关系",
+  "exerciseIds": [
+    "P2-Q051", "P2-Q052", "P2-Q053", "P2-Q054",
+    "P2-Q055", "P2-Q056", "P2-Q057", "P2-Q058"
+  ],
+  "overview": "本组练习区分时间的持续、经过多久后发生、在多久内完成、先后关系，以及产生结果的原因。先判断语义，再选择结构和格。",
+  "decisionSteps": [
+    "先判断动作是持续一段时间、经过多久后发生，还是在多久内完成。",
+    "再判断结构表达时间先后，还是表达产生结果的原因。",
+    "最后检查前置词要求的格和名词词形。"
+  ],
+  "reviewStatus": "approved",
+  "quickReference": {
+    "semanticQuestions": ["持续多久？", "多久以后发生？", "在多久内完成？", "因为什么发生？"],
+    "structures": [
+      { "question": "持续多久", "structure": "时间段 + 第四格", "shortcut": "动作持续多长时间，时间段通常直接用第四格。" },
+      { "question": "多久以后", "structure": "через + 第四格", "shortcut": "从参照点经过一段时间以后发生。" },
+      { "question": "在多久内完成", "structure": "за + 第四格", "shortcut": "强调完成动作或达到结果所用的时间。" },
+      { "question": "原因关系", "structure": "благодаря + 第三格 / из-за + 第二格", "shortcut": "先看结果倾向，再检查前置词后的格。" }
+    ],
+    "comparison": "через неделю = 一周后发生；за неделю = 在一周内完成。",
+    "mnemonic": "先问语义，再看结构；先看结果，再查格。"
+  },
+  "lessons": [
+    {
+      "id": "duration",
+      "title": "持续多久",
+      "scope": "core",
+      "meaning": "回答动作或状态持续了多长时间。",
+      "conditions": ["句子强调持续时长，而不是未来起点或完成期限。", "时间段直接作时间状语时通常使用第四格。"],
+      "structure": "时间段 + 第四格；в течение + 第二格可用于明确持续区间。",
+      "caseChanges": [{ "from": "день", "to": "день" }, { "from": "пять дней", "to": "пять дней" }, { "from": "неделя", "to": "неделю" }],
+      "examples": [{ "ru": "Солнечная погода стоит уже пять дней.", "zh": "晴朗天气已经持续五天了。", "source": { "kind": "b2-original", "label": "B2 原书考点", "pages": [34] } }],
+      "boundaries": ["длиться пять дней 表示持续五天，不表示五天后才开始。", "в течение недели 更强调一个完整的持续区间。"],
+      "instantChecks": [{ "id": "duration-check", "type": "judgment", "prompt": "“Выставка продлится две недели”表达展览将持续两周。", "answer": true, "rationale": "продлится 与时间段第四格组合，表达持续时长。", "source": { "kind": "b2-original", "label": "B2 原书考点", "pages": [34] } }],
+      "sources": [{ "kind": "b2-original", "label": "B2 原书考点", "pages": [34] }]
+    },
+    {
+      "id": "planned-duration",
+      "title": "计划或维持多久",
+      "scope": "core",
+      "meaning": "说明安排、停留或计划覆盖的时间长度。",
+      "conditions": ["动作或安排被放置在一段预定时长内。", "关注的是计划覆盖多久，而不是完成动作实际用了多久。"],
+      "structure": "на + 第四格。",
+      "caseChanges": [{ "from": "неделя", "to": "на неделю" }, { "from": "два месяца", "to": "на два месяца" }, { "from": "долгая поездка", "to": "на долгую поездку" }],
+      "examples": [{ "ru": "Мы приехали в Москву на неделю.", "zh": "我们来莫斯科待一周。", "source": { "kind": "b2-original", "label": "B2 原书考点", "pages": [34] } }],
+      "boundaries": ["на неделю 表示计划或安排覆盖一周，不等于 за неделю 的完成时长。"],
+      "instantChecks": [{ "id": "planned-duration-check", "type": "judgment", "prompt": "на два месяца 更接近“安排两个月”，而不是“用了两个月完成”。", "answer": true, "rationale": "на + 第四格强调预定或覆盖的时间长度。", "source": { "kind": "b2-original", "label": "B2 原书考点", "pages": [34] } }],
+      "sources": [{ "kind": "b2-original", "label": "B2 原书考点", "pages": [34] }]
+    },
+    {
+      "id": "after-interval",
+      "title": "多久以后发生",
+      "scope": "core",
+      "meaning": "说明从现在或另一个参照点经过多久后发生某事。",
+      "conditions": ["动作发生在时间间隔结束之后。", "重点是事件发生的时间点，不是完成动作所用的时间。"],
+      "structure": "через + 第四格。",
+      "caseChanges": [{ "from": "неделя", "to": "через неделю" }, { "from": "два дня", "to": "через два дня" }, { "from": "три месяца", "to": "через три месяца" }],
+      "examples": [{ "ru": "Поезд отправляется через десять минут.", "zh": "火车十分钟后出发。", "source": { "kind": "b2-original", "label": "B2 原书考点", "pages": [34] } }],
+      "boundaries": ["через неделю 是一周后发生；如果是完成动作所用的一周，应考虑 за неделю。"],
+      "instantChecks": [{ "id": "after-interval-check", "type": "choice", "prompt": "“火车十分钟后出发”应选择哪种结构？", "options": ["через десять минут", "за десять минут"], "answer": "через десять минут", "rationale": "出发发生在十分钟之后，问的是未来起点。", "source": { "kind": "b2-original", "label": "B2 原书考点", "pages": [34] } }],
+      "sources": [{ "kind": "b2-original", "label": "B2 原书考点", "pages": [34] }]
+    },
+    {
+      "id": "completion-within",
+      "title": "在多久内完成",
+      "scope": "core",
+      "meaning": "强调动作在某个时长内完成，或在时限内达到结果。",
+      "conditions": ["动词带有完成或达到结果的意义。", "回答“用了多长时间完成”，而不是“多久后开始”。"],
+      "structure": "за + 第四格。",
+      "caseChanges": [{ "from": "один вечер", "to": "за один вечер" }, { "from": "неделя", "to": "за неделю" }, { "from": "два года", "to": "за два года" }],
+      "examples": [{ "ru": "Я прочитала эту книгу за один вечер.", "zh": "我一个晚上就读完了这本书。", "source": { "kind": "grammar-book-example", "label": "新编俄语语法", "file": "08 前置词.md", "section": "表示时间意义的前置词辨析", "pages": [297] } }],
+      "boundaries": ["за один вечер 突出完成结果；如果只是停留或安排时长，不能机械替换成 за。"],
+      "instantChecks": [{ "id": "completion-within-check", "type": "choice", "prompt": "“我在一周内完成报告”更适合哪种结构？", "options": ["за неделю", "через неделю"], "answer": "за неделю", "rationale": "句子强调完成报告所用的时间。", "source": { "kind": "grammar-book-rule", "label": "新编俄语语法", "file": "08 前置词.md", "section": "表示时间意义的前置词辨析", "pages": [297] } }],
+      "sources": [{ "kind": "grammar-book-rule", "label": "新编俄语语法", "file": "08 前置词.md", "section": "表示时间意义的前置词辨析", "pages": [297] }]
+    },
+    {
+      "id": "sequence-deadline",
+      "title": "先后与期限",
+      "scope": "core",
+      "meaning": "表达某事之后、某事之前，或距离期限还有多久。",
+      "conditions": ["先找出参照事件，再判断是在它之后、之前，还是提前一段时间。"],
+      "structure": "после + 第二格；до + 第二格；за … до …；к + 第三格。",
+      "caseChanges": [{ "from": "окончание праздников", "to": "после окончания праздников" }, { "from": "два дня", "to": "за два дня до экзамена" }, { "from": "экзамен", "to": "к экзамену" }],
+      "examples": [{ "ru": "Рабочий год начинается после окончания новогодних праздников.", "zh": "工作年度在新年假期结束后开始。", "source": { "kind": "b2-original", "label": "B2 原书考点", "pages": [35] } }],
+      "boundaries": ["после 只说明参照事件之后；за два дня до 表示提前两天，不是持续两天。"],
+      "instantChecks": [{ "id": "deadline-check", "type": "judgment", "prompt": "за два дня до экзамена表示考试前提前两天。", "answer": true, "rationale": "за … до … 将提前时长和参照事件组合起来。", "source": { "kind": "b2-original", "label": "B2 原书考点", "pages": [35] } }],
+      "sources": [{ "kind": "b2-original", "label": "B2 原书考点", "pages": [35] }]
+    },
+    {
+      "id": "causes",
+      "title": "原因关系",
+      "scope": "core",
+      "meaning": "说明产生结果的原因，并判断原因是积极帮助、消极外因还是状态来源。",
+      "conditions": ["благодаря 通常关联积极结果或帮助。", "из-за 通常关联消极结果或不利外因。", "от 常用于某种状态、感受或反应的来源。"],
+      "structure": "благодаря + 第三格；из-за + 第二格；от + 第二格。",
+      "caseChanges": [{ "from": "дождь", "to": "из-за дождя" }, { "from": "ошибка", "to": "из-за ошибки" }, { "from": "плохая погода", "to": "из-за плохой погоды" }, { "from": "проблемы", "to": "из-за проблем" }],
+      "examples": [{ "ru": "Благодаря вам я научился говорить по-русски.", "zh": "多亏您，我才学会说俄语。", "source": { "kind": "grammar-book-example", "label": "新编俄语语法", "file": "08 前置词.md", "section": "前置词 благодаря, из-за", "pages": [304] } }, { "ru": "Экскурсия не состоялась из-за дождя.", "zh": "因为下雨，参观未能进行。", "source": { "kind": "grammar-book-example", "label": "新编俄语语法", "file": "08 前置词.md", "section": "前置词 благодаря, из-за", "pages": [305] } }],
+      "boundaries": ["благодаря 的积极倾向不是没有例外的绝对规则，最终仍要结合语境。", "前置词确定后必须继续检查名词和形容词的格形式。"],
+      "instantChecks": [{ "id": "cause-check", "type": "choice", "prompt": "“事故因司机的错误发生”应选择哪种结构？", "options": ["из-за ошибки", "благодаря ошибке"], "answer": "из-за ошибки", "rationale": "事故是消极结果，错误是外在不利原因。", "source": { "kind": "b2-original", "label": "B2 原书考点", "pages": [34] } }],
+      "sources": [{ "kind": "grammar-book-rule", "label": "新编俄语语法", "file": "08 前置词.md", "section": "前置词 благодаря, из-за", "pages": [304, 305] }]
+    },
+    {
+      "id": "related-extension",
+      "title": "关联扩展",
+      "scope": "related-extension",
+      "meaning": "把核心时间和原因结构放进更大的近义网络中，帮助处理变式句。",
+      "conditions": ["в течение 强调持续区间。", "по причине 是较正式的原因表达。", "спустя 表示经过一段时间之后，语气和 через 不完全相同。"],
+      "structure": "в течение + 第二格；по причине + 第二格；спустя + 时间。",
+      "caseChanges": [{ "from": "неделя", "to": "в течение недели" }, { "from": "уважительная причина", "to": "по уважительной причине" }, { "from": "два часа", "to": "спустя два часа" }],
+      "examples": [{ "ru": "В течение недели мы готовили отчёт.", "zh": "一周期间我们一直在准备报告。", "source": { "kind": "supplement-example", "label": "补充例句" } }],
+      "boundaries": ["关联扩展用于建立网络，不改变 Q051–Q058 的核心判断路径。", "正式书面语结构要结合体裁和语境判断。"],
+      "instantChecks": [{ "id": "extension-check", "type": "reveal", "prompt": "先想一想：в течение недели 与 за неделю 的关注点有什么不同？", "rationale": "前者强调持续区间，后者强调在一周内完成。", "source": { "kind": "study-supplement", "label": "学习补充" } }],
+      "sources": [{ "kind": "related-extension", "label": "关联扩展" }]
+    },
+    {
+      "id": "synthesis",
+      "title": "综合辨析",
+      "scope": "core",
+      "meaning": "把时间结构和原因结构放到统一的语义判断表中。",
+      "conditions": ["先问句子在表达起点、持续、完成还是原因。", "再检查前置词和格。"],
+      "structure": "语义问题 → 结构选择 → 格形式 → 结果边界。",
+      "caseChanges": [{ "from": "неделя", "to": "через неделю / за неделю / на неделю" }, { "from": "помощь", "to": "благодаря помощи" }, { "from": "ошибка", "to": "из-за ошибки" }],
+      "examples": [{ "ru": "За какое время вы можете выучить китайский язык?", "zh": "您多长时间能学会汉语？", "source": { "kind": "grammar-book-example", "label": "新编俄语语法", "file": "08 前置词.md", "section": "表示时间意义的前置词辨析", "pages": [297] } }],
+      "boundaries": ["同一个时间名词可以进入不同结构，不能只凭词形选择。", "原因前置词的选择需要同时看结果倾向和支配格。"],
+      "instantChecks": [{ "id": "synthesis-check", "type": "judgment", "prompt": "看到时间名词后，仍然需要先判断句子语义。", "answer": true, "rationale": "через、за、на 都可能与时间名词组合，但语义功能不同。", "source": { "kind": "study-supplement", "label": "学习补充" } }],
+      "sources": [{ "kind": "study-supplement", "label": "学习补充" }]
+    }
+  ],
+  "relatedExtensions": [],
+  "checks": [
+    { "id": "mixed-1", "type": "choice", "prompt": "“会议将在两天后开始”应选择哪种结构？", "options": ["через два дня", "за два дня"], "answer": "через два дня", "rationale": "这是从现在起两天后发生。", "source": { "kind": "b2-original", "label": "B2 原书考点", "pages": [34] } },
+    { "id": "mixed-2", "type": "choice", "prompt": "“我在一个晚上读完这本书”应选择哪种结构？", "options": ["за один вечер", "через один вечер"], "answer": "за один вечер", "rationale": "强调完成动作所用的时间。", "source": { "kind": "grammar-book-rule", "label": "新编俄语语法", "file": "08 前置词.md", "section": "表示时间意义的前置词辨析", "pages": [297] } },
+    { "id": "mixed-3", "type": "judgment", "prompt": "из-за ошибки 通常把错误理解为造成不良结果的外在原因。", "answer": true, "rationale": "из-за + 第二格常用于消极结果或不利外因。", "source": { "kind": "grammar-book-rule", "label": "新编俄语语法", "file": "08 前置词.md", "section": "前置词 благодаря, из-за", "pages": [304, 305] } },
+    { "id": "mixed-4", "type": "reveal", "prompt": "先回忆：через неделю、за неделю、на неделю 分别回答什么问题？", "rationale": "分别对应一周后发生、在一周内完成、安排或覆盖一周。", "source": { "kind": "study-supplement", "label": "学习补充" } }
+  ],
+  "rules": [
+    {
+      "structure": "时间段（第四格）",
+      "meaning": "表示动作或状态持续多久时，时间段通常直接用第四格。",
+      "source": { "kind": "b2-original", "label": "B2 原书考点", "pages": [34] }
+    },
+    {
+      "structure": "от + 第二格",
+      "meaning": "可表示某种状态或感受产生的原因。",
+      "source": { "kind": "b2-original", "label": "B2 原书考点", "pages": [34] }
+    },
+    {
+      "structure": "через + 时间",
+      "meaning": "表示经过一段时间以后发生。",
+      "source": { "kind": "b2-original", "label": "B2 原书考点", "pages": [34] }
+    },
+    {
+      "structure": "после + 第二格；за … до …",
+      "meaning": "前者表示在某事之后；后者表示在某个事件之前的提前时间。",
+      "source": { "kind": "b2-original", "label": "B2 原书考点", "pages": [35] }
+    },
+    {
+      "structure": "за + 时间",
+      "meaning": "强调在一段时间内完成一个动作或达到结果。",
+      "source": { "kind": "grammar-book", "label": "新编俄语语法", "file": "08 前置词.md", "section": "表示时间意义的前置词辨析", "pages": [297] }
+    },
+    {
+      "structure": "благодаря + 第三格",
+      "meaning": "表示产生积极结果的原因。",
+      "source": { "kind": "grammar-book", "label": "新编俄语语法", "file": "08 前置词.md", "section": "前置词 благодаря, из-за", "pages": [304] }
+    },
+    {
+      "structure": "из-за + 第二格",
+      "meaning": "表示造成消极或不良结果的外在原因。",
+      "source": { "kind": "grammar-book", "label": "新编俄语语法", "file": "08 前置词.md", "section": "前置词 благодаря, из-за", "pages": [305] }
+    }
+  ],
+  "comparisons": [
+    {
+      "left": "через неделю",
+      "right": "за неделю",
+      "note": "前者是“一周后发生”；后者是“在一周内完成”。",
+      "source": { "kind": "study-supplement", "label": "学习补充" }
+    },
+    {
+      "left": "благодаря помощи",
+      "right": "из-за ошибки",
+      "note": "前者关联积极结果；后者关联消极结果或外在不利原因。",
+      "source": { "kind": "grammar-book", "label": "新编俄语语法", "file": "08 前置词.md", "section": "前置词 благодаря, из-за", "pages": [304, 305] }
+    }
+  ],
+  "examples": [
+    {
+      "ru": "За какое время вы можете выучить китайский язык?",
+      "zh": "您多长时间能学会汉语？",
+      "source": { "kind": "grammar-book", "label": "新编俄语语法", "file": "08 前置词.md", "section": "表示时间意义的前置词辨析", "pages": [297] }
+    },
+    {
+      "ru": "Я прочитала эту книгу за один вечер.",
+      "zh": "我一个晚上就读完了这本书。",
+      "source": { "kind": "grammar-book", "label": "新编俄语语法", "file": "08 前置词.md", "section": "表示时间意义的前置词辨析", "pages": [297] }
+    },
+    {
+      "ru": "Благодаря вам я научился говорить по-русски.",
+      "zh": "多亏您，我才学会说俄语。",
+      "source": { "kind": "grammar-book", "label": "新编俄语语法", "file": "08 前置词.md", "section": "前置词 благодаря, из-за", "pages": [304] }
+    },
+    {
+      "ru": "Я успешно сдал экзамены благодаря вашей помощи.",
+      "zh": "多亏您的帮助，我才顺利通过考试。",
+      "source": { "kind": "grammar-book", "label": "新编俄语语法", "file": "08 前置词.md", "section": "前置词 благодаря, из-за", "pages": [304] }
+    },
+    {
+      "ru": "Экскурсия не состоялась из-за дождя.",
+      "zh": "因为下雨，参观未能进行。",
+      "source": { "kind": "grammar-book", "label": "新编俄语语法", "file": "08 前置词.md", "section": "前置词 благодаря, из-за", "pages": [305] }
+    },
+    {
+      "ru": "Из-за гриппа я пропустил несколько лекций.",
+      "zh": "由于患流感，我缺了几节课。",
+      "source": { "kind": "grammar-book", "label": "新编俄语语法", "file": "08 前置词.md", "section": "前置词 благодаря, из-за", "pages": [305] }
+    }
+  ],
+  "pitfalls": [
+    "不要把“多久后发生”和“用了多久完成”当成同一类时间关系。",
+    "先判断结果是积极还是消极，再区分 благодаря 和 из-за。",
+    "时间关系确定后，仍要检查前置词后的格。"
+  ],
+  "sources": [
+    { "kind": "grammar-book", "label": "新编俄语语法", "file": "08 前置词.md", "section": "表示时间意义的前置词辨析", "pages": [297] },
+    { "kind": "grammar-book", "label": "新编俄语语法", "file": "08 前置词.md", "section": "前置词 благодаря, из-за", "pages": [304, 305] },
+    { "kind": "b2-original", "label": "B2 原书考点", "pages": [34, 35] }
+  ]
+}

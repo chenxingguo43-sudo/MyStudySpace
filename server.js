@@ -2,7 +2,7 @@ const http = require('http');
 const fs = require('fs');
 const path = require('path');
 
-const PORT = 3000;
+const PORT = Number(process.env.PORT) || 3000;
 
 const mimeTypes = {
     '.html': 'text/html; charset=utf-8',
@@ -16,7 +16,8 @@ const mimeTypes = {
     '.mp4': 'video/mp4',
     '.mp3': 'audio/mpeg',
     '.woff': 'font/woff',
-    '.woff2': 'font/woff2'
+    '.woff2': 'font/woff2',
+    '.webp': 'image/webp'
 };
 
 function stripHtmlText(value) {

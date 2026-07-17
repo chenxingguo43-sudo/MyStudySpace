@@ -1,0 +1,451 @@
+{
+  "id": "p5-prefix-verbs-2",
+  "partId": "p5",
+  "knowledgePointId": "p5-prefix-verbs-2",
+  "title": "前缀动词与支配关系（二）",
+  "exerciseIds": [
+    "P5-Q032",
+    "P5-Q033",
+    "P5-Q034",
+    "P5-Q035",
+    "P5-Q036",
+    "P5-Q037",
+    "P5-Q038",
+    "P5-Q039",
+    "P5-Q040",
+    "P5-Q041",
+    "P5-Q042",
+    "P5-Q043",
+    "P5-Q044"
+  ],
+  "overview": "相近前缀动词可能要求不同的格或前置词；选词前先确认动词的固定支配。",
+  "decisionSteps": [
+    "判断动词的实际语义",
+    "检查后面名词的格",
+    "核对是否需要前置词"
+  ],
+  "reviewStatus": "approved",
+  "quickReference": {
+    "semanticQuestions": [
+      "动词后接人、物还是地点？",
+      "前缀改变了支配关系吗？"
+    ],
+    "structures": [
+      "ждать + В.п. / дождаться + Р.п.",
+      "войти в / подойти к",
+      "участвовать в + П.п.",
+      "влиять на + В.п."
+    ]
+  },
+  "lessons": [
+    {
+      "id": "l1",
+      "title": "等待与期待",
+      "scope": "core",
+      "meaning": "ждать 直接支配第四格，дождаться 常支配第二格。",
+      "conditions": [
+        "句子强调过程或终于等到。"
+      ],
+      "structure": "ждать + В.п. / дождаться + Р.п.",
+      "caseChanges": [
+        {
+          "from": "автобус",
+          "to": "дождаться автобуса"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Мы дождались автобуса через час.",
+          "zh": "我们一小时后终于等到了公交车。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "不能把两种支配混用。"
+      ],
+      "instantChecks": [
+        {
+          "id": "l1-check",
+          "type": "judgment",
+          "prompt": "“Мы дождались автобуса через час.”符合本节结构。",
+          "answer": true,
+          "rationale": "完成结果动词要求第二格。",
+          "source": {
+            "kind": "grammar-book",
+            "label": "新编俄语语法",
+            "file": "06 动词.md",
+            "section": "动词",
+            "pages": [
+              223,
+              230
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book",
+          "label": "新编俄语语法",
+          "file": "06 动词.md",
+          "section": "动词",
+          "pages": [
+            223,
+            230
+          ]
+        }
+      ]
+    },
+    {
+      "id": "l2",
+      "title": "进入与到达",
+      "scope": "core",
+      "meaning": "войти 要求 в + 第四格，подойти 常要求 к + 第三格。",
+      "conditions": [
+        "动作目标是内部空间或靠近对象。"
+      ],
+      "structure": "войти в / подойти к",
+      "caseChanges": [
+        {
+          "from": "кабинет",
+          "to": "войти в кабинет"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Учитель вошёл в кабинет.",
+          "zh": "老师走进了教室。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "方向前置词和格一起记。"
+      ],
+      "instantChecks": [
+        {
+          "id": "l2-check",
+          "type": "judgment",
+          "prompt": "“Учитель вошёл в кабинет.”符合本节结构。",
+          "answer": true,
+          "rationale": "进入封闭空间用 в + 第四格。",
+          "source": {
+            "kind": "grammar-book",
+            "label": "新编俄语语法",
+            "file": "06 动词.md",
+            "section": "动词",
+            "pages": [
+              223,
+              230
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book",
+          "label": "新编俄语语法",
+          "file": "06 动词.md",
+          "section": "动词",
+          "pages": [
+            223,
+            230
+          ]
+        }
+      ]
+    },
+    {
+      "id": "l3",
+      "title": "参加与加入",
+      "scope": "core",
+      "meaning": "участвовать в 与 вступить в 语义不同但都需固定结构。",
+      "conditions": [
+        "表示参与活动或加入组织。"
+      ],
+      "structure": "участвовать в + П.п.",
+      "caseChanges": [
+        {
+          "from": "конференция",
+          "to": "участвовать в конференции"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Она участвовала в конференции.",
+          "zh": "她参加了会议。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "不要省略固定前置词。"
+      ],
+      "instantChecks": [
+        {
+          "id": "l3-check",
+          "type": "judgment",
+          "prompt": "“Она участвовала в конференции.”符合本节结构。",
+          "answer": true,
+          "rationale": "参与活动使用 в + 第六格。",
+          "source": {
+            "kind": "grammar-book",
+            "label": "新编俄语语法",
+            "file": "06 动词.md",
+            "section": "动词",
+            "pages": [
+              223,
+              230
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book",
+          "label": "新编俄语语法",
+          "file": "06 动词.md",
+          "section": "动词",
+          "pages": [
+            223,
+            230
+          ]
+        }
+      ]
+    },
+    {
+      "id": "l4",
+      "title": "影响与导致",
+      "scope": "core",
+      "meaning": "влиять на 与 привести к 的结果关系不同。",
+      "conditions": [
+        "表示一般影响或明确后果。"
+      ],
+      "structure": "влиять на + В.п.",
+      "caseChanges": [
+        {
+          "from": "решение",
+          "to": "влиять на решение"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Этот фактор влияет на решение.",
+          "zh": "这个因素影响决定。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "影响不等于已经导致。"
+      ],
+      "instantChecks": [
+        {
+          "id": "l4-check",
+          "type": "judgment",
+          "prompt": "“Этот фактор влияет на решение.”符合本节结构。",
+          "answer": true,
+          "rationale": "这里没有确定结果，只说明影响。",
+          "source": {
+            "kind": "grammar-book",
+            "label": "新编俄语语法",
+            "file": "06 动词.md",
+            "section": "动词",
+            "pages": [
+              223,
+              230
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book",
+          "label": "新编俄语语法",
+          "file": "06 动词.md",
+          "section": "动词",
+          "pages": [
+            223,
+            230
+          ]
+        }
+      ]
+    }
+  ],
+  "relatedExtensions": [],
+  "checks": [
+    {
+      "id": "review-1",
+      "type": "judgment",
+      "prompt": "“Мы дождались автобуса через час.”符合本节结构。",
+      "answer": true,
+      "rationale": "完成结果动词要求第二格。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "06 动词.md",
+        "section": "动词",
+        "pages": [
+          223,
+          230
+        ]
+      }
+    },
+    {
+      "id": "review-2",
+      "type": "judgment",
+      "prompt": "“Учитель вошёл в кабинет.”符合本节结构。",
+      "answer": true,
+      "rationale": "进入封闭空间用 в + 第四格。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "06 动词.md",
+        "section": "动词",
+        "pages": [
+          223,
+          230
+        ]
+      }
+    },
+    {
+      "id": "review-3",
+      "type": "judgment",
+      "prompt": "“Она участвовала в конференции.”符合本节结构。",
+      "answer": true,
+      "rationale": "参与活动使用 в + 第六格。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "06 动词.md",
+        "section": "动词",
+        "pages": [
+          223,
+          230
+        ]
+      }
+    }
+  ],
+  "rules": [
+    {
+      "text": "ждать + В.п. / дождаться + Р.п.：ждать 直接支配第四格，дождаться 常支配第二格。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "06 动词.md",
+        "section": "动词",
+        "pages": [
+          223,
+          230
+        ]
+      }
+    },
+    {
+      "text": "войти в / подойти к：войти 要求 в + 第四格，подойти 常要求 к + 第三格。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "06 动词.md",
+        "section": "动词",
+        "pages": [
+          223,
+          230
+        ]
+      }
+    },
+    {
+      "text": "участвовать в + П.п.：участвовать в 与 вступить в 语义不同但都需固定结构。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "06 动词.md",
+        "section": "动词",
+        "pages": [
+          223,
+          230
+        ]
+      }
+    },
+    {
+      "text": "влиять на + В.п.：влиять на 与 привести к 的结果关系不同。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "06 动词.md",
+        "section": "动词",
+        "pages": [
+          223,
+          230
+        ]
+      }
+    }
+  ],
+  "comparisons": [
+    {
+      "left": "ждать автобус",
+      "right": "дождаться автобуса",
+      "note": "过程性等待与等到结果的格不同。",
+      "source": {
+        "kind": "learning-explanation",
+        "label": "学习讲解"
+      }
+    }
+  ],
+  "examples": [
+    {
+      "ru": "Мы дождались автобуса через час.",
+      "zh": "我们一小时后终于等到了公交车。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    },
+    {
+      "ru": "Учитель вошёл в кабинет.",
+      "zh": "老师走进了教室。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    },
+    {
+      "ru": "Она участвовала в конференции.",
+      "zh": "她参加了会议。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    },
+    {
+      "ru": "Этот фактор влияет на решение.",
+      "zh": "这个因素影响决定。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    }
+  ],
+  "pitfalls": [
+    "前缀变化可能连同支配一起变化。",
+    "把动词和结构作为整体记忆。"
+  ],
+  "sources": [
+    {
+      "kind": "grammar-book",
+      "label": "新编俄语语法",
+      "file": "06 动词.md",
+      "section": "动词",
+      "pages": [
+        223,
+        230
+      ]
+    }
+  ]
+}

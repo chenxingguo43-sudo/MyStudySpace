@@ -232,6 +232,48 @@ body {
 .book-card .book-meta { font-size: 13px; color: var(--text-secondary); display: flex; gap: 12px; }
 .book-card .book-desc { font-size: 13px; color: var(--text-dim); margin-top: 8px; }
 .book-card .book-progress { margin-top: 12px; }
+.book-kind { color: var(--accent); font-size: 0.7em; margin-right: 6px; font-weight: 600; letter-spacing: 0.04em; }
+.b2-quiz-item { margin: 0 0 18px; padding: 20px; border: 1px solid var(--border); border-radius: 12px; background: var(--surface); }
+.reading-practice-question { margin: 18px 0; padding: 18px; border: 1px solid var(--border); border-radius: 12px; background: var(--surface); }
+.reading-practice-question .b2-options { margin-top: 12px; }
+.reading-answer-source { display: block; margin-top: 10px; color: var(--text-dim); font-size: 12px; }
+.writing-workbench { margin-top: 20px; }
+.writing-workbench section { margin: 18px 0; padding: 18px; border: 1px solid var(--border); border-radius: 12px; background: var(--surface); }
+.writing-draft { width: 100%; min-height: 260px; padding: 14px; border: 1px solid var(--glass-border); border-radius: 10px; background: var(--surface-solid); color: var(--text); font: 16px/1.7 'Crimson Pro', 'Noto Serif', serif; resize: vertical; }
+.writing-draft:focus { outline: 2px solid var(--accent-border); border-color: var(--accent); }
+.writing-status { color: var(--text-dim); font-size: 13px; margin-top: 8px; }
+.speaking-practice { margin-top: 20px; }
+.speaking-practice section, .speaking-practice details { margin: 18px 0; padding: 18px; border: 1px solid var(--border); border-radius: 12px; background: var(--surface); }
+.speaking-practice .source-warning { border-left: 3px solid var(--warning); color: var(--text-secondary); }
+.speaking-steps { margin: 0; padding-left: 22px; }
+.speaking-steps li { margin: 12px 0; }
+.speaking-transcript { width: 100%; min-height: 160px; padding: 14px; border: 1px solid var(--glass-border); border-radius: 10px; background: var(--surface-solid); color: var(--text); font: 16px/1.7 'Crimson Pro', 'Noto Serif', serif; resize: vertical; }
+.speaking-recording-controls { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-top: 12px; }
+.speaking-recording-controls button { min-height: 42px; }
+.speaking-recording-status { color: var(--text-dim); font-size: 13px; }
+.speaking-playback { width: 100%; margin-top: 12px; }
+.b2-context-group { margin: 28px 0 16px; padding: 18px; border: 1px solid var(--accent-border); border-radius: 12px; background: var(--accent-dim); }
+.b2-context-group h2 { font-size: 1.05em; margin-bottom: 10px; }
+.b2-context-material { margin-top: 12px; padding: 12px; border-left: 3px solid var(--accent); border-radius: 8px; background: var(--surface-solid); }
+.b2-context-material h3 { font-size: .95em; margin-bottom: 5px; }
+.b2-context-material p { white-space: pre-line; color: var(--text-secondary); font-size: 14px; }
+.b2-context-source { display: block; margin-top: 7px; color: var(--text-dim); font-size: 12px; }
+.b2-options { display: grid; gap: 10px; margin: 16px 0; border: 0; padding: 0; }
+.b2-options input { position: absolute; opacity: 0; }
+.b2-options label, .b2-confirm, .b2-explanation-toggle, .b2-finish { min-height: 44px; display: flex; align-items: center; border-radius: 9px; }
+.b2-options label { padding: 10px 14px; border: 1px solid var(--border); cursor: pointer; }
+.b2-options input:focus-visible + label { outline: 3px solid var(--accent); outline-offset: 2px; }
+.b2-options input:checked + label { border-color: var(--accent); background: var(--accent-dim); }
+.b2-confirm, .b2-explanation-toggle, .b2-finish { border: 1px solid var(--accent-border); background: var(--accent-dim); color: var(--text); padding: 8px 14px; cursor: pointer; font: inherit; }
+.b2-confirm:disabled, .b2-explanation-toggle:disabled { opacity: 0.45; cursor: not-allowed; }
+.b2-result.is-correct, .b2-result.is-wrong { font-weight: 700; margin-top: 12px; }
+.b2-result.is-correct { color: var(--success); }.b2-result.is-wrong { color: var(--warning); }
+.b2-explanation { margin-top: 12px; padding: 16px; border-left: 3px solid var(--accent); background: var(--glass); }
+.b2-explanation p { margin: 0 0 10px; }.b2-explanation p:last-child { margin-bottom: 0; }
+.b2-quiz-header { margin: 0 0 20px; }.b2-quiz-header p { color: var(--text-secondary); }
+.b2-quiz-nav { display: flex; gap: 10px; justify-content: space-between; margin-top: 28px; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; }
+@media (max-width: 767px) { .b2-quiz-item { padding: 16px; } .b2-options label { font-size: 16px; } }
 .progress-bar { height: 4px; background: var(--glass); border-radius: 2px; overflow: hidden; }
 .progress-fill { height: 100%; background: var(--accent); border-radius: 2px; transition: width 0.3s; }
 .progress-text { font-size: 12px; color: var(--text-dim); margin-top: 4px; }
@@ -485,6 +527,55 @@ body {
 .size-xlarge .ru-text { font-size: 1.35em; } .size-xlarge .cn-text { font-size: 1.25em; }
 .font-sans .ru-text, .font-sans .cn-text { font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; }
 
+/* ─── B2 知识点导航 ─── */
+.b2-knowledge-nav { margin: 18px 0 24px; padding: 16px; border: 1px solid var(--accent-border); background: var(--accent-dim); border-radius: 14px; }
+.b2-knowledge-nav h2 { font-size: 1em; margin-bottom: 10px; }
+.b2-knowledge-nav h2 + p { color: var(--text-secondary); font-size: 13px; margin: -5px 0 10px; }
+.b2-knowledge-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 8px; }
+.b2-knowledge-card { font: inherit; text-align: left; padding: 10px; border: 1px solid var(--glass-border); border-radius: 10px; background: var(--surface-solid); color: var(--text); cursor: pointer; }
+.b2-knowledge-card strong, .b2-knowledge-card span, .b2-knowledge-card small { display: block; }
+.b2-knowledge-card span { color: var(--accent); font-size: 12px; }
+.b2-knowledge-card small { color: var(--text-secondary); line-height: 1.5; margin-top: 3px; }
+.b2-knowledge-study-card { border-color: var(--accent); box-shadow: 0 4px 14px var(--accent-dim); }
+.b2-knowledge-card em { display: block; margin-top: 8px; color: var(--accent); font-size: 12px; font-style: normal; font-weight: 600; }
+.b2-knowledge-exercise-nav { margin-top: 16px; }
+.b2-study-card { max-width: 860px; }
+.b2-study-quick { border: 1px solid var(--accent-border); background: var(--accent-dim); }
+.b2-study-outline { position: sticky; top: 50px; z-index: 20; display: flex; flex-wrap: wrap; gap: 6px; padding: 8px; margin: 0 0 16px; border: 1px solid var(--glass-border); border-radius: 10px; background: color-mix(in srgb, var(--surface-solid) 92%, transparent); backdrop-filter: blur(10px); }
+.b2-study-outline a { color: var(--accent); text-decoration: none; font-size: 12px; padding: 4px 7px; border-radius: 6px; background: var(--glass); }
+.b2-study-outline a:hover { background: var(--accent-dim); }
+.b2-study-lesson { margin: 24px 0; padding: 20px; border: 1px solid var(--glass-border); border-radius: 14px; background: var(--surface-solid); scroll-margin-top: 90px; }
+.b2-study-lesson.related { border-color: var(--warning); }
+.b2-study-lesson h2 { margin-bottom: 8px; }
+.b2-study-lesson h3 { margin: 16px 0 6px; font-size: 14px; color: var(--accent); }
+.b2-study-conditions, .b2-study-boundaries { margin: 8px 0 0 20px; }
+.b2-study-case-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 8px; }
+.b2-study-case-change { padding: 9px; border: 1px solid var(--glass-border); border-radius: 9px; background: var(--glass); }
+.b2-study-case-change code { color: var(--accent); font-family: Georgia, serif; }
+.b2-study-example .kind, .b2-study-source-disclosure summary { color: var(--text-secondary); font-size: 12px; cursor: pointer; }
+.b2-study-source-disclosure { margin-top: 8px; }
+.b2-study-check { margin-top: 12px; padding: 12px; border: 1px dashed var(--accent-border); border-radius: 10px; background: var(--accent-dim); }
+.b2-study-check-options { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+.b2-study-check-options button { font: inherit; color: var(--text); background: var(--surface-solid); border: 1px solid var(--glass-border); border-radius: 8px; padding: 7px 10px; cursor: pointer; }
+.b2-study-check-options button:hover { border-color: var(--accent); }
+.b2-study-check-result { margin-top: 8px; color: var(--text-secondary); }
+.b2-study-check-result.correct { color: var(--success); }
+.b2-study-check-result.wrong { color: var(--warning); }
+.b2-study-synthesis { border-left: 3px solid var(--accent); padding-left: 12px; }
+.b2-study-section { margin: 18px 0; padding: 16px; border: 1px solid var(--border); border-radius: 14px; background: var(--surface-solid); }
+.b2-study-section h2 { margin-bottom: 8px; font-size: 1.1em; }
+.b2-study-status { color: var(--accent); font-size: 13px; font-weight: 600; }
+.b2-study-rule-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px; }
+.b2-study-rule, .b2-study-comparison, .b2-study-example { padding: 12px; border: 1px solid var(--glass-border); border-radius: 10px; background: var(--glass); }
+.b2-study-rule p, .b2-study-example p { margin-top: 6px; }
+.b2-study-source { display: block; margin-top: 9px; color: var(--text-secondary); font-size: 12px; line-height: 1.45; }
+.b2-study-comparison + .b2-study-comparison, .b2-study-example + .b2-study-example { margin-top: 10px; }
+.b2-study-comparison strong { color: var(--accent); }
+.b2-study-example .ru { color: var(--ru-text); font-family: Georgia, serif; font-size: 1.06em; }
+.b2-study-example .zh { color: var(--text-secondary); }
+.b2-study-actions { display: flex; flex-wrap: wrap; gap: 10px; margin: 24px 0 48px; }
+.b2-quiz-target { outline: 3px solid var(--accent); outline-offset: 5px; border-radius: 10px; }
+
 /* ─── 移动端 ─── */
 @media (max-width: 600px) {
   .main-container { padding: 12px 12px 80px; }
@@ -577,6 +668,7 @@ body {
 </div>
 
 <script src="data/russian-morphology.js"></script>
+<script src="js/russian-b2/dashboard.js"></script>
 <script>
 /* ══════════════════════════════════════════════
    状态管理
@@ -872,13 +964,31 @@ function fetchIndex() {
       });
     });
 }
+function getBookById(bookId) {
+  for (var i = 0; i < booksData.length; i++) {
+    if (booksData[i].id === bookId) return booksData[i];
+  }
+  return null;
+}
+function shouldUseScrollCompletion() {
+  if (curView !== 'reading' || curCh < 0 || isQuizFirstBook(curBook)) return false;
+  return !curBook || (curBook.format !== 'reading-practice' && curBook.format !== 'writing-workbench' && curBook.format !== 'speaking-practice' && curBook.format !== 'listening-practice');
+}
+function getBookDataDir(bookId) {
+  var book = getBookById(bookId);
+  return book && book.kind === 'textbook' ? 'data/textbook' : 'data/novel';
+}
+function isQuizFirstBook(book) {
+  return !!book && book.kind === 'textbook' && book.format === 'quiz-first';
+}
 function fetchChapter(bookId, idx) {
   var padIdx = String(idx).padStart(4, '0');
-  var isTextbook = bookId === 'reading_speaking';
-  var dataDir = isTextbook ? 'data/textbook' : 'data/novel';
+  var book = getBookById(bookId);
+  var dataDir = getBookDataDir(bookId);
+  var directory = book && book.dir ? book.dir : bookId;
   return fetchJson(
     '/api/novel/' + encodeURIComponent(bookId) + '/' + idx,
-    dataDir + '/' + bookId + '/ch' + padIdx + '.json'
+    dataDir + '/' + directory + '/ch' + padIdx + '.json'
   );
 }
 
@@ -898,6 +1008,8 @@ function showShelf() {
 }
 
 function getBookProgress(bookId) {
+  var book = getBookById(bookId);
+  if (isQuizFirstBook(book)) return getB2CompletedUnits(bookId).length;
   var stats = readStats[bookId] || {}, done = 0;
   for (var k in stats) { if (stats[k] && stats[k].completed) done++; }
   return done;
@@ -919,13 +1031,14 @@ function renderShelf() {
   SORT_OPTIONS.forEach(function(o) {
     parts.push('<option value="' + o.value + '"' + (state.sort === o.value ? ' selected' : '') + '>' + o.label + '</option>');
   });
-  parts.push('</select></div><div class="bookshelf">');
+  var wrongCount = getWrongAnswerItems().filter(function(item) { return item.status === 'pending'; }).length;
+  parts.push('</select></div><div class="bookshelf"><div class="book-card" onclick="showWrongAnswerBook()"><h3>📕 错题复习</h3><div class="book-desc">待掌握 ' + wrongCount + ' 题</div></div><div class="book-card" onclick="showB2ArchivePanel()"><h3>💾 学习记录备份</h3><div class="book-desc">导出、恢复与安全合并 B2 学习进度</div></div>');
 
   for (var i = 0; i < sorted.length; i++) {
     var b = sorted[i], done = getBookProgress(b.id), pct = b.chapters > 0 ? Math.round(done / b.chapters * 100) : 0;
     parts.push(
       '<div class="book-card" onclick="showChapters(\'' + escapeHtml(b.id) + '\')">' +
-      '<h3>' + (b.id === 'reading_speaking' ? '<span style="color:#4fc3f7;font-size:0.7em;margin-right:4px">📖 教材</span>' : '') + escapeHtml(b.title) + '</h3>' +
+      '<h3>' + (b.kind === 'textbook' ? '<span class="book-kind">教材</span>' : '') + escapeHtml(b.title) + '</h3>' +
       '<div class="book-meta">' + (b.author ? '<span>✍️ ' + escapeHtml(b.author) + '</span>' : '') +
       '<span>📚 ' + b.chapters + ' 章</span>' +
       '<span>' + (b.direction === 'cn→ru' ? '🇨🇳→🇷🇺' : '🇷🇺→🇨🇳') + '</span></div>' +
@@ -939,6 +1052,47 @@ function renderShelf() {
 }
 function changeSort(v) { state.sort = v; saveState(); renderShelf(); }
 
+function getB2ArchiveValues() {
+  var values = {};
+  if (!window.RussianB2Dashboard) return values;
+  window.RussianB2Dashboard.ARCHIVE_KEYS.forEach(function(key) {
+    var raw = localStorage.getItem(key);
+    if (raw === null) return;
+    try { values[key] = JSON.parse(raw); } catch (e) {}
+  });
+  return values;
+}
+function exportB2LearningArchive() {
+  if (!window.RussianB2Dashboard) { toast('备份组件未加载'); return; }
+  var archive = window.RussianB2Dashboard.createArchive(getB2ArchiveValues());
+  var blob = new Blob([JSON.stringify(archive, null, 2)], { type: 'application/json' });
+  var url = URL.createObjectURL(blob), link = document.createElement('a');
+  link.href = url; link.download = 'russian-b2-learning-archive.json'; link.click();
+  setTimeout(function() { URL.revokeObjectURL(url); }, 0);
+  toast('已导出 B2 学习记录');
+}
+function importB2LearningArchive(event) {
+  var file = event.target.files && event.target.files[0];
+  if (!file || !window.RussianB2Dashboard) return;
+  var reader = new FileReader();
+  reader.onload = function() {
+    var archive;
+    try { archive = JSON.parse(String(reader.result)); } catch (e) { toast('备份文件不是有效 JSON'); return; }
+    var errors = window.RussianB2Dashboard.validateArchive(archive);
+    if (errors.length) { toast('备份文件校验失败：' + errors[0]); return; }
+    var local = window.RussianB2Dashboard.createArchive(getB2ArchiveValues());
+    var result = window.RussianB2Dashboard.mergeArchive(local, archive);
+    Object.keys(result.merged.records).forEach(function(key) { localStorage.setItem(key, JSON.stringify(result.merged.records[key].value)); });
+    toast(result.conflicts.length ? '已合并记录；' + result.conflicts.length + ' 项同时间冲突保留本地版本' : '已合并学习记录');
+    showShelf();
+  };
+  reader.readAsText(file, 'utf-8'); event.target.value = '';
+}
+function showB2ArchivePanel() {
+  var app = document.getElementById('app');
+  app.innerHTML = toolbar('学习记录备份', '<button class="tb-btn" onclick="showShelf()">← 书架</button>') + '<main class="main-container"><header class="chapter-header"><h1>学习记录备份</h1><p>仅包含俄语 B2 的做题进度、知识卡自测与写作/口语草稿；不会导出其他书籍、词典缓存或界面设置。</p></header><section><h2>导出</h2><p>下载一份 JSON 文件，用于迁移或离线备份。</p><button class="tb-btn" onclick="exportB2LearningArchive()">导出学习记录</button></section><section><h2>恢复与合并</h2><p>选择此前导出的备份。较新的记录会合并；相同时间但内容不同的记录保留本机版本。</p><input type="file" accept="application/json,.json" onchange="importB2LearningArchive(event)"></section></main>';
+}
+
 /* ══════════════════════════════════════════════
    章节目录
    ══════════════════════════════════════════════ */
@@ -949,8 +1103,7 @@ function showChapters(bookId) {
     if (booksData[i].id === bookId) { curBook = booksData[i]; break; }
   }
   if (!curBook) return;
-  var stats = readStats[bookId] || {}, done = 0;
-  for (var k in stats) { if (stats[k] && stats[k].completed) done++; }
+  var stats = readStats[bookId] || {}, done = getBookProgress(bookId);
 
   var html = toolbar(escapeHtml(curBook.title),
     '<button class="tb-btn" onclick="exportNotes()" title="导出阅读笔记">📋</button>' +
@@ -962,10 +1115,11 @@ function showChapters(bookId) {
     (curBook.direction ? ' · ' + (curBook.direction === 'cn→ru' ? '中文→俄语' : '俄语→中文') : '') +
     '</div></div><div class="chapter-grid">';
   for (var i = 0; i < curBook.chapters; i++) {
-    var isDone = stats[i] && stats[i].completed;
+    var isDone = isQuizFirstBook(curBook) ? isB2ChapterComplete(bookId, i) : (stats[i] && stats[i].completed);
+    var chapterLabel = curBook.chapterTitles ? curBook.chapterTitles[i] : '第' + (i + 1) + '章';
     html += '<div class="ch-item' + (isDone ? ' done' : '') + '" onclick="goChapter(' + i + ')">' +
       '<span class="ch-num">' + (isDone ? '✓' : (i + 1)) + '</span>' +
-      '<span class="ch-title">第' + (i + 1) + '章</span></div>';
+      '<span class="ch-title">' + escapeHtml(chapterLabel) + '</span></div>';
   }
   html += '</div></div>';
   document.getElementById('app').innerHTML = html;
@@ -997,7 +1151,686 @@ function goChapter(idx) {
     .catch(function() { if (localFetchId !== _fetchId) return; document.querySelector('.main-container').innerHTML = '<div class="loading">❌ 加载失败</div>'; });
 }
 
+var B2_PROGRESS_KEY = 'rr_b2_progress_v1';
+var B2_QUIZ_SETTINGS_KEY = 'rr_b2_quiz_settings_v1';
+var quizProgress = {};
+var currentQuizData = null;
+var currentQuizExercises = [];
+var currentQuizAllExercises = [];
+var pendingQuizJumpId = '';
+var pendingQuizPractice = null;
+
+function getB2Progress() {
+  try { return migrateB2Progress(JSON.parse(localStorage.getItem(B2_PROGRESS_KEY)) || {}); }
+  catch (e) { return {}; }
+}
+function getQuizSettings() {
+  try { return Object.assign({ confirmBeforeSubmit: false }, JSON.parse(localStorage.getItem(B2_QUIZ_SETTINGS_KEY)) || {}); }
+  catch (e) { return { confirmBeforeSubmit: false }; }
+}
+function saveB2Progress(progress) {
+  quizProgress = progress;
+  try { localStorage.setItem(B2_PROGRESS_KEY, JSON.stringify(progress)); } catch (e) {}
+}
+function migrateB2Progress(progress) {
+  var legacyKey = 'russian_b2:0', stableKey = 'russian_b2:p2-q001-q010';
+  if (progress[legacyKey] && !progress[stableKey]) {
+    progress[stableKey] = {};
+    Object.keys(progress[legacyKey]).forEach(function(oldId) { progress[stableKey]['P2-' + oldId] = progress[legacyKey][oldId]; });
+    delete progress[legacyKey];
+  }
+  Object.keys(progress).filter(function(key) { return /^russian_b2:p[1-6]-q\d{3}-q\d{3}$/.test(key); }).forEach(function(oldKey) {
+    var partKey = oldKey.replace(/^(russian_b2:p[1-6])-q\d{3}-q\d{3}$/, '$1');
+    if (!progress[partKey]) progress[partKey] = {};
+    Object.keys(progress[oldKey] || {}).forEach(function(questionId) {
+      var oldRecord = progress[oldKey][questionId], current = progress[partKey][questionId];
+      if (!current || ((oldRecord.submitted ? 1 : 0) > (current.submitted ? 1 : 0)) || ((oldRecord.attempts || 0) > (current.attempts || 0))) progress[partKey][questionId] = oldRecord;
+    });
+    delete progress[oldKey];
+  });
+  if (progress.__completed) Object.keys(progress.__completed).filter(function(key) { return /^russian_b2:p[1-6]-q\d{3}-q\d{3}$/.test(key); }).forEach(function(key) { delete progress.__completed[key]; });
+  return progress;
+}
+function getQuizUnitKey() { return curBook.id + ':' + currentQuizData.id; }
+function getB2CompletionKey() { return getQuizUnitKey(); }
+function getB2CompletedUnits(bookId) {
+  var completed = getB2Progress().__completed || {}, prefix = bookId + ':';
+  return Object.keys(completed).filter(function(key) { return key.indexOf(prefix) === 0 && completed[key] && completed[key].completed; });
+}
+function fetchStudyCard(pointId) {
+  return fetch('data/textbook/russian_b2/study-cards/' + encodeURIComponent(pointId) + '.json').then(function(response) {
+    if (!response.ok) throw new Error('study card not found');
+    return response.json();
+  });
+}
+function getStudyCardProgress(partId, exerciseIds) {
+  var records = getB2Progress()['russian_b2:' + partId] || {};
+  return exerciseIds.reduce(function(total, exerciseId) {
+    var record = records[exerciseId] || {};
+    total.answered += record.submitted ? 1 : 0;
+    total.everWrong += record.everWrong ? 1 : 0;
+    total.pending += record.lastResult === 'wrong' ? 1 : 0;
+    return total;
+  }, { answered: 0, everWrong: 0, pending: 0 });
+}
+var STUDY_CARD_PROGRESS_KEY = 'russian_b2_study_card_progress_v1';
+var studyCardCheckRegistry = {};
+function loadStudyCardProgress() {
+  try { return JSON.parse(localStorage.getItem(STUDY_CARD_PROGRESS_KEY) || '{}'); } catch (e) { return {}; }
+}
+function saveStudyCardProgress(progress) {
+  try { localStorage.setItem(STUDY_CARD_PROGRESS_KEY, JSON.stringify(progress)); } catch (e) {}
+}
+function recordStudyCardAttempt(cardId, result) {
+  var progress = loadStudyCardProgress(), current = progress[cardId] || { attempts: 0, lastScore: 0, bestScore: 0, answers: {}, answeredCheckIds: [], lastStudiedAt: '' };
+  current.attempts += 1;
+  current.lastScore = result.score || 0;
+  current.bestScore = Math.max(current.bestScore || 0, current.lastScore);
+  current.lastStudiedAt = new Date().toISOString();
+  progress[cardId] = current;
+  saveStudyCardProgress(progress);
+  return current;
+}
+function getStudyCardMastery(cardId) {
+  var item = loadStudyCardProgress()[cardId] || {};
+  return { attempts: item.attempts || 0, lastScore: item.lastScore || 0, bestScore: item.bestScore || 0, lastStudiedAt: item.lastStudiedAt || '' };
+}
+function formatStudyCardDate(value) {
+  if (!value) return '尚未自测';
+  try { return new Date(value).toLocaleDateString('zh-CN', { month: 'numeric', day: 'numeric' }); } catch (e) { return '已记录'; }
+}
+function renderStudyCheck(check, index) {
+  var cardId = check._cardId || '';
+  var safeCardId = escapeHtml(cardId || ''), safeCheckId = escapeHtml(check.id || ('check-' + index));
+  var controls = '';
+  if (check.type === 'choice') controls = (check.options || []).map(function(option) {
+    var value = escapeHtml(String(option)).replace(/'/g, '&#39;');
+    return '<button type="button" onclick="answerStudyCheck(\'' + safeCardId + '\',\'' + safeCheckId + '\',\'' + value + '\')">' + escapeHtml(String(option)) + '</button>';
+  }).join('');
+  else if (check.type === 'judgment') controls = '<button type="button" onclick="answerStudyCheck(\'' + safeCardId + '\',\'' + safeCheckId + '\',\'true\')">正确</button><button type="button" onclick="answerStudyCheck(\'' + safeCardId + '\',\'' + safeCheckId + '\',\'false\')">错误</button>';
+  else controls = '<button type="button" onclick="answerStudyCheck(\'' + safeCardId + '\',\'' + safeCheckId + '\',\'reveal\')">展开答案与依据</button>';
+  return '<div class="b2-study-check" data-study-check-id="' + safeCheckId + '"><strong>' + (check.type === 'reveal' ? '先思考，再展开' : '即时检查') + '</strong><p>' + escapeHtml(check.prompt || '') + '</p><div class="b2-study-check-options">' + controls + '</div><div class="b2-study-check-result" data-study-result="' + safeCheckId + '">答案默认隐藏。</div></div>';
+}
+function renderStudyChecks(card) {
+  studyCardCheckRegistry[card.id] = card;
+  var mastery = getStudyCardMastery(card.id);
+  return '<section class="b2-study-section" id="study-checks"><h2>综合自测</h2><p class="b2-study-status">最近自测 ' + mastery.lastScore + '/' + (card.checks || []).length + ' · 最高 ' + mastery.bestScore + '/' + (card.checks || []).length + ' · 已练习 ' + mastery.attempts + ' 次 · ' + formatStudyCardDate(mastery.lastStudiedAt) + '</p>' + (card.checks || []).map(function(check, index) { return renderStudyCheck(Object.assign({ _cardId: card.id }, check), index); }).join('') + '<button class="b2-finish" type="button" onclick="resetStudyCardChecks(\'' + escapeHtml(card.id) + '\')">再做本卡自测</button></section>';
+}
+function answerStudyCheck(cardId, checkId, selectedValue) {
+  var card = studyCardCheckRegistry[cardId], check = card && (card.checks || []).concat((card.lessons || []).flatMap(function(lesson) { return lesson.instantChecks || []; })).find(function(item) { return item.id === checkId; });
+  if (!check) return;
+  var progress = loadStudyCardProgress(), current = progress[cardId] || { attempts: 0, lastScore: 0, bestScore: 0, answers: {}, answeredCheckIds: [], lastStudiedAt: '' };
+  var result = document.querySelector('[data-study-result="' + checkId + '"]');
+  if (selectedValue === 'reveal') {
+    if (result) result.innerHTML = '依据：' + escapeHtml(check.rationale || '请回看本节规则。');
+    return;
+  }
+  var normalized = check.type === 'judgment' ? selectedValue === 'true' : selectedValue;
+  var correct = normalized === check.answer;
+  current.answers[checkId] = { selected: normalized, correct: correct };
+  current.answeredCheckIds = Object.keys(current.answers);
+  progress[cardId] = current;
+  saveStudyCardProgress(progress);
+  if (result) { result.className = 'b2-study-check-result ' + (correct ? 'correct' : 'wrong'); result.innerHTML = (correct ? '正确。' : '再想想。') + ' ' + escapeHtml(check.rationale || ''); }
+  var comprehensiveIds = (card.checks || []).map(function(item) { return item.id; });
+  var answeredComprehensive = comprehensiveIds.filter(function(id) { return current.answers[id]; });
+  if (answeredComprehensive.length === comprehensiveIds.length && comprehensiveIds.length) {
+    var score = comprehensiveIds.filter(function(id) { return current.answers[id].correct; }).length;
+    recordStudyCardAttempt(cardId, { score: score });
+  }
+}
+function resetStudyCardChecks(cardId) {
+  var progress = loadStudyCardProgress(), current = progress[cardId] || {};
+  current.answers = {};
+  current.answeredCheckIds = [];
+  progress[cardId] = current;
+  saveStudyCardProgress(progress);
+  var card = studyCardCheckRegistry[cardId];
+  if (card) { var node = document.getElementById('study-checks'); if (node) node.outerHTML = renderStudyChecks(card); }
+}
+function renderStudySource(source) {
+  if (!source) return '';
+  var pages = Array.isArray(source.pages) && source.pages.length ? ' · 第 ' + source.pages.join('、') + ' 页' : '';
+  var location = source.file ? ' · ' + escapeHtml(source.file) + (source.section ? ' → ' + escapeHtml(source.section) : '') : '';
+  return '<small class="b2-study-source">' + escapeHtml(source.label || '') + location + pages + '</small>';
+}
+function renderStudySourceDisclosure(source) {
+  if (!source) return '';
+  var details = [];
+  if (source.file) details.push('文件：' + source.file);
+  if (source.section) details.push('小节：' + source.section);
+  if (Array.isArray(source.pages) && source.pages.length) details.push('页码：' + source.pages.join('、'));
+  return '<details class="b2-study-source-disclosure"><summary>' + escapeHtml(source.label || '来源') + '</summary><small class="b2-study-source">' + escapeHtml(details.join(' · ') || '已标记来源身份') + '</small></details>';
+}
+function renderStudyAnchorNav(card) {
+  var lessons = (card.lessons || []).filter(function(lesson) { return lesson && lesson.id; });
+  if (!lessons.length) return '';
+  return '<nav class="b2-study-outline" aria-label="知识点目录"><a href="#study-quick">速查</a>' + lessons.map(function(lesson) {
+    return '<a href="#study-lesson-' + escapeHtml(lesson.id) + '">' + escapeHtml(lesson.title) + '</a>';
+  }).join('') + '<a href="#study-checks">自测</a></nav>';
+}
+function renderStudyQuickLayer(card) {
+  var quick = card.quickReference || {}, structures = quick.structures || [];
+  return '<section class="b2-study-section b2-study-quick" id="study-quick"><h2>3 分钟速查</h2>' +
+    '<p>' + escapeHtml(card.overview || '') + '</p>' +
+    '<h3>先问自己</h3><ul>' + (quick.semanticQuestions || card.decisionSteps || []).map(function(item) { return '<li>' + escapeHtml(item) + '</li>'; }).join('') + '</ul>' +
+    '<div class="b2-study-rule-grid">' + structures.map(function(item) {
+      if (typeof item === 'string') return '<article class="b2-study-rule"><strong>' + escapeHtml(item) + '</strong></article>';
+      return '<article class="b2-study-rule"><strong>' + escapeHtml(item.question || '') + '</strong><p>' + escapeHtml(item.structure || '') + '</p><p>' + escapeHtml(item.shortcut || '') + '</p></article>';
+    }).join('') + '</div>' +
+    (quick.comparison ? '<p><strong>最小易混对比：</strong>' + escapeHtml(quick.comparison) + '</p>' : '') +
+    (quick.mnemonic ? '<p><strong>做题口诀：</strong>' + escapeHtml(quick.mnemonic) + '</p>' : '') + '</section>';
+}
+function renderStudyCaseChanges(changes) {
+  if (!changes || !changes.length) return '';
+  return '<div class="b2-study-case-grid">' + changes.map(function(change) {
+    return '<div class="b2-study-case-change"><code>' + escapeHtml(change.from || '') + '</code><span> → </span><code>' + escapeHtml(change.to || '') + '</code></div>';
+  }).join('') + '</div>';
+}
+function renderStudyLesson(lesson, index) {
+  var related = lesson.scope === 'related-extension' ? ' related' : '';
+  var examples = (lesson.examples || []).map(function(item) {
+    return '<article class="b2-study-example"><p class="ru">' + escapeHtml(item.ru || '') + '</p><p class="zh">' + escapeHtml(item.zh || '') + '</p>' + renderStudySourceDisclosure(item.source) + '</article>';
+  }).join('');
+  var checks = (lesson.instantChecks || []).map(function(check, checkIndex) { return renderStudyCheck(Object.assign({ _cardId: lesson.cardId || '' }, check), checkIndex); }).join('');
+  return '<section class="b2-study-lesson' + related + '" id="study-lesson-' + escapeHtml(lesson.id) + '"><h2>' + escapeHtml((index + 1) + '. ' + lesson.title) + '</h2>' +
+    '<p>' + escapeHtml(lesson.meaning || '') + '</p><h3>使用条件</h3><ul class="b2-study-conditions">' + (lesson.conditions || []).map(function(item) { return '<li>' + escapeHtml(item) + '</li>'; }).join('') + '</ul>' +
+    '<h3>结构公式</h3><p><strong>' + escapeHtml(lesson.structure || '') + '</strong></p><h3>就地格变化</h3>' + renderStudyCaseChanges(lesson.caseChanges) +
+    '<h3>例句</h3>' + examples + '<h3>易错边界</h3><ul class="b2-study-boundaries">' + (lesson.boundaries || []).map(function(item) { return '<li>' + escapeHtml(item) + '</li>'; }).join('') + '</ul>' + checks + '</section>';
+}
+function renderStudyLessons(card) {
+  var lessons = card.lessons || [];
+  return lessons.length ? '<section aria-label="详细学习">' + lessons.map(function(lesson, index) { return renderStudyLesson(Object.assign({ cardId: card.id }, lesson), index); }).join('') + '</section>' : '';
+}
+function renderStudyComparisons(comparisons) {
+  if (!comparisons || !comparisons.length) return '';
+  return '<section class="b2-study-section"><h2>易混对比</h2>' + comparisons.map(function(item) {
+    return '<article class="b2-study-comparison"><strong>' + escapeHtml(item.left) + '</strong> / <strong>' + escapeHtml(item.right) + '</strong><p>' + escapeHtml(item.note) + '</p>' + renderStudySource(item.source) + '</article>';
+  }).join('') + '</section>';
+}
+function renderStudyExamples(examples) {
+  if (!examples || !examples.length) return '';
+  return '<section class="b2-study-section"><h2>语法书例句</h2>' + examples.map(function(item) {
+    return '<article class="b2-study-example"><p class="ru">' + escapeHtml(item.ru) + '</p><p class="zh">' + escapeHtml(item.zh) + '</p>' + renderStudySource(item.source) + '</article>';
+  }).join('') + '</section>';
+}
+function renderStudyPitfalls(pitfalls) {
+  if (!pitfalls || !pitfalls.length) return '';
+  return '<section class="b2-study-section"><h2>高频误区</h2><ul>' + pitfalls.map(function(item) { return '<li>' + escapeHtml(item) + '</li>'; }).join('') + '</ul></section>';
+}
+function renderStudyCard(card, point) {
+  var progress = getStudyCardProgress(card.partId, card.exerciseIds);
+  var quizIds = escapeHtml(JSON.stringify(card.exerciseIds)).replace(/"/g, '&quot;');
+  var rules = card.rules.map(function(rule) {
+    return '<article class="b2-study-rule"><strong>' + escapeHtml(rule.structure) + '</strong><p>' + escapeHtml(rule.meaning) + '</p>' + renderStudySource(rule.source) + '</article>';
+  }).join('');
+  var richBody = card.lessons ? renderStudyQuickLayer(card) + renderStudyAnchorNav(card) + renderStudyLessons(card) :
+    '<section class="b2-study-section"><h2>这一组题考什么</h2><p>' + escapeHtml(card.overview) + '</p></section>' +
+    '<section class="b2-study-section"><h2>做题判断顺序</h2><ol>' + card.decisionSteps.map(function(step) { return '<li>' + escapeHtml(step) + '</li>'; }).join('') + '</ol></section>' +
+    '<section class="b2-study-section"><h2>核心规则</h2><div class="b2-study-rule-grid">' + rules + '</div></section>';
+  return '<div class="main-container b2-study-card"><button class="tb-btn" onclick="goChapter(' + (card.partId.slice(1) - 1) + ')">← 返回 ' + escapeHtml(card.partId.toUpperCase()) + '</button>' +
+    '<header class="b2-quiz-header"><h1>' + escapeHtml(card.title) + '</h1><p>对应练习：' + escapeHtml(formatQuestionRange(card.exerciseIds)) + '</p><div class="b2-study-status">已答 ' + progress.answered + ' · 历史错 ' + progress.everWrong + ' · 待掌握 ' + progress.pending + '</div></header>' +
+    richBody +
+    (card.lessons ? renderStudyChecks(card) : '') + renderStudyComparisons(card.comparisons) + renderStudyExamples(card.examples) + renderStudyPitfalls(card.pitfalls) +
+    '<section class="b2-study-actions"><button class="b2-finish" onclick="openStudyCardPractice(\'' + card.partId + '\',' + quizIds + ',false)">做本知识点全部题目</button><button class="b2-finish" onclick="openStudyCardPractice(\'' + card.partId + '\',' + quizIds + ',true)">只重做本点错题</button><button class="b2-finish" onclick="showWrongAnswerBook(\'' + card.partId + '\',\'' + escapeHtml(point.title) + '\')">查看错题本</button></section></div>';
+}
+function showStudyCard(partId, pointId) {
+  curView = 'study-card'; stopTimer();
+  var app = document.getElementById('app');
+  app.innerHTML = toolbar('知识点复习', '<button class="tb-btn" onclick="showChapters(\'russian_b2\')">← 目录</button>') + '<div class="main-container"><div class="loading"><div class="spinner"></div><div>加载知识点卡...</div></div></div>';
+  var book = getBookById('russian_b2'), index = book && book.unitIds.indexOf(partId);
+  if (index < 0) { app.innerHTML = toolbar('知识点复习', '<button class="tb-btn" onclick="showChapters(\'russian_b2\')">← 目录</button>') + '<div class="main-container"><div class="loading">❌ 知识点卡加载失败</div></div>'; return; }
+  Promise.all([fetchChapter(book.id, index), fetchStudyCard(pointId)]).then(function(result) {
+    var chapter = result[0], card = result[1], point = (chapter.knowledgePoints || []).find(function(item) { return item.id === pointId; });
+    if (!point || card.partId !== partId || card.knowledgePointId !== pointId) throw new Error('study card mismatch');
+    app.innerHTML = toolbar('知识点复习', '<button class="tb-btn" onclick="goChapter(' + index + ')">← 返回练习</button>') + renderStudyCard(card, point);
+    window.scrollTo(0, 0); applyTheme();
+  }).catch(function() {
+    app.innerHTML = toolbar('知识点复习', '<button class="tb-btn" onclick="showChapters(\'russian_b2\')">← 目录</button>') + '<div class="main-container"><div class="loading">❌ 知识点卡加载失败</div></div>';
+  });
+}
+function openStudyCardPractice(partId, exerciseIds, wrongOnly) {
+  var book = getBookById('russian_b2'), index = book && book.unitIds.indexOf(partId);
+  if (index < 0) return;
+  pendingQuizPractice = { partId: partId, exerciseIds: exerciseIds, wrongOnly: !!wrongOnly };
+  curBook = book;
+  goChapter(index);
+}
+function getWrongAnswerItems() {
+  var progress = getB2Progress(), items = [];
+  Object.keys(progress).filter(function(key) { return /^russian_b2:p[1-6]$/.test(key); }).forEach(function(partKey) {
+    Object.keys(progress[partKey] || {}).forEach(function(exerciseId) {
+      var record = progress[partKey][exerciseId];
+      if (record && record.everWrong) items.push({ partId: partKey.split(':')[1], exerciseId: exerciseId, status: record.lastResult === 'wrong' ? 'pending' : 'mastered', lastAnsweredAt: record.lastAnsweredAt || '' });
+    });
+  });
+  return items.sort(function(a, b) { return b.lastAnsweredAt.localeCompare(a.lastAnsweredAt); });
+}
+var wrongAnswerBookMeta = null;
+function showWrongAnswerBook(partFilter, pointFilter) {
+  curView = 'wrong-book'; stopTimer();
+  if (!wrongAnswerBookMeta) {
+    document.getElementById('app').innerHTML = toolbar('错题复习', '<button class="tb-btn" onclick="showShelf()">← 书架</button>') + '<div class="main-container"><div class="loading"><div class="spinner"></div><div>加载错题本...</div></div></div>';
+    var book = getBookById('russian_b2');
+    Promise.all(book.unitIds.map(function(id, index) { return fetchChapter(book.id, index); })).then(function(parts) {
+      wrongAnswerBookMeta = {};
+      parts.forEach(function(part) { (part.knowledgePoints || []).forEach(function(point) { point.exerciseIds.forEach(function(exerciseId) { wrongAnswerBookMeta[exerciseId] = { title: point.title, partId: part.id }; }); }); });
+      showWrongAnswerBook(partFilter, pointFilter);
+    }).catch(function() { document.querySelector('.main-container').innerHTML = '<div class="loading">❌ 错题本加载失败</div>'; });
+    return;
+  }
+  var items = getWrongAnswerItems(), pending = items.filter(function(item) { return item.status === 'pending'; }), mastered = items.filter(function(item) { return item.status === 'mastered'; });
+  items.forEach(function(item) { item.knowledge = wrongAnswerBookMeta[item.exerciseId] || { title: '未分类', partId: item.partId }; });
+  var filtered = pending.concat(mastered).filter(function(item) { return (!partFilter || item.partId === partFilter) && (!pointFilter || item.knowledge.title === pointFilter); });
+  var select = '<select class="sort-select" onchange="showWrongAnswerBook(this.value)"><option value="">全部部分</option>' + ['p1','p2','p3','p4','p5','p6'].map(function(part) { return '<option value="' + part + '"' + (part === partFilter ? ' selected' : '') + '>' + part.toUpperCase() + '</option>'; }).join('') + '</select>';
+  var points = [...new Set(items.map(function(item) { return item.knowledge.title; }))];
+  var pointSelect = '<select class="sort-select" onchange="showWrongAnswerBook(\'' + (partFilter || '') + '\',this.value)"><option value="">全部知识点</option>' + points.map(function(point) { return '<option value="' + escapeHtml(point) + '"' + (point === pointFilter ? ' selected' : '') + '>' + escapeHtml(point) + '</option>'; }).join('') + '</select>';
+  var rows = filtered.map(function(item) { return '<button class="b2-finish" onclick="openWrongAnswerItem(\'' + item.partId + '\',\'' + item.exerciseId + '\')">' + (item.status === 'pending' ? '待掌握 · ' : '已掌握 · ') + item.partId.toUpperCase() + ' · ' + escapeHtml(item.knowledge.title) + ' · ' + item.exerciseId + '</button>'; }).join('');
+  document.getElementById('app').innerHTML = toolbar('错题复习', '<button class="tb-btn" onclick="showShelf()">← 书架</button>') + '<div class="main-container"><div class="b2-quiz-header"><h1>错题复习</h1><p>待掌握 ' + pending.length + ' 题 · 已掌握 ' + mastered.length + ' 题</p>' + select + pointSelect + '</div>' + (rows || '<div class="loading">这个筛选下还没有错题。</div>') + '</div>';
+}
+function openWrongAnswerItem(partId, exerciseId) {
+  var book = getBookById('russian_b2'), index = book.unitIds.indexOf(partId);
+  if (index < 0) return;
+  pendingQuizJumpId = exerciseId;
+  curBook = book;
+  goChapter(index);
+}
+function isB2ChapterComplete(bookId, chapterIndex) {
+  var book = getBookById(bookId), unitId = book && book.unitIds && book.unitIds[chapterIndex];
+  return !!unitId && getB2CompletedUnits(bookId).indexOf(bookId + ':' + unitId) !== -1;
+}
+function getQuizRecord(questionId) {
+  var chapterKey = getQuizUnitKey();
+  var all = getB2Progress();
+  if (!all[chapterKey]) all[chapterKey] = {};
+  if (!all[chapterKey][questionId]) all[chapterKey][questionId] = { selected: '', submitted: false, attempts: 0, wrong: false, everWrong: false, lastResult: '', lastAnsweredAt: '', explanationOpen: false };
+  saveB2Progress(all);
+  return all[chapterKey][questionId];
+}
+function getQuizExercise(questionId) {
+  for (var i = 0; i < currentQuizExercises.length; i++) if (currentQuizExercises[i].id === questionId) return currentQuizExercises[i];
+  return null;
+}
+function renderQuizResult(exercise, record) {
+  if (!record.submitted) return '';
+  return record.wrong ? '<span class="is-wrong">错误：你的答案是 ' + escapeHtml(record.selected) + '。</span>' : '<span class="is-correct">正确：你的答案是 ' + escapeHtml(record.selected) + '。</span>';
+}
+function renderQuizExplanation(exercise) {
+  var questionPages = exercise.questionPages.map(function(page) { return 'PDF-' + String(page).padStart(3, '0'); }).join('、');
+  var answerPages = exercise.answerPages.map(function(page) { return 'PDF-' + String(page).padStart(3, '0'); }).join('、');
+  return '<p><strong>原书答案（已核对）</strong><br>' + escapeHtml(exercise.sourceAnswer) + '</p>' +
+    '<p><strong>原书解析（已核对）</strong><br>' + escapeHtml(exercise.sourceExplanation) + '</p>' +
+    '<p><strong>参考解析（AI，待复核）</strong><br>' + escapeHtml(exercise.referenceExplanation) + '</p>' +
+    '<p><strong>易错点</strong><br>' + escapeHtml(exercise.pitfalls.join('；')) + '</p>' +
+    '<p><strong>原书页</strong><br>' + escapeHtml(questionPages + '；' + answerPages) + '</p>';
+}
+function renderQuizItem(exercise, record) {
+  var html = '<section class="b2-quiz-item" data-question-id="' + escapeHtml(exercise.id) + '">';
+  html += '<h3>' + escapeHtml(exercise.id) + '. ' + escapeHtml(exercise.question) + '</h3>';
+  html += '<fieldset class="b2-options"><legend class="sr-only">选择答案</legend>';
+  for (var i = 0; i < exercise.options.length; i++) {
+    var option = exercise.options[i], inputId = 'b2-' + exercise.id + '-' + option.key;
+    var checked = record.selected === option.key ? ' checked' : '';
+    var disabled = record.submitted ? ' disabled' : '';
+    html += '<input type="radio" id="' + inputId + '" name="b2-' + exercise.id + '" value="' + option.key + '"' + checked + disabled + ' onchange="submitQuizOption(\'' + exercise.id + '\',\'' + option.key + '\')">';
+    html += '<label for="' + inputId + '"><strong>' + option.key + '.</strong> ' + escapeHtml(option.text) + '</label>';
+  }
+  html += '</fieldset>';
+  if (getQuizSettings().confirmBeforeSubmit) html += '<button class="b2-confirm" onclick="submitQuizQuestion(\'' + exercise.id + '\')"' + (!record.selected || record.submitted ? ' disabled' : '') + '>确认答案</button>';
+  html += '<div class="b2-result" aria-live="polite">' + renderQuizResult(exercise, record) + '</div>';
+  html += '<button class="b2-explanation-toggle" onclick="toggleQuizExplanation(\'' + exercise.id + '\')"' + (!record.submitted ? ' disabled' : '') + '>查看答案与解析</button>';
+  html += '<div class="b2-explanation"' + (record.explanationOpen ? '' : ' hidden') + '>' + renderQuizExplanation(exercise) + '</div></section>';
+  return html;
+}
+function formatQuestionRange(exerciseIds) {
+  if (!exerciseIds || !exerciseIds.length) return '';
+  var first = exerciseIds[0].slice(-3).replace(/^0+/, ''), last = exerciseIds[exerciseIds.length - 1].slice(-3).replace(/^0+/, '');
+  return first === last ? '题 ' + first : '题 ' + first + '–' + last;
+}
+function renderKnowledgePointNav(points, partId) {
+  if (!Array.isArray(points) || !points.length) return '';
+  var studyCards = '', exerciseNav = '';
+  points.forEach(function(point) {
+    var range = escapeHtml(formatQuestionRange(point.exerciseIds));
+    if (point.studyCardId) {
+      studyCards += '<button class="b2-knowledge-card b2-knowledge-study-card" onclick="showStudyCard(\'' + escapeHtml(partId) + '\',\'' + escapeHtml(point.studyCardId) + '\')"><strong>' + escapeHtml(point.title) + '</strong><span>知识点学习卡 · ' + range + '</span><small>' + escapeHtml(point.rule) + '</small><em>打开学习卡 →</em></button>';
+    } else {
+      exerciseNav += '<button class="b2-knowledge-card" onclick="restartQuiz(\'knowledge\',' + escapeHtml(JSON.stringify(point.exerciseIds)).replace(/"/g, '&quot;') + ')"><strong>' + escapeHtml(point.title) + '</strong><span>对应练习导航 · ' + range + '</span><small>' + escapeHtml(point.rule) + '</small><em>去练习 →</em></button>';
+    }
+  });
+  var html = '<section class="b2-knowledge-nav">';
+  if (studyCards) html += '<h2>知识点学习卡</h2><p>系统整理的独立学习内容；点击后打开完整卡片。</p><div class="b2-knowledge-grid">' + studyCards + '</div>';
+  if (exerciseNav) html += '<div class="b2-knowledge-exercise-nav"><h2>对应练习导航</h2><p>这些知识点暂未制作独立学习卡，点击后进入对应练习。</p><div class="b2-knowledge-grid">' + exerciseNav + '</div></div>';
+  return html + '</section>';
+}
+function jumpToQuizExercise(exerciseId) {
+  var target = document.querySelector('[data-question-id="' + exerciseId + '"]');
+  if (!target) { toast('未找到对应题目'); return; }
+  target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  target.classList.add('b2-quiz-target');
+  setTimeout(function() { target.classList.remove('b2-quiz-target'); }, 1600);
+}
+function renderQuizContextGroups(groups) {
+  var contextGroupByExercise = {};
+  (groups || []).forEach(function(group) {
+    if (group.exerciseIds && group.exerciseIds.length) contextGroupByExercise[group.exerciseIds[0]] = group;
+  });
+  return contextGroupByExercise;
+}
+function renderQuizContextGroup(group) {
+  if (!group) return '';
+  var html = '<section class="b2-context-group"><h2>材料语境 · ' + escapeHtml(group.title) + '</h2>';
+  (group.materials || []).forEach(function(material) {
+    var pages = (material.sourcePages || []).map(function(page) { return 'PDF-' + String(page).padStart(3, '0'); }).join('、');
+    html += '<article class="b2-context-material"><h3>' + escapeHtml(material.title) + '</h3><p>' + escapeHtml(material.body) + '</p><small class="b2-context-source">原书材料依据：' + escapeHtml(pages) + '</small></article>';
+  });
+  return html + '</section>';
+}
+function renderQuizChapter(data, scrollPosition) {
+  var isNewPart = !currentQuizData || currentQuizData.id !== data.id;
+  currentQuizData = data;
+  if (isNewPart) currentQuizAllExercises = data.exercises || [];
+  currentQuizExercises = data.exercises || [];
+  var partWrongCount = getWrongAnswerItems().filter(function(item) { return item.partId === data.id && item.status === 'pending'; }).length;
+  var html = '<div class="main-container b2-quiz-page"><div class="b2-quiz-header">' +
+    '<button class="tb-btn" onclick="showShelf()">← 书架</button><h1>' + escapeHtml(data.title || '') + '</h1>' +
+    '<p>先独立作答；确认后只显示对错。答案与解析需要你手动展开。</p><button class="tb-btn" onclick="showWrongAnswerBook(\'' + data.id + '\')">本部分错题 ' + partWrongCount + ' 题</button></div>' + renderKnowledgePointNav(data.knowledgePoints, data.id);
+  var contextGroupByExercise = renderQuizContextGroups(data.contextGroups || []);
+  for (var i = 0; i < currentQuizExercises.length; i++) {
+    var exercise = currentQuizExercises[i];
+    if (contextGroupByExercise[exercise.id]) html += renderQuizContextGroup(contextGroupByExercise[exercise.id]);
+    html += renderQuizItem(exercise, getQuizRecord(exercise.id));
+  }
+  html += '<button class="b2-finish" onclick="finishQuizChapter()">结束本部分</button>' +
+    '<div class="b2-retry-actions"><button class="b2-finish" onclick="restartQuiz(\'all\')">再做全部</button><button class="b2-finish" onclick="restartQuiz(\'wrong\')">只重做错题</button></div>';
+  html += '<div class="b2-quiz-nav">' +
+    (curCh > 0 ? '<button class="fab-nav" onclick="goChapter(' + (curCh - 1) + ')">← 上一章</button>' : '<span class="fab-nav disabled">← 上一章</span>') +
+    (curCh < curBook.chapters - 1 ? '<button class="fab-nav" onclick="goChapter(' + (curCh + 1) + ')">下一章 →</button>' : '<span class="fab-nav disabled">下一章 →</span>') +
+    '</div></div>';
+  document.getElementById('app').innerHTML = html;
+  window.scrollTo(0, typeof scrollPosition === 'number' ? scrollPosition : 0); applyTheme(); saveLastRead();
+  if (pendingQuizJumpId) {
+    var pendingJump = pendingQuizJumpId;
+    pendingQuizJumpId = '';
+    setTimeout(function() { jumpToQuizExercise(pendingJump); }, 0);
+  }
+  if (pendingQuizPractice && pendingQuizPractice.partId === data.id) {
+    var practiceRequest = pendingQuizPractice;
+    pendingQuizPractice = null;
+    restartQuiz(practiceRequest.wrongOnly ? 'knowledge-wrong' : 'knowledge', practiceRequest.exerciseIds);
+  }
+}
+
+var READING_PROGRESS_KEY = 'rr_b2_reading_progress_v1';
+var currentReadingData = null;
+function getReadingProgress() {
+  try { return JSON.parse(localStorage.getItem(READING_PROGRESS_KEY) || '{}'); } catch (e) { return {}; }
+}
+function saveReadingProgress(progress) {
+  try { localStorage.setItem(READING_PROGRESS_KEY, JSON.stringify(progress)); } catch (e) {}
+}
+function getReadingRecord(questionId) {
+  return getReadingProgress()[questionId] || { selected: '', answered: false, answerOpen: false };
+}
+function answerReadingQuestion(questionId, selected) {
+  var progress = getReadingProgress(), record = progress[questionId] || { selected: '', answered: false, answerOpen: false };
+  if (record.answered) return;
+  record.selected = selected; record.answered = true; record.answeredAt = new Date().toISOString();
+  progress[questionId] = record; saveReadingProgress(progress); rerenderReadingPracticePreservingScroll();
+}
+function toggleReadingAnswer(questionId) {
+  var progress = getReadingProgress(), record = progress[questionId] || { selected: '', answered: false, answerOpen: false };
+  if (!record.answered) return;
+  record.answerOpen = !record.answerOpen; progress[questionId] = record; saveReadingProgress(progress); rerenderReadingPracticePreservingScroll();
+}
+function rerenderReadingPracticePreservingScroll() {
+  renderReadingPracticeChapter(currentReadingData, window.scrollY);
+}
+
+var WRITING_DRAFTS_KEY = 'russian_b2_writing_drafts_v1';
+var currentWritingData = null;
+function getWritingDrafts() {
+  try { return JSON.parse(localStorage.getItem(WRITING_DRAFTS_KEY) || '{}'); } catch (e) { return {}; }
+}
+function saveWritingDraft(taskId, value) {
+  var drafts = getWritingDrafts();
+  drafts[taskId] = { value: value, updatedAt: new Date().toISOString() };
+  try { localStorage.setItem(WRITING_DRAFTS_KEY, JSON.stringify(drafts)); } catch (e) {}
+  var status = document.getElementById('writing-draft-status');
+  if (status) status.textContent = '已自动保存 · ' + countWritingWords(value) + ' 词';
+}
+function countWritingWords(value) {
+  var trimmed = String(value || '').trim();
+  return trimmed ? trimmed.split(/\s+/).length : 0;
+}
+function copyWritingFeedbackPrompt(taskId) {
+  var draft = (getWritingDrafts()[taskId] || {}).value || '';
+  var prompt = '请按俄语 B2 写作要求反馈下面的草稿。先指出格式、任务覆盖、语法和表达问题，再给可执行修改建议；不要代替我直接重写全文。\n\n任务：' + (currentWritingData ? currentWritingData.task.prompt : '') + '\n\n草稿：\n' + draft;
+  if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(prompt);
+  var status = document.getElementById('writing-draft-status');
+  if (status) status.textContent = '反馈提示已复制；可粘贴给已配置的 AI 服务。';
+}
+function renderWritingWorkbench(data, scrollPosition) {
+  currentWritingData = data;
+  var draft = (getWritingDrafts()[data.id] || {}).value || '';
+  var sourcePages = (data.sourcePages || []).map(function(page) { return 'PDF-' + String(page).padStart(3, '0'); }).join('、');
+  var blocks = (data.formatGuide.requiredBlocks || []).map(function(block) { return '<li>' + escapeHtml(block) + '</li>'; }).join('');
+  var notes = (data.formatGuide.notes || []).map(function(note) { return '<li>' + escapeHtml(note) + '</li>'; }).join('');
+  var outline = (data.studySupport.outline || []).map(function(item) { return '<li>' + escapeHtml(item) + '</li>'; }).join('');
+  var model = escapeHtml(data.model.text || '').replace(/\n/g, '<br>');
+  document.getElementById('app').innerHTML = toolbar(data.title || '写作练习', '<button class="tb-btn" onclick="showShelf()">← 书架</button><button class="tb-btn" onclick="showChapters(\'' + escapeHtml(curBook.id) + '\')" title="目录">☰</button>') + '<main class="main-container writing-workbench"><header class="chapter-header"><h1>' + escapeHtml(data.title || '') + '</h1><p>原书页：' + escapeHtml(sourcePages) + '</p></header><section><h2>原书任务</h2><p>' + escapeHtml(data.task.prompt) + '</p><p class="writing-status">建议长度：' + escapeHtml(data.task.wordTarget || '按题目要求') + '</p></section><section><h2>格式清单</h2><ol>' + blocks + '</ol>' + (notes ? '<ul class="writing-status">' + notes + '</ul>' : '') + '</section><section><h2>你的草稿</h2><textarea class="writing-draft" id="writing-draft" placeholder="在这里用俄语起草…" oninput="saveWritingDraft(\'' + escapeHtml(data.id) + '\', this.value)">' + escapeHtml(draft) + '</textarea><p id="writing-draft-status" class="writing-status">本地自动保存 · ' + countWritingWords(draft) + ' 词</p><button class="tb-btn" onclick="copyWritingFeedbackPrompt(\'' + escapeHtml(data.id) + '\')">复制反馈提示</button></section><details><summary>原书范文（已核对）</summary><p class="ru-text">' + model + '</p><small class="reading-answer-source">' + escapeHtml(data.model.source.label || 'B2 原书范文') + '</small></details><details><summary>学习辅助：起草顺序</summary><ol>' + outline + '</ol></details></main>';
+  window.scrollTo(0, typeof scrollPosition === 'number' ? scrollPosition : 0); applyTheme(); saveLastRead();
+}
+var SPEAKING_DRAFTS_KEY = 'russian_b2_speaking_notes_v1';
+var currentSpeakingData = null;
+var activeSpeakingRecorder = null;
+var activeSpeakingStream = null;
+var activeSpeakingChunks = [];
+function getSpeakingNotes() { try { return JSON.parse(localStorage.getItem(SPEAKING_DRAFTS_KEY) || '{}'); } catch (e) { return {}; } }
+function saveSpeakingNote(taskId, value) {
+  var notes = getSpeakingNotes(); notes[taskId] = { value: value, updatedAt: new Date().toISOString() };
+  try { localStorage.setItem(SPEAKING_DRAFTS_KEY, JSON.stringify(notes)); } catch (e) {}
+  var status = document.getElementById('speaking-note-status'); if (status) status.textContent = '本地自动保存';
+}
+function openSpeakingRecordingDb() {
+  return new Promise(function(resolve, reject) {
+    if (!window.indexedDB) { reject(new Error('当前浏览器不支持 IndexedDB')); return; }
+    var request = indexedDB.open('russian_b2_recordings', 1);
+    request.onupgradeneeded = function() { if (!request.result.objectStoreNames.contains('attempts')) request.result.createObjectStore('attempts', { keyPath: 'id' }); };
+    request.onsuccess = function() { resolve(request.result); }; request.onerror = function() { reject(request.error); };
+  });
+}
+function saveSpeakingRecording(taskId, blob) {
+  var attempt = { id: taskId + ':' + Date.now(), taskId: taskId, createdAt: new Date().toISOString(), blob: blob, mimeType: blob.type || 'audio/webm' };
+  return openSpeakingRecordingDb().then(function(db) { return new Promise(function(resolve, reject) { var tx = db.transaction('attempts', 'readwrite'); tx.objectStore('attempts').put(attempt); tx.oncomplete = function() { db.close(); resolve(attempt); }; tx.onerror = function() { db.close(); reject(tx.error); }; }); });
+}
+function setSpeakingRecordingStatus(message) { var el = document.getElementById('speaking-recording-status'); if (el) el.textContent = message; }
+function startSpeakingRecording() {
+  if (!currentSpeakingData || !navigator.mediaDevices || !navigator.mediaDevices.getUserMedia || !window.MediaRecorder) { setSpeakingRecordingStatus('当前浏览器不支持录音；可先用下方文字提纲练习。'); return; }
+  navigator.mediaDevices.getUserMedia({ audio: true }).then(function(stream) {
+    activeSpeakingStream = stream; activeSpeakingChunks = []; activeSpeakingRecorder = new MediaRecorder(stream);
+    activeSpeakingRecorder.ondataavailable = function(event) { if (event.data && event.data.size) activeSpeakingChunks.push(event.data); };
+    activeSpeakingRecorder.onstop = function() {
+      var blob = new Blob(activeSpeakingChunks, { type: activeSpeakingRecorder.mimeType || 'audio/webm' });
+      var player = document.getElementById('speaking-playback'); if (player) { player.src = URL.createObjectURL(blob); player.hidden = false; }
+      saveSpeakingRecording(currentSpeakingData.id, blob).then(function() { setSpeakingRecordingStatus('已保存到本机录音库；可回听，刷新后录音仍保留在此浏览器。'); }).catch(function() { setSpeakingRecordingStatus('录音已生成，但本机保存失败；请立即回听或重录。'); });
+      if (activeSpeakingStream) activeSpeakingStream.getTracks().forEach(function(track) { track.stop(); }); activeSpeakingStream = null; activeSpeakingRecorder = null;
+      var start = document.getElementById('start-speaking-recording'), stop = document.getElementById('stop-speaking-recording'); if (start) start.disabled = false; if (stop) stop.disabled = true;
+    };
+    activeSpeakingRecorder.start(); setSpeakingRecordingStatus('正在录音…结束后会保存在本机。');
+    document.getElementById('start-speaking-recording').disabled = true; document.getElementById('stop-speaking-recording').disabled = false;
+  }).catch(function() { setSpeakingRecordingStatus('未取得麦克风权限；你仍可用文字提纲完成练习。'); });
+}
+function stopSpeakingRecording() { if (activeSpeakingRecorder && activeSpeakingRecorder.state !== 'inactive') activeSpeakingRecorder.stop(); }
+function renderSpeakingPractice(data, scrollPosition) {
+  currentSpeakingData = data;
+  var sourcePages = (data.sourcePages || []).map(function(page) { return 'PDF-' + String(page).padStart(3, '0'); }).join('、');
+  var note = (getSpeakingNotes()[data.id] || {}).value || '';
+  var steps = (data.progression || []).map(function(step) { return '<li><strong>' + escapeHtml(step.title) + '</strong><br><span>' + escapeHtml(step.instruction) + '</span></li>'; }).join('');
+  var checklist = (data.studySupport && data.studySupport.checklist || []).map(function(item) { return '<li>' + escapeHtml(item) + '</li>'; }).join('');
+  var warning = data.media && data.media.provenance === 'missing-original-media' ? '<section class="source-warning"><strong>原始媒体缺失</strong><p>' + escapeHtml(data.media.note || '教材原始媒体未保存；这里只提供可追溯的文字资料。') + '</p></section>' : '';
+  document.getElementById('app').innerHTML = toolbar(data.title || '会话练习', '<button class="tb-btn" onclick="showShelf()">← 书架</button><button class="tb-btn" onclick="showChapters(\'' + escapeHtml(curBook.id) + '\')" title="目录">☰</button>') + '<main class="main-container speaking-practice"><header class="chapter-header"><h1>' + escapeHtml(data.title || '') + '</h1><p class="reading-answer-source">原书页：' + escapeHtml(sourcePages) + '</p></header><section><h2>原书任务</h2><p>' + escapeHtml(data.task.prompt) + '</p></section>' + warning + '<section><h2>渐进练习</h2><ol class="speaking-steps">' + steps + '</ol></section><section><h2>你的提纲 / 转写</h2><textarea class="speaking-transcript" placeholder="先列关键词，再写下你准备说的内容…" oninput="saveSpeakingNote(\'' + escapeHtml(data.id) + '\', this.value)">' + escapeHtml(note) + '</textarea><p id="speaking-note-status" class="speaking-recording-status">本地自动保存</p></section><section><h2>录音与回听</h2><p class="speaking-recording-status">录音只存到这台设备的浏览器 IndexedDB，不会上传。</p><div class="speaking-recording-controls"><button id="start-speaking-recording" class="tb-btn" onclick="startSpeakingRecording()">开始录音</button><button id="stop-speaking-recording" class="tb-btn" onclick="stopSpeakingRecording()" disabled>结束录音</button><span id="speaking-recording-status" class="speaking-recording-status">尚未录音</span></div><audio id="speaking-playback" class="speaking-playback" controls hidden></audio></section><details><summary>原书参考回答（已核对）</summary><p class="ru-text">' + escapeHtml(data.sourceAnswer.text || '') + '</p><small class="reading-answer-source">' + escapeHtml(data.sourceAnswer.source.label || 'B2 原书参考回答') + '</small></details><details><summary>学习辅助：自查清单</summary><ul>' + checklist + '</ul></details></main>';
+  window.scrollTo(0, typeof scrollPosition === 'number' ? scrollPosition : 0); applyTheme(); saveLastRead();
+}
+function renderListeningPractice(data, scrollPosition) {
+  var sourcePages = (data.sourcePages || []).map(function(page) { return 'PDF-' + String(page).padStart(3, '0'); }).join('、');
+  var transcript = (data.transcriptSegments || []).map(function(segment) { return '<p class="ru-text"><strong>' + escapeHtml(segment.speaker || '') + '：</strong> ' + escapeHtml(segment.text || '') + '</p>'; }).join('');
+  var questions = (data.questions || []).map(function(question) { return '<li><strong>' + escapeHtml(question.id) + '</strong> · ' + escapeHtml(question.prompt) + ' <details><summary>查看原书答案</summary><p>答案：' + escapeHtml(question.answer) + '</p></details></li>'; }).join('');
+  var media = data.media || {};
+  var mediaBase = 'data/textbook/russian_b2/';
+  var player = media.file ? '<section><h2>重建音频</h2><p class="reading-answer-source">' + escapeHtml(media.provenance || 'reconstructed-tts') + ' · 非原始配套音频</p><audio controls><source src="' + escapeHtml(mediaBase + media.file) + '" type="audio/mpeg"><track kind="subtitles" srclang="ru" label="Русский" src="' + escapeHtml(mediaBase + (media.captions || '')) + '" default>你的浏览器不支持音频播放。</audio></section>' : '<section class="source-warning"><strong>重建音频暂不可用</strong><p>可先使用下方来源文字稿精听；不会用空文件冒充音频。</p></section>';
+  document.getElementById('app').innerHTML = toolbar(data.title || '听力练习', '<button class="tb-btn" onclick="showShelf()">← 书架</button><button class="tb-btn" onclick="showChapters(\'' + escapeHtml(curBook.id) + '\')">☰</button>') + '<main class="main-container speaking-practice"><header class="chapter-header"><h1>' + escapeHtml(data.title || '') + '</h1><p class="reading-answer-source">原书页：' + escapeHtml(sourcePages) + '</p></header><section class="source-warning"><strong>' + escapeHtml(data.media.provenance || 'reconstructed-tts') + '，非原始音频</strong><p>文字稿和原书页码均已核对；重建音频仅用于精听与跟读。</p></section>' + player + '<section><h2>来源文字稿</h2>' + transcript + '</section><section><h2>理解题</h2><ol>' + questions + '</ol></section></main>';
+  window.scrollTo(0, typeof scrollPosition === 'number' ? scrollPosition : 0); applyTheme(); saveLastRead();
+}
+var EXAM_PROGRESS_KEY = 'russian_b2_exam_progress_v1';
+var EXAM_WRITING_DRAFTS_KEY = 'russian_b2_exam_writing_drafts_v1';
+var currentExamData = null;
+function getExamProgress() { try { return JSON.parse(localStorage.getItem(EXAM_PROGRESS_KEY) || '{}'); } catch (e) { return {}; } }
+function saveExamProgress(progress) { try { localStorage.setItem(EXAM_PROGRESS_KEY, JSON.stringify(progress)); } catch (e) {} }
+function getExamRecord(questionId) { return getExamProgress()[questionId] || { selected: '', answered: false, answerOpen: false }; }
+function rerenderExamPracticePreservingScroll() { renderExamPracticeChapter(currentExamData, window.scrollY); }
+function answerExamQuestion(questionId, selected) {
+  var progress = getExamProgress(), record = progress[questionId] || { selected: '', answered: false, answerOpen: false };
+  if (record.answered) return;
+  record.selected = selected; record.answered = true; record.answeredAt = new Date().toISOString();
+  progress[questionId] = record; saveExamProgress(progress); rerenderExamPracticePreservingScroll();
+}
+function toggleExamAnswer(questionId) {
+  var progress = getExamProgress(), record = progress[questionId] || { selected: '', answered: false, answerOpen: false };
+  if (!record.answered) return;
+  record.answerOpen = !record.answerOpen; progress[questionId] = record; saveExamProgress(progress); rerenderExamPracticePreservingScroll();
+}
+function getExamWritingDrafts() { try { return JSON.parse(localStorage.getItem(EXAM_WRITING_DRAFTS_KEY) || '{}'); } catch (e) { return {}; } }
+function saveExamWritingDraft(taskId, value) {
+  var drafts = getExamWritingDrafts(); drafts[taskId] = { value: value, updatedAt: new Date().toISOString() };
+  try { localStorage.setItem(EXAM_WRITING_DRAFTS_KEY, JSON.stringify(drafts)); } catch (e) {}
+  var status = document.getElementById('exam-writing-status-' + taskId);
+  if (status) status.textContent = '已本地保存 · ' + countWritingWords(value) + ' 词';
+}
+function renderExamQuestion(question) {
+  var record = getExamRecord(question.id), selected = record.selected;
+  var options = question.options.map(function(option) {
+    var state = record.answered ? (option.label === question.answer ? ' correct' : option.label === selected ? ' wrong' : '') : '';
+    return '<button class="b2-option' + state + '" onclick="answerExamQuestion(\'' + escapeHtml(question.id) + '\',\'' + escapeHtml(option.label) + '\')"' + (record.answered ? ' disabled' : '') + '><b>' + escapeHtml(option.label) + '.</b> ' + escapeHtml(option.text) + '</button>';
+  }).join('');
+  var result = record.answered ? '<p class="b2-quiz-result ' + (selected === question.answer ? 'correct' : 'wrong') + '">' + (selected === question.answer ? '回答正确' : '回答错误') + '</p>' : '';
+  var pages = (question.answerSource && question.answerSource.pdfPages || []).map(function(page) { return 'PDF-' + String(page).padStart(3, '0'); }).join('、');
+  var answer = record.answerOpen ? '<div class="b2-explanation"><strong>原书答案（已核对）：' + escapeHtml(question.answer) + '</strong><small class="reading-answer-source">原书参考答案与依据：' + escapeHtml(pages) + '</small></div>' : '';
+  var toggle = record.answered ? '<button class="tb-btn" onclick="toggleExamAnswer(\'' + escapeHtml(question.id) + '\')">' + (record.answerOpen ? '收起答案' : '查看答案') + '</button>' : '';
+  return '<article class="reading-practice-question"><p><b>' + escapeHtml(String(question.printedNumber)) + '.</b> ' + escapeHtml(question.prompt) + '</p><div class="b2-options">' + options + '</div>' + result + toggle + answer + '</article>';
+}
+function renderExamWritingTask(task) {
+  var draft = (getExamWritingDrafts()[task.id] || {}).value || '';
+  var pages = (task.source && task.source.pdfPages || []).map(function(page) { return 'PDF-' + String(page).padStart(3, '0'); }).join('、');
+  var material = task.materialsNote ? '<p class="writing-status">材料提示：' + escapeHtml(task.materialsNote) + '</p>' : '';
+  return '<section class="writing-workbench"><h2>任务 ' + escapeHtml(String(task.printedNumber)) + ' · ' + escapeHtml(task.genre) + '</h2><p>' + escapeHtml(task.prompt) + '</p>' + material + '<p class="writing-status">建议长度：' + escapeHtml(task.wordTarget) + ' 词 · ' + escapeHtml(pages) + '</p><textarea class="writing-draft" placeholder="在这里完成俄语真题写作…" oninput="saveExamWritingDraft(\'' + escapeHtml(task.id) + '\', this.value)">' + escapeHtml(draft) + '</textarea><p id="exam-writing-status-' + escapeHtml(task.id) + '" class="writing-status">本地自动保存 · ' + countWritingWords(draft) + ' 词</p></section>';
+}
+function renderExamPracticeChapter(data, scrollPosition) {
+  currentExamData = data;
+  var pages = (data.sourcePages || []).map(function(page) { return 'PDF-' + String(page).padStart(3, '0'); }).join('–');
+  var hasVerifiedQuestions = data.importStatus === 'source-verified' && Array.isArray(data.questions) && data.questions.length > 0;
+  var hasVerifiedWriting = data.importStatus === 'source-verified' && Array.isArray(data.tasks) && data.tasks.length > 0;
+  var sourceState = hasVerifiedQuestions
+    ? '<section class="source-warning"><strong>题面与答案已核验</strong><p>本分测验的题干、选项和原书答案均已逐页核对；答案默认隐藏，作答后可手动查看。</p></section>'
+    : hasVerifiedWriting
+    ? '<section class="source-warning"><strong>写作任务已核验</strong><p>原卷任务、字数、体裁和页码均已核对；草稿只保存在当前浏览器。</p></section>'
+    : data.importStatus === 'source-indexed'
+    ? '<section class="source-warning"><strong>原卷内容正在逐项核对导入</strong><p>本页已绑定原书范围、时长和题量；题干、选项与答案尚未逐项核验前，不显示未经核对的 OCR 内容。</p></section>'
+    : '<section class="source-warning"><strong>真题来源状态未知</strong><p>此单元暂不可开始模拟。</p></section>';
+  var details = '<section><h2>本分测验</h2><p>时长：' + escapeHtml(String(data.durationMinutes || '')) + ' 分钟</p><p>原卷题量：' + escapeHtml(String(data.questionCount || '')) + ' 题</p><p class="reading-answer-source">原书页：' + escapeHtml(pages) + '</p></section>';
+  var body = hasVerifiedQuestions ? '<section><h2>原卷练习</h2>' + data.questions.map(renderExamQuestion).join('') + '</section>' : hasVerifiedWriting ? '<section><h2>原卷写作</h2>' + data.tasks.map(renderExamWritingTask).join('') + '</section>' : '<section><h2>完整模拟</h2><p>完整计时与分模块练习会在题干、选项、原书答案和说明逐项核验后开放。</p></section>';
+  document.getElementById('app').innerHTML = toolbar(data.title || '真题模拟', '<button class="tb-btn" onclick="showShelf()">← 书架</button><button class="tb-btn" onclick="showChapters(\'' + escapeHtml(curBook.id) + '\')">☰</button>') + '<main class="main-container speaking-practice"><header class="chapter-header"><h1>' + escapeHtml(data.title || '') + '</h1><p class="reading-answer-source">B2 原书真题 · ' + (hasVerifiedQuestions ? '题面与答案已核验' : '来源已索引') + '</p></header>' + sourceState + details + body + '</main>';
+  window.scrollTo(0, typeof scrollPosition === 'number' ? scrollPosition : 0); applyTheme(); saveLastRead();
+}
+function renderReadingPracticeQuestion(question) {
+  var record = getReadingRecord(question.id), selected = record.selected;
+  var options = question.options.map(function(option) {
+    var state = record.answered ? (option.label === question.answer ? ' correct' : option.label === selected ? ' wrong' : '') : '';
+    return '<button class="b2-option' + state + '" onclick="answerReadingQuestion(\'' + escapeHtml(question.id) + '\',\'' + escapeHtml(option.label) + '\')"' + (record.answered ? ' disabled' : '') + '><b>' + escapeHtml(option.label) + '.</b> ' + escapeHtml(option.text) + '</button>';
+  }).join('');
+  var result = record.answered ? '<p class="b2-quiz-result ' + (selected === question.answer ? 'correct' : 'wrong') + '">' + (selected === question.answer ? '回答正确' : '回答错误') + '</p>' : '';
+  var answer = record.answerOpen ? '<div class="b2-explanation"><strong>原书答案（已核对）：' + escapeHtml(question.answer) + '</strong><small class="reading-answer-source">原书参考答案表：PDF-' + String(question.answerSource.pdfPage).padStart(3, '0') + '</small></div>' : '';
+  var toggle = record.answered ? '<button class="tb-btn" onclick="toggleReadingAnswer(\'' + escapeHtml(question.id) + '\')">' + (record.answerOpen ? '收起答案' : '查看答案') + '</button>' : '';
+  return '<article class="reading-practice-question"><p><b>' + question.printedNumber + '.</b> ' + escapeHtml(question.prompt) + '</p><div class="b2-options">' + options + '</div>' + result + toggle + answer + '</article>';
+}
+function renderReadingLearningSupport(data) {
+  if (data.translationStatus !== 'learning-support-approved') return '';
+  var translations = (data.translations || []).map(function(text, index) { return '<li><b>第 ' + (index + 1) + ' 段：</b>' + escapeHtml(text) + '</li>'; }).join('');
+  var structure = (data.structure || []).map(function(item) { return '<li><b>' + escapeHtml(item.role) + '：</b>第 ' + escapeHtml(item.paragraphs.join('、')) + ' 段；' + escapeHtml(item.note) + '</li>'; }).join('');
+  var expressions = (data.reusableExpressions || []).map(function(item) { return '<li><b>' + escapeHtml(item.ru) + '</b>：' + escapeHtml(item.zh) + '</li>'; }).join('');
+  var retelling = data.retelling && data.retelling.steps ? '<section><h2>学习辅助·复述框架</h2><ol>' + data.retelling.steps.map(function(step) { return '<li>' + escapeHtml(step) + '</li>'; }).join('') + '</ol></section>' : '';
+  return '<section class="source-warning"><strong>以下是学习辅助，不属于原书逐题解析</strong><p>译文、结构和表达用于理解与复述；原书题目仍需独立完成后查看答案。</p></section><section><h2>学习辅助·逐段译文</h2><ol>' + translations + '</ol></section><section><h2>学习辅助·文章结构</h2><ol>' + structure + '</ol></section><section><h2>学习辅助·可复用表达</h2><ul>' + expressions + '</ul></section>' + retelling;
+}
+function renderReadingPracticeChapter(data, scrollPosition) {
+  currentReadingData = data;
+  var paragraphs = (data.original || []).map(function(paragraph) { return '<p class="ru-text">' + renderRuText(paragraph) + '</p>'; }).join('');
+  var questions = (data.questions || []).map(renderReadingPracticeQuestion).join('');
+  var navP = curCh > 0 ? '<button class="fab-nav" onclick="goChapter(' + (curCh - 1) + ')">← 上一篇</button>' : '<span class="fab-nav disabled">← 上一篇</span>';
+  var navN = curCh < curBook.chapters - 1 ? '<button class="fab-nav" onclick="goChapter(' + (curCh + 1) + ')">下一篇 →</button>' : '<span class="fab-nav disabled">下一篇 →</span>';
+  var sourcePages = (data.sourcePages || []).map(function(page) { return 'PDF-' + String(page).padStart(3, '0'); }).join('、');
+  var support = renderReadingLearningSupport(data);
+  var supportState = data.translationStatus === 'learning-support-approved' ? '学习辅助已审核发布。' : '原文已核对；译文与结构讲解将分批审核后发布。';
+  document.getElementById('app').innerHTML = toolbar(data.title || '阅读练习', '<button class="tb-btn" onclick="showShelf()">← 书架</button><button class="tb-btn" onclick="showChapters(\'' + escapeHtml(curBook.id) + '\')" title="目录">☰</button>') + '<main class="main-container"><header class="chapter-header"><h1>' + escapeHtml(data.title || '') + '</h1><p>' + supportState + '</p><p class="reading-answer-source">原书原文页：' + escapeHtml(sourcePages) + '</p></header><section class="chapter-content">' + paragraphs + '</section>' + support + '<section><h2>阅读理解</h2>' + questions + '</section><nav class="b2-quiz-nav">' + navP + '<span class="fab-chapter">第 ' + (curCh + 1) + ' / ' + curBook.chapters + ' 篇</span>' + navN + '</nav></main>';
+  window.scrollTo(0, typeof scrollPosition === 'number' ? scrollPosition : 0); applyTheme(); saveLastRead();
+}
+function rerenderQuizChapterPreservingScroll() {
+  renderQuizChapter(currentQuizData, window.scrollY);
+}
+function selectQuizOption(questionId, key) {
+  var record = getQuizRecord(questionId);
+  if (record.submitted) return;
+  record.selected = key;
+  var all = getB2Progress(); all[getQuizUnitKey()][questionId] = record; saveB2Progress(all);
+  rerenderQuizChapterPreservingScroll();
+}
+function submitQuizOption(questionId, key) {
+  selectQuizOption(questionId, key);
+  if (!getQuizSettings().confirmBeforeSubmit) submitQuizQuestion(questionId);
+}
+function submitQuizQuestion(questionId) {
+  var exercise = getQuizExercise(questionId), record = getQuizRecord(questionId);
+  if (!exercise || !record.selected || record.submitted) return;
+  record.submitted = true; record.attempts += 1; record.wrong = record.selected !== exercise.answer; record.everWrong = record.everWrong || record.wrong; record.lastResult = record.wrong ? 'wrong' : 'correct'; record.lastAnsweredAt = new Date().toISOString();
+  var all = getB2Progress(); all[getQuizUnitKey()][questionId] = record; saveB2Progress(all);
+  rerenderQuizChapterPreservingScroll();
+}
+function toggleQuizExplanation(questionId) {
+  var record = getQuizRecord(questionId);
+  if (!record.submitted) return;
+  record.explanationOpen = !record.explanationOpen;
+  var all = getB2Progress(); all[getQuizUnitKey()][questionId] = record; saveB2Progress(all);
+  rerenderQuizChapterPreservingScroll();
+}
+function finishQuizChapter() {
+  var records = getB2Progress()[getQuizUnitKey()] || {};
+  var complete = currentQuizAllExercises.length > 0 && currentQuizAllExercises.every(function(exercise) { return records[exercise.id] && records[exercise.id].submitted; });
+  if (!complete) { toast('请先确认全部题目，再结束本单元'); return; }
+  var all = getB2Progress();
+  if (!all.__completed) all.__completed = {};
+  all.__completed[getB2CompletionKey()] = { completed: true, completed_at: new Date().toISOString(), quiz: true };
+  saveB2Progress(all); toast('本单元已完成');
+}
+function restartQuiz(mode, exerciseIds) {
+  var all = getB2Progress(), key = getQuizUnitKey(), records = all[key] || {};
+  var needsWrongHistory = mode === 'wrong' || mode === 'knowledge-wrong';
+  var needsKnowledgeScope = mode === 'knowledge' || mode === 'knowledge-wrong';
+  currentQuizExercises = currentQuizAllExercises.filter(function(exercise) {
+    return !needsWrongHistory || records[exercise.id] && records[exercise.id].everWrong;
+  }).filter(function(exercise) { return !needsKnowledgeScope || (exerciseIds || []).indexOf(exercise.id) !== -1; });
+  currentQuizExercises.forEach(function(exercise) {
+    var old = records[exercise.id] || {}, fresh = { selected: '', submitted: false, attempts: old.attempts || 0, wrong: false, everWrong: !!old.everWrong, lastResult: old.lastResult || '', lastAnsweredAt: old.lastAnsweredAt || '', explanationOpen: false };
+    records[exercise.id] = fresh;
+  });
+  all[key] = records; saveB2Progress(all); renderQuizChapter(Object.assign({}, currentQuizData, { exercises: currentQuizExercises }), 0);
+}
+
 function renderChapter(data) {
+  if (isQuizFirstBook(curBook) && data.format === 'quiz-first') { renderQuizChapter(data); return; }
+  if (data.format === 'reading-practice') { renderReadingPracticeChapter(data); return; }
+  if (data.format === 'writing-workbench') { renderWritingWorkbench(data); return; }
+  if (data.format === 'speaking-practice') { renderSpeakingPractice(data); return; }
+  if (data.format === 'listening-practice') { renderListeningPractice(data); return; }
+  if (data.format === 'exam-practice') { renderExamPracticeChapter(data); return; }
   var paras = data.original || [], trans = data.translated || [], dir = curBook.direction || 'cn→ru';
   var bookMarks = (bookmarks[curBook.id] && bookmarks[curBook.id][curCh]) || [];
   var parts = [], visibleCount = 0;
@@ -1850,7 +2683,8 @@ window.addEventListener('scroll', function() {
   clearTimeout(_scrollTimer); _scrollTimer = setTimeout(saveLastRead, 500);
   var btn = document.getElementById('backTop');
   if (btn) { if (window.scrollY > 400) btn.classList.add('visible'); else btn.classList.remove('visible'); }
-  if (chDone || curView !== 'reading' || curCh < 0) return;
+  if (!shouldUseScrollCompletion()) return;
+  if (chDone) return;
   if (window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 100) {
     chDone = true; stopTimer();
     if (!readStats[curBook.id]) readStats[curBook.id] = {};

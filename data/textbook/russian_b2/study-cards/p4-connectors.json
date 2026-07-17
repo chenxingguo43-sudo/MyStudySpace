@@ -1,0 +1,452 @@
+{
+  "id": "p4-connectors",
+  "partId": "p4",
+  "knowledgePointId": "p4-connectors",
+  "title": "并列与说明连接词",
+  "exerciseIds": [
+    "P4-Q001",
+    "P4-Q002",
+    "P4-Q003",
+    "P4-Q004",
+    "P4-Q005",
+    "P4-Q006",
+    "P4-Q007",
+    "P4-Q008",
+    "P4-Q009",
+    "P4-Q010",
+    "P4-Q011",
+    "P4-Q012",
+    "P4-Q013",
+    "P4-Q014"
+  ],
+  "overview": "连接词的核心是逻辑关系：并列、对比、转折、说明、愿望或请求。不要只按一个中文词对译。",
+  "decisionSteps": [
+    "判断两部分关系",
+    "选择连接词类型",
+    "检查连接后的句法"
+  ],
+  "reviewStatus": "approved",
+  "quickReference": {
+    "semanticQuestions": [
+      "是补充、对比还是转折？",
+      "从句是在说明事实还是愿望？"
+    ],
+    "structures": [
+      "и",
+      "но",
+      "что",
+      "чтобы"
+    ]
+  },
+  "lessons": [
+    {
+      "id": "l1",
+      "title": "联合关系",
+      "scope": "core",
+      "meaning": "и 连接并列或同时存在的信息。",
+      "conditions": [
+        "两部分没有冲突。"
+      ],
+      "structure": "и",
+      "caseChanges": [
+        {
+          "from": "он читает",
+          "to": "он читает и пишет"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Он читает и пишет по-русски.",
+          "zh": "他用俄语阅读并写作。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "不要用 но 连接纯并列动作。"
+      ],
+      "instantChecks": [
+        {
+          "id": "l1-check",
+          "type": "judgment",
+          "prompt": "и 要根据句中关系选择。",
+          "answer": true,
+          "rationale": "两项行动平行。",
+          "source": {
+            "kind": "grammar-book",
+            "label": "新编俄语语法",
+            "file": "09 连接词.md",
+            "section": "连接词",
+            "pages": [
+              301,
+              302
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book",
+          "label": "新编俄语语法",
+          "file": "09 连接词.md",
+          "section": "连接词",
+          "pages": [
+            301,
+            302
+          ]
+        }
+      ]
+    },
+    {
+      "id": "l2",
+      "title": "转折关系",
+      "scope": "core",
+      "meaning": "но 表示预期反差或限制。",
+      "conditions": [
+        "后半句修正前半句期待。"
+      ],
+      "structure": "но",
+      "caseChanges": [
+        {
+          "from": "трудно",
+          "to": "трудно, но интересно"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Задание трудное, но интересное.",
+          "zh": "任务难，但有趣。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "转折不是简单的“和”。"
+      ],
+      "instantChecks": [
+        {
+          "id": "l2-check",
+          "type": "judgment",
+          "prompt": "но 要根据句中关系选择。",
+          "answer": true,
+          "rationale": "两部分有反差。",
+          "source": {
+            "kind": "grammar-book",
+            "label": "新编俄语语法",
+            "file": "09 连接词.md",
+            "section": "连接词",
+            "pages": [
+              301,
+              302
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book",
+          "label": "新编俄语语法",
+          "file": "09 连接词.md",
+          "section": "连接词",
+          "pages": [
+            301,
+            302
+          ]
+        }
+      ]
+    },
+    {
+      "id": "l3",
+      "title": "说明事实",
+      "scope": "core",
+      "meaning": "что 引出被说、知、看见的事实。",
+      "conditions": [
+        "主句需要内容补足。"
+      ],
+      "structure": "что",
+      "caseChanges": [
+        {
+          "from": "я знаю",
+          "to": "я знаю, что он пришёл"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Я знаю, что он пришёл.",
+          "zh": "我知道他来了。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "不要用 чтобы 表示已成事实。"
+      ],
+      "instantChecks": [
+        {
+          "id": "l3-check",
+          "type": "judgment",
+          "prompt": "что 要根据句中关系选择。",
+          "answer": true,
+          "rationale": "知道的是事实内容。",
+          "source": {
+            "kind": "grammar-book",
+            "label": "新编俄语语法",
+            "file": "09 连接词.md",
+            "section": "连接词",
+            "pages": [
+              301,
+              302
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book",
+          "label": "新编俄语语法",
+          "file": "09 连接词.md",
+          "section": "连接词",
+          "pages": [
+            301,
+            302
+          ]
+        }
+      ]
+    },
+    {
+      "id": "l4",
+      "title": "愿望与请求",
+      "scope": "core",
+      "meaning": "чтобы 引出希望、要求或目的。",
+      "conditions": [
+        "从句多指尚待实现的行动。"
+      ],
+      "structure": "чтобы",
+      "caseChanges": [
+        {
+          "from": "я хочу",
+          "to": "я хочу, чтобы он пришёл"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Я хочу, чтобы он пришёл раньше.",
+          "zh": "我希望他早点来。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "чтобы 从句不是 обычный что 从句。"
+      ],
+      "instantChecks": [
+        {
+          "id": "l4-check",
+          "type": "judgment",
+          "prompt": "чтобы 要根据句中关系选择。",
+          "answer": true,
+          "rationale": "主句表达愿望。",
+          "source": {
+            "kind": "grammar-book",
+            "label": "新编俄语语法",
+            "file": "09 连接词.md",
+            "section": "连接词",
+            "pages": [
+              301,
+              302
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book",
+          "label": "新编俄语语法",
+          "file": "09 连接词.md",
+          "section": "连接词",
+          "pages": [
+            301,
+            302
+          ]
+        }
+      ]
+    }
+  ],
+  "relatedExtensions": [],
+  "checks": [
+    {
+      "id": "review-1",
+      "type": "judgment",
+      "prompt": "Он читает и пишет по-русски. 中的结构符合本节规则。",
+      "answer": true,
+      "rationale": "两项行动平行。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "09 连接词.md",
+        "section": "连接词",
+        "pages": [
+          301,
+          302
+        ]
+      }
+    },
+    {
+      "id": "review-2",
+      "type": "judgment",
+      "prompt": "Задание трудное, но интересное. 中的结构符合本节规则。",
+      "answer": true,
+      "rationale": "两部分有反差。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "09 连接词.md",
+        "section": "连接词",
+        "pages": [
+          301,
+          302
+        ]
+      }
+    },
+    {
+      "id": "review-3",
+      "type": "judgment",
+      "prompt": "Я знаю, что он пришёл. 中的结构符合本节规则。",
+      "answer": true,
+      "rationale": "知道的是事实内容。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "09 连接词.md",
+        "section": "连接词",
+        "pages": [
+          301,
+          302
+        ]
+      }
+    }
+  ],
+  "rules": [
+    {
+      "text": "и：и 连接并列或同时存在的信息。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "09 连接词.md",
+        "section": "连接词",
+        "pages": [
+          301,
+          302
+        ]
+      }
+    },
+    {
+      "text": "но：но 表示预期反差或限制。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "09 连接词.md",
+        "section": "连接词",
+        "pages": [
+          301,
+          302
+        ]
+      }
+    },
+    {
+      "text": "что：что 引出被说、知、看见的事实。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "09 连接词.md",
+        "section": "连接词",
+        "pages": [
+          301,
+          302
+        ]
+      }
+    },
+    {
+      "text": "чтобы：чтобы 引出希望、要求或目的。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "09 连接词.md",
+        "section": "连接词",
+        "pages": [
+          301,
+          302
+        ]
+      }
+    }
+  ],
+  "comparisons": [
+    {
+      "left": "что он пришёл",
+      "right": "чтобы он пришёл",
+      "note": "前者为事实内容，后者为希望实现的行动。",
+      "source": {
+        "kind": "learning-explanation",
+        "label": "学习讲解"
+      }
+    }
+  ],
+  "examples": [
+    {
+      "ru": "Он читает и пишет по-русски.",
+      "zh": "他用俄语阅读并写作。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    },
+    {
+      "ru": "Задание трудное, но интересное.",
+      "zh": "任务难，但有趣。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    },
+    {
+      "ru": "Я знаю, что он пришёл.",
+      "zh": "我知道他来了。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    },
+    {
+      "ru": "Я хочу, чтобы он пришёл раньше.",
+      "zh": "我希望他早点来。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    }
+  ],
+  "pitfalls": [
+    "先判断逻辑，不按中文单词硬翻。",
+    "连接词也会影响从句谓语形式。"
+  ],
+  "sources": [
+    {
+      "kind": "grammar-book",
+      "label": "新编俄语语法",
+      "file": "09 连接词.md",
+      "section": "连接词",
+      "pages": [
+        301,
+        302
+      ]
+    }
+  ]
+}

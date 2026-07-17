@@ -1,0 +1,47 @@
+{
+  "id": "announcement",
+  "format": "writing-workbench",
+  "title": "布告（Объявление）",
+  "sourcePages": [
+    100
+  ],
+  "reviewStatus": "source-verified",
+  "task": {
+    "prompt": "发布活动通知，写明时间、地点、活动和主办方。",
+    "wordTarget": "50–70 词"
+  },
+  "formatGuide": {
+    "requiredBlocks": [
+      "标题 Объявление",
+      "时间",
+      "地点",
+      "活动",
+      "组织者/日期"
+    ],
+    "notes": [
+      "时间、地点和举办者不可缺失。"
+    ]
+  },
+  "model": {
+    "text": "Объявление\n\n31 декабря в 18:00 в аудитории 101 учебного корпуса №1 состоится Новогодний вечер факультета русского языка.\n\n28 декабря 2021 года\nДеканат",
+    "source": {
+      "kind": "b2-original",
+      "pages": [
+        100
+      ],
+      "label": "B2 原书范文"
+    }
+  },
+  "studySupport": {
+    "label": "学习辅助",
+    "outline": [
+      "先让读者看到什么时候、在哪里",
+      "用 состоится 说明活动",
+      "落款写组织者"
+    ]
+  },
+  "ai": {
+    "mode": "server-or-copy-prompt",
+    "rubric": []
+  }
+}

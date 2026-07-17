@@ -1,0 +1,447 @@
+{
+  "id": "p2-verb-case-2",
+  "partId": "p2",
+  "knowledgePointId": "p2-verb-case-2",
+  "title": "动词支配格：工具、对象与前置词",
+  "exerciseIds": [
+    "P2-Q031",
+    "P2-Q032",
+    "P2-Q033",
+    "P2-Q034",
+    "P2-Q035",
+    "P2-Q036",
+    "P2-Q037",
+    "P2-Q038",
+    "P2-Q039",
+    "P2-Q040"
+  ],
+  "overview": "本卡集中处理带工具格、与格和固定前置词的动词。先判断是工具、交谈对象，还是前置词短语。",
+  "decisionSteps": [
+    "找动词的核心支配",
+    "区分工具与对象",
+    "最后处理前置词后的格"
+  ],
+  "reviewStatus": "approved",
+  "quickReference": {
+    "semanticQuestions": [
+      "这是“用什么”还是“和谁”？",
+      "前置词是否由动词固定要求？"
+    ],
+    "structures": [
+      "пользоваться чем",
+      "интересоваться чем",
+      "зависеть от чего"
+    ]
+  },
+  "lessons": [
+    {
+      "id": "l1",
+      "title": "使用工具",
+      "scope": "core",
+      "meaning": "пользоваться 表示使用，要求工具格。",
+      "conditions": [
+        "先找支配词或前置词，再判断所需的格与语义。"
+      ],
+      "structure": "пользоваться + Т.п.",
+      "caseChanges": [
+        {
+          "from": "словарь",
+          "to": "словарём"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Я пользуюсь электронным словарём.",
+          "zh": "我使用电子词典。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "不能因为“使用”就机械选第四格。"
+      ],
+      "instantChecks": [
+        {
+          "id": "l1-check",
+          "type": "judgment",
+          "prompt": "пользоваться + Т.п. 的选择必须由支配关系和语义共同决定。",
+          "answer": true,
+          "rationale": "先确认结构要求，再检查词形。",
+          "source": {
+            "kind": "grammar-book",
+            "label": "新编俄语语法",
+            "file": "02 名词.md",
+            "section": "要求各种接格关系的动词及形容词",
+            "pages": [
+              51,
+              52
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book",
+          "label": "新编俄语语法",
+          "file": "02 名词.md",
+          "section": "要求各种接格关系的动词及形容词",
+          "pages": [
+            51,
+            52
+          ]
+        }
+      ]
+    },
+    {
+      "id": "l2",
+      "title": "感兴趣",
+      "scope": "core",
+      "meaning": "интересоваться 表示关注、感兴趣，要求工具格。",
+      "conditions": [
+        "先找支配词或前置词，再判断所需的格与语义。"
+      ],
+      "structure": "интересоваться + Т.п.",
+      "caseChanges": [
+        {
+          "from": "история",
+          "to": "историей"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Она интересуется историей России.",
+          "zh": "她对俄罗斯历史感兴趣。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "интересный 与 интересоваться 的支配不同。"
+      ],
+      "instantChecks": [
+        {
+          "id": "l2-check",
+          "type": "judgment",
+          "prompt": "интересоваться + Т.п. 的选择必须由支配关系和语义共同决定。",
+          "answer": true,
+          "rationale": "先确认结构要求，再检查词形。",
+          "source": {
+            "kind": "grammar-book",
+            "label": "新编俄语语法",
+            "file": "02 名词.md",
+            "section": "要求各种接格关系的动词及形容词",
+            "pages": [
+              51,
+              52
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book",
+          "label": "新编俄语语法",
+          "file": "02 名词.md",
+          "section": "要求各种接格关系的动词及形容词",
+          "pages": [
+            51,
+            52
+          ]
+        }
+      ]
+    },
+    {
+      "id": "l3",
+      "title": "依赖关系",
+      "scope": "core",
+      "meaning": "зависеть 固定与 от + 第二格连用。",
+      "conditions": [
+        "先找支配词或前置词，再判断所需的格与语义。"
+      ],
+      "structure": "зависеть от + Р.п.",
+      "caseChanges": [
+        {
+          "from": "погода",
+          "to": "погоды"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Поездка зависит от погоды.",
+          "zh": "行程取决于天气。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "前置词 от 不能省略。"
+      ],
+      "instantChecks": [
+        {
+          "id": "l3-check",
+          "type": "judgment",
+          "prompt": "зависеть от + Р.п. 的选择必须由支配关系和语义共同决定。",
+          "answer": true,
+          "rationale": "先确认结构要求，再检查词形。",
+          "source": {
+            "kind": "grammar-book",
+            "label": "新编俄语语法",
+            "file": "02 名词.md",
+            "section": "要求各种接格关系的动词及形容词",
+            "pages": [
+              51,
+              52
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book",
+          "label": "新编俄语语法",
+          "file": "02 名词.md",
+          "section": "要求各种接格关系的动词及形容词",
+          "pages": [
+            51,
+            52
+          ]
+        }
+      ]
+    },
+    {
+      "id": "l4",
+      "title": "谈论对象",
+      "scope": "core",
+      "meaning": "говорить о 表示谈论，要求 о + 第六格。",
+      "conditions": [
+        "先找支配词或前置词，再判断所需的格与语义。"
+      ],
+      "structure": "говорить о + П.п.",
+      "caseChanges": [
+        {
+          "from": "проект",
+          "to": "проекте"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Мы говорили о новом проекте.",
+          "zh": "我们谈了新项目。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "地点的 в/на 与谈论的 о 不可混淆。"
+      ],
+      "instantChecks": [
+        {
+          "id": "l4-check",
+          "type": "judgment",
+          "prompt": "говорить о + П.п. 的选择必须由支配关系和语义共同决定。",
+          "answer": true,
+          "rationale": "先确认结构要求，再检查词形。",
+          "source": {
+            "kind": "grammar-book",
+            "label": "新编俄语语法",
+            "file": "02 名词.md",
+            "section": "要求各种接格关系的动词及形容词",
+            "pages": [
+              51,
+              52
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book",
+          "label": "新编俄语语法",
+          "file": "02 名词.md",
+          "section": "要求各种接格关系的动词及形容词",
+          "pages": [
+            51,
+            52
+          ]
+        }
+      ]
+    }
+  ],
+  "relatedExtensions": [],
+  "checks": [
+    {
+      "id": "review-1",
+      "type": "judgment",
+      "prompt": "пользоваться + Т.п. 的选择必须由支配关系和语义共同决定。",
+      "answer": true,
+      "rationale": "先确认结构要求，再检查词形。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "02 名词.md",
+        "section": "要求各种接格关系的动词及形容词",
+        "pages": [
+          51,
+          52
+        ]
+      }
+    },
+    {
+      "id": "review-2",
+      "type": "judgment",
+      "prompt": "интересоваться + Т.п. 的选择必须由支配关系和语义共同决定。",
+      "answer": true,
+      "rationale": "先确认结构要求，再检查词形。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "02 名词.md",
+        "section": "要求各种接格关系的动词及形容词",
+        "pages": [
+          51,
+          52
+        ]
+      }
+    },
+    {
+      "id": "review-3",
+      "type": "judgment",
+      "prompt": "зависеть от + Р.п. 的选择必须由支配关系和语义共同决定。",
+      "answer": true,
+      "rationale": "先确认结构要求，再检查词形。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "02 名词.md",
+        "section": "要求各种接格关系的动词及形容词",
+        "pages": [
+          51,
+          52
+        ]
+      }
+    }
+  ],
+  "rules": [
+    {
+      "text": "пользоваться + Т.п.：пользоваться 表示使用，要求工具格。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "02 名词.md",
+        "section": "要求各种接格关系的动词及形容词",
+        "pages": [
+          51,
+          52
+        ]
+      }
+    },
+    {
+      "text": "интересоваться + Т.п.：интересоваться 表示关注、感兴趣，要求工具格。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "02 名词.md",
+        "section": "要求各种接格关系的动词及形容词",
+        "pages": [
+          51,
+          52
+        ]
+      }
+    },
+    {
+      "text": "зависеть от + Р.п.：зависеть 固定与 от + 第二格连用。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "02 名词.md",
+        "section": "要求各种接格关系的动词及形容词",
+        "pages": [
+          51,
+          52
+        ]
+      }
+    },
+    {
+      "text": "говорить о + П.п.：говорить о 表示谈论，要求 о + 第六格。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "02 名词.md",
+        "section": "要求各种接格关系的动词及形容词",
+        "pages": [
+          51,
+          52
+        ]
+      }
+    }
+  ],
+  "comparisons": [
+    {
+      "left": "пользоваться словарём",
+      "right": "читать словарь",
+      "note": "前者是工具格支配，后者是第四格宾语。",
+      "source": {
+        "kind": "learning-explanation",
+        "label": "学习讲解"
+      }
+    }
+  ],
+  "examples": [
+    {
+      "ru": "Я пользуюсь электронным словарём.",
+      "zh": "我使用电子词典。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    },
+    {
+      "ru": "Она интересуется историей России.",
+      "zh": "她对俄罗斯历史感兴趣。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    },
+    {
+      "ru": "Поездка зависит от погоды.",
+      "zh": "行程取决于天气。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    },
+    {
+      "ru": "Мы говорили о новом проекте.",
+      "zh": "我们谈了新项目。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    }
+  ],
+  "pitfalls": [
+    "先看动词，不要只看名词的词义。",
+    "固定前置词是结构的一部分。"
+  ],
+  "sources": [
+    {
+      "kind": "grammar-book",
+      "label": "新编俄语语法",
+      "file": "02 名词.md",
+      "section": "要求各种接格关系的动词及形容词",
+      "pages": [
+        51,
+        52
+      ]
+    }
+  ]
+}

@@ -1,0 +1,459 @@
+{
+  "id": "p3-gerund-meanings",
+  "partId": "p3",
+  "knowledgePointId": "p3-gerund-meanings",
+  "title": "副动词的时间、条件、原因与让步",
+  "exerciseIds": [
+    "P3-Q024",
+    "P3-Q025",
+    "P3-Q026",
+    "P3-Q027",
+    "P3-Q028",
+    "P3-Q029",
+    "P3-Q030",
+    "P3-Q031",
+    "P3-Q032",
+    "P3-Q033",
+    "P3-Q034",
+    "P3-Q035",
+    "P3-Q036",
+    "P3-Q037",
+    "P3-Q038",
+    "P3-Q039",
+    "P3-Q040",
+    "P3-Q041",
+    "P3-Q042",
+    "P3-Q043",
+    "P3-Q044"
+  ],
+  "overview": "副动词不能只翻成“……着”。它与主句可构成时间、条件、原因或让步关系，必须由上下文恢复逻辑。",
+  "decisionSteps": [
+    "先找主句动作",
+    "判断副动作与主句关系",
+    "核查主体是否一致"
+  ],
+  "reviewStatus": "approved",
+  "quickReference": {
+    "semanticQuestions": [
+      "是先后、原因还是让步？",
+      "两个动作是谁做的？"
+    ],
+    "structures": [
+      "читая",
+      "прочитав",
+      "зная",
+      "зная"
+    ]
+  },
+  "lessons": [
+    {
+      "id": "l1",
+      "title": "同时动作",
+      "scope": "core",
+      "meaning": "未完成体副动词常表示同时进行。",
+      "conditions": [
+        "两个动作并行。"
+      ],
+      "structure": "читая",
+      "caseChanges": [
+        {
+          "from": "читать",
+          "to": "читая книгу"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Читая книгу, он делал заметки.",
+          "zh": "他读书时做笔记。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "不要机械理解为先后。"
+      ],
+      "instantChecks": [
+        {
+          "id": "l1-check",
+          "type": "judgment",
+          "prompt": "читая 要根据句中关系选择。",
+          "answer": true,
+          "rationale": "这里两个动作同时进行。",
+          "source": {
+            "kind": "grammar-book",
+            "label": "新编俄语语法",
+            "file": "06 动词.md",
+            "section": "动词",
+            "pages": [
+              205,
+              206
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book",
+          "label": "新编俄语语法",
+          "file": "06 动词.md",
+          "section": "动词",
+          "pages": [
+            205,
+            206
+          ]
+        }
+      ]
+    },
+    {
+      "id": "l2",
+      "title": "先后动作",
+      "scope": "core",
+      "meaning": "完成体副动词常表示先完成的动作。",
+      "conditions": [
+        "副动作先于主句。"
+      ],
+      "structure": "прочитав",
+      "caseChanges": [
+        {
+          "from": "прочитать",
+          "to": "прочитав"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Прочитав письмо, она ответила.",
+          "zh": "读完信后，她回复了。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "体提示顺序，但仍要看语境。"
+      ],
+      "instantChecks": [
+        {
+          "id": "l2-check",
+          "type": "judgment",
+          "prompt": "прочитав 要根据句中关系选择。",
+          "answer": true,
+          "rationale": "读信先完成，回复随后发生。",
+          "source": {
+            "kind": "grammar-book",
+            "label": "新编俄语语法",
+            "file": "06 动词.md",
+            "section": "动词",
+            "pages": [
+              205,
+              206
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book",
+          "label": "新编俄语语法",
+          "file": "06 动词.md",
+          "section": "动词",
+          "pages": [
+            205,
+            206
+          ]
+        }
+      ]
+    },
+    {
+      "id": "l3",
+      "title": "原因关系",
+      "scope": "core",
+      "meaning": "副动词短语可说明主句原因。",
+      "conditions": [
+        "主句结果由副动作解释。"
+      ],
+      "structure": "зная",
+      "caseChanges": [
+        {
+          "from": "знать",
+          "to": "зная дорогу"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Зная дорогу, он не спросил помощи.",
+          "zh": "因为知道路，他没有求助。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "不能只译成“知道着”。"
+      ],
+      "instantChecks": [
+        {
+          "id": "l3-check",
+          "type": "judgment",
+          "prompt": "зная 要根据句中关系选择。",
+          "answer": true,
+          "rationale": "副动词说明不求助的原因。",
+          "source": {
+            "kind": "grammar-book",
+            "label": "新编俄语语法",
+            "file": "06 动词.md",
+            "section": "动词",
+            "pages": [
+              205,
+              206
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book",
+          "label": "新编俄语语法",
+          "file": "06 动词.md",
+          "section": "动词",
+          "pages": [
+            205,
+            206
+          ]
+        }
+      ]
+    },
+    {
+      "id": "l4",
+      "title": "让步关系",
+      "scope": "core",
+      "meaning": "副动词可表达“尽管……仍然……”。",
+      "conditions": [
+        "两部分语义存在预期反差。"
+      ],
+      "structure": "зная",
+      "caseChanges": [
+        {
+          "from": "знать",
+          "to": "зная правило"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Зная правило, он всё же ошибся.",
+          "zh": "尽管知道规则，他还是错了。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "让步通常由 всё же 等语境信号提示。"
+      ],
+      "instantChecks": [
+        {
+          "id": "l4-check",
+          "type": "judgment",
+          "prompt": "зная 要根据句中关系选择。",
+          "answer": true,
+          "rationale": "逻辑反差决定让步理解。",
+          "source": {
+            "kind": "grammar-book",
+            "label": "新编俄语语法",
+            "file": "06 动词.md",
+            "section": "动词",
+            "pages": [
+              205,
+              206
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book",
+          "label": "新编俄语语法",
+          "file": "06 动词.md",
+          "section": "动词",
+          "pages": [
+            205,
+            206
+          ]
+        }
+      ]
+    }
+  ],
+  "relatedExtensions": [],
+  "checks": [
+    {
+      "id": "review-1",
+      "type": "judgment",
+      "prompt": "Читая книгу, он делал заметки. 中的结构符合本节规则。",
+      "answer": true,
+      "rationale": "这里两个动作同时进行。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "06 动词.md",
+        "section": "动词",
+        "pages": [
+          205,
+          206
+        ]
+      }
+    },
+    {
+      "id": "review-2",
+      "type": "judgment",
+      "prompt": "Прочитав письмо, она ответила. 中的结构符合本节规则。",
+      "answer": true,
+      "rationale": "读信先完成，回复随后发生。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "06 动词.md",
+        "section": "动词",
+        "pages": [
+          205,
+          206
+        ]
+      }
+    },
+    {
+      "id": "review-3",
+      "type": "judgment",
+      "prompt": "Зная дорогу, он не спросил помощи. 中的结构符合本节规则。",
+      "answer": true,
+      "rationale": "副动词说明不求助的原因。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "06 动词.md",
+        "section": "动词",
+        "pages": [
+          205,
+          206
+        ]
+      }
+    }
+  ],
+  "rules": [
+    {
+      "text": "читая：未完成体副动词常表示同时进行。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "06 动词.md",
+        "section": "动词",
+        "pages": [
+          205,
+          206
+        ]
+      }
+    },
+    {
+      "text": "прочитав：完成体副动词常表示先完成的动作。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "06 动词.md",
+        "section": "动词",
+        "pages": [
+          205,
+          206
+        ]
+      }
+    },
+    {
+      "text": "зная：副动词短语可说明主句原因。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "06 动词.md",
+        "section": "动词",
+        "pages": [
+          205,
+          206
+        ]
+      }
+    },
+    {
+      "text": "зная：副动词可表达“尽管……仍然……”。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "06 动词.md",
+        "section": "动词",
+        "pages": [
+          205,
+          206
+        ]
+      }
+    }
+  ],
+  "comparisons": [
+    {
+      "left": "читая",
+      "right": "прочитав",
+      "note": "未完成体多同时，完成体多先后。",
+      "source": {
+        "kind": "learning-explanation",
+        "label": "学习讲解"
+      }
+    }
+  ],
+  "examples": [
+    {
+      "ru": "Читая книгу, он делал заметки.",
+      "zh": "他读书时做笔记。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    },
+    {
+      "ru": "Прочитав письмо, она ответила.",
+      "zh": "读完信后，她回复了。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    },
+    {
+      "ru": "Зная дорогу, он не спросил помощи.",
+      "zh": "因为知道路，他没有求助。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    },
+    {
+      "ru": "Зная правило, он всё же ошибся.",
+      "zh": "尽管知道规则，他还是错了。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    }
+  ],
+  "pitfalls": [
+    "副动词的逻辑关系来自句子，不只来自词尾。",
+    "必须检查共同主体。"
+  ],
+  "sources": [
+    {
+      "kind": "grammar-book",
+      "label": "新编俄语语法",
+      "file": "06 动词.md",
+      "section": "动词",
+      "pages": [
+        205,
+        206
+      ]
+    }
+  ]
+}

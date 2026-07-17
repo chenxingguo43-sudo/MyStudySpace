@@ -1,0 +1,441 @@
+{
+  "id": "p5-modal-infinitive",
+  "partId": "p5",
+  "knowledgePointId": "p5-modal-infinitive",
+  "title": "情态词与不定式",
+  "exerciseIds": [
+    "P5-Q048",
+    "P5-Q049",
+    "P5-Q050"
+  ],
+  "overview": "情态结构区分能力、可能性、允许、困难和无力完成；先问是谁、能否、是否允许。",
+  "decisionSteps": [
+    "判断能力还是条件许可",
+    "确认体验者的格",
+    "选择情态词和不定式"
+  ],
+  "reviewStatus": "approved",
+  "quickReference": {
+    "semanticQuestions": [
+      "是会做、能做、可以做还是不得不做？",
+      "是主观能力还是客观条件？"
+    ],
+    "structures": [
+      "уметь + 不定式",
+      "мочь + 不定式",
+      "не в силах + 不定式",
+      "с трудом + 动词"
+    ]
+  },
+  "lessons": [
+    {
+      "id": "l1",
+      "title": "уметь 的技能",
+      "scope": "core",
+      "meaning": "уметь 表示通过学习掌握的能力。",
+      "conditions": [
+        "强调技能或本领。"
+      ],
+      "structure": "уметь + 不定式",
+      "caseChanges": [
+        {
+          "from": "она",
+          "to": "она умеет"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Она умеет хорошо плавать.",
+          "zh": "她很会游泳。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "不要用 мочь 替代所有技能。"
+      ],
+      "instantChecks": [
+        {
+          "id": "l1-check",
+          "type": "judgment",
+          "prompt": "“Она умеет хорошо плавать.”符合本节结构。",
+          "answer": true,
+          "rationale": "游泳是掌握的技能。",
+          "source": {
+            "kind": "grammar-book",
+            "label": "新编俄语语法",
+            "file": "07 副词.md",
+            "section": "副词",
+            "pages": [
+              274,
+              276
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book",
+          "label": "新编俄语语法",
+          "file": "07 副词.md",
+          "section": "副词",
+          "pages": [
+            274,
+            276
+          ]
+        }
+      ]
+    },
+    {
+      "id": "l2",
+      "title": "мочь 的可能",
+      "scope": "core",
+      "meaning": "мочь 表示当前可能、条件允许或有能力。",
+      "conditions": [
+        "具体情境下能否完成。"
+      ],
+      "structure": "мочь + 不定式",
+      "caseChanges": [
+        {
+          "from": "я",
+          "to": "я могу"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Я могу прийти завтра.",
+          "zh": "我明天能来。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "它不专指长期技能。"
+      ],
+      "instantChecks": [
+        {
+          "id": "l2-check",
+          "type": "judgment",
+          "prompt": "“Я могу прийти завтра.”符合本节结构。",
+          "answer": true,
+          "rationale": "这里说明明天的条件允许。",
+          "source": {
+            "kind": "grammar-book",
+            "label": "新编俄语语法",
+            "file": "07 副词.md",
+            "section": "副词",
+            "pages": [
+              274,
+              276
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book",
+          "label": "新编俄语语法",
+          "file": "07 副词.md",
+          "section": "副词",
+          "pages": [
+            274,
+            276
+          ]
+        }
+      ]
+    },
+    {
+      "id": "l3",
+      "title": "не в силах",
+      "scope": "core",
+      "meaning": "не в силах 表示无力或无法承受。",
+      "conditions": [
+        "困难来自能力或状态不足。"
+      ],
+      "structure": "не в силах + 不定式",
+      "caseChanges": [
+        {
+          "from": "он",
+          "to": "он не в силах"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Он не в силах продолжать работу.",
+          "zh": "他无力继续工作。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "语气比 просто не может 更强。"
+      ],
+      "instantChecks": [
+        {
+          "id": "l3-check",
+          "type": "judgment",
+          "prompt": "“Он не в силах продолжать работу.”符合本节结构。",
+          "answer": true,
+          "rationale": "表达的是无力继续。",
+          "source": {
+            "kind": "grammar-book",
+            "label": "新编俄语语法",
+            "file": "07 副词.md",
+            "section": "副词",
+            "pages": [
+              274,
+              276
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book",
+          "label": "新编俄语语法",
+          "file": "07 副词.md",
+          "section": "副词",
+          "pages": [
+            274,
+            276
+          ]
+        }
+      ]
+    },
+    {
+      "id": "l4",
+      "title": "с трудом",
+      "scope": "core",
+      "meaning": "с трудом 表示完成动作很费力。",
+      "conditions": [
+        "动作可以完成但困难。"
+      ],
+      "structure": "с трудом + 动词",
+      "caseChanges": [
+        {
+          "from": "мы",
+          "to": "мы с трудом"
+        }
+      ],
+      "examples": [
+        {
+          "ru": "Мы с трудом нашли дорогу.",
+          "zh": "我们费了很大劲才找到路。",
+          "source": {
+            "kind": "supplement-example",
+            "label": "补充例句"
+          }
+        }
+      ],
+      "boundaries": [
+        "不是绝对不能完成。"
+      ],
+      "instantChecks": [
+        {
+          "id": "l4-check",
+          "type": "judgment",
+          "prompt": "“Мы с трудом нашли дорогу.”符合本节结构。",
+          "answer": true,
+          "rationale": "动作最终完成了。",
+          "source": {
+            "kind": "grammar-book",
+            "label": "新编俄语语法",
+            "file": "07 副词.md",
+            "section": "副词",
+            "pages": [
+              274,
+              276
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "kind": "grammar-book",
+          "label": "新编俄语语法",
+          "file": "07 副词.md",
+          "section": "副词",
+          "pages": [
+            274,
+            276
+          ]
+        }
+      ]
+    }
+  ],
+  "relatedExtensions": [],
+  "checks": [
+    {
+      "id": "review-1",
+      "type": "judgment",
+      "prompt": "“Она умеет хорошо плавать.”符合本节结构。",
+      "answer": true,
+      "rationale": "游泳是掌握的技能。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "07 副词.md",
+        "section": "副词",
+        "pages": [
+          274,
+          276
+        ]
+      }
+    },
+    {
+      "id": "review-2",
+      "type": "judgment",
+      "prompt": "“Я могу прийти завтра.”符合本节结构。",
+      "answer": true,
+      "rationale": "这里说明明天的条件允许。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "07 副词.md",
+        "section": "副词",
+        "pages": [
+          274,
+          276
+        ]
+      }
+    },
+    {
+      "id": "review-3",
+      "type": "judgment",
+      "prompt": "“Он не в силах продолжать работу.”符合本节结构。",
+      "answer": true,
+      "rationale": "表达的是无力继续。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "07 副词.md",
+        "section": "副词",
+        "pages": [
+          274,
+          276
+        ]
+      }
+    }
+  ],
+  "rules": [
+    {
+      "text": "уметь + 不定式：уметь 表示通过学习掌握的能力。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "07 副词.md",
+        "section": "副词",
+        "pages": [
+          274,
+          276
+        ]
+      }
+    },
+    {
+      "text": "мочь + 不定式：мочь 表示当前可能、条件允许或有能力。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "07 副词.md",
+        "section": "副词",
+        "pages": [
+          274,
+          276
+        ]
+      }
+    },
+    {
+      "text": "не в силах + 不定式：не в силах 表示无力或无法承受。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "07 副词.md",
+        "section": "副词",
+        "pages": [
+          274,
+          276
+        ]
+      }
+    },
+    {
+      "text": "с трудом + 动词：с трудом 表示完成动作很费力。",
+      "source": {
+        "kind": "grammar-book",
+        "label": "新编俄语语法",
+        "file": "07 副词.md",
+        "section": "副词",
+        "pages": [
+          274,
+          276
+        ]
+      }
+    }
+  ],
+  "comparisons": [
+    {
+      "left": "уметь плавать",
+      "right": "мочь прийти",
+      "note": "前者是技能，后者是具体可能性。",
+      "source": {
+        "kind": "learning-explanation",
+        "label": "学习讲解"
+      }
+    }
+  ],
+  "examples": [
+    {
+      "ru": "Она умеет хорошо плавать.",
+      "zh": "她很会游泳。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    },
+    {
+      "ru": "Я могу прийти завтра.",
+      "zh": "我明天能来。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    },
+    {
+      "ru": "Он не в силах продолжать работу.",
+      "zh": "他无力继续工作。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    },
+    {
+      "ru": "Мы с трудом нашли дорогу.",
+      "zh": "我们费了很大劲才找到路。",
+      "source": {
+        "kind": "supplement-example",
+        "label": "补充例句"
+      }
+    }
+  ],
+  "pitfalls": [
+    "先判断能力类型。",
+    "不要把困难完成和无法完成混为一谈。"
+  ],
+  "sources": [
+    {
+      "kind": "grammar-book",
+      "label": "新编俄语语法",
+      "file": "07 副词.md",
+      "section": "副词",
+      "pages": [
+        274,
+        276
+      ]
+    }
+  ]
+}
