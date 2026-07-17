@@ -13,6 +13,10 @@ test('tokenizes stressed and hyphenated Russian without losing punctuation', () 
   ]);
 });
 
+test('removes stress without corrupting the Russian letter й', () => {
+  assert.equal(Core.normalizeRussian('люде́й'), 'людей');
+});
+
 test('renders safe word targets with serialized lookup context', () => {
   const html = Core.renderRussianText('тех < людей', {
     bookId: 'russian_b2',

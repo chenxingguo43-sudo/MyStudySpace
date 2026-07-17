@@ -1,0 +1,18 @@
+{
+  "morphology": {
+    "engine": "pymorphy3",
+    "sourceFiles": 115,
+    "formCount": 9271,
+    "output": "data/dictionary/corpus-morphology.json",
+    "sha256": "8509ffa948bab105962e4490ff29024f271ea96d5dc54832e4b57e0ccb79e4b2"
+  },
+  "freedict": {
+    "dictionary": "zho-rus",
+    "version": "2025.11.23",
+    "license": "GPL-3.0-or-later",
+    "archiveSha512": "31a1b14fcd6592ea2f46eaee473b2343a29f9638db8f196353773b5ceeae33db0c93bda9fff3928f89985b5ac27bf4aa3cd9777735c9d7e7781f0ddf8a75b8be",
+    "entryCount": 95769,
+    "output": "data/dictionary/freedict-rus-zh.json",
+    "sha256": "d096262230710b2f170452c39d457da0b128c33e7d61df8959bcf6abd748c430"
+  }
+}

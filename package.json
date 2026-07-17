@@ -13,6 +13,9 @@
     "start": "node server.js",
     "build:vocab": "node build-vocabulary.js",
     "build:russian-b2-study-cards": "node scripts/russian-b2/build-study-cards.js",
+    "build:russian-dictionary": "node scripts/russian-dictionary/build-corpus-morphology.js && node scripts/russian-dictionary/build-freedict.js",
+    "audit:russian-dictionary": "node scripts/russian-dictionary/audit-coverage.js",
+    "verify:russian-dictionary": "node scripts/russian-dictionary/audit-coverage.js --check && node --test tests/russian-b2/dictionary-*.test.js",
     "verify:russian-b2": "node scripts/russian-b2/build-full-book.js --check && npm run test:russian-b2"
   },
   "repository": {

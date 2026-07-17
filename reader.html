@@ -2323,7 +2323,8 @@ function loadSavedWords() {
 function normalizeLookupWord(word) {
   return String(word || '')
     .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[\u0300\u0301]/g, '')
+    .normalize('NFC')
     .replace(/ё/g, 'е')
     .replace(/Ё/g, 'е')
     .toLowerCase()

@@ -18,7 +18,8 @@
   function normalizeRussian(value) {
     return String(value || '')
       .normalize('NFD')
-      .replace(/[\u0300-\u036f]/g, '')
+      .replace(/[\u0300\u0301]/g, '')
+      .normalize('NFC')
       .replace(/Ё/g, 'Е')
       .replace(/ё/g, 'е')
       .toLowerCase()
