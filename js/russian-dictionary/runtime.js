@@ -3,6 +3,11 @@
   if (typeof module === 'object' && module.exports) module.exports = api;
   if (root) root.RussianDictionaryRuntime = api;
 })(typeof window !== 'undefined' ? window : globalThis, function () {
+  function isLookupSelectionAllowed({ text, startContext, endContext, editable } = {}) {
+    const words = String(text || '').match(/[А-Яа-яЁё][А-Яа-яЁё\u0300-\u036f-]*/g) || [];
+    return !editable && words.length >= 2 && Boolean(startContext) && startContext === endContext;
+  }
+
   function createController(options = {}) {
     const core = options.core;
     const root = options.root;
@@ -14,9 +19,12 @@
     let examPolicy = { mode: 'learning', lookupUnlocked: true };
     let lastTouchAt = 0;
     let drawerStartY = null;
+    let pendingSelection = null;
 
     function getPanel() {
-      return typeof root.querySelector === 'function' ? root.querySelector('#detailPanel') : null;
+      const existing = typeof root.querySelector === 'function' ? root.querySelector('#detailPanel') : null;
+      if (existing) return existing;
+      return typeof options.ensurePanel === 'function' ? options.ensurePanel() : null;
     }
 
     function getPanelState() {
@@ -29,6 +37,61 @@
       const panel = getPanel();
       if (panel && panel.setAttribute) panel.setAttribute('data-dictionary-state', next);
       return next;
+    }
+
+    function phraseAction() {
+      if (typeof root.querySelector === 'function') return root.querySelector('#dictionaryPhraseLookup');
+      return null;
+    }
+
+    function hidePhraseAction() {
+      const action = phraseAction();
+      if (action) action.hidden = true;
+    }
+
+    function nodeElement(node) {
+      if (!node) return null;
+      return node.nodeType === 1 ? node : node.parentElement || null;
+    }
+
+    function selectionObject() {
+      if (options.getSelection) return options.getSelection();
+      if (root.defaultView && root.defaultView.getSelection) return root.defaultView.getSelection();
+      return null;
+    }
+
+    function refreshPhraseSelection() {
+      const selection = selectionObject();
+      if (!selection || selection.isCollapsed || selection.rangeCount < 1) {
+        pendingSelection = null;
+        hidePhraseAction();
+        return;
+      }
+      const text = String(selection.toString() || '').trim();
+      const startElement = nodeElement(selection.anchorNode);
+      const endElement = nodeElement(selection.focusNode);
+      const editable = Boolean(
+        (startElement && startElement.closest && startElement.closest('textarea,input,select,[contenteditable="true"]')) ||
+        (endElement && endElement.closest && endElement.closest('textarea,input,select,[contenteditable="true"]'))
+      );
+      const startTarget = startElement && startElement.closest ? startElement.closest('[data-lookup-context]') : null;
+      const endTarget = endElement && endElement.closest ? endElement.closest('[data-lookup-context]') : null;
+      const startContext = startTarget && startTarget.getAttribute ? startTarget.getAttribute('data-lookup-context') : '';
+      const endContext = endTarget && endTarget.getAttribute ? endTarget.getAttribute('data-lookup-context') : '';
+      if (!isLookupSelectionAllowed({ text, startContext, endContext, editable })) {
+        pendingSelection = null;
+        hidePhraseAction();
+        return;
+      }
+      let context = {};
+      try { context = JSON.parse(startContext); } catch (_error) {}
+      pendingSelection = { text, context, element: startTarget };
+      const action = phraseAction();
+      if (!action) return;
+      const rect = selection.getRangeAt(0).getBoundingClientRect();
+      action.hidden = false;
+      action.style.left = `${Math.max(8, rect.left + rect.width / 2)}px`;
+      action.style.top = `${Math.max(8, rect.bottom + 8)}px`;
     }
 
     function parseContext(element) {
@@ -99,6 +162,17 @@
 
     function onClick(event) {
       if (Date.now() - lastTouchAt < 650) return;
+      const phraseButton = event.target && event.target.closest
+        ? event.target.closest('#dictionaryPhraseLookup')
+        : null;
+      if (phraseButton && pendingSelection) {
+        if (event.preventDefault) event.preventDefault();
+        const request = pendingSelection;
+        pendingSelection = null;
+        hidePhraseAction();
+        openPhrase(request.text, request.context, request.element);
+        return;
+      }
       activateWord(event);
     }
 
@@ -143,6 +217,7 @@
       root.addEventListener('keydown', onKeyDown);
       root.addEventListener('pointerdown', onPointerDown);
       root.addEventListener('pointerup', onPointerUp);
+      root.addEventListener('selectionchange', refreshPhraseSelection);
       initialized = true;
     }
 
@@ -153,6 +228,8 @@
       root.removeEventListener('keydown', onKeyDown);
       root.removeEventListener('pointerdown', onPointerDown);
       root.removeEventListener('pointerup', onPointerUp);
+      root.removeEventListener('selectionchange', refreshPhraseSelection);
+      hidePhraseAction();
       initialized = false;
     }
 
@@ -171,6 +248,7 @@
     function close() {
       current = null;
       setPanelState('closed');
+      hidePhraseAction();
       if (options.onClose) options.onClose();
     }
 
@@ -187,5 +265,5 @@
     };
   }
 
-  return { createController };
+  return { createController, isLookupSelectionAllowed };
 });

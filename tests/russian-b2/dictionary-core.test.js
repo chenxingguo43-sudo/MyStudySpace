@@ -41,3 +41,19 @@ test('resolves a function-word form to its reviewed lemma', () => {
   assert.equal(result.entry, entry);
   assert.equal(result.reliability, 'reviewed-function-form');
 });
+
+test('phrase lookup prefers an exact collocation and otherwise returns components', () => {
+  const exact = Core.analyzePhrase('в состоянии', {
+    lookupPhrase: value => value === 'в состоянии' ? { meaning: '处于……状态' } : null,
+    resolveWord: () => null
+  });
+  assert.equal(exact.kind, 'phrase-exact');
+  assert.equal(exact.entry.meaning, '处于……状态');
+
+  const degraded = Core.analyzePhrase('тех людей', {
+    lookupPhrase: () => null,
+    resolveWord: word => ({ form: word, lemma: word === 'тех' ? 'тот' : 'человек' })
+  });
+  assert.equal(degraded.kind, 'phrase-components');
+  assert.equal(degraded.components[0].lemma, 'тот');
+});

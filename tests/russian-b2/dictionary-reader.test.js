@@ -5,6 +5,7 @@ const Runtime = require('../../js/russian-dictionary/runtime');
 const Core = require('../../js/russian-dictionary/core');
 
 const reader = fs.readFileSync('reader.html', 'utf8');
+const runtimeSource = fs.readFileSync('js/russian-dictionary/runtime.js', 'utf8');
 
 test('reader loads shared dictionary modules before its inline runtime', () => {
   const coreAt = reader.indexOf('js/russian-dictionary/core.js');
@@ -85,4 +86,21 @@ test('writing, listening, and speaking wrap only read-only Russian', () => {
   assert.ok(writing && speaking);
   assert.doesNotMatch(writing[1], /renderRuText\(draft/);
   assert.doesNotMatch(speaking[1], /renderRuText\(note/);
+});
+
+test('phrase selection is available only for read-only lookup contexts', () => {
+  assert.equal(Runtime.isLookupSelectionAllowed({
+    text: 'тех людей', startContext: '{"taskId":"P2-Q001"}', endContext: '{"taskId":"P2-Q001"}', editable: false
+  }), true);
+  assert.equal(Runtime.isLookupSelectionAllowed({
+    text: 'тех людей', startContext: '{"taskId":"P2-Q001"}', endContext: '{"taskId":"P2-Q001"}', editable: true
+  }), false);
+  assert.equal(Runtime.isLookupSelectionAllowed({
+    text: 'тех людей', startContext: '{"taskId":"P2-Q001"}', endContext: '{"taskId":"P2-Q002"}', editable: false
+  }), false);
+  assert.match(reader, /id="dictionaryPhraseLookup"/);
+  assert.match(runtimeSource, /selectionchange/);
+  assert.match(reader, /lookupPhrase: function/);
+  assert.match(reader, /renderPhraseDetail/);
+  assert.match(reader, /ensurePanel: ensureDictionaryPanel/);
 });

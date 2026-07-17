@@ -68,6 +68,29 @@
     }).join('');
   }
 
+  function normalizePhrase(value) {
+    return tokenizeRussian(value)
+      .filter(token => token.type === 'word')
+      .map(token => token.normalized)
+      .filter(Boolean)
+      .join(' ');
+  }
+
+  function analyzePhrase(value, adapter = {}) {
+    const normalized = normalizePhrase(value);
+    const words = normalized ? normalized.split(' ') : [];
+    if (words.length < 2) return { kind: 'phrase-invalid', phrase: normalized, components: [] };
+    const entry = typeof adapter.lookupPhrase === 'function'
+      ? adapter.lookupPhrase(normalized)
+      : null;
+    if (entry) return { kind: 'phrase-exact', phrase: normalized, entry, components: [] };
+    const components = words.map(word => {
+      const resolved = typeof adapter.resolveWord === 'function' ? adapter.resolveWord(word) : null;
+      return resolved || { form: word, lemma: word, entry: null, reliability: 'not-found' };
+    });
+    return { kind: 'phrase-components', phrase: normalized, entry: null, components };
+  }
+
   function lemmaCandidates(value) {
     if (Array.isArray(value)) return value;
     if (typeof value === 'string') return [value];
@@ -116,6 +139,8 @@
     normalizeRussian,
     tokenizeRussian,
     renderRussianText,
+    normalizePhrase,
+    analyzePhrase,
     normalizeContext,
     resolveLemma
   };

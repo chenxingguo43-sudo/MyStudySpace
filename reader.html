@@ -170,6 +170,20 @@ body {
   display: none; border: 0; padding: 0; cursor: ns-resize;
   background: var(--text-dim);
 }
+.dictionary-global-panel {
+  position: fixed; top: 48px; right: 0; bottom: 0; z-index: 210;
+  width: min(420px, 38vw); max-height: none; padding-top: 8px;
+  background: var(--surface-solid); border-left: 1px solid var(--border);
+  box-shadow: -14px 0 42px rgba(0,0,0,0.2);
+}
+.dictionary-global-panel[data-dictionary-state="closed"] { display: none; }
+.dictionary-phrase-lookup {
+  position: fixed; z-index: 240; transform: translateX(-50%);
+  border: 0; border-radius: 999px; padding: 8px 14px;
+  color: white; background: var(--accent); box-shadow: 0 8px 24px rgba(0,0,0,0.24);
+  font: 600 13px/1.2 var(--ui-font); cursor: pointer;
+}
+.dictionary-phrase-lookup[hidden] { display: none; }
 /* 面板占位提示 */
 .detail-placeholder {
   display: flex; align-items: center; justify-content: center;
@@ -669,6 +683,7 @@ body {
 </div>
 
 <div class="toast" id="toast"></div>
+<button id="dictionaryPhraseLookup" class="dictionary-phrase-lookup" type="button" hidden>查询短语</button>
 <button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
 <div class="modal-overlay" id="chSummary">
@@ -1886,6 +1901,8 @@ function renderChapter(data) {
   if (data.format === 'speaking-practice') { renderSpeakingPractice(data); return; }
   if (data.format === 'listening-practice') { renderListeningPractice(data); return; }
   if (data.format === 'exam-practice') { renderExamPracticeChapter(data); return; }
+  var globalDictionaryPanel = document.querySelector('#detailPanel.dictionary-global-panel');
+  if (globalDictionaryPanel) globalDictionaryPanel.remove();
   var paras = data.original || [], trans = data.translated || [], dir = curBook.direction || 'cn→ru';
   var bookMarks = (bookmarks[curBook.id] && bookmarks[curBook.id][curCh]) || [];
   var parts = [], visibleCount = 0;
@@ -2026,6 +2043,23 @@ function renderRuText(text, context) {
 /* ─── 详情面板开关 ─── */
 var _detailWord = '';
 
+function ensureDictionaryPanel() {
+  var panel = document.getElementById('detailPanel');
+  if (panel) return panel;
+  panel = document.createElement('aside');
+  panel.id = 'detailPanel';
+  panel.className = 'detail-panel dictionary-global-panel';
+  panel.setAttribute('data-dictionary-state', 'closed');
+  panel.innerHTML =
+    '<button class="dictionary-drawer-handle" type="button" aria-label="展开或收起词典"></button>' +
+    '<div class="detail-panel-inner" id="detailInner" aria-live="polite">' +
+      '<button class="detail-close" type="button" onclick="event.stopPropagation();dictionaryController.close()" aria-label="关闭词典" title="关闭">✕</button>' +
+      '<div class="detail-placeholder">👆 点击俄语单词或划选短语查看详情</div>' +
+    '</div>';
+  document.body.appendChild(panel);
+  return panel;
+}
+
 function openDetailPanel(word) {
   _detailWord = word;
   // 面板始终可见，内容由 autoLookup → renderDetailPanel 填充
@@ -2037,6 +2071,55 @@ function closeDetailPanel() {
   if (inner) {
     inner.innerHTML = '<div class="detail-placeholder">👆 点击俄语单词查看详情</div>';
   }
+}
+
+function resolvePhraseWord(word) {
+  var clean = normalizeLookupWord(word);
+  var candidates = [];
+  if (morphologyReady && morphologyDict[clean]) candidates = candidates.concat(morphologyDict[clean]);
+  if (typeof morphologyGuess === 'function') candidates = candidates.concat(morphologyGuess(clean));
+  if (clean === 'тех') candidates.unshift('тот');
+  candidates.push(clean);
+  candidates = candidates.filter(function(value, index, all) { return value && all.indexOf(value) === index; });
+  for (var i = 0; i < candidates.length; i++) {
+    var found = lookupLocalChineseMeaning(candidates[i]);
+    if (found && found.meaning && found.meaning !== '待补中文释义') {
+      return { form: clean, lemma: candidates[i], entry: found, reliability: candidates[i] === clean ? 'dictionary-exact' : 'morphology-map' };
+    }
+  }
+  return { form: clean, lemma: candidates[0] || clean, entry: null, reliability: 'not-found' };
+}
+
+function renderPhraseDetail(analysis, context) {
+  var html = '<button class="detail-close" type="button" onclick="event.stopPropagation();dictionaryController.close()" aria-label="关闭词典" title="关闭">✕</button>';
+  html += '<div class="dp-head"><div class="dp-word">' + escapeHtml(analysis.phrase || selText) + '</div><div class="dict-pos">短语查询</div></div>';
+  if (analysis.kind === 'phrase-exact' && analysis.entry) {
+    html += '<div class="dict-meaning">' + escapeHtml(analysis.entry.meaning || '已找到短语词条') + '</div>';
+    html += '<div class="dict-source">' + escapeHtml(analysis.entry.source || '本地短语词典') + '</div>';
+  } else {
+    html += '<div class="dict-guess-label">未找到完整短语词条，下面按组成词拆解</div>';
+    html += '<div class="dict-context">' + analysis.components.map(function(item) {
+      var meaning = item.entry && item.entry.meaning ? item.entry.meaning : '暂未收录';
+      return '<div><b>' + escapeHtml(item.form) + '</b> → ' + escapeHtml(item.lemma || item.form) + '：' + escapeHtml(meaning) + '</div>';
+    }).join('') + '</div>';
+  }
+  if (context && (context.sentenceRu || context.sentenceZh)) {
+    html += '<div class="dict-context">' +
+      (context.sentenceRu ? '<div><b>原文</b>：' + escapeHtml(context.sentenceRu) + '</div>' : '') +
+      (context.sentenceZh ? '<div><b>中文</b>：' + escapeHtml(context.sentenceZh) + '</div>' : '') +
+      '</div>';
+  }
+  html += '<button class="dp-ai-btn" type="button" onclick="copyPhraseAnalysisPrompt()">🤖 复制短语深度解析提示</button>';
+  return html;
+}
+
+function copyPhraseAnalysisPrompt() {
+  var prompt = '请分析俄语短语“' + (selText || '') + '”在下面上下文中的整体含义、固定搭配、各词原形和语法关系。\n' +
+    '俄语原文：' + (selContext || '') + '\n中文翻译：' + (selTranslationContext || '') + '\n' +
+    '请区分固定短语义与逐词义，并用中文简明说明。';
+  navigator.clipboard.writeText(prompt)
+    .then(function() { toast('📋 已复制短语解析提示'); })
+    .catch(function() { toast('❌ 复制失败'); });
 }
 
 /* ─── AI 深度解析（clipboard 过渡方案，后续接入 AgentChat）─── */
@@ -2846,6 +2929,7 @@ var dictionaryController = RussianDictionaryRuntime.createController({
   core: RussianDictionaryCore,
   storage: dictionaryStorage,
   root: document,
+  ensurePanel: ensureDictionaryPanel,
   lookupWord: function(word, context, element) {
     hidePopup();
     selText = word;
@@ -2869,6 +2953,23 @@ var dictionaryController = RussianDictionaryRuntime.createController({
     if (inner) inner.innerHTML = '';
     autoLookup(word);
     return { status: 'opened', context: context };
+  },
+  lookupPhrase: function(phrase, context) {
+    hidePopup();
+    selText = phrase;
+    selContext = context.sentenceRu || '';
+    selTranslationContext = context.sentenceZh || '';
+    _detailWord = phrase;
+    var analysis = RussianDictionaryCore.analyzePhrase(phrase, {
+      lookupPhrase: function(normalized) {
+        var result = lookupLocalChineseMeaning(normalized);
+        return result && result.meaning !== '待补中文释义' ? result : null;
+      },
+      resolveWord: resolvePhraseWord
+    });
+    var inner = document.getElementById('detailInner');
+    if (inner) inner.innerHTML = renderPhraseDetail(analysis, context);
+    return analysis;
   },
   renderResult: function() {},
   onClose: closeDetailPanel,
