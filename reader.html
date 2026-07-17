@@ -668,6 +668,9 @@ body {
 </div>
 
 <script src="data/russian-morphology.js"></script>
+<script src="js/russian-dictionary/core.js"></script>
+<script src="js/russian-dictionary/storage.js"></script>
+<script src="js/russian-dictionary/runtime.js"></script>
 <script src="js/russian-b2/dashboard.js"></script>
 <script>
 /* ══════════════════════════════════════════════
@@ -1873,7 +1876,7 @@ function renderChapter(data) {
     '<div class="chapter-header"><h1>Глава ' + (curCh + 1) + '</h1><h2>' + escapeHtml(data.title || '') + '</h2></div>' +
     parts.join('') + exercisesHtml + '</div></div>' +
     '<div class="resize-handle" id="resizeHandle"></div>' +
-    '<div class="detail-panel" id="detailPanel"><div class="detail-panel-inner" id="detailInner">' +
+    '<div class="detail-panel" id="detailPanel"><div class="detail-panel-inner" id="detailInner" aria-live="polite">' +
     '<div class="detail-close" onclick="event.stopPropagation();closeDetailPanel()" title="关闭">✕</div>' +
     '<div class="detail-placeholder">👆 点击俄语单词查看详情</div>' +
     '</div></div>' +
@@ -1962,10 +1965,8 @@ function toggleCN(el) {
 }
 
 /* ─── 单词渲染：把俄语词包成可点击 span ─── */
-function renderRuText(text) {
-  var escaped = escapeHtml(text);
-  return escaped.replace(/([а-яА-ЯёЁ](?:[а-яА-ЯёЁ-]*[а-яА-ЯёЁ])?)/g,
-    '<span class="ru-word" data-word="$1">$1</span>');
+function renderRuText(text, context) {
+  return dictionaryController.renderText(text, context || {});
 }
 
 /* ─── 详情面板开关 ─── */
@@ -2109,68 +2110,20 @@ window.addEventListener('resize', function() {
   }
 });
 
-// ─── 查词弹窗共用逻辑 ───
-function _showPopupForWord(word, span) {
-  hidePopup();
-  selText = word;
-  var paraBlock = span.closest('.para-block');
-  if (paraBlock) {
-    var ruEl = paraBlock.querySelector('.ru-text');
-    var zhEl = paraBlock.querySelector('.cn-text');
-    selContext = ruEl ? ruEl.textContent : '';
-    selTranslationContext = zhEl ? zhEl.textContent : '';
-  }
-  // 打开详情面板
-  var didClose = toggleDetailPanel(word);
-  if (didClose) return;
-  // 填充面板内容
-  var inner = document.getElementById('detailInner');
-  if (inner) {
-    inner.innerHTML = '';
-    autoLookup(word); // autoLookup will fill #detailInner
-  }
-}
-
-// ─── 统一的点击处理（只此一个 click 监听器）───
+// ─── 阅读区的非查词点击处理；俄语词由共享 dictionaryController 处理 ───
 document.addEventListener('click', function(e) {
-  // 1. 点到了俄语单词 span → 弹出查词
-  var span = e.target.closest('.ru-word');
-  if (span) {
-    e.preventDefault();
-    var word = span.getAttribute('data-word');
-    if (word && word.length >= 2) _showPopupForWord(word, span);
-    return;
-  }
-
-  // 2. 点到了弹窗内部 → 什么都不做
+  // 点到了弹窗内部 → 什么都不做
   var popup = document.getElementById('selPopup');
   if (popup && popup.contains(e.target)) return;
   var panel = document.getElementById('detailPanel');
   if (panel && panel.contains(e.target)) return;
 
-  // 3. 点到了外部 → 关闭弹窗（面板不关闭，用户主动点 ✕ 关闭）
+  // 点到了外部 → 关闭弹窗（面板不关闭，用户主动点 ✕ 关闭）
   if (popup) popup.classList.remove('visible');
 
-  // 4. 点到了 ru-text 空白区域 → 展开/收起翻译
+  // 点到了 ru-text 空白区域 → 展开/收起翻译
   var ruEl = e.target.closest('.ru-text');
   if (ruEl) toggleCN(ruEl);
-});
-
-// iPad：touchend 直接触发查词（click 在 iOS 上有延迟且可能被吞）
-var _touchMoved = false;
-document.addEventListener('touchstart', function(e) {
-  _touchMoved = false;
-}, { passive: true });
-document.addEventListener('touchmove', function(e) {
-  _touchMoved = true;
-}, { passive: true });
-document.addEventListener('touchend', function(e) {
-  if (_touchMoved) return; // 滑动不触发
-  var span = e.target.closest('.ru-word');
-  if (!span) return;
-  e.preventDefault();
-  var word = span.getAttribute('data-word');
-  if (word && word.length >= 2) _showPopupForWord(word, span);
 });
 
 
@@ -2834,6 +2787,38 @@ function showBookReport() {
 /* ══════════════════════════════════════════════
    初始化
    ══════════════════════════════════════════════ */
+var dictionaryStorage = RussianDictionaryStorage.createDictionaryStorage({ storage: localStorage });
+var dictionaryController = RussianDictionaryRuntime.createController({
+  core: RussianDictionaryCore,
+  storage: dictionaryStorage,
+  root: document,
+  lookupWord: function(word, context, element) {
+    hidePopup();
+    selText = word;
+    selContext = context.sentenceRu || '';
+    selTranslationContext = context.sentenceZh || '';
+    if ((!selContext || !selTranslationContext) && element && element.closest) {
+      var paraBlock = element.closest('.para-block');
+      if (paraBlock) {
+        var ruElement = paraBlock.querySelector('.ru-text');
+        var zhElement = paraBlock.querySelector('.cn-text');
+        if (!selContext && ruElement) selContext = ruElement.textContent || '';
+        if (!selTranslationContext && zhElement) selTranslationContext = zhElement.textContent || '';
+      }
+    }
+    var didClose = toggleDetailPanel(word);
+    if (didClose) return { status: 'closed' };
+    var inner = document.getElementById('detailInner');
+    if (inner) inner.innerHTML = '';
+    autoLookup(word);
+    return { status: 'opened', context: context };
+  },
+  renderResult: function() {},
+  onClose: closeDetailPanel,
+  onToast: toast
+});
+dictionaryController.init();
+
 applyTheme();
 loadSavedWords();
 loadLocalLookupData();  // 启动词典加载（异步）
