@@ -250,6 +250,16 @@ body {
 .book-card .book-meta { font-size: 13px; color: var(--text-secondary); display: flex; gap: 12px; }
 .book-card .book-desc { font-size: 13px; color: var(--text-dim); margin-top: 8px; }
 .book-card .book-progress { margin-top: 12px; }
+.b2-dashboard { max-width: 1080px; }
+.b2-dashboard-hero { padding: 26px; margin-bottom: 20px; border: 1px solid var(--accent-border); border-radius: 18px; background: linear-gradient(135deg, var(--accent-dim), var(--surface)); }
+.b2-dashboard-hero h1 { margin-bottom: 6px; }
+.b2-module-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 14px; }
+.b2-module-card { text-align: left; color: var(--text); border: 1px solid var(--glass-border); border-radius: 15px; background: var(--glass); padding: 18px; cursor: pointer; font: inherit; transition: transform .15s, background .15s; }
+.b2-module-card:hover { transform: translateY(-2px); background: var(--glass-hover); }
+.b2-module-card strong, .b2-module-card span, .b2-module-card small { display: block; }
+.b2-module-card strong { font-size: 18px; margin-bottom: 6px; }
+.b2-module-card span { color: var(--accent); font-size: 13px; }
+.b2-module-card small { color: var(--text-secondary); margin-top: 8px; }
 .book-kind { color: var(--accent); font-size: 0.7em; margin-right: 6px; font-weight: 600; letter-spacing: 0.04em; }
 .b2-quiz-item { margin: 0 0 18px; padding: 20px; border: 1px solid var(--border); border-radius: 12px; background: var(--surface); }
 .reading-practice-question { margin: 18px 0; padding: 18px; border: 1px solid var(--border); border-radius: 12px; background: var(--surface); }
@@ -724,6 +734,7 @@ var SORT_OPTIONS = [
 
 var state = { theme: 'warm', fontSize: 'medium', fontFamily: 'serif', sort: 'default' };
 var curView = 'shelf', curBook = null, curCh = -1, chDone = false, chStart = 0;
+var b2BookManifest = null;
 var selText = '', selContext = '', selTranslationContext = '';
 var booksData = null;
 var chaptersCache = {}, cacheOrder = [], CACHE_LIMIT = 20;
@@ -1029,7 +1040,7 @@ function isQuizFirstBook(book) {
 }
 function fetchChapter(bookId, idx) {
   var padIdx = String(idx).padStart(4, '0');
-  var book = getBookById(bookId);
+  var book = curBook && curBook.id === bookId && curBook.isB2Module ? curBook : getBookById(bookId);
   var dataDir = getBookDataDir(bookId);
   var directory = book && book.dir ? book.dir : bookId;
   return fetchJson(
@@ -1145,10 +1156,18 @@ function showB2ArchivePanel() {
 function showChapters(bookId) {
   curView = 'chapters'; stopTimer();
   document.getElementById('searchBar').classList.remove('visible');
+  if (curBook && curBook.id === bookId && curBook.isB2Module) {
+    renderB2ModuleChapters();
+    return;
+  }
   for (var i = 0; i < booksData.length; i++) {
     if (booksData[i].id === bookId) { curBook = booksData[i]; break; }
   }
   if (!curBook) return;
+  if (curBook.format === 'b2-full') {
+    showB2Dashboard();
+    return;
+  }
   var stats = readStats[bookId] || {}, done = getBookProgress(bookId);
 
   var html = toolbar(escapeHtml(curBook.title),
@@ -1170,6 +1189,72 @@ function showChapters(bookId) {
   html += '</div></div>';
   document.getElementById('app').innerHTML = html;
   window.scrollTo(0, 0);
+}
+
+function getB2ModuleDescription(module) {
+  var descriptions = {
+    grammar: 'P1–P6 连续练习、丰富知识卡与错题复习',
+    reading: '十篇原文、理解题、证据句与复述学习',
+    writing: '原书任务复刻、草稿、格式自检与版本修改',
+    listening: '完整题面、考试作答与逐句精听',
+    speaking: '题型训练、准备计时与本地录音',
+    exam: '按原书模块练习与完整模拟',
+    review: '跨模块错题、草稿与学习记录汇总'
+  };
+  return descriptions[module.id] || '';
+}
+
+function renderB2Dashboard(book) {
+  b2BookManifest = book;
+  curView = 'b2-dashboard';
+  curBook = getBookById('russian_b2');
+  curCh = -1;
+  var cards = (book.modules || []).map(function(module) {
+    return '<button class="b2-module-card" type="button" onclick="openB2Module(\'' + escapeHtml(module.id) + '\')">' +
+      '<strong>' + escapeHtml(module.title) + '</strong>' +
+      '<span>' + (module.status === 'available' ? '可以学习' : '整理中') + (module.chapters ? ' · ' + module.chapters + ' 个单元' : '') + '</span>' +
+      '<small>' + escapeHtml(getB2ModuleDescription(module)) + '</small></button>';
+  }).join('');
+  document.getElementById('app').innerHTML = toolbar('俄语 B2 全模块', '<button class="tb-btn" onclick="showShelf()">← 书架</button>') +
+    '<main class="main-container b2-dashboard"><header class="b2-dashboard-hero"><h1>俄语 B2 全模块</h1><p>所有专项属于同一本教材。可以从模块继续学习，也可以进入统一复习。</p></header><div class="b2-module-grid">' + cards + '</div></main>';
+  window.scrollTo(0, 0);
+}
+
+function showB2Dashboard() {
+  var rootBook = getBookById('russian_b2');
+  if (!rootBook) return;
+  curBook = rootBook;
+  if (b2BookManifest) { renderB2Dashboard(b2BookManifest); return; }
+  document.getElementById('app').innerHTML = toolbar('俄语 B2 全模块', '<button class="tb-btn" onclick="showShelf()">← 书架</button>') + '<main class="main-container"><div class="loading"><div class="spinner"></div><div>加载教材仪表盘...</div></div></main>';
+  fetchJson('data/textbook/russian_b2/book.json', null).then(renderB2Dashboard).catch(function() { toast('B2 仪表盘加载失败'); showShelf(); });
+}
+
+function renderB2ModuleChapters() {
+  if (!curBook || !curBook.isB2Module) return;
+  var stats = readStats['russian_b2:' + curBook.moduleId] || {};
+  var html = toolbar('俄语 B2 · ' + escapeHtml(curBook.title), '<button class="tb-btn" onclick="showB2Dashboard()">← 仪表盘</button>') +
+    '<main class="main-container"><div class="chapter-list-header"><h2>' + escapeHtml(curBook.title) + '</h2><div class="ch-meta">' + curBook.chapters + ' 个学习单元</div></div><div class="chapter-grid">';
+  for (var i = 0; i < curBook.chapters; i++) {
+    var isDone = curBook.format === 'quiz-first' ? isB2ChapterComplete(curBook.id, i) : !!(stats[i] && stats[i].completed);
+    var title = curBook.chapterTitles && curBook.chapterTitles[i] || '第 ' + (i + 1) + ' 单元';
+    html += '<div class="ch-item' + (isDone ? ' done' : '') + '" onclick="goChapter(' + i + ')"><span class="ch-num">' + (isDone ? '✓' : i + 1) + '</span><span class="ch-title">' + escapeHtml(title) + '</span></div>';
+  }
+  document.getElementById('app').innerHTML = html + '</div></main>';
+  window.scrollTo(0, 0);
+}
+
+function openB2Module(moduleId) {
+  if (moduleId === 'review') { showWrongAnswerBook(); return; }
+  if (!b2BookManifest) { showB2Dashboard(); return; }
+  var module = (b2BookManifest.modules || []).find(function(item) { return item.id === moduleId; });
+  if (!module || module.status !== 'available') { toast('这个模块仍在整理'); return; }
+  var rootBook = getBookById('russian_b2');
+  curBook = Object.assign({}, rootBook, module, { id: 'russian_b2', moduleId: module.id, isB2Module: true, kind: 'textbook', direction: 'ru→cn' });
+  fetchJson('data/textbook/' + module.dir + '/index.json', null).then(function(index) {
+    curBook.chapters = index.chapters || module.chapters || 0;
+    curBook.chapterTitles = index.chapterTitles || module.chapterTitles || [];
+    renderB2ModuleChapters();
+  }).catch(function() { renderB2ModuleChapters(); });
 }
 
 /* ══════════════════════════════════════════════
