@@ -74,3 +74,15 @@ test('learning options separate the answer control from lookup words', () => {
   assert.match(reader, /class="b2-option-text"/);
   assert.match(reader, /submitQuizOption/);
 });
+
+test('writing, listening, and speaking wrap only read-only Russian', () => {
+  assert.match(reader, /lookupContext\('writing',[^\n]+ 'writing-material'/);
+  assert.match(reader, /lookupContext\('writing',[^\n]+ 'writing-model'/);
+  assert.match(reader, /lookupContext\('listening',[^\n]+ 'listening-transcript'/);
+  assert.match(reader, /lookupContext\('speaking',[^\n]+ 'speaking-reference'/);
+  const writing = reader.match(/function renderWritingWorkbench\(data, scrollPosition\) \{([\s\S]*?)\n\}/);
+  const speaking = reader.match(/function renderSpeakingPractice\(data, scrollPosition\) \{([\s\S]*?)\n\}/);
+  assert.ok(writing && speaking);
+  assert.doesNotMatch(writing[1], /renderRuText\(draft/);
+  assert.doesNotMatch(speaking[1], /renderRuText\(note/);
+});
