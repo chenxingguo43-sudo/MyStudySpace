@@ -51,3 +51,12 @@ test('runtime delegates one word click with its serialized context', async () =>
   controller.destroy();
   assert.equal(listeners.click, undefined);
 });
+
+test('dictionary uses a desktop panel and accessible narrow-screen drawer', () => {
+  assert.match(reader, /id="detailPanel"[^>]*data-dictionary-state="closed"/);
+  assert.match(reader, /class="dictionary-drawer-handle"/);
+  assert.match(reader, /aria-label="关闭词典"/);
+  assert.match(reader, /@media \(max-width: 760px\)/);
+  assert.match(reader, /#detailPanel\[data-dictionary-state="half"\]/);
+  assert.match(reader, /#detailPanel\[data-dictionary-state="full"\]/);
+});

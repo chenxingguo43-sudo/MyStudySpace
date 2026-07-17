@@ -166,6 +166,10 @@ body {
   /* 注意：无 transition！拖拽需要即时响应 */
 }
 .detail-panel-inner { padding: 20px; }
+.dictionary-drawer-handle {
+  display: none; border: 0; padding: 0; cursor: ns-resize;
+  background: var(--text-dim);
+}
 /* 面板占位提示 */
 .detail-placeholder {
   display: flex; align-items: center; justify-content: center;
@@ -589,7 +593,7 @@ body {
   .search-bar { top: 44px; }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 760px) {
   /* ─── 竖屏分栏：上下布局 ─── */
   .reader-layout {
     flex-direction: column;
@@ -603,21 +607,23 @@ body {
     padding-right: 0; padding-left: 12px;
     padding-bottom: 4px;
   }
-  .resize-handle {
-    width: 100%; height: 8px;
-    cursor: row-resize;    /* 上下拖拽光标 */
-    align-self: auto;
-    position: relative;
+  .reader-pane { flex: 1 1 auto; min-height: 100%; }
+  .resize-handle { display: none; }
+  #detailPanel {
+    position: fixed; inset: auto 0 0; width: 100%; height: 52dvh;
+    min-height: 0; max-height: 92dvh; overflow-y: auto;
+    z-index: 220; border-radius: 20px 20px 0 0;
+    background: var(--surface-solid); box-shadow: 0 -12px 40px rgba(0,0,0,0.28);
+    transform: translateY(105%); transition: transform 180ms ease, height 180ms ease;
   }
-  /* 扩大移动端触控区域（44px 最小触控目标） */
-  .resize-handle::after {
-    content: ''; position: absolute; left: 0; right: 0;
-    top: -18px; bottom: -18px;  /* 总触控区域 = 8 + 36 = 44px */
+  #detailPanel[data-dictionary-state="half"] { transform: translateY(0); height: 52dvh; }
+  #detailPanel[data-dictionary-state="full"] { transform: translateY(0); height: 92dvh; }
+  #detailPanel[data-dictionary-state="closed"] { transform: translateY(105%); }
+  .dictionary-drawer-handle {
+    display: block; width: 48px; height: 5px; margin: 10px auto 2px;
+    border-radius: 999px; touch-action: none;
   }
-  .detail-panel {
-    min-height: 15%;
-    width: 100%;
-  }
+  .detail-panel-inner { padding: 8px 20px 24px; }
 }
 </style>
 </head>
@@ -1876,8 +1882,10 @@ function renderChapter(data) {
     '<div class="chapter-header"><h1>Глава ' + (curCh + 1) + '</h1><h2>' + escapeHtml(data.title || '') + '</h2></div>' +
     parts.join('') + exercisesHtml + '</div></div>' +
     '<div class="resize-handle" id="resizeHandle"></div>' +
-    '<div class="detail-panel" id="detailPanel"><div class="detail-panel-inner" id="detailInner" aria-live="polite">' +
-    '<div class="detail-close" onclick="event.stopPropagation();closeDetailPanel()" title="关闭">✕</div>' +
+    '<div class="detail-panel" id="detailPanel" data-dictionary-state="closed">' +
+    '<button class="dictionary-drawer-handle" type="button" aria-label="展开或收起词典"></button>' +
+    '<div class="detail-panel-inner" id="detailInner" aria-live="polite">' +
+    '<button class="detail-close" type="button" onclick="event.stopPropagation();dictionaryController.close()" aria-label="关闭词典" title="关闭">✕</button>' +
     '<div class="detail-placeholder">👆 点击俄语单词查看详情</div>' +
     '</div></div>' +
     '</div>' +
@@ -2807,7 +2815,10 @@ var dictionaryController = RussianDictionaryRuntime.createController({
       }
     }
     var didClose = toggleDetailPanel(word);
-    if (didClose) return { status: 'closed' };
+    if (didClose) {
+      dictionaryController.setPanelState('closed');
+      return { status: 'closed' };
+    }
     var inner = document.getElementById('detailInner');
     if (inner) inner.innerHTML = '';
     autoLookup(word);

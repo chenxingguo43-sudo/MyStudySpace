@@ -13,6 +13,23 @@
     let current = null;
     let examPolicy = { mode: 'learning', lookupUnlocked: true };
     let lastTouchAt = 0;
+    let drawerStartY = null;
+
+    function getPanel() {
+      return typeof root.querySelector === 'function' ? root.querySelector('#detailPanel') : null;
+    }
+
+    function getPanelState() {
+      const panel = getPanel();
+      return panel && panel.getAttribute ? panel.getAttribute('data-dictionary-state') || 'closed' : 'closed';
+    }
+
+    function setPanelState(state) {
+      const next = ['closed', 'half', 'full'].includes(state) ? state : 'closed';
+      const panel = getPanel();
+      if (panel && panel.setAttribute) panel.setAttribute('data-dictionary-state', next);
+      return next;
+    }
 
     function parseContext(element) {
       const serialized = element && element.getAttribute
@@ -33,6 +50,7 @@
       }
       const normalizedContext = core.normalizeContext(context);
       current = { kind: 'word', value: word, context: normalizedContext };
+      setPanelState('half');
       if (options.onOpen) options.onOpen(current, element);
       if (!options.lookupWord) return current;
       try {
@@ -55,6 +73,7 @@
       }
       const normalizedContext = core.normalizeContext(context);
       current = { kind: 'phrase', value: phrase, context: normalizedContext };
+      setPanelState('half');
       if (options.onOpen) options.onOpen(current, element);
       const lookup = options.lookupPhrase || options.lookupWord;
       if (!lookup) return current;
@@ -88,10 +107,42 @@
       lastTouchAt = Date.now();
     }
 
+    function onKeyDown(event) {
+      if (event.key === 'Escape' && getPanelState() !== 'closed') close();
+    }
+
+    function onPointerDown(event) {
+      const handle = event.target && event.target.closest
+        ? event.target.closest('.dictionary-drawer-handle')
+        : null;
+      if (!handle) return;
+      drawerStartY = Number(event.clientY || 0);
+      if (event.preventDefault) event.preventDefault();
+    }
+
+    function onPointerUp(event) {
+      if (drawerStartY === null) return;
+      const delta = Number(event.clientY || 0) - drawerStartY;
+      drawerStartY = null;
+      const state = getPanelState();
+      if (Math.abs(delta) < 36) {
+        setPanelState(state === 'full' ? 'half' : 'full');
+      } else if (delta < 0) {
+        setPanelState('full');
+      } else if (state === 'full') {
+        setPanelState('half');
+      } else {
+        close();
+      }
+    }
+
     function init() {
       if (initialized) return;
       root.addEventListener('click', onClick);
       root.addEventListener('touchend', onTouchEnd, { passive: false });
+      root.addEventListener('keydown', onKeyDown);
+      root.addEventListener('pointerdown', onPointerDown);
+      root.addEventListener('pointerup', onPointerUp);
       initialized = true;
     }
 
@@ -99,6 +150,9 @@
       if (!initialized) return;
       root.removeEventListener('click', onClick);
       root.removeEventListener('touchend', onTouchEnd, { passive: false });
+      root.removeEventListener('keydown', onKeyDown);
+      root.removeEventListener('pointerdown', onPointerDown);
+      root.removeEventListener('pointerup', onPointerUp);
       initialized = false;
     }
 
@@ -116,6 +170,7 @@
 
     function close() {
       current = null;
+      setPanelState('closed');
       if (options.onClose) options.onClose();
     }
 
@@ -126,6 +181,7 @@
       openWord,
       openPhrase,
       setExamPolicy,
+      setPanelState,
       close,
       getCurrent: () => current
     };
