@@ -28,6 +28,18 @@ test('writing module preserves all verified B2 task types with source pages', ()
   }
 });
 
+test('recommendation task reproduces book pages 90-92 with complete materials and model source', () => {
+  const { units } = buildWritingModule({ root, write: false });
+  const recommendation = units.find(unit => unit.id === 'recommendation-letter');
+  assert.deepEqual(recommendation.source?.printedPages, [90, 91, 92]);
+  assert.deepEqual(recommendation.source?.pdfPages, [94, 95, 96]);
+  assert.ok((recommendation.task?.instructionsRu || '').length > 200);
+  assert.ok(recommendation.materials?.length >= 3);
+  assert.ok(recommendation.rubric?.length > 0);
+  assert.ok(recommendation.model?.source?.pdfPages?.includes(96));
+  assert.ok((recommendation.model?.text || '').length > 400);
+});
+
 test('writing module labels model texts as source material and keeps generated assistance separate', () => {
   const { units } = buildWritingModule({ root, write: false });
   const complaint = units.find(unit => unit.id === 'complaint');
@@ -44,6 +56,9 @@ test('writing publisher creates stable reader chapters without browser-held AI c
   const first = JSON.parse(fs.readFileSync(path.join(outputDir, 'ch0000.json'), 'utf8'));
   assert.equal(first.format, 'writing-workbench');
   assert.equal(first.id, 'recommendation-letter');
+  assert.equal(first.materials.length, 5);
+  assert.deepEqual(first.source.pdfPages, [94, 95, 96]);
+  assert.ok(first.rubric.length >= 5);
   assert.equal(first.ai.mode, 'server-or-copy-prompt');
   assert.equal(JSON.stringify(first), JSON.stringify(first).replace(/OPENAI_API_KEY/g, ''));
 });

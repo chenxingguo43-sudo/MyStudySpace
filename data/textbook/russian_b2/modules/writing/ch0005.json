@@ -10,6 +10,7 @@
     "prompt": "按证明格式确认一个人的身份或在读情况。",
     "wordTarget": "50–70 词"
   },
+  "materials": [],
   "formatGuide": {
     "requiredBlocks": [
       "机构抬头与日期/编号",
@@ -39,6 +40,7 @@
       "末尾保留负责人位置"
     ]
   },
+  "rubric": [],
   "ai": {
     "mode": "server-or-copy-prompt",
     "rubric": []

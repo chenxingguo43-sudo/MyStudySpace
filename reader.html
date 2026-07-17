@@ -270,6 +270,15 @@ body {
 .writing-draft { width: 100%; min-height: 260px; padding: 14px; border: 1px solid var(--glass-border); border-radius: 10px; background: var(--surface-solid); color: var(--text); font: 16px/1.7 'Crimson Pro', 'Noto Serif', serif; resize: vertical; }
 .writing-draft:focus { outline: 2px solid var(--accent-border); border-color: var(--accent); }
 .writing-status { color: var(--text-dim); font-size: 13px; margin-top: 8px; }
+.writing-source-task { border-left: 4px solid var(--accent) !important; }
+.writing-materials-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.writing-material-card { margin: 0 !important; padding: 16px !important; background: var(--glass) !important; }
+.writing-material-card h3 { margin-bottom: 8px; }
+.writing-facts { margin-top: 10px; color: var(--text-secondary); font-size: 14px; }
+.writing-metadata { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.writing-metadata span { padding: 4px 9px; border-radius: 999px; background: var(--accent-dim); color: var(--accent); font-size: 12px; }
+.writing-support-box { border-left: 3px solid var(--warning) !important; }
+@media (max-width: 720px) { .writing-materials-grid { grid-template-columns: 1fr; } }
 .speaking-practice { margin-top: 20px; }
 .speaking-practice section, .speaking-practice details { margin: 18px 0; padding: 18px; border: 1px solid var(--border); border-radius: 12px; background: var(--surface); }
 .speaking-practice .source-warning { border-left: 3px solid var(--warning); color: var(--text-secondary); }
@@ -303,6 +312,12 @@ body {
 .b2-option-text { flex: 1; padding: 10px 14px; border: 1px solid var(--border); border-radius: 9px; }
 .b2-option-row.correct .b2-option-text { border-color: var(--success); }
 .b2-option-row.wrong .b2-option-text { border-color: #ef4444; }
+.listening-mode-actions { display: flex; flex-wrap: wrap; gap: 10px; margin: 18px 0; }
+.listening-mode-actions .primary { background: var(--accent); border-color: var(--accent); color: #fff; font-weight: 700; }
+.listening-question { margin: 18px 0; padding: 18px; border: 1px solid var(--border); border-radius: 12px; background: var(--glass); }
+.listening-question .question-translation { color: var(--text-secondary); font-size: 14px; margin-top: 4px; }
+.listening-transcript-line { padding: 8px 0; border-bottom: 1px solid var(--border); }
+.listening-transcript-line:last-child { border-bottom: 0; }
 .b2-study-check-choice { display: flex; align-items: center; gap: 8px; margin: 6px 0; }
 .b2-study-check-choice > button { flex: 0 0 36px; min-height: 36px; }
 .b2-study-check-choice > span { flex: 1; }
@@ -1043,6 +1058,9 @@ function fetchChapter(bookId, idx) {
   var book = curBook && curBook.id === bookId && curBook.isB2Module ? curBook : getBookById(bookId);
   var dataDir = getBookDataDir(bookId);
   var directory = book && book.dir ? book.dir : bookId;
+  if (book && book.isB2Module) {
+    return fetchJson(dataDir + '/' + directory + '/ch' + padIdx + '.json', null);
+  }
   return fetchJson(
     '/api/novel/' + encodeURIComponent(bookId) + '/' + idx,
     dataDir + '/' + directory + '/ch' + padIdx + '.json'
@@ -1190,6 +1208,9 @@ function showChapters(bookId) {
   document.getElementById('app').innerHTML = html;
   window.scrollTo(0, 0);
 }
+function getChapterCacheBookId(book) {
+  return book && book.isB2Module ? book.id + ':' + book.moduleId : (book && book.id || '');
+}
 
 function getB2ModuleDescription(module) {
   var descriptions = {
@@ -1274,11 +1295,12 @@ function goChapter(idx) {
     '<div class="main-container"><div class="loading"><div class="spinner"></div><div>加载...</div></div></div>';
   startTimer();
 
-  var cached = cacheGet(curBook.id, idx);
+  var cacheBookId = getChapterCacheBookId(curBook);
+  var cached = cacheGet(cacheBookId, idx);
   if (cached) { renderChapter(cached); return; }
 
   fetchChapter(curBook.id, idx)
-    .then(function(data) { if (localFetchId !== _fetchId) return; cachePut(curBook.id, idx, data); renderChapter(data); })
+    .then(function(data) { if (localFetchId !== _fetchId) return; cachePut(cacheBookId, idx, data); renderChapter(data); })
     .catch(function() { if (localFetchId !== _fetchId) return; document.querySelector('.main-container').innerHTML = '<div class="loading">❌ 加载失败</div>'; });
 }
 
@@ -1760,16 +1782,35 @@ function copyWritingFeedbackPrompt(taskId) {
   var status = document.getElementById('writing-draft-status');
   if (status) status.textContent = '反馈提示已复制；可粘贴给已配置的 AI 服务。';
 }
+function renderWritingMaterial(material, taskId, index) {
+  var source = material.source || {};
+  var pages = source.pdfPages || [];
+  var text = material.textRu || '';
+  var context = lookupContext('writing', taskId + '-material-' + (index + 1), 'writing-material', text, '', pages);
+  var facts = (material.facts || []).map(function(fact) { return '<li>' + escapeHtml(fact) + '</li>'; }).join('');
+  var pageLabel = pages.length ? 'PDF-' + pages.map(function(page) { return String(page).padStart(3, '0'); }).join('、PDF-') : '';
+  return '<article class="writing-material-card"><h3>' + escapeHtml(material.heading || ('材料 ' + (index + 1))) + '</h3><p class="ru-text">' + renderRuText(text, context) + '</p>' + (facts ? '<ul class="writing-facts">' + facts + '</ul>' : '') + (pageLabel ? '<small class="reading-answer-source">原书：' + escapeHtml(pageLabel) + '</small>' : '') + '</article>';
+}
 function renderWritingWorkbench(data, scrollPosition) {
   currentWritingData = data;
   var draft = (getWritingDrafts()[data.id] || {}).value || '';
   var sourcePages = (data.sourcePages || []).map(function(page) { return 'PDF-' + String(page).padStart(3, '0'); }).join('、');
   var blocks = (data.formatGuide.requiredBlocks || []).map(function(block, index) { return '<li>' + renderRuText(block, lookupContext('writing', data.id + '-format-' + (index + 1), 'writing-material', block, '', data.sourcePages || [])) + '</li>'; }).join('');
   var notes = (data.formatGuide.notes || []).map(function(note, index) { return '<li>' + renderRuText(note, lookupContext('writing', data.id + '-note-' + (index + 1), 'writing-material', note, '', data.sourcePages || [])) + '</li>'; }).join('');
-  var outline = (data.studySupport.outline || []).map(function(item, index) { return '<li>' + renderRuText(item, lookupContext('writing', data.id + '-outline-' + (index + 1), 'writing-support', item, '', data.sourcePages || [])) + '</li>'; }).join('');
+  var support = data.studySupport || {};
+  var outline = (support.outline || []).map(function(item, index) { return '<li>' + renderRuText(item, lookupContext('writing', data.id + '-outline-' + (index + 1), 'writing-support', item, '', data.sourcePages || [])) + '</li>'; }).join('');
+  var patterns = (support.usefulPatterns || []).map(function(item, index) { return '<li>' + renderRuText(item, lookupContext('writing', data.id + '-pattern-' + (index + 1), 'writing-support', item, '', data.sourcePages || [])) + '</li>'; }).join('');
+  var materials = (data.materials || []).map(function(material, index) { return renderWritingMaterial(material, data.id, index); }).join('');
+  var rubric = (data.rubric || []).map(function(item) { return '<li>' + escapeHtml(item) + '</li>'; }).join('');
   var model = renderRuText(data.model.text || '', lookupContext('writing', data.id, 'writing-model', data.model.text || '', '', data.model.source && data.model.source.pages || data.sourcePages || [])).replace(/\n/g, '<br>');
-  var taskPrompt = renderRuText(data.task.prompt, lookupContext('writing', data.id, 'writing-material', data.task.prompt, '', data.sourcePages || []));
-  document.getElementById('app').innerHTML = toolbar(data.title || '写作练习', '<button class="tb-btn" onclick="showShelf()">← 书架</button><button class="tb-btn" onclick="showChapters(\'' + escapeHtml(curBook.id) + '\')" title="目录">☰</button>') + '<main class="main-container writing-workbench"><header class="chapter-header"><h1>' + escapeHtml(data.title || '') + '</h1><p>原书页：' + escapeHtml(sourcePages) + '</p></header><section><h2>原书任务</h2><p>' + taskPrompt + '</p><p class="writing-status">建议长度：' + escapeHtml(data.task.wordTarget || '按题目要求') + '</p></section><section><h2>格式清单</h2><ol>' + blocks + '</ol>' + (notes ? '<ul class="writing-status">' + notes + '</ul>' : '') + '</section><section><h2>你的草稿</h2><textarea class="writing-draft" id="writing-draft" placeholder="在这里用俄语起草…" oninput="saveWritingDraft(\'' + escapeHtml(data.id) + '\', this.value)">' + escapeHtml(draft) + '</textarea><p id="writing-draft-status" class="writing-status">本地自动保存 · ' + countWritingWords(draft) + ' 词</p><button class="tb-btn" onclick="copyWritingFeedbackPrompt(\'' + escapeHtml(data.id) + '\')">复制反馈提示</button></section><details><summary>原书范文（已核对）</summary><p class="ru-text">' + model + '</p><small class="reading-answer-source">' + escapeHtml(data.model.source.label || 'B2 原书范文') + '</small></details><details><summary>学习辅助：起草顺序</summary><ol>' + outline + '</ol></details></main>';
+  var instructionsRu = data.task.instructionsRu || '';
+  var taskPrompt = instructionsRu ? renderRuText(instructionsRu, lookupContext('writing', data.id + '-instructions', 'writing-material', instructionsRu, data.task.prompt || '', data.sourcePages || [])) : renderRuText(data.task.prompt, lookupContext('writing', data.id, 'writing-material', data.task.prompt, '', data.sourcePages || []));
+  var source = data.source || {};
+  var printedPages = (source.printedPages || []).join('、');
+  var metadata = '<div class="writing-metadata"><span>阅读材料 ' + escapeHtml(String(data.task.readingMinutes || '—')) + ' 分钟</span><span>写作 ' + escapeHtml(String(data.task.writingMinutes || '—')) + ' 分钟</span><span>' + escapeHtml(data.task.wordTarget || '按题目要求') + '</span></div>';
+  var sourceMaterialSection = materials ? '<section><h2>原书材料</h2><p class="writing-status">以下广告按原书逐项整理；点击俄语单词可查词。</p><div class="writing-materials-grid">' + materials + '</div></section>' : '';
+  var supportSection = (outline || patterns) ? '<section class="writing-support-box"><h2>学习辅助（非原书内容）</h2>' + (outline ? '<h3>起草顺序</h3><ol>' + outline + '</ol>' : '') + (patterns ? '<h3>可复用表达</h3><ul>' + patterns + '</ul>' : '') + '</section>' : '';
+  document.getElementById('app').innerHTML = toolbar(data.title || '写作练习', '<button class="tb-btn" onclick="showShelf()">← 书架</button><button class="tb-btn" onclick="showChapters(\'' + escapeHtml(curBook.id) + '\')" title="目录">☰</button>') + '<main class="main-container writing-workbench"><header class="chapter-header"><h1>' + escapeHtml(data.title || '') + '</h1><p>原书印刷页：' + escapeHtml(printedPages || '—') + ' · PDF：' + escapeHtml(sourcePages) + '</p></header><section class="writing-source-task"><h2>原书任务</h2><p class="ru-text">' + taskPrompt + '</p>' + (instructionsRu && data.task.prompt ? '<p class="question-translation">' + escapeHtml(data.task.prompt) + '</p>' : '') + metadata + '</section>' + sourceMaterialSection + '<section><h2>格式与内容清单</h2><ol>' + blocks + '</ol>' + (notes ? '<ul class="writing-status">' + notes + '</ul>' : '') + '</section><section><h2>你的草稿</h2><textarea class="writing-draft" id="writing-draft" placeholder="在这里用俄语起草…" oninput="saveWritingDraft(\'' + escapeHtml(data.id) + '\', this.value)">' + escapeHtml(draft) + '</textarea><p id="writing-draft-status" class="writing-status">本地自动保存 · ' + countWritingWords(draft) + ' 词</p><button class="tb-btn" onclick="copyWritingFeedbackPrompt(\'' + escapeHtml(data.id) + '\')">复制反馈提示</button></section>' + (rubric ? '<section><h2>评分自查</h2><ul>' + rubric + '</ul></section>' : '') + '<details><summary>原书范文（完成后查看）</summary><p class="ru-text">' + model + '</p><small class="reading-answer-source">' + escapeHtml(data.model.source.label || 'B2 原书范文') + '</small></details>' + supportSection + '</main>';
   window.scrollTo(0, typeof scrollPosition === 'number' ? scrollPosition : 0); applyTheme(); saveLastRead();
 }
 var SPEAKING_DRAFTS_KEY = 'russian_b2_speaking_notes_v1';
@@ -1825,17 +1866,59 @@ function renderSpeakingPractice(data, scrollPosition) {
   document.getElementById('app').innerHTML = toolbar(data.title || '会话练习', '<button class="tb-btn" onclick="showShelf()">← 书架</button><button class="tb-btn" onclick="showChapters(\'' + escapeHtml(curBook.id) + '\')" title="目录">☰</button>') + '<main class="main-container speaking-practice"><header class="chapter-header"><h1>' + escapeHtml(data.title || '') + '</h1><p class="reading-answer-source">原书页：' + escapeHtml(sourcePages) + '</p></header><section><h2>原书任务</h2><p>' + speakingTask + '</p></section>' + warning + '<section><h2>渐进练习</h2><ol class="speaking-steps">' + steps + '</ol></section><section><h2>你的提纲 / 转写</h2><textarea class="speaking-transcript" placeholder="先列关键词，再写下你准备说的内容…" oninput="saveSpeakingNote(\'' + escapeHtml(data.id) + '\', this.value)">' + escapeHtml(note) + '</textarea><p id="speaking-note-status" class="speaking-recording-status">本地自动保存</p></section><section><h2>录音与回听</h2><p class="speaking-recording-status">录音只存到这台设备的浏览器 IndexedDB，不会上传。</p><div class="speaking-recording-controls"><button id="start-speaking-recording" class="tb-btn" onclick="startSpeakingRecording()">开始录音</button><button id="stop-speaking-recording" class="tb-btn" onclick="stopSpeakingRecording()" disabled>结束录音</button><span id="speaking-recording-status" class="speaking-recording-status">尚未录音</span></div><audio id="speaking-playback" class="speaking-playback" controls hidden></audio></section><details><summary>原书参考回答（已核对）</summary><p class="ru-text">' + sourceAnswer + '</p><small class="reading-answer-source">' + escapeHtml(data.sourceAnswer.source.label || 'B2 原书参考回答') + '</small></details><details><summary>学习辅助：自查清单</summary><ul>' + checklist + '</ul></details></main>';
   window.scrollTo(0, typeof scrollPosition === 'number' ? scrollPosition : 0); applyTheme(); saveLastRead();
 }
+var LISTENING_PROGRESS_KEY = 'russian_b2_listening_progress_v1';
+var currentListeningData = null;
+var listeningViewMode = 'exam';
+function getListeningProgress() { try { return JSON.parse(localStorage.getItem(LISTENING_PROGRESS_KEY) || '{}'); } catch (e) { return {}; } }
+function saveListeningProgress(progress) { try { localStorage.setItem(LISTENING_PROGRESS_KEY, JSON.stringify(progress)); } catch (e) {} }
+function getListeningRecord(questionId) { return getListeningProgress()[questionId] || { selected: '', answered: false, answerOpen: false }; }
+function rerenderListeningPreservingScroll() { renderListeningPractice(currentListeningData, window.scrollY); }
+function answerListeningQuestion(questionId, selected) {
+  var progress = getListeningProgress(), record = progress[questionId] || { selected: '', answered: false, answerOpen: false };
+  if (record.answered) return;
+  record.selected = selected; record.answered = true; record.answeredAt = new Date().toISOString();
+  progress[questionId] = record; saveListeningProgress(progress); rerenderListeningPreservingScroll();
+}
+function toggleListeningAnswer(questionId) {
+  var progress = getListeningProgress(), record = progress[questionId] || { selected: '', answered: false, answerOpen: false };
+  if (!record.answered) return;
+  record.answerOpen = !record.answerOpen; progress[questionId] = record; saveListeningProgress(progress); rerenderListeningPreservingScroll();
+}
+function openListeningIntensive() { listeningViewMode = 'intensive'; renderListeningPractice(currentListeningData, 0); }
+function returnToListeningExam() { listeningViewMode = 'exam'; renderListeningPractice(currentListeningData, 0); }
+function renderListeningQuestion(question) {
+  var record = getListeningRecord(question.id);
+  var options = (question.options || []).map(function(option) {
+    var selected = record.selected === option.key;
+    var state = record.answered ? (option.key === question.answer ? ' correct' : selected ? ' wrong' : '') : '';
+    var optionContext = lookupContext('listening', question.id + '-option-' + option.key, 'listening-question', option.text, '', question.evidence && question.evidence.pages || []);
+    return '<div class="b2-option-row' + state + '"><button type="button" class="b2-option-radio" role="radio" aria-checked="' + (selected ? 'true' : 'false') + '" onclick="answerListeningQuestion(\'' + escapeHtml(question.id) + '\',\'' + escapeHtml(option.key) + '\')"' + (record.answered ? ' disabled' : '') + '>' + escapeHtml(option.key) + '.</button><span class="b2-option-text">' + renderRuText(option.text, optionContext) + '</span></div>';
+  }).join('');
+  var result = record.answered ? '<p class="b2-quiz-result ' + (record.selected === question.answer ? 'correct' : 'wrong') + '">' + (record.selected === question.answer ? '回答正确' : '回答错误') + '</p>' : '';
+  var evidence = question.evidence || {};
+  var answer = record.answerOpen ? '<div class="b2-explanation"><strong>原书答案（已核对）：' + escapeHtml(question.answer) + '</strong>' + (evidence.quote ? '<p>听力依据：' + renderRuText(evidence.quote, lookupContext('listening', question.id + '-evidence', 'listening-transcript', evidence.quote, '', evidence.pages || [])) + '</p>' : '') + '</div>' : '';
+  var toggle = record.answered ? '<button class="tb-btn" onclick="toggleListeningAnswer(\'' + escapeHtml(question.id) + '\')">' + (record.answerOpen ? '收起答案' : '查看答案与依据') + '</button>' : '';
+  var promptRu = question.promptRu || question.prompt || '';
+  var prompt = renderRuText(promptRu, lookupContext('listening', question.id + '-prompt', 'listening-question', promptRu, '', evidence.pages || []));
+  var translation = question.prompt && question.prompt !== promptRu ? '<p class="question-translation">' + escapeHtml(question.prompt) + '</p>' : '';
+  return '<article class="listening-question"><p><b>' + escapeHtml(String(question.printedNumber || question.id)) + '.</b> ' + prompt + '</p>' + translation + '<div class="b2-options">' + options + '</div>' + result + toggle + answer + '</article>';
+}
 function renderListeningPractice(data, scrollPosition) {
+  if (!currentListeningData || currentListeningData.id !== data.id) listeningViewMode = 'exam';
+  currentListeningData = data;
   var sourcePages = (data.sourcePages || []).map(function(page) { return 'PDF-' + String(page).padStart(3, '0'); }).join('、');
   var transcript = (data.transcriptSegments || []).map(function(segment, index) {
     var context = lookupContext('listening', data.id + '-segment-' + (index + 1), 'listening-transcript', segment.text || '', segment.translation || '', data.sourcePages || []);
-    return '<p class="ru-text"><strong>' + escapeHtml(segment.speaker || '') + '：</strong> ' + renderRuText(segment.text || '', context) + '</p>';
+    return '<p class="ru-text listening-transcript-line"><strong>' + escapeHtml(segment.displayLabel || segment.speaker || '') + '：</strong> ' + renderRuText(segment.text || '', context) + '</p>';
   }).join('');
-  var questions = (data.questions || []).map(function(question) { return '<li><strong>' + escapeHtml(question.id) + '</strong> · ' + renderRuText(question.prompt, lookupContext('listening', question.id, 'listening-question', question.prompt, '', data.sourcePages || [])) + ' <details><summary>查看原书答案</summary><p>答案：' + escapeHtml(question.answer) + '</p></details></li>'; }).join('');
+  var questions = (data.questions || []).map(renderListeningQuestion).join('');
   var media = data.media || {};
   var mediaBase = 'data/textbook/russian_b2/';
-  var player = media.file ? '<section><h2>重建音频</h2><p class="reading-answer-source">' + escapeHtml(media.provenance || 'reconstructed-tts') + ' · 非原始配套音频</p><audio controls><source src="' + escapeHtml(mediaBase + media.file) + '" type="audio/mpeg"><track kind="subtitles" srclang="ru" label="Русский" src="' + escapeHtml(mediaBase + (media.captions || '')) + '" default>你的浏览器不支持音频播放。</audio></section>' : '<section class="source-warning"><strong>重建音频暂不可用</strong><p>可先使用下方来源文字稿精听；不会用空文件冒充音频。</p></section>';
-  document.getElementById('app').innerHTML = toolbar(data.title || '听力练习', '<button class="tb-btn" onclick="showShelf()">← 书架</button><button class="tb-btn" onclick="showChapters(\'' + escapeHtml(curBook.id) + '\')">☰</button>') + '<main class="main-container speaking-practice"><header class="chapter-header"><h1>' + escapeHtml(data.title || '') + '</h1><p class="reading-answer-source">原书页：' + escapeHtml(sourcePages) + '</p></header><section class="source-warning"><strong>' + escapeHtml(data.media.provenance || 'reconstructed-tts') + '，非原始音频</strong><p>文字稿和原书页码均已核对；重建音频仅用于精听与跟读。</p></section>' + player + '<section><h2>来源文字稿</h2>' + transcript + '</section><section><h2>理解题</h2><ol>' + questions + '</ol></section></main>';
+  var captions = listeningViewMode === 'intensive' && media.captions ? '<track kind="subtitles" srclang="ru" label="Русский" src="' + escapeHtml(mediaBase + media.captions) + '" default>' : '';
+  var player = media.file ? '<section><h2>' + (listeningViewMode === 'intensive' ? '精听音频' : '考试音频') + '</h2><p class="reading-answer-source">' + escapeHtml(media.provenance || 'reconstructed-tts') + ' · 非原始配套音频</p><audio controls><source src="' + escapeHtml(mediaBase + media.file) + '" type="audio/mpeg">' + captions + '你的浏览器不支持音频播放。</audio></section>' : '<section class="source-warning"><strong>重建音频暂不可用</strong><p>可进入精听页使用来源文字稿；不会用空文件冒充音频。</p></section>';
+  var actions = listeningViewMode === 'intensive' ? '<div class="listening-mode-actions"><button class="tb-btn" onclick="returnToListeningExam()">← 返回考试题</button></div>' : '<div class="listening-mode-actions"><button class="tb-btn primary" onclick="openListeningIntensive()">🎧 精听这段材料</button><span class="writing-status">答题后可进入文字稿、字幕与点击查词学习。</span></div>';
+  var body = listeningViewMode === 'intensive' ? player + '<section><h2>来源文字稿</h2>' + transcript + '</section>' + actions : player + '<section><h2>原书题目</h2>' + questions + '</section>' + actions;
+  document.getElementById('app').innerHTML = toolbar(data.title || '听力练习', '<button class="tb-btn" onclick="showShelf()">← 书架</button><button class="tb-btn" onclick="showChapters(\'' + escapeHtml(curBook.id) + '\')">☰</button>') + '<main class="main-container speaking-practice"><header class="chapter-header"><h1>' + escapeHtml(data.title || '') + '</h1><p class="reading-answer-source">原书页：' + escapeHtml(sourcePages) + '</p></header><section class="source-warning"><strong>' + escapeHtml(data.media.provenance || 'reconstructed-tts') + '，非原始音频</strong><p>' + (listeningViewMode === 'intensive' ? '精听模式显示核对后的文字稿与字幕。' : '考试模式先听录音、完成原书题目；文字稿默认隐藏。') + '</p></section>' + body + '</main>';
   window.scrollTo(0, typeof scrollPosition === 'number' ? scrollPosition : 0); applyTheme(); saveLastRead();
 }
 var EXAM_PROGRESS_KEY = 'russian_b2_exam_progress_v1';

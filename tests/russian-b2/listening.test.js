@@ -53,6 +53,18 @@ test('the restored audio task groups preserve complete Russian exam items and th
   }
 });
 
+test('all five listening families publish all 25 source-complete questions', () => {
+  const { units } = buildListeningModule({ root });
+  const questions = units.flatMap(unit => unit.questions);
+  assert.equal(questions.length, 25);
+  questions.forEach(question => {
+    assert.match(question.promptRu, /[А-Яа-яЁё]/);
+    assert.equal(question.options.length, 3);
+    assert.ok(question.options.some(option => option.key === question.answer));
+    assert.ok(question.evidence.pages.length > 0);
+  });
+});
+
 test('dialogue segments keep display labels out of spoken text and use distinct voices', () => {
   const { units } = buildListeningModule({ root, write: false });
   const dialogues = units.find(unit => unit.id === 'dialogues');

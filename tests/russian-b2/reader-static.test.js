@@ -17,6 +17,18 @@ test('reader plays reconstructed listening media with captions while retaining p
   assert.match(reader, /data\.media\.provenance/);
 });
 
+test('listening opens in exam mode and keeps transcript behind an intensive-listening action', () => {
+  assert.match(reader, /LISTENING_PROGRESS_KEY/);
+  assert.match(reader, /function answerListeningQuestion\(questionId, selected\)/);
+  assert.match(reader, /function toggleListeningAnswer\(questionId\)/);
+  assert.match(reader, /function openListeningIntensive\(\)/);
+  assert.match(reader, /精听这段材料/);
+  assert.match(reader, /\(data\.questions \|\| \[\]\)\.map\(renderListeningQuestion\)/);
+  const renderBody = reader.match(/function renderListeningPractice\(data, scrollPosition\) \{([\s\S]*?)\n\}/);
+  assert.ok(renderBody);
+  assert.match(renderBody[1], /listeningViewMode === 'intensive'/);
+});
+
 test('reader shows the textbook badge from metadata', () => {
   assert.match(reader, /b\.kind === 'textbook'/);
   assert.doesNotMatch(reader, /b\.id === 'reading_speaking'/);
@@ -198,6 +210,29 @@ test('reader provides a locally persisted writing workbench without browser-held
   assert.match(reader, /function copyWritingFeedbackPrompt\(taskId\)/);
   assert.match(reader, /writing-workbench/);
   assert.doesNotMatch(reader, /OPENAI_API_KEY/);
+});
+
+test('writing workbench reproduces structured source materials before learning support', () => {
+  assert.match(reader, /function renderWritingMaterial\(material, taskId, index\)/);
+  assert.match(reader, /data\.task\.instructionsRu/);
+  assert.match(reader, /data\.materials/);
+  assert.match(reader, /data\.rubric/);
+  assert.match(reader, /support\.usefulPatterns/);
+  assert.match(reader, /原书材料/);
+  assert.match(reader, /评分自查/);
+});
+
+test('unified B2 modules use module-scoped chapter cache keys', () => {
+  assert.match(reader, /function getChapterCacheBookId\(book\)/);
+  assert.match(reader, /book\.id \+ ':' \+ book\.moduleId/);
+  const chapterBody = reader.match(/function goChapter\(idx\) \{([\s\S]*?)\n\}/);
+  assert.ok(chapterBody);
+  assert.match(chapterBody[1], /cacheGet\(cacheBookId, idx\)/);
+  assert.match(chapterBody[1], /cachePut\(cacheBookId, idx, data\)/);
+  const fetchBody = reader.match(/function fetchChapter\(bookId, idx\) \{([\s\S]*?)\n\}/);
+  assert.ok(fetchBody);
+  assert.match(fetchBody[1], /book\.isB2Module/);
+  assert.match(fetchBody[1], /dataDir \+ '\/' \+ directory/);
 });
 
 test('interactive B2 workbenches are never marked complete merely by scrolling', () => {

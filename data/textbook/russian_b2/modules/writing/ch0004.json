@@ -10,6 +10,7 @@
     "prompt": "确认收到钱款或物品，写清来源、数量、日期和签名。",
     "wordTarget": "50–70 词"
   },
+  "materials": [],
   "formatGuide": {
     "requiredBlocks": [
       "标题 Расписка",
@@ -40,6 +41,7 @@
       "金额写双重形式"
     ]
   },
+  "rubric": [],
   "ai": {
     "mode": "server-or-copy-prompt",
     "rubric": []
