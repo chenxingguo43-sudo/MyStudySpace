@@ -16,6 +16,14 @@ test('reader loads shared dictionary modules before its inline runtime', () => {
   assert.match(reader, /RussianDictionaryRuntime\.createController/);
 });
 
+test('reader version-pins all shared dictionary scripts', () => {
+  const sources = [...reader.matchAll(/<script src="(js\/russian-dictionary\/(?:core|storage|runtime)\.js\?v=[^"]+)"><\/script>/g)]
+    .map(match => match[1]);
+
+  assert.equal(sources.length, 3);
+  assert.equal(new Set(sources.map(source => source.split('?v=')[1])).size, 1);
+});
+
 test('legacy renderRuText delegates to the shared renderer', () => {
   const body = reader.match(/function renderRuText\(text, context\) \{([\s\S]*?)\n\}/);
   assert.ok(body);
