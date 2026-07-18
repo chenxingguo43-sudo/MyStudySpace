@@ -728,9 +728,9 @@ body {
 </div>
 
 <script src="data/russian-morphology.js"></script>
-<script src="js/russian-dictionary/core.js"></script>
-<script src="js/russian-dictionary/storage.js"></script>
-<script src="js/russian-dictionary/runtime.js"></script>
+<script src="js/russian-dictionary/core.js?v=20260718-1"></script>
+<script src="js/russian-dictionary/storage.js?v=20260718-1"></script>
+<script src="js/russian-dictionary/runtime.js?v=20260718-1"></script>
 <script src="js/russian-b2/dashboard.js"></script>
 <script>
 /* ══════════════════════════════════════════════
@@ -932,6 +932,21 @@ function toolbar(title, extra) {
       '<span class="toolbar-timer" id="toolbarTimer"></span>' +
       (extra || '') +
     '</div></header>';
+}
+
+function b2FloatingNavigation(options) {
+  options = options || {};
+  var buttons = [
+    '<button class="fab-btn" onclick="cycleTheme()" title="切换主题" aria-label="切换主题">🎨</button>',
+    '<button class="fab-btn" onclick="cycleFont()" title="字号" aria-label="调整字号">Aa</button>'
+  ];
+  if (options.backAction) {
+    buttons.push('<button class="fab-btn" onclick="' + options.backAction + '" title="' + escapeHtml(options.backTitle || '返回') + '" aria-label="' + escapeHtml(options.backTitle || '返回') + '">←</button>');
+  }
+  if (options.menuAction) {
+    buttons.push('<button class="fab-btn" onclick="' + options.menuAction + '" title="目录" aria-label="目录">☰</button>');
+  }
+  return '<nav class="fab-group-top b2-floating-navigation" aria-label="俄语 B2 页面导航">' + buttons.join('') + '</nav>';
 }
 
 function toast(msg) {
@@ -1165,7 +1180,7 @@ function importB2LearningArchive(event) {
 }
 function showB2ArchivePanel() {
   var app = document.getElementById('app');
-  app.innerHTML = toolbar('学习记录备份', '<button class="tb-btn" onclick="showShelf()">← 书架</button>') + '<main class="main-container"><header class="chapter-header"><h1>学习记录备份</h1><p>仅包含俄语 B2 的做题进度、知识卡自测与写作/口语草稿；不会导出其他书籍、词典缓存或界面设置。</p></header><section><h2>导出</h2><p>下载一份 JSON 文件，用于迁移或离线备份。</p><button class="tb-btn" onclick="exportB2LearningArchive()">导出学习记录</button></section><section><h2>恢复与合并</h2><p>选择此前导出的备份。较新的记录会合并；相同时间但内容不同的记录保留本机版本。</p><input type="file" accept="application/json,.json" onchange="importB2LearningArchive(event)"></section></main>';
+  app.innerHTML = b2FloatingNavigation({ backAction: 'showShelf()', backTitle: '书架' }) + '<main class="main-container"><header class="chapter-header"><h1>学习记录备份</h1><p>仅包含俄语 B2 的做题进度、知识卡自测与写作/口语草稿；不会导出其他书籍、词典缓存或界面设置。</p></header><section><h2>导出</h2><p>下载一份 JSON 文件，用于迁移或离线备份。</p><button class="tb-btn" onclick="exportB2LearningArchive()">导出学习记录</button></section><section><h2>恢复与合并</h2><p>选择此前导出的备份。较新的记录会合并；相同时间但内容不同的记录保留本机版本。</p><input type="file" accept="application/json,.json" onchange="importB2LearningArchive(event)"></section></main>';
 }
 
 /* ══════════════════════════════════════════════
@@ -1236,7 +1251,7 @@ function renderB2Dashboard(book) {
       '<span>' + (module.status === 'available' ? '可以学习' : '整理中') + (module.chapters ? ' · ' + module.chapters + ' 个单元' : '') + '</span>' +
       '<small>' + escapeHtml(getB2ModuleDescription(module)) + '</small></button>';
   }).join('');
-  document.getElementById('app').innerHTML = toolbar('俄语 B2 全模块', '<button class="tb-btn" onclick="showShelf()">← 书架</button>') +
+  document.getElementById('app').innerHTML = b2FloatingNavigation({ backAction: 'showShelf()', backTitle: '书架' }) +
     '<main class="main-container b2-dashboard"><header class="b2-dashboard-hero"><h1>俄语 B2 全模块</h1><p>所有专项属于同一本教材。可以从模块继续学习，也可以进入统一复习。</p></header><div class="b2-module-grid">' + cards + '</div></main>';
   window.scrollTo(0, 0);
 }
@@ -1246,14 +1261,14 @@ function showB2Dashboard() {
   if (!rootBook) return;
   curBook = rootBook;
   if (b2BookManifest) { renderB2Dashboard(b2BookManifest); return; }
-  document.getElementById('app').innerHTML = toolbar('俄语 B2 全模块', '<button class="tb-btn" onclick="showShelf()">← 书架</button>') + '<main class="main-container"><div class="loading"><div class="spinner"></div><div>加载教材仪表盘...</div></div></main>';
+  document.getElementById('app').innerHTML = b2FloatingNavigation({ backAction: 'showShelf()', backTitle: '书架' }) + '<main class="main-container"><div class="loading"><div class="spinner"></div><div>加载教材仪表盘...</div></div></main>';
   fetchJson('data/textbook/russian_b2/book.json', null).then(renderB2Dashboard).catch(function() { toast('B2 仪表盘加载失败'); showShelf(); });
 }
 
 function renderB2ModuleChapters() {
   if (!curBook || !curBook.isB2Module) return;
   var stats = readStats['russian_b2:' + curBook.moduleId] || {};
-  var html = toolbar('俄语 B2 · ' + escapeHtml(curBook.title), '<button class="tb-btn" onclick="showB2Dashboard()">← 仪表盘</button>') +
+  var html = b2FloatingNavigation({ backAction: 'showB2Dashboard()', backTitle: '仪表盘' }) +
     '<main class="main-container"><div class="chapter-list-header"><h2>' + escapeHtml(curBook.title) + '</h2><div class="ch-meta">' + curBook.chapters + ' 个学习单元</div></div><div class="chapter-grid">';
   for (var i = 0; i < curBook.chapters; i++) {
     var isDone = curBook.format === 'quiz-first' ? isB2ChapterComplete(curBook.id, i) : !!(stats[i] && stats[i].completed);
@@ -1288,9 +1303,12 @@ function goChapter(idx) {
   closeSearch();
 
   var app = document.getElementById('app');
-  app.innerHTML = toolbar('第 ' + (idx + 1) + ' 章',
-    '<button class="tb-btn" onclick="toggleSearch()" title="搜索 (Ctrl+F)">🔍</button>' +
-    '<button class="tb-btn" onclick="showChapters(\'' + escapeHtml(curBook.id) + '\')" title="目录">☰</button>') +
+  var chapterNavigation = curBook && curBook.isB2Module
+    ? b2FloatingNavigation({ backAction: 'showB2Dashboard()', backTitle: '仪表盘', menuAction: 'showChapters(\'' + escapeHtml(curBook.id) + '\')' })
+    : toolbar('第 ' + (idx + 1) + ' 章',
+      '<button class="tb-btn" onclick="toggleSearch()" title="搜索 (Ctrl+F)">🔍</button>' +
+      '<button class="tb-btn" onclick="showChapters(\'' + escapeHtml(curBook.id) + '\')" title="目录">☰</button>');
+  app.innerHTML = chapterNavigation +
     '<div class="peek-counter">👁 查看原文: <span id="peekCnt">0</span> / <span id="totalParas">0</span> 段</div>' +
     '<div class="main-container"><div class="loading"><div class="spinner"></div><div>加载...</div></div></div>';
   startTimer();
@@ -1544,16 +1562,16 @@ function renderStudyCard(card, point) {
 function showStudyCard(partId, pointId) {
   curView = 'study-card'; stopTimer();
   var app = document.getElementById('app');
-  app.innerHTML = toolbar('知识点复习', '<button class="tb-btn" onclick="showChapters(\'russian_b2\')">← 目录</button>') + '<div class="main-container"><div class="loading"><div class="spinner"></div><div>加载知识点卡...</div></div></div>';
+  app.innerHTML = b2FloatingNavigation({ backAction: 'showChapters(\'russian_b2\')', backTitle: '目录' }) + '<div class="main-container"><div class="loading"><div class="spinner"></div><div>加载知识点卡...</div></div></div>';
   var book = getBookById('russian_b2'), index = book && book.unitIds.indexOf(partId);
-  if (index < 0) { app.innerHTML = toolbar('知识点复习', '<button class="tb-btn" onclick="showChapters(\'russian_b2\')">← 目录</button>') + '<div class="main-container"><div class="loading">❌ 知识点卡加载失败</div></div>'; return; }
+  if (index < 0) { app.innerHTML = b2FloatingNavigation({ backAction: 'showChapters(\'russian_b2\')', backTitle: '目录' }) + '<div class="main-container"><div class="loading">❌ 知识点卡加载失败</div></div>'; return; }
   Promise.all([fetchChapter(book.id, index), fetchStudyCard(pointId)]).then(function(result) {
     var chapter = result[0], card = result[1], point = (chapter.knowledgePoints || []).find(function(item) { return item.id === pointId; });
     if (!point || card.partId !== partId || card.knowledgePointId !== pointId) throw new Error('study card mismatch');
-    app.innerHTML = toolbar('知识点复习', '<button class="tb-btn" onclick="goChapter(' + index + ')">← 返回练习</button>') + renderStudyCard(card, point);
+    app.innerHTML = b2FloatingNavigation({ backAction: 'goChapter(' + index + ')', backTitle: '返回练习' }) + renderStudyCard(card, point);
     window.scrollTo(0, 0); applyTheme();
   }).catch(function() {
-    app.innerHTML = toolbar('知识点复习', '<button class="tb-btn" onclick="showChapters(\'russian_b2\')">← 目录</button>') + '<div class="main-container"><div class="loading">❌ 知识点卡加载失败</div></div>';
+    app.innerHTML = b2FloatingNavigation({ backAction: 'showChapters(\'russian_b2\')', backTitle: '目录' }) + '<div class="main-container"><div class="loading">❌ 知识点卡加载失败</div></div>';
   });
 }
 function openStudyCardPractice(partId, exerciseIds, wrongOnly) {
@@ -1577,7 +1595,7 @@ var wrongAnswerBookMeta = null;
 function showWrongAnswerBook(partFilter, pointFilter) {
   curView = 'wrong-book'; stopTimer();
   if (!wrongAnswerBookMeta) {
-    document.getElementById('app').innerHTML = toolbar('错题复习', '<button class="tb-btn" onclick="showShelf()">← 书架</button>') + '<div class="main-container"><div class="loading"><div class="spinner"></div><div>加载错题本...</div></div></div>';
+    document.getElementById('app').innerHTML = b2FloatingNavigation({ backAction: 'showShelf()', backTitle: '书架' }) + '<div class="main-container"><div class="loading"><div class="spinner"></div><div>加载错题本...</div></div></div>';
     var book = getBookById('russian_b2');
     Promise.all(book.unitIds.map(function(id, index) { return fetchChapter(book.id, index); })).then(function(parts) {
       wrongAnswerBookMeta = {};
@@ -1593,7 +1611,7 @@ function showWrongAnswerBook(partFilter, pointFilter) {
   var points = [...new Set(items.map(function(item) { return item.knowledge.title; }))];
   var pointSelect = '<select class="sort-select" onchange="showWrongAnswerBook(\'' + (partFilter || '') + '\',this.value)"><option value="">全部知识点</option>' + points.map(function(point) { return '<option value="' + escapeHtml(point) + '"' + (point === pointFilter ? ' selected' : '') + '>' + escapeHtml(point) + '</option>'; }).join('') + '</select>';
   var rows = filtered.map(function(item) { return '<button class="b2-finish" onclick="openWrongAnswerItem(\'' + item.partId + '\',\'' + item.exerciseId + '\')">' + (item.status === 'pending' ? '待掌握 · ' : '已掌握 · ') + item.partId.toUpperCase() + ' · ' + escapeHtml(item.knowledge.title) + ' · ' + item.exerciseId + '</button>'; }).join('');
-  document.getElementById('app').innerHTML = toolbar('错题复习', '<button class="tb-btn" onclick="showShelf()">← 书架</button>') + '<div class="main-container"><div class="b2-quiz-header"><h1>错题复习</h1><p>待掌握 ' + pending.length + ' 题 · 已掌握 ' + mastered.length + ' 题</p>' + select + pointSelect + '</div>' + (rows || '<div class="loading">这个筛选下还没有错题。</div>') + '</div>';
+  document.getElementById('app').innerHTML = b2FloatingNavigation({ backAction: 'showShelf()', backTitle: '书架' }) + '<div class="main-container"><div class="b2-quiz-header"><h1>错题复习</h1><p>待掌握 ' + pending.length + ' 题 · 已掌握 ' + mastered.length + ' 题</p>' + select + pointSelect + '</div>' + (rows || '<div class="loading">这个筛选下还没有错题。</div>') + '</div>';
 }
 function openWrongAnswerItem(partId, exerciseId) {
   var book = getBookById('russian_b2'), index = book.unitIds.indexOf(partId);
@@ -1704,7 +1722,7 @@ function renderQuizChapter(data, scrollPosition) {
   if (isNewPart) currentQuizAllExercises = data.exercises || [];
   currentQuizExercises = data.exercises || [];
   var partWrongCount = getWrongAnswerItems().filter(function(item) { return item.partId === data.id && item.status === 'pending'; }).length;
-  var html = '<div class="main-container b2-quiz-page"><div class="b2-quiz-header">' +
+  var html = b2FloatingNavigation({ backAction: 'showB2Dashboard()', backTitle: '仪表盘', menuAction: 'showChapters(\'' + escapeHtml(curBook.id) + '\')' }) + '<div class="main-container b2-quiz-page"><div class="b2-quiz-header">' +
     '<button class="tb-btn" onclick="showShelf()">← 书架</button><h1>' + escapeHtml(data.title || '') + '</h1>' +
     '<p>先独立作答；确认后只显示对错。答案与解析需要你手动展开。</p><button class="tb-btn" onclick="showWrongAnswerBook(\'' + data.id + '\')">本部分错题 ' + partWrongCount + ' 题</button></div>' + renderKnowledgePointNav(data.knowledgePoints, data.id);
   var contextGroupByExercise = renderQuizContextGroups(data.contextGroups || []);
@@ -1859,7 +1877,7 @@ function renderWritingWorkbench(data, scrollPosition) {
   var metadata = renderWritingMetadata(data.task || {});
   var sourceMaterialSection = materials ? '<section><h2>原书材料</h2><p class="writing-status">以下广告按原书逐项整理；点击俄语单词可查词。</p><div class="writing-materials-grid">' + materials + '</div></section>' : '';
   var supportSection = (outline || patterns) ? '<section class="writing-support-box"><h2>学习辅助（非原书内容）</h2>' + (outline ? '<h3>起草顺序</h3><ol>' + outline + '</ol>' : '') + (patterns ? '<h3>可复用表达</h3><ul>' + patterns + '</ul>' : '') + '</section>' : '';
-  document.getElementById('app').innerHTML = toolbar(data.title || '写作练习', '<button class="tb-btn" onclick="showShelf()">← 书架</button><button class="tb-btn" onclick="showChapters(\'' + escapeHtml(curBook.id) + '\')" title="目录">☰</button>') + '<main class="main-container writing-workbench"><header class="chapter-header"><h1>' + escapeHtml(data.title || '') + '</h1><p>原书印刷页：' + escapeHtml(printedPages || '—') + ' · PDF：' + escapeHtml(sourcePages) + '</p></header><section class="writing-source-task"><h2>原书任务</h2><p class="ru-text">' + taskPrompt + '</p>' + (instructionsRu && data.task.prompt ? '<p class="question-translation">' + escapeHtml(data.task.prompt) + '</p>' : '') + metadata + '</section>' + sourceMaterialSection + '<section><h2>格式与内容清单</h2><ol>' + blocks + '</ol>' + (notes ? '<ul class="writing-status">' + notes + '</ul>' : '') + '</section><section><h2>你的草稿</h2><textarea class="writing-draft" id="writing-draft" placeholder="在这里用俄语起草…" oninput="saveWritingDraft(\'' + escapeHtml(data.id) + '\', this.value)">' + escapeHtml(draft) + '</textarea><p id="writing-draft-status" class="writing-status">本地自动保存 · ' + countWritingWords(draft) + ' 词</p><div class="writing-actions"><button class="tb-btn" onclick="copyWritingFeedbackPrompt(\'' + escapeHtml(data.id) + '\')">复制反馈提示</button><button class="tb-btn" onclick="saveWritingVersion(\'' + escapeHtml(data.id) + '\')">保存当前版本</button></div><div id="writing-version-list">' + renderWritingVersions(data.id) + '</div></section>' + (rubric ? '<section><h2>评分自查</h2><ul>' + rubric + '</ul></section>' : '') + '<details ontoggle="recordWritingModelUnlock(\'' + escapeHtml(data.id) + '\', this.open)"><summary>原书范文（完成后查看）</summary><p class="ru-text">' + model + '</p><small class="reading-answer-source">' + escapeHtml(data.model.source.label || 'B2 原书范文') + '</small></details>' + supportSection + '</main>';
+  document.getElementById('app').innerHTML = b2FloatingNavigation({ backAction: 'showB2Dashboard()', backTitle: '仪表盘', menuAction: 'showChapters(\'' + escapeHtml(curBook.id) + '\')' }) + '<main class="main-container writing-workbench"><header class="chapter-header"><h1>' + escapeHtml(data.title || '') + '</h1><p>原书印刷页：' + escapeHtml(printedPages || '—') + ' · PDF：' + escapeHtml(sourcePages) + '</p></header><section class="writing-source-task"><h2>原书任务</h2><p class="ru-text">' + taskPrompt + '</p>' + (instructionsRu && data.task.prompt ? '<p class="question-translation">' + escapeHtml(data.task.prompt) + '</p>' : '') + metadata + '</section>' + sourceMaterialSection + '<section><h2>格式与内容清单</h2><ol>' + blocks + '</ol>' + (notes ? '<ul class="writing-status">' + notes + '</ul>' : '') + '</section><section><h2>你的草稿</h2><textarea class="writing-draft" id="writing-draft" placeholder="在这里用俄语起草…" oninput="saveWritingDraft(\'' + escapeHtml(data.id) + '\', this.value)">' + escapeHtml(draft) + '</textarea><p id="writing-draft-status" class="writing-status">本地自动保存 · ' + countWritingWords(draft) + ' 词</p><div class="writing-actions"><button class="tb-btn" onclick="copyWritingFeedbackPrompt(\'' + escapeHtml(data.id) + '\')">复制反馈提示</button><button class="tb-btn" onclick="saveWritingVersion(\'' + escapeHtml(data.id) + '\')">保存当前版本</button></div><div id="writing-version-list">' + renderWritingVersions(data.id) + '</div></section>' + (rubric ? '<section><h2>评分自查</h2><ul>' + rubric + '</ul></section>' : '') + '<details ontoggle="recordWritingModelUnlock(\'' + escapeHtml(data.id) + '\', this.open)"><summary>原书范文（完成后查看）</summary><p class="ru-text">' + model + '</p><small class="reading-answer-source">' + escapeHtml(data.model.source.label || 'B2 原书范文') + '</small></details>' + supportSection + '</main>';
   window.scrollTo(0, typeof scrollPosition === 'number' ? scrollPosition : 0); applyTheme(); saveLastRead();
 }
 var SPEAKING_DRAFTS_KEY = 'russian_b2_speaking_notes_v1';
@@ -1912,7 +1930,7 @@ function renderSpeakingPractice(data, scrollPosition) {
   var warning = data.media && data.media.provenance === 'missing-original-media' ? '<section class="source-warning"><strong>原始媒体缺失</strong><p>' + escapeHtml(data.media.note || '教材原始媒体未保存；这里只提供可追溯的文字资料。') + '</p></section>' : '';
   var speakingTask = renderRuText(data.task.prompt, lookupContext('speaking', data.id, 'speaking-reference', data.task.prompt, '', data.sourcePages || []));
   var sourceAnswer = renderRuText(data.sourceAnswer.text || '', lookupContext('speaking', data.id, 'speaking-reference', data.sourceAnswer.text || '', '', data.sourceAnswer.source && data.sourceAnswer.source.pages || data.sourcePages || []));
-  document.getElementById('app').innerHTML = toolbar(data.title || '会话练习', '<button class="tb-btn" onclick="showShelf()">← 书架</button><button class="tb-btn" onclick="showChapters(\'' + escapeHtml(curBook.id) + '\')" title="目录">☰</button>') + '<main class="main-container speaking-practice"><header class="chapter-header"><h1>' + escapeHtml(data.title || '') + '</h1><p class="reading-answer-source">原书页：' + escapeHtml(sourcePages) + '</p></header><section><h2>原书任务</h2><p>' + speakingTask + '</p></section>' + warning + '<section><h2>渐进练习</h2><ol class="speaking-steps">' + steps + '</ol></section><section><h2>你的提纲 / 转写</h2><textarea class="speaking-transcript" placeholder="先列关键词，再写下你准备说的内容…" oninput="saveSpeakingNote(\'' + escapeHtml(data.id) + '\', this.value)">' + escapeHtml(note) + '</textarea><p id="speaking-note-status" class="speaking-recording-status">本地自动保存</p></section><section><h2>录音与回听</h2><p class="speaking-recording-status">录音只存到这台设备的浏览器 IndexedDB，不会上传。</p><div class="speaking-recording-controls"><button id="start-speaking-recording" class="tb-btn" onclick="startSpeakingRecording()">开始录音</button><button id="stop-speaking-recording" class="tb-btn" onclick="stopSpeakingRecording()" disabled>结束录音</button><span id="speaking-recording-status" class="speaking-recording-status">尚未录音</span></div><audio id="speaking-playback" class="speaking-playback" controls hidden></audio></section><details><summary>原书参考回答（已核对）</summary><p class="ru-text">' + sourceAnswer + '</p><small class="reading-answer-source">' + escapeHtml(data.sourceAnswer.source.label || 'B2 原书参考回答') + '</small></details><details><summary>学习辅助：自查清单</summary><ul>' + checklist + '</ul></details></main>';
+  document.getElementById('app').innerHTML = b2FloatingNavigation({ backAction: 'showB2Dashboard()', backTitle: '仪表盘', menuAction: 'showChapters(\'' + escapeHtml(curBook.id) + '\')' }) + '<main class="main-container speaking-practice"><header class="chapter-header"><h1>' + escapeHtml(data.title || '') + '</h1><p class="reading-answer-source">原书页：' + escapeHtml(sourcePages) + '</p></header><section><h2>原书任务</h2><p>' + speakingTask + '</p></section>' + warning + '<section><h2>渐进练习</h2><ol class="speaking-steps">' + steps + '</ol></section><section><h2>你的提纲 / 转写</h2><textarea class="speaking-transcript" placeholder="先列关键词，再写下你准备说的内容…" oninput="saveSpeakingNote(\'' + escapeHtml(data.id) + '\', this.value)">' + escapeHtml(note) + '</textarea><p id="speaking-note-status" class="speaking-recording-status">本地自动保存</p></section><section><h2>录音与回听</h2><p class="speaking-recording-status">录音只存到这台设备的浏览器 IndexedDB，不会上传。</p><div class="speaking-recording-controls"><button id="start-speaking-recording" class="tb-btn" onclick="startSpeakingRecording()">开始录音</button><button id="stop-speaking-recording" class="tb-btn" onclick="stopSpeakingRecording()" disabled>结束录音</button><span id="speaking-recording-status" class="speaking-recording-status">尚未录音</span></div><audio id="speaking-playback" class="speaking-playback" controls hidden></audio></section><details><summary>原书参考回答（已核对）</summary><p class="ru-text">' + sourceAnswer + '</p><small class="reading-answer-source">' + escapeHtml(data.sourceAnswer.source.label || 'B2 原书参考回答') + '</small></details><details><summary>学习辅助：自查清单</summary><ul>' + checklist + '</ul></details></main>';
   window.scrollTo(0, typeof scrollPosition === 'number' ? scrollPosition : 0); applyTheme(); saveLastRead();
 }
 var LISTENING_PROGRESS_KEY = 'russian_b2_listening_progress_v1';
@@ -1967,7 +1985,7 @@ function renderListeningPractice(data, scrollPosition) {
   var player = media.file ? '<section><h2>' + (listeningViewMode === 'intensive' ? '精听音频' : '考试音频') + '</h2><p class="reading-answer-source">' + escapeHtml(media.provenance || 'reconstructed-tts') + ' · 非原始配套音频</p><audio controls><source src="' + escapeHtml(mediaBase + media.file) + '" type="audio/mpeg">' + captions + '你的浏览器不支持音频播放。</audio></section>' : '<section class="source-warning"><strong>重建音频暂不可用</strong><p>可进入精听页使用来源文字稿；不会用空文件冒充音频。</p></section>';
   var actions = listeningViewMode === 'intensive' ? '<div class="listening-mode-actions"><button class="tb-btn" onclick="returnToListeningExam()">← 返回考试题</button></div>' : '<div class="listening-mode-actions"><button class="tb-btn primary" onclick="openListeningIntensive()">🎧 精听这段材料</button><span class="writing-status">答题后可进入文字稿、字幕与点击查词学习。</span></div>';
   var body = listeningViewMode === 'intensive' ? player + '<section><h2>来源文字稿</h2>' + transcript + '</section>' + actions : player + '<section><h2>原书题目</h2>' + questions + '</section>' + actions;
-  document.getElementById('app').innerHTML = toolbar(data.title || '听力练习', '<button class="tb-btn" onclick="showShelf()">← 书架</button><button class="tb-btn" onclick="showChapters(\'' + escapeHtml(curBook.id) + '\')">☰</button>') + '<main class="main-container speaking-practice"><header class="chapter-header"><h1>' + escapeHtml(data.title || '') + '</h1><p class="reading-answer-source">原书页：' + escapeHtml(sourcePages) + '</p></header><section class="source-warning"><strong>' + escapeHtml(data.media.provenance || 'reconstructed-tts') + '，非原始音频</strong><p>' + (listeningViewMode === 'intensive' ? '精听模式显示核对后的文字稿与字幕。' : '考试模式先听录音、完成原书题目；文字稿默认隐藏。') + '</p></section>' + body + '</main>';
+  document.getElementById('app').innerHTML = b2FloatingNavigation({ backAction: 'showB2Dashboard()', backTitle: '仪表盘', menuAction: 'showChapters(\'' + escapeHtml(curBook.id) + '\')' }) + '<main class="main-container speaking-practice"><header class="chapter-header"><h1>' + escapeHtml(data.title || '') + '</h1><p class="reading-answer-source">原书页：' + escapeHtml(sourcePages) + '</p></header><section class="source-warning"><strong>' + escapeHtml(data.media.provenance || 'reconstructed-tts') + '，非原始音频</strong><p>' + (listeningViewMode === 'intensive' ? '精听模式显示核对后的文字稿与字幕。' : '考试模式先听录音、完成原书题目；文字稿默认隐藏。') + '</p></section>' + body + '</main>';
   window.scrollTo(0, typeof scrollPosition === 'number' ? scrollPosition : 0); applyTheme(); saveLastRead();
 }
 var EXAM_PROGRESS_KEY = 'russian_b2_exam_progress_v1';
@@ -2062,7 +2080,7 @@ function renderExamPracticeChapter(data, scrollPosition) {
     : '<section><button class="tb-btn" type="button" onclick="unlockExamLookup(\'' + escapeHtml(data.id) + '\')">解锁查词辅助</button><p class="writing-status">考试模式默认关闭查词；主动解锁后本次成绩不计入正式模拟趋势。</p></section>';
   var details = '<section><h2>本分测验</h2><p>时长：' + escapeHtml(String(data.durationMinutes || '')) + ' 分钟</p><p>原卷题量：' + escapeHtml(String(data.questionCount || '')) + ' 题</p><p class="reading-answer-source">原书页：' + escapeHtml(pages) + '</p></section>' + lookupState;
   var body = hasVerifiedQuestions ? '<section><h2>原卷练习</h2>' + data.questions.map(renderExamQuestion).join('') + '</section>' : hasVerifiedWriting ? '<section><h2>原卷写作</h2>' + data.tasks.map(renderExamWritingTask).join('') + '</section>' : '<section><h2>完整模拟</h2><p>完整计时与分模块练习会在题干、选项、原书答案和说明逐项核验后开放。</p></section>';
-  document.getElementById('app').innerHTML = toolbar(data.title || '真题模拟', '<button class="tb-btn" onclick="showShelf()">← 书架</button><button class="tb-btn" onclick="showChapters(\'' + escapeHtml(curBook.id) + '\')">☰</button>') + '<main class="main-container speaking-practice"><header class="chapter-header"><h1>' + escapeHtml(data.title || '') + '</h1><p class="reading-answer-source">B2 原书真题 · ' + (hasVerifiedQuestions ? '题面与答案已核验' : '来源已索引') + '</p></header>' + sourceState + details + body + '</main>';
+  document.getElementById('app').innerHTML = b2FloatingNavigation({ backAction: 'showB2Dashboard()', backTitle: '仪表盘', menuAction: 'showChapters(\'' + escapeHtml(curBook.id) + '\')' }) + '<main class="main-container speaking-practice"><header class="chapter-header"><h1>' + escapeHtml(data.title || '') + '</h1><p class="reading-answer-source">B2 原书真题 · ' + (hasVerifiedQuestions ? '题面与答案已核验' : '来源已索引') + '</p></header>' + sourceState + details + body + '</main>';
   window.scrollTo(0, typeof scrollPosition === 'number' ? scrollPosition : 0); applyTheme(); saveLastRead();
 }
 function renderReadingLookupOption(question, option, record) {
@@ -2100,7 +2118,7 @@ function renderReadingPracticeChapter(data, scrollPosition) {
   var sourcePages = (data.sourcePages || []).map(function(page) { return 'PDF-' + String(page).padStart(3, '0'); }).join('、');
   var support = renderReadingLearningSupport(data);
   var supportState = data.translationStatus === 'learning-support-approved' ? '学习辅助已审核发布。' : '原文已核对；译文与结构讲解将分批审核后发布。';
-  document.getElementById('app').innerHTML = toolbar(data.title || '阅读练习', '<button class="tb-btn" onclick="showShelf()">← 书架</button><button class="tb-btn" onclick="showChapters(\'' + escapeHtml(curBook.id) + '\')" title="目录">☰</button>') + '<main class="main-container"><header class="chapter-header"><h1>' + escapeHtml(data.title || '') + '</h1><p>' + supportState + '</p><p class="reading-answer-source">原书原文页：' + escapeHtml(sourcePages) + '</p></header><section class="chapter-content">' + paragraphs + '</section>' + support + '<section><h2>阅读理解</h2>' + questions + '</section><nav class="b2-quiz-nav">' + navP + '<span class="fab-chapter">第 ' + (curCh + 1) + ' / ' + curBook.chapters + ' 篇</span>' + navN + '</nav></main>';
+  document.getElementById('app').innerHTML = b2FloatingNavigation({ backAction: 'showB2Dashboard()', backTitle: '仪表盘', menuAction: 'showChapters(\'' + escapeHtml(curBook.id) + '\')' }) + '<main class="main-container"><header class="chapter-header"><h1>' + escapeHtml(data.title || '') + '</h1><p>' + supportState + '</p><p class="reading-answer-source">原书原文页：' + escapeHtml(sourcePages) + '</p></header><section class="chapter-content">' + paragraphs + '</section>' + support + '<section><h2>阅读理解</h2>' + questions + '</section><nav class="b2-quiz-nav">' + navP + '<span class="fab-chapter">第 ' + (curCh + 1) + ' / ' + curBook.chapters + ' 篇</span>' + navN + '</nav></main>';
   window.scrollTo(0, typeof scrollPosition === 'number' ? scrollPosition : 0); applyTheme(); saveLastRead();
 }
 function rerenderQuizChapterPreservingScroll() {

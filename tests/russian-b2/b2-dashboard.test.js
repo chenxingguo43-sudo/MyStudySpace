@@ -26,3 +26,19 @@ test('reader provides a unified B2 dashboard and module navigation', () => {
   assert.match(reader, /function renderB2Dashboard\(/);
   assert.match(reader, /function openB2Module\(/);
 });
+
+test('B2 dashboard and module list use floating navigation instead of the dark toolbar', () => {
+  const reader = fs.readFileSync(path.join(root, 'reader.html'), 'utf8');
+  const dashboardStart = reader.indexOf('function renderB2Dashboard(book)');
+  const dashboardEnd = reader.indexOf('function showB2Dashboard()', dashboardStart);
+  const moduleStart = reader.indexOf('function renderB2ModuleChapters()');
+  const moduleEnd = reader.indexOf('function openB2Module(moduleId)', moduleStart);
+  const dashboard = reader.slice(dashboardStart, dashboardEnd);
+  const moduleList = reader.slice(moduleStart, moduleEnd);
+
+  assert.match(reader, /function b2FloatingNavigation\(options\)/);
+  assert.match(dashboard, /b2FloatingNavigation/);
+  assert.doesNotMatch(dashboard, /toolbar\(/);
+  assert.match(moduleList, /b2FloatingNavigation/);
+  assert.doesNotMatch(moduleList, /toolbar\(/);
+});
