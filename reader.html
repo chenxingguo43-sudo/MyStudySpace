@@ -1810,6 +1810,11 @@ function jumpToQuizExercise(exerciseId) {
   target.classList.add('b2-quiz-target');
   setTimeout(function() { target.classList.remove('b2-quiz-target'); }, 1600);
 }
+function restorePendingQuizQuestion(pendingJump, restoreState) {
+  if (restoreState && Number.isFinite(restoreState.scroll)) return false;
+  setTimeout(function() { jumpToQuizExercise(pendingJump); }, 0);
+  return true;
+}
 function renderQuizContextGroups(groups) {
   var contextGroupByExercise = {};
   (groups || []).forEach(function(group) {
@@ -1852,7 +1857,7 @@ function renderQuizChapter(data, scrollPosition) {
   if (pendingQuizJumpId) {
     var pendingJump = pendingQuizJumpId;
     pendingQuizJumpId = '';
-    setTimeout(function() { jumpToQuizExercise(pendingJump); }, 0);
+    restorePendingQuizQuestion(pendingJump, arguments[2]);
   }
   if (pendingQuizPractice && pendingQuizPractice.partId === data.id) {
     var practiceRequest = pendingQuizPractice;

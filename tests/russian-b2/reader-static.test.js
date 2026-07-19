@@ -330,6 +330,36 @@ test('B2 continuation persists and forwards active question, listening mode, and
   assert.match(reader, /function renderChapter\(data, restoreState\)/);
   assert.match(reader, /pendingQuizJumpId = restoreState\.activeQuestionId/);
   assert.match(reader, /renderListeningPractice\(data, scrollPosition, restoreState\)/);
+  assert.match(reader, /function restorePendingQuizQuestion\(pendingJump, restoreState\)/);
+  assert.match(reader, /restorePendingQuizQuestion\(pendingJump, arguments\[2\]\)/);
+});
+
+test('saved grammar scroll suppresses the async question jump while a question-only restore still jumps', () => {
+  const helper = reader.match(/function restorePendingQuizQuestion\(pendingJump, restoreState\) \{([\s\S]*?)\n\}/);
+  assert.ok(helper);
+
+  function createHarness() {
+    const scheduled = [], jumped = [];
+    const build = new Function('setTimeout', 'jumpToQuizExercise', helper[0] + '\nreturn restorePendingQuizQuestion;');
+    return {
+      scheduled,
+      jumped,
+      restore: build(callback => scheduled.push(callback), questionId => jumped.push(questionId))
+    };
+  }
+
+  const exactScroll = createHarness();
+  const scheduledWithScroll = exactScroll.restore('P3-Q017', { activeQuestionId: 'P3-Q017', scroll: 640 });
+  exactScroll.scheduled.forEach(callback => callback());
+  assert.equal(scheduledWithScroll, false);
+  assert.deepEqual(exactScroll.jumped, []);
+
+  const questionOnly = createHarness();
+  const scheduledWithoutScroll = questionOnly.restore('P3-Q017', { activeQuestionId: 'P3-Q017' });
+  assert.equal(scheduledWithoutScroll, true);
+  assert.equal(questionOnly.scheduled.length, 1);
+  questionOnly.scheduled[0]();
+  assert.deepEqual(questionOnly.jumped, ['P3-Q017']);
 });
 
 test('reader renders approved reading learning support separately from original questions', () => {
