@@ -20,6 +20,40 @@
   function safeObject(value) {
     return value && typeof value === 'object' && !Array.isArray(value) ? value : {};
   }
+  function chapterInventory(data) {
+    const chapter = safeObject(data);
+    const questionItems = Array.isArray(chapter.exercises) ? chapter.exercises : Array.isArray(chapter.questions) ? chapter.questions : [];
+    const taskItems = Array.isArray(chapter.tasks) ? chapter.tasks : chapter.task && typeof chapter.task === 'object' ? [chapter.task] : [];
+    const questionIds = questionItems.map(item => safeObject(item).id).filter(id => typeof id === 'string' && id.trim());
+    const taskIds = taskItems.map(item => safeObject(item).id || chapter.id).filter(id => typeof id === 'string' && id.trim());
+    if (questionIds.length !== questionItems.length || taskIds.length !== taskItems.length) return null;
+    if (!questionIds.length && !taskIds.length) return null;
+    return { id: chapter.id, questionIds, taskIds };
+  }
+  function getDashboardChapterPaths(module, index) {
+    const item = safeObject(module), moduleIndex = safeObject(index);
+    if (typeof item.dir !== 'string' || !item.dir || typeof item.id !== 'string') return null;
+    if (item.id !== 'grammar' && (!index || typeof index !== 'object' || Array.isArray(index))) return null;
+    const declaredCount = item.id === 'grammar' ? item.chapters : (moduleIndex.chapters || item.chapters);
+    const count = Number.isInteger(declaredCount) && declaredCount >= 0 ? declaredCount : null;
+    if (count === null) return null;
+    return Array.from({ length: count }, (_, chapter) =>
+      'data/textbook/' + item.dir + '/ch' + String(chapter).padStart(4, '0') + '.json'
+    );
+  }
+  function createB2LastReadRecord({ book, chapter, scroll, activeQuestionId, viewMode, updatedAt } = {}) {
+    const currentBook = safeObject(book);
+    const record = {
+      bookId: currentBook.id,
+      moduleId: currentBook.moduleId || '',
+      chapter,
+      scroll,
+      updatedAt
+    };
+    if (currentBook.id === 'russian_b2' && typeof activeQuestionId === 'string' && activeQuestionId) record.activeQuestionId = activeQuestionId;
+    if (currentBook.id === 'russian_b2' && currentBook.moduleId === 'listening' && (viewMode === 'exam' || viewMode === 'intensive')) record.viewMode = viewMode;
+    return record;
+  }
   function parseableTimestamp(value) {
     return typeof value === 'string' && !Number.isNaN(Date.parse(value)) ? value : undefined;
   }
@@ -179,5 +213,8 @@
     });
     return { merged, conflicts };
   }
-  return { ARCHIVE_SCHEMA, ARCHIVE_KEYS, createArchive, validateArchive, mergeArchive, safeObject, buildDashboardProgress };
+  return {
+    ARCHIVE_SCHEMA, ARCHIVE_KEYS, createArchive, validateArchive, mergeArchive,
+    safeObject, chapterInventory, getDashboardChapterPaths, createB2LastReadRecord, buildDashboardProgress
+  };
 });

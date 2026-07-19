@@ -239,7 +239,7 @@ test('writing workbench omits unavailable time limits instead of showing dash-mi
 test('unified B2 modules use module-scoped chapter cache keys', () => {
   assert.match(reader, /function getChapterCacheBookId\(book\)/);
   assert.match(reader, /book\.id \+ ':' \+ book\.moduleId/);
-  const chapterBody = reader.match(/function goChapter\(idx\) \{([\s\S]*?)\n\}/);
+  const chapterBody = reader.match(/function goChapter\(idx(?:, restoreState)?\) \{([\s\S]*?)\n\}/);
   assert.ok(chapterBody);
   assert.match(chapterBody[1], /cacheGet\(cacheBookId, idx\)/);
   assert.match(chapterBody[1], /cachePut\(cacheBookId, idx, data\)/);
@@ -312,10 +312,24 @@ test('B2 last-read stores an update time and manual completion never infers comp
 
 test('dashboard loaders use current chapter JSON as the only progress denominator', () => {
   assert.match(reader, /function loadB2DashboardInventories\(manifest\)/);
-  assert.match(reader, /questionIds/);
-  assert.match(reader, /taskIds/);
+  assert.match(reader, /RussianB2Dashboard\.chapterInventory/);
+  assert.match(reader, /RussianB2Dashboard\.getDashboardChapterPaths/);
+  assert.match(reader, /module\.id === 'grammar'/);
   assert.match(reader, /function continueB2Learning\(\)/);
   assert.match(reader, /restoreLastRead\(lastRead\)/);
+});
+
+test('B2 continuation persists and forwards active question, listening mode, and scroll restore state', () => {
+  const saveBody = reader.match(/function saveLastRead\([^)]*\) \{([\s\S]*?)\n\}/);
+  const restoreBody = reader.match(/function restoreLastRead\(lastRead\) \{([\s\S]*?)\n\}/);
+  assert.ok(saveBody && restoreBody);
+  assert.match(saveBody[1], /activeQuestionId/);
+  assert.match(saveBody[1], /viewMode/);
+  assert.match(restoreBody[1], /goChapter\(lastRead\.chapter, lastRead\)/);
+  assert.match(reader, /function goChapter\(idx, restoreState\)/);
+  assert.match(reader, /function renderChapter\(data, restoreState\)/);
+  assert.match(reader, /pendingQuizJumpId = restoreState\.activeQuestionId/);
+  assert.match(reader, /renderListeningPractice\(data, scrollPosition, restoreState\)/);
 });
 
 test('reader renders approved reading learning support separately from original questions', () => {

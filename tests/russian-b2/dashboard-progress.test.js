@@ -1,6 +1,17 @@
 const test = require('node:test');
 const assert = require('node:assert/strict');
-const { safeObject, buildDashboardProgress } = require('../../js/russian-b2/dashboard');
+const fs = require('node:fs');
+const path = require('node:path');
+const {
+  safeObject,
+  buildDashboardProgress,
+  chapterInventory,
+  getDashboardChapterPaths,
+  createB2LastReadRecord
+} = require('../../js/russian-b2/dashboard');
+
+const root = path.resolve(__dirname, '..', '..');
+const readJson = relative => JSON.parse(fs.readFileSync(path.join(root, relative), 'utf8'));
 
 const manifest = { modules: [
   { id: 'grammar', status: 'available' }, { id: 'reading', status: 'available' },
@@ -139,4 +150,69 @@ test('only retains a valid B2 last-read location and parseable activity timestam
 
   const unavailable = buildDashboardProgress({ manifest: { modules: [{ id: 'reading', status: 'coming-soon' }] }, inventories: { reading: [] }, records: {}, lastRead: { bookId: 'russian_b2', moduleId: 'reading', chapter: 0, updatedAt: '2026-07-18T11:00:00Z' } });
   assert.equal(unavailable.continueLearning, undefined);
+});
+
+test('normalizes verified chapter ids and rejects source-indexed chapters with no exercises or tasks', () => {
+  assert.deepEqual(chapterInventory({ id: 'p1', exercises: [{ id: 'g1' }] }), {
+    id: 'p1', questionIds: ['g1'], taskIds: []
+  });
+  assert.deepEqual(chapterInventory({ id: 'writing-1', task: { prompt: 'write' } }), {
+    id: 'writing-1', questionIds: [], taskIds: ['writing-1']
+  });
+  assert.equal(chapterInventory({ id: 'source-only', instructions: 'not interactive' }), null);
+});
+
+test('real source-indexed exam gaps make exam progress unavailable instead of inventing completion', () => {
+  const book = readJson(path.join('data', 'textbook', 'russian_b2', 'book.json'));
+  const exam = book.modules.find(module => module.id === 'exam');
+  const index = readJson(path.join('data', 'textbook', exam.dir, 'index.json'));
+  const inventory = Array.from({ length: index.chapters }, (_, chapter) => chapterInventory(
+    readJson(path.join('data', 'textbook', exam.dir, 'ch' + String(chapter).padStart(4, '0') + '.json'))
+  ));
+  const result = buildDashboardProgress({ manifest: { modules: [exam] }, inventories: { exam: inventory }, records: {} });
+
+  assert.equal(inventory.filter(item => item === null).length, 3);
+  assert.equal(result.modules.exam.progressAvailable, false);
+  assert.equal(result.modules.exam.completed, 0);
+});
+
+test('grammar chapter paths come from the manifest while indexed modules require their index count', () => {
+  const book = readJson(path.join('data', 'textbook', 'russian_b2', 'book.json'));
+  const grammar = book.modules.find(module => module.id === 'grammar');
+  const reading = book.modules.find(module => module.id === 'reading');
+  const readingIndex = readJson(path.join('data', 'textbook', reading.dir, 'index.json'));
+  const grammarPaths = getDashboardChapterPaths(grammar);
+  const grammarInventory = grammarPaths.map(relative => chapterInventory(readJson(relative)));
+  const grammarProgress = buildDashboardProgress({
+    manifest: { modules: [grammar] }, inventories: { grammar: grammarInventory }, records: {}
+  });
+
+  assert.deepEqual(grammarPaths, Array.from({ length: 6 }, (_, chapter) =>
+    'data/textbook/russian_b2/ch' + String(chapter).padStart(4, '0') + '.json'
+  ));
+  assert.equal(grammarProgress.modules.grammar.progressAvailable, true);
+  assert.equal(grammarProgress.modules.grammar.completed, 0);
+  assert.equal(grammarProgress.modules.grammar.total, 6);
+  assert.equal(getDashboardChapterPaths(reading), null);
+  assert.equal(getDashboardChapterPaths(reading, readingIndex).length, readingIndex.chapters);
+});
+
+test('creates B2 last-read records that retain active questions and listening view mode', () => {
+  const grammar = createB2LastReadRecord({
+    book: { id: 'russian_b2', moduleId: 'grammar' }, chapter: 2, scroll: 420,
+    activeQuestionId: 'P3-Q017', updatedAt: '2026-07-19T12:00:00Z'
+  });
+  const listening = createB2LastReadRecord({
+    book: { id: 'russian_b2', moduleId: 'listening' }, chapter: 1, scroll: 88,
+    viewMode: 'intensive', updatedAt: '2026-07-19T12:05:00Z'
+  });
+
+  assert.equal(grammar.activeQuestionId, 'P3-Q017');
+  assert.equal(grammar.scroll, 420);
+  assert.equal(listening.viewMode, 'intensive');
+  assert.equal(listening.scroll, 88);
+  assert.deepEqual(buildDashboardProgress({ manifest, inventories, records: {}, lastRead: listening }).continueLearning, {
+    moduleId: 'listening', chapter: 1, activeQuestionId: undefined, scroll: 88,
+    viewMode: 'intensive', updatedAt: '2026-07-19T12:05:00Z'
+  });
 });
