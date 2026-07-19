@@ -138,6 +138,13 @@ test('degrades safely for damaged records and unavailable inventories', () => {
   });
 });
 
+test('dashboard keeps module entry available when one inventory cannot be loaded', () => {
+  const result = buildDashboardProgress({ manifest, inventories: { grammar: null }, records: 'broken', lastRead: {} });
+  const grammar = result.modules.grammar;
+  assert.equal(grammar.progressAvailable, false);
+  assert.equal(grammar.secondaryLabel, '进度暂不可用');
+});
+
 test('only retains a valid B2 last-read location and parseable activity timestamps', () => {
   const valid = buildDashboardProgress({ manifest, inventories, records: {
     reading: { r1q1: { answered: true, answeredAt: '2026-07-18T10:00:00Z' }, r1q2: { answered: true, answeredAt: 'not-a-date' } }
