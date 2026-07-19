@@ -85,3 +85,27 @@ Entries with neither valid array now make the entire module unavailable, prevent
 ### Fix commit
 
 `fix: require B2 progress inventory arrays`
+
+## Third review-fix report
+
+### Finding fixed
+
+Every inventory chapter now requires a non-empty string `id` before aggregation. Missing, non-string, and whitespace-only IDs make the module unavailable, so grammar cannot derive `russian_b2:undefined` and exam cannot form ambiguous manual keys.
+
+### TDD and verification
+
+- Added grammar and exam missing-ID regression cases first and ran `node --test tests/russian-b2/dashboard-progress.test.js`.
+  - The new regression failed as expected before validation was added (1 failing test).
+- Ran `node --test tests/russian-b2/dashboard-progress.test.js tests/russian-b2/dashboard-sync.test.js` after the fix.
+  - Result: 13 passing, 0 failing.
+- Ran `git diff --check` successfully.
+
+### Self-review
+
+- ID validation executes before all storage key construction and progress aggregation.
+- Existing module-specific ID-array validation and valid objective/writing exam variants remain unchanged.
+- No reader or user data files were touched.
+
+### Fix commit
+
+`fix: validate B2 progress inventory ids`

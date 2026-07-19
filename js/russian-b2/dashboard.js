@@ -54,6 +54,7 @@
   function hasMalformedChapterInventory(moduleId, inventory) {
     return inventory.some(item => {
       if (!item || typeof item !== 'object' || Array.isArray(item)) return true;
+      if (typeof item.id !== 'string' || !item.id.trim()) return true;
       const hasInvalidDeclaredIds = ['questionIds', 'taskIds'].some(key =>
         Object.prototype.hasOwnProperty.call(item, key) && !Array.isArray(item[key])
       );

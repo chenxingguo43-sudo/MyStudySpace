@@ -105,6 +105,18 @@ test('requires the module-specific inventory id arrays before aggregating progre
   assert.equal(writingOnlyExam.modules.exam.completed, 1);
 });
 
+test('degrades modules whose inventory chapters have no usable id', () => {
+  ['grammar', 'exam'].forEach(moduleId => {
+    const entry = moduleId === 'grammar' ? { questionIds: ['q'] } : { questionIds: ['q'] };
+    const result = buildDashboardProgress({ manifest, inventories: { ...inventories, [moduleId]: [entry] }, records: {
+      grammar: { 'russian_b2:undefined': { q: { submitted: true } } }, exam: { q: { answered: true } }
+    } });
+    assert.equal(result.modules[moduleId].completed, 0);
+    assert.equal(result.modules[moduleId].progressAvailable, false);
+    assert.equal(result.modules[moduleId].secondaryLabel, '进度暂不可用');
+  });
+});
+
 test('degrades safely for damaged records and unavailable inventories', () => {
   const result = buildDashboardProgress({ manifest, inventories: { grammar: null, reading: 'bad' }, records: { grammar: [], reading: null } });
   assert.equal(result.modules.grammar.progressAvailable, false);
