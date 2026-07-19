@@ -310,6 +310,14 @@ test('B2 last-read stores an update time and manual completion never infers comp
   assert.match(examWritingBody[1], /renderManualCompletionButton\(EXAM_COMPLETED_KEY,/);
 });
 
+test('dashboard loaders use current chapter JSON as the only progress denominator', () => {
+  assert.match(reader, /function loadB2DashboardInventories\(manifest\)/);
+  assert.match(reader, /questionIds/);
+  assert.match(reader, /taskIds/);
+  assert.match(reader, /function continueB2Learning\(\)/);
+  assert.match(reader, /restoreLastRead\(lastRead\)/);
+});
+
 test('reader renders approved reading learning support separately from original questions', () => {
   assert.match(reader, /function renderReadingLearningSupport\(data\)/);
   assert.match(reader, /学习辅助·逐段译文/);

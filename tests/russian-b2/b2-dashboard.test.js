@@ -42,3 +42,15 @@ test('B2 dashboard and module list use floating navigation instead of the dark t
   assert.match(moduleList, /b2FloatingNavigation/);
   assert.doesNotMatch(moduleList, /toolbar\(/);
 });
+
+test('B2 dashboard renders progress from the pure dashboard aggregator and keeps review non-percentual', () => {
+  const reader = fs.readFileSync(path.join(root, 'reader.html'), 'utf8');
+  const start = reader.indexOf('function renderB2Dashboard(book)');
+  const end = reader.indexOf('function showB2Dashboard()', start);
+  const dashboard = reader.slice(start, end);
+  assert.match(dashboard, /RussianB2Dashboard\.buildDashboardProgress/);
+  assert.match(dashboard, /继续上次学习/);
+  assert.match(dashboard, /已完成/);
+  assert.match(dashboard, /b2-module-progress/);
+  assert.doesNotMatch(dashboard, /review[^]*?%/);
+});
