@@ -239,7 +239,7 @@ test('writing workbench omits unavailable time limits instead of showing dash-mi
 test('unified B2 modules use module-scoped chapter cache keys', () => {
   assert.match(reader, /function getChapterCacheBookId\(book\)/);
   assert.match(reader, /book\.id \+ ':' \+ book\.moduleId/);
-  const chapterBody = reader.match(/function goChapter\(idx\) \{([\s\S]*?)\n\}/);
+  const chapterBody = reader.match(/function goChapter\(idx(?:, restoreState)?\) \{([\s\S]*?)\n\}/);
   assert.ok(chapterBody);
   assert.match(chapterBody[1], /cacheGet\(cacheBookId, idx\)/);
   assert.match(chapterBody[1], /cachePut\(cacheBookId, idx, data\)/);
@@ -289,6 +289,77 @@ test('reader exposes a scoped B2 archive export and merge-only import flow', () 
   assert.match(reader, /RussianB2Dashboard\.validateArchive/);
   assert.match(reader, /RussianB2Dashboard\.mergeArchive/);
   assert.match(reader, /学习记录备份/);
+});
+
+test('B2 last-read stores an update time and manual completion never infers completion from drafts', () => {
+  assert.match(reader, /updatedAt:\s*new Date\(\)\.toISOString\(\)/);
+  assert.match(reader, /var WRITING_COMPLETED_KEY = 'russian_b2_writing_completed_v1'/);
+  assert.match(reader, /var SPEAKING_COMPLETED_KEY = 'russian_b2_speaking_completed_v1'/);
+  assert.match(reader, /var EXAM_COMPLETED_KEY = 'russian_b2_exam_completed_v1'/);
+  assert.match(reader, /function toggleManualCompletion\(storageKey, taskId\)/);
+  assert.match(reader, /标记完成/);
+  assert.doesNotMatch(reader, /value\.trim\(\).*completed/);
+
+  const writingBody = reader.match(/function renderWritingWorkbench\(data, scrollPosition\) \{([\s\S]*?)\n\}/);
+  const speakingBody = reader.match(/function renderSpeakingPractice\(data, scrollPosition\) \{([\s\S]*?)\n\}/);
+  const examWritingBody = reader.match(/function renderExamWritingTask\(task\) \{([\s\S]*?)\n\}/);
+  assert.ok(writingBody && speakingBody && examWritingBody);
+  assert.match(reader, /function renderManualCompletionButton\(storageKey, taskId\)[\s\S]*?toggleManualCompletion/);
+  assert.match(writingBody[1], /renderManualCompletionButton\(WRITING_COMPLETED_KEY,/);
+  assert.match(speakingBody[1], /renderManualCompletionButton\(SPEAKING_COMPLETED_KEY,/);
+  assert.match(examWritingBody[1], /renderManualCompletionButton\(EXAM_COMPLETED_KEY,/);
+});
+
+test('dashboard loaders use current chapter JSON as the only progress denominator', () => {
+  assert.match(reader, /function loadB2DashboardInventories\(manifest\)/);
+  assert.match(reader, /RussianB2Dashboard\.chapterInventory/);
+  assert.match(reader, /RussianB2Dashboard\.getDashboardChapterPaths/);
+  assert.match(reader, /module\.id === 'grammar'/);
+  assert.match(reader, /function continueB2Learning\(\)/);
+  assert.match(reader, /restoreLastRead\(lastRead\)/);
+});
+
+test('B2 continuation persists and forwards active question, listening mode, and scroll restore state', () => {
+  const saveBody = reader.match(/function saveLastRead\([^)]*\) \{([\s\S]*?)\n\}/);
+  const restoreBody = reader.match(/function restoreLastRead\(lastRead\) \{([\s\S]*?)\n\}/);
+  assert.ok(saveBody && restoreBody);
+  assert.match(saveBody[1], /activeQuestionId/);
+  assert.match(saveBody[1], /viewMode/);
+  assert.match(restoreBody[1], /goChapter\(lastRead\.chapter, lastRead\)/);
+  assert.match(reader, /function goChapter\(idx, restoreState\)/);
+  assert.match(reader, /function renderChapter\(data, restoreState\)/);
+  assert.match(reader, /pendingQuizJumpId = restoreState\.activeQuestionId/);
+  assert.match(reader, /renderListeningPractice\(data, scrollPosition, restoreState\)/);
+  assert.match(reader, /function restorePendingQuizQuestion\(pendingJump, restoreState\)/);
+  assert.match(reader, /restorePendingQuizQuestion\(pendingJump, arguments\[2\]\)/);
+});
+
+test('saved grammar scroll suppresses the async question jump while a question-only restore still jumps', () => {
+  const helper = reader.match(/function restorePendingQuizQuestion\(pendingJump, restoreState\) \{([\s\S]*?)\n\}/);
+  assert.ok(helper);
+
+  function createHarness() {
+    const scheduled = [], jumped = [];
+    const build = new Function('setTimeout', 'jumpToQuizExercise', helper[0] + '\nreturn restorePendingQuizQuestion;');
+    return {
+      scheduled,
+      jumped,
+      restore: build(callback => scheduled.push(callback), questionId => jumped.push(questionId))
+    };
+  }
+
+  const exactScroll = createHarness();
+  const scheduledWithScroll = exactScroll.restore('P3-Q017', { activeQuestionId: 'P3-Q017', scroll: 640 });
+  exactScroll.scheduled.forEach(callback => callback());
+  assert.equal(scheduledWithScroll, false);
+  assert.deepEqual(exactScroll.jumped, []);
+
+  const questionOnly = createHarness();
+  const scheduledWithoutScroll = questionOnly.restore('P3-Q017', { activeQuestionId: 'P3-Q017' });
+  assert.equal(scheduledWithoutScroll, true);
+  assert.equal(questionOnly.scheduled.length, 1);
+  questionOnly.scheduled[0]();
+  assert.deepEqual(questionOnly.jumped, ['P3-Q017']);
 });
 
 test('reader renders approved reading learning support separately from original questions', () => {
