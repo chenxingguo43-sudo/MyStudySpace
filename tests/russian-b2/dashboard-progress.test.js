@@ -90,6 +90,21 @@ test('degrades a module when a chapter inventory declares malformed question ids
   assert.equal(result.modules.grammar.secondaryLabel, '进度暂不可用');
 });
 
+test('requires the module-specific inventory id arrays before aggregating progress', () => {
+  ['grammar', 'reading'].forEach(moduleId => {
+    const result = buildDashboardProgress({ manifest, inventories: { ...inventories, [moduleId]: [{ id: 'missing-ids' }] }, records: {} });
+    assert.equal(result.modules[moduleId].progressAvailable, false);
+    assert.equal(result.modules[moduleId].completed, 0);
+  });
+
+  const emptyExam = buildDashboardProgress({ manifest, inventories: { ...inventories, exam: [{ id: 'empty-exam' }] }, records: {} });
+  assert.equal(emptyExam.modules.exam.progressAvailable, false);
+  assert.equal(emptyExam.modules.exam.completed, 0);
+
+  const writingOnlyExam = buildDashboardProgress({ manifest: { modules: [{ id: 'exam' }] }, inventories: { exam: [{ id: 'writing', questionIds: [], taskIds: ['task'] }] }, records: { examCompleted: { 'writing:task': { completed: true, updatedAt: '2026-07-19T10:00:00Z' } } } });
+  assert.equal(writingOnlyExam.modules.exam.completed, 1);
+});
+
 test('degrades safely for damaged records and unavailable inventories', () => {
   const result = buildDashboardProgress({ manifest, inventories: { grammar: null, reading: 'bad' }, records: { grammar: [], reading: null } });
   assert.equal(result.modules.grammar.progressAvailable, false);

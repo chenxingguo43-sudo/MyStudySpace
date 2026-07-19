@@ -55,3 +55,33 @@
 ### Fix commit
 
 `fix: validate B2 progress records`
+
+## Second review-fix report
+
+### Finding fixed
+
+Inventory validation now requires the relevant ID array for every supported module:
+
+- Grammar, reading, and listening require `questionIds` arrays.
+- Writing and speaking require `taskIds` arrays.
+- Exam entries require at least one valid ID array; objective-only entries and writing-only entries with an empty `questionIds` array remain valid.
+
+Entries with neither valid array now make the entire module unavailable, preventing vacuous completion.
+
+### TDD and verification
+
+- Added missing-array and empty-exam regression cases first, then ran `node --test tests/russian-b2/dashboard-progress.test.js`.
+  - The new required-array regression failed as expected before the implementation change (1 failing test).
+- Ran `node --test tests/russian-b2/dashboard-progress.test.js tests/russian-b2/dashboard-sync.test.js` after the fix.
+  - Result: 12 passing, 0 failing.
+- Ran `git diff --check` successfully.
+
+### Self-review
+
+- Required-array checks are module-specific, so valid objective-only and writing-only exam chapters retain their intended completion behavior.
+- The malformed-inventory path returns unavailable progress before any completion calculation.
+- No reader or user data files were touched.
+
+### Fix commit
+
+`fix: require B2 progress inventory arrays`

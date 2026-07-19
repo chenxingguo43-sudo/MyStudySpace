@@ -51,12 +51,19 @@
   function inventoryFor(inventories, moduleId) {
     return Object.prototype.hasOwnProperty.call(inventories, moduleId) && Array.isArray(inventories[moduleId]) ? inventories[moduleId] : null;
   }
-  function hasMalformedChapterInventory(inventory) {
+  function hasMalformedChapterInventory(moduleId, inventory) {
     return inventory.some(item => {
       if (!item || typeof item !== 'object' || Array.isArray(item)) return true;
-      return ['questionIds', 'taskIds'].some(key =>
+      const hasInvalidDeclaredIds = ['questionIds', 'taskIds'].some(key =>
         Object.prototype.hasOwnProperty.call(item, key) && !Array.isArray(item[key])
       );
+      if (hasInvalidDeclaredIds) return true;
+      const hasQuestions = Array.isArray(item.questionIds);
+      const hasTasks = Array.isArray(item.taskIds);
+      if (moduleId === 'grammar' || moduleId === 'reading' || moduleId === 'listening') return !hasQuestions;
+      if (moduleId === 'writing' || moduleId === 'speaking') return !hasTasks;
+      if (moduleId === 'exam') return !hasQuestions && !hasTasks;
+      return false;
     });
   }
   function objectiveModule(moduleId, inventory, records, grammar) {
@@ -118,7 +125,7 @@
         modules[moduleId] = progressEntry(moduleId, 0, 0, { progressAvailable: false, secondaryLabel: '进度暂不可用' });
         return;
       }
-      if (hasMalformedChapterInventory(inventory)) {
+      if (hasMalformedChapterInventory(moduleId, inventory)) {
         modules[moduleId] = progressEntry(moduleId, 0, 0, { progressAvailable: false, secondaryLabel: '进度暂不可用' });
         return;
       }
