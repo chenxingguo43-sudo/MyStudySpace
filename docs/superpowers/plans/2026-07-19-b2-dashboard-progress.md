@@ -495,4 +495,3 @@ Run: `node server.js`
 git add -- tests/russian-b2/dashboard-progress.test.js docs/superpowers/acceptance/2026-07-19-b2-dashboard-progress.md
 git commit -m "test: verify B2 dashboard progress"
 ```
-
