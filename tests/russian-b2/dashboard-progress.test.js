@@ -72,8 +72,22 @@ test('exam completion requires both objective answers and completed manual writi
   } });
   assert.equal(complete.modules.exam.completed, 1);
 
+  const missingTimestamp = buildDashboardProgress({ manifest, inventories, records: {
+    exam: { e1q1: { answered: true } }, examCompleted: { 'e1:e1t1': { completed: true } }
+  } });
+  assert.equal(missingTimestamp.modules.exam.completed, 0);
+
   const objectiveOnly = buildDashboardProgress({ manifest: { modules: [{ id: 'exam' }] }, inventories: { exam: [{ id: 'objective', questionIds: ['q'] }] }, records: { exam: { q: { answered: true } } } });
   assert.equal(objectiveOnly.modules.exam.completed, 1);
+});
+
+test('degrades a module when a chapter inventory declares malformed question ids', () => {
+  const result = buildDashboardProgress({ manifest, inventories: {
+    ...inventories, grammar: [{ id: 'p1', questionIds: 'bad' }]
+  }, records: {} });
+  assert.equal(result.modules.grammar.progressAvailable, false);
+  assert.equal(result.modules.grammar.completed, 0);
+  assert.equal(result.modules.grammar.secondaryLabel, '进度暂不可用');
 });
 
 test('degrades safely for damaged records and unavailable inventories', () => {

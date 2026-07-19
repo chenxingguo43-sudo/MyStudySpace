@@ -51,6 +51,14 @@
   function inventoryFor(inventories, moduleId) {
     return Object.prototype.hasOwnProperty.call(inventories, moduleId) && Array.isArray(inventories[moduleId]) ? inventories[moduleId] : null;
   }
+  function hasMalformedChapterInventory(inventory) {
+    return inventory.some(item => {
+      if (!item || typeof item !== 'object' || Array.isArray(item)) return true;
+      return ['questionIds', 'taskIds'].some(key =>
+        Object.prototype.hasOwnProperty.call(item, key) && !Array.isArray(item[key])
+      );
+    });
+  }
   function objectiveModule(moduleId, inventory, records, grammar) {
     const store = safeObject(records);
     const complete = item => {
@@ -84,7 +92,10 @@
       const questions = Array.isArray(chapter.questionIds) ? chapter.questionIds : [];
       const tasks = Array.isArray(chapter.taskIds) ? chapter.taskIds : [];
       return questions.every(id => safeObject(objectives[id]).answered === true) &&
-        tasks.every(id => safeObject(manuals[chapter.id + ':' + id]).completed === true);
+        tasks.every(id => {
+          const record = safeObject(manuals[chapter.id + ':' + id]);
+          return record.completed === true && parseableTimestamp(record.updatedAt);
+        });
     };
     return {
       total: inventory.length,
@@ -104,6 +115,10 @@
       if (moduleId === 'review') { modules[moduleId] = progressEntry(moduleId, 0, 0); return; }
       const inventory = inventoryFor(safeInventories, moduleId);
       if (!inventory) {
+        modules[moduleId] = progressEntry(moduleId, 0, 0, { progressAvailable: false, secondaryLabel: '进度暂不可用' });
+        return;
+      }
+      if (hasMalformedChapterInventory(inventory)) {
         modules[moduleId] = progressEntry(moduleId, 0, 0, { progressAvailable: false, secondaryLabel: '进度暂不可用' });
         return;
       }

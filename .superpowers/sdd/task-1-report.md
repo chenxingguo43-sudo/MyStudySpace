@@ -30,3 +30,28 @@
 ## Commit
 
 `feat: aggregate B2 dashboard progress`
+
+## Review-fix report
+
+### Findings fixed
+
+1. Chapter inventory entries that declare non-array `questionIds` or `taskIds` now make that module unavailable. The resulting entry has `progressAvailable: false`, `completed: 0`, and `secondaryLabel: '进度暂不可用'`; it cannot be completed through vacuous array checks.
+2. Exam writing tasks now require both `completed === true` and a parseable `updatedAt`, matching the writing/speaking manual-completion contract.
+
+### TDD and verification
+
+- Added regression assertions before the fix and ran `node --test tests/russian-b2/dashboard-progress.test.js`.
+  - The new malformed-inventory and missing-exam-timestamp checks failed as expected (2 failures).
+- Ran `node --test tests/russian-b2/dashboard-progress.test.js tests/russian-b2/dashboard-sync.test.js` after the fix.
+  - Result: 11 passing, 0 failing.
+- Ran `git diff --check` successfully.
+
+### Self-review
+
+- Validation applies uniformly to all module inventories, including optional objective-only exam chapters (where absent fields remain valid).
+- The exam timestamp gate is intentionally limited to manual writing completion; objective answer records retain their existing completion rule.
+- The changes do not alter archive behavior or touch reader/user data.
+
+### Fix commit
+
+`fix: validate B2 progress records`
