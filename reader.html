@@ -794,7 +794,13 @@ function saveBookmarks() { try { localStorage.setItem('rr_bookmarks_' + NOVEL_ID
 function saveLastRead() {
   try {
     if (curBook && curCh >= 0) {
-      localStorage.setItem('rr_lastread_' + NOVEL_ID, JSON.stringify({ bookId: curBook.id, chapter: curCh, scroll: window.scrollY }));
+      localStorage.setItem('rr_lastread_' + NOVEL_ID, JSON.stringify({
+        bookId: curBook.id,
+        moduleId: curBook.moduleId || '',
+        chapter: curCh,
+        scroll: window.scrollY,
+        updatedAt: new Date().toISOString()
+      }));
     }
   } catch(e) {}
 }
@@ -1780,7 +1786,35 @@ function rerenderReadingPracticePreservingScroll() {
 var WRITING_DRAFTS_KEY = 'russian_b2_writing_drafts_v1';
 var WRITING_VERSIONS_KEY = 'russian_b2_writing_versions_v1';
 var WRITING_MODEL_UNLOCKS_KEY = 'russian_b2_writing_model_unlocks_v1';
+var WRITING_COMPLETED_KEY = 'russian_b2_writing_completed_v1';
+var SPEAKING_COMPLETED_KEY = 'russian_b2_speaking_completed_v1';
+var EXAM_COMPLETED_KEY = 'russian_b2_exam_completed_v1';
 var currentWritingData = null;
+function getManualCompletion(storageKey) {
+  try { return window.RussianB2Dashboard.safeObject(JSON.parse(localStorage.getItem(storageKey) || '{}')); }
+  catch (e) { return {}; }
+}
+function isManuallyCompleted(storageKey, taskId) {
+  return getManualCompletion(storageKey)[taskId] && getManualCompletion(storageKey)[taskId].completed === true;
+}
+function rerenderCurrentB2TaskPreservingScroll() {
+  if (curBook && curBook.format === 'writing-workbench' && currentWritingData) { renderWritingWorkbench(currentWritingData, window.scrollY); return; }
+  if (curBook && curBook.format === 'speaking-practice' && currentSpeakingData) { renderSpeakingPractice(currentSpeakingData, window.scrollY); return; }
+  if (curBook && curBook.format === 'exam-practice' && currentExamData) { renderExamPracticeChapter(currentExamData, window.scrollY); return; }
+  toast('完成状态已保存');
+}
+function toggleManualCompletion(storageKey, taskId) {
+  var completed = getManualCompletion(storageKey);
+  if (completed[taskId] && completed[taskId].completed === true) delete completed[taskId];
+  else completed[taskId] = { completed: true, updatedAt: new Date().toISOString() };
+  try { localStorage.setItem(storageKey, JSON.stringify(completed)); } catch (e) {}
+  rerenderCurrentB2TaskPreservingScroll();
+}
+function renderManualCompletionButton(storageKey, taskId) {
+  var completed = isManuallyCompleted(storageKey, taskId);
+  return '<button class="tb-btn manual-completion" type="button" onclick="toggleManualCompletion(\'' + escapeHtml(storageKey) + '\',\'' + escapeHtml(taskId) + '\')">' +
+    (completed ? '✓ 已完成 · 取消' : '标记完成') + '</button>';
+}
 function getWritingDrafts() {
   try { return JSON.parse(localStorage.getItem(WRITING_DRAFTS_KEY) || '{}'); } catch (e) { return {}; }
 }
@@ -1877,7 +1911,7 @@ function renderWritingWorkbench(data, scrollPosition) {
   var metadata = renderWritingMetadata(data.task || {});
   var sourceMaterialSection = materials ? '<section><h2>原书材料</h2><p class="writing-status">以下广告按原书逐项整理；点击俄语单词可查词。</p><div class="writing-materials-grid">' + materials + '</div></section>' : '';
   var supportSection = (outline || patterns) ? '<section class="writing-support-box"><h2>学习辅助（非原书内容）</h2>' + (outline ? '<h3>起草顺序</h3><ol>' + outline + '</ol>' : '') + (patterns ? '<h3>可复用表达</h3><ul>' + patterns + '</ul>' : '') + '</section>' : '';
-  document.getElementById('app').innerHTML = b2FloatingNavigation({ backAction: 'showB2Dashboard()', backTitle: '仪表盘', menuAction: 'showChapters(\'' + escapeHtml(curBook.id) + '\')' }) + '<main class="main-container writing-workbench"><header class="chapter-header"><h1>' + escapeHtml(data.title || '') + '</h1><p>原书印刷页：' + escapeHtml(printedPages || '—') + ' · PDF：' + escapeHtml(sourcePages) + '</p></header><section class="writing-source-task"><h2>原书任务</h2><p class="ru-text">' + taskPrompt + '</p>' + (instructionsRu && data.task.prompt ? '<p class="question-translation">' + escapeHtml(data.task.prompt) + '</p>' : '') + metadata + '</section>' + sourceMaterialSection + '<section><h2>格式与内容清单</h2><ol>' + blocks + '</ol>' + (notes ? '<ul class="writing-status">' + notes + '</ul>' : '') + '</section><section><h2>你的草稿</h2><textarea class="writing-draft" id="writing-draft" placeholder="在这里用俄语起草…" oninput="saveWritingDraft(\'' + escapeHtml(data.id) + '\', this.value)">' + escapeHtml(draft) + '</textarea><p id="writing-draft-status" class="writing-status">本地自动保存 · ' + countWritingWords(draft) + ' 词</p><div class="writing-actions"><button class="tb-btn" onclick="copyWritingFeedbackPrompt(\'' + escapeHtml(data.id) + '\')">复制反馈提示</button><button class="tb-btn" onclick="saveWritingVersion(\'' + escapeHtml(data.id) + '\')">保存当前版本</button></div><div id="writing-version-list">' + renderWritingVersions(data.id) + '</div></section>' + (rubric ? '<section><h2>评分自查</h2><ul>' + rubric + '</ul></section>' : '') + '<details ontoggle="recordWritingModelUnlock(\'' + escapeHtml(data.id) + '\', this.open)"><summary>原书范文（完成后查看）</summary><p class="ru-text">' + model + '</p><small class="reading-answer-source">' + escapeHtml(data.model.source.label || 'B2 原书范文') + '</small></details>' + supportSection + '</main>';
+  document.getElementById('app').innerHTML = b2FloatingNavigation({ backAction: 'showB2Dashboard()', backTitle: '仪表盘', menuAction: 'showChapters(\'' + escapeHtml(curBook.id) + '\')' }) + '<main class="main-container writing-workbench"><header class="chapter-header"><h1>' + escapeHtml(data.title || '') + '</h1><p>原书印刷页：' + escapeHtml(printedPages || '—') + ' · PDF：' + escapeHtml(sourcePages) + '</p>' + renderManualCompletionButton(WRITING_COMPLETED_KEY, data.id) + '</header><section class="writing-source-task"><h2>原书任务</h2><p class="ru-text">' + taskPrompt + '</p>' + (instructionsRu && data.task.prompt ? '<p class="question-translation">' + escapeHtml(data.task.prompt) + '</p>' : '') + metadata + '</section>' + sourceMaterialSection + '<section><h2>格式与内容清单</h2><ol>' + blocks + '</ol>' + (notes ? '<ul class="writing-status">' + notes + '</ul>' : '') + '</section><section><h2>你的草稿</h2><textarea class="writing-draft" id="writing-draft" placeholder="在这里用俄语起草…" oninput="saveWritingDraft(\'' + escapeHtml(data.id) + '\', this.value)">' + escapeHtml(draft) + '</textarea><p id="writing-draft-status" class="writing-status">本地自动保存 · ' + countWritingWords(draft) + ' 词</p><div class="writing-actions"><button class="tb-btn" onclick="copyWritingFeedbackPrompt(\'' + escapeHtml(data.id) + '\')">复制反馈提示</button><button class="tb-btn" onclick="saveWritingVersion(\'' + escapeHtml(data.id) + '\')">保存当前版本</button></div><div id="writing-version-list">' + renderWritingVersions(data.id) + '</div></section>' + (rubric ? '<section><h2>评分自查</h2><ul>' + rubric + '</ul></section>' : '') + '<details ontoggle="recordWritingModelUnlock(\'' + escapeHtml(data.id) + '\', this.open)"><summary>原书范文（完成后查看）</summary><p class="ru-text">' + model + '</p><small class="reading-answer-source">' + escapeHtml(data.model.source.label || 'B2 原书范文') + '</small></details>' + supportSection + '</main>';
   window.scrollTo(0, typeof scrollPosition === 'number' ? scrollPosition : 0); applyTheme(); saveLastRead();
 }
 var SPEAKING_DRAFTS_KEY = 'russian_b2_speaking_notes_v1';
@@ -1930,7 +1964,7 @@ function renderSpeakingPractice(data, scrollPosition) {
   var warning = data.media && data.media.provenance === 'missing-original-media' ? '<section class="source-warning"><strong>原始媒体缺失</strong><p>' + escapeHtml(data.media.note || '教材原始媒体未保存；这里只提供可追溯的文字资料。') + '</p></section>' : '';
   var speakingTask = renderRuText(data.task.prompt, lookupContext('speaking', data.id, 'speaking-reference', data.task.prompt, '', data.sourcePages || []));
   var sourceAnswer = renderRuText(data.sourceAnswer.text || '', lookupContext('speaking', data.id, 'speaking-reference', data.sourceAnswer.text || '', '', data.sourceAnswer.source && data.sourceAnswer.source.pages || data.sourcePages || []));
-  document.getElementById('app').innerHTML = b2FloatingNavigation({ backAction: 'showB2Dashboard()', backTitle: '仪表盘', menuAction: 'showChapters(\'' + escapeHtml(curBook.id) + '\')' }) + '<main class="main-container speaking-practice"><header class="chapter-header"><h1>' + escapeHtml(data.title || '') + '</h1><p class="reading-answer-source">原书页：' + escapeHtml(sourcePages) + '</p></header><section><h2>原书任务</h2><p>' + speakingTask + '</p></section>' + warning + '<section><h2>渐进练习</h2><ol class="speaking-steps">' + steps + '</ol></section><section><h2>你的提纲 / 转写</h2><textarea class="speaking-transcript" placeholder="先列关键词，再写下你准备说的内容…" oninput="saveSpeakingNote(\'' + escapeHtml(data.id) + '\', this.value)">' + escapeHtml(note) + '</textarea><p id="speaking-note-status" class="speaking-recording-status">本地自动保存</p></section><section><h2>录音与回听</h2><p class="speaking-recording-status">录音只存到这台设备的浏览器 IndexedDB，不会上传。</p><div class="speaking-recording-controls"><button id="start-speaking-recording" class="tb-btn" onclick="startSpeakingRecording()">开始录音</button><button id="stop-speaking-recording" class="tb-btn" onclick="stopSpeakingRecording()" disabled>结束录音</button><span id="speaking-recording-status" class="speaking-recording-status">尚未录音</span></div><audio id="speaking-playback" class="speaking-playback" controls hidden></audio></section><details><summary>原书参考回答（已核对）</summary><p class="ru-text">' + sourceAnswer + '</p><small class="reading-answer-source">' + escapeHtml(data.sourceAnswer.source.label || 'B2 原书参考回答') + '</small></details><details><summary>学习辅助：自查清单</summary><ul>' + checklist + '</ul></details></main>';
+  document.getElementById('app').innerHTML = b2FloatingNavigation({ backAction: 'showB2Dashboard()', backTitle: '仪表盘', menuAction: 'showChapters(\'' + escapeHtml(curBook.id) + '\')' }) + '<main class="main-container speaking-practice"><header class="chapter-header"><h1>' + escapeHtml(data.title || '') + '</h1><p class="reading-answer-source">原书页：' + escapeHtml(sourcePages) + '</p>' + renderManualCompletionButton(SPEAKING_COMPLETED_KEY, data.id) + '</header><section><h2>原书任务</h2><p>' + speakingTask + '</p></section>' + warning + '<section><h2>渐进练习</h2><ol class="speaking-steps">' + steps + '</ol></section><section><h2>你的提纲 / 转写</h2><textarea class="speaking-transcript" placeholder="先列关键词，再写下你准备说的内容…" oninput="saveSpeakingNote(\'' + escapeHtml(data.id) + '\', this.value)">' + escapeHtml(note) + '</textarea><p id="speaking-note-status" class="speaking-recording-status">本地自动保存</p></section><section><h2>录音与回听</h2><p class="speaking-recording-status">录音只存到这台设备的浏览器 IndexedDB，不会上传。</p><div class="speaking-recording-controls"><button id="start-speaking-recording" class="tb-btn" onclick="startSpeakingRecording()">开始录音</button><button id="stop-speaking-recording" class="tb-btn" onclick="stopSpeakingRecording()" disabled>结束录音</button><span id="speaking-recording-status" class="speaking-recording-status">尚未录音</span></div><audio id="speaking-playback" class="speaking-playback" controls hidden></audio></section><details><summary>原书参考回答（已核对）</summary><p class="ru-text">' + sourceAnswer + '</p><small class="reading-answer-source">' + escapeHtml(data.sourceAnswer.source.label || 'B2 原书参考回答') + '</small></details><details><summary>学习辅助：自查清单</summary><ul>' + checklist + '</ul></details></main>';
   window.scrollTo(0, typeof scrollPosition === 'number' ? scrollPosition : 0); applyTheme(); saveLastRead();
 }
 var LISTENING_PROGRESS_KEY = 'russian_b2_listening_progress_v1';
@@ -2059,7 +2093,7 @@ function renderExamWritingTask(task) {
   var draft = (getExamWritingDrafts()[task.id] || {}).value || '';
   var pages = (task.source && task.source.pdfPages || []).map(function(page) { return 'PDF-' + String(page).padStart(3, '0'); }).join('、');
   var material = task.materialsNote ? '<p class="writing-status">材料提示：' + escapeHtml(task.materialsNote) + '</p>' : '';
-  return '<section class="writing-workbench"><h2>任务 ' + escapeHtml(String(task.printedNumber)) + ' · ' + escapeHtml(task.genre) + '</h2><p>' + escapeHtml(task.prompt) + '</p>' + material + '<p class="writing-status">建议长度：' + escapeHtml(task.wordTarget) + ' 词 · ' + escapeHtml(pages) + '</p><textarea class="writing-draft" placeholder="在这里完成俄语真题写作…" oninput="saveExamWritingDraft(\'' + escapeHtml(task.id) + '\', this.value)">' + escapeHtml(draft) + '</textarea><p id="exam-writing-status-' + escapeHtml(task.id) + '" class="writing-status">本地自动保存 · ' + countWritingWords(draft) + ' 词</p></section>';
+  return '<section class="writing-workbench"><h2>任务 ' + escapeHtml(String(task.printedNumber)) + ' · ' + escapeHtml(task.genre) + '</h2>' + renderManualCompletionButton(EXAM_COMPLETED_KEY, currentExamData.id + ':' + task.id) + '<p>' + escapeHtml(task.prompt) + '</p>' + material + '<p class="writing-status">建议长度：' + escapeHtml(task.wordTarget) + ' 词 · ' + escapeHtml(pages) + '</p><textarea class="writing-draft" placeholder="在这里完成俄语真题写作…" oninput="saveExamWritingDraft(\'' + escapeHtml(task.id) + '\', this.value)">' + escapeHtml(draft) + '</textarea><p id="exam-writing-status-' + escapeHtml(task.id) + '" class="writing-status">本地自动保存 · ' + countWritingWords(draft) + ' 词</p></section>';
 }
 function renderExamPracticeChapter(data, scrollPosition) {
   currentExamData = data;

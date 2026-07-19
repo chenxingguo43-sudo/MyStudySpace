@@ -291,6 +291,25 @@ test('reader exposes a scoped B2 archive export and merge-only import flow', () 
   assert.match(reader, /学习记录备份/);
 });
 
+test('B2 last-read stores an update time and manual completion never infers completion from drafts', () => {
+  assert.match(reader, /updatedAt:\s*new Date\(\)\.toISOString\(\)/);
+  assert.match(reader, /var WRITING_COMPLETED_KEY = 'russian_b2_writing_completed_v1'/);
+  assert.match(reader, /var SPEAKING_COMPLETED_KEY = 'russian_b2_speaking_completed_v1'/);
+  assert.match(reader, /var EXAM_COMPLETED_KEY = 'russian_b2_exam_completed_v1'/);
+  assert.match(reader, /function toggleManualCompletion\(storageKey, taskId\)/);
+  assert.match(reader, /标记完成/);
+  assert.doesNotMatch(reader, /value\.trim\(\).*completed/);
+
+  const writingBody = reader.match(/function renderWritingWorkbench\(data, scrollPosition\) \{([\s\S]*?)\n\}/);
+  const speakingBody = reader.match(/function renderSpeakingPractice\(data, scrollPosition\) \{([\s\S]*?)\n\}/);
+  const examWritingBody = reader.match(/function renderExamWritingTask\(task\) \{([\s\S]*?)\n\}/);
+  assert.ok(writingBody && speakingBody && examWritingBody);
+  assert.match(reader, /function renderManualCompletionButton\(storageKey, taskId\)[\s\S]*?toggleManualCompletion/);
+  assert.match(writingBody[1], /renderManualCompletionButton\(WRITING_COMPLETED_KEY,/);
+  assert.match(speakingBody[1], /renderManualCompletionButton\(SPEAKING_COMPLETED_KEY,/);
+  assert.match(examWritingBody[1], /renderManualCompletionButton\(EXAM_COMPLETED_KEY,/);
+});
+
 test('reader renders approved reading learning support separately from original questions', () => {
   assert.match(reader, /function renderReadingLearningSupport\(data\)/);
   assert.match(reader, /学习辅助·逐段译文/);
