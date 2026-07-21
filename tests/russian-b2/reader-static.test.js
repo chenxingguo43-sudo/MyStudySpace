@@ -53,7 +53,12 @@ test('quiz shows verified source explanations inline and completion is not scrol
   assert.doesNotMatch(reader, /function openQuizSourceViewer\(/);
   assert.doesNotMatch(reader, /查看原书页/);
   assert.match(reader, /function finishQuizChapter\(\)/);
-  assert.doesNotMatch(reader, /renderQuizChapter[\s\S]{0,6000}markChapterDone\(/);
+  // 滚动不自动完成：scroll 回调里不再有 chDone = true
+  assert.match(reader, /function markChapterDone\(\)/);
+  assert.match(reader, /onclick="markChapterDone\(\)"/);
+  var scrollCb = reader.match(/addEventListener\('scroll'[\s\S]*?\n\}, \{ passive: true \}\)/);
+  assert.ok(scrollCb);
+  assert.doesNotMatch(scrollCb[0], /chDone\s*=\s*true/);
 });
 
 test('quiz interactions preserve the reader scroll position', () => {
@@ -100,9 +105,9 @@ test('knowledge-point navigation uses generated study-card IDs instead of a P2 h
   assert.doesNotMatch(reader, /partId === 'p2' && point\.id === 'p2-time-cause'/);
 });
 
-test('quiz supports single-click answers and retry history', () => {
+test('quiz supports two-click answers (select then confirm) and retry history', () => {
   assert.match(reader, /function getQuizSettings\(\)/);
-  assert.match(reader, /function submitQuizOption\(questionId, key\)/);
+  assert.match(reader, /function submitQuizOption\(questionId,\s*key/);
   assert.match(reader, /everWrong/);
   assert.match(reader, /function restartQuiz\(mode/);
 });
@@ -173,10 +178,10 @@ test('reader stores study-card self-test mastery separately from B2 wrong answer
 
 test('reader gives reading practice its own answer-reveal flow', () => {
   assert.match(reader, /function renderReadingPracticeChapter\(data(?:, scrollPosition)?\)/);
-  assert.match(reader, /function answerReadingQuestion\(questionId, selected\)/);
+  assert.match(reader, /function answerReadingQuestion\(questionId,\s*selected,\s*evt/);
   assert.match(reader, /function toggleReadingAnswer\(questionId\)/);
   assert.match(reader, /reading-practice/);
-  const answerBody = reader.match(/function answerReadingQuestion\(questionId, selected\) \{([\s\S]*?)\n\}/);
+  const answerBody = reader.match(/function answerReadingQuestion\(questionId,\s*selected,\s*evt[\s\S]*?\) \{([\s\S]*?)\n\}/);
   assert.ok(answerBody);
   assert.doesNotMatch(answerBody[1], /toggleReadingAnswer\(/);
 });
@@ -189,7 +194,7 @@ test('mock exams separate answer controls from lookup after an assisted unlock',
 
 test('reading interactions preserve scroll position and display source pages', () => {
   assert.match(reader, /function rerenderReadingPracticePreservingScroll\(\)/);
-  const answerBody = reader.match(/function answerReadingQuestion\(questionId, selected\) \{([\s\S]*?)\n\}/);
+  const answerBody = reader.match(/function answerReadingQuestion\(questionId,\s*selected,\s*evt[\s\S]*?\) \{([\s\S]*?)\n\}/);
   const revealBody = reader.match(/function toggleReadingAnswer\(questionId\) \{([\s\S]*?)\n\}/);
   assert.ok(answerBody && revealBody);
   assert.match(answerBody[1], /rerenderReadingPracticePreservingScroll\(\)/);
@@ -249,13 +254,39 @@ test('unified B2 modules use module-scoped chapter cache keys', () => {
   assert.match(fetchBody[1], /dataDir \+ '\/' \+ directory/);
 });
 
+test('last-read state preserves and restores the B2 module route', () => {
+  const saveStart = reader.indexOf('function saveLastRead()');
+  const saveEnd = reader.indexOf('\n}', saveStart);
+  const saveBody = reader.slice(saveStart, saveEnd);
+  assert.match(saveBody, /record\.moduleId\s*=\s*curBook\.moduleId/);
+  assert.match(saveBody, /activeQuestionId/);
+  assert.match(reader, /function restoreLastRead\(lastRead\)/);
+  assert.match(reader, /lastRead\.moduleId\s*\|\|\s*'grammar'/);
+  assert.match(reader, /function resumeModule\(index\)/);
+  assert.match(reader, /catch\(function\(\) \{ resumeModule\(\{\}\); \}\)/);
+  assert.match(reader, /restoreLastRead\(lr\)/);
+});
+
+test('B2 quiz and study-card pages use one navigation system', () => {
+  const quizStart = reader.indexOf('function renderQuizChapter(data, scrollPosition)');
+  const quizEnd = reader.indexOf('var READING_PROGRESS_KEY', quizStart);
+  const quizBody = reader.slice(quizStart, quizEnd);
+  assert.doesNotMatch(quizBody, /onclick="showShelf\(\)"[^>]*>← 书架/);
+
+  const cardStart = reader.indexOf('function renderStudyCard(card, point)');
+  const cardEnd = reader.indexOf('function showStudyCard', cardStart);
+  const cardBody = reader.slice(cardStart, cardEnd);
+  assert.doesNotMatch(cardBody, /onclick="goChapter\([^)]*\)"[^>]*>← 返回/);
+});
+
 test('interactive B2 workbenches are never marked complete merely by scrolling', () => {
   assert.match(reader, /function shouldUseScrollCompletion\(\)/);
   assert.match(reader, /reading-practice/);
   assert.match(reader, /writing-workbench/);
   assert.match(reader, /curBook\.format !== 'speaking-practice'/);
   assert.match(reader, /curBook\.format !== 'listening-practice'/);
-  assert.match(reader, /if \(!shouldUseScrollCompletion\(\)\) return;/);
+  assert.match(reader, /!shouldUseScrollCompletion\(\)\)/);
+  assert.match(reader, /completePrompt.*classList\.remove\('visible'\)/);
 });
 
 test('reader gives source-indexed exam chapters a distinct, non-fabricated exam view', () => {
@@ -334,7 +365,7 @@ test('B2 continuation persists and forwards active question, listening mode, and
   assert.match(reader, /restorePendingQuizQuestion\(pendingJump, arguments\[2\]\)/);
 });
 
-test('saved grammar scroll suppresses the async question jump while a question-only restore still jumps', () => {
+test('saved grammar scroll no longer suppresses the question jump — activeQuestionId always wins', () => {
   const helper = reader.match(/function restorePendingQuizQuestion\(pendingJump, restoreState\) \{([\s\S]*?)\n\}/);
   assert.ok(helper);
 
@@ -348,12 +379,14 @@ test('saved grammar scroll suppresses the async question jump while a question-o
     };
   }
 
-  const exactScroll = createHarness();
-  const scheduledWithScroll = exactScroll.restore('P3-Q017', { activeQuestionId: 'P3-Q017', scroll: 640 });
-  exactScroll.scheduled.forEach(callback => callback());
-  assert.equal(scheduledWithScroll, false);
-  assert.deepEqual(exactScroll.jumped, []);
+  // 有 scroll 也跳（之前会跳过，现在统一跳）
+  const withScroll = createHarness();
+  const scheduledWithScroll = withScroll.restore('P3-Q017', { activeQuestionId: 'P3-Q017', scroll: 640 });
+  withScroll.scheduled.forEach(callback => callback());
+  assert.equal(scheduledWithScroll, true);
+  assert.deepEqual(withScroll.jumped, ['P3-Q017']);
 
+  // 无 scroll 当然也跳
   const questionOnly = createHarness();
   const scheduledWithoutScroll = questionOnly.restore('P3-Q017', { activeQuestionId: 'P3-Q017' });
   assert.equal(scheduledWithoutScroll, true);
@@ -364,8 +397,8 @@ test('saved grammar scroll suppresses the async question jump while a question-o
 
 test('reader renders approved reading learning support separately from original questions', () => {
   assert.match(reader, /function renderReadingLearningSupport\(data\)/);
-  assert.match(reader, /学习辅助·逐段译文/);
-  assert.match(reader, /学习辅助·文章结构/);
-  assert.match(reader, /学习辅助·可复用表达/);
+  assert.match(reader, /逐段译文/);
+  assert.match(reader, /文章结构/);
+  assert.match(reader, /可复用表达/);
   assert.match(reader, /data\.translationStatus === 'learning-support-approved'/);
 });
