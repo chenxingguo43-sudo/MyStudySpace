@@ -2764,7 +2764,7 @@ function renderExercises(exercises) {
         '<div class="answer-label">答案: <strong>' + escapeHtml(ex.answer) + '</strong></div>';
       if (ex.detailed_explanation) {
         // 详细解析：按段落渲染
-        var paragraphs = ex.detailed_explanation.split('\\n').filter(function(p) { return p.trim(); });
+        var paragraphs = ex.detailed_explanation.split('\n').filter(function(p) { return p.trim(); });
         for (var p = 0; p < paragraphs.length; p++) {
           var para = paragraphs[p].trim();
           if (para.startsWith('【') && para.includes('】')) {
@@ -4187,9 +4187,9 @@ function renderReadingSpeakingChapter(data, scrollPosition, restoreState) {
     '<div class="peek-counter">👁 查看原文: <span id="peekCnt">0</span> / <span id="totalParas">' + visibleCount + '</span> 段</div>' +
     '<div class="main-container"><header class="chapter-header"><h1>第 ' + (curCh + 1) + ' 章</h1><h2>' + escapeHtml(data.title || '') + '</h2></header></div>' +
     '<div class="reader-layout" id="readerLayout">' +
-    '<div class="reader-pane" id="readerPane">' +
+    '<div class="reader-pane" id="readerPane"><div class="chapter-content">' +
     parts.join('') + exercisesHtml +
-    '</div>' +
+    '</div></div>' +
     '<div class="resize-handle" id="resizeHandle"></div>' +
     '<div class="detail-panel" id="detailPanel" data-dictionary-state="closed">' +
     '<button class="dictionary-drawer-handle" type="button" aria-label="展开或收起词典"></button>' +
@@ -4234,11 +4234,16 @@ function renderReadingSpeakingExercise(ex) {
     var cls = 'b2-option-row';
     if (submitted && isCorrectAnswer) cls += ' correct';
     if (submitted && selected && !isCorrectAnswer) cls += ' wrong';
-    if (selected && !submitted) cls += ' selected';
+    if (selected && !submitted) cls += ' pending';
     var disabled = submitted ? ' style="pointer-events:none;opacity:0.85"' : '';
 
+    var optionText = ex.options[j];
+    var parenIdx = optionText.indexOf(')');
+    var keyPart = parenIdx > 0 ? optionText.substring(0, parenIdx + 1) : optionText; // "а)"
+    var textPart = parenIdx > 0 ? optionText.substring(parenIdx + 1).trim() : '';
     html += '<div class="' + cls + '" onclick="submitReadingSpeakingOption(\'' + escapeHtml(exId) + '\',\'' + escapeHtml(key) + '\',event)"' + disabled + '>' +
-      '<span class="b2-option-label">' + escapeHtml(ex.options[j]) + '</span>';
+      '<span class="b2-option-radio">' + escapeHtml(keyPart) + '</span>' +
+      '<span class="b2-option-text">' + renderRuText(textPart, lookupContext('reading', exId + '-opt' + j, 'quiz-option', textPart, '', [])) + '</span>';
     if (ex.zhOptions && ex.zhOptions[j]) {
       html += '<span class="b2-option-zh" style="display:block;font-size:0.85em;color:var(--text-dim);margin-top:2px">' + escapeHtml(ex.zhOptions[j]) + '</span>';
     }
