@@ -4335,7 +4335,7 @@ function submitReadingSpeakingOption(exId, key, evt) {
     progress[exId] = record;
     saveReadingSpeakingProgress(progress);
   }
-  rerenderReadingSpeakingChapter();
+  updateReadingSpeakingQuestionDOM(exId);
 }
 
 function toggleReadingSpeakingExplanation(exId) {
@@ -4345,12 +4345,89 @@ function toggleReadingSpeakingExplanation(exId) {
   var progress = getReadingSpeakingProgress();
   progress[exId] = record;
   saveReadingSpeakingProgress(progress);
-  rerenderReadingSpeakingChapter();
+  updateReadingSpeakingQuestionDOM(exId);
 }
 
-function rerenderReadingSpeakingChapter() {
-  if (!_currentRSData) return;
-  renderReadingSpeakingChapter(_currentRSData, window.scrollY);
+function updateReadingSpeakingQuestionDOM(exId) {
+  var el = document.querySelector('[data-question-id="' + exId + '"]');
+  if (!el) return;
+  var record = getReadingSpeakingRecord(exId);
+  var ex = getReadingSpeakingExercise(exId);
+  if (!ex) return;
+
+  // 1. 更新选项行状态
+  var rows = el.querySelectorAll('.b2-option-row');
+  for (var j = 0; j < rows.length; j++) {
+    var row = rows[j];
+    var optionKey = extractOptionKey((ex.options || [])[j] || '');
+    var selected = record.selected === optionKey;
+    var correct = optionKey === ex.answer;
+    // 清除旧状态 class
+    row.classList.remove('pending', 'correct', 'wrong');
+    row.style.pointerEvents = '';
+    row.style.opacity = '';
+    if (record.submitted) {
+      if (correct) row.classList.add('correct');
+      if (selected && !correct) row.classList.add('wrong');
+      row.style.pointerEvents = 'none';
+      row.style.opacity = '0.85';
+    } else if (selected) {
+      row.classList.add('pending');
+    }
+  }
+
+  // 2. 更新结果文字和解析区域
+  var oldResult = el.querySelector('.b2-quiz-result');
+  var oldToggle = el.querySelector('.b2-explanation-toggle');
+  var oldExplanation = el.querySelector('.b2-explanation');
+
+  if (record.submitted) {
+    // 结果
+    var resultHtml = '<p class="b2-quiz-result ' + (record.wrong ? 'wrong' : 'correct') + '">' +
+      (record.wrong ? '回答错误' : '回答正确') + '</p>';
+    if (oldResult) oldResult.outerHTML = resultHtml;
+    else rows[rows.length - 1].insertAdjacentHTML('afterend', resultHtml);
+
+    // 解析按钮
+    var toggleHtml = '<button class="b2-explanation-toggle" onclick="toggleReadingSpeakingExplanation(\'' + exId + '\')">' +
+      (record.expOpen ? '收起解析 ▲' : '查看解析 ▼') + '</button>';
+    if (oldToggle) oldToggle.outerHTML = toggleHtml;
+    else {
+      var resultEl = el.querySelector('.b2-quiz-result');
+      if (resultEl) resultEl.insertAdjacentHTML('afterend', toggleHtml);
+    }
+
+    // 解析内容
+    if (record.expOpen) {
+      var expHtml = '<div class="b2-explanation"><p><strong>答案：' + escapeHtml(ex.answer) + '</strong></p>';
+      if (ex.detailed_explanation) {
+        var paragraphs = ex.detailed_explanation.split('\n').filter(function(p) { return p.trim(); });
+        for (var p = 0; p < paragraphs.length; p++) {
+          var para = paragraphs[p].trim();
+          if (para.startsWith('【') && para.includes('】')) {
+            expHtml += '<div class="answer-section-title" style="font-weight:600;margin-top:12px;color:var(--text)">' + escapeHtml(para) + '</div>';
+          } else {
+            expHtml += '<div class="answer-para" style="margin:4px 0;line-height:1.7">' + escapeHtml(para) + '</div>';
+          }
+        }
+      } else if (ex.explanation) {
+        expHtml += '<p>' + escapeHtml(ex.explanation) + '</p>';
+      }
+      expHtml += '</div>';
+      if (oldExplanation) oldExplanation.outerHTML = expHtml;
+      else {
+        var toggleEl = el.querySelector('.b2-explanation-toggle');
+        if (toggleEl) toggleEl.insertAdjacentHTML('afterend', expHtml);
+      }
+    } else if (oldExplanation) {
+      oldExplanation.remove();
+    }
+  } else {
+    // 未提交：移除结果和解析
+    if (oldResult) oldResult.remove();
+    if (oldToggle) oldToggle.remove();
+    if (oldExplanation) oldExplanation.remove();
+  }
 }
 </script>
 </body>
