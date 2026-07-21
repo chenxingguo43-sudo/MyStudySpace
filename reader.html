@@ -471,7 +471,8 @@ body {
 .para-block:hover { background: var(--para-hover); }
 .para-block.expanded { border-left-color: var(--para-expanded-border); }
 .para-block:hover .para-actions { opacity: 1; }
-.ru-text { color: var(--ru-text); font-size: 1.05em; line-height: 1.9; font-family: Georgia, 'Noto Serif', 'Segoe UI', serif; text-rendering: optimizeLegibility; font-feature-settings: "kern" 1, "liga" 1; }
+.ru-text { color: var(--ru-text); font-size: 1.05em; line-height: 1.9; font-family: Georgia, 'Noto Serif', 'Segoe UI', serif; text-rendering: optimizeLegibility; font-feature-settings: "kern" 1, "liga" 1; text-indent: 2em; }
+.cn-text { text-indent: 2em; }
 .para-block:not(.expanded) .ru-text::after { content: " ▸"; font-size: .6em; color: var(--text-dim); }
 .cn-text {
   color: var(--cn-text); margin: 0; padding: 0; max-height: 0; overflow: hidden; opacity: 0;
@@ -2603,19 +2604,17 @@ function renderReadingPracticeQuestion(question) {
 }
 function renderReadingLearningSupport(data) {
   if (data.translationStatus !== 'learning-support-approved') return '';
-  var translations = (data.translations || []).map(function(text, index) { return '<li><b>第 ' + (index + 1) + ' 段：</b>' + escapeHtml(text) + '</li>'; }).join('');
   var structure = (data.structure || []).map(function(item) { return '<li><b>' + escapeHtml(item.role) + '：</b>第 ' + escapeHtml(item.paragraphs.join('、')) + ' 段；' + escapeHtml(item.note) + '</li>'; }).join('');
   var expressions = (data.reusableExpressions || []).map(function(item, index) { return '<li><span class="ru-expression-tag">' + renderRuText(item.ru, lookupContext('reading', data.id + '-expression-' + (index + 1), 'reading-support', item.ru, item.zh, data.sourcePages || [])) + '</span><span class="expression-zh">' + escapeHtml(item.zh) + '</span></li>'; }).join('');
-  var retelling = data.retelling && data.retelling.steps ? '<div class="learning-card"><h2>学习辅助 · 复述框架</h2><ol>' + data.retelling.steps.map(function(step) { return '<li>' + escapeHtml(step) + '</li>'; }).join('') + '</ol></div>' : '';
-  return '<div class="learning-support"><div class="source-warning"><strong>⚠ 学习辅助 · 非原书解析</strong><p>译文、结构和表达用于理解与复述；原书题目仍需独立完成后查看答案。</p></div>' +
-    '<div class="learning-card"><h2>逐段译文</h2><ol>' + translations + '</ol></div>' +
+  var retelling = data.retelling && data.retelling.steps ? '<div class="learning-card"><h2>复述框架</h2><ol>' + data.retelling.steps.map(function(step) { return '<li>' + escapeHtml(step) + '</li>'; }).join('') + '</ol></div>' : '';
+  return '<div class="learning-support"><div class="source-warning"><strong>⚠ 学习辅助 · 非原书解析</strong><p>点击段落展开译文；结构与表达用于理解与复述；原书题目仍需独立完成后查看答案。</p></div>' +
     '<div class="learning-card"><h2>文章结构</h2><ol>' + structure + '</ol></div>' +
     '<div class="learning-card"><h2>可复用表达</h2><ul>' + expressions + '</ul></div>' +
     retelling + '</div>';
 }
 function renderReadingPracticeChapter(data, scrollPosition) {
   currentReadingData = data;
-  var paragraphs = (data.original || []).map(function(paragraph, index) { return '<p class="ru-text">' + renderRuText(paragraph, lookupContext('reading', data.id + '-paragraph-' + (index + 1), 'reading-body', paragraph, (data.translations || [])[index] || '', data.sourcePages || [])) + '</p>'; }).join('');
+  var paragraphs = (data.original || []).map(function(paragraph, index) { return '<div class="para-block" data-idx="' + index + '"><p class="ru-text">' + renderRuText(paragraph, lookupContext('reading', data.id + '-paragraph-' + (index + 1), 'reading-body', paragraph, (data.translations || [])[index] || '', data.sourcePages || [])) + '</p><p class="cn-text">' + escapeHtml((data.translations || [])[index] || '') + '</p></div>'; }).join('');
   var questions = (data.questions || []).map(renderReadingPracticeQuestion).join('');
   var navP = curCh > 0 ? '<button class="fab-nav" onclick="goChapter(' + (curCh - 1) + ')">← 上一篇</button>' : '<span class="fab-nav disabled">← 上一篇</span>';
   var navN = curCh < curBook.chapters - 1 ? '<button class="fab-nav" onclick="goChapter(' + (curCh + 1) + ')">下一篇 →</button>' : '<span class="fab-nav disabled">下一篇 →</span>';

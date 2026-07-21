@@ -397,7 +397,7 @@ test('saved grammar scroll no longer suppresses the question jump — activeQues
 
 test('reader renders approved reading learning support separately from original questions', () => {
   assert.match(reader, /function renderReadingLearningSupport\(data\)/);
-  assert.match(reader, /逐段译文/);
+  assert.match(reader, /点击段落展开译文/);
   assert.match(reader, /文章结构/);
   assert.match(reader, /可复用表达/);
   assert.match(reader, /data\.translationStatus === 'learning-support-approved'/);
