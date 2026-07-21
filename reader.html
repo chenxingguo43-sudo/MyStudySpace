@@ -131,7 +131,6 @@ body {
 
 /* ─── 主容器 ─── */
 .main-container { position: relative; z-index: 1; max-width: 720px; margin: 0 auto; padding: 20px 16px 100px; }
-.main-container:has(+ .reader-layout) { padding-bottom: 20px; }
 
 /* ─── 分屏布局容器 ─── */
 .reader-layout {
@@ -2623,7 +2622,7 @@ function renderReadingPracticeChapter(data, scrollPosition) {
   var support = renderReadingLearningSupport(data);
   var supportState = data.translationStatus === 'learning-support-approved' ? '学习辅助已审核发布。' : '原文已核对；译文与结构讲解将分批审核后发布。';
   document.getElementById('app').innerHTML = b2FloatingNavigation({ backAction: 'showB2Dashboard()', backTitle: '仪表盘', menuAction: 'showBreadcrumb()' }) +
-    '<main class="main-container"><header class="chapter-header"><h1>' + escapeHtml(data.title || '') + '</h1><p>' + supportState + '</p><p class="reading-answer-source">原书原文页：' + escapeHtml(sourcePages) + '</p></header></main>' +
+    '<main class="main-container" style="padding-bottom:20px"><header class="chapter-header"><h1>' + escapeHtml(data.title || '') + '</h1><p>' + supportState + '</p><p class="reading-answer-source">原书原文页：' + escapeHtml(sourcePages) + '</p></header></main>' +
     '<div class="reader-layout" id="readerLayout">' +
     '<div class="reader-pane" id="readerPane">' +
     '<section class="chapter-content">' + paragraphs + '</section>' + 
@@ -3069,9 +3068,9 @@ document.addEventListener('click', function(e) {
     }
   }
 
-  // 点到了 ru-text 空白区域 → 展开/收起翻译
+  // 点到了 ru-text 空白区域 → 展开/收起翻译（点俄语单词时不触发，留给词典）
   var ruEl = e.target.closest('.ru-text');
-  if (ruEl) toggleCN(ruEl);
+  if (ruEl && !e.target.closest('.ru-word')) toggleCN(ruEl);
 });
 
 
@@ -4253,7 +4252,7 @@ function renderReadingSpeakingChapter(data, scrollPosition, restoreState) {
   document.getElementById('app').innerHTML =
     b2FloatingNavigation({ backAction: 'showReadingSpeakingDashboard()', backTitle: '仪表盘', menuAction: 'showBreadcrumb()' }) +
     '<div class="peek-counter">👁 查看原文: <span id="peekCnt">0</span> / <span id="totalParas">' + visibleCount + '</span> 段</div>' +
-    '<div class="main-container"><header class="chapter-header"><h1>第 ' + (curCh + 1) + ' 章</h1><h2>' + escapeHtml(data.title || '') + '</h2></header></div>' +
+    '<div class="main-container" style="padding-bottom:20px"><header class="chapter-header"><h1>第 ' + (curCh + 1) + ' 章</h1><h2>' + escapeHtml(data.title || '') + '</h2></header></div>' +
     '<div class="reader-layout" id="readerLayout">' +
     '<div class="reader-pane" id="readerPane"><div class="chapter-content">' +
     parts.join('') + exercisesHtml +
