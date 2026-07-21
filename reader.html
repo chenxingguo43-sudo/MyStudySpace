@@ -4156,13 +4156,15 @@ function renderReadingSpeakingChapter(data, scrollPosition, restoreState) {
     if (!paras[i] || !paras[i].trim()) continue;
     visibleCount++;
     var isBm = bookMarks.indexOf(i) >= 0;
+    // 移除 Markdown ** 标记（数据文件中残留的加粗语法）
+    var cleanPara = paras[i].replace(/\*\*/g, '');
     parts.push(
       '<div class="para-block" data-idx="' + i + '">' +
       '<div class="para-actions">' +
         '<button class="' + (isBm ? 'bookmarked' : '') + '" onclick="toggleBookmark(' + i + ',event)" title="收藏段落">' + (isBm ? '★' : '☆') + '</button>' +
       '</div>' +
-      '<p class="ru-text">' + renderRuText(paras[i], lookupContext('reading', 'reading_speaking-ch' + curCh + '-p' + i, 'reading-body', paras[i], (trans[i] || ''), [])) + '</p>' +
-      '<p class="cn-text" style="display:none">' + escapeHtml(trans[i] || '') + '</p></div>'
+      '<p class="ru-text">' + renderRuText(cleanPara, lookupContext('reading', 'reading_speaking-ch' + curCh + '-p' + i, 'reading-body', cleanPara, (trans[i] || ''), [])) + '</p>' +
+      '<p class="cn-text">' + escapeHtml(trans[i] || '') + '</p></div>'
     );
   }
   if (!visibleCount) parts.push('<div class="loading">📭 本章暂无内容</div>');
