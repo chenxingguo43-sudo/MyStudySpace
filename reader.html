@@ -318,10 +318,11 @@ body {
   padding: 0 14px 0 0; border: 1px solid var(--border); background: var(--glass);
   transition: opacity 0.2s, border-color 0.2s, background 0.2s;
 }
-.b2-quiz-page .b2-option-row { cursor: pointer; }
-.b2-quiz-page .b2-option-row:hover:not(.correct):not(.wrong):not(.submitted) {
+.b2-option-row { cursor: pointer; }
+.b2-option-row:hover:not(.correct):not(.wrong) {
   background: var(--glass-hover); border-color: var(--text-dim);
 }
+.b2-option-row:active { transform: scale(0.99); }
 .b2-option-radio {
   flex: 0 0 44px; min-height: 44px;
   color: var(--text-secondary); font-weight: 700;
@@ -365,7 +366,8 @@ body {
 .b2-study-check-choice { display: flex; align-items: center; gap: 8px; margin: 6px 0; }
 .b2-study-check-choice > button { flex: 0 0 36px; min-height: 36px; }
 .b2-study-check-choice > span { flex: 1; }
-.b2-confirm, .b2-explanation-toggle, .b2-finish { border: 1px solid var(--accent-border); background: var(--accent-dim); color: var(--text); padding: 8px 14px; cursor: pointer; font: inherit; }
+.b2-confirm, .b2-explanation-toggle, .b2-finish { border: 1px solid var(--accent-border); background: var(--accent-dim); color: var(--text); padding: 8px 14px; cursor: pointer; font: inherit; transition: transform 0.1s; }
+.b2-confirm:active, .b2-explanation-toggle:active, .b2-finish:active { transform: scale(0.97); }
 .b2-confirm:disabled, .b2-explanation-toggle:disabled { opacity: 0.45; cursor: not-allowed; }
 .b2-result.is-correct, .b2-result.is-wrong { font-weight: 700; margin-top: 12px; }
 .b2-result.is-correct { color: var(--success); }.b2-result.is-wrong { color: var(--warning); }
@@ -414,8 +416,9 @@ body {
 .exercise-options { margin: 8px 0; padding-left: 20px; }
 .exercise-option { font-size: 14px; line-height: 1.8; color: var(--text); }
 .exercise-option-zh { font-size: 12px; color: var(--text-secondary); padding-left: 16px; margin-bottom: 4px; }
-.answer-toggle { padding: 6px 14px; background: var(--accent); color: #fff; border: none; border-radius: 6px; font-size: 13px; cursor: pointer; margin-top: 8px; transition: opacity 0.2s; }
+.answer-toggle { padding: 6px 14px; background: var(--accent); color: #fff; border: none; border-radius: 6px; font-size: 13px; cursor: pointer; margin-top: 8px; transition: opacity 0.2s, transform 0.1s; }
 .answer-toggle:hover { opacity: 0.85; }
+.answer-toggle:active { transform: scale(0.97); }
 .answer-block { margin-top: 10px; padding: 12px; background: rgba(76,175,80,0.08); border-radius: 6px; border-left: 3px solid #4caf50; }
 .answer-label { font-size: 14px; margin-bottom: 6px; }
 .answer-explanation { font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
