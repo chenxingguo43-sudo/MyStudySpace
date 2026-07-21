@@ -1099,6 +1099,8 @@ function showBreadcrumb() {
     if (curModule) {
       items.push({ label: '📝 ' + curModule.title, action: 'showChapters(\'' + escapeHtml(curBook.id) + '\')', type: 'page' });
     }
+  } else if (curBook && curBook.id === 'reading_speaking') {
+    items.push({ label: '📘 ' + curBook.title, action: 'showReadingSpeakingDashboard()', type: 'page' });
   } else if (curBook) {
     items.push({ label: '📘 ' + curBook.title, action: 'showChapters(\'' + escapeHtml(curBook.id) + '\')', type: 'page' });
   }
@@ -1107,6 +1109,7 @@ function showBreadcrumb() {
   var curTitle = '';
   if (currentQuizData && currentQuizData.title) curTitle = currentQuizData.title;
   else if (currentReadingData && currentReadingData.title) curTitle = currentReadingData.title;
+  else if (_currentRSData && _currentRSData.title) curTitle = _currentRSData.title;
   else if (currentWritingData && currentWritingData.title) curTitle = currentWritingData.title;
   else if (currentSpeakingData && currentSpeakingData.title) curTitle = currentSpeakingData.title;
   else if (currentListeningData && currentListeningData.title) curTitle = currentListeningData.title;
