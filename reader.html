@@ -4049,15 +4049,12 @@ function showReadingSpeakingDashboard() {
   curBook = getBookById('reading_speaking');
   curCh = -1;
   stopTimer();
+  document.getElementById('searchBar').classList.remove('visible');
   var prompt = document.getElementById('completePrompt'); if (prompt) prompt.classList.remove('visible');
   if (!curBook) { showShelf(); return; }
 
-  var stats = readStats['reading_speaking'] || {};
-  var doneCount = 0;
-  for (var i = 0; i < 30; i++) {
-    if (stats[i] && stats[i].completed) doneCount++;
-  }
-  var pct = Math.round(doneCount / 30 * 100);
+  var total = curBook.chapters || 30;
+  var progress = getReadingSpeakingDashboardProgress();
 
   /* 继续上次学习 */
   var lastRead = parseStoredObject('rr_lastread_' + NOVEL_ID);
@@ -4072,8 +4069,8 @@ function showReadingSpeakingDashboard() {
 
   /* 章节 grid */
   var gridHtml = '<div class="chapter-grid">';
-  for (var i = 0; i < 30; i++) {
-    var isDone = !!(stats[i] && stats[i].completed);
+  for (var i = 0; i < total; i++) {
+    var isDone = !!(progress.stats[i] && progress.stats[i].completed);
     gridHtml += '<button class="ch-item' + (isDone ? ' done' : '') + '" onclick="goChapter(' + i + ')">' +
       '<span class="ch-num">' + (isDone ? '✓' : (i + 1)) + '</span></button>';
   }
@@ -4087,20 +4084,21 @@ function showReadingSpeakingDashboard() {
     '</header>' +
     continueCard +
     '<div style="background:var(--surface);border-radius:8px;padding:4px;margin:0 0 16px">' +
-    '<div style="background:var(--accent);height:6px;border-radius:3px;width:' + pct + '%"></div>' +
+    '<div style="background:var(--accent);height:6px;border-radius:3px;transition:width 0.3s ease;width:' + progress.pct + '%"></div>' +
     '</div>' +
-    '<p style="text-align:center;color:var(--text-dim);margin:4px 0 20px">' + doneCount + ' / 30 已完成</p>' +
+    '<p style="text-align:center;color:var(--text-dim);margin:4px 0 20px">' + progress.completed + ' / ' + progress.total + ' 已完成</p>' +
     gridHtml + '</main>';
   window.scrollTo(0, 0);
 }
 
 function getReadingSpeakingDashboardProgress() {
   var stats = readStats['reading_speaking'] || {};
+  var total = (curBook && curBook.chapters) || 30;
   var doneCount = 0;
-  for (var i = 0; i < 30; i++) {
+  for (var i = 0; i < total; i++) {
     if (stats[i] && stats[i].completed) doneCount++;
   }
-  return { total: 30, completed: doneCount };
+  return { total: total, completed: doneCount, pct: Math.round(doneCount / total * 100), stats: stats };
 }
 </script>
 </body>
