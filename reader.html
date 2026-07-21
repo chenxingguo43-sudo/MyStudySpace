@@ -3484,17 +3484,37 @@ function renderDetailPanel(word, result) {
 
 function highlightSavedWords() {
   if (!savedWords.length) return;
+  // 构建小写词表
+  var wordSet = {};
+  for (var w = 0; w < savedWords.length; w++) {
+    wordSet[savedWords[w].toLowerCase()] = true;
+  }
+
+  // 快速路径：对已渲染为 .ru-word 的词（reading_speaking / B2 阅读视图）
+  // 直接加 CSS class，不触 innerHTML 序列化（避免破坏 data-lookup-context 属性）
+  var ruWords = document.querySelectorAll('.ru-word');
+  for (var i = 0; i < ruWords.length; i++) {
+    var el = ruWords[i];
+    var wordText = (el.textContent || '').trim().toLowerCase();
+    if (wordSet[wordText]) el.classList.add('highlight-word');
+  }
+
+  // 兼容路径：旧小说阅读视图（无 .ru-word，只有纯文本段落）
   var blocks = document.querySelectorAll('.para-block .ru-text');
   for (var b = 0; b < blocks.length; b++) {
-    var text = blocks[b].textContent;
-    var html = blocks[b].innerHTML;
+    var block = blocks[b];
+    // 已有 .ru-word 子元素 → 快速路径已处理，跳过
+    if (block.querySelector('.ru-word')) continue;
+    // 旧路径：innerHTML 替换（小说段落不含嵌套 span，安全）
+    var text = block.textContent;
+    var html = block.innerHTML;
     for (var w = 0; w < savedWords.length; w++) {
       var word = savedWords[w];
       if (text.toLowerCase().indexOf(word) < 0) continue;
       var re = new RegExp('(' + word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
       html = html.replace(re, '<span class="highlight-word">$1</span>');
     }
-    blocks[b].innerHTML = html;
+    block.innerHTML = html;
   }
 }
 
