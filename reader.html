@@ -148,6 +148,8 @@ body {
 }
 /* 阅读区内的内容去除主容器最大宽度限制 */
 .reader-pane .chapter-content { max-width: none; }
+/* reading_speaking 练习题区段 */
+.exercises-section { margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--border); }
 /* 分割线 */
 .resize-handle {
   width: 8px; flex-shrink: 0; cursor: col-resize;
@@ -1672,6 +1674,8 @@ var pendingQuizJumpId = '';
 var pendingQuizPractice = null;
 var _wrongAnswerBookReturn = 'showShelf()'; // 错题本的返回动作：从书架来→回书架，从quiz来→回仪表盘
 var _wrongAnswerQuizReturn = null; // 从错题本跳入题目时保存的筛选状态
+var _currentRSExercises = [];
+var _currentRSData = null;
 
 function getB2Progress() {
   try { return migrateB2Progress(JSON.parse(localStorage.getItem(B2_PROGRESS_KEY)) || {}); }
@@ -2668,6 +2672,7 @@ function renderChapter(data, restoreState) {
   if (data.format === 'speaking-practice') { renderSpeakingPractice(data, scrollPosition, restoreState); return; }
   if (data.format === 'listening-practice') { renderListeningPractice(data, scrollPosition, restoreState); return; }
   if (data.format === 'exam-practice') { renderExamPracticeChapter(data, scrollPosition, restoreState); return; }
+  if (curBook && curBook.id === 'reading_speaking') { renderReadingSpeakingChapter(data, scrollPosition, restoreState); return; }
   var globalDictionaryPanel = document.querySelector('#detailPanel.dictionary-global-panel');
   if (globalDictionaryPanel) globalDictionaryPanel.remove();
   var paras = data.original || [], trans = data.translated || [], dir = curBook.direction || 'cn→ru';
@@ -4099,6 +4104,225 @@ function getReadingSpeakingDashboardProgress() {
     if (stats[i] && stats[i].completed) doneCount++;
   }
   return { total: total, completed: doneCount, pct: Math.round(doneCount / total * 100), stats: stats };
+}
+
+/* ══════════════════════════════════════════════
+   В мире людей — 选项 key 提取
+   ══════════════════════════════════════════════ */
+function extractOptionKey(optionText) {
+  var m = optionText.match(/^([а-я]+)\)/i);
+  return m ? m[1].toLowerCase() : '';
+}
+
+/* ══════════════════════════════════════════════
+   В мире людей — 进度存储
+   ══════════════════════════════════════════════ */
+var RS_PROGRESS_KEY = 'rr_reading_speaking_progress_v1';
+
+function getReadingSpeakingProgress() {
+  try { return JSON.parse(localStorage.getItem(RS_PROGRESS_KEY)) || {}; }
+  catch (e) { return {}; }
+}
+
+function saveReadingSpeakingProgress(progress) {
+  try { localStorage.setItem(RS_PROGRESS_KEY, JSON.stringify(progress)); } catch (e) {}
+}
+
+function getReadingSpeakingRecord(exId) {
+  var progress = getReadingSpeakingProgress();
+  if (!progress[exId]) progress[exId] = { selected: '', submitted: false, wrong: false, expOpen: false };
+  return progress[exId];
+}
+
+function getReadingSpeakingExercise(exId) {
+  if (!_currentRSExercises) return null;
+  for (var i = 0; i < _currentRSExercises.length; i++) {
+    if (_currentRSExercises[i]._exId === exId) return _currentRSExercises[i];
+  }
+  return null;
+}
+
+/* ══════════════════════════════════════════════
+   В мире людей — 章节阅读页
+   ══════════════════════════════════════════════ */
+function renderReadingSpeakingChapter(data, scrollPosition, restoreState) {
+  _currentRSData = data;
+  var paras = data.original || [], trans = data.translated || [];
+  var bookMarks = (bookmarks['reading_speaking'] && bookmarks['reading_speaking'][curCh]) || [];
+  var parts = [], visibleCount = 0;
+
+  for (var i = 0; i < paras.length; i++) {
+    if (!paras[i] || !paras[i].trim()) continue;
+    visibleCount++;
+    var isBm = bookMarks.indexOf(i) >= 0;
+    parts.push(
+      '<div class="para-block" data-idx="' + i + '">' +
+      '<div class="para-actions">' +
+        '<button class="' + (isBm ? 'bookmarked' : '') + '" onclick="toggleBookmark(' + i + ',event)" title="收藏段落">' + (isBm ? '★' : '☆') + '</button>' +
+      '</div>' +
+      '<p class="ru-text">' + renderRuText(paras[i], lookupContext('reading', 'reading_speaking-ch' + curCh + '-p' + i, 'reading-body', paras[i], (trans[i] || ''), [])) + '</p>' +
+      '<p class="cn-text" style="display:none">' + escapeHtml(trans[i] || '') + '</p></div>'
+    );
+  }
+  if (!visibleCount) parts.push('<div class="loading">📭 本章暂无内容</div>');
+
+  // 练习题
+  var exercises = data.exercises || [];
+  _currentRSExercises = exercises.map(function(ex) {
+    return Object.assign({}, ex, { _exId: 'rs-' + curCh + '-ex' + ex.num });
+  });
+
+  var exercisesHtml = '';
+  if (_currentRSExercises.length > 0) {
+    exercisesHtml = '<section class="exercises-section">' +
+      '<h2 style="margin-bottom:16px;color:var(--text);font-size:1.2em">📝 练习题 (' + _currentRSExercises.length + ' 道)</h2>' +
+      _currentRSExercises.map(function(ex) { return renderReadingSpeakingExercise(ex); }).join('') +
+      '</section>';
+  }
+
+  var totalChapters = (curBook && curBook.chapters) || 30;
+  var navP = curCh > 0 ? '<button class="fab-nav" onclick="goChapter(' + (curCh - 1) + ')">← 上一章</button>' : '<span class="fab-nav disabled">← 上一章</span>';
+  var navN = curCh < totalChapters - 1 ? '<button class="fab-nav" onclick="goChapter(' + (curCh + 1) + ')">下一章 →</button>' : '<span class="fab-nav disabled">下一章 →</span>';
+
+  document.getElementById('app').innerHTML =
+    b2FloatingNavigation({ backAction: 'showReadingSpeakingDashboard()', backTitle: '仪表盘', menuAction: 'showBreadcrumb()' }) +
+    '<div class="peek-counter">👁 查看原文: <span id="peekCnt">0</span> / <span id="totalParas">' + visibleCount + '</span> 段</div>' +
+    '<div class="main-container"><header class="chapter-header"><h1>第 ' + (curCh + 1) + ' 章</h1><h2>' + escapeHtml(data.title || '') + '</h2></header></div>' +
+    '<div class="reader-layout" id="readerLayout">' +
+    '<div class="reader-pane" id="readerPane">' +
+    parts.join('') + exercisesHtml +
+    '</div>' +
+    '<div class="resize-handle" id="resizeHandle"></div>' +
+    '<div class="detail-panel" id="detailPanel" data-dictionary-state="closed">' +
+    '<button class="dictionary-drawer-handle" type="button" aria-label="展开或收起词典"></button>' +
+    '<div class="detail-panel-inner" id="detailInner" aria-live="polite">' +
+    '<button class="detail-close" type="button" onclick="event.stopPropagation();dictionaryController.close()" aria-label="关闭词典" title="关闭">✕</button>' +
+    '<div class="detail-placeholder">👆 点击俄语单词查看详情</div>' +
+    '</div></div>' +
+    '</div>' +
+    '<div class="fab-group-bottom">' + navP +
+    '<span class="fab-chapter">第 ' + (curCh + 1) + ' / ' + totalChapters + ' 章</span>' +
+    '<button id="markDoneBtn" class="fab-nav fab-mark-done" onclick="markChapterDone()"' + (isChapterCompleted('reading_speaking', curCh) ? ' disabled' : '') + '>✓ 标记完成</button>' +
+    navN + '</div>';
+
+  window.scrollTo(0, typeof scrollPosition === 'number' ? scrollPosition : 0); applyTheme(); saveLastRead(restoreState);
+  restoreSplitRatio();
+  highlightSavedWords();
+  applyStressMarks();
+}
+
+/* ══════════════════════════════════════════════
+   В мире людей — 单题渲染
+   ══════════════════════════════════════════════ */
+function renderReadingSpeakingExercise(ex) {
+  var exId = ex._exId || ('rs-' + curCh + '-ex' + ex.num);
+  var record = getReadingSpeakingRecord(exId);
+  var submitted = record.submitted;
+
+  var html = '<div class="b2-quiz-item" data-question-id="' + escapeHtml(exId) + '">';
+  html += '<h3>' + ex.num + '. ' + escapeHtml(ex.question || '') + '</h3>';
+
+  // 中文提示
+  if (ex.zhQuestion) {
+    html += '<p class="exercise-zh-hint" style="color:var(--text-dim);font-size:0.9em;margin:4px 0 12px">' + escapeHtml(ex.zhQuestion) + '</p>';
+  }
+
+  // 选项
+  html += '<div class="b2-options">';
+  for (var j = 0; j < (ex.options || []).length; j++) {
+    var key = extractOptionKey(ex.options[j]);
+    var selected = record.selected === key;
+    var isCorrectAnswer = key === ex.answer;
+    var cls = 'b2-option-row';
+    if (submitted && isCorrectAnswer) cls += ' correct';
+    if (submitted && selected && !isCorrectAnswer) cls += ' wrong';
+    if (selected && !submitted) cls += ' selected';
+    var disabled = submitted ? ' style="pointer-events:none;opacity:0.85"' : '';
+
+    html += '<div class="' + cls + '" onclick="submitReadingSpeakingOption(\'' + escapeHtml(exId) + '\',\'' + escapeHtml(key) + '\',event)"' + disabled + '>' +
+      '<span class="b2-option-label">' + escapeHtml(ex.options[j]) + '</span>';
+    if (ex.zhOptions && ex.zhOptions[j]) {
+      html += '<span class="b2-option-zh" style="display:block;font-size:0.85em;color:var(--text-dim);margin-top:2px">' + escapeHtml(ex.zhOptions[j]) + '</span>';
+    }
+    html += '</div>';
+  }
+  html += '</div>';
+
+  // 结果
+  if (submitted) {
+    html += '<p class="b2-quiz-result ' + (record.wrong ? 'wrong' : 'correct') + '">' +
+      (record.wrong ? '回答错误' : '回答正确') + '</p>';
+  }
+
+  // 解析
+  if (submitted) {
+    html += '<button class="b2-explanation-toggle" onclick="toggleReadingSpeakingExplanation(\'' + escapeHtml(exId) + '\')">' +
+      (record.expOpen ? '收起解析 ▲' : '查看解析 ▼') + '</button>';
+    if (record.expOpen) {
+      html += '<div class="b2-explanation">' +
+        '<p><strong>答案：' + escapeHtml(ex.answer) + '</strong></p>';
+      if (ex.detailed_explanation) {
+        // Use \n to split (same pattern as renderExercises does for the old format)
+        var paragraphs = ex.detailed_explanation.split('\n').filter(function(p) { return p.trim(); });
+        for (var p = 0; p < paragraphs.length; p++) {
+          var para = paragraphs[p].trim();
+          if (para.startsWith('【') && para.includes('】')) {
+            html += '<div class="answer-section-title" style="font-weight:600;margin-top:12px;color:var(--text)">' + escapeHtml(para) + '</div>';
+          } else {
+            html += '<div class="answer-para" style="margin:4px 0;line-height:1.7">' + escapeHtml(para) + '</div>';
+          }
+        }
+      } else if (ex.explanation) {
+        html += '<p>' + escapeHtml(ex.explanation) + '</p>';
+      }
+      html += '</div>';
+    }
+  }
+
+  html += '</div>';
+  return html;
+}
+
+/* ══════════════════════════════════════════════
+   В мире людей — 答题交互
+   ══════════════════════════════════════════════ */
+function submitReadingSpeakingOption(exId, key, evt) {
+  // 点到了俄语单词 → 交给词典，不做答题操作
+  if (evt && evt.target.closest('.ru-word')) return;
+  var record = getReadingSpeakingRecord(exId);
+  if (record.submitted) return;
+
+  if (record.selected === key) {
+    // 第二次点击同一选项 → 确认提交
+    record.submitted = true;
+    var ex = getReadingSpeakingExercise(exId);
+    record.wrong = ex ? key !== ex.answer : false;
+    var progress = getReadingSpeakingProgress();
+    progress[exId] = record;
+    saveReadingSpeakingProgress(progress);
+  } else {
+    // 第一次点击 → 选中
+    record.selected = key;
+    var progress = getReadingSpeakingProgress();
+    progress[exId] = record;
+    saveReadingSpeakingProgress(progress);
+  }
+  rerenderReadingSpeakingChapter();
+}
+
+function toggleReadingSpeakingExplanation(exId) {
+  var record = getReadingSpeakingRecord(exId);
+  if (!record.submitted) return;
+  record.expOpen = !record.expOpen;
+  var progress = getReadingSpeakingProgress();
+  progress[exId] = record;
+  saveReadingSpeakingProgress(progress);
+  rerenderReadingSpeakingChapter();
+}
+
+function rerenderReadingSpeakingChapter() {
+  if (!_currentRSData) return;
+  renderReadingSpeakingChapter(_currentRSData, window.scrollY);
 }
 </script>
 </body>
