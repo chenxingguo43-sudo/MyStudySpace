@@ -1415,6 +1415,10 @@ function showChapters(bookId) {
     renderB2ModuleChapters();
     return;
   }
+  if (bookId === 'reading_speaking') {
+    showReadingSpeakingDashboard();
+    return;
+  }
   for (var i = 0; i < booksData.length; i++) {
     if (booksData[i].id === bookId) { curBook = booksData[i]; break; }
   }
@@ -1634,11 +1638,16 @@ function goChapter(idx, restoreState) {
   closeSearch();
 
   var app = document.getElementById('app');
-  var chapterNavigation = curBook && curBook.isB2Module
-    ? b2FloatingNavigation({ backAction: 'showB2Dashboard()', backTitle: '仪表盘', menuAction: 'showBreadcrumb()' })
-    : toolbar('第 ' + (idx + 1) + ' 章',
+  var chapterNavigation;
+  if (curBook && curBook.isB2Module) {
+    chapterNavigation = b2FloatingNavigation({ backAction: 'showB2Dashboard()', backTitle: '仪表盘', menuAction: 'showBreadcrumb()' });
+  } else if (curBook && curBook.id === 'reading_speaking') {
+    chapterNavigation = b2FloatingNavigation({ backAction: 'showReadingSpeakingDashboard()', backTitle: '仪表盘', menuAction: 'showBreadcrumb()' });
+  } else {
+    chapterNavigation = toolbar('第 ' + (idx + 1) + ' 章',
       '<button class="tb-btn" onclick="toggleSearch()" title="搜索 (Ctrl+F)">🔍</button>' +
       '<button class="tb-btn" onclick="showChapters(\'' + escapeHtml(curBook.id) + '\')" title="目录">☰</button>');
+  }
   app.innerHTML = chapterNavigation +
     '<div class="peek-counter">👁 查看原文: <span id="peekCnt">0</span> / <span id="totalParas">0</span> 段</div>' +
     '<div class="main-container"><div class="loading"><div class="spinner"></div><div>加载...</div></div></div>';
@@ -4030,6 +4039,69 @@ if (_jumpBook) {
       restoreLastRead(lr);
     }).catch(function() { showShelf(); });
 } else { showShelf(); }
+
+/* ══════════════════════════════════════════════
+   В мире людей — 仪表盘
+   ══════════════════════════════════════════════ */
+function showReadingSpeakingDashboard() {
+  saveLastRead();
+  curView = 'reading-speaking-dashboard';
+  curBook = getBookById('reading_speaking');
+  curCh = -1;
+  stopTimer();
+  var prompt = document.getElementById('completePrompt'); if (prompt) prompt.classList.remove('visible');
+  if (!curBook) { showShelf(); return; }
+
+  var stats = readStats['reading_speaking'] || {};
+  var doneCount = 0;
+  for (var i = 0; i < 30; i++) {
+    if (stats[i] && stats[i].completed) doneCount++;
+  }
+  var pct = Math.round(doneCount / 30 * 100);
+
+  /* 继续上次学习 */
+  var lastRead = parseStoredObject('rr_lastread_' + NOVEL_ID);
+  var continueCard = '';
+  if (lastRead && lastRead.bookId === 'reading_speaking' && typeof lastRead.chapter === 'number') {
+    var savedAt = lastRead.updatedAt ? new Date(lastRead.updatedAt).toLocaleString('zh-CN') : '';
+    continueCard = '<section class="b2-continue-card"><p>继续上次学习</p>' +
+      '<h2>第 ' + (lastRead.chapter + 1) + ' 章</h2>' +
+      (savedAt ? '<small>最近保存于 ' + escapeHtml(savedAt) + '</small>' : '') +
+      '<button type="button" onclick="goChapter(' + lastRead.chapter + ')">继续学习</button></section>';
+  }
+
+  /* 章节 grid */
+  var gridHtml = '<div class="chapter-grid">';
+  for (var i = 0; i < 30; i++) {
+    var isDone = !!(stats[i] && stats[i].completed);
+    gridHtml += '<button class="ch-item' + (isDone ? ' done' : '') + '" onclick="goChapter(' + i + ')">' +
+      '<span class="ch-num">' + (isDone ? '✓' : (i + 1)) + '</span></button>';
+  }
+  gridHtml += '</div>';
+
+  document.getElementById('app').innerHTML =
+    b2FloatingNavigation({ backAction: 'showShelf()', backTitle: '书架' }) +
+    '<main class="main-container b2-dashboard"><header class="b2-dashboard-hero">' +
+    '<h1>📖 ' + escapeHtml(curBook.title) + '</h1>' +
+    '<p>' + escapeHtml(curBook.description || 'ТРКИ-2 阅读口语教材') + '</p>' +
+    '</header>' +
+    continueCard +
+    '<div style="background:var(--surface);border-radius:8px;padding:4px;margin:0 0 16px">' +
+    '<div style="background:var(--accent);height:6px;border-radius:3px;width:' + pct + '%"></div>' +
+    '</div>' +
+    '<p style="text-align:center;color:var(--text-dim);margin:4px 0 20px">' + doneCount + ' / 30 已完成</p>' +
+    gridHtml + '</main>';
+  window.scrollTo(0, 0);
+}
+
+function getReadingSpeakingDashboardProgress() {
+  var stats = readStats['reading_speaking'] || {};
+  var doneCount = 0;
+  for (var i = 0; i < 30; i++) {
+    if (stats[i] && stats[i].completed) doneCount++;
+  }
+  return { total: 30, completed: doneCount };
+}
 </script>
 </body>
 </html>
