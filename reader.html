@@ -2625,9 +2625,10 @@ function renderReadingPracticeChapter(data, scrollPosition) {
     '<main class="main-container"><header class="chapter-header"><h1>' + escapeHtml(data.title || '') + '</h1><p>' + supportState + '</p><p class="reading-answer-source">原书原文页：' + escapeHtml(sourcePages) + '</p></header></main>' +
     '<div class="reader-layout" id="readerLayout">' +
     '<div class="reader-pane" id="readerPane">' +
-    '<section class="chapter-content">' + paragraphs + '</section>' + support +
+    '<section class="chapter-content">' + paragraphs + '</section>' + 
     '<section><h2>阅读理解</h2>' + questions + '</section>' +
     '<nav class="b2-quiz-nav">' + navP + '<span class="fab-chapter">第 ' + (curCh + 1) + ' / ' + curBook.chapters + ' 篇</span>' + navN + '</nav>' +
+    support +
     '</div>' +
     '<div class="resize-handle" id="resizeHandle"></div>' +
     '<div class="detail-panel" id="detailPanel" data-dictionary-state="closed">' +
