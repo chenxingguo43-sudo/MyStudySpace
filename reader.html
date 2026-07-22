@@ -2479,7 +2479,7 @@ function renderListeningPractice(data, scrollPosition) {
   }).join('');
   var questions = (data.questions || []).map(renderListeningQuestion).join('');
   var media = data.media || {};
-  var mediaBase = 'data/textbook/russian_b2/';
+  var mediaBase = curBook && curBook.dir ? 'data/textbook/' + curBook.dir + '/' : 'data/textbook/russian_b2/';
   var captions = listeningViewMode === 'intensive' && media.captions ? '<track kind="subtitles" srclang="ru" label="Русский" src="' + escapeHtml(mediaBase + media.captions) + '" default>' : '';
   var player = media.file ? '<section><h2>' + (listeningViewMode === 'intensive' ? '精听音频' : '考试音频') + '</h2><p class="reading-answer-source">' + escapeHtml(media.provenance || 'reconstructed-tts') + ' · 非原始配套音频</p><audio controls><source src="' + escapeHtml(mediaBase + media.file) + '" type="audio/mpeg">' + captions + '你的浏览器不支持音频播放。</audio></section>' : '<section class="source-warning"><strong>重建音频暂不可用</strong><p>可进入精听页使用来源文字稿；不会用空文件冒充音频。</p></section>';
   var actions = listeningViewMode === 'intensive' ? '<div class="listening-mode-actions"><button class="tb-btn" onclick="returnToListeningExam()">← 返回考试题</button></div>' : '<div class="listening-mode-actions"><button class="tb-btn primary" onclick="openListeningIntensive()">🎧 精听这段材料</button><span class="writing-status">答题后可进入文字稿、字幕与点击查词学习。</span></div>';
