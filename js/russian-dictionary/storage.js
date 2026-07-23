@@ -2,11 +2,18 @@
   const Core = typeof module === 'object' && module.exports
     ? require('./core')
     : root.RussianDictionaryCore;
-  const api = factory(Core);
+  const Review = typeof module === 'object' && module.exports
+    ? require('./review')
+    : root.RussianDictionaryReview;
+  const api = factory(Core, Review);
   if (typeof module === 'object' && module.exports) module.exports = api;
   if (root) root.RussianDictionaryStorage = api;
-})(typeof window !== 'undefined' ? window : globalThis, function (Core) {
+})(typeof window !== 'undefined' ? window : globalThis, function (Core, Review) {
   const SAVED_KEY = 'vocabulary-review-records';
+  const ALIASES_KEY = 'rr_vocabulary_aliases_v2';
+  const MIGRATION_KEY = 'rr_vocabulary_migration_v2';
+  const BACKUP_PREFIX = 'rr_vocabulary_backup_v2_';
+  const MIGRATION_VERSION = 2;
   const MISSING_KEY = 'rr_dictionary_missing_v1';
   const PROVISIONAL_KEY = 'rr_dictionary_provisional_v1';
 
@@ -52,12 +59,12 @@
     }
 
     function mergeSavedWord(input = {}) {
-      const key = normalizedKey(input.lemma || input.form);
+      const key = input.identity && input.identity.key || normalizedKey(input.lemma || input.form);
       if (!key) throw new TypeError('a Russian form or lemma is required');
       const records = readObject(SAVED_KEY);
       const previous = records[key] && typeof records[key] === 'object' ? records[key] : {};
       const context = Core.normalizeContext(input.context || {});
-      const sources = Array.isArray(previous.sources) ? previous.sources.slice() : [];
+      const sources = Array.isArray(previous.contexts) ? previous.contexts.slice() : (Array.isArray(previous.sources) ? previous.sources.slice() : []);
       const hasContext = Object.values(context).some(value => Array.isArray(value) ? value.length : Boolean(value));
 
       if (hasContext && !sources.some(source => sourceIdentity(source) === sourceIdentity(context))) {
@@ -69,20 +76,64 @@
         String(input.form || '').trim()
       ].filter(Boolean))];
       const createdAt = previous.createdAt || now();
-      records[key] = {
+      const next = {
         ...previous,
-        word: previous.word || key,
-        lemma: key,
+        word: previous.word || input.form || key,
+        lemma: input.identity && input.identity.lemma || input.lemma || previous.lemma || key,
+        canonicalKey: input.identity && input.identity.key || previous.canonicalKey || '',
         forms,
         meaning: input.meaning || previous.meaning || '',
-        partOfSpeech: input.partOfSpeech || previous.partOfSpeech || '',
+        partOfSpeech: input.identity && input.identity.partOfSpeech || input.partOfSpeech || previous.partOfSpeech || '',
         reliability: input.reliability || previous.reliability || '',
+        contexts: sources,
         sources,
         createdAt,
         updatedAt: now()
       };
+      records[key] = Review && previous && Object.keys(previous).length ? Review.mergeRecords(previous, next) : next;
+      records[key].sources = records[key].contexts || sources;
       writeObject(SAVED_KEY, records);
       return records[key];
+    }
+
+    function migrateSavedWords({ resolver } = {}) {
+      const current = readObject(MIGRATION_KEY);
+      if (current.version === MIGRATION_VERSION) return { status: 'already-migrated' };
+      const raw = getRaw(SAVED_KEY);
+      if (!raw) {
+        writeObject(MIGRATION_KEY, { version: MIGRATION_VERSION, migratedAt: now(), backupKey: '' });
+        return { status: 'empty' };
+      }
+      let records;
+      try { records = JSON.parse(raw); } catch (error) { return { status: 'invalid-source', error }; }
+      if (!records || typeof records !== 'object' || Array.isArray(records)) return { status: 'invalid-source' };
+      const backupKey = `${BACKUP_PREFIX}${now().replace(/[:.]/g, '-')}`;
+      try {
+        setRaw(backupKey, raw);
+        const transformed = Review.transformRecords(records, resolver, Core.normalizeRussian);
+        setRaw(SAVED_KEY, JSON.stringify(transformed.records));
+        setRaw(ALIASES_KEY, JSON.stringify(transformed.aliases));
+        setRaw(MIGRATION_KEY, JSON.stringify({ version: MIGRATION_VERSION, migratedAt: now(), backupKey }));
+        return { status: 'migrated', backupKey, ...transformed };
+      } catch (error) {
+        try { setRaw(SAVED_KEY, raw); } catch (_restoreError) {}
+        return { status: 'failed', error, backupKey };
+      }
+    }
+
+    function restoreVocabularyBackup() {
+      const metadata = readObject(MIGRATION_KEY);
+      const raw = metadata.backupKey ? getRaw(metadata.backupKey) : '';
+      if (!raw) return { status: 'missing-backup' };
+      try {
+        JSON.parse(raw);
+        setRaw(SAVED_KEY, raw);
+        removeRaw(ALIASES_KEY);
+        removeRaw(MIGRATION_KEY);
+        return { status: 'restored', backupKey: metadata.backupKey };
+      } catch (error) {
+        return { status: 'failed', error };
+      }
     }
 
     function recordMissing(input = {}) {
@@ -157,11 +208,13 @@
 
     return {
       mergeSavedWord,
+      migrateSavedWords,
+      restoreVocabularyBackup,
       recordMissing,
       saveProvisional,
       getProvisional,
       markReviewed,
-      keys: { saved: SAVED_KEY, missing: MISSING_KEY, provisional: PROVISIONAL_KEY }
+      keys: { saved: SAVED_KEY, aliases: ALIASES_KEY, migration: MIGRATION_KEY, backupPrefix: BACKUP_PREFIX, missing: MISSING_KEY, provisional: PROVISIONAL_KEY }
     };
   }
 

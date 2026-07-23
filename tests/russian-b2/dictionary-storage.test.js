@@ -4,6 +4,21 @@ const { createDictionaryStorage } = require('../../js/russian-dictionary/storage
 
 const NOW = '2026-07-17T12:00:00.000Z';
 
+function createThrowingStorage(entries = []) {
+  const values = new Map(entries);
+  let failKey = '';
+  return {
+    getItem: key => values.get(key) || null,
+    setItem(key, value) {
+      if (key === failKey) throw new Error('quota');
+      values.set(key, value);
+    },
+    removeItem: key => values.delete(key),
+    failOn: key => { failKey = key; },
+    values
+  };
+}
+
 test('adds a B2 source without overwriting legacy review progress', () => {
   const storage = new Map([[
     'vocabulary-review-records',
@@ -62,4 +77,33 @@ test('keeps online results provisional until an explicit review', () => {
   assert.equal(reviewed.meaning, '罕见的事物');
   assert.equal(db.getProvisional('редкость'), null);
   assert.equal(JSON.parse(storage.get('vocabulary-review-records')).редкость.meaning, '罕见的事物');
+});
+
+test('migration backs up once and leaves uncertain records unchanged', () => {
+  const storage = createThrowingStorage([[
+    'vocabulary-review-records',
+    JSON.stringify({ написаны: { word: 'написаны', mastery: 2 }, спорная: { word: 'спорная', mastery: 1 } })
+  ]]);
+  const db = createDictionaryStorage({ storage, now: () => NOW });
+  const resolver = word => word === 'написаны'
+    ? { lemma: 'написать', reliability: 'morphology-map', entry: { partOfSpeech: 'verb' } }
+    : { lemma: 'спорный', reliability: 'morphology-guess', entry: { partOfSpeech: 'adjective' } };
+  assert.equal(db.migrateSavedWords({ resolver }).status, 'migrated');
+  assert.equal(db.migrateSavedWords({ resolver }).status, 'already-migrated');
+  const records = JSON.parse(storage.values.get('vocabulary-review-records'));
+  assert.equal(records['написать|verb'].mastery, 2);
+  assert.equal(records.спорная.mastery, 1);
+  assert.equal(JSON.parse(storage.values.get('rr_vocabulary_aliases_v2')).написаны, 'написать|verb');
+  assert.equal([...storage.values.keys()].filter(key => key.startsWith('rr_vocabulary_backup_v2_')).length, 1);
+});
+
+test('migration write failure keeps the active records and migration marker absent', () => {
+  const raw = JSON.stringify({ написаны: { mastery: 2 } });
+  const storage = createThrowingStorage([['vocabulary-review-records', raw]]);
+  storage.failOn('vocabulary-review-records');
+  const db = createDictionaryStorage({ storage, now: () => NOW });
+  const result = db.migrateSavedWords({ resolver: () => ({ lemma: 'написать', reliability: 'morphology-map', entry: { partOfSpeech: 'verb' } }) });
+  assert.equal(result.status, 'failed');
+  assert.equal(storage.values.get('vocabulary-review-records'), raw);
+  assert.equal(storage.values.has('rr_vocabulary_migration_v2'), false);
 });
