@@ -1612,10 +1612,16 @@ function showChapters(bookId) {
   }
   var stats = readStats[bookId] || {}, done = getBookProgress(bookId);
 
-  var html = toolbar(escapeHtml(curBook.title),
-    '<button class="tb-btn" onclick="exportNotes()" title="导出阅读笔记">📋</button>' +
-    '<button class="tb-btn" onclick="showBookReport()" title="读书报告">📊</button>' +
-    '<button class="tb-btn" onclick="showShelf()" title="书架">☰</button>') +
+  var html = '';
+  if (isQuizFirstBook(curBook)) {
+    html += b2FloatingNavigation({ backAction: 'showShelf()', backTitle: '书架', menuAction: 'showBreadcrumb()' });
+  } else {
+    html += toolbar(escapeHtml(curBook.title),
+      '<button class="tb-btn" onclick="exportNotes()" title="导出阅读笔记">📋</button>' +
+      '<button class="tb-btn" onclick="showBookReport()" title="读书报告">📊</button>' +
+      '<button class="tb-btn" onclick="showShelf()" title="书架">☰</button>');
+  }
+  html +=
     '<div class="main-container"><div class="chapter-list-header">' +
     '<h2>' + escapeHtml(curBook.title) + '</h2>' +
     '<div class="ch-meta">' + curBook.chapters + ' 章 · 已读 ' + done + ' 章' +
