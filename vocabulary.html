@@ -1118,6 +1118,7 @@
         </div>
     </div>
 
+    <script src="js/russian-dictionary/review.js?v=20260723-1"></script>
     <script>
     // ─── 状态 ─────────────────────────────────────────────────────
     var allWords = [];           // 全部词条
@@ -1293,6 +1294,12 @@
         fetch('data/vocabulary.json')
             .then(function(r) { return r.json(); })
             .then(function(data) {
+                var records = getRecords();
+                Object.keys(records).forEach(function(id) {
+                    if (data.some(function(word) { return word.id === id; })) return;
+                    var record = records[id] || {};
+                    data.push({ id: id, word: record.lemma || record.word || (record.forms || [])[0] || id, meaning: record.meaning || '', type: record.partOfSpeech || 'reader', contexts: record.contexts || record.sources || [] });
+                });
                 allWords = data;
                 initFilters();
                 applyFilters();
