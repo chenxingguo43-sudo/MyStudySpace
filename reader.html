@@ -204,6 +204,9 @@ body {
 
 /* ─── 面板卡片内容 ─── */
 .dp-head { margin-bottom: 16px; }
+.dict-morph-compact { margin: 10px 0 14px; padding: 10px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.dict-morph-compact strong, .dict-morph-compact span { display: block; overflow-wrap: anywhere; }
+.dict-morph-compact span { margin-top: 4px; color: var(--text-secondary); font-size: 13px; }
 .dp-word { font-size: 1.4em; font-weight: 700; color: var(--accent); margin-bottom: 4px; font-family: 'Segoe UI', system-ui, 'Noto Serif', serif; }
 .dp-pos { font-size: 13px; color: var(--text-dim); }
 .dp-section { margin-bottom: 16px; }
@@ -3570,6 +3573,9 @@ function renderDetailPanel(word, result) {
   var posLabel = raw.type || result.type || '';
   html += '<div class="dp-pos">' + escapeHtml(posLabel) + '</div>';
   html += '</div>';
+  if (result._morphoLemma && result._reliability !== 'morphology-guess') {
+    html += '<div class="dict-morph-compact"><strong>' + escapeHtml(word) + ' → ' + escapeHtml(result._morphoLemma) + '</strong><span>原形 · ' + escapeHtml(posLabel || '词典已确认') + '</span></div>';
+  }
 
   // ── 释义 ──
   html += '<div class="dp-section">';
