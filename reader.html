@@ -1008,6 +1008,7 @@ body {
 
 <script src="data/russian-morphology.js"></script>
 <script src="js/russian-dictionary/core.js?v=20260718-1"></script>
+<script src="js/russian-dictionary/review.js?v=20260723-1"></script>
 <script src="js/russian-dictionary/storage.js?v=20260718-1"></script>
 <script src="js/russian-dictionary/runtime.js?v=20260718-1"></script>
 <script src="js/russian-b2/reading-review.js?v=20260723-1"></script>
@@ -3945,13 +3946,6 @@ function doSaveWord() {
   var clean = selText.replace(/[^a-zA-Zа-яА-ЯёЁ-]/g, '').trim();
   if (!clean) { toast('❌ 无效'); closeDetailPanel(); return; }
 
-  // 读取统一存储
-  var records = {};
-  try { records = JSON.parse(localStorage.getItem('vocabulary-review-records') || '{}'); } catch(e) {}
-
-  // 重复检查
-  if (records[clean]) { toast('⭐ 已存在: ' + clean); closeDetailPanel(); return; }
-
   // 获取释义
   var meaning = '', posEl = document.querySelector('#detailInner .dict-pos'), defEl = document.querySelector('#detailInner .dict-meaning');
   if (posEl) meaning += posEl.textContent + ' ';
@@ -3959,6 +3953,25 @@ function doSaveWord() {
 
   // 写入统一存储
   var today = new Date().toISOString().slice(0, 10);
+  var context = dictionaryController.getCurrent && dictionaryController.getCurrent().context || {};
+  var saved = dictionaryStorage.mergeSavedWord({
+    form: clean,
+    lemma: clean,
+    meaning: meaning.trim(),
+    partOfSpeech: posEl ? posEl.textContent : '',
+    reliability: '',
+    context: Object.assign({}, context, {
+      surfaceForm: clean,
+      sentenceRu: selContext ? selContext.substring(0, 500) : '',
+      sentenceZh: selTranslationContext ? selTranslationContext.substring(0, 500) : ''
+    })
+  });
+  if (!saved.nextReview) saved.nextReview = today;
+  if (!saved.interval) saved.interval = 1;
+  if (!saved.easeFactor) saved.easeFactor = 2.5;
+  if (saved.count === undefined) saved.count = 0;
+  try { var allRecords = JSON.parse(localStorage.getItem('vocabulary-review-records') || '{}'); allRecords[clean] = saved; localStorage.setItem('vocabulary-review-records', JSON.stringify(allRecords)); } catch(e) {}
+  /*
   records[clean] = {
     mastery: 0,
     nextReview: today,
@@ -3974,6 +3987,7 @@ function doSaveWord() {
     sourceSentenceZh: selTranslationContext ? selTranslationContext.substring(0, 500) : ''
   };
   localStorage.setItem('vocabulary-review-records', JSON.stringify(records));
+  */
 
   // 更新高亮
   savedWords.push(clean.toLowerCase());
