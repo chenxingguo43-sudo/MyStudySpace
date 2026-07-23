@@ -10,12 +10,12 @@
   --bg: #020617; --surface: rgba(15,23,42,0.6); --surface-solid: #0f172a;
   --glass: rgba(255,255,255,0.06); --glass-border: rgba(255,255,255,0.10);
   --glass-hover: rgba(255,255,255,0.10);
-  --text: rgba(255,255,255,0.90); --text-secondary: rgba(255,255,255,0.48);
-  --text-dim: rgba(255,255,255,0.30);
+  --text: rgba(255,255,255,0.90); --text-secondary: rgba(255,255,255,0.55);
+  --text-dim: rgba(255,255,255,0.38);
   --accent: #818cf8; --accent-dim: rgba(129,140,248,0.20); --accent-border: rgba(129,140,248,0.30);
   --success: #34d399; --warning: #fbbf24;
-  --ru-text: rgba(255,255,255,0.88); --cn-text: rgba(255,255,255,0.45);
-  --border: rgba(255,255,255,0.06); --para-hover: rgba(255,255,255,0.04);
+  --ru-text: rgba(255,255,255,0.88); --cn-text: rgba(255,255,255,0.52);
+  --border: rgba(255,255,255,0.08); --para-hover: rgba(255,255,255,0.04);
   --para-expanded-border: rgba(129,140,248,0.4);
   --shadow: 0 8px 32px rgba(0,0,0,0.4);
   --highlight-word: rgba(251,191,36,0.25); --highlight-search: rgba(56,189,248,0.30);
@@ -24,26 +24,28 @@ body.theme-sepia {
   --bg: #1a1410; --surface: rgba(30,24,18,0.6); --surface-solid: #1e1812;
   --glass: rgba(180,150,100,0.08); --glass-border: rgba(180,150,100,0.15);
   --glass-hover: rgba(180,150,100,0.12);
-  --text: rgba(230,210,170,0.92); --text-secondary: rgba(200,170,120,0.50);
-  --text-dim: rgba(180,150,100,0.35);
+  --text: rgba(230,210,170,0.92); --text-secondary: rgba(200,170,120,0.58);
+  --text-dim: rgba(180,150,100,0.42);
   --accent: #d4a574; --accent-dim: rgba(212,165,116,0.20); --accent-border: rgba(212,165,116,0.30);
-  --ru-text: rgba(230,210,170,0.90); --cn-text: rgba(200,170,120,0.45);
-  --border: rgba(180,150,100,0.08); --para-hover: rgba(180,150,100,0.05);
+  --ru-text: rgba(230,210,170,0.90); --cn-text: rgba(200,170,120,0.52);
+  --border: rgba(180,150,100,0.12); --para-hover: rgba(180,150,100,0.05);
   --para-expanded-border: rgba(212,165,116,0.4);
   --highlight-word: rgba(212,165,116,0.25); --highlight-search: rgba(100,180,220,0.25);
+  --success: #34d399;
 }
 body.theme-warm {
   --bg: #ECE1C7; --surface: rgba(236,225,199,0.85); --surface-solid: #E6DABB;
   --glass: rgba(0,0,0,0.03); --glass-border: rgba(0,0,0,0.08);
   --glass-hover: rgba(0,0,0,0.06);
-  --text: rgba(40,35,25,0.92); --text-secondary: rgba(80,65,40,0.55);
-  --text-dim: rgba(80,65,40,0.35);
-  --accent: #8b6914; --accent-dim: rgba(139,105,20,0.12); --accent-border: rgba(139,105,20,0.25);
-  --ru-text: rgba(40,35,25,0.92); --cn-text: rgba(80,65,40,0.55);
-  --border: rgba(0,0,0,0.06); --para-hover: rgba(0,0,0,0.03);
-  --para-expanded-border: rgba(139,105,20,0.3);
+  --text: rgba(40,35,25,0.92); --text-secondary: rgba(80,65,40,0.68);
+  --text-dim: rgba(80,65,40,0.50);
+  --accent: #8c5a1e; --accent-dim: rgba(140,90,30,0.15); --accent-border: rgba(140,90,30,0.30);
+  --ru-text: rgba(40,35,25,0.92); --cn-text: rgba(80,65,40,0.60);
+  --border: rgba(0,0,0,0.08); --para-hover: rgba(0,0,0,0.03);
+  --para-expanded-border: rgba(140,90,30,0.3);
   --shadow: 0 4px 16px rgba(0,0,0,0.06);
-  --highlight-word: rgba(200,160,60,0.20); --highlight-search: rgba(60,140,200,0.20);
+  --highlight-word: rgba(200,160,60,0.25); --highlight-search: rgba(60,140,200,0.20);
+  --success: #0d6b4c;
 }
 body.theme-paper {
   --bg: #f5f0e8; --surface: rgba(245,240,232,0.8); --surface-solid: #efe8dc;
@@ -64,6 +66,11 @@ body {
   background: var(--bg); color: var(--text); line-height: 1.8; min-height: 100vh;
   overflow-x: hidden; -webkit-font-smoothing: antialiased; transition: background 0.3s, color 0.3s;
   text-rendering: optimizeLegibility;
+}
+/* 全局俄语文字使用衬线字体，覆盖所有编辑器生成的动态内容 */
+.expr-ru, .ru-expression-tag .ru-word, .ru-word, .ws-replica, .dp-coll-ru, .dp-ex-ru,
+.ru-expression-tag, .expression-zh ~ .expr-ru {
+  font-family: Georgia, 'Noto Serif', 'Segoe UI', serif;
 }
 /* ─── 自定义滚动条 ─── */
 ::-webkit-scrollbar { width: 6px; height: 6px; }
@@ -307,10 +314,10 @@ body {
 }
 .ws-task-type-badge {
   padding: 3px 10px; border-radius: 999px; font-size: 0.78em; font-weight: 500;
-  background: rgba(52,211,153,0.15); color: var(--success);
+  background: var(--accent-dim); color: var(--success);
 }
 .ws-reading-text {
-  font-size: 1.02em; line-height: 1.9; color: var(--ru-text);
+  font-size: 1.02em; line-height: 1.9; color: var(--ru-text); font-weight: 500; font-family: Georgia, 'Noto Serif', 'Segoe UI', serif;
   white-space: pre-wrap; margin: 12px 0;
 }
 .ws-reading-note {
@@ -324,7 +331,7 @@ body {
   padding: 12px 16px; border-radius: 10px; background: var(--glass);
   border: 1px solid var(--glass-border);
 }
-.ws-vocab-item .ru-word { font-weight: 600; color: var(--ru-text); font-size: 1.02em; }
+.ws-vocab-item .ru-word { font-weight: 600; color: var(--ru-text); font-size: 1.02em; font-family: Georgia, 'Noto Serif', 'Segoe UI', serif; }
 .ws-vocab-item .task-label { color: var(--text-secondary); font-size: 0.82em; margin-top: 4px; }
 .ws-vocab-item .option { color: var(--text-dim); font-size: 0.85em; }
 .ws-vocab-item .sentence { color: var(--text-secondary); font-size: 0.92em; line-height: 1.6; }
@@ -332,7 +339,7 @@ body {
   font-size: 0.95em; line-height: 1.75; color: var(--text-secondary);
   white-space: pre-wrap; margin: 8px 0;
 }
-.ws-task-prompt.ru-text { color: var(--ru-text); }
+.ws-task-prompt.ru-text { color: var(--ru-text); font-weight: 500; }
 .ws-task-meta {
   display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0;
   align-items: center;
@@ -347,7 +354,7 @@ body {
 .ws-requirements li::before { content: '▸'; position: absolute; left: 0; color: var(--accent); }
 .ws-draft-area { width: 100%; min-height: 120px; margin: 12px 0; padding: 14px 16px;
   border: 1px solid var(--glass-border); border-radius: 10px; background: var(--glass);
-  color: var(--ru-text); font-family: inherit; font-size: 0.95em; line-height: 1.7;
+  color: var(--ru-text); font-weight: 500; font-family: Georgia, 'Noto Serif', 'Segoe UI', serif; font-size: 0.95em; line-height: 1.7;
   resize: vertical; box-sizing: border-box;
 }
 .ws-draft-area:focus { border-color: var(--accent-border); outline: none; box-shadow: 0 0 0 2px var(--accent-dim); }
@@ -362,21 +369,19 @@ body {
   border-bottom: 1px solid var(--border); font-size: 0.9em;
 }
 .ws-expressions li:last-child { border-bottom: none; }
-.ws-expressions .expr-ru { color: var(--ru-text); font-weight: 500; }
+.ws-expressions .expr-ru { color: var(--ru-text); font-weight: 500; font-family: Georgia, 'Noto Serif', 'Segoe UI', serif; }
 .ws-expressions .expr-zh { color: var(--text-secondary); }
 .ws-expressions .expr-cat { font-size: 0.75em; color: var(--text-dim); padding: 1px 6px; border-radius: 999px;
   background: var(--glass); margin-left: auto;
 }
 .ws-framework { margin: 14px 0; padding: 14px 18px; border-radius: 10px;
-  background: var(--glass); border: 1px solid var(--glass-border);
+  background: var(--glass); border: 1px solid var(--glass-border); box-shadow: var(--shadow);
 }
 .ws-framework h4 { margin: 0 0 8px; font-size: 0.92em; color: var(--accent); }
 .ws-framework ol { margin: 0; padding-left: 20px; }
-.ws-framework li { font-size: 0.88em; color: var(--text-secondary); line-height: 1.7; }
-.ws-model-answer { font-size: 0.92em; line-height: 1.8; color: var(--ru-text);
-  white-space: pre-wrap; margin: 8px 0; padding: 14px 18px;
-  border-radius: 10px; background: var(--glass);
-}
+.ws-framework li { font-size: 0.88em; color: var(--text-secondary); line-height: 1.7; margin-bottom: 6px; }
+.ws-model-answer { font-size: 0.92em; line-height: 1.8; color: var(--ru-text); font-weight: 500; font-family: Georgia, 'Noto Serif', 'Segoe UI', serif; }
+.ws-model-answer-pad { white-space: pre-wrap; margin: 8px 0; padding: 14px 18px; border-radius: 10px; background: var(--glass); }
 .ws-risks { margin: 8px 0; padding: 0; list-style: none; }
 .ws-risks li { padding: 4px 0 4px 20px; position: relative; font-size: 0.88em; color: var(--text-secondary); }
 .ws-risks li::before { content: '⚠'; position: absolute; left: 0; }
@@ -405,6 +410,30 @@ body {
   .ws-bottom-nav { gap: 10px; }
 }
 
+/* ─── Study Assist Area (replaces draft textarea) ─── */
+.ws-assist-prompt-zh {
+  margin: 6px 0 14px; padding: 8px 14px; border-radius: 8px;
+  background: rgba(251,191,36,0.08); color: var(--text-secondary); font-size: 0.92em; line-height: 1.7;
+  border-left: 3px solid var(--accent-border);
+}
+.ws-assist-pending { font-style: italic; opacity: 0.65; }
+.ws-assist-block { margin: 10px 0; overflow: hidden; }
+.ws-assist-block .collapse-inner { overflow: hidden; }
+.ws-assist-summary {
+  cursor: pointer; font-weight: 600; font-size: 0.9em; color: var(--text);
+  padding: 6px 0; user-select: none;
+}
+.ws-assist-summary:hover { color: var(--accent); }
+.ws-assist-ol { margin: 6px 0 0; padding-left: 22px; }
+.ws-assist-ol li { font-size: 0.88em; line-height: 1.75; color: var(--text-secondary); margin-bottom: 6px; }
+.ws-assist-step-ru { color: var(--text); font-size: 0.92em; font-weight: 500; font-family: Georgia, 'Noto Serif', 'Segoe UI', serif; }
+.ws-assist-step-zh { color: var(--text-secondary); font-size: 0.85em; }
+.ws-assist-answer { margin: 10px 0 18px; }
+.ws-assist-answer h4 { margin: 0 0 6px; font-size: 0.85em; color: var(--accent); }
+.ws-assist-answer-ru { font-size: 0.9em; line-height: 1.8; color: var(--ru-text); font-weight: 500; white-space: pre-wrap; font-family: Georgia, 'Noto Serif', 'Segoe UI', serif; }
+.ws-assist-answer-ru-pad { padding: 10px 14px; border-radius: 8px; background: var(--glass); margin-bottom: 6px; }
+.ws-assist-answer-zh { font-size: 0.85em; line-height: 1.7; color: var(--text-secondary); padding: 0 4px; }
+
 /* ─── 学习辅助卡片化 ─── */
 .learning-support { max-width: 780px; margin: 0 auto; padding: 24px 0 40px; }
 .source-warning {
@@ -420,6 +449,7 @@ body {
   border: 1px solid var(--glass-border); border-radius: 16px;
   background: var(--glass);
   backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  box-shadow: var(--shadow);
 }
 .learning-card h2 {
   font-size: 1.05em; font-weight: 600; margin: 0 0 16px;
@@ -573,7 +603,7 @@ body {
 @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
 .chapter-header { text-align: center; margin-bottom: 2em; }
 .chapter-header h1 { font-size: 1.5em; font-weight: 700; margin-bottom: 4px; }
-.chapter-header h2 { font-size: 0.95em; color: var(--text-secondary); font-weight: 400; }
+.chapter-header h2 { font-size: 1.1em; color: var(--text-secondary); font-weight: 400; }
 .para-block {
   margin-bottom: 0.6em; border-radius: 8px; cursor: pointer; padding: 6px 10px;
   border-left: 3px solid transparent; transition: all 0.2s; position: relative;
@@ -1709,7 +1739,8 @@ function restoreLastRead(lastRead) {
   if (!module || module.status !== 'available' || module.id === 'review') return;
   var rootBook = getBookById('russian_b2');
   curBook = Object.assign({}, rootBook, module, { id: 'russian_b2', moduleId: module.id, isB2Module: true, kind: 'textbook', direction: 'ru→cn' });
-  fetchJson('data/textbook/' + module.dir + '/index.json', null).then(function(index) {
+  var indexRequest = module.id === 'grammar' ? Promise.resolve(null) : fetchJson('data/textbook/' + module.dir + '/index.json', null);
+  indexRequest.then(function(index) {
     curBook.chapters = index.chapters || module.chapters || 0;
     curBook.chapterTitles = index.chapterTitles || module.chapterTitles || [];
     goChapter(lastRead.chapter, lastRead);
@@ -1743,7 +1774,8 @@ function openB2Module(moduleId) {
   if (!module || module.status !== 'available') { toast('这个模块仍在整理'); return; }
   var rootBook = getBookById('russian_b2');
   curBook = Object.assign({}, rootBook, module, { id: 'russian_b2', moduleId: module.id, isB2Module: true, kind: 'textbook', direction: 'ru→cn' });
-  fetchJson('data/textbook/' + module.dir + '/index.json', null).then(function(index) {
+  var indexRequest = module.id === 'grammar' ? Promise.resolve(null) : fetchJson('data/textbook/' + module.dir + '/index.json', null);
+  indexRequest.then(function(index) {
     curBook.chapters = index.chapters || module.chapters || 0;
     curBook.chapterTitles = index.chapterTitles || module.chapterTitles || [];
     renderB2ModuleChapters();
@@ -1772,7 +1804,8 @@ function restoreLastRead(lastRead) {
       var chapter = Math.min(Math.max(lastRead.chapter, 0), Math.max(curBook.chapters - 1, 0));
       goChapter(chapter, lastRead);
     }
-    return fetchJson('data/textbook/' + module.dir + '/index.json', null).then(resumeModule).catch(function() { resumeModule({}); });
+    var indexRequest = module.id === 'grammar' ? Promise.resolve(null) : fetchJson('data/textbook/' + module.dir + '/index.json', null);
+    return indexRequest.then(resumeModule).catch(function() { resumeModule({}); });
   }).catch(function() {
     toast('上次学习位置无法恢复，已返回 B2 仪表盘');
     showB2Dashboard();
@@ -1796,6 +1829,8 @@ function goChapter(idx, restoreState) {
     chapterNavigation = b2FloatingNavigation({ backAction: 'showB2Dashboard()', backTitle: '仪表盘', menuAction: 'showBreadcrumb()' });
   } else if (curBook && curBook.id === 'reading_speaking') {
     chapterNavigation = b2FloatingNavigation({ backAction: 'showReadingSpeakingDashboard()', backTitle: '仪表盘', menuAction: 'showBreadcrumb()' });
+  } else if (isQuizFirstBook(curBook)) {
+    chapterNavigation = b2FloatingNavigation({ backAction: 'showChapters(\'' + escapeHtml(curBook.id) + '\')', backTitle: '章节目录', menuAction: 'showBreadcrumb()' });
   } else {
     chapterNavigation = toolbar('第 ' + (idx + 1) + ' 章',
       '<button class="tb-btn" onclick="toggleSearch()" title="搜索 (Ctrl+F)">🔍</button>' +
@@ -2611,6 +2646,8 @@ function renderListeningPractice(data, scrollPosition) {
   var questions = (data.questions || []).map(renderListeningQuestion).join('');
   var media = data.media || {};
   var mediaBase = curBook && curBook.dir ? 'data/textbook/' + curBook.dir + '/' : 'data/textbook/russian_b2/';
+  // B2 module subdirectories: strip the trailing "modules/xxx" segment so media paths resolve under russian_b2/
+  if (curBook && curBook.dir === 'russian_b2/modules/listening') mediaBase = 'data/textbook/russian_b2/';
   var captions = listeningViewMode === 'intensive' && media.captions ? '<track kind="subtitles" srclang="ru" label="Русский" src="' + escapeHtml(mediaBase + media.captions) + '" default>' : '';
   var player = media.file ? '<section><h2>' + (listeningViewMode === 'intensive' ? '精听音频' : '考试音频') + '</h2><p class="reading-answer-source">' + escapeHtml(media.provenance || 'reconstructed-tts') + ' · 非原始配套音频</p><audio controls><source src="' + escapeHtml(mediaBase + media.file) + '" type="audio/mpeg">' + captions + '你的浏览器不支持音频播放。</audio></section>' : '<section class="source-warning"><strong>重建音频暂不可用</strong><p>可进入精听页使用来源文字稿；不会用空文件冒充音频。</p></section>';
   var actions = listeningViewMode === 'intensive' ? '<div class="listening-mode-actions"><button class="tb-btn" onclick="returnToListeningExam()">← 返回考试题</button></div>' : '<div class="listening-mode-actions"><button class="tb-btn primary" onclick="openListeningIntensive()">🎧 精听这段材料</button><span class="writing-status">答题后可进入文字稿、字幕与点击查词学习。</span></div>';
@@ -4344,8 +4381,23 @@ function getReadingSpeakingExercise(exId) {
    写作口语 (writing-speaking) 渲染
    ══════════════════════════════════════════════ */
 
+var _zhCache = {};
+
 function renderWritingSpeakingChapter(data, scrollPosition, restoreState) {
   _currentWSData = data;
+
+  // Lazy-load Chinese translation cache
+  if (data._zh === undefined && !_zhCache[data.id]) {
+    _zhCache[data.id] = null; // prevent duplicate fetches
+    var zhUrl = 'data/textbook/writing_speaking/' + data.id + '_zh.json';
+    fetchJson(zhUrl, null).then(function(zh) {
+      _zhCache[data.id] = zh;
+      // Re-render with translations available
+      renderWritingSpeakingChapter(data, window.scrollY, restoreState);
+    }).catch(function() {
+      _zhCache[data.id] = {}; // no translations available
+    });
+  }
   dictionaryController.setExamPolicy({ mode: 'learning', lookupUnlocked: true });
 
   var totalChapters = (curBook && curBook.chapters) || 19;
@@ -4396,6 +4448,7 @@ function renderWritingSpeakingChapter(data, scrollPosition, restoreState) {
   }
 
   // ─── Writing Tasks ───
+  var support = data.studySupport || {};
   if (data.writingTasks && data.writingTasks.length > 0) {
     html += '<details class="learning-card" open>';
     html += '<summary class="ws-section-header"><h2>✍️ 写作任务</h2><span class="ws-task-badge">' + data.writingTasks.length + ' 项</span></summary>';
@@ -4408,7 +4461,6 @@ function renderWritingSpeakingChapter(data, scrollPosition, restoreState) {
       html += '<details class="learning-card ws-framework" style="margin-bottom:14px">';
       html += '<summary style="display:flex;align-items:center;gap:8px;cursor:pointer">';
       html += '<span style="font-weight:600;color:var(--text)">[' + (ti + 1) + '/' + data.writingTasks.length + '] ' + escapeHtml(task.title || '写作任务') + '</span>';
-      if (task.type) html += '<span class="ws-task-type-badge">' + escapeHtml(task.type) + '</span>';
       if (task.time) html += '<span class="ws-task-meta" style="margin:0"><span class="time-badge">⏱ ' + escapeHtml(task.time) + '</span></span>';
       html += '</summary>';
 
@@ -4432,12 +4484,97 @@ function renderWritingSpeakingChapter(data, scrollPosition, restoreState) {
         html += '<div class="ws-task-meta"><span>原书第 ' + task.sourcePage + ' 页</span></div>';
       }
 
-      // Draft textarea
-      html += '<textarea class="ws-draft-area" id="ws-draft-' + escapeHtml(taskId) + '" placeholder="在这里用俄语起草…" oninput="saveWsDraft(\'' + escapeHtml(taskId) + '\', this.value);var cnt=this.value.split(/\\s+/).filter(Boolean).length;var el=document.getElementById(\'ws-draft-count-' + escapeHtml(taskId) + '\');if(el)el.textContent=cnt+\' 词\'">' + escapeHtml(draft) + '</textarea>';
-      html += '<div style="display:flex;align-items:center;gap:8px;margin-top:4px">';
-      html += '<span class="ws-draft-status" id="ws-draft-status-' + escapeHtml(taskId) + '">本地自动保存</span>';
-      html += '<span class="ws-draft-count" id="ws-draft-count-' + escapeHtml(taskId) + '">' + wordCount + ' 词</span>';
-      html += '</div>';
+	      // ── Study assist area (replaces draft textarea — user writes on paper) ──
+      var zhData = (data._zh || _zhCache[data.id]) || {};
+      var zhTask = (zhData.writingTasks && zhData.writingTasks[ti]) || {};
+
+      // 1) Prompt translation
+      if (zhTask.prompt) {
+        html += '<div class="ws-assist-prompt-zh">📝 <span>' + escapeHtml(zhTask.prompt) + '</span></div>';
+      } else if (task.prompt) {
+        html += '<div class="ws-assist-prompt-zh ws-assist-pending">📝 中文翻译待生成</div>';
+      }
+
+      // 1b) Reading text translation (if task has embedded reading material)
+      if (task.readingTextZh) {
+        html += '<details class="ws-assist-block ws-animated-collapse" open>';
+        html += '<summary class="ws-assist-summary">📖 阅读材料中文翻译</summary>';
+        html += '<div class="ws-assist-answer-zh">' + escapeHtml(task.readingTextZh) + '</div>';
+        html += '</details>';
+      }
+
+      // 2) Writing framework (match by task type keyword)
+      var frameworks = (support && support.outputFrameworks) || [];
+      var matchedFW = null;
+      var typeKey = (task.type || '').toLowerCase();
+      // 按任务类型关键词匹配框架
+      var fwKeywordMap = { 'сообщение': 'сообщение', 'жалоба': 'жалоба', 'эссе': 'эссе', 'диалог': 'диалог', 'рекомендация': 'рекомендация', 'объяснительная': 'объяснительная' };
+      var fwKey = fwKeywordMap[Object.keys(fwKeywordMap).find(function(k) { return typeKey.indexOf(k) >= 0; }) || ''] || '';
+      if (!fwKey) {
+        // fallback: match by title
+        for (var fi = 0; fi < frameworks.length; fi++) {
+          if ((task.title || '').toLowerCase().indexOf(frameworks[fi].for.toLowerCase().replace(/^\d+\s*/, '')) >= 0) { fwKey = frameworks[fi].for; break; }
+        }
+      }
+      for (var fi = 0; fi < frameworks.length; fi++) {
+        if (frameworks[fi].for.toLowerCase().indexOf(fwKey) >= 0) { matchedFW = frameworks[fi]; break; }
+      }
+      if (!matchedFW && frameworks.length > 0) matchedFW = frameworks[0]; // fallback
+      var zhFrameworks = (zhData.studySupport && zhData.studySupport.outputFrameworks) || [];
+      var zhFw = (matchedFW && zhFrameworks[fi]) || {};
+
+      if (matchedFW) {
+        html += '<details class="ws-assist-block ws-animated-collapse">';
+        html += '<summary class="ws-assist-summary">📐 怎么写：' + escapeHtml(matchedFW.for || '写作框架') + '</summary>';
+        if (zhFw.steps) {
+          html += '<ol class="ws-assist-ol">';
+          matchedFW.steps.forEach(function(step, si) {
+            html += '<li><span class="ws-assist-step-ru">' + escapeHtml(step) + '</span>';
+            if (zhFw.steps[si]) html += '<br><span class="ws-assist-step-zh">' + escapeHtml(zhFw.steps[si]) + '</span>';
+            html += '</li>';
+          });
+          html += '</ol>';
+        } else {
+          html += '<ol class="ws-assist-ol">';
+          matchedFW.steps.forEach(function(step) { html += '<li>' + escapeHtml(step) + '</li>'; });
+          html += '</ol>';
+        }
+        if (!zhFw.steps) html += '<div class="ws-assist-pending">中文翻译待生成</div>';
+        html += '</details>';
+      }
+
+      // 3) Relevant model answers
+      var modelKeys = (support && support.modelAnswers) ? Object.keys(support.modelAnswers) : [];
+      var zhModelAnswers = (zhData.studySupport && zhData.studySupport.modelAnswers) || {};
+      if (modelKeys.length > 0) {
+        html += '<details class="ws-assist-block ws-animated-collapse">';
+        html += '<summary class="ws-assist-summary">📋 范文参考（' + modelKeys.length + ' 篇）</summary>';
+        modelKeys.forEach(function(key) {
+          var answer = support.modelAnswers[key];
+          html += '<div class="ws-assist-answer">';
+          html += '<h4>' + escapeHtml(key.replace(/_/g, ' ')) + '</h4>';
+          html += '<div class="ws-assist-answer-ru ws-assist-answer-ru-pad">' + renderRuText(answer, lookupContext('model', data.id + '-m-' + key, 'model-answer', answer, '', [])) + '</div>';
+          if (zhModelAnswers[key]) html += '<div class="ws-assist-answer-zh">' + escapeHtml(zhModelAnswers[key]) + '</div>';
+          else html += '<div class="ws-assist-pending">中文翻译待生成</div>';
+          html += '</div>';
+        });
+        html += '</details>';
+      }
+
+      // 4) Scoring risks (for this task type)
+      if (support && support.scoringRisks && support.scoringRisks.length > 0) {
+        var zhRisks = (zhData.studySupport && zhData.studySupport.scoringRisks) || [];
+        html += '<details class="ws-assist-block ws-animated-collapse">';
+        html += '<summary class="ws-assist-summary">⚠ 容易扣分的点（' + support.scoringRisks.length + ' 条）</summary>';
+        html += '<ul class="ws-risks">';
+        support.scoringRisks.forEach(function(risk, ri) {
+          html += '<li>' + escapeHtml(risk);
+          if (zhRisks[ri]) html += '<br><span class="ws-assist-step-zh">' + escapeHtml(zhRisks[ri]) + '</span>';
+          html += '</li>';
+        });
+        if (!zhRisks.length) html += '<div class="ws-assist-pending">中文翻译待生成</div>';
+        html += '</ul></details>';
+      }
 
       html += '</details>';
     });
@@ -4495,7 +4632,6 @@ function renderWritingSpeakingChapter(data, scrollPosition, restoreState) {
   }
 
   // ─── Study Support (AI-generated) ───
-  var support = data.studySupport || {};
   var hasSupport = (support.expressions && support.expressions.length > 0) ||
     (support.outputFrameworks && support.outputFrameworks.length > 0) ||
     (support.modelAnswers && Object.keys(support.modelAnswers).length > 0) ||
@@ -4563,7 +4699,7 @@ function renderWritingSpeakingChapter(data, scrollPosition, restoreState) {
         var answer = support.modelAnswers[key];
         html += '<div style="margin-bottom:16px">';
         html += '<h4 style="color:var(--accent);font-size:0.92em;margin:0 0 8px">' + escapeHtml(key.replace(/_/g, ' ')) + '</h4>';
-        html += '<div class="ws-model-answer">' + renderRuText(answer, lookupContext('model', data.id + '-m-' + key, 'model-answer', answer, '', [])) + '</div>';
+        html += '<div class="ws-model-answer ws-model-answer-pad">' + renderRuText(answer, lookupContext('model', data.id + '-m-' + key, 'model-answer', answer, '', [])) + '</div>';
         html += '</div>';
       });
       html += '</details>';
@@ -4604,6 +4740,48 @@ function renderWritingSpeakingChapter(data, scrollPosition, restoreState) {
   window.scrollTo(0, typeof scrollPosition === 'number' ? scrollPosition : 0);
   applyTheme();
   saveLastRead(arguments[2]);
+  initCollapseAnimations();
+}
+
+/* ─── 折叠面板过渡动画 ─── */
+function initCollapseAnimations() {
+  var detailsEls = document.querySelectorAll('details.ws-animated-collapse');
+  for (var i = 0; i < detailsEls.length; i++) (function(detailsEl) {
+    var inner = document.createElement('div');
+    inner.className = 'collapse-inner';
+    while (detailsEl.children.length) inner.appendChild(detailsEl.children[0]);
+    detailsEl.appendChild(inner);
+
+    var summary = detailsEl.querySelector('summary');
+    if (!summary || detailsEl.classList.contains('collapse-setup-done')) return;
+    detailsEl.classList.add('collapse-setup-done');
+    summary.addEventListener('click', function(e) {
+      if (detailsEl.open) {
+        e.preventDefault();
+        var startH = inner.scrollHeight;
+        inner.style.height = startH + 'px';
+        inner.style.transition = 'height 0.4s cubic-bezier(0.16, 1, 0.3, 1)';
+        requestAnimationFrame(function() { inner.style.height = '0px'; });
+        inner.addEventListener('transitionend', function h() {
+          inner.removeEventListener('transitionend', h);
+          detailsEl.open = false;
+          inner.style.height = '';
+          inner.style.transition = '';
+        });
+      } else {
+        detailsEl.open = true;
+        var h = inner.scrollHeight;
+        inner.style.height = '0px';
+        inner.style.transition = 'height 0.4s cubic-bezier(0.16, 1, 0.3, 1)';
+        requestAnimationFrame(function() { inner.style.height = h + 'px'; });
+        inner.addEventListener('transitionend', function h() {
+          inner.removeEventListener('transitionend', h);
+          inner.style.height = '';
+          inner.style.transition = '';
+        });
+      }
+    });
+  })(detailsEls[i]);
 }
 
 function renderReadingSpeakingChapter(data, scrollPosition, restoreState) {
