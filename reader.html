@@ -1010,6 +1010,7 @@ body {
 <script src="js/russian-dictionary/core.js?v=20260718-1"></script>
 <script src="js/russian-dictionary/storage.js?v=20260718-1"></script>
 <script src="js/russian-dictionary/runtime.js?v=20260718-1"></script>
+<script src="js/russian-b2/reading-review.js?v=20260723-1"></script>
 <script src="js/russian-b2/dashboard.js"></script>
 <script>
 /* ══════════════════════════════════════════════
@@ -2375,14 +2376,36 @@ function saveReadingProgress(progress) {
   try { localStorage.setItem(READING_PROGRESS_KEY, JSON.stringify(progress)); } catch (e) {}
 }
 function getReadingRecord(questionId) {
-  return getReadingProgress()[questionId] || { selected: '', answered: false, answerOpen: false };
+  return RussianB2ReadingReview.normalizeRecord(getReadingProgress()[questionId] || {});
+}
+@media (min-width: 761px) and (max-width: 1024px) and (orientation: portrait) {
+  .reader-layout { display: block; max-width: 100%; padding: 0 0 72px; }
+  .reader-pane { width: 100%; min-width: 0; padding: 0 clamp(22px, 5vw, 52px); }
+  .resize-handle { display: none; }
+  #detailPanel { position: fixed; inset: auto 0 0; z-index: 220; width: 100%; max-width: none; border-left: 0; border-radius: 16px 16px 0 0; transform: translateY(105%); }
+  #detailPanel[data-dictionary-state="half"] { height: 46dvh; transform: translateY(0); }
+  #detailPanel[data-dictionary-state="full"] { height: 88dvh; transform: translateY(0); }
+  .dictionary-drawer-handle { display: block; }
+}
+@media (min-width: 900px) and (max-width: 1366px) and (orientation: landscape) {
+  .reader-layout { display: flex; max-width: 100%; }
+  .reader-pane { flex: 0 0 65%; min-width: 0; }
+  .detail-panel { flex: 1 1 35%; min-width: 300px; }
+  .resize-handle { display: block; }
 }
 function answerReadingQuestion(questionId, selected, evt) {
   if (evt && evt.target.closest('.ru-word')) return;
-  var progress = getReadingProgress(), record = progress[questionId] || { selected: '', answered: false, answerOpen: false };
+  var progress = getReadingProgress(), record = getReadingRecord(questionId);
   if (record.answered) return;
-  record.selected = selected; record.answered = true; record.answeredAt = new Date().toISOString();
+  var question = (currentReadingData && currentReadingData.questions || []).find(function(item) { return item.id === questionId; });
+  if (!question) return;
+  record = RussianB2ReadingReview.recordAttempt(record, Object.assign({}, question, { unitId: currentReadingData.id, moduleId: 'reading' }), selected, new Date().toISOString());
   progress[questionId] = record; saveReadingProgress(progress); rerenderReadingPracticePreservingScroll();
+}
+function setReadingErrorCategory(questionId, category) {
+  var progress = getReadingProgress();
+  progress[questionId] = RussianB2ReadingReview.setErrorCategory(getReadingRecord(questionId), category);
+  saveReadingProgress(progress); rerenderReadingPracticePreservingScroll();
 }
 function toggleReadingAnswer(questionId) {
   var progress = getReadingProgress(), record = progress[questionId] || { selected: '', answered: false, answerOpen: false };
@@ -2767,8 +2790,9 @@ function renderReadingPracticeQuestion(question) {
   var result = record.answered ? '<p class="b2-quiz-result ' + (selected === question.answer ? 'correct' : 'wrong') + '">' + (selected === question.answer ? '回答正确' : '回答错误') + '</p>' : '';
   var answer = record.answerOpen ? '<div class="b2-explanation"><strong>原书答案（已核对）：' + escapeHtml(question.answer) + '</strong><small class="reading-answer-source">原书参考答案表：PDF-' + String(question.answerSource.pdfPage).padStart(3, '0') + '</small></div>' : '';
   var toggle = record.answered ? '<button class="tb-btn" onclick="toggleReadingAnswer(\'' + escapeHtml(question.id) + '\')">' + (record.answerOpen ? '收起答案' : '查看答案') + '</button>' : '';
+  var reason = record.needsClassification ? '<div class="reading-error-reason"><span>这题主要错在哪里？</span>' + Object.keys(RussianB2ReadingReview.CATEGORY_LABELS).map(function(key) { return '<button type="button" onclick="setReadingErrorCategory(\'' + escapeHtml(question.id) + '\',\'' + key + '\')">' + escapeHtml(RussianB2ReadingReview.CATEGORY_LABELS[key]) + '</button>'; }).join('') + '<button type="button" onclick="setReadingErrorCategory(\'' + escapeHtml(question.id) + '\',\'\')">跳过</button></div>' : '';
   var promptPages = question.answerSource && question.answerSource.pdfPage ? [question.answerSource.pdfPage] : [];
-  return '<article class="reading-practice-question"><p><b>' + question.printedNumber + '.</b> ' + renderRuText(question.prompt, lookupContext('reading', question.id, 'reading-prompt', question.prompt, '', promptPages)) + '</p><div class="b2-options">' + options + '</div>' + result + toggle + answer + '</article>';
+  return '<article class="reading-practice-question"><p><b>' + question.printedNumber + '.</b> ' + renderRuText(question.prompt, lookupContext('reading', question.id, 'reading-prompt', question.prompt, '', promptPages)) + '</p><div class="b2-options">' + options + '</div>' + result + reason + toggle + answer + '</article>';
 }
 function renderReadingLearningSupport(data) {
   if (data.translationStatus !== 'learning-support-approved') return '';
