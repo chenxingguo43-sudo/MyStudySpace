@@ -2136,6 +2136,9 @@ function getWrongAnswerItems() {
       if (record && record.everWrong) items.push({ partId: partKey.split(':')[1], exerciseId: exerciseId, status: record.lastResult === 'wrong' ? 'pending' : 'mastered', lastAnsweredAt: record.lastAnsweredAt || '' });
     });
   });
+  RussianB2ReadingReview.getReviewItems(getReadingProgress()).forEach(function(record) {
+    items.push({ moduleId: 'reading', partId: 'reading', exerciseId: record.questionId, chapterIndex: record.chapterIndex, status: record.status, lastAnsweredAt: record.lastAnsweredAt || '' });
+  });
   return items.sort(function(a, b) { return b.lastAnsweredAt.localeCompare(a.lastAnsweredAt); });
 }
 var wrongAnswerBookMeta = null;
@@ -2162,7 +2165,12 @@ function showWrongAnswerBook(partFilter, pointFilter) {
   var select = '<select class="sort-select" onchange="showWrongAnswerBook(this.value)"><option value="">全部部分</option>' + ['p1','p2','p3','p4','p5','p6'].map(function(part) { return '<option value="' + part + '"' + (part === partFilter ? ' selected' : '') + '>' + part.toUpperCase() + '</option>'; }).join('') + '</select>';
   var points = [...new Set(items.map(function(item) { return item.knowledge.title; }))];
   var pointSelect = '<select class="sort-select" onchange="showWrongAnswerBook(\'' + (partFilter || '') + '\',this.value)"><option value="">全部知识点</option>' + points.map(function(point) { return '<option value="' + escapeHtml(point) + '"' + (point === pointFilter ? ' selected' : '') + '>' + escapeHtml(point) + '</option>'; }).join('') + '</select>';
-  var rows = filtered.map(function(item) { return '<button class="b2-finish" onclick="openWrongAnswerItem(\'' + item.partId + '\',\'' + item.exerciseId + '\')">' + (item.status === 'pending' ? '待掌握 · ' : '已掌握 · ') + item.partId.toUpperCase() + ' · ' + escapeHtml(item.knowledge.title) + ' · ' + item.exerciseId + '</button>'; }).join('');
+  var rows = filtered.map(function(item) {
+    var reading = item.moduleId === 'reading';
+    var label = reading ? '阅读 · 第 ' + (Number(item.chapterIndex) + 1) + ' 篇' : item.partId.toUpperCase() + ' · ' + escapeHtml(item.knowledge.title);
+    var open = reading ? 'openReadingWrongAnswerItem(' + Number(item.chapterIndex) + ',\'' + item.exerciseId + '\')' : 'openWrongAnswerItem(\'' + item.partId + '\',\'' + item.exerciseId + '\')';
+    return '<button class="b2-finish" onclick="' + open + '">' + (item.status === 'pending' ? '待掌握 · ' : '已掌握 · ') + label + ' · ' + item.exerciseId + '</button>';
+  }).join('');
   document.getElementById('app').innerHTML = b2FloatingNavigation({ backAction: back, backTitle: backTitle }) + '<div class="main-container"><div class="b2-quiz-header"><h1>错题复习</h1><p>待掌握 ' + pending.length + ' 题 · 已掌握 ' + mastered.length + ' 题</p>' + select + pointSelect + '</div>' + (rows || '<div class="loading">这个筛选下还没有错题。</div>') + '</div>';
 }
 function openWrongAnswerItem(partId, exerciseId) {
@@ -2382,6 +2390,22 @@ function saveReadingProgress(progress) {
 function getReadingRecord(questionId) {
   return RussianB2ReadingReview.normalizeRecord(getReadingProgress()[questionId] || {});
 }
+function openReadingWrongAnswerItem(chapterIndex, questionId) {
+  var module = b2BookManifest && (b2BookManifest.modules || []).find(function(item) { return item.id === 'reading'; });
+  var rootBook = getBookById('russian_b2');
+  if (!module || !rootBook || chapterIndex < 0) { toast('该阅读错题缺少文章定位'); return; }
+  var progress = getReadingProgress();
+  progress[questionId] = RussianB2ReadingReview.prepareRetry(getReadingRecord(questionId));
+  saveReadingProgress(progress);
+  _wrongAnswerQuizReturn = { back: _wrongAnswerBookReturn };
+  pendingQuizJumpId = questionId;
+  curBook = Object.assign({}, rootBook, module, { id: 'russian_b2', moduleId: 'reading', isB2Module: true, kind: 'textbook', direction: 'ru→cn' });
+  fetchJson('data/textbook/' + module.dir + '/index.json', null).then(function(index) {
+    curBook.chapters = index.chapters || module.chapters || 0;
+    curBook.chapterTitles = index.chapterTitles || module.chapterTitles || [];
+    goChapter(chapterIndex, { activeQuestionId: questionId });
+  }).catch(function() { toast('阅读错题加载失败'); });
+}
 @media (min-width: 761px) and (max-width: 1024px) and (orientation: portrait) {
   .reader-layout { display: block; max-width: 100%; padding: 0 0 72px; }
   .reader-pane { width: 100%; min-width: 0; padding: 0 clamp(22px, 5vw, 52px); }
@@ -2404,6 +2428,7 @@ function answerReadingQuestion(questionId, selected, evt) {
   var question = (currentReadingData && currentReadingData.questions || []).find(function(item) { return item.id === questionId; });
   if (!question) return;
   record = RussianB2ReadingReview.recordAttempt(record, Object.assign({}, question, { unitId: currentReadingData.id, moduleId: 'reading' }), selected, new Date().toISOString());
+  record.chapterIndex = curCh;
   progress[questionId] = record; saveReadingProgress(progress); rerenderReadingPracticePreservingScroll();
 }
 function setReadingErrorCategory(questionId, category) {
