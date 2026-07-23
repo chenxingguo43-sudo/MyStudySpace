@@ -1,0 +1,118 @@
+- generic [ref=f29e1]:
+  - main [ref=f29e11]:
+    - button "打开边栏" [ref=f29e170] [cursor=pointer]:
+      - generic [ref=f29e171]: side_nav_expand
+    - generic [ref=f29e160]:
+      - generic: play_arrow
+      - button "临时对话" [ref=f29e164] [cursor=pointer]:
+        - img [ref=f29e166]: gemini_chat_temp
+    - generic [ref=f29e13]:
+      - navigation "侧边导航栏" [ref=f29e14]:
+        - generic [ref=f29e17]:
+          - generic [ref=f29e18]:
+            - navigation "主要操作菜单" [ref=f29e19]:
+              - link "发起新对话" [ref=f29e23] [cursor=pointer]:
+                - /url: /app
+                - img [ref=f29e25]: gemini_chat
+              - link "搜索对话内容" [ref=f29e30] [cursor=pointer]:
+                - /url: /search
+                - img [ref=f29e32]: search
+            - navigation "其他操作菜单" [ref=f29e34]:
+              - link "库" [ref=f29e38] [cursor=pointer]:
+                - /url: library
+                - img [ref=f29e40]: library
+          - group [ref=f29e42]:
+            - generic [ref=f29e44]:
+              - link "Google 账号：陈兴国 (chenxingguo43@gmail.com)" [ref=f29e45] [cursor=pointer]:
+                - /url: https://accounts.google.com/SignOutOptions?continue=https://gemini.google.com
+              - button "设置" [ref=f29e50] [cursor=pointer]:
+                - img [ref=f29e52]: settings
+      - generic [ref=f29e59]:
+        - generic [ref=f29e60]:
+          - heading "与 Gemini 对话" [level=1] [ref=f29e61]
+          - heading "兴国，需要我帮你做点什么？" [level=1] [ref=f29e122]
+        - generic [ref=f29e76]:
+          - group [ref=f29e77]:
+            - generic [ref=f29e80]:
+              - generic [ref=f29e266]:
+                - generic [ref=f29e270]:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - img "attachment" [ref=f29e271]
+                        - progressbar "正在加载图片" [ref=f29e274] [cursor=pointer]
+                - generic [ref=f29e292]:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - img "attachment" [ref=f29e293]
+                        - progressbar "正在加载图片" [ref=f29e296] [cursor=pointer]
+                - generic [ref=f29e314]:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - img "attachment" [ref=f29e315]
+                        - progressbar "正在加载图片" [ref=f29e318] [cursor=pointer]
+                - generic [ref=f29e336]:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - img "attachment" [ref=f29e337]
+                        - progressbar "正在加载图片" [ref=f29e340] [cursor=pointer]
+                - generic [ref=f29e358]:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - img "attachment" [ref=f29e359]
+                        - progressbar "正在加载图片" [ref=f29e362] [cursor=pointer]
+                - generic [ref=f29e380]:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - img "attachment" [ref=f29e381]
+                        - progressbar "正在加载图片" [ref=f29e384] [cursor=pointer]
+                - generic [ref=f29e402]:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - img "attachment" [ref=f29e403]
+                        - progressbar "正在加载图片" [ref=f29e406] [cursor=pointer]
+                - generic [ref=f29e424]:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - img "attachment" [ref=f29e425]
+                        - progressbar "正在加载图片" [ref=f29e428] [cursor=pointer]
+                - generic [ref=f29e446]:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - img "attachment" [ref=f29e447]
+                        - progressbar "正在加载图片" [ref=f29e450] [cursor=pointer]
+                - generic [ref=f29e468]:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - img "attachment" [ref=f29e469]
+                        - progressbar "正在加载图片" [ref=f29e472] [cursor=pointer]
+              - textbox "为 Gemini 输入提示" [active] [ref=f29e86]:
+                - text: 问问 Gemini
+                - paragraph [ref=f29e87]
+              - button "上传和工具" [ref=f29e93] [cursor=pointer]:
+                - img [ref=f29e95]: plus
+              - generic [ref=f29e97]:
+                - group [ref=f29e100]:
+                  - button "打开模式选择器，当前模式为“Flash”" [ref=f29e101]:
+                    - generic [ref=f29e103]:
+                      - generic [ref=f29e104]: Flash
+                      - img [ref=f29e106]: keyboard_arrow_down
+                - generic [ref=f29e109]:
+                  - button "麦克风" [ref=f29e114] [cursor=pointer]:
+                    - img [ref=f29e116]: mic
+                  - generic:
+                    - generic:
+                      - button "发送" [disabled]:
+                        - generic:
+                          - img: arrow_upward
+          - paragraph [ref=f29e120]
+  - generic [ref=f29e121]: 正在加载图片

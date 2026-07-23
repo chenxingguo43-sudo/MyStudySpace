@@ -1,0 +1,84 @@
+- generic [ref=f14e1]:
+  - main [ref=f14e11]:
+    - button "打开边栏" [ref=f14e135] [cursor=pointer]:
+      - generic [ref=f14e136]: side_nav_expand
+    - generic [ref=f14e15]:
+      - generic: play_arrow
+      - button "打开对话操作菜单。" [ref=f14e375] [cursor=pointer]:
+        - img [ref=f14e377]: more_vert
+    - generic [ref=f14e24]:
+      - navigation "侧边导航栏" [ref=f14e25]:
+        - generic [ref=f14e28]:
+          - generic [ref=f14e29]:
+            - navigation "主要操作菜单" [ref=f14e30]:
+              - link "发起新对话" [ref=f14e34] [cursor=pointer]:
+                - /url: /app
+                - img [ref=f14e36]: gemini_chat
+              - link "搜索对话内容" [ref=f14e41] [cursor=pointer]:
+                - /url: /search
+                - img [ref=f14e43]: search
+            - navigation "其他操作菜单" [ref=f14e45]:
+              - link "库" [ref=f14e49] [cursor=pointer]:
+                - /url: library
+                - img [ref=f14e51]: library
+          - group [ref=f14e53]:
+            - generic [ref=f14e55]:
+              - link "Google 账号：陈兴国 (chenxingguo43@gmail.com)" [ref=f14e56] [cursor=pointer]:
+                - /url: https://accounts.google.com/SignOutOptions?continue=https://gemini.google.com
+              - button "设置" [ref=f14e61] [cursor=pointer]:
+                - img [ref=f14e63]: settings
+      - generic [ref=f14e70]:
+        - generic [ref=f14e71]:
+          - heading "与 Gemini 对话" [level=1] [ref=f14e72]
+          - generic [ref=f14e379]:
+            - generic [ref=f14e383]:
+              - generic [ref=f14e386]:
+                - button "以灯箱形式显示上传的图片" [ref=f14e390] [cursor=pointer]:
+                  - img "所上传图片的预览图" [ref=f14e391]
+                - button "以灯箱形式显示上传的图片" [ref=f14e395] [cursor=pointer]:
+                  - img "所上传图片的预览图" [ref=f14e396]
+                - button "以灯箱形式显示上传的图片" [ref=f14e400] [cursor=pointer]:
+                  - img "所上传图片的预览图" [ref=f14e401]
+                - button "以灯箱形式显示上传的图片" [ref=f14e405] [cursor=pointer]:
+                  - img "所上传图片的预览图" [ref=f14e406]
+              - generic [ref=f14e408] [cursor=pointer]:
+                - 'heading "你说 Transcribe all 4 pages of this Russian textbook EXACTLY. - Keep ALL exercise numbers, question text, options (А/Б/В/Г), page numbers - Use Markdown tables for exercise rows - Preserve all special symbols: — «» § * - No commentary, no summaries, no translations - Label each page as ## Page N — Section Title" [level=2] [ref=f14e410]':
+                  - generic [ref=f14e411]: 你说
+                  - paragraph [ref=f14e412]: Transcribe all 4 pages of this Russian textbook EXACTLY.
+                  - paragraph [ref=f14e413]: "- Keep ALL exercise numbers, question text, options (А/Б/В/Г), page numbers"
+                  - paragraph [ref=f14e414]: "- Use Markdown tables for exercise rows"
+                  - paragraph [ref=f14e415]: "- Preserve all special symbols: — «» § *"
+                  - paragraph [ref=f14e416]: "- No commentary, no summaries, no translations"
+                  - paragraph [ref=f14e417]: "- Label each page as ## Page N — Section Title"
+                - button "展开" [ref=f14e418]:
+                  - img [ref=f14e421]: expand_more
+              - generic [ref=f14e424]:
+                - button "复制提示" [ref=f14e426] [cursor=pointer]:
+                  - img [ref=f14e428]: copy
+                - generic [ref=f14e430]:
+                  - button "修改" [disabled]:
+                    - generic:
+                      - img: edit
+            - generic [ref=f14e437]:
+              - heading "Gemini 说" [level=2] [ref=f14e438]
+              - heading "Page 5 — ОБЩЕЕ ПРЕДИСЛОВИЕ" [level=2] [ref=f14e443]
+        - generic [ref=f14e87]:
+          - group [ref=f14e88]:
+            - generic [ref=f14e91]:
+              - textbox "为 Gemini 输入提示" [active] [ref=f14e97]:
+                - text: 问问 Gemini
+                - paragraph [ref=f14e444]
+              - button "上传和工具" [ref=f14e104] [cursor=pointer]:
+                - img [ref=f14e106]: plus
+              - generic [ref=f14e108]:
+                - group [ref=f14e111]:
+                  - button "打开模式选择器，当前模式为“Flash”" [ref=f14e176]:
+                    - generic [ref=f14e114]:
+                      - generic [ref=f14e115]: Flash
+                      - img [ref=f14e117]: keyboard_arrow_down
+                - generic [ref=f14e120]:
+                  - text: mic
+                  - button "停止回答" [ref=f14e445] [cursor=pointer]:
+                    - img [ref=f14e371]: stop
+          - paragraph [ref=f14e446]: Gemini 是一款 AI 工具，其回答未必正确无误。
+  - generic [ref=f14e132]: Gemini 已回复

@@ -31,7 +31,10 @@
   },
   "homepage": "https://github.com/chenxingguo43-sudo/MyStudySpace#readme",
   "dependencies": {
+    "@playwright/test": "^1.61.1",
     "cheerio": "^1.2.0",
-    "playwright-core": "^1.61.1"
+    "opencc-js": "^1.4.1",
+    "playwright-core": "^1.61.1",
+    "sql.js": "^1.14.1"
   }
 }

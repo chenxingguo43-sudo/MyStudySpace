@@ -1,0 +1,156 @@
+<style>
+#ipad-layout-options .layout-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+#ipad-layout-options .layout-choice {
+  min-width: 0;
+}
+#ipad-layout-options .device-row {
+  display: grid;
+  grid-template-columns: 0.72fr 1.28fr;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+#ipad-layout-options .device {
+  min-height: 210px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--background);
+  color: var(--foreground);
+  display: flex;
+  flex-direction: column;
+}
+#ipad-layout-options .device-bar {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 8px;
+  border-bottom: 1px solid var(--border);
+  color: var(--muted-foreground);
+}
+#ipad-layout-options .reading {
+  padding: 10px;
+  flex: 1;
+}
+#ipad-layout-options .line {
+  height: 6px;
+  margin-bottom: 7px;
+  border-radius: 4px;
+  background: var(--muted);
+}
+#ipad-layout-options .line.short { width: 68%; }
+#ipad-layout-options .line.word { background: var(--accent); width: 84%; }
+#ipad-layout-options .bottom-dict {
+  padding: 9px;
+  border-top: 1px solid var(--border);
+  background: var(--card);
+}
+#ipad-layout-options .dict-title {
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+#ipad-layout-options .dict-note {
+  color: var(--muted-foreground);
+}
+#ipad-layout-options .landscape-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1.8fr) minmax(78px, 1fr);
+  flex: 1;
+}
+#ipad-layout-options .side-dict {
+  padding: 10px;
+  border-left: 1px solid var(--border);
+  background: var(--card);
+}
+#ipad-layout-options .always-bottom .landscape-body {
+  display: flex;
+  flex-direction: column;
+}
+#ipad-layout-options .always-bottom .side-dict {
+  border-left: 0;
+  border-top: 1px solid var(--border);
+}
+#ipad-layout-options .always-side .portrait-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(62px, 0.8fr);
+  flex: 1;
+}
+#ipad-layout-options .always-side .portrait-body .bottom-dict {
+  border-top: 0;
+  border-left: 1px solid var(--border);
+}
+@media (max-width: 720px) {
+  #ipad-layout-options .layout-grid { grid-template-columns: 1fr; }
+}
+</style>
+
+<div id="ipad-layout-options">
+  <div class="layout-grid">
+    <button class="card layout-choice" type="button" data-choice="adaptive" onclick="toggleSelect(this)">
+      <div class="device-row" aria-hidden="true">
+        <div class="device">
+          <div class="device-bar"><span>Текст 1</span><span>Aa · ☰</span></div>
+          <div class="reading">
+            <div class="line word"></div><div class="line"></div><div class="line short"></div>
+            <div class="line"></div><div class="line short"></div>
+          </div>
+          <div class="bottom-dict">
+            <div class="dict-title">написаны → написать</div>
+            <div class="dict-note">被动 · 过去时 · 复数　展开 ↑</div>
+          </div>
+        </div>
+        <div class="device">
+          <div class="device-bar"><span>Текст 1</span><span>Aa · ☰</span></div>
+          <div class="landscape-body">
+            <div class="reading"><div class="line word"></div><div class="line"></div><div class="line short"></div><div class="line"></div></div>
+            <div class="side-dict"><div class="dict-title">написаны</div><div class="dict-note">написать<br>被动 · 过去时<br>常用搭配</div></div>
+          </div>
+        </div>
+      </div>
+      <strong>A · 自适应（推荐）</strong>
+      <div class="text-muted">竖屏底部快速词典，横屏左右分栏。</div>
+    </button>
+
+    <button class="card layout-choice always-bottom" type="button" data-choice="bottom" onclick="toggleSelect(this)">
+      <div class="device-row" aria-hidden="true">
+        <div class="device">
+          <div class="device-bar"><span>Текст 1</span><span>Aa · ☰</span></div>
+          <div class="reading"><div class="line word"></div><div class="line"></div><div class="line short"></div><div class="line"></div></div>
+          <div class="bottom-dict"><div class="dict-title">написаны</div><div class="dict-note">底部词典</div></div>
+        </div>
+        <div class="device">
+          <div class="device-bar"><span>Текст 1</span><span>Aa · ☰</span></div>
+          <div class="landscape-body">
+            <div class="reading"><div class="line word"></div><div class="line"></div><div class="line short"></div></div>
+            <div class="side-dict"><div class="dict-title">написаны → написать</div><div class="dict-note">横屏也从底部打开</div></div>
+          </div>
+        </div>
+      </div>
+      <strong>B · 始终底部词典</strong>
+      <div class="text-muted">文章最宽，但横屏空间利用较少。</div>
+    </button>
+
+    <button class="card layout-choice always-side" type="button" data-choice="side" onclick="toggleSelect(this)">
+      <div class="device-row" aria-hidden="true">
+        <div class="device">
+          <div class="device-bar"><span>Текст 1</span><span>Aa · ☰</span></div>
+          <div class="portrait-body">
+            <div class="reading"><div class="line word"></div><div class="line"></div><div class="line short"></div><div class="line"></div></div>
+            <div class="bottom-dict"><div class="dict-title">написаны</div><div class="dict-note">右侧常驻</div></div>
+          </div>
+        </div>
+        <div class="device">
+          <div class="device-bar"><span>Текст 1</span><span>Aa · ☰</span></div>
+          <div class="landscape-body">
+            <div class="reading"><div class="line word"></div><div class="line"></div><div class="line short"></div></div>
+            <div class="side-dict"><div class="dict-title">написаны</div><div class="dict-note">右侧常驻</div></div>
+          </div>
+        </div>
+      </div>
+      <strong>C · 始终左右分栏</strong>
+      <div class="text-muted">词典持续可见，但竖屏正文会偏窄。</div>
+    </button>
+  </div>
+</div>

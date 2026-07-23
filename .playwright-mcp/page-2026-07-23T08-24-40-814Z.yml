@@ -1,0 +1,68 @@
+- main [ref=f9e11]:
+  - button "打开边栏" [ref=f9e113] [cursor=pointer]:
+    - generic [ref=f9e114]: side_nav_expand
+  - generic [ref=f9e119]: play_arrow
+  - generic [ref=f9e13]:
+    - navigation "侧边导航栏" [ref=f9e14]:
+      - generic [ref=f9e17]:
+        - generic [ref=f9e18]:
+          - navigation "主要操作菜单" [ref=f9e19]:
+            - link "发起新对话" [ref=f9e23] [cursor=pointer]:
+              - /url: /app
+              - img [ref=f9e25]: gemini_chat
+            - link "搜索对话内容" [ref=f9e30] [cursor=pointer]:
+              - /url: /search
+              - img [ref=f9e32]: search
+          - navigation "其他操作菜单" [ref=f9e34]:
+            - link "库" [ref=f9e38] [cursor=pointer]:
+              - /url: library
+              - img [ref=f9e40]: library
+        - group [ref=f9e42]:
+          - generic [ref=f9e44]:
+            - link "Google 账号：陈兴国 (chenxingguo43@gmail.com)" [ref=f9e45] [cursor=pointer]:
+              - /url: https://accounts.google.com/SignOutOptions?continue=https://gemini.google.com
+            - button "设置" [ref=f9e50] [cursor=pointer]:
+              - img [ref=f9e52]: settings
+    - generic [ref=f9e59]:
+      - generic [ref=f9e60]:
+        - heading "与 Gemini 对话" [level=1] [ref=f9e61]
+        - generic [ref=f9e317]:
+          - generic [ref=f9e320]:
+            - button "以灯箱形式显示上传的图片" [ref=f9e324] [cursor=pointer]:
+              - img "所上传图片的预览图" [ref=f9e325]
+            - button "以灯箱形式显示上传的图片" [ref=f9e329] [cursor=pointer]:
+              - img "所上传图片的预览图" [ref=f9e330]
+            - button "以灯箱形式显示上传的图片" [ref=f9e334] [cursor=pointer]:
+              - img "所上传图片的预览图" [ref=f9e335]
+          - generic [ref=f9e337] [cursor=pointer]:
+            - 'heading "你说 You are a Russian textbook OCR specialist. Transcribe these 3 scanned pages from a Russian grammar textbook (Златоуст, 2009). Output the EXACT text — no summaries or translations. CRITICAL: Preserve ALL stress marks, special symbols (§ * — «»), Tables as Markdown tables with correct rows/columns, Exercises keep printed number/question/options (А/Б/В/Г). No commentary. Output format: ## Page A — Exercises [text] ## Page B — Grammar Theory [text] ## Page C — Vocabulary Table [text]" [level=2] [ref=f9e339]':
+              - generic [ref=f9e340]: 你说
+              - paragraph [ref=f9e341]: "You are a Russian textbook OCR specialist. Transcribe these 3 scanned pages from a Russian grammar textbook (Златоуст, 2009). Output the EXACT text — no summaries or translations. CRITICAL: Preserve ALL stress marks, special symbols (§ * — «»), Tables as Markdown tables with correct rows/columns, Exercises keep printed number/question/options (А/Б/В/Г). No commentary. Output format: ## Page A — Exercises [text] ## Page B — Grammar Theory [text] ## Page C — Vocabulary Table [text]"
+            - button "展开" [ref=f9e342]:
+              - img [ref=f9e345]: expand_more
+          - generic [ref=f9e348]:
+            - button "复制提示" [ref=f9e350] [cursor=pointer]:
+              - img [ref=f9e352]: copy
+            - generic [ref=f9e354]:
+              - button "修改" [disabled]:
+                - generic:
+                  - img: edit
+      - generic [ref=f9e75]:
+        - group [ref=f9e76]:
+          - generic [ref=f9e79]:
+            - textbox "为 Gemini 输入提示" [active] [ref=f9e85]:
+              - text: 问问 Gemini
+              - paragraph [ref=f9e373]
+            - button "上传和工具" [ref=f9e92] [cursor=pointer]:
+              - img [ref=f9e94]: plus
+            - generic [ref=f9e96]:
+              - group [ref=f9e135]:
+                - button "打开模式选择器，当前模式为“Pro”" [ref=f9e136]:
+                  - generic [ref=f9e138]:
+                    - generic [ref=f9e139]: Pro
+                    - img [ref=f9e141]: keyboard_arrow_down
+              - generic [ref=f9e98]:
+                - text: mic
+                - button "停止回答" [ref=f9e374] [cursor=pointer]:
+                  - img [ref=f9e311]: stop
+        - paragraph [ref=f9e375]: Gemini 是一款 AI 工具，其回答未必正确无误。

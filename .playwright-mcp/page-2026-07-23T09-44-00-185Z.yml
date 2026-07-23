@@ -1,0 +1,323 @@
+- main [ref=f39e11]:
+  - button "打开边栏" [ref=f39e126] [cursor=pointer]:
+    - generic [ref=f39e127]: side_nav_expand
+  - generic [ref=f39e136]:
+    - generic: play_arrow
+    - button "打开对话操作菜单。" [ref=f39e344] [cursor=pointer]:
+      - img [ref=f39e346]: more_vert
+  - generic [ref=f39e13]:
+    - navigation "侧边导航栏" [ref=f39e14]:
+      - generic [ref=f39e17]:
+        - generic [ref=f39e18]:
+          - navigation "主要操作菜单" [ref=f39e19]:
+            - link "发起新对话" [ref=f39e23] [cursor=pointer]:
+              - /url: /app
+              - img [ref=f39e25]: gemini_chat
+            - link "搜索对话内容" [ref=f39e30] [cursor=pointer]:
+              - /url: /search
+              - img [ref=f39e32]: search
+          - navigation "其他操作菜单" [ref=f39e34]:
+            - link "库" [ref=f39e38] [cursor=pointer]:
+              - /url: library
+              - img [ref=f39e40]: library
+        - group [ref=f39e42]:
+          - generic [ref=f39e44]:
+            - link "Google 账号：陈兴国 (chenxingguo43@gmail.com)" [ref=f39e45] [cursor=pointer]:
+              - /url: https://accounts.google.com/SignOutOptions?continue=https://gemini.google.com
+            - button "设置" [ref=f39e50] [cursor=pointer]:
+              - img [ref=f39e52]: settings
+    - generic [ref=f39e59]:
+      - generic [ref=f39e60]:
+        - heading "与 Gemini 对话" [level=1] [ref=f39e61]
+        - generic [ref=f39e348]:
+          - generic [ref=f39e352]:
+            - generic [ref=f39e355]:
+              - button "以灯箱形式显示上传的图片" [ref=f39e359] [cursor=pointer]:
+                - img "所上传图片的预览图" [ref=f39e360]
+              - button "以灯箱形式显示上传的图片" [ref=f39e364] [cursor=pointer]:
+                - img "所上传图片的预览图" [ref=f39e365]
+              - button "以灯箱形式显示上传的图片" [ref=f39e369] [cursor=pointer]:
+                - img "所上传图片的预览图" [ref=f39e370]
+            - 'heading "你说 Transcribe these 3 pages EXACTLY. Page 1=grammar theory, pages 2-3=answer key. Keep all numbers, symbols. Label ## Page N. No commentary." [level=2] [ref=f39e374]':
+              - generic [ref=f39e375]: 你说
+              - paragraph [ref=f39e376]: "Transcribe these 3 pages EXACTLY. Page 1=grammar theory, pages 2-3=answer key. Keep all numbers, symbols. Label ## Page N. No commentary."
+            - generic [ref=f39e377]:
+              - button "复制提示" [ref=f39e379] [cursor=pointer]:
+                - img [ref=f39e381]: copy
+              - button "修改" [ref=f39e384] [cursor=pointer]:
+                - img [ref=f39e386]: edit
+          - generic [ref=f39e391]:
+            - generic [ref=f39e394]:
+              - heading "Gemini 说" [level=2] [ref=f39e395]
+              - generic [ref=f39e399]:
+                - heading "Page 1" [level=2] [ref=f39e400]
+                - paragraph [ref=f39e401]: 96 Учебно-тренировочные тесты. Выпуск 1. Грамматика. Лексика
+                - generic [ref=f39e406]:
+                  - generic [ref=f39e407]:
+                    - table [ref=f39e408]:
+                      - rowgroup [ref=f39e409]:
+                        - row [ref=f39e410]:
+                          - columnheader [ref=f39e411]
+                      - rowgroup [ref=f39e412]:
+                        - row [ref=f39e413]:
+                          - 'cell "2. После глаголов со значением приобретения или утраты: любить / полюбить, привыкать / привыкнуть, отвыкать / отвыкнуть, бросать / бросить (в значении перестать), нравиться / понравиться." [ref=f39e414]'
+                        - row [ref=f39e416]:
+                          - cell "— Шерлок Холмс любил играть на скрипке; Мой друг давно бросил заниматься спортом." [ref=f39e417]:
+                            - generic [ref=f39e418]:
+                              - text: —
+                              - generic [ref=f39e419]: Шерлок Холмс любил играть на скрипке; Мой друг давно бросил заниматься спортом.
+                        - row [ref=f39e420]:
+                          - cell [ref=f39e421]:
+                            - generic [ref=f39e422]:
+                              - generic [ref=f39e423]: "3. После глаголов, выражающих отрицательное отношение к названному действию:"
+                              - generic [ref=f39e424]:
+                                - generic [ref=f39e425]:
+                                  - text: надоедать / надоесть, уставать / устать, передумать, разлюбить, расхотеть, отвыкать / отвыкнуть, разучиваться / разучиться, отучивать / отучить, запрещать / запретить, от
+                                  - superscript [ref=f39e426]
+                                - generic [ref=f39e427]:
+                                  - text: говаривать / отговорить
+                                  - superscript [ref=f39e428]
+                              - text: "и после слов, выражающих запрет или нежелательность действия: довольно, хватит, опасно, плохо, вредно, бесполезно."
+                        - row [ref=f39e429]:
+                          - cell "— Сын устал возражать матери; Родители отговорили детей уезжать в отпуск так далеко; Стыдно говорить неправду." [ref=f39e430]:
+                            - generic [ref=f39e431]:
+                              - text: —
+                              - generic [ref=f39e432]: Сын устал возражать матери; Родители отговорили детей уезжать в отпуск так далеко; Стыдно говорить неправду.
+                    - button "查看来源详情。按 Enter 键打开来源对话框。" [ref=f39e436] [cursor=pointer]
+                  - button "更多选项" [ref=f39e439] [cursor=pointer]:
+                    - img [ref=f39e441]: more_horiz
+                - heading "1.4.5. Употребление глаголов несовершенного и совершенного вида со словом нельзя" [level=3] [ref=f39e443]
+                - generic [ref=f39e448]:
+                  - table [ref=f39e450]:
+                    - rowgroup [ref=f39e451]:
+                      - row [ref=f39e452]:
+                        - columnheader "Несовершенный вид" [ref=f39e453]
+                        - columnheader "Совершенный вид" [ref=f39e454]
+                    - rowgroup [ref=f39e455]:
+                      - row [ref=f39e456]:
+                        - cell "Значение запрещения." [ref=f39e457]
+                        - cell "Значение объективной невозможности." [ref=f39e459]
+                      - row [ref=f39e461]:
+                        - cell "— Здесь нельзя переходить дорогу; После одиннадцати часов вечера в общежитии нельзя шуметь." [ref=f39e462]:
+                          - generic [ref=f39e463]:
+                            - text: —
+                            - generic [ref=f39e464]: Здесь нельзя переходить дорогу; После одиннадцати часов вечера в общежитии нельзя шуметь.
+                        - cell "— Свет нельзя включить, лампочка перегорела; С ним сейчас нельзя связаться, телефон не работает." [ref=f39e465]:
+                          - generic [ref=f39e466]:
+                            - text: —
+                            - generic [ref=f39e467]: Свет нельзя включить, лампочка перегорела; С ним сейчас нельзя связаться, телефон не работает.
+                  - button "更多选项" [ref=f39e470] [cursor=pointer]:
+                    - img [ref=f39e472]: more_horiz
+                - heading "1.4.6. Употребление глаголов несовершенного и совершенного вида в инфинитиве с отрицанием" [level=3] [ref=f39e474]
+                - generic [ref=f39e479]:
+                  - table [ref=f39e481]:
+                    - rowgroup [ref=f39e482]:
+                      - row [ref=f39e483]:
+                        - columnheader "Несовершенный вид" [ref=f39e484]
+                        - columnheader "Совершенный вид" [ref=f39e485]
+                    - rowgroup [ref=f39e486]:
+                      - row [ref=f39e487]:
+                        - 'cell "1. Если отрицание относится к зависимому инфинитиву¹: Мы решили не брать слишком много вещей в командировку; Психологи советуют не обращать внимания на обидные слова." [ref=f39e488]':
+                          - paragraph [ref=f39e489]: "1. Если отрицание относится к зависимому инфинитиву¹:"
+                          - paragraph [ref=f39e490]:
+                            - generic [ref=f39e491]: Мы решили не брать слишком много вещей в командировку; Психологи советуют не обращать внимания на обидные слова.
+                        - 'cell "1. Если отрицание относится к независимому инфинитиву в предложениях: 1) со значением невозможности: Мне не поднять этот чемодан, он слишком тяжёлый; 2) в вопросительных предложениях, выражающих значение предположения и характерных для разговорного стиля речи: Не купить ли детям новые игрушки?" [ref=f39e492]':
+                          - paragraph [ref=f39e493]: "1. Если отрицание относится к независимому инфинитиву в предложениях:"
+                          - paragraph [ref=f39e494]:
+                            - text: "1) со значением невозможности:"
+                            - generic [ref=f39e495]: Мне не поднять этот чемодан, он слишком тяжёлый
+                            - text: ;
+                          - paragraph [ref=f39e496]:
+                            - text: "2) в вопросительных предложениях, выражающих значение предположения и характерных для разговорного стиля речи:"
+                            - generic [ref=f39e497]: Не купить ли детям новые игрушки?
+                  - button "更多选项" [ref=f39e500] [cursor=pointer]:
+                    - img [ref=f39e502]: more_horiz
+                - paragraph [ref=f39e504]:
+                  - text: "¹ Зависимым называется инфинитив, который употребляется вместе с глаголом в определённой грамматической форме:"
+                  - generic [ref=f39e505]: Они хотели не говорить об этом
+                  - text: "; ср.: независимый инфинитив употребляется без глагола в личной форме:"
+                  - generic [ref=f39e506]: Мне не понять его.
+                - heading "Page 2" [level=2] [ref=f39e507]
+                - paragraph [ref=f39e508]: Учебно-тренировочные тесты Выпуск 1. Грамматика. Лексика 121
+                - generic [ref=f39e513]:
+                  - table [ref=f39e515]:
+                    - rowgroup [ref=f39e516]:
+                      - row [ref=f39e517]:
+                        - columnheader "Слово" [ref=f39e518]
+                        - columnheader "Значение" [ref=f39e519]
+                        - columnheader "Словосочетания" [ref=f39e520]
+                    - rowgroup [ref=f39e521]:
+                      - row [ref=f39e522]:
+                        - cell "упадок" [ref=f39e523]
+                        - cell "расстройство деятельности, потеря активности" [ref=f39e525]
+                        - cell "упадок культуры, упадок сил" [ref=f39e526]
+                      - row [ref=f39e527]:
+                        - cell "печать" [ref=f39e528]
+                        - cell "процесс изготовления текста с помощью специальных аппаратов и материалов" [ref=f39e530]
+                        - cell "офсетная печать, книга в печати" [ref=f39e531]
+                      - row [ref=f39e532]:
+                        - cell "опечатка" [ref=f39e533]
+                        - cell "ошибка в печатном тексте" [ref=f39e535]
+                        - cell "досадная опечатка, смешная опечатка" [ref=f39e536]
+                      - row [ref=f39e537]:
+                        - cell "отпечаток" [ref=f39e538]
+                        - cell "след, изображение, оставшееся на чём-либо от надавливания" [ref=f39e540]
+                        - cell "отпечаток ноги на песке, отпечатки пальцев" [ref=f39e541]
+                      - row [ref=f39e542]:
+                        - cell "перепечатка" [ref=f39e543]
+                        - cell "повторная печать, копирование" [ref=f39e545]
+                        - cell "перепечатка рукописи" [ref=f39e546]
+                      - row [ref=f39e547]:
+                        - cell "поступок" [ref=f39e548]
+                        - cell "совершённое кем-либо действие" [ref=f39e550]
+                        - cell "хороший поступок, необдуманный поступок" [ref=f39e551]
+                      - row [ref=f39e552]:
+                        - cell "проступок" [ref=f39e553]
+                        - cell "поступок, нарушающий правила поведения, провинность" [ref=f39e555]
+                        - cell "значительный / незначительный проступок" [ref=f39e556]
+                      - row [ref=f39e557]:
+                        - cell "предоставление (от глагола предоставить)" [ref=f39e558]
+                        - cell "выделение чего-либо в чьё-либо распоряжение, пользование" [ref=f39e560]
+                        - cell "предоставление кредита, предоставление льгот" [ref=f39e561]
+                      - row [ref=f39e562]:
+                        - cell "представление (от глагола представить)" [ref=f39e563]
+                        - cell "вручение для ознакомления" [ref=f39e565]
+                        - cell "представление статьи на рецензию" [ref=f39e566]
+                      - row [ref=f39e567]:
+                        - cell "психический" [ref=f39e568]
+                        - cell "относящийся к психике, к душевным качествам человека" [ref=f39e570]
+                        - cell "психическое состояние, психические заболевания" [ref=f39e571]
+                      - row [ref=f39e572]:
+                        - cell "психологический" [ref=f39e573]
+                        - cell "относящийся к психологи" [ref=f39e575]
+                        - cell "психологический тест, психологический анализ" [ref=f39e576]
+                      - row [ref=f39e577]:
+                        - cell "родной" [ref=f39e578]
+                        - cell "1) находящийся в кровном родстве;" [ref=f39e580]
+                        - cell "родной брат" [ref=f39e581]
+                      - row [ref=f39e582]:
+                        - cell [ref=f39e583]
+                        - cell "2) близкий по духу, привычкам" [ref=f39e584]
+                        - cell "родной человек, родной язык" [ref=f39e585]
+                      - row [ref=f39e586]:
+                        - cell "родственный" [ref=f39e587]
+                        - cell "1) основанный на отношениях родства;" [ref=f39e589]
+                        - cell "родственные связи" [ref=f39e590]
+                      - row [ref=f39e591]:
+                        - cell [ref=f39e592]
+                        - cell "2) близкий по происхождению, содержанию" [ref=f39e593]
+                        - cell "родственные языки" [ref=f39e594]
+                      - row [ref=f39e595]:
+                        - cell "рыбий" [ref=f39e596]
+                        - cell "относящийся к рыбе как биологическому виду" [ref=f39e598]
+                        - cell "рыбий глаз" [ref=f39e599]
+                      - row [ref=f39e600]:
+                        - cell "рыбный" [ref=f39e601]
+                        - cell "относящийся к рыбе как продукту" [ref=f39e603]
+                        - cell "рыбный суп, рыбный день, рыбная ловля" [ref=f39e604]
+                      - row [ref=f39e605]:
+                        - cell "рыбачий" [ref=f39e606]
+                        - cell "относящийся к рыбаку" [ref=f39e608]
+                        - cell "рыбачьи сети" [ref=f39e609]
+                      - row [ref=f39e610]:
+                        - cell "собирание" [ref=f39e611]
+                        - cell "коллекционирование" [ref=f39e613]
+                        - cell "собирание коллекции" [ref=f39e614]
+                      - row [ref=f39e615]:
+                        - cell "сборка" [ref=f39e616]
+                        - cell "создание целого из отдельных частей" [ref=f39e618]
+                        - cell "сборка машин" [ref=f39e619]
+                      - row [ref=f39e620]:
+                        - cell "сборище" [ref=f39e621]
+                        - cell "(разг., неодобр.) собрание людей" [ref=f39e623]
+                        - cell "шумное сборище" [ref=f39e625]
+                  - button "更多选项" [ref=f39e628] [cursor=pointer]:
+                    - img [ref=f39e630]: more_horiz
+                - heading "Page 3" [level=2] [ref=f39e632]
+                - paragraph [ref=f39e633]: 122 Учебно-тренировочные тесты. Выпуск 1. Грамматика. Лексика
+                - generic [ref=f39e638]:
+                  - table [ref=f39e640]:
+                    - rowgroup [ref=f39e641]:
+                      - row [ref=f39e642]:
+                        - columnheader "Слово" [ref=f39e643]
+                        - columnheader "Значение" [ref=f39e644]
+                        - columnheader "Словосочетания" [ref=f39e645]
+                    - rowgroup [ref=f39e646]:
+                      - row [ref=f39e647]:
+                        - cell "типичный" [ref=f39e648]
+                        - cell "1) отличающийся признаками, свойственными какому-либо типу предметов, явлений;" [ref=f39e650]
+                        - cell "типичный южный город, типичный ростовчанин" [ref=f39e651]
+                      - row [ref=f39e652]:
+                        - cell [ref=f39e653]
+                        - cell "2) часто встречающийся, обычный" [ref=f39e654]
+                        - cell "типичные ошибки" [ref=f39e655]
+                      - row [ref=f39e656]:
+                        - cell "типический" [ref=f39e657]
+                        - cell "относящийся к характерным чертам какой-либо группы людей" [ref=f39e659]
+                        - cell "типический образ" [ref=f39e660]
+                      - row [ref=f39e661]:
+                        - cell "типовой" [ref=f39e662]
+                        - cell "являющийся моделью, стандартный" [ref=f39e664]
+                        - cell "типовой проект" [ref=f39e665]
+                      - row [ref=f39e666]:
+                        - cell "типологический" [ref=f39e667]
+                        - cell "классифицирующий разные типы предметов или явлений в системе" [ref=f39e669]
+                        - cell "типологический анализ" [ref=f39e670]
+                      - row [ref=f39e671]:
+                        - cell "факт" [ref=f39e672]
+                        - cell "то, что было в действительности и является основанием для вывода" [ref=f39e674]
+                        - cell "очевидный факт, факт истории, приводить факты" [ref=f39e675]
+                      - row [ref=f39e676]:
+                        - cell "фактор" [ref=f39e677]
+                        - cell "то, что является неотъемлемой характеристикой процесса или явления" [ref=f39e679]
+                        - cell "фактор времени, фактор экономического развития" [ref=f39e680]
+                      - row [ref=f39e681]:
+                        - cell "экономичный" [ref=f39e682]
+                        - cell "дающий возможность сэкономить, выгодный" [ref=f39e684]
+                        - cell "экономичная машина, экономичный способ" [ref=f39e685]
+                      - row [ref=f39e686]:
+                        - cell "экономический" [ref=f39e687]
+                        - cell "относящийся к экономике" [ref=f39e689]
+                        - cell "экономический закон, экономические проблемы" [ref=f39e690]
+                      - row [ref=f39e691]:
+                        - cell "экономный" [ref=f39e692]
+                        - cell "бережливо расходующий" [ref=f39e694]
+                        - cell "экономная хозяйка, экономное расходование" [ref=f39e695]
+                      - row [ref=f39e696]:
+                        - cell "эффективный" [ref=f39e697]
+                        - cell "приводящий к нужным результатам" [ref=f39e699]
+                        - cell "эффективные методы в экономике" [ref=f39e700]
+                      - row [ref=f39e701]:
+                        - cell "эффектный" [ref=f39e702]
+                        - cell "производящий сильное впечатление, эффект" [ref=f39e704]
+                        - cell "эффектное платье, эффектная женщина" [ref=f39e705]
+                  - button "更多选项" [ref=f39e708] [cursor=pointer]:
+                    - img [ref=f39e710]: more_horiz
+            - generic [ref=f39e715]:
+              - button "答得好" [ref=f39e718] [cursor=pointer]:
+                - img [ref=f39e720]: thumb_up
+              - button "答得不好" [ref=f39e724] [cursor=pointer]:
+                - img [ref=f39e726]: thumb_down
+              - button "重做" [ref=f39e731] [cursor=pointer]:
+                - img [ref=f39e733]: refresh
+              - button "复制" [ref=f39e737] [cursor=pointer]:
+                - img [ref=f39e739]: copy
+              - button "显示更多选项" [ref=f39e745] [cursor=pointer]:
+                - img [ref=f39e747]: more_horiz
+      - generic [ref=f39e78]:
+        - group [ref=f39e79]:
+          - generic [ref=f39e82]:
+            - textbox "为 Gemini 输入提示" [active] [ref=f39e88]:
+              - text: 问问 Gemini
+              - paragraph [ref=f39e334]
+            - button "上传和工具" [ref=f39e95] [cursor=pointer]:
+              - img [ref=f39e97]: plus
+            - generic [ref=f39e99]:
+              - group [ref=f39e102]:
+                - button "打开模式选择器，当前模式为“Flash”" [ref=f39e103]:
+                  - generic [ref=f39e105]:
+                    - generic [ref=f39e106]: Flash
+                    - img [ref=f39e108]: keyboard_arrow_down
+              - button "麦克风" [ref=f39e116] [cursor=pointer]:
+                - img [ref=f39e118]: mic
+        - paragraph [ref=f39e341]: Gemini 是一款 AI 工具，其回答未必正确无误。

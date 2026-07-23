@@ -1,0 +1,92 @@
+- generic [ref=f3e1]:
+  - main [ref=f3e11]:
+    - button "打开边栏" [ref=f3e126] [cursor=pointer]:
+      - generic [ref=f3e127]: side_nav_expand
+    - generic [ref=f3e136]:
+      - generic: play_arrow
+      - button "打开对话操作菜单。" [ref=f3e360] [cursor=pointer]:
+        - img [ref=f3e362]: more_vert
+    - generic [ref=f3e13]:
+      - navigation "侧边导航栏" [ref=f3e14]:
+        - generic [ref=f3e17]:
+          - generic [ref=f3e18]:
+            - navigation "主要操作菜单" [ref=f3e19]:
+              - link "发起新对话" [ref=f3e23] [cursor=pointer]:
+                - /url: /app
+                - img [ref=f3e25]: gemini_chat
+              - link "搜索对话内容" [ref=f3e30] [cursor=pointer]:
+                - /url: /search
+                - img [ref=f3e32]: search
+            - navigation "其他操作菜单" [ref=f3e34]:
+              - link "库" [ref=f3e38] [cursor=pointer]:
+                - /url: library
+                - img [ref=f3e40]: library
+          - group [ref=f3e42]:
+            - generic [ref=f3e44]:
+              - link "Google 账号：陈兴国 (chenxingguo43@gmail.com)" [ref=f3e45] [cursor=pointer]:
+                - /url: https://accounts.google.com/SignOutOptions?continue=https://gemini.google.com
+              - button "设置" [ref=f3e50] [cursor=pointer]:
+                - img [ref=f3e52]: settings
+      - generic [ref=f3e59]:
+        - generic [ref=f3e60]:
+          - heading "与 Gemini 对话" [level=1] [ref=f3e61]
+          - generic [ref=f3e364]:
+            - generic [ref=f3e368]:
+              - generic [ref=f3e371]:
+                - button "以灯箱形式显示上传的图片" [ref=f3e375] [cursor=pointer]:
+                  - img "所上传图片的预览图" [ref=f3e376]
+                - button "以灯箱形式显示上传的图片" [ref=f3e380] [cursor=pointer]:
+                  - img "所上传图片的预览图" [ref=f3e381]
+                - button "以灯箱形式显示上传的图片" [ref=f3e385] [cursor=pointer]:
+                  - img "所上传图片的预览图" [ref=f3e386]
+              - generic [ref=f3e388] [cursor=pointer]:
+                - 'heading "你说 Выполни транскрипцию этих страниц из учебника русского языка как иностранного (уровень B2-C1). Инструкции: 1) Определи номера упражнений (printed numbers) и их типы (single-choice или dual-choice). 2) Для каждого упражнения запиши: номер, тип, текст вопроса (question text), варианты ответов с метками А Б В Г (или А Б для dual-choice). 3) Текст должен быть максимально точным русским языком, сохрани все знаки ударения если есть. 4) Выведи результат как структурированный текст по такой схеме для каждой страницы: --- PAGE (номер печатной страницы если виден) --- ### Упражнение N (тип: single-choice или dual-choice) **Вопрос:** (текст задания или предложения) **Варианты:** А) ... Б) ... В) ... Г) ... Верни ТОЛЬКО структурированный текст, без лишних слов." [level=2] [ref=f3e390]':
+                  - generic [ref=f3e391]: 你说
+                  - paragraph [ref=f3e392]: "Выполни транскрипцию этих страниц из учебника русского языка как иностранного (уровень B2-C1). Инструкции: 1) Определи номера упражнений (printed numbers) и их типы (single-choice или dual-choice). 2) Для каждого упражнения запиши: номер, тип, текст вопроса (question text), варианты ответов с метками А Б В Г (или А Б для dual-choice). 3) Текст должен быть максимально точным русским языком, сохрани все знаки ударения если есть. 4) Выведи результат как структурированный текст по такой схеме для каждой страницы:"
+                  - paragraph [ref=f3e393]
+                  - paragraph [ref=f3e394]: "--- PAGE (номер печатной страницы если виден) ---"
+                  - paragraph [ref=f3e395]
+                  - paragraph [ref=f3e396]: "### Упражнение N (тип: single-choice или dual-choice)"
+                  - paragraph [ref=f3e397]: "**Вопрос:** (текст задания или предложения)"
+                  - paragraph [ref=f3e398]: "**Варианты:**"
+                  - paragraph [ref=f3e399]: А) ...
+                  - paragraph [ref=f3e400]: Б) ...
+                  - paragraph [ref=f3e401]: В) ...
+                  - paragraph [ref=f3e402]: Г) ...
+                  - paragraph [ref=f3e403]
+                  - paragraph [ref=f3e404]: Верни ТОЛЬКО структурированный текст, без лишних слов.
+                - button "展开" [ref=f3e405]:
+                  - img [ref=f3e408]: expand_more
+              - generic [ref=f3e411]:
+                - button "复制提示" [ref=f3e413] [cursor=pointer]:
+                  - img [ref=f3e415]: copy
+                - generic [ref=f3e417]:
+                  - button "修改" [disabled]:
+                    - generic:
+                      - img: edit
+            - generic [ref=f3e424]:
+              - heading "Gemini 说" [level=2] [ref=f3e425]
+              - generic [ref=f3e427]:
+                - generic:
+                  - generic:
+                    - paragraph
+        - generic [ref=f3e76]:
+          - group [ref=f3e77]:
+            - generic [ref=f3e80]:
+              - textbox "为 Gemini 输入提示" [active] [ref=f3e86]:
+                - text: 问问 Gemini
+                - paragraph [ref=f3e428]
+              - button "上传和工具" [ref=f3e93] [cursor=pointer]:
+                - img [ref=f3e95]: plus
+              - generic [ref=f3e97]:
+                - group [ref=f3e100]:
+                  - button "打开模式选择器，当前模式为“Flash”" [ref=f3e176]:
+                    - generic [ref=f3e103]:
+                      - generic [ref=f3e104]: Flash
+                      - img [ref=f3e106]: keyboard_arrow_down
+                - generic [ref=f3e109]:
+                  - text: mic
+                  - button "停止回答" [ref=f3e429] [cursor=pointer]:
+                    - img [ref=f3e338]: stop
+          - paragraph [ref=f3e430]: Gemini 是一款 AI 工具，其回答未必正确无误。
+  - generic [ref=f3e121]: Gemini 已回复

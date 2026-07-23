@@ -1,0 +1,165 @@
+- main [ref=f9e11]:
+  - button "打开边栏" [ref=f9e113] [cursor=pointer]:
+    - generic [ref=f9e114]: side_nav_expand
+  - generic [ref=f9e123]:
+    - generic: play_arrow
+    - button "打开对话操作菜单。" [ref=f9e378] [cursor=pointer]:
+      - img [ref=f9e380]: more_vert
+  - generic [ref=f9e13]:
+    - navigation "侧边导航栏" [ref=f9e14]:
+      - generic [ref=f9e17]:
+        - generic [ref=f9e18]:
+          - navigation "主要操作菜单" [ref=f9e19]:
+            - link "发起新对话" [ref=f9e23] [cursor=pointer]:
+              - /url: /app
+              - img [ref=f9e25]: gemini_chat
+            - link "搜索对话内容" [ref=f9e30] [cursor=pointer]:
+              - /url: /search
+              - img [ref=f9e32]: search
+          - navigation "其他操作菜单" [ref=f9e34]:
+            - link "库" [ref=f9e38] [cursor=pointer]:
+              - /url: library
+              - img [ref=f9e40]: library
+        - group [ref=f9e42]:
+          - generic [ref=f9e44]:
+            - link "Google 账号：陈兴国 (chenxingguo43@gmail.com)" [ref=f9e45] [cursor=pointer]:
+              - /url: https://accounts.google.com/SignOutOptions?continue=https://gemini.google.com
+            - button "设置" [ref=f9e50] [cursor=pointer]:
+              - img [ref=f9e52]: settings
+    - generic [ref=f9e59]:
+      - generic [ref=f9e60]:
+        - heading "与 Gemini 对话" [level=1] [ref=f9e61]
+        - generic [ref=f9e382]:
+          - generic [ref=f9e386]:
+            - generic [ref=f9e389]:
+              - button "以灯箱形式显示上传的图片" [ref=f9e393] [cursor=pointer]:
+                - img "所上传图片的预览图" [ref=f9e394]
+              - button "以灯箱形式显示上传的图片" [ref=f9e398] [cursor=pointer]:
+                - img "所上传图片的预览图" [ref=f9e399]
+              - button "以灯箱形式显示上传的图片" [ref=f9e403] [cursor=pointer]:
+                - img "所上传图片的预览图" [ref=f9e404]
+            - generic [ref=f9e406] [cursor=pointer]:
+              - 'heading "你说 You are a Russian textbook OCR specialist. Transcribe these 3 scanned pages from a Russian grammar textbook (Златоуст, 2009). Output the EXACT text — no summaries or translations. CRITICAL: Preserve ALL stress marks, special symbols (§ * — «»), Tables as Markdown tables with correct rows/columns, Exercises keep printed number/question/options (А/Б/В/Г). No commentary. Output format: ## Page A — Exercises [text] ## Page B — Grammar Theory [text] ## Page C — Vocabulary Table [text]" [level=2] [ref=f9e408]':
+                - generic [ref=f9e409]: 你说
+                - paragraph [ref=f9e410]: "You are a Russian textbook OCR specialist. Transcribe these 3 scanned pages from a Russian grammar textbook (Златоуст, 2009). Output the EXACT text — no summaries or translations. CRITICAL: Preserve ALL stress marks, special symbols (§ * — «»), Tables as Markdown tables with correct rows/columns, Exercises keep printed number/question/options (А/Б/В/Г). No commentary. Output format: ## Page A — Exercises [text] ## Page B — Grammar Theory [text] ## Page C — Vocabulary Table [text]"
+              - button "展开" [ref=f9e411]:
+                - img [ref=f9e414]: expand_more
+            - generic [ref=f9e417]:
+              - button "复制提示" [ref=f9e419] [cursor=pointer]:
+                - img [ref=f9e421]: copy
+              - generic [ref=f9e423]:
+                - button "修改" [disabled]:
+                  - generic:
+                    - img: edit
+          - generic [ref=f9e430]:
+            - heading "Gemini 说" [level=2] [ref=f9e431]
+            - generic [ref=f9e435]:
+              - heading "Page A — Exercises" [level=2] [ref=f9e436]
+              - paragraph [ref=f9e437]: 14 Учебно-тренировочные тесты. Выпуск 1. Грамматика. Лексика
+              - generic [ref=f9e442]:
+                - table [ref=f9e444]:
+                  - rowgroup [ref=f9e445]:
+                    - row [ref=f9e446]:
+                      - columnheader [ref=f9e447]
+                      - columnheader [ref=f9e448]
+                      - columnheader [ref=f9e449]
+                      - columnheader [ref=f9e450]
+                  - rowgroup [ref=f9e451]:
+                    - row [ref=f9e452]:
+                      - cell "76." [ref=f9e453]
+                      - 'cell "В гостиничных номерах принято вешать на дверь табличку с надписью: «Не ...»." [ref=f9e454]'
+                      - cell [ref=f9e455]:
+                        - paragraph [ref=f9e456]: (А)
+                        - paragraph [ref=f9e457]: (Б)
+                      - cell [ref=f9e458]:
+                        - paragraph [ref=f9e459]: беспокоить
+                        - paragraph [ref=f9e460]: побеспокоить
+                    - row [ref=f9e461]:
+                      - cell "77." [ref=f9e462]
+                      - cell "В одиночку или вдвоём большое фермерское хозяйство не ... ." [ref=f9e463]
+                      - cell [ref=f9e464]:
+                        - paragraph [ref=f9e465]: (А)
+                        - paragraph [ref=f9e466]: (Б)
+                      - cell [ref=f9e467]:
+                        - paragraph [ref=f9e468]: поднимать
+                        - paragraph [ref=f9e469]: поднять
+                    - row [ref=f9e470]:
+                      - cell "78." [ref=f9e471]
+                      - cell "На канале НТВ решили не ... от современных форматов и вести передачи круглые сутки." [ref=f9e472]
+                      - cell [ref=f9e473]:
+                        - paragraph [ref=f9e474]: (А)
+                        - paragraph [ref=f9e475]: (Б)
+                      - cell [ref=f9e476]:
+                        - paragraph [ref=f9e477]: отставать
+                        - paragraph [ref=f9e478]: отстать
+                    - row [ref=f9e479]:
+                      - cell "79." [ref=f9e480]
+                      - cell "Специалисты советуют товаропроизводителям не ... свою продукцию с продукцией других фирм в текстах реклам." [ref=f9e481]
+                      - cell [ref=f9e482]:
+                        - paragraph [ref=f9e483]: (А)
+                        - paragraph [ref=f9e484]: (Б)
+                      - cell [ref=f9e485]:
+                        - paragraph [ref=f9e486]: сравнивать
+                        - paragraph [ref=f9e487]: сравнить
+                    - row [ref=f9e488]:
+                      - cell "80." [ref=f9e489]
+                      - cell "Супруги решили не ... старые обиды, а постараться понять друг друга." [ref=f9e490]
+                      - cell [ref=f9e491]:
+                        - paragraph [ref=f9e492]: (А)
+                        - paragraph [ref=f9e493]: (Б)
+                      - cell [ref=f9e494]:
+                        - paragraph [ref=f9e495]: вспомнить
+                        - paragraph [ref=f9e496]: вспоминать
+                    - row [ref=f9e497]:
+                      - cell "81." [ref=f9e498]
+                      - cell "«Торговых агентов просим не ...» — такие объявления можно нередко увидеть на дверях учреждений." [ref=f9e499]
+                      - cell [ref=f9e500]:
+                        - paragraph [ref=f9e501]: (А)
+                        - paragraph [ref=f9e502]: (Б)
+                      - cell [ref=f9e503]:
+                        - paragraph [ref=f9e504]: заходить
+                        - paragraph [ref=f9e505]: зайти
+                    - row [ref=f9e506]:
+                      - cell "82." [ref=f9e507]
+                      - cell "Российские бизнесмены предлагают не ... к вступительным вузовским экзаменам абитуриентов, принимающих наркотики." [ref=f9e508]
+                      - cell [ref=f9e509]:
+                        - paragraph [ref=f9e510]: (А)
+                        - paragraph [ref=f9e511]: (Б)
+                      - cell [ref=f9e512]:
+                        - paragraph [ref=f9e513]: допускать
+                        - paragraph [ref=f9e514]: допустить
+                    - row [ref=f9e515]:
+                      - cell "83." [ref=f9e516]
+                      - cell "«... дальше», — говорили ей, когда она останавливалась, чтобы передохнуть." [ref=f9e517]
+                      - cell [ref=f9e518]:
+                        - paragraph [ref=f9e519]: (А)
+                        - paragraph [ref=f9e520]: (Б)
+                      - cell [ref=f9e521]:
+                        - paragraph [ref=f9e522]: Прочитай
+                        - paragraph [ref=f9e523]: Читай
+                    - row [ref=f9e524]:
+                      - cell "84." [ref=f9e525]
+                      - cell "«..., пожалуйста, медленнее, мы не" [ref=f9e526]
+                      - cell [ref=f9e527]
+                      - cell [ref=f9e528]
+                - button "更多选项" [ref=f9e531] [cursor=pointer]:
+                  - img [ref=f9e533]: more_horiz
+      - generic [ref=f9e75]:
+        - group [ref=f9e76]:
+          - generic [ref=f9e79]:
+            - textbox "为 Gemini 输入提示" [active] [ref=f9e85]:
+              - text: 问问 Gemini
+              - paragraph [ref=f9e373]
+            - button "上传和工具" [ref=f9e92] [cursor=pointer]:
+              - img [ref=f9e94]: plus
+            - generic [ref=f9e96]:
+              - group [ref=f9e135]:
+                - button "打开模式选择器，当前模式为“Pro”" [ref=f9e136]:
+                  - generic [ref=f9e138]:
+                    - generic [ref=f9e139]: Pro
+                    - img [ref=f9e141]: keyboard_arrow_down
+              - generic [ref=f9e98]:
+                - text: mic
+                - button "停止回答" [ref=f9e374] [cursor=pointer]:
+                  - img [ref=f9e311]: stop
+        - paragraph [ref=f9e375]: Gemini 是一款 AI 工具，其回答未必正确无误。

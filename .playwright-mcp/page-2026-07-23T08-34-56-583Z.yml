@@ -1,0 +1,302 @@
+- main [ref=f9e11]:
+  - button "打开边栏" [ref=f9e113] [cursor=pointer]:
+    - generic [ref=f9e114]: side_nav_expand
+  - generic [ref=f9e123]:
+    - generic: play_arrow
+    - button "打开对话操作菜单。" [ref=f9e1792] [cursor=pointer]:
+      - img [ref=f9e1794]: more_vert
+  - generic [ref=f9e13]:
+    - navigation "侧边导航栏" [ref=f9e14]:
+      - generic [ref=f9e17]:
+        - generic [ref=f9e18]:
+          - navigation "主要操作菜单" [ref=f9e19]:
+            - link "发起新对话" [ref=f9e23] [cursor=pointer]:
+              - /url: /app
+              - img [ref=f9e25]: gemini_chat
+            - link "搜索对话内容" [ref=f9e30] [cursor=pointer]:
+              - /url: /search
+              - img [ref=f9e32]: search
+          - navigation "其他操作菜单" [ref=f9e34]:
+            - link "库" [ref=f9e38] [cursor=pointer]:
+              - /url: library
+              - img [ref=f9e40]: library
+        - group [ref=f9e42]:
+          - generic [ref=f9e44]:
+            - link "Google 账号：陈兴国 (chenxingguo43@gmail.com)" [ref=f9e45] [cursor=pointer]:
+              - /url: https://accounts.google.com/SignOutOptions?continue=https://gemini.google.com
+            - button "设置" [ref=f9e50] [cursor=pointer]:
+              - img [ref=f9e52]: settings
+    - generic [ref=f9e59]:
+      - generic [ref=f9e60]:
+        - heading "与 Gemini 对话" [level=1] [ref=f9e61]
+        - generic [ref=f9e1796]:
+          - generic [ref=f9e1800]:
+            - generic [ref=f9e1802] [cursor=pointer]:
+              - heading [level=2] [ref=f9e1804]:
+                - generic [ref=f9e1805]: 你说
+                - paragraph [ref=f9e1806]: 你是一位质量控制专家。我们正在测试用 Gemini Vision 来转写俄语教材扫描页。以下是三页的测试结果。请你对照验收标准逐条打分，指出哪些通过、哪些失败、哪些需要改进。
+                - paragraph [ref=f9e1807]
+                - paragraph [ref=f9e1808]: === 验收标准（5条必须通过） ===
+                - paragraph [ref=f9e1809]: ① 西里尔字母可读：俄语拼写正确，无拉丁字母混入
+                - paragraph [ref=f9e1810]: ② 重音符号保留：а́ е́ и́ о́ у́ ы́ ю́ я́
+                - paragraph [ref=f9e1811]: ③ 表格结构保留：多列表格输出为Markdown表格，行列正确
+                - paragraph [ref=f9e1812]: ④ 题号结构完整：每道题的题号、题干、选项一一对应
+                - paragraph [ref=f9e1813]: ⑤ 特殊符号不丢：§ * — «» 保留
+                - paragraph [ref=f9e1814]: 加分项：⑥词汇释义忠实原文 ⑦注意框保留 ⑧速度
+                - paragraph [ref=f9e1815]
+                - paragraph [ref=f9e1816]: === 测试A：练习题页（p.16） ===
+                - paragraph [ref=f9e1817]: 结果：
+                - paragraph [ref=f9e1818]: 14 Учебно-тренировочные тесты. Выпуск 1. Грамматика. Лексика
+                - paragraph [ref=f9e1819]: "76. В гостиничных номерах принято вешать на дверь табличку с надписью: «Не ...»."
+                - paragraph [ref=f9e1820]: (А) беспокоить
+                - paragraph [ref=f9e1821]: (Б) побеспокоить
+                - paragraph [ref=f9e1822]: 77. В одиночку или вдвоём большое фермерское хозяйство не ... .
+                - paragraph [ref=f9e1823]: (А) поднимать
+                - paragraph [ref=f9e1824]: (Б) поднять
+                - paragraph [ref=f9e1825]: 78. На канале НТВ решили не ... от современных форматов и вести передачи круглые сутки.
+                - paragraph [ref=f9e1826]: (А) отставать
+                - paragraph [ref=f9e1827]: (Б) отстать
+                - paragraph [ref=f9e1828]: 79. Специалисты советуют товаропроизводителям не ... свою продукцию с продукцией других фирм в текстах реклам.
+                - paragraph [ref=f9e1829]: (А) сравнивать
+                - paragraph [ref=f9e1830]: (Б) сравнить
+                - paragraph [ref=f9e1831]: 80. Супруги решили не ... старые обиды, а постараться понять друг друга.
+                - paragraph [ref=f9e1832]: (А) вспомнить
+                - paragraph [ref=f9e1833]: (Б) вспоминать
+                - paragraph [ref=f9e1834]: 81. «Торговых агентов просим не ...» — такие объявления можно нередко увидеть на дверях учреждений.
+                - paragraph [ref=f9e1835]: (А) заходить
+                - paragraph [ref=f9e1836]: (Б) зайти
+                - paragraph [ref=f9e1837]: 82. Российские бизнесмены предлагают не ... к вступительным вузовским экзаменам абитуриентов, принимающих наркотики.
+                - paragraph [ref=f9e1838]: (А) допускать
+                - paragraph [ref=f9e1839]: (Б) допустить
+                - paragraph [ref=f9e1840]: 83. «... дальше», — говорили ей, когда она останавливалась, чтобы передохнуть.
+                - paragraph [ref=f9e1841]: (А) Прочитай
+                - paragraph [ref=f9e1842]: (Б) Читай
+                - paragraph [ref=f9e1843]: 84. «..., пожалуйста, медленнее, мы не успеваем за вами записывать», — попросили студенты лектора.
+                - paragraph [ref=f9e1844]: (А) Говорите
+                - paragraph [ref=f9e1845]: (Б) Скажите
+                - paragraph [ref=f9e1846]: 85. Смотри, не ... в горах, там даже летом только плюс пять градусов.
+                - paragraph [ref=f9e1847]: (А) простуживайся
+                - paragraph [ref=f9e1848]: (Б) простудись
+                - paragraph [ref=f9e1849]: 86. Смотри, не ... малышей, ведь спокойный сон так необходим детям.
+                - paragraph [ref=f9e1850]: (А) буди
+                - paragraph [ref=f9e1851]: (Б) разбуди
+                - paragraph [ref=f9e1852]: 87. ... он своей девушке, она бы расстроилась и, может быть, даже ушла бы.
+                - paragraph [ref=f9e1853]: (А) Не улыбнись
+                - paragraph [ref=f9e1854]: (Б) Не улыбайся
+                - paragraph [ref=f9e1855]: 88. ... я его тогда, кто знает, что стало бы с ним в дальнейшем.
+                - paragraph [ref=f9e1856]: (А) Не останавливай
+                - paragraph [ref=f9e1857]: (Б) Не останови
+                - paragraph [ref=f9e1858]: （题76-88共13题，全部转写完整）
+                - paragraph [ref=f9e1859]
+                - paragraph [ref=f9e1860]: === 测试B：理论讲解页（p.106，含对比表格） ===
+                - paragraph [ref=f9e1861]: 结果：
+                - paragraph [ref=f9e1862]: 104 Учебно-тренировочные тесты. Выпуск 1. Грамматика. Лексика
+                - paragraph [ref=f9e1863]: "глаголы НСВ. Исключение составляют глаголы СВ с приставками про- и по-: Мой дед проработал на заводе тридцать лет; Мы почитали книгу минут двадцать;"
+                - paragraph [ref=f9e1864]: 2) существительные в винительном падеже с предлогом на обозначают определённый период...
+                - paragraph [ref=f9e1865]: 3) существительные в винительном падеже с предлогом за обозначают период, требующийся для завершения действия...
+                - paragraph [ref=f9e1866]
+                - paragraph [ref=f9e1867]: Обратите внимание!
+                - paragraph [ref=f9e1868]: Если в предложении указывается на способность действующего лица получать какой-либо результат регулярно, то в предложении употребляются глаголы НСВ...
+                - paragraph [ref=f9e1869]
+                - paragraph [ref=f9e1870]: "Сравните:"
+                - paragraph [ref=f9e1871]: Отрезок времени, требующийся для получения результата (обычно с глаголами СВ) | Отрезок времени, раньше которого произойдёт действие
+                - paragraph [ref=f9e1872]: Он подготовился к лекции за два часа; Самолёт преодолел это расстояние за полтора часа. | Он пришёл в университет за два часа до начала лекции...
+                - paragraph [ref=f9e1873]
+                - paragraph [ref=f9e1874]: （注意：对比表格用制表符\t分隔而非Markdown | col | col | 格式）
+                - paragraph [ref=f9e1875]
+                - paragraph [ref=f9e1876]: === 测试C：词汇辨析表（p.121） ===
+                - paragraph [ref=f9e1877]: 结果：
+                - paragraph [ref=f9e1878]: "| Word | Meaning | Collocations |"
+                - paragraph [ref=f9e1879]: "|------|---------|-------------|"
+                - paragraph [ref=f9e1880]: "| каждый | один из всех в данном ряду, взятый отдельно из ряда подобных | каждая женщина, каждый день, каждое утро |"
+                - paragraph [ref=f9e1881]: "| любой | указывает на свободу выбора кого-либо / чего-либо из числа одинаковых... | любая погода, любой день, любое задание |"
+                - paragraph [ref=f9e1882]: "| всякий | указывает на разнообразие лиц, предметов... | всякий человек, на всякий случай, без всякого интереса |"
+                - paragraph [ref=f9e1883]: "| каменный | сделанный из камня | каменный дом, каменная стена |"
+                - paragraph [ref=f9e1884]: "| каменистый | содержащий много камней | каменистая почва, каменистый берег |"
+                - paragraph [ref=f9e1885]: "| классический | 1) созданный классиком, совершенный... 2) типичный, характерный | классическая музыка... |"
+                - paragraph [ref=f9e1886]: "| классный | 1) имеющий отношение к группе школьников... 2) относящийся к комнате для занятий 3) высокого качества (разг.) | классный руководитель... |"
+                - paragraph [ref=f9e1887]: "| классовый | свойственный идеологии какого-либо общественного класса | классовая борьба, классовый интерес |"
+                - paragraph [ref=f9e1888]: "| кожаный | сделанный из кожи | кожаная сумка |"
+                - paragraph [ref=f9e1889]: "| кожевенный | производящий изделия из кожи | кожевенная фабрика |"
+                - paragraph [ref=f9e1890]: "| кожистый | имеющий поверхность, похожую на кожу | кожистые листья |"
+                - paragraph [ref=f9e1891]: "| кожный | относящийся к наружному покрову тела (коже) | кожные болезни |"
+                - paragraph [ref=f9e1892]: "| костистый | содержащий множество костей | костистая рыба |"
+                - paragraph [ref=f9e1893]: "| костлявый | худой, с выступающими костями | костлявая фигура |"
+                - paragraph [ref=f9e1894]: "| костный | относящийся к костям человека и животного | костный мозг, костный скелет |"
+                - paragraph [ref=f9e1895]: "| костяной | сделанный из кости | костяные украшения |"
+                - paragraph [ref=f9e1896]: "| мирный | исполненный согласия, дружбы, мира | мирный договор, мирные инициативы |"
+                - paragraph [ref=f9e1897]: "| мировой | охватывающий весь земной шар, все народы | мировая война, мировое сообщество |"
+                - paragraph [ref=f9e1898]: "| миролюбивый | проникнутый любовью к миру | миролюбивая политика |"
+                - paragraph [ref=f9e1899]: （共18组，表格结构完美，三列完整）
+                - paragraph [ref=f9e1900]
+                - paragraph [ref=f9e1901]: === 请回答 ===
+                - paragraph [ref=f9e1902]: 1. 逐条对照验收标准打分（通过/不通过/通过但有瑕疵）
+                - paragraph [ref=f9e1903]: 2. 三个页面各自的总体评分（百分制）
+                - paragraph [ref=f9e1904]: 3. AI看图转写这个方案总体是否可行？最大的风险是什么？
+                - paragraph [ref=f9e1905]: 4. 如果推全量135页，最需要注意什么？
+              - button "展开" [ref=f9e1906]:
+                - img [ref=f9e1909]: expand_more
+            - generic [ref=f9e1912]:
+              - button "复制提示" [ref=f9e1914] [cursor=pointer]:
+                - img [ref=f9e1916]: copy
+              - button "修改" [ref=f9e1956] [cursor=pointer]:
+                - img [ref=f9e1958]: edit
+          - generic [ref=f9e1922]:
+            - generic [ref=f9e1925]:
+              - heading "Gemini 说" [level=2] [ref=f9e1943]
+              - generic [ref=f9e1961]:
+                - paragraph [ref=f9e1962]: 你好！作为质量控制专家，我非常乐意协助你完成这次验收。这份测试样本具有很好的代表性，涵盖了选择题、混合排版（理论+表格）以及纯表格三种常见教材场景。
+                - paragraph [ref=f9e1963]: 基于你提供的测试结果，以下是详细的 QC（质量控制）报告：
+                - heading "1. 验收标准逐条对照评分" [level=3] [ref=f9e1964]
+                - paragraph [ref=f9e1965]: 总体来看，基础结构识别能力很强，但细节符号的保留存在系统性问题。
+                - generic [ref=f9e1970]:
+                  - table [ref=f9e1972]:
+                    - rowgroup [ref=f9e1973]:
+                      - row [ref=f9e1974]:
+                        - columnheader "验收标准" [ref=f9e1975]
+                        - columnheader "状态" [ref=f9e1976]
+                        - columnheader "详细说明" [ref=f9e1977]
+                    - rowgroup [ref=f9e1978]:
+                      - row [ref=f9e1979]:
+                        - cell "① 西里尔字母可读" [ref=f9e1980]
+                        - cell "通过" [ref=f9e1982]
+                        - cell [ref=f9e1984]:
+                          - generic [ref=f9e1985]:
+                            - text: 拼写准确，未发现将俄语字母（如
+                            - code [ref=f9e1986]: р
+                            - text: ","
+                            - code [ref=f9e1987]: с
+                            - text: ","
+                            - code [ref=f9e1988]: у
+                            - text: ）误识别为外观相似的拉丁字母的情况。
+                      - row [ref=f9e1989]:
+                        - cell "② 重音符号保留" [ref=f9e1990]
+                        - cell "不通过" [ref=f9e1992]
+                        - cell [ref=f9e1994]:
+                          - generic [ref=f9e1995]:
+                            - text: 严重缺陷。三个测试用例中均未看到任何重音符号（如
+                            - code [ref=f9e1996]: а́ е́ и́
+                            - text: ）。俄语教材通常标有重音，AI 可能在 OCR 处理时将其作为噪点过滤或标准化输出了。
+                      - row [ref=f9e1997]:
+                        - cell "③ 表格结构保留" [ref=f9e1998]
+                        - cell "部分通过 (有瑕疵)" [ref=f9e2000]
+                        - cell [ref=f9e2002]:
+                          - generic [ref=f9e2003]:
+                            - text: 测试C（词汇表）完美输出了 Markdown 表格；但测试B（对比表格）错误地使用了制表符
+                            - code [ref=f9e2004]: \t
+                            - text: ，未严格遵守 Markdown 格式规范，存在不一致性。
+                      - row [ref=f9e2005]:
+                        - cell "④ 题号结构完整" [ref=f9e2006]
+                        - cell "通过" [ref=f9e2008]
+                        - cell "测试A（练习题）中，题号（76-88）、题干与选项（А、Б）一一对应，无断行或错位。" [ref=f9e2010]
+                      - row [ref=f9e2011]:
+                        - cell "⑤ 特殊符号不丢" [ref=f9e2012]
+                        - cell "通过" [ref=f9e2014]
+                        - cell [ref=f9e2016]:
+                          - generic [ref=f9e2017]:
+                            - text: 测试A中成功保留了破折号
+                            - code [ref=f9e2018]: —
+                            - text: 、特殊引号
+                            - code [ref=f9e2019]: «»
+                            - text: 以及省略号
+                            - code [ref=f9e2020]: ...
+                            - text: ，标点符号识别非常精准。
+                      - row [ref=f9e2021]:
+                        - cell "⑥ 词汇释义忠实原文 (加分项)" [ref=f9e2022]
+                        - cell "通过" [ref=f9e2024]
+                        - cell "测试C中的释义准确连贯，没有出现幻觉或过度精简。" [ref=f9e2026]
+                      - row [ref=f9e2027]:
+                        - cell "⑦ 注意框保留 (加分项)" [ref=f9e2028]
+                        - cell "通过" [ref=f9e2030]
+                        - cell [ref=f9e2032]:
+                          - generic [ref=f9e2033]:
+                            - text: 测试B成功保留了
+                            - code [ref=f9e2034]: Обратите внимание!
+                            - text: （注意！）的结构语义。
+                  - button "更多选项" [ref=f9e2037] [cursor=pointer]:
+                    - img [ref=f9e2039]: more_horiz
+                - heading "2. 测试页面总体评分（百分制）" [level=3] [ref=f9e2041]
+                - list [ref=f9e2042]:
+                  - listitem [ref=f9e2043]:
+                    - paragraph [ref=f9e2044]: 测试A（练习题页 - p.16）：85分
+                    - list [ref=f9e2045]:
+                      - listitem [ref=f9e2046]:
+                        - paragraph [ref=f9e2047]: 优点：题干与选项的层级关系极其清晰，标点符号完美。
+                      - listitem [ref=f9e2048]:
+                        - paragraph [ref=f9e2049]: 扣分项：丢失了重音符号（-15分）。
+                  - listitem [ref=f9e2050]:
+                    - paragraph [ref=f9e2051]: 测试B（理论讲解页 - p.106）：65分
+                    - list [ref=f9e2052]:
+                      - listitem [ref=f9e2053]:
+                        - paragraph [ref=f9e2054]: 优点：文本段落和提示框（Обратите внимание!）提取完整。
+                      - listitem [ref=f9e2055]:
+                        - paragraph [ref=f9e2056]: 扣分项：对比表格未按规定输出 Markdown 格式，且丢失了重音符号（-35分）。
+                  - listitem [ref=f9e2057]:
+                    - paragraph [ref=f9e2058]: 测试C（词汇辨析表 - p.121）：90分
+                    - list [ref=f9e2059]:
+                      - listitem [ref=f9e2060]:
+                        - paragraph [ref=f9e2061]: 优点：Markdown 格式极其规范，行列对齐完美，表头甚至被贴心地翻译成了英文（Word, Meaning, Collocations）。
+                      - listitem [ref=f9e2062]:
+                        - paragraph [ref=f9e2063]: 扣分项：依然丢失重音符号（-10分）。（注：若表头英文化非你所愿，可视为过度发挥，但结构上是极佳的）。
+                - heading "3. 总体方案是否可行？最大的风险是什么？" [level=3] [ref=f9e2064]
+                - paragraph [ref=f9e2065]: 结论：总体方案高度可行，但需解决特定缺陷后方可量产。
+                - paragraph [ref=f9e2066]: Gemini Vision 在处理复杂版式（如题目选项对齐、多列长文本表格）时表现出了极强的空间布局理解能力，这比传统的 OCR 软件（如 ABBYY）需要大量手动框选要高效得多。
+                - paragraph [ref=f9e2067]: 最大的风险：
+                - list [ref=f9e2068]:
+                  - listitem [ref=f9e2069]:
+                    - paragraph [ref=f9e2070]: 重音符号（Ударение）的系统性丢失：对于俄语作为外语（RFL）的教材，重音是核心教学内容。如果全部丢失，这批转写的文本在教学价值上将大打折扣。大型语言模型（LLM）在默认状态下有自动“纠错”或“正规化”文本的倾向，它可能认为带重音符号的俄语字母是“非标准字符”并自动替换为普通字母。
+                  - listitem [ref=f9e2071]:
+                    - paragraph [ref=f9e2072]:
+                      - text: 格式输出的随机性：如测试B与测试C对比所示，模型有时用
+                      - code [ref=f9e2073]: \t
+                      - text: ，有时用
+                      - code [ref=f9e2074]: "|"
+                      - text: 。在批量处理时，这种不一致会导致后续入库或排版时出现大量的代码解析错误。
+                - heading "4. 如果推全量 135 页，最需要注意什么？" [level=3] [ref=f9e2075]
+                - paragraph [ref=f9e2076]: 如果准备全量推进，建议在 Prompt（提示词）层面和工程管线层面做以下优化：
+                - list [ref=f9e2077]:
+                  - listitem [ref=f9e2078]:
+                    - paragraph [ref=f9e2079]: 强化系统提示词（Prompt Engineering）：
+                    - list [ref=f9e2080]:
+                      - listitem [ref=f9e2081]:
+                        - paragraph [ref=f9e2082]:
+                          - text: 针对重音：必须在提示词中用强烈语气声明：“严格保留原文中的所有俄语重音符号（а́, о́, е́ 等）。禁止将其标准化为普通字母。”（建议甚至可以在 Prompt 里用俄语双语强调：
+                          - code [ref=f9e2083]: Сохраняйте все знаки ударения!
+                          - text: ）。
+                      - listitem [ref=f9e2084]:
+                        - paragraph [ref=f9e2085]: 针对表格：明确规定输出格式：“所有呈现出表格、对比结构的版块，必须且只能使用标准的 Markdown 表格语法（|---|---|），严禁使用制表符（Tab）分隔。”
+                      - listitem [ref=f9e2086]:
+                        - paragraph [ref=f9e2087]: 针对表头：明确是否允许 AI 总结或翻译表头（如测试C中的 Word/Meaning）。如果不需要，要求“严格照抄原文，不添加原文没有的表头”。
+                  - listitem [ref=f9e2088]:
+                    - paragraph [ref=f9e2089]: 增加 Few-Shot（少样本）示例：在 Prompt 中提供一个带重音的俄语单词和正确 Markdown 表格的输入/输出示例，能极大收敛 AI 的发挥空间。
+                  - listitem [ref=f9e2090]:
+                    - paragraph [ref=f9e2091]: 建立抽检机制：全量跑的时候，可以写一个简单的 Python 脚本，扫描返回的内容中是否包含 Unicode 组合重音符（U+0301）。如果某一页的返回结果里一个重音符都没有，直接将其标记为“需人工复核”。
+                - paragraph [ref=f9e2092]: 针对上述重音符号丢失这个最致命的风险，你是否需要在下一轮测试前，先由我帮你起草一段专门针对 Gemini 优化的“强制保留重音及 Markdown 格式”的 System Prompt 模板？
+            - generic [ref=f9e2096]:
+              - button "答得好" [ref=f9e2099] [cursor=pointer]:
+                - img [ref=f9e2101]: thumb_up
+              - button "答得不好" [ref=f9e2105] [cursor=pointer]:
+                - img [ref=f9e2107]: thumb_down
+              - button "重做" [ref=f9e2112] [cursor=pointer]:
+                - img [ref=f9e2114]: refresh
+              - button "复制" [ref=f9e2118] [cursor=pointer]:
+                - img [ref=f9e2120]: copy
+              - button "显示更多选项" [ref=f9e2126] [cursor=pointer]:
+                - img [ref=f9e2128]: more_horiz
+      - generic [ref=f9e75]:
+        - group [ref=f9e76]:
+          - generic [ref=f9e79]:
+            - textbox "为 Gemini 输入提示" [active] [ref=f9e85]:
+              - text: 问问 Gemini
+              - paragraph [ref=f9e1953]
+            - button "上传和工具" [ref=f9e92] [cursor=pointer]:
+              - img [ref=f9e94]: plus
+            - generic [ref=f9e96]:
+              - group [ref=f9e135]:
+                - button "打开模式选择器，当前模式为“Pro”" [ref=f9e136]:
+                  - generic [ref=f9e138]:
+                    - generic [ref=f9e139]: Pro
+                    - img [ref=f9e141]: keyboard_arrow_down
+              - button "麦克风" [ref=f9e103] [cursor=pointer]:
+                - img [ref=f9e105]: mic
+        - paragraph [ref=f9e1955]: Gemini 是一款 AI 工具，其回答未必正确无误。

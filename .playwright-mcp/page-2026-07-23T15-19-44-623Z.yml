@@ -1,0 +1,19 @@
+- main [ref=f144e10]:
+  - generic [ref=f144e12]:
+    - navigation "侧边导航栏" [ref=f144e13]
+    - generic [ref=f144e19]:
+      - generic [ref=f144e20]:
+        - heading "与 Gemini 对话" [level=1] [ref=f144e21]
+        - heading "兴国，需要我帮你做点什么？" [level=1] [ref=f144e35]
+      - generic [ref=f144e38]:
+        - group [ref=f144e39]:
+          - generic [ref=f144e42]:
+            - textbox "为 Gemini 输入提示" [active] [ref=f144e48]:
+              - text: 问问 Gemini
+              - paragraph [ref=f144e49]
+            - generic [ref=f144e50]:
+              - button "添加文件" [disabled]:
+                - img: add_2
+            - button "麦克风" [ref=f144e57] [cursor=pointer]:
+              - img [ref=f144e59]: mic
+        - paragraph [ref=f144e63]

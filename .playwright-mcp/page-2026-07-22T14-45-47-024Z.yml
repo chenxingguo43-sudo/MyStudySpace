@@ -1,0 +1,44 @@
+- generic [active] [ref=f4e1]:
+  - generic [ref=f4e2]:
+    - navigation "俄语 B2 页面导航" [ref=f4e411]:
+      - button "切换主题" [ref=f4e412] [cursor=pointer]: 🎨
+      - button "调整字号" [ref=f4e413] [cursor=pointer]: Aa
+      - button "书架" [ref=f4e414] [cursor=pointer]: ←
+    - main [ref=f4e415]:
+      - generic [ref=f4e416]:
+        - heading "俄语 B2 全模块" [level=1] [ref=f4e417]
+        - paragraph [ref=f4e418]: 所有专项属于同一本教材。可以从模块继续学习，也可以进入统一复习。
+      - generic [ref=f4e419]:
+        - paragraph [ref=f4e420]: 继续上次学习
+        - heading "语法词汇 · P1-Q001" [level=2] [ref=f4e421]
+        - generic [ref=f4e422]: 最近保存于 2026/7/22 22:45:31
+        - button "继续学习" [ref=f4e423] [cursor=pointer]
+      - generic [ref=f4e424]:
+        - button "语法词汇 尚未开始 P1–P6 连续练习、丰富知识卡与错题复习" [ref=f4e425] [cursor=pointer]:
+          - strong [ref=f4e426]: 语法词汇
+          - generic [ref=f4e427]: 尚未开始
+          - generic [ref=f4e428]: P1–P6 连续练习、丰富知识卡与错题复习
+        - button "阅读 尚未开始 十篇原文、理解题、证据句与复述学习" [ref=f4e429] [cursor=pointer]:
+          - strong [ref=f4e430]: 阅读
+          - generic [ref=f4e431]: 尚未开始
+          - generic [ref=f4e432]: 十篇原文、理解题、证据句与复述学习
+        - button "写作 尚未开始 原书任务复刻、草稿、格式自检与版本修改" [ref=f4e433] [cursor=pointer]:
+          - strong [ref=f4e434]: 写作
+          - generic [ref=f4e435]: 尚未开始
+          - generic [ref=f4e436]: 原书任务复刻、草稿、格式自检与版本修改
+        - button "听力 尚未开始 完整题面、考试作答与逐句精听" [ref=f4e437] [cursor=pointer]:
+          - strong [ref=f4e438]: 听力
+          - generic [ref=f4e439]: 尚未开始
+          - generic [ref=f4e440]: 完整题面、考试作答与逐句精听
+        - button "会话 尚未开始 题型训练、准备计时与本地录音" [ref=f4e441] [cursor=pointer]:
+          - strong [ref=f4e442]: 会话
+          - generic [ref=f4e443]: 尚未开始
+          - generic [ref=f4e444]: 题型训练、准备计时与本地录音
+        - button "真题模拟 进度暂不可用 按原书模块练习与完整模拟" [ref=f4e445] [cursor=pointer]:
+          - strong [ref=f4e446]: 真题模拟
+          - generic [ref=f4e447]: 进度暂不可用
+          - generic [ref=f4e448]: 按原书模块练习与完整模拟
+        - button "统一复习 跨模块错题、草稿与学习记录汇总" [ref=f4e449] [cursor=pointer]:
+          - strong [ref=f4e450]: 统一复习
+          - generic [ref=f4e451]: 跨模块错题、草稿与学习记录汇总
+  - generic [ref=f4e6] [cursor=pointer]: 📖 看起来你读完了本章 — 点击标记完成

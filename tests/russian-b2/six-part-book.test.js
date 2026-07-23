@@ -67,6 +67,18 @@ test('P2-Q030 preserves the four source-verified interference options across its
   assert.deepEqual(exercise.questionPages, [20, 21]);
 });
 
+test('published grammar questions are free of known OCR and watermark contamination', () => {
+  const result = buildSixPartBook({ root: ROOT, write: false });
+  const byId = new Map(result.parts.flatMap(part => part.exercises).map(exercise => [exercise.id, exercise]));
+  assert.equal(byId.get('P2-Q027').options.find(option => option.key === 'Б').text, 'Его');
+  assert.equal(
+    byId.get('P2-Q029').question,
+    '... принадлежат оригинальные статьи по геофизике и биологии, философии и языкознанию, социологии и астрономии.'
+  );
+  const serialized = JSON.stringify(result.parts);
+  assert.doesNotMatch(serialized, /俄罗斯对外俄语等级考试真题与解析|◎/);
+});
+
 test('P6 is a continuous 50-question part with retained source-material groups', () => {
   const result = buildSixPartBook({ root: ROOT, write: false });
   const p6 = result.parts.find(part => part.id === 'p6');

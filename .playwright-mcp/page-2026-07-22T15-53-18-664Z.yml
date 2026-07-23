@@ -1,0 +1,39 @@
+- generic [active] [ref=f1e1]:
+  - generic [ref=f1e2]:
+    - navigation "俄语 B2 页面导航" [ref=f1e90]:
+      - button "切换主题" [ref=f1e91] [cursor=pointer]: 🎨
+      - button "调整字号" [ref=f1e92] [cursor=pointer]: Aa
+      - button "书架" [ref=f1e93] [cursor=pointer]: ←
+    - main [ref=f1e94]:
+      - generic [ref=f1e95]:
+        - heading "俄语 B2 全模块" [level=1] [ref=f1e96]
+        - paragraph [ref=f1e97]: 所有专项属于同一本教材。可以从模块继续学习，也可以进入统一复习。
+      - generic [ref=f1e98]:
+        - button "语法词汇 尚未开始 P1–P6 连续练习、丰富知识卡与错题复习" [ref=f1e99] [cursor=pointer]:
+          - strong [ref=f1e100]: 语法词汇
+          - generic [ref=f1e101]: 尚未开始
+          - generic [ref=f1e102]: P1–P6 连续练习、丰富知识卡与错题复习
+        - button "阅读 尚未开始 十篇原文、理解题、证据句与复述学习" [ref=f1e103] [cursor=pointer]:
+          - strong [ref=f1e104]: 阅读
+          - generic [ref=f1e105]: 尚未开始
+          - generic [ref=f1e106]: 十篇原文、理解题、证据句与复述学习
+        - button "写作 尚未开始 原书任务复刻、草稿、格式自检与版本修改" [ref=f1e107] [cursor=pointer]:
+          - strong [ref=f1e108]: 写作
+          - generic [ref=f1e109]: 尚未开始
+          - generic [ref=f1e110]: 原书任务复刻、草稿、格式自检与版本修改
+        - button "听力 尚未开始 完整题面、考试作答与逐句精听" [ref=f1e111] [cursor=pointer]:
+          - strong [ref=f1e112]: 听力
+          - generic [ref=f1e113]: 尚未开始
+          - generic [ref=f1e114]: 完整题面、考试作答与逐句精听
+        - button "会话 尚未开始 题型训练、准备计时与本地录音" [ref=f1e115] [cursor=pointer]:
+          - strong [ref=f1e116]: 会话
+          - generic [ref=f1e117]: 尚未开始
+          - generic [ref=f1e118]: 题型训练、准备计时与本地录音
+        - button "真题模拟 进度暂不可用 按原书模块练习与完整模拟" [ref=f1e119] [cursor=pointer]:
+          - strong [ref=f1e120]: 真题模拟
+          - generic [ref=f1e121]: 进度暂不可用
+          - generic [ref=f1e122]: 按原书模块练习与完整模拟
+        - button "统一复习 跨模块错题、草稿与学习记录汇总" [ref=f1e123] [cursor=pointer]:
+          - strong [ref=f1e124]: 统一复习
+          - generic [ref=f1e125]: 跨模块错题、草稿与学习记录汇总
+  - generic [ref=f1e6] [cursor=pointer]: 📖 看起来你读完了本章 — 点击标记完成

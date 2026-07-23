@@ -1,0 +1,39 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - banner [ref=e84]:
+      - generic [ref=e85]:
+        - button "🎨" [ref=e86] [cursor=pointer]
+        - button "Aa" [ref=e87] [cursor=pointer]
+        - button "A̲A̲" [ref=e88] [cursor=pointer]
+      - generic [ref=e89]: 俄罗斯民间故事
+      - generic [ref=e91]:
+        - button "📋" [ref=e92] [cursor=pointer]
+        - button "📊" [ref=e93] [cursor=pointer]
+        - button "☰" [ref=e94] [cursor=pointer]
+    - generic [ref=e95]:
+      - generic [ref=e96]:
+        - heading "俄罗斯民间故事" [level=2] [ref=e97]
+        - generic [ref=e98]: 7 章 · 已读 0 章 · 俄语→中文
+      - generic [ref=e99]:
+        - generic [ref=e100] [cursor=pointer]:
+          - generic [ref=e101]: "1"
+          - generic [ref=e102]: 第1章
+        - generic [ref=e103] [cursor=pointer]:
+          - generic [ref=e104]: "2"
+          - generic [ref=e105]: 第2章
+        - generic [ref=e106] [cursor=pointer]:
+          - generic [ref=e107]: "3"
+          - generic [ref=e108]: 第3章
+        - generic [ref=e109] [cursor=pointer]:
+          - generic [ref=e110]: "4"
+          - generic [ref=e111]: 第4章
+        - generic [ref=e112] [cursor=pointer]:
+          - generic [ref=e113]: "5"
+          - generic [ref=e114]: 第5章
+        - generic [ref=e115] [cursor=pointer]:
+          - generic [ref=e116]: "6"
+          - generic [ref=e117]: 第6章
+        - generic [ref=e118] [cursor=pointer]:
+          - generic [ref=e119]: "7"
+          - generic [ref=e120]: 第7章
+  - generic [ref=e14] [cursor=pointer]: 📖 看起来你读完了本章 — 点击标记完成

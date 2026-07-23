@@ -1,0 +1,67 @@
+- generic [ref=f105e1]:
+  - main [ref=f105e4]:
+    - button "打开边栏" [ref=f105e133] [cursor=pointer]:
+      - generic [ref=f105e134]: side_nav_expand
+    - generic [ref=f105e123]:
+      - generic: play_arrow
+      - button "临时对话" [ref=f105e127] [cursor=pointer]:
+        - img [ref=f105e129]: gemini_chat_temp
+    - generic [ref=f105e6]:
+      - navigation "侧边导航栏" [ref=f105e7]:
+        - generic [ref=f105e10]:
+          - generic [ref=f105e11]:
+            - navigation "主要操作菜单" [ref=f105e12]:
+              - link "发起新对话" [ref=f105e16] [cursor=pointer]:
+                - /url: /app
+                - img [ref=f105e18]: gemini_chat
+              - link "搜索对话内容" [ref=f105e23] [cursor=pointer]:
+                - /url: /search
+                - img [ref=f105e25]: search
+            - navigation "其他操作菜单" [ref=f105e27]:
+              - link "库" [ref=f105e31] [cursor=pointer]:
+                - /url: library
+                - img [ref=f105e33]: library
+          - generic:
+            - progressbar "正在加载 Gem 和近期对话"
+          - group [ref=f105e35]:
+            - generic [ref=f105e37]:
+              - link "Google 账号：陈兴国 (chenxingguo43@gmail.com)" [ref=f105e93] [cursor=pointer]:
+                - /url: https://accounts.google.com/SignOutOptions?continue=https://gemini.google.com
+              - button "设置" [ref=f105e44] [cursor=pointer]:
+                - img [ref=f105e46]: settings
+      - generic [ref=f105e53]:
+        - generic [ref=f105e54]:
+          - heading "与 Gemini 对话" [level=1] [ref=f105e55]
+          - heading "嗨，兴国，今天有什么安排？" [level=1] [ref=f105e98]
+        - generic [ref=f105e66]:
+          - group [ref=f105e67]:
+            - generic [ref=f105e70]:
+              - textbox "为 Gemini 输入提示" [ref=f105e76]:
+                - text: 问问 Gemini
+                - paragraph [ref=f105e77]
+              - button "上传和工具" [expanded] [active] [ref=f105e105] [cursor=pointer]:
+                - img [ref=f105e107]: plus
+              - generic [ref=f105e79]:
+                - group [ref=f105e111]:
+                  - button "打开模式选择器，当前模式为“Flash”" [ref=f105e112]:
+                    - generic [ref=f105e114]:
+                      - generic [ref=f105e115]: Flash
+                      - img [ref=f105e117]: keyboard_arrow_down
+                - button "麦克风" [ref=f105e85] [cursor=pointer]:
+                  - img [ref=f105e87]: mic
+          - paragraph [ref=f105e91]
+  - menu "菜单选项" [ref=f105e143]:
+    - generic [ref=f105e146]:
+      - menu "“上传文件”选项" [ref=f105e147]:
+        - menuitem "上传文件. 文档、数据、代码文件" [ref=f105e149] [cursor=pointer]:
+          - img [ref=f105e151]: attach_file
+          - generic [ref=f105e152]: 上传文件
+        - menuitem "从云端硬盘添加. 表格、文档、幻灯片" [ref=f105e158] [cursor=pointer]:
+          - img [ref=f105e159]: drive
+          - generic [ref=f105e160]: 从云端硬盘添加
+      - button "更多上传选项" [ref=f105e165] [cursor=pointer]:
+        - img [ref=f105e166]: more_horiz
+        - generic [ref=f105e168]:
+          - generic [ref=f105e169]: 更多上传选项
+          - img [ref=f105e172]: chevron_right
+    - separator [ref=f105e173]

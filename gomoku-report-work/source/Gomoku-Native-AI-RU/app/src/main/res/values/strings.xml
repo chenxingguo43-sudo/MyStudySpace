@@ -1,0 +1,73 @@
+<resources>
+    <string name="app_name">Гомоку</string>
+
+    <string name="home_title">Гомоку</string>
+    <string name="home_subtitle">Пять камней — одна победа</string>
+    <string name="home_local_game">Игра вдвоём</string>
+    <string name="home_ai_game">Игра с компьютером</string>
+    <string name="home_rules">Правила игры</string>
+    <string name="sound_on">Звук включён</string>
+    <string name="sound_off">Звук выключен</string>
+
+    <string name="player_black">Чёрные</string>
+    <string name="player_white">Белые</string>
+    <string name="action_leave">Выйти</string>
+    <string name="action_undo">Отменить</string>
+    <string name="action_restart">Заново</string>
+    <string name="action_settings">Настройки</string>
+
+    <string name="settings_title">Настройки</string>
+    <string name="setting_confirm_title">Подтверждение хода</string>
+    <string name="setting_confirm_subtitle">Сначала показывать полупрозрачный камень, затем подтвердить ход повторным нажатием</string>
+    <string name="setting_sound_title">Звук</string>
+    <string name="setting_sound_subtitle">Воспроизводить звук при установке камня</string>
+    <string name="setting_vibration_title">Вибрация</string>
+    <string name="setting_vibration_subtitle">Вибрировать после подтверждённого хода</string>
+    <string name="close">Закрыть</string>
+
+    <string name="choose_color_title">Выберите цвет</string>
+    <string name="choose_color_message">Чёрные ходят первыми. Если вы выберете белые, компьютер сделает первый ход в центр доски.</string>
+    <string name="play_black">Играть чёрными</string>
+    <string name="play_white">Играть белыми</string>
+    <string name="cancel">Отмена</string>
+
+    <string name="leave_title">Выйти из игры?</string>
+    <string name="leave_message">Текущая партия будет завершена.</string>
+    <string name="stay">Остаться</string>
+    <string name="leave_confirm">Выйти</string>
+
+    <string name="restart_title">Начать заново?</string>
+    <string name="restart_message">Все ходы текущей партии будут удалены.</string>
+    <string name="restart_confirm">Заново</string>
+
+    <string name="result_heading">Победа</string>
+    <string name="result_draw">Ничья</string>
+    <string name="result_black_wins">Победили чёрные</string>
+    <string name="result_white_wins">Победили белые</string>
+    <string name="result_game_over">Партия окончена</string>
+    <string name="result_draw_subtitle">Доска заполнена. Силы оказались равны.</string>
+    <string name="result_win_subtitle">Пять камней выстроились в ряд.</string>
+    <string name="play_again">Сыграть ещё раз</string>
+    <string name="view_board">Посмотреть доску</string>
+    <string name="go_home">На главную</string>
+
+    <string name="rules_title">Правила игры</string>
+    <string name="rules_text">Чёрные ходят первыми. Игроки по очереди ставят камни на пересечения линий доски 15×15. Побеждает тот, кто первым выстроит пять камней подряд по горизонтали, вертикали или диагонали.\n\nВ режиме игры вдвоём ходы делают два игрока. В игре с компьютером можно выбрать чёрные или белые; компьютер оценивает позиции для атаки и защиты.\n\nПо умолчанию включено подтверждение хода: первое нажатие показывает полупрозрачный камень, а повторное нажатие на то же место устанавливает его. Нажатие на другую свободную точку переносит предварительный камень.</string>
+    <string name="understood">Понятно</string>
+
+    <string name="turn_black_won">Победили чёрные</string>
+    <string name="turn_white_won">Победили белые</string>
+    <string name="turn_draw">Ничья</string>
+    <string name="turn_ai_thinking">Компьютер думает…</string>
+    <string name="turn_human">Ваш ход</string>
+    <string name="turn_ai">Ход компьютера</string>
+    <string name="turn_black">Ход чёрных</string>
+    <string name="turn_white">Ход белых</string>
+
+    <string name="hint_game_over">Партия окончена: можно посмотреть доску, отменить ход или начать заново</string>
+    <string name="hint_ai_thinking">Доска временно заблокирована</string>
+    <string name="hint_wait_ai">Подождите, пока компьютер завершит ход</string>
+    <string name="hint_direct_move">Нажмите на пересечение линий, чтобы поставить камень</string>
+    <string name="hint_confirm_move">Нажмите ещё раз, чтобы подтвердить ход</string>
+    <string name="hint_preview_move">Нажмите на свободную точку для предварительного хода</string>
+</resources>

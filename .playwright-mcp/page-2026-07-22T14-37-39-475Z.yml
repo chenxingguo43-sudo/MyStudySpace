@@ -1,0 +1,30 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - navigation "俄语 B2 页面导航" [ref=e2530]:
+      - button "切换主题" [ref=e2531] [cursor=pointer]: 🎨
+      - button "调整字号" [ref=e2532] [cursor=pointer]: Aa
+      - button "仪表盘" [ref=e2533] [cursor=pointer]: ←
+    - main [ref=e2534]:
+      - generic [ref=e2535]:
+        - heading "语法词汇" [level=2] [ref=e2536]
+        - generic [ref=e2537]: 6 个学习单元
+      - generic [ref=e2538]:
+        - generic [ref=e2539] [cursor=pointer]:
+          - generic [ref=e2540]: "1"
+          - generic [ref=e2541]: P1 句法一致与动词体
+        - generic [ref=e2542] [cursor=pointer]:
+          - generic [ref=e2543]: "2"
+          - generic [ref=e2544]: P2 名词、形容词与接格
+        - generic [ref=e2545] [cursor=pointer]:
+          - generic [ref=e2546]: "3"
+          - generic [ref=e2547]: P3 形动词与副动词
+        - generic [ref=e2548] [cursor=pointer]:
+          - generic [ref=e2549]: "4"
+          - generic [ref=e2550]: P4 复句连接与指代
+        - generic [ref=e2551] [cursor=pointer]:
+          - generic [ref=e2552]: "5"
+          - generic [ref=e2553]: P5 构词、词义辨析与无人称结构
+        - generic [ref=e2554] [cursor=pointer]:
+          - generic [ref=e2555]: "6"
+          - generic [ref=e2556]: P6 独立语法题与报刊语体
+  - generic [ref=e14] [cursor=pointer]: 📖 看起来你读完了本章 — 点击标记完成

@@ -76,7 +76,8 @@ function buildSixPartBook({ root, write = true }) {
   const indexPath = path.join(root, 'data', 'textbook', 'index.json');
   const index = readJson(indexPath);
   const book = index.books.find(item => item.id === 'russian_b2');
-  book.chapters = parts.length;
+  const dashboard = readJson(path.join(readerDir, 'book.json'));
+  book.chapters = (dashboard.modules || []).length;
   book.unitIds = parts.map(part => part.id);
   book.chapterTitles = parts.map(part => part.title);
   writeJson(indexPath, index);

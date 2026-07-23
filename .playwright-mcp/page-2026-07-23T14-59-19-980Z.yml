@@ -1,0 +1,57 @@
+- generic [ref=f115e1]:
+  - main [ref=f115e4]:
+    - button "打开边栏" [ref=f115e120] [cursor=pointer]:
+      - generic [ref=f115e121]: side_nav_expand
+    - generic [ref=f115e130]:
+      - generic: play_arrow
+      - button "临时对话" [ref=f115e134] [cursor=pointer]:
+        - img [ref=f115e136]: gemini_chat_temp
+    - generic [ref=f115e6]:
+      - navigation "侧边导航栏" [ref=f115e7]:
+        - generic [ref=f115e10]:
+          - generic [ref=f115e11]:
+            - navigation "主要操作菜单" [ref=f115e12]:
+              - link "发起新对话" [ref=f115e16] [cursor=pointer]:
+                - /url: /app
+                - img [ref=f115e18]: gemini_chat
+              - link "搜索对话内容" [ref=f115e23] [cursor=pointer]:
+                - /url: /search
+                - img [ref=f115e25]: search
+            - navigation "其他操作菜单" [ref=f115e27]:
+              - link "库" [ref=f115e31] [cursor=pointer]:
+                - /url: library
+                - img [ref=f115e33]: library
+          - group [ref=f115e35]:
+            - generic [ref=f115e37]:
+              - link "Google 账号：陈兴国 (chenxingguo43@gmail.com)" [ref=f115e38] [cursor=pointer]:
+                - /url: https://accounts.google.com/SignOutOptions?continue=https://gemini.google.com
+              - button "设置" [ref=f115e44] [cursor=pointer]:
+                - img [ref=f115e46]: settings
+      - generic [ref=f115e53]:
+        - generic [ref=f115e54]:
+          - heading "与 Gemini 对话" [level=1] [ref=f115e55]
+          - heading "嗨，兴国，今天有什么安排？" [level=1] [ref=f115e69]
+        - generic [ref=f115e72]:
+          - group [ref=f115e73]:
+            - generic [ref=f115e76]:
+              - textbox "为 Gemini 输入提示" [active] [ref=f115e82]:
+                - text: 问问 Gemini
+                - paragraph [ref=f115e83]
+              - button "上传和工具" [ref=f115e89] [cursor=pointer]:
+                - img [ref=f115e91]: plus
+              - generic [ref=f115e93]:
+                - group [ref=f115e96]:
+                  - button "打开模式选择器，当前模式为“Flash”" [ref=f115e97]:
+                    - generic [ref=f115e99]:
+                      - generic [ref=f115e100]: Flash
+                      - img [ref=f115e102]: keyboard_arrow_down
+                - generic [ref=f115e105]:
+                  - button "麦克风" [ref=f115e110] [cursor=pointer]:
+                    - img [ref=f115e112]: mic
+                  - generic:
+                    - generic:
+                      - button "发送" [disabled]:
+                        - generic:
+                          - img: arrow_upward
+          - paragraph [ref=f115e116]
+  - generic [ref=f115e117]: 正在加载图片

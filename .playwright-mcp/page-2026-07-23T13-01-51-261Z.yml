@@ -1,0 +1,79 @@
+- main [ref=f39e11]:
+  - button "打开边栏" [ref=f39e126] [cursor=pointer]:
+    - generic [ref=f39e127]: side_nav_expand
+  - generic [ref=f39e136]:
+    - generic: play_arrow
+    - button "临时对话" [ref=f39e140] [cursor=pointer]:
+      - img [ref=f39e142]: gemini_chat_temp
+  - generic [ref=f39e13]:
+    - navigation "侧边导航栏" [ref=f39e14]:
+      - generic [ref=f39e17]:
+        - generic [ref=f39e18]:
+          - navigation "主要操作菜单" [ref=f39e19]:
+            - link "发起新对话" [ref=f39e23] [cursor=pointer]:
+              - /url: /app
+              - img [ref=f39e25]: gemini_chat
+            - link "搜索对话内容" [ref=f39e30] [cursor=pointer]:
+              - /url: /search
+              - img [ref=f39e32]: search
+          - navigation "其他操作菜单" [ref=f39e34]:
+            - link "库" [ref=f39e38] [cursor=pointer]:
+              - /url: library
+              - img [ref=f39e40]: library
+        - group [ref=f39e42]:
+          - generic [ref=f39e44]:
+            - link "Google 账号：陈兴国 (chenxingguo43@gmail.com)" [ref=f39e45] [cursor=pointer]:
+              - /url: https://accounts.google.com/SignOutOptions?continue=https://gemini.google.com
+            - button "设置" [ref=f39e50] [cursor=pointer]:
+              - img [ref=f39e52]: settings
+    - generic [ref=f39e59]:
+      - generic [ref=f39e60]:
+        - heading "与 Gemini 对话" [level=1] [ref=f39e61]
+        - heading "兴国，你好！想聊点什么？" [level=1] [ref=f39e122]
+      - generic [ref=f39e76]:
+        - group [ref=f39e77]:
+          - generic [ref=f39e80]:
+            - generic [ref=f39e234]:
+              - img "attachment" [ref=f39e239]
+              - img "attachment" [ref=f39e245]
+              - img "attachment" [ref=f39e251]
+              - img "attachment" [ref=f39e257]
+              - img "attachment" [ref=f39e263]
+              - img "attachment" [ref=f39e269]
+              - img "attachment" [ref=f39e275]
+              - img "attachment" [ref=f39e281]
+              - img "attachment" [ref=f39e287]
+              - img "attachment" [ref=f39e293]
+            - textbox "为 Gemini 输入提示" [active] [ref=f39e86]:
+              - paragraph [ref=f39e87]: Это страницы из учебника РКИ (Златоуст, B2-C1, Выпуск 1). Среди них есть страницы с ответами (p.123). Транскрибируй ВСЕ упражнения и ОТВЕТЫ.
+              - paragraph [ref=f39e301]
+              - paragraph [ref=f39e302]: "Для упражнений формат:"
+              - paragraph [ref=f39e303]: "Номер: (цифра)"
+              - paragraph [ref=f39e304]: "Тип: single-choice"
+              - paragraph [ref=f39e305]: "Вопрос: (текст с …)"
+              - paragraph [ref=f39e306]: А) ...
+              - paragraph [ref=f39e307]: Б) ...
+              - paragraph [ref=f39e308]: В) ...
+              - paragraph [ref=f39e309]: Г) ...
+              - paragraph [ref=f39e310]
+              - paragraph [ref=f39e311]: "Для ответов формат:"
+              - paragraph [ref=f39e312]: === ОТВЕТЫ стр.123 ===
+              - paragraph [ref=f39e313]: 1-Б, 2-А, ...
+              - paragraph [ref=f39e314]
+              - paragraph [ref=f39e315]: Начинай новую страницу с --- PAGE N ---. ТОЛЬКО разметка.
+            - button "上传和工具" [ref=f39e93] [cursor=pointer]:
+              - img [ref=f39e95]: plus
+            - button "将输入框展开至全屏模式" [ref=f39e318] [cursor=pointer]:
+              - img [ref=f39e319]: expand_content
+            - generic [ref=f39e97]:
+              - group [ref=f39e100]:
+                - button "打开模式选择器，当前模式为“Flash”" [ref=f39e101]:
+                  - generic [ref=f39e103]:
+                    - generic [ref=f39e104]: Flash
+                    - img [ref=f39e106]: keyboard_arrow_down
+              - generic [ref=f39e109]:
+                - button "麦克风" [ref=f39e114] [cursor=pointer]:
+                  - img [ref=f39e116]: mic
+                - button "发送" [ref=f39e297] [cursor=pointer]:
+                  - img [ref=f39e299]: arrow_upward
+        - paragraph [ref=f39e120]

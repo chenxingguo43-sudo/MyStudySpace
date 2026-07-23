@@ -1,0 +1,291 @@
+- main [ref=f14e11]:
+  - button "打开边栏" [ref=f14e135] [cursor=pointer]:
+    - generic [ref=f14e136]: side_nav_expand
+  - generic [ref=f14e15]:
+    - generic: play_arrow
+    - button "打开对话操作菜单。" [ref=f14e375] [cursor=pointer]:
+      - img [ref=f14e377]: more_vert
+  - generic [ref=f14e24]:
+    - navigation "侧边导航栏" [ref=f14e25]:
+      - generic [ref=f14e28]:
+        - generic [ref=f14e29]:
+          - navigation "主要操作菜单" [ref=f14e30]:
+            - link "发起新对话" [ref=f14e34] [cursor=pointer]:
+              - /url: /app
+              - img [ref=f14e36]: gemini_chat
+            - link "搜索对话内容" [ref=f14e41] [cursor=pointer]:
+              - /url: /search
+              - img [ref=f14e43]: search
+          - navigation "其他操作菜单" [ref=f14e45]:
+            - link "库" [ref=f14e49] [cursor=pointer]:
+              - /url: library
+              - img [ref=f14e51]: library
+        - group [ref=f14e53]:
+          - generic [ref=f14e55]:
+            - link "Google 账号：陈兴国 (chenxingguo43@gmail.com)" [ref=f14e56] [cursor=pointer]:
+              - /url: https://accounts.google.com/SignOutOptions?continue=https://gemini.google.com
+            - button "设置" [ref=f14e61] [cursor=pointer]:
+              - img [ref=f14e63]: settings
+    - generic [ref=f14e70]:
+      - generic [ref=f14e71]:
+        - heading "与 Gemini 对话" [level=1] [ref=f14e72]
+        - generic [ref=f14e379]:
+          - generic [ref=f14e383]:
+            - generic [ref=f14e386]:
+              - button "以灯箱形式显示上传的图片" [ref=f14e390] [cursor=pointer]:
+                - img "所上传图片的预览图" [ref=f14e391]
+              - button "以灯箱形式显示上传的图片" [ref=f14e395] [cursor=pointer]:
+                - img "所上传图片的预览图" [ref=f14e396]
+              - button "以灯箱形式显示上传的图片" [ref=f14e400] [cursor=pointer]:
+                - img "所上传图片的预览图" [ref=f14e401]
+              - button "以灯箱形式显示上传的图片" [ref=f14e405] [cursor=pointer]:
+                - img "所上传图片的预览图" [ref=f14e406]
+            - generic [ref=f14e408] [cursor=pointer]:
+              - 'heading "你说 Transcribe all 4 pages of this Russian textbook EXACTLY. - Keep ALL exercise numbers, question text, options (А/Б/В/Г), page numbers - Use Markdown tables for exercise rows - Preserve all special symbols: — «» § * - No commentary, no summaries, no translations - Label each page as ## Page N — Section Title" [level=2] [ref=f14e410]':
+                - generic [ref=f14e411]: 你说
+                - paragraph [ref=f14e412]: Transcribe all 4 pages of this Russian textbook EXACTLY.
+                - paragraph [ref=f14e413]: "- Keep ALL exercise numbers, question text, options (А/Б/В/Г), page numbers"
+                - paragraph [ref=f14e414]: "- Use Markdown tables for exercise rows"
+                - paragraph [ref=f14e415]: "- Preserve all special symbols: — «» § *"
+                - paragraph [ref=f14e416]: "- No commentary, no summaries, no translations"
+                - paragraph [ref=f14e417]: "- Label each page as ## Page N — Section Title"
+              - button "展开" [ref=f14e418]:
+                - img [ref=f14e421]: expand_more
+            - generic [ref=f14e424]:
+              - button "复制提示" [ref=f14e426] [cursor=pointer]:
+                - img [ref=f14e428]: copy
+              - button "修改" [ref=f14e640] [cursor=pointer]:
+                - img [ref=f14e642]: edit
+          - generic [ref=f14e434]:
+            - generic [ref=f14e437]:
+              - heading "Gemini 说" [level=2] [ref=f14e438]
+              - generic [ref=f14e442]:
+                - heading "Page 5 — ОБЩЕЕ ПРЕДИСЛОВИЕ" [level=2] [ref=f14e644]
+                - paragraph [ref=f14e645]: Учебно-тренировочные тесты. Выпуск 1. Грамматика. Лексика 5
+                - heading "ОБЩЕЕ ПРЕДИСЛОВИЕ" [level=3] [ref=f14e646]
+                - paragraph [ref=f14e647]:
+                  - text: Данная книга входит в учебный комплекс, включающий в себя также пособия «Чтение», «Письмо», «Аудирование. Говорение». В качестве адресатов авторы видят иностранных бакалавров, магистрантов, стажёров, обучающихся на нефилологических факультетах вузов
+                  - generic [ref=f14e648]:
+                    - text: России и готовящихся к итоговому тестированию по второму и частично по третьему сертификационному уровню общего владения русским языком.
+                    - superscript [ref=f14e649]
+                  - generic [ref=f14e650]:
+                    - text: "Между всеми пособиями комплекса существует преемственность, нашедшая отражение в темах, актуальных для данных уровней: духовное"
+                    - superscript [ref=f14e651]
+                  - text: развитие человека и его экологического сознания; общественные, научные и культурные взаимодействия людей и другие.
+                  - button "查看来源详情。按 Enter 键打开来源对话框。" [ref=f14e655] [cursor=pointer]
+                - paragraph [ref=f14e656]:
+                  - generic [ref=f14e657]:
+                    - text: Задания каждого пособия представлены в тестовой форме, предусмотренной государственными контрольно-измерительными материалами. Упражнения комплекса авторы предлагают использовать в качестве обучающе-тренировочных на этапе, когда возникает необходимость структури
+                    - superscript [ref=f14e658]
+                  - generic [ref=f14e659]:
+                    - text: ровать знания учащихся и проверить степень их готовности к итоговым экзаменам. Таким образом, основной целью комплекса является
+                    - superscript [ref=f14e660]
+                  - generic [ref=f14e661]:
+                    - text: систематизация и коррекция языковых знаний, навыков и речевых умений иностранцев, изучающих русский язык
+                    - superscript [ref=f14e662]
+                  - generic [ref=f14e663]:
+                    - text: .
+                    - superscript [ref=f14e664]
+                  - superscript [ref=f14e665]
+                  - superscript [ref=f14e666]
+                - paragraph [ref=f14e667]:
+                  - generic [ref=f14e668]:
+                    - text: Материалы комплекса проходили апробацию в группах иностранных учащихся Южного федерального университета (г
+                    - superscript [ref=f14e669]
+                  - generic [ref=f14e670]:
+                    - text: . Ростов-на-Дону) в течение трёх лет.
+                    - superscript [ref=f14e671]
+                  - superscript [ref=f14e672]
+                - paragraph [ref=f14e673]:
+                  - generic [ref=f14e674]:
+                    - text: Работа выполнена в рамках внутреннего конкурса инновационных научно
+                    - superscript [ref=f14e675]
+                  - generic [ref=f14e676]:
+                    - text: "-образовательных проектов в соответствии с Программой развития"
+                    - superscript [ref=f14e677]
+                  - text: Южного федерального университета на 2007–2010 годы.
+                - heading "Page 6 — ПРЕДИСЛОВИЕ к учебному пособию «Грамматика. Лексика»" [level=2] [ref=f14e678]
+                - paragraph [ref=f14e679]: 6 Учебно-тренировочные тесты. Выпуск 1. Грамматика. Лексика
+                - heading "ПРЕДИСЛОВИЕ" [level=3] [ref=f14e680]
+                - heading "к учебному пособию «Грамматика. Лексика»" [level=3] [ref=f14e681]
+                - paragraph [ref=f14e682]: При разработке пособия авторы ориентировались на государственные образовательные стандарты по русскому языку как иностранному ТРКИ-2 и ТРКИ-3¹ и программу по русскому языку как иностранному для студентов-иностранцев, обучающихся на нефилологических факультетах вузов. Основная цель данной книги — систематизация и коррекция имеющихся у иностранных учащихся грамматических и лексических знаний.
+                - paragraph [ref=f14e683]: Используемые здесь задания сконструированы с учётом современных тестовых технологий и представляют собой критериально-ориентированные тесты, которые выявляют соответствие знаний учащихся требованиям, заложенным в государственных стандартах, и подготавливают учащихся к прохождению итоговых тестовых экзаменов.
+                - paragraph [ref=f14e684]: Большая часть упражнений представлена заданиями закрытой формы (множественный выбор); имеются также задания открытой формы (с ограниченным количеством ответов).
+                - paragraph [ref=f14e685]: "Пособие «Грамматика. Лексика» состоит из двух разделов. Задания первого раздела направлены на совершенствование следующих умений: — употреблять видовременные формы глаголов, предложно-падежные формы существительных, краткие и полные формы прилагательных; — ориентироваться в структуре простого и сложного предложения, выражать смысловые отношения между элементами этих синтаксических единиц, применять правила согласования членов предложения; — использовать грамматическую синонимию (объектные, определительные, обстоятельственные отношения в простом и сложном предложении); — различать значения лексических единиц."
+                - paragraph [ref=f14e686]: Первый раздел пособия состоит из пяти глав, каждая из которых делится на параграфы, системно представляющие учебный материал. Во втором разделе помещены грамматические и лексические комментарии, необходимые для выполнения тестовых заданий, поэтому авторы рекомендуют познакомиться в первую очередь с данными материалами.
+                - paragraph [ref=f14e687]: Книга может быть использована не только на занятиях, но и при самостоятельной работе учащихся, для чего ко всем заданиям в Приложении даются ключи. Однако в пособии есть темы, рассматривать которые рекомендуется в аудитории (например, «Употребление деепричастия / деепричастного оборота», «Употребление видов глагола в инфинитиве и императиве»). В Приложении также даются краткие сведения об авторах цитат, включённых в задания, что способствует расширению фоновых знаний учащихся.
+                - paragraph [ref=f14e688]: Авторы пособия выражают искреннюю благодарность заведующему кафедрой русского языка для иностранных учащихся Южного федерального университета (г. Ростов-на-Дону) профессору В.Д. Горянскому за ценные замечания, сделанные в процессе работы над рукописью.
+                - paragraph [ref=f14e689]: ¹ Задания, помещённые в конце каждой главы и отмеченные знаком *, разработаны исключительно на основе требований образовательного стандарта ТРКИ-3.
+                - heading "Page 7 — Раздел I. ТЕСТОВЫЕ ЗАДАНИЯ" [level=2] [ref=f14e690]
+                - paragraph [ref=f14e691]: Учебно-тренировочные тесты. Выпуск 1. Грамматика. Лексика 7
+                - heading "Раздел I. ТЕСТОВЫЕ ЗАДАНИЯ" [level=2] [ref=f14e692]
+                - heading "Глава 1" [level=3] [ref=f14e693]
+                - heading "УПОТРЕБЛЕНИЕ РАЗЛИЧНЫХ ЧАСТЕЙ РЕЧИ; НЕКОТОРЫЕ СЛУЧАИ ИХ СОГЛАСОВАНИЯ" [level=3] [ref=f14e694]
+                - heading "§ 1.1.1. Согласование существительных, обозначающих лицо, с прилагательными, местоимениями и числительными" [level=4] [ref=f14e695]
+                - paragraph [ref=f14e696]: Задания 1–7. Выберите правильный вариант ответа.
+                - generic [ref=f14e701]:
+                  - table [ref=f14e703]:
+                    - rowgroup [ref=f14e704]:
+                      - row [ref=f14e705]:
+                        - columnheader "№" [ref=f14e706]
+                        - columnheader "Текст задания" [ref=f14e707]
+                        - columnheader "Варианты" [ref=f14e708]
+                    - rowgroup [ref=f14e709]:
+                      - row [ref=f14e710]:
+                        - cell "1." [ref=f14e711]
+                        - cell "На совещании ... директор банка Светлана Стасевич поставит вопрос о снижении процентных ставок по кредитам." [ref=f14e712]
+                        - cell [ref=f14e713]:
+                          - paragraph [ref=f14e714]: (А) исполнительный
+                          - paragraph [ref=f14e715]: (Б) исполнительная
+                      - row [ref=f14e716]:
+                        - cell "2." [ref=f14e717]
+                        - cell "... мастер спорта Любовь Егорова — чемпионка мира и Олимпийских игр по лыжным гонкам." [ref=f14e718]
+                        - cell [ref=f14e719]:
+                          - paragraph [ref=f14e720]: (А) Заслуженный
+                          - paragraph [ref=f14e721]: (Б) Заслуженная
+                      - row [ref=f14e722]:
+                        - cell "3." [ref=f14e723]
+                        - cell "16 июня 1963 г. в полёт отправился космический корабль «Восток-6», на его борту находилась Валентина Терешкова, ... в мире женщина-космонавт." [ref=f14e724]
+                        - cell [ref=f14e725]:
+                          - paragraph [ref=f14e726]: (А) первый
+                          - paragraph [ref=f14e727]: (Б) первая
+                      - row [ref=f14e728]:
+                        - cell "4." [ref=f14e729]
+                        - cell "А.И. Щетинина — ... в мире женщина-капитан дальнего плавания." [ref=f14e730]
+                        - cell [ref=f14e731]:
+                          - paragraph [ref=f14e732]: (А) единственная
+                          - paragraph [ref=f14e733]: (Б) единственный
+                      - row [ref=f14e734]:
+                        - cell "5." [ref=f14e735]
+                        - cell "... физик Мария Склодовская-Кюри и её не менее прославленный муж Пьер Кюри открыли явление радиоактивности." [ref=f14e736]
+                        - cell [ref=f14e737]:
+                          - paragraph [ref=f14e738]: (А) Знаменитая
+                          - paragraph [ref=f14e739]: (Б) Знаменитый
+                      - row [ref=f14e740]:
+                        - cell "6." [ref=f14e741]
+                        - cell "... математик Софья Ковалевская является автором работ по математическому анализу, механике и астрономии." [ref=f14e742]
+                        - cell [ref=f14e743]:
+                          - paragraph [ref=f14e744]: (А) Выдающаяся
+                          - paragraph [ref=f14e745]: (Б) Выдающийся
+                      - row [ref=f14e746]:
+                        - cell "7." [ref=f14e747]
+                        - cell "На кинофестивале в городе Выборге ... кинорежиссёр Алла Сурикова представит свой новый фильм." [ref=f14e748]
+                        - cell [ref=f14e749]:
+                          - paragraph [ref=f14e750]: (А) известный
+                          - paragraph [ref=f14e751]: (Б) известная
+                  - button "更多选项" [ref=f14e754] [cursor=pointer]:
+                    - img [ref=f14e756]: more_horiz
+                - heading "Page 8 — § 1.1.2. Согласование существительных, обозначающих лицо, с глаголами, краткими прилагательными и причастиями" [level=2] [ref=f14e758]
+                - paragraph [ref=f14e759]: 8 Учебно-тренировочные тесты. Выпуск 1. Грамматика. Лексика
+                - heading "§ 1.1.2. Согласование существительных, обозначающих лицо, с глаголами, краткими прилагательными и причастиями" [level=4] [ref=f14e760]
+                - paragraph [ref=f14e761]: Задания 8–13. Выберите правильный вариант ответа.
+                - generic [ref=f14e766]:
+                  - table [ref=f14e768]:
+                    - rowgroup [ref=f14e769]:
+                      - row [ref=f14e770]:
+                        - columnheader "№" [ref=f14e771]
+                        - columnheader "Текст задания" [ref=f14e772]
+                        - columnheader "Варианты" [ref=f14e773]
+                    - rowgroup [ref=f14e774]:
+                      - row [ref=f14e775]:
+                        - cell "8." [ref=f14e776]
+                        - cell "Тренер Российской Федерации фигурного катания Татьяна Тарасова ... одиннадцать олимпийских чемпионов." [ref=f14e777]
+                        - cell [ref=f14e778]:
+                          - paragraph [ref=f14e779]: (А) воспитал
+                          - paragraph [ref=f14e780]: (Б) воспитала
+                      - row [ref=f14e781]:
+                        - cell "9." [ref=f14e782]
+                        - cell "Гроссмейстер Майя Чибурданидзе многократно ... на чемпионатах мира по шахматам." [ref=f14e783]
+                        - cell [ref=f14e784]:
+                          - paragraph [ref=f14e785]: (А) побеждала
+                          - paragraph [ref=f14e786]: (Б) побеждал
+                      - row [ref=f14e787]:
+                        - cell "10." [ref=f14e788]
+                        - cell "Премьер-министр Индии Индира Ганди ... большой вклад в процветание своей страны." [ref=f14e789]
+                        - cell [ref=f14e790]:
+                          - paragraph [ref=f14e791]: (А) внёс
+                          - paragraph [ref=f14e792]: (Б) внесла
+                      - row [ref=f14e793]:
+                        - cell "11." [ref=f14e794]
+                        - cell "Космонавт Светлана Савицкая ... много сложных опытов на борту космического корабля." [ref=f14e795]
+                        - cell [ref=f14e796]:
+                          - paragraph [ref=f14e797]: (А) провела
+                          - paragraph [ref=f14e798]: (Б) провёл
+                      - row [ref=f14e799]:
+                        - cell "12." [ref=f14e800]
+                        - cell "Политик Ирина Хакамада ... как создатель общероссийского фонда «Наш выбор»." [ref=f14e801]
+                        - cell [ref=f14e802]:
+                          - paragraph [ref=f14e803]: (А) известна
+                          - paragraph [ref=f14e804]: (Б) известная
+                      - row [ref=f14e805]:
+                        - cell "13." [ref=f14e806]
+                        - cell "Хореограф Татьяна Баганова ... специальным призом на международном фестивале «Театр без границ»." [ref=f14e807]
+                        - cell [ref=f14e808]:
+                          - paragraph [ref=f14e809]: (А) награждённая
+                          - paragraph [ref=f14e810]: (Б) награждена
+                  - button "更多选项" [ref=f14e813] [cursor=pointer]:
+                    - img [ref=f14e815]: more_horiz
+                - heading "§ 1.2. Согласование слов и словосочетаний, имеющих количественное значение, с глаголами" [level=4] [ref=f14e817]
+                - paragraph [ref=f14e818]: Задания 14–19. Выберите правильный вариант ответа.
+                - generic [ref=f14e823]:
+                  - table [ref=f14e825]:
+                    - rowgroup [ref=f14e826]:
+                      - row [ref=f14e827]:
+                        - columnheader "№" [ref=f14e828]
+                        - columnheader "Текст задания" [ref=f14e829]
+                        - columnheader "Варианты" [ref=f14e830]
+                    - rowgroup [ref=f14e831]:
+                      - row [ref=f14e832]:
+                        - cell "14." [ref=f14e833]
+                        - 'cell "На вопрос: «Что важнее всего в информации?» — большинство ...: «Новизна»." [ref=f14e834]'
+                        - cell [ref=f14e835]:
+                          - paragraph [ref=f14e836]: (А) ответит
+                          - paragraph [ref=f14e837]: (Б) ответят
+                      - row [ref=f14e838]:
+                        - cell "15." [ref=f14e839]
+                        - cell "... десять лет с момента появления в России первых трансгенных культур." [ref=f14e840]
+                        - cell [ref=f14e841]:
+                          - paragraph [ref=f14e842]: (А) Прошли
+                          - paragraph [ref=f14e843]: (Б) Прошло
+                      - row [ref=f14e844]:
+                        - cell "16." [ref=f14e845]
+                        - cell "Для покраски трубы тепловой электростанции ... восемь тысяч килограммов краски." [ref=f14e846]
+                        - cell [ref=f14e847]:
+                          - paragraph [ref=f14e848]: (А) потребуются
+                          - paragraph [ref=f14e849]: (Б) потребуется
+                      - row [ref=f14e850]:
+                        - cell "17." [ref=f14e851]
+                        - cell "Нашей футбольной команде до чемпионского титула ... пять шагов." [ref=f14e852]
+                        - cell [ref=f14e853]:
+                          - paragraph [ref=f14e854]: (А) осталось
+                          - paragraph [ref=f14e855]: (Б) остались
+                  - button "更多选项" [ref=f14e858] [cursor=pointer]:
+                    - img [ref=f14e860]: more_horiz
+            - generic [ref=f14e865]:
+              - button "答得好" [ref=f14e868] [cursor=pointer]:
+                - img [ref=f14e870]: thumb_up
+              - button "答得不好" [ref=f14e874] [cursor=pointer]:
+                - img [ref=f14e876]: thumb_down
+              - button "重做" [ref=f14e881] [cursor=pointer]:
+                - img [ref=f14e883]: refresh
+              - button "复制" [ref=f14e887] [cursor=pointer]:
+                - img [ref=f14e889]: copy
+              - button "显示更多选项" [ref=f14e895] [cursor=pointer]:
+                - img [ref=f14e897]: more_horiz
+      - generic [ref=f14e87]:
+        - group [ref=f14e88]:
+          - generic [ref=f14e91]:
+            - textbox "为 Gemini 输入提示" [active] [ref=f14e97]:
+              - text: 问问 Gemini
+              - paragraph [ref=f14e444]
+            - button "上传和工具" [ref=f14e104] [cursor=pointer]:
+              - img [ref=f14e106]: plus
+            - generic [ref=f14e108]:
+              - group [ref=f14e111]:
+                - button "打开模式选择器，当前模式为“Flash”" [ref=f14e176]:
+                  - generic [ref=f14e114]:
+                    - generic [ref=f14e115]: Flash
+                    - img [ref=f14e117]: keyboard_arrow_down
+              - button "麦克风" [ref=f14e125] [cursor=pointer]:
+                - img [ref=f14e127]: mic
+        - paragraph [ref=f14e446]: Gemini 是一款 AI 工具，其回答未必正确无误。

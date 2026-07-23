@@ -1,0 +1,8 @@
+[    2061ms] [LOG] [Dict] Local: 6456 entries; Salad: 18089 ; FreeDict: 95769 @ http://localhost:3000/reader.html:3337
+[   60763ms] TypeError: Cannot read properties of undefined (reading 'join')
+    at renderQuizExplanation (http://localhost:3000/reader.html:2202:66)
+    at renderQuizItem (http://localhost:3000/reader.html:2284:93)
+    at renderQuizChapter (http://localhost:3000/reader.html:2353:13)
+    at renderChapter (http://localhost:3000/reader.html:2885:5)
+    at goChapter (http://localhost:3000/reader.html:1852:17)
+    at HTMLDivElement.onclick (http://localhost:3000/reader.html:1:1)

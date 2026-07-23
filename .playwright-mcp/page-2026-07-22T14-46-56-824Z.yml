@@ -1,0 +1,30 @@
+- generic [active] [ref=f4e1]:
+  - generic [ref=f4e2]:
+    - generic [ref=f4e2614]:
+      - button "🎨" [ref=f4e2615] [cursor=pointer]
+      - button "Aa" [ref=f4e2616] [cursor=pointer]
+      - button "🔍" [ref=f4e2617] [cursor=pointer]
+      - button "☰" [ref=f4e2618] [cursor=pointer]
+    - generic [ref=f4e2619]: "👁 查看原文: 0 / 2 段"
+    - generic [ref=f4e2620]:
+      - generic [ref=f4e2622]:
+        - generic [ref=f4e2623]:
+          - heading "Глава 1" [level=1] [ref=f4e2624]
+          - heading "Cover" [level=2] [ref=f4e2625]
+        - generic [ref=f4e2626] [cursor=pointer]:
+          - button "☆" [ref=f4e2628]
+          - paragraph [ref=f4e2629]: Босс коварен до́ предела, и моя́ система тоже́ ▸
+          - paragraph: boss阴到没边，我的系统也是
+        - generic [ref=f4e2630] [cursor=pointer]:
+          - button "☆" [ref=f4e2632]
+          - paragraph [ref=f4e2633]: "Автор: Патрулирующий го́ры Владыка ▸"
+          - paragraph: 巡山主神 / 著
+      - generic [ref=f4e2636]:
+        - button "关闭词典" [ref=f4e2637] [cursor=pointer]: ✕
+        - generic [ref=f4e2638]: 👆 点击俄语单词查看详情
+    - generic [ref=f4e2639]:
+      - generic: ← 上一章
+      - generic [ref=f4e2640]: 第 1 / 261 章
+      - button "✓ 标记完成" [ref=f4e2641] [cursor=pointer]
+      - button "下一章 →" [ref=f4e2642] [cursor=pointer]
+  - generic [ref=f4e6] [cursor=pointer]: 📖 看起来你读完了本章 — 点击标记完成

@@ -1,0 +1,47 @@
+- main [ref=f59e11]:
+  - button "临时对话" [ref=f59e19] [cursor=pointer]:
+    - img [ref=f59e21]: gemini_chat_temp
+  - generic [ref=f59e24]:
+    - navigation "侧边导航栏" [ref=f59e25]:
+      - generic [ref=f59e28]:
+        - generic [ref=f59e29]:
+          - navigation "主要操作菜单" [ref=f59e30]:
+            - link "发起新对话" [ref=f59e34] [cursor=pointer]:
+              - /url: /app
+              - img [ref=f59e36]: gemini_chat
+            - link "搜索对话内容" [ref=f59e41] [cursor=pointer]:
+              - /url: /search
+              - img [ref=f59e43]: search
+          - navigation "其他操作菜单" [ref=f59e45]:
+            - link "库" [ref=f59e49] [cursor=pointer]:
+              - /url: library
+              - img [ref=f59e51]: library
+        - generic:
+          - progressbar "正在加载 Gem 和近期对话"
+        - group [ref=f59e53]:
+          - generic [ref=f59e55]:
+            - link "Google 账号：陈兴国 (chenxingguo43@gmail.com)" [ref=f59e56] [cursor=pointer]:
+              - /url: https://accounts.google.com/SignOutOptions?continue=https://gemini.google.com
+            - button "设置" [ref=f59e61] [cursor=pointer]:
+              - img [ref=f59e63]: settings
+    - generic [ref=f59e70]:
+      - generic [ref=f59e71]:
+        - heading "与 Gemini 对话" [level=1] [ref=f59e72]
+        - heading "兴国，接下来想聊点什么？" [level=1] [ref=f59e86]
+      - generic [ref=f59e89]:
+        - group [ref=f59e90]:
+          - generic [ref=f59e93]:
+            - textbox "为 Gemini 输入提示" [active] [ref=f59e99]:
+              - text: 问问 Gemini
+              - paragraph [ref=f59e100]
+            - button "上传和工具" [ref=f59e106] [cursor=pointer]:
+              - img [ref=f59e108]: plus
+            - generic [ref=f59e110]:
+              - group [ref=f59e113]:
+                - button "打开模式选择器，当前模式为“Flash”" [ref=f59e114]:
+                  - generic [ref=f59e116]:
+                    - generic [ref=f59e117]: Flash
+                    - img [ref=f59e119]: keyboard_arrow_down
+              - button "麦克风" [ref=f59e127] [cursor=pointer]:
+                - img [ref=f59e129]: mic
+        - paragraph [ref=f59e133]

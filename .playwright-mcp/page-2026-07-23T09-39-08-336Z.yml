@@ -1,0 +1,82 @@
+- generic [ref=f29e1]:
+  - main [ref=f29e11]:
+    - button "打开边栏" [ref=f29e14] [cursor=pointer]:
+      - generic [ref=f29e15]: side_nav_expand
+    - generic [ref=f29e24]:
+      - generic: play_arrow
+      - button "临时对话" [ref=f29e28] [cursor=pointer]:
+        - img [ref=f29e30]: gemini_chat_temp
+    - generic [ref=f29e33]:
+      - navigation "侧边导航栏" [ref=f29e34]:
+        - generic [ref=f29e37]:
+          - generic [ref=f29e38]:
+            - navigation "主要操作菜单" [ref=f29e39]:
+              - link "发起新对话" [ref=f29e43] [cursor=pointer]:
+                - /url: /app
+                - img [ref=f29e45]: gemini_chat
+              - link "搜索对话内容" [ref=f29e50] [cursor=pointer]:
+                - /url: /search
+                - img [ref=f29e52]: search
+            - navigation "其他操作菜单" [ref=f29e54]:
+              - link "库" [ref=f29e58] [cursor=pointer]:
+                - /url: library
+                - img [ref=f29e60]: library
+          - group [ref=f29e62]:
+            - generic [ref=f29e64]:
+              - link "Google 账号：陈兴国 (chenxingguo43@gmail.com)" [ref=f29e65] [cursor=pointer]:
+                - /url: https://accounts.google.com/SignOutOptions?continue=https://gemini.google.com
+              - button "设置" [ref=f29e70] [cursor=pointer]:
+                - img [ref=f29e72]: settings
+      - generic [ref=f29e79]:
+        - generic [ref=f29e80]:
+          - heading "与 Gemini 对话" [level=1] [ref=f29e81]
+          - heading "兴国，你好！想聊点什么？" [level=1] [ref=f29e95]
+        - generic [ref=f29e98]:
+          - group [ref=f29e99]:
+            - generic [ref=f29e102]:
+              - generic [ref=f29e213]:
+                - generic [ref=f29e217]:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - img "attachment" [ref=f29e218]
+                        - progressbar "正在加载图片" [ref=f29e221] [cursor=pointer]
+                - generic [ref=f29e239]:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - img "attachment" [ref=f29e240]
+                        - progressbar "正在加载图片" [ref=f29e243] [cursor=pointer]
+                - generic [ref=f29e261]:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - img "attachment" [ref=f29e262]
+                        - progressbar "正在加载图片" [ref=f29e265] [cursor=pointer]
+                - generic [ref=f29e283]:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - img "attachment" [ref=f29e284]
+                        - progressbar "正在加载图片" [ref=f29e287] [cursor=pointer]
+              - textbox "为 Gemini 输入提示" [active] [ref=f29e108]:
+                - text: 问问 Gemini
+                - paragraph [ref=f29e109]
+              - button "上传和工具" [ref=f29e115] [cursor=pointer]:
+                - img [ref=f29e117]: plus
+              - generic [ref=f29e119]:
+                - group [ref=f29e122]:
+                  - button "打开模式选择器，当前模式为“Flash”" [ref=f29e123]:
+                    - generic [ref=f29e125]:
+                      - generic [ref=f29e126]: Flash
+                      - img [ref=f29e128]: keyboard_arrow_down
+                - generic [ref=f29e131]:
+                  - button "麦克风" [ref=f29e136] [cursor=pointer]:
+                    - img [ref=f29e138]: mic
+                  - generic:
+                    - generic:
+                      - button "发送" [disabled]:
+                        - generic:
+                          - img: arrow_upward
+          - paragraph [ref=f29e142]
+  - generic [ref=f29e143]: 正在加载图片

@@ -1,0 +1,60 @@
+- generic [active] [ref=f135e1]:
+  - main [ref=f135e4]:
+    - button "打开边栏" [ref=f135e105] [cursor=pointer]:
+      - generic [ref=f135e106]: side_nav_expand
+    - generic [ref=f135e115]:
+      - generic: play_arrow
+      - button "临时对话" [ref=f135e119] [cursor=pointer]:
+        - img [ref=f135e121]: gemini_chat_temp
+    - generic [ref=f135e6]:
+      - navigation "侧边导航栏" [ref=f135e7]:
+        - generic [ref=f135e10]:
+          - generic [ref=f135e11]:
+            - navigation "主要操作菜单" [ref=f135e12]:
+              - link "发起新对话" [ref=f135e16] [cursor=pointer]:
+                - /url: /app
+                - img [ref=f135e18]: gemini_chat
+              - link "搜索对话内容" [ref=f135e23] [cursor=pointer]:
+                - /url: /search
+                - img [ref=f135e25]: search
+            - navigation "其他操作菜单" [ref=f135e27]:
+              - link "库" [ref=f135e31] [cursor=pointer]:
+                - /url: library
+                - img [ref=f135e33]: library
+          - generic:
+            - progressbar "正在加载 Gem 和近期对话"
+          - group [ref=f135e35]:
+            - generic [ref=f135e37]:
+              - link "Google 账号：陈兴国 (chenxingguo43@gmail.com)" [ref=f135e123] [cursor=pointer]:
+                - /url: https://accounts.google.com/SignOutOptions?continue=https://gemini.google.com
+              - button "设置" [ref=f135e44] [cursor=pointer]:
+                - img [ref=f135e46]: settings
+      - generic [ref=f135e53]:
+        - generic [ref=f135e54]:
+          - heading "与 Gemini 对话" [level=1] [ref=f135e55]
+          - heading "兴国，需要我帮你做点什么？" [level=1] [ref=f135e128]
+        - generic [ref=f135e67]:
+          - group [ref=f135e68]:
+            - generic [ref=f135e71]:
+              - textbox "为 Gemini 输入提示" [ref=f135e77]:
+                - paragraph [ref=f135e78]: "РКИ Златоуст B2-C1, Глава 3 (причастия и деепричастия). Транскрибируй ВСЕ упражнения. Формат: Номер: N / Тип: single-choice / Вопрос: текст / А) opt / Б) opt / В) opt / Г) opt. Ставь --- PAGE N --- перед страницей."
+              - button "上传和工具" [ref=f135e84] [cursor=pointer]:
+                - img [ref=f135e86]: plus
+              - button "将输入框展开至全屏模式" [ref=f135e142] [cursor=pointer]:
+                - img [ref=f135e143]: expand_content
+              - generic [ref=f135e88]:
+                - group [ref=f135e131]:
+                  - button "打开模式选择器，当前模式为“Pro”" [ref=f135e132]:
+                    - generic [ref=f135e134]:
+                      - generic [ref=f135e135]: Pro
+                      - img [ref=f135e137]: keyboard_arrow_down
+                - generic [ref=f135e90]:
+                  - button "麦克风" [ref=f135e95] [cursor=pointer]:
+                    - img [ref=f135e97]: mic
+                  - generic:
+                    - generic:
+                      - button "发送" [disabled]:
+                        - generic:
+                          - img: arrow_upward
+          - paragraph [ref=f135e101]
+  - generic [ref=f135e102]: 正在加载图片：0%

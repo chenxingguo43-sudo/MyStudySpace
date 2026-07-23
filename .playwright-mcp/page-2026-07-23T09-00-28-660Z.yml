@@ -1,0 +1,72 @@
+- main [ref=f14e11]:
+  - button "打开边栏" [ref=f14e135] [cursor=pointer]:
+    - generic [ref=f14e136]: side_nav_expand
+  - generic [ref=f14e15]:
+    - generic: play_arrow
+    - button "临时对话" [ref=f14e19] [cursor=pointer]:
+      - img [ref=f14e21]: gemini_chat_temp
+  - generic [ref=f14e24]:
+    - navigation "侧边导航栏" [ref=f14e25]:
+      - generic [ref=f14e28]:
+        - generic [ref=f14e29]:
+          - navigation "主要操作菜单" [ref=f14e30]:
+            - link "发起新对话" [ref=f14e34] [cursor=pointer]:
+              - /url: /app
+              - img [ref=f14e36]: gemini_chat
+            - link "搜索对话内容" [ref=f14e41] [cursor=pointer]:
+              - /url: /search
+              - img [ref=f14e43]: search
+          - navigation "其他操作菜单" [ref=f14e45]:
+            - link "库" [ref=f14e49] [cursor=pointer]:
+              - /url: library
+              - img [ref=f14e51]: library
+        - group [ref=f14e53]:
+          - generic [ref=f14e55]:
+            - link "Google 账号：陈兴国 (chenxingguo43@gmail.com)" [ref=f14e56] [cursor=pointer]:
+              - /url: https://accounts.google.com/SignOutOptions?continue=https://gemini.google.com
+            - button "设置" [ref=f14e61] [cursor=pointer]:
+              - img [ref=f14e63]: settings
+    - generic [ref=f14e70]:
+      - generic [ref=f14e71]:
+        - heading "与 Gemini 对话" [level=1] [ref=f14e72]
+        - heading "有什么新灵感想聊聊吗？" [level=1] [ref=f14e142]
+      - generic [ref=f14e87]:
+        - group [ref=f14e88]:
+          - generic [ref=f14e91]:
+            - textbox "为 Gemini 输入提示" [ref=f14e97]:
+              - text: 问问 Gemini
+              - paragraph [ref=f14e98]
+            - button "上传和工具" [ref=f14e104] [cursor=pointer]:
+              - img [ref=f14e106]: plus
+            - generic [ref=f14e108]:
+              - group [ref=f14e111]:
+                - button "打开模式选择器，当前模式为“Pro”" [expanded] [ref=f14e112] [cursor=pointer]:
+                  - generic [ref=f14e114]:
+                    - generic [ref=f14e115]: Pro
+                    - img [ref=f14e117]: keyboard_arrow_down
+                - menu [ref=f14e147]:
+                  - menuitem "3.5 Flash-Lite 极速回答 新" [active] [ref=f14e148] [cursor=pointer]:
+                    - generic [ref=f14e149]:
+                      - generic [ref=f14e151]:
+                        - text: 3.5 Flash-Lite
+                        - generic [ref=f14e152]: 极速回答
+                      - generic [ref=f14e153]: 新
+                  - menuitem "3.6 Flash 全方位帮助" [ref=f14e155] [cursor=pointer]:
+                    - generic [ref=f14e158]:
+                      - text: 3.6 Flash
+                      - generic [ref=f14e159]: 全方位帮助
+                  - menuitem "已选中 3.1 Pro 高阶数学与代码" [ref=f14e161] [cursor=pointer]:
+                    - generic [ref=f14e162]:
+                      - generic "已选中" [ref=f14e164]:
+                        - img [ref=f14e165]: check
+                      - generic [ref=f14e166]:
+                        - text: 3.1 Pro
+                        - generic [ref=f14e167]: 高阶数学与代码
+                  - separator [ref=f14e169]
+                  - menuitem "扩展思考 擅长解决复杂问题" [ref=f14e170] [cursor=pointer]:
+                    - generic [ref=f14e173]:
+                      - text: 扩展思考
+                      - generic [ref=f14e174]: 擅长解决复杂问题
+              - button "麦克风" [ref=f14e125] [cursor=pointer]:
+                - img [ref=f14e127]: mic
+        - paragraph [ref=f14e131]

@@ -1,0 +1,39 @@
+- generic [active] [ref=f69e1]:
+  - generic [ref=f69e2]:
+    - navigation "俄语 B2 页面导航" [ref=f69e1149]:
+      - button "切换主题" [ref=f69e1150] [cursor=pointer]: 🎨
+      - button "调整字号" [ref=f69e1151] [cursor=pointer]: Aa
+      - button "书架" [ref=f69e1152] [cursor=pointer]: ←
+    - main [ref=f69e1153]:
+      - generic [ref=f69e1154]:
+        - heading "俄语 B2 全模块" [level=1] [ref=f69e1155]
+        - paragraph [ref=f69e1156]: 所有专项属于同一本教材。可以从模块继续学习，也可以进入统一复习。
+      - generic [ref=f69e1157]:
+        - button "语法词汇 已完成 0 / 6 P1–P6 连续练习、丰富知识卡与错题复习" [ref=f69e1158] [cursor=pointer]:
+          - strong [ref=f69e1159]: 语法词汇
+          - generic [ref=f69e1160]: 已完成 0 / 6
+          - generic [ref=f69e1162]: P1–P6 连续练习、丰富知识卡与错题复习
+        - button "阅读 尚未开始 十篇原文、理解题、证据句与复述学习" [ref=f69e1163] [cursor=pointer]:
+          - strong [ref=f69e1164]: 阅读
+          - generic [ref=f69e1165]: 尚未开始
+          - generic [ref=f69e1166]: 十篇原文、理解题、证据句与复述学习
+        - button "写作 尚未开始 原书任务复刻、草稿、格式自检与版本修改" [ref=f69e1167] [cursor=pointer]:
+          - strong [ref=f69e1168]: 写作
+          - generic [ref=f69e1169]: 尚未开始
+          - generic [ref=f69e1170]: 原书任务复刻、草稿、格式自检与版本修改
+        - button "听力 尚未开始 完整题面、考试作答与逐句精听" [ref=f69e1171] [cursor=pointer]:
+          - strong [ref=f69e1172]: 听力
+          - generic [ref=f69e1173]: 尚未开始
+          - generic [ref=f69e1174]: 完整题面、考试作答与逐句精听
+        - button "会话 尚未开始 题型训练、准备计时与本地录音" [ref=f69e1175] [cursor=pointer]:
+          - strong [ref=f69e1176]: 会话
+          - generic [ref=f69e1177]: 尚未开始
+          - generic [ref=f69e1178]: 题型训练、准备计时与本地录音
+        - button "真题模拟 进度暂不可用 按原书模块练习与完整模拟" [ref=f69e1179] [cursor=pointer]:
+          - strong [ref=f69e1180]: 真题模拟
+          - generic [ref=f69e1181]: 进度暂不可用
+          - generic [ref=f69e1182]: 按原书模块练习与完整模拟
+        - button "统一复习 跨模块错题、草稿与学习记录汇总" [ref=f69e1183] [cursor=pointer]:
+          - strong [ref=f69e1184]: 统一复习
+          - generic [ref=f69e1185]: 跨模块错题、草稿与学习记录汇总
+  - generic [ref=f69e6] [cursor=pointer]: 📖 看起来你读完了本章 — 点击标记完成

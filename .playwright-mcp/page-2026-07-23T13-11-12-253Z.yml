@@ -1,0 +1,100 @@
+- main [ref=f59e11]:
+  - button "打开边栏" [ref=f59e137] [cursor=pointer]:
+    - generic [ref=f59e138]: side_nav_expand
+  - generic [ref=f59e12]: play_arrow
+  - generic [ref=f59e24]:
+    - navigation "侧边导航栏" [ref=f59e25]:
+      - generic [ref=f59e28]:
+        - generic [ref=f59e29]:
+          - navigation "主要操作菜单" [ref=f59e30]:
+            - link "发起新对话" [ref=f59e34] [cursor=pointer]:
+              - /url: /app
+              - img [ref=f59e36]: gemini_chat
+            - link "搜索对话内容" [ref=f59e41] [cursor=pointer]:
+              - /url: /search
+              - img [ref=f59e43]: search
+          - navigation "其他操作菜单" [ref=f59e45]:
+            - link "库" [ref=f59e49] [cursor=pointer]:
+              - /url: library
+              - img [ref=f59e51]: library
+        - group [ref=f59e53]:
+          - generic [ref=f59e55]:
+            - link "Google 账号：陈兴国 (chenxingguo43@gmail.com)" [ref=f59e56] [cursor=pointer]:
+              - /url: https://accounts.google.com/SignOutOptions?continue=https://gemini.google.com
+            - button "设置" [ref=f59e61] [cursor=pointer]:
+              - img [ref=f59e63]: settings
+    - generic [ref=f59e70]:
+      - generic [ref=f59e71]:
+        - heading "与 Gemini 对话" [level=1] [ref=f59e72]
+        - generic [ref=f59e326]:
+          - generic [ref=f59e328]:
+            - generic [ref=f59e329]:
+              - button "以灯箱形式显示上传的图片" [ref=f59e333] [cursor=pointer]:
+                - img "所上传图片的预览图" [ref=f59e334]
+              - button "以灯箱形式显示上传的图片" [ref=f59e338] [cursor=pointer]:
+                - img "所上传图片的预览图" [ref=f59e339]
+              - button "以灯箱形式显示上传的图片" [ref=f59e343] [cursor=pointer]:
+                - img "所上传图片的预览图" [ref=f59e344]
+              - button "以灯箱形式显示上传的图片" [ref=f59e348] [cursor=pointer]:
+                - img "所上传图片的预览图" [ref=f59e349]
+              - button "以灯箱形式显示上传的图片" [ref=f59e353] [cursor=pointer]:
+                - img "所上传图片的预览图" [ref=f59e354]
+              - button "以灯箱形式显示上传的图片" [ref=f59e358] [cursor=pointer]:
+                - img "所上传图片的预览图" [ref=f59e359]
+              - button "以灯箱形式显示上传的图片" [ref=f59e363] [cursor=pointer]:
+                - img "所上传图片的预览图" [ref=f59e364]
+              - button "以灯箱形式显示上传的图片" [ref=f59e368] [cursor=pointer]:
+                - img "所上传图片的预览图" [ref=f59e369]
+              - button "以灯箱形式显示上传的图片" [ref=f59e373] [cursor=pointer]:
+                - img "所上传图片的预览图" [ref=f59e374]
+              - button "以灯箱形式显示上传的图片" [ref=f59e378] [cursor=pointer]:
+                - img "所上传图片的预览图" [ref=f59e379]
+            - button "滚动到下一批文件" [ref=f59e380] [cursor=pointer]:
+              - img [ref=f59e381]: chevron_right
+          - generic [ref=f59e385] [cursor=pointer]:
+            - 'heading "你说 Златоуст РКИ B2-C1, Глава 5 финал (лексика, паронимы) + ключи ответов (p.123). Транскрибируй ВСЁ. Формат упражнений: Номер: N Тип: single-choice Вопрос: (текст) А) ... Б) ... В) ... Г) ... Формат ответов: === ОТВЕТЫ стр.123 === 1-Б, 2-А, 3-В, ... Ставь --- PAGE N --- перед страницей. ТОЛЬКО разметка." [level=2] [ref=f59e387]':
+              - generic [ref=f59e388]: 你说
+              - paragraph [ref=f59e389]: Златоуст РКИ B2-C1, Глава 5 финал (лексика, паронимы) + ключи ответов (p.123). Транскрибируй ВСЁ.
+              - paragraph [ref=f59e390]
+              - paragraph [ref=f59e391]: "Формат упражнений:"
+              - paragraph [ref=f59e392]: "Номер: N"
+              - paragraph [ref=f59e393]: "Тип: single-choice"
+              - paragraph [ref=f59e394]: "Вопрос: (текст)"
+              - paragraph [ref=f59e395]: А) ...
+              - paragraph [ref=f59e396]: Б) ...
+              - paragraph [ref=f59e397]: В) ...
+              - paragraph [ref=f59e398]: Г) ...
+              - paragraph [ref=f59e399]
+              - paragraph [ref=f59e400]: "Формат ответов:"
+              - paragraph [ref=f59e401]: === ОТВЕТЫ стр.123 ===
+              - paragraph [ref=f59e402]: 1-Б, 2-А, 3-В, ...
+              - paragraph [ref=f59e403]
+              - paragraph [ref=f59e404]: Ставь --- PAGE N --- перед страницей. ТОЛЬКО разметка.
+            - button "展开" [ref=f59e405]:
+              - img [ref=f59e408]: expand_more
+          - generic [ref=f59e411]:
+            - button "复制提示" [ref=f59e413] [cursor=pointer]:
+              - img [ref=f59e415]: copy
+            - generic [ref=f59e417]:
+              - button "修改" [disabled]:
+                - generic:
+                  - img: edit
+      - generic [ref=f59e89]:
+        - group [ref=f59e90]:
+          - generic [ref=f59e93]:
+            - textbox "为 Gemini 输入提示" [active] [ref=f59e99]:
+              - text: 问问 Gemini
+              - paragraph [ref=f59e436]
+            - button "上传和工具" [ref=f59e106] [cursor=pointer]:
+              - img [ref=f59e108]: plus
+            - generic [ref=f59e110]:
+              - group [ref=f59e113]:
+                - button "打开模式选择器，当前模式为“Flash”" [ref=f59e114]:
+                  - generic [ref=f59e116]:
+                    - generic [ref=f59e117]: Flash
+                    - img [ref=f59e119]: keyboard_arrow_down
+              - generic [ref=f59e122]:
+                - text: mic
+                - button "停止回答" [ref=f59e437] [cursor=pointer]:
+                  - img [ref=f59e320]: stop
+        - paragraph [ref=f59e438]: Gemini 是一款 AI 工具，其回答未必正确无误。

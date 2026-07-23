@@ -1,0 +1,50 @@
+{
+  "id": "listening",
+  "title": "听力",
+  "printedSubtest": 4,
+  "durationMinutes": 35,
+  "questionCount": 25,
+  "sourcePages": [
+    164,
+    176
+  ],
+  "reviewStatus": "source-verified",
+  "sourceMarkdown": "章节/06d-真题-听力.md",
+  "importStatus": "source-indexed",
+  "format": "exam-practice",
+  "instructions": {
+    "id": "b2-exam-instructions",
+    "sourcePages": [
+      1,
+      2,
+      118,
+      119
+    ],
+    "reviewStatus": "source-verified",
+    "schedule": {
+      "dayOne": [
+        "reading",
+        "grammar-lexicon",
+        "writing"
+      ],
+      "dayTwo": [
+        "listening",
+        "speaking"
+      ]
+    },
+    "scoring": {
+      "grammar-lexicon": {
+        "questions": 150,
+        "passingCorrect": 99
+      },
+      "reading": {
+        "questions": 25,
+        "passingCorrect": 17
+      },
+      "listening": {
+        "questions": 25,
+        "passingCorrect": 17
+      }
+    }
+  }
+}

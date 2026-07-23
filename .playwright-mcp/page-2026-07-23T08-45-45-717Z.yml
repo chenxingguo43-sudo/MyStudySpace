@@ -1,0 +1,286 @@
+- main [ref=f9e11]:
+  - button "打开边栏" [ref=f9e113] [cursor=pointer]:
+    - generic [ref=f9e114]: side_nav_expand
+  - generic [ref=f9e123]:
+    - generic: play_arrow
+    - button "打开对话操作菜单。" [ref=f9e2334] [cursor=pointer]:
+      - img [ref=f9e2336]: more_vert
+  - generic [ref=f9e13]:
+    - navigation "侧边导航栏" [ref=f9e14]:
+      - generic [ref=f9e17]:
+        - generic [ref=f9e18]:
+          - navigation "主要操作菜单" [ref=f9e19]:
+            - link "发起新对话" [ref=f9e23] [cursor=pointer]:
+              - /url: /app
+              - img [ref=f9e25]: gemini_chat
+            - link "搜索对话内容" [ref=f9e30] [cursor=pointer]:
+              - /url: /search
+              - img [ref=f9e32]: search
+          - navigation "其他操作菜单" [ref=f9e34]:
+            - link "库" [ref=f9e38] [cursor=pointer]:
+              - /url: library
+              - img [ref=f9e40]: library
+        - group [ref=f9e42]:
+          - generic [ref=f9e44]:
+            - link "Google 账号：陈兴国 (chenxingguo43@gmail.com)" [ref=f9e45] [cursor=pointer]:
+              - /url: https://accounts.google.com/SignOutOptions?continue=https://gemini.google.com
+            - button "设置" [ref=f9e50] [cursor=pointer]:
+              - img [ref=f9e52]: settings
+    - generic [ref=f9e59]:
+      - generic [ref=f9e60]:
+        - heading "与 Gemini 对话" [level=1] [ref=f9e61]
+        - generic [ref=f9e2338]:
+          - generic [ref=f9e2342]:
+            - generic [ref=f9e2345]:
+              - button "以灯箱形式显示上传的图片" [ref=f9e2349] [cursor=pointer]:
+                - img "所上传图片的预览图" [ref=f9e2350]
+              - button "以灯箱形式显示上传的图片" [ref=f9e2354] [cursor=pointer]:
+                - img "所上传图片的预览图" [ref=f9e2355]
+            - 'heading "你说 Transcribe these 2 scanned pages from a Russian grammar exercise textbook. Output the EXACT text. Keep: exercise number, question text, options (А/Б/В/Г), page numbers. Output as plain text, no commentary. Tables → Markdown format." [level=2] [ref=f9e2359]':
+              - generic [ref=f9e2360]: 你说
+              - paragraph [ref=f9e2361]: "Transcribe these 2 scanned pages from a Russian grammar exercise textbook. Output the EXACT text. Keep: exercise number, question text, options (А/Б/В/Г), page numbers. Output as plain text, no commentary. Tables → Markdown format."
+            - generic [ref=f9e2362]:
+              - button "复制提示" [ref=f9e2364] [cursor=pointer]:
+                - img [ref=f9e2366]: copy
+              - generic [ref=f9e2368]:
+                - button "修改" [disabled]:
+                  - generic:
+                    - img: edit
+          - generic [ref=f9e2375]:
+            - heading "Gemini 说" [level=2] [ref=f9e2376]
+            - generic [ref=f9e2380]:
+              - paragraph [ref=f9e2381]: Учебно-тренировочные тесты. Выпуск 1. Грамматика. Лексика 9
+              - generic [ref=f9e2386]:
+                - table [ref=f9e2498]:
+                  - rowgroup [ref=f9e2499]:
+                    - row [ref=f9e2500]:
+                      - columnheader "18." [ref=f9e2501]
+                      - columnheader "Семь человек из этого фольклорного коллектива ... работать на профессиональную сцену." [ref=f9e2502]
+                      - columnheader [ref=f9e2503]:
+                        - paragraph [ref=f9e2504]: (А)
+                        - paragraph [ref=f9e2505]: (Б)
+                      - columnheader [ref=f9e2506]:
+                        - paragraph [ref=f9e2507]: перешло
+                        - paragraph [ref=f9e2508]: перешли
+                  - rowgroup [ref=f9e2509]:
+                    - row [ref=f9e2510]:
+                      - cell "19." [ref=f9e2511]
+                      - cell "Раздался выстрел, и несколько диких уток ... над озером." [ref=f9e2512]
+                      - cell [ref=f9e2513]:
+                        - paragraph [ref=f9e2514]: (А)
+                        - paragraph [ref=f9e2515]: (Б)
+                      - cell [ref=f9e2516]:
+                        - paragraph [ref=f9e2517]: поднялось
+                        - paragraph [ref=f9e2518]: поднялись
+                - button "更多选项" [ref=f9e2411] [cursor=pointer]:
+                  - img [ref=f9e2413]: more_horiz
+              - heading "§ 1.3. Употребление полных и кратких форм прилагательных" [level=3] [ref=f9e2519]
+              - paragraph [ref=f9e2416]: Задания 20–29. Выберите правильный вариант ответа.
+              - generic [ref=f9e2421]:
+                - table [ref=f9e2520]:
+                  - rowgroup [ref=f9e2521]:
+                    - row [ref=f9e2522]:
+                      - columnheader "20." [ref=f9e2523]
+                      - 'columnheader "Русская природа так ...: бесконечные южные степи, сосновые леса Дальнего Востока, прозрачные воды Байкала." [ref=f9e2524]'
+                      - columnheader [ref=f9e2525]:
+                        - paragraph [ref=f9e2526]: (А)
+                        - paragraph [ref=f9e2527]: (Б)
+                      - columnheader [ref=f9e2528]:
+                        - paragraph [ref=f9e2529]: разнообразная
+                        - paragraph [ref=f9e2530]: разнообразна
+                  - rowgroup [ref=f9e2531]:
+                    - row [ref=f9e2532]:
+                      - cell "21." [ref=f9e2533]
+                      - cell "Каждую весну река Быстрая, обычно ..., доставляет жителям донских сёл немало неприятностей." [ref=f9e2534]
+                      - cell [ref=f9e2535]:
+                        - paragraph [ref=f9e2536]: (А)
+                        - paragraph [ref=f9e2537]: (Б)
+                      - cell [ref=f9e2538]:
+                        - paragraph [ref=f9e2539]: спокойная
+                        - paragraph [ref=f9e2540]: спокойна
+                    - row [ref=f9e2541]:
+                      - cell "22." [ref=f9e2542]
+                      - cell "«В одно окно ... была столетьняя, вся чёрная плакучая берёза» (И. А. Бунин)." [ref=f9e2543]
+                      - cell [ref=f9e2544]:
+                        - paragraph [ref=f9e2545]: (А)
+                        - paragraph [ref=f9e2546]: (Б)
+                      - cell [ref=f9e2547]:
+                        - paragraph [ref=f9e2548]: видная
+                        - paragraph [ref=f9e2549]: видна
+                    - row [ref=f9e2550]:
+                      - cell "23." [ref=f9e2551]
+                      - cell "«Мартовская ночь, ..., окутала землю» (А.П. Чехов)." [ref=f9e2552]
+                      - cell [ref=f9e2553]:
+                        - paragraph [ref=f9e2554]: (А)
+                        - paragraph [ref=f9e2555]: (Б)
+                      - cell [ref=f9e2556]:
+                        - paragraph [ref=f9e2557]: облачна и туманна
+                        - paragraph [ref=f9e2558]: облачная и туманная
+                    - row [ref=f9e2559]:
+                      - cell "24." [ref=f9e2560]
+                      - cell "«Человек ... без общества» (Л.Н. Толстой)." [ref=f9e2561]
+                      - cell [ref=f9e2562]:
+                        - paragraph [ref=f9e2563]: (А)
+                        - paragraph [ref=f9e2564]: (Б)
+                      - cell [ref=f9e2565]:
+                        - paragraph [ref=f9e2566]: немыслимый
+                        - paragraph [ref=f9e2567]: немыслим
+                    - row [ref=f9e2568]:
+                      - cell "25." [ref=f9e2569]
+                      - cell "Каждый новый исторический факт, даже ..., помогает нам лучше понять прошлое." [ref=f9e2570]
+                      - cell [ref=f9e2571]:
+                        - paragraph [ref=f9e2572]: (А)
+                        - paragraph [ref=f9e2573]: (Б)
+                      - cell [ref=f9e2574]:
+                        - paragraph [ref=f9e2575]: незначительный
+                        - paragraph [ref=f9e2576]: незначителен
+                    - row [ref=f9e2577]:
+                      - cell "26." [ref=f9e2578]
+                      - cell "Знание истории своей страны ... для каждого образованного человека." [ref=f9e2579]
+                      - cell [ref=f9e2580]:
+                        - paragraph [ref=f9e2581]: (А)
+                        - paragraph [ref=f9e2582]: (Б)
+                      - cell [ref=f9e2583]:
+                        - paragraph [ref=f9e2584]: важное
+                        - paragraph [ref=f9e2585]: важно
+                    - row [ref=f9e2586]:
+                      - cell "27." [ref=f9e2587]
+                      - cell "Глаза человека ... различать большое количество цветов и оттенков." [ref=f9e2588]
+                      - cell [ref=f9e2589]:
+                        - paragraph [ref=f9e2590]: (А)
+                        - paragraph [ref=f9e2591]: (Б)
+                      - cell [ref=f9e2592]:
+                        - paragraph [ref=f9e2593]: способны
+                        - paragraph [ref=f9e2594]: способные
+                    - row [ref=f9e2595]:
+                      - cell "28." [ref=f9e2596]
+                      - cell "Русский язык так ..., что его средствами можно передать все оттенки человеческой мысли и чувства." [ref=f9e2597]
+                      - cell [ref=f9e2598]:
+                        - paragraph [ref=f9e2599]: (А)
+                        - paragraph [ref=f9e2600]: (Б)
+                      - cell [ref=f9e2601]:
+                        - paragraph [ref=f9e2602]: богатый
+                        - paragraph [ref=f9e2603]: богат
+                    - row [ref=f9e2604]:
+                      - cell "29." [ref=f9e2605]
+                      - cell "Национальность человека в Европе, теряющей сегодня понятие «граница», уже не так ..., как раньше." [ref=f9e2606]
+                      - cell [ref=f9e2607]:
+                        - paragraph [ref=f9e2608]: (А)
+                        - paragraph [ref=f9e2609]: (Б)
+                      - cell [ref=f9e2610]:
+                        - paragraph [ref=f9e2611]: важна
+                        - paragraph [ref=f9e2612]: важная
+                - button "更多选项" [ref=f9e2491] [cursor=pointer]:
+                  - img [ref=f9e2493]: more_horiz
+              - paragraph [ref=f9e2613]: Учебно-тренировочные тесты. Выпуск 1. Грамматика. Лексика 23
+              - generic [ref=f9e2618]:
+                - table [ref=f9e2620]:
+                  - rowgroup [ref=f9e2621]:
+                    - row [ref=f9e2622]:
+                      - columnheader "33." [ref=f9e2623]
+                      - columnheader "Благодаря разумной ценовой политике московского Дома моды его одежда доступна ... ." [ref=f9e2624]
+                      - columnheader [ref=f9e2625]:
+                        - paragraph [ref=f9e2626]: (А)
+                        - paragraph [ref=f9e2627]: (Б)
+                        - paragraph [ref=f9e2628]: (В)
+                        - paragraph [ref=f9e2629]: (Г)
+                      - columnheader [ref=f9e2630]:
+                        - paragraph [ref=f9e2631]: среднему классу
+                        - paragraph [ref=f9e2632]: средним классом
+                        - paragraph [ref=f9e2633]: со средним классом
+                        - paragraph [ref=f9e2634]: к среднему классу
+                  - rowgroup [ref=f9e2635]:
+                    - row [ref=f9e2636]:
+                      - cell "34." [ref=f9e2637]
+                      - cell "Стеклообои безвредны для человеческого организма и устойчивы ... окружающей среды." [ref=f9e2638]
+                      - cell [ref=f9e2639]:
+                        - paragraph [ref=f9e2640]: (А)
+                        - paragraph [ref=f9e2641]: (Б)
+                        - paragraph [ref=f9e2642]: (В)
+                        - paragraph [ref=f9e2643]: (Г)
+                      - cell [ref=f9e2644]:
+                        - paragraph [ref=f9e2645]: в воздействии
+                        - paragraph [ref=f9e2646]: с воздействием
+                        - paragraph [ref=f9e2647]: для воздействия
+                        - paragraph [ref=f9e2648]: к воздействию
+                    - row [ref=f9e2649]:
+                      - cell "35." [ref=f9e2650]
+                      - cell "По мнению нашего тренера, ничья в матче с командой-чемпионом равноценна ... ." [ref=f9e2651]
+                      - cell [ref=f9e2652]:
+                        - paragraph [ref=f9e2653]: (А)
+                        - paragraph [ref=f9e2654]: (Б)
+                        - paragraph [ref=f9e2655]: (В)
+                        - paragraph [ref=f9e2656]: (Г)
+                      - cell [ref=f9e2657]:
+                        - paragraph [ref=f9e2658]: победу
+                        - paragraph [ref=f9e2659]: победы
+                        - paragraph [ref=f9e2660]: победе
+                        - paragraph [ref=f9e2661]: победа
+                - button "更多选项" [ref=f9e2664] [cursor=pointer]:
+                  - img [ref=f9e2666]: more_horiz
+              - heading "§ 2.3. Выражение определительно-обстоятельственных отношений" [level=3] [ref=f9e2668]
+              - paragraph [ref=f9e2669]: Задания 36–49. Выберите правильный вариант ответа.
+              - generic [ref=f9e2674]:
+                - table [ref=f9e2676]:
+                  - rowgroup [ref=f9e2677]:
+                    - row [ref=f9e2678]:
+                      - columnheader "36." [ref=f9e2679]
+                      - columnheader "Поезда московского метро ходят ... в полторы-две минуты." [ref=f9e2680]
+                      - columnheader [ref=f9e2681]:
+                        - paragraph [ref=f9e2682]: (А)
+                        - paragraph [ref=f9e2683]: (Б)
+                        - paragraph [ref=f9e2684]: (В)
+                        - paragraph [ref=f9e2685]: (Г)
+                      - columnheader [ref=f9e2686]:
+                        - paragraph [ref=f9e2687]: в промежутке
+                        - paragraph [ref=f9e2688]: при промежутке
+                        - paragraph [ref=f9e2689]: с промежутком
+                        - paragraph [ref=f9e2690]: за промежуток
+                  - rowgroup [ref=f9e2691]:
+                    - row [ref=f9e2692]:
+                      - cell "37." [ref=f9e2693]
+                      - 'cell "Окно ... распахнулось, и в комнату ворвались звуки улицы: детский крик, гудки машин, птичий гомон." [ref=f9e2694]'
+                      - cell [ref=f9e2695]:
+                        - paragraph [ref=f9e2696]: (А)
+                        - paragraph [ref=f9e2697]: (Б)
+                        - paragraph [ref=f9e2698]: (В)
+                        - paragraph [ref=f9e2699]: (Г)
+                      - cell [ref=f9e2700]:
+                        - paragraph [ref=f9e2701]: с громким шумом
+                        - paragraph [ref=f9e2702]: громким шумом
+                        - paragraph [ref=f9e2703]: в громком шуме
+                        - paragraph [ref=f9e2704]: при громком шуме
+                    - row [ref=f9e2705]:
+                      - cell "38." [ref=f9e2706]
+                      - 'cell "У англичан есть одна особенность: они умеют остроумно шутить и говорить смешные вещи ... лица." [ref=f9e2707]'
+                      - cell [ref=f9e2708]:
+                        - paragraph [ref=f9e2709]: (А)
+                        - paragraph [ref=f9e2710]: (Б)
+                        - paragraph [ref=f9e2711]: (В)
+                        - paragraph [ref=f9e2712]: (Г)
+                      - cell [ref=f9e2713]:
+                        - paragraph [ref=f9e2714]: серьёзным выражением
+                        - paragraph [ref=f9e2715]: с серьёзным выражением
+                        - paragraph [ref=f9e2716]: серьёзное выражение
+                        - paragraph [ref=f9e2717]: в серьёзном выражении
+                - button "更多选项" [ref=f9e2720] [cursor=pointer]:
+                  - img [ref=f9e2722]: more_horiz
+      - generic [ref=f9e75]:
+        - group [ref=f9e76]:
+          - generic [ref=f9e79]:
+            - textbox "为 Gemini 输入提示" [active] [ref=f9e85]:
+              - text: 问问 Gemini
+              - paragraph [ref=f9e2495]
+            - button "上传和工具" [ref=f9e92] [cursor=pointer]:
+              - img [ref=f9e94]: plus
+            - generic [ref=f9e96]:
+              - group [ref=f9e135]:
+                - button "打开模式选择器，当前模式为“Flash”" [ref=f9e2185]:
+                  - generic [ref=f9e138]:
+                    - generic [ref=f9e139]: Flash
+                    - img [ref=f9e141]: keyboard_arrow_down
+              - generic [ref=f9e98]:
+                - text: mic
+                - button "停止回答" [ref=f9e2496] [cursor=pointer]:
+                  - img [ref=f9e2330]: stop
+        - paragraph [ref=f9e2497]: Gemini 是一款 AI 工具，其回答未必正确无误。

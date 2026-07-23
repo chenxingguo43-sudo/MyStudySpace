@@ -1,0 +1,40 @@
+- main [ref=f100e11]:
+  - button "打开对话操作菜单。" [ref=f100e18] [cursor=pointer]:
+    - img [ref=f100e20]: more_vert
+  - generic [ref=f100e23]:
+    - navigation "侧边导航栏" [ref=f100e24]:
+      - generic [ref=f100e27]:
+        - generic [ref=f100e28]:
+          - navigation "主要操作菜单" [ref=f100e29]:
+            - link "发起新对话" [ref=f100e33] [cursor=pointer]:
+              - /url: /app
+              - img [ref=f100e35]: gemini_chat
+            - link "搜索对话内容" [ref=f100e40] [cursor=pointer]:
+              - /url: /search
+              - img [ref=f100e42]: search
+          - navigation "其他操作菜单" [ref=f100e44]:
+            - link "库" [ref=f100e48] [cursor=pointer]:
+              - /url: library
+              - img [ref=f100e50]: library
+        - generic:
+          - progressbar "正在加载 Gem 和近期对话"
+        - group [ref=f100e52]:
+          - generic [ref=f100e54]:
+            - link "Google 账号：陈兴国 (chenxingguo43@gmail.com)" [ref=f100e55] [cursor=pointer]:
+              - /url: https://accounts.google.com/SignOutOptions?continue=https://gemini.google.com
+            - button "设置" [ref=f100e60] [cursor=pointer]:
+              - img [ref=f100e62]: settings
+    - generic [ref=f100e69]:
+      - heading "与 Gemini 对话" [level=1] [ref=f100e71]
+      - generic [ref=f100e74]:
+        - group [ref=f100e75]:
+          - generic [ref=f100e78]:
+            - textbox "为 Gemini 输入提示" [active] [ref=f100e84]:
+              - text: 问问 Gemini
+              - paragraph [ref=f100e85]
+            - generic [ref=f100e86]:
+              - button "添加文件" [disabled]:
+                - img: add_2
+            - button "麦克风" [ref=f100e93] [cursor=pointer]:
+              - img [ref=f100e95]: mic
+        - paragraph [ref=f100e99]: Gemini 是一款 AI 工具，其回答未必正确无误。

@@ -1,0 +1,56 @@
+- generic [active] [ref=f139e1]:
+  - main [ref=f139e4]:
+    - button "打开边栏" [ref=f139e7] [cursor=pointer]:
+      - generic [ref=f139e8]: side_nav_expand
+    - generic [ref=f139e14]:
+      - navigation "侧边导航栏" [ref=f139e15]:
+        - generic [ref=f139e18]:
+          - generic [ref=f139e19]:
+            - navigation "主要操作菜单" [ref=f139e20]:
+              - link "发起新对话" [ref=f139e24] [cursor=pointer]:
+                - /url: /app
+                - img [ref=f139e26]: gemini_chat
+              - link "搜索对话内容" [ref=f139e31] [cursor=pointer]:
+                - /url: /search
+                - img [ref=f139e33]: search
+            - navigation "其他操作菜单" [ref=f139e35]:
+              - link "库" [ref=f139e39] [cursor=pointer]:
+                - /url: library
+                - img [ref=f139e41]: library
+          - generic:
+            - progressbar "正在加载 Gem 和近期对话"
+          - group [ref=f139e43]:
+            - generic [ref=f139e45]:
+              - link "Google 账号：陈兴国 (chenxingguo43@gmail.com)" [ref=f139e46] [cursor=pointer]:
+                - /url: https://accounts.google.com/SignOutOptions?continue=https://gemini.google.com
+              - button "设置" [ref=f139e52] [cursor=pointer]:
+                - img [ref=f139e54]: settings
+      - generic [ref=f139e61]:
+        - generic [ref=f139e62]:
+          - heading "与 Gemini 对话" [level=1] [ref=f139e63]
+          - heading "嗨，兴国，我们进入正题吧" [level=1] [ref=f139e77]
+        - generic [ref=f139e80]:
+          - group [ref=f139e81]:
+            - generic [ref=f139e84]:
+              - textbox "为 Gemini 输入提示" [ref=f139e90]:
+                - paragraph [ref=f139e91]: "РКИ Златоуст B2-C1, Глава 3 (причастия и деепричастия). Транскрибируй ВСЕ упражнения. Формат: Номер: N / Тип: single-choice / Вопрос: текст / А) opt / Б) opt / В) opt / Г) opt. Ставь --- PAGE N --- перед страницей."
+              - button "上传和工具" [ref=f139e97] [cursor=pointer]:
+                - img [ref=f139e99]: plus
+              - button "将输入框展开至全屏模式" [ref=f139e128] [cursor=pointer]:
+                - img [ref=f139e129]: expand_content
+              - generic [ref=f139e101]:
+                - group [ref=f139e117]:
+                  - button "打开模式选择器，当前模式为“Pro”" [ref=f139e118]:
+                    - generic [ref=f139e120]:
+                      - generic [ref=f139e121]: Pro
+                      - img [ref=f139e123]: keyboard_arrow_down
+                - generic [ref=f139e103]:
+                  - button "麦克风" [ref=f139e108] [cursor=pointer]:
+                    - img [ref=f139e110]: mic
+                  - generic:
+                    - generic:
+                      - button "发送" [disabled]:
+                        - generic:
+                          - img: arrow_upward
+          - paragraph [ref=f139e114]
+  - generic [ref=f139e115]: 正在加载图片：0%

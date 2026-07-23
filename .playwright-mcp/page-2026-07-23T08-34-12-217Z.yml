@@ -1,0 +1,171 @@
+- generic [ref=f9e1]:
+  - main [ref=f9e11]:
+    - button "打开边栏" [ref=f9e113] [cursor=pointer]:
+      - generic [ref=f9e114]: side_nav_expand
+    - generic [ref=f9e123]:
+      - generic: play_arrow
+      - button "打开对话操作菜单。" [ref=f9e1792] [cursor=pointer]:
+        - img [ref=f9e1794]: more_vert
+    - generic [ref=f9e13]:
+      - navigation "侧边导航栏" [ref=f9e14]:
+        - generic [ref=f9e17]:
+          - generic [ref=f9e18]:
+            - navigation "主要操作菜单" [ref=f9e19]:
+              - link "发起新对话" [ref=f9e23] [cursor=pointer]:
+                - /url: /app
+                - img [ref=f9e25]: gemini_chat
+              - link "搜索对话内容" [ref=f9e30] [cursor=pointer]:
+                - /url: /search
+                - img [ref=f9e32]: search
+            - navigation "其他操作菜单" [ref=f9e34]:
+              - link "库" [ref=f9e38] [cursor=pointer]:
+                - /url: library
+                - img [ref=f9e40]: library
+          - group [ref=f9e42]:
+            - generic [ref=f9e44]:
+              - link "Google 账号：陈兴国 (chenxingguo43@gmail.com)" [ref=f9e45] [cursor=pointer]:
+                - /url: https://accounts.google.com/SignOutOptions?continue=https://gemini.google.com
+              - button "设置" [ref=f9e50] [cursor=pointer]:
+                - img [ref=f9e52]: settings
+      - generic [ref=f9e59]:
+        - generic [ref=f9e60]:
+          - heading "与 Gemini 对话" [level=1] [ref=f9e61]
+          - generic [ref=f9e62]:
+            - generic [ref=f9e1796]:
+              - generic [ref=f9e1800]:
+                - generic [ref=f9e1802] [cursor=pointer]:
+                  - heading [level=2] [ref=f9e1804]:
+                    - generic [ref=f9e1805]: 你说
+                    - paragraph [ref=f9e1806]: 你是一位质量控制专家。我们正在测试用 Gemini Vision 来转写俄语教材扫描页。以下是三页的测试结果。请你对照验收标准逐条打分，指出哪些通过、哪些失败、哪些需要改进。
+                    - paragraph [ref=f9e1807]
+                    - paragraph [ref=f9e1808]: === 验收标准（5条必须通过） ===
+                    - paragraph [ref=f9e1809]: ① 西里尔字母可读：俄语拼写正确，无拉丁字母混入
+                    - paragraph [ref=f9e1810]: ② 重音符号保留：а́ е́ и́ о́ у́ ы́ ю́ я́
+                    - paragraph [ref=f9e1811]: ③ 表格结构保留：多列表格输出为Markdown表格，行列正确
+                    - paragraph [ref=f9e1812]: ④ 题号结构完整：每道题的题号、题干、选项一一对应
+                    - paragraph [ref=f9e1813]: ⑤ 特殊符号不丢：§ * — «» 保留
+                    - paragraph [ref=f9e1814]: 加分项：⑥词汇释义忠实原文 ⑦注意框保留 ⑧速度
+                    - paragraph [ref=f9e1815]
+                    - paragraph [ref=f9e1816]: === 测试A：练习题页（p.16） ===
+                    - paragraph [ref=f9e1817]: 结果：
+                    - paragraph [ref=f9e1818]: 14 Учебно-тренировочные тесты. Выпуск 1. Грамматика. Лексика
+                    - paragraph [ref=f9e1819]: "76. В гостиничных номерах принято вешать на дверь табличку с надписью: «Не ...»."
+                    - paragraph [ref=f9e1820]: (А) беспокоить
+                    - paragraph [ref=f9e1821]: (Б) побеспокоить
+                    - paragraph [ref=f9e1822]: 77. В одиночку или вдвоём большое фермерское хозяйство не ... .
+                    - paragraph [ref=f9e1823]: (А) поднимать
+                    - paragraph [ref=f9e1824]: (Б) поднять
+                    - paragraph [ref=f9e1825]: 78. На канале НТВ решили не ... от современных форматов и вести передачи круглые сутки.
+                    - paragraph [ref=f9e1826]: (А) отставать
+                    - paragraph [ref=f9e1827]: (Б) отстать
+                    - paragraph [ref=f9e1828]: 79. Специалисты советуют товаропроизводителям не ... свою продукцию с продукцией других фирм в текстах реклам.
+                    - paragraph [ref=f9e1829]: (А) сравнивать
+                    - paragraph [ref=f9e1830]: (Б) сравнить
+                    - paragraph [ref=f9e1831]: 80. Супруги решили не ... старые обиды, а постараться понять друг друга.
+                    - paragraph [ref=f9e1832]: (А) вспомнить
+                    - paragraph [ref=f9e1833]: (Б) вспоминать
+                    - paragraph [ref=f9e1834]: 81. «Торговых агентов просим не ...» — такие объявления можно нередко увидеть на дверях учреждений.
+                    - paragraph [ref=f9e1835]: (А) заходить
+                    - paragraph [ref=f9e1836]: (Б) зайти
+                    - paragraph [ref=f9e1837]: 82. Российские бизнесмены предлагают не ... к вступительным вузовским экзаменам абитуриентов, принимающих наркотики.
+                    - paragraph [ref=f9e1838]: (А) допускать
+                    - paragraph [ref=f9e1839]: (Б) допустить
+                    - paragraph [ref=f9e1840]: 83. «... дальше», — говорили ей, когда она останавливалась, чтобы передохнуть.
+                    - paragraph [ref=f9e1841]: (А) Прочитай
+                    - paragraph [ref=f9e1842]: (Б) Читай
+                    - paragraph [ref=f9e1843]: 84. «..., пожалуйста, медленнее, мы не успеваем за вами записывать», — попросили студенты лектора.
+                    - paragraph [ref=f9e1844]: (А) Говорите
+                    - paragraph [ref=f9e1845]: (Б) Скажите
+                    - paragraph [ref=f9e1846]: 85. Смотри, не ... в горах, там даже летом только плюс пять градусов.
+                    - paragraph [ref=f9e1847]: (А) простуживайся
+                    - paragraph [ref=f9e1848]: (Б) простудись
+                    - paragraph [ref=f9e1849]: 86. Смотри, не ... малышей, ведь спокойный сон так необходим детям.
+                    - paragraph [ref=f9e1850]: (А) буди
+                    - paragraph [ref=f9e1851]: (Б) разбуди
+                    - paragraph [ref=f9e1852]: 87. ... он своей девушке, она бы расстроилась и, может быть, даже ушла бы.
+                    - paragraph [ref=f9e1853]: (А) Не улыбнись
+                    - paragraph [ref=f9e1854]: (Б) Не улыбайся
+                    - paragraph [ref=f9e1855]: 88. ... я его тогда, кто знает, что стало бы с ним в дальнейшем.
+                    - paragraph [ref=f9e1856]: (А) Не останавливай
+                    - paragraph [ref=f9e1857]: (Б) Не останови
+                    - paragraph [ref=f9e1858]: （题76-88共13题，全部转写完整）
+                    - paragraph [ref=f9e1859]
+                    - paragraph [ref=f9e1860]: === 测试B：理论讲解页（p.106，含对比表格） ===
+                    - paragraph [ref=f9e1861]: 结果：
+                    - paragraph [ref=f9e1862]: 104 Учебно-тренировочные тесты. Выпуск 1. Грамматика. Лексика
+                    - paragraph [ref=f9e1863]: "глаголы НСВ. Исключение составляют глаголы СВ с приставками про- и по-: Мой дед проработал на заводе тридцать лет; Мы почитали книгу минут двадцать;"
+                    - paragraph [ref=f9e1864]: 2) существительные в винительном падеже с предлогом на обозначают определённый период...
+                    - paragraph [ref=f9e1865]: 3) существительные в винительном падеже с предлогом за обозначают период, требующийся для завершения действия...
+                    - paragraph [ref=f9e1866]
+                    - paragraph [ref=f9e1867]: Обратите внимание!
+                    - paragraph [ref=f9e1868]: Если в предложении указывается на способность действующего лица получать какой-либо результат регулярно, то в предложении употребляются глаголы НСВ...
+                    - paragraph [ref=f9e1869]
+                    - paragraph [ref=f9e1870]: "Сравните:"
+                    - paragraph [ref=f9e1871]: Отрезок времени, требующийся для получения результата (обычно с глаголами СВ) | Отрезок времени, раньше которого произойдёт действие
+                    - paragraph [ref=f9e1872]: Он подготовился к лекции за два часа; Самолёт преодолел это расстояние за полтора часа. | Он пришёл в университет за два часа до начала лекции...
+                    - paragraph [ref=f9e1873]
+                    - paragraph [ref=f9e1874]: （注意：对比表格用制表符\t分隔而非Markdown | col | col | 格式）
+                    - paragraph [ref=f9e1875]
+                    - paragraph [ref=f9e1876]: === 测试C：词汇辨析表（p.121） ===
+                    - paragraph [ref=f9e1877]: 结果：
+                    - paragraph [ref=f9e1878]: "| Word | Meaning | Collocations |"
+                    - paragraph [ref=f9e1879]: "|------|---------|-------------|"
+                    - paragraph [ref=f9e1880]: "| каждый | один из всех в данном ряду, взятый отдельно из ряда подобных | каждая женщина, каждый день, каждое утро |"
+                    - paragraph [ref=f9e1881]: "| любой | указывает на свободу выбора кого-либо / чего-либо из числа одинаковых... | любая погода, любой день, любое задание |"
+                    - paragraph [ref=f9e1882]: "| всякий | указывает на разнообразие лиц, предметов... | всякий человек, на всякий случай, без всякого интереса |"
+                    - paragraph [ref=f9e1883]: "| каменный | сделанный из камня | каменный дом, каменная стена |"
+                    - paragraph [ref=f9e1884]: "| каменистый | содержащий много камней | каменистая почва, каменистый берег |"
+                    - paragraph [ref=f9e1885]: "| классический | 1) созданный классиком, совершенный... 2) типичный, характерный | классическая музыка... |"
+                    - paragraph [ref=f9e1886]: "| классный | 1) имеющий отношение к группе школьников... 2) относящийся к комнате для занятий 3) высокого качества (разг.) | классный руководитель... |"
+                    - paragraph [ref=f9e1887]: "| классовый | свойственный идеологии какого-либо общественного класса | классовая борьба, классовый интерес |"
+                    - paragraph [ref=f9e1888]: "| кожаный | сделанный из кожи | кожаная сумка |"
+                    - paragraph [ref=f9e1889]: "| кожевенный | производящий изделия из кожи | кожевенная фабрика |"
+                    - paragraph [ref=f9e1890]: "| кожистый | имеющий поверхность, похожую на кожу | кожистые листья |"
+                    - paragraph [ref=f9e1891]: "| кожный | относящийся к наружному покрову тела (коже) | кожные болезни |"
+                    - paragraph [ref=f9e1892]: "| костистый | содержащий множество костей | костистая рыба |"
+                    - paragraph [ref=f9e1893]: "| костлявый | худой, с выступающими костями | костлявая фигура |"
+                    - paragraph [ref=f9e1894]: "| костный | относящийся к костям человека и животного | костный мозг, костный скелет |"
+                    - paragraph [ref=f9e1895]: "| костяной | сделанный из кости | костяные украшения |"
+                    - paragraph [ref=f9e1896]: "| мирный | исполненный согласия, дружбы, мира | мирный договор, мирные инициативы |"
+                    - paragraph [ref=f9e1897]: "| мировой | охватывающий весь земной шар, все народы | мировая война, мировое сообщество |"
+                    - paragraph [ref=f9e1898]: "| миролюбивый | проникнутый любовью к миру | миролюбивая политика |"
+                    - paragraph [ref=f9e1899]: （共18组，表格结构完美，三列完整）
+                    - paragraph [ref=f9e1900]
+                    - paragraph [ref=f9e1901]: === 请回答 ===
+                    - paragraph [ref=f9e1902]: 1. 逐条对照验收标准打分（通过/不通过/通过但有瑕疵）
+                    - paragraph [ref=f9e1903]: 2. 三个页面各自的总体评分（百分制）
+                    - paragraph [ref=f9e1904]: 3. AI看图转写这个方案总体是否可行？最大的风险是什么？
+                    - paragraph [ref=f9e1905]: 4. 如果推全量135页，最需要注意什么？
+                  - button "展开" [ref=f9e1906]:
+                    - img [ref=f9e1909]: expand_more
+                - generic [ref=f9e1912]:
+                  - button "复制提示" [ref=f9e1914] [cursor=pointer]:
+                    - img [ref=f9e1916]: copy
+                  - generic [ref=f9e1918]:
+                    - button "修改" [disabled]:
+                      - generic:
+                        - img: edit
+              - generic [ref=f9e1925]:
+                - generic [ref=f9e1926]: Defining the Criteria
+                - heading "Gemini 说" [level=2] [ref=f9e1943]
+            - button "立即回答" [ref=f9e1947]
+        - generic [ref=f9e75]:
+          - group [ref=f9e76]:
+            - generic [ref=f9e79]:
+              - textbox "为 Gemini 输入提示" [active] [ref=f9e85]:
+                - text: 问问 Gemini
+                - paragraph [ref=f9e1953]
+              - button "上传和工具" [ref=f9e92] [cursor=pointer]:
+                - img [ref=f9e94]: plus
+              - generic [ref=f9e96]:
+                - group [ref=f9e135]:
+                  - button "打开模式选择器，当前模式为“Pro”" [ref=f9e136]:
+                    - generic [ref=f9e138]:
+                      - generic [ref=f9e139]: Pro
+                      - img [ref=f9e141]: keyboard_arrow_down
+                - generic [ref=f9e98]:
+                  - text: mic
+                  - button "停止回答" [ref=f9e1954] [cursor=pointer]:
+                    - img [ref=f9e1788]: stop
+          - paragraph [ref=f9e1955]: Gemini 是一款 AI 工具，其回答未必正确无误。
+  - generic [ref=f9e110]: Gemini 已回复

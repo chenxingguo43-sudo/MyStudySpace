@@ -1,0 +1,79 @@
+- generic [ref=f29e1]:
+  - main [ref=f29e11]:
+    - button "打开边栏" [ref=f29e14] [cursor=pointer]:
+      - generic [ref=f29e15]: side_nav_expand
+    - generic [ref=f29e24]:
+      - generic: play_arrow
+      - button "临时对话" [ref=f29e28] [cursor=pointer]:
+        - img [ref=f29e30]: gemini_chat_temp
+    - generic [ref=f29e33]:
+      - navigation "侧边导航栏" [ref=f29e34]:
+        - generic [ref=f29e37]:
+          - generic [ref=f29e38]:
+            - navigation "主要操作菜单" [ref=f29e39]:
+              - link "发起新对话" [ref=f29e43] [cursor=pointer]:
+                - /url: /app
+                - img [ref=f29e45]: gemini_chat
+              - link "搜索对话内容" [ref=f29e50] [cursor=pointer]:
+                - /url: /search
+                - img [ref=f29e52]: search
+            - navigation "其他操作菜单" [ref=f29e54]:
+              - link "库" [ref=f29e58] [cursor=pointer]:
+                - /url: library
+                - img [ref=f29e60]: library
+          - group [ref=f29e62]:
+            - generic [ref=f29e64]:
+              - link "Google 账号：陈兴国 (chenxingguo43@gmail.com)" [ref=f29e65] [cursor=pointer]:
+                - /url: https://accounts.google.com/SignOutOptions?continue=https://gemini.google.com
+              - button "设置" [ref=f29e70] [cursor=pointer]:
+                - img [ref=f29e72]: settings
+      - generic [ref=f29e79]:
+        - generic [ref=f29e80]:
+          - heading "与 Gemini 对话" [level=1] [ref=f29e81]
+          - heading "兴国，你好！想聊点什么？" [level=1] [ref=f29e95]
+        - generic [ref=f29e98]:
+          - group [ref=f29e99]:
+            - generic [ref=f29e102]:
+              - textbox "为 Gemini 输入提示" [ref=f29e108]:
+                - text: 问问 Gemini
+                - paragraph [ref=f29e109]
+              - button "上传和工具" [expanded] [active] [ref=f29e115] [cursor=pointer]:
+                - img [ref=f29e117]: plus
+              - generic [ref=f29e119]:
+                - group [ref=f29e122]:
+                  - button "打开模式选择器，当前模式为“Flash”" [ref=f29e123]:
+                    - generic [ref=f29e125]:
+                      - generic [ref=f29e126]: Flash
+                      - img [ref=f29e128]: keyboard_arrow_down
+                - button "麦克风" [ref=f29e136] [cursor=pointer]:
+                  - img [ref=f29e138]: mic
+          - paragraph [ref=f29e142]
+  - menu "菜单选项" [ref=f29e147]:
+    - generic [ref=f29e150]:
+      - menu "“上传文件”选项" [ref=f29e151]:
+        - menuitem "上传文件. 文档、数据、代码文件" [ref=f29e153] [cursor=pointer]:
+          - img [ref=f29e155]: attach_file
+          - generic [ref=f29e156]: 上传文件
+        - menuitem "从云端硬盘添加. 表格、文档、幻灯片" [ref=f29e162] [cursor=pointer]:
+          - img [ref=f29e163]: drive
+          - generic [ref=f29e164]: 从云端硬盘添加
+      - button "更多上传选项" [ref=f29e169] [cursor=pointer]:
+        - img [ref=f29e170]: more_horiz
+        - generic [ref=f29e172]:
+          - generic [ref=f29e173]: 更多上传选项
+          - img [ref=f29e176]: chevron_right
+    - separator [ref=f29e177]
+    - generic [ref=f29e181]:
+      - menuitemcheckbox "制作图片" [ref=f29e183] [cursor=pointer]:
+        - generic [ref=f29e186]:
+          - img [ref=f29e188]: image_create
+          - generic [ref=f29e189]: 制作图片
+      - menuitemcheckbox "制作视频" [ref=f29e193] [cursor=pointer]:
+        - generic [ref=f29e196]:
+          - img [ref=f29e198]: movie
+          - generic [ref=f29e199]: 制作视频
+      - button "更多工具" [ref=f29e202] [cursor=pointer]:
+        - img [ref=f29e203]: more_horiz
+        - generic [ref=f29e206]:
+          - generic [ref=f29e207]: 更多工具
+          - img [ref=f29e210]: chevron_right

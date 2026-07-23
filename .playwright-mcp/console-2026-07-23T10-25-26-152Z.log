@@ -1,0 +1,9 @@
+[    4049ms] [LOG] [Dict] Local: 6456 entries; Salad: 18089 ; FreeDict: 95769 @ http://localhost:3000/reader.html:3329
+[  178616ms] TypeError: Cannot read properties of undefined (reading 'map')
+    at renderQuizExplanation (http://localhost:3000/reader.html:2189:46)
+    at renderQuizItem (http://localhost:3000/reader.html:2276:93)
+    at renderQuizChapter (http://localhost:3000/reader.html:2345:13)
+    at renderChapter (http://localhost:3000/reader.html:2877:5)
+    at goChapter (http://localhost:3000/reader.html:1844:17)
+    at HTMLDivElement.onclick (http://localhost:3000/reader.html:1:1)
+[  230998ms] [LOG] [Dict] Local: 6456 entries; Salad: 18089 ; FreeDict: 95769 @ http://localhost:3000/reader.html:3329

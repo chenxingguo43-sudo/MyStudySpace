@@ -1,0 +1,74 @@
+- generic [ref=f29e1]:
+  - main [ref=f29e11]:
+    - button "打开边栏" [ref=f29e14] [cursor=pointer]:
+      - generic [ref=f29e15]: side_nav_expand
+    - generic [ref=f29e24]:
+      - generic: play_arrow
+      - button "打开对话操作菜单。" [ref=f29e310] [cursor=pointer]:
+        - img [ref=f29e312]: more_vert
+    - generic [ref=f29e33]:
+      - navigation "侧边导航栏" [ref=f29e34]:
+        - generic [ref=f29e37]:
+          - generic [ref=f29e38]:
+            - navigation "主要操作菜单" [ref=f29e39]:
+              - link "发起新对话" [ref=f29e43] [cursor=pointer]:
+                - /url: /app
+                - img [ref=f29e45]: gemini_chat
+              - link "搜索对话内容" [ref=f29e50] [cursor=pointer]:
+                - /url: /search
+                - img [ref=f29e52]: search
+            - navigation "其他操作菜单" [ref=f29e54]:
+              - link "库" [ref=f29e58] [cursor=pointer]:
+                - /url: library
+                - img [ref=f29e60]: library
+          - group [ref=f29e62]:
+            - generic [ref=f29e64]:
+              - link "Google 账号：陈兴国 (chenxingguo43@gmail.com)" [ref=f29e65] [cursor=pointer]:
+                - /url: https://accounts.google.com/SignOutOptions?continue=https://gemini.google.com
+              - button "设置" [ref=f29e70] [cursor=pointer]:
+                - img [ref=f29e72]: settings
+      - generic [ref=f29e79]:
+        - generic [ref=f29e80]:
+          - heading "与 Gemini 对话" [level=1] [ref=f29e81]
+          - generic [ref=f29e314]:
+            - generic [ref=f29e318]:
+              - generic [ref=f29e321]:
+                - button "以灯箱形式显示上传的图片" [ref=f29e325] [cursor=pointer]:
+                  - img "所上传图片的预览图" [ref=f29e326]
+                - button "以灯箱形式显示上传的图片" [ref=f29e330] [cursor=pointer]:
+                  - img "所上传图片的预览图" [ref=f29e331]
+                - button "以灯箱形式显示上传的图片" [ref=f29e335] [cursor=pointer]:
+                  - img "所上传图片的预览图" [ref=f29e336]
+                - button "以灯箱形式显示上传的图片" [ref=f29e340] [cursor=pointer]:
+                  - img "所上传图片的预览图" [ref=f29e341]
+              - 'heading "你说 Transcribe these 4 pages EXACTLY. Markdown tables. Label ## Page N. No commentary." [level=2] [ref=f29e345]':
+                - generic [ref=f29e346]: 你说
+                - paragraph [ref=f29e347]: "Transcribe these 4 pages EXACTLY. Markdown tables. Label ## Page N. No commentary."
+              - generic [ref=f29e348]:
+                - button "复制提示" [ref=f29e350] [cursor=pointer]:
+                  - img [ref=f29e352]: copy
+                - generic [ref=f29e354]:
+                  - button "修改" [disabled]:
+                    - generic:
+                      - img: edit
+            - heading "Gemini 说" [level=2] [ref=f29e362]
+        - generic [ref=f29e98]:
+          - group [ref=f29e99]:
+            - generic [ref=f29e102]:
+              - textbox "为 Gemini 输入提示" [active] [ref=f29e108]:
+                - text: 问问 Gemini
+                - paragraph [ref=f29e365]
+              - button "上传和工具" [ref=f29e115] [cursor=pointer]:
+                - img [ref=f29e117]: plus
+              - generic [ref=f29e119]:
+                - group [ref=f29e122]:
+                  - button "打开模式选择器，当前模式为“Flash”" [ref=f29e123]:
+                    - generic [ref=f29e125]:
+                      - generic [ref=f29e126]: Flash
+                      - img [ref=f29e128]: keyboard_arrow_down
+                - generic [ref=f29e131]:
+                  - text: mic
+                  - button "停止回答" [ref=f29e366] [cursor=pointer]:
+                    - img [ref=f29e306]: stop
+          - paragraph [ref=f29e367]: Gemini 是一款 AI 工具，其回答未必正确无误。
+  - generic [ref=f29e143]: Gemini 已回复

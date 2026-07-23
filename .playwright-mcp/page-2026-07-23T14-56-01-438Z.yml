@@ -1,0 +1,48 @@
+- main [ref=f105e4]:
+  - button "打开边栏" [ref=f105e133] [cursor=pointer]:
+    - generic [ref=f105e134]: side_nav_expand
+  - generic [ref=f105e120]: play_arrow
+  - generic [ref=f105e6]:
+    - navigation "侧边导航栏" [ref=f105e7]:
+      - generic [ref=f105e10]:
+        - generic [ref=f105e11]:
+          - navigation "主要操作菜单" [ref=f105e12]:
+            - link "发起新对话" [ref=f105e16] [cursor=pointer]:
+              - /url: /app
+              - img [ref=f105e18]: gemini_chat
+            - link "搜索对话内容" [ref=f105e23] [cursor=pointer]:
+              - /url: /search
+              - img [ref=f105e25]: search
+          - navigation "其他操作菜单" [ref=f105e27]:
+            - link "库" [ref=f105e31] [cursor=pointer]:
+              - /url: library
+              - img [ref=f105e33]: library
+        - generic:
+          - progressbar "正在加载 Gem 和近期对话"
+        - group [ref=f105e35]:
+          - generic [ref=f105e37]:
+            - link "Google 账号：陈兴国 (chenxingguo43@gmail.com)" [ref=f105e93] [cursor=pointer]:
+              - /url: https://accounts.google.com/SignOutOptions?continue=https://gemini.google.com
+            - button "设置" [ref=f105e44] [cursor=pointer]:
+              - img [ref=f105e46]: settings
+    - generic [ref=f105e53]:
+      - heading "与 Gemini 对话" [level=1] [ref=f105e55]
+      - generic [ref=f105e66]:
+        - group [ref=f105e67]:
+          - generic [ref=f105e70]:
+            - textbox "为 Gemini 输入提示" [active] [ref=f105e76]:
+              - text: 问问 Gemini
+              - paragraph [ref=f105e191]
+            - button "上传和工具" [ref=f105e105] [cursor=pointer]:
+              - img [ref=f105e107]: plus
+            - generic [ref=f105e79]:
+              - group [ref=f105e111]:
+                - button "打开模式选择器，当前模式为“Flash”" [ref=f105e112]:
+                  - generic [ref=f105e114]:
+                    - generic [ref=f105e115]: Flash
+                    - img [ref=f105e117]: keyboard_arrow_down
+              - generic [ref=f105e80]:
+                - text: mic
+                - button "停止回答" [ref=f105e192] [cursor=pointer]:
+                  - img [ref=f105e189]: stop
+        - paragraph [ref=f105e193]: Gemini 是一款 AI 工具，其回答未必正确无误。

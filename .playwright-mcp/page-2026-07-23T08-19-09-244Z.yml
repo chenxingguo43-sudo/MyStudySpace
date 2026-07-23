@@ -1,0 +1,71 @@
+- main [ref=e10]:
+  - button "打开边栏" [ref=e13] [cursor=pointer]:
+    - generic [ref=e14]: side_nav_expand
+  - generic [ref=e22]:
+    - generic: play_arrow
+    - link "关于 Gemini 在新窗口中打开" [ref=e23] [cursor=pointer]:
+      - /url: https://gemini.google/about/?utm_source=gemini&utm_medium=web&utm_campaign=gemini_zero_state_link_to_marketing_microsite
+      - text: 关于 Gemini
+      - generic [ref=e24]: 在新窗口中打开
+    - link "获取 Gemini 应用 在新窗口中打开" [ref=e25] [cursor=pointer]:
+      - /url: https://gemini.google.com/app/download
+      - text: 获取 Gemini 应用
+      - generic [ref=e26]: 在新窗口中打开
+    - link "订阅 在新窗口中打开" [ref=e27] [cursor=pointer]:
+      - /url: https://one.google.com/ai
+      - text: 订阅
+      - generic [ref=e28]: 在新窗口中打开
+    - link "企业应用场景 在新窗口中打开" [ref=e29] [cursor=pointer]:
+      - /url: https://business.gemini.google/?utm_source=cloud_sfdc&utm_medium=et&utm_campaign=FY26-Q2-global-gemini-app&utm_content=-&utm_term=-
+      - text: 企业应用场景
+      - generic [ref=e30]: 在新窗口中打开
+    - button "登录" [ref=e33]
+  - generic [ref=e40]:
+    - navigation "侧边导航栏" [ref=e41]:
+      - generic [ref=e44]:
+        - generic [ref=e45]:
+          - navigation "主要操作菜单" [ref=e46]:
+            - generic [ref=e49]:
+              - link "发起新对话" [disabled]:
+                - /url: /app
+                - generic:
+                  - img: gemini_chat
+          - navigation "其他操作菜单"
+        - group [ref=e50]:
+          - generic [ref=e52]:
+            - button "登录" [ref=e54] [cursor=pointer]:
+              - img [ref=e56]: account_circle
+            - button "设置" [ref=e60] [cursor=pointer]:
+              - img [ref=e62]: settings
+    - generic [ref=e70]:
+      - generic [ref=e71]:
+        - heading "与 Gemini 对话" [level=1] [ref=e72]
+        - heading "认识 Gemini：你的私人 AI 助理" [level=1] [ref=e86]
+      - generic [ref=e89]:
+        - group [ref=e90]:
+          - generic [ref=e93]:
+            - textbox "为 Gemini 输入提示" [active] [ref=e99]:
+              - text: 问问 Gemini
+              - paragraph [ref=e100]
+            - button "上传和工具" [ref=e106] [cursor=pointer]:
+              - img [ref=e108]: plus
+            - generic [ref=e110]:
+              - group [ref=e113]:
+                - button "打开模式选择器，当前模式为“Flash”" [ref=e114]:
+                  - generic [ref=e116]:
+                    - generic [ref=e117]: Flash
+                    - img [ref=e119]: keyboard_arrow_down
+              - button "麦克风" [ref=e127] [cursor=pointer]:
+                - img [ref=e129]: mic
+        - paragraph [ref=e133]:
+          - text: 须遵守
+          - link "《Google 条款》 在新窗口中打开" [ref=e134] [cursor=pointer]:
+            - /url: https://policies.google.com/terms
+            - text: 《Google 条款》
+            - generic [ref=e135]: 在新窗口中打开
+          - text: 和
+          - link "《Google 隐私权政策》 在新窗口中打开" [ref=e136] [cursor=pointer]:
+            - /url: https://policies.google.com/privacy
+            - text: 《Google 隐私权政策》
+            - generic [ref=e137]: 在新窗口中打开
+          - text: 。Gemini 是一款 AI 工具，其回答未必正确无误。

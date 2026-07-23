@@ -1,0 +1,13 @@
+Progress checkpoint 2026-07-23
+- Navigation fix: quiz-first books (zlatoust_grammar) now use b2FloatingNavigation in showChapters()
+- 2 batches transcribed via Gemini Flash MCP, raw text saved
+- batch_01: pp.18-22, exercises 1-32 (Глава 2 start)
+- batch pp.23-31: exercises 20-87 (gap fill, partially saved to batch_gap)  
+- batch pp.32-41: exercises 94-150 + Глава 3 ex 1-10 (saved to batch_p032-p041.txt)
+- batch pp.42-48+p123: exercises 11-56 + "" (saved to batch_p040-p048_key.txt)
+- batch pp.47-55+p124: exercises 44-99 + Глава 4 ex 1-4 (saved to batch_p047-p057_key.txt)
+- Need to properly consolidate all raw texts and write structured JSON
+- Answer keys from pp.123-124 not yet fully captured
+- Remaining question pages: pp.55-90 (Глава 4 complex sentences + Глава 5 lexical)
+- Remaining answer pages: pp.123-124 extraction complete, but may need cross-check
+- Remaining theory pages: pp.99-122 (part not transcribed yet)

@@ -1,0 +1,10 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - banner [ref=e3]:
+      - generic [ref=e4]:
+        - button "🎨" [ref=e5] [cursor=pointer]
+        - button "Aa" [ref=e6] [cursor=pointer]
+        - button "A̲A̲" [ref=e7] [cursor=pointer]
+      - generic [ref=e8]: 📖 小说阅读
+    - generic [ref=e10]: 加载书架...
+  - generic [ref=e14] [cursor=pointer]: 📖 看起来你读完了本章 — 点击标记完成

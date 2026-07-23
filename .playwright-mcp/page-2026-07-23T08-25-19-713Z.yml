@@ -1,0 +1,242 @@
+- main [ref=f9e11]:
+  - button "打开边栏" [ref=f9e113] [cursor=pointer]:
+    - generic [ref=f9e114]: side_nav_expand
+  - generic [ref=f9e123]:
+    - generic: play_arrow
+    - button "打开对话操作菜单。" [ref=f9e378] [cursor=pointer]:
+      - img [ref=f9e380]: more_vert
+  - generic [ref=f9e13]:
+    - navigation "侧边导航栏" [ref=f9e14]:
+      - generic [ref=f9e17]:
+        - generic [ref=f9e18]:
+          - navigation "主要操作菜单" [ref=f9e19]:
+            - link "发起新对话" [ref=f9e23] [cursor=pointer]:
+              - /url: /app
+              - img [ref=f9e25]: gemini_chat
+            - link "搜索对话内容" [ref=f9e30] [cursor=pointer]:
+              - /url: /search
+              - img [ref=f9e32]: search
+          - navigation "其他操作菜单" [ref=f9e34]:
+            - link "库" [ref=f9e38] [cursor=pointer]:
+              - /url: library
+              - img [ref=f9e40]: library
+        - group [ref=f9e42]:
+          - generic [ref=f9e44]:
+            - link "Google 账号：陈兴国 (chenxingguo43@gmail.com)" [ref=f9e45] [cursor=pointer]:
+              - /url: https://accounts.google.com/SignOutOptions?continue=https://gemini.google.com
+            - button "设置" [ref=f9e50] [cursor=pointer]:
+              - img [ref=f9e52]: settings
+    - generic [ref=f9e59]:
+      - generic [ref=f9e60]:
+        - heading "与 Gemini 对话" [level=1] [ref=f9e61]
+        - generic [ref=f9e382]:
+          - generic [ref=f9e386]:
+            - generic [ref=f9e389]:
+              - button "以灯箱形式显示上传的图片" [ref=f9e393] [cursor=pointer]:
+                - img "所上传图片的预览图" [ref=f9e394]
+              - button "以灯箱形式显示上传的图片" [ref=f9e398] [cursor=pointer]:
+                - img "所上传图片的预览图" [ref=f9e399]
+              - button "以灯箱形式显示上传的图片" [ref=f9e403] [cursor=pointer]:
+                - img "所上传图片的预览图" [ref=f9e404]
+            - generic [ref=f9e406] [cursor=pointer]:
+              - 'heading "你说 You are a Russian textbook OCR specialist. Transcribe these 3 scanned pages from a Russian grammar textbook (Златоуст, 2009). Output the EXACT text — no summaries or translations. CRITICAL: Preserve ALL stress marks, special symbols (§ * — «»), Tables as Markdown tables with correct rows/columns, Exercises keep printed number/question/options (А/Б/В/Г). No commentary. Output format: ## Page A — Exercises [text] ## Page B — Grammar Theory [text] ## Page C — Vocabulary Table [text]" [level=2] [ref=f9e408]':
+                - generic [ref=f9e409]: 你说
+                - paragraph [ref=f9e410]: "You are a Russian textbook OCR specialist. Transcribe these 3 scanned pages from a Russian grammar textbook (Златоуст, 2009). Output the EXACT text — no summaries or translations. CRITICAL: Preserve ALL stress marks, special symbols (§ * — «»), Tables as Markdown tables with correct rows/columns, Exercises keep printed number/question/options (А/Б/В/Г). No commentary. Output format: ## Page A — Exercises [text] ## Page B — Grammar Theory [text] ## Page C — Vocabulary Table [text]"
+              - button "展开" [ref=f9e411]:
+                - img [ref=f9e414]: expand_more
+            - generic [ref=f9e417]:
+              - button "复制提示" [ref=f9e419] [cursor=pointer]:
+                - img [ref=f9e421]: copy
+              - generic [ref=f9e423]:
+                - button "修改" [disabled]:
+                  - generic:
+                    - img: edit
+          - generic [ref=f9e430]:
+            - heading "Gemini 说" [level=2] [ref=f9e431]
+            - generic [ref=f9e435]:
+              - heading "Page A — Exercises" [level=2] [ref=f9e664]
+              - paragraph [ref=f9e437]: 14 Учебно-тренировочные тесты. Выпуск 1. Грамматика. Лексика
+              - generic [ref=f9e442]:
+                - table [ref=f9e665]:
+                  - rowgroup [ref=f9e666]:
+                    - row [ref=f9e667]:
+                      - columnheader [ref=f9e668]
+                      - columnheader [ref=f9e669]
+                      - columnheader [ref=f9e670]
+                      - columnheader [ref=f9e671]
+                  - rowgroup [ref=f9e672]:
+                    - row [ref=f9e673]:
+                      - cell "76." [ref=f9e674]
+                      - 'cell "В гостиничных номерах принято вешать на дверь табличку с надписью: «Не ...»." [ref=f9e675]'
+                      - cell [ref=f9e676]:
+                        - paragraph [ref=f9e677]: (А)
+                        - paragraph [ref=f9e678]: (Б)
+                      - cell [ref=f9e679]:
+                        - paragraph [ref=f9e680]: беспокоить
+                        - paragraph [ref=f9e681]: побеспокоить
+                    - row [ref=f9e682]:
+                      - cell "77." [ref=f9e683]
+                      - cell "В одиночку или вдвоём большое фермерское хозяйство не ... ." [ref=f9e684]
+                      - cell [ref=f9e685]:
+                        - paragraph [ref=f9e686]: (А)
+                        - paragraph [ref=f9e687]: (Б)
+                      - cell [ref=f9e688]:
+                        - paragraph [ref=f9e689]: поднимать
+                        - paragraph [ref=f9e690]: поднять
+                    - row [ref=f9e691]:
+                      - cell "78." [ref=f9e692]
+                      - cell "На канале НТВ решили не ... от современных форматов и вести передачи круглые сутки." [ref=f9e693]
+                      - cell [ref=f9e694]:
+                        - paragraph [ref=f9e695]: (А)
+                        - paragraph [ref=f9e696]: (Б)
+                      - cell [ref=f9e697]:
+                        - paragraph [ref=f9e698]: отставать
+                        - paragraph [ref=f9e699]: отстать
+                    - row [ref=f9e700]:
+                      - cell "79." [ref=f9e701]
+                      - cell "Специалисты советуют товаропроизводителям не ... свою продукцию с продукцией других фирм в текстах реклам." [ref=f9e702]
+                      - cell [ref=f9e703]:
+                        - paragraph [ref=f9e704]: (А)
+                        - paragraph [ref=f9e705]: (Б)
+                      - cell [ref=f9e706]:
+                        - paragraph [ref=f9e707]: сравнивать
+                        - paragraph [ref=f9e708]: сравнить
+                    - row [ref=f9e709]:
+                      - cell "80." [ref=f9e710]
+                      - cell "Супруги решили не ... старые обиды, а постараться понять друг друга." [ref=f9e711]
+                      - cell [ref=f9e712]:
+                        - paragraph [ref=f9e713]: (А)
+                        - paragraph [ref=f9e714]: (Б)
+                      - cell [ref=f9e715]:
+                        - paragraph [ref=f9e716]: вспомнить
+                        - paragraph [ref=f9e717]: вспоминать
+                    - row [ref=f9e718]:
+                      - cell "81." [ref=f9e719]
+                      - cell "«Торговых агентов просим не ...» — такие объявления можно нередко увидеть на дверях учреждений." [ref=f9e720]
+                      - cell [ref=f9e721]:
+                        - paragraph [ref=f9e722]: (А)
+                        - paragraph [ref=f9e723]: (Б)
+                      - cell [ref=f9e724]:
+                        - paragraph [ref=f9e725]: заходить
+                        - paragraph [ref=f9e726]: зайти
+                    - row [ref=f9e727]:
+                      - cell "82." [ref=f9e728]
+                      - cell "Российские бизнесмены предлагают не ... к вступительным вузовским экзаменам абитуриентов, принимающих наркотики." [ref=f9e729]
+                      - cell [ref=f9e730]:
+                        - paragraph [ref=f9e731]: (А)
+                        - paragraph [ref=f9e732]: (Б)
+                      - cell [ref=f9e733]:
+                        - paragraph [ref=f9e734]: допускать
+                        - paragraph [ref=f9e735]: допустить
+                    - row [ref=f9e736]:
+                      - cell "83." [ref=f9e737]
+                      - cell "«... дальше», — говорили ей, когда она останавливалась, чтобы передохнуть." [ref=f9e738]
+                      - cell [ref=f9e739]:
+                        - paragraph [ref=f9e740]: (А)
+                        - paragraph [ref=f9e741]: (Б)
+                      - cell [ref=f9e742]:
+                        - paragraph [ref=f9e743]: Прочитай
+                        - paragraph [ref=f9e744]: Читай
+                    - row [ref=f9e745]:
+                      - cell "84." [ref=f9e746]
+                      - cell "«..., пожалуйста, медленнее, мы не успеваем за вами записывать», — попросили студенты лектора." [ref=f9e747]
+                      - cell [ref=f9e748]:
+                        - paragraph [ref=f9e749]: (А)
+                        - paragraph [ref=f9e750]: (Б)
+                      - cell [ref=f9e751]:
+                        - paragraph [ref=f9e752]: Говорите
+                        - paragraph [ref=f9e753]: Скажите
+                    - row [ref=f9e754]:
+                      - cell "85." [ref=f9e755]
+                      - cell "Смотри, не ... в горах, там даже летом только плюс пять градусов." [ref=f9e756]
+                      - cell [ref=f9e757]:
+                        - paragraph [ref=f9e758]: (А)
+                        - paragraph [ref=f9e759]: (Б)
+                      - cell [ref=f9e760]:
+                        - paragraph [ref=f9e761]: простуживайся
+                        - paragraph [ref=f9e762]: простудись
+                    - row [ref=f9e763]:
+                      - cell "86." [ref=f9e764]
+                      - cell "Смотри, не ... малышей, ведь спокойный сон так необходим детям." [ref=f9e765]
+                      - cell [ref=f9e766]:
+                        - paragraph [ref=f9e767]: (А)
+                        - paragraph [ref=f9e768]: (Б)
+                      - cell [ref=f9e769]:
+                        - paragraph [ref=f9e770]: буди
+                        - paragraph [ref=f9e771]: разбуди
+                    - row [ref=f9e772]:
+                      - cell "87." [ref=f9e773]
+                      - cell "... он своей девушке, она бы расстроилась и, может быть, даже ушла бы." [ref=f9e774]
+                      - cell [ref=f9e775]:
+                        - paragraph [ref=f9e776]: (А)
+                        - paragraph [ref=f9e777]: (Б)
+                      - cell [ref=f9e778]:
+                        - paragraph [ref=f9e779]: Не улыбнись
+                        - paragraph [ref=f9e780]: Не улыбайся
+                    - row [ref=f9e781]:
+                      - cell "88." [ref=f9e782]
+                      - cell "... я его тогда, кто знает, что стало бы с ним в дальнейшем." [ref=f9e783]
+                      - cell [ref=f9e784]:
+                        - paragraph [ref=f9e785]: (А)
+                        - paragraph [ref=f9e786]: (Б)
+                      - cell [ref=f9e787]:
+                        - paragraph [ref=f9e788]: Не останавливай
+                        - paragraph [ref=f9e789]: Не останови
+                - button "更多选项" [ref=f9e531] [cursor=pointer]:
+                  - img [ref=f9e533]: more_horiz
+              - heading "Page B — Grammar Theory" [level=2] [ref=f9e790]
+              - paragraph [ref=f9e662]: 104 Учебно-тренировочные тесты. Выпуск 1. Грамматика. Лексика
+              - paragraph [ref=f9e663]:
+                - text: "глаголы НСВ. Исключение составляют глаголы СВ с приставками про- и по-:"
+                - generic [ref=f9e791]: Мой дед проработал на заводе тридцать лет; Мы почитали книгу минут двадцать
+                - text: "; 2) существительные в винительном падеже с предлогом на обозначают определённый период, в течение которого должно происходить какое-либо действие:"
+                - generic [ref=f9e792]: Туристы уехали в горы на месяц
+                - text: (то есть они будут находиться в горах месяц);
+                - generic [ref=f9e793]: Отец приезжает на один день
+                - text: "(то есть он будет находиться здесь один день); 3) существительные в винительном падеже с предлогом за обозначают период, требующийся для завершения действия, получения результата (обычно с глаголами СВ):"
+                - generic [ref=f9e794]: Я подготовил курсовую работу за две недели; За месяц мы хорошо отдохнули.
+              - paragraph [ref=f9e795]:
+                - text: "Обратите внимание! Если в предложении указывается на способность действующего лица получать какой-либо результат регулярно, то в предложении употребляются глаголы НСВ:"
+                - generic [ref=f9e796]: Обычно я перевожу одну страницу иностранного текста за двадцать минут;
+              - list [ref=f9e797]:
+                - listitem [ref=f9e798]:
+                  - paragraph [ref=f9e799]:
+                    - text: "следует различать конструкцию за + В. п. (которая обозначает отрезок времени, требующийся для завершения действия) и конструкцию за + В. п. + до + Р. п. (которая называет отрезок времени, раньше которого произошло событие, выраженное глаголом). Существительное в родительном падеже с предлогом до здесь обозначает событие, которое является точкой отсчёта:"
+                    - generic [ref=f9e800]: Студенты пришли на конференцию за десять минут до её начала (точка отсчёта).
+                    - text: "Сравните:"
+              - generic [ref=f9e805]:
+                - table [ref=f9e807]:
+                  - rowgroup [ref=f9e808]:
+                    - row [ref=f9e809]:
+                      - columnheader "Отрезок времени, требующийся для получения результата (обычно с глаголами СВ)" [ref=f9e810]
+                      - columnheader "Отрезок времени, раньше которого произойдёт действие" [ref=f9e811]
+                  - rowgroup [ref=f9e812]:
+                    - row [ref=f9e813]:
+                      - cell "Он подготовился к лекции за два часа; Самолёт преодолел это расстояние за полтора часа." [ref=f9e814]
+                      - cell "Он пришёл в университет за два часа до начала лекции; Пассажиры должны прибыть в аэропорт за полтора часа до вылета самолёта." [ref=f9e817]
+                - button "更多选项" [ref=f9e822] [cursor=pointer]:
+                  - img [ref=f9e824]: more_horiz
+              - list [ref=f9e826]:
+                - listitem [ref=f9e827]:
+                  - paragraph [ref=f9e828]: "Для обозначения предшествования во времени одного события по отношению к другому употребляются: а) предлог до с родительным падежом существительных; б) предлог перед с творительным падежом существительных."
+              - paragraph [ref=f9e829]: Обратите внимание! Предлог перед обозначает время действия, которое происходит непосредственно перед каким-либо другим действием.
+              - text: more_horiz
+      - generic [ref=f9e75]:
+        - group [ref=f9e76]:
+          - generic [ref=f9e79]:
+            - textbox "为 Gemini 输入提示" [active] [ref=f9e85]:
+              - text: 问问 Gemini
+              - paragraph [ref=f9e373]
+            - button "上传和工具" [ref=f9e92] [cursor=pointer]:
+              - img [ref=f9e94]: plus
+            - generic [ref=f9e96]:
+              - group [ref=f9e135]:
+                - button "打开模式选择器，当前模式为“Pro”" [ref=f9e136]:
+                  - generic [ref=f9e138]:
+                    - generic [ref=f9e139]: Pro
+                    - img [ref=f9e141]: keyboard_arrow_down
+              - generic [ref=f9e98]:
+                - text: mic
+                - button "停止回答" [ref=f9e374] [cursor=pointer]:
+                  - img [ref=f9e311]: stop
+        - paragraph [ref=f9e375]: Gemini 是一款 AI 工具，其回答未必正确无误。

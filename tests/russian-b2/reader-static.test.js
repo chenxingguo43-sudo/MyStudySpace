@@ -402,3 +402,85 @@ test('reader renders approved reading learning support separately from original 
   assert.match(reader, /可复用表达/);
   assert.match(reader, /data\.translationStatus === 'learning-support-approved'/);
 });
+
+test('reader dispatches writing-speaking chapters to their own render function', () => {
+  assert.match(reader, /data\.format === 'writing-speaking'/);
+  assert.match(reader, /renderWritingSpeakingChapter\(data, scrollPosition, restoreState\)/);
+});
+
+test('writing-speaking render includes sections for reading, writing, speaking, and study support', () => {
+  assert.match(reader, /function renderWritingSpeakingChapter\(data, scrollPosition, restoreState\)/);
+  assert.match(reader, /📖 阅读材料/);
+  assert.match(reader, /📝 词汇准备/);
+  assert.match(reader, /✍️ 写作任务/);
+  assert.match(reader, /🗣 口语任务/);
+  assert.match(reader, /💬 可复用表达/);
+  assert.match(reader, /📐 输出框架/);
+  assert.match(reader, /⚠ 评分风险/);
+  assert.match(reader, /💡 口语追问/);
+});
+
+test('writing-speaking provides locally-persisted draft textareas', () => {
+  assert.match(reader, /var WS_DRAFTS_KEY = 'rr_ws_drafts_v1'/);
+  assert.match(reader, /function getWsDrafts\(\)/);
+  assert.match(reader, /function saveWsDraft\(taskId, value\)/);
+  assert.match(reader, /localStorage\.setItem\(WS_DRAFTS_KEY/);
+  assert.match(reader, /ws-draft-area/);
+});
+
+test('writing-speaking integrates recording buttons through existing MediaRecorder flow', () => {
+  assert.match(reader, /🎤 录音练习/);
+  assert.match(reader, /window\._wsSpeakTaskId/);
+  assert.match(reader, /ws-start-rec-/);
+  assert.match(reader, /ws-stop-rec-/);
+});
+
+test('writing-speaking chapters are never marked complete by scrolling', () => {
+  assert.match(reader, /curBook\.format !== 'writing-speaking'/);
+});
+
+test('writing-speaking uses collapsible learning cards with source warnings', () => {
+  assert.match(reader, /ws-chapter/);
+  assert.match(reader, /ws-section-header/);
+  assert.match(reader, /ws-task-badge/);
+  assert.match(reader, /ws-reading-text/);
+  assert.match(reader, /ws-vocab-grid/);
+  assert.match(reader, /ws-expression-filter/);
+  assert.match(reader, /ws-ai-warning/);
+  assert.match(reader, /ws-bottom-nav/);
+  assert.match(reader, /ws-framework/);
+  assert.match(reader, /ws-model-answer/);
+  assert.match(reader, /ws-risks/);
+  assert.match(reader, /sourceLabel/);
+});
+
+test('writing-speaking breadcrumb displays current chapter title', () => {
+  assert.match(reader, /var _currentWSData = null/);
+  assert.match(reader, /_currentWSData && _currentWSData\.title/);
+});
+
+test('writing-speaking data files exist for all 19 chapters', () => {
+  const path = require('node:path');
+  for (let i = 0; i < 19; i++) {
+    const chapterFile = path.join(__dirname, '..', '..', 'data', 'textbook', 'writing_speaking', 'ch' + String(i).padStart(4, '0') + '.json');
+    assert.ok(fs.existsSync(chapterFile), 'Missing: ' + chapterFile);
+    const data = JSON.parse(fs.readFileSync(chapterFile, 'utf8'));
+    assert.equal(data.format, 'writing-speaking');
+    assert.ok(data.title, 'Missing title in ch' + String(i).padStart(4, '0'));
+    assert.ok(Array.isArray(data.sourcePages), 'sourcePages not array in ch' + String(i).padStart(4, '0'));
+    assert.ok(Array.isArray(data.writingTasks), 'writingTasks not array in ch' + String(i).padStart(4, '0'));
+    assert.ok(Array.isArray(data.speakingTasks), 'speakingTasks not array in ch' + String(i).padStart(4, '0'));
+    assert.ok(data.studySupport && typeof data.studySupport === 'object', 'studySupport missing in ch' + String(i).padStart(4, '0'));
+  }
+});
+
+test('writing-speaking bookshelf entry has correct metadata', () => {
+  const indexPath = require('node:path').join(__dirname, '..', '..', 'data', 'textbook', 'index.json');
+  const index = JSON.parse(fs.readFileSync(indexPath, 'utf8'));
+  const wsBook = index.books.find(b => b.id === 'writing_speaking');
+  assert.ok(wsBook, 'writing_speaking not in bookshelf index');
+  assert.equal(wsBook.format, 'writing-speaking');
+  assert.equal(wsBook.chapters, 19);
+  assert.equal(wsBook.dir, 'writing_speaking');
+  assert.equal(wsBook.kind, 'textbook');
+});

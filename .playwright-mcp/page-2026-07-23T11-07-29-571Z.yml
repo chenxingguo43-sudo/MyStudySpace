@@ -1,0 +1,39 @@
+- generic [active] [ref=f49e1]:
+  - generic [ref=f49e2]:
+    - navigation "俄语 B2 页面导航" [ref=f49e1158]:
+      - button "切换主题" [ref=f49e1159] [cursor=pointer]: 🎨
+      - button "调整字号" [ref=f49e1160] [cursor=pointer]: Aa
+      - button "书架" [ref=f49e1161] [cursor=pointer]: ←
+    - main [ref=f49e1162]:
+      - generic [ref=f49e1163]:
+        - heading "俄语 B2 全模块" [level=1] [ref=f49e1164]
+        - paragraph [ref=f49e1165]: 所有专项属于同一本教材。可以从模块继续学习，也可以进入统一复习。
+      - generic [ref=f49e1166]:
+        - button "语法词汇 已完成 0 / 6 P1–P6 连续练习、丰富知识卡与错题复习" [ref=f49e1167] [cursor=pointer]:
+          - strong [ref=f49e1168]: 语法词汇
+          - generic [ref=f49e1169]: 已完成 0 / 6
+          - generic [ref=f49e1171]: P1–P6 连续练习、丰富知识卡与错题复习
+        - button "阅读 尚未开始 十篇原文、理解题、证据句与复述学习" [ref=f49e1172] [cursor=pointer]:
+          - strong [ref=f49e1173]: 阅读
+          - generic [ref=f49e1174]: 尚未开始
+          - generic [ref=f49e1175]: 十篇原文、理解题、证据句与复述学习
+        - button "写作 尚未开始 原书任务复刻、草稿、格式自检与版本修改" [ref=f49e1176] [cursor=pointer]:
+          - strong [ref=f49e1177]: 写作
+          - generic [ref=f49e1178]: 尚未开始
+          - generic [ref=f49e1179]: 原书任务复刻、草稿、格式自检与版本修改
+        - button "听力 尚未开始 完整题面、考试作答与逐句精听" [ref=f49e1180] [cursor=pointer]:
+          - strong [ref=f49e1181]: 听力
+          - generic [ref=f49e1182]: 尚未开始
+          - generic [ref=f49e1183]: 完整题面、考试作答与逐句精听
+        - button "会话 尚未开始 题型训练、准备计时与本地录音" [ref=f49e1184] [cursor=pointer]:
+          - strong [ref=f49e1185]: 会话
+          - generic [ref=f49e1186]: 尚未开始
+          - generic [ref=f49e1187]: 题型训练、准备计时与本地录音
+        - button "真题模拟 进度暂不可用 按原书模块练习与完整模拟" [ref=f49e1188] [cursor=pointer]:
+          - strong [ref=f49e1189]: 真题模拟
+          - generic [ref=f49e1190]: 进度暂不可用
+          - generic [ref=f49e1191]: 按原书模块练习与完整模拟
+        - button "统一复习 跨模块错题、草稿与学习记录汇总" [ref=f49e1192] [cursor=pointer]:
+          - strong [ref=f49e1193]: 统一复习
+          - generic [ref=f49e1194]: 跨模块错题、草稿与学习记录汇总
+  - generic [ref=f49e13] [cursor=pointer]: 📖 看起来你读完了本章 — 点击标记完成

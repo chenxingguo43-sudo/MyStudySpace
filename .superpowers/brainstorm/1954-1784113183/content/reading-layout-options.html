@@ -1,0 +1,50 @@
+<h2>选择学习页布局</h2>
+<p class="subtitle">每种方案都保留原书扫描页、可搜索 Markdown 和默认折叠的答案。请选择你最愿意长期使用的一种。</p>
+
+<div class="cards">
+  <div class="card" data-choice="a" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div class="mockup">
+        <div class="mockup-header">方案 A · 原书优先</div>
+        <div class="mockup-body">
+          <div class="mock-nav">目录　←　原书第 46 页　→</div>
+          <div class="placeholder" style="height:230px">原书扫描页（完整保留）</div>
+          <p><b>可搜索文本</b>　题目 23–35</p>
+          <button class="mock-button">展开答案与解析</button>
+        </div>
+      </div>
+    </div>
+    <div class="card-body"><h3>A. 原书优先</h3><p>先看完整原书页，向下阅读校正文本和练习。最接近纸书，切换最少。</p></div>
+  </div>
+
+  <div class="card" data-choice="b" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div class="mockup">
+        <div class="mockup-header">方案 B · 并排学习（推荐）</div>
+        <div class="mockup-body" style="display:flex;gap:8px">
+          <div style="width:42%"><div class="placeholder" style="height:230px">原书扫描页</div></div>
+          <div style="width:58%"><p><b>题目 23–35</b></p><p>23. Поздравлять…</p><p>24. Сегодня состоится…</p><button class="mock-button">展开答案与解析</button><p class="label">页码：46</p></div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body"><h3>B. 并排学习</h3><p>左边随时对照原书，右边做可复制的 Markdown 题目；答案仅在完成后展开。</p></div>
+  </div>
+
+  <div class="card" data-choice="c" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div class="mockup">
+        <div class="mockup-header">方案 C · 刷题优先</div>
+        <div class="mockup-body">
+          <div class="mock-nav">语法 › 复合句 › 23–35　　查看原书页</div>
+          <p><b>23.</b> Поздравлять с праздниками тех людей, … вы работаете — залог успешной коммуникации.</p>
+          <div class="options"><div class="option">A　о ком</div><div class="option">Б　с кем</div><div class="option">В　без кого</div><div class="option">Г　перед кем</div></div>
+          <button class="mock-button">我已作答：展开解析</button>
+        </div>
+      </div>
+    </div>
+    <div class="card-body"><h3>C. 刷题优先</h3><p>题目占满阅读区，原书以链接或侧栏打开。效率最高，但纸书感较弱。</p></div>
+  </div>
+</div>
+
+<p class="subtitle">点击卡片选择；也可以直接在对话里回复 A、B 或 C。</p>
+<!-- Reopened for the design audit on 2026-07-15. -->

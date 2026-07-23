@@ -1,0 +1,42 @@
+- generic [active] [ref=f4e1]:
+  - generic [ref=f4e2]:
+    - navigation "俄语 B2 页面导航" [ref=f4e71]:
+      - button "切换主题" [ref=f4e72] [cursor=pointer]: 🎨
+      - button "调整字号" [ref=f4e73] [cursor=pointer]: Aa
+      - button "仪表盘" [ref=f4e74] [cursor=pointer]: ←
+    - main [ref=f4e75]:
+      - generic [ref=f4e76]:
+        - heading "阅读" [level=2] [ref=f4e77]
+        - generic [ref=f4e78]: 10 个学习单元
+      - generic [ref=f4e79]:
+        - generic [ref=f4e80] [cursor=pointer]:
+          - generic [ref=f4e81]: "1"
+          - generic [ref=f4e82]: 第 1 单元
+        - generic [ref=f4e83] [cursor=pointer]:
+          - generic [ref=f4e84]: "2"
+          - generic [ref=f4e85]: 第 2 单元
+        - generic [ref=f4e86] [cursor=pointer]:
+          - generic [ref=f4e87]: "3"
+          - generic [ref=f4e88]: 第 3 单元
+        - generic [ref=f4e89] [cursor=pointer]:
+          - generic [ref=f4e90]: "4"
+          - generic [ref=f4e91]: 第 4 单元
+        - generic [ref=f4e92] [cursor=pointer]:
+          - generic [ref=f4e93]: "5"
+          - generic [ref=f4e94]: 第 5 单元
+        - generic [ref=f4e95] [cursor=pointer]:
+          - generic [ref=f4e96]: "6"
+          - generic [ref=f4e97]: 第 6 单元
+        - generic [ref=f4e98] [cursor=pointer]:
+          - generic [ref=f4e99]: "7"
+          - generic [ref=f4e100]: 第 7 单元
+        - generic [ref=f4e101] [cursor=pointer]:
+          - generic [ref=f4e102]: "8"
+          - generic [ref=f4e103]: 第 8 单元
+        - generic [ref=f4e104] [cursor=pointer]:
+          - generic [ref=f4e105]: "9"
+          - generic [ref=f4e106]: 第 9 单元
+        - generic [ref=f4e107] [cursor=pointer]:
+          - generic [ref=f4e108]: "10"
+          - generic [ref=f4e109]: 第 10 单元
+  - generic [ref=f4e6] [cursor=pointer]: 📖 看起来你读完了本章 — 点击标记完成

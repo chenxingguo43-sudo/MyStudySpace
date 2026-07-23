@@ -1,0 +1,113 @@
+- generic [active] [ref=f1e1]:
+  - generic [ref=f1e2]:
+    - navigation "俄语 B2 页面导航" [ref=f1e174]:
+      - button "切换主题" [ref=f1e175] [cursor=pointer]: 🎨
+      - button "调整字号" [ref=f1e176] [cursor=pointer]: Aa
+      - button "仪表盘" [ref=f1e177] [cursor=pointer]: ←
+      - button "导航目录" [ref=f1e178] [cursor=pointer]: ☰
+    - main [ref=f1e179]:
+      - generic [ref=f1e180]:
+        - heading "任务 1 · 推荐学习项目（私人信函）" [level=1] [ref=f1e181]
+        - paragraph [ref=f1e182]: 原书印刷页：90、91、92 · PDF：PDF-094、PDF-095、PDF-096
+        - button "标记完成" [ref=f1e183] [cursor=pointer]
+      - generic [ref=f1e184]:
+        - heading "原书任务" [level=2] [ref=f1e185]
+        - paragraph [ref=f1e186]: Задание 1. Представьте, что Ваш друг хочет пройти курс обучения за границей. На основе предлагаемой рекламной информации напишите ему письмо, в котором рекомендуете ему одну программу обучения за границей. Ваше письмо должно содержать информацию о предлагаемых программах, достаточную для принятия решения. На ознакомление с рекламной информацией отводится 5 минут. На выполнение задания отводится 15 минут. Рекомендуемый объём письма — 50–70 слов.
+        - paragraph [ref=f1e187]: 假设你的朋友想出国学习。根据给出的广告信息，给朋友写信并推荐其中一个国外学习项目；信中必须提供足够的信息，帮助朋友作出决定。
+        - generic [ref=f1e188]:
+          - generic [ref=f1e189]: 阅读材料 5 分钟
+          - generic [ref=f1e190]: 写作 15 分钟
+          - generic [ref=f1e191]: 50–70 词
+      - generic [ref=f1e192]:
+        - heading "原书材料" [level=2] [ref=f1e193]
+        - paragraph [ref=f1e194]: 以下广告按原书逐项整理；点击俄语单词可查词。
+        - generic [ref=f1e195]:
+          - article [ref=f1e196]:
+            - heading "Университет Козьминского · Варшава" [level=3] [ref=f1e197]
+            - paragraph [ref=f1e198]: "Университет Козьминского в Варшаве приглашает на программы бакалавриата и магистратуры на английском языке по направлениям: бизнес, менеджмент, экономика и финансы. Стоимость обучения — 4150 евро в год для бакалавриата и 11 000 евро в год для магистратуры."
+            - list [ref=f1e199]:
+              - listitem [ref=f1e200]: 教学语言：英语
+              - listitem [ref=f1e201]: 方向：商业、管理、经济、金融
+              - listitem [ref=f1e202]: 本科：4150 欧元/年
+              - listitem [ref=f1e203]: 硕士：11 000 欧元/年
+            - generic [ref=f1e204]: 原书：PDF-094
+          - article [ref=f1e205]:
+            - heading "EC Toronto · Канада" [level=3] [ref=f1e206]
+            - paragraph [ref=f1e207]: EC Toronto предлагает курсы делового и общего английского языка, а также подготовку к экзаменам IELTS и TOEFL. Стоимость программы с проживанием — от 1050 долларов.
+            - list [ref=f1e208]:
+              - listitem [ref=f1e209]: 商务英语与通用英语
+              - listitem [ref=f1e210]: IELTS / TOEFL 备考
+              - listitem [ref=f1e211]: 含住宿费用 1050 美元起
+            - generic [ref=f1e212]: 原书：PDF-094
+          - article [ref=f1e213]:
+            - heading "Экопоселение · Финляндия" [level=3] [ref=f1e214]
+            - paragraph [ref=f1e215]: Экопоселение в Финляндии приглашает на обучение скандинавской фитотерапии. Стоимость обучения и проживания — 1000 евро в месяц.
+            - list [ref=f1e216]:
+              - listitem [ref=f1e217]: 课程：斯堪的纳维亚植物疗法
+              - listitem [ref=f1e218]: 学费与住宿：1000 欧元/月
+            - generic [ref=f1e219]: 原书：PDF-095
+          - article [ref=f1e220]:
+            - heading "Domus Academy · Милан" [level=3] [ref=f1e221]
+            - paragraph [ref=f1e222]: Domus Academy в Милане проводит летние курсы дизайна на английском языке. Продолжительность курса — две недели, стоимость — 1750 евро без авиаперелёта.
+            - list [ref=f1e223]:
+              - listitem [ref=f1e224]: 英语授课的暑期设计课程
+              - listitem [ref=f1e225]: 时长：两周
+              - listitem [ref=f1e226]: 费用：1750 欧元，不含机票
+            - generic [ref=f1e227]: 原书：PDF-095
+          - article [ref=f1e228]:
+            - heading "Центр международного обучения СПбГУ" [level=3] [ref=f1e229]
+            - paragraph [ref=f1e230]: "Центр международного обучения Санкт-Петербургского государственного университета предлагает школьникам учебные программы и языковые программы на каникулах, а также стипендии Bellerbys. Студентам предлагаются обучение, обмен и стипендии в США, Европе и Японии, а также языковые программы в Западной Европе, США, Канаде, Австралии и Японии. Подробная информация: spbu.ru."
+            - list [ref=f1e231]:
+              - listitem [ref=f1e232]: 中学生：学习项目、假期语言项目、Bellerbys 奖学金
+              - listitem [ref=f1e233]: 大学生：美国、欧洲、日本的学习、交换与奖学金
+              - listitem [ref=f1e234]: 语言项目：西欧、美国、加拿大、澳大利亚、日本
+              - listitem [ref=f1e235]: 网站：spbu.ru
+            - generic [ref=f1e236]: 原书：PDF-095
+      - generic [ref=f1e237]:
+        - heading "格式与内容清单" [level=2] [ref=f1e238]
+        - list [ref=f1e239]:
+          - listitem [ref=f1e240]: 称呼：Здравствуй / Привет, дорогой(ая) …!
+          - listitem [ref=f1e241]: 交代信息来源：在哪里看到广告
+          - listitem [ref=f1e242]: 明确推荐哪一个项目，并联系朋友的兴趣或目标
+          - listitem [ref=f1e243]: 提供足以作决定的事实：地点、课程、时长、费用、条件或网址
+          - listitem [ref=f1e244]: 表达个人判断与祝愿
+          - listitem [ref=f1e245]: 结束语、署名和日期
+        - list [ref=f1e246]:
+          - listitem [ref=f1e247]: 这是私人信函，不要写成正式申请书。
+          - listitem [ref=f1e248]: 原书要求 50–70 词；应优先选择一个项目重点推荐，不要机械罗列五则广告。
+          - listitem [ref=f1e249]: 原书范文的实际篇幅可能超过建议字数，学习时仍以任务要求为准。
+      - generic [ref=f1e250]:
+        - heading "你的草稿" [level=2] [ref=f1e251]
+        - textbox "在这里用俄语起草…" [ref=f1e252]
+        - paragraph [ref=f1e253]: 本地自动保存 · 0 词
+        - generic [ref=f1e254]:
+          - button "复制反馈提示" [ref=f1e255] [cursor=pointer]
+          - button "保存当前版本" [ref=f1e256] [cursor=pointer]
+        - paragraph [ref=f1e258]: 尚未保存版本。自动保存负责防丢；版本用于保留初稿、修改稿和定稿。
+      - generic [ref=f1e259]:
+        - heading "评分自查" [level=2] [ref=f1e260]
+        - list [ref=f1e261]:
+          - listitem [ref=f1e262]: 是否明确推荐了一个项目
+          - listitem [ref=f1e263]: 是否提供足够、准确的广告信息供朋友决定
+          - listitem [ref=f1e264]: 是否说明推荐理由并照顾收信人的兴趣
+          - listitem [ref=f1e265]: 是否具备私人信函的称呼、结束语、署名和日期
+          - listitem [ref=f1e266]: 语言是否连贯，字数是否尽量符合 50–70 词
+      - group [ref=f1e267]:
+        - generic "原书范文（完成后查看）" [ref=f1e268]
+      - generic [ref=f1e269]:
+        - heading "学习辅助（非原书内容）" [level=2] [ref=f1e270]
+        - heading "起草顺序" [level=3] [ref=f1e271]
+        - list [ref=f1e272]:
+          - listitem [ref=f1e273]: 先根据朋友的需求，从五个项目中只选一个最合适的。
+          - listitem [ref=f1e274]: 用一句话说明在哪里看到广告，再用一句话把项目和朋友的兴趣联系起来。
+          - listitem [ref=f1e275]: 挑 2–4 个真正影响决定的事实，不要把广告逐字抄完。
+          - listitem [ref=f1e276]: 用 Я думаю, что… / Мне кажется, что… 给出判断。
+          - listitem [ref=f1e277]: 完成后对照清单检查称呼、推荐理由、关键信息、结束语、署名和日期。
+        - heading "可复用表达" [level=3] [ref=f1e278]
+        - list [ref=f1e279]:
+          - listitem [ref=f1e280]: Я прочитал(а) объявление о том, что…
+          - listitem [ref=f1e281]: Я знаю, что ты давно интересуешься…
+          - listitem [ref=f1e282]: Я думаю, что эта программа подходит тебе, потому что…
+          - listitem [ref=f1e283]: Подробную информацию можно найти на сайте…
+          - listitem [ref=f1e284]: Желаю тебе удачи!
+  - generic [ref=f1e6] [cursor=pointer]: 📖 看起来你读完了本章 — 点击标记完成

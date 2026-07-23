@@ -1,0 +1,65 @@
+- main [ref=f39e11]:
+  - button "打开边栏" [ref=f39e126] [cursor=pointer]:
+    - generic [ref=f39e127]: side_nav_expand
+  - generic [ref=f39e132]: play_arrow
+  - generic [ref=f39e13]:
+    - navigation "侧边导航栏" [ref=f39e14]:
+      - generic [ref=f39e17]:
+        - generic [ref=f39e18]:
+          - navigation "主要操作菜单" [ref=f39e19]:
+            - link "发起新对话" [ref=f39e23] [cursor=pointer]:
+              - /url: /app
+              - img [ref=f39e25]: gemini_chat
+            - link "搜索对话内容" [ref=f39e30] [cursor=pointer]:
+              - /url: /search
+              - img [ref=f39e32]: search
+          - navigation "其他操作菜单" [ref=f39e34]:
+            - link "库" [ref=f39e38] [cursor=pointer]:
+              - /url: library
+              - img [ref=f39e40]: library
+        - group [ref=f39e42]:
+          - generic [ref=f39e44]:
+            - link "Google 账号：陈兴国 (chenxingguo43@gmail.com)" [ref=f39e45] [cursor=pointer]:
+              - /url: https://accounts.google.com/SignOutOptions?continue=https://gemini.google.com
+            - button "设置" [ref=f39e50] [cursor=pointer]:
+              - img [ref=f39e52]: settings
+    - generic [ref=f39e59]:
+      - generic [ref=f39e60]:
+        - heading "与 Gemini 对话" [level=1] [ref=f39e61]
+        - generic [ref=f39e284]:
+          - generic [ref=f39e287]:
+            - button "以灯箱形式显示上传的图片" [ref=f39e291] [cursor=pointer]:
+              - img "所上传图片的预览图" [ref=f39e292]
+            - button "以灯箱形式显示上传的图片" [ref=f39e296] [cursor=pointer]:
+              - img "所上传图片的预览图" [ref=f39e297]
+            - button "以灯箱形式显示上传的图片" [ref=f39e301] [cursor=pointer]:
+              - img "所上传图片的预览图" [ref=f39e302]
+          - 'heading "你说 Transcribe these 3 pages EXACTLY. Page 1=grammar theory, pages 2-3=answer key. Keep all numbers, symbols. Label ## Page N. No commentary." [level=2] [ref=f39e306]':
+            - generic [ref=f39e307]: 你说
+            - paragraph [ref=f39e308]: "Transcribe these 3 pages EXACTLY. Page 1=grammar theory, pages 2-3=answer key. Keep all numbers, symbols. Label ## Page N. No commentary."
+          - generic [ref=f39e309]:
+            - button "复制提示" [ref=f39e311] [cursor=pointer]:
+              - img [ref=f39e313]: copy
+            - generic [ref=f39e315]:
+              - button "修改" [disabled]:
+                - generic:
+                  - img: edit
+      - generic [ref=f39e78]:
+        - group [ref=f39e79]:
+          - generic [ref=f39e82]:
+            - textbox "为 Gemini 输入提示" [active] [ref=f39e88]:
+              - text: 问问 Gemini
+              - paragraph [ref=f39e334]
+            - button "上传和工具" [ref=f39e95] [cursor=pointer]:
+              - img [ref=f39e97]: plus
+            - generic [ref=f39e99]:
+              - group [ref=f39e102]:
+                - button "打开模式选择器，当前模式为“Flash”" [ref=f39e103]:
+                  - generic [ref=f39e105]:
+                    - generic [ref=f39e106]: Flash
+                    - img [ref=f39e108]: keyboard_arrow_down
+              - generic [ref=f39e111]:
+                - text: mic
+                - button "停止回答" [ref=f39e337] [cursor=pointer]:
+                  - img [ref=f39e339]: stop
+        - paragraph [ref=f39e341]: Gemini 是一款 AI 工具，其回答未必正确无误。

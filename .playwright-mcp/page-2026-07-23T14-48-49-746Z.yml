@@ -1,0 +1,46 @@
+- main [ref=f80e11]:
+  - generic [ref=f80e13]:
+    - navigation "侧边导航栏" [ref=f80e14]:
+      - generic [ref=f80e17]:
+        - generic [ref=f80e18]:
+          - navigation "主要操作菜单" [ref=f80e19]:
+            - link "发起新对话" [ref=f80e23] [cursor=pointer]:
+              - /url: /app
+              - img [ref=f80e25]: gemini_chat
+            - link "搜索对话内容" [ref=f80e30] [cursor=pointer]:
+              - /url: /search
+              - img [ref=f80e32]: search
+          - navigation "其他操作菜单" [ref=f80e34]:
+            - link "库" [ref=f80e38] [cursor=pointer]:
+              - /url: library
+              - img [ref=f80e40]: library
+        - generic:
+          - progressbar "正在加载 Gem 和近期对话"
+        - group [ref=f80e42]:
+          - generic [ref=f80e44]:
+            - link "Google 账号：陈兴国 (chenxingguo43@gmail.com)" [ref=f80e45] [cursor=pointer]:
+              - /url: https://accounts.google.com/SignOutOptions?continue=https://gemini.google.com
+            - button "设置" [ref=f80e50] [cursor=pointer]:
+              - img [ref=f80e52]: settings
+    - generic [ref=f80e59]:
+      - generic [ref=f80e60]:
+        - heading "与 Gemini 对话" [level=1] [ref=f80e61]
+        - generic [ref=f80e74]:
+          - heading "兴国，想聊点什么？看你的了！" [level=1]
+      - generic [ref=f80e76]:
+        - group [ref=f80e77]:
+          - generic [ref=f80e80]:
+            - textbox "为 Gemini 输入提示" [active] [ref=f80e86]:
+              - text: 问问 Gemini
+              - paragraph [ref=f80e87]
+            - button "上传和工具" [ref=f80e93] [cursor=pointer]:
+              - img [ref=f80e95]: plus
+            - generic [ref=f80e97]:
+              - group [ref=f80e100]:
+                - button "打开模式选择器，当前模式为“Flash”" [ref=f80e101]:
+                  - generic [ref=f80e103]:
+                    - generic [ref=f80e104]: Flash
+                    - img [ref=f80e106]: keyboard_arrow_down
+              - button "麦克风" [ref=f80e114] [cursor=pointer]:
+                - img [ref=f80e116]: mic
+        - paragraph [ref=f80e120]

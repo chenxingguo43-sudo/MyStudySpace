@@ -1,0 +1,62 @@
+- generic [active] [ref=f21e1]:
+  - generic [ref=f21e115]:
+    - combobox [ref=f21e117] [cursor=pointer]:
+      - option "默认排序" [selected]
+      - option "按阅读进度"
+      - option "未读优先"
+    - generic [ref=f21e118]:
+      - generic [ref=f21e119] [cursor=pointer]:
+        - heading "📕 错题复习" [level=3] [ref=f21e120]
+        - generic [ref=f21e121]: 待掌握 0 题
+      - generic [ref=f21e122] [cursor=pointer]:
+        - heading "💾 学习记录备份" [level=3] [ref=f21e123]
+        - generic [ref=f21e124]: 导出、恢复与安全合并 B2 学习进度
+      - generic [ref=f21e125] [cursor=pointer]:
+        - heading "boss阴到没边，我的系统也是" [level=3] [ref=f21e126]
+        - generic [ref=f21e127]:
+          - generic [ref=f21e128]: ✍️ 巡山主神
+          - generic [ref=f21e129]: 📚 261 章
+          - generic [ref=f21e130]: 🇨🇳→🇷🇺
+        - generic [ref=f21e131]: 中文网络小说，已翻译为俄语
+        - generic [ref=f21e132]: 已读 0/261 (0%)
+      - generic [ref=f21e135] [cursor=pointer]:
+        - heading "俄罗斯民间故事" [level=3] [ref=f21e136]
+        - generic [ref=f21e137]:
+          - generic [ref=f21e138]: 📚 7 章
+          - generic [ref=f21e139]: 🇷🇺→🇨🇳
+        - generic [ref=f21e140]: 俄语民间故事，已翻译为中文
+        - generic [ref=f21e141]: 已读 0/7 (0%)
+      - generic [ref=f21e144] [cursor=pointer]:
+        - heading "教材В мире людей — 阅读口语" [level=3] [ref=f21e145]
+        - generic [ref=f21e146]:
+          - generic [ref=f21e147]: ✍️ М.Н. Макова, О.А. Ускова
+          - generic [ref=f21e148]: 📚 30 章
+          - generic [ref=f21e149]: 🇷🇺→🇨🇳
+        - generic [ref=f21e150]: ТРКИ-2 阅读口语教材，30篇阅读文章（中俄对照）
+        - generic [ref=f21e151]: 已读 0/30 (0%)
+      - generic [ref=f21e154] [cursor=pointer]:
+        - heading "教材В мире людей — 听力口语" [level=3] [ref=f21e155]
+        - generic [ref=f21e156]:
+          - generic [ref=f21e157]: ✍️ М.Н. Макова, О.А. Ускова
+          - generic [ref=f21e158]: 📚 63 章
+          - generic [ref=f21e159]: 🇷🇺→🇨🇳
+        - generic [ref=f21e160]: ТРКИ-2/3 听力口语教材，63 段听力练习
+        - generic [ref=f21e161]: 已读 0/63 (0%)
+      - generic [ref=f21e164] [cursor=pointer]:
+        - heading "教材В мире людей — 写作口语" [level=3] [ref=f21e165]
+        - generic [ref=f21e166]:
+          - generic [ref=f21e167]: ✍️ М.Н. Макова, О.А. Ускова
+          - generic [ref=f21e168]: 📚 19 章
+          - generic [ref=f21e169]: 🇷🇺→🇨🇳
+        - generic [ref=f21e170]: ТРКИ-2/3 写作口语教材，19 个主题，含阅读材料、写作任务、口语练习
+        - generic [ref=f21e171]: 已读 0/19 (0%)
+      - generic [ref=f21e174] [cursor=pointer]:
+        - heading "教材俄语 B2 全模块" [level=3] [ref=f21e175]
+        - generic [ref=f21e176]:
+          - generic [ref=f21e177]: ✍️ 原版教材学习版
+          - generic [ref=f21e178]: 📚 7 章
+          - generic [ref=f21e179]: 🇷🇺→🇨🇳
+        - generic [ref=f21e180]: 一本教材内统一学习语法、阅读、写作、听力、会话、真题与复习
+        - generic [ref=f21e181]: 已读 0/7 (0%)
+  - generic: "主题: 护眼"
+  - generic [ref=f21e6] [cursor=pointer]: 📖 看起来你读完了本章 — 点击标记完成

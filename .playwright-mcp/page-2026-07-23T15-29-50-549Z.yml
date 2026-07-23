@@ -1,0 +1,89 @@
+- generic [ref=f165e1]:
+  - main [ref=f165e4]:
+    - button "打开边栏" [ref=f165e133] [cursor=pointer]:
+      - generic [ref=f165e134]: side_nav_expand
+    - generic [ref=f165e116]:
+      - generic: play_arrow
+      - button "临时对话" [ref=f165e120] [cursor=pointer]:
+        - img [ref=f165e122]: gemini_chat_temp
+    - generic [ref=f165e6]:
+      - navigation "侧边导航栏" [ref=f165e7]:
+        - generic [ref=f165e10]:
+          - generic [ref=f165e11]:
+            - navigation "主要操作菜单" [ref=f165e12]:
+              - link "发起新对话" [ref=f165e16] [cursor=pointer]:
+                - /url: /app
+                - img [ref=f165e18]: gemini_chat
+              - link "搜索对话内容" [ref=f165e23] [cursor=pointer]:
+                - /url: /search
+                - img [ref=f165e25]: search
+            - navigation "其他操作菜单" [ref=f165e27]:
+              - link "库" [ref=f165e31] [cursor=pointer]:
+                - /url: library
+                - img [ref=f165e33]: library
+          - group [ref=f165e35]:
+            - generic [ref=f165e37]:
+              - link "Google 账号：陈兴国 (chenxingguo43@gmail.com)" [ref=f165e124] [cursor=pointer]:
+                - /url: https://accounts.google.com/SignOutOptions?continue=https://gemini.google.com
+              - button "设置" [ref=f165e44] [cursor=pointer]:
+                - img [ref=f165e46]: settings
+      - generic [ref=f165e53]:
+        - generic [ref=f165e54]:
+          - heading "与 Gemini 对话" [level=1] [ref=f165e55]
+          - heading "兴国，你说，我在听！" [level=1] [ref=f165e129]
+        - generic [ref=f165e67]:
+          - group [ref=f165e68]:
+            - generic [ref=f165e71]:
+              - textbox "为 Gemini 输入提示" [ref=f165e77]:
+                - text: 问问 Gemini
+                - paragraph [ref=f165e78]
+              - button "上传和工具" [expanded] [active] [ref=f165e84] [cursor=pointer]:
+                - img [ref=f165e86]: plus
+              - generic [ref=f165e88]:
+                - group [ref=f165e91]:
+                  - button "打开模式选择器，当前模式为“Flash”" [ref=f165e172]:
+                    - generic [ref=f165e94]:
+                      - generic [ref=f165e95]: Flash
+                      - img [ref=f165e97]: keyboard_arrow_down
+                - button "麦克风" [ref=f165e105] [cursor=pointer]:
+                  - img [ref=f165e107]: mic
+          - paragraph [ref=f165e111]
+  - menu "菜单选项" [ref=f165e176]:
+    - generic [ref=f165e179]:
+      - menu "“上传文件”选项" [ref=f165e180]:
+        - menuitem "上传文件. 文档、数据、代码文件" [ref=f165e182] [cursor=pointer]:
+          - img [ref=f165e184]: attach_file
+          - generic [ref=f165e185]: 上传文件
+        - menuitem "从云端硬盘添加. 表格、文档、幻灯片" [ref=f165e191] [cursor=pointer]:
+          - img [ref=f165e192]: drive
+          - generic [ref=f165e193]: 从云端硬盘添加
+      - button "更多上传选项" [ref=f165e198] [cursor=pointer]:
+        - img [ref=f165e199]: more_horiz
+        - generic [ref=f165e201]:
+          - generic [ref=f165e202]: 更多上传选项
+          - img [ref=f165e205]: chevron_right
+    - separator [ref=f165e206]
+    - generic [ref=f165e210]:
+      - menuitemcheckbox "制作图片" [ref=f165e212] [cursor=pointer]:
+        - generic [ref=f165e215]:
+          - img [ref=f165e217]: image_create
+          - generic [ref=f165e218]: 制作图片
+      - menuitemcheckbox "制作视频" [ref=f165e222] [cursor=pointer]:
+        - generic [ref=f165e225]:
+          - img [ref=f165e227]: movie
+          - generic [ref=f165e228]: 制作视频
+      - menuitemcheckbox "制作音乐 新" [ref=f165e232] [cursor=pointer]:
+        - generic [ref=f165e235]:
+          - img [ref=f165e237]: music
+          - generic [ref=f165e238]:
+            - generic [ref=f165e239]: 制作音乐
+            - generic [ref=f165e241]: 新
+      - menuitemcheckbox "Canvas" [ref=f165e243] [cursor=pointer]:
+        - generic [ref=f165e246]:
+          - img [ref=f165e248]: canvas
+          - generic [ref=f165e249]: Canvas
+      - button "更多工具" [ref=f165e252] [cursor=pointer]:
+        - img [ref=f165e253]: more_horiz
+        - generic [ref=f165e256]:
+          - generic [ref=f165e257]: 更多工具
+          - img [ref=f165e260]: chevron_right

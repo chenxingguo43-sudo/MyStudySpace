@@ -1,0 +1,44 @@
+- main [ref=f49e11]:
+  - generic [ref=f49e13]:
+    - navigation "侧边导航栏" [ref=f49e14]:
+      - generic [ref=f49e17]:
+        - generic [ref=f49e18]:
+          - navigation "主要操作菜单" [ref=f49e19]:
+            - link "发起新对话" [ref=f49e23] [cursor=pointer]:
+              - /url: /app
+              - img [ref=f49e25]: gemini_chat
+            - link "搜索对话内容" [ref=f49e30] [cursor=pointer]:
+              - /url: /search
+              - img [ref=f49e32]: search
+          - navigation "其他操作菜单" [ref=f49e34]:
+            - link "库" [ref=f49e38] [cursor=pointer]:
+              - /url: library
+              - img [ref=f49e40]: library
+        - generic:
+          - progressbar "正在加载 Gem 和近期对话"
+        - generic:
+          - progressbar "正在加载对话记录"
+        - group [ref=f49e42]:
+          - generic [ref=f49e44]:
+            - link "Google 账号：陈兴国 (chenxingguo43@gmail.com)" [ref=f49e45] [cursor=pointer]:
+              - /url: https://accounts.google.com/SignOutOptions?continue=https://gemini.google.com
+            - button "设置" [ref=f49e50] [cursor=pointer]:
+              - img [ref=f49e52]: settings
+    - generic [ref=f49e59]:
+      - generic [ref=f49e60]:
+        - heading "与 Gemini 对话" [level=1] [ref=f49e61]
+        - generic [ref=f49e74]:
+          - heading "兴国，我们开始吧" [level=1]
+      - generic [ref=f49e76]:
+        - group [ref=f49e77]:
+          - generic [ref=f49e80]:
+            - textbox "为 Gemini 输入提示" [active] [ref=f49e86]:
+              - text: 问问 Gemini
+              - paragraph [ref=f49e87]
+            - button "上传和工具" [ref=f49e93] [cursor=pointer]:
+              - img [ref=f49e95]: plus
+            - generic [ref=f49e97]:
+              - generic [ref=f49e98]: keyboard_arrow_down
+              - button "麦克风" [ref=f49e104] [cursor=pointer]:
+                - img [ref=f49e106]: mic
+        - paragraph [ref=f49e110]

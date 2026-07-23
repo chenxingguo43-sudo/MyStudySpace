@@ -1,0 +1,89 @@
+- generic [ref=f9e1]:
+  - main [ref=f9e11]:
+    - button "打开边栏" [ref=f9e113] [cursor=pointer]:
+      - generic [ref=f9e114]: side_nav_expand
+    - generic [ref=f9e123]:
+      - generic: play_arrow
+      - button "临时对话" [ref=f9e127] [cursor=pointer]:
+        - img [ref=f9e129]: gemini_chat_temp
+    - generic [ref=f9e13]:
+      - navigation "侧边导航栏" [ref=f9e14]:
+        - generic [ref=f9e17]:
+          - generic [ref=f9e18]:
+            - navigation "主要操作菜单" [ref=f9e19]:
+              - link "发起新对话" [ref=f9e23] [cursor=pointer]:
+                - /url: /app
+                - img [ref=f9e25]: gemini_chat
+              - link "搜索对话内容" [ref=f9e30] [cursor=pointer]:
+                - /url: /search
+                - img [ref=f9e32]: search
+            - navigation "其他操作菜单" [ref=f9e34]:
+              - link "库" [ref=f9e38] [cursor=pointer]:
+                - /url: library
+                - img [ref=f9e40]: library
+          - group [ref=f9e42]:
+            - generic [ref=f9e44]:
+              - link "Google 账号：陈兴国 (chenxingguo43@gmail.com)" [ref=f9e45] [cursor=pointer]:
+                - /url: https://accounts.google.com/SignOutOptions?continue=https://gemini.google.com
+              - button "设置" [ref=f9e50] [cursor=pointer]:
+                - img [ref=f9e52]: settings
+      - generic [ref=f9e59]:
+        - generic [ref=f9e60]:
+          - heading "与 Gemini 对话" [level=1] [ref=f9e61]
+          - heading "兴国，接下来想聊点什么？" [level=1] [ref=f9e131]
+        - generic [ref=f9e75]:
+          - group [ref=f9e76]:
+            - generic [ref=f9e79]:
+              - textbox "为 Gemini 输入提示" [ref=f9e85]:
+                - text: 问问 Gemini
+                - paragraph [ref=f9e86]
+              - button "上传和工具" [expanded] [active] [ref=f9e92] [cursor=pointer]:
+                - img [ref=f9e94]: plus
+              - generic [ref=f9e96]:
+                - group [ref=f9e135]:
+                  - button "打开模式选择器，当前模式为“Pro”" [ref=f9e136]:
+                    - generic [ref=f9e138]:
+                      - generic [ref=f9e139]: Pro
+                      - img [ref=f9e141]: keyboard_arrow_down
+                - button "麦克风" [ref=f9e103] [cursor=pointer]:
+                  - img [ref=f9e105]: mic
+          - paragraph [ref=f9e109]
+  - menu "菜单选项" [ref=f9e147]:
+    - generic [ref=f9e150]:
+      - menu "“上传文件”选项" [ref=f9e151]:
+        - menuitem "上传文件. 文档、数据、代码文件" [ref=f9e153] [cursor=pointer]:
+          - img [ref=f9e155]: attach_file
+          - generic [ref=f9e156]: 上传文件
+        - menuitem "从云端硬盘添加. 表格、文档、幻灯片" [ref=f9e162] [cursor=pointer]:
+          - img [ref=f9e163]: drive
+          - generic [ref=f9e164]: 从云端硬盘添加
+      - button "更多上传选项" [ref=f9e169] [cursor=pointer]:
+        - img [ref=f9e170]: more_horiz
+        - generic [ref=f9e172]:
+          - generic [ref=f9e173]: 更多上传选项
+          - img [ref=f9e176]: chevron_right
+    - separator [ref=f9e177]
+    - generic [ref=f9e181]:
+      - menuitemcheckbox "制作图片" [ref=f9e183] [cursor=pointer]:
+        - generic [ref=f9e186]:
+          - img [ref=f9e188]: image_create
+          - generic [ref=f9e189]: 制作图片
+      - menuitemcheckbox "制作视频" [ref=f9e193] [cursor=pointer]:
+        - generic [ref=f9e196]:
+          - img [ref=f9e198]: movie
+          - generic [ref=f9e199]: 制作视频
+      - menuitemcheckbox "制作音乐 新" [ref=f9e203] [cursor=pointer]:
+        - generic [ref=f9e206]:
+          - img [ref=f9e208]: music
+          - generic [ref=f9e209]:
+            - generic [ref=f9e210]: 制作音乐
+            - generic [ref=f9e212]: 新
+      - menuitemcheckbox "Canvas" [ref=f9e214] [cursor=pointer]:
+        - generic [ref=f9e217]:
+          - img [ref=f9e219]: canvas
+          - generic [ref=f9e220]: Canvas
+      - button "更多工具" [ref=f9e223] [cursor=pointer]:
+        - img [ref=f9e224]: more_horiz
+        - generic [ref=f9e227]:
+          - generic [ref=f9e228]: 更多工具
+          - img [ref=f9e231]: chevron_right

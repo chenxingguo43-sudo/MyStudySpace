@@ -1,0 +1,68 @@
+- main [ref=f125e4]:
+  - button "打开边栏" [ref=f125e120] [cursor=pointer]:
+    - generic [ref=f125e121]: side_nav_expand
+  - generic [ref=f125e130]:
+    - generic: play_arrow
+    - button "临时对话" [ref=f125e134] [cursor=pointer]:
+      - img [ref=f125e136]: gemini_chat_temp
+  - generic [ref=f125e6]:
+    - navigation "侧边导航栏" [ref=f125e7]:
+      - generic [ref=f125e10]:
+        - generic [ref=f125e11]:
+          - navigation "主要操作菜单" [ref=f125e12]:
+            - link "发起新对话" [ref=f125e16] [cursor=pointer]:
+              - /url: /app
+              - img [ref=f125e18]: gemini_chat
+            - link "搜索对话内容" [ref=f125e23] [cursor=pointer]:
+              - /url: /search
+              - img [ref=f125e25]: search
+          - navigation "其他操作菜单" [ref=f125e27]:
+            - link "库" [ref=f125e31] [cursor=pointer]:
+              - /url: library
+              - img [ref=f125e33]: library
+        - group [ref=f125e35]:
+          - generic [ref=f125e37]:
+            - link "Google 账号：陈兴国 (chenxingguo43@gmail.com)" [ref=f125e38] [cursor=pointer]:
+              - /url: https://accounts.google.com/SignOutOptions?continue=https://gemini.google.com
+            - button "设置" [ref=f125e44] [cursor=pointer]:
+              - img [ref=f125e46]: settings
+    - generic [ref=f125e53]:
+      - generic [ref=f125e54]:
+        - heading "与 Gemini 对话" [level=1] [ref=f125e55]
+        - heading "兴国，今天心情怎么样？" [level=1] [ref=f125e105]
+      - generic [ref=f125e69]:
+        - group [ref=f125e70]:
+          - generic [ref=f125e73]:
+            - generic [ref=f125e184]:
+              - img "attachment" [ref=f125e189]
+              - img "attachment" [ref=f125e195]
+              - img "attachment" [ref=f125e201]
+              - img "attachment" [ref=f125e207]
+              - img "attachment" [ref=f125e213]
+              - img "attachment" [ref=f125e219]
+              - img "attachment" [ref=f125e225]
+              - img "attachment" [ref=f125e231]
+              - img "attachment" [ref=f125e237]
+              - img "attachment" [ref=f125e243]
+            - textbox "为 Gemini 输入提示" [active] [ref=f125e79]:
+              - paragraph [ref=f125e80]: "РКИ Златоуст B2-C1, Глава 3 (причастия, деепричастия). Транскрибируй ВСЕ упражнения одной строкой:"
+              - paragraph [ref=f125e173]
+              - paragraph [ref=f125e174]: "Номер: N / Тип: single-choice / Вопрос: текст / А) opt / Б) opt / В) opt / Г) opt"
+              - paragraph [ref=f125e175]
+              - paragraph [ref=f125e176]: Ставь --- PAGE N --- перед страницей. БЕЗ комментариев.
+            - button "上传和工具" [ref=f125e86] [cursor=pointer]:
+              - img [ref=f125e88]: plus
+            - button "将输入框展开至全屏模式" [ref=f125e179] [cursor=pointer]:
+              - img [ref=f125e180]: expand_content
+            - generic [ref=f125e90]:
+              - group [ref=f125e109]:
+                - button "打开模式选择器，当前模式为“Pro”" [ref=f125e110]:
+                  - generic [ref=f125e112]:
+                    - generic [ref=f125e113]: Pro
+                    - img [ref=f125e115]: keyboard_arrow_down
+              - generic [ref=f125e92]:
+                - button "麦克风" [ref=f125e97] [cursor=pointer]:
+                  - img [ref=f125e99]: mic
+                - button "发送" [ref=f125e247] [cursor=pointer]:
+                  - img [ref=f125e249]: arrow_upward
+        - paragraph [ref=f125e103]
