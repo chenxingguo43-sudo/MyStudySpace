@@ -295,6 +295,116 @@ body {
 .speaking-practice section, .speaking-practice details { margin: 18px 0; padding: 18px; border: 1px solid var(--border); border-radius: 12px; background: var(--surface); }
 .speaking-practice .source-warning { border-left: 3px solid var(--warning); color: var(--text-secondary); }
 
+/* ─── 写作口语 (writing-speaking) ─── */
+.ws-chapter { max-width: 860px; margin: 0 auto; padding: 0 20px 60px; }
+.ws-section-header {
+  display: flex; align-items: center; gap: 8px; padding: 0;
+}
+.ws-section-header h2 { font-size: 1.15em; font-weight: 600; color: var(--text); margin: 0; flex: 1; }
+.ws-task-badge {
+  padding: 3px 10px; border-radius: 999px; font-size: 0.78em; font-weight: 500;
+  background: var(--accent-dim); color: var(--accent);
+}
+.ws-task-type-badge {
+  padding: 3px 10px; border-radius: 999px; font-size: 0.78em; font-weight: 500;
+  background: rgba(52,211,153,0.15); color: var(--success);
+}
+.ws-reading-text {
+  font-size: 1.02em; line-height: 1.9; color: var(--ru-text);
+  white-space: pre-wrap; margin: 12px 0;
+}
+.ws-reading-note {
+  margin-top: 10px; padding: 8px 12px; border-radius: 8px;
+  background: rgba(251,191,36,0.10); color: var(--text-secondary); font-size: 0.85em;
+}
+.ws-vocab-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px;
+}
+.ws-vocab-item {
+  padding: 12px 16px; border-radius: 10px; background: var(--glass);
+  border: 1px solid var(--glass-border);
+}
+.ws-vocab-item .ru-word { font-weight: 600; color: var(--ru-text); font-size: 1.02em; }
+.ws-vocab-item .task-label { color: var(--text-secondary); font-size: 0.82em; margin-top: 4px; }
+.ws-vocab-item .option { color: var(--text-dim); font-size: 0.85em; }
+.ws-vocab-item .sentence { color: var(--text-secondary); font-size: 0.92em; line-height: 1.6; }
+.ws-task-prompt {
+  font-size: 0.95em; line-height: 1.75; color: var(--text-secondary);
+  white-space: pre-wrap; margin: 8px 0;
+}
+.ws-task-prompt.ru-text { color: var(--ru-text); }
+.ws-task-meta {
+  display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0;
+  align-items: center;
+}
+.ws-task-meta span {
+  padding: 3px 10px; border-radius: 999px; font-size: 0.78em;
+  background: var(--glass); color: var(--text-secondary); border: 1px solid var(--glass-border);
+}
+.ws-task-meta .time-badge { background: rgba(251,191,36,0.12); color: var(--warning); border-color: rgba(251,191,36,0.20); }
+.ws-requirements { margin: 10px 0; padding: 0; list-style: none; }
+.ws-requirements li { padding: 4px 0 4px 20px; position: relative; font-size: 0.88em; color: var(--text-secondary); }
+.ws-requirements li::before { content: '▸'; position: absolute; left: 0; color: var(--accent); }
+.ws-draft-area { width: 100%; min-height: 120px; margin: 12px 0; padding: 14px 16px;
+  border: 1px solid var(--glass-border); border-radius: 10px; background: var(--glass);
+  color: var(--ru-text); font-family: inherit; font-size: 0.95em; line-height: 1.7;
+  resize: vertical; box-sizing: border-box;
+}
+.ws-draft-area:focus { border-color: var(--accent-border); outline: none; box-shadow: 0 0 0 2px var(--accent-dim); }
+.ws-draft-status { font-size: 0.78em; color: var(--text-dim); margin: 4px 0 0; }
+.ws-draft-count { font-size: 0.78em; color: var(--text-dim); margin-left: 8px; }
+.ws-replica { margin: 8px 0; padding: 10px 14px; border-left: 3px solid var(--accent); border-radius: 0 8px 8px 0;
+  background: var(--glass); font-style: italic; color: var(--text); font-size: 0.95em;
+}
+.ws-expressions { margin: 10px 0; padding: 0; list-style: none; }
+.ws-expressions li {
+  display: flex; flex-wrap: wrap; gap: 4px 10px; padding: 6px 0;
+  border-bottom: 1px solid var(--border); font-size: 0.9em;
+}
+.ws-expressions li:last-child { border-bottom: none; }
+.ws-expressions .expr-ru { color: var(--ru-text); font-weight: 500; }
+.ws-expressions .expr-zh { color: var(--text-secondary); }
+.ws-expressions .expr-cat { font-size: 0.75em; color: var(--text-dim); padding: 1px 6px; border-radius: 999px;
+  background: var(--glass); margin-left: auto;
+}
+.ws-framework { margin: 14px 0; padding: 14px 18px; border-radius: 10px;
+  background: var(--glass); border: 1px solid var(--glass-border);
+}
+.ws-framework h4 { margin: 0 0 8px; font-size: 0.92em; color: var(--accent); }
+.ws-framework ol { margin: 0; padding-left: 20px; }
+.ws-framework li { font-size: 0.88em; color: var(--text-secondary); line-height: 1.7; }
+.ws-model-answer { font-size: 0.92em; line-height: 1.8; color: var(--ru-text);
+  white-space: pre-wrap; margin: 8px 0; padding: 14px 18px;
+  border-radius: 10px; background: var(--glass);
+}
+.ws-risks { margin: 8px 0; padding: 0; list-style: none; }
+.ws-risks li { padding: 4px 0 4px 20px; position: relative; font-size: 0.88em; color: var(--text-secondary); }
+.ws-risks li::before { content: '⚠'; position: absolute; left: 0; }
+.ws-ai-warning {
+  margin: 24px 0 16px; padding: 12px 16px; border-radius: 8px;
+  background: rgba(251,191,36,0.08); border: 1px solid rgba(251,191,36,0.20);
+  font-size: 0.85em; color: var(--text-secondary); text-align: center;
+}
+.ws-expression-filter {
+  display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px;
+}
+.ws-expression-filter button {
+  padding: 3px 10px; border-radius: 999px; border: 1px solid var(--glass-border);
+  background: var(--glass); color: var(--text-secondary); font-size: 0.78em; cursor: pointer;
+  transition: all 0.2s;
+}
+.ws-expression-filter button.active, .ws-expression-filter button:hover {
+  background: var(--accent-dim); color: var(--accent); border-color: var(--accent-border);
+}
+.ws-bottom-nav { display: flex; justify-content: center; align-items: center; gap: 16px;
+  padding: 30px 0 40px; flex-wrap: wrap;
+}
+@media (max-width: 640px) {
+  .ws-chapter { padding: 0 12px 40px; }
+  .ws-vocab-grid { grid-template-columns: 1fr; }
+  .ws-bottom-nav { gap: 10px; }
+}
+
 /* ─── 学习辅助卡片化 ─── */
 .learning-support { max-width: 780px; margin: 0 auto; padding: 24px 0 40px; }
 .source-warning {
@@ -1149,6 +1259,7 @@ function showBreadcrumb() {
   if (currentQuizData && currentQuizData.title) curTitle = currentQuizData.title;
   else if (currentReadingData && currentReadingData.title) curTitle = currentReadingData.title;
   else if (_currentRSData && _currentRSData.title) curTitle = _currentRSData.title;
+  else if (_currentWSData && _currentWSData.title) curTitle = _currentWSData.title;
   else if (currentWritingData && currentWritingData.title) curTitle = currentWritingData.title;
   else if (currentSpeakingData && currentSpeakingData.title) curTitle = currentSpeakingData.title;
   else if (currentListeningData && currentListeningData.title) curTitle = currentListeningData.title;
@@ -1313,7 +1424,7 @@ function getBookById(bookId) {
 }
 function shouldUseScrollCompletion() {
   if (curView !== 'reading' || curCh < 0 || isQuizFirstBook(curBook)) return false;
-  return !curBook || (curBook.format !== 'reading-practice' && curBook.format !== 'writing-workbench' && curBook.format !== 'speaking-practice' && curBook.format !== 'listening-practice');
+  return !curBook || (curBook.format !== 'reading-practice' && curBook.format !== 'writing-workbench' && curBook.format !== 'speaking-practice' && curBook.format !== 'listening-practice' && curBook.format !== 'writing-speaking');
 }
 function isChapterCompleted(bookId, chIdx) {
   if (!bookId || chIdx < 0) return false;
@@ -1716,6 +1827,7 @@ var _wrongAnswerBookReturn = 'showShelf()'; // 错题本的返回动作：从书
 var _wrongAnswerQuizReturn = null; // 从错题本跳入题目时保存的筛选状态
 var _currentRSExercises = [];
 var _currentRSData = null;
+var _currentWSData = null;
 
 function getB2Progress() {
   try { return migrateB2Progress(JSON.parse(localStorage.getItem(B2_PROGRESS_KEY)) || {}); }
@@ -2247,6 +2359,13 @@ function rerenderReadingPracticePreservingScroll() {
 }
 
 var WRITING_DRAFTS_KEY = 'russian_b2_writing_drafts_v1';
+var WS_DRAFTS_KEY = 'rr_ws_drafts_v1';
+function getWsDrafts() { try { return JSON.parse(localStorage.getItem(WS_DRAFTS_KEY) || '{}'); } catch (e) { return {}; } }
+function saveWsDraft(taskId, value) {
+  var drafts = getWsDrafts(); drafts[taskId] = { value: value, updatedAt: new Date().toISOString() };
+  try { localStorage.setItem(WS_DRAFTS_KEY, JSON.stringify(drafts)); } catch (e) {}
+  var el = document.getElementById('ws-draft-status-' + taskId); if (el) el.textContent = '已保存 ' + new Date().toLocaleTimeString('zh-CN', {hour:'2-digit',minute:'2-digit'});
+}
 var WRITING_VERSIONS_KEY = 'russian_b2_writing_versions_v1';
 var WRITING_MODEL_UNLOCKS_KEY = 'russian_b2_writing_model_unlocks_v1';
 var WRITING_COMPLETED_KEY = 'russian_b2_writing_completed_v1';
@@ -2402,19 +2521,31 @@ function saveSpeakingRecording(taskId, blob) {
 }
 function setSpeakingRecordingStatus(message) { var el = document.getElementById('speaking-recording-status'); if (el) el.textContent = message; }
 function startSpeakingRecording() {
-  if (!currentSpeakingData || !navigator.mediaDevices || !navigator.mediaDevices.getUserMedia || !window.MediaRecorder) { setSpeakingRecordingStatus('当前浏览器不支持录音；可先用下方文字提纲练习。'); return; }
+  var speakTaskId = (currentSpeakingData && currentSpeakingData.id) || (window._wsSpeakTaskId) || null;
+  if (!speakTaskId || !navigator.mediaDevices || !navigator.mediaDevices.getUserMedia || !window.MediaRecorder) { setSpeakingRecordingStatus('当前浏览器不支持录音；可先用下方文字提纲练习。'); return; }
   navigator.mediaDevices.getUserMedia({ audio: true }).then(function(stream) {
     activeSpeakingStream = stream; activeSpeakingChunks = []; activeSpeakingRecorder = new MediaRecorder(stream);
     activeSpeakingRecorder.ondataavailable = function(event) { if (event.data && event.data.size) activeSpeakingChunks.push(event.data); };
     activeSpeakingRecorder.onstop = function() {
       var blob = new Blob(activeSpeakingChunks, { type: activeSpeakingRecorder.mimeType || 'audio/webm' });
       var player = document.getElementById('speaking-playback'); if (player) { player.src = URL.createObjectURL(blob); player.hidden = false; }
-      saveSpeakingRecording(currentSpeakingData.id, blob).then(function() { setSpeakingRecordingStatus('已保存到本机录音库；可回听，刷新后录音仍保留在此浏览器。'); }).catch(function() { setSpeakingRecordingStatus('录音已生成，但本机保存失败；请立即回听或重录。'); });
+      saveSpeakingRecording(speakTaskId, blob).then(function() { setSpeakingRecordingStatus('已保存到本机录音库；可回听，刷新后录音仍保留在此浏览器。'); }).catch(function() { setSpeakingRecordingStatus('录音已生成，但本机保存失败；请立即回听或重录。'); });
       if (activeSpeakingStream) activeSpeakingStream.getTracks().forEach(function(track) { track.stop(); }); activeSpeakingStream = null; activeSpeakingRecorder = null;
       var start = document.getElementById('start-speaking-recording'), stop = document.getElementById('stop-speaking-recording'); if (start) start.disabled = false; if (stop) stop.disabled = true;
+      // Also handle writing-speaking recording buttons
+      if (window._wsSpeakTaskId) {
+        var wsStart = document.getElementById('ws-start-rec-' + window._wsSpeakTaskId);
+        var wsStop = document.getElementById('ws-stop-rec-' + window._wsSpeakTaskId);
+        if (wsStart) wsStart.disabled = false; if (wsStop) wsStop.disabled = true;
+      }
     };
     activeSpeakingRecorder.start(); setSpeakingRecordingStatus('正在录音…结束后会保存在本机。');
     document.getElementById('start-speaking-recording').disabled = true; document.getElementById('stop-speaking-recording').disabled = false;
+    if (window._wsSpeakTaskId) {
+      var wsStart2 = document.getElementById('ws-start-rec-' + window._wsSpeakTaskId);
+      var wsStop2 = document.getElementById('ws-stop-rec-' + window._wsSpeakTaskId);
+      if (wsStart2) wsStart2.disabled = true; if (wsStop2) wsStop2.disabled = false;
+    }
   }).catch(function() { setSpeakingRecordingStatus('未取得麦克风权限；你仍可用文字提纲完成练习。'); });
 }
 function stopSpeakingRecording() { if (activeSpeakingRecorder && activeSpeakingRecorder.state !== 'inactive') activeSpeakingRecorder.stop(); }
@@ -2715,6 +2846,7 @@ function renderChapter(data, restoreState) {
   if (data.format === 'speaking-practice') { renderSpeakingPractice(data, scrollPosition, restoreState); return; }
   if (data.format === 'listening-practice') { renderListeningPractice(data, scrollPosition, restoreState); return; }
   if (data.format === 'exam-practice') { renderExamPracticeChapter(data, scrollPosition, restoreState); return; }
+  if (data.format === 'writing-speaking') { renderWritingSpeakingChapter(data, scrollPosition, restoreState); return; }
   if (curBook && curBook.id === 'reading_speaking') { renderReadingSpeakingChapter(data, scrollPosition, restoreState); return; }
   var globalDictionaryPanel = document.querySelector('#detailPanel.dictionary-global-panel');
   if (globalDictionaryPanel) globalDictionaryPanel.remove();
@@ -4208,6 +4340,272 @@ function getReadingSpeakingExercise(exId) {
 /* ══════════════════════════════════════════════
    В мире людей — 章节阅读页
    ══════════════════════════════════════════════ */
+/* ══════════════════════════════════════════════
+   写作口语 (writing-speaking) 渲染
+   ══════════════════════════════════════════════ */
+
+function renderWritingSpeakingChapter(data, scrollPosition, restoreState) {
+  _currentWSData = data;
+  dictionaryController.setExamPolicy({ mode: 'learning', lookupUnlocked: true });
+
+  var totalChapters = (curBook && curBook.chapters) || 19;
+  var navP = curCh > 0 ? '<button class="fab-nav" onclick="goChapter(' + (curCh - 1) + ')">← 上一章</button>' : '<span class="fab-nav disabled">← 上一章</span>';
+  var navN = curCh < totalChapters - 1 ? '<button class="fab-nav" onclick="goChapter(' + (curCh + 1) + ')">下一章 →</button>' : '<span class="fab-nav disabled">下一章 →</span>';
+
+  var html = b2FloatingNavigation({ backAction: 'showShelf()', backTitle: '书架', menuAction: 'showBreadcrumb()' });
+
+  // Header
+  var sourcePages = (data.sourcePages || []).map(function(p) { return 'PDF-' + String(p).padStart(3, '0'); }).join('、');
+  var sectionInfo = data.section ? '<p class="reading-answer-source">' + escapeHtml(data.section) + ' · 原书页：' + escapeHtml(sourcePages) + '</p>' : '';
+  html += '<main class="ws-chapter"><header class="chapter-header">';
+  html += '<h1>第 ' + (curCh + 1) + ' 章</h1>';
+  html += '<h2>' + escapeHtml(data.title || '') + '</h2>';
+  html += sectionInfo;
+  html += '</header>';
+
+  // Source warning
+  html += '<div class="source-warning"><strong>⚠ ' + escapeHtml(data.sourceLabel || '原书内容 · OCR 来源 · 未经人工核对') + '</strong></div>';
+
+  // ─── Reading Material ───
+  if (data.readingMaterial && data.readingMaterial.text) {
+    var readingText = renderRuText(data.readingMaterial.text, lookupContext('reading', data.id + '-reading', 'reading-body', data.readingMaterial.text, '', data.sourcePages || []));
+    html += '<details class="learning-card" open>';
+    html += '<summary class="ws-section-header"><h2>📖 阅读材料</h2></summary>';
+    html += '<div class="ws-reading-text">' + readingText + '</div>';
+    if (data.readingMaterial.note) html += '<div class="ws-reading-note">📌 ' + escapeHtml(data.readingMaterial.note) + '</div>';
+    html += '</details>';
+  }
+
+  // ─── Vocabulary Prep ───
+  if (data.vocabularyPrep && data.vocabularyPrep.length > 0) {
+    html += '<details class="learning-card">';
+    html += '<summary class="ws-section-header"><h2>📝 词汇准备</h2><span class="ws-task-badge">' + data.vocabularyPrep.length + ' 项</span></summary>';
+    html += '<div class="ws-vocab-grid">';
+    data.vocabularyPrep.forEach(function(item) {
+      if (item.task === '解释并造句') {
+        html += '<div class="ws-vocab-item"><div class="ru-word">' + renderRuText(item.word, lookupContext('vocab', data.id + '-v-' + item.word, 'vocab', item.word, '', [])) + '</div><div class="task-label">解释并造句</div></div>';
+      } else if (item.task === '近义词配对') {
+        html += '<div class="ws-vocab-item"><div class="ru-word">' + renderRuText(item.word, lookupContext('vocab', data.id + '-vp-' + item.word, 'vocab', item.word, '', [])) + '</div><div class="option">' + escapeHtml(item.option || '') + '</div><div class="task-label">近义词配对</div></div>';
+      } else if (item.task === '改写句子') {
+        html += '<div class="ws-vocab-item"><div class="sentence">' + renderRuText(item.sentence || '', lookupContext('vocab', data.id + '-vs-' + (item.sentence || '').slice(0,20), 'vocab', item.sentence || '', '', [])) + '</div><div class="task-label">改写句子</div></div>';
+      } else {
+        html += '<div class="ws-vocab-item"><div class="ru-word">' + renderRuText(item.word || '', lookupContext('vocab', data.id + '-vx-' + (item.word || ''), 'vocab', item.word || '', '', [])) + '</div><div class="task-label">' + escapeHtml(item.task || '') + '</div></div>';
+      }
+    });
+    html += '</div></details>';
+  }
+
+  // ─── Writing Tasks ───
+  if (data.writingTasks && data.writingTasks.length > 0) {
+    html += '<details class="learning-card" open>';
+    html += '<summary class="ws-section-header"><h2>✍️ 写作任务</h2><span class="ws-task-badge">' + data.writingTasks.length + ' 项</span></summary>';
+
+    data.writingTasks.forEach(function(task, ti) {
+      var taskId = data.id + '_task' + ti;
+      var draft = (getWsDrafts()[taskId] || {}).value || '';
+      var wordCount = draft ? draft.split(/\s+/).filter(Boolean).length : 0;
+
+      html += '<details class="learning-card ws-framework" style="margin-bottom:14px">';
+      html += '<summary style="display:flex;align-items:center;gap:8px;cursor:pointer">';
+      html += '<span style="font-weight:600;color:var(--text)">[' + (ti + 1) + '/' + data.writingTasks.length + '] ' + escapeHtml(task.title || '写作任务') + '</span>';
+      if (task.type) html += '<span class="ws-task-type-badge">' + escapeHtml(task.type) + '</span>';
+      if (task.time) html += '<span class="ws-task-meta" style="margin:0"><span class="time-badge">⏱ ' + escapeHtml(task.time) + '</span></span>';
+      html += '</summary>';
+
+      // Task prompt
+      if (task.prompt) {
+        var isRuText = task.prompt.match(/[А-Яа-яЁё]/);
+        html += '<div class="ws-task-prompt' + (isRuText ? ' ru-text' : '') + '">' + renderRuText(task.prompt, lookupContext('writing', taskId, 'writing-material', task.prompt, '', data.sourcePages || [])) + '</div>';
+      }
+
+      // Requirements
+      if (task.requirements && task.requirements.length > 0) {
+        html += '<ul class="ws-requirements">';
+        task.requirements.forEach(function(req) {
+          html += '<li>' + escapeHtml(req) + '</li>';
+        });
+        html += '</ul>';
+      }
+
+      // Source page
+      if (task.sourcePage) {
+        html += '<div class="ws-task-meta"><span>原书第 ' + task.sourcePage + ' 页</span></div>';
+      }
+
+      // Draft textarea
+      html += '<textarea class="ws-draft-area" id="ws-draft-' + escapeHtml(taskId) + '" placeholder="在这里用俄语起草…" oninput="saveWsDraft(\'' + escapeHtml(taskId) + '\', this.value);var cnt=this.value.split(/\\s+/).filter(Boolean).length;var el=document.getElementById(\'ws-draft-count-' + escapeHtml(taskId) + '\');if(el)el.textContent=cnt+\' 词\'">' + escapeHtml(draft) + '</textarea>';
+      html += '<div style="display:flex;align-items:center;gap:8px;margin-top:4px">';
+      html += '<span class="ws-draft-status" id="ws-draft-status-' + escapeHtml(taskId) + '">本地自动保存</span>';
+      html += '<span class="ws-draft-count" id="ws-draft-count-' + escapeHtml(taskId) + '">' + wordCount + ' 词</span>';
+      html += '</div>';
+
+      html += '</details>';
+    });
+
+    html += '</details>';
+  }
+
+  // ─── Speaking Tasks ───
+  if (data.speakingTasks && data.speakingTasks.length > 0) {
+    html += '<details class="learning-card" open>';
+    html += '<summary class="ws-section-header"><h2>🗣 口语任务</h2><span class="ws-task-badge">' + data.speakingTasks.length + ' 项</span></summary>';
+
+    data.speakingTasks.forEach(function(task, ti) {
+      var taskId = data.id + '_speak' + ti;
+
+      html += '<details class="learning-card ws-framework" style="margin-bottom:14px">';
+      html += '<summary style="display:flex;align-items:center;gap:8px;cursor:pointer">';
+      html += '<span style="font-weight:600;color:var(--text)">[' + (ti + 1) + '/' + data.speakingTasks.length + '] ' + escapeHtml(task.title || '口语任务') + '</span>';
+      if (task.type) html += '<span class="ws-task-type-badge">' + escapeHtml(task.type) + '</span>';
+      html += '</summary>';
+
+      // Task prompt
+      if (task.prompt) {
+        html += '<div class="ws-task-prompt ru-text">' + renderRuText(task.prompt, lookupContext('speaking', taskId, 'speaking-reference', task.prompt, '', data.sourcePages || [])) + '</div>';
+      }
+
+      // Replica
+      if (task.replica) {
+        html += '<div class="ws-replica">💬 ' + escapeHtml(task.replica) + '</div>';
+      }
+
+      // Expressions (for интенции tasks)
+      if (task.expressions && task.expressions.length > 0) {
+        html += '<div style="margin-top:10px"><strong style="color:var(--text-secondary);font-size:0.88em">Выражения:</strong></div>';
+        html += '<ul class="ws-requirements">';
+        task.expressions.forEach(function(expr) {
+          html += '<li>' + escapeHtml(expr) + '</li>';
+        });
+        html += '</ul>';
+      }
+
+      // Recording UI (reuse speaking-practice recording)
+      html += '<div style="margin-top:12px"><strong style="color:var(--text-secondary);font-size:0.88em">🎤 录音练习</strong></div>';
+      html += '<div class="speaking-recording-controls" style="margin:8px 0">';
+      html += '<button class="tb-btn" id="ws-start-rec-' + escapeHtml(taskId) + '" onclick="window._wsSpeakTaskId=\'' + escapeHtml(taskId) + '\';startSpeakingRecording()">开始录音</button>';
+      html += '<button class="tb-btn" id="ws-stop-rec-' + escapeHtml(taskId) + '" onclick="stopSpeakingRecording()" disabled>结束录音</button>';
+      html += '<span class="speaking-recording-status" id="speaking-recording-status">尚未录音</span>';
+      html += '</div>';
+      html += '<audio id="speaking-playback" class="speaking-playback" controls hidden style="margin-top:8px;width:100%;max-width:400px"></audio>';
+
+      html += '</details>';
+    });
+
+    html += '</details>';
+  }
+
+  // ─── Study Support (AI-generated) ───
+  var support = data.studySupport || {};
+  var hasSupport = (support.expressions && support.expressions.length > 0) ||
+    (support.outputFrameworks && support.outputFrameworks.length > 0) ||
+    (support.modelAnswers && Object.keys(support.modelAnswers).length > 0) ||
+    (support.scoringRisks && support.scoringRisks.length > 0) ||
+    (support.extraPrompts && support.extraPrompts.length > 0);
+
+  if (hasSupport) {
+    html += '<div class="ws-ai-warning">⚠ 以下为 AI 生成的学习辅助内容 · 未经人工核对</div>';
+
+    // Expressions
+    if (support.expressions && support.expressions.length > 0) {
+      // Collect unique categories
+      var categories = [];
+      var seenCats = {};
+      support.expressions.forEach(function(e) {
+        var cat = e.category || '通用';
+        if (!seenCats[cat]) { seenCats[cat] = true; categories.push(cat); }
+      });
+
+      html += '<details class="learning-card">';
+      html += '<summary class="ws-section-header"><h2>💬 可复用表达</h2><span class="ws-task-badge">' + support.expressions.length + ' 条</span></summary>';
+
+      // Category filter
+      if (categories.length > 1) {
+        html += '<div class="ws-expression-filter"><button class="active" onclick="var p=this.parentElement;var all=p.querySelectorAll(\'button\');all.forEach(function(b){b.classList.remove(\'active\')});this.classList.add(\'active\');var items=p.parentElement.querySelectorAll(\'.ws-expressions li\');var cat=this.textContent;items.forEach(function(li){li.style.display=cat===\'全部\'||li.dataset.cat===cat?\'\':\'none\'})">全部</button>';
+        categories.forEach(function(cat) {
+          html += '<button onclick="var p=this.parentElement;var all=p.querySelectorAll(\'button\');all.forEach(function(b){b.classList.remove(\'active\')});this.classList.add(\'active\');var items=p.parentElement.parentElement.querySelectorAll(\'.ws-expressions li\');items.forEach(function(li){li.style.display=li.dataset.cat===\'' + escapeHtml(cat) + '\'?\'\':\'none\'})">' + escapeHtml(cat) + '</button>';
+        });
+        html += '</div>';
+      }
+
+      html += '<ul class="ws-expressions">';
+      support.expressions.forEach(function(expr) {
+        html += '<li data-cat="' + escapeHtml(expr.category || '通用') + '">';
+        html += '<span class="expr-ru">' + renderRuText(expr.ru || '', lookupContext('expression', data.id + '-e-' + (expr.ru || '').slice(0,20), 'expression', expr.ru || '', expr.zh || '', [])) + '</span>';
+        if (expr.zh) html += '<span class="expr-zh">' + escapeHtml(expr.zh) + '</span>';
+        if (expr.category) html += '<span class="expr-cat">' + escapeHtml(expr.category) + '</span>';
+        html += '</li>';
+      });
+      html += '</ul></details>';
+    }
+
+    // Output Frameworks
+    if (support.outputFrameworks && support.outputFrameworks.length > 0) {
+      html += '<details class="learning-card">';
+      html += '<summary class="ws-section-header"><h2>📐 输出框架</h2></summary>';
+      support.outputFrameworks.forEach(function(fw) {
+        html += '<div class="ws-framework">';
+        html += '<h4>' + escapeHtml(fw.for || '写作框架') + '</h4>';
+        html += '<ol>';
+        (fw.steps || []).forEach(function(step) {
+          html += '<li>' + escapeHtml(step) + '</li>';
+        });
+        html += '</ol></div>';
+      });
+      html += '</details>';
+    }
+
+    // Model Answers
+    var modelKeys = support.modelAnswers ? Object.keys(support.modelAnswers) : [];
+    if (modelKeys.length > 0) {
+      html += '<details class="learning-card">';
+      html += '<summary class="ws-section-header"><h2>📋 范文 / 回答示例</h2><span class="ws-task-badge">' + modelKeys.length + ' 篇</span></summary>';
+      modelKeys.forEach(function(key) {
+        var answer = support.modelAnswers[key];
+        html += '<div style="margin-bottom:16px">';
+        html += '<h4 style="color:var(--accent);font-size:0.92em;margin:0 0 8px">' + escapeHtml(key.replace(/_/g, ' ')) + '</h4>';
+        html += '<div class="ws-model-answer">' + renderRuText(answer, lookupContext('model', data.id + '-m-' + key, 'model-answer', answer, '', [])) + '</div>';
+        html += '</div>';
+      });
+      html += '</details>';
+    }
+
+    // Scoring Risks
+    if (support.scoringRisks && support.scoringRisks.length > 0) {
+      html += '<details class="learning-card">';
+      html += '<summary class="ws-section-header"><h2>⚠ 评分风险</h2><span class="ws-task-badge">' + support.scoringRisks.length + ' 条</span></summary>';
+      html += '<ul class="ws-risks">';
+      support.scoringRisks.forEach(function(risk) {
+        html += '<li>' + escapeHtml(risk) + '</li>';
+      });
+      html += '</ul></details>';
+    }
+
+    // Extra Prompts (追问/变体)
+    if (support.extraPrompts && support.extraPrompts.length > 0) {
+      html += '<details class="learning-card">';
+      html += '<summary class="ws-section-header"><h2>💡 口语追问 / 写作变体</h2><span class="ws-task-badge">' + support.extraPrompts.length + ' 条</span></summary>';
+      html += '<ul class="ws-requirements">';
+      support.extraPrompts.forEach(function(prompt) {
+        html += '<li>' + escapeHtml(prompt) + '</li>';
+      });
+      html += '</ul></details>';
+    }
+  }
+
+  // ─── Bottom Navigation ───
+  html += '<div class="ws-bottom-nav">' + navP +
+    '<span class="fab-chapter">第 ' + (curCh + 1) + ' / ' + totalChapters + ' 章</span>' +
+    '<button id="markDoneBtn" class="fab-nav fab-mark-done" onclick="markChapterDone()"' + (isChapterCompleted(curBook ? curBook.id : '', curCh) ? ' disabled' : '') + '>✓ 标记完成</button>' +
+    navN + '</div>';
+
+  html += '</main>';
+
+  document.getElementById('app').innerHTML = html;
+  window.scrollTo(0, typeof scrollPosition === 'number' ? scrollPosition : 0);
+  applyTheme();
+  saveLastRead(arguments[2]);
+}
+
 function renderReadingSpeakingChapter(data, scrollPosition, restoreState) {
   _currentRSData = data;
   var paras = data.original || [], trans = data.translated || [];

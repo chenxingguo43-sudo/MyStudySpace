@@ -23,6 +23,35 @@
       "description": "ТРКИ-2/3 听力口语教材，63 段听力练习"
     },
     {
+      "id": "writing_speaking",
+      "kind": "textbook",
+      "format": "writing-speaking",
+      "title": "В мире людей — 写作口语",
+      "author": "М.Н. Макова, О.А. Ускова",
+      "direction": "ru→cn",
+      "chapters": 19,
+      "dir": "writing_speaking",
+      "description": "ТРКИ-2/3 写作口语教材，19 个主题，含阅读材料、写作任务、口语练习"
+    },
+    {
+      "id": "zlatoust_grammar",
+      "kind": "textbook",
+      "format": "quiz-first",
+      "title": "语法词汇训练测试 · Выпуск 1",
+      "author": "А.И. Захарова, Е.Н. Лукьянов и др.",
+      "direction": "ru→cn",
+      "chapters": 5,
+      "dir": "zlatoust_grammar",
+      "description": "Златоуст 语法词汇训练测试题，5 章，~1000 道选择题，含详细语法理论讲解",
+      "chapterTitles": [
+        "Глава 1. 词类用法与一致关系",
+        "Глава 2. 简单句中的格关系与疏状关系",
+        "Глава 3. 形动词与副动词",
+        "Глава 4. 复合句",
+        "Глава 5. 词汇语义与功能修辞"
+      ]
+    },
+    {
       "id": "russian_b2",
       "kind": "textbook",
       "format": "b2-full",
