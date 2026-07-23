@@ -1830,7 +1830,7 @@ function goChapter(idx, restoreState) {
   } else if (curBook && curBook.id === 'reading_speaking') {
     chapterNavigation = b2FloatingNavigation({ backAction: 'showReadingSpeakingDashboard()', backTitle: '仪表盘', menuAction: 'showBreadcrumb()' });
   } else if (isQuizFirstBook(curBook)) {
-    chapterNavigation = b2FloatingNavigation({ backAction: 'showChapters(\'' + escapeHtml(curBook.id) + '\')', backTitle: '章节目录', menuAction: 'showBreadcrumb()' });
+    chapterNavigation = b2FloatingNavigation({ backAction: 'showB2Dashboard()', backTitle: '仪表盘', menuAction: 'showBreadcrumb()' });
   } else {
     chapterNavigation = toolbar('第 ' + (idx + 1) + ' 章',
       '<button class="tb-btn" onclick="toggleSearch()" title="搜索 (Ctrl+F)">🔍</button>' +
