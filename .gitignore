@@ -17,3 +17,8 @@ data/audio-manifest.json
 data/novel/
 .codex/
 node_modules
+_zlatoust_pages/
+_zlatoust_transcriptions/*.txt
+_zlatoust_transcriptions/*.json
+!_zlatoust_transcriptions/SESSION_END_STATE.md
+!_zlatoust_transcriptions/CHECKPOINT.md
