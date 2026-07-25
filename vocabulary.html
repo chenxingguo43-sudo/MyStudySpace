@@ -74,6 +74,19 @@
         }
         .slim-hamburger:hover { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.9); }
         .slim-hamburger:active { background: rgba(255,255,255,0.04); }
+        .slim-page-switcher {
+            display: inline-flex; align-items: center; gap: 2px; flex-shrink: 0;
+            margin-left: 2px; padding: 3px; border-radius: 8px;
+            background: rgba(255,255,255,0.06);
+        }
+        .slim-page-switcher button {
+            min-height: 28px; border: 0; border-radius: 6px; padding: 0 8px;
+            background: transparent; color: rgba(255,255,255,0.55); cursor: pointer;
+            font: inherit; font-size: 12px; white-space: nowrap;
+        }
+        .slim-page-switcher button:hover { color: rgba(255,255,255,0.9); background: rgba(255,255,255,0.08); }
+        .slim-page-switcher button.is-active { color: #c7d2fe; background: rgba(79,70,229,0.34); font-weight: 700; }
+        .slim-page-switcher button:focus-visible { outline: 3px solid #a5b4fc; outline-offset: 2px; }
         .slim-mode-label {
             font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.7);
             white-space: nowrap; flex-shrink: 0; padding: 0 4px 0 2px;
@@ -985,6 +998,8 @@
 
         /* ─── 响应式 ─── */
         @media (max-width: 480px) {
+            .slim-mode-label, .slim-stats, .slim-progress, .slim-mode-quick { display: none; }
+            .slim-page-switcher { margin-left: auto; margin-right: 4px; }
             .card-word { font-size: 24px; }
             .card-meaning { font-size: 17px; }
             .main-container { padding: 12px 10px 90px; }
@@ -1031,6 +1046,10 @@
         <!-- 精简顶栏：收起时只显示核心状态 -->
         <div class="slim-bar" id="slimBar">
             <button class="slim-hamburger" id="slimHamburger" onclick="toggleControlPanel()" title="展开控件面板 (M)">🍔</button>
+            <nav class="slim-page-switcher" aria-label="学习应用切换">
+                <button type="button" onclick="openReader()">阅读器</button>
+                <button type="button" class="is-active" aria-current="page">生词本</button>
+            </nav>
             <span class="slim-mode-label" id="slimModeLabel">🚀 刷词模式</span>
             <span class="slim-stats" id="slimStats">0/0</span>
             <div class="slim-progress">
@@ -1138,7 +1157,8 @@
     var REVIEW_KEY = 'vocabulary-review-records';
     var EXTRAS_KEY = 'vocabulary-extras';
     var SETTINGS_KEY = 'vocabulary-settings';
-    var POMODORO_CUSTOM_BG_KEY = 'pomodoro-custom-bgs';
+    var VOCAB_CUSTOM_BG_KEY = 'vocabulary-custom-bgs-v1';
+    var LEGACY_POMODORO_CUSTOM_BG_KEY = 'pomodoro-custom-bgs';
     var VOCAB_BG_OPTIONS = [
         { name: '默认', url: 'default' },
         { name: '风景1', url: 'assets/IMG_20260405_015648.jpg' },
@@ -1357,18 +1377,27 @@
         localStorage.setItem(SETTINGS_KEY, JSON.stringify(s));
     }
 
-    function getPomodoroCustomBackgrounds() {
+    function getVocabCustomBackgrounds() {
         try {
-            var items = JSON.parse(localStorage.getItem(POMODORO_CUSTOM_BG_KEY)) || [];
-            return Array.isArray(items) ? items : [];
+            var raw = localStorage.getItem(VOCAB_CUSTOM_BG_KEY);
+            if (raw) {
+                var items = JSON.parse(raw);
+                return Array.isArray(items) ? items : [];
+            }
+            var legacy = JSON.parse(localStorage.getItem(LEGACY_POMODORO_CUSTOM_BG_KEY)) || [];
+            if (!Array.isArray(legacy)) return [];
+            localStorage.setItem(VOCAB_CUSTOM_BG_KEY, JSON.stringify(legacy));
+            return legacy;
         } catch(e) {
             return [];
         }
     }
 
-    function savePomodoroCustomBackgrounds(items) {
-        localStorage.setItem(POMODORO_CUSTOM_BG_KEY, JSON.stringify(items));
+    function saveVocabCustomBackgrounds(items) {
+        localStorage.setItem(VOCAB_CUSTOM_BG_KEY, JSON.stringify(items));
     }
+
+    function openReader() { window.location.href = 'reader.html'; }
 
     function getCurrentVocabBackground() {
         return getSettings().background || 'default';
@@ -1401,7 +1430,7 @@
         var grid = document.getElementById('vocabBgGrid');
         if (!grid) return;
         var current = getCurrentVocabBackground();
-        var custom = getPomodoroCustomBackgrounds();
+        var custom = getVocabCustomBackgrounds();
         var html = '';
         VOCAB_BG_OPTIONS.forEach(function(bg) {
             html += buildVocabBgTile(bg.name, bg.url, current, false);
@@ -1431,10 +1460,10 @@
         var reader = new FileReader();
         reader.onload = function(e) {
             var url = e.target.result;
-            var items = getPomodoroCustomBackgrounds();
+            var items = getVocabCustomBackgrounds();
             if (items.indexOf(url) < 0) {
                 items.push(url);
-                savePomodoroCustomBackgrounds(items);
+                saveVocabCustomBackgrounds(items);
             }
             setCurrentVocabBackground(url);
         };
@@ -1444,8 +1473,8 @@
 
     function deleteVocabCustomBackground(e, url) {
         e.stopPropagation();
-        var items = getPomodoroCustomBackgrounds().filter(function(item) { return item !== url; });
-        savePomodoroCustomBackgrounds(items);
+        var items = getVocabCustomBackgrounds().filter(function(item) { return item !== url; });
+        saveVocabCustomBackgrounds(items);
         if (getCurrentVocabBackground() === url) {
             setCurrentVocabBackground('default');
         } else {

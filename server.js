@@ -37,7 +37,7 @@ function stripHtmlText(value) {
 
 const server = http.createServer((req, res) => {
     const requestUrl = new URL(req.url, `http://${req.headers.host || 'localhost'}`);
-    let urlPath = req.url === '/' ? '/index.html' : req.url;
+    let urlPath = req.url === '/' ? '/reader.html' : req.url;
     // 去除查询参数
     urlPath = urlPath.split('?')[0];
     // 解码 URL 编码（中文文件名等）

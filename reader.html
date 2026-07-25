@@ -701,6 +701,22 @@ body.theme-warm .listening-entry-zh, body.theme-warm .listening-section-count { 
 .fab-btn:active { transform: scale(0.92); }
 .fab-btn:focus-visible, .fab-nav:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
 
+/* ─── 双页学习导航 ─── */
+.reader-page-switcher {
+  position: fixed; top: 12px; left: 12px; z-index: 150;
+  display: inline-flex; align-items: center; padding: 3px;
+  background: rgba(255,255,255,0.3); border: 1px solid rgba(255,255,255,0.4);
+  border-radius: 10px; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+}
+.reader-page-switcher button {
+  min-height: 32px; border: 0; border-radius: 7px; padding: 0 10px;
+  background: transparent; color: var(--text-secondary); cursor: pointer;
+  font: inherit; font-size: 13px; white-space: nowrap;
+}
+.reader-page-switcher button:hover { background: rgba(255,255,255,0.22); color: var(--text); }
+.reader-page-switcher button.is-active { background: var(--surface-solid); color: var(--accent); font-weight: 700; }
+.reader-page-switcher button:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
 /* ─── 右下悬浮章节导航 ─── */
 .fab-group-bottom {
   position: fixed; bottom: 16px; right: 12px; z-index: 150;
@@ -936,6 +952,9 @@ body.theme-warm .listening-entry-zh, body.theme-warm .listening-section-count { 
 .world-shelf-module strong, .world-shelf-module small { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .world-shelf-module strong { font-size: 13px; }
 .world-shelf-module small { margin-top: 5px; color: var(--text-secondary); font-size: 11px; }
+.b2-shelf-modules { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); }
+.b2-shelf-module strong { color: var(--text); }
+.b2-shelf-module small:last-child { color: var(--accent); font-variant-numeric: tabular-nums; }
 @media (max-width: 760px) { .world-shelf-modules { grid-template-columns: repeat(2, minmax(0, 1fr)); } .world-shelf-card-main { flex-direction: column; } }
 @media (max-width: 440px) { .world-shelf-modules { grid-template-columns: 1fr; } }
 .b2-quiz-target { outline: 3px solid var(--accent); outline-offset: 5px; border-radius: 10px; }
@@ -951,6 +970,8 @@ body.theme-warm .listening-entry-zh, body.theme-warm .listening-section-count { 
   .search-bar.visible + .peek-counter { top: 88px; }
   .toolbar-timer { display: none; }
   .search-bar { top: 44px; }
+  .reader-page-switcher { top: 6px; left: 6px; }
+  .reader-page-switcher button { min-height: 32px; padding: 0 8px; font-size: 12px; }
 }
 
 @media (max-width: 760px) {
@@ -1382,6 +1403,11 @@ function cacheGet(bookId, idx) {
    ══════════════════════════════════════════════ */
 function escapeHtml(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
 
+function openVocabulary() {
+  saveLastRead();
+  window.location.href = 'vocabulary.html';
+}
+
 function b2FloatingNavigation(options) {
   options = options || {};
   var buttons = [
@@ -1394,12 +1420,14 @@ function b2FloatingNavigation(options) {
   if (options.menuAction) {
     buttons.push('<button class="fab-btn" id="breadcrumbTrigger" onclick="' + options.menuAction + '" title="导航" aria-label="导航目录">☰</button>');
   }
-  return '<nav class="fab-group-top b2-floating-navigation" aria-label="学习页面导航">' + buttons.join('') + '</nav>';
+  return '<nav class="reader-page-switcher" aria-label="学习应用切换"><button type="button" class="is-active" aria-current="page">阅读器</button><button type="button" onclick="openVocabulary()">生词本</button></nav>' +
+    '<nav class="fab-group-top b2-floating-navigation" aria-label="学习页面导航">' + buttons.join('') + '</nav>';
 }
 
 /* ─── 面包屑目录浮窗 ─── */
 var worldBreadcrumbOpen = { world: true, modules: {}, groups: {} };
 var worldBreadcrumbNeedsAutoExpand = true;
+var shelfBreadcrumbOpen = { materials: true, reading: true, b2: false };
 function getWorldBreadcrumbGroups(book) {
   var groups = getWorldDirectoryGroups(book);
   if (groups.length) return groups;
@@ -1461,41 +1489,98 @@ function openWorldBreadcrumbChapter(bookId, chapterIndex) {
   curBook = getBookById(bookId);
   if (curBook) goChapter(chapterIndex);
 }
-function renderWorldBreadcrumbTree() {
+function renderWorldBreadcrumbBranch(level) {
+  var html = '';
+  WORLD_PEOPLE_BOOK_IDS.forEach(function(bookId) {
+    var book = getBookById(bookId); if (!book) return;
+    var moduleOpen = !!worldBreadcrumbOpen.modules[bookId], active = curBook && curBook.id === bookId;
+    html += '<div class="breadcrumb-tree-row' + (active ? ' is-current' : '') + '" style="--tree-level:' + level + '"><button type="button" class="breadcrumb-tree-toggle" onclick="toggleWorldBreadcrumbModule(\'' + escapeHtml(bookId) + '\')" aria-label="' + (moduleOpen ? '收起' : '展开') + escapeHtml(getWorldModuleLabel(bookId)) + '">' + (moduleOpen ? '▾' : '▸') + '</button><button type="button" class="breadcrumb-tree-label" onclick="openWorldBreadcrumbModule(\'' + escapeHtml(bookId) + '\')">' + escapeHtml(getWorldModuleLabel(bookId)) + '<span class="breadcrumb-tree-detail">' + escapeHtml(getWorldResumeLocation(bookId, getWorldPeopleResumeState(bookId))) + '</span></button></div>';
+    if (!moduleOpen) return;
+    if (bookId === 'zlatoust_grammar') {
+      for (var grammarIndex = 0; grammarIndex < book.chapters; grammarIndex++) {
+        var grammarCurrent = active && curCh === grammarIndex;
+        html += '<div class="breadcrumb-tree-row breadcrumb-tree-leaf' + (grammarCurrent ? ' is-current' : '') + '" style="--tree-level:' + (level + 1) + '"><button type="button" class="breadcrumb-tree-label" onclick="openWorldBreadcrumbChapter(\'' + escapeHtml(bookId) + '\',' + grammarIndex + ')" title="' + escapeHtml(getWorldBreadcrumbChapterTitle(book, grammarIndex)) + '">' + escapeHtml(getWorldBreadcrumbChapterTitle(book, grammarIndex)) + '</button></div>';
+      }
+      return;
+    }
+    getWorldBreadcrumbGroups(book).forEach(function(group, groupIndex) {
+      var groupKey = bookId + ':' + groupIndex, groupOpen = !!worldBreadcrumbOpen.groups[groupKey];
+      html += '<div class="breadcrumb-tree-row" style="--tree-level:' + (level + 1) + '"><button type="button" class="breadcrumb-tree-toggle" onclick="toggleWorldBreadcrumbGroup(\'' + escapeHtml(bookId) + '\',' + groupIndex + ')" aria-label="' + (groupOpen ? '收起' : '展开') + escapeHtml(group.label) + '">' + (groupOpen ? '▾' : '▸') + '</button><span class="breadcrumb-tree-label">' + escapeHtml(group.label) + '<span class="breadcrumb-tree-detail">' + group.count + ' 项</span></span></div>';
+      if (!groupOpen) return;
+      for (var offset = 0; offset < group.count; offset++) {
+        var chapterIndex = group.start + offset, current = active && curCh === chapterIndex;
+        html += '<div class="breadcrumb-tree-row breadcrumb-tree-leaf' + (current ? ' is-current' : '') + '" style="--tree-level:' + (level + 2) + '"><button type="button" class="breadcrumb-tree-label" onclick="openWorldBreadcrumbChapter(\'' + escapeHtml(bookId) + '\',' + chapterIndex + ')" title="' + escapeHtml(getWorldBreadcrumbChapterTitle(book, chapterIndex)) + '">' + escapeHtml(getWorldBreadcrumbChapterTitle(book, chapterIndex)) + '</button></div>';
+      }
+    });
+  });
+  return html;
+}
+function ensureB2BreadcrumbManifest(popup) {
+  if (b2BookManifest) return Promise.resolve(b2BookManifest);
+  return fetchJson('data/textbook/russian_b2/book.json', null).then(function(manifest) {
+    b2BookManifest = manifest;
+    if (popup && document.getElementById('breadcrumbPopup') === popup) renderBreadcrumbPopup();
+    return manifest;
+  }).catch(function() { return null; });
+}
+function toggleB2BreadcrumbBook() {
+  shelfBreadcrumbOpen.b2 = !shelfBreadcrumbOpen.b2;
+  var popup = document.getElementById('breadcrumbPopup');
+  renderBreadcrumbPopup();
+  if (shelfBreadcrumbOpen.b2) ensureB2BreadcrumbManifest(popup);
+}
+function openB2BreadcrumbModule(moduleId) {
+  closeBreadcrumb();
+  openB2ShelfModule(moduleId);
+}
+function toggleShelfBreadcrumbSection(section) {
+  shelfBreadcrumbOpen[section] = !shelfBreadcrumbOpen[section];
+  renderBreadcrumbPopup();
+}
+function ensureShelfBreadcrumbCurrentPath() {
+  shelfBreadcrumbOpen.materials = true;
+  if (curBook && isWorldPeopleBook(curBook)) {
+    ensureWorldBreadcrumbCurrentPath();
+    return;
+  }
+  if (curBook && (curBook.id === 'russian_b2' || curBook.isB2Module)) {
+    shelfBreadcrumbOpen.b2 = true;
+    return;
+  }
+  if (curBook && curBook.kind !== 'textbook') shelfBreadcrumbOpen.reading = true;
+}
+function renderShelfBreadcrumbTree() {
   if (worldBreadcrumbNeedsAutoExpand) {
     worldBreadcrumbNeedsAutoExpand = false;
-    ensureWorldBreadcrumbCurrentPath();
+    ensureShelfBreadcrumbCurrentPath();
   }
-  var html = '<div class="breadcrumb-heading">学习导航</div><nav class="breadcrumb-tree" aria-label="В мире людей目录树">';
+  var allBooks = booksData || [], worldBookOpen = worldBreadcrumbOpen.world !== false;
+  var b2Book = allBooks.find(function(book) { return book.id === 'russian_b2'; });
+  var readingBooks = allBooks.filter(function(book) { return book.kind !== 'textbook'; });
+  var html = '<div class="breadcrumb-heading">学习导航</div><nav class="breadcrumb-tree" aria-label="书架目录树">';
   html += '<div class="breadcrumb-tree-row" style="--tree-level:0"><span></span><button type="button" class="breadcrumb-tree-label" onclick="closeBreadcrumb();showShelf()">书架</button></div>';
-  var worldOpen = worldBreadcrumbOpen.world !== false;
-  html += '<div class="breadcrumb-tree-row" style="--tree-level:0"><button type="button" class="breadcrumb-tree-toggle" onclick="worldBreadcrumbOpen.world=!worldBreadcrumbOpen.world;renderBreadcrumbPopup()" aria-label="' + (worldOpen ? '收起' : '展开') + ' В мире людей">' + (worldOpen ? '▾' : '▸') + '</button><button type="button" class="breadcrumb-tree-label" onclick="closeBreadcrumb();showWorldPeopleDashboard()">В мире людей<span class="breadcrumb-tree-detail">阅读、听力、写作、语法词汇</span></button></div>';
-  if (worldOpen) {
-    WORLD_PEOPLE_BOOK_IDS.forEach(function(bookId) {
-      var book = getBookById(bookId); if (!book) return;
-      var moduleOpen = !!worldBreadcrumbOpen.modules[bookId], active = curBook && curBook.id === bookId;
-      html += '<div class="breadcrumb-tree-row' + (active ? ' is-current' : '') + '" style="--tree-level:1"><button type="button" class="breadcrumb-tree-toggle" onclick="toggleWorldBreadcrumbModule(\'' + escapeHtml(bookId) + '\')" aria-label="' + (moduleOpen ? '收起' : '展开') + escapeHtml(getWorldModuleLabel(bookId)) + '">' + (moduleOpen ? '▾' : '▸') + '</button><button type="button" class="breadcrumb-tree-label" onclick="openWorldBreadcrumbModule(\'' + escapeHtml(bookId) + '\')">' + escapeHtml(getWorldModuleLabel(bookId)) + '<span class="breadcrumb-tree-detail">' + escapeHtml(getWorldResumeLocation(bookId, getWorldPeopleResumeState(bookId))) + '</span></button></div>';
-      if (!moduleOpen) return;
-      if (bookId === 'zlatoust_grammar') {
-        for (var grammarIndex = 0; grammarIndex < book.chapters; grammarIndex++) {
-          var grammarCurrent = active && curCh === grammarIndex;
-          html += '<div class="breadcrumb-tree-row breadcrumb-tree-leaf' + (grammarCurrent ? ' is-current' : '') + '" style="--tree-level:2"><button type="button" class="breadcrumb-tree-label" onclick="openWorldBreadcrumbChapter(\'' + escapeHtml(bookId) + '\',' + grammarIndex + ')" title="' + escapeHtml(getWorldBreadcrumbChapterTitle(book, grammarIndex)) + '">' + escapeHtml(getWorldBreadcrumbChapterTitle(book, grammarIndex)) + '</button></div>';
-        }
-        return;
-      }
-      getWorldBreadcrumbGroups(book).forEach(function(group, groupIndex) {
-        var groupKey = bookId + ':' + groupIndex, groupOpen = !!worldBreadcrumbOpen.groups[groupKey];
-        html += '<div class="breadcrumb-tree-row" style="--tree-level:2"><button type="button" class="breadcrumb-tree-toggle" onclick="toggleWorldBreadcrumbGroup(\'' + escapeHtml(bookId) + '\',' + groupIndex + ')" aria-label="' + (groupOpen ? '收起' : '展开') + escapeHtml(group.label) + '">' + (groupOpen ? '▾' : '▸') + '</button><span class="breadcrumb-tree-label">' + escapeHtml(group.label) + '<span class="breadcrumb-tree-detail">' + group.count + ' 项</span></span></div>';
-        if (!groupOpen) return;
-        for (var offset = 0; offset < group.count; offset++) {
-          var chapterIndex = group.start + offset, current = active && curCh === chapterIndex;
-          html += '<div class="breadcrumb-tree-row breadcrumb-tree-leaf' + (current ? ' is-current' : '') + '" style="--tree-level:3"><button type="button" class="breadcrumb-tree-label" onclick="openWorldBreadcrumbChapter(\'' + escapeHtml(bookId) + '\',' + chapterIndex + ')" title="' + escapeHtml(getWorldBreadcrumbChapterTitle(book, chapterIndex)) + '">' + escapeHtml(getWorldBreadcrumbChapterTitle(book, chapterIndex)) + '</button></div>';
-        }
-      });
-    });
+  html += '<div class="breadcrumb-tree-row" style="--tree-level:1"><button type="button" class="breadcrumb-tree-toggle" onclick="toggleShelfBreadcrumbSection(\'materials\')" aria-label="' + (shelfBreadcrumbOpen.materials ? '收起' : '展开') + '我的教材">' + (shelfBreadcrumbOpen.materials ? '▾' : '▸') + '</button><span class="breadcrumb-tree-label">我的教材</span></div>';
+  if (shelfBreadcrumbOpen.materials) {
+    html += '<div class="breadcrumb-tree-row" style="--tree-level:2"><button type="button" class="breadcrumb-tree-toggle" onclick="worldBreadcrumbOpen.world=!worldBreadcrumbOpen.world;renderBreadcrumbPopup()" aria-label="' + (worldBookOpen ? '收起' : '展开') + ' В мире людей">' + (worldBookOpen ? '▾' : '▸') + '</button><button type="button" class="breadcrumb-tree-label" onclick="closeBreadcrumb();showWorldPeopleDashboard()">В мире людей<span class="breadcrumb-tree-detail">4 个模块</span></button></div>';
+    if (worldBookOpen) html += renderWorldBreadcrumbBranch(3);
+    if (b2Book) {
+      var b2Open = !!shelfBreadcrumbOpen.b2, b2Active = curBook && (curBook.id === 'russian_b2' || curBook.isB2Module);
+      html += '<div class="breadcrumb-tree-row' + (b2Active ? ' is-current' : '') + '" style="--tree-level:2"><button type="button" class="breadcrumb-tree-toggle" onclick="toggleB2BreadcrumbBook()" aria-label="' + (b2Open ? '收起' : '展开') + '俄语 B2 全模块">' + (b2Open ? '▾' : '▸') + '</button><button type="button" class="breadcrumb-tree-label" onclick="closeBreadcrumb();showB2Dashboard()">俄语 B2 全模块<span class="breadcrumb-tree-detail">7 个模块</span></button></div>';
+      if (b2Open && b2BookManifest) {
+        (b2BookManifest.modules || []).forEach(function(module) {
+          html += '<div class="breadcrumb-tree-row breadcrumb-tree-leaf" style="--tree-level:3"><button type="button" class="breadcrumb-tree-label" onclick="openB2BreadcrumbModule(\'' + escapeHtml(module.id) + '\')">' + escapeHtml(module.title) + '<span class="breadcrumb-tree-detail">' + escapeHtml(module.id === 'review' ? '统一错题与复习' : (module.chapters || 0) + ' 个学习单元') + '</span></button></div>';
+        });
+      } else if (b2Open) html += '<div class="breadcrumb-tree-row breadcrumb-tree-leaf" style="--tree-level:3"><span class="breadcrumb-tree-label">正在载入模块目录…</span></div>';
+    }
   }
+  html += '<div class="breadcrumb-tree-row" style="--tree-level:1"><button type="button" class="breadcrumb-tree-toggle" onclick="toggleShelfBreadcrumbSection(\'reading\')" aria-label="' + (shelfBreadcrumbOpen.reading ? '收起' : '展开') + '阅读书架">' + (shelfBreadcrumbOpen.reading ? '▾' : '▸') + '</button><span class="breadcrumb-tree-label">阅读书架</span></div>';
+  if (shelfBreadcrumbOpen.reading) readingBooks.forEach(function(book) {
+    var active = curBook && curBook.id === book.id;
+    html += '<div class="breadcrumb-tree-row breadcrumb-tree-leaf' + (active ? ' is-current' : '') + '" style="--tree-level:2"><button type="button" class="breadcrumb-tree-label" onclick="closeBreadcrumb();showChapters(\'' + escapeHtml(book.id) + '\')">' + escapeHtml(book.title) + '<span class="breadcrumb-tree-detail">' + escapeHtml((book.chapters || 0) + ' 章') + '</span></button></div>';
+  });
   return html + '</nav>';
 }
+function renderWorldBreadcrumbTree() { return renderShelfBreadcrumbTree(); }
 function renderStandardBreadcrumb() {
   var items = [{ label: '📖 书架', action: 'showShelf()', type: 'page' }];
   var isB2 = curBook && curBook.isB2Module;
@@ -1513,8 +1598,7 @@ function renderStandardBreadcrumb() {
 function renderBreadcrumbPopup() {
   var popup = document.getElementById('breadcrumbPopup');
   if (!popup) return;
-  var isWorldContext = curView === 'world-people-dashboard' || (curBook && isWorldPeopleBook(curBook));
-  var html = isWorldContext ? renderWorldBreadcrumbTree() : renderStandardBreadcrumb();
+  var html = booksData && booksData.length ? renderShelfBreadcrumbTree() : renderStandardBreadcrumb();
   html += '<div class="breadcrumb-divider"></div>';
   if (curView === 'reading') html += '<button class="breadcrumb-item breadcrumb-shortcut" onclick="closeBreadcrumb();toggleSearch()">🔍 搜索本章</button>';
   var wrongCount = getWrongAnswerItems().filter(function(item) { return item.status === 'pending'; }).length;
@@ -1908,7 +1992,11 @@ function showShelf() {
     '<div class="main-container"><div class="loading"><div class="spinner"></div><div>加载书架...</div></div></div>';
   document.getElementById('searchBar').classList.remove('visible');
   fetchIndex()
-    .then(function(data) { booksData = data.books; renderShelf(); })
+    .then(function(data) {
+      booksData = data.books;
+      return b2BookManifest ? Promise.resolve(b2BookManifest) : fetchJson('data/textbook/russian_b2/book.json', null).catch(function() { return null; });
+    })
+    .then(function(manifest) { if (manifest) b2BookManifest = manifest; renderShelf(); })
     .catch(function() { app.querySelector('.main-container').innerHTML = '<div class="loading">❌ 加载失败</div>'; });
 }
 
@@ -1946,6 +2034,21 @@ function renderShelfBookCard(b) {
     '<div class="book-progress"><div class="progress-bar"><div class="progress-fill" style="width:' + pct + '%"></div></div>' +
     '<div class="progress-text">已读 ' + done + '/' + b.chapters + ' (' + pct + '%)</div></div></article>';
 }
+function openB2ShelfModule(moduleId) {
+  if (!b2BookManifest) { showB2Dashboard(); return; }
+  openB2Module(moduleId);
+}
+function renderB2ShelfCard(book) {
+  var manifest = b2BookManifest || {}, modules = manifest.modules || [];
+  var completed = getBookProgress(book.id), total = modules.length || book.chapters || 0;
+  var pct = total ? Math.round(completed / total * 100) : 0;
+  var moduleCards = modules.map(function(module) {
+    var detail = module.id === 'review' ? '统一错题与复习' : (module.chapters || 0) + ' 个学习单元';
+    return '<button type="button" class="world-shelf-module b2-shelf-module" onclick="openB2ShelfModule(\'' + escapeHtml(module.id) + '\')"><strong>' + escapeHtml(module.title) + '</strong><small>' + escapeHtml(getB2ModuleDescription(module)) + '</small><small>' + escapeHtml(detail) + '</small></button>';
+  }).join('');
+  if (!moduleCards) moduleCards = '<span class="world-shelf-module"><strong>加载模块目录…</strong></span>';
+  return '<article class="book-card world-shelf-card"><div class="world-shelf-card-main"><div><h3><span class="book-kind">教材</span>' + escapeHtml(book.title) + '</h3><div class="book-meta"><span>📚 语法、阅读、写作、听力、会话、真题与复习</span><span>' + total + ' 个模块</span></div><div class="book-desc">' + escapeHtml(book.description || '') + '</div><div class="book-progress"><div class="progress-bar"><div class="progress-fill" style="width:' + pct + '%"></div></div><div class="progress-text">总进度 ' + completed + '/' + total + ' (' + pct + '%)</div></div></div><button type="button" class="world-shelf-open" onclick="showB2Dashboard()">打开总仪表盘</button></div><div class="world-shelf-modules b2-shelf-modules">' + moduleCards + '</div></article>';
+}
 
 function renderShelf() {
   var sorted = booksData.filter(function(book) { return !isWorldPeopleBook(book); });
@@ -1955,7 +2058,8 @@ function renderShelf() {
     sorted.sort(function(a, b) { return getBookProgress(a.id) - getBookProgress(b.id); });
   }
 
-  var courseBooks = sorted.filter(function(book) { return book.kind === 'textbook'; });
+  var courseBooks = sorted.filter(function(book) { return book.kind === 'textbook' && book.id !== 'russian_b2'; });
+  var b2Book = booksData.find(function(book) { return book.id === 'russian_b2'; });
   var readingBooks = sorted.filter(function(book) { return book.kind !== 'textbook'; });
   var wrongCount = getWrongAnswerItems().filter(function(item) { return item.status === 'pending'; }).length;
   var latest = getShelfContinueRecord(), continueCard = '';
@@ -1964,7 +2068,7 @@ function renderShelf() {
     continueCard = '<section class="b2-continue-card shelf-continue"><p>继续上次学习</p><h2>' + escapeHtml(getShelfContinueLabel(latest)) + '</h2>' +
       (savedAt ? '<small>最近保存于 ' + escapeHtml(savedAt) + '</small>' : '') + '<button type="button" onclick="continueShelfLearning()">继续学习</button></section>';
   }
-  var parts = ['<main class="main-container"><header class="shelf-hero"><h1>学习书架</h1><p>从最近进度继续，或直接进入你要练的教材。</p></header>', continueCard,
+  var parts = [b2FloatingNavigation({ menuAction: 'showBreadcrumb()' }) + '<main class="main-container"><header class="shelf-hero"><h1>学习书架</h1><p>从最近进度继续，或直接进入你要练的教材。</p></header>', continueCard,
     '<div class="shelf-tools"><button class="shelf-tool" type="button" onclick="showWrongAnswerBook()">错题复习 · ' + wrongCount + ' 题待掌握</button><button class="shelf-tool" type="button" onclick="showB2ArchivePanel()">学习记录备份</button></div>',
     '<section class="shelf-section"><div class="shelf-section-heading"><h2>我的教材</h2></div><div class="shelf-book-grid">'];
   var worldDone = 0, worldTotal = 0;
@@ -1981,6 +2085,7 @@ function renderShelf() {
     return '<button type="button" class="world-shelf-module" onclick="showChapters(\'' + escapeHtml(bookId) + '\')"><strong>' + escapeHtml(getWorldModuleLabel(bookId)) + '</strong><small>' + escapeHtml(getWorldResumeLocation(bookId, resume)) + '</small><small>' + progress.completed + '/' + progress.total + ' · ' + progress.pct + '%</small></button>';
   }).join('');
   parts.push('<article class="book-card world-shelf-card"><div class="world-shelf-card-main"><div><h3><span class="book-kind">教材</span>В мире людей</h3><div class="book-meta"><span>📚 阅读、听力、写作、语法词汇</span><span>4 个模块</span></div><div class="book-desc">ТРКИ-2/3 综合学习教材</div><div class="book-progress"><div class="progress-bar"><div class="progress-fill" style="width:' + worldPct + '%"></div></div><div class="progress-text">总进度 ' + worldDone + '/' + worldTotal + ' (' + worldPct + '%)</div></div></div><button type="button" class="world-shelf-open" onclick="showWorldPeopleDashboard()">打开总仪表盘</button></div><div class="world-shelf-modules">' + worldModules + '</div></article>');
+  if (b2Book) parts.push(renderB2ShelfCard(b2Book));
   courseBooks.forEach(function(book) { parts.push(renderShelfBookCard(book)); });
   parts.push('</div></section><section class="shelf-section"><div class="shelf-section-heading"><h2>阅读书架</h2><div class="shelf-toolbar"><select class="sort-select" onchange="changeSort(this.value)">');
   SORT_OPTIONS.forEach(function(option) { parts.push('<option value="' + option.value + '"' + (state.sort === option.value ? ' selected' : '') + '>' + option.label + '</option>'); });
@@ -4668,7 +4773,7 @@ function markChapterDone() {
     : '';
   var vocabText = '';
   if (_sessionSavedWords.length > 0) {
-    vocabText = '<div class="ch-summary-vocab">📝 本次保存了 <strong>' + _sessionSavedWords.length + '</strong> 个生词 — <a href="vocabulary.html" target="_blank">去背单词 →</a></div>';
+    vocabText = '<div class="ch-summary-vocab">📝 本次保存了 <strong>' + _sessionSavedWords.length + '</strong> 个生词 — <a href="vocabulary.html" onclick="openVocabulary();return false;">去背单词 →</a></div>';
   }
   document.getElementById('sumText').innerHTML =
     '⏱ 阅读了 <span class="stat">' + mins + '</span> 分钟' +
