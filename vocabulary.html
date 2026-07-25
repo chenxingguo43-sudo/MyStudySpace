@@ -1118,6 +1118,7 @@
         </div>
     </div>
 
+    <script src="js/russian-dictionary/review.js?v=20260723-1"></script>
     <script>
     // ─── 状态 ─────────────────────────────────────────────────────
     var allWords = [];           // 全部词条
@@ -1293,6 +1294,12 @@
         fetch('data/vocabulary.json')
             .then(function(r) { return r.json(); })
             .then(function(data) {
+                var records = getRecords();
+                Object.keys(records).forEach(function(id) {
+                    if (data.some(function(word) { return word.id === id; })) return;
+                    var record = records[id] || {};
+                    data.push({ id: id, word: record.lemma || record.word || (record.forms || [])[0] || id, meaning: record.meaning || '', type: record.partOfSpeech || 'reader', contexts: record.contexts || record.sources || [] });
+                });
                 allWords = data;
                 initFilters();
                 applyFilters();
@@ -2750,13 +2757,14 @@
         // 重音测验模式：生成无重音版本和选项
         var cleanWord = w.word.replace(/[́]/g, ''); // 去掉重音符号
         var stressSyllables = generateStressOptions(w.word);
+        var cloze = window.RussianDictionaryReview ? RussianDictionaryReview.createContextCloze(Object.assign({}, rec || {}, w)) : null;
 
         area.innerHTML =
             '<div class="card-zone card-enter">' +
             '  <div class="flashcard ' + glowClass + (flipped ? ' flipped' : '') + '" id="flashcard" onclick="flipCard()">' +
             '    <div class="mastery-bar"><div class="mastery-fill" style="width:' + masteryPct + '%;background:' + masteryColor + ';"></div></div>' +
             '    <div class="card-face card-front">' +
-            '      <div class="card-word" style="' + wordStyle + '">' + esc(cleanWord) + '</div>' +
+            (cloze ? '      <div class="card-word" style="font-size:22px;line-height:1.55">' + esc(cloze.prompt) + '</div><div class="card-meta">原形：' + esc(cloze.lemma) + '</div>' : '      <div class="card-word" style="' + wordStyle + '">' + esc(cleanWord) + '</div>') +
             '      <div class="stress-quiz" id="stressQuiz">' +
                    stressSyllables.map(function(s, i) {
                        return '<button class="stress-option' + (s.correct ? ' stress-correct' : '') + '" ' +
@@ -3364,6 +3372,7 @@
         if (w.word && w.word.length > 25) wordStyle += 'font-size:22px;';
         var cleanWord = w.word.replace(/[́]/g, '');
         var stressSyllables = generateStressOptions(w.word);
+        var cloze = window.RussianDictionaryReview ? RussianDictionaryReview.createContextCloze(Object.assign({}, rec || {}, w)) : null;
 
         var chapters = allWords.reduce(function(acc, x) { if (x.chapter) acc.add(x.chapter); return acc; }, new Set());
         var chapterNames = {};
@@ -3486,7 +3495,7 @@
             '  <div class="flashcard ' + glowClass + (flipped ? ' flipped' : '') + '" id="flashcard" onclick="flipCard()">' +
             '    <div class="mastery-bar"><div class="mastery-fill" style="width:' + masteryPct + '%;background:' + masteryColor + ';"></div></div>' +
             '    <div class="card-face card-front">' +
-            '      <div class="card-word" style="' + wordStyle + '">' + esc(cleanWord) + '</div>' +
+            (cloze ? '      <div class="card-word" style="font-size:22px;line-height:1.55">' + esc(cloze.prompt) + '</div><div class="card-meta">原形：' + esc(cloze.lemma) + '</div>' : '      <div class="card-word" style="' + wordStyle + '">' + esc(cleanWord) + '</div>') +
             '      <div class="stress-quiz" id="stressQuiz">' + stressSyllables.map(function(s, i) {
                 return '<button class="stress-option' + (s.correct ? ' stress-correct' : '') + '" ' +
                        'onclick="checkStress(this,' + (s.correct ? 'true' : 'false') + ',event)" data-idx="' + i + '">' + esc(s.text) + '</button>';
