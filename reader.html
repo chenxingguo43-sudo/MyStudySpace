@@ -1049,6 +1049,21 @@ body.theme-warm .listening-entry-zh, body.theme-warm .listening-section-count { 
 .breadcrumb-tree-detail { display: block; color: var(--text-secondary); font-size: 11px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .breadcrumb-tree-leaf { grid-template-columns: 28px minmax(0, 1fr); }
 .breadcrumb-tree-leaf::before { content: '·'; color: var(--text-dim); text-align: center; font-size: 16px; }
+@media (min-width: 761px) and (max-width: 1024px) and (orientation: portrait) {
+  .reader-layout { display: block; max-width: 100%; padding: 0 0 72px; }
+  .reader-pane { width: 100%; min-width: 0; padding: 0 clamp(22px, 5vw, 52px); }
+  .resize-handle { display: none; }
+  #detailPanel { position: fixed; inset: auto 0 0; z-index: 220; width: 100%; max-width: none; border-left: 0; border-radius: 16px 16px 0 0; transform: translateY(105%); }
+  #detailPanel[data-dictionary-state="half"] { height: 46dvh; transform: translateY(0); }
+  #detailPanel[data-dictionary-state="full"] { height: 88dvh; transform: translateY(0); }
+  .dictionary-drawer-handle { display: block; }
+}
+@media (min-width: 900px) and (max-width: 1366px) and (orientation: landscape) {
+  .reader-layout { display: flex; max-width: 100%; }
+  .reader-pane { flex: 0 0 65%; min-width: 0; }
+  .detail-panel { flex: 1 1 35%; min-width: 300px; }
+  .resize-handle { display: block; }
+}
 </style>
 </head>
 <body>
@@ -2902,21 +2917,6 @@ function openReadingWrongAnswerItem(chapterIndex, questionId) {
     curBook.chapterTitles = index.chapterTitles || module.chapterTitles || [];
     goChapter(chapterIndex, { activeQuestionId: questionId });
   }).catch(function() { toast('阅读错题加载失败'); });
-}
-@media (min-width: 761px) and (max-width: 1024px) and (orientation: portrait) {
-  .reader-layout { display: block; max-width: 100%; padding: 0 0 72px; }
-  .reader-pane { width: 100%; min-width: 0; padding: 0 clamp(22px, 5vw, 52px); }
-  .resize-handle { display: none; }
-  #detailPanel { position: fixed; inset: auto 0 0; z-index: 220; width: 100%; max-width: none; border-left: 0; border-radius: 16px 16px 0 0; transform: translateY(105%); }
-  #detailPanel[data-dictionary-state="half"] { height: 46dvh; transform: translateY(0); }
-  #detailPanel[data-dictionary-state="full"] { height: 88dvh; transform: translateY(0); }
-  .dictionary-drawer-handle { display: block; }
-}
-@media (min-width: 900px) and (max-width: 1366px) and (orientation: landscape) {
-  .reader-layout { display: flex; max-width: 100%; }
-  .reader-pane { flex: 0 0 65%; min-width: 0; }
-  .detail-panel { flex: 1 1 35%; min-width: 300px; }
-  .resize-handle { display: block; }
 }
 function answerReadingQuestion(questionId, selected, evt) {
   if (evt && evt.target.closest('.ru-word')) return;
