@@ -1399,6 +1399,7 @@ function b2FloatingNavigation(options) {
 
 /* ─── 面包屑目录浮窗 ─── */
 var worldBreadcrumbOpen = { world: true, modules: {}, groups: {} };
+var worldBreadcrumbNeedsAutoExpand = true;
 function getWorldBreadcrumbGroups(book) {
   var groups = getWorldDirectoryGroups(book);
   if (groups.length) return groups;
@@ -1416,14 +1417,16 @@ function ensureWorldBreadcrumbCurrentPath() {
   if (!curBook || !isWorldPeopleBook(curBook)) return;
   worldBreadcrumbOpen.world = true;
   worldBreadcrumbOpen.modules[curBook.id] = true;
+  if (curBook.id === 'zlatoust_grammar') return;
   if (curCh < 0) return;
   var groups = getWorldBreadcrumbGroups(curBook);
   for (var i = 0; i < groups.length; i++) {
     if (curCh >= groups[i].start && curCh < groups[i].start + groups[i].count) {
       worldBreadcrumbOpen.groups[curBook.id + ':' + i] = true;
       if (!getWorldDirectoryCatalogItem(curBook.id, groups[i].start)) {
+        var currentPopup = document.getElementById('breadcrumbPopup');
         ensureWorldDirectoryGroupTitles(curBook, i).then(function() {
-          if (document.getElementById('breadcrumbPopup')) renderBreadcrumbPopup();
+          if (currentPopup && document.getElementById('breadcrumbPopup') === currentPopup) renderBreadcrumbPopup();
         });
       }
       break;
@@ -1441,11 +1444,16 @@ function toggleWorldBreadcrumbGroup(bookId, groupIndex) {
   if (worldBreadcrumbOpen.groups[key]) {
     var book = getBookById(bookId);
     if (book && getWorldDirectoryGroups(book).length) {
+      var currentPopup = document.getElementById('breadcrumbPopup');
       ensureWorldDirectoryGroupTitles(book, groupIndex).then(function() {
-        if (document.getElementById('breadcrumbPopup')) renderBreadcrumbPopup();
+        if (currentPopup && document.getElementById('breadcrumbPopup') === currentPopup) renderBreadcrumbPopup();
       });
     }
   }
+}
+function openWorldBreadcrumbModule(bookId) {
+  closeBreadcrumb();
+  showChapters(bookId);
 }
 function openWorldBreadcrumbChapter(bookId, chapterIndex) {
   closeBreadcrumb();
@@ -1454,7 +1462,10 @@ function openWorldBreadcrumbChapter(bookId, chapterIndex) {
   if (curBook) goChapter(chapterIndex);
 }
 function renderWorldBreadcrumbTree() {
-  ensureWorldBreadcrumbCurrentPath();
+  if (worldBreadcrumbNeedsAutoExpand) {
+    worldBreadcrumbNeedsAutoExpand = false;
+    ensureWorldBreadcrumbCurrentPath();
+  }
   var html = '<div class="breadcrumb-heading">学习导航</div><nav class="breadcrumb-tree" aria-label="В мире людей目录树">';
   html += '<div class="breadcrumb-tree-row" style="--tree-level:0"><span></span><button type="button" class="breadcrumb-tree-label" onclick="closeBreadcrumb();showShelf()">书架</button></div>';
   var worldOpen = worldBreadcrumbOpen.world !== false;
@@ -1463,8 +1474,15 @@ function renderWorldBreadcrumbTree() {
     WORLD_PEOPLE_BOOK_IDS.forEach(function(bookId) {
       var book = getBookById(bookId); if (!book) return;
       var moduleOpen = !!worldBreadcrumbOpen.modules[bookId], active = curBook && curBook.id === bookId;
-      html += '<div class="breadcrumb-tree-row' + (active ? ' is-current' : '') + '" style="--tree-level:1"><button type="button" class="breadcrumb-tree-toggle" onclick="toggleWorldBreadcrumbModule(\'' + escapeHtml(bookId) + '\')" aria-label="' + (moduleOpen ? '收起' : '展开') + escapeHtml(getWorldModuleLabel(bookId)) + '">' + (moduleOpen ? '▾' : '▸') + '</button><button type="button" class="breadcrumb-tree-label" onclick="closeBreadcrumb();showChapters(\'' + escapeHtml(bookId) + '\')">' + escapeHtml(getWorldModuleLabel(bookId)) + '<span class="breadcrumb-tree-detail">' + escapeHtml(getWorldResumeLocation(bookId, getWorldPeopleResumeState(bookId))) + '</span></button></div>';
+      html += '<div class="breadcrumb-tree-row' + (active ? ' is-current' : '') + '" style="--tree-level:1"><button type="button" class="breadcrumb-tree-toggle" onclick="toggleWorldBreadcrumbModule(\'' + escapeHtml(bookId) + '\')" aria-label="' + (moduleOpen ? '收起' : '展开') + escapeHtml(getWorldModuleLabel(bookId)) + '">' + (moduleOpen ? '▾' : '▸') + '</button><button type="button" class="breadcrumb-tree-label" onclick="openWorldBreadcrumbModule(\'' + escapeHtml(bookId) + '\')">' + escapeHtml(getWorldModuleLabel(bookId)) + '<span class="breadcrumb-tree-detail">' + escapeHtml(getWorldResumeLocation(bookId, getWorldPeopleResumeState(bookId))) + '</span></button></div>';
       if (!moduleOpen) return;
+      if (bookId === 'zlatoust_grammar') {
+        for (var grammarIndex = 0; grammarIndex < book.chapters; grammarIndex++) {
+          var grammarCurrent = active && curCh === grammarIndex;
+          html += '<div class="breadcrumb-tree-row breadcrumb-tree-leaf' + (grammarCurrent ? ' is-current' : '') + '" style="--tree-level:2"><button type="button" class="breadcrumb-tree-label" onclick="openWorldBreadcrumbChapter(\'' + escapeHtml(bookId) + '\',' + grammarIndex + ')" title="' + escapeHtml(getWorldBreadcrumbChapterTitle(book, grammarIndex)) + '">' + escapeHtml(getWorldBreadcrumbChapterTitle(book, grammarIndex)) + '</button></div>';
+        }
+        return;
+      }
       getWorldBreadcrumbGroups(book).forEach(function(group, groupIndex) {
         var groupKey = bookId + ':' + groupIndex, groupOpen = !!worldBreadcrumbOpen.groups[groupKey];
         html += '<div class="breadcrumb-tree-row" style="--tree-level:2"><button type="button" class="breadcrumb-tree-toggle" onclick="toggleWorldBreadcrumbGroup(\'' + escapeHtml(bookId) + '\',' + groupIndex + ')" aria-label="' + (groupOpen ? '收起' : '展开') + escapeHtml(group.label) + '">' + (groupOpen ? '▾' : '▸') + '</button><span class="breadcrumb-tree-label">' + escapeHtml(group.label) + '<span class="breadcrumb-tree-detail">' + group.count + ' 项</span></span></div>';
@@ -1511,6 +1529,7 @@ function showBreadcrumb() {
   var popup = document.createElement('div');
   popup.id = 'breadcrumbPopup'; popup.className = 'breadcrumb-popup'; popup.onclick = function(event) { event.stopPropagation(); };
   overlay.appendChild(popup); document.body.appendChild(overlay);
+  worldBreadcrumbNeedsAutoExpand = true;
   renderBreadcrumbPopup();
   document.addEventListener('keydown', _onBreadcrumbKey);
 }
@@ -2018,7 +2037,7 @@ function showB2ArchivePanel() {
    ══════════════════════════════════════════════ */
 function showChapters(bookId) {
   saveLastRead();
-  curView = 'chapters'; stopTimer();
+  curView = 'chapters'; curCh = -1; stopTimer();
   var prompt = document.getElementById('completePrompt'); if (prompt) prompt.classList.remove('visible');
   document.getElementById('searchBar').classList.remove('visible');
   if (curBook && curBook.id === bookId && curBook.isB2Module) {
