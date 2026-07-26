@@ -1,0 +1,4963 @@
+{
+  "schemaVersion": 1,
+  "chapterId": "gl5",
+  "sourceBook": "zlatoust-grammar-lexika-v1",
+  "status": "review",
+  "mappingBasis": "逐题视觉核对 PDF 072–090（印刷页 70–88）、PDF 127 原书答案表和 cleaned-source/chapter-05.md。只有题面、答案和原书理论/词汇表三者直接相符时才标记 mapped；其余练习保留 source-exercise-only。",
+  "statusDefinitions": {
+    "mapped": "原书理论或词汇评论有直接或足够明确的规则依据。",
+    "needs-review": "主要范围已确定，但原书条件不足以无风险固定细边界。",
+    "source-exercise-only": "原书有练习，但理论区没有对应的独立规则或词汇条目。"
+  },
+  "ruleCatalog": {
+    "gl5-5.1-chto-ni-to-repetition": {
+      "sectionId": "5.1",
+      "titleZh": "что ни…, то…表示反复出现",
+      "sourceText": "5.1 第 1 条：что ни…, то… 表示反复的动作或现象，并可与 каждый 同义。"
+    },
+    "gl5-5.1-kak-ne-necessity": {
+      "sectionId": "5.1",
+      "titleZh": "как (было) не + 不定式表示必要或不得不",
+      "sourceText": "5.1 第 2 条：как (было) не + инфинитив 表示必要或被迫，近义 нельзя/невозможно не + инфинитив。"
+    },
+    "gl5-5.1-gde-tam-emotional-negation": {
+      "sectionId": "5.1",
+      "titleZh": "где там表达带感情色彩的否定",
+      "sourceText": "5.1 第 3 条：где там + 名词/形容词/动词/副词表达感情色彩强的否定；与 какой там 接近。"
+    },
+    "gl5-5.1-ne-pronoun-a-emphatic": {
+      "sectionId": "5.1",
+      "titleZh": "не + 不定代词/副词 + а 突出肯定并形成对照",
+      "sourceText": "5.1 第 4 条：не + 不定代词（副词）+ а 同时表达对照和肯定。"
+    },
+    "gl5-5.1-ne-x-tak-alternative": {
+      "sectionId": "5.1",
+      "titleZh": "не…, так…表示不可避免的替代",
+      "sourceText": "5.1 第 5 条：не…, так… 表示不可避免的替代性行动。"
+    },
+    "gl5-5.1-x-est-x-acceptance": {
+      "sectionId": "5.1",
+      "titleZh": "кто/что есть кто/что 表示对不可改变事实的接受",
+      "sourceText": "5.1 第 6 条：кто есть кто / что есть что 表示无条件接受不能改变的事实，近义 это。"
+    },
+    "gl5-5.1-nom-instr-a-contrast": {
+      "sectionId": "5.1",
+      "titleZh": "同一名词主格—工具格 + а 的对照",
+      "sourceText": "5.1 第 7 条前半：同一名词主格和工具格与 а 构成对照/对比。"
+    },
+    "gl5-5.1-nom-instr-no-insufficiency": {
+      "sectionId": "5.1",
+      "titleZh": "同一名词主格—工具格 + но 提示第一项不足",
+      "sourceText": "5.1 第 7 条后半：与 но 连用时强调第一项不足，并提出第二项的必要性。"
+    },
+    "gl5-5.1-tozhe-mne-negative-evaluation": {
+      "sectionId": "5.1",
+      "titleZh": "тоже мне…给出否定评价",
+      "sourceText": "5.1 第 8 条：тоже мне + 名词/形容词/动词/副词对人、现象或事件作否定评价。"
+    },
+    "gl5-5.1-a-tuda-zhe-disapproval": {
+      "sectionId": "5.1",
+      "titleZh": "а туда же 表示不赞成主体行动",
+      "sourceText": "5.1 第 9 条：а + туда же 对主体的行为作不赞成评价。"
+    },
+    "gl5-5.1-imperative-forced-action": {
+      "sectionId": "5.1",
+      "titleZh": "对照复句中单数命令式表示被迫行动",
+      "sourceText": "5.1 第 10 条：表达被迫行动的对照复句中，可用单数命令式替代人称动词谓语。"
+    },
+    "gl5-5.1-ne-forms-no-possibility": {
+      "sectionId": "5.1",
+      "titleZh": "нечего/некого/негде 等与不定式表示因缺失而不可能",
+      "sourceText": "5.1 第 11 条：инфинитив + 间接格 некого/нечего 或 негде/некуда/некогда/незачем，表示因没有对象、地点、时间或目的而无法行动。"
+    },
+    "gl5-5.2-to-speaker-unknown": {
+      "sectionId": "5.2",
+      "titleZh": "-то：说话人未知",
+      "sourceText": "5.2 第 1 项：-то 表示有关人/物的信息对说话人未知。"
+    },
+    "gl5-5.2-nibud-indifferent": {
+      "sectionId": "5.2",
+      "titleZh": "-нибудь：具体身份无关紧要",
+      "sourceText": "5.2 第 2 项：-нибудь 表示有关人/物的信息对说话人无关紧要。"
+    },
+    "gl5-5.2-libo-bookish-nibud": {
+      "sectionId": "5.2",
+      "titleZh": "-либо：近义-​​нибудь的书面形式",
+      "sourceText": "5.2 第 3 项：-либо 与 -нибудь 同义，但具有书面语色彩。"
+    },
+    "gl5-5.2-koe-speaker-known": {
+      "sectionId": "5.2",
+      "titleZh": "кое-：说话人知道、听话人不知道",
+      "sourceText": "5.2 第 4a 项：кое- 表示说话人知道而听话人不知道的人或物。"
+    },
+    "gl5-5.2-koe-some-places": {
+      "sectionId": "5.2",
+      "titleZh": "кое-地点副词表示某些地点",
+      "sourceText": "5.2 注意 2：кое-где/кое-откуда等可表示某些地点。"
+    },
+    "gl5-5.2-koe-kogda-sometimes": {
+      "sectionId": "5.2",
+      "titleZh": "кое-когда表示有时",
+      "sourceText": "5.2 注意 3：кое-когда 可表示“有时、偶尔”。"
+    },
+    "gl5-5.2-kogda-to-past": {
+      "sectionId": "5.2",
+      "titleZh": "когда-то表示过去很久以前",
+      "sourceText": "5.2 注意 4：когда-то 表示“很久以前、在过去”。"
+    },
+    "gl5-5.2-koe-preposition-placement": {
+      "sectionId": "5.2",
+      "titleZh": "кое-形式中的介词位置",
+      "sourceText": "5.2 注意 5：带介词时通常为 кое у кого、кое в чём；口语中也可为 от кое-чего、для кое-кого。"
+    },
+    "gl5-5.lexical-row-001": {
+      "sectionId": "5.lexical",
+      "titleZh": "词汇辨析：вещь",
+      "sourceText": "вещь: 1) материальный объект, принадлежащий кому-либо, использующийся в быту;<br>2) (только мн. ч.) то, что кто-либо берёт с собой в дорогу; чужая вещь, шкаф для вещей, беречь вещь<br>тяжёлые вещи, сдавать вещи в багаж",
+      "sourcePdfPage": 119,
+      "sourcePrintedPage": 117
+    },
+    "gl5-5.lexical-row-002": {
+      "sectionId": "5.lexical",
+      "titleZh": "词汇辨析：предмет",
+      "sourceText": "предмет: 1) материальный объект вне связи с человеком;<br>2) (обычно мн. ч.) то, что используется в быту, в производстве; острый предмет, предмет овальной формы, обнаружить предмет<br>предметы гигиены, производить предметы потребления",
+      "sourcePdfPage": 119,
+      "sourcePrintedPage": 117
+    },
+    "gl5-5.lexical-row-003": {
+      "sectionId": "5.lexical",
+      "titleZh": "词汇辨析：вместе",
+      "sourceText": "вместе: кто-либо находится рядом и делает то же, что и другие; работать (жить, отдыхать, учиться) вместе с друзьями",
+      "sourcePdfPage": 119,
+      "sourcePrintedPage": 117
+    },
+    "gl5-5.lexical-row-004": {
+      "sectionId": "5.lexical",
+      "titleZh": "词汇辨析：совместно",
+      "sourceText": "совместно: кто-либо занимается какой-либо профессиональной / учебной деятельностью не в одиночку, а с кем-либо другим, другими; проводить время (разрабатывать проект, писать отчёт, делать работу) совместно с коллегами",
+      "sourcePdfPage": 119,
+      "sourcePrintedPage": 117
+    },
+    "gl5-5.lexical-row-005": {
+      "sectionId": "5.lexical",
+      "titleZh": "词汇辨析：выбор",
+      "sourceText": "выбор: (только ед. ч.) то, в процессе которого берётся что-то более нужное, предпочтительное; выбор профессии, большой выбор",
+      "sourcePdfPage": 120,
+      "sourcePrintedPage": 118
+    },
+    "gl5-5.lexical-row-006": {
+      "sectionId": "5.lexical",
+      "titleZh": "词汇辨析：выборы",
+      "sourceText": "выборы: (только мн. ч.) избрание путём голосования; выборы Президента, выборы в Государственную Думу",
+      "sourcePdfPage": 120,
+      "sourcePrintedPage": 118
+    },
+    "gl5-5.lexical-row-007": {
+      "sectionId": "5.lexical",
+      "titleZh": "词汇辨析：выборка",
+      "sourceText": "выборка: извлечение каких-либо фактов по определённому критерию из определённой совокупности; газетная выборка",
+      "sourcePdfPage": 120,
+      "sourcePrintedPage": 118
+    },
+    "gl5-5.lexical-row-008": {
+      "sectionId": "5.lexical",
+      "titleZh": "词汇辨析：гористый",
+      "sourceText": "гористый: такой, который указывает на большое количество гор; гористый берег, гористая местность",
+      "sourcePdfPage": 120,
+      "sourcePrintedPage": 118
+    },
+    "gl5-5.lexical-row-009": {
+      "sectionId": "5.lexical",
+      "titleZh": "词汇辨析：горный",
+      "sourceText": "горный: свойственный горам, обитающий, растущий, находящийся в горах; горный воздух, горная трасса, горный козёл",
+      "sourcePdfPage": 120,
+      "sourcePrintedPage": 118
+    },
+    "gl5-5.lexical-row-010": {
+      "sectionId": "5.lexical",
+      "titleZh": "词汇辨析：дипломант",
+      "sourceText": "дипломант: тот, кто награждён дипломом на конкурсе, курсе, фестивале; дипломант конкурса скрипачей",
+      "sourcePdfPage": 120,
+      "sourcePrintedPage": 118
+    },
+    "gl5-5.lexical-row-011": {
+      "sectionId": "5.lexical",
+      "titleZh": "词汇辨析：дипломат",
+      "sourceText": "дипломат: тот, кто занимается дипломатической деятельностью; опытный дипломат, приезд дипломата",
+      "sourcePdfPage": 120,
+      "sourcePrintedPage": 118
+    },
+    "gl5-5.lexical-row-012": {
+      "sectionId": "5.lexical",
+      "titleZh": "词汇辨析：дипломник",
+      "sourceText": "дипломник: студент, выполняющий дипломную работу; нерадивый дипломник, собрание дипломников",
+      "sourcePdfPage": 120,
+      "sourcePrintedPage": 118
+    },
+    "gl5-5.lexical-row-013": {
+      "sectionId": "5.lexical",
+      "titleZh": "词汇辨析：духовный",
+      "sourceText": "духовный: 1) относящийся к духу, невещественному, божественному в человеке, связанный с мировоззрением, мироощущением;<br>2) относящийся к религии, церкви; духовный мир человека, духовная культура<br>духовная музыка, духовная академия",
+      "sourcePdfPage": 120,
+      "sourcePrintedPage": 118
+    },
+    "gl5-5.lexical-row-014": {
+      "sectionId": "5.lexical",
+      "titleZh": "词汇辨析：душевный",
+      "sourceText": "душевный: 1) относящийся к душе, внутреннему психическому миру человека, его чувствам, переживаниям, настроению;<br>2) полный искреннего дружелюбия; душевный покой, душевные волнения<br>душевная беседа, душевный человек",
+      "sourcePdfPage": 120,
+      "sourcePrintedPage": 118
+    },
+    "gl5-5.lexical-row-015": {
+      "sectionId": "5.lexical",
+      "titleZh": "词汇辨析：душистый",
+      "sourceText": "душистый: имеющий приятный сильный запах; душистые цветы, душистое мыло",
+      "sourcePdfPage": 120,
+      "sourcePrintedPage": 118
+    },
+    "gl5-5.lexical-row-016": {
+      "sectionId": "5.lexical",
+      "titleZh": "词汇辨析：жестокий",
+      "sourceText": "жестокий: безжалостный, беспощадный; жестокий враг, жестокий человек",
+      "sourcePdfPage": 120,
+      "sourcePrintedPage": 118
+    },
+    "gl5-5.lexical-row-017": {
+      "sectionId": "5.lexical",
+      "titleZh": "词汇辨析：жёсткий",
+      "sourceText": "жёсткий: 1) твёрдый, плотный;<br>2) грубый, резкий;<br>3) не допускающий отклонений, безоговорочный; жёсткий стул, жёсткое мясо<br>жёсткий характер, жёсткие черты лица<br>жёсткие сроки, жёсткие условия",
+      "sourcePdfPage": 120,
+      "sourcePrintedPage": 118
+    },
+    "gl5-5.lexical-row-018": {
+      "sectionId": "5.lexical",
+      "titleZh": "词汇辨析：твёрдый",
+      "sourceText": "твёрдый: 1) сохраняющий свою форму в отличие от жидкости и газа;<br>2) не подверженный изменениям, устойчивый;<br>3) сильный, решительный; твёрдое тело<br>твёрдые сроки, твёрдое решение<br>твёрдый характер, твёрдая рука",
+      "sourcePdfPage": 120,
+      "sourcePrintedPage": 118
+    },
+    "gl5-5.lexical-row-019": {
+      "sectionId": "5.lexical",
+      "titleZh": "词汇辨析：каждый",
+      "sourceText": "каждый: один из всех в данном ряду, взятый отдельно из ряда подобных; каждая женщина, каждый день, каждое утро",
+      "sourcePdfPage": 121,
+      "sourcePrintedPage": 119
+    },
+    "gl5-5.lexical-row-020": {
+      "sectionId": "5.lexical",
+      "titleZh": "词汇辨析：любой",
+      "sourceText": "любой: указывает на свободу выбора кого-либо / чего-либо из числа одинаковых субъектов / объектов, когда не имеет значение, кто или что выбирается; любая погода, любой день, любое здание",
+      "sourcePdfPage": 121,
+      "sourcePrintedPage": 119
+    },
+    "gl5-5.lexical-row-021": {
+      "sectionId": "5.lexical",
+      "titleZh": "词汇辨析：всякий",
+      "sourceText": "всякий: указывает на разнообразие лиц, предметов, обозначаемых одним существительным; всякий человек, на всякий случай, без всякого интереса",
+      "sourcePdfPage": 121,
+      "sourcePrintedPage": 119
+    },
+    "gl5-5.lexical-row-022": {
+      "sectionId": "5.lexical",
+      "titleZh": "词汇辨析：каменный",
+      "sourceText": "каменный: сделанный из камня; каменный дом, каменная стена",
+      "sourcePdfPage": 121,
+      "sourcePrintedPage": 119
+    },
+    "gl5-5.lexical-row-023": {
+      "sectionId": "5.lexical",
+      "titleZh": "词汇辨析：каменистый",
+      "sourceText": "каменистый: содержащий много камней; каменистая почва, каменистый берег",
+      "sourcePdfPage": 121,
+      "sourcePrintedPage": 119
+    },
+    "gl5-5.lexical-row-024": {
+      "sectionId": "5.lexical",
+      "titleZh": "词汇辨析：классический",
+      "sourceText": "классический: 1) созданный классиком, совершенный, относящийся к классике;<br>2) типичный, характерный; классическая музыка, классическая литература<br>классический пример",
+      "sourcePdfPage": 121,
+      "sourcePrintedPage": 119
+    },
+    "gl5-5.lexical-row-025": {
+      "sectionId": "5.lexical",
+      "titleZh": "词汇辨析：классный",
+      "sourceText": "классный: 1) имеющий отношение к группе школьников (классу);<br>2) относящийся к комнате для занятий;<br>3) высокого качества (разг.); классный руководитель<br>классная комната<br>классный футбол",
+      "sourcePdfPage": 121,
+      "sourcePrintedPage": 119
+    },
+    "gl5-5.lexical-row-026": {
+      "sectionId": "5.lexical",
+      "titleZh": "词汇辨析：классовый",
+      "sourceText": "классовый: свойственный идеологии какого-либо общественного класса; классовая борьба, классовый интерес",
+      "sourcePdfPage": 121,
+      "sourcePrintedPage": 119
+    },
+    "gl5-5.lexical-row-027": {
+      "sectionId": "5.lexical",
+      "titleZh": "词汇辨析：кожаный",
+      "sourceText": "кожаный: сделанный из кожи; кожаная сумка",
+      "sourcePdfPage": 121,
+      "sourcePrintedPage": 119
+    },
+    "gl5-5.lexical-row-028": {
+      "sectionId": "5.lexical",
+      "titleZh": "词汇辨析：кожевенный",
+      "sourceText": "кожевенный: производящий изделия из кожи; кожевенная фабрика",
+      "sourcePdfPage": 121,
+      "sourcePrintedPage": 119
+    },
+    "gl5-5.lexical-row-029": {
+      "sectionId": "5.lexical",
+      "titleZh": "词汇辨析：кожистый",
+      "sourceText": "кожистый: имеющий поверхность, похожую на кожу; кожистые листья",
+      "sourcePdfPage": 121,
+      "sourcePrintedPage": 119
+    },
+    "gl5-5.lexical-row-030": {
+      "sectionId": "5.lexical",
+      "titleZh": "词汇辨析：кожный",
+      "sourceText": "кожный: относящийся к наружному покрову тела (коже); кожные болезни",
+      "sourcePdfPage": 121,
+      "sourcePrintedPage": 119
+    },
+    "gl5-5.lexical-row-031": {
+      "sectionId": "5.lexical",
+      "titleZh": "词汇辨析：костистый",
+      "sourceText": "костистый: содержащий множество костей; костистая рыба",
+      "sourcePdfPage": 121,
+      "sourcePrintedPage": 119
+    },
+    "gl5-5.lexical-row-032": {
+      "sectionId": "5.lexical",
+      "titleZh": "词汇辨析：костлявый",
+      "sourceText": "костлявый: худой, с выступающими костями; костлявая фигура",
+      "sourcePdfPage": 121,
+      "sourcePrintedPage": 119
+    },
+    "gl5-5.lexical-row-033": {
+      "sectionId": "5.lexical",
+      "titleZh": "词汇辨析：костный",
+      "sourceText": "костный: относящийся к костям человека и животного; костный мозг, костный скелет",
+      "sourcePdfPage": 121,
+      "sourcePrintedPage": 119
+    },
+    "gl5-5.lexical-row-034": {
+      "sectionId": "5.lexical",
+      "titleZh": "词汇辨析：костяной",
+      "sourceText": "костяной: сделанный из кости; костяные украшения",
+      "sourcePdfPage": 121,
+      "sourcePrintedPage": 119
+    },
+    "gl5-5.lexical-row-035": {
+      "sectionId": "5.lexical",
+      "titleZh": "词汇辨析：мирный",
+      "sourceText": "мирный: исполненный согласия, дружбы, мира; мирный договор, мирные инициативы",
+      "sourcePdfPage": 121,
+      "sourcePrintedPage": 119
+    },
+    "gl5-5.lexical-row-036": {
+      "sectionId": "5.lexical",
+      "titleZh": "词汇辨析：мировой",
+      "sourceText": "мировой: охватывающий весь земной шар, все народы; мировая война, мировое сообщество",
+      "sourcePdfPage": 121,
+      "sourcePrintedPage": 119
+    },
+    "gl5-5.lexical-row-037": {
+      "sectionId": "5.lexical",
+      "titleZh": "词汇辨析：миролюбивый",
+      "sourceText": "миролюбивый: проникнутый любовью к миру; миролюбивая политика",
+      "sourcePdfPage": 121,
+      "sourcePrintedPage": 119
+    },
+    "gl5-5.lexical-row-038": {
+      "sectionId": "5.lexical",
+      "titleZh": "词汇辨析：мирской",
+      "sourceText": "мирской: светский, обыденный, противопоставленный церковному, духовному; мирская жизнь",
+      "sourcePdfPage": 122,
+      "sourcePrintedPage": 120
+    },
+    "gl5-5.lexical-row-039": {
+      "sectionId": "5.lexical",
+      "titleZh": "词汇辨析：обидный",
+      "sourceText": "обидный: наносящий обиду, содержащий обиду; обидное замечание, обидные слова",
+      "sourcePdfPage": 122,
+      "sourcePrintedPage": 120
+    },
+    "gl5-5.lexical-row-040": {
+      "sectionId": "5.lexical",
+      "titleZh": "词汇辨析：обидчивый",
+      "sourceText": "обидчивый: легко обижающийся, склонный видеть обиду там, где её нет; обидчивый человек",
+      "sourcePdfPage": 122,
+      "sourcePrintedPage": 120
+    },
+    "gl5-5.lexical-row-041": {
+      "sectionId": "5.lexical",
+      "titleZh": "词汇辨析：общество",
+      "sourceText": "общество: 1) общественный строй;<br>2) круг людей, объединённых общностью интересов, происхождения; капиталистическое общество<br>женское общество, дворянское общество",
+      "sourcePdfPage": 122,
+      "sourcePrintedPage": 120
+    },
+    "gl5-5.lexical-row-042": {
+      "sectionId": "5.lexical",
+      "titleZh": "词汇辨析：общность",
+      "sourceText": "общность: единство, наличие неразрывных связей, совпадение; общность цели, общность взглядов",
+      "sourcePdfPage": 122,
+      "sourcePrintedPage": 120
+    },
+    "gl5-5.lexical-row-043": {
+      "sectionId": "5.lexical",
+      "titleZh": "词汇辨析：общественность",
+      "sourceText": "общественность: (только ед. ч.) группа людей, выражающая общественное мнение; мировая общественность, передовая общественность",
+      "sourcePdfPage": 122,
+      "sourcePrintedPage": 120
+    },
+    "gl5-5.lexical-row-044": {
+      "sectionId": "5.lexical",
+      "titleZh": "词汇辨析：общий",
+      "sourceText": "общий: свойственный всем, касающийся всех; общее мнение, общий язык",
+      "sourcePdfPage": 122,
+      "sourcePrintedPage": 120
+    },
+    "gl5-5.lexical-row-045": {
+      "sectionId": "5.lexical",
+      "titleZh": "词汇辨析：общественный",
+      "sourceText": "общественный: относящийся к обществу; общественный строй, общественные организации",
+      "sourcePdfPage": 122,
+      "sourcePrintedPage": 120
+    },
+    "gl5-5.lexical-row-046": {
+      "sectionId": "5.lexical",
+      "titleZh": "词汇辨析：общительный",
+      "sourceText": "общительный: контактный, легко вступающий в общение; общительный человек",
+      "sourcePdfPage": 122,
+      "sourcePrintedPage": 120
+    },
+    "gl5-5.lexical-row-047": {
+      "sectionId": "5.lexical",
+      "titleZh": "词汇辨析：обычай",
+      "sourceText": "обычай: правила поведения, принятые в быту какого-либо народа; старинный обычай, свадебный обычай, сохранять обычаи",
+      "sourcePdfPage": 122,
+      "sourcePrintedPage": 120
+    },
+    "gl5-5.lexical-row-048": {
+      "sectionId": "5.lexical",
+      "titleZh": "词汇辨析：традиция",
+      "sourceText": "традиция: (обычно во мн. ч.) преемственность отношений, норм, правил в обществе, политике, религии, профессии; добрые традиции, национальные традиции, традиции университета, поддерживать традиции",
+      "sourcePdfPage": 122,
+      "sourcePrintedPage": 120
+    },
+    "gl5-5.lexical-row-049": {
+      "sectionId": "5.lexical",
+      "titleZh": "词汇辨析：обязанность",
+      "sourceText": "обязанность: действия, безусловные для выполнения; служебные обязанности, права и обязанности граждан",
+      "sourcePdfPage": 122,
+      "sourcePrintedPage": 120
+    },
+    "gl5-5.lexical-row-050": {
+      "sectionId": "5.lexical",
+      "titleZh": "词汇辨析：обязательство",
+      "sourceText": "обязательство: обещание, подлежащее выполнению; выполненные обязательства",
+      "sourcePdfPage": 122,
+      "sourcePrintedPage": 120
+    },
+    "gl5-5.lexical-row-051": {
+      "sectionId": "5.lexical",
+      "titleZh": "词汇辨析：охладить",
+      "sourceText": "охладить: сделать холодным; охладить сок",
+      "sourcePdfPage": 122,
+      "sourcePrintedPage": 120
+    },
+    "gl5-5.lexical-row-052": {
+      "sectionId": "5.lexical",
+      "titleZh": "词汇辨析：охладеть",
+      "sourceText": "охладеть: стать равнодушным, потерять интерес; охладеть к театру",
+      "sourcePdfPage": 122,
+      "sourcePrintedPage": 120
+    },
+    "gl5-5.lexical-row-053": {
+      "sectionId": "5.lexical",
+      "titleZh": "词汇辨析：холодать",
+      "sourceText": "холодать: (обычно в безличных предложениях о воздухе) становиться холоднее; К осени холодает.",
+      "sourcePdfPage": 122,
+      "sourcePrintedPage": 120
+    },
+    "gl5-5.lexical-row-054": {
+      "sectionId": "5.lexical",
+      "titleZh": "词汇辨析：особо",
+      "sourceText": "особо: отдельно, независимо от других; рассмотреть вопрос особо",
+      "sourcePdfPage": 122,
+      "sourcePrintedPage": 120
+    },
+    "gl5-5.lexical-row-055": {
+      "sectionId": "5.lexical",
+      "titleZh": "词汇辨析：особенно",
+      "sourceText": "особенно: не как всегда, не как все, необычно; особенно много народу",
+      "sourcePdfPage": 122,
+      "sourcePrintedPage": 120
+    },
+    "gl5-5.lexical-row-056": {
+      "sectionId": "5.lexical",
+      "titleZh": "词汇辨析：падение",
+      "sourceText": "падение: резкое уменьшение, движение вниз по; падение цен, падение давления",
+      "sourcePdfPage": 122,
+      "sourcePrintedPage": 120
+    },
+    "gl5-5.lexical-row-057": {
+      "sectionId": "5.lexical",
+      "titleZh": "词汇辨析：спад",
+      "sourceText": "спад: ослабление хозяйственной или общественной деятельности; экономический спад, политический спад",
+      "sourcePdfPage": 122,
+      "sourcePrintedPage": 120
+    },
+    "gl5-5.lexical-row-058": {
+      "sectionId": "5.lexical",
+      "titleZh": "词汇辨析：упадок",
+      "sourceText": "упадок: расстройство деятельности, потеря активности; упадок культуры, упадок сил",
+      "sourcePdfPage": 123,
+      "sourcePrintedPage": 121
+    },
+    "gl5-5.lexical-row-059": {
+      "sectionId": "5.lexical",
+      "titleZh": "词汇辨析：печать",
+      "sourceText": "печать: процесс изготовления текста с помощью специальных аппаратов и материалов; офсетная печать, книга в печати",
+      "sourcePdfPage": 123,
+      "sourcePrintedPage": 121
+    },
+    "gl5-5.lexical-row-060": {
+      "sectionId": "5.lexical",
+      "titleZh": "词汇辨析：опечатка",
+      "sourceText": "опечатка: ошибка в печатном тексте; досадная опечатка, смешная опечатка",
+      "sourcePdfPage": 123,
+      "sourcePrintedPage": 121
+    },
+    "gl5-5.lexical-row-061": {
+      "sectionId": "5.lexical",
+      "titleZh": "词汇辨析：отпечаток",
+      "sourceText": "отпечаток: след, изображение, оставшееся на чём-либо от надавливания; отпечаток ноги на песке, отпечатки пальцев",
+      "sourcePdfPage": 123,
+      "sourcePrintedPage": 121
+    },
+    "gl5-5.lexical-row-062": {
+      "sectionId": "5.lexical",
+      "titleZh": "词汇辨析：перепечатка",
+      "sourceText": "перепечатка: повторная печать, копирование; перепечатка рукописи",
+      "sourcePdfPage": 123,
+      "sourcePrintedPage": 121
+    },
+    "gl5-5.lexical-row-063": {
+      "sectionId": "5.lexical",
+      "titleZh": "词汇辨析：поступок",
+      "sourceText": "поступок: совершённое кем-либо действие; хороший поступок, необдуманный поступок",
+      "sourcePdfPage": 123,
+      "sourcePrintedPage": 121
+    },
+    "gl5-5.lexical-row-064": {
+      "sectionId": "5.lexical",
+      "titleZh": "词汇辨析：проступок",
+      "sourceText": "проступок: поступок, нарушающий правила поведения, провинность; значительный / незначительный проступок",
+      "sourcePdfPage": 123,
+      "sourcePrintedPage": 121
+    },
+    "gl5-5.lexical-row-065": {
+      "sectionId": "5.lexical",
+      "titleZh": "词汇辨析：предоставление (от глагола предоставить)",
+      "sourceText": "предоставление (от глагола предоставить): выделение чего-либо в чьё-либо распоряжение, пользование; предоставление кредита, предоставление льгот",
+      "sourcePdfPage": 123,
+      "sourcePrintedPage": 121
+    },
+    "gl5-5.lexical-row-066": {
+      "sectionId": "5.lexical",
+      "titleZh": "词汇辨析：представление (от глагола представить)",
+      "sourceText": "представление (от глагола представить): вручение для ознакомления; представление статьи на рецензию",
+      "sourcePdfPage": 123,
+      "sourcePrintedPage": 121
+    },
+    "gl5-5.lexical-row-067": {
+      "sectionId": "5.lexical",
+      "titleZh": "词汇辨析：психический",
+      "sourceText": "психический: относящийся к психике, к душевным качествам человека; психическое состояние, психические заболевания",
+      "sourcePdfPage": 123,
+      "sourcePrintedPage": 121
+    },
+    "gl5-5.lexical-row-068": {
+      "sectionId": "5.lexical",
+      "titleZh": "词汇辨析：психологический",
+      "sourceText": "психологический: относящийся к психологии; психологический тест, психологический анализ",
+      "sourcePdfPage": 123,
+      "sourcePrintedPage": 121
+    },
+    "gl5-5.lexical-row-069": {
+      "sectionId": "5.lexical",
+      "titleZh": "词汇辨析：родной",
+      "sourceText": "родной: 1) находящийся в кровном родстве;<br>2) близкий по духу, привычкам; родной брат<br>родной человек, родной язык",
+      "sourcePdfPage": 123,
+      "sourcePrintedPage": 121
+    },
+    "gl5-5.lexical-row-070": {
+      "sectionId": "5.lexical",
+      "titleZh": "词汇辨析：родственный",
+      "sourceText": "родственный: 1) основанный на отношениях родства;<br>2) близкий по происхождению, содержанию; родственные связи<br>родственные языки",
+      "sourcePdfPage": 123,
+      "sourcePrintedPage": 121
+    },
+    "gl5-5.lexical-row-071": {
+      "sectionId": "5.lexical",
+      "titleZh": "词汇辨析：рыбий",
+      "sourceText": "рыбий: относящийся к рыбе как биологическому виду; рыбий глаз",
+      "sourcePdfPage": 123,
+      "sourcePrintedPage": 121
+    },
+    "gl5-5.lexical-row-072": {
+      "sectionId": "5.lexical",
+      "titleZh": "词汇辨析：рыбный",
+      "sourceText": "рыбный: относящийся к рыбе как продукту; рыбный суп, рыбный день, рыбная ловля",
+      "sourcePdfPage": 123,
+      "sourcePrintedPage": 121
+    },
+    "gl5-5.lexical-row-073": {
+      "sectionId": "5.lexical",
+      "titleZh": "词汇辨析：рыбачий",
+      "sourceText": "рыбачий: относящийся к рыбаку; рыбачьи сети",
+      "sourcePdfPage": 123,
+      "sourcePrintedPage": 121
+    },
+    "gl5-5.lexical-row-074": {
+      "sectionId": "5.lexical",
+      "titleZh": "词汇辨析：собирание",
+      "sourceText": "собирание: коллекционирование; собирание коллекции",
+      "sourcePdfPage": 123,
+      "sourcePrintedPage": 121
+    },
+    "gl5-5.lexical-row-075": {
+      "sectionId": "5.lexical",
+      "titleZh": "词汇辨析：сборка",
+      "sourceText": "сборка: создание целого из отдельных частей; сборка машин",
+      "sourcePdfPage": 123,
+      "sourcePrintedPage": 121
+    },
+    "gl5-5.lexical-row-076": {
+      "sectionId": "5.lexical",
+      "titleZh": "词汇辨析：сборище",
+      "sourceText": "сборище: (разг., неодобр.) собрание людей; шумное сборище",
+      "sourcePdfPage": 123,
+      "sourcePrintedPage": 121
+    },
+    "gl5-5.lexical-row-077": {
+      "sectionId": "5.lexical",
+      "titleZh": "词汇辨析：типичный",
+      "sourceText": "типичный: 1) отличающийся признаками, свойственными какому-либо типу предметов, явлений;<br>2) часто встречающийся, обычный; типичный южный город, типичный ростовчанин<br>типичные ошибки",
+      "sourcePdfPage": 124,
+      "sourcePrintedPage": 122
+    },
+    "gl5-5.lexical-row-078": {
+      "sectionId": "5.lexical",
+      "titleZh": "词汇辨析：типический",
+      "sourceText": "типический: относящийся к характерным чертам какой-либо группы людей; типический образ",
+      "sourcePdfPage": 124,
+      "sourcePrintedPage": 122
+    },
+    "gl5-5.lexical-row-079": {
+      "sectionId": "5.lexical",
+      "titleZh": "词汇辨析：типовой",
+      "sourceText": "типовой: являющийся моделью, стандартный; типовой проект",
+      "sourcePdfPage": 124,
+      "sourcePrintedPage": 122
+    },
+    "gl5-5.lexical-row-080": {
+      "sectionId": "5.lexical",
+      "titleZh": "词汇辨析：типологический",
+      "sourceText": "типологический: классифицирующий разные типы предметов или явлений в системе; типологический анализ",
+      "sourcePdfPage": 124,
+      "sourcePrintedPage": 122
+    },
+    "gl5-5.lexical-row-081": {
+      "sectionId": "5.lexical",
+      "titleZh": "词汇辨析：факт",
+      "sourceText": "факт: то, что было в действительности и является основанием для вывода; очевидный факт, факт истории, приводить факты",
+      "sourcePdfPage": 124,
+      "sourcePrintedPage": 122
+    },
+    "gl5-5.lexical-row-082": {
+      "sectionId": "5.lexical",
+      "titleZh": "词汇辨析：фактор",
+      "sourceText": "фактор: то, что является неотъемлемой характеристикой процесса или явления; фактор времени, фактор экономического развития",
+      "sourcePdfPage": 124,
+      "sourcePrintedPage": 122
+    },
+    "gl5-5.lexical-row-083": {
+      "sectionId": "5.lexical",
+      "titleZh": "词汇辨析：экономичный",
+      "sourceText": "экономичный: дающий возможность сэкономить, выгодный; экономичная машина, экономичный способ",
+      "sourcePdfPage": 124,
+      "sourcePrintedPage": 122
+    },
+    "gl5-5.lexical-row-084": {
+      "sectionId": "5.lexical",
+      "titleZh": "词汇辨析：экономический",
+      "sourceText": "экономический: относящийся к экономике; экономический закон, экономические проблемы",
+      "sourcePdfPage": 124,
+      "sourcePrintedPage": 122
+    },
+    "gl5-5.lexical-row-085": {
+      "sectionId": "5.lexical",
+      "titleZh": "词汇辨析：экономный",
+      "sourceText": "экономный: бережливо расходующий; экономная хозяйка, экономное расходование",
+      "sourcePdfPage": 124,
+      "sourcePrintedPage": 122
+    },
+    "gl5-5.lexical-row-086": {
+      "sectionId": "5.lexical",
+      "titleZh": "词汇辨析：эффективный",
+      "sourceText": "эффективный: приводящий к нужным результатам; эффективные методы в экономике",
+      "sourcePdfPage": 124,
+      "sourcePrintedPage": 122
+    },
+    "gl5-5.lexical-row-087": {
+      "sectionId": "5.lexical",
+      "titleZh": "词汇辨析：эффектный",
+      "sourceText": "эффектный: производящий сильное впечатление, эффект; эффектное платье, эффектная женщина",
+      "sourcePdfPage": 124,
+      "sourcePrintedPage": 122
+    }
+  },
+  "exercises": {
+    "GL5-Q001": {
+      "exerciseId": "GL5-Q001",
+      "printedNumber": 1,
+      "chapterId": "gl5",
+      "exerciseSectionId": "5.lexical",
+      "sectionIds": [
+        "5.lexical"
+      ],
+      "ruleIds": [
+        "gl5-5.lexical-row-041"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 70,
+      "exercisePdfPage": 72,
+      "theoryPrintedPages": [
+        117,
+        118,
+        119,
+        120,
+        121,
+        122
+      ],
+      "theoryPdfPages": [
+        119,
+        120,
+        121,
+        122,
+        123,
+        124
+      ],
+      "mappingReason": "题干与原书词汇评论中的「общество」条目直接对应；释义和原书搭配可区分正确项，不能由答案字母反推。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL5-Q002": {
+      "exerciseId": "GL5-Q002",
+      "printedNumber": 2,
+      "chapterId": "gl5",
+      "exerciseSectionId": "5.lexical",
+      "sectionIds": [
+        "5.lexical"
+      ],
+      "ruleIds": [
+        "gl5-5.lexical-row-048"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 70,
+      "exercisePdfPage": 72,
+      "theoryPrintedPages": [
+        117,
+        118,
+        119,
+        120,
+        121,
+        122
+      ],
+      "theoryPdfPages": [
+        119,
+        120,
+        121,
+        122,
+        123,
+        124
+      ],
+      "mappingReason": "题干与原书词汇评论中的「традиция」条目直接对应；释义和原书搭配可区分正确项，不能由答案字母反推。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL5-Q003": {
+      "exerciseId": "GL5-Q003",
+      "printedNumber": 3,
+      "chapterId": "gl5",
+      "exerciseSectionId": "5.lexical",
+      "sectionIds": [
+        "5.lexical"
+      ],
+      "ruleIds": [
+        "gl5-5.lexical-row-011"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 70,
+      "exercisePdfPage": 72,
+      "theoryPrintedPages": [
+        117,
+        118,
+        119,
+        120,
+        121,
+        122
+      ],
+      "theoryPdfPages": [
+        119,
+        120,
+        121,
+        122,
+        123,
+        124
+      ],
+      "mappingReason": "题干与原书词汇评论中的「дипломат」条目直接对应；释义和原书搭配可区分正确项，不能由答案字母反推。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL5-Q004": {
+      "exerciseId": "GL5-Q004",
+      "printedNumber": 4,
+      "chapterId": "gl5",
+      "exerciseSectionId": "lexical-exercise-not-in-commentary",
+      "sectionIds": [
+        "5.lexical"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 70,
+      "exercisePdfPage": 72,
+      "theoryPrintedPages": [
+        117,
+        118,
+        119,
+        120,
+        121,
+        122
+      ],
+      "theoryPdfPages": [
+        119,
+        120,
+        121,
+        122,
+        123,
+        124
+      ],
+      "mappingReason": "原书有该练习，但第 5 章理论词汇表未收录该词义、搭配或构词辨析；不能从 PDF 正确项反向编造独立原书规则。",
+      "reviewStatus": "source-checked-no-independent-rule"
+    },
+    "GL5-Q005": {
+      "exerciseId": "GL5-Q005",
+      "printedNumber": 5,
+      "chapterId": "gl5",
+      "exerciseSectionId": "5.lexical",
+      "sectionIds": [
+        "5.lexical"
+      ],
+      "ruleIds": [
+        "gl5-5.lexical-row-065"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 70,
+      "exercisePdfPage": 72,
+      "theoryPrintedPages": [
+        117,
+        118,
+        119,
+        120,
+        121,
+        122
+      ],
+      "theoryPdfPages": [
+        119,
+        120,
+        121,
+        122,
+        123,
+        124
+      ],
+      "mappingReason": "题干与原书词汇评论中的「предоставление (от глагола предоставить)」条目直接对应；释义和原书搭配可区分正确项，不能由答案字母反推。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL5-Q006": {
+      "exerciseId": "GL5-Q006",
+      "printedNumber": 6,
+      "chapterId": "gl5",
+      "exerciseSectionId": "5.lexical",
+      "sectionIds": [
+        "5.lexical"
+      ],
+      "ruleIds": [
+        "gl5-5.lexical-row-006"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 70,
+      "exercisePdfPage": 72,
+      "theoryPrintedPages": [
+        117,
+        118,
+        119,
+        120,
+        121,
+        122
+      ],
+      "theoryPdfPages": [
+        119,
+        120,
+        121,
+        122,
+        123,
+        124
+      ],
+      "mappingReason": "题干与原书词汇评论中的「выборы」条目直接对应；释义和原书搭配可区分正确项，不能由答案字母反推。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL5-Q007": {
+      "exerciseId": "GL5-Q007",
+      "printedNumber": 7,
+      "chapterId": "gl5",
+      "exerciseSectionId": "5.lexical",
+      "sectionIds": [
+        "5.lexical"
+      ],
+      "ruleIds": [
+        "gl5-5.lexical-row-082"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 70,
+      "exercisePdfPage": 72,
+      "theoryPrintedPages": [
+        117,
+        118,
+        119,
+        120,
+        121,
+        122
+      ],
+      "theoryPdfPages": [
+        119,
+        120,
+        121,
+        122,
+        123,
+        124
+      ],
+      "mappingReason": "题干与原书词汇评论中的「фактор」条目直接对应；释义和原书搭配可区分正确项，不能由答案字母反推。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL5-Q008": {
+      "exerciseId": "GL5-Q008",
+      "printedNumber": 8,
+      "chapterId": "gl5",
+      "exerciseSectionId": "lexical-exercise-not-in-commentary",
+      "sectionIds": [
+        "5.lexical"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 71,
+      "exercisePdfPage": 73,
+      "theoryPrintedPages": [
+        117,
+        118,
+        119,
+        120,
+        121,
+        122
+      ],
+      "theoryPdfPages": [
+        119,
+        120,
+        121,
+        122,
+        123,
+        124
+      ],
+      "mappingReason": "原书有该练习，但第 5 章理论词汇表未收录该词义、搭配或构词辨析；不能从 PDF 正确项反向编造独立原书规则。",
+      "reviewStatus": "source-checked-no-independent-rule"
+    },
+    "GL5-Q009": {
+      "exerciseId": "GL5-Q009",
+      "printedNumber": 9,
+      "chapterId": "gl5",
+      "exerciseSectionId": "5.lexical",
+      "sectionIds": [
+        "5.lexical"
+      ],
+      "ruleIds": [
+        "gl5-5.lexical-row-056"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 71,
+      "exercisePdfPage": 73,
+      "theoryPrintedPages": [
+        117,
+        118,
+        119,
+        120,
+        121,
+        122
+      ],
+      "theoryPdfPages": [
+        119,
+        120,
+        121,
+        122,
+        123,
+        124
+      ],
+      "mappingReason": "题干与原书词汇评论中的「падение」条目直接对应；释义和原书搭配可区分正确项，不能由答案字母反推。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL5-Q010": {
+      "exerciseId": "GL5-Q010",
+      "printedNumber": 10,
+      "chapterId": "gl5",
+      "exerciseSectionId": "lexical-exercise-not-in-commentary",
+      "sectionIds": [
+        "5.lexical"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 71,
+      "exercisePdfPage": 73,
+      "theoryPrintedPages": [
+        117,
+        118,
+        119,
+        120,
+        121,
+        122
+      ],
+      "theoryPdfPages": [
+        119,
+        120,
+        121,
+        122,
+        123,
+        124
+      ],
+      "mappingReason": "原书有该练习，但第 5 章理论词汇表未收录该词义、搭配或构词辨析；不能从 PDF 正确项反向编造独立原书规则。",
+      "reviewStatus": "source-checked-no-independent-rule"
+    },
+    "GL5-Q011": {
+      "exerciseId": "GL5-Q011",
+      "printedNumber": 11,
+      "chapterId": "gl5",
+      "exerciseSectionId": "5.lexical",
+      "sectionIds": [
+        "5.lexical"
+      ],
+      "ruleIds": [
+        "gl5-5.lexical-row-002"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 71,
+      "exercisePdfPage": 73,
+      "theoryPrintedPages": [
+        117,
+        118,
+        119,
+        120,
+        121,
+        122
+      ],
+      "theoryPdfPages": [
+        119,
+        120,
+        121,
+        122,
+        123,
+        124
+      ],
+      "mappingReason": "题干与原书词汇评论中的「предмет」条目直接对应；释义和原书搭配可区分正确项，不能由答案字母反推。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL5-Q012": {
+      "exerciseId": "GL5-Q012",
+      "printedNumber": 12,
+      "chapterId": "gl5",
+      "exerciseSectionId": "lexical-exercise-not-in-commentary",
+      "sectionIds": [
+        "5.lexical"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 71,
+      "exercisePdfPage": 73,
+      "theoryPrintedPages": [
+        117,
+        118,
+        119,
+        120,
+        121,
+        122
+      ],
+      "theoryPdfPages": [
+        119,
+        120,
+        121,
+        122,
+        123,
+        124
+      ],
+      "mappingReason": "原书有该练习，但第 5 章理论词汇表未收录该词义、搭配或构词辨析；不能从 PDF 正确项反向编造独立原书规则。",
+      "reviewStatus": "source-checked-no-independent-rule"
+    },
+    "GL5-Q013": {
+      "exerciseId": "GL5-Q013",
+      "printedNumber": 13,
+      "chapterId": "gl5",
+      "exerciseSectionId": "lexical-exercise-not-in-commentary",
+      "sectionIds": [
+        "5.lexical"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 71,
+      "exercisePdfPage": 73,
+      "theoryPrintedPages": [
+        117,
+        118,
+        119,
+        120,
+        121,
+        122
+      ],
+      "theoryPdfPages": [
+        119,
+        120,
+        121,
+        122,
+        123,
+        124
+      ],
+      "mappingReason": "原书有该练习，但第 5 章理论词汇表未收录该词义、搭配或构词辨析；不能从 PDF 正确项反向编造独立原书规则。",
+      "reviewStatus": "source-checked-no-independent-rule"
+    },
+    "GL5-Q014": {
+      "exerciseId": "GL5-Q014",
+      "printedNumber": 14,
+      "chapterId": "gl5",
+      "exerciseSectionId": "lexical-exercise-not-in-commentary",
+      "sectionIds": [
+        "5.lexical"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 71,
+      "exercisePdfPage": 73,
+      "theoryPrintedPages": [
+        117,
+        118,
+        119,
+        120,
+        121,
+        122
+      ],
+      "theoryPdfPages": [
+        119,
+        120,
+        121,
+        122,
+        123,
+        124
+      ],
+      "mappingReason": "原书有该练习，但第 5 章理论词汇表未收录该词义、搭配或构词辨析；不能从 PDF 正确项反向编造独立原书规则。",
+      "reviewStatus": "source-checked-no-independent-rule"
+    },
+    "GL5-Q015": {
+      "exerciseId": "GL5-Q015",
+      "printedNumber": 15,
+      "chapterId": "gl5",
+      "exerciseSectionId": "5.lexical",
+      "sectionIds": [
+        "5.lexical"
+      ],
+      "ruleIds": [
+        "gl5-5.lexical-row-049"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 71,
+      "exercisePdfPage": 73,
+      "theoryPrintedPages": [
+        117,
+        118,
+        119,
+        120,
+        121,
+        122
+      ],
+      "theoryPdfPages": [
+        119,
+        120,
+        121,
+        122,
+        123,
+        124
+      ],
+      "mappingReason": "题干与原书词汇评论中的「обязанность」条目直接对应；释义和原书搭配可区分正确项，不能由答案字母反推。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL5-Q016": {
+      "exerciseId": "GL5-Q016",
+      "printedNumber": 16,
+      "chapterId": "gl5",
+      "exerciseSectionId": "5.lexical",
+      "sectionIds": [
+        "5.lexical"
+      ],
+      "ruleIds": [
+        "gl5-5.lexical-row-060"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 71,
+      "exercisePdfPage": 73,
+      "theoryPrintedPages": [
+        117,
+        118,
+        119,
+        120,
+        121,
+        122
+      ],
+      "theoryPdfPages": [
+        119,
+        120,
+        121,
+        122,
+        123,
+        124
+      ],
+      "mappingReason": "题干与原书词汇评论中的「опечатка」条目直接对应；释义和原书搭配可区分正确项，不能由答案字母反推。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL5-Q017": {
+      "exerciseId": "GL5-Q017",
+      "printedNumber": 17,
+      "chapterId": "gl5",
+      "exerciseSectionId": "lexical-exercise-not-in-commentary",
+      "sectionIds": [
+        "5.lexical"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 72,
+      "exercisePdfPage": 74,
+      "theoryPrintedPages": [
+        117,
+        118,
+        119,
+        120,
+        121,
+        122
+      ],
+      "theoryPdfPages": [
+        119,
+        120,
+        121,
+        122,
+        123,
+        124
+      ],
+      "mappingReason": "原书有该练习，但第 5 章理论词汇表未收录该词义、搭配或构词辨析；不能从 PDF 正确项反向编造独立原书规则。",
+      "reviewStatus": "source-checked-no-independent-rule"
+    },
+    "GL5-Q018": {
+      "exerciseId": "GL5-Q018",
+      "printedNumber": 18,
+      "chapterId": "gl5",
+      "exerciseSectionId": "5.lexical",
+      "sectionIds": [
+        "5.lexical"
+      ],
+      "ruleIds": [
+        "gl5-5.lexical-row-036"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 72,
+      "exercisePdfPage": 74,
+      "theoryPrintedPages": [
+        117,
+        118,
+        119,
+        120,
+        121,
+        122
+      ],
+      "theoryPdfPages": [
+        119,
+        120,
+        121,
+        122,
+        123,
+        124
+      ],
+      "mappingReason": "题干与原书词汇评论中的「мировой」条目直接对应；释义和原书搭配可区分正确项，不能由答案字母反推。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL5-Q019": {
+      "exerciseId": "GL5-Q019",
+      "printedNumber": 19,
+      "chapterId": "gl5",
+      "exerciseSectionId": "5.lexical",
+      "sectionIds": [
+        "5.lexical"
+      ],
+      "ruleIds": [
+        "gl5-5.lexical-row-024"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 72,
+      "exercisePdfPage": 74,
+      "theoryPrintedPages": [
+        117,
+        118,
+        119,
+        120,
+        121,
+        122
+      ],
+      "theoryPdfPages": [
+        119,
+        120,
+        121,
+        122,
+        123,
+        124
+      ],
+      "mappingReason": "题干与原书词汇评论中的「классический」条目直接对应；释义和原书搭配可区分正确项，不能由答案字母反推。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL5-Q020": {
+      "exerciseId": "GL5-Q020",
+      "printedNumber": 20,
+      "chapterId": "gl5",
+      "exerciseSectionId": "lexical-exercise-not-in-commentary",
+      "sectionIds": [
+        "5.lexical"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 72,
+      "exercisePdfPage": 74,
+      "theoryPrintedPages": [
+        117,
+        118,
+        119,
+        120,
+        121,
+        122
+      ],
+      "theoryPdfPages": [
+        119,
+        120,
+        121,
+        122,
+        123,
+        124
+      ],
+      "mappingReason": "原书有该练习，但第 5 章理论词汇表未收录该词义、搭配或构词辨析；不能从 PDF 正确项反向编造独立原书规则。",
+      "reviewStatus": "source-checked-no-independent-rule"
+    },
+    "GL5-Q021": {
+      "exerciseId": "GL5-Q021",
+      "printedNumber": 21,
+      "chapterId": "gl5",
+      "exerciseSectionId": "5.lexical",
+      "sectionIds": [
+        "5.lexical"
+      ],
+      "ruleIds": [
+        "gl5-5.lexical-row-046"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 72,
+      "exercisePdfPage": 74,
+      "theoryPrintedPages": [
+        117,
+        118,
+        119,
+        120,
+        121,
+        122
+      ],
+      "theoryPdfPages": [
+        119,
+        120,
+        121,
+        122,
+        123,
+        124
+      ],
+      "mappingReason": "题干与原书词汇评论中的「общительный」条目直接对应；释义和原书搭配可区分正确项，不能由答案字母反推。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL5-Q022": {
+      "exerciseId": "GL5-Q022",
+      "printedNumber": 22,
+      "chapterId": "gl5",
+      "exerciseSectionId": "5.lexical",
+      "sectionIds": [
+        "5.lexical"
+      ],
+      "ruleIds": [
+        "gl5-5.lexical-row-067"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 72,
+      "exercisePdfPage": 74,
+      "theoryPrintedPages": [
+        117,
+        118,
+        119,
+        120,
+        121,
+        122
+      ],
+      "theoryPdfPages": [
+        119,
+        120,
+        121,
+        122,
+        123,
+        124
+      ],
+      "mappingReason": "题干与原书词汇评论中的「психический」条目直接对应；释义和原书搭配可区分正确项，不能由答案字母反推。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL5-Q023": {
+      "exerciseId": "GL5-Q023",
+      "printedNumber": 23,
+      "chapterId": "gl5",
+      "exerciseSectionId": "5.lexical",
+      "sectionIds": [
+        "5.lexical"
+      ],
+      "ruleIds": [
+        "gl5-5.lexical-row-030"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 72,
+      "exercisePdfPage": 74,
+      "theoryPrintedPages": [
+        117,
+        118,
+        119,
+        120,
+        121,
+        122
+      ],
+      "theoryPdfPages": [
+        119,
+        120,
+        121,
+        122,
+        123,
+        124
+      ],
+      "mappingReason": "题干与原书词汇评论中的「кожный」条目直接对应；释义和原书搭配可区分正确项，不能由答案字母反推。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL5-Q024": {
+      "exerciseId": "GL5-Q024",
+      "printedNumber": 24,
+      "chapterId": "gl5",
+      "exerciseSectionId": "5.lexical",
+      "sectionIds": [
+        "5.lexical"
+      ],
+      "ruleIds": [
+        "gl5-5.lexical-row-040"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 73,
+      "exercisePdfPage": 75,
+      "theoryPrintedPages": [
+        117,
+        118,
+        119,
+        120,
+        121,
+        122
+      ],
+      "theoryPdfPages": [
+        119,
+        120,
+        121,
+        122,
+        123,
+        124
+      ],
+      "mappingReason": "题干与原书词汇评论中的「обидчивый」条目直接对应；释义和原书搭配可区分正确项，不能由答案字母反推。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL5-Q025": {
+      "exerciseId": "GL5-Q025",
+      "printedNumber": 25,
+      "chapterId": "gl5",
+      "exerciseSectionId": "5.lexical",
+      "sectionIds": [
+        "5.lexical"
+      ],
+      "ruleIds": [
+        "gl5-5.lexical-row-013"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 73,
+      "exercisePdfPage": 75,
+      "theoryPrintedPages": [
+        117,
+        118,
+        119,
+        120,
+        121,
+        122
+      ],
+      "theoryPdfPages": [
+        119,
+        120,
+        121,
+        122,
+        123,
+        124
+      ],
+      "mappingReason": "题干与原书词汇评论中的「духовный」条目直接对应；释义和原书搭配可区分正确项，不能由答案字母反推。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL5-Q026": {
+      "exerciseId": "GL5-Q026",
+      "printedNumber": 26,
+      "chapterId": "gl5",
+      "exerciseSectionId": "lexical-exercise-not-in-commentary",
+      "sectionIds": [
+        "5.lexical"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 73,
+      "exercisePdfPage": 75,
+      "theoryPrintedPages": [
+        117,
+        118,
+        119,
+        120,
+        121,
+        122
+      ],
+      "theoryPdfPages": [
+        119,
+        120,
+        121,
+        122,
+        123,
+        124
+      ],
+      "mappingReason": "原书有该练习，但第 5 章理论词汇表未收录该词义、搭配或构词辨析；不能从 PDF 正确项反向编造独立原书规则。",
+      "reviewStatus": "source-checked-no-independent-rule"
+    },
+    "GL5-Q027": {
+      "exerciseId": "GL5-Q027",
+      "printedNumber": 27,
+      "chapterId": "gl5",
+      "exerciseSectionId": "5.lexical",
+      "sectionIds": [
+        "5.lexical"
+      ],
+      "ruleIds": [
+        "gl5-5.lexical-row-077"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 73,
+      "exercisePdfPage": 75,
+      "theoryPrintedPages": [
+        117,
+        118,
+        119,
+        120,
+        121,
+        122
+      ],
+      "theoryPdfPages": [
+        119,
+        120,
+        121,
+        122,
+        123,
+        124
+      ],
+      "mappingReason": "题干与原书词汇评论中的「типичный」条目直接对应；释义和原书搭配可区分正确项，不能由答案字母反推。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL5-Q028": {
+      "exerciseId": "GL5-Q028",
+      "printedNumber": 28,
+      "chapterId": "gl5",
+      "exerciseSectionId": "lexical-exercise-not-in-commentary",
+      "sectionIds": [
+        "5.lexical"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 73,
+      "exercisePdfPage": 75,
+      "theoryPrintedPages": [
+        117,
+        118,
+        119,
+        120,
+        121,
+        122
+      ],
+      "theoryPdfPages": [
+        119,
+        120,
+        121,
+        122,
+        123,
+        124
+      ],
+      "mappingReason": "原书有该练习，但第 5 章理论词汇表未收录该词义、搭配或构词辨析；不能从 PDF 正确项反向编造独立原书规则。",
+      "reviewStatus": "source-checked-no-independent-rule"
+    },
+    "GL5-Q029": {
+      "exerciseId": "GL5-Q029",
+      "printedNumber": 29,
+      "chapterId": "gl5",
+      "exerciseSectionId": "5.lexical",
+      "sectionIds": [
+        "5.lexical"
+      ],
+      "ruleIds": [
+        "gl5-5.lexical-row-072"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 73,
+      "exercisePdfPage": 75,
+      "theoryPrintedPages": [
+        117,
+        118,
+        119,
+        120,
+        121,
+        122
+      ],
+      "theoryPdfPages": [
+        119,
+        120,
+        121,
+        122,
+        123,
+        124
+      ],
+      "mappingReason": "题干与原书词汇评论中的「рыбный」条目直接对应；释义和原书搭配可区分正确项，不能由答案字母反推。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL5-Q030": {
+      "exerciseId": "GL5-Q030",
+      "printedNumber": 30,
+      "chapterId": "gl5",
+      "exerciseSectionId": "lexical-exercise-not-in-commentary",
+      "sectionIds": [
+        "5.lexical"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 73,
+      "exercisePdfPage": 75,
+      "theoryPrintedPages": [
+        117,
+        118,
+        119,
+        120,
+        121,
+        122
+      ],
+      "theoryPdfPages": [
+        119,
+        120,
+        121,
+        122,
+        123,
+        124
+      ],
+      "mappingReason": "原书有该练习，但第 5 章理论词汇表未收录该词义、搭配或构词辨析；不能从 PDF 正确项反向编造独立原书规则。",
+      "reviewStatus": "source-checked-no-independent-rule"
+    },
+    "GL5-Q031": {
+      "exerciseId": "GL5-Q031",
+      "printedNumber": 31,
+      "chapterId": "gl5",
+      "exerciseSectionId": "5.lexical",
+      "sectionIds": [
+        "5.lexical"
+      ],
+      "ruleIds": [
+        "gl5-5.lexical-row-018"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 73,
+      "exercisePdfPage": 75,
+      "theoryPrintedPages": [
+        117,
+        118,
+        119,
+        120,
+        121,
+        122
+      ],
+      "theoryPdfPages": [
+        119,
+        120,
+        121,
+        122,
+        123,
+        124
+      ],
+      "mappingReason": "题干与原书词汇评论中的「твёрдый」条目直接对应；释义和原书搭配可区分正确项，不能由答案字母反推。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL5-Q032": {
+      "exerciseId": "GL5-Q032",
+      "printedNumber": 32,
+      "chapterId": "gl5",
+      "exerciseSectionId": "5.lexical",
+      "sectionIds": [
+        "5.lexical"
+      ],
+      "ruleIds": [
+        "gl5-5.lexical-row-023"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 74,
+      "exercisePdfPage": 76,
+      "theoryPrintedPages": [
+        117,
+        118,
+        119,
+        120,
+        121,
+        122
+      ],
+      "theoryPdfPages": [
+        119,
+        120,
+        121,
+        122,
+        123,
+        124
+      ],
+      "mappingReason": "题干与原书词汇评论中的「каменистый」条目直接对应；释义和原书搭配可区分正确项，不能由答案字母反推。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL5-Q033": {
+      "exerciseId": "GL5-Q033",
+      "printedNumber": 33,
+      "chapterId": "gl5",
+      "exerciseSectionId": "5.lexical",
+      "sectionIds": [
+        "5.lexical"
+      ],
+      "ruleIds": [
+        "gl5-5.lexical-row-009"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 74,
+      "exercisePdfPage": 76,
+      "theoryPrintedPages": [
+        117,
+        118,
+        119,
+        120,
+        121,
+        122
+      ],
+      "theoryPdfPages": [
+        119,
+        120,
+        121,
+        122,
+        123,
+        124
+      ],
+      "mappingReason": "题干与原书词汇评论中的「горный」条目直接对应；释义和原书搭配可区分正确项，不能由答案字母反推。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL5-Q034": {
+      "exerciseId": "GL5-Q034",
+      "printedNumber": 34,
+      "chapterId": "gl5",
+      "exerciseSectionId": "5.lexical",
+      "sectionIds": [
+        "5.lexical"
+      ],
+      "ruleIds": [
+        "gl5-5.lexical-row-034"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 74,
+      "exercisePdfPage": 76,
+      "theoryPrintedPages": [
+        117,
+        118,
+        119,
+        120,
+        121,
+        122
+      ],
+      "theoryPdfPages": [
+        119,
+        120,
+        121,
+        122,
+        123,
+        124
+      ],
+      "mappingReason": "题干与原书词汇评论中的「костяной」条目直接对应；释义和原书搭配可区分正确项，不能由答案字母反推。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL5-Q035": {
+      "exerciseId": "GL5-Q035",
+      "printedNumber": 35,
+      "chapterId": "gl5",
+      "exerciseSectionId": "lexical-exercise-not-in-commentary",
+      "sectionIds": [
+        "5.lexical"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 74,
+      "exercisePdfPage": 76,
+      "theoryPrintedPages": [
+        117,
+        118,
+        119,
+        120,
+        121,
+        122
+      ],
+      "theoryPdfPages": [
+        119,
+        120,
+        121,
+        122,
+        123,
+        124
+      ],
+      "mappingReason": "原书有该练习，但第 5 章理论词汇表未收录该词义、搭配或构词辨析；不能从 PDF 正确项反向编造独立原书规则。",
+      "reviewStatus": "source-checked-no-independent-rule"
+    },
+    "GL5-Q036": {
+      "exerciseId": "GL5-Q036",
+      "printedNumber": 36,
+      "chapterId": "gl5",
+      "exerciseSectionId": "lexical-exercise-not-in-commentary",
+      "sectionIds": [
+        "5.lexical"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 74,
+      "exercisePdfPage": 76,
+      "theoryPrintedPages": [
+        117,
+        118,
+        119,
+        120,
+        121,
+        122
+      ],
+      "theoryPdfPages": [
+        119,
+        120,
+        121,
+        122,
+        123,
+        124
+      ],
+      "mappingReason": "原书有该练习，但第 5 章理论词汇表未收录该词义、搭配或构词辨析；不能从 PDF 正确项反向编造独立原书规则。",
+      "reviewStatus": "source-checked-no-independent-rule"
+    },
+    "GL5-Q037": {
+      "exerciseId": "GL5-Q037",
+      "printedNumber": 37,
+      "chapterId": "gl5",
+      "exerciseSectionId": "5.2",
+      "sectionIds": [
+        "5.2"
+      ],
+      "ruleIds": [
+        "gl5-5.2-nibud-indifferent"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 74,
+      "exercisePdfPage": 76,
+      "theoryPrintedPages": [
+        116,
+        117
+      ],
+      "theoryPdfPages": [
+        118,
+        119
+      ],
+      "mappingReason": "题干中的不定代词/副词形式由原书 5.2 的「-нибудь：具体身份无关紧要」直接说明；语境决定信息未知、无关紧要或仅说话人已知。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL5-Q038": {
+      "exerciseId": "GL5-Q038",
+      "printedNumber": 38,
+      "chapterId": "gl5",
+      "exerciseSectionId": "5.2",
+      "sectionIds": [
+        "5.2"
+      ],
+      "ruleIds": [
+        "gl5-5.2-nibud-indifferent"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 74,
+      "exercisePdfPage": 76,
+      "theoryPrintedPages": [
+        116,
+        117
+      ],
+      "theoryPdfPages": [
+        118,
+        119
+      ],
+      "mappingReason": "题干中的不定代词/副词形式由原书 5.2 的「-нибудь：具体身份无关紧要」直接说明；语境决定信息未知、无关紧要或仅说话人已知。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL5-Q039": {
+      "exerciseId": "GL5-Q039",
+      "printedNumber": 39,
+      "chapterId": "gl5",
+      "exerciseSectionId": "lexical-exercise-not-in-commentary",
+      "sectionIds": [
+        "5.lexical"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 74,
+      "exercisePdfPage": 76,
+      "theoryPrintedPages": [
+        117,
+        118,
+        119,
+        120,
+        121,
+        122
+      ],
+      "theoryPdfPages": [
+        119,
+        120,
+        121,
+        122,
+        123,
+        124
+      ],
+      "mappingReason": "原书有该练习，但第 5 章理论词汇表未收录该词义、搭配或构词辨析；不能从 PDF 正确项反向编造独立原书规则。",
+      "reviewStatus": "source-checked-no-independent-rule"
+    },
+    "GL5-Q040": {
+      "exerciseId": "GL5-Q040",
+      "printedNumber": 40,
+      "chapterId": "gl5",
+      "exerciseSectionId": "lexical-exercise-not-in-commentary",
+      "sectionIds": [
+        "5.lexical"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 75,
+      "exercisePdfPage": 77,
+      "theoryPrintedPages": [
+        117,
+        118,
+        119,
+        120,
+        121,
+        122
+      ],
+      "theoryPdfPages": [
+        119,
+        120,
+        121,
+        122,
+        123,
+        124
+      ],
+      "mappingReason": "原书有该练习，但第 5 章理论词汇表未收录该词义、搭配或构词辨析；不能从 PDF 正确项反向编造独立原书规则。",
+      "reviewStatus": "source-checked-no-independent-rule"
+    },
+    "GL5-Q041": {
+      "exerciseId": "GL5-Q041",
+      "printedNumber": 41,
+      "chapterId": "gl5",
+      "exerciseSectionId": "5.lexical",
+      "sectionIds": [
+        "5.lexical"
+      ],
+      "ruleIds": [
+        "gl5-5.lexical-row-021"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 75,
+      "exercisePdfPage": 77,
+      "theoryPrintedPages": [
+        117,
+        118,
+        119,
+        120,
+        121,
+        122
+      ],
+      "theoryPdfPages": [
+        119,
+        120,
+        121,
+        122,
+        123,
+        124
+      ],
+      "mappingReason": "题干与原书词汇评论中的「всякий」条目直接对应；释义和原书搭配可区分正确项，不能由答案字母反推。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL5-Q042": {
+      "exerciseId": "GL5-Q042",
+      "printedNumber": 42,
+      "chapterId": "gl5",
+      "exerciseSectionId": "5.lexical",
+      "sectionIds": [
+        "5.lexical"
+      ],
+      "ruleIds": [
+        "gl5-5.lexical-row-020"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 75,
+      "exercisePdfPage": 77,
+      "theoryPrintedPages": [
+        117,
+        118,
+        119,
+        120,
+        121,
+        122
+      ],
+      "theoryPdfPages": [
+        119,
+        120,
+        121,
+        122,
+        123,
+        124
+      ],
+      "mappingReason": "题干与原书词汇评论中的「любой」条目直接对应；释义和原书搭配可区分正确项，不能由答案字母反推。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL5-Q043": {
+      "exerciseId": "GL5-Q043",
+      "printedNumber": 43,
+      "chapterId": "gl5",
+      "exerciseSectionId": "5.2",
+      "sectionIds": [
+        "5.2"
+      ],
+      "ruleIds": [
+        "gl5-5.2-koe-speaker-known"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 75,
+      "exercisePdfPage": 77,
+      "theoryPrintedPages": [
+        116,
+        117
+      ],
+      "theoryPdfPages": [
+        118,
+        119
+      ],
+      "mappingReason": "题干中的不定代词/副词形式由原书 5.2 的「кое-：说话人知道、听话人不知道」直接说明；语境决定信息未知、无关紧要或仅说话人已知。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL5-Q044": {
+      "exerciseId": "GL5-Q044",
+      "printedNumber": 44,
+      "chapterId": "gl5",
+      "exerciseSectionId": "lexical-exercise-not-in-commentary",
+      "sectionIds": [
+        "5.lexical"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 75,
+      "exercisePdfPage": 77,
+      "theoryPrintedPages": [
+        117,
+        118,
+        119,
+        120,
+        121,
+        122
+      ],
+      "theoryPdfPages": [
+        119,
+        120,
+        121,
+        122,
+        123,
+        124
+      ],
+      "mappingReason": "原书有该练习，但第 5 章理论词汇表未收录该词义、搭配或构词辨析；不能从 PDF 正确项反向编造独立原书规则。",
+      "reviewStatus": "source-checked-no-independent-rule"
+    },
+    "GL5-Q045": {
+      "exerciseId": "GL5-Q045",
+      "printedNumber": 45,
+      "chapterId": "gl5",
+      "exerciseSectionId": "5.lexical",
+      "sectionIds": [
+        "5.lexical"
+      ],
+      "ruleIds": [
+        "gl5-5.lexical-row-019"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 75,
+      "exercisePdfPage": 77,
+      "theoryPrintedPages": [
+        117,
+        118,
+        119,
+        120,
+        121,
+        122
+      ],
+      "theoryPdfPages": [
+        119,
+        120,
+        121,
+        122,
+        123,
+        124
+      ],
+      "mappingReason": "题干与原书词汇评论中的「каждый」条目直接对应；释义和原书搭配可区分正确项，不能由答案字母反推。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL5-Q046": {
+      "exerciseId": "GL5-Q046",
+      "printedNumber": 46,
+      "chapterId": "gl5",
+      "exerciseSectionId": "5.2",
+      "sectionIds": [
+        "5.2"
+      ],
+      "ruleIds": [
+        "gl5-5.2-koe-speaker-known"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 75,
+      "exercisePdfPage": 77,
+      "theoryPrintedPages": [
+        116,
+        117
+      ],
+      "theoryPdfPages": [
+        118,
+        119
+      ],
+      "mappingReason": "题干中的不定代词/副词形式由原书 5.2 的「кое-：说话人知道、听话人不知道」直接说明；语境决定信息未知、无关紧要或仅说话人已知。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL5-Q047": {
+      "exerciseId": "GL5-Q047",
+      "printedNumber": 47,
+      "chapterId": "gl5",
+      "exerciseSectionId": "5.2",
+      "sectionIds": [
+        "5.2"
+      ],
+      "ruleIds": [
+        "gl5-5.2-nibud-indifferent"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 76,
+      "exercisePdfPage": 78,
+      "theoryPrintedPages": [
+        116,
+        117
+      ],
+      "theoryPdfPages": [
+        118,
+        119
+      ],
+      "mappingReason": "题干中的不定代词/副词形式由原书 5.2 的「-нибудь：具体身份无关紧要」直接说明；语境决定信息未知、无关紧要或仅说话人已知。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL5-Q048": {
+      "exerciseId": "GL5-Q048",
+      "printedNumber": 48,
+      "chapterId": "gl5",
+      "exerciseSectionId": "5.2",
+      "sectionIds": [
+        "5.2"
+      ],
+      "ruleIds": [
+        "gl5-5.2-koe-speaker-known"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 76,
+      "exercisePdfPage": 78,
+      "theoryPrintedPages": [
+        116,
+        117
+      ],
+      "theoryPdfPages": [
+        118,
+        119
+      ],
+      "mappingReason": "题干中的不定代词/副词形式由原书 5.2 的「кое-：说话人知道、听话人不知道」直接说明；语境决定信息未知、无关紧要或仅说话人已知。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL5-Q049": {
+      "exerciseId": "GL5-Q049",
+      "printedNumber": 49,
+      "chapterId": "gl5",
+      "exerciseSectionId": "5.2",
+      "sectionIds": [
+        "5.2"
+      ],
+      "ruleIds": [
+        "gl5-5.2-koe-speaker-known"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 76,
+      "exercisePdfPage": 78,
+      "theoryPrintedPages": [
+        116,
+        117
+      ],
+      "theoryPdfPages": [
+        118,
+        119
+      ],
+      "mappingReason": "题干中的不定代词/副词形式由原书 5.2 的「кое-：说话人知道、听话人不知道」直接说明；语境决定信息未知、无关紧要或仅说话人已知。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL5-Q050": {
+      "exerciseId": "GL5-Q050",
+      "printedNumber": 50,
+      "chapterId": "gl5",
+      "exerciseSectionId": "5.2",
+      "sectionIds": [
+        "5.2"
+      ],
+      "ruleIds": [
+        "gl5-5.2-to-speaker-unknown"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 76,
+      "exercisePdfPage": 78,
+      "theoryPrintedPages": [
+        116,
+        117
+      ],
+      "theoryPdfPages": [
+        118,
+        119
+      ],
+      "mappingReason": "题干中的不定代词/副词形式由原书 5.2 的「-то：说话人未知」直接说明；语境决定信息未知、无关紧要或仅说话人已知。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL5-Q051": {
+      "exerciseId": "GL5-Q051",
+      "printedNumber": 51,
+      "chapterId": "gl5",
+      "exerciseSectionId": "5.2",
+      "sectionIds": [
+        "5.2"
+      ],
+      "ruleIds": [
+        "gl5-5.2-to-speaker-unknown"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 76,
+      "exercisePdfPage": 78,
+      "theoryPrintedPages": [
+        116,
+        117
+      ],
+      "theoryPdfPages": [
+        118,
+        119
+      ],
+      "mappingReason": "题干中的不定代词/副词形式由原书 5.2 的「-то：说话人未知」直接说明；语境决定信息未知、无关紧要或仅说话人已知。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL5-Q052": {
+      "exerciseId": "GL5-Q052",
+      "printedNumber": 52,
+      "chapterId": "gl5",
+      "exerciseSectionId": "5.2",
+      "sectionIds": [
+        "5.2"
+      ],
+      "ruleIds": [
+        "gl5-5.2-nibud-indifferent"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 76,
+      "exercisePdfPage": 78,
+      "theoryPrintedPages": [
+        116,
+        117
+      ],
+      "theoryPdfPages": [
+        118,
+        119
+      ],
+      "mappingReason": "题干中的不定代词/副词形式由原书 5.2 的「-нибудь：具体身份无关紧要」直接说明；语境决定信息未知、无关紧要或仅说话人已知。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL5-Q053": {
+      "exerciseId": "GL5-Q053",
+      "printedNumber": 53,
+      "chapterId": "gl5",
+      "exerciseSectionId": "5.2",
+      "sectionIds": [
+        "5.2"
+      ],
+      "ruleIds": [
+        "gl5-5.2-nibud-indifferent"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 77,
+      "exercisePdfPage": 79,
+      "theoryPrintedPages": [
+        116,
+        117
+      ],
+      "theoryPdfPages": [
+        118,
+        119
+      ],
+      "mappingReason": "题干中的不定代词/副词形式由原书 5.2 的「-нибудь：具体身份无关紧要」直接说明；语境决定信息未知、无关紧要或仅说话人已知。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL5-Q054": {
+      "exerciseId": "GL5-Q054",
+      "printedNumber": 54,
+      "chapterId": "gl5",
+      "exerciseSectionId": "5.2",
+      "sectionIds": [
+        "5.2"
+      ],
+      "ruleIds": [
+        "gl5-5.2-koe-speaker-known"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 77,
+      "exercisePdfPage": 79,
+      "theoryPrintedPages": [
+        116,
+        117
+      ],
+      "theoryPdfPages": [
+        118,
+        119
+      ],
+      "mappingReason": "题干中的不定代词/副词形式由原书 5.2 的「кое-：说话人知道、听话人不知道」直接说明；语境决定信息未知、无关紧要或仅说话人已知。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL5-Q055": {
+      "exerciseId": "GL5-Q055",
+      "printedNumber": 55,
+      "chapterId": "gl5",
+      "exerciseSectionId": "5.2",
+      "sectionIds": [
+        "5.2"
+      ],
+      "ruleIds": [
+        "gl5-5.2-nibud-indifferent"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 77,
+      "exercisePdfPage": 79,
+      "theoryPrintedPages": [
+        116,
+        117
+      ],
+      "theoryPdfPages": [
+        118,
+        119
+      ],
+      "mappingReason": "题干中的不定代词/副词形式由原书 5.2 的「-нибудь：具体身份无关紧要」直接说明；语境决定信息未知、无关紧要或仅说话人已知。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL5-Q056": {
+      "exerciseId": "GL5-Q056",
+      "printedNumber": 56,
+      "chapterId": "gl5",
+      "exerciseSectionId": "5.2",
+      "sectionIds": [
+        "5.2"
+      ],
+      "ruleIds": [
+        "gl5-5.2-to-speaker-unknown"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 77,
+      "exercisePdfPage": 79,
+      "theoryPrintedPages": [
+        116,
+        117
+      ],
+      "theoryPdfPages": [
+        118,
+        119
+      ],
+      "mappingReason": "题干中的不定代词/副词形式由原书 5.2 的「-то：说话人未知」直接说明；语境决定信息未知、无关紧要或仅说话人已知。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL5-Q057": {
+      "exerciseId": "GL5-Q057",
+      "printedNumber": 57,
+      "chapterId": "gl5",
+      "exerciseSectionId": "5.2",
+      "sectionIds": [
+        "5.2"
+      ],
+      "ruleIds": [
+        "gl5-5.2-koe-speaker-known"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 77,
+      "exercisePdfPage": 79,
+      "theoryPrintedPages": [
+        116,
+        117
+      ],
+      "theoryPdfPages": [
+        118,
+        119
+      ],
+      "mappingReason": "题干中的不定代词/副词形式由原书 5.2 的「кое-：说话人知道、听话人不知道」直接说明；语境决定信息未知、无关紧要或仅说话人已知。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL5-Q058": {
+      "exerciseId": "GL5-Q058",
+      "printedNumber": 58,
+      "chapterId": "gl5",
+      "exerciseSectionId": "5.2",
+      "sectionIds": [
+        "5.2"
+      ],
+      "ruleIds": [
+        "gl5-5.2-koe-speaker-known"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 77,
+      "exercisePdfPage": 79,
+      "theoryPrintedPages": [
+        116,
+        117
+      ],
+      "theoryPdfPages": [
+        118,
+        119
+      ],
+      "mappingReason": "题干中的不定代词/副词形式由原书 5.2 的「кое-：说话人知道、听话人不知道」直接说明；语境决定信息未知、无关紧要或仅说话人已知。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL5-Q059": {
+      "exerciseId": "GL5-Q059",
+      "printedNumber": 59,
+      "chapterId": "gl5",
+      "exerciseSectionId": "5.2",
+      "sectionIds": [
+        "5.2"
+      ],
+      "ruleIds": [
+        "gl5-5.2-libo-bookish-nibud"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 77,
+      "exercisePdfPage": 79,
+      "theoryPrintedPages": [
+        116,
+        117
+      ],
+      "theoryPdfPages": [
+        118,
+        119
+      ],
+      "mappingReason": "题干中的不定代词/副词形式由原书 5.2 的「-либо：近义-​​нибудь的书面形式」直接说明；语境决定信息未知、无关紧要或仅说话人已知。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL5-Q060": {
+      "exerciseId": "GL5-Q060",
+      "printedNumber": 60,
+      "chapterId": "gl5",
+      "exerciseSectionId": "5.2",
+      "sectionIds": [
+        "5.2"
+      ],
+      "ruleIds": [
+        "gl5-5.2-to-speaker-unknown"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 78,
+      "exercisePdfPage": 80,
+      "theoryPrintedPages": [
+        116,
+        117
+      ],
+      "theoryPdfPages": [
+        118,
+        119
+      ],
+      "mappingReason": "题干中的不定代词/副词形式由原书 5.2 的「-то：说话人未知」直接说明；语境决定信息未知、无关紧要或仅说话人已知。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL5-Q061": {
+      "exerciseId": "GL5-Q061",
+      "printedNumber": 61,
+      "chapterId": "gl5",
+      "exerciseSectionId": "5.2",
+      "sectionIds": [
+        "5.2"
+      ],
+      "ruleIds": [
+        "gl5-5.2-koe-speaker-known"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 78,
+      "exercisePdfPage": 80,
+      "theoryPrintedPages": [
+        116,
+        117
+      ],
+      "theoryPdfPages": [
+        118,
+        119
+      ],
+      "mappingReason": "题干中的不定代词/副词形式由原书 5.2 的「кое-：说话人知道、听话人不知道」直接说明；语境决定信息未知、无关紧要或仅说话人已知。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL5-Q062": {
+      "exerciseId": "GL5-Q062",
+      "printedNumber": 62,
+      "chapterId": "gl5",
+      "exerciseSectionId": "lexical-exercise-not-in-commentary",
+      "sectionIds": [
+        "5.lexical"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 78,
+      "exercisePdfPage": 80,
+      "theoryPrintedPages": [
+        117,
+        118,
+        119,
+        120,
+        121,
+        122
+      ],
+      "theoryPdfPages": [
+        119,
+        120,
+        121,
+        122,
+        123,
+        124
+      ],
+      "mappingReason": "原书有该练习，但第 5 章理论词汇表未收录该词义、搭配或构词辨析；不能从 PDF 正确项反向编造独立原书规则。",
+      "reviewStatus": "source-checked-no-independent-rule"
+    },
+    "GL5-Q063": {
+      "exerciseId": "GL5-Q063",
+      "printedNumber": 63,
+      "chapterId": "gl5",
+      "exerciseSectionId": "lexical-exercise-not-in-commentary",
+      "sectionIds": [
+        "5.lexical"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 78,
+      "exercisePdfPage": 80,
+      "theoryPrintedPages": [
+        117,
+        118,
+        119,
+        120,
+        121,
+        122
+      ],
+      "theoryPdfPages": [
+        119,
+        120,
+        121,
+        122,
+        123,
+        124
+      ],
+      "mappingReason": "原书有该练习，但第 5 章理论词汇表未收录该词义、搭配或构词辨析；不能从 PDF 正确项反向编造独立原书规则。",
+      "reviewStatus": "source-checked-no-independent-rule"
+    },
+    "GL5-Q064": {
+      "exerciseId": "GL5-Q064",
+      "printedNumber": 64,
+      "chapterId": "gl5",
+      "exerciseSectionId": "lexical-exercise-not-in-commentary",
+      "sectionIds": [
+        "5.lexical"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 78,
+      "exercisePdfPage": 80,
+      "theoryPrintedPages": [
+        117,
+        118,
+        119,
+        120,
+        121,
+        122
+      ],
+      "theoryPdfPages": [
+        119,
+        120,
+        121,
+        122,
+        123,
+        124
+      ],
+      "mappingReason": "原书有该练习，但第 5 章理论词汇表未收录该词义、搭配或构词辨析；不能从 PDF 正确项反向编造独立原书规则。",
+      "reviewStatus": "source-checked-no-independent-rule"
+    },
+    "GL5-Q065": {
+      "exerciseId": "GL5-Q065",
+      "printedNumber": 65,
+      "chapterId": "gl5",
+      "exerciseSectionId": "lexical-exercise-not-in-commentary",
+      "sectionIds": [
+        "5.lexical"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 78,
+      "exercisePdfPage": 80,
+      "theoryPrintedPages": [
+        117,
+        118,
+        119,
+        120,
+        121,
+        122
+      ],
+      "theoryPdfPages": [
+        119,
+        120,
+        121,
+        122,
+        123,
+        124
+      ],
+      "mappingReason": "原书有该练习，但第 5 章理论词汇表未收录该词义、搭配或构词辨析；不能从 PDF 正确项反向编造独立原书规则。",
+      "reviewStatus": "source-checked-no-independent-rule"
+    },
+    "GL5-Q066": {
+      "exerciseId": "GL5-Q066",
+      "printedNumber": 66,
+      "chapterId": "gl5",
+      "exerciseSectionId": "lexical-exercise-not-in-commentary",
+      "sectionIds": [
+        "5.lexical"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 79,
+      "exercisePdfPage": 81,
+      "theoryPrintedPages": [
+        117,
+        118,
+        119,
+        120,
+        121,
+        122
+      ],
+      "theoryPdfPages": [
+        119,
+        120,
+        121,
+        122,
+        123,
+        124
+      ],
+      "mappingReason": "原书有该练习，但第 5 章理论词汇表未收录该词义、搭配或构词辨析；不能从 PDF 正确项反向编造独立原书规则。",
+      "reviewStatus": "source-checked-no-independent-rule"
+    },
+    "GL5-Q067": {
+      "exerciseId": "GL5-Q067",
+      "printedNumber": 67,
+      "chapterId": "gl5",
+      "exerciseSectionId": "lexical-exercise-not-in-commentary",
+      "sectionIds": [
+        "5.lexical"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 79,
+      "exercisePdfPage": 81,
+      "theoryPrintedPages": [
+        117,
+        118,
+        119,
+        120,
+        121,
+        122
+      ],
+      "theoryPdfPages": [
+        119,
+        120,
+        121,
+        122,
+        123,
+        124
+      ],
+      "mappingReason": "原书有该练习，但第 5 章理论词汇表未收录该词义、搭配或构词辨析；不能从 PDF 正确项反向编造独立原书规则。",
+      "reviewStatus": "source-checked-no-independent-rule"
+    },
+    "GL5-Q068": {
+      "exerciseId": "GL5-Q068",
+      "printedNumber": 68,
+      "chapterId": "gl5",
+      "exerciseSectionId": "lexical-exercise-not-in-commentary",
+      "sectionIds": [
+        "5.lexical"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 79,
+      "exercisePdfPage": 81,
+      "theoryPrintedPages": [
+        117,
+        118,
+        119,
+        120,
+        121,
+        122
+      ],
+      "theoryPdfPages": [
+        119,
+        120,
+        121,
+        122,
+        123,
+        124
+      ],
+      "mappingReason": "原书有该练习，但第 5 章理论词汇表未收录该词义、搭配或构词辨析；不能从 PDF 正确项反向编造独立原书规则。",
+      "reviewStatus": "source-checked-no-independent-rule"
+    },
+    "GL5-Q069": {
+      "exerciseId": "GL5-Q069",
+      "printedNumber": 69,
+      "chapterId": "gl5",
+      "exerciseSectionId": "lexical-exercise-not-in-commentary",
+      "sectionIds": [
+        "5.lexical"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 79,
+      "exercisePdfPage": 81,
+      "theoryPrintedPages": [
+        117,
+        118,
+        119,
+        120,
+        121,
+        122
+      ],
+      "theoryPdfPages": [
+        119,
+        120,
+        121,
+        122,
+        123,
+        124
+      ],
+      "mappingReason": "原书有该练习，但第 5 章理论词汇表未收录该词义、搭配或构词辨析；不能从 PDF 正确项反向编造独立原书规则。",
+      "reviewStatus": "source-checked-no-independent-rule"
+    },
+    "GL5-Q070": {
+      "exerciseId": "GL5-Q070",
+      "printedNumber": 70,
+      "chapterId": "gl5",
+      "exerciseSectionId": "lexical-exercise-not-in-commentary",
+      "sectionIds": [
+        "5.lexical"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 79,
+      "exercisePdfPage": 81,
+      "theoryPrintedPages": [
+        117,
+        118,
+        119,
+        120,
+        121,
+        122
+      ],
+      "theoryPdfPages": [
+        119,
+        120,
+        121,
+        122,
+        123,
+        124
+      ],
+      "mappingReason": "原书有该练习，但第 5 章理论词汇表未收录该词义、搭配或构词辨析；不能从 PDF 正确项反向编造独立原书规则。",
+      "reviewStatus": "source-checked-no-independent-rule"
+    },
+    "GL5-Q071": {
+      "exerciseId": "GL5-Q071",
+      "printedNumber": 71,
+      "chapterId": "gl5",
+      "exerciseSectionId": "lexical-exercise-not-in-commentary",
+      "sectionIds": [
+        "5.lexical"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 79,
+      "exercisePdfPage": 81,
+      "theoryPrintedPages": [
+        117,
+        118,
+        119,
+        120,
+        121,
+        122
+      ],
+      "theoryPdfPages": [
+        119,
+        120,
+        121,
+        122,
+        123,
+        124
+      ],
+      "mappingReason": "原书有该练习，但第 5 章理论词汇表未收录该词义、搭配或构词辨析；不能从 PDF 正确项反向编造独立原书规则。",
+      "reviewStatus": "source-checked-no-independent-rule"
+    },
+    "GL5-Q072": {
+      "exerciseId": "GL5-Q072",
+      "printedNumber": 72,
+      "chapterId": "gl5",
+      "exerciseSectionId": "lexical-exercise-not-in-commentary",
+      "sectionIds": [
+        "5.lexical"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 79,
+      "exercisePdfPage": 81,
+      "theoryPrintedPages": [
+        117,
+        118,
+        119,
+        120,
+        121,
+        122
+      ],
+      "theoryPdfPages": [
+        119,
+        120,
+        121,
+        122,
+        123,
+        124
+      ],
+      "mappingReason": "原书有该练习，但第 5 章理论词汇表未收录该词义、搭配或构词辨析；不能从 PDF 正确项反向编造独立原书规则。",
+      "reviewStatus": "source-checked-no-independent-rule"
+    },
+    "GL5-Q073": {
+      "exerciseId": "GL5-Q073",
+      "printedNumber": 73,
+      "chapterId": "gl5",
+      "exerciseSectionId": "lexical-exercise-not-in-commentary",
+      "sectionIds": [
+        "5.lexical"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 80,
+      "exercisePdfPage": 82,
+      "theoryPrintedPages": [
+        117,
+        118,
+        119,
+        120,
+        121,
+        122
+      ],
+      "theoryPdfPages": [
+        119,
+        120,
+        121,
+        122,
+        123,
+        124
+      ],
+      "mappingReason": "原书有该练习，但第 5 章理论词汇表未收录该词义、搭配或构词辨析；不能从 PDF 正确项反向编造独立原书规则。",
+      "reviewStatus": "source-checked-no-independent-rule"
+    },
+    "GL5-Q074": {
+      "exerciseId": "GL5-Q074",
+      "printedNumber": 74,
+      "chapterId": "gl5",
+      "exerciseSectionId": "lexical-exercise-not-in-commentary",
+      "sectionIds": [
+        "5.lexical"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 80,
+      "exercisePdfPage": 82,
+      "theoryPrintedPages": [
+        117,
+        118,
+        119,
+        120,
+        121,
+        122
+      ],
+      "theoryPdfPages": [
+        119,
+        120,
+        121,
+        122,
+        123,
+        124
+      ],
+      "mappingReason": "原书有该练习，但第 5 章理论词汇表未收录该词义、搭配或构词辨析；不能从 PDF 正确项反向编造独立原书规则。",
+      "reviewStatus": "source-checked-no-independent-rule"
+    },
+    "GL5-Q075": {
+      "exerciseId": "GL5-Q075",
+      "printedNumber": 75,
+      "chapterId": "gl5",
+      "exerciseSectionId": "lexical-exercise-not-in-commentary",
+      "sectionIds": [
+        "5.lexical"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 80,
+      "exercisePdfPage": 82,
+      "theoryPrintedPages": [
+        117,
+        118,
+        119,
+        120,
+        121,
+        122
+      ],
+      "theoryPdfPages": [
+        119,
+        120,
+        121,
+        122,
+        123,
+        124
+      ],
+      "mappingReason": "原书有该练习，但第 5 章理论词汇表未收录该词义、搭配或构词辨析；不能从 PDF 正确项反向编造独立原书规则。",
+      "reviewStatus": "source-checked-no-independent-rule"
+    },
+    "GL5-Q076": {
+      "exerciseId": "GL5-Q076",
+      "printedNumber": 76,
+      "chapterId": "gl5",
+      "exerciseSectionId": "lexical-exercise-not-in-commentary",
+      "sectionIds": [
+        "5.lexical"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 80,
+      "exercisePdfPage": 82,
+      "theoryPrintedPages": [
+        117,
+        118,
+        119,
+        120,
+        121,
+        122
+      ],
+      "theoryPdfPages": [
+        119,
+        120,
+        121,
+        122,
+        123,
+        124
+      ],
+      "mappingReason": "原书有该练习，但第 5 章理论词汇表未收录该词义、搭配或构词辨析；不能从 PDF 正确项反向编造独立原书规则。",
+      "reviewStatus": "source-checked-no-independent-rule"
+    },
+    "GL5-Q077": {
+      "exerciseId": "GL5-Q077",
+      "printedNumber": 77,
+      "chapterId": "gl5",
+      "exerciseSectionId": "lexical-exercise-not-in-commentary",
+      "sectionIds": [
+        "5.lexical"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 80,
+      "exercisePdfPage": 82,
+      "theoryPrintedPages": [
+        117,
+        118,
+        119,
+        120,
+        121,
+        122
+      ],
+      "theoryPdfPages": [
+        119,
+        120,
+        121,
+        122,
+        123,
+        124
+      ],
+      "mappingReason": "原书有该练习，但第 5 章理论词汇表未收录该词义、搭配或构词辨析；不能从 PDF 正确项反向编造独立原书规则。",
+      "reviewStatus": "source-checked-no-independent-rule"
+    },
+    "GL5-Q078": {
+      "exerciseId": "GL5-Q078",
+      "printedNumber": 78,
+      "chapterId": "gl5",
+      "exerciseSectionId": "lexical-exercise-not-in-commentary",
+      "sectionIds": [
+        "5.lexical"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 80,
+      "exercisePdfPage": 82,
+      "theoryPrintedPages": [
+        117,
+        118,
+        119,
+        120,
+        121,
+        122
+      ],
+      "theoryPdfPages": [
+        119,
+        120,
+        121,
+        122,
+        123,
+        124
+      ],
+      "mappingReason": "原书有该练习，但第 5 章理论词汇表未收录该词义、搭配或构词辨析；不能从 PDF 正确项反向编造独立原书规则。",
+      "reviewStatus": "source-checked-no-independent-rule"
+    },
+    "GL5-Q079": {
+      "exerciseId": "GL5-Q079",
+      "printedNumber": 79,
+      "chapterId": "gl5",
+      "exerciseSectionId": "lexical-exercise-not-in-commentary",
+      "sectionIds": [
+        "5.lexical"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 80,
+      "exercisePdfPage": 82,
+      "theoryPrintedPages": [
+        117,
+        118,
+        119,
+        120,
+        121,
+        122
+      ],
+      "theoryPdfPages": [
+        119,
+        120,
+        121,
+        122,
+        123,
+        124
+      ],
+      "mappingReason": "原书有该练习，但第 5 章理论词汇表未收录该词义、搭配或构词辨析；不能从 PDF 正确项反向编造独立原书规则。",
+      "reviewStatus": "source-checked-no-independent-rule"
+    },
+    "GL5-Q080": {
+      "exerciseId": "GL5-Q080",
+      "printedNumber": 80,
+      "chapterId": "gl5",
+      "exerciseSectionId": "lexical-exercise-not-in-commentary",
+      "sectionIds": [
+        "5.lexical"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 81,
+      "exercisePdfPage": 83,
+      "theoryPrintedPages": [
+        117,
+        118,
+        119,
+        120,
+        121,
+        122
+      ],
+      "theoryPdfPages": [
+        119,
+        120,
+        121,
+        122,
+        123,
+        124
+      ],
+      "mappingReason": "原书有该练习，但第 5 章理论词汇表未收录该词义、搭配或构词辨析；不能从 PDF 正确项反向编造独立原书规则。",
+      "reviewStatus": "source-checked-no-independent-rule"
+    },
+    "GL5-Q081": {
+      "exerciseId": "GL5-Q081",
+      "printedNumber": 81,
+      "chapterId": "gl5",
+      "exerciseSectionId": "lexical-exercise-not-in-commentary",
+      "sectionIds": [
+        "5.lexical"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 81,
+      "exercisePdfPage": 83,
+      "theoryPrintedPages": [
+        117,
+        118,
+        119,
+        120,
+        121,
+        122
+      ],
+      "theoryPdfPages": [
+        119,
+        120,
+        121,
+        122,
+        123,
+        124
+      ],
+      "mappingReason": "原书有该练习，但第 5 章理论词汇表未收录该词义、搭配或构词辨析；不能从 PDF 正确项反向编造独立原书规则。",
+      "reviewStatus": "source-checked-no-independent-rule"
+    },
+    "GL5-Q082": {
+      "exerciseId": "GL5-Q082",
+      "printedNumber": 82,
+      "chapterId": "gl5",
+      "exerciseSectionId": "lexical-exercise-not-in-commentary",
+      "sectionIds": [
+        "5.lexical"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 81,
+      "exercisePdfPage": 83,
+      "theoryPrintedPages": [
+        117,
+        118,
+        119,
+        120,
+        121,
+        122
+      ],
+      "theoryPdfPages": [
+        119,
+        120,
+        121,
+        122,
+        123,
+        124
+      ],
+      "mappingReason": "原书有该练习，但第 5 章理论词汇表未收录该词义、搭配或构词辨析；不能从 PDF 正确项反向编造独立原书规则。",
+      "reviewStatus": "source-checked-no-independent-rule"
+    },
+    "GL5-Q083": {
+      "exerciseId": "GL5-Q083",
+      "printedNumber": 83,
+      "chapterId": "gl5",
+      "exerciseSectionId": "lexical-exercise-not-in-commentary",
+      "sectionIds": [
+        "5.lexical"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 81,
+      "exercisePdfPage": 83,
+      "theoryPrintedPages": [
+        117,
+        118,
+        119,
+        120,
+        121,
+        122
+      ],
+      "theoryPdfPages": [
+        119,
+        120,
+        121,
+        122,
+        123,
+        124
+      ],
+      "mappingReason": "原书有该练习，但第 5 章理论词汇表未收录该词义、搭配或构词辨析；不能从 PDF 正确项反向编造独立原书规则。",
+      "reviewStatus": "source-checked-no-independent-rule"
+    },
+    "GL5-Q084": {
+      "exerciseId": "GL5-Q084",
+      "printedNumber": 84,
+      "chapterId": "gl5",
+      "exerciseSectionId": "lexical-exercise-not-in-commentary",
+      "sectionIds": [
+        "5.lexical"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 81,
+      "exercisePdfPage": 83,
+      "theoryPrintedPages": [
+        117,
+        118,
+        119,
+        120,
+        121,
+        122
+      ],
+      "theoryPdfPages": [
+        119,
+        120,
+        121,
+        122,
+        123,
+        124
+      ],
+      "mappingReason": "原书有该练习，但第 5 章理论词汇表未收录该词义、搭配或构词辨析；不能从 PDF 正确项反向编造独立原书规则。",
+      "reviewStatus": "source-checked-no-independent-rule"
+    },
+    "GL5-Q085": {
+      "exerciseId": "GL5-Q085",
+      "printedNumber": 85,
+      "chapterId": "gl5",
+      "exerciseSectionId": "lexical-exercise-not-in-commentary",
+      "sectionIds": [
+        "5.lexical"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 81,
+      "exercisePdfPage": 83,
+      "theoryPrintedPages": [
+        117,
+        118,
+        119,
+        120,
+        121,
+        122
+      ],
+      "theoryPdfPages": [
+        119,
+        120,
+        121,
+        122,
+        123,
+        124
+      ],
+      "mappingReason": "原书有该练习，但第 5 章理论词汇表未收录该词义、搭配或构词辨析；不能从 PDF 正确项反向编造独立原书规则。",
+      "reviewStatus": "source-checked-no-independent-rule"
+    },
+    "GL5-Q086": {
+      "exerciseId": "GL5-Q086",
+      "printedNumber": 86,
+      "chapterId": "gl5",
+      "exerciseSectionId": "lexical-exercise-not-in-commentary",
+      "sectionIds": [
+        "5.lexical"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 81,
+      "exercisePdfPage": 83,
+      "theoryPrintedPages": [
+        117,
+        118,
+        119,
+        120,
+        121,
+        122
+      ],
+      "theoryPdfPages": [
+        119,
+        120,
+        121,
+        122,
+        123,
+        124
+      ],
+      "mappingReason": "原书有该练习，但第 5 章理论词汇表未收录该词义、搭配或构词辨析；不能从 PDF 正确项反向编造独立原书规则。",
+      "reviewStatus": "source-checked-no-independent-rule"
+    },
+    "GL5-Q087": {
+      "exerciseId": "GL5-Q087",
+      "printedNumber": 87,
+      "chapterId": "gl5",
+      "exerciseSectionId": "lexical-exercise-not-in-commentary",
+      "sectionIds": [
+        "5.lexical"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 82,
+      "exercisePdfPage": 84,
+      "theoryPrintedPages": [
+        117,
+        118,
+        119,
+        120,
+        121,
+        122
+      ],
+      "theoryPdfPages": [
+        119,
+        120,
+        121,
+        122,
+        123,
+        124
+      ],
+      "mappingReason": "原书有该练习，但第 5 章理论词汇表未收录该词义、搭配或构词辨析；不能从 PDF 正确项反向编造独立原书规则。",
+      "reviewStatus": "source-checked-no-independent-rule"
+    },
+    "GL5-Q088": {
+      "exerciseId": "GL5-Q088",
+      "printedNumber": 88,
+      "chapterId": "gl5",
+      "exerciseSectionId": "lexical-exercise-not-in-commentary",
+      "sectionIds": [
+        "5.lexical"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 82,
+      "exercisePdfPage": 84,
+      "theoryPrintedPages": [
+        117,
+        118,
+        119,
+        120,
+        121,
+        122
+      ],
+      "theoryPdfPages": [
+        119,
+        120,
+        121,
+        122,
+        123,
+        124
+      ],
+      "mappingReason": "原书有该练习，但第 5 章理论词汇表未收录该词义、搭配或构词辨析；不能从 PDF 正确项反向编造独立原书规则。",
+      "reviewStatus": "source-checked-no-independent-rule"
+    },
+    "GL5-Q089": {
+      "exerciseId": "GL5-Q089",
+      "printedNumber": 89,
+      "chapterId": "gl5",
+      "exerciseSectionId": "lexical-exercise-not-in-commentary",
+      "sectionIds": [
+        "5.lexical"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 82,
+      "exercisePdfPage": 84,
+      "theoryPrintedPages": [
+        117,
+        118,
+        119,
+        120,
+        121,
+        122
+      ],
+      "theoryPdfPages": [
+        119,
+        120,
+        121,
+        122,
+        123,
+        124
+      ],
+      "mappingReason": "原书有该练习，但第 5 章理论词汇表未收录该词义、搭配或构词辨析；不能从 PDF 正确项反向编造独立原书规则。",
+      "reviewStatus": "source-checked-no-independent-rule"
+    },
+    "GL5-Q090": {
+      "exerciseId": "GL5-Q090",
+      "printedNumber": 90,
+      "chapterId": "gl5",
+      "exerciseSectionId": "lexical-exercise-not-in-commentary",
+      "sectionIds": [
+        "5.lexical"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 82,
+      "exercisePdfPage": 84,
+      "theoryPrintedPages": [
+        117,
+        118,
+        119,
+        120,
+        121,
+        122
+      ],
+      "theoryPdfPages": [
+        119,
+        120,
+        121,
+        122,
+        123,
+        124
+      ],
+      "mappingReason": "原书有该练习，但第 5 章理论词汇表未收录该词义、搭配或构词辨析；不能从 PDF 正确项反向编造独立原书规则。",
+      "reviewStatus": "source-checked-no-independent-rule"
+    },
+    "GL5-Q091": {
+      "exerciseId": "GL5-Q091",
+      "printedNumber": 91,
+      "chapterId": "gl5",
+      "exerciseSectionId": "lexical-exercise-not-in-commentary",
+      "sectionIds": [
+        "5.lexical"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 82,
+      "exercisePdfPage": 84,
+      "theoryPrintedPages": [
+        117,
+        118,
+        119,
+        120,
+        121,
+        122
+      ],
+      "theoryPdfPages": [
+        119,
+        120,
+        121,
+        122,
+        123,
+        124
+      ],
+      "mappingReason": "原书有该练习，但第 5 章理论词汇表未收录该词义、搭配或构词辨析；不能从 PDF 正确项反向编造独立原书规则。",
+      "reviewStatus": "source-checked-no-independent-rule"
+    },
+    "GL5-Q092": {
+      "exerciseId": "GL5-Q092",
+      "printedNumber": 92,
+      "chapterId": "gl5",
+      "exerciseSectionId": "lexical-exercise-not-in-commentary",
+      "sectionIds": [
+        "5.lexical"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 82,
+      "exercisePdfPage": 84,
+      "theoryPrintedPages": [
+        117,
+        118,
+        119,
+        120,
+        121,
+        122
+      ],
+      "theoryPdfPages": [
+        119,
+        120,
+        121,
+        122,
+        123,
+        124
+      ],
+      "mappingReason": "原书有该练习，但第 5 章理论词汇表未收录该词义、搭配或构词辨析；不能从 PDF 正确项反向编造独立原书规则。",
+      "reviewStatus": "source-checked-no-independent-rule"
+    },
+    "GL5-Q093": {
+      "exerciseId": "GL5-Q093",
+      "printedNumber": 93,
+      "chapterId": "gl5",
+      "exerciseSectionId": "lexical-exercise-not-in-commentary",
+      "sectionIds": [
+        "5.lexical"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 82,
+      "exercisePdfPage": 84,
+      "theoryPrintedPages": [
+        117,
+        118,
+        119,
+        120,
+        121,
+        122
+      ],
+      "theoryPdfPages": [
+        119,
+        120,
+        121,
+        122,
+        123,
+        124
+      ],
+      "mappingReason": "原书有该练习，但第 5 章理论词汇表未收录该词义、搭配或构词辨析；不能从 PDF 正确项反向编造独立原书规则。",
+      "reviewStatus": "source-checked-no-independent-rule"
+    },
+    "GL5-Q094": {
+      "exerciseId": "GL5-Q094",
+      "printedNumber": 94,
+      "chapterId": "gl5",
+      "exerciseSectionId": "lexical-exercise-not-in-commentary",
+      "sectionIds": [
+        "5.lexical"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 83,
+      "exercisePdfPage": 85,
+      "theoryPrintedPages": [
+        117,
+        118,
+        119,
+        120,
+        121,
+        122
+      ],
+      "theoryPdfPages": [
+        119,
+        120,
+        121,
+        122,
+        123,
+        124
+      ],
+      "mappingReason": "原书有该练习，但第 5 章理论词汇表未收录该词义、搭配或构词辨析；不能从 PDF 正确项反向编造独立原书规则。",
+      "reviewStatus": "source-checked-no-independent-rule"
+    },
+    "GL5-Q095": {
+      "exerciseId": "GL5-Q095",
+      "printedNumber": 95,
+      "chapterId": "gl5",
+      "exerciseSectionId": "lexical-exercise-not-in-commentary",
+      "sectionIds": [
+        "5.lexical"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 83,
+      "exercisePdfPage": 85,
+      "theoryPrintedPages": [
+        117,
+        118,
+        119,
+        120,
+        121,
+        122
+      ],
+      "theoryPdfPages": [
+        119,
+        120,
+        121,
+        122,
+        123,
+        124
+      ],
+      "mappingReason": "原书有该练习，但第 5 章理论词汇表未收录该词义、搭配或构词辨析；不能从 PDF 正确项反向编造独立原书规则。",
+      "reviewStatus": "source-checked-no-independent-rule"
+    },
+    "GL5-Q096": {
+      "exerciseId": "GL5-Q096",
+      "printedNumber": 96,
+      "chapterId": "gl5",
+      "exerciseSectionId": "lexical-exercise-not-in-commentary",
+      "sectionIds": [
+        "5.lexical"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 83,
+      "exercisePdfPage": 85,
+      "theoryPrintedPages": [
+        117,
+        118,
+        119,
+        120,
+        121,
+        122
+      ],
+      "theoryPdfPages": [
+        119,
+        120,
+        121,
+        122,
+        123,
+        124
+      ],
+      "mappingReason": "原书有该练习，但第 5 章理论词汇表未收录该词义、搭配或构词辨析；不能从 PDF 正确项反向编造独立原书规则。",
+      "reviewStatus": "source-checked-no-independent-rule"
+    },
+    "GL5-Q097": {
+      "exerciseId": "GL5-Q097",
+      "printedNumber": 97,
+      "chapterId": "gl5",
+      "exerciseSectionId": "lexical-exercise-not-in-commentary",
+      "sectionIds": [
+        "5.lexical"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 83,
+      "exercisePdfPage": 85,
+      "theoryPrintedPages": [
+        117,
+        118,
+        119,
+        120,
+        121,
+        122
+      ],
+      "theoryPdfPages": [
+        119,
+        120,
+        121,
+        122,
+        123,
+        124
+      ],
+      "mappingReason": "原书有该练习，但第 5 章理论词汇表未收录该词义、搭配或构词辨析；不能从 PDF 正确项反向编造独立原书规则。",
+      "reviewStatus": "source-checked-no-independent-rule"
+    },
+    "GL5-Q098": {
+      "exerciseId": "GL5-Q098",
+      "printedNumber": 98,
+      "chapterId": "gl5",
+      "exerciseSectionId": "lexical-exercise-not-in-commentary",
+      "sectionIds": [
+        "5.lexical"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 83,
+      "exercisePdfPage": 85,
+      "theoryPrintedPages": [
+        117,
+        118,
+        119,
+        120,
+        121,
+        122
+      ],
+      "theoryPdfPages": [
+        119,
+        120,
+        121,
+        122,
+        123,
+        124
+      ],
+      "mappingReason": "原书有该练习，但第 5 章理论词汇表未收录该词义、搭配或构词辨析；不能从 PDF 正确项反向编造独立原书规则。",
+      "reviewStatus": "source-checked-no-independent-rule"
+    },
+    "GL5-Q099": {
+      "exerciseId": "GL5-Q099",
+      "printedNumber": 99,
+      "chapterId": "gl5",
+      "exerciseSectionId": "lexical-exercise-not-in-commentary",
+      "sectionIds": [
+        "5.lexical"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 83,
+      "exercisePdfPage": 85,
+      "theoryPrintedPages": [
+        117,
+        118,
+        119,
+        120,
+        121,
+        122
+      ],
+      "theoryPdfPages": [
+        119,
+        120,
+        121,
+        122,
+        123,
+        124
+      ],
+      "mappingReason": "原书有该练习，但第 5 章理论词汇表未收录该词义、搭配或构词辨析；不能从 PDF 正确项反向编造独立原书规则。",
+      "reviewStatus": "source-checked-no-independent-rule"
+    },
+    "GL5-Q100": {
+      "exerciseId": "GL5-Q100",
+      "printedNumber": 100,
+      "chapterId": "gl5",
+      "exerciseSectionId": "lexical-exercise-not-in-commentary",
+      "sectionIds": [
+        "5.lexical"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 83,
+      "exercisePdfPage": 85,
+      "theoryPrintedPages": [
+        117,
+        118,
+        119,
+        120,
+        121,
+        122
+      ],
+      "theoryPdfPages": [
+        119,
+        120,
+        121,
+        122,
+        123,
+        124
+      ],
+      "mappingReason": "原书有该练习，但第 5 章理论词汇表未收录该词义、搭配或构词辨析；不能从 PDF 正确项反向编造独立原书规则。",
+      "reviewStatus": "source-checked-no-independent-rule"
+    },
+    "GL5-Q101": {
+      "exerciseId": "GL5-Q101",
+      "printedNumber": 101,
+      "chapterId": "gl5",
+      "exerciseSectionId": "lexical-exercise-not-in-commentary",
+      "sectionIds": [
+        "5.lexical"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 84,
+      "exercisePdfPage": 86,
+      "theoryPrintedPages": [
+        117,
+        118,
+        119,
+        120,
+        121,
+        122
+      ],
+      "theoryPdfPages": [
+        119,
+        120,
+        121,
+        122,
+        123,
+        124
+      ],
+      "mappingReason": "原书有该练习，但第 5 章理论词汇表未收录该词义、搭配或构词辨析；不能从 PDF 正确项反向编造独立原书规则。",
+      "reviewStatus": "source-checked-no-independent-rule"
+    },
+    "GL5-Q102": {
+      "exerciseId": "GL5-Q102",
+      "printedNumber": 102,
+      "chapterId": "gl5",
+      "exerciseSectionId": "lexical-exercise-not-in-commentary",
+      "sectionIds": [
+        "5.lexical"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 84,
+      "exercisePdfPage": 86,
+      "theoryPrintedPages": [
+        117,
+        118,
+        119,
+        120,
+        121,
+        122
+      ],
+      "theoryPdfPages": [
+        119,
+        120,
+        121,
+        122,
+        123,
+        124
+      ],
+      "mappingReason": "原书有该练习，但第 5 章理论词汇表未收录该词义、搭配或构词辨析；不能从 PDF 正确项反向编造独立原书规则。",
+      "reviewStatus": "source-checked-no-independent-rule"
+    },
+    "GL5-Q103": {
+      "exerciseId": "GL5-Q103",
+      "printedNumber": 103,
+      "chapterId": "gl5",
+      "exerciseSectionId": "lexical-exercise-not-in-commentary",
+      "sectionIds": [
+        "5.lexical"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 84,
+      "exercisePdfPage": 86,
+      "theoryPrintedPages": [
+        117,
+        118,
+        119,
+        120,
+        121,
+        122
+      ],
+      "theoryPdfPages": [
+        119,
+        120,
+        121,
+        122,
+        123,
+        124
+      ],
+      "mappingReason": "原书有该练习，但第 5 章理论词汇表未收录该词义、搭配或构词辨析；不能从 PDF 正确项反向编造独立原书规则。",
+      "reviewStatus": "source-checked-no-independent-rule"
+    },
+    "GL5-Q104": {
+      "exerciseId": "GL5-Q104",
+      "printedNumber": 104,
+      "chapterId": "gl5",
+      "exerciseSectionId": "lexical-exercise-not-in-commentary",
+      "sectionIds": [
+        "5.lexical"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 84,
+      "exercisePdfPage": 86,
+      "theoryPrintedPages": [
+        117,
+        118,
+        119,
+        120,
+        121,
+        122
+      ],
+      "theoryPdfPages": [
+        119,
+        120,
+        121,
+        122,
+        123,
+        124
+      ],
+      "mappingReason": "原书有该练习，但第 5 章理论词汇表未收录该词义、搭配或构词辨析；不能从 PDF 正确项反向编造独立原书规则。",
+      "reviewStatus": "source-checked-no-independent-rule"
+    },
+    "GL5-Q105": {
+      "exerciseId": "GL5-Q105",
+      "printedNumber": 105,
+      "chapterId": "gl5",
+      "exerciseSectionId": "lexical-exercise-not-in-commentary",
+      "sectionIds": [
+        "5.lexical"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 84,
+      "exercisePdfPage": 86,
+      "theoryPrintedPages": [
+        117,
+        118,
+        119,
+        120,
+        121,
+        122
+      ],
+      "theoryPdfPages": [
+        119,
+        120,
+        121,
+        122,
+        123,
+        124
+      ],
+      "mappingReason": "原书有该练习，但第 5 章理论词汇表未收录该词义、搭配或构词辨析；不能从 PDF 正确项反向编造独立原书规则。",
+      "reviewStatus": "source-checked-no-independent-rule"
+    },
+    "GL5-Q106": {
+      "exerciseId": "GL5-Q106",
+      "printedNumber": 106,
+      "chapterId": "gl5",
+      "exerciseSectionId": "5.lexical",
+      "sectionIds": [
+        "5.lexical"
+      ],
+      "ruleIds": [
+        "gl5-5.lexical-row-086"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 84,
+      "exercisePdfPage": 86,
+      "theoryPrintedPages": [
+        117,
+        118,
+        119,
+        120,
+        121,
+        122
+      ],
+      "theoryPdfPages": [
+        119,
+        120,
+        121,
+        122,
+        123,
+        124
+      ],
+      "mappingReason": "题干与原书词汇评论中的「эффективный」条目直接对应；释义和原书搭配可区分正确项，不能由答案字母反推。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL5-Q107": {
+      "exerciseId": "GL5-Q107",
+      "printedNumber": 107,
+      "chapterId": "gl5",
+      "exerciseSectionId": "lexical-exercise-not-in-commentary",
+      "sectionIds": [
+        "5.lexical"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 84,
+      "exercisePdfPage": 86,
+      "theoryPrintedPages": [
+        117,
+        118,
+        119,
+        120,
+        121,
+        122
+      ],
+      "theoryPdfPages": [
+        119,
+        120,
+        121,
+        122,
+        123,
+        124
+      ],
+      "mappingReason": "原书有该练习，但第 5 章理论词汇表未收录该词义、搭配或构词辨析；不能从 PDF 正确项反向编造独立原书规则。",
+      "reviewStatus": "source-checked-no-independent-rule"
+    },
+    "GL5-Q108": {
+      "exerciseId": "GL5-Q108",
+      "printedNumber": 108,
+      "chapterId": "gl5",
+      "exerciseSectionId": "5.lexical",
+      "sectionIds": [
+        "5.lexical"
+      ],
+      "ruleIds": [
+        "gl5-5.lexical-row-054"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 85,
+      "exercisePdfPage": 87,
+      "theoryPrintedPages": [
+        117,
+        118,
+        119,
+        120,
+        121,
+        122
+      ],
+      "theoryPdfPages": [
+        119,
+        120,
+        121,
+        122,
+        123,
+        124
+      ],
+      "mappingReason": "题干与原书词汇评论中的「особо」条目直接对应；释义和原书搭配可区分正确项，不能由答案字母反推。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL5-Q109": {
+      "exerciseId": "GL5-Q109",
+      "printedNumber": 109,
+      "chapterId": "gl5",
+      "exerciseSectionId": "lexical-exercise-not-in-commentary",
+      "sectionIds": [
+        "5.lexical"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 85,
+      "exercisePdfPage": 87,
+      "theoryPrintedPages": [
+        117,
+        118,
+        119,
+        120,
+        121,
+        122
+      ],
+      "theoryPdfPages": [
+        119,
+        120,
+        121,
+        122,
+        123,
+        124
+      ],
+      "mappingReason": "原书有该练习，但第 5 章理论词汇表未收录该词义、搭配或构词辨析；不能从 PDF 正确项反向编造独立原书规则。",
+      "reviewStatus": "source-checked-no-independent-rule"
+    },
+    "GL5-Q110": {
+      "exerciseId": "GL5-Q110",
+      "printedNumber": 110,
+      "chapterId": "gl5",
+      "exerciseSectionId": "lexical-exercise-not-in-commentary",
+      "sectionIds": [
+        "5.lexical"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 85,
+      "exercisePdfPage": 87,
+      "theoryPrintedPages": [
+        117,
+        118,
+        119,
+        120,
+        121,
+        122
+      ],
+      "theoryPdfPages": [
+        119,
+        120,
+        121,
+        122,
+        123,
+        124
+      ],
+      "mappingReason": "原书有该练习，但第 5 章理论词汇表未收录该词义、搭配或构词辨析；不能从 PDF 正确项反向编造独立原书规则。",
+      "reviewStatus": "source-checked-no-independent-rule"
+    },
+    "GL5-Q111": {
+      "exerciseId": "GL5-Q111",
+      "printedNumber": 111,
+      "chapterId": "gl5",
+      "exerciseSectionId": "lexical-exercise-not-in-commentary",
+      "sectionIds": [
+        "5.lexical"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 85,
+      "exercisePdfPage": 87,
+      "theoryPrintedPages": [
+        117,
+        118,
+        119,
+        120,
+        121,
+        122
+      ],
+      "theoryPdfPages": [
+        119,
+        120,
+        121,
+        122,
+        123,
+        124
+      ],
+      "mappingReason": "原书有该练习，但第 5 章理论词汇表未收录该词义、搭配或构词辨析；不能从 PDF 正确项反向编造独立原书规则。",
+      "reviewStatus": "source-checked-no-independent-rule"
+    },
+    "GL5-Q112": {
+      "exerciseId": "GL5-Q112",
+      "printedNumber": 112,
+      "chapterId": "gl5",
+      "exerciseSectionId": "5.lexical",
+      "sectionIds": [
+        "5.lexical"
+      ],
+      "ruleIds": [
+        "gl5-5.lexical-row-083"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 85,
+      "exercisePdfPage": 87,
+      "theoryPrintedPages": [
+        117,
+        118,
+        119,
+        120,
+        121,
+        122
+      ],
+      "theoryPdfPages": [
+        119,
+        120,
+        121,
+        122,
+        123,
+        124
+      ],
+      "mappingReason": "题干与原书词汇评论中的「экономичный」条目直接对应；释义和原书搭配可区分正确项，不能由答案字母反推。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL5-Q113": {
+      "exerciseId": "GL5-Q113",
+      "printedNumber": 113,
+      "chapterId": "gl5",
+      "exerciseSectionId": "5.lexical",
+      "sectionIds": [
+        "5.lexical"
+      ],
+      "ruleIds": [
+        "gl5-5.lexical-row-003"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 85,
+      "exercisePdfPage": 87,
+      "theoryPrintedPages": [
+        117,
+        118,
+        119,
+        120,
+        121,
+        122
+      ],
+      "theoryPdfPages": [
+        119,
+        120,
+        121,
+        122,
+        123,
+        124
+      ],
+      "mappingReason": "题干与原书词汇评论中的「вместе」条目直接对应；释义和原书搭配可区分正确项，不能由答案字母反推。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL5-Q114": {
+      "exerciseId": "GL5-Q114",
+      "printedNumber": 114,
+      "chapterId": "gl5",
+      "exerciseSectionId": "5.2",
+      "sectionIds": [
+        "5.2"
+      ],
+      "ruleIds": [
+        "gl5-5.2-kogda-to-past"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 85,
+      "exercisePdfPage": 87,
+      "theoryPrintedPages": [
+        116,
+        117
+      ],
+      "theoryPdfPages": [
+        118,
+        119
+      ],
+      "mappingReason": "题干中的不定代词/副词形式由原书 5.2 的「когда-то表示过去很久以前」直接说明；语境决定信息未知、无关紧要或仅说话人已知。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL5-Q115": {
+      "exerciseId": "GL5-Q115",
+      "printedNumber": 115,
+      "chapterId": "gl5",
+      "exerciseSectionId": "5.2",
+      "sectionIds": [
+        "5.2"
+      ],
+      "ruleIds": [
+        "gl5-5.2-nibud-indifferent"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 85,
+      "exercisePdfPage": 87,
+      "theoryPrintedPages": [
+        116,
+        117
+      ],
+      "theoryPdfPages": [
+        118,
+        119
+      ],
+      "mappingReason": "题干中的不定代词/副词形式由原书 5.2 的「-нибудь：具体身份无关紧要」直接说明；语境决定信息未知、无关紧要或仅说话人已知。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL5-Q116": {
+      "exerciseId": "GL5-Q116",
+      "printedNumber": 116,
+      "chapterId": "gl5",
+      "exerciseSectionId": "5.2",
+      "sectionIds": [
+        "5.2"
+      ],
+      "ruleIds": [
+        "gl5-5.2-koe-some-places"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 85,
+      "exercisePdfPage": 87,
+      "theoryPrintedPages": [
+        116,
+        117
+      ],
+      "theoryPdfPages": [
+        118,
+        119
+      ],
+      "mappingReason": "题干中的不定代词/副词形式由原书 5.2 的「кое-地点副词表示某些地点」直接说明；语境决定信息未知、无关紧要或仅说话人已知。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL5-Q117": {
+      "exerciseId": "GL5-Q117",
+      "printedNumber": 117,
+      "chapterId": "gl5",
+      "exerciseSectionId": "5.2",
+      "sectionIds": [
+        "5.2"
+      ],
+      "ruleIds": [
+        "gl5-5.2-to-speaker-unknown"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 85,
+      "exercisePdfPage": 87,
+      "theoryPrintedPages": [
+        116,
+        117
+      ],
+      "theoryPdfPages": [
+        118,
+        119
+      ],
+      "mappingReason": "题干中的不定代词/副词形式由原书 5.2 的「-то：说话人未知」直接说明；语境决定信息未知、无关紧要或仅说话人已知。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL5-Q118": {
+      "exerciseId": "GL5-Q118",
+      "printedNumber": 118,
+      "chapterId": "gl5",
+      "exerciseSectionId": "5.1",
+      "sectionIds": [
+        "5.1"
+      ],
+      "ruleIds": [
+        "gl5-5.1-nom-instr-a-contrast"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 85,
+      "exercisePdfPage": 87,
+      "theoryPrintedPages": [
+        115,
+        116
+      ],
+      "theoryPdfPages": [
+        117,
+        118
+      ],
+      "mappingReason": "题干直接使用原书 5.1 所列的「同一名词主格—工具格 + а 的对照」构式；正确项按该构式的语义功能解释。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL5-Q119": {
+      "exerciseId": "GL5-Q119",
+      "printedNumber": 119,
+      "chapterId": "gl5",
+      "exerciseSectionId": "5.1",
+      "sectionIds": [
+        "5.1"
+      ],
+      "ruleIds": [
+        "gl5-5.1-chto-ni-to-repetition"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 86,
+      "exercisePdfPage": 88,
+      "theoryPrintedPages": [
+        115,
+        116
+      ],
+      "theoryPdfPages": [
+        117,
+        118
+      ],
+      "mappingReason": "题干直接使用原书 5.1 所列的「что ни…, то…表示反复出现」构式；正确项按该构式的语义功能解释。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL5-Q120": {
+      "exerciseId": "GL5-Q120",
+      "printedNumber": 120,
+      "chapterId": "gl5",
+      "exerciseSectionId": "5.1",
+      "sectionIds": [
+        "5.1"
+      ],
+      "ruleIds": [
+        "gl5-5.1-chto-ni-to-repetition"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 86,
+      "exercisePdfPage": 88,
+      "theoryPrintedPages": [
+        115,
+        116
+      ],
+      "theoryPdfPages": [
+        117,
+        118
+      ],
+      "mappingReason": "题干直接使用原书 5.1 所列的「что ни…, то…表示反复出现」构式；正确项按该构式的语义功能解释。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL5-Q121": {
+      "exerciseId": "GL5-Q121",
+      "printedNumber": 121,
+      "chapterId": "gl5",
+      "exerciseSectionId": "5.1",
+      "sectionIds": [
+        "5.1"
+      ],
+      "ruleIds": [
+        "gl5-5.1-gde-tam-emotional-negation"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 86,
+      "exercisePdfPage": 88,
+      "theoryPrintedPages": [
+        115,
+        116
+      ],
+      "theoryPdfPages": [
+        117,
+        118
+      ],
+      "mappingReason": "题干直接使用原书 5.1 所列的「где там表达带感情色彩的否定」构式；正确项按该构式的语义功能解释。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL5-Q122": {
+      "exerciseId": "GL5-Q122",
+      "printedNumber": 122,
+      "chapterId": "gl5",
+      "exerciseSectionId": "5.1",
+      "sectionIds": [
+        "5.1"
+      ],
+      "ruleIds": [
+        "gl5-5.1-kak-ne-necessity"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 86,
+      "exercisePdfPage": 88,
+      "theoryPrintedPages": [
+        115,
+        116
+      ],
+      "theoryPdfPages": [
+        117,
+        118
+      ],
+      "mappingReason": "题干直接使用原书 5.1 所列的「как (было) не + 不定式表示必要或不得不」构式；正确项按该构式的语义功能解释。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL5-Q123": {
+      "exerciseId": "GL5-Q123",
+      "printedNumber": 123,
+      "chapterId": "gl5",
+      "exerciseSectionId": "5.1",
+      "sectionIds": [
+        "5.1"
+      ],
+      "ruleIds": [
+        "gl5-5.1-gde-tam-emotional-negation"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 86,
+      "exercisePdfPage": 88,
+      "theoryPrintedPages": [
+        115,
+        116
+      ],
+      "theoryPdfPages": [
+        117,
+        118
+      ],
+      "mappingReason": "题干直接使用原书 5.1 所列的「где там表达带感情色彩的否定」构式；正确项按该构式的语义功能解释。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL5-Q124": {
+      "exerciseId": "GL5-Q124",
+      "printedNumber": 124,
+      "chapterId": "gl5",
+      "exerciseSectionId": "5.1",
+      "sectionIds": [
+        "5.1"
+      ],
+      "ruleIds": [
+        "gl5-5.1-x-est-x-acceptance"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 86,
+      "exercisePdfPage": 88,
+      "theoryPrintedPages": [
+        115,
+        116
+      ],
+      "theoryPdfPages": [
+        117,
+        118
+      ],
+      "mappingReason": "题干直接使用原书 5.1 所列的「кто/что есть кто/что 表示对不可改变事实的接受」构式；正确项按该构式的语义功能解释。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL5-Q125": {
+      "exerciseId": "GL5-Q125",
+      "printedNumber": 125,
+      "chapterId": "gl5",
+      "exerciseSectionId": "5.1",
+      "sectionIds": [
+        "5.1"
+      ],
+      "ruleIds": [
+        "gl5-5.1-nom-instr-no-insufficiency"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 86,
+      "exercisePdfPage": 88,
+      "theoryPrintedPages": [
+        115,
+        116
+      ],
+      "theoryPdfPages": [
+        117,
+        118
+      ],
+      "mappingReason": "题干直接使用原书 5.1 所列的「同一名词主格—工具格 + но 提示第一项不足」构式；正确项按该构式的语义功能解释。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL5-Q126": {
+      "exerciseId": "GL5-Q126",
+      "printedNumber": 126,
+      "chapterId": "gl5",
+      "exerciseSectionId": "5.1",
+      "sectionIds": [
+        "5.1"
+      ],
+      "ruleIds": [
+        "gl5-5.1-ne-x-tak-alternative"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 87,
+      "exercisePdfPage": 89,
+      "theoryPrintedPages": [
+        115,
+        116
+      ],
+      "theoryPdfPages": [
+        117,
+        118
+      ],
+      "mappingReason": "题干直接使用原书 5.1 所列的「не…, так…表示不可避免的替代」构式；正确项按该构式的语义功能解释。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL5-Q127": {
+      "exerciseId": "GL5-Q127",
+      "printedNumber": 127,
+      "chapterId": "gl5",
+      "exerciseSectionId": "5.1",
+      "sectionIds": [
+        "5.1"
+      ],
+      "ruleIds": [
+        "gl5-5.1-ne-pronoun-a-emphatic"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 87,
+      "exercisePdfPage": 89,
+      "theoryPrintedPages": [
+        115,
+        116
+      ],
+      "theoryPdfPages": [
+        117,
+        118
+      ],
+      "mappingReason": "题干直接使用原书 5.1 所列的「не + 不定代词/副词 + а 突出肯定并形成对照」构式；正确项按该构式的语义功能解释。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL5-Q128": {
+      "exerciseId": "GL5-Q128",
+      "printedNumber": 128,
+      "chapterId": "gl5",
+      "exerciseSectionId": "5.1",
+      "sectionIds": [
+        "5.1"
+      ],
+      "ruleIds": [
+        "gl5-5.1-a-tuda-zhe-disapproval"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 87,
+      "exercisePdfPage": 89,
+      "theoryPrintedPages": [
+        115,
+        116
+      ],
+      "theoryPdfPages": [
+        117,
+        118
+      ],
+      "mappingReason": "题干直接使用原书 5.1 所列的「а туда же 表示不赞成主体行动」构式；正确项按该构式的语义功能解释。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL5-Q129": {
+      "exerciseId": "GL5-Q129",
+      "printedNumber": 129,
+      "chapterId": "gl5",
+      "exerciseSectionId": "5.1",
+      "sectionIds": [
+        "5.1"
+      ],
+      "ruleIds": [
+        "gl5-5.1-nom-instr-no-insufficiency"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 87,
+      "exercisePdfPage": 89,
+      "theoryPrintedPages": [
+        115,
+        116
+      ],
+      "theoryPdfPages": [
+        117,
+        118
+      ],
+      "mappingReason": "题干直接使用原书 5.1 所列的「同一名词主格—工具格 + но 提示第一项不足」构式；正确项按该构式的语义功能解释。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL5-Q130": {
+      "exerciseId": "GL5-Q130",
+      "printedNumber": 130,
+      "chapterId": "gl5",
+      "exerciseSectionId": "5.1",
+      "sectionIds": [
+        "5.1"
+      ],
+      "ruleIds": [
+        "gl5-5.1-gde-tam-emotional-negation"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 87,
+      "exercisePdfPage": 89,
+      "theoryPrintedPages": [
+        115,
+        116
+      ],
+      "theoryPdfPages": [
+        117,
+        118
+      ],
+      "mappingReason": "题干直接使用原书 5.1 所列的「где там表达带感情色彩的否定」构式；正确项按该构式的语义功能解释。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL5-Q131": {
+      "exerciseId": "GL5-Q131",
+      "printedNumber": 131,
+      "chapterId": "gl5",
+      "exerciseSectionId": "5.1",
+      "sectionIds": [
+        "5.1"
+      ],
+      "ruleIds": [
+        "gl5-5.1-tozhe-mne-negative-evaluation"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 87,
+      "exercisePdfPage": 89,
+      "theoryPrintedPages": [
+        115,
+        116
+      ],
+      "theoryPdfPages": [
+        117,
+        118
+      ],
+      "mappingReason": "题干直接使用原书 5.1 所列的「тоже мне…给出否定评价」构式；正确项按该构式的语义功能解释。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL5-Q132": {
+      "exerciseId": "GL5-Q132",
+      "printedNumber": 132,
+      "chapterId": "gl5",
+      "exerciseSectionId": "5.1",
+      "sectionIds": [
+        "5.1"
+      ],
+      "ruleIds": [
+        "gl5-5.1-tozhe-mne-negative-evaluation"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 87,
+      "exercisePdfPage": 89,
+      "theoryPrintedPages": [
+        115,
+        116
+      ],
+      "theoryPdfPages": [
+        117,
+        118
+      ],
+      "mappingReason": "题干直接使用原书 5.1 所列的「тоже мне…给出否定评价」构式；正确项按该构式的语义功能解释。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL5-Q133": {
+      "exerciseId": "GL5-Q133",
+      "printedNumber": 133,
+      "chapterId": "gl5",
+      "exerciseSectionId": "5.1",
+      "sectionIds": [
+        "5.1"
+      ],
+      "ruleIds": [
+        "gl5-5.1-x-est-x-acceptance"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 88,
+      "exercisePdfPage": 90,
+      "theoryPrintedPages": [
+        115,
+        116
+      ],
+      "theoryPdfPages": [
+        117,
+        118
+      ],
+      "mappingReason": "题干直接使用原书 5.1 所列的「кто/что есть кто/что 表示对不可改变事实的接受」构式；正确项按该构式的语义功能解释。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL5-Q134": {
+      "exerciseId": "GL5-Q134",
+      "printedNumber": 134,
+      "chapterId": "gl5",
+      "exerciseSectionId": "5.1",
+      "sectionIds": [
+        "5.1"
+      ],
+      "ruleIds": [
+        "gl5-5.1-imperative-forced-action"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 88,
+      "exercisePdfPage": 90,
+      "theoryPrintedPages": [
+        115,
+        116
+      ],
+      "theoryPdfPages": [
+        117,
+        118
+      ],
+      "mappingReason": "题干直接使用原书 5.1 所列的「对照复句中单数命令式表示被迫行动」构式；正确项按该构式的语义功能解释。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL5-Q135": {
+      "exerciseId": "GL5-Q135",
+      "printedNumber": 135,
+      "chapterId": "gl5",
+      "exerciseSectionId": "5.1",
+      "sectionIds": [
+        "5.1"
+      ],
+      "ruleIds": [
+        "gl5-5.1-ne-forms-no-possibility"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 88,
+      "exercisePdfPage": 90,
+      "theoryPrintedPages": [
+        115,
+        116
+      ],
+      "theoryPdfPages": [
+        117,
+        118
+      ],
+      "mappingReason": "题干直接使用原书 5.1 所列的「нечего/некого/негде 等与不定式表示因缺失而不可能」构式；正确项按该构式的语义功能解释。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL5-Q136": {
+      "exerciseId": "GL5-Q136",
+      "printedNumber": 136,
+      "chapterId": "gl5",
+      "exerciseSectionId": "5.1",
+      "sectionIds": [
+        "5.1"
+      ],
+      "ruleIds": [
+        "gl5-5.1-ne-pronoun-a-emphatic"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 88,
+      "exercisePdfPage": 90,
+      "theoryPrintedPages": [
+        115,
+        116
+      ],
+      "theoryPdfPages": [
+        117,
+        118
+      ],
+      "mappingReason": "题干直接使用原书 5.1 所列的「не + 不定代词/副词 + а 突出肯定并形成对照」构式；正确项按该构式的语义功能解释。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL5-Q137": {
+      "exerciseId": "GL5-Q137",
+      "printedNumber": 137,
+      "chapterId": "gl5",
+      "exerciseSectionId": "5.1",
+      "sectionIds": [
+        "5.1"
+      ],
+      "ruleIds": [
+        "gl5-5.1-a-tuda-zhe-disapproval"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 88,
+      "exercisePdfPage": 90,
+      "theoryPrintedPages": [
+        115,
+        116
+      ],
+      "theoryPdfPages": [
+        117,
+        118
+      ],
+      "mappingReason": "题干直接使用原书 5.1 所列的「а туда же 表示不赞成主体行动」构式；正确项按该构式的语义功能解释。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL5-Q138": {
+      "exerciseId": "GL5-Q138",
+      "printedNumber": 138,
+      "chapterId": "gl5",
+      "exerciseSectionId": "5.1",
+      "sectionIds": [
+        "5.1"
+      ],
+      "ruleIds": [
+        "gl5-5.1-imperative-forced-action"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 88,
+      "exercisePdfPage": 90,
+      "theoryPrintedPages": [
+        115,
+        116
+      ],
+      "theoryPdfPages": [
+        117,
+        118
+      ],
+      "mappingReason": "题干直接使用原书 5.1 所列的「对照复句中单数命令式表示被迫行动」构式；正确项按该构式的语义功能解释。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL5-Q139": {
+      "exerciseId": "GL5-Q139",
+      "printedNumber": 139,
+      "chapterId": "gl5",
+      "exerciseSectionId": "5.1",
+      "sectionIds": [
+        "5.1"
+      ],
+      "ruleIds": [
+        "gl5-5.1-ne-forms-no-possibility"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 88,
+      "exercisePdfPage": 90,
+      "theoryPrintedPages": [
+        115,
+        116
+      ],
+      "theoryPdfPages": [
+        117,
+        118
+      ],
+      "mappingReason": "题干直接使用原书 5.1 所列的「нечего/некого/негде 等与不定式表示因缺失而不可能」构式；正确项按该构式的语义功能解释。",
+      "reviewStatus": "source-and-pdf-checked"
+    }
+  }
+}

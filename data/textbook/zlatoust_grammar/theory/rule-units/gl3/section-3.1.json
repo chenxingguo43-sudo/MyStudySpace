@@ -1,0 +1,5865 @@
+{
+  "schemaVersion": 2,
+  "id": "gl3-section-3-1",
+  "chapterId": "gl3",
+  "sectionId": "3.1",
+  "titleRu": "3.1. Употребление деепричастия / деепричастного оборота",
+  "titleZh": "动名副词的逻辑主体与语法主体：先识别动作由谁完成",
+  "orientationZh": {
+    "sourceType": "learning-note",
+    "text": "本节建立判断动名副词的总入口：不要先看词尾或逗号，而要先分别找出实施动作的人（逻辑主体）和句法上承担主语功能的成分（语法主体）。后续 3.1.1 与 3.1.2 分别说明何时允许、何时禁止。"
+  },
+  "quickDecision": [
+    {
+      "sourceType": "learning-note",
+      "text": "先把动名副词短语和主句谓词分开，分别问“谁实施这个动作”。"
+    },
+    {
+      "sourceType": "learning-note",
+      "text": "区分逻辑主体（真正实施动作的人）与语法主体（在句中承担主语功能的名词、代词、数词等主格成分）。"
+    },
+    {
+      "sourceType": "learning-note",
+      "text": "再判断句子是人称、无主、主动还是被动结构；不能仅凭出现动名副词就假定它合规范。"
+    },
+    {
+      "sourceType": "learning-note",
+      "text": "若教材没有为某类题（如分词形态）提供独立理论，保留 source-exercise-only，不从答案倒推规则。"
+    }
+  ],
+  "sourceRules": [
+    {
+      "sourceType": "source-rule",
+      "text": "## 3.1. Употребление деепричастия / деепричастного оборота¹\nУсловия употребления деепричастия / деепричастного оборота имеют свою специфику. Для того чтобы понять, как и когда их следует употреблять, необходимо вспомнить, что с точки зрения логики предложение может рассматриваться как суждение, строящееся по модели: субъект (S) + предикат (P) + объект (O). Эта модель в русском языке трансформируется и приобретает различные модификации, чем и объясняется богатство русского синтаксиса. В русском языке существует много различных типов предложений: личные / безличные, сложные / простые, активного / пассивного залога и другие.\n\nРассмотрим случаи, в которых допускается и не допускается употребление деепричастий / деепричастных оборотов (Adp). В связи с этим введём понятия логического и грамматического субъекта. В качестве логического субъекта выступает лицо, которое производит действия. Грамматическим называется субъект, выполняющий в предложении одну из главных синтаксических функций и выражающийся различными частями речи (существительными, местоимениями, числительными и др.) в форме именительного падежа.\n\n¹ Данный комментарий поможет выполнить задания в § 3.3 пособия.\n\n--- PDF-111 / 印刷页 109 ---\n# Учебно-тренировочные тесты. Выпуск 1. Грамматика. Лексика",
+      "source": {
+        "pdfPages": [
+          110
+        ],
+        "printedPages": [
+          108
+        ]
+      }
+    }
+  ],
+  "atomicRules": [
+    {
+      "id": "gl3-3.1-gerund-logical-grammatical-subject",
+      "titleZh": "动名副词的逻辑主体与语法主体",
+      "sourceReference": "3.1 要求先区分实施动作的逻辑主体与以主格等形式承担句法功能的语法主体。",
+      "sourceType": "learning-note",
+      "learningNote": "该原子规则用于索引；完整原书条件、图式和例句保留在本单元的 sourceRules、tables 与 examples。"
+    }
+  ],
+  "tables": [],
+  "examples": [],
+  "semanticAnalysis": {
+    "sourceType": "learning-note",
+    "text": "动名副词表示附加动作；能否使用不取决于“前面有没有逗号”，而取决于附加动作和主要动作能否归给同一可恢复的行动者。语法主语是句法位置，逻辑主体是行动责任，两者有时重合、有时会在无主或被动结构中分离。"
+  },
+  "signalAnalysis": [
+    {
+      "sourceType": "learning-note",
+      "signals": [
+        "деепричастие",
+        "деепричастный оборот",
+        "S + P + O",
+        "логический субъект",
+        "грамматический субъект"
+      ],
+      "use": "这些是进入主体判断的信号，不是自动放行标志；仍须检查主句谓词类型、语态和动作实施者。"
+    }
+  ],
+  "contrasts": [
+    {
+      "sourceType": "learning-note",
+      "left": "同一人执行主动作与附加动作",
+      "right": "句法主语与真正行动者分离",
+      "analysis": "前者可继续按 3.1.1 核对；后者必须进入 3.1.2 的禁止条件，尤其警惕被动和多主体结构。"
+    }
+  ],
+  "commonErrors": [
+    {
+      "sourceType": "learning-note",
+      "text": "把主句中最显眼的名词直接当成动名副词的实施者，而不判断谁真正完成两项动作。"
+    },
+    {
+      "sourceType": "learning-note",
+      "text": "把分词、关系从句或一般语义问句的练习强行说成教材已讲解的动名副词规则。"
+    }
+  ],
+  "exerciseLinks": [
+    {
+      "exerciseId": "GL3-Q001",
+      "printedNumber": 1,
+      "exercisePrintedPage": 40,
+      "sourceType": "exercise-example",
+      "status": "source-exercise-only",
+      "question": "В российских университетах проводится конкурс новых технологий обучения, ... на получение премии Президента Российской Федерации.",
+      "options": [
+        {
+          "key": "А",
+          "text": "выдвигаемых"
+        },
+        {
+          "key": "Б",
+          "text": "выдвигающих"
+        },
+        {
+          "key": "В",
+          "text": "выдвигавших"
+        },
+        {
+          "key": "Г",
+          "text": "выдвинувших\\n"
+        }
+      ],
+      "correctAnswer": "А",
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "mappingReason": "题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书答案为「А」；本题没有独立原书理论依据：题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+        "distractors": [
+          {
+            "key": "Б",
+            "text": "выдвигающих",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "В",
+            "text": "выдвигавших",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "Г",
+            "text": "выдвинувших\\n",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 42,
+        "questionPrintedPage": 40,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124,
+        "answerSource": "PDF-126 / 印刷页 124：Ключи к третьей главе"
+      }
+    },
+    {
+      "exerciseId": "GL3-Q002",
+      "printedNumber": 2,
+      "exercisePrintedPage": 40,
+      "sourceType": "exercise-example",
+      "status": "source-exercise-only",
+      "question": "Первый государственный закон, ... с охраной природы, появился на Руси в XI веке в годы правления Ярослава Мудрого.",
+      "options": [
+        {
+          "key": "А",
+          "text": "связавший"
+        },
+        {
+          "key": "Б",
+          "text": "связывающий"
+        },
+        {
+          "key": "В",
+          "text": "связывавший"
+        },
+        {
+          "key": "Г",
+          "text": "связанный\\n"
+        }
+      ],
+      "correctAnswer": "Г",
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "mappingReason": "题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书答案为「Г」；本题没有独立原书理论依据：题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "связавший",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "Б",
+            "text": "связывающий",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "В",
+            "text": "связывавший",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 42,
+        "questionPrintedPage": 40,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124,
+        "answerSource": "PDF-126 / 印刷页 124：Ключи к третьей главе"
+      }
+    },
+    {
+      "exerciseId": "GL3-Q003",
+      "printedNumber": 3,
+      "exercisePrintedPage": 40,
+      "sourceType": "exercise-example",
+      "status": "source-exercise-only",
+      "question": "Ребёнок, ... в приёмную семью, сохраняет право на все социальные выплаты и компенсации.",
+      "options": [
+        {
+          "key": "А",
+          "text": "передающий"
+        },
+        {
+          "key": "Б",
+          "text": "передаваемый"
+        },
+        {
+          "key": "В",
+          "text": "передававший"
+        },
+        {
+          "key": "Г",
+          "text": "передавший\\n"
+        }
+      ],
+      "correctAnswer": "Б",
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "mappingReason": "题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书答案为「Б」；本题没有独立原书理论依据：题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "передающий",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "В",
+            "text": "передававший",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "Г",
+            "text": "передавший\\n",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 42,
+        "questionPrintedPage": 40,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124,
+        "answerSource": "PDF-126 / 印刷页 124：Ключи к третьей главе"
+      }
+    },
+    {
+      "exerciseId": "GL3-Q004",
+      "printedNumber": 4,
+      "exercisePrintedPage": 41,
+      "sourceType": "exercise-example",
+      "status": "source-exercise-only",
+      "question": "Человек, ... оригинальные идеи, не может быть художником; он может только смешивать краски, думая при этом, что творит.",
+      "options": [
+        {
+          "key": "А",
+          "text": "отвергнутый"
+        },
+        {
+          "key": "Б",
+          "text": "отвергаемый"
+        },
+        {
+          "key": "В",
+          "text": "отвергающий\\n"
+        }
+      ],
+      "correctAnswer": "В",
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "mappingReason": "题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书答案为「В」；本题没有独立原书理论依据：题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "отвергнутый",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "Б",
+            "text": "отвергаемый",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 43,
+        "questionPrintedPage": 41,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124,
+        "answerSource": "PDF-126 / 印刷页 124：Ключи к третьей главе"
+      }
+    },
+    {
+      "exerciseId": "GL3-Q005",
+      "printedNumber": 5,
+      "exercisePrintedPage": 41,
+      "sourceType": "exercise-example",
+      "status": "source-exercise-only",
+      "question": "Именно культура, ... этносом, и есть тот ориентир, по которому человек сверяет всю свою жизнь.",
+      "options": [
+        {
+          "key": "А",
+          "text": "создававшая"
+        },
+        {
+          "key": "Б",
+          "text": "создавшая"
+        },
+        {
+          "key": "В",
+          "text": "создающая"
+        },
+        {
+          "key": "Г",
+          "text": "создаваемая\\n"
+        }
+      ],
+      "correctAnswer": "Г",
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "mappingReason": "题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书答案为「Г」；本题没有独立原书理论依据：题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "создававшая",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "Б",
+            "text": "создавшая",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "В",
+            "text": "создающая",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 43,
+        "questionPrintedPage": 41,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124,
+        "answerSource": "PDF-126 / 印刷页 124：Ключи к третьей главе"
+      }
+    },
+    {
+      "exerciseId": "GL3-Q006",
+      "printedNumber": 6,
+      "exercisePrintedPage": 41,
+      "sourceType": "exercise-example",
+      "status": "source-exercise-only",
+      "question": "Картина «Андрей Рублёв», ... в прокат в 1971 году, вошла в число ста лучших фильмов мирового кино.",
+      "options": [
+        {
+          "key": "А",
+          "text": "выпускавшая"
+        },
+        {
+          "key": "Б",
+          "text": "выпущенная"
+        },
+        {
+          "key": "В",
+          "text": "выпустившая"
+        },
+        {
+          "key": "Г",
+          "text": "выпускающая\\n"
+        }
+      ],
+      "correctAnswer": "Б",
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "mappingReason": "题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书答案为「Б」；本题没有独立原书理论依据：题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "выпускавшая",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "В",
+            "text": "выпустившая",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "Г",
+            "text": "выпускающая\\n",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 43,
+        "questionPrintedPage": 41,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124,
+        "answerSource": "PDF-126 / 印刷页 124：Ключи к третьей главе"
+      }
+    },
+    {
+      "exerciseId": "GL3-Q007",
+      "printedNumber": 7,
+      "exercisePrintedPage": 41,
+      "sourceType": "exercise-example",
+      "status": "source-exercise-only",
+      "question": "Лингвисты полагают, что поговорка «Наготовлено, как на Меланьину свадьбу», ... с именем молодой казачки, возникла на Дону в XVIII веке.",
+      "options": [
+        {
+          "key": "А",
+          "text": "связывающая"
+        },
+        {
+          "key": "Б",
+          "text": "связавшая"
+        },
+        {
+          "key": "В",
+          "text": "связанная"
+        },
+        {
+          "key": "Г",
+          "text": "связывавшая\\n"
+        }
+      ],
+      "correctAnswer": "В",
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "mappingReason": "题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书答案为「В」；本题没有独立原书理论依据：题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "связывающая",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "Б",
+            "text": "связавшая",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "Г",
+            "text": "связывавшая\\n",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 43,
+        "questionPrintedPage": 41,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124,
+        "answerSource": "PDF-126 / 印刷页 124：Ключи к третьей главе"
+      }
+    },
+    {
+      "exerciseId": "GL3-Q008",
+      "printedNumber": 8,
+      "exercisePrintedPage": 41,
+      "sourceType": "exercise-example",
+      "status": "source-exercise-only",
+      "question": "«Я принадлежу к дворянскому роду Чубаровых, весьма старому, ... княжеский титул при Петре Великом» (И.А. Бунин).",
+      "options": [
+        {
+          "key": "А",
+          "text": "потерянному"
+        },
+        {
+          "key": "Б",
+          "text": "теряющему"
+        },
+        {
+          "key": "В",
+          "text": "терявшему"
+        },
+        {
+          "key": "Г",
+          "text": "потерявшему\\n"
+        }
+      ],
+      "correctAnswer": "Г",
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "mappingReason": "题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书答案为「Г」；本题没有独立原书理论依据：题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "потерянному",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "Б",
+            "text": "теряющему",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "В",
+            "text": "терявшему",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 43,
+        "questionPrintedPage": 41,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124,
+        "answerSource": "PDF-126 / 印刷页 124：Ключи к третьей главе"
+      }
+    },
+    {
+      "exerciseId": "GL3-Q009",
+      "printedNumber": 9,
+      "exercisePrintedPage": 41,
+      "sourceType": "exercise-example",
+      "status": "source-exercise-only",
+      "question": "В своих произведениях современный писатель Виктор Пелевин показывает странный, но вполне ... читателем мир.",
+      "options": [
+        {
+          "key": "А",
+          "text": "узнававший"
+        },
+        {
+          "key": "Б",
+          "text": "узнаваемый"
+        },
+        {
+          "key": "В",
+          "text": "узнающий"
+        },
+        {
+          "key": "Г",
+          "text": "узнавший\\n"
+        }
+      ],
+      "correctAnswer": "Б",
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "mappingReason": "题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书答案为「Б」；本题没有独立原书理论依据：题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "узнававший",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "В",
+            "text": "узнающий",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "Г",
+            "text": "узнавший\\n",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 43,
+        "questionPrintedPage": 41,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124,
+        "answerSource": "PDF-126 / 印刷页 124：Ключи к третьей главе"
+      }
+    },
+    {
+      "exerciseId": "GL3-Q010",
+      "printedNumber": 10,
+      "exercisePrintedPage": 41,
+      "sourceType": "exercise-example",
+      "status": "source-exercise-only",
+      "question": "Герберт Уэллс был первым английским литератором, ... антифашистский роман.",
+      "options": [
+        {
+          "key": "А",
+          "text": "написавшим"
+        },
+        {
+          "key": "Б",
+          "text": "написавшем"
+        },
+        {
+          "key": "В",
+          "text": "написанным"
+        },
+        {
+          "key": "Г",
+          "text": "написанном\\n"
+        }
+      ],
+      "correctAnswer": "А",
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "mappingReason": "题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书答案为「А」；本题没有独立原书理论依据：题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+        "distractors": [
+          {
+            "key": "Б",
+            "text": "написавшем",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "В",
+            "text": "написанным",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "Г",
+            "text": "написанном\\n",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 43,
+        "questionPrintedPage": 41,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124,
+        "answerSource": "PDF-126 / 印刷页 124：Ключи к третьей главе"
+      }
+    },
+    {
+      "exerciseId": "GL3-Q011",
+      "printedNumber": 11,
+      "exercisePrintedPage": 42,
+      "sourceType": "exercise-example",
+      "status": "source-exercise-only",
+      "question": "В иллюминаторе самолёта появилось много мелких островов, ... причудливый рисунок на поверхности моря.",
+      "options": [
+        {
+          "key": "А",
+          "text": "созданным"
+        },
+        {
+          "key": "Б",
+          "text": "создаваемых"
+        },
+        {
+          "key": "В",
+          "text": "создающих"
+        },
+        {
+          "key": "Г",
+          "text": "создавшим\\n"
+        }
+      ],
+      "correctAnswer": "В",
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "mappingReason": "题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书答案为「В」；本题没有独立原书理论依据：题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "созданным",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "Б",
+            "text": "создаваемых",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "Г",
+            "text": "создавшим\\n",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 44,
+        "questionPrintedPage": 42,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124,
+        "answerSource": "PDF-126 / 印刷页 124：Ключи к третьей главе"
+      }
+    },
+    {
+      "exerciseId": "GL3-Q012",
+      "printedNumber": 12,
+      "exercisePrintedPage": 42,
+      "sourceType": "exercise-example",
+      "status": "source-exercise-only",
+      "question": "Безотходное производство экономит природные ресурсы, ... человеком в его производственной деятельности.",
+      "options": [
+        {
+          "key": "А",
+          "text": "использованные"
+        },
+        {
+          "key": "Б",
+          "text": "используемые"
+        },
+        {
+          "key": "В",
+          "text": "использующие"
+        },
+        {
+          "key": "Г",
+          "text": "использовавшие\\n"
+        }
+      ],
+      "correctAnswer": "Б",
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "mappingReason": "题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书答案为「Б」；本题没有独立原书理论依据：题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "использованные",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "В",
+            "text": "использующие",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "Г",
+            "text": "использовавшие\\n",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 44,
+        "questionPrintedPage": 42,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124,
+        "answerSource": "PDF-126 / 印刷页 124：Ключи к третьей главе"
+      }
+    },
+    {
+      "exerciseId": "GL3-Q013",
+      "printedNumber": 13,
+      "exercisePrintedPage": 42,
+      "sourceType": "exercise-example",
+      "status": "source-exercise-only",
+      "question": "Многим старинным зданиям реставраторы возвращают давно ... черты.",
+      "options": [
+        {
+          "key": "А",
+          "text": "утраченные"
+        },
+        {
+          "key": "Б",
+          "text": "утратившие"
+        },
+        {
+          "key": "В",
+          "text": "утрачиваемые"
+        },
+        {
+          "key": "Г",
+          "text": "утрачивающие\\n"
+        }
+      ],
+      "correctAnswer": "А",
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "mappingReason": "题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书答案为「А」；本题没有独立原书理论依据：题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+        "distractors": [
+          {
+            "key": "Б",
+            "text": "утратившие",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "В",
+            "text": "утрачиваемые",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "Г",
+            "text": "утрачивающие\\n",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 44,
+        "questionPrintedPage": 42,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124,
+        "answerSource": "PDF-126 / 印刷页 124：Ключи к третьей главе"
+      }
+    },
+    {
+      "exerciseId": "GL3-Q014",
+      "printedNumber": 14,
+      "exercisePrintedPage": 42,
+      "sourceType": "exercise-example",
+      "status": "source-exercise-only",
+      "question": "В городах рядом с монотонными и безликими домами, ... в прошлом веке, появились разнообразные по архитектуре современные здания.",
+      "options": [
+        {
+          "key": "А",
+          "text": "строившими"
+        },
+        {
+          "key": "Б",
+          "text": "строящими"
+        },
+        {
+          "key": "В",
+          "text": "построенными"
+        },
+        {
+          "key": "Г",
+          "text": "построившими\\n"
+        }
+      ],
+      "correctAnswer": "В",
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "mappingReason": "题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书答案为「В」；本题没有独立原书理论依据：题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "строившими",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "Б",
+            "text": "строящими",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "Г",
+            "text": "построившими\\n",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 44,
+        "questionPrintedPage": 42,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124,
+        "answerSource": "PDF-126 / 印刷页 124：Ключи к третьей главе"
+      }
+    },
+    {
+      "exerciseId": "GL3-Q015",
+      "printedNumber": 15,
+      "exercisePrintedPage": 42,
+      "sourceType": "exercise-example",
+      "status": "source-exercise-only",
+      "question": "Монахиню, ... всю свою жизнь в монастыре, никогда не интересовала мирская жизнь.",
+      "options": [
+        {
+          "key": "А",
+          "text": "проведшую"
+        },
+        {
+          "key": "Б",
+          "text": "проведённую"
+        },
+        {
+          "key": "В",
+          "text": "проводимую\\n"
+        }
+      ],
+      "correctAnswer": "А",
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "mappingReason": "题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书答案为「А」；本题没有独立原书理论依据：题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+        "distractors": [
+          {
+            "key": "Б",
+            "text": "проведённую",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "В",
+            "text": "проводимую\\n",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 44,
+        "questionPrintedPage": 42,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124,
+        "answerSource": "PDF-126 / 印刷页 124：Ключи к третьей главе"
+      }
+    },
+    {
+      "exerciseId": "GL3-Q016",
+      "printedNumber": 16,
+      "exercisePrintedPage": 42,
+      "sourceType": "exercise-example",
+      "status": "source-exercise-only",
+      "question": "«Только ... свои лучшие мечты, человечество продвигается вперёд» (К.А. Тимирязев).",
+      "options": [
+        {
+          "key": "А",
+          "text": "осуществляющее"
+        },
+        {
+          "key": "Б",
+          "text": "осуществляемое"
+        },
+        {
+          "key": "В",
+          "text": "осуществлявшее"
+        },
+        {
+          "key": "Г",
+          "text": "осуществляя\\n"
+        }
+      ],
+      "correctAnswer": "Г",
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "mappingReason": "题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书答案为「Г」；本题没有独立原书理论依据：题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "осуществляющее",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "Б",
+            "text": "осуществляемое",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "В",
+            "text": "осуществлявшее",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 44,
+        "questionPrintedPage": 42,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124,
+        "answerSource": "PDF-126 / 印刷页 124：Ключи к третьей главе"
+      }
+    },
+    {
+      "exerciseId": "GL3-Q017",
+      "printedNumber": 17,
+      "exercisePrintedPage": 43,
+      "sourceType": "exercise-example",
+      "status": "source-exercise-only",
+      "question": "... классификацию различных генетических структур, учёные внесли серьёзный вклад в борьбу с наследственными заболеваниями.",
+      "options": [
+        {
+          "key": "А",
+          "text": "Составляемые"
+        },
+        {
+          "key": "Б",
+          "text": "Составленные"
+        },
+        {
+          "key": "В",
+          "text": "Составив\\n"
+        }
+      ],
+      "correctAnswer": "В",
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "mappingReason": "题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书答案为「В」；本题没有独立原书理论依据：题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "Составляемые",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "Б",
+            "text": "Составленные",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 45,
+        "questionPrintedPage": 43,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124,
+        "answerSource": "PDF-126 / 印刷页 124：Ключи к третьей главе"
+      }
+    },
+    {
+      "exerciseId": "GL3-Q018",
+      "printedNumber": 18,
+      "exercisePrintedPage": 43,
+      "sourceType": "exercise-example",
+      "status": "source-exercise-only",
+      "question": "Современная ситуация в разных странах мира характеризуется экономическими и политическими кризисами, ... глобальными.",
+      "options": [
+        {
+          "key": "А",
+          "text": "становясь"
+        },
+        {
+          "key": "Б",
+          "text": "становящимися\\n"
+        }
+      ],
+      "correctAnswer": "Б",
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "mappingReason": "题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书答案为「Б」；本题没有独立原书理论依据：题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "становясь",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 45,
+        "questionPrintedPage": 43,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124,
+        "answerSource": "PDF-126 / 印刷页 124：Ключи к третьей главе"
+      }
+    },
+    {
+      "exerciseId": "GL3-Q019",
+      "printedNumber": 19,
+      "exercisePrintedPage": 43,
+      "sourceType": "exercise-example",
+      "status": "source-exercise-only",
+      "question": "Английский историк А. Тойнби рассматривал историю человеческих цивилизаций, ... их развитие развитию биологических видов.",
+      "options": [
+        {
+          "key": "А",
+          "text": "уподобляя"
+        },
+        {
+          "key": "Б",
+          "text": "уподобляющий"
+        },
+        {
+          "key": "В",
+          "text": "уподоблявший"
+        },
+        {
+          "key": "Г",
+          "text": "уподобивший\\n"
+        }
+      ],
+      "correctAnswer": "А",
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "mappingReason": "题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书答案为「А」；本题没有独立原书理论依据：题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+        "distractors": [
+          {
+            "key": "Б",
+            "text": "уподобляющий",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "В",
+            "text": "уподоблявший",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "Г",
+            "text": "уподобивший\\n",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 45,
+        "questionPrintedPage": 43,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124,
+        "answerSource": "PDF-126 / 印刷页 124：Ключи к третьей главе"
+      }
+    },
+    {
+      "exerciseId": "GL3-Q020",
+      "printedNumber": 20,
+      "exercisePrintedPage": 43,
+      "sourceType": "exercise-example",
+      "status": "source-exercise-only",
+      "question": "Дамасская стена, ... в IV тысячелетии до н. э., по мнению арабских учёных, была первой стеной, которую воздвигли после всемирного потопа.",
+      "options": [
+        {
+          "key": "А",
+          "text": "появившаяся"
+        },
+        {
+          "key": "Б",
+          "text": "появившись"
+        },
+        {
+          "key": "В",
+          "text": "появляясь\\n"
+        }
+      ],
+      "correctAnswer": "А",
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "mappingReason": "题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书答案为「А」；本题没有独立原书理论依据：题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+        "distractors": [
+          {
+            "key": "Б",
+            "text": "появившись",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "В",
+            "text": "появляясь\\n",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 45,
+        "questionPrintedPage": 43,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124,
+        "answerSource": "PDF-126 / 印刷页 124：Ключи к третьей главе"
+      }
+    },
+    {
+      "exerciseId": "GL3-Q021",
+      "printedNumber": 21,
+      "exercisePrintedPage": 43,
+      "sourceType": "exercise-example",
+      "status": "source-exercise-only",
+      "question": "Важнейшей частью исторического наследия Чингисхана является ... им свод законов под названием «Ясы».",
+      "options": [
+        {
+          "key": "А",
+          "text": "составляя"
+        },
+        {
+          "key": "Б",
+          "text": "составив"
+        },
+        {
+          "key": "В",
+          "text": "составлявший"
+        },
+        {
+          "key": "Г",
+          "text": "составленный\\n"
+        }
+      ],
+      "correctAnswer": "Г",
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "mappingReason": "题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书答案为「Г」；本题没有独立原书理论依据：题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "составляя",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "Б",
+            "text": "составив",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "В",
+            "text": "составлявший",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 45,
+        "questionPrintedPage": 43,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124,
+        "answerSource": "PDF-126 / 印刷页 124：Ключи к третьей главе"
+      }
+    },
+    {
+      "exerciseId": "GL3-Q022",
+      "printedNumber": 22,
+      "exercisePrintedPage": 43,
+      "sourceType": "exercise-example",
+      "status": "source-exercise-only",
+      "question": "Между Москвой и Парижем ведётся активный политический диалог, ... на совпадении взглядов по вопросам европейской безопасности.",
+      "options": [
+        {
+          "key": "А",
+          "text": "основавший"
+        },
+        {
+          "key": "Б",
+          "text": "основывающий"
+        },
+        {
+          "key": "В",
+          "text": "основанный"
+        },
+        {
+          "key": "Г",
+          "text": "основывая\\n"
+        }
+      ],
+      "correctAnswer": "В",
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "mappingReason": "题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书答案为「В」；本题没有独立原书理论依据：题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "основавший",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "Б",
+            "text": "основывающий",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "Г",
+            "text": "основывая\\n",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 45,
+        "questionPrintedPage": 43,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124,
+        "answerSource": "PDF-126 / 印刷页 124：Ключи к третьей главе"
+      }
+    },
+    {
+      "exerciseId": "GL3-Q023",
+      "printedNumber": 23,
+      "exercisePrintedPage": 43,
+      "sourceType": "exercise-example",
+      "status": "source-exercise-only",
+      "question": "Глобализация новостей — это активный обмен информацией между регионами мира, ... посредством спутниковых и компьютерных систем.",
+      "options": [
+        {
+          "key": "А",
+          "text": "осуществляемый"
+        },
+        {
+          "key": "Б",
+          "text": "осуществлявший"
+        },
+        {
+          "key": "В",
+          "text": "осуществляя"
+        },
+        {
+          "key": "Г",
+          "text": "осуществив\\n"
+        }
+      ],
+      "correctAnswer": "А",
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "mappingReason": "题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书答案为「А」；本题没有独立原书理论依据：题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+        "distractors": [
+          {
+            "key": "Б",
+            "text": "осуществлявший",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "В",
+            "text": "осуществляя",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "Г",
+            "text": "осуществив\\n",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 45,
+        "questionPrintedPage": 43,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124,
+        "answerSource": "PDF-126 / 印刷页 124：Ключи к третьей главе"
+      }
+    },
+    {
+      "exerciseId": "GL3-Q024",
+      "printedNumber": 24,
+      "exercisePrintedPage": 43,
+      "sourceType": "exercise-example",
+      "status": "source-exercise-only",
+      "question": "... технику, человек получил возможность менять условия своего существования.",
+      "options": [
+        {
+          "key": "А",
+          "text": "Создав"
+        },
+        {
+          "key": "Б",
+          "text": "Создающий"
+        },
+        {
+          "key": "В",
+          "text": "Создавший"
+        },
+        {
+          "key": "Г",
+          "text": "Создаваемый\\n"
+        }
+      ],
+      "correctAnswer": "А",
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "mappingReason": "题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书答案为「А」；本题没有独立原书理论依据：题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+        "distractors": [
+          {
+            "key": "Б",
+            "text": "Создающий",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "В",
+            "text": "Создавший",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "Г",
+            "text": "Создаваемый\\n",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 45,
+        "questionPrintedPage": 43,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124,
+        "answerSource": "PDF-126 / 印刷页 124：Ключи к третьей главе"
+      }
+    },
+    {
+      "exerciseId": "GL3-Q025",
+      "printedNumber": 25,
+      "exercisePrintedPage": 44,
+      "sourceType": "exercise-example",
+      "status": "source-exercise-only",
+      "question": "До недавнего времени цифровые подписи на документах, ... по компьютерным сетям, ставили прежде всего бухгалтеры.",
+      "options": [
+        {
+          "key": "А",
+          "text": "посылавших"
+        },
+        {
+          "key": "Б",
+          "text": "посылаемых"
+        },
+        {
+          "key": "В",
+          "text": "посылая"
+        },
+        {
+          "key": "Г",
+          "text": "послав\\n"
+        }
+      ],
+      "correctAnswer": "Б",
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "mappingReason": "题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书答案为「Б」；本题没有独立原书理论依据：题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "посылавших",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "В",
+            "text": "посылая",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "Г",
+            "text": "послав\\n",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 46,
+        "questionPrintedPage": 44,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124,
+        "answerSource": "PDF-126 / 印刷页 124：Ключи к третьей главе"
+      }
+    },
+    {
+      "exerciseId": "GL3-Q026",
+      "printedNumber": 26,
+      "exercisePrintedPage": 44,
+      "sourceType": "exercise-example",
+      "status": "source-exercise-only",
+      "question": "Если бы хоть один процент сетевого мусора возвращался в интернет-компанию, ... его, то проблема со спамом решилась бы очень быстро.",
+      "options": [
+        {
+          "key": "А",
+          "text": "отправившую"
+        },
+        {
+          "key": "Б",
+          "text": "отправляемую"
+        },
+        {
+          "key": "В",
+          "text": "отправляя"
+        },
+        {
+          "key": "Г",
+          "text": "отправив\\n"
+        }
+      ],
+      "correctAnswer": "А",
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "mappingReason": "题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书答案为「А」；本题没有独立原书理论依据：题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+        "distractors": [
+          {
+            "key": "Б",
+            "text": "отправляемую",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "В",
+            "text": "отправляя",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "Г",
+            "text": "отправив\\n",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 46,
+        "questionPrintedPage": 44,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124,
+        "answerSource": "PDF-126 / 印刷页 124：Ключи к третьей главе"
+      }
+    },
+    {
+      "exerciseId": "GL3-Q027",
+      "printedNumber": 27,
+      "exercisePrintedPage": 44,
+      "sourceType": "exercise-example",
+      "status": "source-exercise-only",
+      "question": "... на человека, события изменяют его мысли, чувства и представления о жизни.",
+      "options": [
+        {
+          "key": "А",
+          "text": "Влияющие"
+        },
+        {
+          "key": "Б",
+          "text": "Влиявшие"
+        },
+        {
+          "key": "В",
+          "text": "Повлиявшие"
+        },
+        {
+          "key": "Г",
+          "text": "Влияя\\n"
+        }
+      ],
+      "correctAnswer": "Г",
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "mappingReason": "题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书答案为「Г」；本题没有独立原书理论依据：题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "Влияющие",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "Б",
+            "text": "Влиявшие",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "В",
+            "text": "Повлиявшие",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 46,
+        "questionPrintedPage": 44,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124,
+        "answerSource": "PDF-126 / 印刷页 124：Ключи к третьей главе"
+      }
+    },
+    {
+      "exerciseId": "GL3-Q028",
+      "printedNumber": 28,
+      "exercisePrintedPage": 44,
+      "sourceType": "exercise-example",
+      "status": "source-exercise-only",
+      "question": "... в других странах, начинаешь лучше понимать свою страну.",
+      "options": [
+        {
+          "key": "А",
+          "text": "Бывающий"
+        },
+        {
+          "key": "Б",
+          "text": "Бывавший"
+        },
+        {
+          "key": "В",
+          "text": "Побывав"
+        },
+        {
+          "key": "Г",
+          "text": "Побывший\\n"
+        }
+      ],
+      "correctAnswer": "В",
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "mappingReason": "题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书答案为「В」；本题没有独立原书理论依据：题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "Бывающий",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "Б",
+            "text": "Бывавший",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "Г",
+            "text": "Побывший\\n",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 46,
+        "questionPrintedPage": 44,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124,
+        "answerSource": "PDF-126 / 印刷页 124：Ключи к третьей главе"
+      }
+    },
+    {
+      "exerciseId": "GL3-Q029",
+      "printedNumber": 29,
+      "exercisePrintedPage": 44,
+      "sourceType": "exercise-example",
+      "status": "source-exercise-only",
+      "question": "В Гвинее-Бисау туристов привлекают острова Болама и Бижагош, ... уникальным животным и растительным миром.",
+      "options": [
+        {
+          "key": "А",
+          "text": "обладающие"
+        },
+        {
+          "key": "Б",
+          "text": "обладавшие"
+        },
+        {
+          "key": "В",
+          "text": "обладая"
+        },
+        {
+          "key": "Г",
+          "text": "обладаемые\\n"
+        }
+      ],
+      "correctAnswer": "А",
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "mappingReason": "题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书答案为「А」；本题没有独立原书理论依据：题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+        "distractors": [
+          {
+            "key": "Б",
+            "text": "обладавшие",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "В",
+            "text": "обладая",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "Г",
+            "text": "обладаемые\\n",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 46,
+        "questionPrintedPage": 44,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124,
+        "answerSource": "PDF-126 / 印刷页 124：Ключи к третьей главе"
+      }
+    },
+    {
+      "exerciseId": "GL3-Q030",
+      "printedNumber": 30,
+      "exercisePrintedPage": 44,
+      "sourceType": "exercise-example",
+      "status": "source-exercise-only",
+      "question": "Малая луна, имя которой Фобос, регулярно проходит между Марсом и Солнцем, ... солнечное затмение.",
+      "options": [
+        {
+          "key": "А",
+          "text": "вызывающая"
+        },
+        {
+          "key": "Б",
+          "text": "вызвавшая"
+        },
+        {
+          "key": "В",
+          "text": "вызывая"
+        },
+        {
+          "key": "Г",
+          "text": "вызвав\\n"
+        }
+      ],
+      "correctAnswer": "В",
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "mappingReason": "题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书答案为「В」；本题没有独立原书理论依据：题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "вызывающая",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "Б",
+            "text": "вызвавшая",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "Г",
+            "text": "вызвав\\n",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 46,
+        "questionPrintedPage": 44,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124,
+        "answerSource": "PDF-126 / 印刷页 124：Ключи к третьей главе"
+      }
+    },
+    {
+      "exerciseId": "GL3-Q031",
+      "printedNumber": 31,
+      "exercisePrintedPage": 44,
+      "sourceType": "exercise-example",
+      "status": "source-exercise-only",
+      "question": "... решить экологические проблемы, человечество понимает, что не сможет выбраться из кризиса только техногенными путями.",
+      "options": [
+        {
+          "key": "А",
+          "text": "Пытаясь"
+        },
+        {
+          "key": "Б",
+          "text": "Пытающееся\\n"
+        }
+      ],
+      "correctAnswer": "А",
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "mappingReason": "题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书答案为「А」；本题没有独立原书理论依据：题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+        "distractors": [
+          {
+            "key": "Б",
+            "text": "Пытающееся\\n",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 46,
+        "questionPrintedPage": 44,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124,
+        "answerSource": "PDF-126 / 印刷页 124：Ключи к третьей главе"
+      }
+    },
+    {
+      "exerciseId": "GL3-Q032",
+      "printedNumber": 32,
+      "exercisePrintedPage": 45,
+      "sourceType": "exercise-example",
+      "status": "source-exercise-only",
+      "question": "... таяние снега, деревья накапливают почвенную влагу и равномерно распределяют её по всему лесу.",
+      "options": [
+        {
+          "key": "А",
+          "text": "Замедляющие"
+        },
+        {
+          "key": "Б",
+          "text": "Замедляя"
+        },
+        {
+          "key": "В",
+          "text": "Замедлившие"
+        },
+        {
+          "key": "Г",
+          "text": "Замедлявшие\\n"
+        }
+      ],
+      "correctAnswer": "Б",
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "mappingReason": "题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书答案为「Б」；本题没有独立原书理论依据：题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "Замедляющие",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "В",
+            "text": "Замедлившие",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "Г",
+            "text": "Замедлявшие\\n",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 47,
+        "questionPrintedPage": 45,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124,
+        "answerSource": "PDF-126 / 印刷页 124：Ключи к третьей главе"
+      }
+    },
+    {
+      "exerciseId": "GL3-Q033",
+      "printedNumber": 33,
+      "exercisePrintedPage": 45,
+      "sourceType": "exercise-example",
+      "status": "mapped",
+      "question": "Оказываясь перед проблемой выбора, ... .",
+      "options": [
+        {
+          "key": "А",
+          "text": "человек опирается на информацию и принимает решение"
+        },
+        {
+          "key": "Б",
+          "text": "человеком на основе информации принимается решение"
+        },
+        {
+          "key": "В",
+          "text": "человеку нужна информация для принятия решения"
+        },
+        {
+          "key": "Г",
+          "text": "анализируется информация и принимается решение\\n"
+        }
+      ],
+      "correctAnswer": "А",
+      "ruleIds": [
+        "gl3-3.1-gerund-logical-grammatical-subject",
+        "gl3-3.1.1-shared-subject-personal"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "Оказываясь перед проблемой выбора，человек опирается...；同一人既面临选择又作出决定。 3.1 要求先区分实施动作的逻辑主体与以主格等形式承担句法功能的语法主体。 3.1.1 第 1 条：人称句中语法主体与逻辑主体一致，且主动作由动词表达时，动名副词可表达附加动作。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "正确项「А」：Оказываясь перед проблемой выбора，человек опирается...；同一人既面临选择又作出决定。 3.1 要求先区分实施动作的逻辑主体与以主格等形式承担句法功能的语法主体。 3.1.1 第 1 条：人称句中语法主体与逻辑主体一致，且主动作由动词表达时，动名副词可表达附加动作。",
+        "distractors": [
+          {
+            "key": "Б",
+            "text": "человеком на основе информации принимается решение",
+            "sourceType": "learning-note",
+            "reason": "它不能同时保留题干附加动作与主句主要动作由同一可恢复逻辑主体实施的条件，或改变了原题的句法／语义关系。"
+          },
+          {
+            "key": "В",
+            "text": "человеку нужна информация для принятия решения",
+            "sourceType": "learning-note",
+            "reason": "它不能同时保留题干附加动作与主句主要动作由同一可恢复逻辑主体实施的条件，或改变了原题的句法／语义关系。"
+          },
+          {
+            "key": "Г",
+            "text": "анализируется информация и принимается решение\\n",
+            "sourceType": "learning-note",
+            "reason": "它不能同时保留题干附加动作与主句主要动作由同一可恢复逻辑主体实施的条件，或改变了原题的句法／语义关系。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 47,
+        "questionPrintedPage": 45,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124,
+        "answerSource": "PDF-126 / 印刷页 124：Ключи к третьей главе"
+      }
+    },
+    {
+      "exerciseId": "GL3-Q034",
+      "printedNumber": 34,
+      "exercisePrintedPage": 45,
+      "sourceType": "exercise-example",
+      "status": "mapped",
+      "question": "В безлунную ночь, взглянув на небо, ..., которую древние греки назвали «Млечный путь».",
+      "options": [
+        {
+          "key": "А",
+          "text": "светится большая мерцающая полоса"
+        },
+        {
+          "key": "Б",
+          "text": "замечена большая мерцающая полоса"
+        },
+        {
+          "key": "В",
+          "text": "можно увидеть большую мерцающую полосу"
+        },
+        {
+          "key": "Г",
+          "text": "воображение захватила большая мерцающая полоса\\n"
+        }
+      ],
+      "correctAnswer": "В",
+      "ruleIds": [
+        "gl3-3.1.1-impersonal-single-logical-subject"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "взглянув на небо，можно увидеть...；原书允许在可恢复同一逻辑主体的情态无主结构中使用动名副词。 3.1.1 第 2 条：无主句若主动作与附加动作按逻辑由同一人实施，动名副词符合规范；原书列出带不定式的 безличные глаголы、谓词副词和情态词。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "正确项「В」：взглянув на небо，можно увидеть...；原书允许在可恢复同一逻辑主体的情态无主结构中使用动名副词。 3.1.1 第 2 条：无主句若主动作与附加动作按逻辑由同一人实施，动名副词符合规范；原书列出带不定式的 безличные глаголы、谓词副词和情态词。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "светится большая мерцающая полоса",
+            "sourceType": "learning-note",
+            "reason": "它不能同时保留题干附加动作与主句主要动作由同一可恢复逻辑主体实施的条件，或改变了原题的句法／语义关系。"
+          },
+          {
+            "key": "Б",
+            "text": "замечена большая мерцающая полоса",
+            "sourceType": "learning-note",
+            "reason": "它不能同时保留题干附加动作与主句主要动作由同一可恢复逻辑主体实施的条件，或改变了原题的句法／语义关系。"
+          },
+          {
+            "key": "Г",
+            "text": "воображение захватила большая мерцающая полоса\\n",
+            "sourceType": "learning-note",
+            "reason": "它不能同时保留题干附加动作与主句主要动作由同一可恢复逻辑主体实施的条件，或改变了原题的句法／语义关系。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 47,
+        "questionPrintedPage": 45,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124,
+        "answerSource": "PDF-126 / 印刷页 124：Ключи к третьей главе"
+      }
+    },
+    {
+      "exerciseId": "GL3-Q035",
+      "printedNumber": 35,
+      "exercisePrintedPage": 45,
+      "sourceType": "exercise-example",
+      "status": "mapped",
+      "question": "Рассчитывая траекторию движения космического корабля, ... .",
+      "options": [
+        {
+          "key": "А",
+          "text": "работа увлекла всех сотрудников"
+        },
+        {
+          "key": "Б",
+          "text": "были отработаны многие варианты"
+        },
+        {
+          "key": "В",
+          "text": "работалось с большим увлечением"
+        },
+        {
+          "key": "Г",
+          "text": "сотрудники работали с большой отдачей\\n"
+        }
+      ],
+      "correctAnswer": "Г",
+      "ruleIds": [
+        "gl3-3.1.1-shared-subject-personal"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "Рассчитывая траекторию，сотрудники работали...；附加动作与主动作由同一明确主体实施。 3.1.1 第 1 条：人称句中语法主体与逻辑主体一致，且主动作由动词表达时，动名副词可表达附加动作。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "正确项「Г」：Рассчитывая траекторию，сотрудники работали...；附加动作与主动作由同一明确主体实施。 3.1.1 第 1 条：人称句中语法主体与逻辑主体一致，且主动作由动词表达时，动名副词可表达附加动作。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "работа увлекла всех сотрудников",
+            "sourceType": "learning-note",
+            "reason": "它不能同时保留题干附加动作与主句主要动作由同一可恢复逻辑主体实施的条件，或改变了原题的句法／语义关系。"
+          },
+          {
+            "key": "Б",
+            "text": "были отработаны многие варианты",
+            "sourceType": "learning-note",
+            "reason": "它不能同时保留题干附加动作与主句主要动作由同一可恢复逻辑主体实施的条件，或改变了原题的句法／语义关系。"
+          },
+          {
+            "key": "В",
+            "text": "работалось с большим увлечением",
+            "sourceType": "learning-note",
+            "reason": "它不能同时保留题干附加动作与主句主要动作由同一可恢复逻辑主体实施的条件，或改变了原题的句法／语义关系。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 47,
+        "questionPrintedPage": 45,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124,
+        "answerSource": "PDF-126 / 印刷页 124：Ключи к третьей главе"
+      }
+    },
+    {
+      "exerciseId": "GL3-Q036",
+      "printedNumber": 36,
+      "exercisePrintedPage": 45,
+      "sourceType": "exercise-example",
+      "status": "mapped",
+      "question": "Находясь в научной командировке в Великобритании, ... .",
+      "options": [
+        {
+          "key": "А",
+          "text": "у русского физика Петра Капицы состоялись встречи с коллегами"
+        },
+        {
+          "key": "Б",
+          "text": "русский физик Пётр Капица обменивался опытом с коллегами"
+        },
+        {
+          "key": "В",
+          "text": "русского физика Петра Капицу не удивил профессионализм коллег"
+        }
+      ],
+      "correctAnswer": "Б",
+      "ruleIds": [
+        "gl3-3.1.1-shared-subject-personal"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "Находясь в командировке，Пётр Капица обменивался...；地点状态与主动作属于同一人物。 3.1.1 第 1 条：人称句中语法主体与逻辑主体一致，且主动作由动词表达时，动名副词可表达附加动作。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "正确项「Б」：Находясь в командировке，Пётр Капица обменивался...；地点状态与主动作属于同一人物。 3.1.1 第 1 条：人称句中语法主体与逻辑主体一致，且主动作由动词表达时，动名副词可表达附加动作。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "у русского физика Петра Капицы состоялись встречи с коллегами",
+            "sourceType": "learning-note",
+            "reason": "它不能同时保留题干附加动作与主句主要动作由同一可恢复逻辑主体实施的条件，或改变了原题的句法／语义关系。"
+          },
+          {
+            "key": "В",
+            "text": "русского физика Петра Капицу не удивил профессионализм коллег",
+            "sourceType": "learning-note",
+            "reason": "它不能同时保留题干附加动作与主句主要动作由同一可恢复逻辑主体实施的条件，或改变了原题的句法／语义关系。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 47,
+        "questionPrintedPage": 45,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124,
+        "answerSource": "PDF-126 / 印刷页 124：Ключи к третьей главе"
+      }
+    },
+    {
+      "exerciseId": "GL3-Q037",
+      "printedNumber": 37,
+      "exercisePrintedPage": 46,
+      "sourceType": "exercise-example",
+      "status": "mapped",
+      "question": "Практически применяя теорию радиоактивности, в физической лаборатории … .",
+      "options": [
+        {
+          "key": "А",
+          "text": "эксперименты были начаты"
+        },
+        {
+          "key": "Б",
+          "text": "не возникло никаких проблем"
+        },
+        {
+          "key": "В",
+          "text": "приступили к экспериментам"
+        },
+        {
+          "key": "Г",
+          "text": "эксперименты проходят успешно"
+        }
+      ],
+      "correctAnswer": "В",
+      "ruleIds": [
+        "gl3-3.1.1-implicit-subject"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "Практически применяя теорию，в лаборатории приступили...；不定人称谓语恢复了实施两项动作的同一主体。 3.1.1 注意项：确定人称、不定人称和泛指人称句可形式上无主语，但主体能由谓语形式恢复时可使用动名副词。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "正确项「В」：Практически применяя теорию，в лаборатории приступили...；不定人称谓语恢复了实施两项动作的同一主体。 3.1.1 注意项：确定人称、不定人称和泛指人称句可形式上无主语，但主体能由谓语形式恢复时可使用动名副词。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "эксперименты были начаты",
+            "sourceType": "learning-note",
+            "reason": "它不能同时保留题干附加动作与主句主要动作由同一可恢复逻辑主体实施的条件，或改变了原题的句法／语义关系。"
+          },
+          {
+            "key": "Б",
+            "text": "не возникло никаких проблем",
+            "sourceType": "learning-note",
+            "reason": "它不能同时保留题干附加动作与主句主要动作由同一可恢复逻辑主体实施的条件，或改变了原题的句法／语义关系。"
+          },
+          {
+            "key": "Г",
+            "text": "эксперименты проходят успешно",
+            "sourceType": "learning-note",
+            "reason": "它不能同时保留题干附加动作与主句主要动作由同一可恢复逻辑主体实施的条件，或改变了原题的句法／语义关系。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 48,
+        "questionPrintedPage": 46,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124,
+        "answerSource": "PDF-126 / 印刷页 124：Ключи к третьей главе"
+      }
+    },
+    {
+      "exerciseId": "GL3-Q038",
+      "printedNumber": 38,
+      "exercisePrintedPage": 46,
+      "sourceType": "exercise-example",
+      "status": "mapped",
+      "question": "Следуя решениям «Киотского протокола», … .",
+      "options": [
+        {
+          "key": "А",
+          "text": "планируется приостановление глобального потепления"
+        },
+        {
+          "key": "Б",
+          "text": "становится вероятным приостановление глобального потепления"
+        },
+        {
+          "key": "В",
+          "text": "глобальное потепление может быть приостановлено"
+        },
+        {
+          "key": "Г",
+          "text": "возможно приостановить глобальное потепление"
+        }
+      ],
+      "correctAnswer": "Г",
+      "ruleIds": [
+        "gl3-3.1.1-impersonal-single-logical-subject"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "Следуя решениям протокола，возможно приостановить...；对应原书的情态词 + 不定式无主结构。 3.1.1 第 2 条：无主句若主动作与附加动作按逻辑由同一人实施，动名副词符合规范；原书列出带不定式的 безличные глаголы、谓词副词和情态词。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "正确项「Г」：Следуя решениям протокола，возможно приостановить...；对应原书的情态词 + 不定式无主结构。 3.1.1 第 2 条：无主句若主动作与附加动作按逻辑由同一人实施，动名副词符合规范；原书列出带不定式的 безличные глаголы、谓词副词和情态词。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "планируется приостановление глобального потепления",
+            "sourceType": "learning-note",
+            "reason": "它不能同时保留题干附加动作与主句主要动作由同一可恢复逻辑主体实施的条件，或改变了原题的句法／语义关系。"
+          },
+          {
+            "key": "Б",
+            "text": "становится вероятным приостановление глобального потепления",
+            "sourceType": "learning-note",
+            "reason": "它不能同时保留题干附加动作与主句主要动作由同一可恢复逻辑主体实施的条件，或改变了原题的句法／语义关系。"
+          },
+          {
+            "key": "В",
+            "text": "глобальное потепление может быть приостановлено",
+            "sourceType": "learning-note",
+            "reason": "它不能同时保留题干附加动作与主句主要动作由同一可恢复逻辑主体实施的条件，或改变了原题的句法／语义关系。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 48,
+        "questionPrintedPage": 46,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124,
+        "answerSource": "PDF-126 / 印刷页 124：Ключи к третьей главе"
+      }
+    },
+    {
+      "exerciseId": "GL3-Q039",
+      "printedNumber": 39,
+      "exercisePrintedPage": 46,
+      "sourceType": "exercise-example",
+      "status": "needs-review",
+      "question": "…, обеспечивая население жильём.",
+      "options": [
+        {
+          "key": "А",
+          "text": "Сегодня в России строится двадцать два новых города"
+        },
+        {
+          "key": "Б",
+          "text": "Двадцать два новых города построены сегодня в России"
+        },
+        {
+          "key": "В",
+          "text": "Сегодня в России строят двадцать два новых города"
+        },
+        {
+          "key": "Г",
+          "text": "В России сегодня идёт строительство двадцати двух новых городов"
+        }
+      ],
+      "correctAnswer": "А",
+      "ruleIds": [],
+      "candidateRuleIds": [
+        "gl3-3.1.2-passive-construction-prohibited"
+      ],
+      "mappingReason": "PDF 答案 A 使用 строится 的被动／反身式构造；而 3.1.2 第 3 条明确说被动结构中逻辑主体与语法主体不一致，不得使用动名副词。原书答案与规则出现表面冲突，必须保留 needs-review，不能由答案反向改写规则。 3.1.2 第 3 条：在被动结构中，逻辑主体与语法主体不一致；动名副词只在二者一致时才可使用，因此不得使用。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书答案为「А」，但仍需复核：PDF 答案 A 使用 строится 的被动／反身式构造；而 3.1.2 第 3 条明确说被动结构中逻辑主体与语法主体不一致，不得使用动名副词。原书答案与规则出现表面冲突，必须保留 needs-review，不能由答案反向改写规则。 3.1.2 第 3 条：在被动结构中，逻辑主体与语法主体不一致；动名副词只在二者一致时才可使用，因此不得使用。",
+        "distractors": [
+          {
+            "key": "Б",
+            "text": "Двадцать два новых города построены сегодня в России",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；该题存在原书答案与主体／语态条件的边界冲突，必须保持 needs-review。"
+          },
+          {
+            "key": "В",
+            "text": "Сегодня в России строят двадцать два новых города",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；该题存在原书答案与主体／语态条件的边界冲突，必须保持 needs-review。"
+          },
+          {
+            "key": "Г",
+            "text": "В России сегодня идёт строительство двадцати двух новых городов",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；该题存在原书答案与主体／语态条件的边界冲突，必须保持 needs-review。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 48,
+        "questionPrintedPage": 46,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124,
+        "answerSource": "PDF-126 / 印刷页 124：Ключи к третьей главе"
+      }
+    },
+    {
+      "exerciseId": "GL3-Q040",
+      "printedNumber": 40,
+      "exercisePrintedPage": 46,
+      "sourceType": "exercise-example",
+      "status": "mapped",
+      "question": "Получив ссуду в банке, … .",
+      "options": [
+        {
+          "key": "А",
+          "text": "фермерами освоены новые земли"
+        },
+        {
+          "key": "Б",
+          "text": "фермеры освоят новые земли"
+        },
+        {
+          "key": "В",
+          "text": "начнётся освоение новых земель"
+        },
+        {
+          "key": "Г",
+          "text": "новые земли обретут хозяина"
+        }
+      ],
+      "correctAnswer": "Б",
+      "ruleIds": [
+        "gl3-3.1.1-shared-subject-personal"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "Получив ссуду，фермеры освоят...；两项动作由 фермеры 实施。 3.1.1 第 1 条：人称句中语法主体与逻辑主体一致，且主动作由动词表达时，动名副词可表达附加动作。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "正确项「Б」：Получив ссуду，фермеры освоят...；两项动作由 фермеры 实施。 3.1.1 第 1 条：人称句中语法主体与逻辑主体一致，且主动作由动词表达时，动名副词可表达附加动作。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "фермерами освоены новые земли",
+            "sourceType": "learning-note",
+            "reason": "它不能同时保留题干附加动作与主句主要动作由同一可恢复逻辑主体实施的条件，或改变了原题的句法／语义关系。"
+          },
+          {
+            "key": "В",
+            "text": "начнётся освоение новых земель",
+            "sourceType": "learning-note",
+            "reason": "它不能同时保留题干附加动作与主句主要动作由同一可恢复逻辑主体实施的条件，或改变了原题的句法／语义关系。"
+          },
+          {
+            "key": "Г",
+            "text": "новые земли обретут хозяина",
+            "sourceType": "learning-note",
+            "reason": "它不能同时保留题干附加动作与主句主要动作由同一可恢复逻辑主体实施的条件，或改变了原题的句法／语义关系。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 48,
+        "questionPrintedPage": 46,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124,
+        "answerSource": "PDF-126 / 印刷页 124：Ключи к третьей главе"
+      }
+    },
+    {
+      "exerciseId": "GL3-Q041",
+      "printedNumber": 41,
+      "exercisePrintedPage": 46,
+      "sourceType": "exercise-example",
+      "status": "mapped",
+      "question": "Море бушевало; борясь со стихией, … .",
+      "options": [
+        {
+          "key": "А",
+          "text": "силы людей иссякли"
+        },
+        {
+          "key": "Б",
+          "text": "людей покинули силы"
+        },
+        {
+          "key": "В",
+          "text": "у людей не было сил"
+        },
+        {
+          "key": "Г",
+          "text": "люди выбились из сил"
+        }
+      ],
+      "correctAnswer": "Г",
+      "ruleIds": [
+        "gl3-3.1.1-shared-subject-personal"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "борясь со стихией，люди выбились из сил；同一主体实施斗争并承受结果。 3.1.1 第 1 条：人称句中语法主体与逻辑主体一致，且主动作由动词表达时，动名副词可表达附加动作。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "正确项「Г」：борясь со стихией，люди выбились из сил；同一主体实施斗争并承受结果。 3.1.1 第 1 条：人称句中语法主体与逻辑主体一致，且主动作由动词表达时，动名副词可表达附加动作。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "силы людей иссякли",
+            "sourceType": "learning-note",
+            "reason": "它不能同时保留题干附加动作与主句主要动作由同一可恢复逻辑主体实施的条件，或改变了原题的句法／语义关系。"
+          },
+          {
+            "key": "Б",
+            "text": "людей покинули силы",
+            "sourceType": "learning-note",
+            "reason": "它不能同时保留题干附加动作与主句主要动作由同一可恢复逻辑主体实施的条件，或改变了原题的句法／语义关系。"
+          },
+          {
+            "key": "В",
+            "text": "у людей не было сил",
+            "sourceType": "learning-note",
+            "reason": "它不能同时保留题干附加动作与主句主要动作由同一可恢复逻辑主体实施的条件，或改变了原题的句法／语义关系。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 48,
+        "questionPrintedPage": 46,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124,
+        "answerSource": "PDF-126 / 印刷页 124：Ключи к третьей главе"
+      }
+    },
+    {
+      "exerciseId": "GL3-Q042",
+      "printedNumber": 42,
+      "exercisePrintedPage": 46,
+      "sourceType": "exercise-example",
+      "status": "mapped",
+      "question": "Дон, Кубань и другие реки, впадая в Азовское море, … .",
+      "options": [
+        {
+          "key": "А",
+          "text": "усиливается влияние на его природные особенности"
+        },
+        {
+          "key": "Б",
+          "text": "оказывают влияние на его природные особенности"
+        },
+        {
+          "key": "В",
+          "text": "изменяются его природные особенности"
+        },
+        {
+          "key": "Г",
+          "text": "внимание привлекают его природные особенности"
+        }
+      ],
+      "correctAnswer": "Б",
+      "ruleIds": [
+        "gl3-3.1.1-shared-subject-personal"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "реки，впадая в море，оказывают влияние...；河流是两个动作的共同主体。 3.1.1 第 1 条：人称句中语法主体与逻辑主体一致，且主动作由动词表达时，动名副词可表达附加动作。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "正确项「Б」：реки，впадая в море，оказывают влияние...；河流是两个动作的共同主体。 3.1.1 第 1 条：人称句中语法主体与逻辑主体一致，且主动作由动词表达时，动名副词可表达附加动作。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "усиливается влияние на его природные особенности",
+            "sourceType": "learning-note",
+            "reason": "它不能同时保留题干附加动作与主句主要动作由同一可恢复逻辑主体实施的条件，或改变了原题的句法／语义关系。"
+          },
+          {
+            "key": "В",
+            "text": "изменяются его природные особенности",
+            "sourceType": "learning-note",
+            "reason": "它不能同时保留题干附加动作与主句主要动作由同一可恢复逻辑主体实施的条件，或改变了原题的句法／语义关系。"
+          },
+          {
+            "key": "Г",
+            "text": "внимание привлекают его природные особенности",
+            "sourceType": "learning-note",
+            "reason": "它不能同时保留题干附加动作与主句主要动作由同一可恢复逻辑主体实施的条件，或改变了原题的句法／语义关系。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 48,
+        "questionPrintedPage": 46,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124,
+        "answerSource": "PDF-126 / 印刷页 124：Ключи к третьей главе"
+      }
+    },
+    {
+      "exerciseId": "GL3-Q043",
+      "printedNumber": 43,
+      "exercisePrintedPage": 46,
+      "sourceType": "exercise-example",
+      "status": "mapped",
+      "question": "Гуляя в Подмосковье, по лесистым холмам Коломенского, … .",
+      "options": [
+        {
+          "key": "А",
+          "text": "можно набрести на старую церковь"
+        },
+        {
+          "key": "Б",
+          "text": "дорога ведёт к старой церкви"
+        },
+        {
+          "key": "В",
+          "text": "не сразу видна старая церковь"
+        },
+        {
+          "key": "Г",
+          "text": "в дубовой роще появляется старая церковь"
+        }
+      ],
+      "correctAnswer": "А",
+      "ruleIds": [
+        "gl3-3.1.1-impersonal-single-logical-subject"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "Гуляя...，можно набрести...；对应可恢复的同一逻辑主体。 3.1.1 第 2 条：无主句若主动作与附加动作按逻辑由同一人实施，动名副词符合规范；原书列出带不定式的 безличные глаголы、谓词副词和情态词。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "正确项「А」：Гуляя...，можно набрести...；对应可恢复的同一逻辑主体。 3.1.1 第 2 条：无主句若主动作与附加动作按逻辑由同一人实施，动名副词符合规范；原书列出带不定式的 безличные глаголы、谓词副词和情态词。",
+        "distractors": [
+          {
+            "key": "Б",
+            "text": "дорога ведёт к старой церкви",
+            "sourceType": "learning-note",
+            "reason": "它不能同时保留题干附加动作与主句主要动作由同一可恢复逻辑主体实施的条件，或改变了原题的句法／语义关系。"
+          },
+          {
+            "key": "В",
+            "text": "не сразу видна старая церковь",
+            "sourceType": "learning-note",
+            "reason": "它不能同时保留题干附加动作与主句主要动作由同一可恢复逻辑主体实施的条件，或改变了原题的句法／语义关系。"
+          },
+          {
+            "key": "Г",
+            "text": "в дубовой роще появляется старая церковь",
+            "sourceType": "learning-note",
+            "reason": "它不能同时保留题干附加动作与主句主要动作由同一可恢复逻辑主体实施的条件，或改变了原题的句法／语义关系。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 48,
+        "questionPrintedPage": 46,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124,
+        "answerSource": "PDF-126 / 印刷页 124：Ключи к третьей главе"
+      }
+    },
+    {
+      "exerciseId": "GL3-Q044",
+      "printedNumber": 44,
+      "exercisePrintedPage": 47,
+      "sourceType": "exercise-example",
+      "status": "mapped",
+      "question": "Являясь самым широким водопадом в мире, ... .",
+      "options": [
+        {
+          "key": "А",
+          "text": "мощь и красота Кона поражают воображение"
+        },
+        {
+          "key": "Б",
+          "text": "Лаос и Камбучия гордятся водопадом Кон"
+        },
+        {
+          "key": "В",
+          "text": "Кон привлекает внимание туристов"
+        },
+        {
+          "key": "Г",
+          "text": "ширина Кона составляет 13 километров"
+        }
+      ],
+      "correctAnswer": "В",
+      "ruleIds": [
+        "gl3-3.1.1-shared-subject-personal"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "Являясь самым широким...，Кон привлекает...；Кон 是状态与主动作共同主体。 3.1.1 第 1 条：人称句中语法主体与逻辑主体一致，且主动作由动词表达时，动名副词可表达附加动作。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "正确项「В」：Являясь самым широким...，Кон привлекает...；Кон 是状态与主动作共同主体。 3.1.1 第 1 条：人称句中语法主体与逻辑主体一致，且主动作由动词表达时，动名副词可表达附加动作。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "мощь и красота Кона поражают воображение",
+            "sourceType": "learning-note",
+            "reason": "它不能同时保留题干附加动作与主句主要动作由同一可恢复逻辑主体实施的条件，或改变了原题的句法／语义关系。"
+          },
+          {
+            "key": "Б",
+            "text": "Лаос и Камбучия гордятся водопадом Кон",
+            "sourceType": "learning-note",
+            "reason": "它不能同时保留题干附加动作与主句主要动作由同一可恢复逻辑主体实施的条件，或改变了原题的句法／语义关系。"
+          },
+          {
+            "key": "Г",
+            "text": "ширина Кона составляет 13 километров",
+            "sourceType": "learning-note",
+            "reason": "它不能同时保留题干附加动作与主句主要动作由同一可恢复逻辑主体实施的条件，或改变了原题的句法／语义关系。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 49,
+        "questionPrintedPage": 47,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124,
+        "answerSource": "PDF-126 / 印刷页 124：Ключи к третьей главе"
+      }
+    },
+    {
+      "exerciseId": "GL3-Q045",
+      "printedNumber": 45,
+      "exercisePrintedPage": 47,
+      "sourceType": "exercise-example",
+      "status": "mapped",
+      "question": "Улавливая недоступные человеку сигналы природы, ... .",
+      "options": [
+        {
+          "key": "А",
+          "text": "животные встревожены будущими катаклизмами"
+        },
+        {
+          "key": "Б",
+          "text": "животные предчувствуют катаклизмы"
+        },
+        {
+          "key": "В",
+          "text": "предвидятся катаклизмы"
+        },
+        {
+          "key": "Г",
+          "text": "ощущается приближение катаклизмов"
+        }
+      ],
+      "correctAnswer": "Б",
+      "ruleIds": [
+        "gl3-3.1.1-shared-subject-personal"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "Улавливая сигналы，животные предчувствуют...；动物实施感知与预感。 3.1.1 第 1 条：人称句中语法主体与逻辑主体一致，且主动作由动词表达时，动名副词可表达附加动作。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "正确项「Б」：Улавливая сигналы，животные предчувствуют...；动物实施感知与预感。 3.1.1 第 1 条：人称句中语法主体与逻辑主体一致，且主动作由动词表达时，动名副词可表达附加动作。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "животные встревожены будущими катаклизмами",
+            "sourceType": "learning-note",
+            "reason": "它不能同时保留题干附加动作与主句主要动作由同一可恢复逻辑主体实施的条件，或改变了原题的句法／语义关系。"
+          },
+          {
+            "key": "В",
+            "text": "предвидятся катаклизмы",
+            "sourceType": "learning-note",
+            "reason": "它不能同时保留题干附加动作与主句主要动作由同一可恢复逻辑主体实施的条件，或改变了原题的句法／语义关系。"
+          },
+          {
+            "key": "Г",
+            "text": "ощущается приближение катаклизмов",
+            "sourceType": "learning-note",
+            "reason": "它不能同时保留题干附加动作与主句主要动作由同一可恢复逻辑主体实施的条件，或改变了原题的句法／语义关系。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 49,
+        "questionPrintedPage": 47,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124,
+        "answerSource": "PDF-126 / 印刷页 124：Ключи к третьей главе"
+      }
+    },
+    {
+      "exerciseId": "GL3-Q046",
+      "printedNumber": 46,
+      "exercisePrintedPage": 47,
+      "sourceType": "exercise-example",
+      "status": "source-exercise-only",
+      "question": "Многонациональная Россия, живущая на стыке цивилизаций, поддерживает инициативу Испании и Турции по формированию Альянса цивилизаций.",
+      "options": [
+        {
+          "key": "А",
+          "text": "которая жила"
+        },
+        {
+          "key": "Б",
+          "text": "которая живёт"
+        },
+        {
+          "key": "В",
+          "text": "которая прожила"
+        },
+        {
+          "key": "Г",
+          "text": "которая будет жить"
+        }
+      ],
+      "correctAnswer": "Б",
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "mappingReason": "题目要求参与式与定语从句的同义转换；当前理论区没有参与式时态、语态或关系从句转换的独立规则。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书答案为「Б」；本题没有独立原书理论依据：题目要求参与式与定语从句的同义转换；当前理论区没有参与式时态、语态或关系从句转换的独立规则。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "которая жила",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "В",
+            "text": "которая прожила",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "Г",
+            "text": "которая будет жить",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 49,
+        "questionPrintedPage": 47,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124,
+        "answerSource": "PDF-126 / 印刷页 124：Ключи к третьей главе"
+      }
+    },
+    {
+      "exerciseId": "GL3-Q047",
+      "printedNumber": 47,
+      "exercisePrintedPage": 47,
+      "sourceType": "exercise-example",
+      "status": "source-exercise-only",
+      "question": "В Москве издана энциклопедия «Культура Латинской Америки», содержащая тысячу двести статей обо всех странах региона.",
+      "options": [
+        {
+          "key": "А",
+          "text": "которая содержала"
+        },
+        {
+          "key": "Б",
+          "text": "которая содержит"
+        },
+        {
+          "key": "В",
+          "text": "которую содержит"
+        },
+        {
+          "key": "Г",
+          "text": "которую содержали"
+        }
+      ],
+      "correctAnswer": "Б",
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "mappingReason": "题目要求参与式与定语从句的同义转换；当前理论区没有参与式时态、语态或关系从句转换的独立规则。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书答案为「Б」；本题没有独立原书理论依据：题目要求参与式与定语从句的同义转换；当前理论区没有参与式时态、语态或关系从句转换的独立规则。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "которая содержала",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "В",
+            "text": "которую содержит",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "Г",
+            "text": "которую содержали",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 49,
+        "questionPrintedPage": 47,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124,
+        "answerSource": "PDF-126 / 印刷页 124：Ключи к третьей главе"
+      }
+    },
+    {
+      "exerciseId": "GL3-Q048",
+      "printedNumber": 48,
+      "exercisePrintedPage": 47,
+      "sourceType": "exercise-example",
+      "status": "source-exercise-only",
+      "question": "Одной из достопримечательностей Эфиопии является город Лалибэл: его храмы, высеченные в скалах, находятся под защитой ЮНЕСКО.",
+      "options": [
+        {
+          "key": "А",
+          "text": "которые высевают"
+        },
+        {
+          "key": "Б",
+          "text": "которые высекаются"
+        },
+        {
+          "key": "В",
+          "text": "которые высечены"
+        },
+        {
+          "key": "Г",
+          "text": "которые высекут"
+        }
+      ],
+      "correctAnswer": "В",
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "mappingReason": "题目要求参与式与定语从句的同义转换；当前理论区没有参与式时态、语态或关系从句转换的独立规则。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书答案为「В」；本题没有独立原书理论依据：题目要求参与式与定语从句的同义转换；当前理论区没有参与式时态、语态或关系从句转换的独立规则。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "которые высевают",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "Б",
+            "text": "которые высекаются",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "Г",
+            "text": "которые высекут",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 49,
+        "questionPrintedPage": 47,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124,
+        "answerSource": "PDF-126 / 印刷页 124：Ключи к третьей главе"
+      }
+    },
+    {
+      "exerciseId": "GL3-Q049",
+      "printedNumber": 49,
+      "exercisePrintedPage": 47,
+      "sourceType": "exercise-example",
+      "status": "source-exercise-only",
+      "question": "Венесуэльский Гран Роке — единственный в стране остров, образованный вулканической породой.",
+      "options": [
+        {
+          "key": "А",
+          "text": "который образовал"
+        },
+        {
+          "key": "Б",
+          "text": "который образуется"
+        },
+        {
+          "key": "В",
+          "text": "который образован"
+        },
+        {
+          "key": "Г",
+          "text": "который будет образован"
+        }
+      ],
+      "correctAnswer": "В",
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "mappingReason": "题目要求参与式与定语从句的同义转换；当前理论区没有参与式时态、语态或关系从句转换的独立规则。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书答案为「В」；本题没有独立原书理论依据：题目要求参与式与定语从句的同义转换；当前理论区没有参与式时态、语态或关系从句转换的独立规则。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "который образовал",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "Б",
+            "text": "который образуется",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "Г",
+            "text": "который будет образован",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 49,
+        "questionPrintedPage": 47,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124,
+        "answerSource": "PDF-126 / 印刷页 124：Ключи к третьей главе"
+      }
+    },
+    {
+      "exerciseId": "GL3-Q050",
+      "printedNumber": 50,
+      "exercisePrintedPage": 48,
+      "sourceType": "exercise-example",
+      "status": "source-exercise-only",
+      "question": "О смелости непальских воинов, доходящей до безрассудства, ходят легенды.",
+      "options": [
+        {
+          "key": "А",
+          "text": "которая доходила"
+        },
+        {
+          "key": "Б",
+          "text": "которая дойдёт"
+        },
+        {
+          "key": "В",
+          "text": "которая дошла"
+        },
+        {
+          "key": "Г",
+          "text": "которая доходит"
+        }
+      ],
+      "correctAnswer": "Г",
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "mappingReason": "题目要求参与式与定语从句的同义转换；当前理论区没有参与式时态、语态或关系从句转换的独立规则。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书答案为「Г」；本题没有独立原书理论依据：题目要求参与式与定语从句的同义转换；当前理论区没有参与式时态、语态或关系从句转换的独立规则。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "которая доходила",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "Б",
+            "text": "которая дойдёт",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "В",
+            "text": "которая дошла",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 50,
+        "questionPrintedPage": 48,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124,
+        "answerSource": "PDF-126 / 印刷页 124：Ключи к третьей главе"
+      }
+    },
+    {
+      "exerciseId": "GL3-Q051",
+      "printedNumber": 51,
+      "exercisePrintedPage": 48,
+      "sourceType": "exercise-example",
+      "status": "source-exercise-only",
+      "question": "Главной достопримечательностью марокканского города Фес является мечеть Карауин, считающаяся одним из старейших университетов в мире.",
+      "options": [
+        {
+          "key": "А",
+          "text": "которая считалась"
+        },
+        {
+          "key": "Б",
+          "text": "которая считается"
+        },
+        {
+          "key": "В",
+          "text": "которая будет считаться"
+        }
+      ],
+      "correctAnswer": "Б",
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "mappingReason": "题目要求参与式与定语从句的同义转换；当前理论区没有参与式时态、语态或关系从句转换的独立规则。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书答案为「Б」；本题没有独立原书理论依据：题目要求参与式与定语从句的同义转换；当前理论区没有参与式时态、语态或关系从句转换的独立规则。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "которая считалась",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "В",
+            "text": "которая будет считаться",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 50,
+        "questionPrintedPage": 48,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124,
+        "answerSource": "PDF-126 / 印刷页 124：Ключи к третьей главе"
+      }
+    },
+    {
+      "exerciseId": "GL3-Q052",
+      "printedNumber": 52,
+      "exercisePrintedPage": 48,
+      "sourceType": "exercise-example",
+      "status": "source-exercise-only",
+      "question": "На Тайване в монастыре Фогуаншань поражает парк Будды, любовно воссозданный монахами по старинным описаниям.",
+      "options": [
+        {
+          "key": "А",
+          "text": "который воссоздают"
+        },
+        {
+          "key": "Б",
+          "text": "который воссоздали"
+        },
+        {
+          "key": "В",
+          "text": "который воссоздаётся"
+        },
+        {
+          "key": "Г",
+          "text": "который воссоздадут"
+        }
+      ],
+      "correctAnswer": "Б",
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "mappingReason": "题目要求参与式与定语从句的同义转换；当前理论区没有参与式时态、语态或关系从句转换的独立规则。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书答案为「Б」；本题没有独立原书理论依据：题目要求参与式与定语从句的同义转换；当前理论区没有参与式时态、语态或关系从句转换的独立规则。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "который воссоздают",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "В",
+            "text": "который воссоздаётся",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "Г",
+            "text": "который воссоздадут",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 50,
+        "questionPrintedPage": 48,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124,
+        "answerSource": "PDF-126 / 印刷页 124：Ключи к третьей главе"
+      }
+    },
+    {
+      "exerciseId": "GL3-Q053",
+      "printedNumber": 53,
+      "exercisePrintedPage": 48,
+      "sourceType": "exercise-example",
+      "status": "source-exercise-only",
+      "question": "На полках стоят фарфоровые статуэтки, фигурки зверей и шкатулки, привезённые из путешествия по Юго-Восточной Азии.",
+      "options": [
+        {
+          "key": "А",
+          "text": "которые привозят"
+        },
+        {
+          "key": "Б",
+          "text": "которые привезли"
+        },
+        {
+          "key": "В",
+          "text": "которые привезут"
+        },
+        {
+          "key": "Г",
+          "text": "которые привозятся"
+        }
+      ],
+      "correctAnswer": "Б",
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "mappingReason": "题目要求参与式与定语从句的同义转换；当前理论区没有参与式时态、语态或关系从句转换的独立规则。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书答案为「Б」；本题没有独立原书理论依据：题目要求参与式与定语从句的同义转换；当前理论区没有参与式时态、语态或关系从句转换的独立规则。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "которые привозят",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "В",
+            "text": "которые привезут",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "Г",
+            "text": "которые привозятся",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 50,
+        "questionPrintedPage": 48,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124,
+        "answerSource": "PDF-126 / 印刷页 124：Ключи к третьей главе"
+      }
+    },
+    {
+      "exerciseId": "GL3-Q054",
+      "printedNumber": 54,
+      "exercisePrintedPage": 48,
+      "sourceType": "exercise-example",
+      "status": "source-exercise-only",
+      "question": "Образ мира, создаваемый варварами, свидетельствует о неспособности древнего человека чётко отделить себя от природы.",
+      "options": [
+        {
+          "key": "А",
+          "text": "который создан"
+        },
+        {
+          "key": "Б",
+          "text": "который был создан"
+        },
+        {
+          "key": "В",
+          "text": "который создаётся"
+        },
+        {
+          "key": "Г",
+          "text": "который будет создаваться"
+        }
+      ],
+      "correctAnswer": "В",
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "mappingReason": "题目要求参与式与定语从句的同义转换；当前理论区没有参与式时态、语态或关系从句转换的独立规则。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书答案为「В」；本题没有独立原书理论依据：题目要求参与式与定语从句的同义转换；当前理论区没有参与式时态、语态或关系从句转换的独立规则。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "который создан",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "Б",
+            "text": "который был создан",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "Г",
+            "text": "который будет создаваться",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 50,
+        "questionPrintedPage": 48,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124,
+        "answerSource": "PDF-126 / 印刷页 124：Ключи к третьей главе"
+      }
+    },
+    {
+      "exerciseId": "GL3-Q055",
+      "printedNumber": 55,
+      "exercisePrintedPage": 48,
+      "sourceType": "exercise-example",
+      "status": "source-exercise-only",
+      "question": "При раскопках курганов на нижнем Дону наиболее часто встречаются изделия, изготовленные из керамики.",
+      "options": [
+        {
+          "key": "А",
+          "text": "которые изготовят"
+        },
+        {
+          "key": "Б",
+          "text": "которые изготовили"
+        },
+        {
+          "key": "В",
+          "text": "которые изготавливают"
+        },
+        {
+          "key": "Г",
+          "text": "которые изготавливаются"
+        }
+      ],
+      "correctAnswer": "Б",
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "mappingReason": "题目要求参与式与定语从句的同义转换；当前理论区没有参与式时态、语态或关系从句转换的独立规则。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书答案为「Б」；本题没有独立原书理论依据：题目要求参与式与定语从句的同义转换；当前理论区没有参与式时态、语态或关系从句转换的独立规则。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "которые изготовят",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "В",
+            "text": "которые изготавливают",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "Г",
+            "text": "которые изготавливаются",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 50,
+        "questionPrintedPage": 48,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124,
+        "answerSource": "PDF-126 / 印刷页 124：Ключи к третьей главе"
+      }
+    },
+    {
+      "exerciseId": "GL3-Q056",
+      "printedNumber": 56,
+      "exercisePrintedPage": 48,
+      "sourceType": "exercise-example",
+      "status": "source-exercise-only",
+      "question": "Сегодня в России личные гербы утверждает геральдическая коллегия, возглавляемая специалистом по военной геральдике и символике.",
+      "options": [
+        {
+          "key": "А",
+          "text": "которую возглавит специалист"
+        },
+        {
+          "key": "Б",
+          "text": "которую возглавил специалист"
+        },
+        {
+          "key": "В",
+          "text": "которую возглавлял специалист"
+        },
+        {
+          "key": "Г",
+          "text": "которую возглавляет специалист"
+        }
+      ],
+      "correctAnswer": "Г",
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "mappingReason": "题目要求参与式与定语从句的同义转换；当前理论区没有参与式时态、语态或关系从句转换的独立规则。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书答案为「Г」；本题没有独立原书理论依据：题目要求参与式与定语从句的同义转换；当前理论区没有参与式时态、语态或关系从句转换的独立规则。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "которую возглавит специалист",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "Б",
+            "text": "которую возглавил специалист",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "В",
+            "text": "которую возглавлял специалист",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 50,
+        "questionPrintedPage": 48,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124,
+        "answerSource": "PDF-126 / 印刷页 124：Ключи к третьей главе"
+      }
+    },
+    {
+      "exerciseId": "GL3-Q057",
+      "printedNumber": 57,
+      "exercisePrintedPage": 49,
+      "sourceType": "exercise-example",
+      "status": "source-exercise-only",
+      "question": "Новый взгляд на социальные и политические явления, который появился в конце XX века, лёг в основу современного диалога Востока и Запада.",
+      "options": [
+        {
+          "key": "А",
+          "text": "появляющийся"
+        },
+        {
+          "key": "Б",
+          "text": "появлявшийся"
+        },
+        {
+          "key": "В",
+          "text": "появившийся"
+        }
+      ],
+      "correctAnswer": "В",
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "mappingReason": "题目要求参与式与定语从句的同义转换；当前理论区没有参与式时态、语态或关系从句转换的独立规则。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书答案为「В」；本题没有独立原书理论依据：题目要求参与式与定语从句的同义转换；当前理论区没有参与式时态、语态或关系从句转换的独立规则。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "появляющийся",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "Б",
+            "text": "появлявшийся",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 51,
+        "questionPrintedPage": 49,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124,
+        "answerSource": "PDF-126 / 印刷页 124：Ключи к третьей главе"
+      }
+    },
+    {
+      "exerciseId": "GL3-Q058",
+      "printedNumber": 58,
+      "exercisePrintedPage": 49,
+      "sourceType": "exercise-example",
+      "status": "source-exercise-only",
+      "question": "Начало британо-российским дипломатическим отношениям было положено в XVI веке купцом Ченслером, который передал русскому царю бумаги своего монарха.",
+      "options": [
+        {
+          "key": "А",
+          "text": "переданным"
+        },
+        {
+          "key": "Б",
+          "text": "передавшим"
+        },
+        {
+          "key": "В",
+          "text": "передаваемым"
+        },
+        {
+          "key": "Г",
+          "text": "передававшим"
+        }
+      ],
+      "correctAnswer": "Б",
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "mappingReason": "题目要求参与式与定语从句的同义转换；当前理论区没有参与式时态、语态或关系从句转换的独立规则。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书答案为「Б」；本题没有独立原书理论依据：题目要求参与式与定语从句的同义转换；当前理论区没有参与式时态、语态或关系从句转换的独立规则。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "переданным",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "В",
+            "text": "передаваемым",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "Г",
+            "text": "передававшим",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 51,
+        "questionPrintedPage": 49,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124,
+        "answerSource": "PDF-126 / 印刷页 124：Ключи к третьей главе"
+      }
+    },
+    {
+      "exerciseId": "GL3-Q059",
+      "printedNumber": 59,
+      "exercisePrintedPage": 49,
+      "sourceType": "exercise-example",
+      "status": "source-exercise-only",
+      "question": "Учёный является не только создателем научных систем, но и художником, который творчески использует свои знания.",
+      "options": [
+        {
+          "key": "А",
+          "text": "используемым"
+        },
+        {
+          "key": "Б",
+          "text": "использующим"
+        },
+        {
+          "key": "В",
+          "text": "использованным"
+        },
+        {
+          "key": "Г",
+          "text": "использовавшим"
+        }
+      ],
+      "correctAnswer": "Б",
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "mappingReason": "题目要求参与式与定语从句的同义转换；当前理论区没有参与式时态、语态或关系从句转换的独立规则。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书答案为「Б」；本题没有独立原书理论依据：题目要求参与式与定语从句的同义转换；当前理论区没有参与式时态、语态或关系从句转换的独立规则。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "используемым",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "В",
+            "text": "использованным",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "Г",
+            "text": "использовавшим",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 51,
+        "questionPrintedPage": 49,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124,
+        "answerSource": "PDF-126 / 印刷页 124：Ключи к третьей главе"
+      }
+    },
+    {
+      "exerciseId": "GL3-Q060",
+      "printedNumber": 60,
+      "exercisePrintedPage": 49,
+      "sourceType": "exercise-example",
+      "status": "source-exercise-only",
+      "question": "Фёдор Иванович Тютчев считается первым в России поэтом, который проник в сущность и философию природы.",
+      "options": [
+        {
+          "key": "А",
+          "text": "проникавшим"
+        },
+        {
+          "key": "Б",
+          "text": "проникающим"
+        },
+        {
+          "key": "В",
+          "text": "проникшим"
+        },
+        {
+          "key": "Г",
+          "text": "проникаемым"
+        }
+      ],
+      "correctAnswer": "В",
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "mappingReason": "题目要求参与式与定语从句的同义转换；当前理论区没有参与式时态、语态或关系从句转换的独立规则。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书答案为「В」；本题没有独立原书理论依据：题目要求参与式与定语从句的同义转换；当前理论区没有参与式时态、语态或关系从句转换的独立规则。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "проникавшим",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "Б",
+            "text": "проникающим",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "Г",
+            "text": "проникаемым",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 51,
+        "questionPrintedPage": 49,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124,
+        "answerSource": "PDF-126 / 印刷页 124：Ключи к третьей главе"
+      }
+    },
+    {
+      "exerciseId": "GL3-Q061",
+      "printedNumber": 61,
+      "exercisePrintedPage": 49,
+      "sourceType": "exercise-example",
+      "status": "source-exercise-only",
+      "question": "Сегодня учитель, врач и священник — это опора интеллектуальной и духовной жизни, которая существует на селе.",
+      "options": [
+        {
+          "key": "А",
+          "text": "существующей"
+        },
+        {
+          "key": "Б",
+          "text": "существовавшей"
+        }
+      ],
+      "correctAnswer": "А",
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "mappingReason": "题目要求参与式与定语从句的同义转换；当前理论区没有参与式时态、语态或关系从句转换的独立规则。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书答案为「А」；本题没有独立原书理论依据：题目要求参与式与定语从句的同义转换；当前理论区没有参与式时态、语态或关系从句转换的独立规则。",
+        "distractors": [
+          {
+            "key": "Б",
+            "text": "существовавшей",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 51,
+        "questionPrintedPage": 49,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124,
+        "answerSource": "PDF-126 / 印刷页 124：Ключи к третьей главе"
+      }
+    },
+    {
+      "exerciseId": "GL3-Q062",
+      "printedNumber": 62,
+      "exercisePrintedPage": 49,
+      "sourceType": "exercise-example",
+      "status": "source-exercise-only",
+      "question": "6500 лет назад на территории современного Ирака сформировался центр мировой культуры, который назвали Месопотамией.",
+      "options": [
+        {
+          "key": "А",
+          "text": "называющий"
+        },
+        {
+          "key": "Б",
+          "text": "назвавший"
+        },
+        {
+          "key": "В",
+          "text": "называвший"
+        },
+        {
+          "key": "Г",
+          "text": "названный"
+        }
+      ],
+      "correctAnswer": "Г",
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "mappingReason": "题目要求参与式与定语从句的同义转换；当前理论区没有参与式时态、语态或关系从句转换的独立规则。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书答案为「Г」；本题没有独立原书理论依据：题目要求参与式与定语从句的同义转换；当前理论区没有参与式时态、语态或关系从句转换的独立规则。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "называющий",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "Б",
+            "text": "назвавший",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "В",
+            "text": "называвший",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 51,
+        "questionPrintedPage": 49,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124,
+        "answerSource": "PDF-126 / 印刷页 124：Ключи к третьей главе"
+      }
+    },
+    {
+      "exerciseId": "GL3-Q063",
+      "printedNumber": 63,
+      "exercisePrintedPage": 49,
+      "sourceType": "exercise-example",
+      "status": "source-exercise-only",
+      "question": "В древности через донские степи проходило много разных племён, что оказало влияние на культуру народов, которые проживали на этой территории.",
+      "options": [
+        {
+          "key": "А",
+          "text": "проживавших"
+        },
+        {
+          "key": "Б",
+          "text": "проживших"
+        },
+        {
+          "key": "В",
+          "text": "проживающих"
+        },
+        {
+          "key": "Г",
+          "text": "прожитых"
+        }
+      ],
+      "correctAnswer": "А",
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "mappingReason": "题目要求参与式与定语从句的同义转换；当前理论区没有参与式时态、语态或关系从句转换的独立规则。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书答案为「А」；本题没有独立原书理论依据：题目要求参与式与定语从句的同义转换；当前理论区没有参与式时态、语态或关系从句转换的独立规则。",
+        "distractors": [
+          {
+            "key": "Б",
+            "text": "проживших",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "В",
+            "text": "проживающих",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "Г",
+            "text": "прожитых",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 51,
+        "questionPrintedPage": 49,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124,
+        "answerSource": "PDF-126 / 印刷页 124：Ключи к третьей главе"
+      }
+    },
+    {
+      "exerciseId": "GL3-Q064",
+      "printedNumber": 64,
+      "exercisePrintedPage": 50,
+      "sourceType": "exercise-example",
+      "status": "source-exercise-only",
+      "question": "Школа в Бангладеш, которую построили вручную из глины и бамбука, получила одну из самых престижных мировых премий в области архитектуры.",
+      "options": [
+        {
+          "key": "А",
+          "text": "построенная"
+        },
+        {
+          "key": "Б",
+          "text": "построившая"
+        },
+        {
+          "key": "В",
+          "text": "строившая"
+        },
+        {
+          "key": "Г",
+          "text": "строящаяся"
+        }
+      ],
+      "correctAnswer": "А",
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "mappingReason": "题目要求参与式与定语从句的同义转换；当前理论区没有参与式时态、语态或关系从句转换的独立规则。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书答案为「А」；本题没有独立原书理论依据：题目要求参与式与定语从句的同义转换；当前理论区没有参与式时态、语态或关系从句转换的独立规则。",
+        "distractors": [
+          {
+            "key": "Б",
+            "text": "построившая",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "В",
+            "text": "строившая",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "Г",
+            "text": "строящаяся",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 52,
+        "questionPrintedPage": 50,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124,
+        "answerSource": "PDF-126 / 印刷页 124：Ключи к третьей главе"
+      }
+    },
+    {
+      "exerciseId": "GL3-Q065",
+      "printedNumber": 65,
+      "exercisePrintedPage": 50,
+      "sourceType": "exercise-example",
+      "status": "source-exercise-only",
+      "question": "Льготы, которые предоставляются женщинам, имеющим детей, распространяются и на отцов, воспитывающих детей без матери.",
+      "options": [
+        {
+          "key": "А",
+          "text": "предоставляемые"
+        },
+        {
+          "key": "Б",
+          "text": "предоставленные"
+        },
+        {
+          "key": "В",
+          "text": "предоставляющие"
+        },
+        {
+          "key": "Г",
+          "text": "предоставлявшие"
+        }
+      ],
+      "correctAnswer": "А",
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "mappingReason": "题目要求参与式与定语从句的同义转换；当前理论区没有参与式时态、语态或关系从句转换的独立规则。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书答案为「А」；本题没有独立原书理论依据：题目要求参与式与定语从句的同义转换；当前理论区没有参与式时态、语态或关系从句转换的独立规则。",
+        "distractors": [
+          {
+            "key": "Б",
+            "text": "предоставленные",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "В",
+            "text": "предоставляющие",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "Г",
+            "text": "предоставлявшие",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 52,
+        "questionPrintedPage": 50,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124,
+        "answerSource": "PDF-126 / 印刷页 124：Ключи к третьей главе"
+      }
+    },
+    {
+      "exerciseId": "GL3-Q066",
+      "printedNumber": 66,
+      "exercisePrintedPage": 50,
+      "sourceType": "exercise-example",
+      "status": "source-exercise-only",
+      "question": "Короткое и звучное прозвище Пеле, которое не переводится ни на один язык, дали легендарному футболисту друзья его детства.",
+      "options": [
+        {
+          "key": "А",
+          "text": "не переведённое"
+        },
+        {
+          "key": "Б",
+          "text": "не переводимое"
+        },
+        {
+          "key": "В",
+          "text": "не переводящее"
+        },
+        {
+          "key": "Г",
+          "text": "не переводившее"
+        }
+      ],
+      "correctAnswer": "Б",
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "mappingReason": "题目要求参与式与定语从句的同义转换；当前理论区没有参与式时态、语态或关系从句转换的独立规则。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书答案为「Б」；本题没有独立原书理论依据：题目要求参与式与定语从句的同义转换；当前理论区没有参与式时态、语态或关系从句转换的独立规则。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "не переведённое",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "В",
+            "text": "не переводящее",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "Г",
+            "text": "не переводившее",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 52,
+        "questionPrintedPage": 50,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124,
+        "answerSource": "PDF-126 / 印刷页 124：Ключи к третьей главе"
+      }
+    },
+    {
+      "exerciseId": "GL3-Q067",
+      "printedNumber": 67,
+      "exercisePrintedPage": 50,
+      "sourceType": "exercise-example",
+      "status": "source-exercise-only",
+      "question": "Армянский коньяк популярен сегодня в мире благодаря многочисленным ресторанам, которые открываются в разных странах армянской диаспорой.",
+      "options": [
+        {
+          "key": "А",
+          "text": "открывающим"
+        },
+        {
+          "key": "Б",
+          "text": "открывавшим"
+        },
+        {
+          "key": "В",
+          "text": "открытым"
+        },
+        {
+          "key": "Г",
+          "text": "открываемым"
+        }
+      ],
+      "correctAnswer": "Г",
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "mappingReason": "题目要求参与式与定语从句的同义转换；当前理论区没有参与式时态、语态或关系从句转换的独立规则。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书答案为「Г」；本题没有独立原书理论依据：题目要求参与式与定语从句的同义转换；当前理论区没有参与式时态、语态或关系从句转换的独立规则。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "открывающим",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "Б",
+            "text": "открывавшим",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "В",
+            "text": "открытым",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 52,
+        "questionPrintedPage": 50,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124,
+        "answerSource": "PDF-126 / 印刷页 124：Ключи к третьей главе"
+      }
+    },
+    {
+      "exerciseId": "GL3-Q068",
+      "printedNumber": 68,
+      "exercisePrintedPage": 50,
+      "sourceType": "exercise-example",
+      "status": "mapped",
+      "question": "Изучая продукцию конкурентов, предприниматели оценивают достоинства и недостатки своих товаров по отношению к товарам других фирм.",
+      "options": [
+        {
+          "key": "А",
+          "text": "При изучении продукции конкурентов"
+        },
+        {
+          "key": "Б",
+          "text": "С изучением продукции конкурентов"
+        }
+      ],
+      "correctAnswer": "А",
+      "ruleIds": [
+        "gl3-3.1.1-shared-subject-personal",
+        "gl3-3.1.1-secondary-action"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "题目在动名副词与从句／名词性结构间转换；原书的直接依据是附加动作与主动作同一主体，具体同义关系仍由题面与答案共同核对。 3.1.1 第 1 条：人称句中语法主体与逻辑主体一致，且主动作由动词表达时，动名副词可表达附加动作。 3.1.1 规定动名副词／动名副词短语用于 обозначение добавочного действия；主动作与附加动作需由同一主体实施。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "正确项「А」：题目在动名副词与从句／名词性结构间转换；原书的直接依据是附加动作与主动作同一主体，具体同义关系仍由题面与答案共同核对。 3.1.1 第 1 条：人称句中语法主体与逻辑主体一致，且主动作由动词表达时，动名副词可表达附加动作。 3.1.1 规定动名副词／动名副词短语用于 обозначение добавочного действия；主动作与附加动作需由同一主体实施。",
+        "distractors": [
+          {
+            "key": "Б",
+            "text": "С изучением продукции конкурентов",
+            "sourceType": "learning-note",
+            "reason": "它不能同时保留题干附加动作与主句主要动作由同一可恢复逻辑主体实施的条件，或改变了原题的句法／语义关系。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 52,
+        "questionPrintedPage": 50,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124,
+        "answerSource": "PDF-126 / 印刷页 124：Ключи к третьей главе"
+      }
+    },
+    {
+      "exerciseId": "GL3-Q069",
+      "printedNumber": 69,
+      "exercisePrintedPage": 50,
+      "sourceType": "exercise-example",
+      "status": "mapped",
+      "question": "Используя приёмы психологического расслабления, вы должны помнить, что длительная релаксация может помешать мобилизации сил в нужный момент.",
+      "options": [
+        {
+          "key": "А",
+          "text": "Если вы используете приёмы психологического расслабления"
+        },
+        {
+          "key": "Б",
+          "text": "После того как вы используете приёмы психологического расслабления"
+        }
+      ],
+      "correctAnswer": "А",
+      "ruleIds": [
+        "gl3-3.1.1-shared-subject-personal",
+        "gl3-3.1.1-secondary-action"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "题目在动名副词与从句／名词性结构间转换；原书的直接依据是附加动作与主动作同一主体，具体同义关系仍由题面与答案共同核对。 3.1.1 第 1 条：人称句中语法主体与逻辑主体一致，且主动作由动词表达时，动名副词可表达附加动作。 3.1.1 规定动名副词／动名副词短语用于 обозначение добавочного действия；主动作与附加动作需由同一主体实施。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "正确项「А」：题目在动名副词与从句／名词性结构间转换；原书的直接依据是附加动作与主动作同一主体，具体同义关系仍由题面与答案共同核对。 3.1.1 第 1 条：人称句中语法主体与逻辑主体一致，且主动作由动词表达时，动名副词可表达附加动作。 3.1.1 规定动名副词／动名副词短语用于 обозначение добавочного действия；主动作与附加动作需由同一主体实施。",
+        "distractors": [
+          {
+            "key": "Б",
+            "text": "После того как вы используете приёмы психологического расслабления",
+            "sourceType": "learning-note",
+            "reason": "它不能同时保留题干附加动作与主句主要动作由同一可恢复逻辑主体实施的条件，或改变了原题的句法／语义关系。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 52,
+        "questionPrintedPage": 50,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124,
+        "answerSource": "PDF-126 / 印刷页 124：Ключи к третьей главе"
+      }
+    },
+    {
+      "exerciseId": "GL3-Q070",
+      "printedNumber": 70,
+      "exercisePrintedPage": 51,
+      "sourceType": "exercise-example",
+      "status": "mapped",
+      "question": "Представители службы спасения животных, расспрашивая потенциальных хозяев собаки об их отношении к животным, решают, можно ли отдать её этим людям.",
+      "options": [
+        {
+          "key": "А",
+          "text": "если расспрашивают потенциальных хозяев собаки об их отношении к животным"
+        },
+        {
+          "key": "Б",
+          "text": "пока расспрашивают потенциальных хозяев собаки об их отношении к животным"
+        }
+      ],
+      "correctAnswer": "Б",
+      "ruleIds": [
+        "gl3-3.1.1-shared-subject-personal",
+        "gl3-3.1.1-secondary-action"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "题目在动名副词与从句／名词性结构间转换；原书的直接依据是附加动作与主动作同一主体，具体同义关系仍由题面与答案共同核对。 3.1.1 第 1 条：人称句中语法主体与逻辑主体一致，且主动作由动词表达时，动名副词可表达附加动作。 3.1.1 规定动名副词／动名副词短语用于 обозначение добавочного действия；主动作与附加动作需由同一主体实施。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "正确项「Б」：题目在动名副词与从句／名词性结构间转换；原书的直接依据是附加动作与主动作同一主体，具体同义关系仍由题面与答案共同核对。 3.1.1 第 1 条：人称句中语法主体与逻辑主体一致，且主动作由动词表达时，动名副词可表达附加动作。 3.1.1 规定动名副词／动名副词短语用于 обозначение добавочного действия；主动作与附加动作需由同一主体实施。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "если расспрашивают потенциальных хозяев собаки об их отношении к животным",
+            "sourceType": "learning-note",
+            "reason": "它不能同时保留题干附加动作与主句主要动作由同一可恢复逻辑主体实施的条件，或改变了原题的句法／语义关系。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 53,
+        "questionPrintedPage": 51,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124,
+        "answerSource": "PDF-126 / 印刷页 124：Ключи к третьей главе"
+      }
+    },
+    {
+      "exerciseId": "GL3-Q071",
+      "printedNumber": 71,
+      "exercisePrintedPage": 51,
+      "sourceType": "exercise-example",
+      "status": "mapped",
+      "question": "Гонщик, приблизившись к повороту, сбавил скорость.",
+      "options": [
+        {
+          "key": "А",
+          "text": "когда приблизился к повороту"
+        },
+        {
+          "key": "Б",
+          "text": "если приблизился к повороту"
+        }
+      ],
+      "correctAnswer": "А",
+      "ruleIds": [
+        "gl3-3.1.1-shared-subject-personal",
+        "gl3-3.1.1-secondary-action"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "题目在动名副词与从句／名词性结构间转换；原书的直接依据是附加动作与主动作同一主体，具体同义关系仍由题面与答案共同核对。 3.1.1 第 1 条：人称句中语法主体与逻辑主体一致，且主动作由动词表达时，动名副词可表达附加动作。 3.1.1 规定动名副词／动名副词短语用于 обозначение добавочного действия；主动作与附加动作需由同一主体实施。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "正确项「А」：题目在动名副词与从句／名词性结构间转换；原书的直接依据是附加动作与主动作同一主体，具体同义关系仍由题面与答案共同核对。 3.1.1 第 1 条：人称句中语法主体与逻辑主体一致，且主动作由动词表达时，动名副词可表达附加动作。 3.1.1 规定动名副词／动名副词短语用于 обозначение добавочного действия；主动作与附加动作需由同一主体实施。",
+        "distractors": [
+          {
+            "key": "Б",
+            "text": "если приблизился к повороту",
+            "sourceType": "learning-note",
+            "reason": "它不能同时保留题干附加动作与主句主要动作由同一可恢复逻辑主体实施的条件，或改变了原题的句法／语义关系。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 53,
+        "questionPrintedPage": 51,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124,
+        "answerSource": "PDF-126 / 印刷页 124：Ключи к третьей главе"
+      }
+    },
+    {
+      "exerciseId": "GL3-Q072",
+      "printedNumber": 72,
+      "exercisePrintedPage": 51,
+      "sourceType": "exercise-example",
+      "status": "mapped",
+      "question": "Режиссёр кинотрилогии «Властелин колец» П. Джексон, проанализировав отзывы зрителей на свой первый фильм, решил немного откорректировать материал, отснятый им для второй части.",
+      "options": [
+        {
+          "key": "А",
+          "text": "перед тем как проанализировать отзывы зрителей на первый фильм"
+        },
+        {
+          "key": "Б",
+          "text": "после того как проанализировал отзывы зрителей на первый фильм"
+        }
+      ],
+      "correctAnswer": "Б",
+      "ruleIds": [
+        "gl3-3.1.1-shared-subject-personal",
+        "gl3-3.1.1-secondary-action"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "题目在动名副词与从句／名词性结构间转换；原书的直接依据是附加动作与主动作同一主体，具体同义关系仍由题面与答案共同核对。 3.1.1 第 1 条：人称句中语法主体与逻辑主体一致，且主动作由动词表达时，动名副词可表达附加动作。 3.1.1 规定动名副词／动名副词短语用于 обозначение добавочного действия；主动作与附加动作需由同一主体实施。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "正确项「Б」：题目在动名副词与从句／名词性结构间转换；原书的直接依据是附加动作与主动作同一主体，具体同义关系仍由题面与答案共同核对。 3.1.1 第 1 条：人称句中语法主体与逻辑主体一致，且主动作由动词表达时，动名副词可表达附加动作。 3.1.1 规定动名副词／动名副词短语用于 обозначение добавочного действия；主动作与附加动作需由同一主体实施。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "перед тем как проанализировать отзывы зрителей на первый фильм",
+            "sourceType": "learning-note",
+            "reason": "它不能同时保留题干附加动作与主句主要动作由同一可恢复逻辑主体实施的条件，或改变了原题的句法／语义关系。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 53,
+        "questionPrintedPage": 51,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124,
+        "answerSource": "PDF-126 / 印刷页 124：Ключи к третьей главе"
+      }
+    },
+    {
+      "exerciseId": "GL3-Q073",
+      "printedNumber": 73,
+      "exercisePrintedPage": 51,
+      "sourceType": "exercise-example",
+      "status": "mapped",
+      "question": "Инки, развивая уже созданную до них древнюю цивилизацию, внесли свой значительный вклад в андскую культуру.",
+      "options": [
+        {
+          "key": "А",
+          "text": "поскольку развивали уже созданную до них древнюю цивилизацию"
+        },
+        {
+          "key": "Б",
+          "text": "если развивали уже созданную до них древнюю цивилизацию"
+        }
+      ],
+      "correctAnswer": "А",
+      "ruleIds": [
+        "gl3-3.1.1-shared-subject-personal",
+        "gl3-3.1.1-secondary-action"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "题目在动名副词与从句／名词性结构间转换；原书的直接依据是附加动作与主动作同一主体，具体同义关系仍由题面与答案共同核对。 3.1.1 第 1 条：人称句中语法主体与逻辑主体一致，且主动作由动词表达时，动名副词可表达附加动作。 3.1.1 规定动名副词／动名副词短语用于 обозначение добавочного действия；主动作与附加动作需由同一主体实施。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "正确项「А」：题目在动名副词与从句／名词性结构间转换；原书的直接依据是附加动作与主动作同一主体，具体同义关系仍由题面与答案共同核对。 3.1.1 第 1 条：人称句中语法主体与逻辑主体一致，且主动作由动词表达时，动名副词可表达附加动作。 3.1.1 规定动名副词／动名副词短语用于 обозначение добавочного действия；主动作与附加动作需由同一主体实施。",
+        "distractors": [
+          {
+            "key": "Б",
+            "text": "если развивали уже созданную до них древнюю цивилизацию",
+            "sourceType": "learning-note",
+            "reason": "它不能同时保留题干附加动作与主句主要动作由同一可恢复逻辑主体实施的条件，或改变了原题的句法／语义关系。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 53,
+        "questionPrintedPage": 51,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124,
+        "answerSource": "PDF-126 / 印刷页 124：Ключи к третьей главе"
+      }
+    },
+    {
+      "exerciseId": "GL3-Q074",
+      "printedNumber": 74,
+      "exercisePrintedPage": 51,
+      "sourceType": "exercise-example",
+      "status": "mapped",
+      "question": "Восточный врач древности Ибн Сина, известный в Европе как Авиценна, вылечил множество людей, используя в своей практике настои из лепестков роз, которые считались даром богов.",
+      "options": [
+        {
+          "key": "А",
+          "text": "из-за того что использовал в своей практике настои из лепестков роз"
+        },
+        {
+          "key": "Б",
+          "text": "благодаря тому что использовал в своей практике настои из лепестков роз"
+        }
+      ],
+      "correctAnswer": "Б",
+      "ruleIds": [
+        "gl3-3.1.1-shared-subject-personal",
+        "gl3-3.1.1-secondary-action"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "题目在动名副词与从句／名词性结构间转换；原书的直接依据是附加动作与主动作同一主体，具体同义关系仍由题面与答案共同核对。 3.1.1 第 1 条：人称句中语法主体与逻辑主体一致，且主动作由动词表达时，动名副词可表达附加动作。 3.1.1 规定动名副词／动名副词短语用于 обозначение добавочного действия；主动作与附加动作需由同一主体实施。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "正确项「Б」：题目在动名副词与从句／名词性结构间转换；原书的直接依据是附加动作与主动作同一主体，具体同义关系仍由题面与答案共同核对。 3.1.1 第 1 条：人称句中语法主体与逻辑主体一致，且主动作由动词表达时，动名副词可表达附加动作。 3.1.1 规定动名副词／动名副词短语用于 обозначение добавочного действия；主动作与附加动作需由同一主体实施。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "из-за того что использовал в своей практике настои из лепестков роз",
+            "sourceType": "learning-note",
+            "reason": "它不能同时保留题干附加动作与主句主要动作由同一可恢复逻辑主体实施的条件，或改变了原题的句法／语义关系。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 53,
+        "questionPrintedPage": 51,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124,
+        "answerSource": "PDF-126 / 印刷页 124：Ключи к третьей главе"
+      }
+    },
+    {
+      "exerciseId": "GL3-Q075",
+      "printedNumber": 75,
+      "exercisePrintedPage": 51,
+      "sourceType": "exercise-example",
+      "status": "mapped",
+      "question": "Византийский император Константин VIII, живший в X веке нашей эры, оставляя государственные дела жене и министрам, занимался науками и искусством.",
+      "options": [
+        {
+          "key": "А",
+          "text": "хотя оставлял государственные дела жене и министрам"
+        },
+        {
+          "key": "Б",
+          "text": "когда оставлял государственные дела жене и министрам"
+        }
+      ],
+      "correctAnswer": "Б",
+      "ruleIds": [
+        "gl3-3.1.1-shared-subject-personal",
+        "gl3-3.1.1-secondary-action"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "题目在动名副词与从句／名词性结构间转换；原书的直接依据是附加动作与主动作同一主体，具体同义关系仍由题面与答案共同核对。 3.1.1 第 1 条：人称句中语法主体与逻辑主体一致，且主动作由动词表达时，动名副词可表达附加动作。 3.1.1 规定动名副词／动名副词短语用于 обозначение добавочного действия；主动作与附加动作需由同一主体实施。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "正确项「Б」：题目在动名副词与从句／名词性结构间转换；原书的直接依据是附加动作与主动作同一主体，具体同义关系仍由题面与答案共同核对。 3.1.1 第 1 条：人称句中语法主体与逻辑主体一致，且主动作由动词表达时，动名副词可表达附加动作。 3.1.1 规定动名副词／动名副词短语用于 обозначение добавочного действия；主动作与附加动作需由同一主体实施。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "хотя оставлял государственные дела жене и министрам",
+            "sourceType": "learning-note",
+            "reason": "它不能同时保留题干附加动作与主句主要动作由同一可恢复逻辑主体实施的条件，或改变了原题的句法／语义关系。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 53,
+        "questionPrintedPage": 51,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124,
+        "answerSource": "PDF-126 / 印刷页 124：Ключи к третьей главе"
+      }
+    },
+    {
+      "exerciseId": "GL3-Q076",
+      "printedNumber": 76,
+      "exercisePrintedPage": 51,
+      "sourceType": "exercise-example",
+      "status": "mapped",
+      "question": "В середине XI века Анна Ярославна, дочь князя Ярослава Мудрого, выйдя замуж за короля Генриха I, стала королевой Франции.",
+      "options": [
+        {
+          "key": "А",
+          "text": "после того как вышла замуж за короля Генриха I"
+        },
+        {
+          "key": "Б",
+          "text": "хотя вышла замуж за короля Генриха I"
+        }
+      ],
+      "correctAnswer": "А",
+      "ruleIds": [
+        "gl3-3.1.1-shared-subject-personal",
+        "gl3-3.1.1-secondary-action"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "题目在动名副词与从句／名词性结构间转换；原书的直接依据是附加动作与主动作同一主体，具体同义关系仍由题面与答案共同核对。 3.1.1 第 1 条：人称句中语法主体与逻辑主体一致，且主动作由动词表达时，动名副词可表达附加动作。 3.1.1 规定动名副词／动名副词短语用于 обозначение добавочного действия；主动作与附加动作需由同一主体实施。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "正确项「А」：题目在动名副词与从句／名词性结构间转换；原书的直接依据是附加动作与主动作同一主体，具体同义关系仍由题面与答案共同核对。 3.1.1 第 1 条：人称句中语法主体与逻辑主体一致，且主动作由动词表达时，动名副词可表达附加动作。 3.1.1 规定动名副词／动名副词短语用于 обозначение добавочного действия；主动作与附加动作需由同一主体实施。",
+        "distractors": [
+          {
+            "key": "Б",
+            "text": "хотя вышла замуж за короля Генриха I",
+            "sourceType": "learning-note",
+            "reason": "它不能同时保留题干附加动作与主句主要动作由同一可恢复逻辑主体实施的条件，或改变了原题的句法／语义关系。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 53,
+        "questionPrintedPage": 51,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124,
+        "answerSource": "PDF-126 / 印刷页 124：Ключи к третьей главе"
+      }
+    },
+    {
+      "exerciseId": "GL3-Q077",
+      "printedNumber": 77,
+      "exercisePrintedPage": 51,
+      "sourceType": "exercise-example",
+      "status": "mapped",
+      "question": "«Учись отдавать честь», — пошутил британский принц Гарри, узнав, что его брат Уильям поступает в военную академию.",
+      "options": [
+        {
+          "key": "А",
+          "text": "если узнал"
+        },
+        {
+          "key": "Б",
+          "text": "когда узнал"
+        }
+      ],
+      "correctAnswer": "Б",
+      "ruleIds": [
+        "gl3-3.1.1-shared-subject-personal",
+        "gl3-3.1.1-secondary-action"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "题目在动名副词与从句／名词性结构间转换；原书的直接依据是附加动作与主动作同一主体，具体同义关系仍由题面与答案共同核对。 3.1.1 第 1 条：人称句中语法主体与逻辑主体一致，且主动作由动词表达时，动名副词可表达附加动作。 3.1.1 规定动名副词／动名副词短语用于 обозначение добавочного действия；主动作与附加动作需由同一主体实施。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "正确项「Б」：题目在动名副词与从句／名词性结构间转换；原书的直接依据是附加动作与主动作同一主体，具体同义关系仍由题面与答案共同核对。 3.1.1 第 1 条：人称句中语法主体与逻辑主体一致，且主动作由动词表达时，动名副词可表达附加动作。 3.1.1 规定动名副词／动名副词短语用于 обозначение добавочного действия；主动作与附加动作需由同一主体实施。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "если узнал",
+            "sourceType": "learning-note",
+            "reason": "它不能同时保留题干附加动作与主句主要动作由同一可恢复逻辑主体实施的条件，或改变了原题的句法／语义关系。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 53,
+        "questionPrintedPage": 51,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124,
+        "answerSource": "PDF-126 / 印刷页 124：Ключи к третьей главе"
+      }
+    },
+    {
+      "exerciseId": "GL3-Q078",
+      "printedNumber": 78,
+      "exercisePrintedPage": 52,
+      "sourceType": "exercise-example",
+      "status": "mapped",
+      "question": "Человечество овладело огромной энергией, когда решило урановую проблему.",
+      "options": [
+        {
+          "key": "А",
+          "text": "решая урановую проблему"
+        },
+        {
+          "key": "Б",
+          "text": "решив урановую проблему"
+        }
+      ],
+      "correctAnswer": "Б",
+      "ruleIds": [
+        "gl3-3.1.1-shared-subject-personal",
+        "gl3-3.1.1-secondary-action"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "题目在动名副词与从句／名词性结构间转换；原书的直接依据是附加动作与主动作同一主体，具体同义关系仍由题面与答案共同核对。 3.1.1 第 1 条：人称句中语法主体与逻辑主体一致，且主动作由动词表达时，动名副词可表达附加动作。 3.1.1 规定动名副词／动名副词短语用于 обозначение добавочного действия；主动作与附加动作需由同一主体实施。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "正确项「Б」：题目在动名副词与从句／名词性结构间转换；原书的直接依据是附加动作与主动作同一主体，具体同义关系仍由题面与答案共同核对。 3.1.1 第 1 条：人称句中语法主体与逻辑主体一致，且主动作由动词表达时，动名副词可表达附加动作。 3.1.1 规定动名副词／动名副词短语用于 обозначение добавочного действия；主动作与附加动作需由同一主体实施。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "решая урановую проблему",
+            "sourceType": "learning-note",
+            "reason": "它不能同时保留题干附加动作与主句主要动作由同一可恢复逻辑主体实施的条件，或改变了原题的句法／语义关系。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 54,
+        "questionPrintedPage": 52,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124,
+        "answerSource": "PDF-126 / 印刷页 124：Ключи к третьей главе"
+      }
+    },
+    {
+      "exerciseId": "GL3-Q079",
+      "printedNumber": 79,
+      "exercisePrintedPage": 52,
+      "sourceType": "exercise-example",
+      "status": "mapped",
+      "question": "Командир самолёта, после того как получил информацию о поломке двигателя, принял решение совершить вынужденную посадку.",
+      "options": [
+        {
+          "key": "А",
+          "text": "получая информацию о поломке двигателя"
+        },
+        {
+          "key": "Б",
+          "text": "получив информацию о поломке двигателя"
+        }
+      ],
+      "correctAnswer": "Б",
+      "ruleIds": [
+        "gl3-3.1.1-shared-subject-personal",
+        "gl3-3.1.1-secondary-action"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "题目在动名副词与从句／名词性结构间转换；原书的直接依据是附加动作与主动作同一主体，具体同义关系仍由题面与答案共同核对。 3.1.1 第 1 条：人称句中语法主体与逻辑主体一致，且主动作由动词表达时，动名副词可表达附加动作。 3.1.1 规定动名副词／动名副词短语用于 обозначение добавочного действия；主动作与附加动作需由同一主体实施。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "正确项「Б」：题目在动名副词与从句／名词性结构间转换；原书的直接依据是附加动作与主动作同一主体，具体同义关系仍由题面与答案共同核对。 3.1.1 第 1 条：人称句中语法主体与逻辑主体一致，且主动作由动词表达时，动名副词可表达附加动作。 3.1.1 规定动名副词／动名副词短语用于 обозначение добавочного действия；主动作与附加动作需由同一主体实施。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "получая информацию о поломке двигателя",
+            "sourceType": "learning-note",
+            "reason": "它不能同时保留题干附加动作与主句主要动作由同一可恢复逻辑主体实施的条件，或改变了原题的句法／语义关系。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 54,
+        "questionPrintedPage": 52,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124,
+        "answerSource": "PDF-126 / 印刷页 124：Ключи к третьей главе"
+      }
+    },
+    {
+      "exerciseId": "GL3-Q080",
+      "printedNumber": 80,
+      "exercisePrintedPage": 52,
+      "sourceType": "exercise-example",
+      "status": "mapped",
+      "question": "«Животные мыслят логически», — к такому выводу пришли исследователи из разных стран, после того как провели серию экспериментов.",
+      "options": [
+        {
+          "key": "А",
+          "text": "проведя серию экспериментов"
+        },
+        {
+          "key": "Б",
+          "text": "проводя серию экспериментов"
+        }
+      ],
+      "correctAnswer": "А",
+      "ruleIds": [
+        "gl3-3.1.1-shared-subject-personal",
+        "gl3-3.1.1-secondary-action"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "题目在动名副词与从句／名词性结构间转换；原书的直接依据是附加动作与主动作同一主体，具体同义关系仍由题面与答案共同核对。 3.1.1 第 1 条：人称句中语法主体与逻辑主体一致，且主动作由动词表达时，动名副词可表达附加动作。 3.1.1 规定动名副词／动名副词短语用于 обозначение добавочного действия；主动作与附加动作需由同一主体实施。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "正确项「А」：题目在动名副词与从句／名词性结构间转换；原书的直接依据是附加动作与主动作同一主体，具体同义关系仍由题面与答案共同核对。 3.1.1 第 1 条：人称句中语法主体与逻辑主体一致，且主动作由动词表达时，动名副词可表达附加动作。 3.1.1 规定动名副词／动名副词短语用于 обозначение добавочного действия；主动作与附加动作需由同一主体实施。",
+        "distractors": [
+          {
+            "key": "Б",
+            "text": "проводя серию экспериментов",
+            "sourceType": "learning-note",
+            "reason": "它不能同时保留题干附加动作与主句主要动作由同一可恢复逻辑主体实施的条件，或改变了原题的句法／语义关系。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 54,
+        "questionPrintedPage": 52,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124,
+        "answerSource": "PDF-126 / 印刷页 124：Ключи к третьей главе"
+      }
+    },
+    {
+      "exerciseId": "GL3-Q081",
+      "printedNumber": 81,
+      "exercisePrintedPage": 52,
+      "sourceType": "exercise-example",
+      "status": "mapped",
+      "question": "Растения создают одежду для земли, когда укрывают её лесами, лугами и цветущей степью.",
+      "options": [
+        {
+          "key": "А",
+          "text": "укрыв её лесами, лугами и цветущей степью"
+        },
+        {
+          "key": "Б",
+          "text": "укрывая её лесами, лугами и цветущей степью"
+        }
+      ],
+      "correctAnswer": "Б",
+      "ruleIds": [
+        "gl3-3.1.1-shared-subject-personal",
+        "gl3-3.1.1-secondary-action"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "题目在动名副词与从句／名词性结构间转换；原书的直接依据是附加动作与主动作同一主体，具体同义关系仍由题面与答案共同核对。 3.1.1 第 1 条：人称句中语法主体与逻辑主体一致，且主动作由动词表达时，动名副词可表达附加动作。 3.1.1 规定动名副词／动名副词短语用于 обозначение добавочного действия；主动作与附加动作需由同一主体实施。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "正确项「Б」：题目在动名副词与从句／名词性结构间转换；原书的直接依据是附加动作与主动作同一主体，具体同义关系仍由题面与答案共同核对。 3.1.1 第 1 条：人称句中语法主体与逻辑主体一致，且主动作由动词表达时，动名副词可表达附加动作。 3.1.1 规定动名副词／动名副词短语用于 обозначение добавочного действия；主动作与附加动作需由同一主体实施。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "укрыв её лесами, лугами и цветущей степью",
+            "sourceType": "learning-note",
+            "reason": "它不能同时保留题干附加动作与主句主要动作由同一可恢复逻辑主体实施的条件，或改变了原题的句法／语义关系。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 54,
+        "questionPrintedPage": 52,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124,
+        "answerSource": "PDF-126 / 印刷页 124：Ключи к третьей главе"
+      }
+    },
+    {
+      "exerciseId": "GL3-Q082",
+      "printedNumber": 82,
+      "exercisePrintedPage": 52,
+      "sourceType": "exercise-example",
+      "status": "mapped",
+      "question": "Лес является прекрасным местом отдыха, поскольку оказывает на человека психотерапевтическое воздействие.",
+      "options": [
+        {
+          "key": "А",
+          "text": "оказывая на человека психотерапевтическое воздействие"
+        },
+        {
+          "key": "Б",
+          "text": "оказав на человека психотерапевтическое воздействие"
+        }
+      ],
+      "correctAnswer": "А",
+      "ruleIds": [
+        "gl3-3.1.1-shared-subject-personal",
+        "gl3-3.1.1-secondary-action"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "题目在动名副词与从句／名词性结构间转换；原书的直接依据是附加动作与主动作同一主体，具体同义关系仍由题面与答案共同核对。 3.1.1 第 1 条：人称句中语法主体与逻辑主体一致，且主动作由动词表达时，动名副词可表达附加动作。 3.1.1 规定动名副词／动名副词短语用于 обозначение добавочного действия；主动作与附加动作需由同一主体实施。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "正确项「А」：题目在动名副词与从句／名词性结构间转换；原书的直接依据是附加动作与主动作同一主体，具体同义关系仍由题面与答案共同核对。 3.1.1 第 1 条：人称句中语法主体与逻辑主体一致，且主动作由动词表达时，动名副词可表达附加动作。 3.1.1 规定动名副词／动名副词短语用于 обозначение добавочного действия；主动作与附加动作需由同一主体实施。",
+        "distractors": [
+          {
+            "key": "Б",
+            "text": "оказав на человека психотерапевтическое воздействие",
+            "sourceType": "learning-note",
+            "reason": "它不能同时保留题干附加动作与主句主要动作由同一可恢复逻辑主体实施的条件，或改变了原题的句法／语义关系。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 54,
+        "questionPrintedPage": 52,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124,
+        "answerSource": "PDF-126 / 印刷页 124：Ключи к третьей главе"
+      }
+    },
+    {
+      "exerciseId": "GL3-Q083",
+      "printedNumber": 83,
+      "exercisePrintedPage": 52,
+      "sourceType": "exercise-example",
+      "status": "mapped",
+      "question": "Ты бы меньше заботился о том, что думают о тебе другие, если бы знал, как мало они о тебе думают.",
+      "options": [
+        {
+          "key": "А",
+          "text": "узнав"
+        },
+        {
+          "key": "Б",
+          "text": "зная"
+        }
+      ],
+      "correctAnswer": "Б",
+      "ruleIds": [
+        "gl3-3.1.1-shared-subject-personal",
+        "gl3-3.1.1-secondary-action"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "题目在动名副词与从句／名词性结构间转换；原书的直接依据是附加动作与主动作同一主体，具体同义关系仍由题面与答案共同核对。 3.1.1 第 1 条：人称句中语法主体与逻辑主体一致，且主动作由动词表达时，动名副词可表达附加动作。 3.1.1 规定动名副词／动名副词短语用于 обозначение добавочного действия；主动作与附加动作需由同一主体实施。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "正确项「Б」：题目在动名副词与从句／名词性结构间转换；原书的直接依据是附加动作与主动作同一主体，具体同义关系仍由题面与答案共同核对。 3.1.1 第 1 条：人称句中语法主体与逻辑主体一致，且主动作由动词表达时，动名副词可表达附加动作。 3.1.1 规定动名副词／动名副词短语用于 обозначение добавочного действия；主动作与附加动作需由同一主体实施。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "узнав",
+            "sourceType": "learning-note",
+            "reason": "它不能同时保留题干附加动作与主句主要动作由同一可恢复逻辑主体实施的条件，或改变了原题的句法／语义关系。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 54,
+        "questionPrintedPage": 52,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124,
+        "answerSource": "PDF-126 / 印刷页 124：Ключи к третьей главе"
+      }
+    },
+    {
+      "exerciseId": "GL3-Q084",
+      "printedNumber": 84,
+      "exercisePrintedPage": 52,
+      "sourceType": "exercise-example",
+      "status": "mapped",
+      "question": "Когда музыка касается сердца, она рождает любовь к жизни и примиряет с ней человека.",
+      "options": [
+        {
+          "key": "А",
+          "text": "Касаясь сердца, музыка"
+        },
+        {
+          "key": "Б",
+          "text": "Коснувшись сердца, музыка"
+        }
+      ],
+      "correctAnswer": "Б",
+      "ruleIds": [
+        "gl3-3.1.1-shared-subject-personal",
+        "gl3-3.1.1-secondary-action"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "题目在动名副词与从句／名词性结构间转换；原书的直接依据是附加动作与主动作同一主体，具体同义关系仍由题面与答案共同核对。 3.1.1 第 1 条：人称句中语法主体与逻辑主体一致，且主动作由动词表达时，动名副词可表达附加动作。 3.1.1 规定动名副词／动名副词短语用于 обозначение добавочного действия；主动作与附加动作需由同一主体实施。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "正确项「Б」：题目在动名副词与从句／名词性结构间转换；原书的直接依据是附加动作与主动作同一主体，具体同义关系仍由题面与答案共同核对。 3.1.1 第 1 条：人称句中语法主体与逻辑主体一致，且主动作由动词表达时，动名副词可表达附加动作。 3.1.1 规定动名副词／动名副词短语用于 обозначение добавочного действия；主动作与附加动作需由同一主体实施。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "Касаясь сердца, музыка",
+            "sourceType": "learning-note",
+            "reason": "它不能同时保留题干附加动作与主句主要动作由同一可恢复逻辑主体实施的条件，或改变了原题的句法／语义关系。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 54,
+        "questionPrintedPage": 52,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124,
+        "answerSource": "PDF-126 / 印刷页 124：Ключи к третьей главе"
+      }
+    },
+    {
+      "exerciseId": "GL3-Q085",
+      "printedNumber": 85,
+      "exercisePrintedPage": 52,
+      "sourceType": "exercise-example",
+      "status": "mapped",
+      "question": "Поэтесса часто говорила со смехом, что она «всего лишь слабая женщина».",
+      "options": [
+        {
+          "key": "А",
+          "text": "засмеявшись"
+        },
+        {
+          "key": "Б",
+          "text": "смеясь"
+        }
+      ],
+      "correctAnswer": "Б",
+      "ruleIds": [
+        "gl3-3.1.1-shared-subject-personal",
+        "gl3-3.1.1-secondary-action"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "题目在动名副词与从句／名词性结构间转换；原书的直接依据是附加动作与主动作同一主体，具体同义关系仍由题面与答案共同核对。 3.1.1 第 1 条：人称句中语法主体与逻辑主体一致，且主动作由动词表达时，动名副词可表达附加动作。 3.1.1 规定动名副词／动名副词短语用于 обозначение добавочного действия；主动作与附加动作需由同一主体实施。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "正确项「Б」：题目在动名副词与从句／名词性结构间转换；原书的直接依据是附加动作与主动作同一主体，具体同义关系仍由题面与答案共同核对。 3.1.1 第 1 条：人称句中语法主体与逻辑主体一致，且主动作由动词表达时，动名副词可表达附加动作。 3.1.1 规定动名副词／动名副词短语用于 обозначение добавочного действия；主动作与附加动作需由同一主体实施。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "засмеявшись",
+            "sourceType": "learning-note",
+            "reason": "它不能同时保留题干附加动作与主句主要动作由同一可恢复逻辑主体实施的条件，或改变了原题的句法／语义关系。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 54,
+        "questionPrintedPage": 52,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124,
+        "answerSource": "PDF-126 / 印刷页 124：Ключи к третьей главе"
+      }
+    },
+    {
+      "exerciseId": "GL3-Q086",
+      "printedNumber": 86,
+      "exercisePrintedPage": 53,
+      "sourceType": "exercise-example",
+      "status": "source-exercise-only",
+      "question": "«Однажды узнанные, научные истины перестают быть историческими загадками, а делаются фактами сознания» (А.И. Герцен).",
+      "options": [
+        {
+          "key": "А",
+          "text": "когда?"
+        },
+        {
+          "key": "Б",
+          "text": "зачем?"
+        },
+        {
+          "key": "В",
+          "text": "какие?"
+        },
+        {
+          "key": "Г",
+          "text": "почему?"
+        }
+      ],
+      "correctAnswer": "В",
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "mappingReason": "узнанные 是参与式定语；当前理论区无参与式语义问句规则。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书答案为「В」；本题没有独立原书理论依据：узнанные 是参与式定语；当前理论区无参与式语义问句规则。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "когда?",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "Б",
+            "text": "зачем?",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "Г",
+            "text": "почему?",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 55,
+        "questionPrintedPage": 53,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124,
+        "answerSource": "PDF-126 / 印刷页 124：Ключи к третьей главе"
+      }
+    },
+    {
+      "exerciseId": "GL3-Q087",
+      "printedNumber": 87,
+      "exercisePrintedPage": 53,
+      "sourceType": "exercise-example",
+      "status": "source-exercise-only",
+      "question": "«Если ты получаешь доход, не зарабатывая его, то кто-нибудь работает, не получая дохода» (Л.Н. Толстой)",
+      "options": [
+        {
+          "key": "А",
+          "text": "как?"
+        },
+        {
+          "key": "Б",
+          "text": "какой?"
+        },
+        {
+          "key": "В",
+          "text": "где?"
+        },
+        {
+          "key": "Г",
+          "text": "когда?"
+        }
+      ],
+      "correctAnswer": "А",
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "mappingReason": "не зарабатывая 位于含两个不同主体的条件复句中，题目考查语义问句而非原书说明的规范使用条件；不从答案倒推规则。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书答案为「А」；本题没有独立原书理论依据：не зарабатывая 位于含两个不同主体的条件复句中，题目考查语义问句而非原书说明的规范使用条件；不从答案倒推规则。",
+        "distractors": [
+          {
+            "key": "Б",
+            "text": "какой?",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "В",
+            "text": "где?",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "Г",
+            "text": "когда?",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 55,
+        "questionPrintedPage": 53,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124,
+        "answerSource": "PDF-126 / 印刷页 124：Ключи к третьей главе"
+      }
+    },
+    {
+      "exerciseId": "GL3-Q088",
+      "printedNumber": 88,
+      "exercisePrintedPage": 53,
+      "sourceType": "exercise-example",
+      "status": "source-exercise-only",
+      "question": "«Счастлив путник, который после длинной дороги видит знакомую крышу с несущимися навстречу огоньками» (Н.В. Гоголь).",
+      "options": [
+        {
+          "key": "А",
+          "text": "почему?"
+        },
+        {
+          "key": "Б",
+          "text": "с какими?"
+        },
+        {
+          "key": "В",
+          "text": "когда?"
+        },
+        {
+          "key": "Г",
+          "text": "как?"
+        }
+      ],
+      "correctAnswer": "Б",
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "mappingReason": "несущимися 是参与式定语；当前理论区无参与式语义问句规则。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书答案为「Б」；本题没有独立原书理论依据：несущимися 是参与式定语；当前理论区无参与式语义问句规则。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "почему?",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "В",
+            "text": "когда?",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "Г",
+            "text": "как?",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 55,
+        "questionPrintedPage": 53,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124,
+        "answerSource": "PDF-126 / 印刷页 124：Ключи к третьей главе"
+      }
+    },
+    {
+      "exerciseId": "GL3-Q089",
+      "printedNumber": 89,
+      "exercisePrintedPage": 53,
+      "sourceType": "exercise-example",
+      "status": "source-exercise-only",
+      "question": "«Ему казалось, что этот день, наполненный светом солнца и шумом моря, неимоверно велик» (А.Н. Толстой).",
+      "options": [
+        {
+          "key": "А",
+          "text": "чем?"
+        },
+        {
+          "key": "Б",
+          "text": "когда"
+        },
+        {
+          "key": "В",
+          "text": "как?"
+        },
+        {
+          "key": "Г",
+          "text": "какой?"
+        }
+      ],
+      "correctAnswer": "Г",
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "mappingReason": "наполненный 是参与式定语；当前理论区无参与式语义问句规则。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书答案为「Г」；本题没有独立原书理论依据：наполненный 是参与式定语；当前理论区无参与式语义问句规则。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "чем?",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "Б",
+            "text": "когда",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "В",
+            "text": "как?",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 55,
+        "questionPrintedPage": 53,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124,
+        "answerSource": "PDF-126 / 印刷页 124：Ключи к третьей главе"
+      }
+    },
+    {
+      "exerciseId": "GL3-Q090",
+      "printedNumber": 90,
+      "exercisePrintedPage": 53,
+      "sourceType": "exercise-example",
+      "status": "mapped",
+      "question": "«Красно-синие мячики прыгали по уже пыльным дорожкам, отбрасывая прыгающие тени» (В.П. Катаев).",
+      "options": [
+        {
+          "key": "А",
+          "text": "какие?"
+        },
+        {
+          "key": "Б",
+          "text": "как?"
+        },
+        {
+          "key": "В",
+          "text": "зачем?"
+        },
+        {
+          "key": "Г",
+          "text": "почему?"
+        }
+      ],
+      "correctAnswer": "Б",
+      "ruleIds": [
+        "gl3-3.1.1-shared-subject-personal",
+        "gl3-3.1.1-secondary-action"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "мячики прыгали，отбрасывая тени；动名副词表示同一主体的附加动作。 3.1.1 第 1 条：人称句中语法主体与逻辑主体一致，且主动作由动词表达时，动名副词可表达附加动作。 3.1.1 规定动名副词／动名副词短语用于 обозначение добавочного действия；主动作与附加动作需由同一主体实施。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "正确项「Б」：мячики прыгали，отбрасывая тени；动名副词表示同一主体的附加动作。 3.1.1 第 1 条：人称句中语法主体与逻辑主体一致，且主动作由动词表达时，动名副词可表达附加动作。 3.1.1 规定动名副词／动名副词短语用于 обозначение добавочного действия；主动作与附加动作需由同一主体实施。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "какие?",
+            "sourceType": "learning-note",
+            "reason": "它不能同时保留题干附加动作与主句主要动作由同一可恢复逻辑主体实施的条件，或改变了原题的句法／语义关系。"
+          },
+          {
+            "key": "В",
+            "text": "зачем?",
+            "sourceType": "learning-note",
+            "reason": "它不能同时保留题干附加动作与主句主要动作由同一可恢复逻辑主体实施的条件，或改变了原题的句法／语义关系。"
+          },
+          {
+            "key": "Г",
+            "text": "почему?",
+            "sourceType": "learning-note",
+            "reason": "它不能同时保留题干附加动作与主句主要动作由同一可恢复逻辑主体实施的条件，或改变了原题的句法／语义关系。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 55,
+        "questionPrintedPage": 53,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124,
+        "answerSource": "PDF-126 / 印刷页 124：Ключи к третьей главе"
+      }
+    },
+    {
+      "exerciseId": "GL3-Q091",
+      "printedNumber": 91,
+      "exercisePrintedPage": 53,
+      "sourceType": "exercise-example",
+      "status": "mapped",
+      "question": "«Он ушёл, кивая и подмигивая и твёрдо зная при этом, что всё кончится благородно» (Ю.В. Трифонов).",
+      "options": [
+        {
+          "key": "А",
+          "text": "как?"
+        },
+        {
+          "key": "Б",
+          "text": "куда?"
+        },
+        {
+          "key": "В",
+          "text": "откуда?"
+        },
+        {
+          "key": "Г",
+          "text": "почему?"
+        }
+      ],
+      "correctAnswer": "А",
+      "ruleIds": [
+        "gl3-3.1.1-shared-subject-personal",
+        "gl3-3.1.1-secondary-action"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "Он ушёл，кивая、подмигивая、зная...；所有附加动作与主句主体 он 一致。 3.1.1 第 1 条：人称句中语法主体与逻辑主体一致，且主动作由动词表达时，动名副词可表达附加动作。 3.1.1 规定动名副词／动名副词短语用于 обозначение добавочного действия；主动作与附加动作需由同一主体实施。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "正确项「А」：Он ушёл，кивая、подмигивая、зная...；所有附加动作与主句主体 он 一致。 3.1.1 第 1 条：人称句中语法主体与逻辑主体一致，且主动作由动词表达时，动名副词可表达附加动作。 3.1.1 规定动名副词／动名副词短语用于 обозначение добавочного действия；主动作与附加动作需由同一主体实施。",
+        "distractors": [
+          {
+            "key": "Б",
+            "text": "куда?",
+            "sourceType": "learning-note",
+            "reason": "它不能同时保留题干附加动作与主句主要动作由同一可恢复逻辑主体实施的条件，或改变了原题的句法／语义关系。"
+          },
+          {
+            "key": "В",
+            "text": "откуда?",
+            "sourceType": "learning-note",
+            "reason": "它不能同时保留题干附加动作与主句主要动作由同一可恢复逻辑主体实施的条件，或改变了原题的句法／语义关系。"
+          },
+          {
+            "key": "Г",
+            "text": "почему?",
+            "sourceType": "learning-note",
+            "reason": "它不能同时保留题干附加动作与主句主要动作由同一可恢复逻辑主体实施的条件，或改变了原题的句法／语义关系。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 55,
+        "questionPrintedPage": 53,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124,
+        "answerSource": "PDF-126 / 印刷页 124：Ключи к третьей главе"
+      }
+    },
+    {
+      "exerciseId": "GL3-Q092",
+      "printedNumber": 92,
+      "exercisePrintedPage": 54,
+      "sourceType": "exercise-example",
+      "status": "source-exercise-only",
+      "question": "«Варя вспомнила, что согласно психологической науке спрятанные за спиной руки означают нежелание говорить правду» (Б. Акунин).",
+      "options": [
+        {
+          "key": "А",
+          "text": "какие?"
+        },
+        {
+          "key": "Б",
+          "text": "что?"
+        },
+        {
+          "key": "В",
+          "text": "где?"
+        },
+        {
+          "key": "Г",
+          "text": "как?"
+        }
+      ],
+      "correctAnswer": "А",
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "mappingReason": "спрятанные 是参与式定语；当前理论区无参与式语义问句规则。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书答案为「А」；本题没有独立原书理论依据：спрятанные 是参与式定语；当前理论区无参与式语义问句规则。",
+        "distractors": [
+          {
+            "key": "Б",
+            "text": "что?",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "В",
+            "text": "где?",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "Г",
+            "text": "как?",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 56,
+        "questionPrintedPage": 54,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124,
+        "answerSource": "PDF-126 / 印刷页 124：Ключи к третьей главе"
+      }
+    },
+    {
+      "exerciseId": "GL3-Q093",
+      "printedNumber": 93,
+      "exercisePrintedPage": 54,
+      "sourceType": "exercise-example",
+      "status": "mapped",
+      "question": "«Кошка Джина, лениво позёвывая, сидела в кресле — видно, Инна её разбудила» (Т.В. Устинова).",
+      "options": [
+        {
+          "key": "А",
+          "text": "когда?"
+        },
+        {
+          "key": "Б",
+          "text": "как?"
+        },
+        {
+          "key": "В",
+          "text": "почему?"
+        },
+        {
+          "key": "Г",
+          "text": "где?"
+        }
+      ],
+      "correctAnswer": "Б",
+      "ruleIds": [
+        "gl3-3.1.1-shared-subject-personal",
+        "gl3-3.1.1-secondary-action"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "кошка сидела，лениво позёвывая；同一主体的附加动作。 3.1.1 第 1 条：人称句中语法主体与逻辑主体一致，且主动作由动词表达时，动名副词可表达附加动作。 3.1.1 规定动名副词／动名副词短语用于 обозначение добавочного действия；主动作与附加动作需由同一主体实施。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "正确项「Б」：кошка сидела，лениво позёвывая；同一主体的附加动作。 3.1.1 第 1 条：人称句中语法主体与逻辑主体一致，且主动作由动词表达时，动名副词可表达附加动作。 3.1.1 规定动名副词／动名副词短语用于 обозначение добавочного действия；主动作与附加动作需由同一主体实施。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "когда?",
+            "sourceType": "learning-note",
+            "reason": "它不能同时保留题干附加动作与主句主要动作由同一可恢复逻辑主体实施的条件，或改变了原题的句法／语义关系。"
+          },
+          {
+            "key": "В",
+            "text": "почему?",
+            "sourceType": "learning-note",
+            "reason": "它不能同时保留题干附加动作与主句主要动作由同一可恢复逻辑主体实施的条件，或改变了原题的句法／语义关系。"
+          },
+          {
+            "key": "Г",
+            "text": "где?",
+            "sourceType": "learning-note",
+            "reason": "它不能同时保留题干附加动作与主句主要动作由同一可恢复逻辑主体实施的条件，或改变了原题的句法／语义关系。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 56,
+        "questionPrintedPage": 54,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124,
+        "answerSource": "PDF-126 / 印刷页 124：Ключи к третьей главе"
+      }
+    },
+    {
+      "exerciseId": "GL3-Q094",
+      "printedNumber": 94,
+      "exercisePrintedPage": 54,
+      "sourceType": "exercise-example",
+      "status": "source-exercise-only",
+      "question": "«Каждое утро они просыпались в доме, пахнущем деревом, и видели в раскрытое окно цветущие яблони» (В.С. Токарева).",
+      "options": [
+        {
+          "key": "А",
+          "text": "как?"
+        },
+        {
+          "key": "Б",
+          "text": "чем?"
+        },
+        {
+          "key": "В",
+          "text": "каком?"
+        },
+        {
+          "key": "Г",
+          "text": "где?"
+        }
+      ],
+      "correctAnswer": "В",
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "mappingReason": "пахнущем 是参与式定语；当前理论区无参与式语义问句规则。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书答案为「В」；本题没有独立原书理论依据：пахнущем 是参与式定语；当前理论区无参与式语义问句规则。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "как?",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "Б",
+            "text": "чем?",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "Г",
+            "text": "где?",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 56,
+        "questionPrintedPage": 54,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124,
+        "answerSource": "PDF-126 / 印刷页 124：Ключи к третьей главе"
+      }
+    },
+    {
+      "exerciseId": "GL3-Q095",
+      "printedNumber": 95,
+      "exercisePrintedPage": 54,
+      "sourceType": "exercise-example",
+      "status": "source-exercise-only",
+      "question": "Растения, нашедшие приют в вашем доме, очень быстро становятся его полноправными обитателями.",
+      "options": [
+        {
+          "key": "А",
+          "text": "как?"
+        },
+        {
+          "key": "Б",
+          "text": "где?"
+        },
+        {
+          "key": "В",
+          "text": "когда?"
+        },
+        {
+          "key": "Г",
+          "text": "какие?"
+        }
+      ],
+      "correctAnswer": "Г",
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "mappingReason": "нашедшие 是参与式定语；当前理论区无参与式语义问句规则。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书答案为「Г」；本题没有独立原书理论依据：нашедшие 是参与式定语；当前理论区无参与式语义问句规则。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "как?",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "Б",
+            "text": "где?",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "В",
+            "text": "когда?",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 56,
+        "questionPrintedPage": 54,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124,
+        "answerSource": "PDF-126 / 印刷页 124：Ключи к третьей главе"
+      }
+    },
+    {
+      "exerciseId": "GL3-Q096",
+      "printedNumber": 96,
+      "exercisePrintedPage": 54,
+      "sourceType": "exercise-example",
+      "status": "source-exercise-only",
+      "question": "Антропологи, анализирующие первобытное мышление, утверждают, что внешний мир ничего не значил для человека племени.",
+      "options": [
+        {
+          "key": "А",
+          "text": "как?"
+        },
+        {
+          "key": "Б",
+          "text": "когда?"
+        },
+        {
+          "key": "В",
+          "text": "какие?"
+        },
+        {
+          "key": "Г",
+          "text": "почему?"
+        }
+      ],
+      "correctAnswer": "В",
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "mappingReason": "анализирующие 是参与式定语；当前理论区无参与式语义问句规则。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书答案为「В」；本题没有独立原书理论依据：анализирующие 是参与式定语；当前理论区无参与式语义问句规则。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "как?",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "Б",
+            "text": "когда?",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "Г",
+            "text": "почему?",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 56,
+        "questionPrintedPage": 54,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124,
+        "answerSource": "PDF-126 / 印刷页 124：Ключи к третьей главе"
+      }
+    },
+    {
+      "exerciseId": "GL3-Q097",
+      "printedNumber": 97,
+      "exercisePrintedPage": 54,
+      "sourceType": "exercise-example",
+      "status": "source-exercise-only",
+      "question": "Я с детства люблю осторожно вынимать из картонной коробки завёрнутые в бумагу ёлочные украшения.",
+      "options": [
+        {
+          "key": "А",
+          "text": "как?"
+        },
+        {
+          "key": "Б",
+          "text": "какие?"
+        },
+        {
+          "key": "В",
+          "text": "когда?"
+        },
+        {
+          "key": "Г",
+          "text": "откуда?"
+        }
+      ],
+      "correctAnswer": "Б",
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "mappingReason": "завёрнутые 是参与式定语；当前理论区无参与式语义问句规则。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书答案为「Б」；本题没有独立原书理论依据：завёрнутые 是参与式定语；当前理论区无参与式语义问句规则。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "как?",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "В",
+            "text": "когда?",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          },
+          {
+            "key": "Г",
+            "text": "откуда?",
+            "sourceType": "learning-note",
+            "reason": "它不是 PDF 原书答案；理论区没有该题型的独立规则，不能把错误项的排除理由伪装成原书规则。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 56,
+        "questionPrintedPage": 54,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124,
+        "answerSource": "PDF-126 / 印刷页 124：Ключи к третьей главе"
+      }
+    },
+    {
+      "exerciseId": "GL3-Q098",
+      "printedNumber": 98,
+      "exercisePrintedPage": 54,
+      "sourceType": "exercise-example",
+      "status": "mapped",
+      "question": "Молодая мама шла по улице, толкая перед собой коляску с ребёнком.",
+      "options": [
+        {
+          "key": "А",
+          "text": "как?"
+        },
+        {
+          "key": "Б",
+          "text": "какая?"
+        },
+        {
+          "key": "В",
+          "text": "где?"
+        },
+        {
+          "key": "Г",
+          "text": "зачем?"
+        }
+      ],
+      "correctAnswer": "А",
+      "ruleIds": [
+        "gl3-3.1.1-shared-subject-personal",
+        "gl3-3.1.1-secondary-action"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "мама шла，толкая коляску；两项动作由 мама 实施。 3.1.1 第 1 条：人称句中语法主体与逻辑主体一致，且主动作由动词表达时，动名副词可表达附加动作。 3.1.1 规定动名副词／动名副词短语用于 обозначение добавочного действия；主动作与附加动作需由同一主体实施。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "正确项「А」：мама шла，толкая коляску；两项动作由 мама 实施。 3.1.1 第 1 条：人称句中语法主体与逻辑主体一致，且主动作由动词表达时，动名副词可表达附加动作。 3.1.1 规定动名副词／动名副词短语用于 обозначение добавочного действия；主动作与附加动作需由同一主体实施。",
+        "distractors": [
+          {
+            "key": "Б",
+            "text": "какая?",
+            "sourceType": "learning-note",
+            "reason": "它不能同时保留题干附加动作与主句主要动作由同一可恢复逻辑主体实施的条件，或改变了原题的句法／语义关系。"
+          },
+          {
+            "key": "В",
+            "text": "где?",
+            "sourceType": "learning-note",
+            "reason": "它不能同时保留题干附加动作与主句主要动作由同一可恢复逻辑主体实施的条件，或改变了原题的句法／语义关系。"
+          },
+          {
+            "key": "Г",
+            "text": "зачем?",
+            "sourceType": "learning-note",
+            "reason": "它不能同时保留题干附加动作与主句主要动作由同一可恢复逻辑主体实施的条件，或改变了原题的句法／语义关系。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 56,
+        "questionPrintedPage": 54,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124,
+        "answerSource": "PDF-126 / 印刷页 124：Ключи к третьей главе"
+      }
+    },
+    {
+      "exerciseId": "GL3-Q099",
+      "printedNumber": 99,
+      "exercisePrintedPage": 55,
+      "sourceType": "exercise-example",
+      "status": "mapped",
+      "question": "Неплохо провести отпуск, нежась на солнце, купаясь в море и изредка выбираясь в горы.",
+      "options": [
+        {
+          "key": "А",
+          "text": "где?"
+        },
+        {
+          "key": "Б",
+          "text": "какой?"
+        },
+        {
+          "key": "В",
+          "text": "как?"
+        },
+        {
+          "key": "Г",
+          "text": "когда?"
+        }
+      ],
+      "correctAnswer": "В",
+      "ruleIds": [
+        "gl3-3.1.1-impersonal-single-logical-subject",
+        "gl3-3.1.1-secondary-action"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "Неплохо провести отпуск，нежась、купаясь、выбираясь...；主动作不定式与附加动作指向同一隐含休假者，归入原书的单一逻辑主体范围。 3.1.1 第 2 条：无主句若主动作与附加动作按逻辑由同一人实施，动名副词符合规范；原书列出带不定式的 безличные глаголы、谓词副词和情态词。 3.1.1 规定动名副词／动名副词短语用于 обозначение добавочного действия；主动作与附加动作需由同一主体实施。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "正确项「В」：Неплохо провести отпуск，нежась、купаясь、выбираясь...；主动作不定式与附加动作指向同一隐含休假者，归入原书的单一逻辑主体范围。 3.1.1 第 2 条：无主句若主动作与附加动作按逻辑由同一人实施，动名副词符合规范；原书列出带不定式的 безличные глаголы、谓词副词和情态词。 3.1.1 规定动名副词／动名副词短语用于 обозначение добавочного действия；主动作与附加动作需由同一主体实施。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "где?",
+            "sourceType": "learning-note",
+            "reason": "它不能同时保留题干附加动作与主句主要动作由同一可恢复逻辑主体实施的条件，或改变了原题的句法／语义关系。"
+          },
+          {
+            "key": "Б",
+            "text": "какой?",
+            "sourceType": "learning-note",
+            "reason": "它不能同时保留题干附加动作与主句主要动作由同一可恢复逻辑主体实施的条件，或改变了原题的句法／语义关系。"
+          },
+          {
+            "key": "Г",
+            "text": "когда?",
+            "sourceType": "learning-note",
+            "reason": "它不能同时保留题干附加动作与主句主要动作由同一可恢复逻辑主体实施的条件，或改变了原题的句法／语义关系。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 57,
+        "questionPrintedPage": 55,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124,
+        "answerSource": "PDF-126 / 印刷页 124：Ключи к третьей главе"
+      }
+    }
+  ],
+  "relatedRules": [
+    {
+      "sourceType": "learning-note",
+      "text": "3.1.1（允许：同一逻辑主体）"
+    },
+    {
+      "sourceType": "learning-note",
+      "text": "3.1.2（禁止：多主体、无主和被动结构）"
+    }
+  ],
+  "source": {
+    "pdfPages": [
+      110
+    ],
+    "printedPages": [
+      108
+    ],
+    "cleanedSource": "cleaned-source/chapter-03.md",
+    "sourcePdf": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+  },
+  "sourceCoverage": {
+    "ruleItems": {
+      "total": 2,
+      "captured": 2
+    },
+    "numberedItems": {
+      "total": 0,
+      "captured": 0
+    },
+    "tables": {
+      "total": 0,
+      "captured": 0,
+      "rowsTotal": 0,
+      "rowsCaptured": 0
+    },
+    "examples": {
+      "total": 0,
+      "captured": 0,
+      "countingMethod": "逐条保留原书正文、图式说明和脚注中的完整例句；概念导言没有独立例句时明确记为 0。"
+    },
+    "relatedExercises": {
+      "total": 99,
+      "explained": 99
+    },
+    "uncollectedItems": [
+      "本节为概念导言，没有独立的原书例句或表格；后续 3.1.1/3.1.2 的全部例句和图式在各自单元完整保留。"
+    ],
+    "sourceExerciseOnly": [
+      "GL3-Q001：题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+      "GL3-Q002：题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+      "GL3-Q003：题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+      "GL3-Q004：题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+      "GL3-Q005：题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+      "GL3-Q006：题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+      "GL3-Q007：题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+      "GL3-Q008：题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+      "GL3-Q009：题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+      "GL3-Q010：题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+      "GL3-Q011：题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+      "GL3-Q012：题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+      "GL3-Q013：题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+      "GL3-Q014：题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+      "GL3-Q015：题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+      "GL3-Q016：题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+      "GL3-Q017：题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+      "GL3-Q018：题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+      "GL3-Q019：题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+      "GL3-Q020：题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+      "GL3-Q021：题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+      "GL3-Q022：题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+      "GL3-Q023：题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+      "GL3-Q024：题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+      "GL3-Q025：题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+      "GL3-Q026：题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+      "GL3-Q027：题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+      "GL3-Q028：题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+      "GL3-Q029：题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+      "GL3-Q030：题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+      "GL3-Q031：题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+      "GL3-Q032：题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+      "GL3-Q046：题目要求参与式与定语从句的同义转换；当前理论区没有参与式时态、语态或关系从句转换的独立规则。",
+      "GL3-Q047：题目要求参与式与定语从句的同义转换；当前理论区没有参与式时态、语态或关系从句转换的独立规则。",
+      "GL3-Q048：题目要求参与式与定语从句的同义转换；当前理论区没有参与式时态、语态或关系从句转换的独立规则。",
+      "GL3-Q049：题目要求参与式与定语从句的同义转换；当前理论区没有参与式时态、语态或关系从句转换的独立规则。",
+      "GL3-Q050：题目要求参与式与定语从句的同义转换；当前理论区没有参与式时态、语态或关系从句转换的独立规则。",
+      "GL3-Q051：题目要求参与式与定语从句的同义转换；当前理论区没有参与式时态、语态或关系从句转换的独立规则。",
+      "GL3-Q052：题目要求参与式与定语从句的同义转换；当前理论区没有参与式时态、语态或关系从句转换的独立规则。",
+      "GL3-Q053：题目要求参与式与定语从句的同义转换；当前理论区没有参与式时态、语态或关系从句转换的独立规则。",
+      "GL3-Q054：题目要求参与式与定语从句的同义转换；当前理论区没有参与式时态、语态或关系从句转换的独立规则。",
+      "GL3-Q055：题目要求参与式与定语从句的同义转换；当前理论区没有参与式时态、语态或关系从句转换的独立规则。",
+      "GL3-Q056：题目要求参与式与定语从句的同义转换；当前理论区没有参与式时态、语态或关系从句转换的独立规则。",
+      "GL3-Q057：题目要求参与式与定语从句的同义转换；当前理论区没有参与式时态、语态或关系从句转换的独立规则。",
+      "GL3-Q058：题目要求参与式与定语从句的同义转换；当前理论区没有参与式时态、语态或关系从句转换的独立规则。",
+      "GL3-Q059：题目要求参与式与定语从句的同义转换；当前理论区没有参与式时态、语态或关系从句转换的独立规则。",
+      "GL3-Q060：题目要求参与式与定语从句的同义转换；当前理论区没有参与式时态、语态或关系从句转换的独立规则。",
+      "GL3-Q061：题目要求参与式与定语从句的同义转换；当前理论区没有参与式时态、语态或关系从句转换的独立规则。",
+      "GL3-Q062：题目要求参与式与定语从句的同义转换；当前理论区没有参与式时态、语态或关系从句转换的独立规则。",
+      "GL3-Q063：题目要求参与式与定语从句的同义转换；当前理论区没有参与式时态、语态或关系从句转换的独立规则。",
+      "GL3-Q064：题目要求参与式与定语从句的同义转换；当前理论区没有参与式时态、语态或关系从句转换的独立规则。",
+      "GL3-Q065：题目要求参与式与定语从句的同义转换；当前理论区没有参与式时态、语态或关系从句转换的独立规则。",
+      "GL3-Q066：题目要求参与式与定语从句的同义转换；当前理论区没有参与式时态、语态或关系从句转换的独立规则。",
+      "GL3-Q067：题目要求参与式与定语从句的同义转换；当前理论区没有参与式时态、语态或关系从句转换的独立规则。",
+      "GL3-Q086：узнанные 是参与式定语；当前理论区无参与式语义问句规则。",
+      "GL3-Q087：не зарабатывая 位于含两个不同主体的条件复句中，题目考查语义问句而非原书说明的规范使用条件；不从答案倒推规则。",
+      "GL3-Q088：несущимися 是参与式定语；当前理论区无参与式语义问句规则。",
+      "GL3-Q089：наполненный 是参与式定语；当前理论区无参与式语义问句规则。",
+      "GL3-Q092：спрятанные 是参与式定语；当前理论区无参与式语义问句规则。",
+      "GL3-Q094：пахнущем 是参与式定语；当前理论区无参与式语义问句规则。",
+      "GL3-Q095：нашедшие 是参与式定语；当前理论区无参与式语义问句规则。",
+      "GL3-Q096：анализирующие 是参与式定语；当前理论区无参与式语义问句规则。",
+      "GL3-Q097：завёрнутые 是参与式定语；当前理论区无参与式语义问句规则。"
+    ],
+    "needsReview": [
+      "GL3-Q039：PDF 答案 A 使用 строится 的被动／反身式构造；而 3.1.2 第 3 条明确说被动结构中逻辑主体与语法主体不一致，不得使用动名副词。原书答案与规则出现表面冲突，必须保留 needs-review，不能由答案反向改写规则。 3.1.2 第 3 条：在被动结构中，逻辑主体与语法主体不一致；动名副词只在二者一致时才可使用，因此不得使用。"
+    ],
+    "ocrRisks": [
+      "理论扫描和清洗来源仍为 REVIEW；所有原书俄文均以 cleaned-source/chapter-03.md 为准，规则单元不得标为 verified。",
+      "PDF-113 / 印刷页 111 同时包含 3.1.2 的延续和第 4 章标题；本批已按语义标题切分，两个章节均保留该页的来源记录。",
+      "中文定位、判断步骤、对比、常见错误和选项解析均为 learning-note，不是原书规则或原书答案。"
+    ]
+  },
+  "reviewStatus": "needs-review",
+  "riskRecord": [
+    "理论扫描和清洗来源仍为 REVIEW；所有原书俄文均以 cleaned-source/chapter-03.md 为准，规则单元不得标为 verified。",
+    "PDF-113 / 印刷页 111 同时包含 3.1.2 的延续和第 4 章标题；本批已按语义标题切分，两个章节均保留该页的来源记录。",
+    "中文定位、判断步骤、对比、常见错误和选项解析均为 learning-note，不是原书规则或原书答案。",
+    "本单元关联 99 题：mapped 35、needs-review 1、source-exercise-only 63。后两种状态保持显式，未由学习辅助层升级。"
+  ]
+}

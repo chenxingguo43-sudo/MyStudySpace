@@ -1,0 +1,824 @@
+{
+  "schemaVersion": 2,
+  "id": "gl1-section-1.4.4-aspect",
+  "chapterId": "gl1",
+  "sectionId": "1.4.4",
+  "titleRu": "1.4.4. Лексико-семантические ограничения при употреблении глаголов несовершенного и совершенного вида в инфинитиве",
+  "titleZh": "不定式的词汇—语义限制",
+  "orientationZh": {
+    "sourceType": "learning-note",
+    "text": "当支配词属于原书列出的词汇组时，体由该组合的词汇—语义关系限制；这里不是把“完成／未完成”简化为普遍的时间长短。"
+  },
+  "quickDecision": [
+    {
+      "sourceType": "learning-note",
+      "text": "先检查支配词是否在原书列举的四组之内，而不是把所有动词都当作触发词。"
+    },
+    {
+      "sourceType": "learning-note",
+      "text": "阶段动词（开始、继续、停止等）后选未完成体，因为关注活动的启动／延续／终止过程。"
+    },
+    {
+      "sourceType": "learning-note",
+      "text": "获得或丧失习惯、兴趣等语义后选未完成体；表达厌烦、禁止或不合宜的组也选未完成体。"
+    },
+    {
+      "sourceType": "learning-note",
+      "text": "успеть、забыть、спешить／поспешить 后，原书要求完成体；若动词不在表内，回到 1.4.3 判断。"
+    }
+  ],
+  "sourceRules": [
+    {
+      "sourceType": "source-rule",
+      "text": "### 1.4.4. Лексико-семантические ограничения при употреблении глаголов несовершенного и совершенного вида в инфинитиве\n\n| Несовершенный вид | Совершенный вид |\n| ---- | ---- |\n| 1. После глаголов: начинать / начать, приступать / приступить, продолжать / продолжить, переставать / перестать, кончаться / кончиться.<br>— Осенью он начал учиться в университете; На втором курсе студенты продолжают изучать грамматику. | 1. После глаголов успевать, успеть; забыть, спешить / поспешить.<br>— Дачники успели сесть на последнюю электричку; Я забыл купить свежую газету; Они поспешили выйти из леса до наступления темноты. |\n\n--- PDF-098 / 印刷页 96 ---\n# Учебно-тренировочные тесты. Выпуск 1. Грамматика. Лексика\n| Несовершенный вид | Совершенный вид |\n| ---- | ---- |\n| 2. После глаголов со значением приобретения или утраты: любить / полюбить, привыкать / привыкнуть, отвыкать / отвыкнуть, бросать / бросить (в значении перестать), нравиться / понравиться.<br>— Шерлок Холмс любил играть на скрипке;<br>Мой друг давно бросил заниматься спортом. | |\n| 3. После глаголов, выражающих отрицательное отношение к названному действию: надоедать / надоесть, уставать / устать, передумать, разлюбить, расхотеть, отвыкать / отвыкнуть, разучиваться / разучиться, отучивать / отучить, запрещать / запретить, отговаривать / отговорить и после слов, выражающих запрет или нежелательность действия: довольно, хватит, опасно, плохо, вредно, бесполезно.<br>— Сын устал возражать матери; Родители отговаривали детей уезжать в отпуск так далеко;<br>Стыдно говорить неправду. | |",
+      "source": {
+        "pdfPages": [
+          97,
+          98
+        ],
+        "printedPages": [
+          95,
+          96
+        ]
+      }
+    }
+  ],
+  "atomicRules": [
+    {
+      "id": "gl1-1.4.4-phase-verb-imperfective",
+      "titleZh": "阶段动词后使用未完成体不定式",
+      "sourceReference": "完整原书条目与表格见本单元 sourceRules / tables。",
+      "sourceType": "learning-note",
+      "learningNote": "此原子分类用于检索；不替代本单元完整原书表格。"
+    },
+    {
+      "id": "gl1-1.4.4-habit-or-loss-imperfective",
+      "titleZh": "习惯获得或丧失类动词后使用未完成体",
+      "sourceReference": "完整原书条目与表格见本单元 sourceRules / tables。",
+      "sourceType": "learning-note",
+      "learningNote": "此原子分类用于检索；不替代本单元完整原书表格。"
+    },
+    {
+      "id": "gl1-1.4.4-negative-attitude-imperfective",
+      "titleZh": "否定态度、禁止或不合宜语义后使用未完成体",
+      "sourceReference": "完整原书条目与表格见本单元 sourceRules / tables。",
+      "sourceType": "learning-note",
+      "learningNote": "此原子分类用于检索；不替代本单元完整原书表格。"
+    },
+    {
+      "id": "gl1-1.4.4-result-trigger-perfective",
+      "titleZh": "успеть、забыть、спешить 等后使用完成体",
+      "sourceReference": "完整原书条目与表格见本单元 sourceRules / tables。",
+      "sourceType": "learning-note",
+      "learningNote": "此原子分类用于检索；不替代本单元完整原书表格。"
+    }
+  ],
+  "tables": [
+    {
+      "sourceType": "source-table",
+      "title": "1.4.4. Лексико-семантические ограничения при употреблении глаголов несовершенного и совершенного вида в инфинитиве",
+      "headers": [
+        "Несовершенный вид",
+        "Совершенный вид"
+      ],
+      "rows": [
+        [
+          "1. После глаголов: начинать / начать, приступать / приступить, продолжать / продолжить, переставать / перестать, кончаться / кончиться.<br>— Осенью он начал учиться в университете; На втором курсе студенты продолжают изучать грамматику.",
+          "1. После глаголов успевать, успеть; забыть, спешить / поспешить.<br>— Дачники успели сесть на последнюю электричку; Я забыл купить свежую газету; Они поспешили выйти из леса до наступления темноты."
+        ],
+        [
+          "2. После глаголов со значением приобретения или утраты: любить / полюбить, привыкать / привыкнуть, отвыкать / отвыкнуть, бросать / бросить (в значении перестать), нравиться / понравиться.<br>— Шерлок Холмс любил играть на скрипке;<br>Мой друг давно бросил заниматься спортом.",
+          ""
+        ],
+        [
+          "3. После глаголов, выражающих отрицательное отношение к названному действию: надоедать / надоесть, уставать / устать, передумать, разлюбить, расхотеть, отвыкать / отвыкнуть, разучиваться / разучиться, отучивать / отучить, запрещать / запретить, отговаривать / отговорить и после слов, выражающих запрет или нежелательность действия: довольно, хватит, опасно, плохо, вредно, бесполезно.<br>— Сын устал возражать матери; Родители отговаривали детей уезжать в отпуск так далеко;<br>Стыдно говорить неправду.",
+          ""
+        ]
+      ],
+      "markdown": "### 1.4.4. Лексико-семантические ограничения при употреблении глаголов несовершенного и совершенного вида в инфинитиве\n\n| Несовершенный вид | Совершенный вид |\n| ---- | ---- |\n| 1. После глаголов: начинать / начать, приступать / приступить, продолжать / продолжить, переставать / перестать, кончаться / кончиться.<br>— Осенью он начал учиться в университете; На втором курсе студенты продолжают изучать грамматику. | 1. После глаголов успевать, успеть; забыть, спешить / поспешить.<br>— Дачники успели сесть на последнюю электричку; Я забыл купить свежую газету; Они поспешили выйти из леса до наступления темноты. |\n\n--- PDF-098 / 印刷页 96 ---\n# Учебно-тренировочные тесты. Выпуск 1. Грамматика. Лексика\n| Несовершенный вид | Совершенный вид |\n| ---- | ---- |\n| 2. После глаголов со значением приобретения или утраты: любить / полюбить, привыкать / привыкнуть, отвыкать / отвыкнуть, бросать / бросить (в значении перестать), нравиться / понравиться.<br>— Шерлок Холмс любил играть на скрипке;<br>Мой друг давно бросил заниматься спортом. | |\n| 3. После глаголов, выражающих отрицательное отношение к названному действию: надоедать / надоесть, уставать / устать, передумать, разлюбить, расхотеть, отвыкать / отвыкнуть, разучиваться / разучиться, отучивать / отучить, запрещать / запретить, отговаривать / отговорить и после слов, выражающих запрет или нежелательность действия: довольно, хватит, опасно, плохо, вредно, бесполезно.<br>— Сын устал возражать матери; Родители отговаривали детей уезжать в отпуск так далеко;<br>Стыдно говорить неправду. | |",
+      "source": {
+        "pdfPages": [
+          97,
+          98
+        ],
+        "printedPages": [
+          95,
+          96
+        ]
+      }
+    }
+  ],
+  "semanticAnalysis": {
+    "sourceType": "learning-note",
+    "text": "这是有限的原书列举，不是可无限外推的“词典规则”。它解释为什么相同的体对在不同支配词后选择不同；表外题目仍需要 1.4.3 的事件语义。"
+  },
+  "signalAnalysis": [
+    {
+      "sourceType": "learning-note",
+      "signals": [
+        "начать",
+        "продолжать",
+        "перестать"
+      ],
+      "use": "仅当它们作原书所述阶段意义的支配词时，才是未完成体的可靠线索。"
+    },
+    {
+      "sourceType": "learning-note",
+      "signals": [
+        "успеть",
+        "забыть",
+        "спешить"
+      ],
+      "use": "原书明确列入完成体栏；不要把 удалось 等未列词偷偷并入。"
+    },
+    {
+      "sourceType": "learning-note",
+      "signals": [
+        "хватит",
+        "опасно",
+        "вредно",
+        "бесполезно"
+      ],
+      "use": "表达禁止或不合宜时支持未完成体，但须确认它们修饰的正是该不定式。"
+    }
+  ],
+  "examples": [
+    {
+      "sourceType": "source-example",
+      "text": "Осенью он начал учиться в университете; На втором курсе студенты продолжают изучать грамматику.",
+      "source": {
+        "pdfPages": [
+          97,
+          98
+        ],
+        "printedPages": [
+          95,
+          96
+        ]
+      }
+    },
+    {
+      "sourceType": "source-example",
+      "text": "Дачники успели сесть на последнюю электричку; Я забыл купить свежую газету; Они поспешили выйти из леса до наступления темноты.",
+      "source": {
+        "pdfPages": [
+          97,
+          98
+        ],
+        "printedPages": [
+          95,
+          96
+        ]
+      }
+    },
+    {
+      "sourceType": "source-example",
+      "text": "Шерлок Холмс любил играть на скрипке;",
+      "source": {
+        "pdfPages": [
+          97,
+          98
+        ],
+        "printedPages": [
+          95,
+          96
+        ]
+      }
+    },
+    {
+      "sourceType": "source-example",
+      "text": "Сын устал возражать матери; Родители отговаривали детей уезжать в отпуск так далеко;",
+      "source": {
+        "pdfPages": [
+          97,
+          98
+        ],
+        "printedPages": [
+          95,
+          96
+        ]
+      }
+    }
+  ],
+  "contrasts": [
+    {
+      "sourceType": "source-example",
+      "left": "Осенью он начал учиться в университете.",
+      "right": "Дачники успели сесть на последнюю электричку.",
+      "analysis": "左侧阶段动词开启学习活动；右侧 успеть 关注及时实现一次结果。"
+    },
+    {
+      "sourceType": "source-example",
+      "left": "Сын устал возражать матери.",
+      "right": "Я забыл купить свежую газету.",
+      "analysis": "厌烦对象是持续活动；忘记的是一次应完成的购买结果。"
+    }
+  ],
+  "commonErrors": [
+    {
+      "sourceType": "learning-note",
+      "text": "把表外的 уме́ть、учи́ть、удалось 误标为 1.4.4 触发词。"
+    },
+    {
+      "sourceType": "learning-note",
+      "text": "只凭“不喜欢／禁止”字面判断，忽略它必须表达对所述活动的负面态度。"
+    }
+  ],
+  "exerciseLinks": [
+    {
+      "exerciseId": "GL1-Q048",
+      "printedNumber": 48,
+      "exercisePrintedPage": 12,
+      "sourceType": "exercise-example",
+      "status": "mapped",
+      "question": "Учёные продолжают ... атмосферу и жизнь далёких планет, отправляя в космос новые космические аппараты.",
+      "options": [
+        {
+          "key": "А",
+          "text": "изучить"
+        },
+        {
+          "key": "Б",
+          "text": "изучать"
+        }
+      ],
+      "correctAnswer": "Б",
+      "ruleIds": [
+        "gl1-1.4.4-phase-verb-imperfective"
+      ],
+      "mappingReason": "题干与正确项须按「阶段动词后使用未完成体不定式」的原书条件判断；旧 knowledgePoints 未作为依据。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "正确项「Б」（изучать）符合映射规则：阶段动词后使用未完成体不定式。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "изучить",
+            "sourceType": "learning-note",
+            "reason": "它不满足题干所需的原书语义条件，不能仅凭词面或时间词替代该规则判断。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 14,
+        "questionPrintedPage": 12,
+        "answerPdfPage": 125,
+        "answerPrintedPage": 123
+      }
+    },
+    {
+      "exerciseId": "GL1-Q049",
+      "printedNumber": 49,
+      "exercisePrintedPage": 12,
+      "sourceType": "exercise-example",
+      "status": "mapped",
+      "question": "При работе с компьютером к чёткости шрифтов быстро привыкаешь и перестаёшь её ... .",
+      "options": [
+        {
+          "key": "А",
+          "text": "замечать"
+        },
+        {
+          "key": "Б",
+          "text": "заметить"
+        }
+      ],
+      "correctAnswer": "А",
+      "ruleIds": [
+        "gl1-1.4.4-phase-verb-imperfective"
+      ],
+      "mappingReason": "题干与正确项须按「阶段动词后使用未完成体不定式」的原书条件判断；旧 knowledgePoints 未作为依据。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "正确项「А」（замечать）符合映射规则：阶段动词后使用未完成体不定式。",
+        "distractors": [
+          {
+            "key": "Б",
+            "text": "заметить",
+            "sourceType": "learning-note",
+            "reason": "它不满足题干所需的原书语义条件，不能仅凭词面或时间词替代该规则判断。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 14,
+        "questionPrintedPage": 12,
+        "answerPdfPage": 125,
+        "answerPrintedPage": 123
+      }
+    },
+    {
+      "exerciseId": "GL1-Q050",
+      "printedNumber": 50,
+      "exercisePrintedPage": 12,
+      "sourceType": "exercise-example",
+      "status": "mapped",
+      "question": "Молодёжные центры жилищных инициатив, созданные в некоторых городах России, начали ... молодым семьям.",
+      "options": [
+        {
+          "key": "А",
+          "text": "помочь"
+        },
+        {
+          "key": "Б",
+          "text": "помогать"
+        }
+      ],
+      "correctAnswer": "Б",
+      "ruleIds": [
+        "gl1-1.4.4-phase-verb-imperfective"
+      ],
+      "mappingReason": "题干与正确项须按「阶段动词后使用未完成体不定式」的原书条件判断；旧 knowledgePoints 未作为依据。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "正确项「Б」（помогать）符合映射规则：阶段动词后使用未完成体不定式。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "помочь",
+            "sourceType": "learning-note",
+            "reason": "它不满足题干所需的原书语义条件，不能仅凭词面或时间词替代该规则判断。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 14,
+        "questionPrintedPage": 12,
+        "answerPdfPage": 125,
+        "answerPrintedPage": 123
+      }
+    },
+    {
+      "exerciseId": "GL1-Q051",
+      "printedNumber": 51,
+      "exercisePrintedPage": 12,
+      "sourceType": "exercise-example",
+      "status": "mapped",
+      "question": "Театральный режиссёр Наталья Сац, основавшая в Москве Детский музыкальный театр, привыкла ... всего сама.",
+      "options": [
+        {
+          "key": "А",
+          "text": "добиваться"
+        },
+        {
+          "key": "Б",
+          "text": "добиться"
+        }
+      ],
+      "correctAnswer": "А",
+      "ruleIds": [
+        "gl1-1.4.4-habit-or-loss-imperfective"
+      ],
+      "mappingReason": "题干与正确项须按「习惯获得或丧失类动词后使用未完成体」的原书条件判断；旧 knowledgePoints 未作为依据。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "正确项「А」（добиваться）符合映射规则：习惯获得或丧失类动词后使用未完成体。",
+        "distractors": [
+          {
+            "key": "Б",
+            "text": "добиться",
+            "sourceType": "learning-note",
+            "reason": "它不满足题干所需的原书语义条件，不能仅凭词面或时间词替代该规则判断。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 14,
+        "questionPrintedPage": 12,
+        "answerPdfPage": 125,
+        "answerPrintedPage": 123
+      }
+    },
+    {
+      "exerciseId": "GL1-Q056",
+      "printedNumber": 56,
+      "exercisePrintedPage": 12,
+      "sourceType": "exercise-example",
+      "status": "mapped",
+      "question": "«С велением судьбы нам ... бесполезно» (Ф.И. Тютчев).",
+      "options": [
+        {
+          "key": "А",
+          "text": "поспорить"
+        },
+        {
+          "key": "Б",
+          "text": "спорить"
+        }
+      ],
+      "correctAnswer": "Б",
+      "ruleIds": [
+        "gl1-1.4.4-negative-attitude-imperfective"
+      ],
+      "mappingReason": "题干与正确项须按「否定态度、禁止或不合宜语义后使用未完成体」的原书条件判断；旧 knowledgePoints 未作为依据。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "正确项「Б」（спорить）符合映射规则：否定态度、禁止或不合宜语义后使用未完成体。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "поспорить",
+            "sourceType": "learning-note",
+            "reason": "它混淆了否定动作事实、否定有界结果、许可或担忧等不同的否定范围。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 14,
+        "questionPrintedPage": 12,
+        "answerPdfPage": 125,
+        "answerPrintedPage": 123
+      }
+    },
+    {
+      "exerciseId": "GL1-Q057",
+      "printedNumber": 57,
+      "exercisePrintedPage": 12,
+      "sourceType": "exercise-example",
+      "status": "mapped",
+      "question": "Женихи постоянно говорили Пенелопе, что Одиссей не вернётся и что ей незачем ... одной.",
+      "options": [
+        {
+          "key": "А",
+          "text": "оставаться"
+        },
+        {
+          "key": "Б",
+          "text": "остаться"
+        }
+      ],
+      "correctAnswer": "А",
+      "ruleIds": [
+        "gl1-1.4.4-negative-attitude-imperfective"
+      ],
+      "mappingReason": "题干与正确项须按「否定态度、禁止或不合宜语义后使用未完成体」的原书条件判断；旧 knowledgePoints 未作为依据。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "正确项「А」（оставаться）符合映射规则：否定态度、禁止或不合宜语义后使用未完成体。",
+        "distractors": [
+          {
+            "key": "Б",
+            "text": "остаться",
+            "sourceType": "learning-note",
+            "reason": "它混淆了否定动作事实、否定有界结果、许可或担忧等不同的否定范围。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 14,
+        "questionPrintedPage": 12,
+        "answerPdfPage": 125,
+        "answerPrintedPage": 123
+      }
+    },
+    {
+      "exerciseId": "GL1-Q058",
+      "printedNumber": 58,
+      "exercisePrintedPage": 12,
+      "sourceType": "exercise-example",
+      "status": "mapped",
+      "question": "Известный американский режиссёр Джеймс Кэмерон не привык ... на своих фильмах.",
+      "options": [
+        {
+          "key": "А",
+          "text": "экономить"
+        },
+        {
+          "key": "Б",
+          "text": "сэкономить"
+        }
+      ],
+      "correctAnswer": "А",
+      "ruleIds": [
+        "gl1-1.4.4-habit-or-loss-imperfective"
+      ],
+      "mappingReason": "题干与正确项须按「习惯获得或丧失类动词后使用未完成体」的原书条件判断；旧 knowledgePoints 未作为依据。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "正确项「А」（экономить）符合映射规则：习惯获得或丧失类动词后使用未完成体。",
+        "distractors": [
+          {
+            "key": "Б",
+            "text": "сэкономить",
+            "sourceType": "learning-note",
+            "reason": "它不满足题干所需的原书语义条件，不能仅凭词面或时间词替代该规则判断。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 14,
+        "questionPrintedPage": 12,
+        "answerPdfPage": 125,
+        "answerPrintedPage": 123
+      }
+    },
+    {
+      "exerciseId": "GL1-Q059",
+      "printedNumber": 59,
+      "exercisePrintedPage": 12,
+      "sourceType": "exercise-example",
+      "status": "mapped",
+      "question": "В Афинах таксистам запретили ... по дорожной полосе, предназначенной для автобусов.",
+      "options": [
+        {
+          "key": "А",
+          "text": "двинуться"
+        },
+        {
+          "key": "Б",
+          "text": "двигаться"
+        }
+      ],
+      "correctAnswer": "Б",
+      "ruleIds": [
+        "gl1-1.4.4-negative-attitude-imperfective"
+      ],
+      "mappingReason": "题干与正确项须按「否定态度、禁止或不合宜语义后使用未完成体」的原书条件判断；旧 knowledgePoints 未作为依据。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "正确项「Б」（двигаться）符合映射规则：否定态度、禁止或不合宜语义后使用未完成体。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "двинуться",
+            "sourceType": "learning-note",
+            "reason": "它混淆了否定动作事实、否定有界结果、许可或担忧等不同的否定范围。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 14,
+        "questionPrintedPage": 12,
+        "answerPdfPage": 125,
+        "answerPrintedPage": 123
+      }
+    },
+    {
+      "exerciseId": "GL1-Q060",
+      "printedNumber": 60,
+      "exercisePrintedPage": 12,
+      "sourceType": "exercise-example",
+      "status": "mapped",
+      "question": "Врачам надоело ... об опасности курения, и они обратились к властям с просьбой запретить курить в общественных местах.",
+      "options": [
+        {
+          "key": "А",
+          "text": "говорить"
+        },
+        {
+          "key": "Б",
+          "text": "сказать"
+        }
+      ],
+      "correctAnswer": "А",
+      "ruleIds": [
+        "gl1-1.4.4-negative-attitude-imperfective"
+      ],
+      "mappingReason": "题干与正确项须按「否定态度、禁止或不合宜语义后使用未完成体」的原书条件判断；旧 knowledgePoints 未作为依据。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "正确项「А」（говорить）符合映射规则：否定态度、禁止或不合宜语义后使用未完成体。",
+        "distractors": [
+          {
+            "key": "Б",
+            "text": "сказать",
+            "sourceType": "learning-note",
+            "reason": "它混淆了否定动作事实、否定有界结果、许可或担忧等不同的否定范围。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 14,
+        "questionPrintedPage": 12,
+        "answerPdfPage": 125,
+        "answerPrintedPage": 123
+      }
+    },
+    {
+      "exerciseId": "GL1-Q062",
+      "printedNumber": 62,
+      "exercisePrintedPage": 13,
+      "sourceType": "exercise-example",
+      "status": "mapped",
+      "question": "Аспирант радовался, что успел ... первый вариант диссертации в назначенный срок.",
+      "options": [
+        {
+          "key": "А",
+          "text": "сдавать"
+        },
+        {
+          "key": "Б",
+          "text": "сдать"
+        }
+      ],
+      "correctAnswer": "Б",
+      "ruleIds": [
+        "gl1-1.4.4-result-trigger-perfective"
+      ],
+      "mappingReason": "题干与正确项须按「успеть、забыть、спешить 等后使用完成体」的原书条件判断；旧 knowledgePoints 未作为依据。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "正确项「Б」（сдать）符合映射规则：успеть、забыть、спешить 等后使用完成体。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "сдавать",
+            "sourceType": "learning-note",
+            "reason": "它不满足题干所需的原书语义条件，不能仅凭词面或时间词替代该规则判断。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 15,
+        "questionPrintedPage": 13,
+        "answerPdfPage": 125,
+        "answerPrintedPage": 123
+      }
+    },
+    {
+      "exerciseId": "GL1-Q063",
+      "printedNumber": 63,
+      "exercisePrintedPage": 13,
+      "sourceType": "exercise-example",
+      "status": "mapped",
+      "question": "Отправляя резюме потенциальному работодателю, не забудьте ... сопроводительное письмо.",
+      "options": [
+        {
+          "key": "А",
+          "text": "написать"
+        },
+        {
+          "key": "Б",
+          "text": "писать"
+        }
+      ],
+      "correctAnswer": "А",
+      "ruleIds": [
+        "gl1-1.4.4-result-trigger-perfective"
+      ],
+      "mappingReason": "题干与正确项须按「успеть、забыть、спешить 等后使用完成体」的原书条件判断；旧 knowledgePoints 未作为依据。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "正确项「А」（написать）符合映射规则：успеть、забыть、спешить 等后使用完成体。",
+        "distractors": [
+          {
+            "key": "Б",
+            "text": "писать",
+            "sourceType": "learning-note",
+            "reason": "它不满足题干所需的原书语义条件，不能仅凭词面或时间词替代该规则判断。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 15,
+        "questionPrintedPage": 13,
+        "answerPdfPage": 125,
+        "answerPrintedPage": 123
+      }
+    },
+    {
+      "exerciseId": "GL1-Q064",
+      "printedNumber": 64,
+      "exercisePrintedPage": 13,
+      "sourceType": "exercise-example",
+      "status": "mapped",
+      "question": "Если водитель забудет ... свет в салоне автомобиля, то через некоторое время лампы погаснут автоматически.",
+      "options": [
+        {
+          "key": "А",
+          "text": "выключить"
+        },
+        {
+          "key": "Б",
+          "text": "выключать"
+        }
+      ],
+      "correctAnswer": "А",
+      "ruleIds": [
+        "gl1-1.4.4-result-trigger-perfective"
+      ],
+      "mappingReason": "题干与正确项须按「успеть、забыть、спешить 等后使用完成体」的原书条件判断；旧 knowledgePoints 未作为依据。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "正确项「А」（выключить）符合映射规则：успеть、забыть、спешить 等后使用完成体。",
+        "distractors": [
+          {
+            "key": "Б",
+            "text": "выключать",
+            "sourceType": "learning-note",
+            "reason": "它不满足题干所需的原书语义条件，不能仅凭词面或时间词替代该规则判断。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 15,
+        "questionPrintedPage": 13,
+        "answerPdfPage": 125,
+        "answerPrintedPage": 123
+      }
+    },
+    {
+      "exerciseId": "GL1-Q065",
+      "printedNumber": 65,
+      "exercisePrintedPage": 13,
+      "sourceType": "exercise-example",
+      "status": "mapped",
+      "question": "Заметив приближающегося хищника, степные зверьки тушканчики спешат поглубже ... в землю.",
+      "options": [
+        {
+          "key": "А",
+          "text": "зарываться"
+        },
+        {
+          "key": "Б",
+          "text": "зарыться"
+        }
+      ],
+      "correctAnswer": "Б",
+      "ruleIds": [
+        "gl1-1.4.4-result-trigger-perfective"
+      ],
+      "mappingReason": "题干与正确项须按「успеть、забыть、спешить 等后使用完成体」的原书条件判断；旧 knowledgePoints 未作为依据。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "正确项「Б」（зарыться）符合映射规则：успеть、забыть、спешить 等后使用完成体。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "зарываться",
+            "sourceType": "learning-note",
+            "reason": "它不满足题干所需的原书语义条件，不能仅凭词面或时间词替代该规则判断。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 15,
+        "questionPrintedPage": 13,
+        "answerPdfPage": 125,
+        "answerPrintedPage": 123
+      }
+    }
+  ],
+  "relatedRules": [
+    {
+      "sourceType": "learning-note",
+      "text": "1.4.3（表外支配词的语义判断）"
+    },
+    {
+      "sourceType": "learning-note",
+      "text": "1.4.5（нельзя）"
+    },
+    {
+      "sourceType": "learning-note",
+      "text": "1.4.6（否定不定式）"
+    }
+  ],
+  "source": {
+    "pdfPages": [
+      97,
+      98
+    ],
+    "printedPages": [
+      95,
+      96
+    ],
+    "cleanedSource": "cleaned-source/chapter-01.md",
+    "sourcePdf": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+  },
+  "sourceCoverage": {
+    "ruleItems": {
+      "total": 4,
+      "captured": 4
+    },
+    "numberedItems": {
+      "total": 4,
+      "captured": 4
+    },
+    "tables": {
+      "total": 1,
+      "captured": 1,
+      "rowsTotal": 3,
+      "rowsCaptured": 3
+    },
+    "examples": {
+      "total": 4,
+      "captured": 4,
+      "countingMethod": "每个以破折号引出的原书例句块均完整保留；块内并列句没有拆分或省略。"
+    },
+    "relatedExercises": {
+      "total": 13,
+      "explained": 13
+    },
+    "uncollectedItems": [],
+    "sourceExerciseOnly": [],
+    "needsReview": [
+      "原书表格已对 PDF 页图进行视觉抽查；全书 OCR 来源仍为 REVIEW，重音、标点和跨页排版风险不能隐藏。"
+    ],
+    "ocrRisks": []
+  },
+  "reviewStatus": "needs-review",
+  "riskRecord": [
+    "不能把本单元的中文判断和选项解释当作原书文本。",
+    "PDF 原页已抽查，但全书来源未完成逐字符人工复核，故不得标为 verified。"
+  ]
+}

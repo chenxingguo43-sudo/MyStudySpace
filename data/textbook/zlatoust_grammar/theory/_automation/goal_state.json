@@ -1,0 +1,150 @@
+{
+  "schema_version": "1.0",
+  "project_root": "D:\\MyStudySpace\\data\\textbook\\zlatoust_grammar\\theory",
+  "profile": "grammar-reference-and-practice",
+  "goal": {
+    "complete_theory_coverage": true,
+    "exercise_mapping": true,
+    "learning_units": true,
+    "cleaned_source_layer": true,
+    "frontend_integration": true,
+    "translation_layer": false,
+    "parallel_mode": "off"
+  },
+  "stages": {
+    "source_base": "review",
+    "cleaned_source": "review",
+    "range_map": "review",
+    "learning_units": "in_progress",
+    "frontend_integration": "in_progress",
+    "translation_layer": "not_requested",
+    "finalization": "review"
+  },
+  "batches": [
+    {
+      "id": "source-recovery",
+      "scope": "PDF 093-124 / printed pages 91-122",
+      "status": "review",
+      "output": "raw-ocr and cleaned-source"
+    },
+    {
+      "id": "coverage-map",
+      "scope": "32 theory sections and 597 exercises",
+      "status": "review",
+      "output": "coverage-map.json and mappings",
+      "progress": {
+        "accounted": 597,
+        "total": 597,
+        "completedChapters": [
+          "gl1",
+          "gl2",
+          "gl3",
+          "gl4",
+          "gl5"
+        ],
+        "reviewCases": 216
+      }
+    },
+    {
+      "id": "chapter-01-data-repair",
+      "scope": "GL1-Q001–GL1-Q107：PDF 答案键与 PDF-012–014 题面／选项复核",
+      "status": "review",
+      "output": "ch0000.json and quality-reports/chapter-01-data-repair.json",
+      "note": "33 个答案键与 32 处题面／选项集已修复；exercise ID 保持不变。历史 localStorage 结果重算将在 reader 接入门槛通过后实施。"
+    },
+    {
+      "id": "sample-1.4",
+      "scope": "aspect usage sections 1.4.1-1.4.8",
+      "status": "review",
+      "output": "8 section rule units, source-coverage ledger and content-quality review",
+      "note": "结构、来源标签、原子 rule ID、练习链接和覆盖账本已由主验证器通过；原书 OCR 全书风险仍为 REVIEW。"
+    },
+    {
+      "id": "chapter-02-mapping-and-data-repair",
+      "scope": "GL2-Q001–GL2-Q150：PDF 020-042 题页、PDF 125 答案表、理论 2.1-2.8",
+      "status": "review",
+      "output": "ch0001.json, chapter-02 mapping files and quality-reports/chapter-02-data-repair.json",
+      "note": "150 题均已显式归档：126 mapped、13 needs-review、11 source-exercise-only。修复 18 个答案键与遗漏的印刷题页 40；Q098 改用 2.4.2 的 над + 第五格表格规则，Q107 改用 2.6 的 куда? 方向规则；ID 保持不变，历史 localStorage 重算仍延后到 reader 门槛通过。"
+    },
+    {
+      "id": "chapter-02-rule-units",
+      "scope": "2.1–2.8：十个规则单元、来源覆盖账本、内容质量复核和双向链接验证",
+      "status": "review",
+      "output": "rule-units/gl2/, quality-reports/chapter-02-source-coverage.md, quality-reports/chapter-02-content-quality-review.md",
+      "note": "十个单元均从 cleaned-source/chapter-02.md 生成，保留表格、例项、逐题链接和选项分析；来源 OCR 仍为 REVIEW，13 条 needs-review 与 11 条 source-exercise-only 保持显式。"
+    },
+    {
+      "id": "chapter-03-mapping-data-repair-and-rule-units",
+      "scope": "GL3-Q001—GL3-Q099；PDF 042-057 题页、PDF 126 答案表、理论 3.1-3.1.2",
+      "status": "review",
+      "output": "ch0002.json, chapter-03 mapping files, 3 rule units and Chapter 3 quality reports",
+      "note": "99 题均已显式归档：35 mapped、1 needs-review、63 source-exercise-only。修复 11 条答案键、99 条题目页码元数据和印刷页 55 / PDF-057 的章节范围。PDF-113 / 印刷页 111 同时含 3.1.2 延续与第 4 章开头，已按标题切分。GL3-Q039 的 PDF 答案与被动禁用规则表面冲突，保留 needs-review。"
+    },
+    {
+      "id": "chapter-04-mapping-data-repair-and-rule-units",
+      "scope": "GL4-Q001—GL4-Q102；PDF 057-071 题页、PDF 126 答案表、理论 4.1-4.4",
+      "status": "review",
+      "output": "ch0003.json, chapter-04 mapping files, 4 rule units and Chapter 4 quality reports",
+      "note": "102 题均已显式归档：39 mapped、0 needs-review、63 source-exercise-only。修复 9 条答案键、102 条题目页码元数据，并视觉核对 6 条直接引语改间接引语的 PDF 模型答案但保留开放作答契约。§4.5 没有独立理论标题，GL4-Q087—Q102 均保留 source-exercise-only。"
+    },
+    {
+      "id": "chapter-05-mapping-data-repair-and-rule-units",
+      "scope": "GL5-Q001—GL5-Q139；PDF 072-090 题页、PDF 127 答案表、理论 5.1、5.2 与词汇评论",
+      "status": "review",
+      "output": "ch0004.json, chapter-05 mapping files, 3 rule units and Chapter 5 quality reports",
+      "note": "139 题均已显式归档：75 mapped、0 needs-review、64 source-exercise-only。修复 17 条答案键和 139 条题目/答案页元数据；6 张词汇表的 87 行均保留为独立原子规则。ID 与历史作答契约不变。"
+    },
+    {
+      "id": "full-rollout",
+      "scope": "all five chapters",
+      "status": "review",
+      "output": "complete knowledge system"
+    },
+    {
+      "id": "pedagogy-reinforcement-01",
+      "scope": "11 个原有语义辨析为空的规则单元：1.1–1.4、4.1–4.4、5.1、5.2、5.lexical",
+      "status": "review",
+      "output": "带明确 learning-note 来源标签的语义辨析，以及跨第 4/5 章的 reader 端到端回归测试",
+      "note": "补足学习者的判断依据，不修改原书规则、练习题目、答案、映射或 ID。主验证器为 REVIEW / 0 failures；项目级 OCR 风险保留。"
+    },
+    {
+      "id": "integrated-learning-sample-1.4.1",
+      "scope": "第 1 章 1.4.1 过去时和将来时中的动词体",
+      "status": "review",
+      "output": "learning-pages/gl1/section-1.4.1.json、知识点卡入口、知识点内部学习路线、独立思维导图、教学进度和回归测试",
+      "note": "章节页已删除重复的本章路线和本章导图；1.4.1 卡片进入独立教学页。页内六步路线与五分支概念图相互独立，阶段状态由随堂题和正式题自动更新并支持手动标记复习。五个连续教学阶段、10 道阶段随堂题、1 道综合判断和 13 道共用正式原书题保持不变。全书推广尚未开始，OCR 风险仍为 REVIEW。"
+    }
+  ],
+  "known_risks": [
+    "OCR source remains REVIEW until tables, page continuations, punctuation and stressed text are visually checked.",
+    "The legacy nine Chapter 1 knowledge-point summaries are incomplete and must not be treated as verified theory.",
+    "PDF-100 text was recovered, but its page delimiter was omitted by the web OCR agent and reconstructed from the chapter boundary.",
+    "The theory commentary does not mirror every exercise subsection; unsupported mappings must be labeled rather than invented. GL1-Q076 remains source-exercise-only.",
+    "GL3-Q039 has a PDF-answer versus source-rule conflict: the answer selects a passive/reflexive construction while 3.1.2 prohibits gerunds in passive constructions. It remains needs-review.",
+    "PDF-113 / printed page 111 is intentionally recorded in both Chapter 3 and Chapter 4 cleaned-source files because its upper and lower portions belong to different semantic chapters.",
+    "Chapter 1 answer-key corrections preserve IDs and selected answers, but legacy wrong / lastResult values must be migrated from the explicit repair ledger only when reader.html integration is permitted.",
+    "Existing reader progress, wrong-answer records, textbook IDs and localStorage keys must remain compatible."
+  ],
+  "next_action": "由用户实际试学 1.4.1 样板并确认内容密度、阶段节奏和错题反馈；根据反馈修订样板后，再决定是否按同一数据契约推广到 1.4.2。不得把 learning-note 混入 source-rule，OCR REVIEW 风险持续保留。",
+  "last_validator_run": {
+    "date": "2026-07-26",
+    "command": "node D:\\MyStudySpace\\scripts\\validate-zlatoust-grammar-project.js",
+    "status": "review",
+    "failures": 0,
+    "warnings": [
+      "OCR/source REVIEW and explicit source-exercise-only / needs-review cases remain visible."
+    ]
+  },
+  "seal": {
+    "status": "review",
+    "date": "2026-07-26",
+    "evidence": [
+      "full-book-index.md",
+      "quality-reports/bidirectional-mapping-report.md",
+      "quality-reports/content-quality-report.md",
+      "quality-reports/data-quality-report.md",
+      "quality-reports/localstorage-compatibility-regression-report.md",
+      "ARCHIVE_SEAL.md"
+    ]
+  }
+}

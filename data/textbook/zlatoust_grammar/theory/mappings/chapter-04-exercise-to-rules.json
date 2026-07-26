@@ -1,0 +1,2541 @@
+{
+  "schemaVersion": 1,
+  "chapterId": "gl4",
+  "sourceBook": "zlatoust-grammar-lexika-v1",
+  "status": "review",
+  "mappingBasis": "逐题视觉核对 PDF 057-071（印刷页 55-69）、PDF 126 原书答案表及 cleaned-source/chapter-04.md。理论区未独立说明的宾语从句、地点/原因/让步/目的连接词、直接间接引语转换及 §4.5 语义问句都保持 source-exercise-only。",
+  "statusDefinitions": {
+    "mapped": "原书理论中有直接或足够明确的规则依据。",
+    "needs-review": "已确定主要理论范围，但原书条件不足以无风险确定细边界。",
+    "source-exercise-only": "原书有练习，但理论区没有对应的独立规则说明。"
+  },
+  "ruleCatalog": {
+    "gl4-4.1-i-simultaneous": {
+      "sectionId": "4.1",
+      "titleZh": "и连接并列动作的同时发生",
+      "sourceText": "4.1 第 1 条第 1 项：и 可表达动作同时性。"
+    },
+    "gl4-4.1-i-sequential": {
+      "sectionId": "4.1",
+      "titleZh": "и连接并列动作的先后发生",
+      "sourceText": "4.1 第 1 条第 2 项：и 可表达动作依次发生。"
+    },
+    "gl4-4.1-i-cause-consequence": {
+      "sectionId": "4.1",
+      "titleZh": "и连接因果结果",
+      "sourceText": "4.1 第 1 条第 3 项：и 可表达因果关系。"
+    },
+    "gl4-4.1-i-explanatory-eto": {
+      "sectionId": "4.1",
+      "titleZh": "и引出含это的说明或补充",
+      "sourceText": "4.1 第 1 条第 4 项：第二分句含 это 并说明或补充第一分句时用 и。"
+    },
+    "gl4-4.1-a-comparison": {
+      "sectionId": "4.1",
+      "titleZh": "а对照不相似现象",
+      "sourceText": "4.1 第 2 条第 1 项：а 对照两个不相似的现象。"
+    },
+    "gl4-4.1-a-sharp-contrast": {
+      "sectionId": "4.1",
+      "titleZh": "а强烈对立",
+      "sourceText": "4.1 第 2 条第 2 项：а 强烈对立两个现象。"
+    },
+    "gl4-4.1-a-attached-parallel": {
+      "sectionId": "4.1",
+      "titleZh": "а追加平行进行的动作",
+      "sourceText": "4.1 第 2 条第 3a 项：а 可作追加，表示动作平行。"
+    },
+    "gl4-4.1-a-attached-sequence": {
+      "sectionId": "4.1",
+      "titleZh": "а追加先后发生的动作",
+      "sourceText": "4.1 第 2 条第 3b 项：а 可作追加，表示动作依次发生。"
+    },
+    "gl4-4.1-no-noncorrespondence": {
+      "sectionId": "4.1",
+      "titleZh": "но表示事实或预期不相符",
+      "sourceText": "4.1 第 3 条第 1 项：но 的第二分句表达与第一分句不相符的意思。"
+    },
+    "gl4-4.1-no-compensation": {
+      "sectionId": "4.1",
+      "titleZh": "но表示补偿意味",
+      "sourceText": "4.1 第 3 条第 2 项：но 可表达补偿意味。"
+    },
+    "gl4-4.1-no-synonym-a": {
+      "sectionId": "4.1",
+      "titleZh": "но在事实互不相符时近似а",
+      "sourceText": "4.1 第 3 条第 3 项：事实互不相符时 но 可与 а 同义。"
+    },
+    "gl4-4.1-odnako-restrictive-bookish": {
+      "sectionId": "4.1",
+      "titleZh": "однако的限制性和书面附加色彩",
+      "sourceText": "4.1 第 4 条第 1 项：однако 表示限制和附加色彩，通常用于书面语体。"
+    },
+    "gl4-4.1-zato-strong-compensation": {
+      "sectionId": "4.1",
+      "titleZh": "зато强化对不足的补偿",
+      "sourceText": "4.1 第 4 条第 2 项：зато 补偿第一分句所说正面品质的不足，补偿义比 но 更鲜明。"
+    },
+    "gl4-4.1-da-but-or-and": {
+      "sectionId": "4.1",
+      "titleZh": "да近似но或и",
+      "sourceText": "4.1 第 5 条：да 的意义接近 но 或 и，常见于谚语和口语。"
+    },
+    "gl4-4.1-repeated-conjunction-inventory": {
+      "sectionId": "4.1",
+      "titleZh": "重复连词的列举",
+      "sourceText": "4.1 第 5 条后：并列复句还可使用 и…и、ни…ни、либо…либо、не то…не то 等重复连词。"
+    },
+    "gl4-4.1-to-to-alternation": {
+      "sectionId": "4.1",
+      "titleZh": "то…то表示交替",
+      "sourceText": "4.1 第 6 条：то…то 用于动作、现象或特征交替。"
+    },
+    "gl4-4.1-libo-libo-exclusive": {
+      "sectionId": "4.1",
+      "titleZh": "либо…либо表示互相排斥",
+      "sourceText": "4.1 第 7 条：либо…либо 用于相互排斥关系。"
+    },
+    "gl4-4.1-ni-ni-enumeration": {
+      "sectionId": "4.1",
+      "titleZh": "ни…ни表示列举",
+      "sourceText": "4.1 第 8 条：ни…ни 表达列举关系。"
+    },
+    "gl4-4.1-kak-tak-i-comparison": {
+      "sectionId": "4.1",
+      "titleZh": "как…так и表示对照",
+      "sourceText": "4.1 第 9 条：как…так и 表达对照关系。"
+    },
+    "gl4-4.2-kakoi-correlative-comparison": {
+      "sectionId": "4.2",
+      "titleZh": "какой与тот/такой构成比较",
+      "sourceText": "4.2 第 1 条第 1 项：какой 用于把人、事件或现象与相似对象比较，常同 тот、такой 及 быть、встречаться、случаться连用。"
+    },
+    "gl4-4.2-kakoi-class-properties": {
+      "sectionId": "4.2",
+      "titleZh": "какой指同类对象的全部属性",
+      "sourceText": "4.2 第 1 条第 2 项：какой 指明某对象具有或不具有同类对象的全部特征、属性或品质。"
+    },
+    "gl4-4.2-kotoryi-distinguishing": {
+      "sectionId": "4.2",
+      "titleZh": "который标出具体对象的区别性特征",
+      "sourceText": "4.2 第 2 条第 1 项：который 以最一般的定指意义标出具体人或物的区别性特征。"
+    },
+    "gl4-4.2-kotoryi-additional": {
+      "sectionId": "4.2",
+      "titleZh": "который补充说明人或物",
+      "sourceText": "4.2 第 2 条第 2 项：который 可补充有关人或物的信息。"
+    },
+    "gl4-4.2-chei-possession-agreement": {
+      "sectionId": "4.2",
+      "titleZh": "чей表达所属并与从句中的所指词一致",
+      "sourceText": "4.2 第 3 条：чей 增加所属意义；它不与主句被修饰词一致，而与从句中的被修饰词在性、数、格上一致。"
+    },
+    "gl4-4.3-kogda-simultaneous": {
+      "sectionId": "4.3",
+      "titleZh": "когда表示两个未完成体动作平行发生",
+      "sourceText": "4.3 第 1 条第 1 项：когда 对照平行发生的两个动作，主从句动词都用未完成体。"
+    },
+    "gl4-4.3-poka-limited-simultaneous": {
+      "sectionId": "4.3",
+      "titleZh": "пока限制主句动作持续时间",
+      "sourceText": "4.3 第 1 条第 2 项：пока 表示主句动作受从句主要动作发生期间限制，二者均用未完成体。"
+    },
+    "gl4-4.3-kogda-sequential-perfective": {
+      "sectionId": "4.3",
+      "titleZh": "когда表示从句动作完成后主句动作发生",
+      "sourceText": "4.3 第 2 条第 1 项：когда 后，从句动作先发生、主句动作后发生，二者用完成体。"
+    },
+    "gl4-4.3-poka-ne-until-perfective": {
+      "sectionId": "4.3",
+      "titleZh": "пока не表示主句持续至从句完成",
+      "sourceText": "4.3 第 2 条第 2 项：пока не 表示主句动作先发生并持续到从句动作到来；主句未完成体、从句完成体。"
+    },
+    "gl4-4.4-raz-logical-ground": {
+      "sectionId": "4.4",
+      "titleZh": "раз作为逻辑论据，近义если",
+      "sourceText": "4.4 第 1 条第 1 项：раз 引出的从句是主句观点的逻辑依据，近义 если，属书面语体。"
+    },
+    "gl4-4.4-raz-condition-cause-colloquial": {
+      "sectionId": "4.4",
+      "titleZh": "раз兼具条件和原因，近义так как",
+      "sourceText": "4.4 第 1 条第 2 项：раз 的条件义可增加原因义，近义 так как，但属口语。"
+    },
+    "gl4-4.4-raz-real-single-event": {
+      "sectionId": "4.4",
+      "titleZh": "раз只用于真实且一次性事件",
+      "sourceText": "4.4 注意项：раз 只描述真实（非假设）且一次性（非反复）事件。"
+    }
+  },
+  "exercises": {
+    "GL4-Q001": {
+      "exerciseId": "GL4-Q001",
+      "printedNumber": 1,
+      "chapterId": "gl4",
+      "exerciseSectionId": "4.1",
+      "sectionIds": [
+        "4.1"
+      ],
+      "ruleIds": [
+        "gl4-4.1-i-cause-consequence"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 55,
+      "exercisePdfPage": 57,
+      "theoryPrintedPages": [
+        111,
+        112
+      ],
+      "theoryPdfPages": [
+        113,
+        114
+      ],
+      "mappingReason": "общественные отношения воздействуют, и под их влиянием формируются свойства：第二分句是第一分句影响的结果。 4.1 第 1 条第 3 项：и 可表达因果关系。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL4-Q002": {
+      "exerciseId": "GL4-Q002",
+      "printedNumber": 2,
+      "chapterId": "gl4",
+      "exerciseSectionId": "4.1",
+      "sectionIds": [
+        "4.1"
+      ],
+      "ruleIds": [
+        "gl4-4.1-zato-strong-compensation"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 55,
+      "exercisePdfPage": 57,
+      "theoryPrintedPages": [
+        111,
+        112
+      ],
+      "theoryPdfPages": [
+        113,
+        114
+      ],
+      "mappingReason": "зарплата небольшая, зато молодёжь приобретает опыт：后句明确补偿前句的不足。 4.1 第 4 条第 2 项：зато 补偿第一分句所说正面品质的不足，补偿义比 но 更鲜明。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL4-Q003": {
+      "exerciseId": "GL4-Q003",
+      "printedNumber": 3,
+      "chapterId": "gl4",
+      "exerciseSectionId": "4.1",
+      "sectionIds": [
+        "4.1"
+      ],
+      "ruleIds": [
+        "gl4-4.1-odnako-restrictive-bookish"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 55,
+      "exercisePdfPage": 57,
+      "theoryPrintedPages": [
+        111,
+        112
+      ],
+      "theoryPdfPages": [
+        113,
+        114
+      ],
+      "mappingReason": "情况尚未完全明朗，однако 预备结果已知：限制性附加。 4.1 第 4 条第 1 项：однако 表示限制和附加色彩，通常用于书面语体。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL4-Q004": {
+      "exerciseId": "GL4-Q004",
+      "printedNumber": 4,
+      "chapterId": "gl4",
+      "exerciseSectionId": "4.1",
+      "sectionIds": [
+        "4.1"
+      ],
+      "ruleIds": [
+        "gl4-4.1-no-synonym-a"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 55,
+      "exercisePdfPage": 57,
+      "theoryPrintedPages": [
+        111,
+        112
+      ],
+      "theoryPdfPages": [
+        113,
+        114
+      ],
+      "mappingReason": "世界多样，但所有人同样哭笑：相互不相符的事实可由 но 连接。 4.1 第 3 条第 3 项：事实互不相符时 но 可与 а 同义。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL4-Q005": {
+      "exerciseId": "GL4-Q005",
+      "printedNumber": 5,
+      "chapterId": "gl4",
+      "exerciseSectionId": "4.1",
+      "sectionIds": [
+        "4.1"
+      ],
+      "ruleIds": [
+        "gl4-4.1-a-sharp-contrast"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 56,
+      "exercisePdfPage": 58,
+      "theoryPrintedPages": [
+        111,
+        112
+      ],
+      "theoryPdfPages": [
+        113,
+        114
+      ],
+      "mappingReason": "形成黑土耗时数百年，而人类几十年耗尽：强烈对比。 4.1 第 2 条第 2 项：а 强烈对立两个现象。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL4-Q006": {
+      "exerciseId": "GL4-Q006",
+      "printedNumber": 6,
+      "chapterId": "gl4",
+      "exerciseSectionId": "4.1",
+      "sectionIds": [
+        "4.1"
+      ],
+      "ruleIds": [
+        "gl4-4.1-zato-strong-compensation"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 56,
+      "exercisePdfPage": 58,
+      "theoryPrintedPages": [
+        111,
+        112
+      ],
+      "theoryPdfPages": [
+        113,
+        114
+      ],
+      "mappingReason": "冬日早黑，зато 初夏有白夜：第二分句补偿第一分句的不足。 4.1 第 4 条第 2 项：зато 补偿第一分句所说正面品质的不足，补偿义比 но 更鲜明。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL4-Q007": {
+      "exerciseId": "GL4-Q007",
+      "printedNumber": 7,
+      "chapterId": "gl4",
+      "exerciseSectionId": "4.1",
+      "sectionIds": [
+        "4.1"
+      ],
+      "ruleIds": [
+        "gl4-4.1-a-comparison"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 56,
+      "exercisePdfPage": 58,
+      "theoryPrintedPages": [
+        111,
+        112
+      ],
+      "theoryPdfPages": [
+        113,
+        114
+      ],
+      "mappingReason": "海洋湿润空气，而草原热气降低湿度：对照不相似现象。 4.1 第 2 条第 1 项：а 对照两个不相似的现象。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL4-Q008": {
+      "exerciseId": "GL4-Q008",
+      "printedNumber": 8,
+      "chapterId": "gl4",
+      "exerciseSectionId": "4.1",
+      "sectionIds": [
+        "4.1"
+      ],
+      "ruleIds": [
+        "gl4-4.1-zato-strong-compensation"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 56,
+      "exercisePdfPage": 58,
+      "theoryPrintedPages": [
+        111,
+        112
+      ],
+      "theoryPdfPages": [
+        113,
+        114
+      ],
+      "mappingReason": "未成为学者，зато 没让父母愁：补偿意义。 4.1 第 4 条第 2 项：зато 补偿第一分句所说正面品质的不足，补偿义比 но 更鲜明。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL4-Q009": {
+      "exerciseId": "GL4-Q009",
+      "printedNumber": 9,
+      "chapterId": "gl4",
+      "exerciseSectionId": "4.1",
+      "sectionIds": [
+        "4.1"
+      ],
+      "ruleIds": [
+        "gl4-4.1-da-but-or-and"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 56,
+      "exercisePdfPage": 58,
+      "theoryPrintedPages": [
+        111,
+        112
+      ],
+      "theoryPdfPages": [
+        113,
+        114
+      ],
+      "mappingReason": "да я не дипломат：да 在此近义 но。 4.1 第 5 条：да 的意义接近 но 或 и，常见于谚语和口语。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL4-Q010": {
+      "exerciseId": "GL4-Q010",
+      "printedNumber": 10,
+      "chapterId": "gl4",
+      "exerciseSectionId": "4.1",
+      "sectionIds": [
+        "4.1"
+      ],
+      "ruleIds": [
+        "gl4-4.1-no-noncorrespondence"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 56,
+      "exercisePdfPage": 58,
+      "theoryPrintedPages": [
+        111,
+        112
+      ],
+      "theoryPdfPages": [
+        113,
+        114
+      ],
+      "mappingReason": "游戏晚宴结束，但客人未散：事实不相符。 4.1 第 3 条第 1 项：но 的第二分句表达与第一分句不相符的意思。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL4-Q011": {
+      "exerciseId": "GL4-Q011",
+      "printedNumber": 11,
+      "chapterId": "gl4",
+      "exerciseSectionId": "4.1",
+      "sectionIds": [
+        "4.1"
+      ],
+      "ruleIds": [
+        "gl4-4.1-da-but-or-and"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 56,
+      "exercisePdfPage": 58,
+      "theoryPrintedPages": [
+        111,
+        112
+      ],
+      "theoryPdfPages": [
+        113,
+        114
+      ],
+      "mappingReason": "легли спать，да не спится：да 近义 но。 4.1 第 5 条：да 的意义接近 но 或 и，常见于谚语和口语。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL4-Q012": {
+      "exerciseId": "GL4-Q012",
+      "printedNumber": 12,
+      "chapterId": "gl4",
+      "exerciseSectionId": "4.1",
+      "sectionIds": [
+        "4.1"
+      ],
+      "ruleIds": [
+        "gl4-4.1-a-attached-parallel"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 56,
+      "exercisePdfPage": 58,
+      "theoryPrintedPages": [
+        111,
+        112
+      ],
+      "theoryPdfPages": [
+        113,
+        114
+      ],
+      "mappingReason": "卡什坦卡寻找主人，而天渐黑：a 追加同时展开的情形。 4.1 第 2 条第 3a 项：а 可作追加，表示动作平行。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL4-Q013": {
+      "exerciseId": "GL4-Q013",
+      "printedNumber": 13,
+      "chapterId": "gl4",
+      "exerciseSectionId": "4.1",
+      "sectionIds": [
+        "4.1"
+      ],
+      "ruleIds": [
+        "gl4-4.1-a-attached-sequence"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 57,
+      "exercisePdfPage": 59,
+      "theoryPrintedPages": [
+        111,
+        112
+      ],
+      "theoryPdfPages": [
+        113,
+        114
+      ],
+      "mappingReason": "灯亮起，而娜塔莉仍未到：a 连接后续情形。 4.1 第 2 条第 3b 项：а 可作追加，表示动作依次发生。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL4-Q014": {
+      "exerciseId": "GL4-Q014",
+      "printedNumber": 14,
+      "chapterId": "gl4",
+      "exerciseSectionId": "4.1",
+      "sectionIds": [
+        "4.1"
+      ],
+      "ruleIds": [
+        "gl4-4.1-da-but-or-and"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 57,
+      "exercisePdfPage": 59,
+      "theoryPrintedPages": [
+        111,
+        112
+      ],
+      "theoryPdfPages": [
+        113,
+        114
+      ],
+      "mappingReason": "想抓公鸡，да 不在：да 近义 но。 4.1 第 5 条：да 的意义接近 но 或 и，常见于谚语和口语。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL4-Q015": {
+      "exerciseId": "GL4-Q015",
+      "printedNumber": 15,
+      "chapterId": "gl4",
+      "exerciseSectionId": "4.1",
+      "sectionIds": [
+        "4.1"
+      ],
+      "ruleIds": [
+        "gl4-4.1-no-noncorrespondence"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 57,
+      "exercisePdfPage": 59,
+      "theoryPrintedPages": [
+        111,
+        112
+      ],
+      "theoryPdfPages": [
+        113,
+        114
+      ],
+      "mappingReason": "通常在现实中生活，但有时想进童话：不相符意义。 4.1 第 3 条第 1 项：но 的第二分句表达与第一分句不相符的意思。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL4-Q016": {
+      "exerciseId": "GL4-Q016",
+      "printedNumber": 16,
+      "chapterId": "gl4",
+      "exerciseSectionId": "4.1",
+      "sectionIds": [
+        "4.1"
+      ],
+      "ruleIds": [
+        "gl4-4.1-i-sequential"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 57,
+      "exercisePdfPage": 59,
+      "theoryPrintedPages": [
+        111,
+        112
+      ],
+      "theoryPdfPages": [
+        113,
+        114
+      ],
+      "mappingReason": "冬天进入树林，и 随即闪亮：动作依次发生。 4.1 第 1 条第 2 项：и 可表达动作依次发生。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL4-Q017": {
+      "exerciseId": "GL4-Q017",
+      "printedNumber": 17,
+      "chapterId": "gl4",
+      "exerciseSectionId": "4.1",
+      "sectionIds": [
+        "4.1"
+      ],
+      "ruleIds": [
+        "gl4-4.1-i-cause-consequence"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 57,
+      "exercisePdfPage": 59,
+      "theoryPrintedPages": [
+        111,
+        112
+      ],
+      "theoryPdfPages": [
+        113,
+        114
+      ],
+      "mappingReason": "闻到气味，и 想起童年：前一感受触发后一结果。 4.1 第 1 条第 3 项：и 可表达因果关系。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL4-Q018": {
+      "exerciseId": "GL4-Q018",
+      "printedNumber": 18,
+      "chapterId": "gl4",
+      "exerciseSectionId": "4.1",
+      "sectionIds": [
+        "4.1"
+      ],
+      "ruleIds": [
+        "gl4-4.1-da-but-or-and"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 57,
+      "exercisePdfPage": 59,
+      "theoryPrintedPages": [
+        111,
+        112
+      ],
+      "theoryPdfPages": [
+        113,
+        114
+      ],
+      "mappingReason": "安静黑暗，да 孤灯摇晃：да 在此近义 но。 4.1 第 5 条：да 的意义接近 но 或 и，常见于谚语和口语。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL4-Q019": {
+      "exerciseId": "GL4-Q019",
+      "printedNumber": 19,
+      "chapterId": "gl4",
+      "exerciseSectionId": "4.1",
+      "sectionIds": [
+        "4.1"
+      ],
+      "ruleIds": [
+        "gl4-4.1-repeated-conjunction-inventory"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 58,
+      "exercisePdfPage": 60,
+      "theoryPrintedPages": [
+        111,
+        112
+      ],
+      "theoryPdfPages": [
+        113,
+        114
+      ],
+      "mappingReason": "и…и 是原书列明的重复连词。 4.1 第 5 条后：并列复句还可使用 и…и、ни…ни、либо…либо、не то…не то 等重复连词。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL4-Q020": {
+      "exerciseId": "GL4-Q020",
+      "printedNumber": 20,
+      "chapterId": "gl4",
+      "exerciseSectionId": "4.1",
+      "sectionIds": [
+        "4.1"
+      ],
+      "ruleIds": [
+        "gl4-4.1-ni-ni-enumeration"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 58,
+      "exercisePdfPage": 60,
+      "theoryPrintedPages": [
+        111,
+        112
+      ],
+      "theoryPdfPages": [
+        113,
+        114
+      ],
+      "mappingReason": "ни…ни 列举太阳和风都不能造成条件。 4.1 第 8 条：ни…ни 表达列举关系。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL4-Q021": {
+      "exerciseId": "GL4-Q021",
+      "printedNumber": 21,
+      "chapterId": "gl4",
+      "exerciseSectionId": "4.1",
+      "sectionIds": [
+        "4.1"
+      ],
+      "ruleIds": [
+        "gl4-4.1-to-to-alternation"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 58,
+      "exercisePdfPage": 60,
+      "theoryPrintedPages": [
+        111,
+        112
+      ],
+      "theoryPdfPages": [
+        113,
+        114
+      ],
+      "mappingReason": "то…то 表达若有若无的交替感受。 4.1 第 6 条：то…то 用于动作、现象或特征交替。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL4-Q022": {
+      "exerciseId": "GL4-Q022",
+      "printedNumber": 22,
+      "chapterId": "gl4",
+      "exerciseSectionId": "4.1",
+      "sectionIds": [
+        "4.1"
+      ],
+      "ruleIds": [
+        "gl4-4.1-repeated-conjunction-inventory"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 58,
+      "exercisePdfPage": 60,
+      "theoryPrintedPages": [
+        111,
+        112
+      ],
+      "theoryPdfPages": [
+        113,
+        114
+      ],
+      "mappingReason": "или…или 属重复连词选择结构；原书在重复连词清单后以“и другие”保留该同类结构。 4.1 第 5 条后：并列复句还可使用 и…и、ни…ни、либо…либо、не то…не то 等重复连词。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL4-Q023": {
+      "exerciseId": "GL4-Q023",
+      "printedNumber": 23,
+      "chapterId": "gl4",
+      "exerciseSectionId": "4.1",
+      "sectionIds": [
+        "4.1"
+      ],
+      "ruleIds": [
+        "gl4-4.1-repeated-conjunction-inventory"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 58,
+      "exercisePdfPage": 60,
+      "theoryPrintedPages": [
+        111,
+        112
+      ],
+      "theoryPdfPages": [
+        113,
+        114
+      ],
+      "mappingReason": "не то…не то 是原书列明的重复连词。 4.1 第 5 条后：并列复句还可使用 и…и、ни…ни、либо…либо、не то…не то 等重复连词。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL4-Q024": {
+      "exerciseId": "GL4-Q024",
+      "printedNumber": 24,
+      "chapterId": "gl4",
+      "exerciseSectionId": "4.1",
+      "sectionIds": [
+        "4.1"
+      ],
+      "ruleIds": [
+        "gl4-4.1-libo-libo-exclusive"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 58,
+      "exercisePdfPage": 60,
+      "theoryPrintedPages": [
+        111,
+        112
+      ],
+      "theoryPdfPages": [
+        113,
+        114
+      ],
+      "mappingReason": "либо…либо 表示在病与堵车之间的互相排斥选择。 4.1 第 7 条：либо…либо 用于相互排斥关系。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL4-Q025": {
+      "exerciseId": "GL4-Q025",
+      "printedNumber": 25,
+      "chapterId": "gl4",
+      "exerciseSectionId": "4.2",
+      "sectionIds": [
+        "4.2"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 59,
+      "exercisePdfPage": 61,
+      "theoryPrintedPages": [
+        113
+      ],
+      "theoryPdfPages": [
+        115
+      ],
+      "mappingReason": "练习标题为宾语从句，但现有理论 4.2 只说明 союзные слова какой、который、чей，未提供宾语从句所需连接词、陈述或疑问间接引语规则。",
+      "reviewStatus": "needs-review"
+    },
+    "GL4-Q026": {
+      "exerciseId": "GL4-Q026",
+      "printedNumber": 26,
+      "chapterId": "gl4",
+      "exerciseSectionId": "4.2",
+      "sectionIds": [
+        "4.2"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 59,
+      "exercisePdfPage": 61,
+      "theoryPrintedPages": [
+        113
+      ],
+      "theoryPdfPages": [
+        115
+      ],
+      "mappingReason": "练习标题为宾语从句，但现有理论 4.2 只说明 союзные слова какой、который、чей，未提供宾语从句所需连接词、陈述或疑问间接引语规则。",
+      "reviewStatus": "needs-review"
+    },
+    "GL4-Q027": {
+      "exerciseId": "GL4-Q027",
+      "printedNumber": 27,
+      "chapterId": "gl4",
+      "exerciseSectionId": "4.2",
+      "sectionIds": [
+        "4.2"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 59,
+      "exercisePdfPage": 61,
+      "theoryPrintedPages": [
+        113
+      ],
+      "theoryPdfPages": [
+        115
+      ],
+      "mappingReason": "练习标题为宾语从句，但现有理论 4.2 只说明 союзные слова какой、который、чей，未提供宾语从句所需连接词、陈述或疑问间接引语规则。",
+      "reviewStatus": "needs-review"
+    },
+    "GL4-Q028": {
+      "exerciseId": "GL4-Q028",
+      "printedNumber": 28,
+      "chapterId": "gl4",
+      "exerciseSectionId": "4.2",
+      "sectionIds": [
+        "4.2"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 59,
+      "exercisePdfPage": 61,
+      "theoryPrintedPages": [
+        113
+      ],
+      "theoryPdfPages": [
+        115
+      ],
+      "mappingReason": "练习标题为宾语从句，但现有理论 4.2 只说明 союзные слова какой、который、чей，未提供宾语从句所需连接词、陈述或疑问间接引语规则。",
+      "reviewStatus": "needs-review"
+    },
+    "GL4-Q029": {
+      "exerciseId": "GL4-Q029",
+      "printedNumber": 29,
+      "chapterId": "gl4",
+      "exerciseSectionId": "4.2",
+      "sectionIds": [
+        "4.2"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 59,
+      "exercisePdfPage": 61,
+      "theoryPrintedPages": [
+        113
+      ],
+      "theoryPdfPages": [
+        115
+      ],
+      "mappingReason": "练习标题为宾语从句，但现有理论 4.2 只说明 союзные слова какой、который、чей，未提供宾语从句所需连接词、陈述或疑问间接引语规则。",
+      "reviewStatus": "needs-review"
+    },
+    "GL4-Q030": {
+      "exerciseId": "GL4-Q030",
+      "printedNumber": 30,
+      "chapterId": "gl4",
+      "exerciseSectionId": "4.2",
+      "sectionIds": [
+        "4.2"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 59,
+      "exercisePdfPage": 61,
+      "theoryPrintedPages": [
+        113
+      ],
+      "theoryPdfPages": [
+        115
+      ],
+      "mappingReason": "练习标题为宾语从句，但现有理论 4.2 只说明 союзные слова какой、который、чей，未提供宾语从句所需连接词、陈述或疑问间接引语规则。",
+      "reviewStatus": "needs-review"
+    },
+    "GL4-Q031": {
+      "exerciseId": "GL4-Q031",
+      "printedNumber": 31,
+      "chapterId": "gl4",
+      "exerciseSectionId": "4.2",
+      "sectionIds": [
+        "4.2"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 60,
+      "exercisePdfPage": 62,
+      "theoryPrintedPages": [
+        113
+      ],
+      "theoryPdfPages": [
+        115
+      ],
+      "mappingReason": "练习标题为宾语从句，但现有理论 4.2 只说明 союзные слова какой、который、чей，未提供宾语从句所需连接词、陈述或疑问间接引语规则。",
+      "reviewStatus": "needs-review"
+    },
+    "GL4-Q032": {
+      "exerciseId": "GL4-Q032",
+      "printedNumber": 32,
+      "chapterId": "gl4",
+      "exerciseSectionId": "4.2",
+      "sectionIds": [
+        "4.2"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 60,
+      "exercisePdfPage": 62,
+      "theoryPrintedPages": [
+        113
+      ],
+      "theoryPdfPages": [
+        115
+      ],
+      "mappingReason": "练习标题为宾语从句，但现有理论 4.2 只说明 союзные слова какой、который、чей，未提供宾语从句所需连接词、陈述或疑问间接引语规则。",
+      "reviewStatus": "needs-review"
+    },
+    "GL4-Q033": {
+      "exerciseId": "GL4-Q033",
+      "printedNumber": 33,
+      "chapterId": "gl4",
+      "exerciseSectionId": "4.2",
+      "sectionIds": [
+        "4.2"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 60,
+      "exercisePdfPage": 62,
+      "theoryPrintedPages": [
+        113
+      ],
+      "theoryPdfPages": [
+        115
+      ],
+      "mappingReason": "练习标题为宾语从句，但现有理论 4.2 只说明 союзные слова какой、который、чей，未提供宾语从句所需连接词、陈述或疑问间接引语规则。",
+      "reviewStatus": "needs-review"
+    },
+    "GL4-Q034": {
+      "exerciseId": "GL4-Q034",
+      "printedNumber": 34,
+      "chapterId": "gl4",
+      "exerciseSectionId": "4.2",
+      "sectionIds": [
+        "4.2"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 60,
+      "exercisePdfPage": 62,
+      "theoryPrintedPages": [
+        113
+      ],
+      "theoryPdfPages": [
+        115
+      ],
+      "mappingReason": "练习标题为宾语从句，但现有理论 4.2 只说明 союзные слова какой、который、чей，未提供宾语从句所需连接词、陈述或疑问间接引语规则。",
+      "reviewStatus": "needs-review"
+    },
+    "GL4-Q035": {
+      "exerciseId": "GL4-Q035",
+      "printedNumber": 35,
+      "chapterId": "gl4",
+      "exerciseSectionId": "4.2",
+      "sectionIds": [
+        "4.2"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 60,
+      "exercisePdfPage": 62,
+      "theoryPrintedPages": [
+        113
+      ],
+      "theoryPdfPages": [
+        115
+      ],
+      "mappingReason": "练习标题为宾语从句，但现有理论 4.2 只说明 союзные слова какой、который、чей，未提供宾语从句所需连接词、陈述或疑问间接引语规则。",
+      "reviewStatus": "needs-review"
+    },
+    "GL4-Q036": {
+      "exerciseId": "GL4-Q036",
+      "printedNumber": 36,
+      "chapterId": "gl4",
+      "exerciseSectionId": "4.2",
+      "sectionIds": [
+        "4.2"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 60,
+      "exercisePdfPage": 62,
+      "theoryPrintedPages": [
+        113
+      ],
+      "theoryPdfPages": [
+        115
+      ],
+      "mappingReason": "练习标题为宾语从句，但现有理论 4.2 只说明 союзные слова какой、который、чей，未提供宾语从句所需连接词、陈述或疑问间接引语规则。",
+      "reviewStatus": "needs-review"
+    },
+    "GL4-Q037": {
+      "exerciseId": "GL4-Q037",
+      "printedNumber": 37,
+      "chapterId": "gl4",
+      "exerciseSectionId": "4.2",
+      "sectionIds": [
+        "4.2"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 60,
+      "exercisePdfPage": 62,
+      "theoryPrintedPages": [
+        113
+      ],
+      "theoryPdfPages": [
+        115
+      ],
+      "mappingReason": "练习标题为宾语从句，但现有理论 4.2 只说明 союзные слова какой、который、чей，未提供宾语从句所需连接词、陈述或疑问间接引语规则。",
+      "reviewStatus": "needs-review"
+    },
+    "GL4-Q038": {
+      "exerciseId": "GL4-Q038",
+      "printedNumber": 38,
+      "chapterId": "gl4",
+      "exerciseSectionId": "4.3",
+      "sectionIds": [
+        "4.2"
+      ],
+      "ruleIds": [
+        "gl4-4.2-kotoryi-distinguishing"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 61,
+      "exercisePdfPage": 63,
+      "theoryPrintedPages": [
+        113
+      ],
+      "theoryPdfPages": [
+        115
+      ],
+      "mappingReason": "人口超过百万的城市：которого 标出具体城市。 4.2 第 2 条第 1 项：который 以最一般的定指意义标出具体人或物的区别性特征。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL4-Q039": {
+      "exerciseId": "GL4-Q039",
+      "printedNumber": 39,
+      "chapterId": "gl4",
+      "exerciseSectionId": "4.3",
+      "sectionIds": [
+        "4.2"
+      ],
+      "ruleIds": [
+        "gl4-4.2-kotoryi-additional"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 61,
+      "exercisePdfPage": 63,
+      "theoryPrintedPages": [
+        113
+      ],
+      "theoryPdfPages": [
+        115
+      ],
+      "mappingReason": "исчезали государства，народ которых…：который 关系词补充从属信息。 4.2 第 2 条第 2 项：который 可补充有关人或物的信息。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL4-Q040": {
+      "exerciseId": "GL4-Q040",
+      "printedNumber": 40,
+      "chapterId": "gl4",
+      "exerciseSectionId": "4.3",
+      "sectionIds": [
+        "4.2"
+      ],
+      "ruleIds": [
+        "gl4-4.2-chei-possession-agreement"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 61,
+      "exercisePdfPage": 63,
+      "theoryPrintedPages": [
+        113
+      ],
+      "theoryPdfPages": [
+        115
+      ],
+      "mappingReason": "гладиаторы，чьи доспехи…：чей 表达所属。 4.2 第 3 条：чей 增加所属意义；它不与主句被修饰词一致，而与从句中的被修饰词在性、数、格上一致。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL4-Q041": {
+      "exerciseId": "GL4-Q041",
+      "printedNumber": 41,
+      "chapterId": "gl4",
+      "exerciseSectionId": "4.3",
+      "sectionIds": [
+        "4.2"
+      ],
+      "ruleIds": [
+        "gl4-4.2-chei-possession-agreement"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 61,
+      "exercisePdfPage": 63,
+      "theoryPrintedPages": [
+        113
+      ],
+      "theoryPdfPages": [
+        115
+      ],
+      "mappingReason": "Лажечников，чьи произведения…：чей 将作品归属该作家。 4.2 第 3 条：чей 增加所属意义；它不与主句被修饰词一致，而与从句中的被修饰词在性、数、格上一致。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL4-Q042": {
+      "exerciseId": "GL4-Q042",
+      "printedNumber": 42,
+      "chapterId": "gl4",
+      "exerciseSectionId": "4.3",
+      "sectionIds": [
+        "4.2"
+      ],
+      "ruleIds": [
+        "gl4-4.2-kotoryi-additional"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 61,
+      "exercisePdfPage": 63,
+      "theoryPrintedPages": [
+        113
+      ],
+      "theoryPdfPages": [
+        115
+      ],
+      "mappingReason": "Бажов，в сказках которого…：который 从句补充有关人物的信息。 4.2 第 2 条第 2 项：который 可补充有关人或物的信息。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL4-Q043": {
+      "exerciseId": "GL4-Q043",
+      "printedNumber": 43,
+      "chapterId": "gl4",
+      "exerciseSectionId": "4.3",
+      "sectionIds": [
+        "4.2"
+      ],
+      "ruleIds": [
+        "gl4-4.2-kakoi-correlative-comparison"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 61,
+      "exercisePdfPage": 63,
+      "theoryPrintedPages": [
+        113
+      ],
+      "theoryPdfPages": [
+        115
+      ],
+      "mappingReason": "сад такой чудесный，какого…：такой/какой 的比较关系。 4.2 第 1 条第 1 项：какой 用于把人、事件或现象与相似对象比较，常同 тот、такой 及 быть、встречаться、случаться连用。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL4-Q044": {
+      "exerciseId": "GL4-Q044",
+      "printedNumber": 44,
+      "chapterId": "gl4",
+      "exerciseSectionId": "4.3",
+      "sectionIds": [
+        "4.2"
+      ],
+      "ruleIds": [
+        "gl4-4.2-kotoryi-distinguishing"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 61,
+      "exercisePdfPage": 63,
+      "theoryPrintedPages": [
+        113
+      ],
+      "theoryPdfPages": [
+        115
+      ],
+      "mappingReason": "улица，которая вела к башне：который 标出具体街道的区别性特征。 4.2 第 2 条第 1 项：который 以最一般的定指意义标出具体人或物的区别性特征。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL4-Q045": {
+      "exerciseId": "GL4-Q045",
+      "printedNumber": 45,
+      "chapterId": "gl4",
+      "exerciseSectionId": "4.3",
+      "sectionIds": [
+        "4.2"
+      ],
+      "ruleIds": [
+        "gl4-4.2-kakoi-correlative-comparison"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 61,
+      "exercisePdfPage": 63,
+      "theoryPrintedPages": [
+        113
+      ],
+      "theoryPdfPages": [
+        115
+      ],
+      "mappingReason": "зима была такая，какая…：такой/какой 比较。 4.2 第 1 条第 1 项：какой 用于把人、事件或现象与相似对象比较，常同 тот、такой 及 быть、встречаться、случаться连用。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL4-Q046": {
+      "exerciseId": "GL4-Q046",
+      "printedNumber": 46,
+      "chapterId": "gl4",
+      "exerciseSectionId": "4.3",
+      "sectionIds": [
+        "4.2"
+      ],
+      "ruleIds": [
+        "gl4-4.2-kakoi-class-properties"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 61,
+      "exercisePdfPage": 63,
+      "theoryPrintedPages": [
+        113
+      ],
+      "theoryPdfPages": [
+        115
+      ],
+      "mappingReason": "настроение，какое бывает только весной：какой 指同类对象的特征。 4.2 第 1 条第 2 项：какой 指明某对象具有或不具有同类对象的全部特征、属性或品质。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL4-Q047": {
+      "exerciseId": "GL4-Q047",
+      "printedNumber": 47,
+      "chapterId": "gl4",
+      "exerciseSectionId": "4.3",
+      "sectionIds": [
+        "4.2"
+      ],
+      "ruleIds": [
+        "gl4-4.2-kakoi-class-properties"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 62,
+      "exercisePdfPage": 64,
+      "theoryPrintedPages": [
+        113
+      ],
+      "theoryPdfPages": [
+        115
+      ],
+      "mappingReason": "дней，какие часто встречаются：какой 指一类日子的典型属性。 4.2 第 1 条第 2 项：какой 指明某对象具有或不具有同类对象的全部特征、属性或品质。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL4-Q048": {
+      "exerciseId": "GL4-Q048",
+      "printedNumber": 48,
+      "chapterId": "gl4",
+      "exerciseSectionId": "4.3",
+      "sectionIds": [
+        "4.2"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 62,
+      "exercisePdfPage": 64,
+      "theoryPrintedPages": [
+        113
+      ],
+      "theoryPdfPages": [
+        115
+      ],
+      "mappingReason": "正确项 что 不是原书 4.2 所列 какой、который、чей；不能由相邻关系词规则虚构依据。",
+      "reviewStatus": "needs-review"
+    },
+    "GL4-Q049": {
+      "exerciseId": "GL4-Q049",
+      "printedNumber": 49,
+      "chapterId": "gl4",
+      "exerciseSectionId": "4.3",
+      "sectionIds": [
+        "4.2"
+      ],
+      "ruleIds": [
+        "gl4-4.2-kotoryi-distinguishing"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 62,
+      "exercisePdfPage": 64,
+      "theoryPrintedPages": [
+        113
+      ],
+      "theoryPdfPages": [
+        115
+      ],
+      "mappingReason": "Дикое поле，на которое не распространялась власть：который 标出具体地域。 4.2 第 2 条第 1 项：который 以最一般的定指意义标出具体人或物的区别性特征。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL4-Q050": {
+      "exerciseId": "GL4-Q050",
+      "printedNumber": 50,
+      "chapterId": "gl4",
+      "exerciseSectionId": "4.3",
+      "sectionIds": [
+        "4.2"
+      ],
+      "ruleIds": [
+        "gl4-4.2-kotoryi-additional"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 62,
+      "exercisePdfPage": 64,
+      "theoryPrintedPages": [
+        113
+      ],
+      "theoryPdfPages": [
+        115
+      ],
+      "mappingReason": "округ，площадь которого…：который 从句补充该区域资料。 4.2 第 2 条第 2 项：который 可补充有关人或物的信息。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL4-Q051": {
+      "exerciseId": "GL4-Q051",
+      "printedNumber": 51,
+      "chapterId": "gl4",
+      "exerciseSectionId": "4.3",
+      "sectionIds": [
+        "4.2"
+      ],
+      "ruleIds": [
+        "gl4-4.2-kotoryi-distinguishing"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 62,
+      "exercisePdfPage": 64,
+      "theoryPrintedPages": [
+        113
+      ],
+      "theoryPdfPages": [
+        115
+      ],
+      "mappingReason": "мальчик，который не может учиться：который 标出具体人的特征。 4.2 第 2 条第 1 项：который 以最一般的定指意义标出具体人或物的区别性特征。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL4-Q052": {
+      "exerciseId": "GL4-Q052",
+      "printedNumber": 52,
+      "chapterId": "gl4",
+      "exerciseSectionId": "4.3",
+      "sectionIds": [
+        "4.2"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 62,
+      "exercisePdfPage": 64,
+      "theoryPrintedPages": [
+        113
+      ],
+      "theoryPdfPages": [
+        115
+      ],
+      "mappingReason": "正确项为 где／куда／откуда 一类地点关系词；4.2 没有这些词的独立规则，故显式保留 source-exercise-only。",
+      "reviewStatus": "needs-review"
+    },
+    "GL4-Q053": {
+      "exerciseId": "GL4-Q053",
+      "printedNumber": 53,
+      "chapterId": "gl4",
+      "exerciseSectionId": "4.3",
+      "sectionIds": [
+        "4.2"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 62,
+      "exercisePdfPage": 64,
+      "theoryPrintedPages": [
+        113
+      ],
+      "theoryPdfPages": [
+        115
+      ],
+      "mappingReason": "正确项为 где／куда／откуда 一类地点关系词；4.2 没有这些词的独立规则，故显式保留 source-exercise-only。",
+      "reviewStatus": "needs-review"
+    },
+    "GL4-Q054": {
+      "exerciseId": "GL4-Q054",
+      "printedNumber": 54,
+      "chapterId": "gl4",
+      "exerciseSectionId": "4.3",
+      "sectionIds": [
+        "4.2"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 62,
+      "exercisePdfPage": 64,
+      "theoryPrintedPages": [
+        113
+      ],
+      "theoryPdfPages": [
+        115
+      ],
+      "mappingReason": "正确项为 где／куда／откуда 一类地点关系词；4.2 没有这些词的独立规则，故显式保留 source-exercise-only。",
+      "reviewStatus": "needs-review"
+    },
+    "GL4-Q055": {
+      "exerciseId": "GL4-Q055",
+      "printedNumber": 55,
+      "chapterId": "gl4",
+      "exerciseSectionId": "4.3",
+      "sectionIds": [
+        "4.2"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 62,
+      "exercisePdfPage": 64,
+      "theoryPrintedPages": [
+        113
+      ],
+      "theoryPdfPages": [
+        115
+      ],
+      "mappingReason": "正确项为 где／куда／откуда 一类地点关系词；4.2 没有这些词的独立规则，故显式保留 source-exercise-only。",
+      "reviewStatus": "needs-review"
+    },
+    "GL4-Q056": {
+      "exerciseId": "GL4-Q056",
+      "printedNumber": 56,
+      "chapterId": "gl4",
+      "exerciseSectionId": "4.4",
+      "sectionIds": [
+        "4.3"
+      ],
+      "ruleIds": [
+        "gl4-4.3-poka-ne-until-perfective"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 63,
+      "exercisePdfPage": 65,
+      "theoryPrintedPages": [
+        114
+      ],
+      "theoryPdfPages": [
+        116
+      ],
+      "mappingReason": "大教堂一直被认为最高，пока не 竖起钟楼：主句状态持续到从句完成事件。 4.3 第 2 条第 2 项：пока не 表示主句动作先发生并持续到从句动作到来；主句未完成体、从句完成体。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL4-Q057": {
+      "exerciseId": "GL4-Q057",
+      "printedNumber": 57,
+      "chapterId": "gl4",
+      "exerciseSectionId": "4.4",
+      "sectionIds": [
+        "4.3"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 63,
+      "exercisePdfPage": 65,
+      "theoryPrintedPages": [
+        114
+      ],
+      "theoryPdfPages": [
+        116
+      ],
+      "mappingReason": "正确项为 после того как、как только 或 по мере того как；4.3 只明确说明 когда、пока、пока не，不能把未写出的连接词当作同一规则。",
+      "reviewStatus": "needs-review"
+    },
+    "GL4-Q058": {
+      "exerciseId": "GL4-Q058",
+      "printedNumber": 58,
+      "chapterId": "gl4",
+      "exerciseSectionId": "4.4",
+      "sectionIds": [
+        "4.3"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 63,
+      "exercisePdfPage": 65,
+      "theoryPrintedPages": [
+        114
+      ],
+      "theoryPdfPages": [
+        116
+      ],
+      "mappingReason": "正确项为 после того как、как только 或 по мере того как；4.3 只明确说明 когда、пока、пока не，不能把未写出的连接词当作同一规则。",
+      "reviewStatus": "needs-review"
+    },
+    "GL4-Q059": {
+      "exerciseId": "GL4-Q059",
+      "printedNumber": 59,
+      "chapterId": "gl4",
+      "exerciseSectionId": "4.4",
+      "sectionIds": [
+        "4.3"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 63,
+      "exercisePdfPage": 65,
+      "theoryPrintedPages": [
+        114
+      ],
+      "theoryPdfPages": [
+        116
+      ],
+      "mappingReason": "正确项为 после того как、как только 或 по мере того как；4.3 只明确说明 когда、пока、пока не，不能把未写出的连接词当作同一规则。",
+      "reviewStatus": "needs-review"
+    },
+    "GL4-Q060": {
+      "exerciseId": "GL4-Q060",
+      "printedNumber": 60,
+      "chapterId": "gl4",
+      "exerciseSectionId": "4.4",
+      "sectionIds": [
+        "4.3"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 63,
+      "exercisePdfPage": 65,
+      "theoryPrintedPages": [
+        114
+      ],
+      "theoryPdfPages": [
+        116
+      ],
+      "mappingReason": "正确项为 после того как、как только 或 по мере того как；4.3 只明确说明 когда、пока、пока не，不能把未写出的连接词当作同一规则。",
+      "reviewStatus": "needs-review"
+    },
+    "GL4-Q061": {
+      "exerciseId": "GL4-Q061",
+      "printedNumber": 61,
+      "chapterId": "gl4",
+      "exerciseSectionId": "4.4",
+      "sectionIds": [
+        "4.3"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 63,
+      "exercisePdfPage": 65,
+      "theoryPrintedPages": [
+        114
+      ],
+      "theoryPdfPages": [
+        116
+      ],
+      "mappingReason": "正确项为 после того как、как только 或 по мере того как；4.3 只明确说明 когда、пока、пока не，不能把未写出的连接词当作同一规则。",
+      "reviewStatus": "needs-review"
+    },
+    "GL4-Q062": {
+      "exerciseId": "GL4-Q062",
+      "printedNumber": 62,
+      "chapterId": "gl4",
+      "exerciseSectionId": "4.4",
+      "sectionIds": [
+        "4.4"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 64,
+      "exercisePdfPage": 66,
+      "theoryPrintedPages": [
+        115
+      ],
+      "theoryPdfPages": [
+        117
+      ],
+      "mappingReason": "正确项 отчего/原因关系不等于 4.4 明确说明的 раз；不从同属原因语义倒推原书规则。",
+      "reviewStatus": "needs-review"
+    },
+    "GL4-Q063": {
+      "exerciseId": "GL4-Q063",
+      "printedNumber": 63,
+      "chapterId": "gl4",
+      "exerciseSectionId": "4.4",
+      "sectionIds": [
+        "4.4"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 64,
+      "exercisePdfPage": 66,
+      "theoryPrintedPages": [
+        115
+      ],
+      "theoryPdfPages": [
+        117
+      ],
+      "mappingReason": "正确项 хотя 是让步关系；4.4 仅说明 раз，原书没有让步连接词的独立理论。",
+      "reviewStatus": "needs-review"
+    },
+    "GL4-Q064": {
+      "exerciseId": "GL4-Q064",
+      "printedNumber": 64,
+      "chapterId": "gl4",
+      "exerciseSectionId": "4.4",
+      "sectionIds": [
+        "4.4"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 64,
+      "exercisePdfPage": 66,
+      "theoryPrintedPages": [
+        115
+      ],
+      "theoryPdfPages": [
+        117
+      ],
+      "mappingReason": "正确项 если 是假设条件；4.4 只说明 раз 的真实、一次性事件约束，不能直接扩展到 если。",
+      "reviewStatus": "needs-review"
+    },
+    "GL4-Q065": {
+      "exerciseId": "GL4-Q065",
+      "printedNumber": 65,
+      "chapterId": "gl4",
+      "exerciseSectionId": "4.4",
+      "sectionIds": [
+        "4.4"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 64,
+      "exercisePdfPage": 66,
+      "theoryPrintedPages": [
+        115
+      ],
+      "theoryPdfPages": [
+        117
+      ],
+      "mappingReason": "正确项 благодаря тому что 是原因关系；4.4 未说明该连接词。",
+      "reviewStatus": "needs-review"
+    },
+    "GL4-Q066": {
+      "exerciseId": "GL4-Q066",
+      "printedNumber": 66,
+      "chapterId": "gl4",
+      "exerciseSectionId": "4.4",
+      "sectionIds": [
+        "4.3"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 64,
+      "exercisePdfPage": 66,
+      "theoryPrintedPages": [
+        114
+      ],
+      "theoryPdfPages": [
+        116
+      ],
+      "mappingReason": "题目考查地点、目的、原因或让步连接词；4.3 只提供时间连接词的明确条件。",
+      "reviewStatus": "needs-review"
+    },
+    "GL4-Q067": {
+      "exerciseId": "GL4-Q067",
+      "printedNumber": 67,
+      "chapterId": "gl4",
+      "exerciseSectionId": "4.4",
+      "sectionIds": [
+        "4.3"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 64,
+      "exercisePdfPage": 66,
+      "theoryPrintedPages": [
+        114
+      ],
+      "theoryPdfPages": [
+        116
+      ],
+      "mappingReason": "题目考查地点、目的、原因或让步连接词；4.3 只提供时间连接词的明确条件。",
+      "reviewStatus": "needs-review"
+    },
+    "GL4-Q068": {
+      "exerciseId": "GL4-Q068",
+      "printedNumber": 68,
+      "chapterId": "gl4",
+      "exerciseSectionId": "4.4",
+      "sectionIds": [
+        "4.3"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 64,
+      "exercisePdfPage": 66,
+      "theoryPrintedPages": [
+        114
+      ],
+      "theoryPdfPages": [
+        116
+      ],
+      "mappingReason": "题目考查地点、目的、原因或让步连接词；4.3 只提供时间连接词的明确条件。",
+      "reviewStatus": "needs-review"
+    },
+    "GL4-Q069": {
+      "exerciseId": "GL4-Q069",
+      "printedNumber": 69,
+      "chapterId": "gl4",
+      "exerciseSectionId": "4.4",
+      "sectionIds": [
+        "4.3"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 65,
+      "exercisePdfPage": 67,
+      "theoryPrintedPages": [
+        114
+      ],
+      "theoryPdfPages": [
+        116
+      ],
+      "mappingReason": "题目考查地点、目的、原因或让步连接词；4.3 只提供时间连接词的明确条件。",
+      "reviewStatus": "needs-review"
+    },
+    "GL4-Q070": {
+      "exerciseId": "GL4-Q070",
+      "printedNumber": 70,
+      "chapterId": "gl4",
+      "exerciseSectionId": "4.4",
+      "sectionIds": [
+        "4.3"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 65,
+      "exercisePdfPage": 67,
+      "theoryPrintedPages": [
+        114
+      ],
+      "theoryPdfPages": [
+        116
+      ],
+      "mappingReason": "题目考查地点、目的、原因或让步连接词；4.3 只提供时间连接词的明确条件。",
+      "reviewStatus": "needs-review"
+    },
+    "GL4-Q071": {
+      "exerciseId": "GL4-Q071",
+      "printedNumber": 71,
+      "chapterId": "gl4",
+      "exerciseSectionId": "4.4",
+      "sectionIds": [
+        "4.4"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 65,
+      "exercisePdfPage": 67,
+      "theoryPrintedPages": [
+        115
+      ],
+      "theoryPdfPages": [
+        117
+      ],
+      "mappingReason": "正确项 если бы 表示假设条件；4.4 的 раз 只用于真实、一次性事件。",
+      "reviewStatus": "needs-review"
+    },
+    "GL4-Q072": {
+      "exerciseId": "GL4-Q072",
+      "printedNumber": 72,
+      "chapterId": "gl4",
+      "exerciseSectionId": "4.4",
+      "sectionIds": [
+        "4.3"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 65,
+      "exercisePdfPage": 67,
+      "theoryPrintedPages": [
+        114
+      ],
+      "theoryPdfPages": [
+        116
+      ],
+      "mappingReason": "题目正确项不是 4.3 明确规定的 когда、пока、пока не 时间关系，因而无独立理论依据。",
+      "reviewStatus": "needs-review"
+    },
+    "GL4-Q073": {
+      "exerciseId": "GL4-Q073",
+      "printedNumber": 73,
+      "chapterId": "gl4",
+      "exerciseSectionId": "4.4",
+      "sectionIds": [
+        "4.3"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 65,
+      "exercisePdfPage": 67,
+      "theoryPrintedPages": [
+        114
+      ],
+      "theoryPdfPages": [
+        116
+      ],
+      "mappingReason": "题目正确项不是 4.3 明确规定的 когда、пока、пока не 时间关系，因而无独立理论依据。",
+      "reviewStatus": "needs-review"
+    },
+    "GL4-Q074": {
+      "exerciseId": "GL4-Q074",
+      "printedNumber": 74,
+      "chapterId": "gl4",
+      "exerciseSectionId": "4.4",
+      "sectionIds": [
+        "4.3"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 65,
+      "exercisePdfPage": 67,
+      "theoryPrintedPages": [
+        114
+      ],
+      "theoryPdfPages": [
+        116
+      ],
+      "mappingReason": "题目正确项不是 4.3 明确规定的 когда、пока、пока не 时间关系，因而无独立理论依据。",
+      "reviewStatus": "needs-review"
+    },
+    "GL4-Q075": {
+      "exerciseId": "GL4-Q075",
+      "printedNumber": 75,
+      "chapterId": "gl4",
+      "exerciseSectionId": "4.4",
+      "sectionIds": [
+        "4.3"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 65,
+      "exercisePdfPage": 67,
+      "theoryPrintedPages": [
+        114
+      ],
+      "theoryPdfPages": [
+        116
+      ],
+      "mappingReason": "题目正确项不是 4.3 明确规定的 когда、пока、пока не 时间关系，因而无独立理论依据。",
+      "reviewStatus": "needs-review"
+    },
+    "GL4-Q076": {
+      "exerciseId": "GL4-Q076",
+      "printedNumber": 76,
+      "chapterId": "gl4",
+      "exerciseSectionId": "4.4",
+      "sectionIds": [
+        "4.4"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 66,
+      "exercisePdfPage": 68,
+      "theoryPrintedPages": [
+        115
+      ],
+      "theoryPdfPages": [
+        117
+      ],
+      "mappingReason": "正确项 если 表示条件；4.4 只针对 раз 的语体、条件/原因语义及真实一次性约束，不能将其泛化为所有 если。",
+      "reviewStatus": "needs-review"
+    },
+    "GL4-Q077": {
+      "exerciseId": "GL4-Q077",
+      "printedNumber": 77,
+      "chapterId": "gl4",
+      "exerciseSectionId": "4.4",
+      "sectionIds": [
+        "4.4"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 66,
+      "exercisePdfPage": 68,
+      "theoryPrintedPages": [
+        115
+      ],
+      "theoryPdfPages": [
+        117
+      ],
+      "mappingReason": "正确项 если 表示条件；原书没有“при + 名词”与条件从句互换的独立规则。",
+      "reviewStatus": "needs-review"
+    },
+    "GL4-Q078": {
+      "exerciseId": "GL4-Q078",
+      "printedNumber": 78,
+      "chapterId": "gl4",
+      "exerciseSectionId": "4.4",
+      "sectionIds": [
+        "4.3"
+      ],
+      "ruleIds": [
+        "gl4-4.3-kogda-simultaneous"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 66,
+      "exercisePdfPage": 68,
+      "theoryPrintedPages": [
+        114
+      ],
+      "theoryPdfPages": [
+        116
+      ],
+      "mappingReason": "При переходе… принимаются меры → Когда осуществляется переход… принимаются меры：主从句均为未完成体，表达同步情形。 4.3 第 1 条第 1 项：когда 对照平行发生的两个动作，主从句动词都用未完成体。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL4-Q079": {
+      "exerciseId": "GL4-Q079",
+      "printedNumber": 79,
+      "chapterId": "gl4",
+      "exerciseSectionId": "4.4",
+      "sectionIds": [
+        "4.3"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 66,
+      "exercisePdfPage": 68,
+      "theoryPrintedPages": [
+        114
+      ],
+      "theoryPdfPages": [
+        116
+      ],
+      "mappingReason": "正确项 хотя 或 поскольку 不属于 4.3 列出的时间连接词；不以功能近似替代原书规则。",
+      "reviewStatus": "needs-review"
+    },
+    "GL4-Q080": {
+      "exerciseId": "GL4-Q080",
+      "printedNumber": 80,
+      "chapterId": "gl4",
+      "exerciseSectionId": "4.4",
+      "sectionIds": [
+        "4.3"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 66,
+      "exercisePdfPage": 68,
+      "theoryPrintedPages": [
+        114
+      ],
+      "theoryPdfPages": [
+        116
+      ],
+      "mappingReason": "正确项 хотя 或 поскольку 不属于 4.3 列出的时间连接词；不以功能近似替代原书规则。",
+      "reviewStatus": "needs-review"
+    },
+    "GL4-Q081": {
+      "exerciseId": "GL4-Q081",
+      "printedNumber": 81,
+      "chapterId": "gl4",
+      "exerciseSectionId": "direct-to-indirect-speech",
+      "sectionIds": [
+        "4.2"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 67,
+      "exercisePdfPage": 69,
+      "theoryPrintedPages": [
+        113
+      ],
+      "theoryPdfPages": [
+        115
+      ],
+      "mappingReason": "练习要求把直接引语改成间接引语；4.2 仅说明关系词，未提供直接—间接引语转换规则。PDF-126 模型答案仅作为原书答案来源保留。",
+      "reviewStatus": "needs-review"
+    },
+    "GL4-Q082": {
+      "exerciseId": "GL4-Q082",
+      "printedNumber": 82,
+      "chapterId": "gl4",
+      "exerciseSectionId": "direct-to-indirect-speech",
+      "sectionIds": [
+        "4.2"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 67,
+      "exercisePdfPage": 69,
+      "theoryPrintedPages": [
+        113
+      ],
+      "theoryPdfPages": [
+        115
+      ],
+      "mappingReason": "练习要求把直接引语改成间接引语；4.2 仅说明关系词，未提供直接—间接引语转换规则。PDF-126 模型答案仅作为原书答案来源保留。",
+      "reviewStatus": "needs-review"
+    },
+    "GL4-Q083": {
+      "exerciseId": "GL4-Q083",
+      "printedNumber": 83,
+      "chapterId": "gl4",
+      "exerciseSectionId": "direct-to-indirect-speech",
+      "sectionIds": [
+        "4.2"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 67,
+      "exercisePdfPage": 69,
+      "theoryPrintedPages": [
+        113
+      ],
+      "theoryPdfPages": [
+        115
+      ],
+      "mappingReason": "练习要求把直接引语改成间接引语；4.2 仅说明关系词，未提供直接—间接引语转换规则。PDF-126 模型答案仅作为原书答案来源保留。",
+      "reviewStatus": "needs-review"
+    },
+    "GL4-Q084": {
+      "exerciseId": "GL4-Q084",
+      "printedNumber": 84,
+      "chapterId": "gl4",
+      "exerciseSectionId": "direct-to-indirect-speech",
+      "sectionIds": [
+        "4.2"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 67,
+      "exercisePdfPage": 69,
+      "theoryPrintedPages": [
+        113
+      ],
+      "theoryPdfPages": [
+        115
+      ],
+      "mappingReason": "练习要求把直接引语改成间接引语；4.2 仅说明关系词，未提供直接—间接引语转换规则。PDF-126 模型答案仅作为原书答案来源保留。",
+      "reviewStatus": "needs-review"
+    },
+    "GL4-Q085": {
+      "exerciseId": "GL4-Q085",
+      "printedNumber": 85,
+      "chapterId": "gl4",
+      "exerciseSectionId": "direct-to-indirect-speech",
+      "sectionIds": [
+        "4.2"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 67,
+      "exercisePdfPage": 69,
+      "theoryPrintedPages": [
+        113
+      ],
+      "theoryPdfPages": [
+        115
+      ],
+      "mappingReason": "练习要求把直接引语改成间接引语；4.2 仅说明关系词，未提供直接—间接引语转换规则。PDF-126 模型答案仅作为原书答案来源保留。",
+      "reviewStatus": "needs-review"
+    },
+    "GL4-Q086": {
+      "exerciseId": "GL4-Q086",
+      "printedNumber": 86,
+      "chapterId": "gl4",
+      "exerciseSectionId": "direct-to-indirect-speech",
+      "sectionIds": [
+        "4.2"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 67,
+      "exercisePdfPage": 69,
+      "theoryPrintedPages": [
+        113
+      ],
+      "theoryPdfPages": [
+        115
+      ],
+      "mappingReason": "练习要求把直接引语改成间接引语；4.2 仅说明关系词，未提供直接—间接引语转换规则。PDF-126 模型答案仅作为原书答案来源保留。",
+      "reviewStatus": "needs-review"
+    },
+    "GL4-Q087": {
+      "exerciseId": "GL4-Q087",
+      "printedNumber": 87,
+      "chapterId": "gl4",
+      "exerciseSectionId": "4.5",
+      "sectionIds": [
+        "4.4"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 67,
+      "exercisePdfPage": 69,
+      "theoryPrintedPages": [
+        115
+      ],
+      "theoryPdfPages": [
+        117
+      ],
+      "mappingReason": "原书练习 §4.5 要求识别加粗结构的语义问句；理论区没有独立 4.5 标题或对应语义规则。不得从正确选项反向虚构规则。",
+      "reviewStatus": "needs-review"
+    },
+    "GL4-Q088": {
+      "exerciseId": "GL4-Q088",
+      "printedNumber": 88,
+      "chapterId": "gl4",
+      "exerciseSectionId": "4.5",
+      "sectionIds": [
+        "4.4"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 67,
+      "exercisePdfPage": 69,
+      "theoryPrintedPages": [
+        115
+      ],
+      "theoryPdfPages": [
+        117
+      ],
+      "mappingReason": "原书练习 §4.5 要求识别加粗结构的语义问句；理论区没有独立 4.5 标题或对应语义规则。不得从正确选项反向虚构规则。",
+      "reviewStatus": "needs-review"
+    },
+    "GL4-Q089": {
+      "exerciseId": "GL4-Q089",
+      "printedNumber": 89,
+      "chapterId": "gl4",
+      "exerciseSectionId": "4.5",
+      "sectionIds": [
+        "4.4"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 67,
+      "exercisePdfPage": 69,
+      "theoryPrintedPages": [
+        115
+      ],
+      "theoryPdfPages": [
+        117
+      ],
+      "mappingReason": "原书练习 §4.5 要求识别加粗结构的语义问句；理论区没有独立 4.5 标题或对应语义规则。不得从正确选项反向虚构规则。",
+      "reviewStatus": "needs-review"
+    },
+    "GL4-Q090": {
+      "exerciseId": "GL4-Q090",
+      "printedNumber": 90,
+      "chapterId": "gl4",
+      "exerciseSectionId": "4.5",
+      "sectionIds": [
+        "4.4"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 68,
+      "exercisePdfPage": 70,
+      "theoryPrintedPages": [
+        115
+      ],
+      "theoryPdfPages": [
+        117
+      ],
+      "mappingReason": "原书练习 §4.5 要求识别加粗结构的语义问句；理论区没有独立 4.5 标题或对应语义规则。不得从正确选项反向虚构规则。",
+      "reviewStatus": "needs-review"
+    },
+    "GL4-Q091": {
+      "exerciseId": "GL4-Q091",
+      "printedNumber": 91,
+      "chapterId": "gl4",
+      "exerciseSectionId": "4.5",
+      "sectionIds": [
+        "4.4"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 68,
+      "exercisePdfPage": 70,
+      "theoryPrintedPages": [
+        115
+      ],
+      "theoryPdfPages": [
+        117
+      ],
+      "mappingReason": "原书练习 §4.5 要求识别加粗结构的语义问句；理论区没有独立 4.5 标题或对应语义规则。不得从正确选项反向虚构规则。",
+      "reviewStatus": "needs-review"
+    },
+    "GL4-Q092": {
+      "exerciseId": "GL4-Q092",
+      "printedNumber": 92,
+      "chapterId": "gl4",
+      "exerciseSectionId": "4.5",
+      "sectionIds": [
+        "4.4"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 68,
+      "exercisePdfPage": 70,
+      "theoryPrintedPages": [
+        115
+      ],
+      "theoryPdfPages": [
+        117
+      ],
+      "mappingReason": "原书练习 §4.5 要求识别加粗结构的语义问句；理论区没有独立 4.5 标题或对应语义规则。不得从正确选项反向虚构规则。",
+      "reviewStatus": "needs-review"
+    },
+    "GL4-Q093": {
+      "exerciseId": "GL4-Q093",
+      "printedNumber": 93,
+      "chapterId": "gl4",
+      "exerciseSectionId": "4.5",
+      "sectionIds": [
+        "4.4"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 68,
+      "exercisePdfPage": 70,
+      "theoryPrintedPages": [
+        115
+      ],
+      "theoryPdfPages": [
+        117
+      ],
+      "mappingReason": "原书练习 §4.5 要求识别加粗结构的语义问句；理论区没有独立 4.5 标题或对应语义规则。不得从正确选项反向虚构规则。",
+      "reviewStatus": "needs-review"
+    },
+    "GL4-Q094": {
+      "exerciseId": "GL4-Q094",
+      "printedNumber": 94,
+      "chapterId": "gl4",
+      "exerciseSectionId": "4.5",
+      "sectionIds": [
+        "4.4"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 68,
+      "exercisePdfPage": 70,
+      "theoryPrintedPages": [
+        115
+      ],
+      "theoryPdfPages": [
+        117
+      ],
+      "mappingReason": "原书练习 §4.5 要求识别加粗结构的语义问句；理论区没有独立 4.5 标题或对应语义规则。不得从正确选项反向虚构规则。",
+      "reviewStatus": "needs-review"
+    },
+    "GL4-Q095": {
+      "exerciseId": "GL4-Q095",
+      "printedNumber": 95,
+      "chapterId": "gl4",
+      "exerciseSectionId": "4.5",
+      "sectionIds": [
+        "4.4"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 68,
+      "exercisePdfPage": 70,
+      "theoryPrintedPages": [
+        115
+      ],
+      "theoryPdfPages": [
+        117
+      ],
+      "mappingReason": "原书练习 §4.5 要求识别加粗结构的语义问句；理论区没有独立 4.5 标题或对应语义规则。不得从正确选项反向虚构规则。",
+      "reviewStatus": "needs-review"
+    },
+    "GL4-Q096": {
+      "exerciseId": "GL4-Q096",
+      "printedNumber": 96,
+      "chapterId": "gl4",
+      "exerciseSectionId": "4.5",
+      "sectionIds": [
+        "4.4"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 68,
+      "exercisePdfPage": 70,
+      "theoryPrintedPages": [
+        115
+      ],
+      "theoryPdfPages": [
+        117
+      ],
+      "mappingReason": "原书练习 §4.5 要求识别加粗结构的语义问句；理论区没有独立 4.5 标题或对应语义规则。不得从正确选项反向虚构规则。",
+      "reviewStatus": "needs-review"
+    },
+    "GL4-Q097": {
+      "exerciseId": "GL4-Q097",
+      "printedNumber": 97,
+      "chapterId": "gl4",
+      "exerciseSectionId": "4.5",
+      "sectionIds": [
+        "4.4"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 69,
+      "exercisePdfPage": 71,
+      "theoryPrintedPages": [
+        115
+      ],
+      "theoryPdfPages": [
+        117
+      ],
+      "mappingReason": "原书练习 §4.5 要求识别加粗结构的语义问句；理论区没有独立 4.5 标题或对应语义规则。不得从正确选项反向虚构规则。",
+      "reviewStatus": "needs-review"
+    },
+    "GL4-Q098": {
+      "exerciseId": "GL4-Q098",
+      "printedNumber": 98,
+      "chapterId": "gl4",
+      "exerciseSectionId": "4.5",
+      "sectionIds": [
+        "4.4"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 69,
+      "exercisePdfPage": 71,
+      "theoryPrintedPages": [
+        115
+      ],
+      "theoryPdfPages": [
+        117
+      ],
+      "mappingReason": "原书练习 §4.5 要求识别加粗结构的语义问句；理论区没有独立 4.5 标题或对应语义规则。不得从正确选项反向虚构规则。",
+      "reviewStatus": "needs-review"
+    },
+    "GL4-Q099": {
+      "exerciseId": "GL4-Q099",
+      "printedNumber": 99,
+      "chapterId": "gl4",
+      "exerciseSectionId": "4.5",
+      "sectionIds": [
+        "4.4"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 69,
+      "exercisePdfPage": 71,
+      "theoryPrintedPages": [
+        115
+      ],
+      "theoryPdfPages": [
+        117
+      ],
+      "mappingReason": "原书练习 §4.5 要求识别加粗结构的语义问句；理论区没有独立 4.5 标题或对应语义规则。不得从正确选项反向虚构规则。",
+      "reviewStatus": "needs-review"
+    },
+    "GL4-Q100": {
+      "exerciseId": "GL4-Q100",
+      "printedNumber": 100,
+      "chapterId": "gl4",
+      "exerciseSectionId": "4.5",
+      "sectionIds": [
+        "4.4"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 69,
+      "exercisePdfPage": 71,
+      "theoryPrintedPages": [
+        115
+      ],
+      "theoryPdfPages": [
+        117
+      ],
+      "mappingReason": "原书练习 §4.5 要求识别加粗结构的语义问句；理论区没有独立 4.5 标题或对应语义规则。不得从正确选项反向虚构规则。",
+      "reviewStatus": "needs-review"
+    },
+    "GL4-Q101": {
+      "exerciseId": "GL4-Q101",
+      "printedNumber": 101,
+      "chapterId": "gl4",
+      "exerciseSectionId": "4.5",
+      "sectionIds": [
+        "4.4"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 69,
+      "exercisePdfPage": 71,
+      "theoryPrintedPages": [
+        115
+      ],
+      "theoryPdfPages": [
+        117
+      ],
+      "mappingReason": "原书练习 §4.5 要求识别加粗结构的语义问句；理论区没有独立 4.5 标题或对应语义规则。不得从正确选项反向虚构规则。",
+      "reviewStatus": "needs-review"
+    },
+    "GL4-Q102": {
+      "exerciseId": "GL4-Q102",
+      "printedNumber": 102,
+      "chapterId": "gl4",
+      "exerciseSectionId": "4.5",
+      "sectionIds": [
+        "4.4"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 69,
+      "exercisePdfPage": 71,
+      "theoryPrintedPages": [
+        115
+      ],
+      "theoryPdfPages": [
+        117
+      ],
+      "mappingReason": "原书练习 §4.5 要求识别加粗结构的语义问句；理论区没有独立 4.5 标题或对应语义规则。不得从正确选项反向虚构规则。",
+      "reviewStatus": "needs-review"
+    }
+  }
+}

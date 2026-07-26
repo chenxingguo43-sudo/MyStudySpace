@@ -1,0 +1,946 @@
+{
+  "schemaVersion": 2,
+  "id": "gl2-section-2-8",
+  "chapterId": "gl2",
+  "sectionId": "2.8",
+  "titleRu": "2.8. Выражение целевых отношений",
+  "titleZh": "目的关系：для 的明确规则与其他目的介词的保留范围",
+  "orientationZh": {
+    "sourceType": "learning-note",
+    "text": "原书对 для + 第二格给出明确说明；导言还列出 ради、за、на，但清洗来源没有保留后三者的独立条件。因此只能把它们作为来源目录和 needs-review 线索，不能用外部常识补成原书规则。"
+  },
+  "quickDecision": [
+    {
+      "sourceType": "learning-note",
+      "text": "先确认结构是否是为某个目的而行动，而不是原因、方向或时间。"
+    },
+    {
+      "sourceType": "learning-note",
+      "text": "对于原书明确说明的 для + 第二格，检查它是否与运动动词或表中允许的动词语境相连。"
+    },
+    {
+      "sourceType": "learning-note",
+      "text": "遇到 ради、за、на，保留原书答案和目录位置，但不虚构本书未保留的细条件。"
+    },
+    {
+      "sourceType": "learning-note",
+      "text": "不要因为知道一般俄语用法就把 needs-review 升级为 mapped。"
+    }
+  ],
+  "sourceRules": [
+    {
+      "sourceType": "source-rule",
+      "text": "## 2.8. Выражение целевых отношений\nДля обозначения цели действия в простом предложении употребляются следующие предлоги: для, ради, за, на.\n1. Предлог для наиболее часто используется в конструкциях со значением цели. Он употребляется в сочетании с существительными в родительном падеже после парных и других глаголов движения и после глаголов: приглашать, звать, жить, работать, заниматься, петь, найти и т. п. Например: Представители Международного Олимпийского комитета приехали в Сочи для проверки готовности города к проведению зимних Олимпийских игр 2014 года; После операции больному рекомендовали больше двигаться для восстановления здоровья; В сборнике «Русская литература и культура» магистрант нашёл статью для реферата.",
+      "source": {
+        "pdfPages": [
+          109
+        ],
+        "printedPages": [
+          107
+        ]
+      }
+    }
+  ],
+  "atomicRules": [
+    {
+      "id": "gl2-2.8-dlya-gen",
+      "titleZh": "для + 第二格表示目的",
+      "sourceReference": "2.8 第 1 条说明 для + 第二格是最常见的目的结构，可接运动动词和多类动词。",
+      "sourceType": "learning-note",
+      "learningNote": "此原子分类用于检索；完整原书条件、表格和例项见本单元的 sourceRules / tables。"
+    },
+    {
+      "id": "gl2-2.8-goal-inventory",
+      "titleZh": "ради、за、на等目的介词的来源目录",
+      "sourceReference": "2.8 导言列出 для、ради、за、на 作为目的关系的介词；清洗来源未保留后三种的独立条件说明。",
+      "sourceType": "learning-note",
+      "learningNote": "此原子分类用于检索；完整原书条件、表格和例项见本单元的 sourceRules / tables。"
+    },
+    {
+      "id": "gl2-2.8-source-item-1",
+      "titleZh": "原书编号条目 1",
+      "sourceReference": "1. Предлог для наиболее часто используется в конструкциях со значением цели. Он употребляется в сочетании с существительными в родительном падеже после парных и других глаголов движения и после глаголов: приглашать, звать, жить, работать, заниматься, петь, найти и т. п. Например: Представители Международного Олимпийского комитета приехали в Сочи для проверки готовности города к проведению зимних Олимпийских игр 2014 года; После операции больному рекомендовали больше двигаться для восстановления здоровья; В сборнике «Русская литература и культура» магистрант нашёл статью для реферата.",
+      "sourceType": "source-rule",
+      "learningNote": "完整条目及其跨行内容保留在本单元 sourceRules；此条目只提供原书编号索引。"
+    }
+  ],
+  "tables": [],
+  "examples": [
+    {
+      "sourceType": "source-example",
+      "text": "для, ради, за, на.",
+      "note": "原书正文例项或带例项的条件块"
+    },
+    {
+      "sourceType": "source-example",
+      "text": "приглашать, звать, жить, работать, заниматься, петь, найти и т. п. Например: Представители Международного Олимпийского комитета приехали в Сочи для проверки готовности города к проведению зимних Олимпийских игр 2014 года; После операции больному рекомендовали больше двигаться для восстановления здоровья; В сборнике «Русская литература и культура» магистрант нашёл статью для реферата.",
+      "note": "原书正文例项或带例项的条件块"
+    }
+  ],
+  "semanticAnalysis": {
+    "sourceType": "learning-note",
+    "text": "目的关系以行动所指向的目标为中心。原书只对 для 给出可直接使用的规则；其余目的介词在本项目中必须保持来源边界。"
+  },
+  "signalAnalysis": [
+    {
+      "sourceType": "learning-note",
+      "signals": [
+        "для + Р. п.",
+        "ради",
+        "за",
+        "на"
+      ],
+      "use": "для 是唯一带有本书保留条件的直接规则。其余形式只可作为目录信号，不能单独决定本书内的细映射。"
+    }
+  ],
+  "contrasts": [
+    {
+      "sourceType": "source-example",
+      "left": "для получения высшего образования",
+      "right": "ради науки",
+      "analysis": "前者有原书对 для 的直接规则；后者虽在导言目录中出现，但清洗来源未保留其独立条件。"
+    }
+  ],
+  "commonErrors": [
+    {
+      "sourceType": "learning-note",
+      "text": "把 ради、за、на 的一般语法知识标为原书规则。"
+    },
+    {
+      "sourceType": "learning-note",
+      "text": "将目的关系与 “почему?” 的原因关系混淆。"
+    }
+  ],
+  "exerciseLinks": [
+    {
+      "exerciseId": "GL2-Q123",
+      "printedNumber": 123,
+      "exercisePrintedPage": 36,
+      "sourceType": "exercise-example",
+      "status": "mapped",
+      "question": "В мире почти двести миллионов человек изучают русский язык; тысячи из них приезжают в Россию ... высшего образования.",
+      "options": [
+        {
+          "key": "А",
+          "text": "на получение"
+        },
+        {
+          "key": "Б",
+          "text": "за получение"
+        },
+        {
+          "key": "В",
+          "text": "для получения\\n"
+        }
+      ],
+      "correctAnswer": "В",
+      "ruleIds": [
+        "gl2-2.8-dlya-gen"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "для получения высшего образования。2.8 第 1 条说明 для + 第二格是最常见的目的结构，可接运动动词和多类动词。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "正确项「В」：正确项与已映射规则「для + 第二格表示目的」相符。для получения высшего образования。2.8 第 1 条说明 для + 第二格是最常见的目的结构，可接运动动词和多类动词。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "на получение",
+            "sourceType": "learning-note",
+            "reason": "它未满足题干所需的支配、语义关系或问句方向；须以原书规则和句义复核。"
+          },
+          {
+            "key": "Б",
+            "text": "за получение",
+            "sourceType": "learning-note",
+            "reason": "它未满足题干所需的支配、语义关系或问句方向；须以原书规则和句义复核。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 38,
+        "questionPrintedPage": 36,
+        "answerPdfPage": 125,
+        "answerPrintedPage": 123,
+        "answerSource": "PDF-125 / 印刷页 123：Ключи ко второй главе"
+      }
+    },
+    {
+      "exerciseId": "GL2-Q124",
+      "printedNumber": 124,
+      "exercisePrintedPage": 36,
+      "sourceType": "exercise-example",
+      "status": "needs-review",
+      "question": "За всю историю развития научного знания учёные не раз рисковали жизнью ... .",
+      "options": [
+        {
+          "key": "А",
+          "text": "на науку"
+        },
+        {
+          "key": "Б",
+          "text": "ради науки"
+        },
+        {
+          "key": "В",
+          "text": "за науку\\n"
+        }
+      ],
+      "correctAnswer": "Б",
+      "ruleIds": [],
+      "candidateRuleIds": [
+        "gl2-2.8-goal-inventory"
+      ],
+      "mappingReason": "рисковали жизнью ради науки；原书仅在 2.8 导言列出该目的介词，未保留独立用法条件。。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "正确项「Б」：正确项保留原书答案；规则细边界仍为 needs-review。рисковали жизнью ради науки；原书仅在 2.8 导言列出该目的介词，未保留独立用法条件。。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "на науку",
+            "sourceType": "learning-note",
+            "reason": "它不是原书答案；当前来源不足以把该干扰项扩写为完整原书规则。"
+          },
+          {
+            "key": "В",
+            "text": "за науку\\n",
+            "sourceType": "learning-note",
+            "reason": "它不是原书答案；当前来源不足以把该干扰项扩写为完整原书规则。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 38,
+        "questionPrintedPage": 36,
+        "answerPdfPage": 125,
+        "answerPrintedPage": 123,
+        "answerSource": "PDF-125 / 印刷页 123：Ключи ко второй главе"
+      }
+    },
+    {
+      "exerciseId": "GL2-Q125",
+      "printedNumber": 125,
+      "exercisePrintedPage": 36,
+      "sourceType": "exercise-example",
+      "status": "needs-review",
+      "question": "Интеллигенция разных стран мира сегодня всё чаще покидает большие города ... в деревенской глуши.",
+      "options": [
+        {
+          "key": "А",
+          "text": "на жизнь"
+        },
+        {
+          "key": "Б",
+          "text": "за жизнь"
+        },
+        {
+          "key": "В",
+          "text": "ради жизни\\n"
+        }
+      ],
+      "correctAnswer": "В",
+      "ruleIds": [],
+      "candidateRuleIds": [
+        "gl2-2.8-goal-inventory"
+      ],
+      "mappingReason": "покидает города ради жизни；原书仅在 2.8 导言列出该目的介词，未保留独立用法条件。。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "正确项「В」：正确项保留原书答案；规则细边界仍为 needs-review。покидает города ради жизни；原书仅在 2.8 导言列出该目的介词，未保留独立用法条件。。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "на жизнь",
+            "sourceType": "learning-note",
+            "reason": "它不是原书答案；当前来源不足以把该干扰项扩写为完整原书规则。"
+          },
+          {
+            "key": "Б",
+            "text": "за жизнь",
+            "sourceType": "learning-note",
+            "reason": "它不是原书答案；当前来源不足以把该干扰项扩写为完整原书规则。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 38,
+        "questionPrintedPage": 36,
+        "answerPdfPage": 125,
+        "answerPrintedPage": 123,
+        "answerSource": "PDF-125 / 印刷页 123：Ключи ко второй главе"
+      }
+    },
+    {
+      "exerciseId": "GL2-Q126",
+      "printedNumber": 126,
+      "exercisePrintedPage": 36,
+      "sourceType": "exercise-example",
+      "status": "needs-review",
+      "question": "В России почти в каждой семье есть человек, воевавший или погибший ... в Великой Отечественной войне 1941–1945 годов.",
+      "options": [
+        {
+          "key": "А",
+          "text": "за победу"
+        },
+        {
+          "key": "Б",
+          "text": "для победы"
+        },
+        {
+          "key": "В",
+          "text": "на победу\\n\\n"
+        }
+      ],
+      "correctAnswer": "А",
+      "ruleIds": [],
+      "candidateRuleIds": [
+        "gl2-2.8-goal-inventory"
+      ],
+      "mappingReason": "воевал за победу；原书仅在 2.8 导言列出该目的介词，未保留独立用法条件。。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "正确项「А」：正确项保留原书答案；规则细边界仍为 needs-review。воевал за победу；原书仅在 2.8 导言列出该目的介词，未保留独立用法条件。。",
+        "distractors": [
+          {
+            "key": "Б",
+            "text": "для победы",
+            "sourceType": "learning-note",
+            "reason": "它不是原书答案；当前来源不足以把该干扰项扩写为完整原书规则。"
+          },
+          {
+            "key": "В",
+            "text": "на победу\\n\\n",
+            "sourceType": "learning-note",
+            "reason": "它不是原书答案；当前来源不足以把该干扰项扩写为完整原书规则。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 38,
+        "questionPrintedPage": 36,
+        "answerPdfPage": 125,
+        "answerPrintedPage": 123,
+        "answerSource": "PDF-125 / 印刷页 123：Ключи ко второй главе"
+      }
+    },
+    {
+      "exerciseId": "GL2-Q127",
+      "printedNumber": 127,
+      "exercisePrintedPage": 37,
+      "sourceType": "exercise-example",
+      "status": "needs-review",
+      "question": "Знаменитый английский поэт лорд Байрон погиб в 1824 году, сражаясь ... Греции.",
+      "options": [
+        {
+          "key": "А",
+          "text": "для свободы"
+        },
+        {
+          "key": "Б",
+          "text": "на свободу"
+        },
+        {
+          "key": "В",
+          "text": "за свободу\\n"
+        }
+      ],
+      "correctAnswer": "В",
+      "ruleIds": [],
+      "candidateRuleIds": [
+        "gl2-2.8-goal-inventory"
+      ],
+      "mappingReason": "сражаясь за свободу；原书仅在 2.8 导言列出该目的介词，未保留独立用法条件。。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "正确项「В」：正确项保留原书答案；规则细边界仍为 needs-review。сражаясь за свободу；原书仅在 2.8 导言列出该目的介词，未保留独立用法条件。。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "для свободы",
+            "sourceType": "learning-note",
+            "reason": "它不是原书答案；当前来源不足以把该干扰项扩写为完整原书规则。"
+          },
+          {
+            "key": "Б",
+            "text": "на свободу",
+            "sourceType": "learning-note",
+            "reason": "它不是原书答案；当前来源不足以把该干扰项扩写为完整原书规则。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 39,
+        "questionPrintedPage": 37,
+        "answerPdfPage": 125,
+        "answerPrintedPage": 123,
+        "answerSource": "PDF-125 / 印刷页 123：Ключи ко второй главе"
+      }
+    },
+    {
+      "exerciseId": "GL2-Q128",
+      "printedNumber": 128,
+      "exercisePrintedPage": 37,
+      "sourceType": "exercise-example",
+      "status": "mapped",
+      "question": "Миллионы доноров во всём мире сдают кровь ... жизни других людей.",
+      "options": [
+        {
+          "key": "А",
+          "text": "для спасения"
+        },
+        {
+          "key": "Б",
+          "text": "на спасение"
+        },
+        {
+          "key": "В",
+          "text": "за спасение\\n"
+        }
+      ],
+      "correctAnswer": "А",
+      "ruleIds": [
+        "gl2-2.8-dlya-gen"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "для спасения жизни。2.8 第 1 条说明 для + 第二格是最常见的目的结构，可接运动动词和多类动词。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "正确项「А」：正确项与已映射规则「для + 第二格表示目的」相符。для спасения жизни。2.8 第 1 条说明 для + 第二格是最常见的目的结构，可接运动动词和多类动词。",
+        "distractors": [
+          {
+            "key": "Б",
+            "text": "на спасение",
+            "sourceType": "learning-note",
+            "reason": "它未满足题干所需的支配、语义关系或问句方向；须以原书规则和句义复核。"
+          },
+          {
+            "key": "В",
+            "text": "за спасение\\n",
+            "sourceType": "learning-note",
+            "reason": "它未满足题干所需的支配、语义关系或问句方向；须以原书规则和句义复核。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 39,
+        "questionPrintedPage": 37,
+        "answerPdfPage": 125,
+        "answerPrintedPage": 123,
+        "answerSource": "PDF-125 / 印刷页 123：Ключи ко второй главе"
+      }
+    },
+    {
+      "exerciseId": "GL2-Q129",
+      "printedNumber": 129,
+      "exercisePrintedPage": 37,
+      "sourceType": "exercise-example",
+      "status": "needs-review",
+      "question": "Поводом к войне ... между американскими Севером и Югом стало нежелание граждан подчиняться произволу власти.",
+      "options": [
+        {
+          "key": "А",
+          "text": "для независимости"
+        },
+        {
+          "key": "Б",
+          "text": "от независимости"
+        },
+        {
+          "key": "В",
+          "text": "за независимость"
+        },
+        {
+          "key": "Г",
+          "text": "с независимостью\\n"
+        }
+      ],
+      "correctAnswer": "В",
+      "ruleIds": [],
+      "candidateRuleIds": [
+        "gl2-2.8-goal-inventory"
+      ],
+      "mappingReason": "войне за независимость；原书仅在 2.8 导言列出该目的介词，未保留独立用法条件。。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "正确项「В」：正确项保留原书答案；规则细边界仍为 needs-review。войне за независимость；原书仅在 2.8 导言列出该目的介词，未保留独立用法条件。。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "для независимости",
+            "sourceType": "learning-note",
+            "reason": "它不是原书答案；当前来源不足以把该干扰项扩写为完整原书规则。"
+          },
+          {
+            "key": "Б",
+            "text": "от независимости",
+            "sourceType": "learning-note",
+            "reason": "它不是原书答案；当前来源不足以把该干扰项扩写为完整原书规则。"
+          },
+          {
+            "key": "Г",
+            "text": "с независимостью\\n",
+            "sourceType": "learning-note",
+            "reason": "它不是原书答案；当前来源不足以把该干扰项扩写为完整原书规则。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 39,
+        "questionPrintedPage": 37,
+        "answerPdfPage": 125,
+        "answerPrintedPage": 123,
+        "answerSource": "PDF-125 / 印刷页 123：Ключи ко второй главе"
+      }
+    },
+    {
+      "exerciseId": "GL2-Q130",
+      "printedNumber": 130,
+      "exercisePrintedPage": 37,
+      "sourceType": "exercise-example",
+      "status": "needs-review",
+      "question": "Геологам требуются годы ... месторождений серебра и олова на обширной территории Якутии.",
+      "options": [
+        {
+          "key": "А",
+          "text": "за поиск"
+        },
+        {
+          "key": "Б",
+          "text": "на поиск"
+        },
+        {
+          "key": "В",
+          "text": "ради поиска\\n"
+        }
+      ],
+      "correctAnswer": "Б",
+      "ruleIds": [],
+      "candidateRuleIds": [
+        "gl2-2.8-goal-inventory"
+      ],
+      "mappingReason": "годы на поиск；原书仅在 2.8 导言列出该目的介词，未保留独立用法条件。。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "正确项「Б」：正确项保留原书答案；规则细边界仍为 needs-review。годы на поиск；原书仅在 2.8 导言列出该目的介词，未保留独立用法条件。。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "за поиск",
+            "sourceType": "learning-note",
+            "reason": "它不是原书答案；当前来源不足以把该干扰项扩写为完整原书规则。"
+          },
+          {
+            "key": "В",
+            "text": "ради поиска\\n",
+            "sourceType": "learning-note",
+            "reason": "它不是原书答案；当前来源不足以把该干扰项扩写为完整原书规则。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 39,
+        "questionPrintedPage": 37,
+        "answerPdfPage": 125,
+        "answerPrintedPage": 123,
+        "answerSource": "PDF-125 / 印刷页 123：Ключи ко второй главе"
+      }
+    },
+    {
+      "exerciseId": "GL2-Q131",
+      "printedNumber": 131,
+      "exercisePrintedPage": 37,
+      "sourceType": "exercise-example",
+      "status": "needs-review",
+      "question": "По дороге из Сибири на юг чёрные аисты останавливаются ... в казахских степях.",
+      "options": [
+        {
+          "key": "А",
+          "text": "за отдыхом"
+        },
+        {
+          "key": "Б",
+          "text": "ради отдыха"
+        },
+        {
+          "key": "В",
+          "text": "на отдых\\n"
+        }
+      ],
+      "correctAnswer": "В",
+      "ruleIds": [],
+      "candidateRuleIds": [
+        "gl2-2.8-goal-inventory"
+      ],
+      "mappingReason": "останавливаются на отдых；原书仅在 2.8 导言列出该目的介词，未保留独立用法条件。。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "正确项「В」：正确项保留原书答案；规则细边界仍为 needs-review。останавливаются на отдых；原书仅在 2.8 导言列出该目的介词，未保留独立用法条件。。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "за отдыхом",
+            "sourceType": "learning-note",
+            "reason": "它不是原书答案；当前来源不足以把该干扰项扩写为完整原书规则。"
+          },
+          {
+            "key": "Б",
+            "text": "ради отдыха",
+            "sourceType": "learning-note",
+            "reason": "它不是原书答案；当前来源不足以把该干扰项扩写为完整原书规则。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 39,
+        "questionPrintedPage": 37,
+        "answerPdfPage": 125,
+        "answerPrintedPage": 123,
+        "answerSource": "PDF-125 / 印刷页 123：Ключи ко второй главе"
+      }
+    },
+    {
+      "exerciseId": "GL2-Q132",
+      "printedNumber": 132,
+      "exercisePrintedPage": 37,
+      "sourceType": "exercise-example",
+      "status": "needs-review",
+      "question": "Дожди пришли ... австралийским пожарным, которые сражались с огнём, бушующим в восточных штатах страны.",
+      "options": [
+        {
+          "key": "А",
+          "text": "на помощь"
+        },
+        {
+          "key": "Б",
+          "text": "для помощи"
+        },
+        {
+          "key": "В",
+          "text": "ради помощи\\n"
+        }
+      ],
+      "correctAnswer": "А",
+      "ruleIds": [],
+      "candidateRuleIds": [
+        "gl2-2.8-goal-inventory"
+      ],
+      "mappingReason": "пришли на помощь；原书仅在 2.8 导言列出该目的介词，未保留独立用法条件。。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "正确项「А」：正确项保留原书答案；规则细边界仍为 needs-review。пришли на помощь；原书仅在 2.8 导言列出该目的介词，未保留独立用法条件。。",
+        "distractors": [
+          {
+            "key": "Б",
+            "text": "для помощи",
+            "sourceType": "learning-note",
+            "reason": "它不是原书答案；当前来源不足以把该干扰项扩写为完整原书规则。"
+          },
+          {
+            "key": "В",
+            "text": "ради помощи\\n",
+            "sourceType": "learning-note",
+            "reason": "它不是原书答案；当前来源不足以把该干扰项扩写为完整原书规则。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 39,
+        "questionPrintedPage": 37,
+        "answerPdfPage": 125,
+        "answerPrintedPage": 123,
+        "answerSource": "PDF-125 / 印刷页 123：Ключи ко второй главе"
+      }
+    },
+    {
+      "exerciseId": "GL2-Q133",
+      "printedNumber": 133,
+      "exercisePrintedPage": 37,
+      "sourceType": "exercise-example",
+      "status": "mapped",
+      "question": "В интернет-магазине молодые родители могут приобрести всё необходимое ... за новорождённым.",
+      "options": [
+        {
+          "key": "А",
+          "text": "для ухода"
+        },
+        {
+          "key": "Б",
+          "text": "ради ухода"
+        },
+        {
+          "key": "В",
+          "text": "на уход\\n"
+        }
+      ],
+      "correctAnswer": "А",
+      "ruleIds": [
+        "gl2-2.8-dlya-gen"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "для ухода за новорождённым。2.8 第 1 条说明 для + 第二格是最常见的目的结构，可接运动动词和多类动词。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "正确项「А」：正确项与已映射规则「для + 第二格表示目的」相符。для ухода за новорождённым。2.8 第 1 条说明 для + 第二格是最常见的目的结构，可接运动动词和多类动词。",
+        "distractors": [
+          {
+            "key": "Б",
+            "text": "ради ухода",
+            "sourceType": "learning-note",
+            "reason": "它未满足题干所需的支配、语义关系或问句方向；须以原书规则和句义复核。"
+          },
+          {
+            "key": "В",
+            "text": "на уход\\n",
+            "sourceType": "learning-note",
+            "reason": "它未满足题干所需的支配、语义关系或问句方向；须以原书规则和句义复核。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 39,
+        "questionPrintedPage": 37,
+        "answerPdfPage": 125,
+        "answerPrintedPage": 123,
+        "answerSource": "PDF-125 / 印刷页 123：Ключи ко второй главе"
+      }
+    },
+    {
+      "exerciseId": "GL2-Q134",
+      "printedNumber": 134,
+      "exercisePrintedPage": 37,
+      "sourceType": "exercise-example",
+      "status": "needs-review",
+      "question": "Дедушка посадил внука на лавочку, а сам пошёл ... .",
+      "options": [
+        {
+          "key": "А",
+          "text": "для мороженого"
+        },
+        {
+          "key": "Б",
+          "text": "за мороженым"
+        },
+        {
+          "key": "В",
+          "text": "ради мороженого\\n"
+        }
+      ],
+      "correctAnswer": "Б",
+      "ruleIds": [],
+      "candidateRuleIds": [
+        "gl2-2.8-goal-inventory"
+      ],
+      "mappingReason": "пошёл за мороженым；原书仅在 2.8 导言列出该目的介词，未保留独立用法条件。。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "正确项「Б」：正确项保留原书答案；规则细边界仍为 needs-review。пошёл за мороженым；原书仅在 2.8 导言列出该目的介词，未保留独立用法条件。。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "для мороженого",
+            "sourceType": "learning-note",
+            "reason": "它不是原书答案；当前来源不足以把该干扰项扩写为完整原书规则。"
+          },
+          {
+            "key": "В",
+            "text": "ради мороженого\\n",
+            "sourceType": "learning-note",
+            "reason": "它不是原书答案；当前来源不足以把该干扰项扩写为完整原书规则。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 39,
+        "questionPrintedPage": 37,
+        "answerPdfPage": 125,
+        "answerPrintedPage": 123,
+        "answerSource": "PDF-125 / 印刷页 123：Ключи ко второй главе"
+      }
+    },
+    {
+      "exerciseId": "GL2-Q135",
+      "printedNumber": 135,
+      "exercisePrintedPage": 37,
+      "sourceType": "exercise-example",
+      "status": "mapped",
+      "question": "Преподаватели и студенты собрались на кафедре ... тематики дипломных работ.",
+      "options": [
+        {
+          "key": "А",
+          "text": "ради обсуждения"
+        },
+        {
+          "key": "Б",
+          "text": "для обсуждения"
+        },
+        {
+          "key": "В",
+          "text": "за обсуждение\\n\\n\\n\\n\\n"
+        }
+      ],
+      "correctAnswer": "Б",
+      "ruleIds": [
+        "gl2-2.8-dlya-gen"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "для обсуждения тематики。2.8 第 1 条说明 для + 第二格是最常见的目的结构，可接运动动词和多类动词。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "正确项「Б」：正确项与已映射规则「для + 第二格表示目的」相符。для обсуждения тематики。2.8 第 1 条说明 для + 第二格是最常见的目的结构，可接运动动词和多类动词。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "ради обсуждения",
+            "sourceType": "learning-note",
+            "reason": "它未满足题干所需的支配、语义关系或问句方向；须以原书规则和句义复核。"
+          },
+          {
+            "key": "В",
+            "text": "за обсуждение\\n\\n\\n\\n\\n",
+            "sourceType": "learning-note",
+            "reason": "它未满足题干所需的支配、语义关系或问句方向；须以原书规则和句义复核。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 39,
+        "questionPrintedPage": 37,
+        "answerPdfPage": 125,
+        "answerPrintedPage": 123,
+        "answerSource": "PDF-125 / 印刷页 123：Ключи ко второй главе"
+      }
+    },
+    {
+      "exerciseId": "GL2-Q136",
+      "printedNumber": 136,
+      "exercisePrintedPage": 38,
+      "sourceType": "exercise-example",
+      "status": "needs-review",
+      "question": "Мой друг пошёл ... на балет Сергея Прокофьева «Ромео и Джульетта».",
+      "options": [
+        {
+          "key": "А",
+          "text": "для билетов"
+        },
+        {
+          "key": "Б",
+          "text": "на билеты"
+        },
+        {
+          "key": "В",
+          "text": "ради билетов"
+        },
+        {
+          "key": "Г",
+          "text": "за билетами\\n"
+        }
+      ],
+      "correctAnswer": "Г",
+      "ruleIds": [],
+      "candidateRuleIds": [
+        "gl2-2.8-goal-inventory"
+      ],
+      "mappingReason": "пошёл за билетами；原书仅在 2.8 导言列出该目的介词，未保留独立用法条件。。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "正确项「Г」：正确项保留原书答案；规则细边界仍为 needs-review。пошёл за билетами；原书仅在 2.8 导言列出该目的介词，未保留独立用法条件。。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "для билетов",
+            "sourceType": "learning-note",
+            "reason": "它不是原书答案；当前来源不足以把该干扰项扩写为完整原书规则。"
+          },
+          {
+            "key": "Б",
+            "text": "на билеты",
+            "sourceType": "learning-note",
+            "reason": "它不是原书答案；当前来源不足以把该干扰项扩写为完整原书规则。"
+          },
+          {
+            "key": "В",
+            "text": "ради билетов",
+            "sourceType": "learning-note",
+            "reason": "它不是原书答案；当前来源不足以把该干扰项扩写为完整原书规则。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 40,
+        "questionPrintedPage": 38,
+        "answerPdfPage": 125,
+        "answerPrintedPage": 123,
+        "answerSource": "PDF-125 / 印刷页 123：Ключи ко второй главе"
+      }
+    }
+  ],
+  "relatedRules": [
+    {
+      "sourceType": "learning-note",
+      "text": "2.7（原因关系）"
+    },
+    {
+      "sourceType": "learning-note",
+      "text": "2.6（方向和目的地）"
+    }
+  ],
+  "source": {
+    "pdfPages": [
+      109
+    ],
+    "printedPages": [
+      107
+    ],
+    "cleanedSource": "cleaned-source/chapter-02.md",
+    "sourcePdf": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+  },
+  "sourceCoverage": {
+    "ruleItems": {
+      "total": 1,
+      "captured": 1
+    },
+    "numberedItems": {
+      "total": 1,
+      "captured": 1
+    },
+    "tables": {
+      "total": 0,
+      "captured": 0,
+      "rowsTotal": 0,
+      "rowsCaptured": 0
+    },
+    "examples": {
+      "total": 2,
+      "captured": 2,
+      "countingMethod": "逐个保留原书表格的例项和正文中以破折号引出的例项；相同文字只记录一次。"
+    },
+    "relatedExercises": {
+      "total": 14,
+      "explained": 14
+    },
+    "uncollectedItems": [],
+    "sourceExerciseOnly": [],
+    "needsReview": [
+      "原书理论扫描与清洗来源仍为 REVIEW；本单元不能标为 verified。",
+      "GL2-Q124：рисковали жизнью ради науки；原书仅在 2.8 导言列出该目的介词，未保留独立用法条件。。",
+      "GL2-Q125：покидает города ради жизни；原书仅在 2.8 导言列出该目的介词，未保留独立用法条件。。",
+      "GL2-Q126：воевал за победу；原书仅在 2.8 导言列出该目的介词，未保留独立用法条件。。",
+      "GL2-Q127：сражаясь за свободу；原书仅在 2.8 导言列出该目的介词，未保留独立用法条件。。",
+      "GL2-Q129：войне за независимость；原书仅在 2.8 导言列出该目的介词，未保留独立用法条件。。",
+      "GL2-Q130：годы на поиск；原书仅在 2.8 导言列出该目的介词，未保留独立用法条件。。",
+      "GL2-Q131：останавливаются на отдых；原书仅在 2.8 导言列出该目的介词，未保留独立用法条件。。",
+      "GL2-Q132：пришли на помощь；原书仅在 2.8 导言列出该目的介词，未保留独立用法条件。。",
+      "GL2-Q134：пошёл за мороженым；原书仅在 2.8 导言列出该目的介词，未保留独立用法条件。。",
+      "GL2-Q136：пошёл за билетами；原书仅在 2.8 导言列出该目的介词，未保留独立用法条件。。"
+    ],
+    "ocrRisks": [
+      "跨页表格、标点和重音仍以 source-manifest.json 的 REVIEW 风险为准。"
+    ]
+  },
+  "reviewStatus": "needs-review",
+  "riskRecord": [
+    "中文定位、快速判断、语义辨析和选项分析均为 learning-note，不是原书规则。",
+    "原书答案、原书规则和练习内容已按字段分层；没有从 needs-review 或 source-exercise-only 题目倒推出来源规则。"
+  ]
+}

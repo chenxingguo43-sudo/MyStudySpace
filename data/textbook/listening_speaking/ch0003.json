@@ -8,8 +8,10 @@
     15
   ],
   "media": {
-    "provenance": "teacher-provided",
-    "file": "media/04.mp3"
+    "provenance": "unavailable",
+    "status": "source-mismatch",
+    "reason": "Imported audio belongs to Uchebno-trenirovochnye testy po russkomu iazyku kak inostrannomu. Vypusk 4. Audirovanie. Govorenie, not V mire liudei. Vypusk 2. Audirovanie. Govorenie.",
+    "rejectedFile": "media/04.mp3"
   },
   "questions": [
     {
@@ -117,23 +119,23 @@
     {
       "speaker": "B",
       "displayLabel": "М",
-      "text": "Мужской голос: — Слышал, оборудование новое пришло?.. Вот зашёл на форум: самому же нереально всё протестировать...",
+      "text": "Слышал, оборудование новое пришло?.. Вот зашёл на форум: самому же нереально всё протестировать...",
       "startTime": 0,
-      "endTime": 62.08
+      "endTime": 0
     },
     {
       "speaker": "B",
       "displayLabel": "М",
-      "text": "Мужской голос: — А что форум? Практически базар: есть настроение — ответят, нет — даже не зайдут. Так что особо не рассчитывай!",
-      "startTime": 59.2,
-      "endTime": 62.08
+      "text": "А что форум? Практически базар: есть настроение — ответят, нет — даже не зайдут. Так что особо не рассчитывай!",
+      "startTime": 0,
+      "endTime": 0
     },
     {
       "speaker": "B",
       "displayLabel": "М",
-      "text": "Мужской голос: — Да нет, по себе знаю, дорога любая информация.",
-      "startTime": 59.2,
-      "endTime": 62.08
+      "text": "Да нет, по себе знаю, дорога любая информация.",
+      "startTime": 0,
+      "endTime": 0
     }
   ]
 }

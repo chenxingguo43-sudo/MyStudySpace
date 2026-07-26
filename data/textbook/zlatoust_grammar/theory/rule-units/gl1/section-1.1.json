@@ -1,0 +1,898 @@
+{
+  "schemaVersion": 1,
+  "id": "gl1-section-1.1",
+  "chapterId": "gl1",
+  "sectionId": "1.1",
+  "titleRu": "Согласование названий лиц с различными частями речи",
+  "titleZh": "人物职业称谓与其他词类的一致",
+  "orientationZh": {
+    "sourceType": "learning-note",
+    "text": "先判断职业/职务名词是否只有阳性形式，再分开处理定语、过去时动词、短尾形容词和短尾分词。指女性不自动意味着所有成分都用阴性。"
+  },
+  "quickDecision": [
+    {
+      "sourceType": "learning-note",
+      "text": "确认中心职业/职务名词是否为仅阳性的名称。"
+    },
+    {
+      "sourceType": "learning-note",
+      "text": "若是“形容词 + 名词”的复合职称，定语保持阳性。"
+    },
+    {
+      "sourceType": "learning-note",
+      "text": "再根据谓语类型和是否出现 женщина、девушка 等女性中心词决定阴性形式。"
+    }
+  ],
+  "semanticAnalysis": {
+    "sourceType": "learning-note",
+    "text": "这一组形式的核心不是“说的是女人还是男人”，而是每个成分各自和谁保持一致。职业名称本身可能保留传统阳性形式；定语、过去时谓语和短尾形式在句中承担的功能不同，因此不能把某一处的阴性或阳性推广到整句话。"
+  },
+  "sourceRules": [
+    {
+      "id": "gl1-1.1-attributive-agreement",
+      "sourceType": "source-rule",
+      "text": "При обозначении лиц по профессии, социальному положению и общественной принадлежности используются существительные мужского и женского рода: учитель — учительница, спортсмен — спортсменка, крестьянин — крестьянка, демократ — демократка. Для определённых профессий, должностей, учёных и воинских званий применяются существительные только мужского рода: физик, химик, биолог, директор, администратор, профессор; они употребляются и при лицах женского пола: адвокат Петрова, мастер спорта Егорова, кандидат технических наук Степанова.",
+      "source": {
+        "pdfPages": [
+          93
+        ],
+        "printedPages": [
+          91
+        ],
+        "source": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+      }
+    },
+    {
+      "id": "gl1-1.1-female-headword-agreement",
+      "sourceType": "source-rule",
+      "text": "Согласование прилагательных, местоимений в форме женского рода с существительными мужского рода носит разговорный характер: молодая директор Смелякова, наш майор Гордеева. В официальной речи: молодой директор Смелякова, наш майор Гордеева.",
+      "source": {
+        "pdfPages": [
+          93
+        ],
+        "printedPages": [
+          91
+        ],
+        "source": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+      }
+    },
+    {
+      "id": "gl1-1.1-compound-title-masculine",
+      "sourceType": "source-rule",
+      "text": "Если название должности или звания образовано сочетанием прилагательного и существительного (главный технолог, старший бухгалтер, младший лейтенант), то и в разговорной, и в официальной речи о женщинах правильно употреблять только форму мужского рода: научный сотрудник Зорина.",
+      "source": {
+        "pdfPages": [
+          93
+        ],
+        "printedPages": [
+          91
+        ],
+        "source": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+      }
+    },
+    {
+      "id": "gl1-1.1-feminine-verb-agreement",
+      "sourceType": "source-rule",
+      "text": "При существительном мужского рода, называющем лицо женского пола, глагол употребляется в форме женского рода: Доцент Марусева начала занятие.",
+      "source": {
+        "pdfPages": [
+          93
+        ],
+        "printedPages": [
+          91
+        ],
+        "source": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+      }
+    },
+    {
+      "id": "gl1-1.1-feminine-short-adjective",
+      "sourceType": "source-rule",
+      "text": "При таком существительном краткое прилагательное употребляется в форме женского рода: Инженер Федотова больна.",
+      "source": {
+        "pdfPages": [
+          93
+        ],
+        "printedPages": [
+          91
+        ],
+        "source": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+      }
+    },
+    {
+      "id": "gl1-1.1-feminine-short-participle",
+      "sourceType": "source-rule",
+      "text": "При таком существительном краткое причастие употребляется в форме женского рода: Депутат Игнатова оповещена о времени и месте встречи с избирателями.",
+      "source": {
+        "pdfPages": [
+          93
+        ],
+        "printedPages": [
+          91
+        ],
+        "source": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+      }
+    }
+  ],
+  "tables": [],
+  "atomicRules": [
+    {
+      "id": "gl1-1.1-attributive-agreement",
+      "sourceType": "source-rule",
+      "text": "При обозначении лиц по профессии, социальному положению и общественной принадлежности используются существительные мужского и женского рода: учитель — учительница, спортсмен — спортсменка, крестьянин — крестьянка, демократ — демократка. Для определённых профессий, должностей, учёных и воинских званий применяются существительные только мужского рода: физик, химик, биолог, директор, администратор, профессор; они употребляются и при лицах женского пола: адвокат Петрова, мастер спорта Егорова, кандидат технических наук Степанова.",
+      "source": {
+        "pdfPages": [
+          93
+        ],
+        "printedPages": [
+          91
+        ],
+        "source": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+      }
+    },
+    {
+      "id": "gl1-1.1-compound-title-masculine",
+      "sourceType": "source-rule",
+      "text": "Если название должности или звания образовано сочетанием прилагательного и существительного (главный технолог, старший бухгалтер, младший лейтенант), то и в разговорной, и в официальной речи о женщинах правильно употреблять только форму мужского рода: научный сотрудник Зорина.",
+      "source": {
+        "pdfPages": [
+          93
+        ],
+        "printedPages": [
+          91
+        ],
+        "source": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+      }
+    },
+    {
+      "id": "gl1-1.1-female-headword-agreement",
+      "sourceType": "source-rule",
+      "text": "Согласование прилагательных, местоимений в форме женского рода с существительными мужского рода носит разговорный характер: молодая директор Смелякова, наш майор Гордеева. В официальной речи: молодой директор Смелякова, наш майор Гордеева.",
+      "source": {
+        "pdfPages": [
+          93
+        ],
+        "printedPages": [
+          91
+        ],
+        "source": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+      }
+    },
+    {
+      "id": "gl1-1.1-feminine-verb-agreement",
+      "sourceType": "source-rule",
+      "text": "При существительном мужского рода, называющем лицо женского пола, глагол употребляется в форме женского рода: Доцент Марусева начала занятие.",
+      "source": {
+        "pdfPages": [
+          93
+        ],
+        "printedPages": [
+          91
+        ],
+        "source": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+      }
+    },
+    {
+      "id": "gl1-1.1-feminine-short-adjective",
+      "sourceType": "source-rule",
+      "text": "При таком существительном краткое прилагательное употребляется в форме женского рода: Инженер Федотова больна.",
+      "source": {
+        "pdfPages": [
+          93
+        ],
+        "printedPages": [
+          91
+        ],
+        "source": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+      }
+    },
+    {
+      "id": "gl1-1.1-feminine-short-participle",
+      "sourceType": "source-rule",
+      "text": "При таком существительном краткое причастие употребляется в форме женского рода: Депутат Игнатова оповещена о времени и месте встречи с избирателями.",
+      "source": {
+        "pdfPages": [
+          93
+        ],
+        "printedPages": [
+          91
+        ],
+        "source": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+      }
+    }
+  ],
+  "examples": [
+    {
+      "sourceType": "source-example",
+      "text": "адвокат Петрова; мастер спорта Егорова; кандидат технических наук Степанова.",
+      "source": {
+        "pdfPages": [
+          93
+        ],
+        "printedPages": [
+          91
+        ],
+        "source": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+      }
+    },
+    {
+      "sourceType": "source-example",
+      "text": "молодая директор Смелякова — разговорная речь; молодой директор Смелякова — официальная речь.",
+      "source": {
+        "pdfPages": [
+          93
+        ],
+        "printedPages": [
+          91
+        ],
+        "source": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+      }
+    },
+    {
+      "sourceType": "source-example",
+      "text": "научный сотрудник Зорина.",
+      "source": {
+        "pdfPages": [
+          93
+        ],
+        "printedPages": [
+          91
+        ],
+        "source": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+      }
+    },
+    {
+      "sourceType": "source-example",
+      "text": "Доцент Марусева начала занятие; Депутат Игнатова оповещена о времени и месте встречи с избирателями; Инженер Федотова больна.",
+      "source": {
+        "pdfPages": [
+          93
+        ],
+        "printedPages": [
+          91
+        ],
+        "source": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+      }
+    },
+    {
+      "sourceType": "source-example",
+      "text": "женщина-президент Эллен Джонсон-Серлиф приступила; Девушка-экскурсовод была очарована; Женщина-телохранитель ознакомлена.",
+      "source": {
+        "pdfPages": [
+          93
+        ],
+        "printedPages": [
+          91
+        ],
+        "source": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+      }
+    }
+  ],
+  "contrasts": [
+    {
+      "sourceType": "learning-note",
+      "text": "口语里的 молодая директор 与正式语体中的 молодой директор。"
+    },
+    {
+      "sourceType": "learning-note",
+      "text": "定语的阳性形式与谓语过去时/短尾形式的阴性形式不能混为一谈。"
+    }
+  ],
+  "signalAnalysis": [
+    {
+      "sourceType": "learning-note",
+      "text": "女性姓氏或职业名词指女性只触发特定成分的一致，不是全句统一换阴性。"
+    }
+  ],
+  "commonErrors": [
+    {
+      "sourceType": "learning-note",
+      "text": "不要把“女职员”理解成所有定语必用阴性；复合职称是原书明示的例外。"
+    }
+  ],
+  "exerciseLinks": [
+    {
+      "exerciseId": "GL1-Q001",
+      "printedNumber": 1,
+      "exercisePrintedPage": 7,
+      "sourceType": "exercise-example",
+      "status": "mapped",
+      "question": "На совещании ... директор банка Светлана Стасевич поставит вопрос о снижении процентных ставок по кредитам.",
+      "options": [
+        {
+          "key": "А",
+          "text": "исполнительный"
+        },
+        {
+          "key": "Б",
+          "text": "исполнительная"
+        }
+      ],
+      "correctAnswer": "А",
+      "ruleIds": [
+        "gl1-1.1-attributive-agreement",
+        "gl1-1.1-compound-title-masculine"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "题面、PDF 正确项与原书「女性从业者的职业名词与定语一致；复合职位名称保持阳性定语」条件直接对应；旧 knowledgePoints 仅作定位。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书正确项为「А：исполнительный」。它符合本题所连原书规则：女性从业者的职业名词与定语一致；复合职位名称保持阳性定语。",
+        "distractors": [
+          {
+            "key": "Б",
+            "text": "исполнительная",
+            "sourceType": "learning-note",
+            "reason": "该项未满足「女性从业者的职业名词与定语一致；复合职位名称保持阳性定语」所要求的条件或意义；PDF 正确项为「А」。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 9,
+        "questionPrintedPage": 7,
+        "answerPdfPage": 125,
+        "answerPrintedPage": 123
+      }
+    },
+    {
+      "exerciseId": "GL1-Q002",
+      "printedNumber": 2,
+      "exercisePrintedPage": 7,
+      "sourceType": "exercise-example",
+      "status": "mapped",
+      "question": "... мастер спорта Любовь Егорова — чемпионка мира и Олимпийских игр по лыжным гонкам.",
+      "options": [
+        {
+          "key": "А",
+          "text": "Заслуженный"
+        },
+        {
+          "key": "Б",
+          "text": "Заслуженная"
+        }
+      ],
+      "correctAnswer": "А",
+      "ruleIds": [
+        "gl1-1.1-compound-title-masculine"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "题面、PDF 正确项与原书「复合职位名称保持阳性定语」条件直接对应；旧 knowledgePoints 仅作定位。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书正确项为「А：Заслуженный」。它符合本题所连原书规则：复合职位名称保持阳性定语。",
+        "distractors": [
+          {
+            "key": "Б",
+            "text": "Заслуженная",
+            "sourceType": "learning-note",
+            "reason": "该项未满足「复合职位名称保持阳性定语」所要求的条件或意义；PDF 正确项为「А」。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 9,
+        "questionPrintedPage": 7,
+        "answerPdfPage": 125,
+        "answerPrintedPage": 123
+      }
+    },
+    {
+      "exerciseId": "GL1-Q003",
+      "printedNumber": 3,
+      "exercisePrintedPage": 7,
+      "sourceType": "exercise-example",
+      "status": "mapped",
+      "question": "16 июня 1963 г. в полёт отправился космический корабль «Восток-6», на его борту находилась Валентина Терешкова, ... в мире женщина-космонавт.",
+      "options": [
+        {
+          "key": "А",
+          "text": "первый"
+        },
+        {
+          "key": "Б",
+          "text": "первая"
+        }
+      ],
+      "correctAnswer": "Б",
+      "ruleIds": [
+        "gl1-1.1-female-headword-agreement"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "题面、PDF 正确项与原书「带 женщина 等女性中心词时按阴性一致」条件直接对应；旧 knowledgePoints 仅作定位。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书正确项为「Б：первая」。它符合本题所连原书规则：带 женщина 等女性中心词时按阴性一致。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "первый",
+            "sourceType": "learning-note",
+            "reason": "该项未满足「带 женщина 等女性中心词时按阴性一致」所要求的条件或意义；PDF 正确项为「Б」。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 9,
+        "questionPrintedPage": 7,
+        "answerPdfPage": 125,
+        "answerPrintedPage": 123
+      }
+    },
+    {
+      "exerciseId": "GL1-Q004",
+      "printedNumber": 4,
+      "exercisePrintedPage": 7,
+      "sourceType": "exercise-example",
+      "status": "mapped",
+      "question": "А.И. Щетинина — ... в мире женщина-капитан дальнего плавания.",
+      "options": [
+        {
+          "key": "А",
+          "text": "единственная"
+        },
+        {
+          "key": "Б",
+          "text": "единственный"
+        }
+      ],
+      "correctAnswer": "А",
+      "ruleIds": [
+        "gl1-1.1-female-headword-agreement"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "题面、PDF 正确项与原书「带 женщина 等女性中心词时按阴性一致」条件直接对应；旧 knowledgePoints 仅作定位。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书正确项为「А：единственная」。它符合本题所连原书规则：带 женщина 等女性中心词时按阴性一致。",
+        "distractors": [
+          {
+            "key": "Б",
+            "text": "единственный",
+            "sourceType": "learning-note",
+            "reason": "该项未满足「带 женщина 等女性中心词时按阴性一致」所要求的条件或意义；PDF 正确项为「А」。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 9,
+        "questionPrintedPage": 7,
+        "answerPdfPage": 125,
+        "answerPrintedPage": 123
+      }
+    },
+    {
+      "exerciseId": "GL1-Q005",
+      "printedNumber": 5,
+      "exercisePrintedPage": 7,
+      "sourceType": "exercise-example",
+      "status": "mapped",
+      "question": "... физик Мария Склодовская-Кюри и её не менее прославленный муж Пьер Кюри открыли явление радиоактивности.",
+      "options": [
+        {
+          "key": "А",
+          "text": "Знаменитая"
+        },
+        {
+          "key": "Б",
+          "text": "Знаменитый"
+        }
+      ],
+      "correctAnswer": "Б",
+      "ruleIds": [
+        "gl1-1.1-attributive-agreement"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "题面、PDF 正确项与原书「女性从业者的职业名词与定语一致」条件直接对应；旧 knowledgePoints 仅作定位。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书正确项为「Б：Знаменитый」。它符合本题所连原书规则：女性从业者的职业名词与定语一致。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "Знаменитая",
+            "sourceType": "learning-note",
+            "reason": "该项未满足「女性从业者的职业名词与定语一致」所要求的条件或意义；PDF 正确项为「Б」。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 9,
+        "questionPrintedPage": 7,
+        "answerPdfPage": 125,
+        "answerPrintedPage": 123
+      }
+    },
+    {
+      "exerciseId": "GL1-Q006",
+      "printedNumber": 6,
+      "exercisePrintedPage": 7,
+      "sourceType": "exercise-example",
+      "status": "mapped",
+      "question": "... математик Софья Ковалевская является автором работ по математическому анализу, механике и астрономии.",
+      "options": [
+        {
+          "key": "А",
+          "text": "Выдающаяся"
+        },
+        {
+          "key": "Б",
+          "text": "Выдающийся"
+        }
+      ],
+      "correctAnswer": "Б",
+      "ruleIds": [
+        "gl1-1.1-attributive-agreement"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "题面、PDF 正确项与原书「女性从业者的职业名词与定语一致」条件直接对应；旧 knowledgePoints 仅作定位。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书正确项为「Б：Выдающийся」。它符合本题所连原书规则：女性从业者的职业名词与定语一致。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "Выдающаяся",
+            "sourceType": "learning-note",
+            "reason": "该项未满足「女性从业者的职业名词与定语一致」所要求的条件或意义；PDF 正确项为「Б」。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 9,
+        "questionPrintedPage": 7,
+        "answerPdfPage": 125,
+        "answerPrintedPage": 123
+      }
+    },
+    {
+      "exerciseId": "GL1-Q007",
+      "printedNumber": 7,
+      "exercisePrintedPage": 7,
+      "sourceType": "exercise-example",
+      "status": "mapped",
+      "question": "На кинофестивале в городе Выборге ... кинорежиссёр Алла Сурикова представит свой новый фильм.",
+      "options": [
+        {
+          "key": "А",
+          "text": "известный"
+        },
+        {
+          "key": "Б",
+          "text": "известная"
+        }
+      ],
+      "correctAnswer": "А",
+      "ruleIds": [
+        "gl1-1.1-attributive-agreement"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "题面、PDF 正确项与原书「女性从业者的职业名词与定语一致」条件直接对应；旧 knowledgePoints 仅作定位。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书正确项为「А：известный」。它符合本题所连原书规则：女性从业者的职业名词与定语一致。",
+        "distractors": [
+          {
+            "key": "Б",
+            "text": "известная",
+            "sourceType": "learning-note",
+            "reason": "该项未满足「女性从业者的职业名词与定语一致」所要求的条件或意义；PDF 正确项为「А」。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 9,
+        "questionPrintedPage": 7,
+        "answerPdfPage": 125,
+        "answerPrintedPage": 123
+      }
+    },
+    {
+      "exerciseId": "GL1-Q008",
+      "printedNumber": 8,
+      "exercisePrintedPage": 8,
+      "sourceType": "exercise-example",
+      "status": "mapped",
+      "question": "Тренер Российской Федерации фигурного катания Татьяна Тарасова ... одиннадцать олимпийских чемпионов.",
+      "options": [
+        {
+          "key": "А",
+          "text": "воспитал"
+        },
+        {
+          "key": "Б",
+          "text": "воспитала"
+        }
+      ],
+      "correctAnswer": "Б",
+      "ruleIds": [
+        "gl1-1.1-feminine-verb-agreement"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "题面、PDF 正确项与原书「女性从业者与过去时动词的阴性一致」条件直接对应；旧 knowledgePoints 仅作定位。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书正确项为「Б：воспитала」。它符合本题所连原书规则：女性从业者与过去时动词的阴性一致。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "воспитал",
+            "sourceType": "learning-note",
+            "reason": "该项未满足「女性从业者与过去时动词的阴性一致」所要求的条件或意义；PDF 正确项为「Б」。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 10,
+        "questionPrintedPage": 8,
+        "answerPdfPage": 125,
+        "answerPrintedPage": 123
+      }
+    },
+    {
+      "exerciseId": "GL1-Q009",
+      "printedNumber": 9,
+      "exercisePrintedPage": 8,
+      "sourceType": "exercise-example",
+      "status": "mapped",
+      "question": "Гроссмейстер Майя Чибурданидзе многократно ... на чемпионатах мира по шахматам.",
+      "options": [
+        {
+          "key": "А",
+          "text": "побеждала"
+        },
+        {
+          "key": "Б",
+          "text": "побеждал"
+        }
+      ],
+      "correctAnswer": "А",
+      "ruleIds": [
+        "gl1-1.1-feminine-verb-agreement"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "题面、PDF 正确项与原书「女性从业者与过去时动词的阴性一致」条件直接对应；旧 knowledgePoints 仅作定位。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书正确项为「А：побеждала」。它符合本题所连原书规则：女性从业者与过去时动词的阴性一致。",
+        "distractors": [
+          {
+            "key": "Б",
+            "text": "побеждал",
+            "sourceType": "learning-note",
+            "reason": "该项未满足「女性从业者与过去时动词的阴性一致」所要求的条件或意义；PDF 正确项为「А」。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 10,
+        "questionPrintedPage": 8,
+        "answerPdfPage": 125,
+        "answerPrintedPage": 123
+      }
+    },
+    {
+      "exerciseId": "GL1-Q010",
+      "printedNumber": 10,
+      "exercisePrintedPage": 8,
+      "sourceType": "exercise-example",
+      "status": "mapped",
+      "question": "Премьер-министр Индии Индира Ганди ... большой вклад в процветание своей страны.",
+      "options": [
+        {
+          "key": "А",
+          "text": "внёс"
+        },
+        {
+          "key": "Б",
+          "text": "внесла"
+        }
+      ],
+      "correctAnswer": "Б",
+      "ruleIds": [
+        "gl1-1.1-feminine-verb-agreement"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "题面、PDF 正确项与原书「女性从业者与过去时动词的阴性一致」条件直接对应；旧 knowledgePoints 仅作定位。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书正确项为「Б：внесла」。它符合本题所连原书规则：女性从业者与过去时动词的阴性一致。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "внёс",
+            "sourceType": "learning-note",
+            "reason": "该项未满足「女性从业者与过去时动词的阴性一致」所要求的条件或意义；PDF 正确项为「Б」。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 10,
+        "questionPrintedPage": 8,
+        "answerPdfPage": 125,
+        "answerPrintedPage": 123
+      }
+    },
+    {
+      "exerciseId": "GL1-Q011",
+      "printedNumber": 11,
+      "exercisePrintedPage": 8,
+      "sourceType": "exercise-example",
+      "status": "mapped",
+      "question": "Космонавт Светлана Савицкая ... много сложных опытов на борту космического корабля.",
+      "options": [
+        {
+          "key": "А",
+          "text": "провела"
+        },
+        {
+          "key": "Б",
+          "text": "провёл"
+        }
+      ],
+      "correctAnswer": "А",
+      "ruleIds": [
+        "gl1-1.1-feminine-verb-agreement"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "题面、PDF 正确项与原书「女性从业者与过去时动词的阴性一致」条件直接对应；旧 knowledgePoints 仅作定位。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书正确项为「А：провела」。它符合本题所连原书规则：女性从业者与过去时动词的阴性一致。",
+        "distractors": [
+          {
+            "key": "Б",
+            "text": "провёл",
+            "sourceType": "learning-note",
+            "reason": "该项未满足「女性从业者与过去时动词的阴性一致」所要求的条件或意义；PDF 正确项为「А」。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 10,
+        "questionPrintedPage": 8,
+        "answerPdfPage": 125,
+        "answerPrintedPage": 123
+      }
+    },
+    {
+      "exerciseId": "GL1-Q012",
+      "printedNumber": 12,
+      "exercisePrintedPage": 8,
+      "sourceType": "exercise-example",
+      "status": "mapped",
+      "question": "Политик Ирина Хакамада ... как создатель общероссийского фонда «Наш выбор».",
+      "options": [
+        {
+          "key": "А",
+          "text": "известна"
+        },
+        {
+          "key": "Б",
+          "text": "известная"
+        }
+      ],
+      "correctAnswer": "А",
+      "ruleIds": [
+        "gl1-1.1-feminine-short-adjective"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "题面、PDF 正确项与原书「女性从业者与短尾形容词的阴性一致」条件直接对应；旧 knowledgePoints 仅作定位。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书正确项为「А：известна」。它符合本题所连原书规则：女性从业者与短尾形容词的阴性一致。",
+        "distractors": [
+          {
+            "key": "Б",
+            "text": "известная",
+            "sourceType": "learning-note",
+            "reason": "该项未满足「女性从业者与短尾形容词的阴性一致」所要求的条件或意义；PDF 正确项为「А」。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 10,
+        "questionPrintedPage": 8,
+        "answerPdfPage": 125,
+        "answerPrintedPage": 123
+      }
+    },
+    {
+      "exerciseId": "GL1-Q013",
+      "printedNumber": 13,
+      "exercisePrintedPage": 8,
+      "sourceType": "exercise-example",
+      "status": "mapped",
+      "question": "Хореограф Татьяна Баганова ... специальным призом на международном фестивале «Театр без границ».",
+      "options": [
+        {
+          "key": "А",
+          "text": "награждённая"
+        },
+        {
+          "key": "Б",
+          "text": "награждена"
+        }
+      ],
+      "correctAnswer": "Б",
+      "ruleIds": [
+        "gl1-1.1-feminine-short-participle"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "题面、PDF 正确项与原书「女性从业者与短尾分词的阴性一致」条件直接对应；旧 knowledgePoints 仅作定位。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书正确项为「Б：награждена」。它符合本题所连原书规则：女性从业者与短尾分词的阴性一致。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "награждённая",
+            "sourceType": "learning-note",
+            "reason": "该项未满足「女性从业者与短尾分词的阴性一致」所要求的条件或意义；PDF 正确项为「Б」。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 10,
+        "questionPrintedPage": 8,
+        "answerPdfPage": 125,
+        "answerPrintedPage": 123
+      }
+    }
+  ],
+  "relatedRules": [
+    {
+      "sourceType": "learning-note",
+      "sectionId": "1.2",
+      "text": "相关规则：1.2"
+    },
+    {
+      "sourceType": "learning-note",
+      "sectionId": "1.3",
+      "text": "相关规则：1.3"
+    }
+  ],
+  "source": {
+    "sourcePdf": "E:\\Desktop\\语法词汇（同一本书）.pdf",
+    "cleanedSource": "cleaned-source/chapter-01.md",
+    "pdfPages": [
+      93
+    ],
+    "printedPages": [
+      91
+    ],
+    "sourceStatus": "review"
+  },
+  "sourceCoverage": {
+    "ruleItems": {
+      "total": 6,
+      "captured": 6,
+      "unrecorded": []
+    },
+    "numberedItems": {
+      "total": 6,
+      "captured": 6,
+      "unrecorded": []
+    },
+    "tables": {
+      "total": 0,
+      "captured": 0,
+      "rowsTotal": 0,
+      "rowsCaptured": 0,
+      "unrecordedRows": []
+    },
+    "examples": {
+      "total": 5,
+      "captured": 5,
+      "unrecorded": []
+    },
+    "relatedExercises": {
+      "total": 13,
+      "explained": 13,
+      "unrecorded": []
+    },
+    "omitted": []
+  },
+  "reviewStatus": "needs-review",
+  "riskRecord": [
+    "来源文本来自 review 状态的 OCR 清洗层；中文定位与选项分析均为 learning-note，不是原书正文。"
+  ]
+}

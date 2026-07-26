@@ -1,0 +1,204 @@
+{
+  "schemaVersion": 1,
+  "sourceBook": "zlatoust-grammar-lexika-v1",
+  "exerciseTotal": 597,
+  "theorySectionTotal": 32,
+  "validatedExerciseMappingCount": 597,
+  "status": "review",
+  "chapters": [
+    {
+      "chapterId": "gl1",
+      "chapterFile": "../ch0000.json",
+      "exerciseCount": 107,
+      "exercisePrintedPages": [
+        7,
+        17
+      ],
+      "theoryPrintedPages": [
+        91,
+        98
+      ],
+      "theorySectionIds": [
+        "1.1",
+        "1.2",
+        "1.3",
+        "1.4",
+        "1.4.1",
+        "1.4.2",
+        "1.4.3",
+        "1.4.4",
+        "1.4.5",
+        "1.4.6",
+        "1.4.7",
+        "1.4.8"
+      ],
+      "mappingStatus": "pass-with-source-review",
+      "mappingSummary": {
+        "accounted": 107,
+        "mapped": 106,
+        "needsReview": 0,
+        "sourceExerciseOnly": 1
+      },
+      "ruleUnitStatus": "review",
+      "ruleUnitFiles": "rule-units/gl1/section-1.1.json through section-1.4.8.json",
+      "note": "All 107 exercises are explicitly accounted for. The former 1.4.1–1.4.8 samples are retained, and 1.1, 1.2, 1.3 and the 1.4 parent overview now have complete source-traceable rule units. One exercise has no independent theory rule; Chapter 1 data repair is recorded in quality-reports/chapter-01-data-repair.json."
+    },
+    {
+      "chapterId": "gl2",
+      "chapterFile": "../ch0001.json",
+      "exerciseCount": 150,
+      "exercisePrintedPages": [
+        18,
+        40
+      ],
+      "theoryPrintedPages": [
+        98,
+        107
+      ],
+      "theorySectionIds": [
+        "2.1",
+        "2.2",
+        "2.3",
+        "2.4",
+        "2.4.1",
+        "2.4.2",
+        "2.5",
+        "2.6",
+        "2.7",
+        "2.8"
+      ],
+      "mappingStatus": "pass-with-source-review",
+      "mappingSummary": {
+        "accounted": 150,
+        "mapped": 126,
+        "needsReview": 13,
+        "sourceExerciseOnly": 11
+      },
+      "dataAudit": "quality-reports/chapter-02-data-repair.json",
+      "mappingFiles": [
+        "mappings/chapter-02-exercise-to-rules.json",
+        "mappings/chapter-02-section-to-exercises.json",
+        "mappings/chapter-02-mapping-review.json"
+      ],
+      "ruleUnitStatus": "review",
+      "ruleUnitFiles": "rule-units/gl2/section-2.1.json through section-2.8.json",
+      "note": "All 150 exercises are explicitly accounted for. Eighteen imported answer keys and the omitted printed question page 40 were repaired from the PDF; thirteen mappings remain needs-review because the source gives only an inventory or incomplete condition, and eleven exercises have no independent source rule. GL2-Q098 now uses the direct 2.4.2 над + Тв. п. table rule, while GL2-Q107 uses the 2.6 куда? direction rule."
+    },
+    {
+      "chapterId": "gl3",
+      "chapterFile": "../ch0002.json",
+      "exerciseCount": 99,
+      "exercisePrintedPages": [
+        40,
+        54
+      ],
+      "theoryPrintedPages": [
+        108,
+        111
+      ],
+      "theorySectionIds": [
+        "3.1",
+        "3.1.1",
+        "3.1.2"
+      ],
+      "mappingStatus": "pass-with-source-review",
+      "mappingSummary": {
+        "accounted": 99,
+        "mapped": 35,
+        "needsReview": 1,
+        "sourceExerciseOnly": 63
+      },
+      "dataAudit": "quality-reports/chapter-03-data-repair.json",
+      "mappingFiles": [
+        "mappings/chapter-03-exercise-to-rules.json",
+        "mappings/chapter-03-section-to-exercises.json",
+        "mappings/chapter-03-mapping-review.json"
+      ],
+      "ruleUnitStatus": "review",
+      "ruleUnitFiles": "rule-units/gl3/section-3.1.json through section-3.1.2.json",
+      "note": "All 99 exercises are explicitly accounted for: 35 mapped, 1 needs-review, and 63 source-exercise-only. The available commentary only explains gerunds; participle and conversion exercises remain explicit source-only cases. PDF-113 / printed page 111 completes section 3.1.2 before Chapter 4 begins. GL3-Q039 remains needs-review because the PDF answer selects a passive -ся construction while 3.1.2 prohibits gerunds in passive constructions."
+    },
+    {
+      "chapterId": "gl4",
+      "chapterFile": "../ch0003.json",
+      "exerciseCount": 102,
+      "exercisePrintedPages": [
+        55,
+        69
+      ],
+      "theoryPrintedPages": [
+        111,
+        115
+      ],
+      "theorySectionIds": [
+        "4.1",
+        "4.2",
+        "4.3",
+        "4.4"
+      ],
+      "mappingStatus": "pass-with-source-review",
+      "mappingSummary": {
+        "accounted": 102,
+        "mapped": 39,
+        "needsReview": 0,
+        "sourceExerciseOnly": 63
+      },
+      "dataAudit": "quality-reports/chapter-04-data-repair.json",
+      "mappingFiles": [
+        "mappings/chapter-04-exercise-to-rules.json",
+        "mappings/chapter-04-section-to-exercises.json",
+        "mappings/chapter-04-mapping-review.json"
+      ],
+      "ruleUnitStatus": "review",
+      "ruleUnitFiles": "rule-units/gl4/section-4.1.json through section-4.4.json",
+      "note": "All 102 exercises are explicitly accounted for: 39 mapped and 63 source-exercise-only. Nine imported answer keys and all 102 question-page metadata records were repaired from PDF 057-071 / PDF 126. Exercise section 4.5 has no independent theory heading, so GL4-Q087–Q102 remain explicit source-exercise-only cases."
+    },
+    {
+      "chapterId": "gl5",
+      "chapterFile": "../ch0004.json",
+      "exerciseCount": 139,
+      "exercisePrintedPages": [
+        70,
+        88
+      ],
+      "theoryPrintedPages": [
+        115,
+        122
+      ],
+      "theorySectionIds": [
+        "5.1",
+        "5.2",
+        "5.lexical"
+      ],
+      "mappingStatus": "pass-with-source-review",
+      "mappingSummary": {
+        "accounted": 139,
+        "mapped": 75,
+        "needsReview": 0,
+        "sourceExerciseOnly": 64
+      },
+      "dataAudit": "quality-reports/chapter-05-data-repair.json",
+      "mappingFiles": [
+        "mappings/chapter-05-exercise-to-rules.json",
+        "mappings/chapter-05-section-to-exercises.json",
+        "mappings/chapter-05-mapping-review.json"
+      ],
+      "ruleUnitStatus": "review",
+      "ruleUnitFiles": "rule-units/gl5/section-5.1.json through section-5.lexical.json",
+      "note": "All 139 exercises are explicitly accounted for: 75 mapped and 64 source-exercise-only. Seventeen PDF-127 answer-key values and all 139 source-page metadata records were repaired from PDF-072–090 / PDF-127. The six lexical source tables contain 87 preserved rows, each represented by an atomic rule ID; exercises absent from the original commentary remain visible source-only cases."
+    }
+  ],
+  "requiredOutputs": {
+    "sectionToExercise": "mappings/section-to-exercises.json",
+    "exerciseToRule": "mappings/exercise-to-rules.json",
+    "ruleUnits": "rule-units/<chapterId>/*.json",
+    "coverageReport": "quality-reports/coverage-report.md"
+  },
+  "formalMappingAudit": {
+    "date": "2026-07-26",
+    "chapterId": "gl1",
+    "formalEntriesWithRequiredMetadata": 107,
+    "ruleUnitSourcePageCorrections": 37,
+    "status": "review"
+  }
+}

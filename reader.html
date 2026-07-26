@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>📖 小说阅读 — 俄语学习舱</title>
+<link rel="stylesheet" href="css/reader-listening-workbench.css?v=20260726-5">
 <style>
 /* ─── 主题变量 ─── */
 :root {
@@ -198,6 +199,69 @@ body {
   font: 600 13px/1.2 var(--ui-font); cursor: pointer;
 }
 .dictionary-phrase-lookup[hidden] { display: none; }
+/* ─── 阅读理解：阅读 / 练习布局 ─── */
+.rs-reader-mode-switch {
+  display: inline-flex; align-items: center; gap: 4px; margin: 14px 0 0;
+  padding: 4px; border: 1px solid var(--glass-border); border-radius: 10px; background: var(--glass);
+}
+.rs-reader-mode-switch button {
+  min-height: 34px; padding: 0 11px; border: 0; border-radius: 7px; color: var(--text-secondary);
+  background: transparent; cursor: pointer; font: inherit; font-size: 13px; transition: background .16s, color .16s;
+}
+.rs-reader-mode-switch button:hover { color: var(--text); background: var(--glass-hover); }
+.rs-reader-mode-switch button[aria-pressed="true"] { color: #fff; background: var(--accent); box-shadow: 0 5px 14px rgba(0,0,0,.2); }
+.rs-practice-panel { display: none; }
+.reader-layout.rs-practice-mode .reader-pane { flex: 1 1 auto; min-width: 0; max-width: none; padding-right: 18px; }
+.reader-layout.rs-practice-mode .resize-handle { display: none; }
+.reader-layout.rs-practice-mode .rs-practice-panel {
+  display: block; flex: 0 0 clamp(320px, 32vw, 440px); min-width: 0; max-height: calc(100dvh - 68px); overflow-y: auto;
+  position: sticky; top: 52px; align-self: flex-start; padding: 18px 16px 30px;
+  border-left: 1px solid var(--border); background: var(--surface-solid);
+}
+.rs-practice-panel-header { margin: 0 0 14px; }
+.rs-practice-panel-kicker { margin: 0 0 4px; color: var(--accent); font-size: 11px; font-weight: 700; letter-spacing: .08em; }
+.rs-practice-panel-header h2 { margin: 0; color: var(--text); font-size: 17px; }
+.rs-practice-panel-header p { margin: 6px 0 0; color: var(--text-secondary); font-size: 12px; line-height: 1.55; }
+.rs-practice-progress { margin: 13px 0 16px; padding: 10px; border: 1px solid var(--border); border-radius: 10px; background: var(--glass); }
+.rs-practice-progress-line { display: flex; align-items: center; justify-content: space-between; gap: 10px; color: var(--text-secondary); font-size: 12px; }
+.rs-practice-progress-line strong { color: var(--text); font-variant-numeric: tabular-nums; }
+.rs-practice-progress-track { height: 5px; margin-top: 8px; overflow: hidden; border-radius: 999px; background: var(--border); }
+.rs-practice-progress-fill { display: block; width: 0; height: 100%; border-radius: inherit; background: var(--accent); transition: width .2s ease; }
+.rs-practice-panel .b2-quiz-item { margin: 0 0 12px; padding: 13px; border-radius: 12px; }
+.rs-practice-panel .b2-quiz-item h3 { font-size: 14px; line-height: 1.55; }
+.rs-practice-panel .b2-option-row { padding: 8px 7px; font-size: 13px; }
+.rs-practice-panel .b2-option-zh { margin-left: 25px; }
+.reader-layout.rs-practice-mode #detailPanel {
+  position: fixed; z-index: 260; top: var(--rs-dict-top, 88px); right: auto; bottom: auto;
+  left: var(--rs-dict-left, 24px); width: min(360px, calc(100vw - 32px)); min-width: 0;
+  max-height: min(480px, calc(100dvh - 104px)); overflow-y: auto; border: 1px solid var(--accent-border);
+  border-radius: 14px; background: var(--surface-solid); box-shadow: 0 18px 46px rgba(0,0,0,.38);
+}
+.reader-layout.rs-practice-mode #detailPanel[data-dictionary-state="closed"] { display: none; }
+.reader-layout.rs-practice-mode #detailPanel .detail-panel-inner { padding: 16px; }
+.reader-layout.rs-practice-mode #detailPanel .dp-head { margin-bottom: 10px; }
+.reader-layout.rs-practice-mode #detailPanel .dp-section { margin-bottom: 12px; }
+.reader-layout.rs-practice-mode #detailPanel .dp-ai-section { margin-top: 14px; padding-top: 10px; }
+@media (max-width: 1024px) and (orientation: portrait) {
+  .reader-layout.rs-practice-mode { display: flex; flex-direction: column; }
+  .reader-layout.rs-practice-mode .reader-pane { flex: 1 1 auto; width: 100%; padding-right: 0; }
+  .reader-layout.rs-practice-mode .rs-practice-panel {
+    order: 2; width: 100%; min-width: 0; max-height: none; position: static;
+    padding: 20px 16px 90px; border-top: 1px solid var(--border); border-left: 0;
+  }
+  .reader-layout.rs-practice-mode #detailPanel {
+    top: auto; right: 0; bottom: 0; left: 0; width: 100%; max-width: none; max-height: 88dvh;
+    border: 0; border-top: 1px solid var(--accent-border); border-radius: 20px 20px 0 0;
+  }
+}
+@media (max-width: 600px) {
+  .rs-reader-mode-switch { margin-top: 10px; }
+  .rs-reader-mode-switch button { min-height: 36px; padding: 0 10px; }
+  .reader-layout.rs-practice-mode .rs-practice-panel { padding-left: 12px; padding-right: 12px; }
+}
+@media (max-width: 760px) {
+  .rs-reader-mode-switch { display: none; }
+}
 /* 面板占位提示 */
 .detail-placeholder {
   display: flex; align-items: center; justify-content: center;
@@ -641,6 +705,25 @@ body.theme-warm .listening-entry-zh, body.theme-warm .listening-section-count { 
 .answer-section-title { font-size: 14px; font-weight: 700; color: var(--accent); margin: 12px 0 6px; padding-top: 8px; border-top: 1px dashed var(--border); }
 .answer-section-title:first-child { margin-top: 0; border-top: none; padding-top: 0; }
 .answer-para { font-size: 13px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 6px; }
+.answer-source-row { line-height: 1.7; }
+.rs-source-locate {
+  display: inline-flex; align-items: center; width: auto; margin: 0 5px 0 0;
+  padding: 2px 6px; border: 1px solid rgba(180,83,9,0.48); border-radius: 5px;
+  background: transparent; color: inherit; cursor: pointer; vertical-align: baseline;
+  font: inherit; font-weight: 700; transition: background 0.16s, border-color 0.16s, transform 0.16s;
+}
+.rs-source-locate:hover { background: rgba(245,158,11,0.10); border-color: rgba(180,83,9,0.72); }
+.rs-source-locate:active { transform: translateY(1px); }
+[data-theme="dark"] .rs-source-locate { color: #fbbf24; }
+.para-block.rs-source-paragraph-highlight { border-color: rgba(245,158,11,0.52); box-shadow: 0 0 0 2px rgba(245,158,11,0.12); }
+.ru-word.rs-source-word-highlight,
+.ru-word.rs-source-word-highlight:hover,
+.ru-word.rs-source-word-highlight:active {
+  background: #fde68a !important; color: #422006 !important;
+  box-shadow: 0 1px 0 rgba(180,83,9,0.32); border-radius: 3px;
+}
+@keyframes rsSourceFlash { 0%, 100% { filter: none; } 45% { filter: brightness(1.08); } }
+.ru-word.rs-source-word-highlight { animation: rsSourceFlash 0.7s ease 1; }
 @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
 .chapter-header { text-align: center; margin-bottom: 2em; }
 .chapter-header h1 { font-size: 1.5em; font-weight: 700; margin-bottom: 4px; }
@@ -1085,6 +1168,237 @@ body.theme-warm .listening-entry-zh, body.theme-warm .listening-section-count { 
   .detail-panel { flex: 1 1 35%; min-width: 300px; }
   .resize-handle { display: block; }
 }
+/* ─── Zlatoust grammar reference system ─── */
+.zlatoust-theory-nav { margin: 22px 0; padding: 18px; border: 1px solid var(--accent-border); border-radius: 16px; background: linear-gradient(135deg, var(--accent-dim), var(--surface-solid)); }
+.zlatoust-theory-nav h2, .zlatoust-rule-page h2 { margin: 0 0 8px; }
+.zlatoust-theory-nav > p, .zlatoust-rule-page .zlatoust-intro { margin: 0 0 14px; color: var(--text-secondary); line-height: 1.65; }
+.zlatoust-section-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 10px; }
+.zlatoust-section-card, .zlatoust-exercise-rule, .zlatoust-practice-link, .zlatoust-back-link { font: inherit; cursor: pointer; }
+.zlatoust-section-card { display: flex; min-height: 104px; flex-direction: column; align-items: flex-start; gap: 5px; padding: 13px; text-align: left; color: var(--text); border: 1px solid var(--border); border-radius: 12px; background: var(--surface-solid); }
+.zlatoust-section-card:hover, .zlatoust-section-card:focus-visible { border-color: var(--accent); background: var(--glass-hover); }
+.zlatoust-section-card span { color: var(--accent); font-weight: 700; font-size: 12px; }
+.zlatoust-section-card small { color: var(--text-secondary); line-height: 1.45; }
+.zlatoust-section-card .zlatoust-card-path { color: var(--text-dim); font-size: 12px; line-height: 1.45; }
+.zlatoust-section-card .zlatoust-source-heading { color: var(--text-secondary); font-family: Georgia, 'Times New Roman', serif; font-size: 12px; font-weight: 400; line-height: 1.35; }
+.zlatoust-learning-path { margin: 18px 0; border-top: 2px solid var(--accent); padding-top: 16px; }
+.zlatoust-learning-path > header { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 12px; }
+.zlatoust-learning-path > header p { margin: 0; color: var(--text-secondary); font-size: 13px; }
+.zlatoust-decision-steps { display: grid; gap: 8px; margin: 0; padding: 0; list-style: none; counter-reset: zlatoust-step; }
+.zlatoust-decision-step { position: relative; padding: 11px 12px 11px 48px; border-left: 2px solid var(--accent-border); background: var(--glass); line-height: 1.6; counter-increment: zlatoust-step; }
+.zlatoust-decision-step::before { content: counter(zlatoust-step); position: absolute; left: 12px; top: 12px; width: 24px; height: 24px; border-radius: 50%; background: var(--accent); color: white; font-size: 13px; font-weight: 700; line-height: 24px; text-align: center; }
+.zlatoust-learning-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(235px, 1fr)); gap: 12px; margin-top: 14px; }
+.zlatoust-learning-panel { border-top: 1px solid var(--border); padding-top: 12px; }
+.zlatoust-learning-panel h3 { margin: 0 0 8px; font-size: 15px; }
+.zlatoust-contrast-card { margin: 9px 0; border: 1px solid var(--border); background: var(--surface-solid); }
+.zlatoust-contrast-sides { display: grid; grid-template-columns: 1fr 1fr; }
+.zlatoust-contrast-side { min-width: 0; padding: 10px; line-height: 1.5; }
+.zlatoust-contrast-side + .zlatoust-contrast-side { border-left: 1px solid var(--border); }
+.zlatoust-contrast-side strong { display: block; margin-bottom: 5px; color: var(--accent); font-size: 12px; }
+.zlatoust-contrast-analysis { margin: 0; padding: 10px; border-top: 1px solid var(--border); color: var(--text-secondary); line-height: 1.6; }
+.zlatoust-signal { margin: 8px 0; padding: 9px 10px; border-left: 3px solid #0ea5e9; background: rgba(14,165,233,.06); }
+.zlatoust-signal-words { color: var(--text); font-family: Georgia, 'Times New Roman', serif; font-weight: 700; }
+.zlatoust-signal p, .zlatoust-signal small { display: block; margin-top: 5px; line-height: 1.55; }
+.zlatoust-error-list { margin: 0; padding: 0; list-style: none; }
+.zlatoust-error-list li { margin: 8px 0; padding: 9px 10px; border-left: 3px solid #f59e0b; background: rgba(245,158,11,.08); line-height: 1.6; }
+.zlatoust-badge, .zlatoust-source-badge { display: inline-flex; align-items: center; gap: 4px; width: fit-content; border-radius: 999px; padding: 3px 8px; font-size: 11px; font-weight: 700; line-height: 1.25; }
+.zlatoust-badge.mapped { color: #047857; background: rgba(16,185,129,.14); }
+.zlatoust-badge.needs-review { color: #b45309; background: rgba(245,158,11,.16); }
+.zlatoust-badge.source-exercise-only { color: #475569; background: rgba(100,116,139,.16); }
+.zlatoust-source-badge.source-rule, .zlatoust-source-badge.source-table, .zlatoust-source-badge.source-example { color: #0369a1; background: rgba(14,165,233,.13); }
+.zlatoust-source-badge.learning-note, .zlatoust-source-badge.external-note { color: #7c3aed; background: rgba(139,92,246,.14); }
+.zlatoust-source-badge.exercise-example { color: #b45309; background: rgba(245,158,11,.14); }
+.zlatoust-weak-panel { margin: 16px 0 0; padding: 13px; border: 1px solid rgba(245,158,11,.35); border-radius: 12px; background: rgba(245,158,11,.07); }
+.zlatoust-weak-panel h3 { margin: 0 0 7px; font-size: 15px; }
+.zlatoust-weak-list, .zlatoust-exercise-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+.zlatoust-weak-list button, .zlatoust-exercise-list button, .zlatoust-practice-link, .zlatoust-back-link { border: 1px solid var(--accent-border); border-radius: 9px; padding: 7px 10px; color: var(--text); background: var(--surface-solid); }
+.zlatoust-weak-list button:hover, .zlatoust-exercise-list button:hover, .zlatoust-practice-link:hover, .zlatoust-back-link:hover { border-color: var(--accent); background: var(--accent-dim); }
+.zlatoust-exercise-map { display: flex; flex-wrap: wrap; align-items: center; gap: 7px; margin: 8px 0 0; padding: 9px 10px; border-left: 3px solid var(--accent); border-radius: 0 10px 10px 0; background: var(--glass); font-size: 13px; }
+.zlatoust-exercise-map .zlatoust-exercise-rule { border: 0; padding: 2px 0; color: var(--accent); background: transparent; text-align: left; font-weight: 700; }
+.zlatoust-exercise-map .zlatoust-exercise-rule:hover { text-decoration: underline; }
+.zlatoust-exercise-map p { flex-basis: 100%; margin: 2px 0 0; color: var(--text-secondary); line-height: 1.5; }
+.zlatoust-rule-page { padding-bottom: 36px; }
+.zlatoust-rule-header { margin: 18px 0; padding: 20px; border: 1px solid var(--accent-border); border-radius: 16px; background: var(--surface-solid); }
+.zlatoust-rule-header h1 { margin: 3px 0 6px; font-size: clamp(24px, 4vw, 36px); }
+.zlatoust-rule-ru { margin: 0; color: var(--text-secondary); font-family: Georgia, 'Times New Roman', serif; line-height: 1.55; }
+.zlatoust-rule-meta { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 13px; color: var(--text-secondary); font-size: 13px; }
+.zlatoust-rule-page details { margin: 14px 0; overflow: hidden; border: 1px solid var(--border); border-radius: 12px; background: var(--surface-solid); }
+.zlatoust-rule-page details[open] { border-color: var(--accent-border); }
+.zlatoust-rule-page summary { padding: 13px 15px; cursor: pointer; color: var(--text); font-weight: 700; }
+.zlatoust-rule-body { padding: 0 15px 16px; }
+.zlatoust-rule-body p, .zlatoust-rule-body li { line-height: 1.65; }
+.zlatoust-rule-body ul, .zlatoust-rule-body ol { padding-left: 22px; }
+.zlatoust-source-block { padding: 12px; border-left: 3px solid #0ea5e9; border-radius: 0 10px 10px 0; background: rgba(14,165,233,.06); white-space: pre-wrap; overflow-wrap: anywhere; font-family: Georgia, 'Times New Roman', serif; line-height: 1.65; }
+.zlatoust-learning-block { padding: 12px; border-left: 3px solid #8b5cf6; border-radius: 0 10px 10px 0; background: rgba(139,92,246,.06); line-height: 1.65; }
+.zlatoust-atomic-rule { margin: 10px 0; padding: 12px; border: 1px solid var(--border); border-radius: 10px; scroll-margin-top: 76px; }
+.zlatoust-atomic-rule.zlatoust-target { outline: 3px solid rgba(79,70,229,.45); outline-offset: 2px; }
+.zlatoust-table-wrap { overflow-x: auto; margin: 12px 0; }
+.zlatoust-table { width: 100%; min-width: 520px; border-collapse: collapse; font-family: Georgia, 'Times New Roman', serif; }
+.zlatoust-table th, .zlatoust-table td { padding: 10px; border: 1px solid var(--border); text-align: left; vertical-align: top; line-height: 1.55; }
+.zlatoust-table th { background: var(--accent-dim); color: var(--text); }
+.zlatoust-exercise-detail { margin: 10px 0; padding: 12px; border: 1px solid var(--border); border-radius: 10px; }
+.zlatoust-exercise-detail p { margin: 7px 0; }
+.zlatoust-risk { border-left-color: #f59e0b; background: rgba(245,158,11,.08); }
+.zlatoust-card-status { margin-top: auto; padding-top: 3px; font-size: 11px; font-style: normal; font-weight: 700; }
+.zlatoust-card-status.unstarted { color: var(--text-dim); }
+.zlatoust-card-status.learning { color: var(--accent); }
+.zlatoust-card-status.learned, .zlatoust-card-status.mastered { color: #059669; }
+.zlatoust-card-status.weak { color: #d97706; }
+.zlatoust-learning-page { --zlatoust-reading-width: 760px; max-width: 1180px; }
+.zlatoust-learning-topbar { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 12px 0 16px; }
+.zlatoust-learning-topbar .zlatoust-back-link { margin: 0; }
+.zlatoust-progress-summary { color: var(--text-secondary); font-size: 12px; font-variant-numeric: tabular-nums; }
+.zlatoust-learning-hero { margin: 0 0 24px; padding: 22px 0 26px; border-bottom: 1px solid var(--border); }
+.zlatoust-learning-kicker { margin: 0 0 7px; color: var(--accent); font-size: 12px; font-weight: 700; }
+.zlatoust-learning-hero h1 { max-width: 18em; margin: 0; font-family: Georgia, 'Times New Roman', serif; font-size: clamp(28px, 4vw, 42px); line-height: 1.16; text-wrap: balance; }
+.zlatoust-learning-title-ru { max-width: 760px; margin: 10px 0 0; color: var(--text-secondary); font-family: Georgia, 'Times New Roman', serif; font-size: 16px; line-height: 1.55; }
+.zlatoust-learning-problem { max-width: 70ch; margin: 18px 0 0; color: var(--text); font-size: 16px; line-height: 1.8; text-wrap: pretty; }
+.zlatoust-learning-meta { display: flex; flex-wrap: wrap; gap: 8px 16px; margin-top: 16px; color: var(--text-secondary); font-size: 12px; }
+.zlatoust-unit-route { margin: 24px 0 34px; padding: 22px 0 26px; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.zlatoust-unit-route-header { display: flex; align-items: end; justify-content: space-between; gap: 18px; margin-bottom: 17px; }
+.zlatoust-unit-route h2, .zlatoust-unit-map h2 { margin: 0 0 5px; font-size: 19px; }
+.zlatoust-unit-route-header p, .zlatoust-unit-map > p { margin: 0; color: var(--text-secondary); font-size: 13px; line-height: 1.6; }
+.zlatoust-route-count { flex: 0 0 auto; color: var(--accent); font-size: 12px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.zlatoust-unit-route-progress { height: 4px; margin-bottom: 18px; overflow: hidden; background: var(--border); }
+.zlatoust-unit-route-progress span { display: block; height: 100%; background: var(--accent); transition: width .2s ease; }
+.zlatoust-unit-route-list { position: relative; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 9px; margin: 0; padding: 0; list-style: none; }
+.zlatoust-unit-route-list::before { content: ''; position: absolute; top: 18px; right: 6%; left: 6%; height: 1px; background: var(--accent-border); }
+.zlatoust-unit-route-step { position: relative; min-width: 0; }
+.zlatoust-route-step-button { position: relative; z-index: 1; display: block; width: 100%; min-height: 82px; padding: 31px 9px 9px; border: 0; color: var(--text); background: transparent; cursor: pointer; text-align: left; font: inherit; }
+.zlatoust-route-step-number { position: absolute; top: 0; left: 9px; display: grid; width: 36px; height: 36px; place-items: center; border: 1px solid var(--accent-border); border-radius: 50%; background: var(--surface-solid); color: var(--accent); font-size: 11px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.zlatoust-route-step-button strong, .zlatoust-route-step-button small { display: block; }
+.zlatoust-route-step-button strong { margin-top: 9px; font-size: 12px; line-height: 1.45; }
+.zlatoust-route-step-button small { margin-top: 4px; color: var(--text-secondary); font-size: 11px; }
+.zlatoust-route-step-button:hover strong, .zlatoust-route-step-button:focus-visible strong { color: var(--accent); }
+.zlatoust-unit-route-step[data-stage-status="completed"] .zlatoust-route-step-number { border-color: #10b981; background: rgba(16,185,129,.1); color: #047857; }
+.zlatoust-unit-route-step[data-stage-status="weak"] .zlatoust-route-step-number { border-color: #f59e0b; background: rgba(245,158,11,.12); color: #b45309; }
+.zlatoust-unit-route-step[data-stage-status="learning"] .zlatoust-route-step-number { border-color: var(--accent); background: var(--accent-dim); }
+.zlatoust-stage-review { display: flex; align-items: center; gap: 5px; margin: 4px 9px 0; color: var(--text-secondary); font-size: 10px; cursor: pointer; }
+.zlatoust-stage-review input { accent-color: var(--accent); }
+.zlatoust-unit-map { position: relative; margin: 0 0 34px; padding: 22px 0 28px; border-bottom: 1px solid var(--border); }
+.zlatoust-unit-map-root { position: relative; z-index: 2; width: min(430px, 100%); margin: 22px auto 36px; padding: 16px 18px; border: 2px solid var(--accent); border-radius: 8px; background: var(--surface-solid); text-align: center; }
+.zlatoust-unit-map-root small, .zlatoust-unit-map-root strong { display: block; }
+.zlatoust-unit-map-root small { color: var(--accent); font-size: 11px; font-weight: 700; }
+.zlatoust-unit-map-root strong { margin-top: 5px; font-family: Georgia, 'Times New Roman', serif; font-size: 18px; }
+.zlatoust-unit-map-root::after { content: ''; position: absolute; top: 100%; left: 50%; width: 1px; height: 36px; background: var(--accent-border); }
+.zlatoust-unit-map-list { position: relative; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; margin: 0; padding: 0; list-style: none; }
+.zlatoust-unit-map-list::before { content: ''; position: absolute; top: -1px; right: 9%; left: 9%; height: 1px; background: var(--accent-border); }
+.zlatoust-unit-map-list li { position: relative; padding-top: 17px; }
+.zlatoust-unit-map-list li::before { content: ''; position: absolute; top: 0; left: 50%; width: 1px; height: 17px; background: var(--accent-border); }
+.zlatoust-unit-map-list button { width: 100%; min-height: 132px; padding: 13px 11px; border: 1px solid var(--border); border-radius: 8px; color: var(--text); background: var(--surface-solid); cursor: pointer; font: inherit; text-align: left; transition: border-color .18s ease, background .18s ease, transform .18s ease; }
+.zlatoust-unit-map-list button:hover, .zlatoust-unit-map-list button:focus-visible { border-color: var(--accent); background: var(--accent-dim); transform: translateY(-1px); }
+.zlatoust-map-question { display: block; min-height: 44px; color: var(--text-secondary); font-size: 11px; line-height: 1.45; }
+.zlatoust-map-poles { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 5px; margin-top: 12px; }
+.zlatoust-map-poles strong { font-size: 12px; line-height: 1.35; text-align: center; }
+.zlatoust-map-poles i { color: var(--accent); font-size: 9px; font-style: normal; text-transform: uppercase; }
+.zlatoust-learning-layout { display: grid; grid-template-columns: 210px minmax(0, var(--zlatoust-reading-width)); justify-content: center; gap: 36px; align-items: start; }
+.zlatoust-learning-toc { position: sticky; top: 68px; padding: 14px 0; border-top: 2px solid var(--accent); }
+.zlatoust-learning-toc h2 { margin: 0 0 10px; font-size: 13px; }
+.zlatoust-learning-toc ol { margin: 0; padding: 0; list-style: none; }
+.zlatoust-learning-toc button { display: block; width: 100%; padding: 8px 0; border: 0; color: var(--text-secondary); background: transparent; text-align: left; cursor: pointer; font: inherit; font-size: 12px; line-height: 1.45; }
+.zlatoust-learning-toc button:hover, .zlatoust-learning-toc button:focus-visible, .zlatoust-learning-toc button.is-active { color: var(--accent); }
+.zlatoust-learning-mobile-toc { display: none; margin-bottom: 18px; }
+.zlatoust-learning-mobile-toc summary { cursor: pointer; font-weight: 700; }
+.zlatoust-learning-content { min-width: 0; }
+.zlatoust-objectives, .zlatoust-diagnostic { margin: 0 0 32px; padding-bottom: 28px; border-bottom: 1px solid var(--border); }
+.zlatoust-objectives h2, .zlatoust-diagnostic h2 { margin: 0 0 11px; font-size: 20px; }
+.zlatoust-objectives li { margin: 8px 0; line-height: 1.7; }
+.zlatoust-diagnostic-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 14px; }
+.zlatoust-diagnostic-item { padding: 13px; border-left: 3px solid var(--accent); background: var(--glass); }
+.zlatoust-diagnostic-item .ru { margin: 0; font-family: Georgia, 'Times New Roman', serif; font-size: 17px; line-height: 1.55; }
+.zlatoust-diagnostic-item .zh, .zlatoust-diagnostic-item small { display: block; margin-top: 6px; color: var(--text-secondary); line-height: 1.55; }
+.zlatoust-stage { scroll-margin-top: 72px; padding: 18px 0 52px; border-bottom: 1px solid var(--border); }
+.zlatoust-stage-number { margin: 0 0 7px; color: var(--accent); font-size: 12px; font-weight: 700; }
+.zlatoust-stage h2 { margin: 0; font-family: Georgia, 'Times New Roman', serif; font-size: 28px; line-height: 1.25; }
+.zlatoust-stage-question { margin: 9px 0 22px; color: var(--text-secondary); font-size: 16px; line-height: 1.65; }
+.zlatoust-context-entry { margin: 0 0 24px; padding: 14px 16px; border-left: 3px solid var(--accent); background: var(--accent-dim); }
+.zlatoust-context-entry .ru { margin: 0; font-family: Georgia, 'Times New Roman', serif; font-size: 18px; line-height: 1.65; }
+.zlatoust-context-entry p:last-child { margin: 8px 0 0; color: var(--text-secondary); line-height: 1.65; }
+.zlatoust-teacher-copy { margin: 0 0 24px; }
+.zlatoust-teacher-copy h3, .zlatoust-stage-block h3 { margin: 0 0 9px; font-size: 17px; }
+.zlatoust-teacher-copy p { max-width: 68ch; margin: 0 0 12px; line-height: 1.85; text-wrap: pretty; }
+.zlatoust-stage-block { margin: 28px 0; }
+.zlatoust-stage-source-rule { padding: 15px 17px; border-left: 3px solid #0ea5e9; background: rgba(14,165,233,.06); }
+.zlatoust-stage-source-rule .ru { margin: 10px 0 0; font-family: Georgia, 'Times New Roman', serif; font-size: 17px; line-height: 1.7; }
+.zlatoust-stage-source-rule .zh { margin: 10px 0 0; color: var(--text-secondary); line-height: 1.75; }
+.zlatoust-example-list { display: grid; gap: 1px; background: var(--border); }
+.zlatoust-example-row { padding: 13px 15px; background: var(--surface-solid); }
+.zlatoust-example-row .ru { margin: 7px 0 0; font-family: Georgia, 'Times New Roman', serif; font-size: 17px; line-height: 1.6; }
+.zlatoust-example-row .zh { margin: 4px 0 0; color: var(--text-secondary); line-height: 1.55; }
+.zlatoust-example-row .analysis { margin: 7px 0 0; line-height: 1.65; }
+.zlatoust-stage .zlatoust-contrast-card { border-radius: 8px; }
+.zlatoust-signal-table { width: 100%; border-collapse: collapse; }
+.zlatoust-signal-table th, .zlatoust-signal-table td { padding: 11px 10px; border-bottom: 1px solid var(--border); text-align: left; vertical-align: top; line-height: 1.6; }
+.zlatoust-signal-table th { color: var(--text-secondary); font-size: 12px; }
+.zlatoust-learning-check { margin: 18px 0; padding: 16px; border: 1px solid var(--accent-border); border-radius: 8px; background: var(--glass); }
+.zlatoust-learning-check h4 { margin: 0 0 7px; font-size: 13px; }
+.zlatoust-learning-check-prompt { margin: 0 0 12px; font-family: Georgia, 'Times New Roman', serif; font-size: 17px; line-height: 1.6; }
+.zlatoust-learning-check-options { display: grid; gap: 7px; }
+.zlatoust-learning-check-option { display: flex; align-items: flex-start; gap: 9px; width: 100%; padding: 10px 11px; border: 1px solid var(--border); border-radius: 7px; color: var(--text); background: var(--surface-solid); cursor: pointer; font: inherit; text-align: left; transition: border-color .15s ease, background .15s ease, transform .15s ease; }
+.zlatoust-learning-check-option:hover, .zlatoust-learning-check-option:focus-visible { border-color: var(--accent); background: var(--accent-dim); }
+.zlatoust-learning-check-option:active { transform: translateY(1px); }
+.zlatoust-learning-check-option.is-correct { border-color: rgba(16,185,129,.65); background: rgba(16,185,129,.08); }
+.zlatoust-learning-check-option.is-wrong { border-color: rgba(239,68,68,.55); background: rgba(239,68,68,.07); }
+.zlatoust-learning-feedback { margin-top: 13px; padding: 12px 13px; border-left: 3px solid #10b981; background: rgba(16,185,129,.07); line-height: 1.65; }
+.zlatoust-learning-feedback.is-wrong { border-left-color: #f59e0b; background: rgba(245,158,11,.08); }
+.zlatoust-learning-feedback p { margin: 6px 0; }
+.zlatoust-learning-feedback strong { color: var(--text); }
+.zlatoust-retry { margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border); }
+.zlatoust-original-practice { margin-top: 28px; }
+.zlatoust-original-practice > p { color: var(--text-secondary); line-height: 1.6; }
+.zlatoust-original-practice .b2-quiz-item { margin: 12px 0; }
+.zlatoust-summary-table { margin: 46px 0 30px; scroll-margin-top: 72px; }
+.zlatoust-summary-table h2 { margin-bottom: 12px; }
+.zlatoust-summary-table .zlatoust-table { min-width: 720px; font-family: inherit; }
+.zlatoust-final-check { margin: 30px 0; scroll-margin-top: 72px; }
+.zlatoust-external-guide { margin: 18px 0 0; padding: 15px 17px; border-left: 3px solid #8b5cf6; background: rgba(139,92,246,.06); }
+.zlatoust-external-guide h4 { margin: 9px 0 11px; font-size: 15px; }
+.zlatoust-external-guide p { margin: 8px 0; line-height: 1.7; }
+.zlatoust-external-guide details { margin-top: 12px; color: var(--text-secondary); font-size: 12px; }
+.zlatoust-external-guide summary { cursor: pointer; font-weight: 700; }
+.zlatoust-external-guide a { color: var(--accent); }
+.zlatoust-learning-sources { margin: 34px 0; padding-top: 24px; border-top: 1px solid var(--border); }
+.zlatoust-learning-sources li { margin: 9px 0; line-height: 1.6; }
+.zlatoust-learning-sources a { color: var(--accent); }
+.zlatoust-learning-result { margin: 30px 0; padding: 16px; border-left: 3px solid var(--accent); background: var(--accent-dim); }
+.zlatoust-learning-result h2 { margin: 0 0 7px; font-size: 18px; }
+.zlatoust-learning-result p { margin: 5px 0; line-height: 1.65; }
+.zlatoust-learning-footer { display: grid; grid-template-columns: 1fr auto 1fr; gap: 10px; margin-top: 34px; padding-top: 24px; border-top: 1px solid var(--border); }
+.zlatoust-learning-footer button:last-child { justify-self: end; }
+@media (max-width: 600px) {
+  .zlatoust-learning-page { padding-top: 64px; }
+  .zlatoust-learning-topbar { align-items: flex-start; flex-wrap: wrap; margin-top: 0; }
+  .zlatoust-progress-summary { margin-left: auto; text-align: right; }
+  .zlatoust-theory-nav, .zlatoust-rule-header { margin-left: -2px; margin-right: -2px; padding: 14px; }
+  .zlatoust-section-grid { grid-template-columns: 1fr; }
+  .zlatoust-exercise-map { align-items: flex-start; flex-direction: column; }
+  .zlatoust-rule-body { padding: 0 12px 14px; }
+  .zlatoust-learning-path > header { align-items: flex-start; flex-direction: column; gap: 3px; }
+  .zlatoust-contrast-sides { grid-template-columns: 1fr; }
+  .zlatoust-contrast-side + .zlatoust-contrast-side { border-left: 0; border-top: 1px solid var(--border); }
+  .zlatoust-unit-route-header { align-items: flex-start; flex-direction: column; gap: 5px; }
+  .zlatoust-unit-route-list { grid-template-columns: 1fr; gap: 0; padding-left: 7px; }
+  .zlatoust-unit-route-list::before { top: 18px; bottom: 18px; left: 24px; width: 1px; height: auto; }
+  .zlatoust-route-step-button { min-height: 70px; padding: 8px 8px 8px 60px; }
+  .zlatoust-route-step-number { top: 8px; left: 0; }
+  .zlatoust-route-step-button strong { margin-top: 0; }
+  .zlatoust-stage-review { margin: -20px 8px 16px 60px; }
+  .zlatoust-unit-map-root { margin-bottom: 22px; }
+  .zlatoust-unit-map-root::after, .zlatoust-unit-map-list::before { display: none; }
+  .zlatoust-unit-map-list { grid-template-columns: 1fr; gap: 10px; padding-left: 24px; }
+  .zlatoust-unit-map-list::after { content: ''; position: absolute; top: 0; bottom: 0; left: 8px; width: 1px; background: var(--accent-border); }
+  .zlatoust-unit-map-list li { padding-top: 0; }
+  .zlatoust-unit-map-list li::before { top: 28px; left: -16px; width: 16px; height: 1px; }
+  .zlatoust-unit-map-list button { min-height: 96px; }
+  .zlatoust-map-question { min-height: 0; }
+  .zlatoust-learning-layout { display: block; }
+  .zlatoust-learning-toc { display: none; }
+  .zlatoust-learning-mobile-toc { display: block; }
+  .zlatoust-diagnostic-grid { grid-template-columns: 1fr; }
+  .zlatoust-stage { padding-bottom: 42px; }
+  .zlatoust-stage h2 { font-size: 24px; }
+  .zlatoust-learning-footer { grid-template-columns: 1fr; }
+  .zlatoust-learning-footer button, .zlatoust-learning-footer button:last-child { width: 100%; justify-self: stretch; }
+}
 </style>
 </head>
 <body>
@@ -1145,6 +1459,9 @@ body.theme-warm .listening-entry-zh, body.theme-warm .listening-section-count { 
 <script src="js/russian-dictionary/runtime.js?v=20260718-1"></script>
 <script src="js/russian-b2/reading-review.js?v=20260723-1"></script>
 <script src="js/russian-b2/dashboard.js"></script>
+<script src="js/russian-b2/listening-session.js?v=20260726-1"></script>
+<script src="js/russian-b2/listening-workbench.js?v=20260726-6"></script>
+<script src="js/zlatoust-progress-migration.js"></script>
 <script>
 /* ══════════════════════════════════════════════
    状态管理
@@ -1715,10 +2032,10 @@ function updateProgress() {
    数据加载（支持server API和静态文件）
    ══════════════════════════════════════════════ */
 function fetchJson(url, staticUrl) {
-  return fetch(url)
+  return fetch(url, { cache: 'no-store' })
     .then(function(r) { if (!r.ok) throw 0; return r.json(); })
     .catch(function() {
-      if (staticUrl) return fetch(staticUrl).then(function(r) { if (!r.ok) throw 0; return r.json(); });
+      if (staticUrl) return fetch(staticUrl, { cache: 'no-store' }).then(function(r) { if (!r.ok) throw 0; return r.json(); });
       throw 0;
     });
 }
@@ -2440,7 +2757,10 @@ var _currentRSData = null;
 var _currentWSData = null;
 
 function getB2Progress() {
-  try { return migrateB2Progress(JSON.parse(localStorage.getItem(B2_PROGRESS_KEY)) || {}); }
+  try {
+    var progress = migrateB2Progress(JSON.parse(localStorage.getItem(B2_PROGRESS_KEY)) || {});
+    return window.ZlatoustProgressMigration ? window.ZlatoustProgressMigration.migrate(progress, localStorage).progress : progress;
+  }
   catch (e) { return {}; }
 }
 function getQuizSettings() {
@@ -2503,6 +2823,12 @@ function lookupContext(moduleId, taskId, regionType, sentenceRu, sentenceZh, sou
     sourceLabel: 'B2 原书',
     sourcePages: Array.isArray(sourcePages) ? sourcePages : []
   };
+}
+function lookupContextWithSentence(moduleId, taskId, regionType, sentenceRu, sentenceZh, sourcePages) {
+  var context = lookupContext(moduleId, taskId, regionType, sentenceRu, sentenceZh, sourcePages);
+  context.sentenceRu = String(sentenceRu || '');
+  context.sentenceZh = String(sentenceZh || '');
+  return context;
 }
 function getStudyCardProgress(partId, exerciseIds) {
   var records = getB2Progress()['russian_b2:' + partId] || {};
@@ -2681,6 +3007,11 @@ function showStudyCard(partId, pointId) {
   curView = 'study-card'; stopTimer();
   var app = document.getElementById('app');
   if (curBook && !curBook.isB2Module) {
+    var integratedSectionId = getZlatoustIntegratedSectionForKnowledgePoint(partId, pointId);
+    if (integratedSectionId) {
+      showZlatoustRuleUnit(integratedSectionId);
+      return;
+    }
     var chapter = currentQuizData;
     var point = chapter && (chapter.knowledgePoints || []).find(function(item) { return item.id === pointId || item.studyCardId === pointId; });
     var backToChapters = 'showChapters(\'' + escapeHtml(curBook.id) + '\')';
@@ -2716,6 +3047,641 @@ function getTextbookKnowledgePoints(chapter) {
     pitfalls: '原书规则待补：本卡不新增未经原书核对的语法结论，请结合对应题目和原书理论页辨析。',
     exerciseIds: exerciseIds, sourcePages: rulePages, sourceStatus: '原书规则待补'
   }];
+}
+
+/* ─── Zlatoust: source-traceable theory and exercise links ─── */
+var ZLATOUST_THEORY_ROOT = 'data/textbook/zlatoust_grammar/theory';
+var ZLATOUST_LEARNING_PROGRESS_KEY = 'rr_zlatoust_learning_v1';
+var ZLATOUST_CUSTOM_LEARNING_SECTIONS = { '1.4.1': true };
+var ZLATOUST_KNOWLEDGE_POINT_SECTIONS = { 'gl1:gl1-4-1': '1.4.1' };
+var zlatoustTheoryState = { index: null, indexPromise: null, chapters: {}, units: {}, learningPages: {} };
+function getZlatoustIntegratedSectionForKnowledgePoint(partId, pointId) {
+  if (!isZlatoustGrammarBook(curBook)) return '';
+  return ZLATOUST_KNOWLEDGE_POINT_SECTIONS[String(partId || '') + ':' + String(pointId || '')] || '';
+}
+var zlatoustRouteReturn = null;
+function isZlatoustGrammarBook(book) { return !!book && book.id === 'zlatoust_grammar'; }
+function getZlatoustChapterId(chapterIndex) { return 'gl' + (Number(chapterIndex) + 1); }
+function getZlatoustChapterIndex(chapterId) {
+  var match = /^gl(\d+)$/.exec(chapterId || '');
+  return match ? Number(match[1]) - 1 : curCh;
+}
+function getZlatoustMappingFile(chapterId, kind) {
+  var number = Number(String(chapterId || '').replace('gl', ''));
+  if (number === 1) return kind + '.json';
+  return 'chapter-' + String(number).padStart(2, '0') + '-' + kind + '.json';
+}
+function loadZlatoustTheoryIndex() {
+  if (zlatoustTheoryState.index) return Promise.resolve(zlatoustTheoryState.index);
+  if (!zlatoustTheoryState.indexPromise) {
+    zlatoustTheoryState.indexPromise = fetchJson(ZLATOUST_THEORY_ROOT + '/section-index.json', null)
+      .then(function(index) { zlatoustTheoryState.index = index; return index; });
+  }
+  return zlatoustTheoryState.indexPromise;
+}
+function loadZlatoustChapterTheory(chapterIndex) {
+  var chapterId = getZlatoustChapterId(chapterIndex), state = zlatoustTheoryState.chapters[chapterId];
+  if (state && state.ready) return Promise.resolve(state);
+  if (state && state.promise) return state.promise;
+  state = state || {};
+  state.promise = Promise.all([
+    loadZlatoustTheoryIndex(),
+    fetchJson(ZLATOUST_THEORY_ROOT + '/mappings/' + getZlatoustMappingFile(chapterId, 'exercise-to-rules'), null),
+    fetchJson(ZLATOUST_THEORY_ROOT + '/mappings/' + getZlatoustMappingFile(chapterId, 'section-to-exercises'), null)
+  ]).then(function(result) {
+    state.index = result[0];
+    state.exerciseToRules = result[1];
+    state.sectionToExercises = result[2];
+    state.ready = true;
+    return state;
+  }).catch(function(error) {
+    state.error = error;
+    state.ready = false;
+    throw error;
+  });
+  zlatoustTheoryState.chapters[chapterId] = state;
+  return state.promise;
+}
+function getLoadedZlatoustChapterTheory(chapterIndex) {
+  var state = zlatoustTheoryState.chapters[getZlatoustChapterId(chapterIndex)];
+  return state && state.ready ? state : null;
+}
+function getZlatoustStatusLabel(status) {
+  return ({ mapped: '已映射原书规则', 'needs-review': '需复核边界', 'source-exercise-only': '原书仅有练习' })[status] || '来源复核中';
+}
+function getZlatoustLearningProgress() {
+  try { return JSON.parse(localStorage.getItem(ZLATOUST_LEARNING_PROGRESS_KEY) || '{"units":{}}') || { units: {} }; }
+  catch (e) { return { units: {} }; }
+}
+function saveZlatoustLearningProgress(progress) {
+  try { localStorage.setItem(ZLATOUST_LEARNING_PROGRESS_KEY, JSON.stringify(progress)); } catch (e) {}
+}
+function getZlatoustLearningRecord(sectionId) {
+  var progress = getZlatoustLearningProgress();
+  progress.units = progress.units || {};
+  return progress.units[sectionId] || {};
+}
+function updateZlatoustLearningRecord(sectionId, updater) {
+  var progress = getZlatoustLearningProgress();
+  progress.units = progress.units || {};
+  var record = progress.units[sectionId] || {};
+  updater(record);
+  progress.units[sectionId] = record;
+  saveZlatoustLearningProgress(progress);
+  return record;
+}
+function getZlatoustSectionQuizRecords(state, sectionId) {
+  var chapterKey = curBook && currentQuizData ? curBook.id + ':' + currentQuizData.id : '';
+  var chapterRecords = chapterKey ? getB2Progress()[chapterKey] || {} : {};
+  var linked = state && state.sectionToExercises && state.sectionToExercises.sections && state.sectionToExercises.sections[sectionId] || {};
+  return (linked.exerciseIds || []).map(function(exerciseId) { return chapterRecords[exerciseId]; }).filter(Boolean);
+}
+function getZlatoustLearningStatus(sectionId, state) {
+  var record = getZlatoustLearningRecord(sectionId), checks = record.checks || {}, reviewStages = record.reviewStages || {};
+  var checkRecords = Object.keys(checks).map(function(id) { return checks[id]; });
+  var stageCheckRecords = Object.keys(checks).filter(function(id) { return id !== record.finalCheckId; }).map(function(id) { return checks[id]; });
+  var quizRecords = getZlatoustSectionQuizRecords(state, sectionId);
+  var linked = state && state.sectionToExercises && state.sectionToExercises.sections && state.sectionToExercises.sections[sectionId] || {};
+  var expectedQuizCount = (linked.exerciseIds || []).length;
+  var activelyWeak = Object.keys(reviewStages).some(function(id) { return reviewStages[id]; }) || checkRecords.some(function(item) { return item && item.submitted && !item.correct; }) || quizRecords.some(function(item) { return item && item.lastResult === 'wrong'; });
+  if (activelyWeak) return 'weak';
+  var submitted = checkRecords.filter(function(item) { return item && item.submitted; });
+  var correct = submitted.filter(function(item) { return item.correct; }).length;
+  var total = Number(record.totalChecks || 0);
+  if (total && submitted.length >= total && record.finalCompleted && correct / total >= .8) return 'mastered';
+  if (record.stageCheckTotal && stageCheckRecords.filter(function(item) { return item && item.submitted; }).length >= record.stageCheckTotal) return 'learned';
+  if (record.openedAt) return 'learning';
+  if (expectedQuizCount && quizRecords.length === expectedQuizCount && quizRecords.every(function(item) { return item && item.submitted && item.lastResult === 'correct'; })) return 'mastered';
+  return 'unstarted';
+}
+function getZlatoustLearningStatusLabel(status) {
+  return ({ unstarted: '未学习', learning: '学习中', learned: '已学习', mastered: '已掌握', weak: '薄弱' })[status] || '未学习';
+}
+function zlatoustEscapeForOnclick(value) { return escapeHtml(String(value || '')).replace(/'/g, '&#39;'); }
+function zlatoustPlainText(value) {
+  return escapeHtml(String(value == null ? '' : value))
+    .replace(/\r?\n/g, '<br>')
+    .replace(/&lt;br\s*\/?&gt;/gi, '<br>');
+}
+function zlatoustList(value) { return Array.isArray(value) ? value : value ? [value] : []; }
+function zlatoustReadableText(value) {
+  if (typeof value === 'string' || typeof value === 'number') return String(value);
+  if (Array.isArray(value)) return value.map(zlatoustReadableText).filter(Boolean).join(' ');
+  if (value && typeof value === 'object') return String(value.text || value.learningNote || value.titleZh || value.title || '');
+  return '';
+}
+function zlatoustSourcePages(source) {
+  source = source || {};
+  var printed = source.printedPages || [], pdf = source.pdfPages || [];
+  var parts = [];
+  if (printed.length) parts.push('印刷页 ' + printed.join('、'));
+  if (pdf.length) parts.push('PDF ' + pdf.map(function(page) { return String(page).padStart(3, '0'); }).join('、'));
+  return parts.join(' · ');
+}
+function renderZlatoustSourceBadge(sourceType) {
+  var label = ({
+    'source-rule': '原书规则', 'source-table': '原书表格', 'source-example': '原书例句',
+    'exercise-example': '原书练习', 'learning-note': '学习辅助', 'external-note': '外部教辅参考'
+  })[sourceType] || '来源待标注';
+  return '<span class="zlatoust-source-badge ' + escapeHtml(sourceType || '') + '">' + label + '</span>';
+}
+function getZlatoustSectionRecord(sectionId) {
+  var index = zlatoustTheoryState.index;
+  return index && (index.sections || []).find(function(section) { return section.id === sectionId; });
+}
+function getZlatoustRuleCatalogEntry(state, ruleId) {
+  return state && state.exerciseToRules && state.exerciseToRules.ruleCatalog && state.exerciseToRules.ruleCatalog[ruleId] || {};
+}
+function getZlatoustSectionLearningTitle(state, section) {
+  var catalog = state && state.exerciseToRules && state.exerciseToRules.ruleCatalog || {};
+  var titles = Object.keys(catalog).filter(function(ruleId) { return catalog[ruleId].sectionId === section.id && catalog[ruleId].titleZh; })
+    .map(function(ruleId) { return catalog[ruleId].titleZh; }).filter(function(title, index, list) { return list.indexOf(title) === index; });
+  return titles.slice(0, 2).join('；') || section.sourceHeading || '原书规则';
+}
+function renderZlatoustTheoryNav() {
+  if (!isZlatoustGrammarBook(curBook)) return '';
+  var state = getLoadedZlatoustChapterTheory(curCh);
+  if (getZlatoustChapterId(curCh) === 'gl1') return state ? renderZlatoustWeakRulePanel(state) : '';
+  if (!state) return '<section class="zlatoust-theory-nav"><h2>原书规则导航</h2><p>正在加载本章的可追溯规则、题目映射与来源状态。</p></section>';
+  var sections = (state.index.sections || []).filter(function(section) { return section.chapterId === getZlatoustChapterId(curCh); });
+  var mappedSections = state.sectionToExercises.sections || {};
+  var cards = sections.map(function(section) {
+    var linked = mappedSections[section.id] || {}, exerciseCount = (linked.exerciseIds || []).length;
+    var sourcePage = section.sourceStart && section.sourceStart.printedPage;
+    var learningTitle = getZlatoustSectionLearningTitle(state, section);
+    var learningStatus = getZlatoustLearningStatus(section.id, state);
+    return '<button type="button" class="zlatoust-section-card" onclick="showZlatoustRuleUnit(\'' + zlatoustEscapeForOnclick(section.id) + '\')">' +
+      '<span>' + escapeHtml(section.id) + ' · 先做判断</span><strong>' + escapeHtml(learningTitle) + '</strong>' +
+      '<small class="zlatoust-card-path">快速判断 → 对比与排雷 → 相关练习</small><small class="zlatoust-source-heading">原书：' + escapeHtml(section.sourceHeading || '理论小节') + '</small>' +
+      '<small>印刷页 ' + escapeHtml(sourcePage || '待核') + ' · 关联练习 ' + exerciseCount + ' 题</small><em class="zlatoust-card-status ' + learningStatus + '">' + escapeHtml(getZlatoustLearningStatusLabel(learningStatus)) + '</em></button>';
+  }).join('');
+  return '<section class="zlatoust-theory-nav"><h2>原书规则导航</h2><p>按原书小节查看可追溯规则、例句、题目映射与来源状态。</p><div class="zlatoust-section-grid">' + cards + '</div>' + renderZlatoustWeakRulePanel(state) + '</section>';
+}
+function renderZlatoustWeakRulePanel(state) {
+  var records = getB2Progress()['zlatoust_grammar:' + (currentQuizData && currentQuizData.id || '')] || {};
+  var grouped = {}, unsupported = 0;
+  Object.keys(records).forEach(function(exerciseId) {
+    var record = records[exerciseId];
+    if (!record || !record.everWrong) return;
+    var mapping = state.exerciseToRules.exercises && state.exerciseToRules.exercises[exerciseId];
+    if (!mapping || !mapping.ruleIds || !mapping.ruleIds.length) { unsupported += 1; return; }
+    mapping.ruleIds.forEach(function(ruleId) {
+      var item = grouped[ruleId] || { active: 0, history: 0 };
+      item.history += 1;
+      if (record.lastResult === 'wrong') item.active += 1;
+      grouped[ruleId] = item;
+    });
+  });
+  var ids = Object.keys(grouped);
+  if (!ids.length && !unsupported) return '';
+  var entries = ids.sort(function(a, b) { return grouped[b].active - grouped[a].active || grouped[b].history - grouped[a].history; }).map(function(ruleId) {
+    var rule = getZlatoustRuleCatalogEntry(state, ruleId), sectionId = rule.sectionId || '';
+    var text = (rule.titleZh || ruleId) + ' · 当前错 ' + grouped[ruleId].active + ' · 历史错 ' + grouped[ruleId].history;
+    return sectionId ? '<button type="button" onclick="showZlatoustRuleUnit(\'' + zlatoustEscapeForOnclick(sectionId) + '\',\'' + zlatoustEscapeForOnclick(ruleId) + '\')">' + escapeHtml(text) + '</button>' : '';
+  }).join('');
+  var unsupportedText = unsupported ? '<p>另有 ' + unsupported + ' 道历史错题属于 <strong>原书仅有练习</strong>，没有独立理论规则，系统不会虚构薄弱规则。</p>' : '';
+  return '<aside class="zlatoust-weak-panel"><h3>从错题定位薄弱规则</h3><p>按当前章的历史错题聚合；优先显示尚未掌握的规则。</p><div class="zlatoust-weak-list">' + entries + '</div>' + unsupportedText + '</aside>';
+}
+function renderZlatoustExerciseReference(exercise) {
+  if (!isZlatoustGrammarBook(curBook)) return '';
+  var state = getLoadedZlatoustChapterTheory(curCh);
+  if (!state || !state.exerciseToRules || !state.exerciseToRules.exercises) return '';
+  var mapping = state.exerciseToRules.exercises[exercise.id];
+  if (!mapping) return '';
+  var status = mapping.status || 'needs-review';
+  if (status === 'source-exercise-only') {
+    return '<aside class="zlatoust-exercise-map"><span class="zlatoust-badge source-exercise-only">原书仅有练习</span><span>本题未找到独立原书理论依据；保留练习入口，不虚构规则。</span></aside>';
+  }
+  var buttons = (mapping.ruleIds || []).map(function(ruleId) {
+    var rule = getZlatoustRuleCatalogEntry(state, ruleId), sectionId = rule.sectionId || mapping.sectionId || '';
+    if (!sectionId) return '';
+    return '<button type="button" class="zlatoust-exercise-rule" onclick="showZlatoustRuleUnit(\'' + zlatoustEscapeForOnclick(sectionId) + '\',\'' + zlatoustEscapeForOnclick(ruleId) + '\')">' + escapeHtml(rule.titleZh || ruleId) + '</button>';
+  }).join('');
+  var reason = mapping.mappingReason || mapping.reason || mapping.reviewReason || '';
+  return '<aside class="zlatoust-exercise-map"><span class="zlatoust-badge ' + escapeHtml(status) + '">' + escapeHtml(getZlatoustStatusLabel(status)) + '</span><span>本题考查：</span>' + buttons + (reason ? '<p>' + escapeHtml(reason) + '</p>' : '') + '</aside>';
+}
+function loadZlatoustRuleUnit(sectionId) {
+  return loadZlatoustTheoryIndex().then(function(index) {
+    var section = (index.sections || []).find(function(item) { return item.id === sectionId; });
+    if (!section) throw new Error('Unknown Zlatoust section: ' + sectionId);
+    var key = section.chapterId + ':' + sectionId;
+    if (zlatoustTheoryState.units[key]) return zlatoustTheoryState.units[key];
+    return fetchJson(ZLATOUST_THEORY_ROOT + '/rule-units/' + section.chapterId + '/section-' + encodeURIComponent(sectionId) + '.json', null)
+      .then(function(unit) { zlatoustTheoryState.units[key] = unit; return unit; });
+  });
+}
+function loadZlatoustLearningPage(sectionId) {
+  if (!ZLATOUST_CUSTOM_LEARNING_SECTIONS[sectionId]) return Promise.resolve(null);
+  if (zlatoustTheoryState.learningPages[sectionId]) return Promise.resolve(zlatoustTheoryState.learningPages[sectionId]);
+  return loadZlatoustTheoryIndex().then(function(index) {
+    var section = (index.sections || []).find(function(item) { return item.id === sectionId; });
+    if (!section) throw new Error('Unknown Zlatoust learning section: ' + sectionId);
+    return fetchJson(ZLATOUST_THEORY_ROOT + '/learning-pages/' + section.chapterId + '/section-' + encodeURIComponent(sectionId) + '.json', null)
+      .then(function(page) { zlatoustTheoryState.learningPages[sectionId] = page; return page; });
+  });
+}
+function showZlatoustRuleUnit(sectionId, ruleId) {
+  if (!isZlatoustGrammarBook(curBook)) return;
+  if (curView !== 'zlatoust-rule') zlatoustRouteReturn = { chapterIndex: curCh, scroll: window.scrollY };
+  var app = document.getElementById('app');
+  app.innerHTML = b2FloatingNavigation({ backAction: 'returnToZlatoustRoute()', backTitle: '返回知识点卡片', menuAction: 'showBreadcrumb()' }) + '<main class="main-container"><div class="loading"><div class="spinner"></div><div>加载知识点教学页...</div></div></main>';
+  Promise.all([loadZlatoustRuleUnit(sectionId), loadZlatoustLearningPage(sectionId)]).then(function(result) {
+    var unit = result[0], learningPage = result[1];
+    var chapterIndex = getZlatoustChapterIndex(unit.chapterId);
+    curView = 'zlatoust-rule';
+    updateZlatoustLearningRecord(sectionId, function(record) {
+      record.openedAt = record.openedAt || new Date().toISOString();
+      record.lastVisitedAt = new Date().toISOString();
+      if (learningPage) {
+        record.stageCheckTotal = learningPage.stages.reduce(function(total, stage) { return total + (stage.checks || []).length; }, 0);
+        record.totalChecks = record.stageCheckTotal + (learningPage.finalCheck ? 1 : 0);
+        record.finalCheckId = learningPage.finalCheck && learningPage.finalCheck.id || '';
+      }
+    });
+    app.innerHTML = b2FloatingNavigation({ backAction: 'returnToZlatoustRoute()', backTitle: '返回知识点卡片', menuAction: 'showBreadcrumb()' }) + (learningPage ? renderZlatoustLearningPage(learningPage, unit, chapterIndex) : renderZlatoustRuleUnit(unit, chapterIndex));
+    window.scrollTo(0, 0); applyTheme(); applyStressMarks();
+    if (learningPage) initZlatoustLearningPageObserver();
+    if (ruleId) setTimeout(function() {
+      var target = document.getElementById('zlatoust-rule-' + ruleId);
+      if (!target) return;
+      target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      target.classList.add('zlatoust-target');
+      setTimeout(function() { target.classList.remove('zlatoust-target'); }, 1800);
+    }, 0);
+  }).catch(function(error) {
+    zlatoustTheoryState.lastRuleLoadError = error && (error.message || String(error)) || 'unknown error';
+    app.innerHTML = b2FloatingNavigation({ backAction: 'goChapter(' + curCh + ')', backTitle: '返回练习', menuAction: 'showBreadcrumb()' }) + '<main class="main-container"><div class="loading">规则加载失败；题目和原有学习记录未受影响。</div></main>';
+  });
+}
+function returnToZlatoustRoute() {
+  var target = zlatoustRouteReturn || { chapterIndex: curCh, scroll: 0 };
+  goChapter(target.chapterIndex, { scroll: target.scroll || 0 });
+}
+function openAdjacentZlatoustSection(sectionId, direction) {
+  var sections = (zlatoustTheoryState.index && zlatoustTheoryState.index.sections || []).filter(function(section) { return section.chapterId === getZlatoustChapterId(curCh); });
+  var index = sections.findIndex(function(section) { return section.id === sectionId; });
+  var next = sections[index + direction];
+  if (next) showZlatoustRuleUnit(next.id);
+}
+function renderZlatoustRuleItem(item, extraClass) {
+  if (typeof item === 'string') item = { text: item, sourceType: 'learning-note' };
+  item = item || {};
+  var text = item.text || item.learningNote || item.sourceReference || '';
+  var title = item.titleZh || item.titleRu || item.title || '';
+  var source = item.source || {};
+  var klass = item.sourceType === 'source-rule' || item.sourceType === 'source-table' || item.sourceType === 'source-example' ? 'zlatoust-source-block' : 'zlatoust-learning-block';
+  return '<article class="' + klass + ' ' + (extraClass || '') + '">' + renderZlatoustSourceBadge(item.sourceType) + (title ? '<h3>' + escapeHtml(title) + '</h3>' : '') + (text ? '<p>' + zlatoustPlainText(text) + '</p>' : '') + (zlatoustSourcePages(source) ? '<small>' + escapeHtml(zlatoustSourcePages(source)) + '</small>' : '') + '</article>';
+}
+function renderZlatoustTable(table) {
+  table = table || {};
+  var headers = table.headers || [], rows = table.rows || [];
+  var headerHtml = headers.length ? '<thead><tr>' + headers.map(function(header) { return '<th>' + zlatoustPlainText(header) + '</th>'; }).join('') + '</tr></thead>' : '';
+  var rowHtml = rows.map(function(row) { return '<tr>' + row.map(function(cell) { return '<td>' + zlatoustPlainText(cell) + '</td>'; }).join('') + '</tr>'; }).join('');
+  return '<section><h3>' + escapeHtml(table.title || '原书表格') + '</h3>' + renderZlatoustSourceBadge(table.sourceType || 'source-table') +
+    '<div class="zlatoust-table-wrap"><table class="zlatoust-table">' + headerHtml + '<tbody>' + rowHtml + '</tbody></table></div>' +
+    (zlatoustSourcePages(table.source) ? '<small>' + escapeHtml(zlatoustSourcePages(table.source)) + '</small>' : '') + '</section>';
+}
+function renderZlatoustAtomicRules(unit) {
+  var items = zlatoustList(unit.atomicRules);
+  if (!items.length) return '';
+  return items.map(function(item) {
+    var body = renderZlatoustRuleItem(item);
+    return '<article class="zlatoust-atomic-rule" id="zlatoust-rule-' + escapeHtml(item.id || '') + '">' + body + '</article>';
+  }).join('');
+}
+function renderZlatoustDecisionSteps(items) {
+  items = zlatoustList(items);
+  if (!items.length) return '<p class="zlatoust-intro">本节暂未单列判断步骤；请先阅读原书规则后再做关联练习。</p>';
+  return '<ol class="zlatoust-decision-steps">' + items.map(function(item) { return '<li class="zlatoust-decision-step">' + escapeHtml(zlatoustReadableText(item)) + '</li>'; }).join('') + '</ol>';
+}
+function renderZlatoustSignalCards(items) {
+  items = zlatoustList(items);
+  if (!items.length) return '<p>本节没有单独的信号词清单；请以语义角色和句法结构为准。</p>';
+  return items.map(function(item) {
+    var signals = zlatoustList(item.signals || item.signal), use = item.use || item.text || '', limit = item.limit || '';
+    return '<article class="zlatoust-signal">' + renderZlatoustSourceBadge(item.sourceType || 'learning-note') + '<div class="zlatoust-signal-words">' + escapeHtml(signals.join(' · ')) + '</div>' + (use ? '<p>' + escapeHtml(use) + '</p>' : '') + (limit ? '<small>不能只靠它判断：' + escapeHtml(limit) + '</small>' : '') + '</article>';
+  }).join('');
+}
+function renderZlatoustContrastCards(items) {
+  items = zlatoustList(items);
+  if (!items.length) return '<p>本节没有单列对比；请从相关练习进入具体条件。</p>';
+  return items.map(function(item) {
+    var left = item.left || item.title || '', right = item.right || item.text || '', analysis = item.analysis || '';
+    return '<article class="zlatoust-contrast-card">' + renderZlatoustSourceBadge(item.sourceType || 'learning-note') + '<div class="zlatoust-contrast-sides"><div class="zlatoust-contrast-side"><strong>情形 A</strong>' + zlatoustPlainText(left) + '</div><div class="zlatoust-contrast-side"><strong>情形 B</strong>' + zlatoustPlainText(right) + '</div></div>' + (analysis ? '<p class="zlatoust-contrast-analysis">判断差别：' + escapeHtml(analysis) + '</p>' : '') + '</article>';
+  }).join('');
+}
+function renderZlatoustCommonErrors(items) {
+  items = zlatoustList(items);
+  if (!items.length) return '<p>本节暂未列出典型误判；做题时仍需按判断步骤逐项核对。</p>';
+  return '<ul class="zlatoust-error-list">' + items.map(function(item) { return '<li>' + escapeHtml(zlatoustReadableText(item)) + '</li>'; }).join('') + '</ul>';
+}
+function renderZlatoustLearningPath(unit) {
+  var orientation = zlatoustReadableText(unit.orientationZh);
+  return '<section class="zlatoust-learning-path"><header><div><h2>先学会判断</h2><p>' + escapeHtml(orientation || '先区分语义和句法条件，再回到原书规则核对。') + '</p></div><span class="zlatoust-badge needs-review">学习辅助</span></header>' +
+    renderZlatoustDecisionSteps(unit.quickDecision) +
+    '<div class="zlatoust-learning-grid"><section class="zlatoust-learning-panel"><h3>容易混在哪里</h3>' + renderZlatoustContrastCards(unit.contrasts) + '</section><section class="zlatoust-learning-panel"><h3>可用的信号，但不是口诀</h3>' + renderZlatoustSignalCards(unit.signalAnalysis) + '</section><section class="zlatoust-learning-panel"><h3>先避开这些误判</h3>' + renderZlatoustCommonErrors(unit.commonErrors) + '</section></div></section>';
+}
+function renderZlatoustExerciseLinks(unit, chapterIndex) {
+  var links = zlatoustList(unit.exerciseLinks);
+  if (!links.length) return '';
+  var ids = links.map(function(link) { return link.exerciseId; }).filter(Boolean);
+  var actions = ids.length ? '<button class="zlatoust-practice-link" type="button" onclick="openZlatoustRuleExercises(' + chapterIndex + ',' + escapeHtml(JSON.stringify(ids)).replace(/"/g, '&quot;') + ')">只做本规则相关题目（' + ids.length + '）</button>' : '';
+  var rows = links.map(function(link) {
+    var analysis = link.optionAnalysis || {}, correct = analysis.correct || '', distractors = (analysis.distractors || []).map(function(item) { return item.key + (item.text ? '：' + item.text : '') + ' - ' + item.reason; });
+    return '<article class="zlatoust-exercise-detail"><strong>' + escapeHtml(link.exerciseId || '练习') + '</strong> <span class="zlatoust-badge ' + escapeHtml(link.status || 'needs-review') + '">' + escapeHtml(getZlatoustStatusLabel(link.status)) + '</span>' +
+      '<p>' + escapeHtml(link.mappingReason || link.reason || '映射理由待复核。') + '</p>' +
+      (correct ? '<p><strong>选项解析：</strong>' + escapeHtml(correct) + '</p>' : '') +
+      (distractors.length ? '<ul>' + distractors.map(function(item) { return '<li>' + escapeHtml(item) + '</li>'; }).join('') + '</ul>' : '') +
+      '<button type="button" class="zlatoust-practice-link" onclick="openZlatoustExercise(' + chapterIndex + ',\'' + zlatoustEscapeForOnclick(link.exerciseId) + '\')">打开题目</button></article>';
+  }).join('');
+  return '<details><summary>关联练习与选项分析（' + links.length + '）</summary><div class="zlatoust-rule-body">' + actions + rows + '</div></details>';
+}
+function renderZlatoustSourceCoverage(coverage) {
+  if (!coverage) return '';
+  var parts = ['规则项 ' + ((coverage.ruleItems || {}).captured || 0) + '/' + ((coverage.ruleItems || {}).total || 0),
+    '编号项 ' + ((coverage.numberedItems || {}).captured || 0) + '/' + ((coverage.numberedItems || {}).total || 0),
+    '表格 ' + ((coverage.tables || {}).captured || 0) + '/' + ((coverage.tables || {}).total || 0),
+    '例句 ' + ((coverage.examples || {}).captured || 0) + '/' + ((coverage.examples || {}).total || 0),
+    '练习解析 ' + ((coverage.relatedExercises || {}).explained || 0) + '/' + ((coverage.relatedExercises || {}).total || 0)];
+  return '<details><summary>来源覆盖账本</summary><div class="zlatoust-rule-body"><p>' + escapeHtml(parts.join(' · ')) + '</p>' +
+    ((coverage.omitted || []).length ? '<p>未收录：' + escapeHtml(coverage.omitted.join('；')) + '</p>' : '') +
+    ((coverage.sourceExerciseOnly || []).length ? '<p>原书仅有练习：' + escapeHtml(coverage.sourceExerciseOnly.join('；')) + '</p>' : '') +
+    ((coverage.needsReview || []).length ? '<p>需复核：' + escapeHtml(coverage.needsReview.join('；')) + '</p>' : '') +
+    ((coverage.ocrRisks || []).length ? '<p>OCR 风险：' + escapeHtml(coverage.ocrRisks.join('；')) + '</p>' : '') + '</div></details>';
+}
+function zlatoustLearningPageRecord(sectionId) {
+  var record = getZlatoustLearningRecord(sectionId);
+  record.checks = record.checks || {};
+  record.retries = record.retries || {};
+  return record;
+}
+function getZlatoustLearningPageSummary(sectionId) {
+  var record = zlatoustLearningPageRecord(sectionId), checks = Object.keys(record.checks).map(function(id) { return record.checks[id]; });
+  var submitted = checks.filter(function(item) { return item && item.submitted; });
+  var correct = submitted.filter(function(item) { return item.correct; }).length;
+  var total = Number(record.totalChecks || 0);
+  var state = getLoadedZlatoustChapterTheory(curCh);
+  var status = getZlatoustLearningStatus(sectionId, state);
+  return { submitted: submitted.length, correct: correct, total: total, status: status };
+}
+function renderZlatoustLearningProgressText(sectionId) {
+  var summary = getZlatoustLearningPageSummary(sectionId);
+  return getZlatoustLearningStatusLabel(summary.status) + ' · 随堂判断 ' + summary.submitted + '/' + summary.total + ' · 正确 ' + summary.correct;
+}
+function getZlatoustLearningStageState(sectionId, stage, finalStage) {
+  var record = zlatoustLearningPageRecord(sectionId), reviews = record.reviewStages || {};
+  var routeId = stage.routeId || stage.id;
+  var checkIds = finalStage ? [stage.id] : (stage.checks || []).map(function(check) { return check.id; });
+  var checks = checkIds.map(function(id) { return record.checks[id]; }).filter(Boolean);
+  var exercises = finalStage ? [] : (stage.exerciseIds || []).map(function(id) { return getQuizRecord(id); });
+  var weak = !!reviews[routeId] || checks.some(function(item) { return item.submitted && !item.correct; }) || exercises.some(function(item) { return item.submitted && item.lastResult === 'wrong'; });
+  if (weak) return 'weak';
+  var checksComplete = checkIds.length > 0 && checks.length === checkIds.length && checks.every(function(item) { return item.submitted && item.correct; });
+  var exercisesComplete = !exercises.length || exercises.every(function(item) { return item.submitted && item.lastResult === 'correct'; });
+  if (checksComplete && exercisesComplete) return 'completed';
+  if (checks.some(function(item) { return item.submitted; }) || exercises.some(function(item) { return item.submitted; }) || record.lastStage === routeId) return 'learning';
+  return 'unstarted';
+}
+function getZlatoustLearningStageStateLabel(status) {
+  return ({ unstarted: '未开始', learning: '学习中', completed: '已完成', weak: '需要复习' })[status] || '未开始';
+}
+function renderZlatoustLearningRoute(page) {
+  var record = zlatoustLearningPageRecord(page.sectionId), reviews = record.reviewStages || {};
+  var steps = (page.stages || []).map(function(stage) { return { id: stage.id, number: stage.number, title: stage.title, stage: stage, finalStage: false }; });
+  if (page.finalCheck) steps.push({ id: 'zlatoust-final', number: steps.length + 1, title: '综合判断与回顾', stage: page.finalCheck, finalStage: true });
+  var states = steps.map(function(step) { return getZlatoustLearningStageState(page.sectionId, Object.assign({}, step.stage, { routeId: step.id }), step.finalStage); });
+  var completed = states.filter(function(status) { return status === 'completed'; }).length;
+  var progress = steps.length ? Math.round(completed / steps.length * 100) : 0;
+  return '<section class="zlatoust-unit-route" data-zlatoust-learning-route aria-labelledby="zlatoust-unit-route-title"><header class="zlatoust-unit-route-header"><div><h2 id="zlatoust-unit-route-title">本知识点学习路线</h2><p>按顺序完成五组判断，再进入综合判断。阶段状态由随堂题和对应原书题自动更新。</p></div><span class="zlatoust-route-count">已完成 ' + completed + ' / ' + steps.length + '</span></header>' +
+    '<div class="zlatoust-unit-route-progress" aria-hidden="true"><span style="width:' + progress + '%"></span></div><ol class="zlatoust-unit-route-list">' + steps.map(function(step, index) {
+      var status = states[index], checked = !!reviews[step.id];
+      return '<li class="zlatoust-unit-route-step" data-stage-status="' + status + '"><button type="button" class="zlatoust-route-step-button" onclick="scrollToZlatoustStage(\'' + zlatoustEscapeForOnclick(step.id) + '\')"><span class="zlatoust-route-step-number">' + String(index + 1).padStart(2, '0') + '</span><strong>' + escapeHtml(step.title) + '</strong><small>' + escapeHtml(getZlatoustLearningStageStateLabel(status)) + '</small></button><label class="zlatoust-stage-review"><input type="checkbox"' + (checked ? ' checked' : '') + ' onchange="toggleZlatoustStageReview(\'' + zlatoustEscapeForOnclick(page.sectionId) + '\',\'' + zlatoustEscapeForOnclick(step.id) + '\',this.checked)">标记复习</label></li>';
+    }).join('') + '</ol></section>';
+}
+function renderZlatoustLearningMindMap(page) {
+  return '<section class="zlatoust-unit-map" aria-labelledby="zlatoust-unit-map-title"><h2 id="zlatoust-unit-map-title">本知识点思维导图</h2><p>这张图只表示概念关系：面对过去时或将来时，先判断说话人把注意力放在哪一类意义上。</p><div class="zlatoust-unit-map-root"><small>中心知识点</small><strong>' + escapeHtml(page.titleZh) + '</strong></div><ol class="zlatoust-unit-map-list">' +
+    (page.mindMap || []).map(function(node, index) {
+      var poles = String(node.shortLabel || node.label || '').split(/\s*\/\s*/);
+      return '<li><button type="button" onclick="scrollToZlatoustStage(\'' + zlatoustEscapeForOnclick(node.id) + '\')"><span class="zlatoust-map-question">' + escapeHtml(node.label || '') + '</span><span class="zlatoust-map-poles"><strong>' + escapeHtml(poles[0] || '') + '</strong><i>vs</i><strong>' + escapeHtml(poles[1] || '') + '</strong></span></button></li>';
+    }).join('') + '</ol></section>';
+}
+function renderZlatoustLearningToc(page, mobile) {
+  var items = (page.stages || []).map(function(stage) {
+    return '<li><button type="button" data-zlatoust-toc="' + escapeHtml(stage.id) + '" onclick="scrollToZlatoustStage(\'' + zlatoustEscapeForOnclick(stage.id) + '\')">' + stage.number + '. ' + escapeHtml(stage.title) + '</button></li>';
+  }).join('') + '<li><button type="button" data-zlatoust-toc="zlatoust-summary" onclick="scrollToZlatoustStage(\'zlatoust-summary\')">判断总表</button></li>' +
+    '<li><button type="button" data-zlatoust-toc="zlatoust-final" onclick="scrollToZlatoustStage(\'zlatoust-final\')">综合判断</button></li>';
+  if (mobile) return '<details class="zlatoust-learning-mobile-toc"><summary>本节目录</summary><ol>' + items + '</ol></details>';
+  return '<aside class="zlatoust-learning-toc" aria-label="知识点页目录"><h2>本节目录</h2><ol>' + items + '</ol></aside>';
+}
+function renderZlatoustDiagnostic(diagnostic) {
+  if (!diagnostic) return '';
+  var source = diagnostic.source || {};
+  return '<section class="zlatoust-diagnostic"><h2>快速诊断</h2><p>' + escapeHtml(diagnostic.prompt || '') + '</p><div class="zlatoust-diagnostic-grid">' +
+    (diagnostic.items || []).map(function(item, index) {
+      return '<article class="zlatoust-diagnostic-item"><p class="ru">' + renderRuText(item.ru || '', lookupContext('grammar', 'zlatoust-diagnostic-' + index, 'learning-example', item.ru || '', item.zh || '', [])) + '</p><span class="zh">' + escapeHtml(item.zh || '') + '</span><small>' + escapeHtml(item.focus || '') + '</small></article>';
+    }).join('') + '</div>' + (source.url ? renderZlatoustExternalReference(source) : renderZlatoustSourceBadge(diagnostic.sourceType || 'learning-note')) + '</section>';
+}
+function renderZlatoustExternalReference(source, fallbackConclusion) {
+  source = source || {};
+  var conclusion = source.conclusion || fallbackConclusion || '';
+  return '<aside class="zlatoust-external-guide">' + renderZlatoustSourceBadge('external-note') + '<h4>' + escapeHtml(source.label || '外部资料的中文整理') + '</h4>' +
+    (conclusion ? '<p><strong>中文结论：</strong>' + escapeHtml(conclusion) + '</p>' : '') +
+    (source.relevance ? '<p><strong>对本知识点有什么帮助：</strong>' + escapeHtml(source.relevance) + '</p>' : '') +
+    (source.boundary ? '<p><strong>适用边界：</strong>' + escapeHtml(source.boundary) + '</p>' : '') +
+    (source.url ? '<details><summary>来源核验（可选，不影响学习）</summary><p>原资料为' + escapeHtml(source.originalLanguage || '外文') + '。你不需要阅读原页；上面的中文内容已经包含本节需要的信息。</p><a href="' + escapeHtml(source.url) + '" target="_blank" rel="noopener noreferrer">打开原文页面，仅供核验</a></details>' : '') + '</aside>';
+}
+function renderZlatoustStageSourceRule(rule) {
+  if (!rule) return '';
+  return '<section class="zlatoust-stage-block"><h3>原书规则中俄对照</h3><article class="zlatoust-stage-source-rule">' + renderZlatoustSourceBadge(rule.sourceType || 'source-rule') +
+    '<p class="ru">' + renderRuText(rule.ru || '', lookupContext('grammar', 'zlatoust-source-rule', 'source-rule', rule.ru || '', rule.zh || '', (rule.source && rule.source.pdfPages) || [])) + '</p><p class="zh">' + escapeHtml(rule.zh || '') + '</p>' +
+    (zlatoustSourcePages(rule.source) ? '<small>' + escapeHtml(zlatoustSourcePages(rule.source)) + '</small>' : '') + '</article></section>';
+}
+function renderZlatoustStageExamples(stage) {
+  var items = stage.sourceExamples || [];
+  if (!items.length) return '';
+  return '<section class="zlatoust-stage-block"><h3>原书例句逐句解析</h3><div class="zlatoust-example-list">' + items.map(function(item, index) {
+    var taskId = stage.id + '-example-' + index;
+    return '<article class="zlatoust-example-row">' + renderZlatoustSourceBadge(item.sourceType || 'source-example') + '<p class="ru">' + renderRuText(item.ru || '', lookupContext('grammar', taskId, 'source-example', item.ru || '', item.zh || '', [])) + '</p><p class="zh">' + escapeHtml(item.zh || '') + '</p><p class="analysis"><strong>为什么这样用：</strong>' + escapeHtml(item.analysis || '') + '</p></article>';
+  }).join('') + '</div></section>';
+}
+function renderZlatoustStageContrasts(stage) {
+  return '<section class="zlatoust-stage-block"><h3>只改变一个条件</h3>' + renderZlatoustContrastCards(stage.contrasts || []) + '</section>';
+}
+function renderZlatoustStageSignals(stage) {
+  var items = stage.signals || [];
+  if (!items.length) return '';
+  return '<section class="zlatoust-stage-block"><h3>信号词的有效条件与失效边界</h3><div class="zlatoust-table-wrap"><table class="zlatoust-signal-table"><thead><tr><th>常见信号</th><th>什么时候有用</th><th>什么时候不能单独决定</th></tr></thead><tbody>' + items.map(function(item) {
+    return '<tr><td>' + escapeHtml((item.words || []).join(' · ')) + '</td><td>' + escapeHtml(item.validWhen || '') + '</td><td>' + escapeHtml(item.failsWhen || '') + '</td></tr>';
+  }).join('') + '</tbody></table></div></section>';
+}
+function renderZlatoustLearningFeedback(feedback, correct) {
+  feedback = feedback || {};
+  var lead = correct ? feedback.correct : feedback.misconception;
+  return '<div class="zlatoust-learning-feedback' + (correct ? '' : ' is-wrong') + '" aria-live="polite"><p><strong>' + (correct ? '判断正确：' : '这次误判在这里：') + '</strong>' + escapeHtml(lead || '') + '</p>' +
+    (!correct && feedback.review ? '<p><strong>回看规则：</strong>' + escapeHtml(feedback.review) + '</p>' : '') +
+    (feedback.contrast ? '<p><strong>最小对比：</strong>' + escapeHtml(feedback.contrast) + '</p>' : '') + '</div>';
+}
+function renderZlatoustLearningRetry(sectionId, stageId, check) {
+  if (!check.retry) return '';
+  var record = zlatoustLearningPageRecord(sectionId).retries[check.id] || {};
+  var retry = check.retry;
+  return '<div class="zlatoust-retry"><strong>换一个语境再练一次</strong><p class="zlatoust-learning-check-prompt">' + escapeHtml(retry.prompt || '') + '</p><div class="zlatoust-learning-check-options">' + (retry.options || []).map(function(option) {
+    var klass = record.submitted && option.key === retry.answer ? ' is-correct' : record.submitted && option.key === record.selected ? ' is-wrong' : '';
+    return '<button type="button" class="zlatoust-learning-check-option' + klass + '" onclick="answerZlatoustLearningRetry(\'' + zlatoustEscapeForOnclick(sectionId) + '\',\'' + zlatoustEscapeForOnclick(stageId) + '\',\'' + zlatoustEscapeForOnclick(check.id) + '\',\'' + zlatoustEscapeForOnclick(option.key) + '\')"><strong>' + escapeHtml(option.key) + '</strong><span>' + escapeHtml(option.text) + '</span></button>';
+  }).join('') + '</div>' + (record.submitted ? '<p class="zlatoust-learning-feedback' + (record.correct ? '' : ' is-wrong') + '">' + (record.correct ? '这次判断正确。' : '还没有抓住决定条件，先回看上面的最小对比再试。') + '</p>' : '') + '</div>';
+}
+function renderZlatoustLearningCheck(sectionId, stageId, check, finalCheck) {
+  var record = zlatoustLearningPageRecord(sectionId).checks[check.id] || {}, submitted = !!record.submitted;
+  var options = (check.options || []).map(function(option) {
+    var klass = submitted && option.key === check.answer ? ' is-correct' : submitted && option.key === record.selected ? ' is-wrong' : '';
+    return '<button type="button" class="zlatoust-learning-check-option' + klass + '" onclick="answerZlatoustLearningCheck(\'' + zlatoustEscapeForOnclick(sectionId) + '\',\'' + zlatoustEscapeForOnclick(stageId || '') + '\',\'' + zlatoustEscapeForOnclick(check.id) + '\',\'' + zlatoustEscapeForOnclick(option.key) + '\',' + (finalCheck ? 'true' : 'false') + ')"><strong>' + escapeHtml(option.key) + '</strong><span>' + escapeHtml(option.text) + '</span></button>';
+  }).join('');
+  return '<article class="zlatoust-learning-check" data-zlatoust-check="' + escapeHtml(check.id) + '"><h4>' + (finalCheck ? '综合判断' : '随堂判断') + '</h4><p class="zlatoust-learning-check-prompt">' + escapeHtml(check.prompt || '') + '</p><div class="zlatoust-learning-check-options">' + options + '</div>' +
+    (submitted ? renderZlatoustLearningFeedback(check.feedback, record.correct) + (!record.correct ? renderZlatoustLearningRetry(sectionId, stageId, check) : '') : '') + '</article>';
+}
+function renderZlatoustStageExercises(stage) {
+  var exercises = (stage.exerciseIds || []).map(function(exerciseId) {
+    return currentQuizAllExercises.find(function(exercise) { return exercise.id === exerciseId; });
+  }).filter(Boolean);
+  return '<section class="zlatoust-original-practice"><h3>原书正式练习</h3><p>这里直接使用正式题库中的原题与原 ID。你的选择、错题和最后结果会同步回题库。</p>' + exercises.map(function(exercise) {
+    return renderQuizItem(exercise, getQuizRecord(exercise.id));
+  }).join('') + '</section>';
+}
+function renderZlatoustLearningStage(page, stage) {
+  var external = stage.externalNote;
+  return '<section class="zlatoust-stage" id="' + escapeHtml(stage.id) + '"><p class="zlatoust-stage-number">阶段 ' + stage.number + ' / ' + page.stages.length + '</p><h2>' + escapeHtml(stage.title) + '</h2><p class="zlatoust-stage-question">' + escapeHtml(stage.question || '') + '</p>' +
+    '<div class="zlatoust-context-entry"><p class="ru">' + renderRuText((stage.entry && stage.entry.ru) || '', lookupContext('grammar', stage.id + '-entry', 'learning-example', (stage.entry && stage.entry.ru) || '', '', [])) + '</p><p>' + escapeHtml((stage.entry && stage.entry.prompt) || '') + '</p></div>' +
+    '<section class="zlatoust-teacher-copy"><h3>老师拆解</h3>' + (stage.teacherExplanation || []).map(function(paragraph) { return '<p>' + escapeHtml(paragraph) + '</p>'; }).join('') + '</section>' +
+    renderZlatoustStageSourceRule(stage.sourceRule) + renderZlatoustStageExamples(stage) + renderZlatoustStageContrasts(stage) +
+    (external ? '<section class="zlatoust-stage-block"><h3>外部教辅补充（中文整理）</h3>' + renderZlatoustExternalReference(external.source, external.text) + '</section>' : '') +
+    renderZlatoustStageSignals(stage) + '<section class="zlatoust-stage-block"><h3>常见误判</h3>' + renderZlatoustCommonErrors(stage.commonErrors || []) + '</section>' +
+    '<section class="zlatoust-stage-block"><h3>随堂判断与定向反馈</h3>' + (stage.checks || []).map(function(check) { return renderZlatoustLearningCheck(page.sectionId, stage.id, check, false); }).join('') + '</section>' +
+    renderZlatoustStageExercises(stage) + '</section>';
+}
+function renderZlatoustSummaryTable(page) {
+  var rows = (page.summaryTable || []).map(function(row) { return '<tr><td>' + escapeHtml(row.question) + '</td><td>' + escapeHtml(row.imperfective) + '</td><td>' + escapeHtml(row.perfective) + '</td><td>' + escapeHtml(row.boundary) + '</td></tr>'; }).join('');
+  return '<section class="zlatoust-summary-table" id="zlatoust-summary"><h2>五组判断总表</h2><div class="zlatoust-table-wrap"><table class="zlatoust-table"><thead><tr><th>先问什么</th><th>未完成体视角</th><th>完成体视角</th><th>必须防止的误判</th></tr></thead><tbody>' + rows + '</tbody></table></div></section>';
+}
+function renderZlatoustLearningSources(page) {
+  var coreSources = (page.sources || []).filter(function(source) { return source.sourceType !== 'external-note'; });
+  var externalSources = (page.sources || []).filter(function(source) { return source.sourceType === 'external-note'; });
+  var core = coreSources.map(function(source) {
+    var pages = zlatoustSourcePages(source);
+    return '<li>' + renderZlatoustSourceBadge(source.sourceType) + ' ' + escapeHtml(source.label || '来源') + (pages ? ' · ' + escapeHtml(pages) : '') + (source.status ? ' · ' + escapeHtml(source.status) : '') + '</li>';
+  }).join('');
+  var external = externalSources.length ? '<details><summary>外部资料原页（可选核验，无需阅读英文）</summary><div class="zlatoust-rule-body"><ul>' + externalSources.map(function(source) {
+    return '<li>' + escapeHtml(source.label || '外部资料') + (source.url ? ' · <a href="' + escapeHtml(source.url) + '" target="_blank" rel="noopener noreferrer">英文原页，仅供核验</a>' : '') + '</li>';
+  }).join('') + '</ul></div></details>' : '';
+  return '<section class="zlatoust-learning-sources"><h2>来源与复核状态</h2><ul>' + core + '</ul>' + external + '<details><summary>风险记录</summary><div class="zlatoust-rule-body"><ul>' + (page.riskRecord || []).map(function(risk) { return '<li>' + escapeHtml(risk) + '</li>'; }).join('') + '</ul></div></details></section>';
+}
+function renderZlatoustLearningResult(sectionId) {
+  var summary = getZlatoustLearningPageSummary(sectionId);
+  var accuracy = summary.submitted ? Math.round(summary.correct / summary.submitted * 100) : 0;
+  return '<section class="zlatoust-learning-result" data-zlatoust-result><h2>当前学习结果：' + escapeHtml(getZlatoustLearningStatusLabel(summary.status)) + '</h2><p>已完成 ' + summary.submitted + '/' + summary.total + ' 个判断，当前正确率 ' + accuracy + '%。</p><p>“薄弱”同时读取本页仍未纠正的误判和正式题库中的当前错题；返回知识点卡片列表后会同步显示。</p></section>';
+}
+function renderZlatoustLearningPage(page, unit, chapterIndex) {
+  var sectionRecord = getZlatoustSectionRecord(page.sectionId) || {}, sections = (zlatoustTheoryState.index && zlatoustTheoryState.index.sections || []).filter(function(section) { return section.chapterId === page.chapterId; });
+  var currentIndex = sections.findIndex(function(section) { return section.id === page.sectionId; });
+  var previous = sections[currentIndex - 1], next = sections[currentIndex + 1];
+  return '<main class="main-container zlatoust-learning-page"><div class="zlatoust-learning-topbar"><button type="button" class="zlatoust-back-link" onclick="returnToZlatoustRoute()">返回知识点卡片</button><span class="zlatoust-progress-summary" data-zlatoust-progress>' + escapeHtml(renderZlatoustLearningProgressText(page.sectionId)) + '</span></div>' +
+    '<header class="zlatoust-learning-hero"><p class="zlatoust-learning-kicker">第 1 章 · 知识点 ' + escapeHtml(page.sectionId) + '</p><h1>' + escapeHtml(page.titleZh) + '</h1><p class="zlatoust-learning-title-ru">' + escapeHtml(page.titleRu) + '</p><p class="zlatoust-learning-problem">' + escapeHtml(page.problem) + '</p><div class="zlatoust-learning-meta"><span>预计 ' + escapeHtml(page.estimatedMinutes) + ' 分钟</span><span>5 个连续阶段</span><span>13 道原书题</span><span>' + escapeHtml(zlatoustSourcePages(unit.source)) + '</span><span>来源状态 ' + escapeHtml(page.reviewStatus) + '</span></div></header>' +
+    renderZlatoustLearningRoute(page) + renderZlatoustLearningMindMap(page) + '<div class="zlatoust-learning-layout">' + renderZlatoustLearningToc(page, false) + '<article class="zlatoust-learning-content">' + renderZlatoustLearningToc(page, true) +
+    '<section class="zlatoust-objectives"><h2>学完以后你要能做到</h2><p>' + escapeHtml(page.scopeNote || '') + '</p><ul>' + (page.objectives || []).map(function(item) { return '<li>' + escapeHtml(item) + '</li>'; }).join('') + '</ul></section>' + renderZlatoustDiagnostic(page.diagnostic) +
+    (page.stages || []).map(function(stage) { return renderZlatoustLearningStage(page, stage); }).join('') + renderZlatoustSummaryTable(page) +
+    '<section class="zlatoust-final-check" id="zlatoust-final"><h2>综合练习</h2><p>最后不再问某个单独信号词，而是检查你是否掌握完整判断顺序。</p>' + renderZlatoustLearningCheck(page.sectionId, '', page.finalCheck, true) + '</section>' +
+    renderZlatoustLearningResult(page.sectionId) + renderZlatoustLearningSources(page) +
+    '<nav class="zlatoust-learning-footer" aria-label="知识点前后导航">' + (previous ? '<button type="button" class="zlatoust-back-link" onclick="showZlatoustRuleUnit(\'' + zlatoustEscapeForOnclick(previous.id) + '\')">上一个：' + escapeHtml(previous.id) + '</button>' : '<span></span>') +
+    '<button type="button" class="zlatoust-back-link" onclick="returnToZlatoustRoute()">返回知识点卡片</button>' + (next ? '<button type="button" class="zlatoust-back-link" onclick="showZlatoustRuleUnit(\'' + zlatoustEscapeForOnclick(next.id) + '\')">下一个：' + escapeHtml(next.id) + '</button>' : '<span></span>') + '</nav></article></div></main>';
+}
+function findZlatoustLearningCheck(sectionId, stageId, checkId, finalCheck) {
+  var page = zlatoustTheoryState.learningPages[sectionId];
+  if (!page) return null;
+  if (finalCheck) return page.finalCheck && page.finalCheck.id === checkId ? page.finalCheck : null;
+  var stage = (page.stages || []).find(function(item) { return item.id === stageId; });
+  return stage && (stage.checks || []).find(function(check) { return check.id === checkId; });
+}
+function answerZlatoustLearningCheck(sectionId, stageId, checkId, optionKey, finalCheck) {
+  var check = findZlatoustLearningCheck(sectionId, stageId, checkId, finalCheck);
+  if (!check) return;
+  var correct = optionKey === check.answer;
+  updateZlatoustLearningRecord(sectionId, function(record) {
+    record.checks = record.checks || {};
+    var previous = record.checks[checkId] || {};
+    record.checks[checkId] = { selected: optionKey, submitted: true, correct: correct, attempts: Number(previous.attempts || 0) + 1, everWrong: !!previous.everWrong || !correct, answeredAt: new Date().toISOString() };
+    record.lastStage = stageId || 'zlatoust-final';
+    if (finalCheck) record.finalCompleted = true;
+  });
+  var target = document.querySelector('[data-zlatoust-check="' + checkId + '"]');
+  if (target) target.outerHTML = renderZlatoustLearningCheck(sectionId, stageId, check, finalCheck);
+  refreshZlatoustLearningHeader(sectionId);
+  applyStressMarks();
+}
+function answerZlatoustLearningRetry(sectionId, stageId, checkId, optionKey) {
+  var check = findZlatoustLearningCheck(sectionId, stageId, checkId, false);
+  if (!check || !check.retry) return;
+  updateZlatoustLearningRecord(sectionId, function(record) {
+    record.retries = record.retries || {};
+    record.retries[checkId] = { selected: optionKey, submitted: true, correct: optionKey === check.retry.answer, answeredAt: new Date().toISOString() };
+  });
+  var target = document.querySelector('[data-zlatoust-check="' + checkId + '"]');
+  if (target) target.outerHTML = renderZlatoustLearningCheck(sectionId, stageId, check, false);
+  applyStressMarks();
+}
+function toggleZlatoustStageReview(sectionId, stageId, checked) {
+  updateZlatoustLearningRecord(sectionId, function(record) {
+    record.reviewStages = record.reviewStages || {};
+    if (checked) record.reviewStages[stageId] = true;
+    else delete record.reviewStages[stageId];
+  });
+  refreshZlatoustLearningHeader(sectionId);
+}
+function refreshZlatoustLearningHeader(sectionId) {
+  var progress = document.querySelector('[data-zlatoust-progress]');
+  if (progress) progress.textContent = renderZlatoustLearningProgressText(sectionId);
+  var result = document.querySelector('[data-zlatoust-result]');
+  if (result) result.outerHTML = renderZlatoustLearningResult(sectionId);
+  var route = document.querySelector('[data-zlatoust-learning-route]');
+  var page = zlatoustTheoryState.learningPages[sectionId];
+  if (route && page) route.outerHTML = renderZlatoustLearningRoute(page);
+}
+function scrollToZlatoustStage(stageId) {
+  var target = document.getElementById(stageId);
+  if (!target) return;
+  updateZlatoustLearningRecord('1.4.1', function(record) { record.lastStage = stageId; record.lastVisitedAt = new Date().toISOString(); });
+  target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+function initZlatoustLearningPageObserver() {
+  if (!('IntersectionObserver' in window)) return;
+  var targets = document.querySelectorAll('.zlatoust-stage, .zlatoust-summary-table, .zlatoust-final-check');
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (!entry.isIntersecting) return;
+      document.querySelectorAll('[data-zlatoust-toc]').forEach(function(button) { button.classList.toggle('is-active', button.getAttribute('data-zlatoust-toc') === entry.target.id); });
+    });
+  }, { rootMargin: '-20% 0px -70% 0px' });
+  targets.forEach(function(target) { observer.observe(target); });
+}
+function renderZlatoustRuleUnit(unit, chapterIndex) {
+  var source = unit.source || {}, sourceRules = zlatoustList(unit.sourceRules), tables = zlatoustList(unit.tables), examples = zlatoustList(unit.examples);
+  var sourceContent = sourceRules.map(function(item) { return renderZlatoustRuleItem(item); }).join('') + tables.map(renderZlatoustTable).join('') + examples.map(function(item) { return renderZlatoustRuleItem(item); }).join('');
+  var semanticItems = zlatoustList(unit.semanticAnalysis);
+  var risks = zlatoustList(unit.riskRecord).concat(zlatoustList(unit.knownRisks));
+  return '<main class="main-container zlatoust-rule-page"><button type="button" class="zlatoust-back-link" onclick="goChapter(' + chapterIndex + ')">返回本章练习</button>' +
+    '<header class="zlatoust-rule-header"><span class="zlatoust-badge ' + escapeHtml(unit.reviewStatus || 'needs-review') + '">' + escapeHtml(getZlatoustStatusLabel(unit.reviewStatus)) + '</span><h1>' + escapeHtml(unit.sectionId || '') + ' · ' + escapeHtml(unit.titleZh || '原书规则') + '</h1><p class="zlatoust-rule-ru">' + escapeHtml(unit.titleRu || '') + '</p><div class="zlatoust-rule-meta"><span>' + escapeHtml(zlatoustSourcePages(source) || '页码待复核') + '</span><span>来源：' + escapeHtml(source.cleanedSource || source.file || '原书清洗层') + '</span></div></header>' +
+    renderZlatoustLearningPath(unit) +
+    (semanticItems.length ? '<details><summary>语义说明与判断依据</summary><div class="zlatoust-rule-body">' + semanticItems.map(function(item) { return renderZlatoustRuleItem(item); }).join('') + '</div></details>' : '') +
+    '<details><summary>原书规则、表格与例句（证据层）</summary><div class="zlatoust-rule-body">' + (sourceContent || '<p>本小节没有可独立展示的原书条目。</p>') + '</div></details>' +
+    '<details><summary>规则原子项与检索入口</summary><div class="zlatoust-rule-body">' + renderZlatoustAtomicRules(unit) + '</div></details>' +
+    renderZlatoustExerciseLinks(unit, chapterIndex) + renderZlatoustSourceCoverage(unit.sourceCoverage) +
+    (risks.length ? '<details open><summary>复核状态与风险记录</summary><div class="zlatoust-rule-body"><div class="zlatoust-learning-block zlatoust-risk">' + renderZlatoustSourceBadge('learning-note') + '<ul>' + risks.map(function(risk) { return '<li>' + escapeHtml(risk) + '</li>'; }).join('') + '</ul></div></div></details>' : '') + '</main>';
+}
+function openZlatoustExercise(chapterIndex, exerciseId) {
+  pendingQuizJumpId = exerciseId;
+  goChapter(chapterIndex);
+}
+function openZlatoustRuleExercises(chapterIndex, exerciseIds) {
+  pendingQuizPractice = { partId: getZlatoustChapterId(chapterIndex), exerciseIds: exerciseIds || [], wrongOnly: false };
+  goChapter(chapterIndex);
 }
 function formatSourcePages(pages) {
   return (pages || []).map(function(page) { return 'PDF-' + String(page).padStart(3, '0'); }).join(' · ') || '未标注';
@@ -2809,13 +3775,21 @@ function isB2ChapterComplete(bookId, chapterIndex) {
   var book = getBookById(bookId), unitId = book && book.unitIds && book.unitIds[chapterIndex];
   return !!unitId && getB2CompletedUnits(bookId).indexOf(bookId + ':' + unitId) !== -1;
 }
+function createEmptyQuizRecord() {
+  return { selected: '', submitted: false, attempts: 0, wrong: false, everWrong: false, lastResult: '', lastAnsweredAt: '', explanationOpen: false };
+}
 function getQuizRecord(questionId) {
   var chapterKey = getQuizUnitKey();
   var all = getB2Progress();
   if (!all[chapterKey]) all[chapterKey] = {};
-  if (!all[chapterKey][questionId]) all[chapterKey][questionId] = { selected: '', submitted: false, attempts: 0, wrong: false, everWrong: false, lastResult: '', lastAnsweredAt: '', explanationOpen: false };
-  saveB2Progress(all);
+  if (!all[chapterKey][questionId]) all[chapterKey][questionId] = createEmptyQuizRecord();
   return all[chapterKey][questionId];
+}
+function saveQuizRecord(questionId, record) {
+  var all = getB2Progress(), chapterKey = getQuizUnitKey();
+  if (!all[chapterKey]) all[chapterKey] = {};
+  all[chapterKey][questionId] = record;
+  saveB2Progress(all);
 }
 function getQuizExercise(questionId) {
   for (var i = 0; i < currentQuizExercises.length; i++) if (currentQuizExercises[i].id === questionId) return currentQuizExercises[i];
@@ -2906,6 +3880,7 @@ function renderLookupOption(exercise, option, record) {
 function renderQuizItem(exercise, record) {
   var html = '<section class="b2-quiz-item" data-question-id="' + escapeHtml(exercise.id) + '">';
   html += '<h3>' + escapeHtml(exercise.id) + '. ' + renderRuText(exercise.question, lookupContext('grammar', exercise.id, 'quiz-prompt', exercise.question, '', exercise.questionPages)) + '</h3>';
+  html += renderZlatoustExerciseReference(exercise);
   if (exercise.type === 'open-response') {
     var response = escapeHtml(record.response || '');
     html += '<textarea class="b2-open-response" data-open-response="' + escapeHtml(exercise.id) + '" placeholder="在此输入你的改写答案">' + response + '</textarea>';
@@ -2934,7 +3909,11 @@ function renderKnowledgePointNav(points, partId) {
   points.forEach(function(point) {
     var range = escapeHtml(formatQuestionRange(point.exerciseIds));
     if (point.studyCardId) {
-      studyCards += '<button class="b2-knowledge-card b2-knowledge-study-card" onclick="showStudyCard(\'' + escapeHtml(partId) + '\',\'' + escapeHtml(point.studyCardId) + '\')"><strong>' + escapeHtml(point.title) + '</strong><span>知识点学习卡 · ' + range + '</span><small>' + escapeHtml(point.rule) + '</small><em>打开学习卡 →</em></button>';
+      var sectionId = getZlatoustIntegratedSectionForKnowledgePoint(partId, point.studyCardId);
+      var state = sectionId ? getLoadedZlatoustChapterTheory(curCh) : null;
+      var learningStatus = sectionId ? getZlatoustLearningStatus(sectionId, state) : '';
+      var meta = sectionId === '1.4.1' ? '知识点学习卡 · 5 个学习阶段 · 13 道原书题' : '知识点学习卡 · ' + range;
+      studyCards += '<button class="b2-knowledge-card b2-knowledge-study-card' + (sectionId ? ' is-integrated' : '') + '"' + (sectionId ? ' data-learning-status="' + learningStatus + '"' : '') + ' onclick="showStudyCard(\'' + escapeHtml(partId) + '\',\'' + escapeHtml(point.studyCardId) + '\')"><strong>' + escapeHtml(point.title) + '</strong><span>' + meta + '</span><small>' + escapeHtml(point.rule) + '</small><em>' + (sectionId ? escapeHtml(getZlatoustLearningStatusLabel(learningStatus)) + ' · 进入完整教学页 →' : '打开学习卡 →') + '</em></button>';
     } else {
       exerciseNav += '<button class="b2-knowledge-card" onclick="restartQuiz(\'knowledge\',' + escapeHtml(JSON.stringify(point.exerciseIds)).replace(/"/g, '&quot;') + ')"><strong>' + escapeHtml(point.title) + '</strong><span>对应练习导航 · ' + range + '</span><small>' + escapeHtml(point.rule) + '</small><em>去练习 →</em></button>';
     }
@@ -2973,11 +3952,19 @@ function renderQuizContextGroup(group) {
 }
 function renderQuizChapter(data, scrollPosition) {
   if (curBook && !curBook.isB2Module) data = Object.assign({}, data, { knowledgePoints: getTextbookKnowledgePoints(data) });
+  if (isZlatoustGrammarBook(curBook) && !getLoadedZlatoustChapterTheory(curCh)) {
+    loadZlatoustChapterTheory(curCh).then(function() {
+      if (isZlatoustGrammarBook(curBook) && currentQuizData && curCh === getZlatoustChapterIndex(getZlatoustChapterId(curCh)) && document.querySelector('.b2-quiz-page')) {
+        renderQuizChapter(currentQuizData, window.scrollY);
+      }
+    }).catch(function() {});
+  }
   var isNewPart = !currentQuizData || currentQuizData.id !== data.id;
   currentQuizData = data;
   if (isNewPart) currentQuizAllExercises = data.exercises || [];
   currentQuizExercises = data.exercises || [];
   var isB2Quiz = !!(curBook && curBook.isB2Module);
+  var chapterRecords = getB2Progress()[getQuizUnitKey()] || {};
   var partWrongCount = isB2Quiz ? getWrongAnswerItems().filter(function(item) { return item.partId === data.id && item.status === 'pending'; }).length : 0;
   var wrongAnswerBack = '';
   if (_wrongAnswerQuizReturn) {
@@ -2988,12 +3975,12 @@ function renderQuizChapter(data, scrollPosition) {
   var html = b2FloatingNavigation({ backAction: quizBackAction, backTitle: quizBackTitle, menuAction: 'showBreadcrumb()' }) + '<div class="main-container b2-quiz-page"><div class="b2-quiz-header">' +
     '<h1>' + escapeHtml(data.title || '') + '</h1>' +
     '<p>先独立作答；确认后只显示对错。答案与解析需要你手动展开。</p>' + (isB2Quiz ? '<button class="tb-btn" onclick="showWrongAnswerBook(\'' + data.id + '\')">本部分错题 ' + partWrongCount + ' 题</button>' : '') +
-    wrongAnswerBack + '</div>' + renderKnowledgePointNav(data.knowledgePoints, data.id);
+    wrongAnswerBack + '</div>' + renderKnowledgePointNav(data.knowledgePoints, data.id) + renderZlatoustTheoryNav();
   var contextGroupByExercise = renderQuizContextGroups(data.contextGroups || []);
   for (var i = 0; i < currentQuizExercises.length; i++) {
     var exercise = currentQuizExercises[i];
     if (contextGroupByExercise[exercise.id]) html += renderQuizContextGroup(contextGroupByExercise[exercise.id]);
-    html += renderQuizItem(exercise, getQuizRecord(exercise.id));
+    html += renderQuizItem(exercise, chapterRecords[exercise.id] || createEmptyQuizRecord());
   }
   html += '<button class="b2-finish" onclick="finishQuizChapter()">结束本部分</button>' +
     '<div class="b2-retry-actions"><button class="b2-finish" onclick="restartQuiz(\'all\')">再做全部</button><button class="b2-finish" onclick="restartQuiz(\'wrong\')">只重做错题</button></div>';
@@ -3270,71 +4257,216 @@ function renderSpeakingPractice(data, scrollPosition) {
   window.scrollTo(0, typeof scrollPosition === 'number' ? scrollPosition : 0); applyTheme(); saveLastRead(arguments[2]);
 }
 var LISTENING_PROGRESS_KEY = 'russian_b2_listening_progress_v1';
+var LISTENING_DRAFTS_KEY = 'rr_listening_drafts_v1';
+var LISTENING_ATTEMPTS_KEY = 'rr_listening_attempts_v1';
 var currentListeningData = null;
 var listeningViewMode = 'exam';
-function getListeningProgress() { try { return JSON.parse(localStorage.getItem(LISTENING_PROGRESS_KEY) || '{}'); } catch (e) { return {}; } }
-function saveListeningProgress(progress) { try { localStorage.setItem(LISTENING_PROGRESS_KEY, JSON.stringify(progress)); } catch (e) {} }
-function getListeningRecord(questionId) { return getListeningProgress()[questionId] || { selected: '', answered: false, answerOpen: false }; }
-function rerenderListeningPreservingScroll() { renderListeningPractice(currentListeningData, window.scrollY); }
+var listeningPendingEvidenceQuestionId = '';
+function getListeningJson(key, fallback) { try { return JSON.parse(localStorage.getItem(key) || '') || fallback; } catch (e) { return fallback; } }
+function saveListeningJson(key, value) { try { localStorage.setItem(key, JSON.stringify(value)); } catch (e) {} }
+function getListeningProgress() { return getListeningJson(LISTENING_PROGRESS_KEY, {}); }
+function saveListeningProgress(progress) { saveListeningJson(LISTENING_PROGRESS_KEY, progress); }
+function getListeningDrafts() { return getListeningJson(LISTENING_DRAFTS_KEY, {}); }
+function saveListeningDrafts(drafts) { saveListeningJson(LISTENING_DRAFTS_KEY, drafts); }
+function getListeningAttempts() { var value = getListeningJson(LISTENING_ATTEMPTS_KEY, []); return Array.isArray(value) ? value : []; }
+function saveListeningAttempts(attempts) { saveListeningJson(LISTENING_ATTEMPTS_KEY, (attempts || []).slice(-500)); }
+function getListeningDraft(unitId, createIfMissing) {
+  var drafts = getListeningDrafts(), draft = drafts[unitId];
+  if (!draft && createIfMissing !== false) {
+    draft = RussianListeningSession.createDraft(unitId);
+    drafts[unitId] = draft; saveListeningDrafts(drafts);
+  }
+  return draft || null;
+}
+function getLatestListeningAttempt(unitId) {
+  var attempts = getListeningAttempts().filter(function(attempt) { return attempt.unitId === unitId; });
+  return attempts.length ? attempts[attempts.length - 1] : null;
+}
+function getListeningAttemptAnswer(questionId) {
+  var attempt = currentListeningData && getLatestListeningAttempt(currentListeningData.id);
+  return attempt && (attempt.answers || []).find(function(answer) { return answer.questionId === questionId; }) || null;
+}
+function getListeningRecord(questionId) {
+  var record = RussianListeningSession.normalizeProgressRecord(getListeningProgress()[questionId]);
+  if (!currentListeningData) return record;
+  if (listeningViewMode === 'review') {
+    var answer = getListeningAttemptAnswer(questionId);
+    if (answer) return Object.assign({}, record, { selected: answer.selected, answered: answer.result !== 'unanswered', submittedResult: answer.result });
+    return record;
+  }
+  var draft = getListeningDraft(currentListeningData.id, listeningViewMode === 'exam');
+  return Object.assign({}, record, { selected: draft && draft.answers[questionId] || '', answered: false, submittedResult: '' });
+}
+function rerenderListeningPreservingScroll() { if (currentListeningData) renderListeningPractice(currentListeningData, window.scrollY); }
 function answerListeningQuestion(questionId, selected) {
-  var progress = getListeningProgress(), record = progress[questionId] || { selected: '', answered: false, answerOpen: false };
-  if (record.answered) return;
-  record.selected = selected; record.answered = true; record.answeredAt = new Date().toISOString();
-  progress[questionId] = record; saveListeningProgress(progress); rerenderListeningPreservingScroll();
+  if (!currentListeningData || listeningViewMode !== 'exam') return;
+  var drafts = getListeningDrafts();
+  var draft = drafts[currentListeningData.id] || RussianListeningSession.createDraft(currentListeningData.id);
+  drafts[currentListeningData.id] = RussianListeningSession.selectAnswer(draft, questionId, selected);
+  saveListeningDrafts(drafts); rerenderListeningPreservingScroll();
 }
 function toggleListeningAnswer(questionId) {
-  var progress = getListeningProgress(), record = progress[questionId] || { selected: '', answered: false, answerOpen: false };
-  if (!record.answered) return;
+  var progress = getListeningProgress(), record = RussianListeningSession.normalizeProgressRecord(progress[questionId]);
   record.answerOpen = !record.answerOpen; progress[questionId] = record; saveListeningProgress(progress); rerenderListeningPreservingScroll();
 }
-function openListeningIntensive() { listeningViewMode = 'intensive'; renderListeningPractice(currentListeningData, 0); }
-function returnToListeningExam() { listeningViewMode = 'exam'; renderListeningPractice(currentListeningData, 0); }
+function submitListeningAttempt() {
+  if (!currentListeningData) return;
+  var draft = getListeningDraft(currentListeningData.id, true);
+  var attempt = RussianListeningSession.scoreDraft(currentListeningData, draft);
+  var attempts = getListeningAttempts(); attempts.push(attempt); saveListeningAttempts(attempts);
+  saveListeningProgress(RussianListeningSession.applyAttempt(getListeningProgress(), currentListeningData, attempt));
+  var drafts = getListeningDrafts(); delete drafts[currentListeningData.id]; saveListeningDrafts(drafts);
+  listeningViewMode = 'review'; renderListeningPractice(currentListeningData, 0);
+  toast('本次听力已提交：' + attempt.correct + '/' + attempt.total);
+}
+function restartListeningAttempt() {
+  if (!currentListeningData) return;
+  var drafts = getListeningDrafts();
+  drafts[currentListeningData.id] = RussianListeningSession.createDraft(currentListeningData.id);
+  saveListeningDrafts(drafts); listeningViewMode = 'exam'; renderListeningPractice(currentListeningData, 0);
+}
+function setListeningViewMode(mode) {
+  if (['exam','intensive','review'].indexOf(mode) === -1 || !currentListeningData) return;
+  listeningViewMode = mode; renderListeningPractice(currentListeningData, 0);
+}
+function openListeningIntensive() { setListeningViewMode('intensive'); }
+function returnToListeningExam() { setListeningViewMode('exam'); }
+function openListeningReview() { setListeningViewMode('review'); }
+function getListeningQuestion(questionId) {
+  return currentListeningData && (currentListeningData.questions || []).find(function(question) { return question.id === questionId; }) || null;
+}
+function openListeningEvidence(questionId) {
+  var question = getListeningQuestion(questionId);
+  if (!question || !question.evidence || !question.evidence.quote) { toast('本题尚未绑定可定位的听力依据'); return; }
+  listeningPendingEvidenceQuestionId = questionId;
+  setListeningViewMode('intensive');
+}
+function getListeningMediaBase() {
+  if (curBook && curBook.dir === 'russian_b2/modules/listening') return 'data/textbook/russian_b2/';
+  return curBook && curBook.dir ? 'data/textbook/' + curBook.dir + '/' : 'data/textbook/russian_b2/';
+}
 function renderListeningQuestion(question) {
   var record = getListeningRecord(question.id);
+  var evidence = question.evidence || {};
+  var submitted = listeningViewMode === 'review' && !!getLatestListeningAttempt(currentListeningData.id);
+  var mediaLocked = listeningViewMode === 'exam' && (!currentListeningData.media || !currentListeningData.media.file || currentListeningData.media.status === 'source-mismatch');
   var options = (question.options || []).map(function(option) {
     var selected = record.selected === option.key;
-    var state = record.answered ? (option.key === question.answer ? ' correct' : selected ? ' wrong' : '') : '';
+    var state = selected ? ' is-selected' : '';
+    if (submitted && option.key === question.answer) state += ' is-correct';
+    if (submitted && selected && option.key !== question.answer) state += ' is-wrong';
     var optionContext = lookupContext('listening', question.id + '-option-' + option.key, 'listening-question', option.text, '', question.evidence && question.evidence.pages || []);
     var action = "answerListeningQuestion('" + escapeHtml(question.id) + "','" + escapeHtml(option.key) + "')";
-    return '<div class="b2-option-row' + state + (record.answered ? ' submitted' : '') + '"' +
-      ' role="radio" aria-checked="' + (selected ? 'true' : 'false') + '"' +
-      ' aria-label="选择 ' + escapeHtml(option.key) + '"' +
-      (record.answered ? '' : ' tabindex="0" onclick="' + action + '" onkeydown="if(event.key===\'Enter\'||event.key===\' \'){event.preventDefault();' + action + '}"') + '>' +
-      '<span class="b2-option-radio">' + escapeHtml(option.key) + '.</span>' +
-      '<span class="b2-option-text">' + renderRuText(option.text, optionContext) + '</span></div>';
+    return '<button type="button" class="lw-question-option' + state + '" role="radio" aria-checked="' + (selected ? 'true' : 'false') + '"' +
+      (submitted || mediaLocked ? ' disabled' : ' onclick="' + action + '"') + '><span class="lw-option-key">' + escapeHtml(option.key) + '.</span>' +
+      '<span>' + renderRuText(option.text, optionContext) + '</span></button>';
   }).join('');
-  var result = record.answered ? '<p class="b2-quiz-result ' + (record.selected === question.answer ? 'correct' : 'wrong') + '">' + (record.selected === question.answer ? '回答正确' : '回答错误') + '</p>' : '';
-  var evidence = question.evidence || {};
-  var answer = record.answerOpen ? '<div class="b2-explanation"><strong>原书答案（已核对）：' + escapeHtml(question.answer) + '</strong>' + (evidence.quote ? '<p>听力依据：' + renderRuText(evidence.quote, lookupContext('listening', question.id + '-evidence', 'listening-transcript', evidence.quote, '', evidence.pages || [])) + '</p>' : '') + '</div>' : '';
-  var toggle = record.answered ? '<button class="tb-btn" onclick="toggleListeningAnswer(\'' + escapeHtml(question.id) + '\')">' + (record.answerOpen ? '收起答案' : '查看答案与依据') + '</button>' : '';
+  var result = submitted ? '<p class="lw-question-result ' + (record.submittedResult === 'correct' ? 'is-correct' : 'is-wrong') + '">' +
+    (record.submittedResult === 'correct' ? '回答正确' : record.submittedResult === 'unanswered' ? '本题未答' : '回答错误，正确答案是 ' + escapeHtml(question.answer)) + '</p>' : '';
   var promptRu = question.promptRu || question.prompt || '';
   var prompt = renderRuText(promptRu, lookupContext('listening', question.id + '-prompt', 'listening-question', promptRu, '', evidence.pages || []));
-  var translation = question.prompt && question.prompt !== promptRu ? '<p class="question-translation">' + escapeHtml(question.prompt) + '</p>' : '';
-  return '<article class="listening-question"><p><b>' + escapeHtml(String(question.printedNumber || question.id)) + '.</b> ' + prompt + '</p>' + translation + '<div class="b2-options">' + options + '</div>' + result + toggle + answer + '</article>';
+  var translation = question.prompt && question.prompt !== promptRu ? '<p class="lw-question-translation">' + escapeHtml(question.prompt) + '</p>' : '';
+  return '<article class="lw-question" id="listening-question-' + escapeHtml(question.id) + '"><div class="lw-question-head">' +
+    '<span class="lw-question-number">' + escapeHtml(String(question.printedNumber || question.id)) + '</span><div><p class="lw-question-prompt">' + prompt + '</p>' + translation + '</div>' +
+    '<span class="lw-question-state">' + (submitted ? (record.submittedResult === 'correct' ? '正确' : record.submittedResult === 'wrong' ? '错误' : '未答') : mediaLocked ? '音频待补' : record.selected ? '已选择' : '未作答') + '</span></div>' +
+    '<div class="lw-options">' + options + '</div>' + result + '</article>';
+}
+function renderListeningTopbar(data, sourcePages) {
+  return '<header class="lw-topbar"><div class="lw-title"><h1>' + escapeHtml(data.title || '听力工作台') + '</h1><p>' + escapeHtml(data.section || '') + (sourcePages ? ' · 原书页 ' + escapeHtml(sourcePages) : '') + '</p></div>' +
+    '<nav class="lw-modes" aria-label="听力模式"><button class="lw-mode' + (listeningViewMode === 'exam' ? ' is-active' : '') + '" type="button" onclick="setListeningViewMode(\'exam\')">考试</button>' +
+    '<button class="lw-mode' + (listeningViewMode === 'intensive' ? ' is-active' : '') + '" type="button" onclick="setListeningViewMode(\'intensive\')">精听</button>' +
+    '<button class="lw-mode' + (listeningViewMode === 'review' ? ' is-active' : '') + '" type="button" onclick="setListeningViewMode(\'review\')">复盘</button></nav>' +
+    '<button class="lw-icon-button" id="lwSettingsToggle" type="button" onclick="RussianListeningWorkbench.toggleSettings()" aria-expanded="false" title="听力设置">⚙</button></header>';
+}
+function renderListeningPlayer(data, mediaBase) {
+  var media = data.media || {}, mediaUrl = media.file ? mediaBase + media.file : '', captionsUrl = media.captions ? mediaBase + media.captions : '';
+  var isIntensive = listeningViewMode === 'intensive';
+  var intensiveSettings = isIntensive ?
+    '<label>句间停顿<select id="lwPause" onchange="RussianListeningWorkbench.updateSetting(\'sentencePauseMs\',this.value)"><option value="0">无</option><option value="500">0.5 秒</option><option value="1000">1 秒</option><option value="2000">2 秒</option></select></label>' +
+    '<label>字幕显示<select id="lwSubtitleMode" onchange="RussianListeningWorkbench.updateSetting(\'subtitleMode\',this.value)"><option value="hidden">仅当前句</option><option value="intensive">逐句揭示</option><option value="always">全部显示</option></select></label>' +
+    '<label class="lw-check-setting"><input id="lwAutoAdvance" type="checkbox" onchange="RussianListeningWorkbench.updateSetting(\'autoAdvance\',this.checked)"><span>播完自动下一句</span></label>' : '';
+  var sentenceTools = isIntensive ?
+    '<button class="lw-control" id="lwPrevSentence" type="button" onclick="RussianListeningWorkbench.moveSegment(-1)" title="上一句" aria-label="上一句">←</button>' +
+    '<button class="lw-control" id="lwNextSentence" type="button" onclick="RussianListeningWorkbench.moveSegment(1)" title="下一句" aria-label="下一句">→</button>' +
+    '<button class="lw-control" id="lwLoopSentence" type="button" onclick="RussianListeningWorkbench.toggleLoop()" aria-pressed="false">循环</button>' +
+    '<span class="lw-sentence-position" id="lwSentencePosition">正在校验时间轴</span>' : '';
+  return '<section class="lw-settings-panel" id="lwSettingsPanel" hidden><div class="lw-settings-grid">' +
+    '<label>播放速度<select id="lwRate" onchange="RussianListeningWorkbench.updateSetting(\'playbackRate\',this.value)"><option value="0.75">0.75x</option><option value="0.85">0.85x</option><option value="1">1.00x</option><option value="1.15">1.15x</option><option value="1.25">1.25x</option></select></label>' +
+    intensiveSettings + '</div></section>' +
+    '<section class="lw-player' + (isIntensive ? ' is-intensive' : '') + '" aria-label="听力播放器">' +
+    (mediaUrl ? '<audio id="lwAudio" preload="metadata"><source src="' + escapeHtml(mediaUrl) + '" type="audio/mpeg">' + (captionsUrl ? '<track kind="subtitles" srclang="ru" label="Русский" src="' + escapeHtml(captionsUrl) + '">' : '') + '</audio>' : '<audio id="lwAudio" preload="metadata"></audio>') +
+    '<button class="lw-control lw-play" id="lwPlay" type="button" onclick="RussianListeningWorkbench.togglePlay()"' + (mediaUrl ? '' : ' disabled') + ' aria-label="播放">▶</button>' +
+    '<input class="lw-progress" id="lwProgress" type="range" min="0" max="100" value="0" step="0.1" oninput="RussianListeningWorkbench.seek(this.value)" aria-label="播放进度"' + (mediaUrl ? '' : ' disabled') + '>' +
+    '<span class="lw-time" id="lwTime">00:00 / 00:00</span>' + sentenceTools + '</section>' +
+    (isIntensive ? '<p class="lw-timeline-status" id="lwTimelineStatus">正在读取字幕时间轴...</p>' : '');
+}
+function renderListeningExam(data) {
+  var questions = data.questions || [], draft = getListeningDraft(data.id, true), answered = Object.keys(draft.answers || {}).filter(function(id) { return draft.answers[id]; }).length;
+  var mediaUnavailable = !data.media || !data.media.file || data.media.status === 'source-mismatch';
+  var percent = questions.length ? Math.round(answered / questions.length * 100) : 0;
+  return '<div class="lw-content lw-exam-layout"><main><div class="lw-section-heading"><h2>原书题目</h2><p>整组提交前不显示对错</p></div><div class="lw-question-list">' + questions.map(renderListeningQuestion).join('') + '</div></main>' +
+    '<aside class="lw-exam-side"><div class="lw-progress-block"><div class="lw-progress-value"><span>本次作答</span><strong>' + answered + ' / ' + questions.length + '</strong></div><div class="lw-progress-track"><span style="width:' + percent + '%"></span></div></div>' +
+    '<button class="lw-submit" type="button" onclick="submitListeningAttempt()"' + (mediaUnavailable ? ' disabled' : '') + '>' + (mediaUnavailable ? '正确音频待补' : '提交本组') + '</button><button class="lw-secondary-action" type="button" onclick="openListeningIntensive()">查看教材原文</button>' +
+    '<ul class="lw-hint-list"><li>答案会自动保存在本设备，离开后可以继续。</li><li>提交后统一显示正确率、错题与听力依据。</li><li>考试模式不显示文字稿和逐句定位。</li></ul></aside></div>';
+}
+function renderListeningTranscript(data) {
+  return '<div class="lw-transcript" id="lwTranscript">' + (data.transcriptSegments || []).map(function(segment, index) {
+    var context = lookupContext('listening', data.id + '-segment-' + (index + 1), 'listening-transcript', segment.text || '', segment.translation || '', data.sourcePages || []);
+    return '<article class="lw-transcript-row" data-segment-index="' + index + '" data-timeline-ready="false" data-plain-text="' + escapeHtml(segment.text || '') + '" tabindex="0" onclick="RussianListeningWorkbench.selectSegmentFromRow(' + index + ',event)" onkeydown="if(event.key===\'Enter\'||event.key===\' \'){event.preventDefault();RussianListeningWorkbench.selectSegmentFromRow(' + index + ',event)}">' +
+      '<div class="lw-transcript-meta"><span class="lw-transcript-time">--:--</span><button class="lw-transcript-play" type="button" onclick="event.stopPropagation();RussianListeningWorkbench.selectSegment(' + index + ',true)" disabled aria-label="播放本句">▶</button></div>' +
+      '<div class="lw-transcript-copy"><span class="lw-transcript-speaker">' + escapeHtml(segment.displayLabel || segment.speaker || '') + '</span><span class="lw-transcript-text">' + renderRuText(segment.text || '', context) + '</span></div></article>';
+  }).join('') + '</div>';
+}
+function renderListeningEvidenceList(data) {
+  var items = (data.questions || []).filter(function(question) { return question.evidence && question.evidence.quote; });
+  return '<div class="lw-evidence-list">' + (items.length ? items.map(function(question) {
+    var evidence = question.evidence;
+    return '<article class="lw-evidence-item"><strong>第 ' + escapeHtml(String(question.printedNumber || question.id)) + ' 题依据</strong><p>' + renderRuText(evidence.quote, lookupContext('listening', question.id + '-evidence', 'listening-transcript', evidence.quote, '', evidence.pages || [])) + '</p>' +
+      '<button type="button" onclick="RussianListeningWorkbench.focusEvidence(' + escapeHtml(JSON.stringify(evidence.quote)) + ')">定位并播放</button></article>';
+  }).join('') : '<div class="lw-empty">这组材料尚未逐题绑定听力依据。</div>') + '</div>';
+}
+function renderListeningIntensive(data) {
+  return '<div class="lw-content lw-intensive-layout"><main><div class="lw-section-heading"><h2>逐句精听</h2><p id="lwTranscriptHint">正在校验逐句时间轴...</p></div>' + renderListeningTranscript(data) + '</main>' +
+    '<aside class="lw-intensive-side"><div class="lw-section-heading"><h2>题目依据</h2><p>依据来自已核验题目数据</p></div>' + renderListeningEvidenceList(data) + '</aside></div>';
+}
+function renderListeningReview(data) {
+  var attempt = getLatestListeningAttempt(data.id);
+  if (!attempt) return '<div class="lw-content lw-empty"><p>这组材料还没有完整提交记录。</p><button class="lw-submit" type="button" onclick="setListeningViewMode(\'exam\')">开始作答</button></div>';
+  var questions = {}; (data.questions || []).forEach(function(question) { questions[question.id] = question; });
+  var reviewRows = (attempt.answers || []).filter(function(answer) { return answer.result !== 'correct'; }).map(function(answer) {
+    var question = questions[answer.questionId] || {}, evidence = question.evidence || {};
+    return '<article class="lw-review-item"><h3>第 ' + escapeHtml(String(question.printedNumber || answer.index)) + ' 题 · ' + (answer.result === 'unanswered' ? '未作答' : '回答错误') + '</h3>' +
+      '<p>' + escapeHtml(question.promptRu || question.prompt || answer.questionId) + '</p><p class="lw-review-answer">你的答案：' + escapeHtml(answer.selected || '未填写') + ' · 正确答案：' + escapeHtml(answer.correct) + '</p>' +
+      (evidence.quote ? '<p>听力依据：' + escapeHtml(evidence.quote) + '</p><button class="lw-secondary-action" type="button" onclick="openListeningEvidence(\'' + escapeHtml(answer.questionId) + '\')">精听本题依据</button>' : '') + '</article>';
+  }).join('');
+  return '<div class="lw-content"><section class="lw-review-summary"><div class="lw-review-stat"><strong>' + attempt.accuracy + '%</strong><span>正确率</span></div><div class="lw-review-stat"><strong>' + attempt.correct + '</strong><span>正确</span></div><div class="lw-review-stat"><strong>' + attempt.wrong + '</strong><span>错误</span></div><div class="lw-review-stat"><strong>' + attempt.unanswered + '</strong><span>未答</span></div></section>' +
+    '<section class="lw-review-list"><div class="lw-section-heading"><h2>本次复盘</h2><p>' + escapeHtml(new Date(attempt.submittedAt).toLocaleString('zh-CN')) + '</p></div>' + (reviewRows || '<div class="lw-empty">本组全部答对。</div>') + '</section>' +
+    '<button class="lw-submit" type="button" onclick="restartListeningAttempt()">再练一次</button></div>';
 }
 function renderListeningPractice(data, scrollPosition) {
   var restoreState = arguments[2];
-  if (restoreState && (restoreState.viewMode === 'exam' || restoreState.viewMode === 'intensive')) listeningViewMode = restoreState.viewMode;
+  if (restoreState && ['exam','intensive','review'].indexOf(restoreState.viewMode) !== -1) listeningViewMode = restoreState.viewMode;
   else if (!currentListeningData || currentListeningData.id !== data.id) listeningViewMode = 'exam';
   currentListeningData = data;
   var sourcePages = (data.sourcePages || []).map(function(page) { return 'PDF-' + String(page).padStart(3, '0'); }).join('、');
-  var transcript = (data.transcriptSegments || []).map(function(segment, index) {
-    var context = lookupContext('listening', data.id + '-segment-' + (index + 1), 'listening-transcript', segment.text || '', segment.translation || '', data.sourcePages || []);
-    return '<p class="ru-text listening-transcript-line"><strong>' + escapeHtml(segment.displayLabel || segment.speaker || '') + '：</strong> ' + renderRuText(segment.text || '', context) + '</p>';
-  }).join('');
-  var questions = (data.questions || []).map(renderListeningQuestion).join('');
-  var media = data.media || {};
-  var mediaBase = curBook && curBook.dir ? 'data/textbook/' + curBook.dir + '/' : 'data/textbook/russian_b2/';
-  // B2 module subdirectories: strip the trailing "modules/xxx" segment so media paths resolve under russian_b2/
-  if (curBook && curBook.dir === 'russian_b2/modules/listening') mediaBase = 'data/textbook/russian_b2/';
-  var captions = listeningViewMode === 'intensive' && media.captions ? '<track kind="subtitles" srclang="ru" label="Русский" src="' + escapeHtml(mediaBase + media.captions) + '" default>' : '';
-  var player = media.file ? '<section><h2>' + (listeningViewMode === 'intensive' ? '精听音频' : '考试音频') + '</h2><p class="reading-answer-source">' + escapeHtml(media.provenance || 'reconstructed-tts') + ' · 非原始配套音频</p><audio controls><source src="' + escapeHtml(mediaBase + media.file) + '" type="audio/mpeg">' + captions + '你的浏览器不支持音频播放。</audio></section>' : '<section class="source-warning"><strong>重建音频暂不可用</strong><p>可进入精听页使用来源文字稿；不会用空文件冒充音频。</p></section>';
-  var actions = listeningViewMode === 'intensive' ? '<div class="listening-mode-actions"><button class="tb-btn" onclick="returnToListeningExam()">← 返回考试题</button></div>' : '<div class="listening-mode-actions"><button class="tb-btn primary" onclick="openListeningIntensive()">🎧 精听这段材料</button><span class="writing-status">答题后可进入文字稿、字幕与点击查词学习。</span></div>';
-  var body = listeningViewMode === 'intensive' ? player + '<section><h2>来源文字稿</h2>' + transcript + '</section>' + actions : player + '<section><h2>原书题目</h2>' + questions + '</section>' + actions;
+  var mediaBase = getListeningMediaBase(), media = data.media || {};
+  var mediaNotice = media.status === 'source-mismatch'
+    ? '<section class="lw-media-warning"><strong>已停用不匹配的音频</strong><p>当前导入音轨属于另一套教材，不能用于本单元考试或精听。题目与教材原文保留，等待正确配套音频重新绑定。</p></section>'
+    : '<p class="reading-answer-source">来源：' + escapeHtml(media.provenance || '来源待核对') + (media.provenance === 'reconstructed-tts' ? ' · 重建音频，不等同于原始配套录音' : '') + '</p>';
+  var modeBody = listeningViewMode === 'intensive' ? renderListeningIntensive(data) : listeningViewMode === 'review' ? renderListeningReview(data) : renderListeningExam(data);
   var listeningBackAction = isWorldPeopleBook(curBook) ? 'showChapters(\'' + escapeHtml(curBook.id) + '\')' : 'showB2Dashboard()';
   var listeningBackTitle = isWorldPeopleBook(curBook) ? '目录' : '仪表盘';
-  document.getElementById('app').innerHTML = b2FloatingNavigation({ backAction: listeningBackAction, backTitle: listeningBackTitle, menuAction: 'showBreadcrumb()' }) + '<main class="main-container speaking-practice"><header class="chapter-header"><h1>' + escapeHtml(data.title || '') + '</h1><p class="reading-answer-source">原书页：' + escapeHtml(sourcePages) + '</p></header><section class="source-warning"><strong>' + escapeHtml(data.media.provenance || 'reconstructed-tts') + '，非原始音频</strong><p>' + (listeningViewMode === 'intensive' ? '精听模式显示核对后的文字稿与字幕。' : '考试模式先听录音、完成原书题目；文字稿默认隐藏。') + '</p></section>' + body + '</main>';
+  document.getElementById('app').innerHTML = b2FloatingNavigation({ backAction: listeningBackAction, backTitle: listeningBackTitle, menuAction: 'showBreadcrumb()' }) +
+    '<main class="lw-workbench" data-mode="' + listeningViewMode + '" data-timeline-ready="loading">' + renderListeningTopbar(data, sourcePages) + renderListeningPlayer(data, mediaBase) +
+    mediaNotice + modeBody + '</main>';
   window.scrollTo(0, typeof scrollPosition === 'number' ? scrollPosition : 0); applyTheme(); saveLastRead(restoreState);
+  var initResult = RussianListeningWorkbench.init({ data: data, captionsUrl: media.captions ? mediaBase + media.captions : '' });
+  Promise.resolve(initResult).then(function() {
+    if (!listeningPendingEvidenceQuestionId) return;
+    var pendingQuestion = getListeningQuestion(listeningPendingEvidenceQuestionId);
+    listeningPendingEvidenceQuestionId = '';
+    if (pendingQuestion && pendingQuestion.evidence) RussianListeningWorkbench.focusEvidence(pendingQuestion.evidence.quote || '');
+  });
 }
 var EXAM_PROGRESS_KEY = 'russian_b2_exam_progress_v1';
 var EXAM_WRITING_DRAFTS_KEY = 'russian_b2_exam_writing_drafts_v1';
@@ -3493,15 +4625,19 @@ function renderReadingPracticeChapter(data, scrollPosition) {
   highlightSavedWords();
   applyStressMarks();
 }
-function rerenderQuizChapterPreservingScroll() {
-  renderQuizChapter(currentQuizData, window.scrollY);
+function refreshQuizQuestion(questionId, exercise, record) {
+  var target = document.querySelector('[data-question-id="' + questionId + '"]');
+  if (!target || !exercise) { renderQuizChapter(currentQuizData, window.scrollY); return; }
+  target.outerHTML = renderQuizItem(exercise, record);
+  var refreshed = document.querySelector('[data-question-id="' + questionId + '"]');
+  if (refreshed) applyStressMarks(refreshed);
 }
 function selectQuizOption(questionId, key) {
   var record = getQuizRecord(questionId);
   if (record.submitted) return;
   record.selected = key;
-  var all = getB2Progress(); all[getQuizUnitKey()][questionId] = record; saveB2Progress(all);
-  rerenderQuizChapterPreservingScroll();
+  saveQuizRecord(questionId, record);
+  refreshQuizQuestion(questionId, getQuizExercise(questionId), record);
 }
 function submitQuizOption(questionId, key, evt) {
   // 点到了俄语单词 → 交给词典，不做答题操作
@@ -3520,8 +4656,9 @@ function submitQuizQuestion(questionId) {
   var exercise = getQuizExercise(questionId), record = getQuizRecord(questionId);
   if (!exercise || !record.selected || record.submitted) return;
   record.submitted = true; record.attempts += 1; record.wrong = record.selected !== exercise.answer; record.everWrong = record.everWrong || record.wrong; record.lastResult = record.wrong ? 'wrong' : 'correct'; record.lastAnsweredAt = new Date().toISOString();
-  var all = getB2Progress(); all[getQuizUnitKey()][questionId] = record; saveB2Progress(all);
-  rerenderQuizChapterPreservingScroll();
+  saveQuizRecord(questionId, record);
+  refreshQuizQuestion(questionId, exercise, record);
+  if (document.querySelector('.zlatoust-learning-page')) refreshZlatoustLearningHeader('1.4.1');
 }
 function submitOpenResponse(questionId) {
   var exercise = getQuizExercise(questionId), input = document.querySelector('[data-open-response="' + questionId + '"]');
@@ -3531,15 +4668,15 @@ function submitOpenResponse(questionId) {
   var record = getQuizRecord(questionId);
   record.response = response; record.selected = 'open-response'; record.submitted = true; record.wrong = false;
   record.lastResult = 'recorded'; record.lastAnsweredAt = new Date().toISOString();
-  var all = getB2Progress(); all[getQuizUnitKey()][questionId] = record; saveB2Progress(all);
-  rerenderQuizChapterPreservingScroll();
+  saveQuizRecord(questionId, record);
+  refreshQuizQuestion(questionId, exercise, record);
 }
 function toggleQuizExplanation(questionId) {
   var record = getQuizRecord(questionId);
   if (!record.submitted) return;
   record.explanationOpen = !record.explanationOpen;
-  var all = getB2Progress(); all[getQuizUnitKey()][questionId] = record; saveB2Progress(all);
-  rerenderQuizChapterPreservingScroll();
+  saveQuizRecord(questionId, record);
+  refreshQuizQuestion(questionId, getQuizExercise(questionId), record);
 }
 function finishQuizChapter() {
   var records = getB2Progress()[getQuizUnitKey()] || {};
@@ -4058,9 +5195,9 @@ function preserveStressCase(source, stressed) {
   if (source.charAt(0) === source.charAt(0).toUpperCase()) return stressed.charAt(0).toUpperCase() + stressed.slice(1);
   return stressed;
 }
-function applyStressMarks() {
+function applyStressMarks(root) {
   if (!Object.keys(_stressMap).length) return;
-  var words = document.querySelectorAll('.ru-word');
+  var words = (root || document).querySelectorAll('.ru-word');
   for (var i = 0; i < words.length; i++) {
     var el = words[i];
     var original = (el.getAttribute('data-original-word') || el.getAttribute('data-word') || el.textContent || '').trim().normalize('NFC');
@@ -4260,6 +5397,14 @@ function renderDetailPanel(word, result) {
   html += '<div class="dp-section">';
   html += '<div class="dp-meaning">' + escapeHtml(result.meaning) + '</div>';
   html += '</div>';
+
+  // ── 当前题干 / 选项翻译 ──
+  if (selContext || selTranslationContext) {
+    html += '<div class="dp-section dict-context">';
+    if (selContext) html += '<div><b>所在原句</b>：' + escapeHtml(selContext) + '</div>';
+    if (selTranslationContext) html += '<div><b>中文翻译</b>：' + escapeHtml(selTranslationContext) + '</div>';
+    html += '</div>';
+  }
 
   // ── 体 / 性 ──
   if (posType === 'verb') {
@@ -4965,7 +6110,11 @@ var dictionaryController = RussianDictionaryRuntime.createController({
     return analysis;
   },
   renderResult: function() {},
-  onClose: closeDetailPanel,
+  onOpen: function(_current, element) { positionReadingSpeakingDictionary(element); },
+  onClose: function() {
+    clearReadingSpeakingDictionaryPosition();
+    closeDetailPanel();
+  },
   onToast: toast
 });
 dictionaryController.init();
@@ -5547,6 +6696,127 @@ function initCollapseAnimations() {
   })(detailsEls[i]);
 }
 
+/* ─── 阅读理解：练习模式与就近查词 ─── */
+var READING_SPEAKING_LAYOUT_KEY = 'reader-reading-speaking-layout-mode';
+
+function getReadingSpeakingLayoutMode() {
+  try { return localStorage.getItem(READING_SPEAKING_LAYOUT_KEY) === 'practice' ? 'practice' : 'reading'; }
+  catch (e) { return 'reading'; }
+}
+
+function isReadingSpeakingPhoneViewport() {
+  return !!(window.matchMedia && window.matchMedia('(max-width: 760px)').matches);
+}
+
+function isReadingSpeakingPracticeMode() {
+  var layout = document.getElementById('readerLayout');
+  return !!layout && layout.classList.contains('rs-practice-mode');
+}
+
+function clearReadingSpeakingDictionaryPosition() {
+  var panel = document.getElementById('detailPanel');
+  if (!panel) return;
+  panel.style.removeProperty('--rs-dict-left');
+  panel.style.removeProperty('--rs-dict-top');
+}
+
+function positionReadingSpeakingDictionary(element) {
+  if (!isReadingSpeakingPracticeMode() || !element) return;
+  var panel = document.getElementById('detailPanel');
+  if (!panel) return;
+  var isPortrait = window.matchMedia && window.matchMedia('(max-width: 1024px) and (orientation: portrait)').matches;
+  if (isPortrait) {
+    clearReadingSpeakingDictionaryPosition();
+    return;
+  }
+  var rect = element.getBoundingClientRect();
+  var panelWidth = Math.min(360, Math.max(280, window.innerWidth - 32));
+  var panelHeight = Math.min(480, Math.max(240, window.innerHeight - 104));
+  var left = rect.right + 12;
+  if (left + panelWidth > window.innerWidth - 16) left = rect.left - panelWidth - 12;
+  if (left < 16) left = Math.max(16, Math.min(window.innerWidth - panelWidth - 16, rect.left));
+  var top = rect.bottom + 10;
+  if (top + panelHeight > window.innerHeight - 16) top = window.innerHeight - panelHeight - 16;
+  top = Math.max(62, top);
+  panel.style.setProperty('--rs-dict-left', Math.round(left) + 'px');
+  panel.style.setProperty('--rs-dict-top', Math.round(top) + 'px');
+}
+
+function setReadingSpeakingLayoutMode(mode) {
+  mode = mode === 'practice' ? 'practice' : 'reading';
+  var isPhone = isReadingSpeakingPhoneViewport();
+  if (!isPhone) {
+    try { localStorage.setItem(READING_SPEAKING_LAYOUT_KEY, mode); } catch (e) {}
+  }
+  var layout = document.getElementById('readerLayout');
+  if (!layout) return;
+  var activeMode = isPhone ? 'practice' : mode;
+  var isPractice = activeMode === 'practice';
+  layout.classList.toggle('rs-practice-mode', isPractice);
+  layout.classList.toggle('rs-reading-mode', !isPractice);
+  document.querySelectorAll('.rs-reader-mode-switch button[data-rs-layout-mode]').forEach(function(button) {
+    button.setAttribute('aria-pressed', String(button.getAttribute('data-rs-layout-mode') === activeMode));
+  });
+  var pane = document.getElementById('readerPane');
+  if (pane) {
+    if (isPractice) pane.style.flexBasis = '';
+    else { pane.style.flexBasis = ''; restoreSplitRatio(); }
+  }
+  clearReadingSpeakingDictionaryPosition();
+  if (dictionaryController) dictionaryController.close();
+}
+
+var _readingSpeakingPhoneViewport = isReadingSpeakingPhoneViewport();
+window.addEventListener('resize', function() {
+  var isPhone = isReadingSpeakingPhoneViewport();
+  if (isPhone === _readingSpeakingPhoneViewport) return;
+  _readingSpeakingPhoneViewport = isPhone;
+  if (!document.querySelector('.rs-reader-mode-switch')) return;
+  setReadingSpeakingLayoutMode(isPhone ? 'practice' : getReadingSpeakingLayoutMode());
+});
+
+function getReadingSpeakingPracticeProgress(exercises) {
+  var list = exercises || _currentRSExercises || [];
+  var completed = 0;
+  for (var i = 0; i < list.length; i++) {
+    var ex = list[i];
+    var exId = ex._exId || ('rs-' + curCh + '-ex' + ex.num);
+    if (getReadingSpeakingRecord(exId).submitted) completed++;
+  }
+  return { completed: completed, total: list.length };
+}
+
+function renderReadingSpeakingPracticeProgress(exercises) {
+  var progress = getReadingSpeakingPracticeProgress(exercises);
+  var percent = progress.total ? Math.round(progress.completed / progress.total * 100) : 0;
+  return '<div class="rs-practice-progress" id="rsPracticeProgress" role="progressbar" aria-label="练习完成进度" aria-valuemin="0" aria-valuemax="' + progress.total + '" aria-valuenow="' + progress.completed + '">' +
+    '<div class="rs-practice-progress-line"><span>完成进度</span><strong id="rsPracticeProgressText">已完成 ' + progress.completed + ' / ' + progress.total + '</strong></div>' +
+    '<div class="rs-practice-progress-track"><span class="rs-practice-progress-fill" id="rsPracticeProgressFill" style="width:' + percent + '%"></span></div>' +
+    '</div>';
+}
+
+function updateReadingSpeakingPracticeProgress() {
+  var root = document.getElementById('rsPracticeProgress');
+  if (!root) return;
+  var progress = getReadingSpeakingPracticeProgress();
+  var percent = progress.total ? Math.round(progress.completed / progress.total * 100) : 0;
+  var text = document.getElementById('rsPracticeProgressText');
+  var fill = document.getElementById('rsPracticeProgressFill');
+  root.setAttribute('aria-valuemax', String(progress.total));
+  root.setAttribute('aria-valuenow', String(progress.completed));
+  if (text) text.textContent = '已完成 ' + progress.completed + ' / ' + progress.total;
+  if (fill) fill.style.width = percent + '%';
+}
+
+function renderReadingSpeakingPracticePanel(exercises) {
+  if (!exercises.length) return '<aside class="rs-practice-panel" id="readingSpeakingPracticePanel" aria-label="练习题"><div class="detail-placeholder">本章暂时没有练习题</div></aside>';
+  return '<aside class="rs-practice-panel" id="readingSpeakingPracticePanel" aria-label="练习题">' +
+    '<header class="rs-practice-panel-header"><p class="rs-practice-panel-kicker">练习模式</p><h2>边读边答</h2><p>题目固定在这里，点原文词语仍可随时查义。</p></header>' +
+    renderReadingSpeakingPracticeProgress(exercises) +
+    exercises.map(function(ex) { return renderReadingSpeakingExercise(ex); }).join('') +
+    '</aside>';
+}
+
 function renderReadingSpeakingChapter(data, scrollPosition, restoreState) {
   _currentRSData = data;
   var paras = data.original || [], trans = data.translated || [];
@@ -5564,7 +6834,7 @@ function renderReadingSpeakingChapter(data, scrollPosition, restoreState) {
       '<div class="para-actions">' +
         '<button class="' + (isBm ? 'bookmarked' : '') + '" onclick="toggleBookmark(' + i + ',event)" title="收藏段落">' + (isBm ? '★' : '☆') + '</button>' +
       '</div>' +
-      '<p class="ru-text">' + renderRuText(cleanPara, lookupContext('reading', 'reading_speaking-ch' + curCh + '-p' + i, 'reading-body', cleanPara, (trans[i] || ''), [])) + '</p>' +
+      '<p class="ru-text rs-source-paragraph" id="rs-source-p-' + i + '">' + renderRuText(cleanPara, lookupContext('reading', 'reading_speaking-ch' + curCh + '-p' + i, 'reading-body', cleanPara, (trans[i] || ''), [])) + '</p>' +
       '<p class="cn-text">' + escapeHtml(trans[i] || '') + '</p></div>'
     );
   }
@@ -5576,13 +6846,8 @@ function renderReadingSpeakingChapter(data, scrollPosition, restoreState) {
     return Object.assign({}, ex, { _exId: 'rs-' + curCh + '-ex' + ex.num });
   });
 
-  var exercisesHtml = '';
-  if (_currentRSExercises.length > 0) {
-    exercisesHtml = '<section class="exercises-section">' +
-      '<h2 style="margin-bottom:16px;color:var(--text);font-size:1.2em">📝 练习题 (' + _currentRSExercises.length + ' 道)</h2>' +
-      _currentRSExercises.map(function(ex) { return renderReadingSpeakingExercise(ex); }).join('') +
-      '</section>';
-  }
+  var layoutMode = isReadingSpeakingPhoneViewport() ? 'practice' : getReadingSpeakingLayoutMode();
+  var practicePanelHtml = renderReadingSpeakingPracticePanel(_currentRSExercises);
 
   var totalChapters = (curBook && curBook.chapters) || 30;
   var navP = curCh > 0 ? '<button class="fab-nav" onclick="goChapter(' + (curCh - 1) + ')">← 上一章</button>' : '<span class="fab-nav disabled">← 上一章</span>';
@@ -5591,12 +6856,17 @@ function renderReadingSpeakingChapter(data, scrollPosition, restoreState) {
   document.getElementById('app').innerHTML =
     b2FloatingNavigation({ backAction: 'showChapters(\'reading_speaking\')', backTitle: '目录', menuAction: 'showBreadcrumb()' }) +
     '<div class="peek-counter">👁 查看原文: <span id="peekCnt">0</span> / <span id="totalParas">' + visibleCount + '</span> 段</div>' +
-    '<div class="main-container" style="padding-bottom:20px"><header class="chapter-header"><h1>第 ' + (curCh + 1) + ' 章</h1><h2>' + escapeHtml(data.title || '') + '</h2></header></div>' +
-    '<div class="reader-layout" id="readerLayout">' +
+    '<div class="main-container" style="padding-bottom:20px"><header class="chapter-header"><h1>第 ' + (curCh + 1) + ' 章</h1><h2>' + escapeHtml(data.title || '') + '</h2>' +
+    '<div class="rs-reader-mode-switch" role="group" aria-label="阅读布局切换">' +
+      '<button type="button" data-rs-layout-mode="reading" onclick="setReadingSpeakingLayoutMode(\'reading\')" aria-pressed="' + (layoutMode === 'reading') + '">阅读</button>' +
+      '<button type="button" data-rs-layout-mode="practice" onclick="setReadingSpeakingLayoutMode(\'practice\')" aria-pressed="' + (layoutMode === 'practice') + '">练习</button>' +
+    '</div></header></div>' +
+    '<div class="reader-layout rs-' + layoutMode + '-mode" id="readerLayout">' +
     '<div class="reader-pane" id="readerPane"><div class="chapter-content">' +
-    parts.join('') + exercisesHtml +
+    parts.join('') +
     '</div></div>' +
     '<div class="resize-handle" id="resizeHandle"></div>' +
+    practicePanelHtml +
     '<div class="detail-panel" id="detailPanel" data-dictionary-state="closed">' +
     '<button class="dictionary-drawer-handle" type="button" aria-label="展开或收起词典"></button>' +
     '<div class="detail-panel-inner" id="detailInner" aria-live="polite">' +
@@ -5611,6 +6881,7 @@ function renderReadingSpeakingChapter(data, scrollPosition, restoreState) {
 
   window.scrollTo(0, typeof scrollPosition === 'number' ? scrollPosition : 0); applyTheme(); saveLastRead(restoreState);
   restoreSplitRatio();
+  setReadingSpeakingLayoutMode(layoutMode);
   highlightSavedWords();
   applyStressMarks();
 }
@@ -5624,7 +6895,10 @@ function renderReadingSpeakingExercise(ex) {
   var submitted = record.submitted;
 
   var html = '<div class="b2-quiz-item" data-question-id="' + escapeHtml(exId) + '">';
-  html += '<h3>' + ex.num + '. ' + escapeHtml(ex.question || '') + '</h3>';
+  var questionText = ex.question || '';
+  html += '<h3><span class="b2-question-number">' + ex.num + '. </span><span class="b2-question-text">' +
+    renderRuText(questionText, lookupContextWithSentence('reading', exId + '-question', 'quiz-question', questionText, ex.zhQuestion || '', [])) +
+    '</span></h3>';
 
   // 中文提示
   if (ex.zhQuestion) {
@@ -5644,14 +6918,15 @@ function renderReadingSpeakingExercise(ex) {
     var disabled = submitted ? ' style="pointer-events:none;opacity:0.85"' : '';
 
     var optionText = ex.options[j];
+    var optionZh = ex.zhOptions && ex.zhOptions[j] ? ex.zhOptions[j] : '';
     var parenIdx = optionText.indexOf(')');
     var keyPart = parenIdx > 0 ? optionText.substring(0, parenIdx + 1) : optionText; // "а)"
     var textPart = parenIdx > 0 ? optionText.substring(parenIdx + 1).trim() : '';
     html += '<div class="' + cls + '" onclick="submitReadingSpeakingOption(\'' + escapeHtml(exId) + '\',\'' + escapeHtml(key) + '\',event)"' + disabled + '>' +
       '<span class="b2-option-radio">' + escapeHtml(keyPart) + '</span>' +
-      '<span class="b2-option-text">' + renderRuText(textPart, lookupContext('reading', exId + '-opt' + j, 'quiz-option', textPart, '', [])) + '</span>';
-    if (ex.zhOptions && ex.zhOptions[j]) {
-      html += '<span class="b2-option-zh" style="display:block;font-size:0.85em;color:var(--text-dim);margin-top:2px">' + escapeHtml(ex.zhOptions[j]) + '</span>';
+      '<span class="b2-option-text">' + renderRuText(textPart, lookupContextWithSentence('reading', exId + '-opt' + j, 'quiz-option', textPart, optionZh, [])) + '</span>';
+    if (optionZh) {
+      html += '<span class="b2-option-zh" style="display:block;font-size:0.85em;color:var(--text-dim);margin-top:2px">' + escapeHtml(optionZh) + '</span>';
     }
     html += '</div>';
   }
@@ -5668,28 +6943,90 @@ function renderReadingSpeakingExercise(ex) {
     html += '<button class="b2-explanation-toggle" onclick="toggleReadingSpeakingExplanation(\'' + escapeHtml(exId) + '\')">' +
       (record.expOpen ? '收起解析 ▲' : '查看解析 ▼') + '</button>';
     if (record.expOpen) {
-      html += '<div class="b2-explanation">' +
-        '<p><strong>答案：' + escapeHtml(ex.answer) + '</strong></p>';
-      if (ex.detailed_explanation) {
-        // Use \n to split (same pattern as renderExercises does for the old format)
-        var paragraphs = ex.detailed_explanation.split('\n').filter(function(p) { return p.trim(); });
-        for (var p = 0; p < paragraphs.length; p++) {
-          var para = paragraphs[p].trim();
-          if (para.startsWith('【') && para.includes('】')) {
-            html += '<div class="answer-section-title" style="font-weight:600;margin-top:12px;color:var(--text)">' + escapeHtml(para) + '</div>';
-          } else {
-            html += '<div class="answer-para" style="margin:4px 0;line-height:1.7">' + escapeHtml(para) + '</div>';
-          }
-        }
-      } else if (ex.explanation) {
-        html += '<p>' + escapeHtml(ex.explanation) + '</p>';
-      }
-      html += '</div>';
+      html += '<div class="b2-explanation">' + renderReadingSpeakingExplanationContent(ex, exId) + '</div>';
     }
   }
 
   html += '</div>';
   return html;
+}
+
+function renderReadingSpeakingExplanationContent(ex, exId) {
+  var html = '<p><strong>答案：' + escapeHtml(ex.answer) + '</strong></p>';
+  if (ex.detailed_explanation) {
+    var paragraphs = ex.detailed_explanation.split('\n').filter(function(p) { return p.trim(); });
+    for (var p = 0; p < paragraphs.length; p++) {
+      var para = paragraphs[p].trim();
+      if (para.startsWith('【') && para.includes('】')) {
+        var titleEnd = para.indexOf('】') + 1;
+        var sectionTitle = para.substring(0, titleEnd);
+        var sectionBody = para.substring(titleEnd).trim();
+        if (sectionTitle === '【学习辅助·原文定位】' && ex.sourceAnchor) {
+          html += '<div class="answer-section-title answer-source-row"><button type="button" class="rs-source-locate" onclick="locateReadingSpeakingSource(\'' + escapeHtml(exId) + '\',event)">' +
+            escapeHtml(sectionTitle) + '</button>' + escapeHtml(sectionBody) + '</div>';
+        } else {
+          html += '<div class="answer-section-title">' + escapeHtml(para) + '</div>';
+        }
+      } else {
+        html += '<div class="answer-para" style="margin:4px 0;line-height:1.7">' + escapeHtml(para) + '</div>';
+      }
+    }
+  } else if (ex.explanation) {
+    html += '<p>' + escapeHtml(ex.explanation) + '</p>';
+  }
+  return html;
+}
+
+function normalizeReadingSpeakingSourceWord(value) {
+  return String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/ё/g, 'е').replace(/[^а-яa-z0-9-]/g, '');
+}
+
+function locateReadingSpeakingSource(exId, evt) {
+  if (evt) { evt.preventDefault(); evt.stopPropagation(); }
+  var exercise = _currentRSExercises.find(function(item) { return item._exId === exId; });
+  if (!exercise || !exercise.sourceAnchor || !exercise.sourceAnchor.quote) { toast('这道题暂时没有可定位的原文句子'); return; }
+
+  var oldWords = document.querySelectorAll('.rs-source-word-highlight');
+  for (var i = 0; i < oldWords.length; i++) oldWords[i].classList.remove('rs-source-word-highlight');
+  var oldParas = document.querySelectorAll('.rs-source-paragraph-highlight');
+  for (var p = 0; p < oldParas.length; p++) oldParas[p].classList.remove('rs-source-paragraph-highlight');
+
+  var paragraph = typeof exercise.sourceAnchor.paragraphIndex === 'number'
+    ? document.getElementById('rs-source-p-' + exercise.sourceAnchor.paragraphIndex)
+    : null;
+  var anchorTokens = exercise.sourceAnchor.quote.split(/\s+/).map(normalizeReadingSpeakingSourceWord).filter(function(token) {
+    return /^[а-я-]+$/.test(token);
+  });
+  if (!paragraph) {
+    var candidates = document.querySelectorAll('.rs-source-paragraph');
+    var anchorPreview = anchorTokens.slice(0, Math.min(5, anchorTokens.length)).join(' ');
+    for (var c = 0; c < candidates.length; c++) {
+      var candidateWords = Array.from(candidates[c].querySelectorAll('.ru-word')).map(function(word) { return normalizeReadingSpeakingSourceWord(word.textContent); }).filter(Boolean);
+      if (candidateWords.join(' ').indexOf(anchorPreview) >= 0) { paragraph = candidates[c]; break; }
+    }
+  }
+  if (!paragraph) { toast('没有找到对应原文段落'); return; }
+
+  var wordElements = Array.from(paragraph.querySelectorAll('.ru-word'));
+  var paragraphTokens = wordElements.map(function(word) { return normalizeReadingSpeakingSourceWord(word.textContent); });
+  var matchStart = -1;
+  for (var start = 0; start <= paragraphTokens.length - anchorTokens.length; start++) {
+    var matches = true;
+    for (var offset = 0; offset < anchorTokens.length; offset++) {
+      if (paragraphTokens[start + offset] !== anchorTokens[offset]) { matches = false; break; }
+    }
+    if (matches) { matchStart = start; break; }
+  }
+
+  paragraph.closest('.para-block').classList.add('rs-source-paragraph-highlight');
+  var scrollTarget = paragraph;
+  if (matchStart >= 0) {
+    for (var w = matchStart; w < matchStart + anchorTokens.length; w++) wordElements[w].classList.add('rs-source-word-highlight');
+    scrollTarget = wordElements[matchStart];
+  } else {
+    toast('已定位到原文段落，句子匹配需要复核');
+  }
+  scrollTarget.scrollIntoView({ behavior: 'smooth', block: 'center' });
 }
 
 /* ══════════════════════════════════════════════
@@ -5780,21 +7117,7 @@ function updateReadingSpeakingQuestionDOM(exId) {
 
     // 解析内容
     if (record.expOpen) {
-      var expHtml = '<div class="b2-explanation"><p><strong>答案：' + escapeHtml(ex.answer) + '</strong></p>';
-      if (ex.detailed_explanation) {
-        var paragraphs = ex.detailed_explanation.split('\n').filter(function(p) { return p.trim(); });
-        for (var p = 0; p < paragraphs.length; p++) {
-          var para = paragraphs[p].trim();
-          if (para.startsWith('【') && para.includes('】')) {
-            expHtml += '<div class="answer-section-title" style="font-weight:600;margin-top:12px;color:var(--text)">' + escapeHtml(para) + '</div>';
-          } else {
-            expHtml += '<div class="answer-para" style="margin:4px 0;line-height:1.7">' + escapeHtml(para) + '</div>';
-          }
-        }
-      } else if (ex.explanation) {
-        expHtml += '<p>' + escapeHtml(ex.explanation) + '</p>';
-      }
-      expHtml += '</div>';
+      var expHtml = '<div class="b2-explanation">' + renderReadingSpeakingExplanationContent(ex, exId) + '</div>';
       if (oldExplanation) oldExplanation.outerHTML = expHtml;
       else {
         var toggleEl = el.querySelector('.b2-explanation-toggle');
@@ -5809,6 +7132,7 @@ function updateReadingSpeakingQuestionDOM(exId) {
     if (oldToggle) oldToggle.remove();
     if (oldExplanation) oldExplanation.remove();
   }
+  updateReadingSpeakingPracticeProgress();
 }
 </script>
 </body>

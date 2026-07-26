@@ -1,0 +1,494 @@
+{
+  "schemaVersion": 2,
+  "id": "gl1-section-1.4.3-aspect",
+  "chapterId": "gl1",
+  "sectionId": "1.4.3",
+  "titleRu": "1.4.3. Употребление глаголов несовершенного и совершенного вида в инфинитиве",
+  "titleZh": "不定式中的过程、结果、重复与单次",
+  "orientationZh": {
+    "sourceType": "learning-note",
+    "text": "本节先不看支配动词的词汇类别，而看不定式所表示的事件本身：它是没有边界的过程／反复，还是带明确界限的一次结果。"
+  },
+  "quickDecision": [
+    {
+      "sourceType": "learning-note",
+      "text": "先确认不定式的语义，而不要先背支配动词：活动正在展开或无终点时看未完成体。"
+    },
+    {
+      "sourceType": "learning-note",
+      "text": "出现明确完成界限、交付点或一次目标时看完成体。"
+    },
+    {
+      "sourceType": "learning-note",
+      "text": "有每周、经常等重复信息时看未完成体；有明天要得到一次答复等单次信息时看完成体。"
+    },
+    {
+      "sourceType": "learning-note",
+      "text": "若支配词本身被原书 1.4.4 明确列出，先服从其词汇限制；表外动词则不可虚构触发词，应回到本节语义。"
+    }
+  ],
+  "sourceRules": [
+    {
+      "sourceType": "source-rule",
+      "text": "### 1.4.3. Употребление глаголов несовершенного и совершенного вида в инфинитиве\n\n| Несовершенный вид | Совершенный вид |\n| ---- | ---- |\n| 1. Процесс действия. В предложении есть указание на то, что действие совершается и что его предел не обозначен.<br>— Прошу вас писать мне хотя бы изредка; Я собираюсь изучать русский язык в университете. | 1. Результат действия. В предложении есть указание на предел действия.<br>— Я думал закончить реферат ещё на прошлой неделе; Мы планируем сдать эту работу в понедельник. |\n| 2. Многократность действия. В предложении есть указание на повторяемость действия.<br>— Мы надеемся каждую неделю получать от вас известия. | 2. Однократность действия. В предложении есть указание на единичное действие.<br>— Завтра я хочу получить от тебя ответ. |",
+      "source": {
+        "pdfPages": [
+          97
+        ],
+        "printedPages": [
+          95
+        ]
+      }
+    }
+  ],
+  "atomicRules": [
+    {
+      "id": "gl1-1.4.3-infinitive-process-vs-result",
+      "titleZh": "不定式中的过程与结果",
+      "sourceReference": "完整原书条目与表格见本单元 sourceRules / tables。",
+      "sourceType": "learning-note",
+      "learningNote": "此原子分类用于检索；不替代本单元完整原书表格。"
+    },
+    {
+      "id": "gl1-1.4.3-infinitive-iterative-vs-single",
+      "titleZh": "不定式中的多次与一次动作",
+      "sourceReference": "完整原书条目与表格见本单元 sourceRules / tables。",
+      "sourceType": "learning-note",
+      "learningNote": "此原子分类用于检索；不替代本单元完整原书表格。"
+    }
+  ],
+  "tables": [
+    {
+      "sourceType": "source-table",
+      "title": "1.4.3. Употребление глаголов несовершенного и совершенного вида в инфинитиве",
+      "headers": [
+        "Несовершенный вид",
+        "Совершенный вид"
+      ],
+      "rows": [
+        [
+          "1. Процесс действия. В предложении есть указание на то, что действие совершается и что его предел не обозначен.<br>— Прошу вас писать мне хотя бы изредка; Я собираюсь изучать русский язык в университете.",
+          "1. Результат действия. В предложении есть указание на предел действия.<br>— Я думал закончить реферат ещё на прошлой неделе; Мы планируем сдать эту работу в понедельник."
+        ],
+        [
+          "2. Многократность действия. В предложении есть указание на повторяемость действия.<br>— Мы надеемся каждую неделю получать от вас известия.",
+          "2. Однократность действия. В предложении есть указание на единичное действие.<br>— Завтра я хочу получить от тебя ответ."
+        ]
+      ],
+      "markdown": "### 1.4.3. Употребление глаголов несовершенного и совершенного вида в инфинитиве\n\n| Несовершенный вид | Совершенный вид |\n| ---- | ---- |\n| 1. Процесс действия. В предложении есть указание на то, что действие совершается и что его предел не обозначен.<br>— Прошу вас писать мне хотя бы изредка; Я собираюсь изучать русский язык в университете. | 1. Результат действия. В предложении есть указание на предел действия.<br>— Я думал закончить реферат ещё на прошлой неделе; Мы планируем сдать эту работу в понедельник. |\n| 2. Многократность действия. В предложении есть указание на повторяемость действия.<br>— Мы надеемся каждую неделю получать от вас известия. | 2. Однократность действия. В предложении есть указание на единичное действие.<br>— Завтра я хочу получить от тебя ответ. |",
+      "source": {
+        "pdfPages": [
+          97
+        ],
+        "printedPages": [
+          95
+        ]
+      }
+    }
+  ],
+  "semanticAnalysis": {
+    "sourceType": "learning-note",
+    "text": "不定式不自带时态，但仍要求说话人选择事件视角。过程和反复让事件边界不突出；结果和单次使界限成为信息焦点。Q052–Q055 与 Q061 的边界复核正是如此：уметь／учить／удалось 不在 1.4.4 的原书触发词表中，必须按本节的过程或结果义判断。"
+  },
+  "signalAnalysis": [
+    {
+      "sourceType": "learning-note",
+      "signals": [
+        "хотя бы изредка",
+        "каждую неделю"
+      ],
+      "use": "提示非一次的持续／反复活动，支持未完成体；信号词须与不定式实际语义一致。"
+    },
+    {
+      "sourceType": "learning-note",
+      "signals": [
+        "ещё на прошлой неделе",
+        "в понедельник",
+        "завтра"
+      ],
+      "use": "若指向应完成的界限或一次交付，支持完成体；单独的时间词未必足够。"
+    }
+  ],
+  "examples": [
+    {
+      "sourceType": "source-example",
+      "text": "Прошу вас писать мне хотя бы изредка; Я собираюсь изучать русский язык в университете.",
+      "source": {
+        "pdfPages": [
+          97
+        ],
+        "printedPages": [
+          95
+        ]
+      }
+    },
+    {
+      "sourceType": "source-example",
+      "text": "Я думал закончить реферат ещё на прошлой неделе; Мы планируем сдать эту работу в понедельник.",
+      "source": {
+        "pdfPages": [
+          97
+        ],
+        "printedPages": [
+          95
+        ]
+      }
+    },
+    {
+      "sourceType": "source-example",
+      "text": "Мы надеемся каждую неделю получать от вас известия.",
+      "source": {
+        "pdfPages": [
+          97
+        ],
+        "printedPages": [
+          95
+        ]
+      }
+    },
+    {
+      "sourceType": "source-example",
+      "text": "Завтра я хочу получить от тебя ответ.",
+      "source": {
+        "pdfPages": [
+          97
+        ],
+        "printedPages": [
+          95
+        ]
+      }
+    }
+  ],
+  "contrasts": [
+    {
+      "sourceType": "source-example",
+      "left": "Я собираюсь изучать русский язык в университете.",
+      "right": "Мы планируем сдать эту работу в понедельник.",
+      "analysis": "左侧是展开的学习活动；右侧的重点是周一交付结果。"
+    },
+    {
+      "sourceType": "source-example",
+      "left": "Мы надеемся каждую неделю получать от вас известия.",
+      "right": "Завтра я хочу получить от тебя ответ.",
+      "analysis": "左侧按周重复；右侧期待一次具体答复。"
+    }
+  ],
+  "commonErrors": [
+    {
+      "sourceType": "learning-note",
+      "text": "把 уме́ть 或 учи́ть 自动塞入 1.4.4；原书没有把它们列为词汇触发词。"
+    },
+    {
+      "sourceType": "learning-note",
+      "text": "只看 завтра 就选完成体，而没有判断是否要求一个有界结果。"
+    }
+  ],
+  "exerciseLinks": [
+    {
+      "exerciseId": "GL1-Q047",
+      "printedNumber": 47,
+      "exercisePrintedPage": 11,
+      "sourceType": "exercise-example",
+      "status": "mapped",
+      "question": "Некоторые руководители фирм думают, что стоит им только ... свой сайт в Интернете, как деньги потекут рекой.",
+      "options": [
+        {
+          "key": "А",
+          "text": "создать"
+        },
+        {
+          "key": "Б",
+          "text": "создавать"
+        }
+      ],
+      "correctAnswer": "А",
+      "ruleIds": [
+        "gl1-1.4.3-infinitive-process-vs-result"
+      ],
+      "mappingReason": "题干与正确项须按「不定式中的过程与结果」的原书条件判断；旧 knowledgePoints 未作为依据。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "正确项「А」（создать）符合映射规则：不定式中的过程与结果。",
+        "distractors": [
+          {
+            "key": "Б",
+            "text": "создавать",
+            "sourceType": "learning-note",
+            "reason": "它把题干要求的无界过程与有界结果混为一谈，未按事件是否达到界限判断。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 13,
+        "questionPrintedPage": 11,
+        "answerPdfPage": 125,
+        "answerPrintedPage": 123
+      }
+    },
+    {
+      "exerciseId": "GL1-Q052",
+      "printedNumber": 52,
+      "exercisePrintedPage": 12,
+      "sourceType": "exercise-example",
+      "status": "mapped",
+      "question": "Наполеон Бонапарт не раз говорил, что карьеру сможет сделать только тот, кто умеет хорошо ... .",
+      "options": [
+        {
+          "key": "А",
+          "text": "сказать"
+        },
+        {
+          "key": "Б",
+          "text": "говорить"
+        }
+      ],
+      "correctAnswer": "Б",
+      "ruleIds": [
+        "gl1-1.4.3-infinitive-process-vs-result"
+      ],
+      "mappingReason": "уметь хорошо говорить 表示持续掌握的语言能力，不是 1.4.4 表中列出的词汇触发词；原书 1.4.3 的“过程、界限未标出”直接适用。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "正确项「Б」（говорить）符合映射规则：不定式中的过程与结果。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "сказать",
+            "sourceType": "learning-note",
+            "reason": "它把题干要求的无界过程与有界结果混为一谈，未按事件是否达到界限判断。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 14,
+        "questionPrintedPage": 12,
+        "answerPdfPage": 125,
+        "answerPrintedPage": 123
+      }
+    },
+    {
+      "exerciseId": "GL1-Q053",
+      "printedNumber": 53,
+      "exercisePrintedPage": 12,
+      "sourceType": "exercise-example",
+      "status": "mapped",
+      "question": "Учёные утверждают, что мозг человека в критических ситуациях учит его ... с различными видами страхов.",
+      "options": [
+        {
+          "key": "А",
+          "text": "побороться"
+        },
+        {
+          "key": "Б",
+          "text": "бороться"
+        }
+      ],
+      "correctAnswer": "Б",
+      "ruleIds": [
+        "gl1-1.4.3-infinitive-process-vs-result"
+      ],
+      "mappingReason": "учит его бороться 表示学习和形成技能的持续过程；учить 未列入 1.4.4 的词汇限制表，故依据 1.4.3 的过程义。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "正确项「Б」（бороться）符合映射规则：不定式中的过程与结果。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "побороться",
+            "sourceType": "learning-note",
+            "reason": "它把题干要求的无界过程与有界结果混为一谈，未按事件是否达到界限判断。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 14,
+        "questionPrintedPage": 12,
+        "answerPdfPage": 125,
+        "answerPrintedPage": 123
+      }
+    },
+    {
+      "exerciseId": "GL1-Q054",
+      "printedNumber": 54,
+      "exercisePrintedPage": 12,
+      "sourceType": "exercise-example",
+      "status": "mapped",
+      "question": "Дети умеют ... жизни, и взрослым не мешает у них этому поучиться.",
+      "options": [
+        {
+          "key": "А",
+          "text": "удивляться"
+        },
+        {
+          "key": "Б",
+          "text": "удивиться"
+        }
+      ],
+      "correctAnswer": "А",
+      "ruleIds": [
+        "gl1-1.4.3-infinitive-process-vs-result"
+      ],
+      "mappingReason": "умеют удивляться жизни 表示稳定能力和持续反应，不表达一次达成的结果；应按 1.4.3 的过程义，而非 1.4.4 的词汇触发词表。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "正确项「А」（удивляться）符合映射规则：不定式中的过程与结果。",
+        "distractors": [
+          {
+            "key": "Б",
+            "text": "удивиться",
+            "sourceType": "learning-note",
+            "reason": "它把题干要求的无界过程与有界结果混为一谈，未按事件是否达到界限判断。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 14,
+        "questionPrintedPage": 12,
+        "answerPdfPage": 125,
+        "answerPrintedPage": 123
+      }
+    },
+    {
+      "exerciseId": "GL1-Q055",
+      "printedNumber": 55,
+      "exercisePrintedPage": 12,
+      "sourceType": "exercise-example",
+      "status": "mapped",
+      "question": "Накануне Нового года открываются курсы для Дедов Морозов и Снегурочек, на которых их учат ... с детьми.",
+      "options": [
+        {
+          "key": "А",
+          "text": "общаться"
+        },
+        {
+          "key": "Б",
+          "text": "пообщаться"
+        }
+      ],
+      "correctAnswer": "А",
+      "ruleIds": [
+        "gl1-1.4.3-infinitive-process-vs-result"
+      ],
+      "mappingReason": "учат общаться с детьми 表示习得交往技能的过程；учить 不在 1.4.4 列表中，原书 1.4.3 的过程义是直接依据。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "正确项「А」（общаться）符合映射规则：不定式中的过程与结果。",
+        "distractors": [
+          {
+            "key": "Б",
+            "text": "пообщаться",
+            "sourceType": "learning-note",
+            "reason": "它把题干要求的无界过程与有界结果混为一谈，未按事件是否达到界限判断。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 14,
+        "questionPrintedPage": 12,
+        "answerPdfPage": 125,
+        "answerPrintedPage": 123
+      }
+    },
+    {
+      "exerciseId": "GL1-Q061",
+      "printedNumber": 61,
+      "exercisePrintedPage": 12,
+      "sourceType": "exercise-example",
+      "status": "mapped",
+      "question": "Британским учёным при помощи лазера удалось ... материю, частицы которой связываются между собой светом.",
+      "options": [
+        {
+          "key": "А",
+          "text": "создать"
+        },
+        {
+          "key": "Б",
+          "text": "создавать"
+        }
+      ],
+      "correctAnswer": "А",
+      "ruleIds": [
+        "gl1-1.4.3-infinitive-process-vs-result"
+      ],
+      "mappingReason": "удалось создать 指向一次达成的结果。удалось 不在 1.4.4 原书的词汇触发词表中，因此以 1.4.3“有动作界限／结果”的直接语义依据归档。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "正确项「А」（создать）符合映射规则：不定式中的过程与结果。",
+        "distractors": [
+          {
+            "key": "Б",
+            "text": "создавать",
+            "sourceType": "learning-note",
+            "reason": "它把题干要求的无界过程与有界结果混为一谈，未按事件是否达到界限判断。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 14,
+        "questionPrintedPage": 12,
+        "answerPdfPage": 125,
+        "answerPrintedPage": 123
+      }
+    }
+  ],
+  "relatedRules": [
+    {
+      "sourceType": "learning-note",
+      "text": "1.4.4（已列出的词汇限制）"
+    },
+    {
+      "sourceType": "learning-note",
+      "text": "1.4.6（否定不定式）"
+    },
+    {
+      "sourceType": "learning-note",
+      "text": "1.4.1（有限动词中的过程／结果）"
+    }
+  ],
+  "source": {
+    "pdfPages": [
+      97
+    ],
+    "printedPages": [
+      95
+    ],
+    "cleanedSource": "cleaned-source/chapter-01.md",
+    "sourcePdf": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+  },
+  "sourceCoverage": {
+    "ruleItems": {
+      "total": 4,
+      "captured": 4
+    },
+    "numberedItems": {
+      "total": 4,
+      "captured": 4
+    },
+    "tables": {
+      "total": 1,
+      "captured": 1,
+      "rowsTotal": 2,
+      "rowsCaptured": 2
+    },
+    "examples": {
+      "total": 4,
+      "captured": 4,
+      "countingMethod": "每个以破折号引出的原书例句块均完整保留；块内并列句没有拆分或省略。"
+    },
+    "relatedExercises": {
+      "total": 6,
+      "explained": 6
+    },
+    "uncollectedItems": [],
+    "sourceExerciseOnly": [],
+    "needsReview": [
+      "原书表格已对 PDF 页图进行视觉抽查；全书 OCR 来源仍为 REVIEW，重音、标点和跨页排版风险不能隐藏。"
+    ],
+    "ocrRisks": []
+  },
+  "reviewStatus": "needs-review",
+  "riskRecord": [
+    "不能把本单元的中文判断和选项解释当作原书文本。",
+    "PDF 原页已抽查，但全书来源未完成逐字符人工复核，故不得标为 verified。"
+  ]
+}

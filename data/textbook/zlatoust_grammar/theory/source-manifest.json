@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "sourceBook": "zlatoust-grammar-lexika-v1",
+  "sourcePdf": "E:\\Desktop\\语法词汇（同一本书）.pdf",
+  "scope": {
+    "pdfPages": [93, 124],
+    "printedPages": [91, 122],
+    "section": "Раздел II. Теоретические сведения"
+  },
+  "rawOcrBatches": [
+    {
+      "file": "raw-ocr/batch-01-pdf-093-100.md",
+      "pdfPages": [93, 100],
+      "printedPages": [91, 98],
+      "status": "review",
+      "note": "PDF-100 顶部先续接第 1 章 1.4.8，随后才开始第 2 章；原 OCR 未放置独立页标题。1.4.8 的正文保留在 cleaned-source/chapter-01.md，页码以视觉复核后的 section-index.json 为准。"
+    },
+    {
+      "file": "raw-ocr/batch-02-pdf-101-108.md",
+      "pdfPages": [101, 108],
+      "printedPages": [99, 106],
+      "status": "review"
+    },
+    {
+      "file": "raw-ocr/batch-03-pdf-109-116.md",
+      "pdfPages": [109, 116],
+      "printedPages": [107, 114],
+      "status": "review"
+    },
+    {
+      "file": "raw-ocr/batch-04-pdf-117-124.md",
+      "pdfPages": [117, 124],
+      "printedPages": [115, 122],
+      "status": "review"
+    }
+  ],
+  "quality": {
+    "coverage": "32 of 32 PDF pages recovered",
+    "missingExplicitPageMarkers": [100],
+    "needsVisualReview": [93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124],
+    "knownRisks": [
+      "跨页表格可能缺少重复表头或出现行列错位。",
+      "扫描件中的斜体、破折号、脚注和重音需要在清洗阶段核对。",
+      "原始 OCR 不包含中文解释，所有后续中文学习说明必须作为独立学习层标记。",
+      "PDF-113 / 印刷页 111 上半页延续第 3 章 3.1.2，下半页才开始第 4 章；清洗来源按语义标题切分，两个章节均保留该 PDF 页标记。"
+    ]
+  }
+}

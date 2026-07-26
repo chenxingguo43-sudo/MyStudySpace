@@ -8,8 +8,10 @@
     15
   ],
   "media": {
-    "provenance": "teacher-provided",
-    "file": "media/01.mp3"
+    "provenance": "unavailable",
+    "status": "source-mismatch",
+    "reason": "Imported audio belongs to Uchebno-trenirovochnye testy po russkomu iazyku kak inostrannomu. Vypusk 4. Audirovanie. Govorenie, not V mire liudei. Vypusk 2. Audirovanie. Govorenie.",
+    "rejectedFile": "media/01.mp3"
   },
   "questions": [
     {
@@ -117,23 +119,23 @@
     {
       "speaker": "A",
       "displayLabel": "Ж",
-      "text": "Женский голос: — Олечка! Прекрасно выглядишь! Как муж? Сынок?",
+      "text": "Олечка! Прекрасно выглядишь! Как муж? Сынок?",
       "startTime": 0,
-      "endTime": 21
+      "endTime": 0
     },
     {
       "speaker": "A",
       "displayLabel": "Ж",
-      "text": "Женский голос: — Муж как всегда, а вот сын... На каникулах хотели отправить в Италию, а он ни в какую: хочу в Курск, к бабушке, к ребятам. Там все свои, всё запросто, по-нашему... Представляешь?!",
-      "startTime": 17,
-      "endTime": 21
+      "text": "Муж как всегда, а вот сын... На каникулах хотели отправить в Италию, а он ни в какую: хочу в Курск, к бабушке, к ребятам. Там все свои, всё запросто, по-нашему... Представляешь?!",
+      "startTime": 0,
+      "endTime": 0
     },
     {
       "speaker": "A",
       "displayLabel": "Ж",
-      "text": "Женский голос: — А что! Ну и правильно...",
-      "startTime": 17,
-      "endTime": 21
+      "text": "А что! Ну и правильно...",
+      "startTime": 0,
+      "endTime": 0
     }
   ]
 }

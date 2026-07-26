@@ -1,0 +1,4183 @@
+{
+  "schemaVersion": 1,
+  "chapterId": "gl2",
+  "sourceBook": "zlatoust-grammar-lexika-v1",
+  "status": "review",
+  "mappingBasis": "逐题视觉核对 PDF 020-042（印刷页 18-40）、PDF 125 原书答案表及 cleaned-source/chapter-02.md。原书未说明的结构保留 needs-review 或 source-exercise-only。",
+  "statusDefinitions": {
+    "mapped": "原书理论中有直接或足够明确的规则依据。",
+    "needs-review": "已确定主要理论范围，但原书条件不足以无风险确定细边界。",
+    "source-exercise-only": "原书有练习，但理论区没有对应的独立规则说明。"
+  },
+  "ruleCatalog": {
+    "gl2-2.1-sodeistvovat-v-prep": {
+      "sectionId": "2.1",
+      "titleZh": "содействовать + в + 第六格",
+      "sourceText": "2.1 表列出 содействовать кому, чему; в чём。"
+    },
+    "gl2-2.1-miritsya-s-inst": {
+      "sectionId": "2.1",
+      "titleZh": "мириться + с + 第五格",
+      "sourceText": "2.1 表列出 мириться / примириться с кем; с чем。"
+    },
+    "gl2-2.1-predpochitat-acc-dat": {
+      "sectionId": "2.1",
+      "titleZh": "предпочитать + 第四格 + 第三格",
+      "sourceText": "2.1 表列出 предпочитать кого, что; кому, чему。"
+    },
+    "gl2-2.1-uprekat-acc-v-prep": {
+      "sectionId": "2.1",
+      "titleZh": "упрекать + 第四格 + в + 第六格",
+      "sourceText": "2.1 表列出 упрекать кого; в чём。"
+    },
+    "gl2-2.1-dostigat-gen": {
+      "sectionId": "2.1",
+      "titleZh": "достигать + 第二格",
+      "sourceText": "2.1 表列出 достигать / достичь чего。"
+    },
+    "gl2-2.1-izbegat-gen": {
+      "sectionId": "2.1",
+      "titleZh": "избегать + 第二格",
+      "sourceText": "2.1 表列出 избегать кого, чего。"
+    },
+    "gl2-2.1-obizhatsya-na-acc": {
+      "sectionId": "2.1",
+      "titleZh": "обижаться + на + 第四格",
+      "sourceText": "2.1 表列出 обижаться / обидеться на кого, на что。"
+    },
+    "gl2-2.1-vliyat-na-acc": {
+      "sectionId": "2.1",
+      "titleZh": "влиять + на + 第四格",
+      "sourceText": "2.1 表列出 влиять / повлиять на кого, на что。"
+    },
+    "gl2-2.1-polagatsya-na-acc": {
+      "sectionId": "2.1",
+      "titleZh": "полагаться + на + 第四格",
+      "sourceText": "2.1 表列出 полагаться / положиться на кого, на что。"
+    },
+    "gl2-2.1-smeyatsya-nad-inst": {
+      "sectionId": "2.1",
+      "titleZh": "смеяться + над + 第五格",
+      "sourceText": "2.1 表列出 смеяться / посмеяться над кем, над чем。"
+    },
+    "gl2-2.1-uchit-acc-dat": {
+      "sectionId": "2.1",
+      "titleZh": "учить + 第四格 + 第三格",
+      "sourceText": "2.1 表列出 учить / научить кого; чему。"
+    },
+    "gl2-2.1-porazhat-acc-inst": {
+      "sectionId": "2.1",
+      "titleZh": "поражать + 第四格 + 第五格",
+      "sourceText": "2.1 表列出 поражать / поразить кого; чем。"
+    },
+    "gl2-2.1-slivatsya-s-inst": {
+      "sectionId": "2.1",
+      "titleZh": "сливаться + с + 第五格",
+      "sourceText": "2.1 表列出 сливаться / слиться с чем。"
+    },
+    "gl2-2.1-protivostoyat-dat": {
+      "sectionId": "2.1",
+      "titleZh": "противостоять + 第三格",
+      "sourceText": "2.1 表列出 противостоять кому, чему。"
+    },
+    "gl2-2.1-sootvetstvovat-dat": {
+      "sectionId": "2.1",
+      "titleZh": "соответствовать + 第三格",
+      "sourceText": "2.1 表列出 соответствовать чему。"
+    },
+    "gl2-2.1-priderzhivatsya-gen": {
+      "sectionId": "2.1",
+      "titleZh": "придерживаться + 第二格",
+      "sourceText": "2.1 表列出 придерживаться / придержаться чего。"
+    },
+    "gl2-2.1-privykat-k-dat": {
+      "sectionId": "2.1",
+      "titleZh": "привыкать + к + 第三格",
+      "sourceText": "2.1 表列出 привыкать / привыкнуть к кому, к чему。"
+    },
+    "gl2-2.1-napominat-acc-acc": {
+      "sectionId": "2.1",
+      "titleZh": "напоминать + 第四格",
+      "sourceText": "2.1 表列出 напоминать / напомнить кого, что; чем。"
+    },
+    "gl2-2.1-prisposablivatsya-k-dat": {
+      "sectionId": "2.1",
+      "titleZh": "приспосабливаться + к + 第三格",
+      "sourceText": "2.1 表列出 приспосабливаться / приспособиться к чему。"
+    },
+    "gl2-2.1-otlichatsya-inst": {
+      "sectionId": "2.1",
+      "titleZh": "отличаться + 第五格",
+      "sourceText": "2.1 表列出 отличаться чем。"
+    },
+    "gl2-2.1-verit-v-acc": {
+      "sectionId": "2.1",
+      "titleZh": "верить + в + 第四格",
+      "sourceText": "2.1 表列出 верить / поверить в кого, во что。"
+    },
+    "gl2-2.1-verit-dat": {
+      "sectionId": "2.1",
+      "titleZh": "верить + 第三格",
+      "sourceText": "2.1 表列出 верить / поверить кому, чему。"
+    },
+    "gl2-2.2-svoboden-v-prep": {
+      "sectionId": "2.2",
+      "titleZh": "свободен + в + 第六格",
+      "sourceText": "2.2 表列出 свободен в чём; от чего。"
+    },
+    "gl2-2.2-chuzhd-dat": {
+      "sectionId": "2.2",
+      "titleZh": "чужд + 第三格",
+      "sourceText": "2.2 表列出 чужд кому, чему。"
+    },
+    "gl2-2.2-izvesten-dat": {
+      "sectionId": "2.2",
+      "titleZh": "известен + 第三格",
+      "sourceText": "2.2 表列出 известен кому; чем。"
+    },
+    "gl2-2.2-prisushch-dat": {
+      "sectionId": "2.2",
+      "titleZh": "присущ + 第三格",
+      "sourceText": "2.2 表列出 присущ кому, чему。"
+    },
+    "gl2-2.2-terpim-k-dat": {
+      "sectionId": "2.2",
+      "titleZh": "терпим + к + 第三格",
+      "sourceText": "2.2 表列出 терпим к кому, к чему。"
+    },
+    "gl2-2.2-protivopolozhen-dat": {
+      "sectionId": "2.2",
+      "titleZh": "противоположен + 第三格",
+      "sourceText": "2.2 表列出 противоположен кому, чему; по чему。"
+    },
+    "gl2-2.2-vnimatelen-k-dat": {
+      "sectionId": "2.2",
+      "titleZh": "внимателен + к + 第三格",
+      "sourceText": "2.2 表列出 внимателен к кому, к чему。"
+    },
+    "gl2-2.2-snishoditelen-k-dat": {
+      "sectionId": "2.2",
+      "titleZh": "снисходителен + к + 第三格",
+      "sourceText": "2.2 表列出 снисходителен к кому, к чему。"
+    },
+    "gl2-2.2-blagopriyatен-dlya-gen": {
+      "sectionId": "2.2",
+      "titleZh": "благоприятен + для + 第二格",
+      "sourceText": "2.2 表列出 благоприятен для кого, для чего。"
+    },
+    "gl2-2.2-dostupen-dat": {
+      "sectionId": "2.2",
+      "titleZh": "доступен + 第三格",
+      "sourceText": "2.2 表列出 доступен кому, чему; для кого, для чего。"
+    },
+    "gl2-2.2-ustoichiv-k-dat": {
+      "sectionId": "2.2",
+      "titleZh": "устойчив + к + 第三格",
+      "sourceText": "2.2 表列出 устойчив к чему。"
+    },
+    "gl2-2.2-raven-dat": {
+      "sectionId": "2.2",
+      "titleZh": "равен + 第三格",
+      "sourceText": "2.2 表列出 равен чему。"
+    },
+    "gl2-2.3-s-inst-accompanying": {
+      "sectionId": "2.3",
+      "titleZh": "с + 第五格表示伴随感受、动作或态度",
+      "sourceText": "2.3 第 1 条规定感受、伴随动作以及抽象的性质/态度可用 с + 第五格。"
+    },
+    "gl2-2.3-no-s-qualitative": {
+      "sectionId": "2.3",
+      "titleZh": "无 с 的第五格表示动作方式",
+      "sourceText": "2.3 第 2 条规定，若形容词性成分承载动作的质性特征，则不用 с，且该定语不可省略。"
+    },
+    "gl2-2.4.1-genitive-sphere": {
+      "sectionId": "2.4.1",
+      "titleZh": "第二格表达领域、所属或相关关系",
+      "sourceText": "2.4.1 表列出第二格可表达所属、领域、特征等定语关系。"
+    },
+    "gl2-2.4.1-genitive-quantity": {
+      "sectionId": "2.4.1",
+      "titleZh": "第二格表达数量、部分与整体",
+      "sourceText": "2.4.1 表列出部分—整体及集合/事物总和关系。"
+    },
+    "gl2-2.4.1-instrumental-comparison": {
+      "sectionId": "2.4.1",
+      "titleZh": "第五格无介词表达比较性定语",
+      "sourceText": "2.4.1 表列出第五格无介词可表达与被限定词的比较。"
+    },
+    "gl2-2.4.2-iz-gen-composition": {
+      "sectionId": "2.4.2",
+      "titleZh": "из + 第二格表示组成",
+      "sourceText": "2.4.2 表列出 из + 第二格可表示构成整体的部分。"
+    },
+    "gl2-2.4.2-po-dat-content": {
+      "sectionId": "2.4.2",
+      "titleZh": "по + 第三格表示内容或领域",
+      "sourceText": "2.4.2 表列出 по + 第三格可表示信息内容或活动领域。"
+    },
+    "gl2-2.4.2-in-na-acc-feature": {
+      "sectionId": "2.4.2",
+      "titleZh": "в/на + 第四格表示外部特征或空间位置",
+      "sourceText": "2.4.2 表列出 в、на + 第四格可表示外部特征和空间位置。"
+    },
+    "gl2-2.4.2-s-inst-feature": {
+      "sectionId": "2.4.2",
+      "titleZh": "с + 第五格表示特征或伴随属性",
+      "sourceText": "2.4.2 表列出 с + 第五格可表示外部/内部特征或伴随特征。"
+    },
+    "gl2-2.4.2-spatial-inst": {
+      "sectionId": "2.4.2",
+      "titleZh": "空间介词 + 第五格作定语",
+      "sourceText": "2.4.2 表列出 над、под、перед、за、между + 第五格表示空间位置。"
+    },
+    "gl2-2.4.2-v-na-prep-location": {
+      "sectionId": "2.4.2",
+      "titleZh": "в/на + 第六格表示静态位置或特征",
+      "sourceText": "2.4.2 续表列出 в、на + 第六格表示特征、数量和空间位置。"
+    },
+    "gl2-2.4.2-o-prep-content": {
+      "sectionId": "2.4.2",
+      "titleZh": "о + 第六格表示内容",
+      "sourceText": "2.4.2 表列出 о (об) + 第六格表示被限定名词的内容。"
+    },
+    "gl2-2.4.2-infinitive-attribute": {
+      "sectionId": "2.4.2",
+      "titleZh": "名词 + 不定式表达定语关系",
+      "sourceText": "2.4.2 注意项说明愿望、能力、权利、计划等抽象名词可与不定式形成定语关系。"
+    },
+    "gl2-2.5-historical-period": {
+      "sectionId": "2.5",
+      "titleZh": "历史时期中的 в + 第四格 / при + 第六格",
+      "sourceText": "2.5 第 1 条区分时期的 в + 第四格与 при + 第六格。"
+    },
+    "gl2-2.5-za-result-duration": {
+      "sectionId": "2.5",
+      "titleZh": "за + 第四格表示完成所需时间",
+      "sourceText": "2.5 第 4 条说明 за + 第四格表示取得结果所需的时段。"
+    },
+    "gl2-2.5-za-before-event": {
+      "sectionId": "2.5",
+      "titleZh": "за + 时段 + до + 第二格表示事件前的时段",
+      "sourceText": "2.5 第 4 条区分 за + 第四格 与 за + 第四格 + до + 第二格。"
+    },
+    "gl2-2.5-na-stay-duration": {
+      "sectionId": "2.5",
+      "titleZh": "на + 第四格表示预定停留时长",
+      "sourceText": "2.5 第 4 条说明 на + 第四格表示动作应持续的确定时期。"
+    },
+    "gl2-2.5-bare-acc-duration": {
+      "sectionId": "2.5",
+      "titleZh": "裸第四格表示动作持续时长",
+      "sourceText": "2.5 第 4 条说明无介词第四格表示完成动作所花的时间。"
+    },
+    "gl2-2.5-per-interval": {
+      "sectionId": "2.5",
+      "titleZh": "сколько раз + в + 第四格表示频率",
+      "sourceText": "2.5 第 3 条给出次数 + в + 第四格的频率结构。"
+    },
+    "gl2-2.5-every-acc": {
+      "sectionId": "2.5",
+      "titleZh": "каждый + 第四格表示规律重复",
+      "sourceText": "2.5 第 2 条给出 каждый + 第四格的规律性时间表达。"
+    },
+    "gl2-2.5-pered-inst": {
+      "sectionId": "2.5",
+      "titleZh": "перед + 第五格表示紧接在前",
+      "sourceText": "2.5 第 5 条说明 перед + 第五格表示紧接另一动作之前。"
+    },
+    "gl2-2.5-posle-gen": {
+      "sectionId": "2.5",
+      "titleZh": "после + 第二格表示某事之后",
+      "sourceText": "2.5 第 6 条说明 после + 第二格可接带说明的时段或事件名词。"
+    },
+    "gl2-2.5-s-gen-start": {
+      "sectionId": "2.5",
+      "titleZh": "с + 第二格表示起点",
+      "sourceText": "2.5 第 7 条表格列出 с + 第二格表示动作开始时刻。"
+    },
+    "gl2-2.5-s-do-range": {
+      "sectionId": "2.5",
+      "titleZh": "с ... до 表示时间区间",
+      "sourceText": "2.5 第 7 条表格列出 с ... до 表示时间范围。"
+    },
+    "gl2-2.5-na-acc-moment": {
+      "sectionId": "2.5",
+      "titleZh": "на + 第四格表示确定时点",
+      "sourceText": "2.5 第 8 条说明 на + 第四格表示与前一时点关联的确定时刻。"
+    },
+    "gl2-2.5-cherez-acc": {
+      "sectionId": "2.5",
+      "titleZh": "через + 第四格表示经过时段后",
+      "sourceText": "2.5 第 6 条说明 через + 第四格接时间单位表示事件在一段时间后发生。"
+    },
+    "gl2-2.6-vdol-vokrug-sredi": {
+      "sectionId": "2.6",
+      "titleZh": "вдоль、вокруг、среди表达空间关系",
+      "sourceText": "2.6 第 6 条分别说明 вдоль、вокруг、среди 的空间意义。"
+    },
+    "gl2-2.6-distance-ot-gen": {
+      "sectionId": "2.6",
+      "titleZh": "от + 第二格表示距离或起点",
+      "sourceText": "2.6 第 5 条说明 от + 第二格可与地点/距离副词关联。"
+    },
+    "gl2-2.6-k-iz-direction": {
+      "sectionId": "2.6",
+      "titleZh": "к/из 与方向和来源",
+      "sourceText": "2.6 第 1、3、5 条说明 к、из、от 的方向/来源对应关系。"
+    },
+    "gl2-2.6-na-acc-purpose": {
+      "sectionId": "2.6",
+      "titleZh": "на + 第四格表示到某地的目的",
+      "sourceText": "2.6 第 2 条说明在地点方向结构中，на + 第四格可说明 пребывания 的目的。"
+    },
+    "gl2-2.6-k-u-ot-person": {
+      "sectionId": "2.6",
+      "titleZh": "к/у/от + 人名词的方向与静态位置",
+      "sourceText": "2.6 第 3 条区分 к、от 表示朝向/离开某人，у 表示在某人处。"
+    },
+    "gl2-2.6-k-u-ot-inanimate": {
+      "sectionId": "2.6",
+      "titleZh": "к/у/от + 非生命名词的空间关系",
+      "sourceText": "2.6 第 5 条说明非生命名词与 к、у、от 的方向、邻近和起点意义。"
+    },
+    "gl2-2.6-za-iz-za": {
+      "sectionId": "2.6",
+      "titleZh": "за / из-за 区分静态、方向与来源",
+      "sourceText": "2.6 第 4 条表格区分 за + 第五格、за + 第四格、из-за + 第二格。"
+    },
+    "gl2-2.6-v-na-acc-direction": {
+      "sectionId": "2.6",
+      "titleZh": "в/на + 第四格表示方向终点",
+      "sourceText": "2.6 第 1 条区分 куда? 的方向终点与 где? 的静态地点；方向运动使用 в/на + 第四格。"
+    },
+    "gl2-2.6-static-v-na-prep": {
+      "sectionId": "2.6",
+      "titleZh": "в/на + 第六格表示静态地点",
+      "sourceText": "2.6 第 1 条区分 где? 的在场地点与方向运动。"
+    },
+    "gl2-2.7-blagodarya-dat": {
+      "sectionId": "2.7",
+      "titleZh": "благодаря + 第三格表示有利原因",
+      "sourceText": "2.7 第 1 条规定 благодаря + 第三格表示促成结果的有利原因。"
+    },
+    "gl2-2.7-iz-za-gen": {
+      "sectionId": "2.7",
+      "titleZh": "из-за + 第二格表示阻碍或不利原因",
+      "sourceText": "2.7 第 2 条规定 из-за + 第二格表示阻碍动作或引起不良事件的原因。"
+    },
+    "gl2-2.7-iz-gen-conscious": {
+      "sectionId": "2.7",
+      "titleZh": "из + 第二格表示主动动机",
+      "sourceText": "2.7 第 3 条规定 из + 第二格接性格或情感名词，表示主动且有意识的动机。"
+    },
+    "gl2-2.7-ot-gen-state": {
+      "sectionId": "2.7",
+      "titleZh": "от + 第二格表示状态变化或非自主反应原因",
+      "sourceText": "2.7 第 4 条说明 от + 第二格表示外因、人的状态变化/非自主反应及疾病原因。"
+    },
+    "gl2-2.7-s-gen-colloquial": {
+      "sectionId": "2.7",
+      "titleZh": "с (со) + 第二格的口语原因表达",
+      "sourceText": "2.7 注意项说明 с (со) + 第二格与 от 同义，但限于 страх、скука、радость 等少数名词并属口语风格。"
+    },
+    "gl2-2.7-po-dat": {
+      "sectionId": "2.7",
+      "titleZh": "по + 第三格表示情境或性格原因",
+      "sourceText": "2.7 第 5 条区分 обстоятельства 与性格造成的 по + 第三格原因。"
+    },
+    "gl2-2.7-pod-inst": {
+      "sectionId": "2.7",
+      "titleZh": "под + 第五格表示作用或影响",
+      "sourceText": "2.7 第 6 条说明 под действием / под влиянием / под давлением 的原因关系。"
+    },
+    "gl2-2.7-vsledstvie-gen": {
+      "sectionId": "2.7",
+      "titleZh": "вследствие + 第二格表示有结果的原因",
+      "sourceText": "2.7 第 7 条规定 вследствие、в результате + 第二格表示产生结果的原因。"
+    },
+    "gl2-2.7-v-svyazi-s-inst": {
+      "sectionId": "2.7",
+      "titleZh": "в связи с + 第五格表示行动的依据",
+      "sourceText": "2.7 第 8 条说明 в связи с чем、ввиду чего 表示行动的依据。"
+    },
+    "gl2-2.8-dlya-gen": {
+      "sectionId": "2.8",
+      "titleZh": "для + 第二格表示目的",
+      "sourceText": "2.8 第 1 条说明 для + 第二格是最常见的目的结构，可接运动动词和多类动词。"
+    },
+    "gl2-2.8-goal-inventory": {
+      "sectionId": "2.8",
+      "titleZh": "ради、за、на等目的介词的来源目录",
+      "sourceText": "2.8 导言列出 для、ради、за、на 作为目的关系的介词；清洗来源未保留后三种的独立条件说明。"
+    }
+  },
+  "exercises": {
+    "GL2-Q001": {
+      "exerciseId": "GL2-Q001",
+      "printedNumber": 1,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.1"
+      ],
+      "ruleIds": [
+        "gl2-2.1-sodeistvovat-v-prep"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 18,
+      "exercisePdfPage": 20,
+      "theoryPrintedPages": [
+        98,
+        99
+      ],
+      "theoryPdfPages": [
+        100,
+        101
+      ],
+      "mappingReason": "содействовать в укреплении。2.1 表列出 содействовать кому, чему; в чём。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q002": {
+      "exerciseId": "GL2-Q002",
+      "printedNumber": 2,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.1"
+      ],
+      "ruleIds": [
+        "gl2-2.1-miritsya-s-inst"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 18,
+      "exercisePdfPage": 20,
+      "theoryPrintedPages": [
+        98,
+        99
+      ],
+      "theoryPdfPages": [
+        100,
+        101
+      ],
+      "mappingReason": "мириться с обстоятельствами。2.1 表列出 мириться / примириться с кем; с чем。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q003": {
+      "exerciseId": "GL2-Q003",
+      "printedNumber": 3,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.1"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 18,
+      "exercisePdfPage": 20,
+      "theoryPrintedPages": [
+        98,
+        99
+      ],
+      "theoryPdfPages": [
+        100,
+        101
+      ],
+      "mappingReason": "высказывать разные мнения 考查一般第四格宾语；2.1 表未列 высказывать，也没有通用宾格规则。。",
+      "reviewStatus": "needs-review"
+    },
+    "GL2-Q004": {
+      "exerciseId": "GL2-Q004",
+      "printedNumber": 4,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.1"
+      ],
+      "ruleIds": [
+        "gl2-2.1-predpochitat-acc-dat"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 18,
+      "exercisePdfPage": 20,
+      "theoryPrintedPages": [
+        98,
+        99
+      ],
+      "theoryPdfPages": [
+        100,
+        101
+      ],
+      "mappingReason": "предпочитал радость веселью。2.1 表列出 предпочитать кого, что; кому, чему。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q005": {
+      "exerciseId": "GL2-Q005",
+      "printedNumber": 5,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.1"
+      ],
+      "ruleIds": [
+        "gl2-2.1-uprekat-acc-v-prep"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 18,
+      "exercisePdfPage": 20,
+      "theoryPrintedPages": [
+        98,
+        99
+      ],
+      "theoryPdfPages": [
+        100,
+        101
+      ],
+      "mappingReason": "упрекать вас ни в чём。2.1 表列出 упрекать кого; в чём。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q006": {
+      "exerciseId": "GL2-Q006",
+      "printedNumber": 6,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.1"
+      ],
+      "ruleIds": [
+        "gl2-2.1-dostigat-gen"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 19,
+      "exercisePdfPage": 21,
+      "theoryPrintedPages": [
+        98,
+        99
+      ],
+      "theoryPdfPages": [
+        100,
+        101
+      ],
+      "mappingReason": "достигли высокого уровня。2.1 表列出 достигать / достичь чего。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q007": {
+      "exerciseId": "GL2-Q007",
+      "printedNumber": 7,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.1"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 19,
+      "exercisePdfPage": 21,
+      "theoryPrintedPages": [
+        98,
+        99
+      ],
+      "theoryPdfPages": [
+        100,
+        101
+      ],
+      "mappingReason": "требуют бережного отношения；2.1 表未列 требовать，不能以常识补写原书支配规则。。",
+      "reviewStatus": "needs-review"
+    },
+    "GL2-Q008": {
+      "exerciseId": "GL2-Q008",
+      "printedNumber": 8,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.1"
+      ],
+      "ruleIds": [
+        "gl2-2.1-izbegat-gen"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 19,
+      "exercisePdfPage": 21,
+      "theoryPrintedPages": [
+        98,
+        99
+      ],
+      "theoryPdfPages": [
+        100,
+        101
+      ],
+      "mappingReason": "избегать общения。2.1 表列出 избегать кого, чего。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q009": {
+      "exerciseId": "GL2-Q009",
+      "printedNumber": 9,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.1"
+      ],
+      "ruleIds": [
+        "gl2-2.1-obizhatsya-na-acc"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 19,
+      "exercisePdfPage": 21,
+      "theoryPrintedPages": [
+        98,
+        99
+      ],
+      "theoryPdfPages": [
+        100,
+        101
+      ],
+      "mappingReason": "обижаться на кого-либо。2.1 表列出 обижаться / обидеться на кого, на что。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q010": {
+      "exerciseId": "GL2-Q010",
+      "printedNumber": 10,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.1"
+      ],
+      "ruleIds": [
+        "gl2-2.1-vliyat-na-acc"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 19,
+      "exercisePdfPage": 21,
+      "theoryPrintedPages": [
+        98,
+        99
+      ],
+      "theoryPdfPages": [
+        100,
+        101
+      ],
+      "mappingReason": "влиять на мировоззрение。2.1 表列出 влиять / повлиять на кого, на что。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q011": {
+      "exerciseId": "GL2-Q011",
+      "printedNumber": 11,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.1"
+      ],
+      "ruleIds": [
+        "gl2-2.1-polagatsya-na-acc"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 19,
+      "exercisePdfPage": 21,
+      "theoryPrintedPages": [
+        98,
+        99
+      ],
+      "theoryPdfPages": [
+        100,
+        101
+      ],
+      "mappingReason": "полагаться на свои силы。2.1 表列出 полагаться / положиться на кого, на что。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q012": {
+      "exerciseId": "GL2-Q012",
+      "printedNumber": 12,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.1"
+      ],
+      "ruleIds": [
+        "gl2-2.1-smeyatsya-nad-inst"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 19,
+      "exercisePdfPage": 21,
+      "theoryPrintedPages": [
+        98,
+        99
+      ],
+      "theoryPdfPages": [
+        100,
+        101
+      ],
+      "mappingReason": "посмеяться над собой。2.1 表列出 смеяться / посмеяться над кем, над чем。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q013": {
+      "exerciseId": "GL2-Q013",
+      "printedNumber": 13,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.1"
+      ],
+      "ruleIds": [
+        "gl2-2.1-uchit-acc-dat"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 20,
+      "exercisePdfPage": 22,
+      "theoryPrintedPages": [
+        98,
+        99
+      ],
+      "theoryPdfPages": [
+        100,
+        101
+      ],
+      "mappingReason": "учит журналистов умению。2.1 表列出 учить / научить кого; чему。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q014": {
+      "exerciseId": "GL2-Q014",
+      "printedNumber": 14,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.1"
+      ],
+      "ruleIds": [
+        "gl2-2.1-porazhat-acc-inst"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 20,
+      "exercisePdfPage": 22,
+      "theoryPrintedPages": [
+        98,
+        99
+      ],
+      "theoryPdfPages": [
+        100,
+        101
+      ],
+      "mappingReason": "поражает телезрителей начитанностью。2.1 表列出 поражать / поразить кого; чем。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q015": {
+      "exerciseId": "GL2-Q015",
+      "printedNumber": 15,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.1"
+      ],
+      "ruleIds": [
+        "gl2-2.1-slivatsya-s-inst"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 20,
+      "exercisePdfPage": 22,
+      "theoryPrintedPages": [
+        98,
+        99
+      ],
+      "theoryPdfPages": [
+        100,
+        101
+      ],
+      "mappingReason": "сливаются с вечностью。2.1 表列出 сливаться / слиться с чем。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q016": {
+      "exerciseId": "GL2-Q016",
+      "printedNumber": 16,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.1"
+      ],
+      "ruleIds": [
+        "gl2-2.1-protivostoyat-dat"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 20,
+      "exercisePdfPage": 22,
+      "theoryPrintedPages": [
+        98,
+        99
+      ],
+      "theoryPdfPages": [
+        100,
+        101
+      ],
+      "mappingReason": "противостоять огню。2.1 表列出 противостоять кому, чему。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q017": {
+      "exerciseId": "GL2-Q017",
+      "printedNumber": 17,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.1"
+      ],
+      "ruleIds": [
+        "gl2-2.1-sootvetstvovat-dat"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 20,
+      "exercisePdfPage": 22,
+      "theoryPrintedPages": [
+        98,
+        99
+      ],
+      "theoryPdfPages": [
+        100,
+        101
+      ],
+      "mappingReason": "соответствовать экологическим нормам。2.1 表列出 соответствовать чему。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q018": {
+      "exerciseId": "GL2-Q018",
+      "printedNumber": 18,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.1"
+      ],
+      "ruleIds": [
+        "gl2-2.1-priderzhivatsya-gen"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 20,
+      "exercisePdfPage": 22,
+      "theoryPrintedPages": [
+        98,
+        99
+      ],
+      "theoryPdfPages": [
+        100,
+        101
+      ],
+      "mappingReason": "не придерживаются режима。2.1 表列出 придерживаться / придержаться чего。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q019": {
+      "exerciseId": "GL2-Q019",
+      "printedNumber": 19,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.1"
+      ],
+      "ruleIds": [
+        "gl2-2.1-privykat-k-dat"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 20,
+      "exercisePdfPage": 22,
+      "theoryPrintedPages": [
+        98,
+        99
+      ],
+      "theoryPdfPages": [
+        100,
+        101
+      ],
+      "mappingReason": "привыкнуть к морозам。2.1 表列出 привыкать / привыкнуть к кому, к чему。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q020": {
+      "exerciseId": "GL2-Q020",
+      "printedNumber": 20,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.1"
+      ],
+      "ruleIds": [
+        "gl2-2.1-napominat-acc-acc"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 21,
+      "exercisePdfPage": 23,
+      "theoryPrintedPages": [
+        98,
+        99
+      ],
+      "theoryPdfPages": [
+        100,
+        101
+      ],
+      "mappingReason": "мозг дельфина напоминает мозг человека。2.1 表列出 напоминать / напомнить кого, что; чем。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q021": {
+      "exerciseId": "GL2-Q021",
+      "printedNumber": 21,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.1"
+      ],
+      "ruleIds": [
+        "gl2-2.1-prisposablivatsya-k-dat"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 21,
+      "exercisePdfPage": 23,
+      "theoryPrintedPages": [
+        98,
+        99
+      ],
+      "theoryPdfPages": [
+        100,
+        101
+      ],
+      "mappingReason": "приспосабливаются к условиям。2.1 表列出 приспосабливаться / приспособиться к чему。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q022": {
+      "exerciseId": "GL2-Q022",
+      "printedNumber": 22,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.1"
+      ],
+      "ruleIds": [
+        "gl2-2.1-otlichatsya-inst"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 21,
+      "exercisePdfPage": 23,
+      "theoryPrintedPages": [
+        98,
+        99
+      ],
+      "theoryPdfPages": [
+        100,
+        101
+      ],
+      "mappingReason": "отличаться низкими ценами。2.1 表列出 отличаться чем。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q023": {
+      "exerciseId": "GL2-Q023",
+      "printedNumber": 23,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.1"
+      ],
+      "ruleIds": [
+        "gl2-2.1-verit-v-acc"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 21,
+      "exercisePdfPage": 23,
+      "theoryPrintedPages": [
+        98,
+        99
+      ],
+      "theoryPdfPages": [
+        100,
+        101
+      ],
+      "mappingReason": "верят в успех。2.1 表列出 верить / поверить в кого, во что。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q024": {
+      "exerciseId": "GL2-Q024",
+      "printedNumber": 24,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.2"
+      ],
+      "ruleIds": [
+        "gl2-2.2-svoboden-v-prep"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 21,
+      "exercisePdfPage": 23,
+      "theoryPrintedPages": [
+        99
+      ],
+      "theoryPdfPages": [
+        101
+      ],
+      "mappingReason": "свободны в своём выборе。2.2 表列出 свободен в чём; от чего。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q025": {
+      "exerciseId": "GL2-Q025",
+      "printedNumber": 25,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.2"
+      ],
+      "ruleIds": [
+        "gl2-2.2-chuzhd-dat"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 21,
+      "exercisePdfPage": 23,
+      "theoryPrintedPages": [
+        99
+      ],
+      "theoryPdfPages": [
+        101
+      ],
+      "mappingReason": "сострадание было ему не чуждо。2.2 表列出 чужд кому, чему。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q026": {
+      "exerciseId": "GL2-Q026",
+      "printedNumber": 26,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.2"
+      ],
+      "ruleIds": [
+        "gl2-2.2-izvesten-dat"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 22,
+      "exercisePdfPage": 24,
+      "theoryPrintedPages": [
+        99
+      ],
+      "theoryPdfPages": [
+        101
+      ],
+      "mappingReason": "шахматы были известны им одним。2.2 表列出 известен кому; чем。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q027": {
+      "exerciseId": "GL2-Q027",
+      "printedNumber": 27,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.2"
+      ],
+      "ruleIds": [
+        "gl2-2.2-terpim-k-dat"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 22,
+      "exercisePdfPage": 24,
+      "theoryPrintedPages": [
+        99
+      ],
+      "theoryPdfPages": [
+        101
+      ],
+      "mappingReason": "терпимы к окружающим。2.2 表列出 терпим к кому, к чему。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q028": {
+      "exerciseId": "GL2-Q028",
+      "printedNumber": 28,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.2"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 22,
+      "exercisePdfPage": 24,
+      "theoryPrintedPages": [
+        99
+      ],
+      "theoryPdfPages": [
+        101
+      ],
+      "mappingReason": "свойственно любому человеку；2.2 表未列 краткое прилагательное свойственен/свойственно。。",
+      "reviewStatus": "needs-review"
+    },
+    "GL2-Q029": {
+      "exerciseId": "GL2-Q029",
+      "printedNumber": 29,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.2"
+      ],
+      "ruleIds": [
+        "gl2-2.2-protivopolozhen-dat"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 22,
+      "exercisePdfPage": 24,
+      "theoryPrintedPages": [
+        99
+      ],
+      "theoryPdfPages": [
+        101
+      ],
+      "mappingReason": "противоположно ему。2.2 表列出 противоположен кому, чему; по чему。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q030": {
+      "exerciseId": "GL2-Q030",
+      "printedNumber": 30,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.2"
+      ],
+      "ruleIds": [
+        "gl2-2.2-vnimatelen-k-dat"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 22,
+      "exercisePdfPage": 24,
+      "theoryPrintedPages": [
+        99
+      ],
+      "theoryPdfPages": [
+        101
+      ],
+      "mappingReason": "внимателен к деталям。2.2 表列出 внимателен к кому, к чему。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q031": {
+      "exerciseId": "GL2-Q031",
+      "printedNumber": 31,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.2"
+      ],
+      "ruleIds": [
+        "gl2-2.2-snishoditelen-k-dat"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 22,
+      "exercisePdfPage": 24,
+      "theoryPrintedPages": [
+        99
+      ],
+      "theoryPdfPages": [
+        101
+      ],
+      "mappingReason": "снисходительны к счастливым。2.2 表列出 снисходителен к кому, к чему。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q032": {
+      "exerciseId": "GL2-Q032",
+      "printedNumber": 32,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.2"
+      ],
+      "ruleIds": [
+        "gl2-2.2-blagopriyatен-dlya-gen"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 22,
+      "exercisePdfPage": 24,
+      "theoryPrintedPages": [
+        99
+      ],
+      "theoryPdfPages": [
+        101
+      ],
+      "mappingReason": "благоприятна для прогулки。2.2 表列出 благоприятен для кого, для чего。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q033": {
+      "exerciseId": "GL2-Q033",
+      "printedNumber": 33,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.2"
+      ],
+      "ruleIds": [
+        "gl2-2.2-dostupen-dat"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 23,
+      "exercisePdfPage": 25,
+      "theoryPrintedPages": [
+        99
+      ],
+      "theoryPdfPages": [
+        101
+      ],
+      "mappingReason": "одежда доступна среднему классу。2.2 表列出 доступен кому, чему; для кого, для чего。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q034": {
+      "exerciseId": "GL2-Q034",
+      "printedNumber": 34,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.2"
+      ],
+      "ruleIds": [
+        "gl2-2.2-ustoichiv-k-dat"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 23,
+      "exercisePdfPage": 25,
+      "theoryPrintedPages": [
+        99
+      ],
+      "theoryPdfPages": [
+        101
+      ],
+      "mappingReason": "устойчивы к воздействию。2.2 表列出 устойчив к чему。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q035": {
+      "exerciseId": "GL2-Q035",
+      "printedNumber": 35,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.2"
+      ],
+      "ruleIds": [
+        "gl2-2.2-raven-dat"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 23,
+      "exercisePdfPage": 25,
+      "theoryPrintedPages": [
+        99
+      ],
+      "theoryPdfPages": [
+        101
+      ],
+      "mappingReason": "равноценна победе。2.2 表列出 равен чему。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q036": {
+      "exerciseId": "GL2-Q036",
+      "printedNumber": 36,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.3"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [
+        "gl2-2.3-s-inst-accompanying"
+      ],
+      "status": "needs-review",
+      "exercisePrintedPage": 23,
+      "exercisePdfPage": 25,
+      "theoryPrintedPages": [
+        100
+      ],
+      "theoryPdfPages": [
+        102
+      ],
+      "mappingReason": "с промежутком 属于带 с 的方式搭配，但原书只直接列感受、伴随动作与态度；语义边界保留复核。。",
+      "reviewStatus": "needs-review"
+    },
+    "GL2-Q037": {
+      "exerciseId": "GL2-Q037",
+      "printedNumber": 37,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.3"
+      ],
+      "ruleIds": [
+        "gl2-2.3-s-inst-accompanying"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 23,
+      "exercisePdfPage": 25,
+      "theoryPrintedPages": [
+        100
+      ],
+      "theoryPdfPages": [
+        102
+      ],
+      "mappingReason": "с громким шумом。2.3 第 1 条规定感受、伴随动作以及抽象的性质/态度可用 с + 第五格。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q038": {
+      "exerciseId": "GL2-Q038",
+      "printedNumber": 38,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.3"
+      ],
+      "ruleIds": [
+        "gl2-2.3-s-inst-accompanying"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 23,
+      "exercisePdfPage": 25,
+      "theoryPrintedPages": [
+        100
+      ],
+      "theoryPdfPages": [
+        102
+      ],
+      "mappingReason": "с серьёзным выражением лица。2.3 第 1 条规定感受、伴随动作以及抽象的性质/态度可用 с + 第五格。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q039": {
+      "exerciseId": "GL2-Q039",
+      "printedNumber": 39,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.3"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 24,
+      "exercisePdfPage": 26,
+      "theoryPrintedPages": [
+        100
+      ],
+      "theoryPdfPages": [
+        102
+      ],
+      "mappingReason": "на высоком уровне 是方式搭配；2.3 仅解释 с 与无 с 的第五格对立。。",
+      "reviewStatus": "needs-review"
+    },
+    "GL2-Q040": {
+      "exerciseId": "GL2-Q040",
+      "printedNumber": 40,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.3"
+      ],
+      "ruleIds": [
+        "gl2-2.3-s-inst-accompanying"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 24,
+      "exercisePdfPage": 26,
+      "theoryPrintedPages": [
+        100
+      ],
+      "theoryPdfPages": [
+        102
+      ],
+      "mappingReason": "с любовью。2.3 第 1 条规定感受、伴随动作以及抽象的性质/态度可用 с + 第五格。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q041": {
+      "exerciseId": "GL2-Q041",
+      "printedNumber": 41,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.3"
+      ],
+      "ruleIds": [
+        "gl2-2.3-no-s-qualitative"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 24,
+      "exercisePdfPage": 26,
+      "theoryPrintedPages": [
+        100
+      ],
+      "theoryPdfPages": [
+        102
+      ],
+      "mappingReason": "медленными шагами。2.3 第 2 条规定，若形容词性成分承载动作的质性特征，则不用 с，且该定语不可省略。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q042": {
+      "exerciseId": "GL2-Q042",
+      "printedNumber": 42,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.3"
+      ],
+      "ruleIds": [
+        "gl2-2.3-no-s-qualitative"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 24,
+      "exercisePdfPage": 26,
+      "theoryPrintedPages": [
+        100
+      ],
+      "theoryPdfPages": [
+        102
+      ],
+      "mappingReason": "простым языком。2.3 第 2 条规定，若形容词性成分承载动作的质性特征，则不用 с，且该定语不可省略。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q043": {
+      "exerciseId": "GL2-Q043",
+      "printedNumber": 43,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.3"
+      ],
+      "ruleIds": [
+        "gl2-2.3-no-s-qualitative"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 24,
+      "exercisePdfPage": 26,
+      "theoryPrintedPages": [
+        100
+      ],
+      "theoryPdfPages": [
+        102
+      ],
+      "mappingReason": "звонким голосом。2.3 第 2 条规定，若形容词性成分承载动作的质性特征，则不用 с，且该定语不可省略。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q044": {
+      "exerciseId": "GL2-Q044",
+      "printedNumber": 44,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.3"
+      ],
+      "ruleIds": [
+        "gl2-2.3-no-s-qualitative"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 24,
+      "exercisePdfPage": 26,
+      "theoryPrintedPages": [
+        100
+      ],
+      "theoryPdfPages": [
+        102
+      ],
+      "mappingReason": "тихим и лёгким смехом。2.3 第 2 条规定，若形容词性成分承载动作的质性特征，则不用 с，且该定语不可省略。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q045": {
+      "exerciseId": "GL2-Q045",
+      "printedNumber": 45,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.3"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 24,
+      "exercisePdfPage": 26,
+      "theoryPrintedPages": [
+        100
+      ],
+      "theoryPdfPages": [
+        102
+      ],
+      "mappingReason": "под присмотром 不属于 2.3 明示的 с / 无 с 第五格对立。。",
+      "reviewStatus": "needs-review"
+    },
+    "GL2-Q046": {
+      "exerciseId": "GL2-Q046",
+      "printedNumber": 46,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.3"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 25,
+      "exercisePdfPage": 27,
+      "theoryPrintedPages": [
+        100
+      ],
+      "theoryPdfPages": [
+        102
+      ],
+      "mappingReason": "с первого взгляда 是固定方式搭配；2.3 未给出该搭配或同类条件。。",
+      "reviewStatus": "needs-review"
+    },
+    "GL2-Q047": {
+      "exerciseId": "GL2-Q047",
+      "printedNumber": 47,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.3"
+      ],
+      "ruleIds": [
+        "gl2-2.3-s-inst-accompanying"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 25,
+      "exercisePdfPage": 27,
+      "theoryPrintedPages": [
+        100
+      ],
+      "theoryPdfPages": [
+        102
+      ],
+      "mappingReason": "с нежностью。2.3 第 1 条规定感受、伴随动作以及抽象的性质/态度可用 с + 第五格。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q048": {
+      "exerciseId": "GL2-Q048",
+      "printedNumber": 48,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.3"
+      ],
+      "ruleIds": [
+        "gl2-2.3-no-s-qualitative"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 25,
+      "exercisePdfPage": 27,
+      "theoryPrintedPages": [
+        100
+      ],
+      "theoryPdfPages": [
+        102
+      ],
+      "mappingReason": "широко открытыми глазами。2.3 第 2 条规定，若形容词性成分承载动作的质性特征，则不用 с，且该定语不可省略。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q049": {
+      "exerciseId": "GL2-Q049",
+      "printedNumber": 49,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.3"
+      ],
+      "ruleIds": [
+        "gl2-2.3-s-inst-accompanying"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 25,
+      "exercisePdfPage": 27,
+      "theoryPrintedPages": [
+        100
+      ],
+      "theoryPdfPages": [
+        102
+      ],
+      "mappingReason": "с волнением。2.3 第 1 条规定感受、伴随动作以及抽象的性质/态度可用 с + 第五格。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q050": {
+      "exerciseId": "GL2-Q050",
+      "printedNumber": 50,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.4",
+        "2.4.2"
+      ],
+      "ruleIds": [
+        "gl2-2.4.2-po-dat-content"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 25,
+      "exercisePdfPage": 27,
+      "theoryPrintedPages": [
+        101,
+        102,
+        103
+      ],
+      "theoryPdfPages": [
+        103,
+        104,
+        105
+      ],
+      "mappingReason": "соревнования по бегу。2.4.2 表列出 по + 第三格可表示信息内容或活动领域。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q051": {
+      "exerciseId": "GL2-Q051",
+      "printedNumber": 51,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.4",
+        "2.4.2"
+      ],
+      "ruleIds": [
+        "gl2-2.4.2-in-na-acc-feature"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 25,
+      "exercisePdfPage": 27,
+      "theoryPrintedPages": [
+        101,
+        102,
+        103
+      ],
+      "theoryPdfPages": [
+        103,
+        104,
+        105
+      ],
+      "mappingReason": "обувь на каблуках。2.4.2 表列出 в、на + 第四格可表示外部特征和空间位置。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q052": {
+      "exerciseId": "GL2-Q052",
+      "printedNumber": 52,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.4",
+        "2.4.2"
+      ],
+      "ruleIds": [
+        "gl2-2.4.2-iz-gen-composition"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 26,
+      "exercisePdfPage": 28,
+      "theoryPrintedPages": [
+        101,
+        102,
+        103
+      ],
+      "theoryPdfPages": [
+        103,
+        104,
+        105
+      ],
+      "mappingReason": "семья из трёх человек。2.4.2 表列出 из + 第二格可表示构成整体的部分。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q053": {
+      "exerciseId": "GL2-Q053",
+      "printedNumber": 53,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.4",
+        "2.4.2"
+      ],
+      "ruleIds": [
+        "gl2-2.4.2-po-dat-content"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 26,
+      "exercisePdfPage": 28,
+      "theoryPrintedPages": [
+        101,
+        102,
+        103
+      ],
+      "theoryPdfPages": [
+        103,
+        104,
+        105
+      ],
+      "mappingReason": "сборник упражнений по стилистике。2.4.2 表列出 по + 第三格可表示信息内容或活动领域。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q054": {
+      "exerciseId": "GL2-Q054",
+      "printedNumber": 54,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.4",
+        "2.4.1"
+      ],
+      "ruleIds": [
+        "gl2-2.4.1-genitive-sphere"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 26,
+      "exercisePdfPage": 28,
+      "theoryPrintedPages": [
+        101,
+        102,
+        103
+      ],
+      "theoryPdfPages": [
+        103,
+        104,
+        105
+      ],
+      "mappingReason": "антология русской поэзии。2.4.1 表列出第二格可表达所属、领域、特征等定语关系。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q055": {
+      "exerciseId": "GL2-Q055",
+      "printedNumber": 55,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.4",
+        "2.4.2"
+      ],
+      "ruleIds": [
+        "gl2-2.4.2-s-inst-feature"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 26,
+      "exercisePdfPage": 28,
+      "theoryPrintedPages": [
+        101,
+        102,
+        103
+      ],
+      "theoryPdfPages": [
+        103,
+        104,
+        105
+      ],
+      "mappingReason": "писатель с мировым именем。2.4.2 表列出 с + 第五格可表示外部/内部特征或伴随特征。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q056": {
+      "exerciseId": "GL2-Q056",
+      "printedNumber": 56,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.4",
+        "2.4.2"
+      ],
+      "ruleIds": [
+        "gl2-2.4.2-s-inst-feature"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 26,
+      "exercisePdfPage": 28,
+      "theoryPrintedPages": [
+        101,
+        102,
+        103
+      ],
+      "theoryPdfPages": [
+        103,
+        104,
+        105
+      ],
+      "mappingReason": "с чувством юмора。2.4.2 表列出 с + 第五格可表示外部/内部特征或伴随特征。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q057": {
+      "exerciseId": "GL2-Q057",
+      "printedNumber": 57,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.4",
+        "2.4.2"
+      ],
+      "ruleIds": [
+        "gl2-2.4.2-s-inst-feature"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 26,
+      "exercisePdfPage": 28,
+      "theoryPrintedPages": [
+        101,
+        102,
+        103
+      ],
+      "theoryPdfPages": [
+        103,
+        104,
+        105
+      ],
+      "mappingReason": "номер с видом на залив。2.4.2 表列出 с + 第五格可表示外部/内部特征或伴随特征。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q058": {
+      "exerciseId": "GL2-Q058",
+      "printedNumber": 58,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.4",
+        "2.4.2"
+      ],
+      "ruleIds": [
+        "gl2-2.4.2-in-na-acc-feature"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 26,
+      "exercisePdfPage": 28,
+      "theoryPrintedPages": [
+        101,
+        102,
+        103
+      ],
+      "theoryPdfPages": [
+        103,
+        104,
+        105
+      ],
+      "mappingReason": "дом на скале。2.4.2 表列出 в、на + 第四格可表示外部特征和空间位置。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q059": {
+      "exerciseId": "GL2-Q059",
+      "printedNumber": 59,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.4",
+        "2.4.2"
+      ],
+      "ruleIds": [
+        "gl2-2.4.2-o-prep-content"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 27,
+      "exercisePdfPage": 29,
+      "theoryPrintedPages": [
+        101,
+        102,
+        103
+      ],
+      "theoryPdfPages": [
+        103,
+        104,
+        105
+      ],
+      "mappingReason": "договор о дружбе。2.4.2 表列出 о (об) + 第六格表示被限定名词的内容。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q060": {
+      "exerciseId": "GL2-Q060",
+      "printedNumber": 60,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.4",
+        "2.4.2"
+      ],
+      "ruleIds": [
+        "gl2-2.4.2-infinitive-attribute"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 27,
+      "exercisePdfPage": 29,
+      "theoryPrintedPages": [
+        101,
+        102,
+        103
+      ],
+      "theoryPdfPages": [
+        103,
+        104,
+        105
+      ],
+      "mappingReason": "готовность продолжить сотрудничество。2.4.2 注意项说明愿望、能力、权利、计划等抽象名词可与不定式形成定语关系。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q061": {
+      "exerciseId": "GL2-Q061",
+      "printedNumber": 61,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.4",
+        "2.4.2"
+      ],
+      "ruleIds": [
+        "gl2-2.4.2-infinitive-attribute"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 27,
+      "exercisePdfPage": 29,
+      "theoryPrintedPages": [
+        101,
+        102,
+        103
+      ],
+      "theoryPdfPages": [
+        103,
+        104,
+        105
+      ],
+      "mappingReason": "право искать новую интонацию。2.4.2 注意项说明愿望、能力、权利、计划等抽象名词可与不定式形成定语关系。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q062": {
+      "exerciseId": "GL2-Q062",
+      "printedNumber": 62,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.4",
+        "2.4.2"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [
+        "gl2-2.4.2-infinitive-attribute"
+      ],
+      "status": "needs-review",
+      "exercisePrintedPage": 27,
+      "exercisePdfPage": 29,
+      "theoryPrintedPages": [
+        101,
+        102,
+        103
+      ],
+      "theoryPdfPages": [
+        103,
+        104,
+        105
+      ],
+      "mappingReason": "традиция праздновать：属于名词 + 不定式，但 традиция 不在原书点名的抽象名词及例表中。。",
+      "reviewStatus": "needs-review"
+    },
+    "GL2-Q063": {
+      "exerciseId": "GL2-Q063",
+      "printedNumber": 63,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.4",
+        "2.4.2"
+      ],
+      "ruleIds": [
+        "gl2-2.4.2-infinitive-attribute"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 27,
+      "exercisePdfPage": 29,
+      "theoryPrintedPages": [
+        101,
+        102,
+        103
+      ],
+      "theoryPdfPages": [
+        103,
+        104,
+        105
+      ],
+      "mappingReason": "желание переехать。2.4.2 注意项说明愿望、能力、权利、计划等抽象名词可与不定式形成定语关系。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q064": {
+      "exerciseId": "GL2-Q064",
+      "printedNumber": 64,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.4",
+        "2.4.2"
+      ],
+      "ruleIds": [
+        "gl2-2.4.2-infinitive-attribute"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 27,
+      "exercisePdfPage": 29,
+      "theoryPrintedPages": [
+        101,
+        102,
+        103
+      ],
+      "theoryPdfPages": [
+        103,
+        104,
+        105
+      ],
+      "mappingReason": "способность обеспечивать растения。2.4.2 注意项说明愿望、能力、权利、计划等抽象名词可与不定式形成定语关系。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q065": {
+      "exerciseId": "GL2-Q065",
+      "printedNumber": 65,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.4",
+        "2.4.1"
+      ],
+      "ruleIds": [
+        "gl2-2.4.1-genitive-quantity"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 27,
+      "exercisePdfPage": 29,
+      "theoryPrintedPages": [
+        101,
+        102,
+        103
+      ],
+      "theoryPdfPages": [
+        103,
+        104,
+        105
+      ],
+      "mappingReason": "чайную ложку мёда。2.4.1 表列出部分—整体及集合/事物总和关系。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q066": {
+      "exerciseId": "GL2-Q066",
+      "printedNumber": 66,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.4",
+        "2.4.1"
+      ],
+      "ruleIds": [
+        "gl2-2.4.1-genitive-quantity"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 27,
+      "exercisePdfPage": 29,
+      "theoryPrintedPages": [
+        101,
+        102,
+        103
+      ],
+      "theoryPdfPages": [
+        103,
+        104,
+        105
+      ],
+      "mappingReason": "коробка конфет。2.4.1 表列出部分—整体及集合/事物总和关系。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q067": {
+      "exerciseId": "GL2-Q067",
+      "printedNumber": 67,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.4",
+        "2.4.1"
+      ],
+      "ruleIds": [
+        "gl2-2.4.1-genitive-quantity"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 27,
+      "exercisePdfPage": 29,
+      "theoryPrintedPages": [
+        101,
+        102,
+        103
+      ],
+      "theoryPdfPages": [
+        103,
+        104,
+        105
+      ],
+      "mappingReason": "литр молока。2.4.1 表列出部分—整体及集合/事物总和关系。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q068": {
+      "exerciseId": "GL2-Q068",
+      "printedNumber": 68,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.4",
+        "2.4.1"
+      ],
+      "ruleIds": [
+        "gl2-2.4.1-genitive-quantity"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 28,
+      "exercisePdfPage": 30,
+      "theoryPrintedPages": [
+        101,
+        102,
+        103
+      ],
+      "theoryPdfPages": [
+        103,
+        104,
+        105
+      ],
+      "mappingReason": "стакан сока。2.4.1 表列出部分—整体及集合/事物总和关系。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q069": {
+      "exerciseId": "GL2-Q069",
+      "printedNumber": 69,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.4",
+        "2.4.1"
+      ],
+      "ruleIds": [
+        "gl2-2.4.1-genitive-quantity"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 28,
+      "exercisePdfPage": 30,
+      "theoryPrintedPages": [
+        101,
+        102,
+        103
+      ],
+      "theoryPdfPages": [
+        103,
+        104,
+        105
+      ],
+      "mappingReason": "пачку творога。2.4.1 表列出部分—整体及集合/事物总和关系。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q070": {
+      "exerciseId": "GL2-Q070",
+      "printedNumber": 70,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.5"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [
+        "gl2-2.5-za-result-duration"
+      ],
+      "status": "needs-review",
+      "exercisePrintedPage": 28,
+      "exercisePdfPage": 30,
+      "theoryPrintedPages": [
+        103,
+        104,
+        105
+      ],
+      "theoryPdfPages": [
+        105,
+        106,
+        107
+      ],
+      "mappingReason": "за 2 миллиарда лет 与“未改变”搭配；原书把 за + 第四格主要说明为完成结果所需时段，否定持续语义需保留复核。。",
+      "reviewStatus": "needs-review"
+    },
+    "GL2-Q071": {
+      "exerciseId": "GL2-Q071",
+      "printedNumber": 71,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.5"
+      ],
+      "ruleIds": [
+        "gl2-2.5-historical-period"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 28,
+      "exercisePdfPage": 30,
+      "theoryPrintedPages": [
+        103,
+        104,
+        105
+      ],
+      "theoryPdfPages": [
+        105,
+        106,
+        107
+      ],
+      "mappingReason": "в эру великих географических открытий。2.5 第 1 条区分时期的 в + 第四格与 при + 第六格。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q072": {
+      "exerciseId": "GL2-Q072",
+      "printedNumber": 72,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.5"
+      ],
+      "ruleIds": [
+        "gl2-2.5-historical-period"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 28,
+      "exercisePdfPage": 30,
+      "theoryPrintedPages": [
+        103,
+        104,
+        105
+      ],
+      "theoryPdfPages": [
+        105,
+        106,
+        107
+      ],
+      "mappingReason": "при Петре I。2.5 第 1 条区分时期的 в + 第四格与 при + 第六格。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q073": {
+      "exerciseId": "GL2-Q073",
+      "printedNumber": 73,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.5"
+      ],
+      "ruleIds": [
+        "gl2-2.5-historical-period"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 28,
+      "exercisePdfPage": 30,
+      "theoryPrintedPages": [
+        103,
+        104,
+        105
+      ],
+      "theoryPdfPages": [
+        105,
+        106,
+        107
+      ],
+      "mappingReason": "в наши дни。2.5 第 1 条区分时期的 в + 第四格与 при + 第六格。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q074": {
+      "exerciseId": "GL2-Q074",
+      "printedNumber": 74,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.5"
+      ],
+      "ruleIds": [
+        "gl2-2.5-historical-period"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 29,
+      "exercisePdfPage": 31,
+      "theoryPrintedPages": [
+        103,
+        104,
+        105
+      ],
+      "theoryPdfPages": [
+        105,
+        106,
+        107
+      ],
+      "mappingReason": "в век высоких технологий。2.5 第 1 条区分时期的 в + 第四格与 при + 第六格。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q075": {
+      "exerciseId": "GL2-Q075",
+      "printedNumber": 75,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.5"
+      ],
+      "ruleIds": [
+        "gl2-2.5-za-result-duration"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 29,
+      "exercisePdfPage": 31,
+      "theoryPrintedPages": [
+        103,
+        104,
+        105
+      ],
+      "theoryPdfPages": [
+        105,
+        106,
+        107
+      ],
+      "mappingReason": "за считанные минуты найти информацию。2.5 第 4 条说明 за + 第四格表示取得结果所需的时段。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q076": {
+      "exerciseId": "GL2-Q076",
+      "printedNumber": 76,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.5"
+      ],
+      "ruleIds": [
+        "gl2-2.5-za-before-event"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 29,
+      "exercisePdfPage": 31,
+      "theoryPrintedPages": [
+        103,
+        104,
+        105
+      ],
+      "theoryPdfPages": [
+        105,
+        106,
+        107
+      ],
+      "mappingReason": "за семь часов до начала。2.5 第 4 条区分 за + 第四格 与 за + 第四格 + до + 第二格。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q077": {
+      "exerciseId": "GL2-Q077",
+      "printedNumber": 77,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.5"
+      ],
+      "ruleIds": [
+        "gl2-2.5-na-acc-moment"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 29,
+      "exercisePdfPage": 31,
+      "theoryPrintedPages": [
+        103,
+        104,
+        105
+      ],
+      "theoryPdfPages": [
+        105,
+        106,
+        107
+      ],
+      "mappingReason": "переносится на четверг。2.5 第 8 条说明 на + 第四格表示与前一时点关联的确定时刻。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q078": {
+      "exerciseId": "GL2-Q078",
+      "printedNumber": 78,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.5"
+      ],
+      "ruleIds": [
+        "gl2-2.5-za-result-duration"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 29,
+      "exercisePdfPage": 31,
+      "theoryPrintedPages": [
+        103,
+        104,
+        105
+      ],
+      "theoryPdfPages": [
+        105,
+        106,
+        107
+      ],
+      "mappingReason": "облетел Землю за сто восемь минут。2.5 第 4 条说明 за + 第四格表示取得结果所需的时段。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q079": {
+      "exerciseId": "GL2-Q079",
+      "printedNumber": 79,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.5"
+      ],
+      "ruleIds": [
+        "gl2-2.5-pered-inst"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 29,
+      "exercisePdfPage": 31,
+      "theoryPrintedPages": [
+        103,
+        104,
+        105
+      ],
+      "theoryPdfPages": [
+        105,
+        106,
+        107
+      ],
+      "mappingReason": "перед выходом в открытый космос。2.5 第 5 条说明 перед + 第五格表示紧接另一动作之前。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q080": {
+      "exerciseId": "GL2-Q080",
+      "printedNumber": 80,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.5"
+      ],
+      "ruleIds": [
+        "gl2-2.5-na-stay-duration"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 29,
+      "exercisePdfPage": 31,
+      "theoryPrintedPages": [
+        103,
+        104,
+        105
+      ],
+      "theoryPdfPages": [
+        105,
+        106,
+        107
+      ],
+      "mappingReason": "путешествие на три года。2.5 第 4 条说明 на + 第四格表示动作应持续的确定时期。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q081": {
+      "exerciseId": "GL2-Q081",
+      "printedNumber": 81,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.5"
+      ],
+      "ruleIds": [
+        "gl2-2.5-posle-gen"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 30,
+      "exercisePdfPage": 32,
+      "theoryPrintedPages": [
+        103,
+        104,
+        105
+      ],
+      "theoryPdfPages": [
+        105,
+        106,
+        107
+      ],
+      "mappingReason": "после десяти лет молчания。2.5 第 6 条说明 после + 第二格可接带说明的时段或事件名词。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q082": {
+      "exerciseId": "GL2-Q082",
+      "printedNumber": 82,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.5"
+      ],
+      "ruleIds": [
+        "gl2-2.5-s-gen-start"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 30,
+      "exercisePdfPage": 32,
+      "theoryPrintedPages": [
+        103,
+        104,
+        105
+      ],
+      "theoryPdfPages": [
+        105,
+        106,
+        107
+      ],
+      "mappingReason": "с 1995 года。2.5 第 7 条表格列出 с + 第二格表示动作开始时刻。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q083": {
+      "exerciseId": "GL2-Q083",
+      "printedNumber": 83,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.5"
+      ],
+      "ruleIds": [
+        "gl2-2.5-za-before-event"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 30,
+      "exercisePdfPage": 32,
+      "theoryPrintedPages": [
+        103,
+        104,
+        105
+      ],
+      "theoryPdfPages": [
+        105,
+        106,
+        107
+      ],
+      "mappingReason": "за час до его закрытия。2.5 第 4 条区分 за + 第四格 与 за + 第四格 + до + 第二格。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q084": {
+      "exerciseId": "GL2-Q084",
+      "printedNumber": 84,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.5"
+      ],
+      "ruleIds": [
+        "gl2-2.5-s-do-range"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 30,
+      "exercisePdfPage": 32,
+      "theoryPrintedPages": [
+        103,
+        104,
+        105
+      ],
+      "theoryPdfPages": [
+        105,
+        106,
+        107
+      ],
+      "mappingReason": "с утра до вечера。2.5 第 7 条表格列出 с ... до 表示时间范围。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q085": {
+      "exerciseId": "GL2-Q085",
+      "printedNumber": 85,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.5"
+      ],
+      "ruleIds": [
+        "gl2-2.5-bare-acc-duration"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 30,
+      "exercisePdfPage": 32,
+      "theoryPrintedPages": [
+        103,
+        104,
+        105
+      ],
+      "theoryPdfPages": [
+        105,
+        106,
+        107
+      ],
+      "mappingReason": "длится два часа。2.5 第 4 条说明无介词第四格表示完成动作所花的时间。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q086": {
+      "exerciseId": "GL2-Q086",
+      "printedNumber": 86,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.5"
+      ],
+      "ruleIds": [
+        "gl2-2.5-every-acc"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 30,
+      "exercisePdfPage": 32,
+      "theoryPrintedPages": [
+        103,
+        104,
+        105
+      ],
+      "theoryPdfPages": [
+        105,
+        106,
+        107
+      ],
+      "mappingReason": "каждую неделю。2.5 第 2 条给出 каждый + 第四格的规律性时间表达。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q087": {
+      "exerciseId": "GL2-Q087",
+      "printedNumber": 87,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.5"
+      ],
+      "ruleIds": [
+        "gl2-2.5-na-stay-duration"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 30,
+      "exercisePdfPage": 32,
+      "theoryPrintedPages": [
+        103,
+        104,
+        105
+      ],
+      "theoryPdfPages": [
+        105,
+        106,
+        107
+      ],
+      "mappingReason": "перевели на две недели。2.5 第 4 条说明 на + 第四格表示动作应持续的确定时期。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q088": {
+      "exerciseId": "GL2-Q088",
+      "printedNumber": 88,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.5"
+      ],
+      "ruleIds": [
+        "gl2-2.5-posle-gen"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 31,
+      "exercisePdfPage": 33,
+      "theoryPrintedPages": [
+        103,
+        104,
+        105
+      ],
+      "theoryPdfPages": [
+        105,
+        106,
+        107
+      ],
+      "mappingReason": "после звонка。2.5 第 6 条说明 после + 第二格可接带说明的时段或事件名词。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q089": {
+      "exerciseId": "GL2-Q089",
+      "printedNumber": 89,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.5"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 31,
+      "exercisePdfPage": 33,
+      "theoryPrintedPages": [
+        103,
+        104,
+        105
+      ],
+      "theoryPdfPages": [
+        105,
+        106,
+        107
+      ],
+      "mappingReason": "уменьшилось на два-три часа 表示差额；2.5 未说明 на + 第四格的数量变化。。",
+      "reviewStatus": "needs-review"
+    },
+    "GL2-Q090": {
+      "exerciseId": "GL2-Q090",
+      "printedNumber": 90,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.5"
+      ],
+      "ruleIds": [
+        "gl2-2.5-cherez-acc"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 31,
+      "exercisePdfPage": 33,
+      "theoryPrintedPages": [
+        103,
+        104,
+        105
+      ],
+      "theoryPdfPages": [
+        105,
+        106,
+        107
+      ],
+      "mappingReason": "через сутки。2.5 第 6 条说明 через + 第四格接时间单位表示事件在一段时间后发生。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q091": {
+      "exerciseId": "GL2-Q091",
+      "printedNumber": 91,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.5"
+      ],
+      "ruleIds": [
+        "gl2-2.5-per-interval"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 31,
+      "exercisePdfPage": 33,
+      "theoryPrintedPages": [
+        103,
+        104,
+        105
+      ],
+      "theoryPdfPages": [
+        105,
+        106,
+        107
+      ],
+      "mappingReason": "пять раз в сутки。2.5 第 3 条给出次数 + в + 第四格的频率结构。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q092": {
+      "exerciseId": "GL2-Q092",
+      "printedNumber": 92,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.5"
+      ],
+      "ruleIds": [
+        "gl2-2.5-za-result-duration"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 31,
+      "exercisePdfPage": 33,
+      "theoryPrintedPages": [
+        103,
+        104,
+        105
+      ],
+      "theoryPdfPages": [
+        105,
+        106,
+        107
+      ],
+      "mappingReason": "преодолевают дистанцию за семь секунд。2.5 第 4 条说明 за + 第四格表示取得结果所需的时段。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q093": {
+      "exerciseId": "GL2-Q093",
+      "printedNumber": 93,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.5"
+      ],
+      "ruleIds": [
+        "gl2-2.5-za-before-event"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 31,
+      "exercisePdfPage": 33,
+      "theoryPrintedPages": [
+        103,
+        104,
+        105
+      ],
+      "theoryPdfPages": [
+        105,
+        106,
+        107
+      ],
+      "mappingReason": "за десять минут до отправления。2.5 第 4 条区分 за + 第四格 与 за + 第四格 + до + 第二格。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q094": {
+      "exerciseId": "GL2-Q094",
+      "printedNumber": 94,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.6"
+      ],
+      "ruleIds": [
+        "gl2-2.6-vdol-vokrug-sredi"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 32,
+      "exercisePdfPage": 34,
+      "theoryPrintedPages": [
+        105,
+        106
+      ],
+      "theoryPdfPages": [
+        107,
+        108
+      ],
+      "mappingReason": "вдоль реки Амур。2.6 第 6 条分别说明 вдоль、вокруг、среди 的空间意义。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q095": {
+      "exerciseId": "GL2-Q095",
+      "printedNumber": 95,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.6"
+      ],
+      "ruleIds": [
+        "gl2-2.6-vdol-vokrug-sredi"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 32,
+      "exercisePdfPage": 34,
+      "theoryPrintedPages": [
+        105,
+        106
+      ],
+      "theoryPdfPages": [
+        107,
+        108
+      ],
+      "mappingReason": "вокруг земного шара。2.6 第 6 条分别说明 вдоль、вокруг、среди 的空间意义。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q096": {
+      "exerciseId": "GL2-Q096",
+      "printedNumber": 96,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.6"
+      ],
+      "ruleIds": [
+        "gl2-2.6-vdol-vokrug-sredi"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 32,
+      "exercisePdfPage": 34,
+      "theoryPrintedPages": [
+        105,
+        106
+      ],
+      "theoryPdfPages": [
+        107,
+        108
+      ],
+      "mappingReason": "среди камней。2.6 第 6 条分别说明 вдоль、вокруг、среди 的空间意义。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q097": {
+      "exerciseId": "GL2-Q097",
+      "printedNumber": 97,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.6"
+      ],
+      "ruleIds": [
+        "gl2-2.6-distance-ot-gen"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 32,
+      "exercisePdfPage": 34,
+      "theoryPrintedPages": [
+        105,
+        106
+      ],
+      "theoryPdfPages": [
+        107,
+        108
+      ],
+      "mappingReason": "недалеко от озера Байкал。2.6 第 5 条说明 от + 第二格可与地点/距离副词关联。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q098": {
+      "exerciseId": "GL2-Q098",
+      "printedNumber": 98,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.6",
+        "2.4.2"
+      ],
+      "ruleIds": [
+        "gl2-2.4.2-spatial-inst"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 32,
+      "exercisePdfPage": 34,
+      "theoryPrintedPages": [
+        102,
+        103,
+        105,
+        106
+      ],
+      "theoryPdfPages": [
+        104,
+        105,
+        107,
+        108
+      ],
+      "mappingReason": "над уровнем моря。2.4.2 表列出 над、под、перед、за、между + 第五格表示空间位置。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q099": {
+      "exerciseId": "GL2-Q099",
+      "printedNumber": 99,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.6"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 32,
+      "exercisePdfPage": 34,
+      "theoryPrintedPages": [
+        105,
+        106
+      ],
+      "theoryPdfPages": [
+        107,
+        108
+      ],
+      "mappingReason": "на глубине два метра 是深度量词结构；2.6 未给出该结构的独立条件。。",
+      "reviewStatus": "needs-review"
+    },
+    "GL2-Q100": {
+      "exerciseId": "GL2-Q100",
+      "printedNumber": 100,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.6"
+      ],
+      "ruleIds": [
+        "gl2-2.6-distance-ot-gen"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 33,
+      "exercisePdfPage": 35,
+      "theoryPrintedPages": [
+        105,
+        106
+      ],
+      "theoryPdfPages": [
+        107,
+        108
+      ],
+      "mappingReason": "от Ростова-на-Дону。2.6 第 5 条说明 от + 第二格可与地点/距离副词关联。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q101": {
+      "exerciseId": "GL2-Q101",
+      "printedNumber": 101,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.6"
+      ],
+      "ruleIds": [
+        "gl2-2.6-k-iz-direction"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 33,
+      "exercisePdfPage": 35,
+      "theoryPrintedPages": [
+        105,
+        106
+      ],
+      "theoryPdfPages": [
+        107,
+        108
+      ],
+      "mappingReason": "подходил к родным берегам。2.6 第 1、3、5 条说明 к、из、от 的方向/来源对应关系。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q102": {
+      "exerciseId": "GL2-Q102",
+      "printedNumber": 102,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.6"
+      ],
+      "ruleIds": [
+        "gl2-2.6-k-iz-direction"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 33,
+      "exercisePdfPage": 35,
+      "theoryPrintedPages": [
+        105,
+        106
+      ],
+      "theoryPdfPages": [
+        107,
+        108
+      ],
+      "mappingReason": "разлетаются из гнезда。2.6 第 1、3、5 条说明 к、из、от 的方向/来源对应关系。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q103": {
+      "exerciseId": "GL2-Q103",
+      "printedNumber": 103,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.6"
+      ],
+      "ruleIds": [
+        "gl2-2.6-za-iz-za"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 33,
+      "exercisePdfPage": 35,
+      "theoryPrintedPages": [
+        105,
+        106
+      ],
+      "theoryPdfPages": [
+        107,
+        108
+      ],
+      "mappingReason": "вышла из-за дома。2.6 第 4 条表格区分 за + 第五格、за + 第四格、из-за + 第二格。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q104": {
+      "exerciseId": "GL2-Q104",
+      "printedNumber": 104,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.6"
+      ],
+      "ruleIds": [
+        "gl2-2.6-distance-ot-gen"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 33,
+      "exercisePdfPage": 35,
+      "theoryPrintedPages": [
+        105,
+        106
+      ],
+      "theoryPdfPages": [
+        107,
+        108
+      ],
+      "mappingReason": "в стороне от дороги。2.6 第 5 条说明 от + 第二格可与地点/距离副词关联。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q105": {
+      "exerciseId": "GL2-Q105",
+      "printedNumber": 105,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.6"
+      ],
+      "ruleIds": [
+        "gl2-2.6-k-iz-direction"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 33,
+      "exercisePdfPage": 35,
+      "theoryPrintedPages": [
+        105,
+        106
+      ],
+      "theoryPdfPages": [
+        107,
+        108
+      ],
+      "mappingReason": "из сада пахнет сиренью。2.6 第 1、3、5 条说明 к、из、от 的方向/来源对应关系。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q106": {
+      "exerciseId": "GL2-Q106",
+      "printedNumber": 106,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.6"
+      ],
+      "ruleIds": [
+        "gl2-2.6-za-iz-za"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 33,
+      "exercisePdfPage": 35,
+      "theoryPrintedPages": [
+        105,
+        106
+      ],
+      "theoryPdfPages": [
+        107,
+        108
+      ],
+      "mappingReason": "за столом。2.6 第 4 条表格区分 за + 第五格、за + 第四格、из-за + 第二格。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q107": {
+      "exerciseId": "GL2-Q107",
+      "printedNumber": 107,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.6"
+      ],
+      "ruleIds": [
+        "gl2-2.6-v-na-acc-direction"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 34,
+      "exercisePdfPage": 36,
+      "theoryPrintedPages": [
+        105,
+        106
+      ],
+      "theoryPdfPages": [
+        107,
+        108
+      ],
+      "mappingReason": "обратиться в деканат。2.6 第 1 条区分 куда? 的方向终点与 где? 的静态地点；方向运动使用 в/на + 第四格。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q108": {
+      "exerciseId": "GL2-Q108",
+      "printedNumber": 108,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.6"
+      ],
+      "ruleIds": [
+        "gl2-2.6-static-v-na-prep"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 34,
+      "exercisePdfPage": 36,
+      "theoryPrintedPages": [
+        105,
+        106
+      ],
+      "theoryPdfPages": [
+        107,
+        108
+      ],
+      "mappingReason": "на нашей кафедре。2.6 第 1 条区分 где? 的在场地点与方向运动。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q109": {
+      "exerciseId": "GL2-Q109",
+      "printedNumber": 109,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.6"
+      ],
+      "ruleIds": [
+        "gl2-2.6-static-v-na-prep"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 34,
+      "exercisePdfPage": 36,
+      "theoryPrintedPages": [
+        105,
+        106
+      ],
+      "theoryPdfPages": [
+        107,
+        108
+      ],
+      "mappingReason": "на собрании。2.6 第 1 条区分 где? 的在场地点与方向运动。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q110": {
+      "exerciseId": "GL2-Q110",
+      "printedNumber": 110,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.7"
+      ],
+      "ruleIds": [
+        "gl2-2.7-pod-inst"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 34,
+      "exercisePdfPage": 36,
+      "theoryPrintedPages": [
+        106,
+        107
+      ],
+      "theoryPdfPages": [
+        108,
+        109
+      ],
+      "mappingReason": "под влиянием глобального потепления。2.7 第 6 条说明 под действием / под влиянием / под давлением 的原因关系。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q111": {
+      "exerciseId": "GL2-Q111",
+      "printedNumber": 111,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.7"
+      ],
+      "ruleIds": [
+        "gl2-2.7-vsledstvie-gen"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 34,
+      "exercisePdfPage": 36,
+      "theoryPrintedPages": [
+        106,
+        107
+      ],
+      "theoryPdfPages": [
+        108,
+        109
+      ],
+      "mappingReason": "в результате осуществления проекта。2.7 第 7 条规定 вследствие、в результате + 第二格表示产生结果的原因。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q112": {
+      "exerciseId": "GL2-Q112",
+      "printedNumber": 112,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.7"
+      ],
+      "ruleIds": [
+        "gl2-2.7-blagodarya-dat"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 34,
+      "exercisePdfPage": 36,
+      "theoryPrintedPages": [
+        106,
+        107
+      ],
+      "theoryPdfPages": [
+        108,
+        109
+      ],
+      "mappingReason": "благодаря своей надёжности。2.7 第 1 条规定 благодаря + 第三格表示促成结果的有利原因。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q113": {
+      "exerciseId": "GL2-Q113",
+      "printedNumber": 113,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.7"
+      ],
+      "ruleIds": [
+        "gl2-2.7-ot-gen-state"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 35,
+      "exercisePdfPage": 37,
+      "theoryPrintedPages": [
+        106,
+        107
+      ],
+      "theoryPdfPages": [
+        108,
+        109
+      ],
+      "mappingReason": "от мороза。2.7 第 4 条说明 от + 第二格表示外因、人的状态变化/非自主反应及疾病原因。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q114": {
+      "exerciseId": "GL2-Q114",
+      "printedNumber": 114,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.7"
+      ],
+      "ruleIds": [
+        "gl2-2.7-blagodarya-dat"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 35,
+      "exercisePdfPage": 37,
+      "theoryPrintedPages": [
+        106,
+        107
+      ],
+      "theoryPdfPages": [
+        108,
+        109
+      ],
+      "mappingReason": "благодаря созданию заповедника。2.7 第 1 条规定 благодаря + 第三格表示促成结果的有利原因。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q115": {
+      "exerciseId": "GL2-Q115",
+      "printedNumber": 115,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.7"
+      ],
+      "ruleIds": [
+        "gl2-2.7-pod-inst"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 35,
+      "exercisePdfPage": 37,
+      "theoryPrintedPages": [
+        106,
+        107
+      ],
+      "theoryPdfPages": [
+        108,
+        109
+      ],
+      "mappingReason": "под действием воды, ветра и времени。2.7 第 6 条说明 под действием / под влиянием / под давлением 的原因关系。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q116": {
+      "exerciseId": "GL2-Q116",
+      "printedNumber": 116,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.7"
+      ],
+      "ruleIds": [
+        "gl2-2.7-vsledstvie-gen"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 35,
+      "exercisePdfPage": 37,
+      "theoryPrintedPages": [
+        106,
+        107
+      ],
+      "theoryPdfPages": [
+        108,
+        109
+      ],
+      "mappingReason": "вследствие проникновения тёплых масс。2.7 第 7 条规定 вследствие、в результате + 第二格表示产生结果的原因。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q117": {
+      "exerciseId": "GL2-Q117",
+      "printedNumber": 117,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.7"
+      ],
+      "ruleIds": [
+        "gl2-2.7-po-dat"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 35,
+      "exercisePdfPage": 37,
+      "theoryPrintedPages": [
+        106,
+        107
+      ],
+      "theoryPdfPages": [
+        108,
+        109
+      ],
+      "mappingReason": "по рассеянности。2.7 第 5 条区分 обстоятельства 与性格造成的 по + 第三格原因。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q118": {
+      "exerciseId": "GL2-Q118",
+      "printedNumber": 118,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.7"
+      ],
+      "ruleIds": [
+        "gl2-2.7-iz-gen-conscious"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 35,
+      "exercisePdfPage": 37,
+      "theoryPrintedPages": [
+        106,
+        107
+      ],
+      "theoryPdfPages": [
+        108,
+        109
+      ],
+      "mappingReason": "из страха。2.7 第 3 条规定 из + 第二格接性格或情感名词，表示主动且有意识的动机。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q119": {
+      "exerciseId": "GL2-Q119",
+      "printedNumber": 119,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.7"
+      ],
+      "ruleIds": [
+        "gl2-2.7-iz-gen-conscious"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 35,
+      "exercisePdfPage": 37,
+      "theoryPrintedPages": [
+        106,
+        107
+      ],
+      "theoryPdfPages": [
+        108,
+        109
+      ],
+      "mappingReason": "из жалости。2.7 第 3 条规定 из + 第二格接性格或情感名词，表示主动且有意识的动机。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q120": {
+      "exerciseId": "GL2-Q120",
+      "printedNumber": 120,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.7"
+      ],
+      "ruleIds": [
+        "gl2-2.7-ot-gen-state"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 36,
+      "exercisePdfPage": 38,
+      "theoryPrintedPages": [
+        106,
+        107
+      ],
+      "theoryPdfPages": [
+        108,
+        109
+      ],
+      "mappingReason": "побледнев от негодования。2.7 第 4 条说明 от + 第二格表示外因、人的状态变化/非自主反应及疾病原因。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q121": {
+      "exerciseId": "GL2-Q121",
+      "printedNumber": 121,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.7"
+      ],
+      "ruleIds": [
+        "gl2-2.7-ot-gen-state"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 36,
+      "exercisePdfPage": 38,
+      "theoryPrintedPages": [
+        106,
+        107
+      ],
+      "theoryPdfPages": [
+        108,
+        109
+      ],
+      "mappingReason": "от курения。2.7 第 4 条说明 от + 第二格表示外因、人的状态变化/非自主反应及疾病原因。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q122": {
+      "exerciseId": "GL2-Q122",
+      "printedNumber": 122,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.7"
+      ],
+      "ruleIds": [
+        "gl2-2.7-iz-za-gen"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 36,
+      "exercisePdfPage": 38,
+      "theoryPrintedPages": [
+        106,
+        107
+      ],
+      "theoryPdfPages": [
+        108,
+        109
+      ],
+      "mappingReason": "из-за волнения。2.7 第 2 条规定 из-за + 第二格表示阻碍动作或引起不良事件的原因。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q123": {
+      "exerciseId": "GL2-Q123",
+      "printedNumber": 123,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.8"
+      ],
+      "ruleIds": [
+        "gl2-2.8-dlya-gen"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 36,
+      "exercisePdfPage": 38,
+      "theoryPrintedPages": [
+        107
+      ],
+      "theoryPdfPages": [
+        109
+      ],
+      "mappingReason": "для получения высшего образования。2.8 第 1 条说明 для + 第二格是最常见的目的结构，可接运动动词和多类动词。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q124": {
+      "exerciseId": "GL2-Q124",
+      "printedNumber": 124,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.8"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [
+        "gl2-2.8-goal-inventory"
+      ],
+      "status": "needs-review",
+      "exercisePrintedPage": 36,
+      "exercisePdfPage": 38,
+      "theoryPrintedPages": [
+        107
+      ],
+      "theoryPdfPages": [
+        109
+      ],
+      "mappingReason": "рисковали жизнью ради науки；原书仅在 2.8 导言列出该目的介词，未保留独立用法条件。。",
+      "reviewStatus": "needs-review"
+    },
+    "GL2-Q125": {
+      "exerciseId": "GL2-Q125",
+      "printedNumber": 125,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.8"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [
+        "gl2-2.8-goal-inventory"
+      ],
+      "status": "needs-review",
+      "exercisePrintedPage": 36,
+      "exercisePdfPage": 38,
+      "theoryPrintedPages": [
+        107
+      ],
+      "theoryPdfPages": [
+        109
+      ],
+      "mappingReason": "покидает города ради жизни；原书仅在 2.8 导言列出该目的介词，未保留独立用法条件。。",
+      "reviewStatus": "needs-review"
+    },
+    "GL2-Q126": {
+      "exerciseId": "GL2-Q126",
+      "printedNumber": 126,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.8"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [
+        "gl2-2.8-goal-inventory"
+      ],
+      "status": "needs-review",
+      "exercisePrintedPage": 36,
+      "exercisePdfPage": 38,
+      "theoryPrintedPages": [
+        107
+      ],
+      "theoryPdfPages": [
+        109
+      ],
+      "mappingReason": "воевал за победу；原书仅在 2.8 导言列出该目的介词，未保留独立用法条件。。",
+      "reviewStatus": "needs-review"
+    },
+    "GL2-Q127": {
+      "exerciseId": "GL2-Q127",
+      "printedNumber": 127,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.8"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [
+        "gl2-2.8-goal-inventory"
+      ],
+      "status": "needs-review",
+      "exercisePrintedPage": 37,
+      "exercisePdfPage": 39,
+      "theoryPrintedPages": [
+        107
+      ],
+      "theoryPdfPages": [
+        109
+      ],
+      "mappingReason": "сражаясь за свободу；原书仅在 2.8 导言列出该目的介词，未保留独立用法条件。。",
+      "reviewStatus": "needs-review"
+    },
+    "GL2-Q128": {
+      "exerciseId": "GL2-Q128",
+      "printedNumber": 128,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.8"
+      ],
+      "ruleIds": [
+        "gl2-2.8-dlya-gen"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 37,
+      "exercisePdfPage": 39,
+      "theoryPrintedPages": [
+        107
+      ],
+      "theoryPdfPages": [
+        109
+      ],
+      "mappingReason": "для спасения жизни。2.8 第 1 条说明 для + 第二格是最常见的目的结构，可接运动动词和多类动词。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q129": {
+      "exerciseId": "GL2-Q129",
+      "printedNumber": 129,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.8"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [
+        "gl2-2.8-goal-inventory"
+      ],
+      "status": "needs-review",
+      "exercisePrintedPage": 37,
+      "exercisePdfPage": 39,
+      "theoryPrintedPages": [
+        107
+      ],
+      "theoryPdfPages": [
+        109
+      ],
+      "mappingReason": "войне за независимость；原书仅在 2.8 导言列出该目的介词，未保留独立用法条件。。",
+      "reviewStatus": "needs-review"
+    },
+    "GL2-Q130": {
+      "exerciseId": "GL2-Q130",
+      "printedNumber": 130,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.8"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [
+        "gl2-2.8-goal-inventory"
+      ],
+      "status": "needs-review",
+      "exercisePrintedPage": 37,
+      "exercisePdfPage": 39,
+      "theoryPrintedPages": [
+        107
+      ],
+      "theoryPdfPages": [
+        109
+      ],
+      "mappingReason": "годы на поиск；原书仅在 2.8 导言列出该目的介词，未保留独立用法条件。。",
+      "reviewStatus": "needs-review"
+    },
+    "GL2-Q131": {
+      "exerciseId": "GL2-Q131",
+      "printedNumber": 131,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.8"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [
+        "gl2-2.8-goal-inventory"
+      ],
+      "status": "needs-review",
+      "exercisePrintedPage": 37,
+      "exercisePdfPage": 39,
+      "theoryPrintedPages": [
+        107
+      ],
+      "theoryPdfPages": [
+        109
+      ],
+      "mappingReason": "останавливаются на отдых；原书仅在 2.8 导言列出该目的介词，未保留独立用法条件。。",
+      "reviewStatus": "needs-review"
+    },
+    "GL2-Q132": {
+      "exerciseId": "GL2-Q132",
+      "printedNumber": 132,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.8"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [
+        "gl2-2.8-goal-inventory"
+      ],
+      "status": "needs-review",
+      "exercisePrintedPage": 37,
+      "exercisePdfPage": 39,
+      "theoryPrintedPages": [
+        107
+      ],
+      "theoryPdfPages": [
+        109
+      ],
+      "mappingReason": "пришли на помощь；原书仅在 2.8 导言列出该目的介词，未保留独立用法条件。。",
+      "reviewStatus": "needs-review"
+    },
+    "GL2-Q133": {
+      "exerciseId": "GL2-Q133",
+      "printedNumber": 133,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.8"
+      ],
+      "ruleIds": [
+        "gl2-2.8-dlya-gen"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 37,
+      "exercisePdfPage": 39,
+      "theoryPrintedPages": [
+        107
+      ],
+      "theoryPdfPages": [
+        109
+      ],
+      "mappingReason": "для ухода за новорождённым。2.8 第 1 条说明 для + 第二格是最常见的目的结构，可接运动动词和多类动词。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q134": {
+      "exerciseId": "GL2-Q134",
+      "printedNumber": 134,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.8"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [
+        "gl2-2.8-goal-inventory"
+      ],
+      "status": "needs-review",
+      "exercisePrintedPage": 37,
+      "exercisePdfPage": 39,
+      "theoryPrintedPages": [
+        107
+      ],
+      "theoryPdfPages": [
+        109
+      ],
+      "mappingReason": "пошёл за мороженым；原书仅在 2.8 导言列出该目的介词，未保留独立用法条件。。",
+      "reviewStatus": "needs-review"
+    },
+    "GL2-Q135": {
+      "exerciseId": "GL2-Q135",
+      "printedNumber": 135,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.8"
+      ],
+      "ruleIds": [
+        "gl2-2.8-dlya-gen"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 37,
+      "exercisePdfPage": 39,
+      "theoryPrintedPages": [
+        107
+      ],
+      "theoryPdfPages": [
+        109
+      ],
+      "mappingReason": "для обсуждения тематики。2.8 第 1 条说明 для + 第二格是最常见的目的结构，可接运动动词和多类动词。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q136": {
+      "exerciseId": "GL2-Q136",
+      "printedNumber": 136,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.8"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [
+        "gl2-2.8-goal-inventory"
+      ],
+      "status": "needs-review",
+      "exercisePrintedPage": 38,
+      "exercisePdfPage": 40,
+      "theoryPrintedPages": [
+        107
+      ],
+      "theoryPdfPages": [
+        109
+      ],
+      "mappingReason": "пошёл за билетами；原书仅在 2.8 导言列出该目的介词，未保留独立用法条件。。",
+      "reviewStatus": "needs-review"
+    },
+    "GL2-Q137": {
+      "exerciseId": "GL2-Q137",
+      "printedNumber": 137,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.5"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 38,
+      "exercisePdfPage": 40,
+      "theoryPrintedPages": [
+        103,
+        104,
+        105
+      ],
+      "theoryPdfPages": [
+        105,
+        106,
+        107
+      ],
+      "mappingReason": "в начале октября 1773 года 的“何时”问法属于 2.9 语义辨认练习；2.5 未给出该问法的独立规则。。",
+      "reviewStatus": "needs-review"
+    },
+    "GL2-Q138": {
+      "exerciseId": "GL2-Q138",
+      "printedNumber": 138,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.4",
+        "2.4.1"
+      ],
+      "ruleIds": [
+        "gl2-2.4.1-instrumental-comparison"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 38,
+      "exercisePdfPage": 40,
+      "theoryPrintedPages": [
+        101,
+        102,
+        103
+      ],
+      "theoryPdfPages": [
+        103,
+        104,
+        105
+      ],
+      "mappingReason": "Берег обрывом спускался к морю。2.4.1 表列出第五格无介词可表达与被限定词的比较。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q139": {
+      "exerciseId": "GL2-Q139",
+      "printedNumber": 139,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.3"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 38,
+      "exercisePdfPage": 40,
+      "theoryPrintedPages": [
+        100
+      ],
+      "theoryPdfPages": [
+        102
+      ],
+      "mappingReason": "счастливым 的“什么样”问法不属于 2.3 已说明的 с / 无 с 方式结构。。",
+      "reviewStatus": "needs-review"
+    },
+    "GL2-Q140": {
+      "exerciseId": "GL2-Q140",
+      "printedNumber": 140,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.5"
+      ],
+      "ruleIds": [
+        "gl2-2.5-na-stay-duration"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 38,
+      "exercisePdfPage": 40,
+      "theoryPrintedPages": [
+        103,
+        104,
+        105
+      ],
+      "theoryPdfPages": [
+        105,
+        106,
+        107
+      ],
+      "mappingReason": "приехал на сутки。2.5 第 4 条说明 на + 第四格表示动作应持续的确定时期。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q141": {
+      "exerciseId": "GL2-Q141",
+      "printedNumber": 141,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.3"
+      ],
+      "ruleIds": [
+        "gl2-2.3-no-s-qualitative"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 38,
+      "exercisePdfPage": 40,
+      "theoryPrintedPages": [
+        100
+      ],
+      "theoryPdfPages": [
+        102
+      ],
+      "mappingReason": "говорить шёпотом。2.3 第 2 条规定，若形容词性成分承载动作的质性特征，则不用 с，且该定语不可省略。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q142": {
+      "exerciseId": "GL2-Q142",
+      "printedNumber": 142,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.1"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 39,
+      "exercisePdfPage": 41,
+      "theoryPrintedPages": [
+        98,
+        99
+      ],
+      "theoryPdfPages": [
+        100,
+        101
+      ],
+      "mappingReason": "Большую Медведицу 的“什么”问法涉及一般第四格宾语；2.1 仅为部分动词支配表。。",
+      "reviewStatus": "needs-review"
+    },
+    "GL2-Q143": {
+      "exerciseId": "GL2-Q143",
+      "printedNumber": 143,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.3"
+      ],
+      "ruleIds": [
+        "gl2-2.3-s-inst-accompanying"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 39,
+      "exercisePdfPage": 41,
+      "theoryPrintedPages": [
+        100
+      ],
+      "theoryPdfPages": [
+        102
+      ],
+      "mappingReason": "с надеждой。2.3 第 1 条规定感受、伴随动作以及抽象的性质/态度可用 с + 第五格。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q144": {
+      "exerciseId": "GL2-Q144",
+      "printedNumber": 144,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.4",
+        "2.4.2"
+      ],
+      "ruleIds": [
+        "gl2-2.4.2-infinitive-attribute"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 39,
+      "exercisePdfPage": 41,
+      "theoryPrintedPages": [
+        101,
+        102,
+        103
+      ],
+      "theoryPdfPages": [
+        103,
+        104,
+        105
+      ],
+      "mappingReason": "желание искать。2.4.2 注意项说明愿望、能力、权利、计划等抽象名词可与不定式形成定语关系。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q145": {
+      "exerciseId": "GL2-Q145",
+      "printedNumber": 145,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.1"
+      ],
+      "ruleIds": [
+        "gl2-2.1-verit-dat"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 39,
+      "exercisePdfPage": 41,
+      "theoryPrintedPages": [
+        98,
+        99
+      ],
+      "theoryPdfPages": [
+        100,
+        101
+      ],
+      "mappingReason": "верить статистике。2.1 表列出 верить / поверить кому, чему。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q146": {
+      "exerciseId": "GL2-Q146",
+      "printedNumber": 146,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.5"
+      ],
+      "ruleIds": [
+        "gl2-2.5-historical-period"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 39,
+      "exercisePdfPage": 41,
+      "theoryPrintedPages": [
+        103,
+        104,
+        105
+      ],
+      "theoryPdfPages": [
+        105,
+        106,
+        107
+      ],
+      "mappingReason": "в век научно-технического прогресса。2.5 第 1 条区分时期的 в + 第四格与 при + 第六格。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q147": {
+      "exerciseId": "GL2-Q147",
+      "printedNumber": 147,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.6"
+      ],
+      "ruleIds": [
+        "gl2-2.6-vdol-vokrug-sredi"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 39,
+      "exercisePdfPage": 41,
+      "theoryPrintedPages": [
+        105,
+        106
+      ],
+      "theoryPdfPages": [
+        107,
+        108
+      ],
+      "mappingReason": "вдоль южного побережья。2.6 第 6 条分别说明 вдоль、вокруг、среди 的空间意义。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q148": {
+      "exerciseId": "GL2-Q148",
+      "printedNumber": 148,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.6"
+      ],
+      "ruleIds": [
+        "gl2-2.6-distance-ot-gen"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 39,
+      "exercisePdfPage": 41,
+      "theoryPrintedPages": [
+        105,
+        106
+      ],
+      "theoryPdfPages": [
+        107,
+        108
+      ],
+      "mappingReason": "в ста сорока километрах от Гаваны。2.6 第 5 条说明 от + 第二格可与地点/距离副词关联。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q149": {
+      "exerciseId": "GL2-Q149",
+      "printedNumber": 149,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.7"
+      ],
+      "ruleIds": [
+        "gl2-2.7-blagodarya-dat"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 40,
+      "exercisePdfPage": 42,
+      "theoryPrintedPages": [
+        106,
+        107
+      ],
+      "theoryPdfPages": [
+        108,
+        109
+      ],
+      "mappingReason": "благодаря историко-архитектурным памятникам。2.7 第 1 条规定 благодаря + 第三格表示促成结果的有利原因。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL2-Q150": {
+      "exerciseId": "GL2-Q150",
+      "printedNumber": 150,
+      "chapterId": "gl2",
+      "sectionIds": [
+        "2.7"
+      ],
+      "ruleIds": [
+        "gl2-2.7-v-svyazi-s-inst"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 40,
+      "exercisePdfPage": 42,
+      "theoryPrintedPages": [
+        106,
+        107
+      ],
+      "theoryPdfPages": [
+        108,
+        109
+      ],
+      "mappingReason": "в связи с трёхсотлетием Санкт-Петербурга。2.7 第 8 条说明 в связи с чем、ввиду чего 表示行动的依据。",
+      "reviewStatus": "source-and-pdf-checked"
+    }
+  }
+}

@@ -1,0 +1,409 @@
+{
+  "schemaVersion": 2,
+  "id": "gl1-section-1.4.5-aspect",
+  "chapterId": "gl1",
+  "sectionId": "1.4.5",
+  "titleRu": "1.4.5. Употребление глаголов несовершенного и совершенного вида со словом нельзя",
+  "titleZh": "нельзя：禁止与客观不可能",
+  "orientationZh": {
+    "sourceType": "learning-note",
+    "text": "同一个 нельзя 不等于同一种体：未完成体描述不允许实施某类行为，完成体描述因为客观条件而无法实现一次动作。"
+  },
+  "quickDecision": [
+    {
+      "sourceType": "learning-note",
+      "text": "先问是否有人为规则、禁令或行为限制：是则核对 нельзя + 未完成体。"
+    },
+    {
+      "sourceType": "learning-note",
+      "text": "若障碍来自灯泡、电话等客观条件，问“这一次能不能完成”：核对 нельзя + 完成体。"
+    },
+    {
+      "sourceType": "learning-note",
+      "text": "不要把所有“不能”都当禁止，也不要把所有完成体解释为命令。"
+    }
+  ],
+  "sourceRules": [
+    {
+      "sourceType": "source-rule",
+      "text": "### 1.4.5. Употребление глаголов несовершенного и совершенного вида со словом нельзя\n\n| Несовершенный вид | Совершенный вид |\n| ---- | ---- |\n| Значение запрещения.<br>— Здесь нельзя переходить дорогу; После одиннадцати часов вечера в общежитии нельзя шуметь. | Значение объективной невозможности.<br>— Свет нельзя включить, лампочка перегорела; С ним сейчас нельзя связаться, телефон не работает. |",
+      "source": {
+        "pdfPages": [
+          98
+        ],
+        "printedPages": [
+          96
+        ]
+      }
+    }
+  ],
+  "atomicRules": [
+    {
+      "id": "gl1-1.4.5-prohibition-imperfective",
+      "titleZh": "нельзя + 未完成体表示禁止",
+      "sourceReference": "完整原书条目与表格见本单元 sourceRules / tables。",
+      "sourceType": "learning-note",
+      "learningNote": "此原子分类用于检索；不替代本单元完整原书表格。"
+    },
+    {
+      "id": "gl1-1.4.5-impossibility-perfective",
+      "titleZh": "нельзя + 完成体表示客观不可能",
+      "sourceReference": "完整原书条目与表格见本单元 sourceRules / tables。",
+      "sourceType": "learning-note",
+      "learningNote": "此原子分类用于检索；不替代本单元完整原书表格。"
+    }
+  ],
+  "tables": [
+    {
+      "sourceType": "source-table",
+      "title": "1.4.5. Употребление глаголов несовершенного и совершенного вида со словом нельзя",
+      "headers": [
+        "Несовершенный вид",
+        "Совершенный вид"
+      ],
+      "rows": [
+        [
+          "Значение запрещения.<br>— Здесь нельзя переходить дорогу; После одиннадцати часов вечера в общежитии нельзя шуметь.",
+          "Значение объективной невозможности.<br>— Свет нельзя включить, лампочка перегорела; С ним сейчас нельзя связаться, телефон не работает."
+        ]
+      ],
+      "markdown": "### 1.4.5. Употребление глаголов несовершенного и совершенного вида со словом нельзя\n\n| Несовершенный вид | Совершенный вид |\n| ---- | ---- |\n| Значение запрещения.<br>— Здесь нельзя переходить дорогу; После одиннадцати часов вечера в общежитии нельзя шуметь. | Значение объективной невозможности.<br>— Свет нельзя включить, лампочка перегорела; С ним сейчас нельзя связаться, телефон не работает. |",
+      "source": {
+        "pdfPages": [
+          98
+        ],
+        "printedPages": [
+          96
+        ]
+      }
+    }
+  ],
+  "semanticAnalysis": {
+    "sourceType": "learning-note",
+    "text": "区别由 невозможность 的来源决定：规章针对活动本身，客观条件阻断一次可完成的结果。"
+  },
+  "signalAnalysis": [
+    {
+      "sourceType": "learning-note",
+      "signals": [
+        "здесь",
+        "после одиннадцати часов"
+      ],
+      "use": "场所和规章时间常支持禁止义，但仍需有行为规范语境。"
+    },
+    {
+      "sourceType": "learning-note",
+      "signals": [
+        "лампочка перегорела",
+        "телефон не работает"
+      ],
+      "use": "客观故障是完成体不可能义的强证据；不是单凭 нельзя。"
+    }
+  ],
+  "examples": [
+    {
+      "sourceType": "source-example",
+      "text": "Здесь нельзя переходить дорогу; После одиннадцати часов вечера в общежитии нельзя шуметь.",
+      "source": {
+        "pdfPages": [
+          98
+        ],
+        "printedPages": [
+          96
+        ]
+      }
+    },
+    {
+      "sourceType": "source-example",
+      "text": "Свет нельзя включить, лампочка перегорела; С ним сейчас нельзя связаться, телефон не работает.",
+      "source": {
+        "pdfPages": [
+          98
+        ],
+        "printedPages": [
+          96
+        ]
+      }
+    }
+  ],
+  "contrasts": [
+    {
+      "sourceType": "source-example",
+      "left": "Здесь нельзя переходить дорогу.",
+      "right": "Свет нельзя включить, лампочка перегорела.",
+      "analysis": "左侧禁止“过马路”这类行为；右侧是灯泡故障使一次开灯无法实现。"
+    }
+  ],
+  "commonErrors": [
+    {
+      "sourceType": "learning-note",
+      "text": "把禁止与物理／技术障碍混为一谈。"
+    },
+    {
+      "sourceType": "learning-note",
+      "text": "将 Q076 的标牌式 Не беспокоить 硬映射给本节；原书本节只论 нельзя。"
+    }
+  ],
+  "exerciseLinks": [
+    {
+      "exerciseId": "GL1-Q072",
+      "printedNumber": 72,
+      "exercisePrintedPage": 13,
+      "sourceType": "exercise-example",
+      "status": "mapped",
+      "question": "Многие лекарства нельзя ... вместе с пищей.",
+      "options": [
+        {
+          "key": "А",
+          "text": "принять"
+        },
+        {
+          "key": "Б",
+          "text": "принимать"
+        }
+      ],
+      "correctAnswer": "Б",
+      "ruleIds": [
+        "gl1-1.4.5-prohibition-imperfective"
+      ],
+      "mappingReason": "题干与正确项须按「нельзя + 未完成体表示禁止」的原书条件判断；旧 knowledgePoints 未作为依据。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "正确项「Б」（принимать）符合映射规则：нельзя + 未完成体表示禁止。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "принять",
+            "sourceType": "learning-note",
+            "reason": "它不满足题干所需的原书语义条件，不能仅凭词面或时间词替代该规则判断。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 15,
+        "questionPrintedPage": 13,
+        "answerPdfPage": 125,
+        "answerPrintedPage": 123
+      }
+    },
+    {
+      "exerciseId": "GL1-Q073",
+      "printedNumber": 73,
+      "exercisePrintedPage": 13,
+      "sourceType": "exercise-example",
+      "status": "mapped",
+      "question": "С древних времён русское застолье нельзя ... без весёлых тостов.",
+      "options": [
+        {
+          "key": "А",
+          "text": "представить"
+        },
+        {
+          "key": "Б",
+          "text": "представлять"
+        }
+      ],
+      "correctAnswer": "А",
+      "ruleIds": [
+        "gl1-1.4.5-impossibility-perfective"
+      ],
+      "mappingReason": "题干与正确项须按「нельзя + 完成体表示客观不可能」的原书条件判断；旧 knowledgePoints 未作为依据。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "正确项「А」（представить）符合映射规则：нельзя + 完成体表示客观不可能。",
+        "distractors": [
+          {
+            "key": "Б",
+            "text": "представлять",
+            "sourceType": "learning-note",
+            "reason": "它不满足题干所需的原书语义条件，不能仅凭词面或时间词替代该规则判断。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 15,
+        "questionPrintedPage": 13,
+        "answerPdfPage": 125,
+        "answerPrintedPage": 123
+      }
+    },
+    {
+      "exerciseId": "GL1-Q096",
+      "printedNumber": 96,
+      "exercisePrintedPage": 16,
+      "sourceType": "exercise-example",
+      "status": "mapped",
+      "question": "В лаборатории нельзя открывать окна: там проводятся испытания.",
+      "options": [
+        {
+          "key": "А",
+          "text": "объективная невозможность"
+        },
+        {
+          "key": "Б",
+          "text": "запрещение"
+        },
+        {
+          "key": "В",
+          "text": "результат"
+        },
+        {
+          "key": "Г",
+          "text": "несохранение результата"
+        }
+      ],
+      "correctAnswer": "Б",
+      "ruleIds": [
+        "gl1-1.4.5-prohibition-imperfective"
+      ],
+      "mappingReason": "题干与正确项须按「нельзя + 未完成体表示禁止」的原书条件判断；旧 knowledgePoints 未作为依据。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "正确项「Б」（запрещение）符合映射规则：нельзя + 未完成体表示禁止。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "объективная невозможность",
+            "sourceType": "learning-note",
+            "reason": "它不满足题干所需的原书语义条件，不能仅凭词面或时间词替代该规则判断。"
+          },
+          {
+            "key": "В",
+            "text": "результат",
+            "sourceType": "learning-note",
+            "reason": "它不满足题干所需的原书语义条件，不能仅凭词面或时间词替代该规则判断。"
+          },
+          {
+            "key": "Г",
+            "text": "несохранение результата",
+            "sourceType": "learning-note",
+            "reason": "它不满足题干所需的原书语义条件，不能仅凭词面或时间词替代该规则判断。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 18,
+        "questionPrintedPage": 16,
+        "answerPdfPage": 125,
+        "answerPrintedPage": 123
+      }
+    },
+    {
+      "exerciseId": "GL1-Q097",
+      "printedNumber": 97,
+      "exercisePrintedPage": 16,
+      "sourceType": "exercise-example",
+      "status": "mapped",
+      "question": "Машину нельзя завести — двигатель неисправен.",
+      "options": [
+        {
+          "key": "А",
+          "text": "запрещение"
+        },
+        {
+          "key": "Б",
+          "text": "невозможность"
+        },
+        {
+          "key": "В",
+          "text": "отрицание факта"
+        },
+        {
+          "key": "Г",
+          "text": "категорическое отрицание"
+        }
+      ],
+      "correctAnswer": "Б",
+      "ruleIds": [
+        "gl1-1.4.5-impossibility-perfective"
+      ],
+      "mappingReason": "题干与正确项须按「нельзя + 完成体表示客观不可能」的原书条件判断；旧 knowledgePoints 未作为依据。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "正确项「Б」（невозможность）符合映射规则：нельзя + 完成体表示客观不可能。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "запрещение",
+            "sourceType": "learning-note",
+            "reason": "它不满足题干所需的原书语义条件，不能仅凭词面或时间词替代该规则判断。"
+          },
+          {
+            "key": "В",
+            "text": "отрицание факта",
+            "sourceType": "learning-note",
+            "reason": "它不满足题干所需的原书语义条件，不能仅凭词面或时间词替代该规则判断。"
+          },
+          {
+            "key": "Г",
+            "text": "категорическое отрицание",
+            "sourceType": "learning-note",
+            "reason": "它不满足题干所需的原书语义条件，不能仅凭词面或时间词替代该规则判断。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 18,
+        "questionPrintedPage": 16,
+        "answerPdfPage": 125,
+        "answerPrintedPage": 123
+      }
+    }
+  ],
+  "relatedRules": [
+    {
+      "sourceType": "learning-note",
+      "text": "1.4.6（否定不定式）"
+    },
+    {
+      "sourceType": "learning-note",
+      "text": "1.4.8（否定命令式）"
+    }
+  ],
+  "source": {
+    "pdfPages": [
+      98
+    ],
+    "printedPages": [
+      96
+    ],
+    "cleanedSource": "cleaned-source/chapter-01.md",
+    "sourcePdf": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+  },
+  "sourceCoverage": {
+    "ruleItems": {
+      "total": 2,
+      "captured": 2
+    },
+    "numberedItems": {
+      "total": 2,
+      "captured": 2
+    },
+    "tables": {
+      "total": 1,
+      "captured": 1,
+      "rowsTotal": 1,
+      "rowsCaptured": 1
+    },
+    "examples": {
+      "total": 2,
+      "captured": 2,
+      "countingMethod": "每个以破折号引出的原书例句块均完整保留；块内并列句没有拆分或省略。"
+    },
+    "relatedExercises": {
+      "total": 4,
+      "explained": 4
+    },
+    "uncollectedItems": [],
+    "sourceExerciseOnly": [],
+    "needsReview": [
+      "原书表格已对 PDF 页图进行视觉抽查；全书 OCR 来源仍为 REVIEW，重音、标点和跨页排版风险不能隐藏。"
+    ],
+    "ocrRisks": []
+  },
+  "reviewStatus": "needs-review",
+  "riskRecord": [
+    "不能把本单元的中文判断和选项解释当作原书文本。",
+    "PDF 原页已抽查，但全书来源未完成逐字符人工复核，故不得标为 verified。"
+  ]
+}

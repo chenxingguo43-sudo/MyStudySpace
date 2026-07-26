@@ -8,8 +8,10 @@
     15
   ],
   "media": {
-    "provenance": "teacher-provided",
-    "file": "media/02.mp3"
+    "provenance": "unavailable",
+    "status": "source-mismatch",
+    "reason": "Imported audio belongs to Uchebno-trenirovochnye testy po russkomu iazyku kak inostrannomu. Vypusk 4. Audirovanie. Govorenie, not V mire liudei. Vypusk 2. Audirovanie. Govorenie.",
+    "rejectedFile": "media/02.mp3"
   },
   "questions": [
     {
@@ -117,16 +119,16 @@
     {
       "speaker": "B",
       "displayLabel": "М",
-      "text": "Мужской голос: — Юль, привет! Давно не виделись! Говорят, тебя можно поздравить?!",
+      "text": "Юль, привет! Давно не виделись! Говорят, тебя можно поздравить?!",
       "startTime": 0,
-      "endTime": 31
+      "endTime": 0
     },
     {
       "speaker": "A",
       "displayLabel": "Ж",
-      "text": "Женский голос: — Да... сама не знаю... получится... не получится... Ну подумай, какой из меня начальник! Характер не тот! И коллектив, прямо скажем, не подарок! Тут жёсткость нужна, а я так не могу, ты ж меня знаешь...",
-      "startTime": 27.48,
-      "endTime": 31
+      "text": "Да... сама не знаю... получится... не получится... Ну подумай, какой из меня начальник! Характер не тот! И коллектив, прямо скажем, не подарок! Тут жёсткость нужна, а я так не могу, ты ж меня знаешь...",
+      "startTime": 0,
+      "endTime": 0
     }
   ]
 }

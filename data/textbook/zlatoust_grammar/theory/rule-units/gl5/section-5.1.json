@@ -1,0 +1,1563 @@
+{
+  "schemaVersion": 1,
+  "id": "gl5-section-5.1",
+  "chapterId": "gl5",
+  "sectionId": "5.1",
+  "titleRu": "Грамматическая стилистика: разговорные и эмоционально окрашенные конструкции",
+  "titleZh": "会话与情绪化构式的语法文体",
+  "orientationZh": {
+    "sourceType": "learning-note",
+    "text": "本节不是把口语当成“随意语法”，而是辨认固定构式的语义功能：反复、无奈、否定评价、对照、被迫与缺失条件。先读出说话人的立场，再判断构式。"
+  },
+  "quickDecision": [
+    {
+      "sourceType": "learning-note",
+      "text": "先确认是否为固定整体，而非逐词翻译。"
+    },
+    {
+      "sourceType": "learning-note",
+      "text": "判断说话人是在接受事实、否定评价、强调对照，还是表达被迫。"
+    },
+    {
+      "sourceType": "learning-note",
+      "text": "再核对构式内部的格、否定词、连接词或命令式形式；近义表达不能自动替换为同一语体。"
+    }
+  ],
+  "semanticAnalysis": {
+    "sourceType": "learning-note",
+    "text": "这些构式表面上常有否定、重复或特殊词序，但重点不是逐词翻译，而是说话人借它们完成什么动作：承认无法回避、否定对方的评价、贬抑、强调对照，或指出行动缺少必要条件。脱离语气和情境，只看语法形式会误判。"
+  },
+  "sourceRules": [
+    {
+      "id": "gl5-5.1-chto-ni-to-repetition",
+      "sourceType": "source-rule",
+      "text": "Конструкция что ни …, то … передаёт значение повторяющихся действий или явлений. Такие предложения синонимичны высказываниям со словом каждый.",
+      "source": {
+        "pdfPages": [
+          117
+        ],
+        "printedPages": [
+          115
+        ],
+        "source": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+      }
+    },
+    {
+      "id": "gl5-5.1-kak-ne-necessity",
+      "sourceType": "source-rule",
+      "text": "Конструкция как (было) не + инфинитив выражает значение необходимости или вынужденности; по смыслу совпадает с нельзя (невозможно) не + инфинитив.",
+      "source": {
+        "pdfPages": [
+          117
+        ],
+        "printedPages": [
+          115
+        ],
+        "source": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+      }
+    },
+    {
+      "id": "gl5-5.1-gde-tam-emotional-negation",
+      "sourceType": "source-rule",
+      "text": "Конструкция где там + существительное (прилагательное, глагол, наречие) передаёт значение отрицания в эмоционально окрашенной речи. Она близка конструкции с местоимением какой (какая, какое, какие).",
+      "source": {
+        "pdfPages": [
+          117
+        ],
+        "printedPages": [
+          115
+        ],
+        "source": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+      }
+    },
+    {
+      "id": "gl5-5.1-ne-pronoun-a-emphatic",
+      "sourceType": "source-rule",
+      "text": "Для выделения слова, выражающего одновременно противопоставление и утверждение, используется конструкция не + неопределённое местоимение (наречие) + союз а.",
+      "source": {
+        "pdfPages": [
+          118
+        ],
+        "printedPages": [
+          116
+        ],
+        "source": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+      }
+    },
+    {
+      "id": "gl5-5.1-ne-x-tak-alternative",
+      "sourceType": "source-rule",
+      "text": "Конструкция не …, так передаёт значение неизбежного альтернативного действия.",
+      "source": {
+        "pdfPages": [
+          118
+        ],
+        "printedPages": [
+          116
+        ],
+        "source": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+      }
+    },
+    {
+      "id": "gl5-5.1-x-est-x-acceptance",
+      "sourceType": "source-rule",
+      "text": "Конструкции кто есть кто / что есть что выражают безоговорочное принятие того, что изменить невозможно; они синонимичны предложениям со словом это.",
+      "source": {
+        "pdfPages": [
+          118
+        ],
+        "printedPages": [
+          116
+        ],
+        "source": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+      }
+    },
+    {
+      "id": "gl5-5.1-nom-instr-a-contrast",
+      "sourceType": "source-rule",
+      "text": "В сложносочинённых предложениях с противопоставительно-сопоставительным значением возможно употребление сочетания одного существительного в именительном и творительном падеже с союзом а.",
+      "source": {
+        "pdfPages": [
+          118
+        ],
+        "printedPages": [
+          116
+        ],
+        "source": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+      }
+    },
+    {
+      "id": "gl5-5.1-nom-instr-no-insufficiency",
+      "sourceType": "source-rule",
+      "text": "В таких предложениях с союзом но может подчёркиваться недостаток первой части и необходимость добавить то, о чём сказано во второй части.",
+      "source": {
+        "pdfPages": [
+          118
+        ],
+        "printedPages": [
+          116
+        ],
+        "source": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+      }
+    },
+    {
+      "id": "gl5-5.1-tozhe-mne-negative-evaluation",
+      "sourceType": "source-rule",
+      "text": "С помощью конструкции тоже мне + существительное (прилагательное, глагол, наречие) даётся отрицательная оценка лицу, явлению или событию.",
+      "source": {
+        "pdfPages": [
+          118
+        ],
+        "printedPages": [
+          116
+        ],
+        "source": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+      }
+    },
+    {
+      "id": "gl5-5.1-a-tuda-zhe-disapproval",
+      "sourceType": "source-rule",
+      "text": "При помощи конструкции союз а + частица туда же даётся неодобрительная оценка какому-либо действию субъекта.",
+      "source": {
+        "pdfPages": [
+          118
+        ],
+        "printedPages": [
+          116
+        ],
+        "source": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+      }
+    },
+    {
+      "id": "gl5-5.1-imperative-forced-action",
+      "sourceType": "source-rule",
+      "text": "В сложносочинённом предложении со значением вынужденного действия один личный глагольный предикат может быть заменён предикатом в форме императива единственного числа.",
+      "source": {
+        "pdfPages": [
+          118
+        ],
+        "printedPages": [
+          116
+        ],
+        "source": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+      }
+    },
+    {
+      "id": "gl5-5.1-ne-forms-no-possibility",
+      "sourceType": "source-rule",
+      "text": "Конструкции инфинитив + косвенные падежи местоимений некого, нечего (наречия негде, некуда, некогда, незачем) указывают на невозможность действия из-за отсутствия объекта, места, времени, цели и т. д.",
+      "source": {
+        "pdfPages": [
+          118
+        ],
+        "printedPages": [
+          116
+        ],
+        "source": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+      }
+    }
+  ],
+  "tables": [],
+  "atomicRules": [
+    {
+      "id": "gl5-5.1-chto-ni-to-repetition",
+      "sourceType": "source-rule",
+      "text": "Конструкция что ни …, то … передаёт значение повторяющихся действий или явлений. Такие предложения синонимичны высказываниям со словом каждый.",
+      "source": {
+        "pdfPages": [
+          117
+        ],
+        "printedPages": [
+          115
+        ],
+        "source": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+      }
+    },
+    {
+      "id": "gl5-5.1-kak-ne-necessity",
+      "sourceType": "source-rule",
+      "text": "Конструкция как (было) не + инфинитив выражает значение необходимости или вынужденности; по смыслу совпадает с нельзя (невозможно) не + инфинитив.",
+      "source": {
+        "pdfPages": [
+          117
+        ],
+        "printedPages": [
+          115
+        ],
+        "source": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+      }
+    },
+    {
+      "id": "gl5-5.1-gde-tam-emotional-negation",
+      "sourceType": "source-rule",
+      "text": "Конструкция где там + существительное (прилагательное, глагол, наречие) передаёт значение отрицания в эмоционально окрашенной речи. Она близка конструкции с местоимением какой (какая, какое, какие).",
+      "source": {
+        "pdfPages": [
+          117
+        ],
+        "printedPages": [
+          115
+        ],
+        "source": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+      }
+    },
+    {
+      "id": "gl5-5.1-ne-pronoun-a-emphatic",
+      "sourceType": "source-rule",
+      "text": "Для выделения слова, выражающего одновременно противопоставление и утверждение, используется конструкция не + неопределённое местоимение (наречие) + союз а.",
+      "source": {
+        "pdfPages": [
+          118
+        ],
+        "printedPages": [
+          116
+        ],
+        "source": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+      }
+    },
+    {
+      "id": "gl5-5.1-ne-x-tak-alternative",
+      "sourceType": "source-rule",
+      "text": "Конструкция не …, так передаёт значение неизбежного альтернативного действия.",
+      "source": {
+        "pdfPages": [
+          118
+        ],
+        "printedPages": [
+          116
+        ],
+        "source": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+      }
+    },
+    {
+      "id": "gl5-5.1-x-est-x-acceptance",
+      "sourceType": "source-rule",
+      "text": "Конструкции кто есть кто / что есть что выражают безоговорочное принятие того, что изменить невозможно; они синонимичны предложениям со словом это.",
+      "source": {
+        "pdfPages": [
+          118
+        ],
+        "printedPages": [
+          116
+        ],
+        "source": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+      }
+    },
+    {
+      "id": "gl5-5.1-nom-instr-a-contrast",
+      "sourceType": "source-rule",
+      "text": "В сложносочинённых предложениях с противопоставительно-сопоставительным значением возможно употребление сочетания одного существительного в именительном и творительном падеже с союзом а.",
+      "source": {
+        "pdfPages": [
+          118
+        ],
+        "printedPages": [
+          116
+        ],
+        "source": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+      }
+    },
+    {
+      "id": "gl5-5.1-nom-instr-no-insufficiency",
+      "sourceType": "source-rule",
+      "text": "В таких предложениях с союзом но может подчёркиваться недостаток первой части и необходимость добавить то, о чём сказано во второй части.",
+      "source": {
+        "pdfPages": [
+          118
+        ],
+        "printedPages": [
+          116
+        ],
+        "source": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+      }
+    },
+    {
+      "id": "gl5-5.1-tozhe-mne-negative-evaluation",
+      "sourceType": "source-rule",
+      "text": "С помощью конструкции тоже мне + существительное (прилагательное, глагол, наречие) даётся отрицательная оценка лицу, явлению или событию.",
+      "source": {
+        "pdfPages": [
+          118
+        ],
+        "printedPages": [
+          116
+        ],
+        "source": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+      }
+    },
+    {
+      "id": "gl5-5.1-a-tuda-zhe-disapproval",
+      "sourceType": "source-rule",
+      "text": "При помощи конструкции союз а + частица туда же даётся неодобрительная оценка какому-либо действию субъекта.",
+      "source": {
+        "pdfPages": [
+          118
+        ],
+        "printedPages": [
+          116
+        ],
+        "source": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+      }
+    },
+    {
+      "id": "gl5-5.1-imperative-forced-action",
+      "sourceType": "source-rule",
+      "text": "В сложносочинённом предложении со значением вынужденного действия один личный глагольный предикат может быть заменён предикатом в форме императива единственного числа.",
+      "source": {
+        "pdfPages": [
+          118
+        ],
+        "printedPages": [
+          116
+        ],
+        "source": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+      }
+    },
+    {
+      "id": "gl5-5.1-ne-forms-no-possibility",
+      "sourceType": "source-rule",
+      "text": "Конструкции инфинитив + косвенные падежи местоимений некого, нечего (наречия негде, некуда, некогда, незачем) указывают на невозможность действия из-за отсутствия объекта, места, времени, цели и т. д.",
+      "source": {
+        "pdfPages": [
+          118
+        ],
+        "printedPages": [
+          116
+        ],
+        "source": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+      }
+    }
+  ],
+  "examples": [
+    {
+      "sourceType": "source-example",
+      "text": "У него что ни день, то какое-нибудь приключение.",
+      "source": {
+        "pdfPages": [
+          117
+        ],
+        "printedPages": [
+          115
+        ],
+        "source": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+      }
+    },
+    {
+      "sourceType": "source-example",
+      "text": "У этой певицы что ни песня, то шедевр.",
+      "source": {
+        "pdfPages": [
+          117
+        ],
+        "printedPages": [
+          115
+        ],
+        "source": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+      }
+    },
+    {
+      "sourceType": "source-example",
+      "text": "У этого спортсмена что ни выступление, то новый рекорд. — У этого спортсмена каждое выступление — новый рекорд.",
+      "source": {
+        "pdfPages": [
+          117
+        ],
+        "printedPages": [
+          115
+        ],
+        "source": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+      }
+    },
+    {
+      "sourceType": "source-example",
+      "text": "Мой коллега так просил меня выступить на собрании! Как (было) не пойти!",
+      "source": {
+        "pdfPages": [
+          117
+        ],
+        "printedPages": [
+          115
+        ],
+        "source": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+      }
+    },
+    {
+      "sourceType": "source-example",
+      "text": "Как было не дать детям конфет! Они их так хотели! — Нельзя (невозможно) было не дать детям конфет!",
+      "source": {
+        "pdfPages": [
+          117
+        ],
+        "printedPages": [
+          115
+        ],
+        "source": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+      }
+    },
+    {
+      "sourceType": "source-example",
+      "text": "Она учится на пятёрки? — Где там пятёрки! Одни двойки!",
+      "source": {
+        "pdfPages": [
+          117
+        ],
+        "printedPages": [
+          115
+        ],
+        "source": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+      }
+    },
+    {
+      "sourceType": "source-example",
+      "text": "Какой там молодец! Какая там умница! Какое там отдохнула! Какие там пятёрки!",
+      "source": {
+        "pdfPages": [
+          117
+        ],
+        "printedPages": [
+          115
+        ],
+        "source": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+      }
+    },
+    {
+      "sourceType": "source-example",
+      "text": "Она вышла замуж не за кого-нибудь, а за самого умного и красивого парня на нашем курсе.",
+      "source": {
+        "pdfPages": [
+          118
+        ],
+        "printedPages": [
+          116
+        ],
+        "source": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+      }
+    },
+    {
+      "sourceType": "source-example",
+      "text": "Я всё равно стану доктором наук. Не в этом году, так в следующем.",
+      "source": {
+        "pdfPages": [
+          118
+        ],
+        "printedPages": [
+          116
+        ],
+        "source": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+      }
+    },
+    {
+      "sourceType": "source-example",
+      "text": "Люди есть люди; Родина есть Родина. — Родина — это Родина.",
+      "source": {
+        "pdfPages": [
+          118
+        ],
+        "printedPages": [
+          116
+        ],
+        "source": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+      }
+    },
+    {
+      "sourceType": "source-example",
+      "text": "Жена женой, а мама мамой (маму никто не заменит).",
+      "source": {
+        "pdfPages": [
+          118
+        ],
+        "printedPages": [
+          116
+        ],
+        "source": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+      }
+    },
+    {
+      "sourceType": "source-example",
+      "text": "Семья семьёй, но и о себе забывать не стоит.",
+      "source": {
+        "pdfPages": [
+          118
+        ],
+        "printedPages": [
+          116
+        ],
+        "source": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+      }
+    },
+    {
+      "sourceType": "source-example",
+      "text": "Тоже мне музей! Ни одного подлинника.",
+      "source": {
+        "pdfPages": [
+          118
+        ],
+        "printedPages": [
+          116
+        ],
+        "source": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+      }
+    },
+    {
+      "sourceType": "source-example",
+      "text": "Плавать совсем не умеет, а туда же, вместе со всеми прыгнул в воду.",
+      "source": {
+        "pdfPages": [
+          118
+        ],
+        "printedPages": [
+          116
+        ],
+        "source": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+      }
+    },
+    {
+      "sourceType": "source-example",
+      "text": "Она развлекается, а мы убирай за неё.",
+      "source": {
+        "pdfPages": [
+          118
+        ],
+        "printedPages": [
+          116
+        ],
+        "source": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+      }
+    },
+    {
+      "sourceType": "source-example",
+      "text": "Не у кого спросить (в значении: Нет никого, у кого можно было бы спросить).",
+      "source": {
+        "pdfPages": [
+          118
+        ],
+        "printedPages": [
+          116
+        ],
+        "source": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+      }
+    }
+  ],
+  "contrasts": [
+    {
+      "sourceType": "learning-note",
+      "title": "где там 与 как не",
+      "text": "где там 是否定所说事实；как не + 不定式是在情境压力下承认“不能不做”。二者都带情绪色彩，却指向相反的语义动作。"
+    },
+    {
+      "sourceType": "learning-note",
+      "title": "тоже мне 与 а туда же",
+      "text": "тоже мне 直接贬低人或事物；а туда же 先给出主体能力/资格不足，再批评其仍要去做的行动。"
+    }
+  ],
+  "signalAnalysis": [
+    {
+      "sourceType": "learning-note",
+      "signal": "что ни…, то…",
+      "use": "反复出现的事件；可用 каждый 改述。",
+      "limit": "不是单次事件的普通条件句。"
+    },
+    {
+      "sourceType": "learning-note",
+      "signal": "не…, так…",
+      "use": "不可避免的二选一替代。",
+      "limit": "不是任意的并列列举。"
+    },
+    {
+      "sourceType": "learning-note",
+      "signal": "нечего/некого/негде + 不定式",
+      "use": "因为缺少对象、地点、时间等而不能行动。",
+      "limit": "不是表达主观“不想做”。"
+    }
+  ],
+  "commonErrors": [
+    {
+      "sourceType": "learning-note",
+      "text": "不要把 тоже мне 当作普通的“也给我”：本节构式的功能是贬抑。"
+    },
+    {
+      "sourceType": "learning-note",
+      "text": "不要把“主格—工具格 + но”简化为两次重复；后半句承担补足或优先性。"
+    }
+  ],
+  "exerciseLinks": [
+    {
+      "exerciseId": "GL5-Q118",
+      "printedNumber": 118,
+      "status": "mapped",
+      "ruleIds": [
+        "gl5-5.1-nom-instr-a-contrast"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "题干直接使用原书 5.1 所列的「同一名词主格—工具格 + а 的对照」构式；正确项按该构式的语义功能解释。",
+      "sourceType": "exercise-example",
+      "question": "«Дружба дружбой, а служба службой» (русская пословица).",
+      "correctAnswer": "А",
+      "source": {
+        "questionPdfPage": 87,
+        "questionPrintedPage": 85,
+        "answerPdfPage": 127,
+        "answerPrintedPage": 125
+      },
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书正确项为「А：Не надо смешивать дружбу и работу.」。题干直接使用原书 5.1 所列的「同一名词主格—工具格 + а 的对照」构式；正确项按该构式的语义功能解释。",
+        "distractors": [
+          {
+            "key": "Б",
+            "text": "Дружба важнее службы.",
+            "reason": "该项不符合本题所连原书规则/词表条目的语义或搭配；PDF 正确项为「А」。"
+          },
+          {
+            "key": "В",
+            "text": "Служба важнее дружбы.",
+            "reason": "该项不符合本题所连原书规则/词表条目的语义或搭配；PDF 正确项为「А」。"
+          },
+          {
+            "key": "Г",
+            "text": "Надо уметь дружить.",
+            "reason": "该项不符合本题所连原书规则/词表条目的语义或搭配；PDF 正确项为「А」。"
+          }
+        ]
+      }
+    },
+    {
+      "exerciseId": "GL5-Q119",
+      "printedNumber": 119,
+      "status": "mapped",
+      "ruleIds": [
+        "gl5-5.1-chto-ni-to-repetition"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "题干直接使用原书 5.1 所列的「что ни…, то…表示反复出现」构式；正确项按该构式的语义功能解释。",
+      "sourceType": "exercise-example",
+      "question": "«Ведь тут что ни слово, то клевета; так что вы, господа, по-моему, сделали низость» (Ф.М. Достоевский).",
+      "correctAnswer": "Б",
+      "source": {
+        "questionPdfPage": 88,
+        "questionPrintedPage": 86,
+        "answerPdfPage": 127,
+        "answerPrintedPage": 125
+      },
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书正确项为「Б：в каждом слове клевета」。题干直接使用原书 5.1 所列的「что ни…, то…表示反复出现」构式；正确项按该构式的语义功能解释。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "все слова правдивы",
+            "reason": "该项不符合本题所连原书规则/词表条目的语义或搭配；PDF 正确项为「Б」。"
+          },
+          {
+            "key": "В",
+            "text": "в некоторых словах правда",
+            "reason": "该项不符合本题所连原书规则/词表条目的语义或搭配；PDF 正确项为「Б」。"
+          },
+          {
+            "key": "Г",
+            "text": "в некоторых словах клевета",
+            "reason": "该项不符合本题所连原书规则/词表条目的语义或搭配；PDF 正确项为「Б」。"
+          }
+        ]
+      }
+    },
+    {
+      "exerciseId": "GL5-Q120",
+      "printedNumber": 120,
+      "status": "mapped",
+      "ruleIds": [
+        "gl5-5.1-chto-ni-to-repetition"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "题干直接使用原书 5.1 所列的「что ни…, то…表示反复出现」构式；正确项按该构式的语义功能解释。",
+      "sourceType": "exercise-example",
+      "question": "«Терновник растёт кругом дворца, разрастается, что ни год, то гуще, такой частый и высокий, что из-за него не видать дворца» (Ф.И. Буслаев).",
+      "correctAnswer": "А",
+      "source": {
+        "questionPdfPage": 88,
+        "questionPrintedPage": 86,
+        "answerPdfPage": 127,
+        "answerPrintedPage": 125
+      },
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书正确项为「А：с каждым годом становится всё гуще」。题干直接使用原书 5.1 所列的「что ни…, то…表示反复出现」构式；正确项按该构式的语义功能解释。",
+        "distractors": [
+          {
+            "key": "Б",
+            "text": "в этом году стал гуще",
+            "reason": "该项不符合本题所连原书规则/词表条目的语义或搭配；PDF 正确项为「А」。"
+          },
+          {
+            "key": "В",
+            "text": "в прошлом году был гуще",
+            "reason": "该项不符合本题所连原书规则/词表条目的语义或搭配；PDF 正确项为「А」。"
+          },
+          {
+            "key": "Г",
+            "text": "все годы одинаково густой",
+            "reason": "该项不符合本题所连原书规则/词表条目的语义或搭配；PDF 正确项为「А」。"
+          }
+        ]
+      }
+    },
+    {
+      "exerciseId": "GL5-Q121",
+      "printedNumber": 121,
+      "status": "mapped",
+      "ruleIds": [
+        "gl5-5.1-gde-tam-emotional-negation"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "题干直接使用原书 5.1 所列的「где там表达带感情色彩的否定」构式；正确项按该构式的语义功能解释。",
+      "sourceType": "exercise-example",
+      "question": "«Есть речки такие ничтожные, что местные люди, когда их спросишь о названии, обыкновенно отвечают: «Название... Какое там название!» (М.М. Пришвин).",
+      "correctAnswer": "Г",
+      "source": {
+        "questionPdfPage": 88,
+        "questionPrintedPage": 86,
+        "answerPdfPage": 127,
+        "answerPrintedPage": 125
+      },
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书正确项为「Г：У такой речки не может быть названия.」。题干直接使用原书 5.1 所列的「где там表达带感情色彩的否定」构式；正确项按该构式的语义功能解释。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "У этой речки нет названия.",
+            "reason": "该项不符合本题所连原书规则/词表条目的语义或搭配；PDF 正确项为「Г」。"
+          },
+          {
+            "key": "Б",
+            "text": "Название речки придумайте сами.",
+            "reason": "该项不符合本题所连原书规则/词表条目的语义或搭配；PDF 正确项为「Г」。"
+          },
+          {
+            "key": "В",
+            "text": "Мы забыли название речки.",
+            "reason": "该项不符合本题所连原书规则/词表条目的语义或搭配；PDF 正确项为「Г」。"
+          }
+        ]
+      }
+    },
+    {
+      "exerciseId": "GL5-Q122",
+      "printedNumber": 122,
+      "status": "mapped",
+      "ruleIds": [
+        "gl5-5.1-kak-ne-necessity"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "题干直接使用原书 5.1 所列的「как (было) не + 不定式表示必要或不得不」构式；正确项按该构式的语义功能解释。",
+      "sourceType": "exercise-example",
+      "question": "«В Москве когда ещё выберешься в театр или на концерт, а тут — наши приехали. Как не пойти!» (А. Бовин).",
+      "correctAnswer": "В",
+      "source": {
+        "questionPdfPage": 88,
+        "questionPrintedPage": 86,
+        "answerPdfPage": 127,
+        "answerPrintedPage": 125
+      },
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书正确项为「В：Нельзя не пойти.」。题干直接使用原书 5.1 所列的「как (было) не + 不定式表示必要或不得不」构式；正确项按该构式的语义功能解释。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "Ты не пойдёшь.",
+            "reason": "该项不符合本题所连原书规则/词表条目的语义或搭配；PDF 正确项为「В」。"
+          },
+          {
+            "key": "Б",
+            "text": "Ходить не обязательно.",
+            "reason": "该项不符合本题所连原书规则/词表条目的语义或搭配；PDF 正确项为「В」。"
+          },
+          {
+            "key": "Г",
+            "text": "Нужно подумать, прежде чем пойти.",
+            "reason": "该项不符合本题所连原书规则/词表条目的语义或搭配；PDF 正确项为「В」。"
+          }
+        ]
+      }
+    },
+    {
+      "exerciseId": "GL5-Q123",
+      "printedNumber": 123,
+      "status": "mapped",
+      "ruleIds": [
+        "gl5-5.1-gde-tam-emotional-negation"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "题干直接使用原书 5.1 所列的「где там表达带感情色彩的否定」构式；正确项按该构式的语义功能解释。",
+      "sourceType": "exercise-example",
+      "question": "«Какие там сомнения, когда всё ясно!» (Б.Л. Васильев).",
+      "correctAnswer": "Г",
+      "source": {
+        "questionPdfPage": 88,
+        "questionPrintedPage": 86,
+        "answerPdfPage": 127,
+        "answerPrintedPage": 125
+      },
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书正确项为「Г：Никаких сомнений быть не может.」。题干直接使用原书 5.1 所列的「где там表达带感情色彩的否定」构式；正确项按该构式的语义功能解释。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "Вы должны сомневаться.",
+            "reason": "该项不符合本题所连原书规则/词表条目的语义或搭配；PDF 正确项为「Г」。"
+          },
+          {
+            "key": "Б",
+            "text": "Разве у вас нет сомнений?",
+            "reason": "该项不符合本题所连原书规则/词表条目的语义或搭配；PDF 正确项为「Г」。"
+          },
+          {
+            "key": "В",
+            "text": "Сомневайтесь!",
+            "reason": "该项不符合本题所连原书规则/词表条目的语义或搭配；PDF 正确项为「Г」。"
+          }
+        ]
+      }
+    },
+    {
+      "exerciseId": "GL5-Q124",
+      "printedNumber": 124,
+      "status": "mapped",
+      "ruleIds": [
+        "gl5-5.1-x-est-x-acceptance"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "题干直接使用原书 5.1 所列的「кто/что есть кто/что 表示对不可改变事实的接受」构式；正确项按该构式的语义功能解释。",
+      "sourceType": "exercise-example",
+      "question": "«Работа есть работа. К ней бабушка была привычна, а уж убирать и наводить чистоту она умела как никто» (Л.С. Петрушевская).",
+      "correctAnswer": "А",
+      "source": {
+        "questionPdfPage": 88,
+        "questionPrintedPage": 86,
+        "answerPdfPage": 127,
+        "answerPrintedPage": 125
+      },
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书正确项为「А：Даже если не хочешь, надо работать.」。题干直接使用原书 5.1 所列的「кто/что есть кто/что 表示对不可改变事实的接受」构式；正确项按该构式的语义功能解释。",
+        "distractors": [
+          {
+            "key": "Б",
+            "text": "Есть работа.",
+            "reason": "该项不符合本题所连原书规则/词表条目的语义或搭配；PDF 正确项为「А」。"
+          },
+          {
+            "key": "В",
+            "text": "Нужна работа.",
+            "reason": "该项不符合本题所连原书规则/词表条目的语义或搭配；PDF 正确项为「А」。"
+          },
+          {
+            "key": "Г",
+            "text": "Дайте работу.",
+            "reason": "该项不符合本题所连原书规则/词表条目的语义或搭配；PDF 正确项为「А」。"
+          }
+        ]
+      }
+    },
+    {
+      "exerciseId": "GL5-Q125",
+      "printedNumber": 125,
+      "status": "mapped",
+      "ruleIds": [
+        "gl5-5.1-nom-instr-no-insufficiency"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "题干直接使用原书 5.1 所列的「同一名词主格—工具格 + но 提示第一项不足」构式；正确项按该构式的语义功能解释。",
+      "sourceType": "exercise-example",
+      "question": "«Связи связями, но надо же и совесть иметь. Никакие связи не помогут сделать ножку маленькой, душу — большой, а сердце — справедливым» (Е.Л. Шварц).",
+      "correctAnswer": "В",
+      "source": {
+        "questionPdfPage": 88,
+        "questionPrintedPage": 86,
+        "answerPdfPage": 127,
+        "answerPrintedPage": 125
+      },
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书正确项为「В：Одних связей недостаточно.」。题干直接使用原书 5.1 所列的「同一名词主格—工具格 + но 提示第一项不足」构式；正确项按该构式的语义功能解释。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "Связи связывают нас.",
+            "reason": "该项不符合本题所连原书规则/词表条目的语义或搭配；PDF 正确项为「В」。"
+          },
+          {
+            "key": "Б",
+            "text": "Без связей не проживёшь.",
+            "reason": "该项不符合本题所连原书规则/词表条目的语义或搭配；PDF 正确项为「В」。"
+          },
+          {
+            "key": "Г",
+            "text": "Связи всегда полезны.",
+            "reason": "该项不符合本题所连原书规则/词表条目的语义或搭配；PDF 正确项为「В」。"
+          }
+        ]
+      }
+    },
+    {
+      "exerciseId": "GL5-Q126",
+      "printedNumber": 126,
+      "status": "mapped",
+      "ruleIds": [
+        "gl5-5.1-ne-x-tak-alternative"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "题干直接使用原书 5.1 所列的「не…, так…表示不可避免的替代」构式；正确项按该构式的语义功能解释。",
+      "sourceType": "exercise-example",
+      "question": "Чеховским героям казалось, что их проблемы обязательно решатся, и — не сегодня, так завтра начнётся новая жизнь.",
+      "correctAnswer": "А",
+      "source": {
+        "questionPdfPage": 89,
+        "questionPrintedPage": 87,
+        "answerPdfPage": 127,
+        "answerPrintedPage": 125
+      },
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书正确项为「А：очень скоро」。题干直接使用原书 5.1 所列的「не…, так…表示不可避免的替代」构式；正确项按该构式的语义功能解释。",
+        "distractors": [
+          {
+            "key": "Б",
+            "text": "очень нескоро",
+            "reason": "该项不符合本题所连原书规则/词表条目的语义或搭配；PDF 正确项为「А」。"
+          },
+          {
+            "key": "В",
+            "text": "не сегодня и не завтра",
+            "reason": "该项不符合本题所连原书规则/词表条目的语义或搭配；PDF 正确项为「А」。"
+          },
+          {
+            "key": "Г",
+            "text": "иногда",
+            "reason": "该项不符合本题所连原书规则/词表条目的语义或搭配；PDF 正确项为「А」。"
+          }
+        ]
+      }
+    },
+    {
+      "exerciseId": "GL5-Q127",
+      "printedNumber": 127,
+      "status": "mapped",
+      "ruleIds": [
+        "gl5-5.1-ne-pronoun-a-emphatic"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "题干直接使用原书 5.1 所列的「не + 不定代词/副词 + а 突出肯定并形成对照」构式；正确项按该构式的语义功能解释。",
+      "sourceType": "exercise-example",
+      "question": "Эта музыкальная группа выступает не где-нибудь, а в лучших клубах города.",
+      "correctAnswer": "Г",
+      "source": {
+        "questionPdfPage": 89,
+        "questionPrintedPage": 87,
+        "answerPdfPage": 127,
+        "answerPrintedPage": 125
+      },
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书正确项为「Г：в самых хороших клубах」。题干直接使用原书 5.1 所列的「не + 不定代词/副词 + а 突出肯定并形成对照」构式；正确项按该构式的语义功能解释。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "в некоторых клубах",
+            "reason": "该项不符合本题所连原书规则/词表条目的语义或搭配；PDF 正确项为「Г」。"
+          },
+          {
+            "key": "Б",
+            "text": "где придётся",
+            "reason": "该项不符合本题所连原书规则/词表条目的语义或搭配；PDF 正确项为「Г」。"
+          },
+          {
+            "key": "В",
+            "text": "во всех клубах",
+            "reason": "该项不符合本题所连原书规则/词表条目的语义或搭配；PDF 正确项为「Г」。"
+          }
+        ]
+      }
+    },
+    {
+      "exerciseId": "GL5-Q128",
+      "printedNumber": 128,
+      "status": "mapped",
+      "ruleIds": [
+        "gl5-5.1-a-tuda-zhe-disapproval"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "题干直接使用原书 5.1 所列的「а туда же 表示不赞成主体行动」构式；正确项按该构式的语义功能解释。",
+      "sourceType": "exercise-example",
+      "question": "Голоса никакого, а туда же, в певцы подался.",
+      "correctAnswer": "А",
+      "source": {
+        "questionPdfPage": 89,
+        "questionPrintedPage": 87,
+        "answerPdfPage": 127,
+        "answerPrintedPage": 125
+      },
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书正确项为「А：Без голоса, а поёт.」。题干直接使用原书 5.1 所列的「а туда же 表示不赞成主体行动」构式；正确项按该构式的语义功能解释。",
+        "distractors": [
+          {
+            "key": "Б",
+            "text": "Поёт, чтобы развить голос.",
+            "reason": "该项不符合本题所连原书规则/词表条目的语义或搭配；PDF 正确项为「А」。"
+          },
+          {
+            "key": "В",
+            "text": "Для певца голос не главное.",
+            "reason": "该项不符合本题所连原书规则/词表条目的语义或搭配；PDF 正确项为「А」。"
+          },
+          {
+            "key": "Г",
+            "text": "С его голосом ничто не сравнится.",
+            "reason": "该项不符合本题所连原书规则/词表条目的语义或搭配；PDF 正确项为「А」。"
+          }
+        ]
+      }
+    },
+    {
+      "exerciseId": "GL5-Q129",
+      "printedNumber": 129,
+      "status": "mapped",
+      "ruleIds": [
+        "gl5-5.1-nom-instr-no-insufficiency"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "题干直接使用原书 5.1 所列的「同一名词主格—工具格 + но 提示第一项不足」构式；正确项按该构式的语义功能解释。",
+      "sourceType": "exercise-example",
+      "question": "Отдых отдыхом, но и учёбой надо заняться.",
+      "correctAnswer": "Г",
+      "source": {
+        "questionPdfPage": 89,
+        "questionPrintedPage": 87,
+        "answerPdfPage": 127,
+        "answerPrintedPage": 125
+      },
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书正确项为「Г：Отдых нужен, но он не важнее учёбы.」。题干直接使用原书 5.1 所列的「同一名词主格—工具格 + но 提示第一项不足」构式；正确项按该构式的语义功能解释。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "Отдых — это главное.",
+            "reason": "该项不符合本题所连原书规则/词表条目的语义或搭配；PDF 正确项为「Г」。"
+          },
+          {
+            "key": "Б",
+            "text": "Отдыхать всегда полезно.",
+            "reason": "该项不符合本题所连原书规则/词表条目的语义或搭配；PDF 正确项为「Г」。"
+          },
+          {
+            "key": "В",
+            "text": "Отдыхать не надо никогда.",
+            "reason": "该项不符合本题所连原书规则/词表条目的语义或搭配；PDF 正确项为「Г」。"
+          }
+        ]
+      }
+    },
+    {
+      "exerciseId": "GL5-Q130",
+      "printedNumber": 130,
+      "status": "mapped",
+      "ruleIds": [
+        "gl5-5.1-gde-tam-emotional-negation"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "题干直接使用原书 5.1 所列的「где там表达带感情色彩的否定」构式；正确项按该构式的语义功能解释。",
+      "sourceType": "exercise-example",
+      "question": "— Погода блеск! — Где там блеск! То холодно, то жарко, и дождь всё время!",
+      "correctAnswer": "Б",
+      "source": {
+        "questionPdfPage": 89,
+        "questionPrintedPage": 87,
+        "answerPdfPage": 127,
+        "answerPrintedPage": 125
+      },
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书正确项为「Б：Погода ужасная!」。题干直接使用原书 5.1 所列的「где там表达带感情色彩的否定」构式；正确项按该构式的语义功能解释。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "Погода прекрасная!",
+            "reason": "该项不符合本题所连原书规则/词表条目的语义或搭配；PDF 正确项为「Б」。"
+          },
+          {
+            "key": "В",
+            "text": "Погода терпимая!",
+            "reason": "该项不符合本题所连原书规则/词表条目的语义或搭配；PDF 正确项为「Б」。"
+          },
+          {
+            "key": "Г",
+            "text": "Погода неплохая!",
+            "reason": "该项不符合本题所连原书规则/词表条目的语义或搭配；PDF 正确项为「Б」。"
+          }
+        ]
+      }
+    },
+    {
+      "exerciseId": "GL5-Q131",
+      "printedNumber": 131,
+      "status": "mapped",
+      "ruleIds": [
+        "gl5-5.1-tozhe-mne-negative-evaluation"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "题干直接使用原书 5.1 所列的「тоже мне…给出否定评价」构式；正确项按该构式的语义功能解释。",
+      "sourceType": "exercise-example",
+      "question": "— Завтрак был очень полезным. — Тоже мне полезным! Одни углеводы.",
+      "correctAnswer": "В",
+      "source": {
+        "questionPdfPage": 89,
+        "questionPrintedPage": 87,
+        "answerPdfPage": 127,
+        "answerPrintedPage": 125
+      },
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书正确项为「В：Завтрак был полезным!」。题干直接使用原书 5.1 所列的「тоже мне…给出否定评价」构式；正确项按该构式的语义功能解释。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "Завтрак всегда полезен!",
+            "reason": "该项不符合本题所连原书规则/词表条目的语义或搭配；PDF 正确项为「В」。"
+          },
+          {
+            "key": "Б",
+            "text": "Лучше вообще не завтракать!",
+            "reason": "该项不符合本题所连原书规则/词表条目的语义或搭配；PDF 正确项为「В」。"
+          },
+          {
+            "key": "Г",
+            "text": "Завтрак был неполезным!",
+            "reason": "该项不符合本题所连原书规则/词表条目的语义或搭配；PDF 正确项为「В」。"
+          }
+        ]
+      }
+    },
+    {
+      "exerciseId": "GL5-Q132",
+      "printedNumber": 132,
+      "status": "mapped",
+      "ruleIds": [
+        "gl5-5.1-tozhe-mne-negative-evaluation"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "题干直接使用原书 5.1 所列的「тоже мне…给出否定评价」构式；正确项按该构式的语义功能解释。",
+      "sourceType": "exercise-example",
+      "question": "— Тебе повезло: муж всегда помогает. — Тоже мне помогает! Сегодня, правда, сорвал листок календаря.",
+      "correctAnswer": "Б",
+      "source": {
+        "questionPdfPage": 89,
+        "questionPrintedPage": 87,
+        "answerPdfPage": 127,
+        "answerPrintedPage": 125
+      },
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书正确项为「Б：Разве это помощь?!」。题干直接使用原书 5.1 所列的「тоже мне…给出否定评价」构式；正确项按该构式的语义功能解释。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "Всегда мне помогает.",
+            "reason": "该项不符合本题所连原书规则/词表条目的语义或搭配；PDF 正确项为「Б」。"
+          },
+          {
+            "key": "В",
+            "text": "Другим помогает.",
+            "reason": "该项不符合本题所连原书规则/词表条目的语义或搭配；PDF 正确项为「Б」。"
+          },
+          {
+            "key": "Г",
+            "text": "Мне тоже помогает.",
+            "reason": "该项不符合本题所连原书规则/词表条目的语义或搭配；PDF 正确项为「Б」。"
+          }
+        ]
+      }
+    },
+    {
+      "exerciseId": "GL5-Q133",
+      "printedNumber": 133,
+      "status": "mapped",
+      "ruleIds": [
+        "gl5-5.1-x-est-x-acceptance"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "题干直接使用原书 5.1 所列的「кто/что есть кто/что 表示对不可改变事实的接受」构式；正确项按该构式的语义功能解释。",
+      "sourceType": "exercise-example",
+      "question": "Дети есть дети. Родители всё им простят и всё ради них сделают.",
+      "correctAnswer": "В",
+      "source": {
+        "questionPdfPage": 90,
+        "questionPrintedPage": 88,
+        "answerPdfPage": 127,
+        "answerPrintedPage": 125
+      },
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书正确项为「В：Дети дороже всего.」。题干直接使用原书 5.1 所列的「кто/что есть кто/что 表示对不可改变事实的接受」构式；正确项按该构式的语义功能解释。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "Детей нужно ругать.",
+            "reason": "该项不符合本题所连原书规则/词表条目的语义或搭配；PDF 正确项为「В」。"
+          },
+          {
+            "key": "Б",
+            "text": "Детей нужно понимать.",
+            "reason": "该项不符合本题所连原书规则/词表条目的语义或搭配；PDF 正确项为「В」。"
+          },
+          {
+            "key": "Г",
+            "text": "Детей нельзя ругать.",
+            "reason": "该项不符合本题所连原书规则/词表条目的语义或搭配；PDF 正确项为「В」。"
+          }
+        ]
+      }
+    },
+    {
+      "exerciseId": "GL5-Q134",
+      "printedNumber": 134,
+      "status": "mapped",
+      "ruleIds": [
+        "gl5-5.1-imperative-forced-action"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "题干直接使用原书 5.1 所列的「对照复句中单数命令式表示被迫行动」构式；正确项按该构式的语义功能解释。",
+      "sourceType": "exercise-example",
+      "question": "Она танцует на дискотеке, а мы переводи за неё статью.",
+      "correctAnswer": "Г",
+      "source": {
+        "questionPdfPage": 90,
+        "questionPrintedPage": 88,
+        "answerPdfPage": 127,
+        "answerPrintedPage": 125
+      },
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书正确项为「Г：мы вынуждены переводить」。题干直接使用原书 5.1 所列的「对照复句中单数命令式表示被迫行动」构式；正确项按该构式的语义功能解释。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "мы хотим переводить",
+            "reason": "该项不符合本题所连原书规则/词表条目的语义或搭配；PDF 正确项为「Г」。"
+          },
+          {
+            "key": "Б",
+            "text": "нам нравится переводить",
+            "reason": "该项不符合本题所连原书规则/词表条目的语义或搭配；PDF 正确项为「Г」。"
+          },
+          {
+            "key": "В",
+            "text": "мы не любим переводить",
+            "reason": "该项不符合本题所连原书规则/词表条目的语义或搭配；PDF 正确项为「Г」。"
+          }
+        ]
+      }
+    },
+    {
+      "exerciseId": "GL5-Q135",
+      "printedNumber": 135,
+      "status": "mapped",
+      "ruleIds": [
+        "gl5-5.1-ne-forms-no-possibility"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "题干直接使用原书 5.1 所列的「нечего/некого/негде 等与不定式表示因缺失而不可能」构式；正确项按该构式的语义功能解释。",
+      "sourceType": "exercise-example",
+      "question": "Мой сосед так одинок, что ему не с кем поговорить.",
+      "correctAnswer": "А",
+      "source": {
+        "questionPdfPage": 90,
+        "questionPrintedPage": 88,
+        "answerPdfPage": 127,
+        "answerPrintedPage": 125
+      },
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书正确项为「А：у него нет никого, с кем он может поговорить」。题干直接使用原书 5.1 所列的「нечего/некого/негде 等与不定式表示因缺失而不可能」构式；正确项按该构式的语义功能解释。",
+        "distractors": [
+          {
+            "key": "Б",
+            "text": "он разговаривает со всеми",
+            "reason": "该项不符合本题所连原书规则/词表条目的语义或搭配；PDF 正确项为「А」。"
+          },
+          {
+            "key": "В",
+            "text": "он ни с кем не хочет говорить",
+            "reason": "该项不符合本题所连原书规则/词表条目的语义或搭配；PDF 正确项为「А」。"
+          },
+          {
+            "key": "Г",
+            "text": "никто не хочет говорить с ним",
+            "reason": "该项不符合本题所连原书规则/词表条目的语义或搭配；PDF 正确项为「А」。"
+          }
+        ]
+      }
+    },
+    {
+      "exerciseId": "GL5-Q136",
+      "printedNumber": 136,
+      "status": "mapped",
+      "ruleIds": [
+        "gl5-5.1-ne-pronoun-a-emphatic"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "题干直接使用原书 5.1 所列的「не + 不定代词/副词 + а 突出肯定并形成对照」构式；正确项按该构式的语义功能解释。",
+      "sourceType": "exercise-example",
+      "question": "Мой племянник работает не кем-нибудь, а директором большого завода.",
+      "correctAnswer": "Б",
+      "source": {
+        "questionPdfPage": 90,
+        "questionPrintedPage": 88,
+        "answerPdfPage": 127,
+        "answerPrintedPage": 125
+      },
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书正确项为「Б：работает директором」。题干直接使用原书 5.1 所列的「не + 不定代词/副词 + а 突出肯定并形成对照」构式；正确项按该构式的语义功能解释。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "работает у директора",
+            "reason": "该项不符合本题所连原书规则/词表条目的语义或搭配；PDF 正确项为「Б」。"
+          },
+          {
+            "key": "В",
+            "text": "работает с директором",
+            "reason": "该项不符合本题所连原书规则/词表条目的语义或搭配；PDF 正确项为「Б」。"
+          },
+          {
+            "key": "Г",
+            "text": "замещает директора",
+            "reason": "该项不符合本题所连原书规则/词表条目的语义或搭配；PDF 正确项为「Б」。"
+          }
+        ]
+      }
+    },
+    {
+      "exerciseId": "GL5-Q137",
+      "printedNumber": 137,
+      "status": "mapped",
+      "ruleIds": [
+        "gl5-5.1-a-tuda-zhe-disapproval"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "题干直接使用原书 5.1 所列的「а туда же 表示不赞成主体行动」构式；正确项按该构式的语义功能解释。",
+      "sourceType": "exercise-example",
+      "question": "Начальник цеха всю работу развалил, а туда же, берётся всех судить и поучать.",
+      "correctAnswer": "Г",
+      "source": {
+        "questionPdfPage": 90,
+        "questionPrintedPage": 88,
+        "answerPdfPage": 127,
+        "answerPrintedPage": 125
+      },
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书正确项为「Г：не умеет работать, но всех поучает」。题干直接使用原书 5.1 所列的「а туда же 表示不赞成主体行动」构式；正确项按该构式的语义功能解释。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "умеет работать",
+            "reason": "该项不符合本题所连原书规则/词表条目的语义或搭配；PDF 正确项为「Г」。"
+          },
+          {
+            "key": "Б",
+            "text": "не умеет работать, но знает, как это делать",
+            "reason": "该项不符合本题所连原书规则/词表条目的语义或搭配；PDF 正确项为「Г」。"
+          },
+          {
+            "key": "В",
+            "text": "умеет работать и всех учит",
+            "reason": "该项不符合本题所连原书规则/词表条目的语义或搭配；PDF 正确项为「Г」。"
+          }
+        ]
+      }
+    },
+    {
+      "exerciseId": "GL5-Q138",
+      "printedNumber": 138,
+      "status": "mapped",
+      "ruleIds": [
+        "gl5-5.1-imperative-forced-action"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "题干直接使用原书 5.1 所列的「对照复句中单数命令式表示被迫行动」构式；正确项按该构式的语义功能解释。",
+      "sourceType": "exercise-example",
+      "question": "Петя в ресторане с девушкой, а мы тут работай за него.",
+      "correctAnswer": "А",
+      "source": {
+        "questionPdfPage": 90,
+        "questionPrintedPage": 88,
+        "answerPdfPage": 127,
+        "answerPrintedPage": 125
+      },
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书正确项为「А：вынуждены работать」。题干直接使用原书 5.1 所列的「对照复句中单数命令式表示被迫行动」构式；正确项按该构式的语义功能解释。",
+        "distractors": [
+          {
+            "key": "Б",
+            "text": "хотим работать",
+            "reason": "该项不符合本题所连原书规则/词表条目的语义或搭配；PDF 正确项为「А」。"
+          },
+          {
+            "key": "В",
+            "text": "собираемся работать",
+            "reason": "该项不符合本题所连原书规则/词表条目的语义或搭配；PDF 正确项为「А」。"
+          },
+          {
+            "key": "Г",
+            "text": "любим работать",
+            "reason": "该项不符合本题所连原书规则/词表条目的语义或搭配；PDF 正确项为「А」。"
+          }
+        ]
+      }
+    },
+    {
+      "exerciseId": "GL5-Q139",
+      "printedNumber": 139,
+      "status": "mapped",
+      "ruleIds": [
+        "gl5-5.1-ne-forms-no-possibility"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "题干直接使用原书 5.1 所列的「нечего/некого/негде 等与不定式表示因缺失而不可能」构式；正确项按该构式的语义功能解释。",
+      "sourceType": "exercise-example",
+      "question": "Жаловаться ему не на что: жена красавица, дети радуют, работа престижная.",
+      "correctAnswer": "Г",
+      "source": {
+        "questionPdfPage": 90,
+        "questionPrintedPage": 88,
+        "answerPdfPage": 127,
+        "answerPrintedPage": 125
+      },
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书正确项为「Г：У него всё прекрасно.」。题干直接使用原书 5.1 所列的「нечего/некого/негде 等与不定式表示因缺失而不可能」构式；正确项按该构式的语义功能解释。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "У него будет всё прекрасно.",
+            "reason": "该项不符合本题所连原书规则/词表条目的语义或搭配；PDF 正确项为「Г」。"
+          },
+          {
+            "key": "Б",
+            "text": "У него было всё прекрасно.",
+            "reason": "该项不符合本题所连原书规则/词表条目的语义或搭配；PDF 正确项为「Г」。"
+          },
+          {
+            "key": "В",
+            "text": "У него всё может быть прекрасно.",
+            "reason": "该项不符合本题所连原书规则/词表条目的语义或搭配；PDF 正确项为「Г」。"
+          }
+        ]
+      }
+    }
+  ],
+  "relatedRules": [
+    {
+      "sectionId": "5.2",
+      "sourceType": "learning-note",
+      "relation": "related",
+      "recommendation": "学习 5.1 后，可对照 5.2 以避免将不同层级的语义条件混为一谈。"
+    },
+    {
+      "sectionId": "5.lexical",
+      "sourceType": "learning-note",
+      "relation": "related",
+      "recommendation": "学习 5.1 后，可对照 5.lexical 以避免将不同层级的语义条件混为一谈。"
+    }
+  ],
+  "source": {
+    "sourcePdf": "E:\\Desktop\\语法词汇（同一本书）.pdf",
+    "cleanedSource": "cleaned-source/chapter-05.md",
+    "pdfPages": [
+      117,
+      118
+    ],
+    "printedPages": [
+      115,
+      116
+    ],
+    "sourceStatus": "review"
+  },
+  "sourceCoverage": {
+    "ruleItems": {
+      "total": 12,
+      "captured": 12,
+      "unrecorded": []
+    },
+    "numberedItems": {
+      "total": 11,
+      "captured": 11,
+      "unrecorded": []
+    },
+    "tables": {
+      "total": 0,
+      "captured": 0,
+      "rowsTotal": 0,
+      "rowsCaptured": 0,
+      "unrecordedRows": []
+    },
+    "examples": {
+      "total": 16,
+      "captured": 16,
+      "unrecorded": []
+    },
+    "relatedExercises": {
+      "total": 22,
+      "explained": 22,
+      "unrecorded": []
+    },
+    "omitted": []
+  },
+  "reviewStatus": "needs-review"
+}

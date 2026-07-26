@@ -1,0 +1,1452 @@
+{
+  "schemaVersion": 1,
+  "id": "gl1-section-1.3",
+  "chapterId": "gl1",
+  "sectionId": "1.3",
+  "titleRu": "Полная и краткая форма качественных прилагательных",
+  "titleZh": "性质形容词全尾与短尾形式",
+  "orientationZh": {
+    "sourceType": "learning-note",
+    "text": "全尾和短尾不仅是形态替换：它们会改变特征的恒常/临时、绝对/情境意义、格支配能力、句法位置及语体效果。"
+  },
+  "quickDecision": [
+    {
+      "sourceType": "learning-note",
+      "text": "先判断是定语还是谓语，并观察是否有系词或不定式。"
+    },
+    {
+      "sourceType": "learning-note",
+      "text": "比较特征是恒常/绝对还是暂时/情境相关。"
+    },
+    {
+      "sourceType": "learning-note",
+      "text": "检查 особые signals：то/это/что/всё、как/так、какой/такой、格支配和语体。"
+    }
+  ],
+  "semanticAnalysis": {
+    "sourceType": "learning-note",
+    "text": "全尾往往把性质当作对象较稳定、可直接描述的特征；短尾更容易把它说成“在当前条件下是怎样”或“对某事是否合适”。这不是绝对的时间对立，还会牵动句法位置、补足语和语体，因此先问句子要描述属性还是给出情境判断。"
+  },
+  "sourceRules": [
+    {
+      "id": "gl1-1.3-full-definition",
+      "sourceType": "source-rule",
+      "text": "Полная форма качественных прилагательных может быть определением перед определяемым словом или после него; при постпозиции она обособляется запятыми.",
+      "source": {
+        "pdfPages": [
+          94
+        ],
+        "printedPages": [
+          92
+        ],
+        "source": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+      }
+    },
+    {
+      "id": "gl1-1.3-short-predicate",
+      "sourceType": "source-rule",
+      "text": "Полная и краткая формы могут быть предикатом; с прилагательными могут входить вспомогательные глаголы являться, казаться, становиться и связка быть.",
+      "source": {
+        "pdfPages": [
+          94
+        ],
+        "printedPages": [
+          92
+        ],
+        "source": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+      }
+    },
+    {
+      "id": "gl1-1.3-permanent-vs-temporary",
+      "sourceType": "source-rule",
+      "text": "Полная форма указывает на постоянный признак и вневременное качество; краткая — на временный признак и недлительное состояние.",
+      "source": {
+        "pdfPages": [
+          94
+        ],
+        "printedPages": [
+          92
+        ],
+        "source": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+      }
+    },
+    {
+      "id": "gl1-1.3-absolute-vs-relative",
+      "sourceType": "source-rule",
+      "text": "Полная форма обозначает абсолютный признак, не связанный с конкретной ситуацией; краткая — относительный признак, связанный с конкретной ситуацией.",
+      "source": {
+        "pdfPages": [
+          94
+        ],
+        "printedPages": [
+          92
+        ],
+        "source": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+      }
+    },
+    {
+      "id": "gl1-1.3-short-case-government",
+      "sourceType": "source-rule",
+      "text": "Краткая форма способна управлять определённым падежом; полная форма в функции предиката такой способностью не обладает.",
+      "source": {
+        "pdfPages": [
+          94
+        ],
+        "printedPages": [
+          92
+        ],
+        "source": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+      }
+    },
+    {
+      "id": "gl1-1.3-short-pronoun-or-clause",
+      "sourceType": "source-rule",
+      "text": "Краткая форма употребляется при субъекте то, это, что, всё и при дополнении, выраженном придаточной частью предложения.",
+      "source": {
+        "pdfPages": [
+          95
+        ],
+        "printedPages": [
+          93
+        ],
+        "source": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+      }
+    },
+    {
+      "id": "gl1-1.3-short-with-infinitive",
+      "sourceType": "source-rule",
+      "text": "При наличии инфинитива в предикате употребляется краткая форма.",
+      "source": {
+        "pdfPages": [
+          95
+        ],
+        "printedPages": [
+          93
+        ],
+        "source": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+      }
+    },
+    {
+      "id": "gl1-1.3-short-with-tak",
+      "sourceType": "source-rule",
+      "text": "При наличии слов как и так употребляется только краткая форма.",
+      "source": {
+        "pdfPages": [
+          95
+        ],
+        "printedPages": [
+          93
+        ],
+        "source": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+      }
+    },
+    {
+      "id": "gl1-1.3-full-kakoi-takoi",
+      "sourceType": "source-rule",
+      "text": "При наличии слов какой и такой употребляется только полная форма прилагательного.",
+      "source": {
+        "pdfPages": [
+          95
+        ],
+        "printedPages": [
+          93
+        ],
+        "source": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+      }
+    },
+    {
+      "id": "gl1-1.3-style-short-vs-full",
+      "sourceType": "source-rule",
+      "text": "Краткая форма характерна для литературного языка, полная — для разговорной речи; в газетно-публицистическом и художественном стилях краткая форма обладает большей экспрессивностью.",
+      "source": {
+        "pdfPages": [
+          95
+        ],
+        "printedPages": [
+          93
+        ],
+        "source": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+      }
+    },
+    {
+      "id": "gl1-1.3-predicative-instrumental",
+      "sourceType": "source-rule",
+      "text": "После являться, казаться, становиться и быть полная форма в функции предиката употребляется в творительном падеже.",
+      "source": {
+        "pdfPages": [
+          94,
+          95
+        ],
+        "printedPages": [
+          92,
+          93
+        ],
+        "source": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+      }
+    }
+  ],
+  "tables": [],
+  "atomicRules": [
+    {
+      "id": "gl1-1.3-full-definition",
+      "sourceType": "source-rule",
+      "text": "Полная форма качественных прилагательных может быть определением перед определяемым словом или после него; при постпозиции она обособляется запятыми.",
+      "source": {
+        "pdfPages": [
+          94
+        ],
+        "printedPages": [
+          92
+        ],
+        "source": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+      }
+    },
+    {
+      "id": "gl1-1.3-short-predicate",
+      "sourceType": "source-rule",
+      "text": "Полная и краткая формы могут быть предикатом; с прилагательными могут входить вспомогательные глаголы являться, казаться, становиться и связка быть.",
+      "source": {
+        "pdfPages": [
+          94
+        ],
+        "printedPages": [
+          92
+        ],
+        "source": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+      }
+    },
+    {
+      "id": "gl1-1.3-short-with-infinitive",
+      "sourceType": "source-rule",
+      "text": "При наличии инфинитива в предикате употребляется краткая форма.",
+      "source": {
+        "pdfPages": [
+          95
+        ],
+        "printedPages": [
+          93
+        ],
+        "source": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+      }
+    },
+    {
+      "id": "gl1-1.3-short-with-tak",
+      "sourceType": "source-rule",
+      "text": "При наличии слов как и так употребляется только краткая форма.",
+      "source": {
+        "pdfPages": [
+          95
+        ],
+        "printedPages": [
+          93
+        ],
+        "source": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+      }
+    },
+    {
+      "id": "gl1-1.3-predicative-instrumental",
+      "sourceType": "source-rule",
+      "text": "После являться, казаться, становиться и быть полная форма в функции предиката употребляется в творительном падеже.",
+      "source": {
+        "pdfPages": [
+          94,
+          95
+        ],
+        "printedPages": [
+          92,
+          93
+        ],
+        "source": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+      }
+    },
+    {
+      "id": "gl1-1.3-permanent-vs-temporary",
+      "sourceType": "source-rule",
+      "text": "Полная форма указывает на постоянный признак и вневременное качество; краткая — на временный признак и недлительное состояние.",
+      "source": {
+        "pdfPages": [
+          94
+        ],
+        "printedPages": [
+          92
+        ],
+        "source": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+      }
+    },
+    {
+      "id": "gl1-1.3-absolute-vs-relative",
+      "sourceType": "source-rule",
+      "text": "Полная форма обозначает абсолютный признак, не связанный с конкретной ситуацией; краткая — относительный признак, связанный с конкретной ситуацией.",
+      "source": {
+        "pdfPages": [
+          94
+        ],
+        "printedPages": [
+          92
+        ],
+        "source": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+      }
+    },
+    {
+      "id": "gl1-1.3-short-case-government",
+      "sourceType": "source-rule",
+      "text": "Краткая форма способна управлять определённым падежом; полная форма в функции предиката такой способностью не обладает.",
+      "source": {
+        "pdfPages": [
+          94
+        ],
+        "printedPages": [
+          92
+        ],
+        "source": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+      }
+    },
+    {
+      "id": "gl1-1.3-short-pronoun-or-clause",
+      "sourceType": "source-rule",
+      "text": "Краткая форма употребляется при субъекте то, это, что, всё и при дополнении, выраженном придаточной частью предложения.",
+      "source": {
+        "pdfPages": [
+          95
+        ],
+        "printedPages": [
+          93
+        ],
+        "source": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+      }
+    },
+    {
+      "id": "gl1-1.3-full-kakoi-takoi",
+      "sourceType": "source-rule",
+      "text": "При наличии слов какой и такой употребляется только полная форма прилагательного.",
+      "source": {
+        "pdfPages": [
+          95
+        ],
+        "printedPages": [
+          93
+        ],
+        "source": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+      }
+    },
+    {
+      "id": "gl1-1.3-style-short-vs-full",
+      "sourceType": "source-rule",
+      "text": "Краткая форма характерна для литературного языка, полная — для разговорной речи; в газетно-публицистическом и художественном стилях краткая форма обладает большей экспрессивностью.",
+      "source": {
+        "pdfPages": [
+          95
+        ],
+        "printedPages": [
+          93
+        ],
+        "source": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+      }
+    }
+  ],
+  "examples": [
+    {
+      "sourceType": "source-example",
+      "text": "После суровой зимы пришла яркая и тёплая весна; Она, всегда добрая и спокойная, внешность имела самую обычную.",
+      "source": {
+        "pdfPages": [
+          94
+        ],
+        "printedPages": [
+          92
+        ],
+        "source": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+      }
+    },
+    {
+      "sourceType": "source-example",
+      "text": "Этот реферат аспиранта оригинальный и интересный; Дом Чехова в Крыму полон солнца и цветов.",
+      "source": {
+        "pdfPages": [
+          94
+        ],
+        "printedPages": [
+          92
+        ],
+        "source": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+      }
+    },
+    {
+      "sourceType": "source-example",
+      "text": "Её движения всегда неторопливые ... — Движения её в этот момент неторопливы, лицо спокойно.",
+      "source": {
+        "pdfPages": [
+          94
+        ],
+        "printedPages": [
+          92
+        ],
+        "source": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+      }
+    },
+    {
+      "sourceType": "source-example",
+      "text": "эта комната маленькая — эта комната мала для трёх человек.",
+      "source": {
+        "pdfPages": [
+          94
+        ],
+        "printedPages": [
+          92
+        ],
+        "source": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+      }
+    },
+    {
+      "sourceType": "source-example",
+      "text": "студенты готовы к экзамену; Школьник, способный к математике.",
+      "source": {
+        "pdfPages": [
+          94
+        ],
+        "printedPages": [
+          92
+        ],
+        "source": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+      }
+    },
+    {
+      "sourceType": "source-example",
+      "text": "Всё замечательно; Некоторые животные способны различать до двухсот запахов; Мой брат замечателен тем, что он много читал.",
+      "source": {
+        "pdfPages": [
+          95
+        ],
+        "printedPages": [
+          93
+        ],
+        "source": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+      }
+    },
+    {
+      "sourceType": "source-example",
+      "text": "Как интересна эта книга! Так ярок и ослепителен снег; Какой красивый ребёнок! Такой замечательный словарь!",
+      "source": {
+        "pdfPages": [
+          95
+        ],
+        "printedPages": [
+          93
+        ],
+        "source": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+      }
+    },
+    {
+      "sourceType": "source-example",
+      "text": "Настоящая любовь многоголовна; Я на всё согласный; мальчик болен — мальчик больной.",
+      "source": {
+        "pdfPages": [
+          95
+        ],
+        "printedPages": [
+          93
+        ],
+        "source": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+      }
+    }
+  ],
+  "contrasts": [
+    {
+      "sourceType": "learning-note",
+      "text": "маленькая 表绝对尺寸，мала 表相对“对三个人来说太小”。"
+    },
+    {
+      "sourceType": "learning-note",
+      "text": "мальчик болен 比 мальчик больной 更突出当下状态。"
+    }
+  ],
+  "signalAnalysis": [
+    {
+      "sourceType": "learning-note",
+      "text": "инфинитив、как/так、какой/такой、то/это/что/всё、支配格。"
+    }
+  ],
+  "commonErrors": [
+    {
+      "sourceType": "learning-note",
+      "text": "不要把短尾仅当作“更正式的全尾”；它可改变语义、句法和语体。"
+    }
+  ],
+  "exerciseLinks": [
+    {
+      "exerciseId": "GL1-Q020",
+      "printedNumber": 20,
+      "exercisePrintedPage": 9,
+      "sourceType": "exercise-example",
+      "status": "mapped",
+      "question": "Русская природа так ...: бесконечные южные степи, сосновые леса Дальнего Востока, прозрачные воды Байкала.",
+      "options": [
+        {
+          "key": "А",
+          "text": "разнообразная"
+        },
+        {
+          "key": "Б",
+          "text": "разнообразна"
+        }
+      ],
+      "correctAnswer": "Б",
+      "ruleIds": [
+        "gl1-1.3-short-with-tak"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "题面、PDF 正确项与原书「как / так 结构使用短尾形式」条件直接对应；旧 knowledgePoints 仅作定位。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书正确项为「Б：разнообразна」。它符合本题所连原书规则：как / так 结构使用短尾形式。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "разнообразная",
+            "sourceType": "learning-note",
+            "reason": "该项未满足「как / так 结构使用短尾形式」所要求的条件或意义；PDF 正确项为「Б」。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 11,
+        "questionPrintedPage": 9,
+        "answerPdfPage": 125,
+        "answerPrintedPage": 123
+      }
+    },
+    {
+      "exerciseId": "GL1-Q021",
+      "printedNumber": 21,
+      "exercisePrintedPage": 9,
+      "sourceType": "exercise-example",
+      "status": "mapped",
+      "question": "Каждую весну река Быстрая, обычно ..., доставляет жителям донских сёл немало неприятностей.",
+      "options": [
+        {
+          "key": "А",
+          "text": "спокойная"
+        },
+        {
+          "key": "Б",
+          "text": "спокойна"
+        }
+      ],
+      "correctAnswer": "А",
+      "ruleIds": [
+        "gl1-1.3-full-definition"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "题面、PDF 正确项与原书「全尾形容词作前置或后置定语」条件直接对应；旧 knowledgePoints 仅作定位。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书正确项为「А：спокойная」。它符合本题所连原书规则：全尾形容词作前置或后置定语。",
+        "distractors": [
+          {
+            "key": "Б",
+            "text": "спокойна",
+            "sourceType": "learning-note",
+            "reason": "该项未满足「全尾形容词作前置或后置定语」所要求的条件或意义；PDF 正确项为「А」。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 11,
+        "questionPrintedPage": 9,
+        "answerPdfPage": 125,
+        "answerPrintedPage": 123
+      }
+    },
+    {
+      "exerciseId": "GL1-Q022",
+      "printedNumber": 22,
+      "exercisePrintedPage": 9,
+      "sourceType": "exercise-example",
+      "status": "mapped",
+      "question": "«В одно окно ... была столетняя, вся чёрная плакучая берёза» (И. А. Бунин).",
+      "options": [
+        {
+          "key": "А",
+          "text": "видная"
+        },
+        {
+          "key": "Б",
+          "text": "видна"
+        }
+      ],
+      "correctAnswer": "Б",
+      "ruleIds": [
+        "gl1-1.3-short-predicate"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "题面、PDF 正确项与原书「短尾形容词作谓语」条件直接对应；旧 knowledgePoints 仅作定位。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书正确项为「Б：видна」。它符合本题所连原书规则：短尾形容词作谓语。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "видная",
+            "sourceType": "learning-note",
+            "reason": "该项未满足「短尾形容词作谓语」所要求的条件或意义；PDF 正确项为「Б」。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 11,
+        "questionPrintedPage": 9,
+        "answerPdfPage": 125,
+        "answerPrintedPage": 123
+      }
+    },
+    {
+      "exerciseId": "GL1-Q023",
+      "printedNumber": 23,
+      "exercisePrintedPage": 9,
+      "sourceType": "exercise-example",
+      "status": "mapped",
+      "question": "«Мартовская ночь, ..., окутала землю» (А.П. Чехов).",
+      "options": [
+        {
+          "key": "А",
+          "text": "облачна и туманна"
+        },
+        {
+          "key": "Б",
+          "text": "облачная и туманная"
+        }
+      ],
+      "correctAnswer": "Б",
+      "ruleIds": [
+        "gl1-1.3-full-definition"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "题面、PDF 正确项与原书「全尾形容词作前置或后置定语」条件直接对应；旧 knowledgePoints 仅作定位。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书正确项为「Б：облачная и туманная」。它符合本题所连原书规则：全尾形容词作前置或后置定语。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "облачна и туманна",
+            "sourceType": "learning-note",
+            "reason": "该项未满足「全尾形容词作前置或后置定语」所要求的条件或意义；PDF 正确项为「Б」。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 11,
+        "questionPrintedPage": 9,
+        "answerPdfPage": 125,
+        "answerPrintedPage": 123
+      }
+    },
+    {
+      "exerciseId": "GL1-Q024",
+      "printedNumber": 24,
+      "exercisePrintedPage": 9,
+      "sourceType": "exercise-example",
+      "status": "mapped",
+      "question": "«Человек ... без общества» (Л.Н. Толстой).",
+      "options": [
+        {
+          "key": "А",
+          "text": "немыслимый"
+        },
+        {
+          "key": "Б",
+          "text": "немыслим"
+        }
+      ],
+      "correctAnswer": "Б",
+      "ruleIds": [
+        "gl1-1.3-short-predicate"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "题面、PDF 正确项与原书「短尾形容词作谓语」条件直接对应；旧 knowledgePoints 仅作定位。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书正确项为「Б：немыслим」。它符合本题所连原书规则：短尾形容词作谓语。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "немыслимый",
+            "sourceType": "learning-note",
+            "reason": "该项未满足「短尾形容词作谓语」所要求的条件或意义；PDF 正确项为「Б」。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 11,
+        "questionPrintedPage": 9,
+        "answerPdfPage": 125,
+        "answerPrintedPage": 123
+      }
+    },
+    {
+      "exerciseId": "GL1-Q025",
+      "printedNumber": 25,
+      "exercisePrintedPage": 9,
+      "sourceType": "exercise-example",
+      "status": "mapped",
+      "question": "Каждый новый исторический факт, даже ..., помогает нам лучше понять прошлое.",
+      "options": [
+        {
+          "key": "А",
+          "text": "незначительный"
+        },
+        {
+          "key": "Б",
+          "text": "незначителен"
+        }
+      ],
+      "correctAnswer": "А",
+      "ruleIds": [
+        "gl1-1.3-full-definition"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "题面、PDF 正确项与原书「全尾形容词作前置或后置定语」条件直接对应；旧 knowledgePoints 仅作定位。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书正确项为「А：незначительный」。它符合本题所连原书规则：全尾形容词作前置或后置定语。",
+        "distractors": [
+          {
+            "key": "Б",
+            "text": "незначителен",
+            "sourceType": "learning-note",
+            "reason": "该项未满足「全尾形容词作前置或后置定语」所要求的条件或意义；PDF 正确项为「А」。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 11,
+        "questionPrintedPage": 9,
+        "answerPdfPage": 125,
+        "answerPrintedPage": 123
+      }
+    },
+    {
+      "exerciseId": "GL1-Q026",
+      "printedNumber": 26,
+      "exercisePrintedPage": 9,
+      "sourceType": "exercise-example",
+      "status": "mapped",
+      "question": "Знание истории своей страны ... для каждого образованного человека.",
+      "options": [
+        {
+          "key": "А",
+          "text": "важное"
+        },
+        {
+          "key": "Б",
+          "text": "важно"
+        }
+      ],
+      "correctAnswer": "Б",
+      "ruleIds": [
+        "gl1-1.3-short-predicate"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "题面、PDF 正确项与原书「短尾形容词作谓语」条件直接对应；旧 knowledgePoints 仅作定位。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书正确项为「Б：важно」。它符合本题所连原书规则：短尾形容词作谓语。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "важное",
+            "sourceType": "learning-note",
+            "reason": "该项未满足「短尾形容词作谓语」所要求的条件或意义；PDF 正确项为「Б」。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 11,
+        "questionPrintedPage": 9,
+        "answerPdfPage": 125,
+        "answerPrintedPage": 123
+      }
+    },
+    {
+      "exerciseId": "GL1-Q027",
+      "printedNumber": 27,
+      "exercisePrintedPage": 9,
+      "sourceType": "exercise-example",
+      "status": "mapped",
+      "question": "Глаза человека ... различать большое количество цветов и оттенков.",
+      "options": [
+        {
+          "key": "А",
+          "text": "способны"
+        },
+        {
+          "key": "Б",
+          "text": "способные"
+        }
+      ],
+      "correctAnswer": "А",
+      "ruleIds": [
+        "gl1-1.3-short-with-infinitive"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "题面、PDF 正确项与原书「谓语含不定式时使用短尾形式」条件直接对应；旧 knowledgePoints 仅作定位。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书正确项为「А：способны」。它符合本题所连原书规则：谓语含不定式时使用短尾形式。",
+        "distractors": [
+          {
+            "key": "Б",
+            "text": "способные",
+            "sourceType": "learning-note",
+            "reason": "该项未满足「谓语含不定式时使用短尾形式」所要求的条件或意义；PDF 正确项为「А」。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 11,
+        "questionPrintedPage": 9,
+        "answerPdfPage": 125,
+        "answerPrintedPage": 123
+      }
+    },
+    {
+      "exerciseId": "GL1-Q028",
+      "printedNumber": 28,
+      "exercisePrintedPage": 9,
+      "sourceType": "exercise-example",
+      "status": "mapped",
+      "question": "Русский язык так ..., что его средствами можно передать все оттенки человеческой мысли и чувства.",
+      "options": [
+        {
+          "key": "А",
+          "text": "богатый"
+        },
+        {
+          "key": "Б",
+          "text": "богат"
+        }
+      ],
+      "correctAnswer": "Б",
+      "ruleIds": [
+        "gl1-1.3-short-with-tak"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "题面、PDF 正确项与原书「как / так 结构使用短尾形式」条件直接对应；旧 knowledgePoints 仅作定位。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书正确项为「Б：богат」。它符合本题所连原书规则：как / так 结构使用短尾形式。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "богатый",
+            "sourceType": "learning-note",
+            "reason": "该项未满足「как / так 结构使用短尾形式」所要求的条件或意义；PDF 正确项为「Б」。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 11,
+        "questionPrintedPage": 9,
+        "answerPdfPage": 125,
+        "answerPrintedPage": 123
+      }
+    },
+    {
+      "exerciseId": "GL1-Q029",
+      "printedNumber": 29,
+      "exercisePrintedPage": 9,
+      "sourceType": "exercise-example",
+      "status": "mapped",
+      "question": "Национальность человека в Европе, теряющей сегодня понятие «граница», уже не так ..., как раньше.",
+      "options": [
+        {
+          "key": "А",
+          "text": "важна"
+        },
+        {
+          "key": "Б",
+          "text": "важная"
+        }
+      ],
+      "correctAnswer": "А",
+      "ruleIds": [
+        "gl1-1.3-short-with-tak"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "题面、PDF 正确项与原书「как / так 结构使用短尾形式」条件直接对应；旧 knowledgePoints 仅作定位。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书正确项为「А：важна」。它符合本题所连原书规则：как / так 结构使用短尾形式。",
+        "distractors": [
+          {
+            "key": "Б",
+            "text": "важная",
+            "sourceType": "learning-note",
+            "reason": "该项未满足「как / так 结构使用短尾形式」所要求的条件或意义；PDF 正确项为「А」。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 11,
+        "questionPrintedPage": 9,
+        "answerPdfPage": 125,
+        "answerPrintedPage": 123
+      }
+    },
+    {
+      "exerciseId": "GL1-Q030",
+      "printedNumber": 30,
+      "exercisePrintedPage": 10,
+      "sourceType": "exercise-example",
+      "status": "mapped",
+      "question": "В настоящее время представляется ... развитие двусторонних отношений между Россией и Венесуэлой.",
+      "options": [
+        {
+          "key": "А",
+          "text": "взаимовыгодного"
+        },
+        {
+          "key": "Б",
+          "text": "взаимовыгодному"
+        },
+        {
+          "key": "В",
+          "text": "взаимовыгодным"
+        },
+        {
+          "key": "Г",
+          "text": "взаимовыгодное"
+        }
+      ],
+      "correctAnswer": "В",
+      "ruleIds": [
+        "gl1-1.3-predicative-instrumental"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "题面、PDF 正确项与原书「系词或半系词后的全尾形式用第五格」条件直接对应；旧 knowledgePoints 仅作定位。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书正确项为「В：взаимовыгодным」。它符合本题所连原书规则：系词或半系词后的全尾形式用第五格。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "взаимовыгодного",
+            "sourceType": "learning-note",
+            "reason": "该项未满足「系词或半系词后的全尾形式用第五格」所要求的条件或意义；PDF 正确项为「В」。"
+          },
+          {
+            "key": "Б",
+            "text": "взаимовыгодному",
+            "sourceType": "learning-note",
+            "reason": "该项未满足「系词或半系词后的全尾形式用第五格」所要求的条件或意义；PDF 正确项为「В」。"
+          },
+          {
+            "key": "Г",
+            "text": "взаимовыгодное",
+            "sourceType": "learning-note",
+            "reason": "该项未满足「系词或半系词后的全尾形式用第五格」所要求的条件或意义；PDF 正确项为「В」。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 12,
+        "questionPrintedPage": 10,
+        "answerPdfPage": 125,
+        "answerPrintedPage": 123
+      }
+    },
+    {
+      "exerciseId": "GL1-Q031",
+      "printedNumber": 31,
+      "exercisePrintedPage": 10,
+      "sourceType": "exercise-example",
+      "status": "mapped",
+      "question": "Экипаж российской машины «КамАЗ» ... пришёл к финишу и стал победителем тунисского авторалли.",
+      "options": [
+        {
+          "key": "А",
+          "text": "первого"
+        },
+        {
+          "key": "Б",
+          "text": "первом"
+        },
+        {
+          "key": "В",
+          "text": "первому"
+        },
+        {
+          "key": "Г",
+          "text": "первым"
+        }
+      ],
+      "correctAnswer": "Г",
+      "ruleIds": [
+        "gl1-1.3-predicative-instrumental"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "题面、PDF 正确项与原书「系词或半系词后的全尾形式用第五格」条件直接对应；旧 knowledgePoints 仅作定位。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书正确项为「Г：первым」。它符合本题所连原书规则：系词或半系词后的全尾形式用第五格。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "первого",
+            "sourceType": "learning-note",
+            "reason": "该项未满足「系词或半系词后的全尾形式用第五格」所要求的条件或意义；PDF 正确项为「Г」。"
+          },
+          {
+            "key": "Б",
+            "text": "первом",
+            "sourceType": "learning-note",
+            "reason": "该项未满足「系词或半系词后的全尾形式用第五格」所要求的条件或意义；PDF 正确项为「Г」。"
+          },
+          {
+            "key": "В",
+            "text": "первому",
+            "sourceType": "learning-note",
+            "reason": "该项未满足「系词或半系词后的全尾形式用第五格」所要求的条件或意义；PDF 正确项为「Г」。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 12,
+        "questionPrintedPage": 10,
+        "answerPdfPage": 125,
+        "answerPrintedPage": 123
+      }
+    },
+    {
+      "exerciseId": "GL1-Q032",
+      "printedNumber": 32,
+      "exercisePrintedPage": 10,
+      "sourceType": "exercise-example",
+      "status": "mapped",
+      "question": "Братья-близнецы ... приплыли к скалам и вместе со всеми стали нырять в воду прямо с лодки.",
+      "options": [
+        {
+          "key": "А",
+          "text": "последним"
+        },
+        {
+          "key": "Б",
+          "text": "последними"
+        },
+        {
+          "key": "В",
+          "text": "последних"
+        },
+        {
+          "key": "Г",
+          "text": "последнее"
+        }
+      ],
+      "correctAnswer": "Б",
+      "ruleIds": [
+        "gl1-1.3-predicative-instrumental"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "题面、PDF 正确项与原书「系词或半系词后的全尾形式用第五格」条件直接对应；旧 knowledgePoints 仅作定位。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书正确项为「Б：последними」。它符合本题所连原书规则：系词或半系词后的全尾形式用第五格。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "последним",
+            "sourceType": "learning-note",
+            "reason": "该项未满足「系词或半系词后的全尾形式用第五格」所要求的条件或意义；PDF 正确项为「Б」。"
+          },
+          {
+            "key": "В",
+            "text": "последних",
+            "sourceType": "learning-note",
+            "reason": "该项未满足「系词或半系词后的全尾形式用第五格」所要求的条件或意义；PDF 正确项为「Б」。"
+          },
+          {
+            "key": "Г",
+            "text": "последнее",
+            "sourceType": "learning-note",
+            "reason": "该项未满足「系词或半系词后的全尾形式用第五格」所要求的条件或意义；PDF 正确项为「Б」。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 12,
+        "questionPrintedPage": 10,
+        "answerPdfPage": 125,
+        "answerPrintedPage": 123
+      }
+    },
+    {
+      "exerciseId": "GL1-Q033",
+      "printedNumber": 33,
+      "exercisePrintedPage": 10,
+      "sourceType": "exercise-example",
+      "status": "mapped",
+      "question": "Человек кажется ... даже самым грозным степным хищникам.",
+      "options": [
+        {
+          "key": "А",
+          "text": "опасный"
+        },
+        {
+          "key": "Б",
+          "text": "опасным"
+        },
+        {
+          "key": "В",
+          "text": "опасному"
+        },
+        {
+          "key": "Г",
+          "text": "опасного"
+        }
+      ],
+      "correctAnswer": "Б",
+      "ruleIds": [
+        "gl1-1.3-predicative-instrumental"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "题面、PDF 正确项与原书「系词或半系词后的全尾形式用第五格」条件直接对应；旧 knowledgePoints 仅作定位。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书正确项为「Б：опасным」。它符合本题所连原书规则：系词或半系词后的全尾形式用第五格。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "опасный",
+            "sourceType": "learning-note",
+            "reason": "该项未满足「系词或半系词后的全尾形式用第五格」所要求的条件或意义；PDF 正确项为「Б」。"
+          },
+          {
+            "key": "В",
+            "text": "опасному",
+            "sourceType": "learning-note",
+            "reason": "该项未满足「系词或半系词后的全尾形式用第五格」所要求的条件或意义；PDF 正确项为「Б」。"
+          },
+          {
+            "key": "Г",
+            "text": "опасного",
+            "sourceType": "learning-note",
+            "reason": "该项未满足「系词或半系词后的全尾形式用第五格」所要求的条件或意义；PDF 正确项为「Б」。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 12,
+        "questionPrintedPage": 10,
+        "answerPdfPage": 125,
+        "answerPrintedPage": 123
+      }
+    },
+    {
+      "exerciseId": "GL1-Q034",
+      "printedNumber": 34,
+      "exercisePrintedPage": 10,
+      "sourceType": "exercise-example",
+      "status": "mapped",
+      "question": "Психологи утверждают, что даже очень робкий человек, если он поёт, чувствует себя абсолютно ... .",
+      "options": [
+        {
+          "key": "А",
+          "text": "свободный"
+        },
+        {
+          "key": "Б",
+          "text": "свободному"
+        },
+        {
+          "key": "В",
+          "text": "свободным"
+        },
+        {
+          "key": "Г",
+          "text": "свободного"
+        }
+      ],
+      "correctAnswer": "Г",
+      "ruleIds": [
+        "gl1-1.3-predicative-instrumental"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "题面、PDF 正确项与原书「系词或半系词后的全尾形式用第五格」条件直接对应；旧 knowledgePoints 仅作定位。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书正确项为「Г：свободного」。它符合本题所连原书规则：系词或半系词后的全尾形式用第五格。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "свободный",
+            "sourceType": "learning-note",
+            "reason": "该项未满足「系词或半系词后的全尾形式用第五格」所要求的条件或意义；PDF 正确项为「Г」。"
+          },
+          {
+            "key": "Б",
+            "text": "свободному",
+            "sourceType": "learning-note",
+            "reason": "该项未满足「系词或半系词后的全尾形式用第五格」所要求的条件或意义；PDF 正确项为「Г」。"
+          },
+          {
+            "key": "В",
+            "text": "свободным",
+            "sourceType": "learning-note",
+            "reason": "该项未满足「系词或半系词后的全尾形式用第五格」所要求的条件或意义；PDF 正确项为「Г」。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 12,
+        "questionPrintedPage": 10,
+        "answerPdfPage": 125,
+        "answerPrintedPage": 123
+      }
+    },
+    {
+      "exerciseId": "GL1-Q035",
+      "printedNumber": 35,
+      "exercisePrintedPage": 10,
+      "sourceType": "exercise-example",
+      "status": "mapped",
+      "question": "«Обойти то мелкое и призрачное, что мешает быть ..., — вот цель и смысл нашей жизни» (А.П. Чехов).",
+      "options": [
+        {
+          "key": "А",
+          "text": "счастливый"
+        },
+        {
+          "key": "Б",
+          "text": "счастливым"
+        },
+        {
+          "key": "В",
+          "text": "счастливому"
+        },
+        {
+          "key": "Г",
+          "text": "счастливого"
+        }
+      ],
+      "correctAnswer": "Б",
+      "ruleIds": [
+        "gl1-1.3-predicative-instrumental"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "题面、PDF 正确项与原书「系词或半系词后的全尾形式用第五格」条件直接对应；旧 knowledgePoints 仅作定位。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书正确项为「Б：счастливым」。它符合本题所连原书规则：系词或半系词后的全尾形式用第五格。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "счастливый",
+            "sourceType": "learning-note",
+            "reason": "该项未满足「系词或半系词后的全尾形式用第五格」所要求的条件或意义；PDF 正确项为「Б」。"
+          },
+          {
+            "key": "В",
+            "text": "счастливому",
+            "sourceType": "learning-note",
+            "reason": "该项未满足「系词或半系词后的全尾形式用第五格」所要求的条件或意义；PDF 正确项为「Б」。"
+          },
+          {
+            "key": "Г",
+            "text": "счастливого",
+            "sourceType": "learning-note",
+            "reason": "该项未满足「系词或半系词后的全尾形式用第五格」所要求的条件或意义；PDF 正确项为「Б」。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 12,
+        "questionPrintedPage": 10,
+        "answerPdfPage": 125,
+        "answerPrintedPage": 123
+      }
+    },
+    {
+      "exerciseId": "GL1-Q036",
+      "printedNumber": 36,
+      "exercisePrintedPage": 10,
+      "sourceType": "exercise-example",
+      "status": "mapped",
+      "question": "Несмотря на социальные и экономические различия, все граждане Рима считались ... .",
+      "options": [
+        {
+          "key": "А",
+          "text": "равными"
+        },
+        {
+          "key": "Б",
+          "text": "равных"
+        },
+        {
+          "key": "В",
+          "text": "равные"
+        },
+        {
+          "key": "Г",
+          "text": "равным"
+        }
+      ],
+      "correctAnswer": "А",
+      "ruleIds": [
+        "gl1-1.3-predicative-instrumental"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "题面、PDF 正确项与原书「系词或半系词后的全尾形式用第五格」条件直接对应；旧 knowledgePoints 仅作定位。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书正确项为「А：равными」。它符合本题所连原书规则：系词或半系词后的全尾形式用第五格。",
+        "distractors": [
+          {
+            "key": "Б",
+            "text": "равных",
+            "sourceType": "learning-note",
+            "reason": "该项未满足「系词或半系词后的全尾形式用第五格」所要求的条件或意义；PDF 正确项为「А」。"
+          },
+          {
+            "key": "В",
+            "text": "равные",
+            "sourceType": "learning-note",
+            "reason": "该项未满足「系词或半系词后的全尾形式用第五格」所要求的条件或意义；PDF 正确项为「А」。"
+          },
+          {
+            "key": "Г",
+            "text": "равным",
+            "sourceType": "learning-note",
+            "reason": "该项未满足「系词或半系词后的全尾形式用第五格」所要求的条件或意义；PDF 正确项为「А」。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 12,
+        "questionPrintedPage": 10,
+        "answerPdfPage": 125,
+        "answerPrintedPage": 123
+      }
+    },
+    {
+      "exerciseId": "GL1-Q037",
+      "printedNumber": 37,
+      "exercisePrintedPage": 11,
+      "sourceType": "exercise-example",
+      "status": "mapped",
+      "question": "Профессиональное народное творчество не перестаёт быть ... и сегодня.",
+      "options": [
+        {
+          "key": "А",
+          "text": "популярного"
+        },
+        {
+          "key": "Б",
+          "text": "популярное"
+        },
+        {
+          "key": "В",
+          "text": "популярному"
+        },
+        {
+          "key": "Г",
+          "text": "популярным"
+        }
+      ],
+      "correctAnswer": "Г",
+      "ruleIds": [
+        "gl1-1.3-predicative-instrumental"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "题面、PDF 正确项与原书「系词或半系词后的全尾形式用第五格」条件直接对应；旧 knowledgePoints 仅作定位。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书正确项为「Г：популярным」。它符合本题所连原书规则：系词或半系词后的全尾形式用第五格。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "популярного",
+            "sourceType": "learning-note",
+            "reason": "该项未满足「系词或半系词后的全尾形式用第五格」所要求的条件或意义；PDF 正确项为「Г」。"
+          },
+          {
+            "key": "Б",
+            "text": "популярное",
+            "sourceType": "learning-note",
+            "reason": "该项未满足「系词或半系词后的全尾形式用第五格」所要求的条件或意义；PDF 正确项为「Г」。"
+          },
+          {
+            "key": "В",
+            "text": "популярному",
+            "sourceType": "learning-note",
+            "reason": "该项未满足「系词或半系词后的全尾形式用第五格」所要求的条件或意义；PDF 正确项为「Г」。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 13,
+        "questionPrintedPage": 11,
+        "answerPdfPage": 125,
+        "answerPrintedPage": 123
+      }
+    }
+  ],
+  "relatedRules": [
+    {
+      "sourceType": "learning-note",
+      "sectionId": "1.1",
+      "text": "相关规则：1.1"
+    },
+    {
+      "sourceType": "learning-note",
+      "sectionId": "1.4",
+      "text": "相关规则：1.4"
+    }
+  ],
+  "source": {
+    "sourcePdf": "E:\\Desktop\\语法词汇（同一本书）.pdf",
+    "cleanedSource": "cleaned-source/chapter-01.md",
+    "pdfPages": [
+      94,
+      95
+    ],
+    "printedPages": [
+      92,
+      93
+    ],
+    "sourceStatus": "review"
+  },
+  "sourceCoverage": {
+    "ruleItems": {
+      "total": 11,
+      "captured": 11,
+      "unrecorded": []
+    },
+    "numberedItems": {
+      "total": 11,
+      "captured": 11,
+      "unrecorded": []
+    },
+    "tables": {
+      "total": 0,
+      "captured": 0,
+      "rowsTotal": 0,
+      "rowsCaptured": 0,
+      "unrecordedRows": []
+    },
+    "examples": {
+      "total": 8,
+      "captured": 8,
+      "unrecorded": []
+    },
+    "relatedExercises": {
+      "total": 18,
+      "explained": 18,
+      "unrecorded": []
+    },
+    "omitted": []
+  },
+  "reviewStatus": "needs-review",
+  "riskRecord": [
+    "来源文本来自 review 状态的 OCR 清洗层；中文定位与选项分析均为 learning-note，不是原书正文。"
+  ]
+}

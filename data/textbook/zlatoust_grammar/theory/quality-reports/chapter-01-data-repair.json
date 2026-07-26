@@ -1,0 +1,3030 @@
+{
+  "schemaVersion": 1,
+  "batchId": "chapter-01-answer-key-and-q061-repair",
+  "status": "pass-with-pending-reader-migration",
+  "source": {
+    "pdf": "E:\\Desktop\\语法词汇（同一本书）.pdf",
+    "answerKey": {
+      "pdfPage": 125,
+      "printedPage": 123,
+      "heading": "Ключи к первой главе"
+    },
+    "questionPagesVisuallyChecked": [
+      14
+    ]
+  },
+  "summary": {
+    "answerKeyRepairs": 33,
+    "questionAndOptionContentRepairs": 32,
+    "preservedExerciseIds": 107,
+    "answerContract": "所有修复题均满足 answer === sourceAnswer，且答案键存在于选项中。"
+  },
+  "compatibility": {
+    "status": "pending-reader-gate",
+    "rationale": "当前任务门槛禁止在映射、规则单元与数据核对完成前修改 reader.html；本账本是后续兼容迁移的唯一输入，避免静默重写 localStorage。"
+  },
+  "discrepancies": [
+    {
+      "exerciseId": "GL1-Q001",
+      "printedNumber": 1,
+      "importedContent": {
+        "answer": "Б",
+        "sourceAnswer": "Б"
+      },
+      "pdfOriginal": {
+        "answer": "А",
+        "answerKey": {
+          "pdfPage": 125,
+          "printedPage": 123
+        }
+      },
+      "discrepancyType": "answer-key-mismatch",
+      "repairedContent": {
+        "answer": "А",
+        "sourceAnswer": "А"
+      },
+      "sourcePages": {
+        "question": {
+          "printedPage": 7,
+          "pdfPage": 9
+        },
+        "answerKey": {
+          "pdfPage": 125,
+          "printedPage": 123
+        }
+      },
+      "affectsLegacyAttempts": true,
+      "compatibilityTreatment": "保留 exerciseId、已选选项、尝试次数与历史记录；reader 接入阶段将按此账本在首次读取时重新计算 wrong / lastResult，并保留 everWrong 的历史值。",
+      "verification": "PDF 答案表视觉核对通过；修复后 answer === sourceAnswer，且答案键存在于原题选项中。"
+    },
+    {
+      "exerciseId": "GL1-Q005",
+      "printedNumber": 5,
+      "importedContent": {
+        "answer": "А",
+        "sourceAnswer": "А"
+      },
+      "pdfOriginal": {
+        "answer": "Б",
+        "answerKey": {
+          "pdfPage": 125,
+          "printedPage": 123
+        }
+      },
+      "discrepancyType": "answer-key-mismatch",
+      "repairedContent": {
+        "answer": "Б",
+        "sourceAnswer": "Б"
+      },
+      "sourcePages": {
+        "question": {
+          "printedPage": 7,
+          "pdfPage": 9
+        },
+        "answerKey": {
+          "pdfPage": 125,
+          "printedPage": 123
+        }
+      },
+      "affectsLegacyAttempts": true,
+      "compatibilityTreatment": "保留 exerciseId、已选选项、尝试次数与历史记录；reader 接入阶段将按此账本在首次读取时重新计算 wrong / lastResult，并保留 everWrong 的历史值。",
+      "verification": "PDF 答案表视觉核对通过；修复后 answer === sourceAnswer，且答案键存在于原题选项中。"
+    },
+    {
+      "exerciseId": "GL1-Q006",
+      "printedNumber": 6,
+      "importedContent": {
+        "answer": "А",
+        "sourceAnswer": "А"
+      },
+      "pdfOriginal": {
+        "answer": "Б",
+        "answerKey": {
+          "pdfPage": 125,
+          "printedPage": 123
+        }
+      },
+      "discrepancyType": "answer-key-mismatch",
+      "repairedContent": {
+        "answer": "Б",
+        "sourceAnswer": "Б"
+      },
+      "sourcePages": {
+        "question": {
+          "printedPage": 7,
+          "pdfPage": 9
+        },
+        "answerKey": {
+          "pdfPage": 125,
+          "printedPage": 123
+        }
+      },
+      "affectsLegacyAttempts": true,
+      "compatibilityTreatment": "保留 exerciseId、已选选项、尝试次数与历史记录；reader 接入阶段将按此账本在首次读取时重新计算 wrong / lastResult，并保留 everWrong 的历史值。",
+      "verification": "PDF 答案表视觉核对通过；修复后 answer === sourceAnswer，且答案键存在于原题选项中。"
+    },
+    {
+      "exerciseId": "GL1-Q019",
+      "printedNumber": 19,
+      "importedContent": {
+        "answer": "А",
+        "sourceAnswer": "А"
+      },
+      "pdfOriginal": {
+        "answer": "Б",
+        "answerKey": {
+          "pdfPage": 125,
+          "printedPage": 123
+        }
+      },
+      "discrepancyType": "answer-key-mismatch",
+      "repairedContent": {
+        "answer": "Б",
+        "sourceAnswer": "Б"
+      },
+      "sourcePages": {
+        "question": {
+          "printedPage": 9,
+          "pdfPage": 11
+        },
+        "answerKey": {
+          "pdfPage": 125,
+          "printedPage": 123
+        }
+      },
+      "affectsLegacyAttempts": true,
+      "compatibilityTreatment": "保留 exerciseId、已选选项、尝试次数与历史记录；reader 接入阶段将按此账本在首次读取时重新计算 wrong / lastResult，并保留 everWrong 的历史值。",
+      "verification": "PDF 答案表视觉核对通过；修复后 answer === sourceAnswer，且答案键存在于原题选项中。"
+    },
+    {
+      "exerciseId": "GL1-Q023",
+      "printedNumber": 23,
+      "importedContent": {
+        "answer": "А",
+        "sourceAnswer": "А"
+      },
+      "pdfOriginal": {
+        "answer": "Б",
+        "answerKey": {
+          "pdfPage": 125,
+          "printedPage": 123
+        }
+      },
+      "discrepancyType": "answer-key-mismatch",
+      "repairedContent": {
+        "answer": "Б",
+        "sourceAnswer": "Б"
+      },
+      "sourcePages": {
+        "question": {
+          "printedPage": 9,
+          "pdfPage": 11
+        },
+        "answerKey": {
+          "pdfPage": 125,
+          "printedPage": 123
+        }
+      },
+      "affectsLegacyAttempts": true,
+      "compatibilityTreatment": "保留 exerciseId、已选选项、尝试次数与历史记录；reader 接入阶段将按此账本在首次读取时重新计算 wrong / lastResult，并保留 everWrong 的历史值。",
+      "verification": "PDF 答案表视觉核对通过；修复后 answer === sourceAnswer，且答案键存在于原题选项中。"
+    },
+    {
+      "exerciseId": "GL1-Q025",
+      "printedNumber": 25,
+      "importedContent": {
+        "answer": "Б",
+        "sourceAnswer": "Б"
+      },
+      "pdfOriginal": {
+        "answer": "А",
+        "answerKey": {
+          "pdfPage": 125,
+          "printedPage": 123
+        }
+      },
+      "discrepancyType": "answer-key-mismatch",
+      "repairedContent": {
+        "answer": "А",
+        "sourceAnswer": "А"
+      },
+      "sourcePages": {
+        "question": {
+          "printedPage": 9,
+          "pdfPage": 11
+        },
+        "answerKey": {
+          "pdfPage": 125,
+          "printedPage": 123
+        }
+      },
+      "affectsLegacyAttempts": true,
+      "compatibilityTreatment": "保留 exerciseId、已选选项、尝试次数与历史记录；reader 接入阶段将按此账本在首次读取时重新计算 wrong / lastResult，并保留 everWrong 的历史值。",
+      "verification": "PDF 答案表视觉核对通过；修复后 answer === sourceAnswer，且答案键存在于原题选项中。"
+    },
+    {
+      "exerciseId": "GL1-Q030",
+      "printedNumber": 30,
+      "importedContent": {
+        "answer": "Б",
+        "sourceAnswer": "Б"
+      },
+      "pdfOriginal": {
+        "answer": "В",
+        "answerKey": {
+          "pdfPage": 125,
+          "printedPage": 123
+        }
+      },
+      "discrepancyType": "answer-key-mismatch",
+      "repairedContent": {
+        "answer": "В",
+        "sourceAnswer": "В"
+      },
+      "sourcePages": {
+        "question": {
+          "printedPage": 10,
+          "pdfPage": 12
+        },
+        "answerKey": {
+          "pdfPage": 125,
+          "printedPage": 123
+        }
+      },
+      "affectsLegacyAttempts": true,
+      "compatibilityTreatment": "保留 exerciseId、已选选项、尝试次数与历史记录；reader 接入阶段将按此账本在首次读取时重新计算 wrong / lastResult，并保留 everWrong 的历史值。",
+      "verification": "PDF 答案表视觉核对通过；修复后 answer === sourceAnswer，且答案键存在于原题选项中。"
+    },
+    {
+      "exerciseId": "GL1-Q031",
+      "printedNumber": 31,
+      "importedContent": {
+        "answer": "Б",
+        "sourceAnswer": "Б"
+      },
+      "pdfOriginal": {
+        "answer": "Г",
+        "answerKey": {
+          "pdfPage": 125,
+          "printedPage": 123
+        }
+      },
+      "discrepancyType": "answer-key-mismatch",
+      "repairedContent": {
+        "answer": "Г",
+        "sourceAnswer": "Г"
+      },
+      "sourcePages": {
+        "question": {
+          "printedPage": 10,
+          "pdfPage": 12
+        },
+        "answerKey": {
+          "pdfPage": 125,
+          "printedPage": 123
+        }
+      },
+      "affectsLegacyAttempts": true,
+      "compatibilityTreatment": "保留 exerciseId、已选选项、尝试次数与历史记录；reader 接入阶段将按此账本在首次读取时重新计算 wrong / lastResult，并保留 everWrong 的历史值。",
+      "verification": "PDF 答案表视觉核对通过；修复后 answer === sourceAnswer，且答案键存在于原题选项中。"
+    },
+    {
+      "exerciseId": "GL1-Q034",
+      "printedNumber": 34,
+      "importedContent": {
+        "answer": "Б",
+        "sourceAnswer": "Б"
+      },
+      "pdfOriginal": {
+        "answer": "Г",
+        "answerKey": {
+          "pdfPage": 125,
+          "printedPage": 123
+        }
+      },
+      "discrepancyType": "answer-key-mismatch",
+      "repairedContent": {
+        "answer": "Г",
+        "sourceAnswer": "Г"
+      },
+      "sourcePages": {
+        "question": {
+          "printedPage": 10,
+          "pdfPage": 12
+        },
+        "answerKey": {
+          "pdfPage": 125,
+          "printedPage": 123
+        }
+      },
+      "affectsLegacyAttempts": true,
+      "compatibilityTreatment": "保留 exerciseId、已选选项、尝试次数与历史记录；reader 接入阶段将按此账本在首次读取时重新计算 wrong / lastResult，并保留 everWrong 的历史值。",
+      "verification": "PDF 答案表视觉核对通过；修复后 answer === sourceAnswer，且答案键存在于原题选项中。"
+    },
+    {
+      "exerciseId": "GL1-Q036",
+      "printedNumber": 36,
+      "importedContent": {
+        "answer": "Б",
+        "sourceAnswer": "Б"
+      },
+      "pdfOriginal": {
+        "answer": "А",
+        "answerKey": {
+          "pdfPage": 125,
+          "printedPage": 123
+        }
+      },
+      "discrepancyType": "answer-key-mismatch",
+      "repairedContent": {
+        "answer": "А",
+        "sourceAnswer": "А"
+      },
+      "sourcePages": {
+        "question": {
+          "printedPage": 10,
+          "pdfPage": 12
+        },
+        "answerKey": {
+          "pdfPage": 125,
+          "printedPage": 123
+        }
+      },
+      "affectsLegacyAttempts": true,
+      "compatibilityTreatment": "保留 exerciseId、已选选项、尝试次数与历史记录；reader 接入阶段将按此账本在首次读取时重新计算 wrong / lastResult，并保留 everWrong 的历史值。",
+      "verification": "PDF 答案表视觉核对通过；修复后 answer === sourceAnswer，且答案键存在于原题选项中。"
+    },
+    {
+      "exerciseId": "GL1-Q037",
+      "printedNumber": 37,
+      "importedContent": {
+        "answer": "Б",
+        "sourceAnswer": "Б"
+      },
+      "pdfOriginal": {
+        "answer": "Г",
+        "answerKey": {
+          "pdfPage": 125,
+          "printedPage": 123
+        }
+      },
+      "discrepancyType": "answer-key-mismatch",
+      "repairedContent": {
+        "answer": "Г",
+        "sourceAnswer": "Г"
+      },
+      "sourcePages": {
+        "question": {
+          "printedPage": 11,
+          "pdfPage": 13
+        },
+        "answerKey": {
+          "pdfPage": 125,
+          "printedPage": 123
+        }
+      },
+      "affectsLegacyAttempts": true,
+      "compatibilityTreatment": "保留 exerciseId、已选选项、尝试次数与历史记录；reader 接入阶段将按此账本在首次读取时重新计算 wrong / lastResult，并保留 everWrong 的历史值。",
+      "verification": "PDF 答案表视觉核对通过；修复后 answer === sourceAnswer，且答案键存在于原题选项中。"
+    },
+    {
+      "exerciseId": "GL1-Q038",
+      "printedNumber": 38,
+      "importedContent": {
+        "answer": "В",
+        "sourceAnswer": "В"
+      },
+      "pdfOriginal": {
+        "answer": "А",
+        "answerKey": {
+          "pdfPage": 125,
+          "printedPage": 123
+        }
+      },
+      "discrepancyType": "answer-key-mismatch",
+      "repairedContent": {
+        "answer": "А",
+        "sourceAnswer": "А"
+      },
+      "sourcePages": {
+        "question": {
+          "printedPage": 11,
+          "pdfPage": 13
+        },
+        "answerKey": {
+          "pdfPage": 125,
+          "printedPage": 123
+        }
+      },
+      "affectsLegacyAttempts": true,
+      "compatibilityTreatment": "保留 exerciseId、已选选项、尝试次数与历史记录；reader 接入阶段将按此账本在首次读取时重新计算 wrong / lastResult，并保留 everWrong 的历史值。",
+      "verification": "PDF 答案表视觉核对通过；修复后 answer === sourceAnswer，且答案键存在于原题选项中。"
+    },
+    {
+      "exerciseId": "GL1-Q039",
+      "printedNumber": 39,
+      "importedContent": {
+        "answer": "В",
+        "sourceAnswer": "В"
+      },
+      "pdfOriginal": {
+        "answer": "Б",
+        "answerKey": {
+          "pdfPage": 125,
+          "printedPage": 123
+        }
+      },
+      "discrepancyType": "answer-key-mismatch",
+      "repairedContent": {
+        "answer": "Б",
+        "sourceAnswer": "Б"
+      },
+      "sourcePages": {
+        "question": {
+          "printedPage": 11,
+          "pdfPage": 13
+        },
+        "answerKey": {
+          "pdfPage": 125,
+          "printedPage": 123
+        }
+      },
+      "affectsLegacyAttempts": true,
+      "compatibilityTreatment": "保留 exerciseId、已选选项、尝试次数与历史记录；reader 接入阶段将按此账本在首次读取时重新计算 wrong / lastResult，并保留 everWrong 的历史值。",
+      "verification": "PDF 答案表视觉核对通过；修复后 answer === sourceAnswer，且答案键存在于原题选项中。"
+    },
+    {
+      "exerciseId": "GL1-Q042",
+      "printedNumber": 42,
+      "importedContent": {
+        "answer": "Б",
+        "sourceAnswer": "Б"
+      },
+      "pdfOriginal": {
+        "answer": "А",
+        "answerKey": {
+          "pdfPage": 125,
+          "printedPage": 123
+        }
+      },
+      "discrepancyType": "answer-key-mismatch",
+      "repairedContent": {
+        "answer": "А",
+        "sourceAnswer": "А"
+      },
+      "sourcePages": {
+        "question": {
+          "printedPage": 11,
+          "pdfPage": 13
+        },
+        "answerKey": {
+          "pdfPage": 125,
+          "printedPage": 123
+        }
+      },
+      "affectsLegacyAttempts": true,
+      "compatibilityTreatment": "保留 exerciseId、已选选项、尝试次数与历史记录；reader 接入阶段将按此账本在首次读取时重新计算 wrong / lastResult，并保留 everWrong 的历史值。",
+      "verification": "PDF 答案表视觉核对通过；修复后 answer === sourceAnswer，且答案键存在于原题选项中。"
+    },
+    {
+      "exerciseId": "GL1-Q044",
+      "printedNumber": 44,
+      "importedContent": {
+        "answer": "Б",
+        "sourceAnswer": "Б"
+      },
+      "pdfOriginal": {
+        "answer": "А",
+        "answerKey": {
+          "pdfPage": 125,
+          "printedPage": 123
+        }
+      },
+      "discrepancyType": "answer-key-mismatch",
+      "repairedContent": {
+        "answer": "А",
+        "sourceAnswer": "А"
+      },
+      "sourcePages": {
+        "question": {
+          "printedPage": 11,
+          "pdfPage": 13
+        },
+        "answerKey": {
+          "pdfPage": 125,
+          "printedPage": 123
+        }
+      },
+      "affectsLegacyAttempts": true,
+      "compatibilityTreatment": "保留 exerciseId、已选选项、尝试次数与历史记录；reader 接入阶段将按此账本在首次读取时重新计算 wrong / lastResult，并保留 everWrong 的历史值。",
+      "verification": "PDF 答案表视觉核对通过；修复后 answer === sourceAnswer，且答案键存在于原题选项中。"
+    },
+    {
+      "exerciseId": "GL1-Q045",
+      "printedNumber": 45,
+      "importedContent": {
+        "answer": "В",
+        "sourceAnswer": "В"
+      },
+      "pdfOriginal": {
+        "answer": "А",
+        "answerKey": {
+          "pdfPage": 125,
+          "printedPage": 123
+        }
+      },
+      "discrepancyType": "answer-key-mismatch",
+      "repairedContent": {
+        "answer": "А",
+        "sourceAnswer": "А"
+      },
+      "sourcePages": {
+        "question": {
+          "printedPage": 11,
+          "pdfPage": 13
+        },
+        "answerKey": {
+          "pdfPage": 125,
+          "printedPage": 123
+        }
+      },
+      "affectsLegacyAttempts": true,
+      "compatibilityTreatment": "保留 exerciseId、已选选项、尝试次数与历史记录；reader 接入阶段将按此账本在首次读取时重新计算 wrong / lastResult，并保留 everWrong 的历史值。",
+      "verification": "PDF 答案表视觉核对通过；修复后 answer === sourceAnswer，且答案键存在于原题选项中。"
+    },
+    {
+      "exerciseId": "GL1-Q046",
+      "printedNumber": 46,
+      "importedContent": {
+        "answer": "В",
+        "sourceAnswer": "В"
+      },
+      "pdfOriginal": {
+        "answer": "А",
+        "answerKey": {
+          "pdfPage": 125,
+          "printedPage": 123
+        }
+      },
+      "discrepancyType": "answer-key-mismatch",
+      "repairedContent": {
+        "answer": "А",
+        "sourceAnswer": "А"
+      },
+      "sourcePages": {
+        "question": {
+          "printedPage": 11,
+          "pdfPage": 13
+        },
+        "answerKey": {
+          "pdfPage": 125,
+          "printedPage": 123
+        }
+      },
+      "affectsLegacyAttempts": true,
+      "compatibilityTreatment": "保留 exerciseId、已选选项、尝试次数与历史记录；reader 接入阶段将按此账本在首次读取时重新计算 wrong / lastResult，并保留 everWrong 的历史值。",
+      "verification": "PDF 答案表视觉核对通过；修复后 answer === sourceAnswer，且答案键存在于原题选项中。"
+    },
+    {
+      "exerciseId": "GL1-Q047",
+      "printedNumber": 47,
+      "importedContent": {
+        "answer": "Б",
+        "sourceAnswer": "Б"
+      },
+      "pdfOriginal": {
+        "answer": "А",
+        "answerKey": {
+          "pdfPage": 125,
+          "printedPage": 123
+        }
+      },
+      "discrepancyType": "answer-key-mismatch",
+      "repairedContent": {
+        "answer": "А",
+        "sourceAnswer": "А"
+      },
+      "sourcePages": {
+        "question": {
+          "printedPage": 11,
+          "pdfPage": 13
+        },
+        "answerKey": {
+          "pdfPage": 125,
+          "printedPage": 123
+        }
+      },
+      "affectsLegacyAttempts": true,
+      "compatibilityTreatment": "保留 exerciseId、已选选项、尝试次数与历史记录；reader 接入阶段将按此账本在首次读取时重新计算 wrong / lastResult，并保留 everWrong 的历史值。",
+      "verification": "PDF 答案表视觉核对通过；修复后 answer === sourceAnswer，且答案键存在于原题选项中。"
+    },
+    {
+      "exerciseId": "GL1-Q048",
+      "printedNumber": 48,
+      "importedContent": {
+        "answer": "А",
+        "sourceAnswer": "А"
+      },
+      "pdfOriginal": {
+        "answer": "Б",
+        "answerKey": {
+          "pdfPage": 125,
+          "printedPage": 123
+        }
+      },
+      "discrepancyType": "answer-key-mismatch",
+      "repairedContent": {
+        "answer": "Б",
+        "sourceAnswer": "Б"
+      },
+      "sourcePages": {
+        "question": {
+          "printedPage": 12,
+          "pdfPage": 14
+        },
+        "answerKey": {
+          "pdfPage": 125,
+          "printedPage": 123
+        }
+      },
+      "affectsLegacyAttempts": true,
+      "compatibilityTreatment": "保留 exerciseId、已选选项、尝试次数与历史记录；reader 接入阶段将按此账本在首次读取时重新计算 wrong / lastResult，并保留 everWrong 的历史值。",
+      "verification": "PDF 答案表视觉核对通过；修复后 answer === sourceAnswer，且答案键存在于原题选项中。"
+    },
+    {
+      "exerciseId": "GL1-Q050",
+      "printedNumber": 50,
+      "importedContent": {
+        "answer": "А",
+        "sourceAnswer": "А"
+      },
+      "pdfOriginal": {
+        "answer": "Б",
+        "answerKey": {
+          "pdfPage": 125,
+          "printedPage": 123
+        }
+      },
+      "discrepancyType": "answer-key-mismatch",
+      "repairedContent": {
+        "answer": "Б",
+        "sourceAnswer": "Б"
+      },
+      "sourcePages": {
+        "question": {
+          "printedPage": 12,
+          "pdfPage": 14
+        },
+        "answerKey": {
+          "pdfPage": 125,
+          "printedPage": 123
+        }
+      },
+      "affectsLegacyAttempts": true,
+      "compatibilityTreatment": "保留 exerciseId、已选选项、尝试次数与历史记录；reader 接入阶段将按此账本在首次读取时重新计算 wrong / lastResult，并保留 everWrong 的历史值。",
+      "verification": "PDF 答案表视觉核对通过；修复后 answer === sourceAnswer，且答案键存在于原题选项中。"
+    },
+    {
+      "exerciseId": "GL1-Q052",
+      "printedNumber": 52,
+      "importedContent": {
+        "answer": "А",
+        "sourceAnswer": "А"
+      },
+      "pdfOriginal": {
+        "answer": "Б",
+        "answerKey": {
+          "pdfPage": 125,
+          "printedPage": 123
+        }
+      },
+      "discrepancyType": "answer-key-mismatch",
+      "repairedContent": {
+        "answer": "Б",
+        "sourceAnswer": "Б"
+      },
+      "sourcePages": {
+        "question": {
+          "printedPage": 12,
+          "pdfPage": 14
+        },
+        "answerKey": {
+          "pdfPage": 125,
+          "printedPage": 123
+        }
+      },
+      "affectsLegacyAttempts": true,
+      "compatibilityTreatment": "保留 exerciseId、已选选项、尝试次数与历史记录；reader 接入阶段将按此账本在首次读取时重新计算 wrong / lastResult，并保留 everWrong 的历史值。",
+      "verification": "PDF 答案表视觉核对通过；修复后 answer === sourceAnswer，且答案键存在于原题选项中。"
+    },
+    {
+      "exerciseId": "GL1-Q053",
+      "printedNumber": 53,
+      "importedContent": {
+        "answer": "А",
+        "sourceAnswer": "А"
+      },
+      "pdfOriginal": {
+        "answer": "Б",
+        "answerKey": {
+          "pdfPage": 125,
+          "printedPage": 123
+        }
+      },
+      "discrepancyType": "answer-key-mismatch",
+      "repairedContent": {
+        "answer": "Б",
+        "sourceAnswer": "Б"
+      },
+      "sourcePages": {
+        "question": {
+          "printedPage": 12,
+          "pdfPage": 14
+        },
+        "answerKey": {
+          "pdfPage": 125,
+          "printedPage": 123
+        }
+      },
+      "affectsLegacyAttempts": true,
+      "compatibilityTreatment": "保留 exerciseId、已选选项、尝试次数与历史记录；reader 接入阶段将按此账本在首次读取时重新计算 wrong / lastResult，并保留 everWrong 的历史值。",
+      "verification": "PDF 答案表视觉核对通过；修复后 answer === sourceAnswer，且答案键存在于原题选项中。"
+    },
+    {
+      "exerciseId": "GL1-Q056",
+      "printedNumber": 56,
+      "importedContent": {
+        "answer": "А",
+        "sourceAnswer": "А"
+      },
+      "pdfOriginal": {
+        "answer": "Б",
+        "answerKey": {
+          "pdfPage": 125,
+          "printedPage": 123
+        }
+      },
+      "discrepancyType": "answer-key-mismatch",
+      "repairedContent": {
+        "answer": "Б",
+        "sourceAnswer": "Б"
+      },
+      "sourcePages": {
+        "question": {
+          "printedPage": 12,
+          "pdfPage": 14
+        },
+        "answerKey": {
+          "pdfPage": 125,
+          "printedPage": 123
+        }
+      },
+      "affectsLegacyAttempts": true,
+      "compatibilityTreatment": "保留 exerciseId、已选选项、尝试次数与历史记录；reader 接入阶段将按此账本在首次读取时重新计算 wrong / lastResult，并保留 everWrong 的历史值。",
+      "verification": "PDF 答案表视觉核对通过；修复后 answer === sourceAnswer，且答案键存在于原题选项中。"
+    },
+    {
+      "exerciseId": "GL1-Q059",
+      "printedNumber": 59,
+      "importedContent": {
+        "answer": "А",
+        "sourceAnswer": "А"
+      },
+      "pdfOriginal": {
+        "answer": "Б",
+        "answerKey": {
+          "pdfPage": 125,
+          "printedPage": 123
+        }
+      },
+      "discrepancyType": "answer-key-mismatch",
+      "repairedContent": {
+        "answer": "Б",
+        "sourceAnswer": "Б"
+      },
+      "sourcePages": {
+        "question": {
+          "printedPage": 12,
+          "pdfPage": 14
+        },
+        "answerKey": {
+          "pdfPage": 125,
+          "printedPage": 123
+        }
+      },
+      "affectsLegacyAttempts": true,
+      "compatibilityTreatment": "保留 exerciseId、已选选项、尝试次数与历史记录；reader 接入阶段将按此账本在首次读取时重新计算 wrong / lastResult，并保留 everWrong 的历史值。",
+      "verification": "PDF 答案表视觉核对通过；修复后 answer === sourceAnswer，且答案键存在于原题选项中。"
+    },
+    {
+      "exerciseId": "GL1-Q061",
+      "printedNumber": 61,
+      "importedContent": {
+        "answer": "Б",
+        "sourceAnswer": "Б"
+      },
+      "pdfOriginal": {
+        "answer": "А",
+        "answerKey": {
+          "pdfPage": 125,
+          "printedPage": 123
+        }
+      },
+      "discrepancyType": "answer-key-mismatch",
+      "repairedContent": {
+        "answer": "А",
+        "sourceAnswer": "А"
+      },
+      "sourcePages": {
+        "question": {
+          "printedPage": 12,
+          "pdfPage": 14
+        },
+        "answerKey": {
+          "pdfPage": 125,
+          "printedPage": 123
+        }
+      },
+      "affectsLegacyAttempts": true,
+      "compatibilityTreatment": "保留 exerciseId、已选选项、尝试次数与历史记录；reader 接入阶段将按此账本在首次读取时重新计算 wrong / lastResult，并保留 everWrong 的历史值。",
+      "verification": "PDF 答案表视觉核对通过；修复后 answer === sourceAnswer，且答案键存在于原题选项中。"
+    },
+    {
+      "exerciseId": "GL1-Q068",
+      "printedNumber": 68,
+      "importedContent": {
+        "answer": "А",
+        "sourceAnswer": "А"
+      },
+      "pdfOriginal": {
+        "answer": "Б",
+        "answerKey": {
+          "pdfPage": 125,
+          "printedPage": 123
+        }
+      },
+      "discrepancyType": "answer-key-mismatch",
+      "repairedContent": {
+        "answer": "Б",
+        "sourceAnswer": "Б"
+      },
+      "sourcePages": {
+        "question": {
+          "printedPage": 13,
+          "pdfPage": 15
+        },
+        "answerKey": {
+          "pdfPage": 125,
+          "printedPage": 123
+        }
+      },
+      "affectsLegacyAttempts": true,
+      "compatibilityTreatment": "保留 exerciseId、已选选项、尝试次数与历史记录；reader 接入阶段将按此账本在首次读取时重新计算 wrong / lastResult，并保留 everWrong 的历史值。",
+      "verification": "PDF 答案表视觉核对通过；修复后 answer === sourceAnswer，且答案键存在于原题选项中。"
+    },
+    {
+      "exerciseId": "GL1-Q069",
+      "printedNumber": 69,
+      "importedContent": {
+        "answer": "А",
+        "sourceAnswer": "А"
+      },
+      "pdfOriginal": {
+        "answer": "Б",
+        "answerKey": {
+          "pdfPage": 125,
+          "printedPage": 123
+        }
+      },
+      "discrepancyType": "answer-key-mismatch",
+      "repairedContent": {
+        "answer": "Б",
+        "sourceAnswer": "Б"
+      },
+      "sourcePages": {
+        "question": {
+          "printedPage": 13,
+          "pdfPage": 15
+        },
+        "answerKey": {
+          "pdfPage": 125,
+          "printedPage": 123
+        }
+      },
+      "affectsLegacyAttempts": true,
+      "compatibilityTreatment": "保留 exerciseId、已选选项、尝试次数与历史记录；reader 接入阶段将按此账本在首次读取时重新计算 wrong / lastResult，并保留 everWrong 的历史值。",
+      "verification": "PDF 答案表视觉核对通过；修复后 answer === sourceAnswer，且答案键存在于原题选项中。"
+    },
+    {
+      "exerciseId": "GL1-Q075",
+      "printedNumber": 75,
+      "importedContent": {
+        "answer": "А",
+        "sourceAnswer": "А"
+      },
+      "pdfOriginal": {
+        "answer": "Б",
+        "answerKey": {
+          "pdfPage": 125,
+          "printedPage": 123
+        }
+      },
+      "discrepancyType": "answer-key-mismatch",
+      "repairedContent": {
+        "answer": "Б",
+        "sourceAnswer": "Б"
+      },
+      "sourcePages": {
+        "question": {
+          "printedPage": 13,
+          "pdfPage": 15
+        },
+        "answerKey": {
+          "pdfPage": 125,
+          "printedPage": 123
+        }
+      },
+      "affectsLegacyAttempts": true,
+      "compatibilityTreatment": "保留 exerciseId、已选选项、尝试次数与历史记录；reader 接入阶段将按此账本在首次读取时重新计算 wrong / lastResult，并保留 everWrong 的历史值。",
+      "verification": "PDF 答案表视觉核对通过；修复后 answer === sourceAnswer，且答案键存在于原题选项中。"
+    },
+    {
+      "exerciseId": "GL1-Q077",
+      "printedNumber": 77,
+      "importedContent": {
+        "answer": "А",
+        "sourceAnswer": "А"
+      },
+      "pdfOriginal": {
+        "answer": "Б",
+        "answerKey": {
+          "pdfPage": 125,
+          "printedPage": 123
+        }
+      },
+      "discrepancyType": "answer-key-mismatch",
+      "repairedContent": {
+        "answer": "Б",
+        "sourceAnswer": "Б"
+      },
+      "sourcePages": {
+        "question": {
+          "printedPage": 14,
+          "pdfPage": 16
+        },
+        "answerKey": {
+          "pdfPage": 125,
+          "printedPage": 123
+        }
+      },
+      "affectsLegacyAttempts": true,
+      "compatibilityTreatment": "保留 exerciseId、已选选项、尝试次数与历史记录；reader 接入阶段将按此账本在首次读取时重新计算 wrong / lastResult，并保留 everWrong 的历史值。",
+      "verification": "PDF 答案表视觉核对通过；修复后 answer === sourceAnswer，且答案键存在于原题选项中。"
+    },
+    {
+      "exerciseId": "GL1-Q078",
+      "printedNumber": 78,
+      "importedContent": {
+        "answer": "А",
+        "sourceAnswer": "А"
+      },
+      "pdfOriginal": {
+        "answer": "Б",
+        "answerKey": {
+          "pdfPage": 125,
+          "printedPage": 123
+        }
+      },
+      "discrepancyType": "answer-key-mismatch",
+      "repairedContent": {
+        "answer": "Б",
+        "sourceAnswer": "Б"
+      },
+      "sourcePages": {
+        "question": {
+          "printedPage": 14,
+          "pdfPage": 16
+        },
+        "answerKey": {
+          "pdfPage": 125,
+          "printedPage": 123
+        }
+      },
+      "affectsLegacyAttempts": true,
+      "compatibilityTreatment": "保留 exerciseId、已选选项、尝试次数与历史记录；reader 接入阶段将按此账本在首次读取时重新计算 wrong / lastResult，并保留 everWrong 的历史值。",
+      "verification": "PDF 答案表视觉核对通过；修复后 answer === sourceAnswer，且答案键存在于原题选项中。"
+    },
+    {
+      "exerciseId": "GL1-Q087",
+      "printedNumber": 87,
+      "importedContent": {
+        "answer": "Б",
+        "sourceAnswer": "Б"
+      },
+      "pdfOriginal": {
+        "answer": "А",
+        "answerKey": {
+          "pdfPage": 125,
+          "printedPage": 123
+        }
+      },
+      "discrepancyType": "answer-key-mismatch",
+      "repairedContent": {
+        "answer": "А",
+        "sourceAnswer": "А"
+      },
+      "sourcePages": {
+        "question": {
+          "printedPage": 14,
+          "pdfPage": 16
+        },
+        "answerKey": {
+          "pdfPage": 125,
+          "printedPage": 123
+        }
+      },
+      "affectsLegacyAttempts": true,
+      "compatibilityTreatment": "保留 exerciseId、已选选项、尝试次数与历史记录；reader 接入阶段将按此账本在首次读取时重新计算 wrong / lastResult，并保留 everWrong 的历史值。",
+      "verification": "PDF 答案表视觉核对通过；修复后 answer === sourceAnswer，且答案键存在于原题选项中。"
+    },
+    {
+      "exerciseId": "GL1-Q088",
+      "printedNumber": 88,
+      "importedContent": {
+        "answer": "А",
+        "sourceAnswer": "А"
+      },
+      "pdfOriginal": {
+        "answer": "Б",
+        "answerKey": {
+          "pdfPage": 125,
+          "printedPage": 123
+        }
+      },
+      "discrepancyType": "answer-key-mismatch",
+      "repairedContent": {
+        "answer": "Б",
+        "sourceAnswer": "Б"
+      },
+      "sourcePages": {
+        "question": {
+          "printedPage": 14,
+          "pdfPage": 16
+        },
+        "answerKey": {
+          "pdfPage": 125,
+          "printedPage": 123
+        }
+      },
+      "affectsLegacyAttempts": true,
+      "compatibilityTreatment": "保留 exerciseId、已选选项、尝试次数与历史记录；reader 接入阶段将按此账本在首次读取时重新计算 wrong / lastResult，并保留 everWrong 的历史值。",
+      "verification": "PDF 答案表视觉核对通过；修复后 answer === sourceAnswer，且答案键存在于原题选项中。"
+    },
+    {
+      "exerciseId": "GL1-Q095",
+      "printedNumber": 95,
+      "importedContent": {
+        "answer": "Б",
+        "sourceAnswer": "Б"
+      },
+      "pdfOriginal": {
+        "answer": "Г",
+        "answerKey": {
+          "pdfPage": 125,
+          "printedPage": 123
+        }
+      },
+      "discrepancyType": "answer-key-mismatch",
+      "repairedContent": {
+        "answer": "Г",
+        "sourceAnswer": "Г"
+      },
+      "sourcePages": {
+        "question": {
+          "printedPage": 16,
+          "pdfPage": 18
+        },
+        "answerKey": {
+          "pdfPage": 125,
+          "printedPage": 123
+        }
+      },
+      "affectsLegacyAttempts": true,
+      "compatibilityTreatment": "保留 exerciseId、已选选项、尝试次数与历史记录；reader 接入阶段将按此账本在首次读取时重新计算 wrong / lastResult，并保留 everWrong 的历史值。",
+      "verification": "PDF 答案表视觉核对通过；修复后 answer === sourceAnswer，且答案键存在于原题选项中。"
+    },
+    {
+      "exerciseId": "GL1-Q061",
+      "printedNumber": 61,
+      "importedContent": {
+        "question": "Аспирант радовался, что успел ... первый вариант диссертации в назначенный срок.",
+        "options": [
+          {
+            "key": "А",
+            "text": "сдавать"
+          },
+          {
+            "key": "Б",
+            "text": "сдать"
+          }
+        ],
+        "answer": "Б",
+        "sourceAnswer": "Б"
+      },
+      "pdfOriginal": {
+        "question": "Британским учёным при помощи лазера удалось ... материю, частицы которой связываются между собой светом.",
+        "options": [
+          {
+            "key": "А",
+            "text": "создать"
+          },
+          {
+            "key": "Б",
+            "text": "создавать"
+          }
+        ],
+        "answer": "А"
+      },
+      "discrepancyType": "question-content-copy-error-and-answer-key-mismatch",
+      "repairedContent": {
+        "question": "Британским учёным при помощи лазера удалось ... материю, частицы которой связываются между собой светом.",
+        "options": [
+          {
+            "key": "А",
+            "text": "создать"
+          },
+          {
+            "key": "Б",
+            "text": "создавать"
+          }
+        ],
+        "answer": "А",
+        "sourceAnswer": "А",
+        "questionPages": [
+          14
+        ],
+        "answerPages": [
+          125
+        ]
+      },
+      "sourcePages": {
+        "question": {
+          "printedPage": 12,
+          "pdfPage": 14
+        },
+        "answerKey": {
+          "pdfPage": 125,
+          "printedPage": 123
+        }
+      },
+      "affectsLegacyAttempts": true,
+      "compatibilityTreatment": "保留 GL1-Q061 与已有作答记录的键；reader 接入阶段按此账本重算结果，且不把旧 Q062 的题面选择误迁移为正确知识记录。",
+      "verification": "PDF-014 题面和选项视觉核对通过；PDF-125 答案表核对通过；ID 未改变。"
+    }
+  ],
+  "contentDiscrepancies": [
+    {
+      "exerciseId": "GL1-Q030",
+      "printedNumber": 30,
+      "importedContent": {
+        "question": "В настоящее время представляется ... развитие двусторонних отношений между Россией и Венесуэлой.",
+        "options": [
+          {
+            "key": "А",
+            "text": "необходимым"
+          },
+          {
+            "key": "Б",
+            "text": "необходимо"
+          }
+        ]
+      },
+      "pdfOriginal": {
+        "question": "В настоящее время представляется ... развитие двусторонних отношений между Россией и Венесуэлой.",
+        "options": [
+          {
+            "key": "А",
+            "text": "взаимовыгодного"
+          },
+          {
+            "key": "Б",
+            "text": "взаимовыгодному"
+          },
+          {
+            "key": "В",
+            "text": "взаимовыгодным"
+          },
+          {
+            "key": "Г",
+            "text": "взаимовыгодное"
+          }
+        ]
+      },
+      "discrepancyType": "question-or-option-content-mismatch",
+      "repairedContent": {
+        "question": "В настоящее время представляется ... развитие двусторонних отношений между Россией и Венесуэлой.",
+        "options": [
+          {
+            "key": "А",
+            "text": "взаимовыгодного"
+          },
+          {
+            "key": "Б",
+            "text": "взаимовыгодному"
+          },
+          {
+            "key": "В",
+            "text": "взаимовыгодным"
+          },
+          {
+            "key": "Г",
+            "text": "взаимовыгодное"
+          }
+        ]
+      },
+      "sourcePages": {
+        "question": {
+          "printedPage": 10,
+          "pdfPage": 12
+        }
+      },
+      "affectsLegacyAttempts": false,
+      "compatibilityTreatment": "保留 exerciseId 和旧作答记录；仅补正题面和选项，不更改本题的作答记录键。",
+      "verification": "PDF 题页视觉核对通过；修复后的题面和选项逐字转录自原书。"
+    },
+    {
+      "exerciseId": "GL1-Q031",
+      "printedNumber": 31,
+      "importedContent": {
+        "question": "Экипаж российской машины «КамАЗ» ... пришёл к финишу и стал победителем тунисского авторалли.",
+        "options": [
+          {
+            "key": "А",
+            "text": "первый"
+          },
+          {
+            "key": "Б",
+            "text": "первым"
+          }
+        ]
+      },
+      "pdfOriginal": {
+        "question": "Экипаж российской машины «КамАЗ» ... пришёл к финишу и стал победителем тунисского авторалли.",
+        "options": [
+          {
+            "key": "А",
+            "text": "первого"
+          },
+          {
+            "key": "Б",
+            "text": "первом"
+          },
+          {
+            "key": "В",
+            "text": "первому"
+          },
+          {
+            "key": "Г",
+            "text": "первым"
+          }
+        ]
+      },
+      "discrepancyType": "question-or-option-content-mismatch",
+      "repairedContent": {
+        "question": "Экипаж российской машины «КамАЗ» ... пришёл к финишу и стал победителем тунисского авторалли.",
+        "options": [
+          {
+            "key": "А",
+            "text": "первого"
+          },
+          {
+            "key": "Б",
+            "text": "первом"
+          },
+          {
+            "key": "В",
+            "text": "первому"
+          },
+          {
+            "key": "Г",
+            "text": "первым"
+          }
+        ]
+      },
+      "sourcePages": {
+        "question": {
+          "printedPage": 10,
+          "pdfPage": 12
+        }
+      },
+      "affectsLegacyAttempts": false,
+      "compatibilityTreatment": "保留 exerciseId 和旧作答记录；仅补正题面和选项，不更改本题的作答记录键。",
+      "verification": "PDF 题页视觉核对通过；修复后的题面和选项逐字转录自原书。"
+    },
+    {
+      "exerciseId": "GL1-Q032",
+      "printedNumber": 32,
+      "importedContent": {
+        "question": "Братья-близнецы ... приплыли к скалам и вместе со всеми стали нырять в воду прямо с лодки.",
+        "options": [
+          {
+            "key": "А",
+            "text": "первые"
+          },
+          {
+            "key": "Б",
+            "text": "первыми"
+          }
+        ]
+      },
+      "pdfOriginal": {
+        "question": "Братья-близнецы ... приплыли к скалам и вместе со всеми стали нырять в воду прямо с лодки.",
+        "options": [
+          {
+            "key": "А",
+            "text": "последним"
+          },
+          {
+            "key": "Б",
+            "text": "последними"
+          },
+          {
+            "key": "В",
+            "text": "последних"
+          },
+          {
+            "key": "Г",
+            "text": "последнее"
+          }
+        ]
+      },
+      "discrepancyType": "question-or-option-content-mismatch",
+      "repairedContent": {
+        "question": "Братья-близнецы ... приплыли к скалам и вместе со всеми стали нырять в воду прямо с лодки.",
+        "options": [
+          {
+            "key": "А",
+            "text": "последним"
+          },
+          {
+            "key": "Б",
+            "text": "последними"
+          },
+          {
+            "key": "В",
+            "text": "последних"
+          },
+          {
+            "key": "Г",
+            "text": "последнее"
+          }
+        ]
+      },
+      "sourcePages": {
+        "question": {
+          "printedPage": 10,
+          "pdfPage": 12
+        }
+      },
+      "affectsLegacyAttempts": false,
+      "compatibilityTreatment": "保留 exerciseId 和旧作答记录；仅补正题面和选项，不更改本题的作答记录键。",
+      "verification": "PDF 题页视觉核对通过；修复后的题面和选项逐字转录自原书。"
+    },
+    {
+      "exerciseId": "GL1-Q033",
+      "printedNumber": 33,
+      "importedContent": {
+        "question": "Человек кажется ... даже самым грозным степным хищникам.",
+        "options": [
+          {
+            "key": "А",
+            "text": "слабый"
+          },
+          {
+            "key": "Б",
+            "text": "слабым"
+          }
+        ]
+      },
+      "pdfOriginal": {
+        "question": "Человек кажется ... даже самым грозным степным хищникам.",
+        "options": [
+          {
+            "key": "А",
+            "text": "опасный"
+          },
+          {
+            "key": "Б",
+            "text": "опасным"
+          },
+          {
+            "key": "В",
+            "text": "опасному"
+          },
+          {
+            "key": "Г",
+            "text": "опасного"
+          }
+        ]
+      },
+      "discrepancyType": "question-or-option-content-mismatch",
+      "repairedContent": {
+        "question": "Человек кажется ... даже самым грозным степным хищникам.",
+        "options": [
+          {
+            "key": "А",
+            "text": "опасный"
+          },
+          {
+            "key": "Б",
+            "text": "опасным"
+          },
+          {
+            "key": "В",
+            "text": "опасному"
+          },
+          {
+            "key": "Г",
+            "text": "опасного"
+          }
+        ]
+      },
+      "sourcePages": {
+        "question": {
+          "printedPage": 10,
+          "pdfPage": 12
+        }
+      },
+      "affectsLegacyAttempts": false,
+      "compatibilityTreatment": "保留 exerciseId 和旧作答记录；仅补正题面和选项，不更改本题的作答记录键。",
+      "verification": "PDF 题页视觉核对通过；修复后的题面和选项逐字转录自原书。"
+    },
+    {
+      "exerciseId": "GL1-Q034",
+      "printedNumber": 34,
+      "importedContent": {
+        "question": "Психологи утверждают, что даже очень робкий человек, если он поёт, чувствует себя абсолютно ... .",
+        "options": [
+          {
+            "key": "А",
+            "text": "раскрепощённый"
+          },
+          {
+            "key": "Б",
+            "text": "раскрепощённым"
+          }
+        ]
+      },
+      "pdfOriginal": {
+        "question": "Психологи утверждают, что даже очень робкий человек, если он поёт, чувствует себя абсолютно ... .",
+        "options": [
+          {
+            "key": "А",
+            "text": "свободный"
+          },
+          {
+            "key": "Б",
+            "text": "свободному"
+          },
+          {
+            "key": "В",
+            "text": "свободным"
+          },
+          {
+            "key": "Г",
+            "text": "свободного"
+          }
+        ]
+      },
+      "discrepancyType": "question-or-option-content-mismatch",
+      "repairedContent": {
+        "question": "Психологи утверждают, что даже очень робкий человек, если он поёт, чувствует себя абсолютно ... .",
+        "options": [
+          {
+            "key": "А",
+            "text": "свободный"
+          },
+          {
+            "key": "Б",
+            "text": "свободному"
+          },
+          {
+            "key": "В",
+            "text": "свободным"
+          },
+          {
+            "key": "Г",
+            "text": "свободного"
+          }
+        ]
+      },
+      "sourcePages": {
+        "question": {
+          "printedPage": 10,
+          "pdfPage": 12
+        }
+      },
+      "affectsLegacyAttempts": false,
+      "compatibilityTreatment": "保留 exerciseId 和旧作答记录；仅补正题面和选项，不更改本题的作答记录键。",
+      "verification": "PDF 题页视觉核对通过；修复后的题面和选项逐字转录自原书。"
+    },
+    {
+      "exerciseId": "GL1-Q035",
+      "printedNumber": 35,
+      "importedContent": {
+        "question": "«Обойти то мелкое и призрачное, что мешает быть ..., — вот цель и смысл нашей жизни» (А.П. Чехов).",
+        "options": [
+          {
+            "key": "А",
+            "text": "свободные и счастливые"
+          },
+          {
+            "key": "Б",
+            "text": "свободными и счастливыми"
+          }
+        ]
+      },
+      "pdfOriginal": {
+        "question": "«Обойти то мелкое и призрачное, что мешает быть ..., — вот цель и смысл нашей жизни» (А.П. Чехов).",
+        "options": [
+          {
+            "key": "А",
+            "text": "счастливый"
+          },
+          {
+            "key": "Б",
+            "text": "счастливым"
+          },
+          {
+            "key": "В",
+            "text": "счастливому"
+          },
+          {
+            "key": "Г",
+            "text": "счастливого"
+          }
+        ]
+      },
+      "discrepancyType": "question-or-option-content-mismatch",
+      "repairedContent": {
+        "question": "«Обойти то мелкое и призрачное, что мешает быть ..., — вот цель и смысл нашей жизни» (А.П. Чехов).",
+        "options": [
+          {
+            "key": "А",
+            "text": "счастливый"
+          },
+          {
+            "key": "Б",
+            "text": "счастливым"
+          },
+          {
+            "key": "В",
+            "text": "счастливому"
+          },
+          {
+            "key": "Г",
+            "text": "счастливого"
+          }
+        ]
+      },
+      "sourcePages": {
+        "question": {
+          "printedPage": 10,
+          "pdfPage": 12
+        }
+      },
+      "affectsLegacyAttempts": false,
+      "compatibilityTreatment": "保留 exerciseId 和旧作答记录；仅补正题面和选项，不更改本题的作答记录键。",
+      "verification": "PDF 题页视觉核对通过；修复后的题面和选项逐字转录自原书。"
+    },
+    {
+      "exerciseId": "GL1-Q036",
+      "printedNumber": 36,
+      "importedContent": {
+        "question": "Несмотря на социальные и экономические различия, все граждане Рима считались ... .",
+        "options": [
+          {
+            "key": "А",
+            "text": "равные"
+          },
+          {
+            "key": "Б",
+            "text": "равными"
+          }
+        ]
+      },
+      "pdfOriginal": {
+        "question": "Несмотря на социальные и экономические различия, все граждане Рима считались ... .",
+        "options": [
+          {
+            "key": "А",
+            "text": "равными"
+          },
+          {
+            "key": "Б",
+            "text": "равных"
+          },
+          {
+            "key": "В",
+            "text": "равные"
+          },
+          {
+            "key": "Г",
+            "text": "равным"
+          }
+        ]
+      },
+      "discrepancyType": "question-or-option-content-mismatch",
+      "repairedContent": {
+        "question": "Несмотря на социальные и экономические различия, все граждане Рима считались ... .",
+        "options": [
+          {
+            "key": "А",
+            "text": "равными"
+          },
+          {
+            "key": "Б",
+            "text": "равных"
+          },
+          {
+            "key": "В",
+            "text": "равные"
+          },
+          {
+            "key": "Г",
+            "text": "равным"
+          }
+        ]
+      },
+      "sourcePages": {
+        "question": {
+          "printedPage": 10,
+          "pdfPage": 12
+        }
+      },
+      "affectsLegacyAttempts": false,
+      "compatibilityTreatment": "保留 exerciseId 和旧作答记录；仅补正题面和选项，不更改本题的作答记录键。",
+      "verification": "PDF 题页视觉核对通过；修复后的题面和选项逐字转录自原书。"
+    },
+    {
+      "exerciseId": "GL1-Q037",
+      "printedNumber": 37,
+      "importedContent": {
+        "question": "Профессиональное народное творчество не перестаёт быть ... и сегодня.",
+        "options": [
+          {
+            "key": "А",
+            "text": "популярно"
+          },
+          {
+            "key": "Б",
+            "text": "популярным"
+          }
+        ]
+      },
+      "pdfOriginal": {
+        "question": "Профессиональное народное творчество не перестаёт быть ... и сегодня.",
+        "options": [
+          {
+            "key": "А",
+            "text": "популярного"
+          },
+          {
+            "key": "Б",
+            "text": "популярное"
+          },
+          {
+            "key": "В",
+            "text": "популярному"
+          },
+          {
+            "key": "Г",
+            "text": "популярным"
+          }
+        ]
+      },
+      "discrepancyType": "question-or-option-content-mismatch",
+      "repairedContent": {
+        "question": "Профессиональное народное творчество не перестаёт быть ... и сегодня.",
+        "options": [
+          {
+            "key": "А",
+            "text": "популярного"
+          },
+          {
+            "key": "Б",
+            "text": "популярное"
+          },
+          {
+            "key": "В",
+            "text": "популярному"
+          },
+          {
+            "key": "Г",
+            "text": "популярным"
+          }
+        ]
+      },
+      "sourcePages": {
+        "question": {
+          "printedPage": 11,
+          "pdfPage": 13
+        }
+      },
+      "affectsLegacyAttempts": false,
+      "compatibilityTreatment": "保留 exerciseId 和旧作答记录；仅补正题面和选项，不更改本题的作答记录键。",
+      "verification": "PDF 题页视觉核对通过；修复后的题面和选项逐字转录自原书。"
+    },
+    {
+      "exerciseId": "GL1-Q038",
+      "printedNumber": 38,
+      "importedContent": {
+        "question": "Русский учёный И.М. Сеченов более 30 лет ... рефлексы головного мозга.",
+        "options": [
+          {
+            "key": "А",
+            "text": "изучает"
+          },
+          {
+            "key": "Б",
+            "text": "изучил"
+          },
+          {
+            "key": "В",
+            "text": "изучал"
+          },
+          {
+            "key": "Г",
+            "text": "изучит"
+          }
+        ]
+      },
+      "pdfOriginal": {
+        "question": "Русский учёный И.М. Сеченов более 30 лет ... рефлексы головного мозга.",
+        "options": [
+          {
+            "key": "А",
+            "text": "изучал"
+          },
+          {
+            "key": "Б",
+            "text": "изучил"
+          }
+        ]
+      },
+      "discrepancyType": "question-or-option-content-mismatch",
+      "repairedContent": {
+        "question": "Русский учёный И.М. Сеченов более 30 лет ... рефлексы головного мозга.",
+        "options": [
+          {
+            "key": "А",
+            "text": "изучал"
+          },
+          {
+            "key": "Б",
+            "text": "изучил"
+          }
+        ]
+      },
+      "sourcePages": {
+        "question": {
+          "printedPage": 11,
+          "pdfPage": 13
+        }
+      },
+      "affectsLegacyAttempts": false,
+      "compatibilityTreatment": "保留 exerciseId 和旧作答记录；仅补正题面和选项，不更改本题的作答记录键。",
+      "verification": "PDF 题页视觉核对通过；修复后的题面和选项逐字转录自原书。"
+    },
+    {
+      "exerciseId": "GL1-Q039",
+      "printedNumber": 39,
+      "importedContent": {
+        "question": "Ботаника была призванием профессора, он дни и ночи ... в теплицах ботанического сада.",
+        "options": [
+          {
+            "key": "А",
+            "text": "проводит"
+          },
+          {
+            "key": "Б",
+            "text": "провёл"
+          },
+          {
+            "key": "В",
+            "text": "проводил"
+          },
+          {
+            "key": "Г",
+            "text": "проведёт"
+          }
+        ]
+      },
+      "pdfOriginal": {
+        "question": "Ботаника была призванием профессора, он дни и ночи ... в теплицах ботанического сада.",
+        "options": [
+          {
+            "key": "А",
+            "text": "провёл"
+          },
+          {
+            "key": "Б",
+            "text": "проводил"
+          }
+        ]
+      },
+      "discrepancyType": "question-or-option-content-mismatch",
+      "repairedContent": {
+        "question": "Ботаника была призванием профессора, он дни и ночи ... в теплицах ботанического сада.",
+        "options": [
+          {
+            "key": "А",
+            "text": "провёл"
+          },
+          {
+            "key": "Б",
+            "text": "проводил"
+          }
+        ]
+      },
+      "sourcePages": {
+        "question": {
+          "printedPage": 11,
+          "pdfPage": 13
+        }
+      },
+      "affectsLegacyAttempts": false,
+      "compatibilityTreatment": "保留 exerciseId 和旧作答记录；仅补正题面和选项，不更改本题的作答记录键。",
+      "verification": "PDF 题页视觉核对通过；修复后的题面和选项逐字转录自原书。"
+    },
+    {
+      "exerciseId": "GL1-Q040",
+      "printedNumber": 40,
+      "importedContent": {
+        "question": "«Уже который год они ... в заповедник на лето» (С.Д. Довлатов).",
+        "options": [
+          {
+            "key": "А",
+            "text": "приезжают"
+          },
+          {
+            "key": "Б",
+            "text": "приедут"
+          },
+          {
+            "key": "В",
+            "text": "приезжали"
+          },
+          {
+            "key": "Г",
+            "text": "приехали"
+          }
+        ]
+      },
+      "pdfOriginal": {
+        "question": "«Уже который год они ... в заповедник на лето» (С.Д. Довлатов).",
+        "options": [
+          {
+            "key": "А",
+            "text": "приезжали"
+          },
+          {
+            "key": "Б",
+            "text": "приехали"
+          }
+        ]
+      },
+      "discrepancyType": "question-or-option-content-mismatch",
+      "repairedContent": {
+        "question": "«Уже который год они ... в заповедник на лето» (С.Д. Довлатов).",
+        "options": [
+          {
+            "key": "А",
+            "text": "приезжали"
+          },
+          {
+            "key": "Б",
+            "text": "приехали"
+          }
+        ]
+      },
+      "sourcePages": {
+        "question": {
+          "printedPage": 11,
+          "pdfPage": 13
+        }
+      },
+      "affectsLegacyAttempts": false,
+      "compatibilityTreatment": "保留 exerciseId 和旧作答记录；仅补正题面和选项，不更改本题的作答记录键。",
+      "verification": "PDF 题页视觉核对通过；修复后的题面和选项逐字转录自原书。"
+    },
+    {
+      "exerciseId": "GL1-Q041",
+      "printedNumber": 41,
+      "importedContent": {
+        "question": "Прослушав лекцию, мы ..., как растения обмениваются информацией друг с другом и с окружающим миром.",
+        "options": [
+          {
+            "key": "А",
+            "text": "узнаём"
+          },
+          {
+            "key": "Б",
+            "text": "узнали"
+          },
+          {
+            "key": "В",
+            "text": "узнаем"
+          },
+          {
+            "key": "Г",
+            "text": "узнавали"
+          }
+        ]
+      },
+      "pdfOriginal": {
+        "question": "Прослушав лекцию, мы ..., как растения обмениваются информацией друг с другом и с окружающим миром.",
+        "options": [
+          {
+            "key": "А",
+            "text": "понимали"
+          },
+          {
+            "key": "Б",
+            "text": "поняли"
+          }
+        ]
+      },
+      "discrepancyType": "question-or-option-content-mismatch",
+      "repairedContent": {
+        "question": "Прослушав лекцию, мы ..., как растения обмениваются информацией друг с другом и с окружающим миром.",
+        "options": [
+          {
+            "key": "А",
+            "text": "понимали"
+          },
+          {
+            "key": "Б",
+            "text": "поняли"
+          }
+        ]
+      },
+      "sourcePages": {
+        "question": {
+          "printedPage": 11,
+          "pdfPage": 13
+        }
+      },
+      "affectsLegacyAttempts": false,
+      "compatibilityTreatment": "保留 exerciseId 和旧作答记录；仅补正题面和选项，不更改本题的作答记录键。",
+      "verification": "PDF 题页视觉核对通过；修复后的题面和选项逐字转录自原书。"
+    },
+    {
+      "exerciseId": "GL1-Q042",
+      "printedNumber": 42,
+      "importedContent": {
+        "question": "После окончания Таганрогской гимназии А.П. Чехов переехал в Москву к своей семье и ... на медицинский факультет Московского университета.",
+        "options": [
+          {
+            "key": "А",
+            "text": "поступает"
+          },
+          {
+            "key": "Б",
+            "text": "поступил"
+          },
+          {
+            "key": "В",
+            "text": "поступал"
+          },
+          {
+            "key": "Г",
+            "text": "поступит"
+          }
+        ]
+      },
+      "pdfOriginal": {
+        "question": "После окончания Таганрогской гимназии А.П. Чехов переехал в Москву к своей семье и ... на медицинский факультет Московского университета.",
+        "options": [
+          {
+            "key": "А",
+            "text": "поступил"
+          },
+          {
+            "key": "Б",
+            "text": "поступал"
+          }
+        ]
+      },
+      "discrepancyType": "question-or-option-content-mismatch",
+      "repairedContent": {
+        "question": "После окончания Таганрогской гимназии А.П. Чехов переехал в Москву к своей семье и ... на медицинский факультет Московского университета.",
+        "options": [
+          {
+            "key": "А",
+            "text": "поступил"
+          },
+          {
+            "key": "Б",
+            "text": "поступал"
+          }
+        ]
+      },
+      "sourcePages": {
+        "question": {
+          "printedPage": 11,
+          "pdfPage": 13
+        }
+      },
+      "affectsLegacyAttempts": false,
+      "compatibilityTreatment": "保留 exerciseId 和旧作答记录；仅补正题面和选项，不更改本题的作答记录键。",
+      "verification": "PDF 题页视觉核对通过；修复后的题面和选项逐字转录自原书。"
+    },
+    {
+      "exerciseId": "GL1-Q043",
+      "printedNumber": 43,
+      "importedContent": {
+        "question": "«Пойдите и догоните его». — «Никак не догонишь. Он ... в середине обеда, я вас не решилась обеспокоить» (А.И. Куприн).",
+        "options": [
+          {
+            "key": "А",
+            "text": "уезжает"
+          },
+          {
+            "key": "Б",
+            "text": "уехал"
+          },
+          {
+            "key": "В",
+            "text": "уезжал"
+          },
+          {
+            "key": "Г",
+            "text": "уедет"
+          }
+        ]
+      },
+      "pdfOriginal": {
+        "question": "«Пойдите и догоните его». — «Никак не догонишь. Он ... в середине обеда, я вас не решилась обеспокоить» (А.И. Куприн).",
+        "options": [
+          {
+            "key": "А",
+            "text": "пришёл"
+          },
+          {
+            "key": "Б",
+            "text": "приходил"
+          }
+        ]
+      },
+      "discrepancyType": "question-or-option-content-mismatch",
+      "repairedContent": {
+        "question": "«Пойдите и догоните его». — «Никак не догонишь. Он ... в середине обеда, я вас не решилась обеспокоить» (А.И. Куприн).",
+        "options": [
+          {
+            "key": "А",
+            "text": "пришёл"
+          },
+          {
+            "key": "Б",
+            "text": "приходил"
+          }
+        ]
+      },
+      "sourcePages": {
+        "question": {
+          "printedPage": 11,
+          "pdfPage": 13
+        }
+      },
+      "affectsLegacyAttempts": false,
+      "compatibilityTreatment": "保留 exerciseId 和旧作答记录；仅补正题面和选项，不更改本题的作答记录键。",
+      "verification": "PDF 题页视觉核对通过；修复后的题面和选项逐字转录自原书。"
+    },
+    {
+      "exerciseId": "GL1-Q044",
+      "printedNumber": 44,
+      "importedContent": {
+        "question": "«Сколько столетий назад обитал таинственный народ чудь на Урале и когда ... в свои подземные города — неизвестно» (уральская легенда).",
+        "options": [
+          {
+            "key": "А",
+            "text": "уходит"
+          },
+          {
+            "key": "Б",
+            "text": "ушёл"
+          },
+          {
+            "key": "В",
+            "text": "уходил"
+          },
+          {
+            "key": "Г",
+            "text": "уйдёт"
+          }
+        ]
+      },
+      "pdfOriginal": {
+        "question": "«Сколько столетий назад обитал таинственный народ чудь на Урале и когда ... в свои подземные города — неизвестно» (уральская легенда).",
+        "options": [
+          {
+            "key": "А",
+            "text": "ушёл"
+          },
+          {
+            "key": "Б",
+            "text": "уходил"
+          }
+        ]
+      },
+      "discrepancyType": "question-or-option-content-mismatch",
+      "repairedContent": {
+        "question": "«Сколько столетий назад обитал таинственный народ чудь на Урале и когда ... в свои подземные города — неизвестно» (уральская легенда).",
+        "options": [
+          {
+            "key": "А",
+            "text": "ушёл"
+          },
+          {
+            "key": "Б",
+            "text": "уходил"
+          }
+        ]
+      },
+      "sourcePages": {
+        "question": {
+          "printedPage": 11,
+          "pdfPage": 13
+        }
+      },
+      "affectsLegacyAttempts": false,
+      "compatibilityTreatment": "保留 exerciseId 和旧作答记录；仅补正题面和选项，不更改本题的作答记录键。",
+      "verification": "PDF 题页视觉核对通过；修复后的题面和选项逐字转录自原书。"
+    },
+    {
+      "exerciseId": "GL1-Q045",
+      "printedNumber": 45,
+      "importedContent": {
+        "question": "«Мы не ... голубой чашки. Это, может быть, сама Маруся как-нибудь разбила» (А.П. Гайдар).",
+        "options": [
+          {
+            "key": "А",
+            "text": "разбиваем"
+          },
+          {
+            "key": "Б",
+            "text": "разбили"
+          },
+          {
+            "key": "В",
+            "text": "разбивали"
+          },
+          {
+            "key": "Г",
+            "text": "разобьём"
+          }
+        ]
+      },
+      "pdfOriginal": {
+        "question": "«Мы не ... голубой чашки. Это, может быть, сама Маруся как-нибудь разбила» (А.П. Гайдар).",
+        "options": [
+          {
+            "key": "А",
+            "text": "разбивали"
+          },
+          {
+            "key": "Б",
+            "text": "разбили"
+          }
+        ]
+      },
+      "discrepancyType": "question-or-option-content-mismatch",
+      "repairedContent": {
+        "question": "«Мы не ... голубой чашки. Это, может быть, сама Маруся как-нибудь разбила» (А.П. Гайдар).",
+        "options": [
+          {
+            "key": "А",
+            "text": "разбивали"
+          },
+          {
+            "key": "Б",
+            "text": "разбили"
+          }
+        ]
+      },
+      "sourcePages": {
+        "question": {
+          "printedPage": 11,
+          "pdfPage": 13
+        }
+      },
+      "affectsLegacyAttempts": false,
+      "compatibilityTreatment": "保留 exerciseId 和旧作答记录；仅补正题面和选项，不更改本题的作答记录键。",
+      "verification": "PDF 题页视觉核对通过；修复后的题面和选项逐字转录自原书。"
+    },
+    {
+      "exerciseId": "GL1-Q046",
+      "printedNumber": 46,
+      "importedContent": {
+        "question": "Известному политологу приписали слова, которых он никогда не ... .",
+        "options": [
+          {
+            "key": "А",
+            "text": "произносит"
+          },
+          {
+            "key": "Б",
+            "text": "произнёс"
+          },
+          {
+            "key": "В",
+            "text": "произносил"
+          },
+          {
+            "key": "Г",
+            "text": "произнесёт"
+          }
+        ]
+      },
+      "pdfOriginal": {
+        "question": "Известному политологу приписали слова, которых он никогда не ... .",
+        "options": [
+          {
+            "key": "А",
+            "text": "говорил"
+          },
+          {
+            "key": "Б",
+            "text": "сказал"
+          }
+        ]
+      },
+      "discrepancyType": "question-or-option-content-mismatch",
+      "repairedContent": {
+        "question": "Известному политологу приписали слова, которых он никогда не ... .",
+        "options": [
+          {
+            "key": "А",
+            "text": "говорил"
+          },
+          {
+            "key": "Б",
+            "text": "сказал"
+          }
+        ]
+      },
+      "sourcePages": {
+        "question": {
+          "printedPage": 11,
+          "pdfPage": 13
+        }
+      },
+      "affectsLegacyAttempts": false,
+      "compatibilityTreatment": "保留 exerciseId 和旧作答记录；仅补正题面和选项，不更改本题的作答记录键。",
+      "verification": "PDF 题页视觉核对通过；修复后的题面和选项逐字转录自原书。"
+    },
+    {
+      "exerciseId": "GL1-Q047",
+      "printedNumber": 47,
+      "importedContent": {
+        "question": "Некоторые руководители фирм думают, что стоит им только ... свой сайт в Интернете, как деньги потекут рекой.",
+        "options": [
+          {
+            "key": "А",
+            "text": "создавать"
+          },
+          {
+            "key": "Б",
+            "text": "создать"
+          }
+        ]
+      },
+      "pdfOriginal": {
+        "question": "Некоторые руководители фирм думают, что стоит им только ... свой сайт в Интернете, как деньги потекут рекой.",
+        "options": [
+          {
+            "key": "А",
+            "text": "создать"
+          },
+          {
+            "key": "Б",
+            "text": "создавать"
+          }
+        ]
+      },
+      "discrepancyType": "question-or-option-content-mismatch",
+      "repairedContent": {
+        "question": "Некоторые руководители фирм думают, что стоит им только ... свой сайт в Интернете, как деньги потекут рекой.",
+        "options": [
+          {
+            "key": "А",
+            "text": "создать"
+          },
+          {
+            "key": "Б",
+            "text": "создавать"
+          }
+        ]
+      },
+      "sourcePages": {
+        "question": {
+          "printedPage": 11,
+          "pdfPage": 13
+        }
+      },
+      "affectsLegacyAttempts": false,
+      "compatibilityTreatment": "保留 exerciseId 和旧作答记录；仅补正题面和选项，不更改本题的作答记录键。",
+      "verification": "PDF 题页视觉核对通过；修复后的题面和选项逐字转录自原书。"
+    },
+    {
+      "exerciseId": "GL1-Q048",
+      "printedNumber": 48,
+      "importedContent": {
+        "question": "Учёные продолжают ... атмосферу и жизнь далёких планет, отправляя в космос новые космические аппараты.",
+        "options": [
+          {
+            "key": "А",
+            "text": "исследовать"
+          },
+          {
+            "key": "Б",
+            "text": "исследовать"
+          }
+        ]
+      },
+      "pdfOriginal": {
+        "question": "Учёные продолжают ... атмосферу и жизнь далёких планет, отправляя в космос новые космические аппараты.",
+        "options": [
+          {
+            "key": "А",
+            "text": "изучить"
+          },
+          {
+            "key": "Б",
+            "text": "изучать"
+          }
+        ]
+      },
+      "discrepancyType": "question-or-option-content-mismatch",
+      "repairedContent": {
+        "question": "Учёные продолжают ... атмосферу и жизнь далёких планет, отправляя в космос новые космические аппараты.",
+        "options": [
+          {
+            "key": "А",
+            "text": "изучить"
+          },
+          {
+            "key": "Б",
+            "text": "изучать"
+          }
+        ]
+      },
+      "sourcePages": {
+        "question": {
+          "printedPage": 12,
+          "pdfPage": 14
+        }
+      },
+      "affectsLegacyAttempts": false,
+      "compatibilityTreatment": "保留 exerciseId 和旧作答记录；仅补正题面和选项，不更改本题的作答记录键。",
+      "verification": "PDF 题页视觉核对通过；修复后的题面和选项逐字转录自原书。"
+    },
+    {
+      "exerciseId": "GL1-Q049",
+      "printedNumber": 49,
+      "importedContent": {
+        "question": "При работе с компьютером к чёткости шрифтов быстро привыкаешь и перестаёшь её ... .",
+        "options": [
+          {
+            "key": "А",
+            "text": "замечать"
+          },
+          {
+            "key": "Б",
+            "text": "заметить"
+          }
+        ]
+      },
+      "pdfOriginal": {
+        "question": "При работе с компьютером к чёткости шрифтов быстро привыкаешь и перестаёшь её ... .",
+        "options": [
+          {
+            "key": "А",
+            "text": "замечать"
+          },
+          {
+            "key": "Б",
+            "text": "заметить"
+          }
+        ]
+      },
+      "discrepancyType": "question-or-option-content-mismatch",
+      "repairedContent": {
+        "question": "При работе с компьютером к чёткости шрифтов быстро привыкаешь и перестаёшь её ... .",
+        "options": [
+          {
+            "key": "А",
+            "text": "замечать"
+          },
+          {
+            "key": "Б",
+            "text": "заметить"
+          }
+        ]
+      },
+      "sourcePages": {
+        "question": {
+          "printedPage": 12,
+          "pdfPage": 14
+        }
+      },
+      "affectsLegacyAttempts": false,
+      "compatibilityTreatment": "保留 exerciseId 和旧作答记录；仅补正题面和选项，不更改本题的作答记录键。",
+      "verification": "PDF 题页视觉核对通过；修复后的题面和选项逐字转录自原书。"
+    },
+    {
+      "exerciseId": "GL1-Q050",
+      "printedNumber": 50,
+      "importedContent": {
+        "question": "Молодёжные центры жилищных инициатив, созданные в некоторых городах России, начали ... молодым семьям.",
+        "options": [
+          {
+            "key": "А",
+            "text": "помогать"
+          },
+          {
+            "key": "Б",
+            "text": "помочь"
+          }
+        ]
+      },
+      "pdfOriginal": {
+        "question": "Молодёжные центры жилищных инициатив, созданные в некоторых городах России, начали ... молодым семьям.",
+        "options": [
+          {
+            "key": "А",
+            "text": "помочь"
+          },
+          {
+            "key": "Б",
+            "text": "помогать"
+          }
+        ]
+      },
+      "discrepancyType": "question-or-option-content-mismatch",
+      "repairedContent": {
+        "question": "Молодёжные центры жилищных инициатив, созданные в некоторых городах России, начали ... молодым семьям.",
+        "options": [
+          {
+            "key": "А",
+            "text": "помочь"
+          },
+          {
+            "key": "Б",
+            "text": "помогать"
+          }
+        ]
+      },
+      "sourcePages": {
+        "question": {
+          "printedPage": 12,
+          "pdfPage": 14
+        }
+      },
+      "affectsLegacyAttempts": false,
+      "compatibilityTreatment": "保留 exerciseId 和旧作答记录；仅补正题面和选项，不更改本题的作答记录键。",
+      "verification": "PDF 题页视觉核对通过；修复后的题面和选项逐字转录自原书。"
+    },
+    {
+      "exerciseId": "GL1-Q051",
+      "printedNumber": 51,
+      "importedContent": {
+        "question": "Театральный режиссёр Наталья Сац, основавшая в Москве Детский музыкальный театр, привыкла ... всего сама.",
+        "options": [
+          {
+            "key": "А",
+            "text": "добиваться"
+          },
+          {
+            "key": "Б",
+            "text": "добиться"
+          }
+        ]
+      },
+      "pdfOriginal": {
+        "question": "Театральный режиссёр Наталья Сац, основавшая в Москве Детский музыкальный театр, привыкла ... всего сама.",
+        "options": [
+          {
+            "key": "А",
+            "text": "добиваться"
+          },
+          {
+            "key": "Б",
+            "text": "добиться"
+          }
+        ]
+      },
+      "discrepancyType": "question-or-option-content-mismatch",
+      "repairedContent": {
+        "question": "Театральный режиссёр Наталья Сац, основавшая в Москве Детский музыкальный театр, привыкла ... всего сама.",
+        "options": [
+          {
+            "key": "А",
+            "text": "добиваться"
+          },
+          {
+            "key": "Б",
+            "text": "добиться"
+          }
+        ]
+      },
+      "sourcePages": {
+        "question": {
+          "printedPage": 12,
+          "pdfPage": 14
+        }
+      },
+      "affectsLegacyAttempts": false,
+      "compatibilityTreatment": "保留 exerciseId 和旧作答记录；仅补正题面和选项，不更改本题的作答记录键。",
+      "verification": "PDF 题页视觉核对通过；修复后的题面和选项逐字转录自原书。"
+    },
+    {
+      "exerciseId": "GL1-Q052",
+      "printedNumber": 52,
+      "importedContent": {
+        "question": "Наполеон Бонапарт не раз говорил, что карьеру сможет сделать только тот, кто умеет хорошо ... .",
+        "options": [
+          {
+            "key": "А",
+            "text": "говорить"
+          },
+          {
+            "key": "Б",
+            "text": "сказать"
+          }
+        ]
+      },
+      "pdfOriginal": {
+        "question": "Наполеон Бонапарт не раз говорил, что карьеру сможет сделать только тот, кто умеет хорошо ... .",
+        "options": [
+          {
+            "key": "А",
+            "text": "сказать"
+          },
+          {
+            "key": "Б",
+            "text": "говорить"
+          }
+        ]
+      },
+      "discrepancyType": "question-or-option-content-mismatch",
+      "repairedContent": {
+        "question": "Наполеон Бонапарт не раз говорил, что карьеру сможет сделать только тот, кто умеет хорошо ... .",
+        "options": [
+          {
+            "key": "А",
+            "text": "сказать"
+          },
+          {
+            "key": "Б",
+            "text": "говорить"
+          }
+        ]
+      },
+      "sourcePages": {
+        "question": {
+          "printedPage": 12,
+          "pdfPage": 14
+        }
+      },
+      "affectsLegacyAttempts": false,
+      "compatibilityTreatment": "保留 exerciseId 和旧作答记录；仅补正题面和选项，不更改本题的作答记录键。",
+      "verification": "PDF 题页视觉核对通过；修复后的题面和选项逐字转录自原书。"
+    },
+    {
+      "exerciseId": "GL1-Q053",
+      "printedNumber": 53,
+      "importedContent": {
+        "question": "Учёные утверждают, что мозг человека в критических ситуациях учит его ... с различными видами страхов.",
+        "options": [
+          {
+            "key": "А",
+            "text": "справляться"
+          },
+          {
+            "key": "Б",
+            "text": "справиться"
+          }
+        ]
+      },
+      "pdfOriginal": {
+        "question": "Учёные утверждают, что мозг человека в критических ситуациях учит его ... с различными видами страхов.",
+        "options": [
+          {
+            "key": "А",
+            "text": "побороться"
+          },
+          {
+            "key": "Б",
+            "text": "бороться"
+          }
+        ]
+      },
+      "discrepancyType": "question-or-option-content-mismatch",
+      "repairedContent": {
+        "question": "Учёные утверждают, что мозг человека в критических ситуациях учит его ... с различными видами страхов.",
+        "options": [
+          {
+            "key": "А",
+            "text": "побороться"
+          },
+          {
+            "key": "Б",
+            "text": "бороться"
+          }
+        ]
+      },
+      "sourcePages": {
+        "question": {
+          "printedPage": 12,
+          "pdfPage": 14
+        }
+      },
+      "affectsLegacyAttempts": false,
+      "compatibilityTreatment": "保留 exerciseId 和旧作答记录；仅补正题面和选项，不更改本题的作答记录键。",
+      "verification": "PDF 题页视觉核对通过；修复后的题面和选项逐字转录自原书。"
+    },
+    {
+      "exerciseId": "GL1-Q054",
+      "printedNumber": 54,
+      "importedContent": {
+        "question": "Дети умеют ... жизни, и взрослым не мешает у них этому поучиться.",
+        "options": [
+          {
+            "key": "А",
+            "text": "радоваться"
+          },
+          {
+            "key": "Б",
+            "text": "обрадоваться"
+          }
+        ]
+      },
+      "pdfOriginal": {
+        "question": "Дети умеют ... жизни, и взрослым не мешает у них этому поучиться.",
+        "options": [
+          {
+            "key": "А",
+            "text": "удивляться"
+          },
+          {
+            "key": "Б",
+            "text": "удивиться"
+          }
+        ]
+      },
+      "discrepancyType": "question-or-option-content-mismatch",
+      "repairedContent": {
+        "question": "Дети умеют ... жизни, и взрослым не мешает у них этому поучиться.",
+        "options": [
+          {
+            "key": "А",
+            "text": "удивляться"
+          },
+          {
+            "key": "Б",
+            "text": "удивиться"
+          }
+        ]
+      },
+      "sourcePages": {
+        "question": {
+          "printedPage": 12,
+          "pdfPage": 14
+        }
+      },
+      "affectsLegacyAttempts": false,
+      "compatibilityTreatment": "保留 exerciseId 和旧作答记录；仅补正题面和选项，不更改本题的作答记录键。",
+      "verification": "PDF 题页视觉核对通过；修复后的题面和选项逐字转录自原书。"
+    },
+    {
+      "exerciseId": "GL1-Q055",
+      "printedNumber": 55,
+      "importedContent": {
+        "question": "Накануне Нового года открываются курсы для Дедов Морозов и Снегурочек, на которых их учат ... с детьми.",
+        "options": [
+          {
+            "key": "А",
+            "text": "общаться"
+          },
+          {
+            "key": "Б",
+            "text": "пообщаться"
+          }
+        ]
+      },
+      "pdfOriginal": {
+        "question": "Накануне Нового года открываются курсы для Дедов Морозов и Снегурочек, на которых их учат ... с детьми.",
+        "options": [
+          {
+            "key": "А",
+            "text": "общаться"
+          },
+          {
+            "key": "Б",
+            "text": "пообщаться"
+          }
+        ]
+      },
+      "discrepancyType": "question-or-option-content-mismatch",
+      "repairedContent": {
+        "question": "Накануне Нового года открываются курсы для Дедов Морозов и Снегурочек, на которых их учат ... с детьми.",
+        "options": [
+          {
+            "key": "А",
+            "text": "общаться"
+          },
+          {
+            "key": "Б",
+            "text": "пообщаться"
+          }
+        ]
+      },
+      "sourcePages": {
+        "question": {
+          "printedPage": 12,
+          "pdfPage": 14
+        }
+      },
+      "affectsLegacyAttempts": false,
+      "compatibilityTreatment": "保留 exerciseId 和旧作答记录；仅补正题面和选项，不更改本题的作答记录键。",
+      "verification": "PDF 题页视觉核对通过；修复后的题面和选项逐字转录自原书。"
+    },
+    {
+      "exerciseId": "GL1-Q056",
+      "printedNumber": 56,
+      "importedContent": {
+        "question": "«С велением судьбы нам ... бесполезно» (Ф.И. Тютчев).",
+        "options": [
+          {
+            "key": "А",
+            "text": "спорить"
+          },
+          {
+            "key": "Б",
+            "text": "поспорить"
+          }
+        ]
+      },
+      "pdfOriginal": {
+        "question": "«С велением судьбы нам ... бесполезно» (Ф.И. Тютчев).",
+        "options": [
+          {
+            "key": "А",
+            "text": "поспорить"
+          },
+          {
+            "key": "Б",
+            "text": "спорить"
+          }
+        ]
+      },
+      "discrepancyType": "question-or-option-content-mismatch",
+      "repairedContent": {
+        "question": "«С велением судьбы нам ... бесполезно» (Ф.И. Тютчев).",
+        "options": [
+          {
+            "key": "А",
+            "text": "поспорить"
+          },
+          {
+            "key": "Б",
+            "text": "спорить"
+          }
+        ]
+      },
+      "sourcePages": {
+        "question": {
+          "printedPage": 12,
+          "pdfPage": 14
+        }
+      },
+      "affectsLegacyAttempts": false,
+      "compatibilityTreatment": "保留 exerciseId 和旧作答记录；仅补正题面和选项，不更改本题的作答记录键。",
+      "verification": "PDF 题页视觉核对通过；修复后的题面和选项逐字转录自原书。"
+    },
+    {
+      "exerciseId": "GL1-Q057",
+      "printedNumber": 57,
+      "importedContent": {
+        "question": "Женихи постоянно говорили Пенелопе, что Одиссей не вернётся и что ей незачем ... одной.",
+        "options": [
+          {
+            "key": "А",
+            "text": "оставаться"
+          },
+          {
+            "key": "Б",
+            "text": "остаться"
+          }
+        ]
+      },
+      "pdfOriginal": {
+        "question": "Женихи постоянно говорили Пенелопе, что Одиссей не вернётся и что ей незачем ... одной.",
+        "options": [
+          {
+            "key": "А",
+            "text": "оставаться"
+          },
+          {
+            "key": "Б",
+            "text": "остаться"
+          }
+        ]
+      },
+      "discrepancyType": "question-or-option-content-mismatch",
+      "repairedContent": {
+        "question": "Женихи постоянно говорили Пенелопе, что Одиссей не вернётся и что ей незачем ... одной.",
+        "options": [
+          {
+            "key": "А",
+            "text": "оставаться"
+          },
+          {
+            "key": "Б",
+            "text": "остаться"
+          }
+        ]
+      },
+      "sourcePages": {
+        "question": {
+          "printedPage": 12,
+          "pdfPage": 14
+        }
+      },
+      "affectsLegacyAttempts": false,
+      "compatibilityTreatment": "保留 exerciseId 和旧作答记录；仅补正题面和选项，不更改本题的作答记录键。",
+      "verification": "PDF 题页视觉核对通过；修复后的题面和选项逐字转录自原书。"
+    },
+    {
+      "exerciseId": "GL1-Q058",
+      "printedNumber": 58,
+      "importedContent": {
+        "question": "Известный американский режиссёр Джеймс Кэмерон не привык ... на своих фильмах.",
+        "options": [
+          {
+            "key": "А",
+            "text": "экономить"
+          },
+          {
+            "key": "Б",
+            "text": "сэкономить"
+          }
+        ]
+      },
+      "pdfOriginal": {
+        "question": "Известный американский режиссёр Джеймс Кэмерон не привык ... на своих фильмах.",
+        "options": [
+          {
+            "key": "А",
+            "text": "экономить"
+          },
+          {
+            "key": "Б",
+            "text": "сэкономить"
+          }
+        ]
+      },
+      "discrepancyType": "question-or-option-content-mismatch",
+      "repairedContent": {
+        "question": "Известный американский режиссёр Джеймс Кэмерон не привык ... на своих фильмах.",
+        "options": [
+          {
+            "key": "А",
+            "text": "экономить"
+          },
+          {
+            "key": "Б",
+            "text": "сэкономить"
+          }
+        ]
+      },
+      "sourcePages": {
+        "question": {
+          "printedPage": 12,
+          "pdfPage": 14
+        }
+      },
+      "affectsLegacyAttempts": false,
+      "compatibilityTreatment": "保留 exerciseId 和旧作答记录；仅补正题面和选项，不更改本题的作答记录键。",
+      "verification": "PDF 题页视觉核对通过；修复后的题面和选项逐字转录自原书。"
+    },
+    {
+      "exerciseId": "GL1-Q059",
+      "printedNumber": 59,
+      "importedContent": {
+        "question": "В Афинах таксистам запретили ... по дорожной полосе, предназначенной для автобусов.",
+        "options": [
+          {
+            "key": "А",
+            "text": "ездить"
+          },
+          {
+            "key": "Б",
+            "text": "ехать"
+          }
+        ]
+      },
+      "pdfOriginal": {
+        "question": "В Афинах таксистам запретили ... по дорожной полосе, предназначенной для автобусов.",
+        "options": [
+          {
+            "key": "А",
+            "text": "двинуться"
+          },
+          {
+            "key": "Б",
+            "text": "двигаться"
+          }
+        ]
+      },
+      "discrepancyType": "question-or-option-content-mismatch",
+      "repairedContent": {
+        "question": "В Афинах таксистам запретили ... по дорожной полосе, предназначенной для автобусов.",
+        "options": [
+          {
+            "key": "А",
+            "text": "двинуться"
+          },
+          {
+            "key": "Б",
+            "text": "двигаться"
+          }
+        ]
+      },
+      "sourcePages": {
+        "question": {
+          "printedPage": 12,
+          "pdfPage": 14
+        }
+      },
+      "affectsLegacyAttempts": false,
+      "compatibilityTreatment": "保留 exerciseId 和旧作答记录；仅补正题面和选项，不更改本题的作答记录键。",
+      "verification": "PDF 题页视觉核对通过；修复后的题面和选项逐字转录自原书。"
+    },
+    {
+      "exerciseId": "GL1-Q060",
+      "printedNumber": 60,
+      "importedContent": {
+        "question": "Врачам надоело ... об опасности курения, и они обратились к властям с просьбой запретить курить в общественных местах.",
+        "options": [
+          {
+            "key": "А",
+            "text": "говорить"
+          },
+          {
+            "key": "Б",
+            "text": "сказать"
+          }
+        ]
+      },
+      "pdfOriginal": {
+        "question": "Врачам надоело ... об опасности курения, и они обратились к властям с просьбой запретить курить в общественных местах.",
+        "options": [
+          {
+            "key": "А",
+            "text": "говорить"
+          },
+          {
+            "key": "Б",
+            "text": "сказать"
+          }
+        ]
+      },
+      "discrepancyType": "question-or-option-content-mismatch",
+      "repairedContent": {
+        "question": "Врачам надоело ... об опасности курения, и они обратились к властям с просьбой запретить курить в общественных местах.",
+        "options": [
+          {
+            "key": "А",
+            "text": "говорить"
+          },
+          {
+            "key": "Б",
+            "text": "сказать"
+          }
+        ]
+      },
+      "sourcePages": {
+        "question": {
+          "printedPage": 12,
+          "pdfPage": 14
+        }
+      },
+      "affectsLegacyAttempts": false,
+      "compatibilityTreatment": "保留 exerciseId 和旧作答记录；仅补正题面和选项，不更改本题的作答记录键。",
+      "verification": "PDF 题页视觉核对通过；修复后的题面和选项逐字转录自原书。"
+    }
+  ]
+}

@@ -1,0 +1,1709 @@
+{
+  "id": "gl4-section-4-2",
+  "chapterId": "gl4",
+  "sectionId": "4.2",
+  "titleRu": "Употребление союзных слов какой, который, чей в сложноподчинённом предложении",
+  "titleZh": "主从复句中какой、который、чей的使用",
+  "orientationZh": {
+    "text": "本节区分的不是单纯格尾，而是关系词在从句里承担的语义任务：比较同类属性用 какой；给具体人或物定指、补充说明用 который；表达所属并按从句名词变格用 чей。",
+    "sourceType": "learning-note"
+  },
+  "quickDecision": [
+    {
+      "text": "先找先行词和从句想补充的语义：同类比较、具体指认/补充，还是所属。",
+      "sourceType": "learning-note"
+    },
+    {
+      "text": "若是 какой，检查是否有 такой/тот 等对应词或“同类对象的全部属性”语义；仅凭问句形式不能决定。",
+      "sourceType": "learning-note"
+    },
+    {
+      "text": "若是 чей，先确定所属者，再让 чей 与从句中被修饰的名词在性、数、格上一致，而不是与主句先行词机械一致。",
+      "sourceType": "learning-note"
+    }
+  ],
+  "semanticAnalysis": {
+    "text": "三者都能把从句接回先行词，但连接方式不同：какой 把对象放进“同一类、相同属性”的比较中；который 指回一个具体对象并补充或限定它；чей 则把焦点放在“是谁的”，其形态跟随从句里的所属对象。",
+    "sourceType": "learning-note"
+  },
+  "sourceRules": [
+    {
+      "text": "Союзное слово какой употребляется, если лицо, событие или явление сравнивается с другим, похожим на него; чаще всего оно употребляется с быть, встречаться, случаться и соотносительными словами тот, такой.",
+      "sourceType": "source-rule",
+      "source": {
+        "file": "cleaned-source/chapter-04.md",
+        "pdfPages": [
+          115
+        ],
+        "printedPages": [
+          113
+        ]
+      }
+    },
+    {
+      "text": "Союзное слово какой употребляется, если у лица, предмета или явления имеются либо отсутствуют все признаки, свойства, качества других подобных лиц, предметов или явлений.",
+      "sourceType": "source-rule",
+      "source": {
+        "file": "cleaned-source/chapter-04.md",
+        "pdfPages": [
+          115
+        ],
+        "printedPages": [
+          113
+        ]
+      }
+    },
+    {
+      "text": "Союзное слово который вносит наиболее общее значение определительности и употребляется, если нужно указать отличительный признак конкретного лица или предмета.",
+      "sourceType": "source-rule",
+      "source": {
+        "file": "cleaned-source/chapter-04.md",
+        "pdfPages": [
+          115
+        ],
+        "printedPages": [
+          113
+        ]
+      }
+    },
+    {
+      "text": "Союзное слово который употребляется, если нужно дать дополнительные сведения о лице или предмете.",
+      "sourceType": "source-rule",
+      "source": {
+        "file": "cleaned-source/chapter-04.md",
+        "pdfPages": [
+          115
+        ],
+        "printedPages": [
+          113
+        ]
+      }
+    },
+    {
+      "text": "Союзное слово чей вносит оттенок принадлежности; оно не согласуется с определяемым словом главного предложения, а согласуется в роде, числе и падеже с определяемым словом придаточного предложения.",
+      "sourceType": "source-rule",
+      "source": {
+        "file": "cleaned-source/chapter-04.md",
+        "pdfPages": [
+          115
+        ],
+        "printedPages": [
+          113
+        ]
+      }
+    }
+  ],
+  "atomicRules": [
+    {
+      "id": "gl4-4.2-kakoi-correlative-comparison",
+      "titleZh": "какой与тот/такой构成比较",
+      "text": "4.2 第 1 条第 1 项：какой 用于把人、事件或现象与相似对象比较，常同 тот、такой 及 быть、встречаться、случаться连用。",
+      "sourceType": "source-rule",
+      "source": {
+        "file": "cleaned-source/chapter-04.md",
+        "pdfPages": [
+          115
+        ],
+        "printedPages": [
+          113
+        ]
+      }
+    },
+    {
+      "id": "gl4-4.2-kakoi-class-properties",
+      "titleZh": "какой指同类对象的全部属性",
+      "text": "4.2 第 1 条第 2 项：какой 指明某对象具有或不具有同类对象的全部特征、属性或品质。",
+      "sourceType": "source-rule",
+      "source": {
+        "file": "cleaned-source/chapter-04.md",
+        "pdfPages": [
+          115
+        ],
+        "printedPages": [
+          113
+        ]
+      }
+    },
+    {
+      "id": "gl4-4.2-kotoryi-distinguishing",
+      "titleZh": "который标出具体对象的区别性特征",
+      "text": "4.2 第 2 条第 1 项：который 以最一般的定指意义标出具体人或物的区别性特征。",
+      "sourceType": "source-rule",
+      "source": {
+        "file": "cleaned-source/chapter-04.md",
+        "pdfPages": [
+          115
+        ],
+        "printedPages": [
+          113
+        ]
+      }
+    },
+    {
+      "id": "gl4-4.2-kotoryi-additional",
+      "titleZh": "который补充说明人或物",
+      "text": "4.2 第 2 条第 2 项：который 可补充有关人或物的信息。",
+      "sourceType": "source-rule",
+      "source": {
+        "file": "cleaned-source/chapter-04.md",
+        "pdfPages": [
+          115
+        ],
+        "printedPages": [
+          113
+        ]
+      }
+    },
+    {
+      "id": "gl4-4.2-chei-possession-agreement",
+      "titleZh": "чей表达所属并与从句中的所指词一致",
+      "text": "4.2 第 3 条：чей 增加所属意义；它不与主句被修饰词一致，而与从句中的被修饰词在性、数、格上一致。",
+      "sourceType": "source-rule",
+      "source": {
+        "file": "cleaned-source/chapter-04.md",
+        "pdfPages": [
+          115
+        ],
+        "printedPages": [
+          113
+        ]
+      }
+    }
+  ],
+  "tables": [],
+  "examples": [
+    {
+      "text": "Она теперь такая добрая, какой никогда ещё не была и, может быть, никогда уже не будет.",
+      "sourceType": "source-example",
+      "source": {
+        "file": "cleaned-source/chapter-04.md",
+        "pdfPages": [
+          115
+        ],
+        "printedPages": [
+          113
+        ]
+      }
+    },
+    {
+      "text": "А в лечащих у него была такая силища, какой нет у лошади.",
+      "sourceType": "source-example",
+      "source": {
+        "file": "cleaned-source/chapter-04.md",
+        "pdfPages": [
+          115
+        ],
+        "printedPages": [
+          113
+        ]
+      }
+    },
+    {
+      "text": "Был тот особенный вечер, какой бывает только на Кавказе.",
+      "sourceType": "source-example",
+      "source": {
+        "file": "cleaned-source/chapter-04.md",
+        "pdfPages": [
+          115
+        ],
+        "printedPages": [
+          113
+        ]
+      }
+    },
+    {
+      "text": "Таких далёких и чистых далей, какие открываются с этого холма, мало в России.",
+      "sourceType": "source-example",
+      "source": {
+        "file": "cleaned-source/chapter-04.md",
+        "pdfPages": [
+          115
+        ],
+        "printedPages": [
+          113
+        ]
+      }
+    },
+    {
+      "text": "Это была очень симпатичная девушка, каких часто можно увидеть в южных городах России.",
+      "sourceType": "source-example",
+      "source": {
+        "file": "cleaned-source/chapter-04.md",
+        "pdfPages": [
+          115
+        ],
+        "printedPages": [
+          113
+        ]
+      }
+    },
+    {
+      "text": "Мой дед, сельский врач, был энциклопедически образованным человеком, каких сегодня не встретишь даже в университетской среде.",
+      "sourceType": "source-example",
+      "source": {
+        "file": "cleaned-source/chapter-04.md",
+        "pdfPages": [
+          115
+        ],
+        "printedPages": [
+          113
+        ]
+      }
+    },
+    {
+      "text": "Историки нашли древние рукописи, каких прежде никогда не встречали.",
+      "sourceType": "source-example",
+      "source": {
+        "file": "cleaned-source/chapter-04.md",
+        "pdfPages": [
+          115
+        ],
+        "printedPages": [
+          113
+        ]
+      }
+    },
+    {
+      "text": "Архитектор Кваренги работал в Петербурге, начиная с 1780 года, где строил необыкновенно по красоте здания, какие можно увидеть только на его родине, в Италии.",
+      "sourceType": "source-example",
+      "source": {
+        "file": "cleaned-source/chapter-04.md",
+        "pdfPages": [
+          115
+        ],
+        "printedPages": [
+          113
+        ]
+      }
+    },
+    {
+      "text": "Молодого человека, с которым мне предстояло плыть из Москвы до Астрахани, я вспомнил ещё по Петербургу.",
+      "sourceType": "source-example",
+      "source": {
+        "file": "cleaned-source/chapter-04.md",
+        "pdfPages": [
+          115
+        ],
+        "printedPages": [
+          113
+        ]
+      }
+    },
+    {
+      "text": "Голос, который прозвучал в тишине, показался мне странно знакомым.",
+      "sourceType": "source-example",
+      "source": {
+        "file": "cleaned-source/chapter-04.md",
+        "pdfPages": [
+          115
+        ],
+        "printedPages": [
+          113
+        ]
+      }
+    },
+    {
+      "text": "Летом мы жили недалеко от Дона в старом деревянном доме, который скрывался в тени яблоневого сада.",
+      "sourceType": "source-example",
+      "source": {
+        "file": "cleaned-source/chapter-04.md",
+        "pdfPages": [
+          115
+        ],
+        "printedPages": [
+          113
+        ]
+      }
+    },
+    {
+      "text": "Я видел счастливого человека, который достиг цели в жизни, который был доволен своей судьбой и самим собой.",
+      "sourceType": "source-example",
+      "source": {
+        "file": "cleaned-source/chapter-04.md",
+        "pdfPages": [
+          115
+        ],
+        "printedPages": [
+          113
+        ]
+      }
+    },
+    {
+      "text": "Мировой океан, чьи запасы мы не в силах себе даже представить, — это настоящая кладовая лекарств.",
+      "sourceType": "source-example",
+      "source": {
+        "file": "cleaned-source/chapter-04.md",
+        "pdfPages": [
+          115
+        ],
+        "printedPages": [
+          113
+        ]
+      }
+    },
+    {
+      "text": "Евгений Светланов — один из самых выдающихся российских дирижёров, чей талант получил международное признание.",
+      "sourceType": "source-example",
+      "source": {
+        "file": "cleaned-source/chapter-04.md",
+        "pdfPages": [
+          115
+        ],
+        "printedPages": [
+          113
+        ]
+      }
+    },
+    {
+      "text": "В церковь Покрова Пресвятой Богородицы, вновь открывшей свои двери для прихожан, потянулись люди, чьи души были искалечены войной.",
+      "sourceType": "source-example",
+      "source": {
+        "file": "cleaned-source/chapter-04.md",
+        "pdfPages": [
+          115
+        ],
+        "printedPages": [
+          113
+        ]
+      }
+    }
+  ],
+  "contrasts": [
+    {
+      "text": "какой 在“такой/тот + какой”中建立比较或同类属性关系；который 提供最一般的定指或补充信息。",
+      "sourceType": "learning-note"
+    },
+    {
+      "text": "который 可以补充信息，也可以限定具体对象；是否限定必须从先行词和从句在语篇中的作用判断。",
+      "sourceType": "learning-note"
+    },
+    {
+      "text": "чей 表所属，且一致关系落在从句中的名词上；把它与主句先行词对齐是常见误判。",
+      "sourceType": "learning-note"
+    }
+  ],
+  "signalAnalysis": [
+    {
+      "text": "такой、тот 与 быть/встречаться/случаться是哪个用法的强提示，但原书说“чаще всего”，不是绝对条件。",
+      "sourceType": "learning-note"
+    },
+    {
+      "text": "关系词前的介词由从句中的句法位置决定，如 с которым、в сказках которого。",
+      "sourceType": "learning-note"
+    },
+    {
+      "text": "чей 的所属意义是关键；只凭俄语格尾与 который 相似并不能替代语义判断。",
+      "sourceType": "learning-note"
+    }
+  ],
+  "commonErrors": [
+    {
+      "text": "把所有人/物先行词都机械填 который，漏掉同类比较意义的 какой。",
+      "sourceType": "learning-note"
+    },
+    {
+      "text": "因 чей 的先行词是阳性或阴性而改错其形式，忽略它与从句中名词的一致。",
+      "sourceType": "learning-note"
+    },
+    {
+      "text": "把题中哪里/去哪儿一类关系词塞进本节；原书没有给这些词的独立规则，必须保留 source-exercise-only。",
+      "sourceType": "learning-note"
+    }
+  ],
+  "exerciseLinks": [
+    {
+      "exerciseId": "GL4-Q025",
+      "printedNumber": 25,
+      "sourceType": "exercise-example",
+      "exerciseSectionId": "4.2",
+      "status": "source-exercise-only",
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "mappingReason": "练习标题为宾语从句，但现有理论 4.2 只说明 союзные слова какой、который、чей，未提供宾语从句所需连接词、陈述或疑问间接引语规则。",
+      "source": {
+        "questionPdfPage": 61,
+        "questionPrintedPage": 59,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124
+      },
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书正确项为「Б：куда」。练习标题为宾语从句，但现有理论 4.2 只说明 союзные слова какой、который、чей，未提供宾语从句所需连接词、陈述或疑问间接引语规则。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "где",
+            "reason": "「где」不是 PDF 原书正确项「куда」。理论区没有足够独立规则逐项裁决，故不把这个来源答案差异伪装成原书规则。"
+          },
+          {
+            "key": "В",
+            "text": "что",
+            "reason": "「что」不是 PDF 原书正确项「куда」。理论区没有足够独立规则逐项裁决，故不把这个来源答案差异伪装成原书规则。"
+          },
+          {
+            "key": "Г",
+            "text": "как",
+            "reason": "「как」不是 PDF 原书正确项「куда」。理论区没有足够独立规则逐项裁决，故不把这个来源答案差异伪装成原书规则。"
+          }
+        ]
+      }
+    },
+    {
+      "exerciseId": "GL4-Q026",
+      "printedNumber": 26,
+      "sourceType": "exercise-example",
+      "exerciseSectionId": "4.2",
+      "status": "source-exercise-only",
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "mappingReason": "练习标题为宾语从句，但现有理论 4.2 只说明 союзные слова какой、который、чей，未提供宾语从句所需连接词、陈述或疑问间接引语规则。",
+      "source": {
+        "questionPdfPage": 61,
+        "questionPrintedPage": 59,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124
+      },
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书正确项为「В：откуда」。练习标题为宾语从句，但现有理论 4.2 只说明 союзные слова какой、который、чей，未提供宾语从句所需连接词、陈述或疑问间接引语规则。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "когда",
+            "reason": "「когда」不是 PDF 原书正确项「откуда」。理论区没有足够独立规则逐项裁决，故不把这个来源答案差异伪装成原书规则。"
+          },
+          {
+            "key": "Б",
+            "text": "куда",
+            "reason": "「куда」不是 PDF 原书正确项「откуда」。理论区没有足够独立规则逐项裁决，故不把这个来源答案差异伪装成原书规则。"
+          },
+          {
+            "key": "Г",
+            "text": "что",
+            "reason": "「что」不是 PDF 原书正确项「откуда」。理论区没有足够独立规则逐项裁决，故不把这个来源答案差异伪装成原书规则。"
+          }
+        ]
+      }
+    },
+    {
+      "exerciseId": "GL4-Q027",
+      "printedNumber": 27,
+      "sourceType": "exercise-example",
+      "exerciseSectionId": "4.2",
+      "status": "source-exercise-only",
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "mappingReason": "练习标题为宾语从句，但现有理论 4.2 只说明 союзные слова какой、который、чей，未提供宾语从句所需连接词、陈述或疑问间接引语规则。",
+      "source": {
+        "questionPdfPage": 61,
+        "questionPrintedPage": 59,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124
+      },
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书正确项为「Б：когда」。练习标题为宾语从句，但现有理论 4.2 只说明 союзные слова какой、который、чей，未提供宾语从句所需连接词、陈述或疑问间接引语规则。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "чтобы",
+            "reason": "「чтобы」不是 PDF 原书正确项「когда」。理论区没有足够独立规则逐项裁决，故不把这个来源答案差异伪装成原书规则。"
+          },
+          {
+            "key": "В",
+            "text": "куда",
+            "reason": "「куда」不是 PDF 原书正确项「когда」。理论区没有足够独立规则逐项裁决，故不把这个来源答案差异伪装成原书规则。"
+          },
+          {
+            "key": "Г",
+            "text": "где",
+            "reason": "「где」不是 PDF 原书正确项「когда」。理论区没有足够独立规则逐项裁决，故不把这个来源答案差异伪装成原书规则。"
+          }
+        ]
+      }
+    },
+    {
+      "exerciseId": "GL4-Q028",
+      "printedNumber": 28,
+      "sourceType": "exercise-example",
+      "exerciseSectionId": "4.2",
+      "status": "source-exercise-only",
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "mappingReason": "练习标题为宾语从句，但现有理论 4.2 只说明 союзные слова какой、который、чей，未提供宾语从句所需连接词、陈述或疑问间接引语规则。",
+      "source": {
+        "questionPdfPage": 61,
+        "questionPrintedPage": 59,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124
+      },
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书正确项为「Б：будто бы」。练习标题为宾语从句，但现有理论 4.2 只说明 союзные слова какой、который、чей，未提供宾语从句所需连接词、陈述或疑问间接引语规则。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "как",
+            "reason": "「как」不是 PDF 原书正确项「будто бы」。理论区没有足够独立规则逐项裁决，故不把这个来源答案差异伪装成原书规则。"
+          },
+          {
+            "key": "В",
+            "text": "когда",
+            "reason": "「когда」不是 PDF 原书正确项「будто бы」。理论区没有足够独立规则逐项裁决，故不把这个来源答案差异伪装成原书规则。"
+          },
+          {
+            "key": "Г",
+            "text": "где",
+            "reason": "「где」不是 PDF 原书正确项「будто бы」。理论区没有足够独立规则逐项裁决，故不把这个来源答案差异伪装成原书规则。"
+          }
+        ]
+      }
+    },
+    {
+      "exerciseId": "GL4-Q029",
+      "printedNumber": 29,
+      "sourceType": "exercise-example",
+      "exerciseSectionId": "4.2",
+      "status": "source-exercise-only",
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "mappingReason": "练习标题为宾语从句，但现有理论 4.2 只说明 союзные слова какой、который、чей，未提供宾语从句所需连接词、陈述或疑问间接引语规则。",
+      "source": {
+        "questionPdfPage": 61,
+        "questionPrintedPage": 59,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124
+      },
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书正确项为「Г：как」。练习标题为宾语从句，但现有理论 4.2 只说明 союзные слова какой、который、чей，未提供宾语从句所需连接词、陈述或疑问间接引语规则。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "зачем",
+            "reason": "「зачем」不是 PDF 原书正确项「как」。理论区没有足够独立规则逐项裁决，故不把这个来源答案差异伪装成原书规则。"
+          },
+          {
+            "key": "Б",
+            "text": "чтобы",
+            "reason": "「чтобы」不是 PDF 原书正确项「как」。理论区没有足够独立规则逐项裁决，故不把这个来源答案差异伪装成原书规则。"
+          },
+          {
+            "key": "В",
+            "text": "когда",
+            "reason": "「когда」不是 PDF 原书正确项「как」。理论区没有足够独立规则逐项裁决，故不把这个来源答案差异伪装成原书规则。"
+          }
+        ]
+      }
+    },
+    {
+      "exerciseId": "GL4-Q030",
+      "printedNumber": 30,
+      "sourceType": "exercise-example",
+      "exerciseSectionId": "4.2",
+      "status": "source-exercise-only",
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "mappingReason": "练习标题为宾语从句，但现有理论 4.2 只说明 союзные слова какой、который、чей，未提供宾语从句所需连接词、陈述或疑问间接引语规则。",
+      "source": {
+        "questionPdfPage": 61,
+        "questionPrintedPage": 59,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124
+      },
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书正确项为「Г：изменилось ли」。练习标题为宾语从句，但现有理论 4.2 只说明 союзные слова какой、который、чей，未提供宾语从句所需连接词、陈述或疑问间接引语规则。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "если изменилось",
+            "reason": "「если изменилось」不是 PDF 原书正确项「изменилось ли」。理论区没有足够独立规则逐项裁决，故不把这个来源答案差异伪装成原书规则。"
+          },
+          {
+            "key": "Б",
+            "text": "что изменилось",
+            "reason": "「что изменилось」不是 PDF 原书正确项「изменилось ли」。理论区没有足够独立规则逐项裁决，故不把这个来源答案差异伪装成原书规则。"
+          },
+          {
+            "key": "В",
+            "text": "пока изменилось",
+            "reason": "「пока изменилось」不是 PDF 原书正确项「изменилось ли」。理论区没有足够独立规则逐项裁决，故不把这个来源答案差异伪装成原书规则。"
+          }
+        ]
+      }
+    },
+    {
+      "exerciseId": "GL4-Q031",
+      "printedNumber": 31,
+      "sourceType": "exercise-example",
+      "exerciseSectionId": "4.2",
+      "status": "source-exercise-only",
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "mappingReason": "练习标题为宾语从句，但现有理论 4.2 只说明 союзные слова какой、который、чей，未提供宾语从句所需连接词、陈述或疑问间接引语规则。",
+      "source": {
+        "questionPdfPage": 62,
+        "questionPrintedPage": 60,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124
+      },
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书正确项为「А：тем, что」。练习标题为宾语从句，但现有理论 4.2 只说明 союзные слова какой、который、чей，未提供宾语从句所需连接词、陈述或疑问间接引语规则。",
+        "distractors": [
+          {
+            "key": "Б",
+            "text": "тому, что",
+            "reason": "「тому, что」不是 PDF 原书正确项「тем, что」。理论区没有足够独立规则逐项裁决，故不把这个来源答案差异伪装成原书规则。"
+          },
+          {
+            "key": "В",
+            "text": "в том, что",
+            "reason": "「в том, что」不是 PDF 原书正确项「тем, что」。理论区没有足够独立规则逐项裁决，故不把这个来源答案差异伪装成原书规则。"
+          },
+          {
+            "key": "Г",
+            "text": "с тем, что",
+            "reason": "「с тем, что」不是 PDF 原书正确项「тем, что」。理论区没有足够独立规则逐项裁决，故不把这个来源答案差异伪装成原书规则。"
+          }
+        ]
+      }
+    },
+    {
+      "exerciseId": "GL4-Q032",
+      "printedNumber": 32,
+      "sourceType": "exercise-example",
+      "exerciseSectionId": "4.2",
+      "status": "source-exercise-only",
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "mappingReason": "练习标题为宾语从句，但现有理论 4.2 只说明 союзные слова какой、который、чей，未提供宾语从句所需连接词、陈述或疑问间接引语规则。",
+      "source": {
+        "questionPdfPage": 62,
+        "questionPrintedPage": 60,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124
+      },
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书正确项为「В：за тем, как」。练习标题为宾语从句，但现有理论 4.2 只说明 союзные слова какой、который、чей，未提供宾语从句所需连接词、陈述或疑问间接引语规则。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "по тому, как",
+            "reason": "「по тому, как」不是 PDF 原书正确项「за тем, как」。理论区没有足够独立规则逐项裁决，故不把这个来源答案差异伪装成原书规则。"
+          },
+          {
+            "key": "Б",
+            "text": "тем, как",
+            "reason": "「тем, как」不是 PDF 原书正确项「за тем, как」。理论区没有足够独立规则逐项裁决，故不把这个来源答案差异伪装成原书规则。"
+          },
+          {
+            "key": "Г",
+            "text": "то, как",
+            "reason": "「то, как」不是 PDF 原书正确项「за тем, как」。理论区没有足够独立规则逐项裁决，故不把这个来源答案差异伪装成原书规则。"
+          }
+        ]
+      }
+    },
+    {
+      "exerciseId": "GL4-Q033",
+      "printedNumber": 33,
+      "sourceType": "exercise-example",
+      "exerciseSectionId": "4.2",
+      "status": "source-exercise-only",
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "mappingReason": "练习标题为宾语从句，但现有理论 4.2 只说明 союзные слова какой、который、чей，未提供宾语从句所需连接词、陈述或疑问间接引语规则。",
+      "source": {
+        "questionPdfPage": 62,
+        "questionPrintedPage": 60,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124
+      },
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书正确项为「А：к тому, что」。练习标题为宾语从句，但现有理论 4.2 只说明 союзные слова какой、который、чей，未提供宾语从句所需连接词、陈述或疑问间接引语规则。",
+        "distractors": [
+          {
+            "key": "Б",
+            "text": "с тем, что",
+            "reason": "「с тем, что」不是 PDF 原书正确项「к тому, что」。理论区没有足够独立规则逐项裁决，故不把这个来源答案差异伪装成原书规则。"
+          },
+          {
+            "key": "В",
+            "text": "на то, что",
+            "reason": "「на то, что」不是 PDF 原书正确项「к тому, что」。理论区没有足够独立规则逐项裁决，故不把这个来源答案差异伪装成原书规则。"
+          },
+          {
+            "key": "Г",
+            "text": "в том, что",
+            "reason": "「в том, что」不是 PDF 原书正确项「к тому, что」。理论区没有足够独立规则逐项裁决，故不把这个来源答案差异伪装成原书规则。"
+          }
+        ]
+      }
+    },
+    {
+      "exerciseId": "GL4-Q034",
+      "printedNumber": 34,
+      "sourceType": "exercise-example",
+      "exerciseSectionId": "4.2",
+      "status": "source-exercise-only",
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "mappingReason": "练习标题为宾语从句，但现有理论 4.2 只说明 союзные слова какой、который、чей，未提供宾语从句所需连接词、陈述或疑问间接引语规则。",
+      "source": {
+        "questionPdfPage": 62,
+        "questionPrintedPage": 60,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124
+      },
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书正确项为「Б：в том, что」。练习标题为宾语从句，但现有理论 4.2 只说明 союзные слова какой、который、чей，未提供宾语从句所需连接词、陈述或疑问间接引语规则。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "с тем, что",
+            "reason": "「с тем, что」不是 PDF 原书正确项「в том, что」。理论区没有足够独立规则逐项裁决，故不把这个来源答案差异伪装成原书规则。"
+          },
+          {
+            "key": "В",
+            "text": "для того, что",
+            "reason": "「для того, что」不是 PDF 原书正确项「в том, что」。理论区没有足够独立规则逐项裁决，故不把这个来源答案差异伪装成原书规则。"
+          },
+          {
+            "key": "Г",
+            "text": "к тому, что",
+            "reason": "「к тому, что」不是 PDF 原书正确项「в том, что」。理论区没有足够独立规则逐项裁决，故不把这个来源答案差异伪装成原书规则。"
+          }
+        ]
+      }
+    },
+    {
+      "exerciseId": "GL4-Q035",
+      "printedNumber": 35,
+      "sourceType": "exercise-example",
+      "exerciseSectionId": "4.2",
+      "status": "source-exercise-only",
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "mappingReason": "练习标题为宾语从句，但现有理论 4.2 只说明 союзные слова какой、который、чей，未提供宾语从句所需连接词、陈述或疑问间接引语规则。",
+      "source": {
+        "questionPdfPage": 62,
+        "questionPrintedPage": 60,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124
+      },
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书正确项为「В：тем, что」。练习标题为宾语从句，但现有理论 4.2 只说明 союзные слова какой、который、чей，未提供宾语从句所需连接词、陈述或疑问间接引语规则。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "тому, что",
+            "reason": "「тому, что」不是 PDF 原书正确项「тем, что」。理论区没有足够独立规则逐项裁决，故不把这个来源答案差异伪装成原书规则。"
+          },
+          {
+            "key": "Б",
+            "text": "в том, что",
+            "reason": "「в том, что」不是 PDF 原书正确项「тем, что」。理论区没有足够独立规则逐项裁决，故不把这个来源答案差异伪装成原书规则。"
+          },
+          {
+            "key": "Г",
+            "text": "с тем, что",
+            "reason": "「с тем, что」不是 PDF 原书正确项「тем, что」。理论区没有足够独立规则逐项裁决，故不把这个来源答案差异伪装成原书规则。"
+          }
+        ]
+      }
+    },
+    {
+      "exerciseId": "GL4-Q036",
+      "printedNumber": 36,
+      "sourceType": "exercise-example",
+      "exerciseSectionId": "4.2",
+      "status": "source-exercise-only",
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "mappingReason": "练习标题为宾语从句，但现有理论 4.2 只说明 союзные слова какой、который、чей，未提供宾语从句所需连接词、陈述或疑问间接引语规则。",
+      "source": {
+        "questionPdfPage": 62,
+        "questionPrintedPage": 60,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124
+      },
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书正确项为「А：то, что」。练习标题为宾语从句，但现有理论 4.2 只说明 союзные слова какой、который、чей，未提供宾语从句所需连接词、陈述或疑问间接引语规则。",
+        "distractors": [
+          {
+            "key": "Б",
+            "text": "тем, что",
+            "reason": "「тем, что」不是 PDF 原书正确项「то, что」。理论区没有足够独立规则逐项裁决，故不把这个来源答案差异伪装成原书规则。"
+          },
+          {
+            "key": "В",
+            "text": "тому, что",
+            "reason": "「тому, что」不是 PDF 原书正确项「то, что」。理论区没有足够独立规则逐项裁决，故不把这个来源答案差异伪装成原书规则。"
+          },
+          {
+            "key": "Г",
+            "text": "о том, что",
+            "reason": "「о том, что」不是 PDF 原书正确项「то, что」。理论区没有足够独立规则逐项裁决，故不把这个来源答案差异伪装成原书规则。"
+          }
+        ]
+      }
+    },
+    {
+      "exerciseId": "GL4-Q037",
+      "printedNumber": 37,
+      "sourceType": "exercise-example",
+      "exerciseSectionId": "4.2",
+      "status": "source-exercise-only",
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "mappingReason": "练习标题为宾语从句，但现有理论 4.2 只说明 союзные слова какой、который、чей，未提供宾语从句所需连接词、陈述或疑问间接引语规则。",
+      "source": {
+        "questionPdfPage": 62,
+        "questionPrintedPage": 60,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124
+      },
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书正确项为「Г：с теми, кто」。练习标题为宾语从句，但现有理论 4.2 只说明 союзные слова какой、который、чей，未提供宾语从句所需连接词、陈述或疑问间接引语规则。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "в тех, кто",
+            "reason": "「в тех, кто」不是 PDF 原书正确项「с теми, кто」。理论区没有足够独立规则逐项裁决，故不把这个来源答案差异伪装成原书规则。"
+          },
+          {
+            "key": "Б",
+            "text": "от тех, кто",
+            "reason": "「от тех, кто」不是 PDF 原书正确项「с теми, кто」。理论区没有足够独立规则逐项裁决，故不把这个来源答案差异伪装成原书规则。"
+          },
+          {
+            "key": "В",
+            "text": "по тем, кто",
+            "reason": "「по тем, кто」不是 PDF 原书正确项「с теми, кто」。理论区没有足够独立规则逐项裁决，故不把这个来源答案差异伪装成原书规则。"
+          }
+        ]
+      }
+    },
+    {
+      "exerciseId": "GL4-Q038",
+      "printedNumber": 38,
+      "sourceType": "exercise-example",
+      "exerciseSectionId": "4.3",
+      "status": "mapped",
+      "ruleIds": [
+        "gl4-4.2-kotoryi-distinguishing"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "人口超过百万的城市：которого 标出具体城市。 4.2 第 2 条第 1 项：который 以最一般的定指意义标出具体人或物的区别性特征。",
+      "source": {
+        "questionPdfPage": 63,
+        "questionPrintedPage": 61,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124
+      },
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "正确项「В：которого」：人口超过百万的城市：которого 标出具体城市。 4.2 第 2 条第 1 项：который 以最一般的定指意义标出具体人或物的区别性特征。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "чьего",
+            "reason": "「чьего」不满足本题所需的原书条件；应依据上述映射理由选择「которого」。"
+          },
+          {
+            "key": "Б",
+            "text": "какого",
+            "reason": "「какого」不满足本题所需的原书条件；应依据上述映射理由选择「которого」。"
+          }
+        ]
+      }
+    },
+    {
+      "exerciseId": "GL4-Q039",
+      "printedNumber": 39,
+      "sourceType": "exercise-example",
+      "exerciseSectionId": "4.3",
+      "status": "mapped",
+      "ruleIds": [
+        "gl4-4.2-kotoryi-additional"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "исчезали государства，народ которых…：который 关系词补充从属信息。 4.2 第 2 条第 2 项：который 可补充有关人或物的信息。",
+      "source": {
+        "questionPdfPage": 63,
+        "questionPrintedPage": 61,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124
+      },
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "正确项「Б：которых」：исчезали государства，народ которых…：который 关系词补充从属信息。 4.2 第 2 条第 2 项：который 可补充有关人或物的信息。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "каких",
+            "reason": "「каких」不满足本题所需的原书条件；应依据上述映射理由选择「которых」。"
+          },
+          {
+            "key": "В",
+            "text": "чьих",
+            "reason": "「чьих」不满足本题所需的原书条件；应依据上述映射理由选择「которых」。"
+          }
+        ]
+      }
+    },
+    {
+      "exerciseId": "GL4-Q040",
+      "printedNumber": 40,
+      "sourceType": "exercise-example",
+      "exerciseSectionId": "4.3",
+      "status": "mapped",
+      "ruleIds": [
+        "gl4-4.2-chei-possession-agreement"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "гладиаторы，чьи доспехи…：чей 表达所属。 4.2 第 3 条：чей 增加所属意义；它不与主句被修饰词一致，而与从句中的被修饰词在性、数、格上一致。",
+      "source": {
+        "questionPdfPage": 63,
+        "questionPrintedPage": 61,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124
+      },
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "正确项「А：чьи」：гладиаторы，чьи доспехи…：чей 表达所属。 4.2 第 3 条：чей 增加所属意义；它不与主句被修饰词一致，而与从句中的被修饰词在性、数、格上一致。",
+        "distractors": [
+          {
+            "key": "Б",
+            "text": "какие",
+            "reason": "「какие」不满足本题所需的原书条件；应依据上述映射理由选择「чьи」。"
+          },
+          {
+            "key": "В",
+            "text": "которые",
+            "reason": "「которые」不满足本题所需的原书条件；应依据上述映射理由选择「чьи」。"
+          }
+        ]
+      }
+    },
+    {
+      "exerciseId": "GL4-Q041",
+      "printedNumber": 41,
+      "sourceType": "exercise-example",
+      "exerciseSectionId": "4.3",
+      "status": "mapped",
+      "ruleIds": [
+        "gl4-4.2-chei-possession-agreement"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "Лажечников，чьи произведения…：чей 将作品归属该作家。 4.2 第 3 条：чей 增加所属意义；它不与主句被修饰词一致，而与从句中的被修饰词在性、数、格上一致。",
+      "source": {
+        "questionPdfPage": 63,
+        "questionPrintedPage": 61,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124
+      },
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "正确项「В：чьи」：Лажечников，чьи произведения…：чей 将作品归属该作家。 4.2 第 3 条：чей 增加所属意义；它不与主句被修饰词一致，而与从句中的被修饰词在性、数、格上一致。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "какие",
+            "reason": "「какие」不满足本题所需的原书条件；应依据上述映射理由选择「чьи」。"
+          },
+          {
+            "key": "Б",
+            "text": "которые",
+            "reason": "「которые」不满足本题所需的原书条件；应依据上述映射理由选择「чьи」。"
+          }
+        ]
+      }
+    },
+    {
+      "exerciseId": "GL4-Q042",
+      "printedNumber": 42,
+      "sourceType": "exercise-example",
+      "exerciseSectionId": "4.3",
+      "status": "mapped",
+      "ruleIds": [
+        "gl4-4.2-kotoryi-additional"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "Бажов，в сказках которого…：который 从句补充有关人物的信息。 4.2 第 2 条第 2 项：который 可补充有关人或物的信息。",
+      "source": {
+        "questionPdfPage": 63,
+        "questionPrintedPage": 61,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124
+      },
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "正确项「В：которого」：Бажов，в сказках которого…：который 从句补充有关人物的信息。 4.2 第 2 条第 2 项：который 可补充有关人或物的信息。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "какого",
+            "reason": "「какого」不满足本题所需的原书条件；应依据上述映射理由选择「которого」。"
+          },
+          {
+            "key": "Б",
+            "text": "чьего",
+            "reason": "「чьего」不满足本题所需的原书条件；应依据上述映射理由选择「которого」。"
+          }
+        ]
+      }
+    },
+    {
+      "exerciseId": "GL4-Q043",
+      "printedNumber": 43,
+      "sourceType": "exercise-example",
+      "exerciseSectionId": "4.3",
+      "status": "mapped",
+      "ruleIds": [
+        "gl4-4.2-kakoi-correlative-comparison"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "сад такой чудесный，какого…：такой/какой 的比较关系。 4.2 第 1 条第 1 项：какой 用于把人、事件或现象与相似对象比较，常同 тот、такой 及 быть、встречаться、случаться连用。",
+      "source": {
+        "questionPdfPage": 63,
+        "questionPrintedPage": 61,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124
+      },
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "正确项「Б：какого」：сад такой чудесный，какого…：такой/какой 的比较关系。 4.2 第 1 条第 1 项：какой 用于把人、事件或现象与相似对象比较，常同 тот、такой 及 быть、встречаться、случаться连用。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "чьего",
+            "reason": "「чьего」不满足本题所需的原书条件；应依据上述映射理由选择「какого」。"
+          },
+          {
+            "key": "В",
+            "text": "которого",
+            "reason": "「которого」不满足本题所需的原书条件；应依据上述映射理由选择「какого」。"
+          }
+        ]
+      }
+    },
+    {
+      "exerciseId": "GL4-Q044",
+      "printedNumber": 44,
+      "sourceType": "exercise-example",
+      "exerciseSectionId": "4.3",
+      "status": "mapped",
+      "ruleIds": [
+        "gl4-4.2-kotoryi-distinguishing"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "улица，которая вела к башне：который 标出具体街道的区别性特征。 4.2 第 2 条第 1 项：который 以最一般的定指意义标出具体人或物的区别性特征。",
+      "source": {
+        "questionPdfPage": 63,
+        "questionPrintedPage": 61,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124
+      },
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "正确项「А：которая」：улица，которая вела к башне：который 标出具体街道的区别性特征。 4.2 第 2 条第 1 项：который 以最一般的定指意义标出具体人或物的区别性特征。",
+        "distractors": [
+          {
+            "key": "Б",
+            "text": "какая",
+            "reason": "「какая」不满足本题所需的原书条件；应依据上述映射理由选择「которая」。"
+          }
+        ]
+      }
+    },
+    {
+      "exerciseId": "GL4-Q045",
+      "printedNumber": 45,
+      "sourceType": "exercise-example",
+      "exerciseSectionId": "4.3",
+      "status": "mapped",
+      "ruleIds": [
+        "gl4-4.2-kakoi-correlative-comparison"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "зима была такая，какая…：такой/какой 比较。 4.2 第 1 条第 1 项：какой 用于把人、事件或现象与相似对象比较，常同 тот、такой 及 быть、встречаться、случаться连用。",
+      "source": {
+        "questionPdfPage": 63,
+        "questionPrintedPage": 61,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124
+      },
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "正确项「Б：что」：зима была такая，какая…：такой/какой 比较。 4.2 第 1 条第 1 项：какой 用于把人、事件或现象与相似对象比较，常同 тот、такой 及 быть、встречаться、случаться连用。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "какая",
+            "reason": "「какая」不满足本题所需的原书条件；应依据上述映射理由选择「что」。"
+          },
+          {
+            "key": "В",
+            "text": "которая",
+            "reason": "「которая」不满足本题所需的原书条件；应依据上述映射理由选择「что」。"
+          }
+        ]
+      }
+    },
+    {
+      "exerciseId": "GL4-Q046",
+      "printedNumber": 46,
+      "sourceType": "exercise-example",
+      "exerciseSectionId": "4.3",
+      "status": "mapped",
+      "ruleIds": [
+        "gl4-4.2-kakoi-class-properties"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "настроение，какое бывает только весной：какой 指同类对象的特征。 4.2 第 1 条第 2 项：какой 指明某对象具有或不具有同类对象的全部特征、属性或品质。",
+      "source": {
+        "questionPdfPage": 63,
+        "questionPrintedPage": 61,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124
+      },
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "正确项「Б：какое」：настроение，какое бывает только весной：какой 指同类对象的特征。 4.2 第 1 条第 2 项：какой 指明某对象具有或不具有同类对象的全部特征、属性或品质。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "с которым",
+            "reason": "「с которым」不满足本题所需的原书条件；应依据上述映射理由选择「какое」。"
+          },
+          {
+            "key": "В",
+            "text": "чьё",
+            "reason": "「чьё」不满足本题所需的原书条件；应依据上述映射理由选择「какое」。"
+          },
+          {
+            "key": "Г",
+            "text": "с чем",
+            "reason": "「с чем」不满足本题所需的原书条件；应依据上述映射理由选择「какое」。"
+          }
+        ]
+      }
+    },
+    {
+      "exerciseId": "GL4-Q047",
+      "printedNumber": 47,
+      "sourceType": "exercise-example",
+      "exerciseSectionId": "4.3",
+      "status": "mapped",
+      "ruleIds": [
+        "gl4-4.2-kakoi-class-properties"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "дней，какие часто встречаются：какой 指一类日子的典型属性。 4.2 第 1 条第 2 项：какой 指明某对象具有或不具有同类对象的全部特征、属性或品质。",
+      "source": {
+        "questionPdfPage": 64,
+        "questionPrintedPage": 62,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124
+      },
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "正确项「А：какие」：дней，какие часто встречаются：какой 指一类日子的典型属性。 4.2 第 1 条第 2 项：какой 指明某对象具有或不具有同类对象的全部特征、属性或品质。",
+        "distractors": [
+          {
+            "key": "Б",
+            "text": "чьи",
+            "reason": "「чьи」不满足本题所需的原书条件；应依据上述映射理由选择「какие」。"
+          },
+          {
+            "key": "В",
+            "text": "в которых",
+            "reason": "「в которых」不满足本题所需的原书条件；应依据上述映射理由选择「какие」。"
+          },
+          {
+            "key": "Г",
+            "text": "в чём",
+            "reason": "「в чём」不满足本题所需的原书条件；应依据上述映射理由选择「какие」。"
+          }
+        ]
+      }
+    },
+    {
+      "exerciseId": "GL4-Q048",
+      "printedNumber": 48,
+      "sourceType": "exercise-example",
+      "exerciseSectionId": "4.3",
+      "status": "source-exercise-only",
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "mappingReason": "正确项 что 不是原书 4.2 所列 какой、который、чей；不能由相邻关系词规则虚构依据。",
+      "source": {
+        "questionPdfPage": 64,
+        "questionPrintedPage": 62,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124
+      },
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书正确项为「А：что」。正确项 что 不是原书 4.2 所列 какой、который、чей；不能由相邻关系词规则虚构依据。",
+        "distractors": [
+          {
+            "key": "Б",
+            "text": "какой",
+            "reason": "「какой」不是 PDF 原书正确项「что」。理论区没有足够独立规则逐项裁决，故不把这个来源答案差异伪装成原书规则。"
+          },
+          {
+            "key": "В",
+            "text": "чей",
+            "reason": "「чей」不是 PDF 原书正确项「что」。理论区没有足够独立规则逐项裁决，故不把这个来源答案差异伪装成原书规则。"
+          }
+        ]
+      }
+    },
+    {
+      "exerciseId": "GL4-Q049",
+      "printedNumber": 49,
+      "sourceType": "exercise-example",
+      "exerciseSectionId": "4.3",
+      "status": "mapped",
+      "ruleIds": [
+        "gl4-4.2-kotoryi-distinguishing"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "Дикое поле，на которое не распространялась власть：который 标出具体地域。 4.2 第 2 条第 1 项：который 以最一般的定指意义标出具体人或物的区别性特征。",
+      "source": {
+        "questionPdfPage": 64,
+        "questionPrintedPage": 62,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124
+      },
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "正确项「Б：которое」：Дикое поле，на которое не распространялась власть：который 标出具体地域。 4.2 第 2 条第 1 项：который 以最一般的定指意义标出具体人或物的区别性特征。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "какое",
+            "reason": "「какое」不满足本题所需的原书条件；应依据上述映射理由选择「которое」。"
+          },
+          {
+            "key": "В",
+            "text": "чьё",
+            "reason": "「чьё」不满足本题所需的原书条件；应依据上述映射理由选择「которое」。"
+          }
+        ]
+      }
+    },
+    {
+      "exerciseId": "GL4-Q050",
+      "printedNumber": 50,
+      "sourceType": "exercise-example",
+      "exerciseSectionId": "4.3",
+      "status": "mapped",
+      "ruleIds": [
+        "gl4-4.2-kotoryi-additional"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "округ，площадь которого…：который 从句补充该区域资料。 4.2 第 2 条第 2 项：который 可补充有关人或物的信息。",
+      "source": {
+        "questionPdfPage": 64,
+        "questionPrintedPage": 62,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124
+      },
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "正确项「Б：которого」：округ，площадь которого…：который 从句补充该区域资料。 4.2 第 2 条第 2 项：который 可补充有关人或物的信息。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "какого",
+            "reason": "「какого」不满足本题所需的原书条件；应依据上述映射理由选择「которого」。"
+          },
+          {
+            "key": "В",
+            "text": "чьего",
+            "reason": "「чьего」不满足本题所需的原书条件；应依据上述映射理由选择「которого」。"
+          }
+        ]
+      }
+    },
+    {
+      "exerciseId": "GL4-Q051",
+      "printedNumber": 51,
+      "sourceType": "exercise-example",
+      "exerciseSectionId": "4.3",
+      "status": "mapped",
+      "ruleIds": [
+        "gl4-4.2-kotoryi-distinguishing"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "мальчик，который не может учиться：который 标出具体人的特征。 4.2 第 2 条第 1 项：который 以最一般的定指意义标出具体人或物的区别性特征。",
+      "source": {
+        "questionPdfPage": 64,
+        "questionPrintedPage": 62,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124
+      },
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "正确项「В：который」：мальчик，который не может учиться：который 标出具体人的特征。 4.2 第 2 条第 1 项：который 以最一般的定指意义标出具体人或物的区别性特征。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "какой",
+            "reason": "「какой」不满足本题所需的原书条件；应依据上述映射理由选择「который」。"
+          },
+          {
+            "key": "Б",
+            "text": "чей",
+            "reason": "「чей」不满足本题所需的原书条件；应依据上述映射理由选择「который」。"
+          }
+        ]
+      }
+    },
+    {
+      "exerciseId": "GL4-Q052",
+      "printedNumber": 52,
+      "sourceType": "exercise-example",
+      "exerciseSectionId": "4.3",
+      "status": "source-exercise-only",
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "mappingReason": "正确项为 где／куда／откуда 一类地点关系词；4.2 没有这些词的独立规则，故显式保留 source-exercise-only。",
+      "source": {
+        "questionPdfPage": 64,
+        "questionPrintedPage": 62,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124
+      },
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书正确项为「В：откуда」。正确项为 где／куда／откуда 一类地点关系词；4.2 没有这些词的独立规则，故显式保留 source-exercise-only。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "где",
+            "reason": "「где」不是 PDF 原书正确项「откуда」。理论区没有足够独立规则逐项裁决，故不把这个来源答案差异伪装成原书规则。"
+          },
+          {
+            "key": "Б",
+            "text": "когда",
+            "reason": "「когда」不是 PDF 原书正确项「откуда」。理论区没有足够独立规则逐项裁决，故不把这个来源答案差异伪装成原书规则。"
+          }
+        ]
+      }
+    },
+    {
+      "exerciseId": "GL4-Q053",
+      "printedNumber": 53,
+      "sourceType": "exercise-example",
+      "exerciseSectionId": "4.3",
+      "status": "source-exercise-only",
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "mappingReason": "正确项为 где／куда／откуда 一类地点关系词；4.2 没有这些词的独立规则，故显式保留 source-exercise-only。",
+      "source": {
+        "questionPdfPage": 64,
+        "questionPrintedPage": 62,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124
+      },
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书正确项为「А：где」。正确项为 где／куда／откуда 一类地点关系词；4.2 没有这些词的独立规则，故显式保留 source-exercise-only。",
+        "distractors": [
+          {
+            "key": "Б",
+            "text": "откуда",
+            "reason": "「откуда」不是 PDF 原书正确项「где」。理论区没有足够独立规则逐项裁决，故不把这个来源答案差异伪装成原书规则。"
+          },
+          {
+            "key": "В",
+            "text": "куда",
+            "reason": "「куда」不是 PDF 原书正确项「где」。理论区没有足够独立规则逐项裁决，故不把这个来源答案差异伪装成原书规则。"
+          }
+        ]
+      }
+    },
+    {
+      "exerciseId": "GL4-Q054",
+      "printedNumber": 54,
+      "sourceType": "exercise-example",
+      "exerciseSectionId": "4.3",
+      "status": "source-exercise-only",
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "mappingReason": "正确项为 где／куда／откуда 一类地点关系词；4.2 没有这些词的独立规则，故显式保留 source-exercise-only。",
+      "source": {
+        "questionPdfPage": 64,
+        "questionPrintedPage": 62,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124
+      },
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书正确项为「Г：где」。正确项为 где／куда／откуда 一类地点关系词；4.2 没有这些词的独立规则，故显式保留 source-exercise-only。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "когда",
+            "reason": "「когда」不是 PDF 原书正确项「где」。理论区没有足够独立规则逐项裁决，故不把这个来源答案差异伪装成原书规则。"
+          },
+          {
+            "key": "Б",
+            "text": "откуда",
+            "reason": "「откуда」不是 PDF 原书正确项「где」。理论区没有足够独立规则逐项裁决，故不把这个来源答案差异伪装成原书规则。"
+          },
+          {
+            "key": "В",
+            "text": "куда",
+            "reason": "「куда」不是 PDF 原书正确项「где」。理论区没有足够独立规则逐项裁决，故不把这个来源答案差异伪装成原书规则。"
+          }
+        ]
+      }
+    },
+    {
+      "exerciseId": "GL4-Q055",
+      "printedNumber": 55,
+      "sourceType": "exercise-example",
+      "exerciseSectionId": "4.3",
+      "status": "source-exercise-only",
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "mappingReason": "正确项为 где／куда／откуда 一类地点关系词；4.2 没有这些词的独立规则，故显式保留 source-exercise-only。",
+      "source": {
+        "questionPdfPage": 64,
+        "questionPrintedPage": 62,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124
+      },
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书正确项为「В：куда」。正确项为 где／куда／откуда 一类地点关系词；4.2 没有这些词的独立规则，故显式保留 source-exercise-only。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "откуда",
+            "reason": "「откуда」不是 PDF 原书正确项「куда」。理论区没有足够独立规则逐项裁决，故不把这个来源答案差异伪装成原书规则。"
+          },
+          {
+            "key": "Б",
+            "text": "где",
+            "reason": "「где」不是 PDF 原书正确项「куда」。理论区没有足够独立规则逐项裁决，故不把这个来源答案差异伪装成原书规则。"
+          },
+          {
+            "key": "Г",
+            "text": "когда",
+            "reason": "「когда」不是 PDF 原书正确项「куда」。理论区没有足够独立规则逐项裁决，故不把这个来源答案差异伪装成原书规则。"
+          }
+        ]
+      }
+    },
+    {
+      "exerciseId": "GL4-Q081",
+      "printedNumber": 81,
+      "sourceType": "exercise-example",
+      "exerciseSectionId": "direct-to-indirect-speech",
+      "status": "source-exercise-only",
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "mappingReason": "练习要求把直接引语改成间接引语；4.2 仅说明关系词，未提供直接—间接引语转换规则。PDF-126 模型答案仅作为原书答案来源保留。",
+      "source": {
+        "questionPdfPage": 69,
+        "questionPrintedPage": 67,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124
+      },
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "这是开放式直引语改间接引语题；PDF-126 的原书模型改写保存在 chapter-04-data-repair.json。为保留既有答题契约，不伪造单一自动评分答案。",
+        "distractors": []
+      }
+    },
+    {
+      "exerciseId": "GL4-Q082",
+      "printedNumber": 82,
+      "sourceType": "exercise-example",
+      "exerciseSectionId": "direct-to-indirect-speech",
+      "status": "source-exercise-only",
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "mappingReason": "练习要求把直接引语改成间接引语；4.2 仅说明关系词，未提供直接—间接引语转换规则。PDF-126 模型答案仅作为原书答案来源保留。",
+      "source": {
+        "questionPdfPage": 69,
+        "questionPrintedPage": 67,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124
+      },
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "这是开放式直引语改间接引语题；PDF-126 的原书模型改写保存在 chapter-04-data-repair.json。为保留既有答题契约，不伪造单一自动评分答案。",
+        "distractors": []
+      }
+    },
+    {
+      "exerciseId": "GL4-Q083",
+      "printedNumber": 83,
+      "sourceType": "exercise-example",
+      "exerciseSectionId": "direct-to-indirect-speech",
+      "status": "source-exercise-only",
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "mappingReason": "练习要求把直接引语改成间接引语；4.2 仅说明关系词，未提供直接—间接引语转换规则。PDF-126 模型答案仅作为原书答案来源保留。",
+      "source": {
+        "questionPdfPage": 69,
+        "questionPrintedPage": 67,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124
+      },
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "这是开放式直引语改间接引语题；PDF-126 的原书模型改写保存在 chapter-04-data-repair.json。为保留既有答题契约，不伪造单一自动评分答案。",
+        "distractors": []
+      }
+    },
+    {
+      "exerciseId": "GL4-Q084",
+      "printedNumber": 84,
+      "sourceType": "exercise-example",
+      "exerciseSectionId": "direct-to-indirect-speech",
+      "status": "source-exercise-only",
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "mappingReason": "练习要求把直接引语改成间接引语；4.2 仅说明关系词，未提供直接—间接引语转换规则。PDF-126 模型答案仅作为原书答案来源保留。",
+      "source": {
+        "questionPdfPage": 69,
+        "questionPrintedPage": 67,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124
+      },
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "这是开放式直引语改间接引语题；PDF-126 的原书模型改写保存在 chapter-04-data-repair.json。为保留既有答题契约，不伪造单一自动评分答案。",
+        "distractors": []
+      }
+    },
+    {
+      "exerciseId": "GL4-Q085",
+      "printedNumber": 85,
+      "sourceType": "exercise-example",
+      "exerciseSectionId": "direct-to-indirect-speech",
+      "status": "source-exercise-only",
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "mappingReason": "练习要求把直接引语改成间接引语；4.2 仅说明关系词，未提供直接—间接引语转换规则。PDF-126 模型答案仅作为原书答案来源保留。",
+      "source": {
+        "questionPdfPage": 69,
+        "questionPrintedPage": 67,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124
+      },
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "这是开放式直引语改间接引语题；PDF-126 的原书模型改写保存在 chapter-04-data-repair.json。为保留既有答题契约，不伪造单一自动评分答案。",
+        "distractors": []
+      }
+    },
+    {
+      "exerciseId": "GL4-Q086",
+      "printedNumber": 86,
+      "sourceType": "exercise-example",
+      "exerciseSectionId": "direct-to-indirect-speech",
+      "status": "source-exercise-only",
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "mappingReason": "练习要求把直接引语改成间接引语；4.2 仅说明关系词，未提供直接—间接引语转换规则。PDF-126 模型答案仅作为原书答案来源保留。",
+      "source": {
+        "questionPdfPage": 69,
+        "questionPrintedPage": 67,
+        "answerPdfPage": 126,
+        "answerPrintedPage": 124
+      },
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "这是开放式直引语改间接引语题；PDF-126 的原书模型改写保存在 chapter-04-data-repair.json。为保留既有答题契约，不伪造单一自动评分答案。",
+        "distractors": []
+      }
+    }
+  ],
+  "source": {
+    "sourcePdf": "E:\\Desktop\\语法词汇（同一本书）.pdf",
+    "cleanedSource": "cleaned-source/chapter-04.md",
+    "pdfPages": [
+      115
+    ],
+    "printedPages": [
+      113
+    ],
+    "sourceStatus": "review"
+  },
+  "sourceCoverage": {
+    "ruleItems": {
+      "total": 5,
+      "captured": 5
+    },
+    "numberedItems": {
+      "total": 5,
+      "captured": 5
+    },
+    "tables": {
+      "total": 0,
+      "captured": 0,
+      "rowsTotal": 0,
+      "rowsCaptured": 0
+    },
+    "examples": {
+      "total": 15,
+      "captured": 15
+    },
+    "relatedExercises": {
+      "total": 37,
+      "explained": 37
+    },
+    "omitted": [],
+    "sourceExerciseOnly": [
+      "GL4-Q025：练习标题为宾语从句，但现有理论 4.2 只说明 союзные слова какой、который、чей，未提供宾语从句所需连接词、陈述或疑问间接引语规则。",
+      "GL4-Q026：练习标题为宾语从句，但现有理论 4.2 只说明 союзные слова какой、который、чей，未提供宾语从句所需连接词、陈述或疑问间接引语规则。",
+      "GL4-Q027：练习标题为宾语从句，但现有理论 4.2 只说明 союзные слова какой、который、чей，未提供宾语从句所需连接词、陈述或疑问间接引语规则。",
+      "GL4-Q028：练习标题为宾语从句，但现有理论 4.2 只说明 союзные слова какой、который、чей，未提供宾语从句所需连接词、陈述或疑问间接引语规则。",
+      "GL4-Q029：练习标题为宾语从句，但现有理论 4.2 只说明 союзные слова какой、который、чей，未提供宾语从句所需连接词、陈述或疑问间接引语规则。",
+      "GL4-Q030：练习标题为宾语从句，但现有理论 4.2 只说明 союзные слова какой、который、чей，未提供宾语从句所需连接词、陈述或疑问间接引语规则。",
+      "GL4-Q031：练习标题为宾语从句，但现有理论 4.2 只说明 союзные слова какой、который、чей，未提供宾语从句所需连接词、陈述或疑问间接引语规则。",
+      "GL4-Q032：练习标题为宾语从句，但现有理论 4.2 只说明 союзные слова какой、который、чей，未提供宾语从句所需连接词、陈述或疑问间接引语规则。",
+      "GL4-Q033：练习标题为宾语从句，但现有理论 4.2 只说明 союзные слова какой、который、чей，未提供宾语从句所需连接词、陈述或疑问间接引语规则。",
+      "GL4-Q034：练习标题为宾语从句，但现有理论 4.2 只说明 союзные слова какой、который、чей，未提供宾语从句所需连接词、陈述或疑问间接引语规则。",
+      "GL4-Q035：练习标题为宾语从句，但现有理论 4.2 只说明 союзные слова какой、который、чей，未提供宾语从句所需连接词、陈述或疑问间接引语规则。",
+      "GL4-Q036：练习标题为宾语从句，但现有理论 4.2 只说明 союзные слова какой、который、чей，未提供宾语从句所需连接词、陈述或疑问间接引语规则。",
+      "GL4-Q037：练习标题为宾语从句，但现有理论 4.2 只说明 союзные слова какой、который、чей，未提供宾语从句所需连接词、陈述或疑问间接引语规则。",
+      "GL4-Q048：正确项 что 不是原书 4.2 所列 какой、который、чей；不能由相邻关系词规则虚构依据。",
+      "GL4-Q052：正确项为 где／куда／откуда 一类地点关系词；4.2 没有这些词的独立规则，故显式保留 source-exercise-only。",
+      "GL4-Q053：正确项为 где／куда／откуда 一类地点关系词；4.2 没有这些词的独立规则，故显式保留 source-exercise-only。",
+      "GL4-Q054：正确项为 где／куда／откуда 一类地点关系词；4.2 没有这些词的独立规则，故显式保留 source-exercise-only。",
+      "GL4-Q055：正确项为 где／куда／откуда 一类地点关系词；4.2 没有这些词的独立规则，故显式保留 source-exercise-only。",
+      "GL4-Q081：练习要求把直接引语改成间接引语；4.2 仅说明关系词，未提供直接—间接引语转换规则。PDF-126 模型答案仅作为原书答案来源保留。",
+      "GL4-Q082：练习要求把直接引语改成间接引语；4.2 仅说明关系词，未提供直接—间接引语转换规则。PDF-126 模型答案仅作为原书答案来源保留。",
+      "GL4-Q083：练习要求把直接引语改成间接引语；4.2 仅说明关系词，未提供直接—间接引语转换规则。PDF-126 模型答案仅作为原书答案来源保留。",
+      "GL4-Q084：练习要求把直接引语改成间接引语；4.2 仅说明关系词，未提供直接—间接引语转换规则。PDF-126 模型答案仅作为原书答案来源保留。",
+      "GL4-Q085：练习要求把直接引语改成间接引语；4.2 仅说明关系词，未提供直接—间接引语转换规则。PDF-126 模型答案仅作为原书答案来源保留。",
+      "GL4-Q086：练习要求把直接引语改成间接引语；4.2 仅说明关系词，未提供直接—间接引语转换规则。PDF-126 模型答案仅作为原书答案来源保留。"
+    ],
+    "needsReview": [],
+    "ocrRisks": [
+      "The cleaned source is derived from OCR and remains REVIEW; source text, examples and page provenance are retained without silently normalising uncertain source boundaries."
+    ]
+  },
+  "reviewStatus": "needs-review",
+  "knownRisks": [
+    "原书理论 OCR 来源仍为 REVIEW。练习中没有独立原书理论依据的项目保留 source-exercise-only，不能由中文学习说明升级为 mapped。"
+  ]
+}

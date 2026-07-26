@@ -1,0 +1,597 @@
+{
+  "schemaVersion": 1,
+  "id": "gl1-section-1.2",
+  "chapterId": "gl1",
+  "sectionId": "1.2",
+  "titleRu": "Согласование количественных сочетаний с глаголом",
+  "titleZh": "数量表达与谓语的一致",
+  "orientationZh": {
+    "sourceType": "learning-note",
+    "text": "数量主语可接单数或复数，必须同时看数量表达的类型、谓语位置、动作主动性和句法距离，不能凭数量大于一直接选复数。"
+  },
+  "quickDecision": [
+    {
+      "sourceType": "learning-note",
+      "text": "先识别集合数量、度量数量还是普通数量名词组合。"
+    },
+    {
+      "sourceType": "learning-note",
+      "text": "检查谓语是否前置，或主语与谓语是否被其他成分隔开。"
+    },
+    {
+      "sourceType": "learning-note",
+      "text": "最后判断动作是主动参与还是被动状态。"
+    }
+  ],
+  "semanticAnalysis": {
+    "sourceType": "learning-note",
+    "text": "数量短语并不总是把一群人当成“多个独立行动者”。说话人有时把它看作一个数量整体、度量或存在状态，单数更自然；当注意力落到多人主动分别参与的动作时，复数更容易出现。位置和距离会改变句子重心，所以数字本身不能裁决。"
+  },
+  "sourceRules": [
+    {
+      "id": "gl1-1.2-collective-singular",
+      "sourceType": "source-rule",
+      "text": "Форма единственного числа обычно употребляется, если собирательное существительное с количественным значением (большинство, меньшинство, ряд, часть) не имеет зависимых слов.",
+      "source": {
+        "pdfPages": [
+          93
+        ],
+        "printedPages": [
+          91
+        ],
+        "source": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+      }
+    },
+    {
+      "id": "gl1-1.2-measure-singular",
+      "sourceType": "source-rule",
+      "text": "Форма единственного числа обычно употребляется, если количественно-именное сочетание имеет значение меры веса, пространства, времени.",
+      "source": {
+        "pdfPages": [
+          93,
+          94
+        ],
+        "printedPages": [
+          91,
+          92
+        ],
+        "source": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+      }
+    },
+    {
+      "id": "gl1-1.2-preposed-predicate-singular",
+      "sourceType": "source-rule",
+      "text": "Форма единственного числа обычно употребляется, если глагол-сказуемое предшествует количественному сочетанию, особенно в нераспространённых предложениях.",
+      "source": {
+        "pdfPages": [
+          94
+        ],
+        "printedPages": [
+          92
+        ],
+        "source": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+      }
+    },
+    {
+      "id": "gl1-1.2-active-action-plural",
+      "sourceType": "source-rule",
+      "text": "Форма множественного числа обычно употребляется, если количественное сочетание-подлежащее отделено от сказуемого другими словами или указывается активное действие.",
+      "source": {
+        "pdfPages": [
+          94
+        ],
+        "printedPages": [
+          92
+        ],
+        "source": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+      }
+    },
+    {
+      "id": "gl1-1.2-passive-action-singular",
+      "sourceType": "source-rule",
+      "text": "При пассивном действии преимущественно употребляется форма единственного числа.",
+      "source": {
+        "pdfPages": [
+          94
+        ],
+        "printedPages": [
+          92
+        ],
+        "source": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+      }
+    }
+  ],
+  "tables": [],
+  "atomicRules": [
+    {
+      "id": "gl1-1.2-collective-singular",
+      "sourceType": "source-rule",
+      "text": "Форма единственного числа обычно употребляется, если собирательное существительное с количественным значением (большинство, меньшинство, ряд, часть) не имеет зависимых слов.",
+      "source": {
+        "pdfPages": [
+          93
+        ],
+        "printedPages": [
+          91
+        ],
+        "source": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+      }
+    },
+    {
+      "id": "gl1-1.2-measure-singular",
+      "sourceType": "source-rule",
+      "text": "Форма единственного числа обычно употребляется, если количественно-именное сочетание имеет значение меры веса, пространства, времени.",
+      "source": {
+        "pdfPages": [
+          93,
+          94
+        ],
+        "printedPages": [
+          91,
+          92
+        ],
+        "source": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+      }
+    },
+    {
+      "id": "gl1-1.2-preposed-predicate-singular",
+      "sourceType": "source-rule",
+      "text": "Форма единственного числа обычно употребляется, если глагол-сказуемое предшествует количественному сочетанию, особенно в нераспространённых предложениях.",
+      "source": {
+        "pdfPages": [
+          94
+        ],
+        "printedPages": [
+          92
+        ],
+        "source": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+      }
+    },
+    {
+      "id": "gl1-1.2-active-action-plural",
+      "sourceType": "source-rule",
+      "text": "Форма множественного числа обычно употребляется, если количественное сочетание-подлежащее отделено от сказуемого другими словами или указывается активное действие.",
+      "source": {
+        "pdfPages": [
+          94
+        ],
+        "printedPages": [
+          92
+        ],
+        "source": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+      }
+    },
+    {
+      "id": "gl1-1.2-passive-action-singular",
+      "sourceType": "source-rule",
+      "text": "При пассивном действии преимущественно употребляется форма единственного числа.",
+      "source": {
+        "pdfPages": [
+          94
+        ],
+        "printedPages": [
+          92
+        ],
+        "source": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+      }
+    }
+  ],
+  "examples": [
+    {
+      "sourceType": "source-example",
+      "text": "большинство присоединяется к мнению меньшинства.",
+      "source": {
+        "pdfPages": [
+          93
+        ],
+        "printedPages": [
+          91
+        ],
+        "source": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+      }
+    },
+    {
+      "sourceType": "source-example",
+      "text": "нам понадобилось несколько литров бензина; оставалось около километра; прошло несколько месяцев.",
+      "source": {
+        "pdfPages": [
+          93,
+          94
+        ],
+        "printedPages": [
+          91,
+          92
+        ],
+        "source": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+      }
+    },
+    {
+      "sourceType": "source-example",
+      "text": "В нашем саду выросло несколько новых деревьев.",
+      "source": {
+        "pdfPages": [
+          94
+        ],
+        "printedPages": [
+          92
+        ],
+        "source": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+      }
+    },
+    {
+      "sourceType": "source-example",
+      "text": "Несколько издательств Германии ... выпустили немецкие переводы книг.",
+      "source": {
+        "pdfPages": [
+          94
+        ],
+        "printedPages": [
+          92
+        ],
+        "source": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+      }
+    },
+    {
+      "sourceType": "source-example",
+      "text": "несколько хоккеистов бросились помогать вратарю.",
+      "source": {
+        "pdfPages": [
+          94
+        ],
+        "printedPages": [
+          92
+        ],
+        "source": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+      }
+    },
+    {
+      "sourceType": "source-example",
+      "text": "лишь несколько человек осталось сидеть на своих местах.",
+      "source": {
+        "pdfPages": [
+          94
+        ],
+        "printedPages": [
+          92
+        ],
+        "source": "E:\\Desktop\\语法词汇（同一本书）.pdf"
+      }
+    }
+  ],
+  "contrasts": [
+    {
+      "sourceType": "learning-note",
+      "text": "主动动作的 several players rushed 与被动状态的 several people remained seated。"
+    },
+    {
+      "sourceType": "learning-note",
+      "text": "谓语前置与主语后置不是单一数量规则。"
+    }
+  ],
+  "signalAnalysis": [
+    {
+      "sourceType": "learning-note",
+      "text": "большинство/меньшинство/ряд/часть、重量/时间/空间单位、谓语位置和主动性。"
+    }
+  ],
+  "commonErrors": [
+    {
+      "sourceType": "learning-note",
+      "text": "不要把“多个”当作复数谓语的充分条件。"
+    }
+  ],
+  "exerciseLinks": [
+    {
+      "exerciseId": "GL1-Q014",
+      "printedNumber": 14,
+      "exercisePrintedPage": 8,
+      "sourceType": "exercise-example",
+      "status": "mapped",
+      "question": "На вопрос: «Что важнее всего в информации?» — большинство ...: «Новизна».",
+      "options": [
+        {
+          "key": "А",
+          "text": "ответит"
+        },
+        {
+          "key": "Б",
+          "text": "ответят"
+        }
+      ],
+      "correctAnswer": "А",
+      "ruleIds": [
+        "gl1-1.2-collective-singular"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "题面、PDF 正确项与原书「无依存语的集合数量主语通常用单数谓语」条件直接对应；旧 knowledgePoints 仅作定位。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书正确项为「А：ответит」。它符合本题所连原书规则：无依存语的集合数量主语通常用单数谓语。",
+        "distractors": [
+          {
+            "key": "Б",
+            "text": "ответят",
+            "sourceType": "learning-note",
+            "reason": "该项未满足「无依存语的集合数量主语通常用单数谓语」所要求的条件或意义；PDF 正确项为「А」。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 10,
+        "questionPrintedPage": 8,
+        "answerPdfPage": 125,
+        "answerPrintedPage": 123
+      }
+    },
+    {
+      "exerciseId": "GL1-Q015",
+      "printedNumber": 15,
+      "exercisePrintedPage": 8,
+      "sourceType": "exercise-example",
+      "status": "mapped",
+      "question": "... десять лет с момента появления в России первых трансгенных культур.",
+      "options": [
+        {
+          "key": "А",
+          "text": "Прошли"
+        },
+        {
+          "key": "Б",
+          "text": "Прошло"
+        }
+      ],
+      "correctAnswer": "Б",
+      "ruleIds": [
+        "gl1-1.2-measure-singular"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "题面、PDF 正确项与原书「重量、空间、时间等度量数量通常用单数谓语」条件直接对应；旧 knowledgePoints 仅作定位。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书正确项为「Б：Прошло」。它符合本题所连原书规则：重量、空间、时间等度量数量通常用单数谓语。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "Прошли",
+            "sourceType": "learning-note",
+            "reason": "该项未满足「重量、空间、时间等度量数量通常用单数谓语」所要求的条件或意义；PDF 正确项为「Б」。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 10,
+        "questionPrintedPage": 8,
+        "answerPdfPage": 125,
+        "answerPrintedPage": 123
+      }
+    },
+    {
+      "exerciseId": "GL1-Q016",
+      "printedNumber": 16,
+      "exercisePrintedPage": 8,
+      "sourceType": "exercise-example",
+      "status": "mapped",
+      "question": "Для покраски трубы тепловой электростанции ... восемь тысяч килограммов краски.",
+      "options": [
+        {
+          "key": "А",
+          "text": "потребуются"
+        },
+        {
+          "key": "Б",
+          "text": "потребуется"
+        }
+      ],
+      "correctAnswer": "Б",
+      "ruleIds": [
+        "gl1-1.2-measure-singular",
+        "gl1-1.2-preposed-predicate-singular"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "题面、PDF 正确项与原书「重量、空间、时间等度量数量通常用单数谓语；谓语前置时通常使用单数」条件直接对应；旧 knowledgePoints 仅作定位。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书正确项为「Б：потребуется」。它符合本题所连原书规则：重量、空间、时间等度量数量通常用单数谓语；谓语前置时通常使用单数。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "потребуются",
+            "sourceType": "learning-note",
+            "reason": "该项未满足「重量、空间、时间等度量数量通常用单数谓语；谓语前置时通常使用单数」所要求的条件或意义；PDF 正确项为「Б」。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 10,
+        "questionPrintedPage": 8,
+        "answerPdfPage": 125,
+        "answerPrintedPage": 123
+      }
+    },
+    {
+      "exerciseId": "GL1-Q017",
+      "printedNumber": 17,
+      "exercisePrintedPage": 8,
+      "sourceType": "exercise-example",
+      "status": "mapped",
+      "question": "Нашей футбольной команде до чемпионского титула ... пять шагов.",
+      "options": [
+        {
+          "key": "А",
+          "text": "осталось"
+        },
+        {
+          "key": "Б",
+          "text": "остались"
+        }
+      ],
+      "correctAnswer": "А",
+      "ruleIds": [
+        "gl1-1.2-preposed-predicate-singular"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "题面、PDF 正确项与原书「谓语前置时通常使用单数」条件直接对应；旧 knowledgePoints 仅作定位。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书正确项为「А：осталось」。它符合本题所连原书规则：谓语前置时通常使用单数。",
+        "distractors": [
+          {
+            "key": "Б",
+            "text": "остались",
+            "sourceType": "learning-note",
+            "reason": "该项未满足「谓语前置时通常使用单数」所要求的条件或意义；PDF 正确项为「А」。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 10,
+        "questionPrintedPage": 8,
+        "answerPdfPage": 125,
+        "answerPrintedPage": 123
+      }
+    },
+    {
+      "exerciseId": "GL1-Q018",
+      "printedNumber": 18,
+      "exercisePrintedPage": 9,
+      "sourceType": "exercise-example",
+      "status": "mapped",
+      "question": "Семь человек из этого фольклорного коллектива ... работать на профессиональную сцену.",
+      "options": [
+        {
+          "key": "А",
+          "text": "перешло"
+        },
+        {
+          "key": "Б",
+          "text": "перешли"
+        }
+      ],
+      "correctAnswer": "Б",
+      "ruleIds": [
+        "gl1-1.2-active-action-plural"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "题面、PDF 正确项与原书「数量主语表示主动动作时通常使用复数谓语」条件直接对应；旧 knowledgePoints 仅作定位。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书正确项为「Б：перешли」。它符合本题所连原书规则：数量主语表示主动动作时通常使用复数谓语。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "перешло",
+            "sourceType": "learning-note",
+            "reason": "该项未满足「数量主语表示主动动作时通常使用复数谓语」所要求的条件或意义；PDF 正确项为「Б」。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 11,
+        "questionPrintedPage": 9,
+        "answerPdfPage": 125,
+        "answerPrintedPage": 123
+      }
+    },
+    {
+      "exerciseId": "GL1-Q019",
+      "printedNumber": 19,
+      "exercisePrintedPage": 9,
+      "sourceType": "exercise-example",
+      "status": "mapped",
+      "question": "Раздался выстрел, и несколько диких уток ... над озером.",
+      "options": [
+        {
+          "key": "А",
+          "text": "поднялось"
+        },
+        {
+          "key": "Б",
+          "text": "поднялись"
+        }
+      ],
+      "correctAnswer": "Б",
+      "ruleIds": [
+        "gl1-1.2-active-action-plural"
+      ],
+      "candidateRuleIds": [],
+      "mappingReason": "题面、PDF 正确项与原书「数量主语表示主动动作时通常使用复数谓语」条件直接对应；旧 knowledgePoints 仅作定位。",
+      "optionAnalysis": {
+        "sourceType": "learning-note",
+        "correct": "PDF 原书正确项为「Б：поднялись」。它符合本题所连原书规则：数量主语表示主动动作时通常使用复数谓语。",
+        "distractors": [
+          {
+            "key": "А",
+            "text": "поднялось",
+            "sourceType": "learning-note",
+            "reason": "该项未满足「数量主语表示主动动作时通常使用复数谓语」所要求的条件或意义；PDF 正确项为「Б」。"
+          }
+        ]
+      },
+      "source": {
+        "questionPdfPage": 11,
+        "questionPrintedPage": 9,
+        "answerPdfPage": 125,
+        "answerPrintedPage": 123
+      }
+    }
+  ],
+  "relatedRules": [
+    {
+      "sourceType": "learning-note",
+      "sectionId": "1.1",
+      "text": "相关规则：1.1"
+    },
+    {
+      "sourceType": "learning-note",
+      "sectionId": "1.3",
+      "text": "相关规则：1.3"
+    }
+  ],
+  "source": {
+    "sourcePdf": "E:\\Desktop\\语法词汇（同一本书）.pdf",
+    "cleanedSource": "cleaned-source/chapter-01.md",
+    "pdfPages": [
+      93,
+      94
+    ],
+    "printedPages": [
+      91,
+      92
+    ],
+    "sourceStatus": "review"
+  },
+  "sourceCoverage": {
+    "ruleItems": {
+      "total": 5,
+      "captured": 5,
+      "unrecorded": []
+    },
+    "numberedItems": {
+      "total": 5,
+      "captured": 5,
+      "unrecorded": []
+    },
+    "tables": {
+      "total": 0,
+      "captured": 0,
+      "rowsTotal": 0,
+      "rowsCaptured": 0,
+      "unrecordedRows": []
+    },
+    "examples": {
+      "total": 6,
+      "captured": 6,
+      "unrecorded": []
+    },
+    "relatedExercises": {
+      "total": 6,
+      "explained": 6,
+      "unrecorded": []
+    },
+    "omitted": []
+  },
+  "reviewStatus": "needs-review",
+  "riskRecord": [
+    "来源文本来自 review 状态的 OCR 清洗层；中文定位与选项分析均为 learning-note，不是原书正文。"
+  ]
+}

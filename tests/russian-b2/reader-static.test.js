@@ -10,23 +10,28 @@ test('reader resolves textbook paths from metadata instead of a B2-specific bran
   assert.match(reader, /data\/textbook/);
 });
 
-test('reader plays reconstructed listening media with captions while retaining provenance', () => {
+test('reader loads the native listening workbench with captions and provenance', () => {
   assert.match(reader, /function renderListeningPractice\(data, scrollPosition\)/);
-  assert.match(reader, /<audio controls>/);
+  assert.match(reader, /id=\"lwAudio\"/);
   assert.match(reader, /kind="subtitles"/);
   assert.match(reader, /data\.media\.provenance/);
+  assert.match(reader, /js\/russian-b2\/listening-session\.js/);
+  assert.match(reader, /js\/russian-b2\/listening-workbench\.js/);
+  assert.match(reader, /css\/reader-listening-workbench\.css/);
 });
 
-test('listening opens in exam mode and keeps transcript behind an intensive-listening action', () => {
+test('listening uses exam intensive and review modes with whole-group submission', () => {
   assert.match(reader, /LISTENING_PROGRESS_KEY/);
   assert.match(reader, /function answerListeningQuestion\(questionId, selected\)/);
-  assert.match(reader, /function toggleListeningAnswer\(questionId\)/);
+  assert.match(reader, /function submitListeningAttempt\(\)/);
   assert.match(reader, /function openListeningIntensive\(\)/);
-  assert.match(reader, /精听这段材料/);
-  assert.match(reader, /\(data\.questions \|\| \[\]\)\.map\(renderListeningQuestion\)/);
+  assert.match(reader, /function renderListeningReview\(data\)/);
+  assert.match(reader, /整组提交前不显示对错/);
+  assert.match(reader, /data\.transcriptSegments \|\| \[\]/);
   const renderBody = reader.match(/function renderListeningPractice\(data, scrollPosition\) \{([\s\S]*?)\n\}/);
   assert.ok(renderBody);
   assert.match(renderBody[1], /listeningViewMode === 'intensive'/);
+  assert.match(renderBody[1], /listeningViewMode === 'review'/);
 });
 
 test('reader shows the textbook badge from metadata', () => {
@@ -61,15 +66,18 @@ test('quiz shows verified source explanations inline and completion is not scrol
   assert.doesNotMatch(scrollCb[0], /chDone\s*=\s*true/);
 });
 
-test('quiz interactions preserve the reader scroll position', () => {
-  assert.match(reader, /function rerenderQuizChapterPreservingScroll\(\)/);
+test('quiz interactions update only the active question without resetting the reader', () => {
+  assert.match(reader, /function refreshQuizQuestion\(questionId, exercise, record\)/);
   const selectBody = reader.match(/function selectQuizOption\(questionId, key\) \{([\s\S]*?)\n\}/);
   const submitBody = reader.match(/function submitQuizQuestion\(questionId\) \{([\s\S]*?)\n\}/);
   const explanationBody = reader.match(/function toggleQuizExplanation\(questionId\) \{([\s\S]*?)\n\}/);
   assert.ok(selectBody && submitBody && explanationBody);
-  assert.match(selectBody[1], /rerenderQuizChapterPreservingScroll\(\)/);
-  assert.match(submitBody[1], /rerenderQuizChapterPreservingScroll\(\)/);
-  assert.match(explanationBody[1], /rerenderQuizChapterPreservingScroll\(\)/);
+  assert.match(selectBody[1], /refreshQuizQuestion\(/);
+  assert.match(submitBody[1], /refreshQuizQuestion\(/);
+  assert.match(explanationBody[1], /refreshQuizQuestion\(/);
+  assert.doesNotMatch(selectBody[1], /renderQuizChapter\(/);
+  assert.doesNotMatch(submitBody[1], /renderQuizChapter\(/);
+  assert.doesNotMatch(explanationBody[1], /renderQuizChapter\(/);
 });
 
 test('B2 progress uses permanent unit identifiers and migrates the pilot once', () => {
@@ -401,6 +409,65 @@ test('reader renders approved reading learning support separately from original 
   assert.match(reader, /文章结构/);
   assert.match(reader, /可复用表达/);
   assert.match(reader, /data\.translationStatus === 'learning-support-approved'/);
+});
+
+test('reading-speaking question stems and options both support dictionary lookup', () => {
+  const renderBody = reader.match(/function renderReadingSpeakingExercise\(ex\) \{([\s\S]*?)\n\}/);
+  assert.ok(renderBody);
+  assert.match(renderBody[1], /exId \+ '-question'/);
+  assert.match(renderBody[1], /'quiz-question'/);
+  assert.match(renderBody[1], /renderRuText\(questionText, lookupContextWithSentence/);
+  assert.match(renderBody[1], /renderRuText\(textPart, lookupContextWithSentence/);
+  assert.match(renderBody[1], /'quiz-option', textPart, optionZh/);
+  assert.match(reader, /<b>中文翻译<\/b>/);
+});
+
+test('reading-speaking explanations can locate and distinctly highlight source sentences', () => {
+  assert.match(reader, /function renderReadingSpeakingExplanationContent\(ex, exId\)/);
+  assert.match(reader, /renderReadingSpeakingExplanationContent\(ex, exId\)/);
+  assert.match(reader, /function locateReadingSpeakingSource\(exId, evt\)/);
+  assert.match(reader, /rs-source-locate/);
+  assert.match(reader, /width: auto/);
+  assert.doesNotMatch(reader, /rs-source-locate-hint/);
+  assert.match(reader, /rs-source-word-highlight/);
+  assert.match(reader, /background: #fde68a !important/);
+  assert.match(reader, /sourceAnchor\.paragraphIndex/);
+  assert.match(reader, /scrollIntoView\(\{ behavior: 'smooth', block: 'center' \}\)/);
+});
+
+test('reader bypasses stale chapter JSON caches during active study-content updates', () => {
+  assert.match(reader, /fetch\(url, \{ cache: 'no-store' \}\)/);
+  assert.match(reader, /fetch\(staticUrl, \{ cache: 'no-store' \}\)/);
+});
+
+test('Zlatoust 1.4.1 uses a separate integrated learning page without duplicating official progress', () => {
+  assert.match(reader, /ZLATOUST_LEARNING_PROGRESS_KEY = 'rr_zlatoust_learning_v1'/);
+  assert.match(reader, /learning-pages\/.*section-/);
+  assert.match(reader, /function renderZlatoustLearningPage\(page, unit, chapterIndex\)/);
+  assert.match(reader, /function renderZlatoustLearningStage\(page, stage\)/);
+  assert.match(reader, /renderQuizItem\(exercise, getQuizRecord\(exercise\.id\)\)/);
+  assert.match(reader, /function returnToZlatoustRoute\(\)/);
+  assert.match(reader, /goChapter\(target\.chapterIndex, \{ scroll: target\.scroll \|\| 0 \}\)/);
+  assert.match(reader, /ZLATOUST_KNOWLEDGE_POINT_SECTIONS = \{ 'gl1:gl1-4-1': '1\.4\.1' \}/);
+  assert.match(reader, /function renderZlatoustLearningRoute\(page\)/);
+  assert.match(reader, /data-zlatoust-learning-route/);
+  assert.match(reader, /function getZlatoustLearningStageState\(sectionId, stage, finalStage\)/);
+  assert.match(reader, /function toggleZlatoustStageReview\(sectionId, stageId, checked\)/);
+  assert.match(reader, /zlatoust-unit-map-root/);
+  assert.doesNotMatch(reader, /function renderZlatoustChapterMindMap\(/);
+  assert.match(reader, /function renderZlatoustExternalReference\(source, fallbackConclusion\)/);
+  assert.match(reader, /来源核验（可选，不影响学习）/);
+  assert.match(reader, /外部资料原页（可选核验，无需阅读英文）/);
+});
+
+test('Zlatoust learning checks update only their own block and keep targeted feedback', () => {
+  const answerBody = reader.match(/function answerZlatoustLearningCheck\(sectionId, stageId, checkId, optionKey, finalCheck\) \{([\s\S]*?)\n\}/);
+  assert.ok(answerBody);
+  assert.match(answerBody[1], /target\.outerHTML = renderZlatoustLearningCheck/);
+  assert.doesNotMatch(answerBody[1], /renderQuizChapter\(/);
+  assert.match(reader, /这次误判在这里/);
+  assert.match(reader, /回看规则/);
+  assert.match(reader, /最小对比/);
 });
 
 test('reader dispatches writing-speaking chapters to their own render function', () => {

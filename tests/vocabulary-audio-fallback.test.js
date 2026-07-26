@@ -24,8 +24,9 @@ assert(
 );
 
 assert(
-  audioBlock.includes('speakRussianText(word.word || wordId)'),
-  'missing word audio hash should fall back to Russian text pronunciation'
+  audioBlock.includes('var fallbackText = (word && word.word) || wordId;') &&
+    audioBlock.includes('speakRussianText(fallbackText, silent);'),
+  'missing or unloaded words should fall back safely to Russian text pronunciation'
 );
 
 assert(

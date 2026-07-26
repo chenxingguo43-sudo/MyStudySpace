@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "chapterId": "gl1",
+  "status": "review",
+  "summary": {
+    "accounted": 107,
+    "mapped": 106,
+    "needsReview": 0,
+    "sourceExerciseOnly": 1,
+    "importedAnswerKeyMismatches": 33
+  },
+  "boundaryReviews": [],
+  "resolvedBoundaryReviews": [
+    {"exerciseIds":["GL1-Q052","GL1-Q053","GL1-Q054","GL1-Q055"],"resolvedSectionId":"1.4.3","reason":"уметь / учить 不在 1.4.4 的词汇触发词表中；各题均由不定式过程义直接解释。"},
+    {"exerciseIds":["GL1-Q061"],"resolvedSectionId":"1.4.3","reason":"удалось создать 表达一次完成的结果；不将未列出的 удалось 扩写为 1.4.4 触发词。"}
+  ],
+  "sourceExerciseOnly": [
+    {"exerciseId":"GL1-Q076","nearestSectionId":"1.4.6","reason":"标牌式 Не беспокоить 表示禁止；理论 1.4.6 未说明这种独立未完成体否定不定式。"}
+  ],
+  "importIntegrity": {
+    "answerKeySource": {"pdfPage":125,"printedPage":123,"heading":"Ключи к первой главе"},
+    "answerKeyMismatchExerciseIds": ["GL1-Q001","GL1-Q005","GL1-Q006","GL1-Q019","GL1-Q023","GL1-Q025","GL1-Q030","GL1-Q031","GL1-Q034","GL1-Q036","GL1-Q037","GL1-Q038","GL1-Q039","GL1-Q042","GL1-Q044","GL1-Q045","GL1-Q046","GL1-Q047","GL1-Q048","GL1-Q050","GL1-Q052","GL1-Q053","GL1-Q056","GL1-Q059","GL1-Q061","GL1-Q068","GL1-Q069","GL1-Q075","GL1-Q077","GL1-Q078","GL1-Q087","GL1-Q088","GL1-Q095"],
+    "questionContentMismatch": [
+      {"exerciseId":"GL1-Q061","issue":"ch0000.json 误复制了 Q062 题干；原书 Q061 是 «Британским учёным при помощи лазера удалось ... материю...»。"}
+    ],
+    "note":"本批次只建立映射，不修改 ch0000.json、答案或 reader.html。上述差异需另立数据修复批次。"
+  }
+}

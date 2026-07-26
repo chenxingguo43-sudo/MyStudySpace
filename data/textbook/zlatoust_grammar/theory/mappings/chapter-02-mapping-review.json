@@ -1,0 +1,301 @@
+{
+  "schemaVersion": 1,
+  "chapterId": "gl2",
+  "status": "review",
+  "summary": {
+    "accounted": 150,
+    "mapped": 126,
+    "needsReview": 13,
+    "sourceExerciseOnly": 11,
+    "pdfAnswerKeyMismatches": 18,
+    "questionOrOptionMismatches": 0,
+    "sourceMetadataMismatches": 1
+  },
+  "reviewCases": [
+    {
+      "exerciseId": "GL2-Q003",
+      "printedNumber": 3,
+      "status": "source-exercise-only",
+      "sectionIds": [
+        "2.1"
+      ],
+      "candidateRuleIds": [],
+      "reason": "высказывать разные мнения 考查一般第四格宾语；2.1 表未列 высказывать，也没有通用宾格规则。。"
+    },
+    {
+      "exerciseId": "GL2-Q007",
+      "printedNumber": 7,
+      "status": "source-exercise-only",
+      "sectionIds": [
+        "2.1"
+      ],
+      "candidateRuleIds": [],
+      "reason": "требуют бережного отношения；2.1 表未列 требовать，不能以常识补写原书支配规则。。"
+    },
+    {
+      "exerciseId": "GL2-Q028",
+      "printedNumber": 28,
+      "status": "source-exercise-only",
+      "sectionIds": [
+        "2.2"
+      ],
+      "candidateRuleIds": [],
+      "reason": "свойственно любому человеку；2.2 表未列 краткое прилагательное свойственен/свойственно。。"
+    },
+    {
+      "exerciseId": "GL2-Q036",
+      "printedNumber": 36,
+      "status": "needs-review",
+      "sectionIds": [
+        "2.3"
+      ],
+      "candidateRuleIds": [
+        "gl2-2.3-s-inst-accompanying"
+      ],
+      "reason": "с промежутком 属于带 с 的方式搭配，但原书只直接列感受、伴随动作与态度；语义边界保留复核。。"
+    },
+    {
+      "exerciseId": "GL2-Q039",
+      "printedNumber": 39,
+      "status": "source-exercise-only",
+      "sectionIds": [
+        "2.3"
+      ],
+      "candidateRuleIds": [],
+      "reason": "на высоком уровне 是方式搭配；2.3 仅解释 с 与无 с 的第五格对立。。"
+    },
+    {
+      "exerciseId": "GL2-Q045",
+      "printedNumber": 45,
+      "status": "source-exercise-only",
+      "sectionIds": [
+        "2.3"
+      ],
+      "candidateRuleIds": [],
+      "reason": "под присмотром 不属于 2.3 明示的 с / 无 с 第五格对立。。"
+    },
+    {
+      "exerciseId": "GL2-Q046",
+      "printedNumber": 46,
+      "status": "source-exercise-only",
+      "sectionIds": [
+        "2.3"
+      ],
+      "candidateRuleIds": [],
+      "reason": "с первого взгляда 是固定方式搭配；2.3 未给出该搭配或同类条件。。"
+    },
+    {
+      "exerciseId": "GL2-Q062",
+      "printedNumber": 62,
+      "status": "needs-review",
+      "sectionIds": [
+        "2.4",
+        "2.4.2"
+      ],
+      "candidateRuleIds": [
+        "gl2-2.4.2-infinitive-attribute"
+      ],
+      "reason": "традиция праздновать：属于名词 + 不定式，但 традиция 不在原书点名的抽象名词及例表中。。"
+    },
+    {
+      "exerciseId": "GL2-Q070",
+      "printedNumber": 70,
+      "status": "needs-review",
+      "sectionIds": [
+        "2.5"
+      ],
+      "candidateRuleIds": [
+        "gl2-2.5-za-result-duration"
+      ],
+      "reason": "за 2 миллиарда лет 与“未改变”搭配；原书把 за + 第四格主要说明为完成结果所需时段，否定持续语义需保留复核。。"
+    },
+    {
+      "exerciseId": "GL2-Q089",
+      "printedNumber": 89,
+      "status": "source-exercise-only",
+      "sectionIds": [
+        "2.5"
+      ],
+      "candidateRuleIds": [],
+      "reason": "уменьшилось на два-три часа 表示差额；2.5 未说明 на + 第四格的数量变化。。"
+    },
+    {
+      "exerciseId": "GL2-Q099",
+      "printedNumber": 99,
+      "status": "source-exercise-only",
+      "sectionIds": [
+        "2.6"
+      ],
+      "candidateRuleIds": [],
+      "reason": "на глубине два метра 是深度量词结构；2.6 未给出该结构的独立条件。。"
+    },
+    {
+      "exerciseId": "GL2-Q124",
+      "printedNumber": 124,
+      "status": "needs-review",
+      "sectionIds": [
+        "2.8"
+      ],
+      "candidateRuleIds": [
+        "gl2-2.8-goal-inventory"
+      ],
+      "reason": "рисковали жизнью ради науки；原书仅在 2.8 导言列出该目的介词，未保留独立用法条件。。"
+    },
+    {
+      "exerciseId": "GL2-Q125",
+      "printedNumber": 125,
+      "status": "needs-review",
+      "sectionIds": [
+        "2.8"
+      ],
+      "candidateRuleIds": [
+        "gl2-2.8-goal-inventory"
+      ],
+      "reason": "покидает города ради жизни；原书仅在 2.8 导言列出该目的介词，未保留独立用法条件。。"
+    },
+    {
+      "exerciseId": "GL2-Q126",
+      "printedNumber": 126,
+      "status": "needs-review",
+      "sectionIds": [
+        "2.8"
+      ],
+      "candidateRuleIds": [
+        "gl2-2.8-goal-inventory"
+      ],
+      "reason": "воевал за победу；原书仅在 2.8 导言列出该目的介词，未保留独立用法条件。。"
+    },
+    {
+      "exerciseId": "GL2-Q127",
+      "printedNumber": 127,
+      "status": "needs-review",
+      "sectionIds": [
+        "2.8"
+      ],
+      "candidateRuleIds": [
+        "gl2-2.8-goal-inventory"
+      ],
+      "reason": "сражаясь за свободу；原书仅在 2.8 导言列出该目的介词，未保留独立用法条件。。"
+    },
+    {
+      "exerciseId": "GL2-Q129",
+      "printedNumber": 129,
+      "status": "needs-review",
+      "sectionIds": [
+        "2.8"
+      ],
+      "candidateRuleIds": [
+        "gl2-2.8-goal-inventory"
+      ],
+      "reason": "войне за независимость；原书仅在 2.8 导言列出该目的介词，未保留独立用法条件。。"
+    },
+    {
+      "exerciseId": "GL2-Q130",
+      "printedNumber": 130,
+      "status": "needs-review",
+      "sectionIds": [
+        "2.8"
+      ],
+      "candidateRuleIds": [
+        "gl2-2.8-goal-inventory"
+      ],
+      "reason": "годы на поиск；原书仅在 2.8 导言列出该目的介词，未保留独立用法条件。。"
+    },
+    {
+      "exerciseId": "GL2-Q131",
+      "printedNumber": 131,
+      "status": "needs-review",
+      "sectionIds": [
+        "2.8"
+      ],
+      "candidateRuleIds": [
+        "gl2-2.8-goal-inventory"
+      ],
+      "reason": "останавливаются на отдых；原书仅在 2.8 导言列出该目的介词，未保留独立用法条件。。"
+    },
+    {
+      "exerciseId": "GL2-Q132",
+      "printedNumber": 132,
+      "status": "needs-review",
+      "sectionIds": [
+        "2.8"
+      ],
+      "candidateRuleIds": [
+        "gl2-2.8-goal-inventory"
+      ],
+      "reason": "пришли на помощь；原书仅在 2.8 导言列出该目的介词，未保留独立用法条件。。"
+    },
+    {
+      "exerciseId": "GL2-Q134",
+      "printedNumber": 134,
+      "status": "needs-review",
+      "sectionIds": [
+        "2.8"
+      ],
+      "candidateRuleIds": [
+        "gl2-2.8-goal-inventory"
+      ],
+      "reason": "пошёл за мороженым；原书仅在 2.8 导言列出该目的介词，未保留独立用法条件。。"
+    },
+    {
+      "exerciseId": "GL2-Q136",
+      "printedNumber": 136,
+      "status": "needs-review",
+      "sectionIds": [
+        "2.8"
+      ],
+      "candidateRuleIds": [
+        "gl2-2.8-goal-inventory"
+      ],
+      "reason": "пошёл за билетами；原书仅在 2.8 导言列出该目的介词，未保留独立用法条件。。"
+    },
+    {
+      "exerciseId": "GL2-Q137",
+      "printedNumber": 137,
+      "status": "source-exercise-only",
+      "sectionIds": [
+        "2.5"
+      ],
+      "candidateRuleIds": [],
+      "reason": "в начале октября 1773 года 的“何时”问法属于 2.9 语义辨认练习；2.5 未给出该问法的独立规则。。"
+    },
+    {
+      "exerciseId": "GL2-Q139",
+      "printedNumber": 139,
+      "status": "source-exercise-only",
+      "sectionIds": [
+        "2.3"
+      ],
+      "candidateRuleIds": [],
+      "reason": "счастливым 的“什么样”问法不属于 2.3 已说明的 с / 无 с 方式结构。。"
+    },
+    {
+      "exerciseId": "GL2-Q142",
+      "printedNumber": 142,
+      "status": "source-exercise-only",
+      "sectionIds": [
+        "2.1"
+      ],
+      "candidateRuleIds": [],
+      "reason": "Большую Медведицу 的“什么”问法涉及一般第四格宾语；2.1 仅为部分动词支配表。。"
+    }
+  ],
+  "pdfAudit": {
+    "questionPages": {
+      "pdfPages": [
+        20,
+        42
+      ],
+      "printedPages": [
+        18,
+        40
+      ]
+    },
+    "answerKey": {
+      "pdfPage": 125,
+      "printedPage": 123,
+      "heading": "Ключи ко второй главе"
+    },
+    "ledger": "quality-reports/chapter-02-data-repair.json"
+  }
+}

@@ -1,0 +1,2411 @@
+{
+  "schemaVersion": 1,
+  "chapterId": "gl3",
+  "sourceBook": "zlatoust-grammar-lexika-v1",
+  "status": "review",
+  "mappingBasis": "逐题视觉核对 PDF 042-057（印刷页 40-55）、PDF 126 原书答案表及 cleaned-source/chapter-03.md。参与式及未被理论区独立说明的转换题保持 source-exercise-only。",
+  "statusDefinitions": {
+    "mapped": "原书理论中有直接或足够明确的规则依据。",
+    "needs-review": "已确定主要理论范围，但原书条件不足以无风险确定细边界。",
+    "source-exercise-only": "原书有练习，但理论区没有对应的独立规则说明。"
+  },
+  "ruleCatalog": {
+    "gl3-3.1-gerund-logical-grammatical-subject": {
+      "sectionId": "3.1",
+      "titleZh": "动名副词的逻辑主体与语法主体",
+      "sourceText": "3.1 要求先区分实施动作的逻辑主体与以主格等形式承担句法功能的语法主体。"
+    },
+    "gl3-3.1.1-shared-subject-personal": {
+      "sectionId": "3.1.1",
+      "titleZh": "人称句中主动作与附加动作同一主体",
+      "sourceText": "3.1.1 第 1 条：人称句中语法主体与逻辑主体一致，且主动作由动词表达时，动名副词可表达附加动作。"
+    },
+    "gl3-3.1.1-implicit-subject": {
+      "sectionId": "3.1.1",
+      "titleZh": "形式未出现但由谓语体现的同一主体",
+      "sourceText": "3.1.1 注意项：确定人称、不定人称和泛指人称句可形式上无主语，但主体能由谓语形式恢复时可使用动名副词。"
+    },
+    "gl3-3.1.1-impersonal-single-logical-subject": {
+      "sectionId": "3.1.1",
+      "titleZh": "无主句中可恢复的单一逻辑主体",
+      "sourceText": "3.1.1 第 2 条：无主句若主动作与附加动作按逻辑由同一人实施，动名副词符合规范；原书列出带不定式的 безличные глаголы、谓词副词和情态词。"
+    },
+    "gl3-3.1.1-secondary-action": {
+      "sectionId": "3.1.1",
+      "titleZh": "动名副词表示附加动作",
+      "sourceText": "3.1.1 规定动名副词／动名副词短语用于 обозначение добавочного действия；主动作与附加动作需由同一主体实施。"
+    },
+    "gl3-3.1.2-different-subjects-prohibited": {
+      "sectionId": "3.1.2",
+      "titleZh": "两个不同主体时不得使用动名副词",
+      "sourceText": "3.1.2 第 1 条：若两个或更多主体分别实施不同动作，动名副词／动名副词短语不可使用。"
+    },
+    "gl3-3.1.2-impersonal-predicate-prohibited": {
+      "sectionId": "3.1.2",
+      "titleZh": "特定无主谓词结构中不得使用动名副词",
+      "sourceText": "3.1.2 后续条目将带无主谓词的结构列为禁用范围；完整来源片段和风险保留在后续规则单元。"
+    },
+    "gl3-3.1.2-passive-construction-prohibited": {
+      "sectionId": "3.1.2",
+      "titleZh": "被动结构中不得使用动名副词",
+      "sourceText": "3.1.2 第 3 条：在被动结构中，逻辑主体与语法主体不一致；动名副词只在二者一致时才可使用，因此不得使用。"
+    }
+  },
+  "exercises": {
+    "GL3-Q001": {
+      "exerciseId": "GL3-Q001",
+      "printedNumber": 1,
+      "chapterId": "gl3",
+      "sectionIds": [
+        "3.1"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 40,
+      "exercisePdfPage": 42,
+      "theoryPrintedPages": [
+        108
+      ],
+      "theoryPdfPages": [
+        110
+      ],
+      "mappingReason": "题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+      "reviewStatus": "needs-review"
+    },
+    "GL3-Q002": {
+      "exerciseId": "GL3-Q002",
+      "printedNumber": 2,
+      "chapterId": "gl3",
+      "sectionIds": [
+        "3.1"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 40,
+      "exercisePdfPage": 42,
+      "theoryPrintedPages": [
+        108
+      ],
+      "theoryPdfPages": [
+        110
+      ],
+      "mappingReason": "题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+      "reviewStatus": "needs-review"
+    },
+    "GL3-Q003": {
+      "exerciseId": "GL3-Q003",
+      "printedNumber": 3,
+      "chapterId": "gl3",
+      "sectionIds": [
+        "3.1"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 40,
+      "exercisePdfPage": 42,
+      "theoryPrintedPages": [
+        108
+      ],
+      "theoryPdfPages": [
+        110
+      ],
+      "mappingReason": "题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+      "reviewStatus": "needs-review"
+    },
+    "GL3-Q004": {
+      "exerciseId": "GL3-Q004",
+      "printedNumber": 4,
+      "chapterId": "gl3",
+      "sectionIds": [
+        "3.1"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 41,
+      "exercisePdfPage": 43,
+      "theoryPrintedPages": [
+        108
+      ],
+      "theoryPdfPages": [
+        110
+      ],
+      "mappingReason": "题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+      "reviewStatus": "needs-review"
+    },
+    "GL3-Q005": {
+      "exerciseId": "GL3-Q005",
+      "printedNumber": 5,
+      "chapterId": "gl3",
+      "sectionIds": [
+        "3.1"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 41,
+      "exercisePdfPage": 43,
+      "theoryPrintedPages": [
+        108
+      ],
+      "theoryPdfPages": [
+        110
+      ],
+      "mappingReason": "题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+      "reviewStatus": "needs-review"
+    },
+    "GL3-Q006": {
+      "exerciseId": "GL3-Q006",
+      "printedNumber": 6,
+      "chapterId": "gl3",
+      "sectionIds": [
+        "3.1"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 41,
+      "exercisePdfPage": 43,
+      "theoryPrintedPages": [
+        108
+      ],
+      "theoryPdfPages": [
+        110
+      ],
+      "mappingReason": "题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+      "reviewStatus": "needs-review"
+    },
+    "GL3-Q007": {
+      "exerciseId": "GL3-Q007",
+      "printedNumber": 7,
+      "chapterId": "gl3",
+      "sectionIds": [
+        "3.1"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 41,
+      "exercisePdfPage": 43,
+      "theoryPrintedPages": [
+        108
+      ],
+      "theoryPdfPages": [
+        110
+      ],
+      "mappingReason": "题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+      "reviewStatus": "needs-review"
+    },
+    "GL3-Q008": {
+      "exerciseId": "GL3-Q008",
+      "printedNumber": 8,
+      "chapterId": "gl3",
+      "sectionIds": [
+        "3.1"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 41,
+      "exercisePdfPage": 43,
+      "theoryPrintedPages": [
+        108
+      ],
+      "theoryPdfPages": [
+        110
+      ],
+      "mappingReason": "题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+      "reviewStatus": "needs-review"
+    },
+    "GL3-Q009": {
+      "exerciseId": "GL3-Q009",
+      "printedNumber": 9,
+      "chapterId": "gl3",
+      "sectionIds": [
+        "3.1"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 41,
+      "exercisePdfPage": 43,
+      "theoryPrintedPages": [
+        108
+      ],
+      "theoryPdfPages": [
+        110
+      ],
+      "mappingReason": "题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+      "reviewStatus": "needs-review"
+    },
+    "GL3-Q010": {
+      "exerciseId": "GL3-Q010",
+      "printedNumber": 10,
+      "chapterId": "gl3",
+      "sectionIds": [
+        "3.1"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 41,
+      "exercisePdfPage": 43,
+      "theoryPrintedPages": [
+        108
+      ],
+      "theoryPdfPages": [
+        110
+      ],
+      "mappingReason": "题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+      "reviewStatus": "needs-review"
+    },
+    "GL3-Q011": {
+      "exerciseId": "GL3-Q011",
+      "printedNumber": 11,
+      "chapterId": "gl3",
+      "sectionIds": [
+        "3.1"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 42,
+      "exercisePdfPage": 44,
+      "theoryPrintedPages": [
+        108
+      ],
+      "theoryPdfPages": [
+        110
+      ],
+      "mappingReason": "题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+      "reviewStatus": "needs-review"
+    },
+    "GL3-Q012": {
+      "exerciseId": "GL3-Q012",
+      "printedNumber": 12,
+      "chapterId": "gl3",
+      "sectionIds": [
+        "3.1"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 42,
+      "exercisePdfPage": 44,
+      "theoryPrintedPages": [
+        108
+      ],
+      "theoryPdfPages": [
+        110
+      ],
+      "mappingReason": "题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+      "reviewStatus": "needs-review"
+    },
+    "GL3-Q013": {
+      "exerciseId": "GL3-Q013",
+      "printedNumber": 13,
+      "chapterId": "gl3",
+      "sectionIds": [
+        "3.1"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 42,
+      "exercisePdfPage": 44,
+      "theoryPrintedPages": [
+        108
+      ],
+      "theoryPdfPages": [
+        110
+      ],
+      "mappingReason": "题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+      "reviewStatus": "needs-review"
+    },
+    "GL3-Q014": {
+      "exerciseId": "GL3-Q014",
+      "printedNumber": 14,
+      "chapterId": "gl3",
+      "sectionIds": [
+        "3.1"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 42,
+      "exercisePdfPage": 44,
+      "theoryPrintedPages": [
+        108
+      ],
+      "theoryPdfPages": [
+        110
+      ],
+      "mappingReason": "题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+      "reviewStatus": "needs-review"
+    },
+    "GL3-Q015": {
+      "exerciseId": "GL3-Q015",
+      "printedNumber": 15,
+      "chapterId": "gl3",
+      "sectionIds": [
+        "3.1"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 42,
+      "exercisePdfPage": 44,
+      "theoryPrintedPages": [
+        108
+      ],
+      "theoryPdfPages": [
+        110
+      ],
+      "mappingReason": "题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+      "reviewStatus": "needs-review"
+    },
+    "GL3-Q016": {
+      "exerciseId": "GL3-Q016",
+      "printedNumber": 16,
+      "chapterId": "gl3",
+      "sectionIds": [
+        "3.1"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 42,
+      "exercisePdfPage": 44,
+      "theoryPrintedPages": [
+        108
+      ],
+      "theoryPdfPages": [
+        110
+      ],
+      "mappingReason": "题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+      "reviewStatus": "needs-review"
+    },
+    "GL3-Q017": {
+      "exerciseId": "GL3-Q017",
+      "printedNumber": 17,
+      "chapterId": "gl3",
+      "sectionIds": [
+        "3.1"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 43,
+      "exercisePdfPage": 45,
+      "theoryPrintedPages": [
+        108
+      ],
+      "theoryPdfPages": [
+        110
+      ],
+      "mappingReason": "题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+      "reviewStatus": "needs-review"
+    },
+    "GL3-Q018": {
+      "exerciseId": "GL3-Q018",
+      "printedNumber": 18,
+      "chapterId": "gl3",
+      "sectionIds": [
+        "3.1"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 43,
+      "exercisePdfPage": 45,
+      "theoryPrintedPages": [
+        108
+      ],
+      "theoryPdfPages": [
+        110
+      ],
+      "mappingReason": "题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+      "reviewStatus": "needs-review"
+    },
+    "GL3-Q019": {
+      "exerciseId": "GL3-Q019",
+      "printedNumber": 19,
+      "chapterId": "gl3",
+      "sectionIds": [
+        "3.1"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 43,
+      "exercisePdfPage": 45,
+      "theoryPrintedPages": [
+        108
+      ],
+      "theoryPdfPages": [
+        110
+      ],
+      "mappingReason": "题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+      "reviewStatus": "needs-review"
+    },
+    "GL3-Q020": {
+      "exerciseId": "GL3-Q020",
+      "printedNumber": 20,
+      "chapterId": "gl3",
+      "sectionIds": [
+        "3.1"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 43,
+      "exercisePdfPage": 45,
+      "theoryPrintedPages": [
+        108
+      ],
+      "theoryPdfPages": [
+        110
+      ],
+      "mappingReason": "题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+      "reviewStatus": "needs-review"
+    },
+    "GL3-Q021": {
+      "exerciseId": "GL3-Q021",
+      "printedNumber": 21,
+      "chapterId": "gl3",
+      "sectionIds": [
+        "3.1"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 43,
+      "exercisePdfPage": 45,
+      "theoryPrintedPages": [
+        108
+      ],
+      "theoryPdfPages": [
+        110
+      ],
+      "mappingReason": "题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+      "reviewStatus": "needs-review"
+    },
+    "GL3-Q022": {
+      "exerciseId": "GL3-Q022",
+      "printedNumber": 22,
+      "chapterId": "gl3",
+      "sectionIds": [
+        "3.1"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 43,
+      "exercisePdfPage": 45,
+      "theoryPrintedPages": [
+        108
+      ],
+      "theoryPdfPages": [
+        110
+      ],
+      "mappingReason": "题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+      "reviewStatus": "needs-review"
+    },
+    "GL3-Q023": {
+      "exerciseId": "GL3-Q023",
+      "printedNumber": 23,
+      "chapterId": "gl3",
+      "sectionIds": [
+        "3.1"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 43,
+      "exercisePdfPage": 45,
+      "theoryPrintedPages": [
+        108
+      ],
+      "theoryPdfPages": [
+        110
+      ],
+      "mappingReason": "题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+      "reviewStatus": "needs-review"
+    },
+    "GL3-Q024": {
+      "exerciseId": "GL3-Q024",
+      "printedNumber": 24,
+      "chapterId": "gl3",
+      "sectionIds": [
+        "3.1"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 43,
+      "exercisePdfPage": 45,
+      "theoryPrintedPages": [
+        108
+      ],
+      "theoryPdfPages": [
+        110
+      ],
+      "mappingReason": "题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+      "reviewStatus": "needs-review"
+    },
+    "GL3-Q025": {
+      "exerciseId": "GL3-Q025",
+      "printedNumber": 25,
+      "chapterId": "gl3",
+      "sectionIds": [
+        "3.1"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 44,
+      "exercisePdfPage": 46,
+      "theoryPrintedPages": [
+        108
+      ],
+      "theoryPdfPages": [
+        110
+      ],
+      "mappingReason": "题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+      "reviewStatus": "needs-review"
+    },
+    "GL3-Q026": {
+      "exerciseId": "GL3-Q026",
+      "printedNumber": 26,
+      "chapterId": "gl3",
+      "sectionIds": [
+        "3.1"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 44,
+      "exercisePdfPage": 46,
+      "theoryPrintedPages": [
+        108
+      ],
+      "theoryPdfPages": [
+        110
+      ],
+      "mappingReason": "题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+      "reviewStatus": "needs-review"
+    },
+    "GL3-Q027": {
+      "exerciseId": "GL3-Q027",
+      "printedNumber": 27,
+      "chapterId": "gl3",
+      "sectionIds": [
+        "3.1"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 44,
+      "exercisePdfPage": 46,
+      "theoryPrintedPages": [
+        108
+      ],
+      "theoryPdfPages": [
+        110
+      ],
+      "mappingReason": "题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+      "reviewStatus": "needs-review"
+    },
+    "GL3-Q028": {
+      "exerciseId": "GL3-Q028",
+      "printedNumber": 28,
+      "chapterId": "gl3",
+      "sectionIds": [
+        "3.1"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 44,
+      "exercisePdfPage": 46,
+      "theoryPrintedPages": [
+        108
+      ],
+      "theoryPdfPages": [
+        110
+      ],
+      "mappingReason": "题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+      "reviewStatus": "needs-review"
+    },
+    "GL3-Q029": {
+      "exerciseId": "GL3-Q029",
+      "printedNumber": 29,
+      "chapterId": "gl3",
+      "sectionIds": [
+        "3.1"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 44,
+      "exercisePdfPage": 46,
+      "theoryPrintedPages": [
+        108
+      ],
+      "theoryPdfPages": [
+        110
+      ],
+      "mappingReason": "题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+      "reviewStatus": "needs-review"
+    },
+    "GL3-Q030": {
+      "exerciseId": "GL3-Q030",
+      "printedNumber": 30,
+      "chapterId": "gl3",
+      "sectionIds": [
+        "3.1"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 44,
+      "exercisePdfPage": 46,
+      "theoryPrintedPages": [
+        108
+      ],
+      "theoryPdfPages": [
+        110
+      ],
+      "mappingReason": "题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+      "reviewStatus": "needs-review"
+    },
+    "GL3-Q031": {
+      "exerciseId": "GL3-Q031",
+      "printedNumber": 31,
+      "chapterId": "gl3",
+      "sectionIds": [
+        "3.1"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 44,
+      "exercisePdfPage": 46,
+      "theoryPrintedPages": [
+        108
+      ],
+      "theoryPdfPages": [
+        110
+      ],
+      "mappingReason": "题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+      "reviewStatus": "needs-review"
+    },
+    "GL3-Q032": {
+      "exerciseId": "GL3-Q032",
+      "printedNumber": 32,
+      "chapterId": "gl3",
+      "sectionIds": [
+        "3.1"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 45,
+      "exercisePdfPage": 47,
+      "theoryPrintedPages": [
+        108
+      ],
+      "theoryPdfPages": [
+        110
+      ],
+      "mappingReason": "题目考查主动／被动、现在／过去等参与式形式；当前理论区仅有动名副词规则，未提供参与式的独立说明。",
+      "reviewStatus": "needs-review"
+    },
+    "GL3-Q033": {
+      "exerciseId": "GL3-Q033",
+      "printedNumber": 33,
+      "chapterId": "gl3",
+      "sectionIds": [
+        "3.1",
+        "3.1.1"
+      ],
+      "ruleIds": [
+        "gl3-3.1-gerund-logical-grammatical-subject",
+        "gl3-3.1.1-shared-subject-personal"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 45,
+      "exercisePdfPage": 47,
+      "theoryPrintedPages": [
+        108,
+        109,
+        110
+      ],
+      "theoryPdfPages": [
+        110,
+        111,
+        112
+      ],
+      "mappingReason": "Оказываясь перед проблемой выбора，человек опирается...；同一人既面临选择又作出决定。 3.1 要求先区分实施动作的逻辑主体与以主格等形式承担句法功能的语法主体。 3.1.1 第 1 条：人称句中语法主体与逻辑主体一致，且主动作由动词表达时，动名副词可表达附加动作。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL3-Q034": {
+      "exerciseId": "GL3-Q034",
+      "printedNumber": 34,
+      "chapterId": "gl3",
+      "sectionIds": [
+        "3.1",
+        "3.1.1"
+      ],
+      "ruleIds": [
+        "gl3-3.1.1-impersonal-single-logical-subject"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 45,
+      "exercisePdfPage": 47,
+      "theoryPrintedPages": [
+        108,
+        109,
+        110
+      ],
+      "theoryPdfPages": [
+        110,
+        111,
+        112
+      ],
+      "mappingReason": "взглянув на небо，можно увидеть...；原书允许在可恢复同一逻辑主体的情态无主结构中使用动名副词。 3.1.1 第 2 条：无主句若主动作与附加动作按逻辑由同一人实施，动名副词符合规范；原书列出带不定式的 безличные глаголы、谓词副词和情态词。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL3-Q035": {
+      "exerciseId": "GL3-Q035",
+      "printedNumber": 35,
+      "chapterId": "gl3",
+      "sectionIds": [
+        "3.1",
+        "3.1.1"
+      ],
+      "ruleIds": [
+        "gl3-3.1.1-shared-subject-personal"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 45,
+      "exercisePdfPage": 47,
+      "theoryPrintedPages": [
+        108,
+        109,
+        110
+      ],
+      "theoryPdfPages": [
+        110,
+        111,
+        112
+      ],
+      "mappingReason": "Рассчитывая траекторию，сотрудники работали...；附加动作与主动作由同一明确主体实施。 3.1.1 第 1 条：人称句中语法主体与逻辑主体一致，且主动作由动词表达时，动名副词可表达附加动作。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL3-Q036": {
+      "exerciseId": "GL3-Q036",
+      "printedNumber": 36,
+      "chapterId": "gl3",
+      "sectionIds": [
+        "3.1",
+        "3.1.1"
+      ],
+      "ruleIds": [
+        "gl3-3.1.1-shared-subject-personal"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 45,
+      "exercisePdfPage": 47,
+      "theoryPrintedPages": [
+        108,
+        109,
+        110
+      ],
+      "theoryPdfPages": [
+        110,
+        111,
+        112
+      ],
+      "mappingReason": "Находясь в командировке，Пётр Капица обменивался...；地点状态与主动作属于同一人物。 3.1.1 第 1 条：人称句中语法主体与逻辑主体一致，且主动作由动词表达时，动名副词可表达附加动作。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL3-Q037": {
+      "exerciseId": "GL3-Q037",
+      "printedNumber": 37,
+      "chapterId": "gl3",
+      "sectionIds": [
+        "3.1",
+        "3.1.1"
+      ],
+      "ruleIds": [
+        "gl3-3.1.1-implicit-subject"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 46,
+      "exercisePdfPage": 48,
+      "theoryPrintedPages": [
+        108,
+        109,
+        110
+      ],
+      "theoryPdfPages": [
+        110,
+        111,
+        112
+      ],
+      "mappingReason": "Практически применяя теорию，в лаборатории приступили...；不定人称谓语恢复了实施两项动作的同一主体。 3.1.1 注意项：确定人称、不定人称和泛指人称句可形式上无主语，但主体能由谓语形式恢复时可使用动名副词。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL3-Q038": {
+      "exerciseId": "GL3-Q038",
+      "printedNumber": 38,
+      "chapterId": "gl3",
+      "sectionIds": [
+        "3.1",
+        "3.1.1"
+      ],
+      "ruleIds": [
+        "gl3-3.1.1-impersonal-single-logical-subject"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 46,
+      "exercisePdfPage": 48,
+      "theoryPrintedPages": [
+        108,
+        109,
+        110
+      ],
+      "theoryPdfPages": [
+        110,
+        111,
+        112
+      ],
+      "mappingReason": "Следуя решениям протокола，возможно приостановить...；对应原书的情态词 + 不定式无主结构。 3.1.1 第 2 条：无主句若主动作与附加动作按逻辑由同一人实施，动名副词符合规范；原书列出带不定式的 безличные глаголы、谓词副词和情态词。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL3-Q039": {
+      "exerciseId": "GL3-Q039",
+      "printedNumber": 39,
+      "chapterId": "gl3",
+      "sectionIds": [
+        "3.1",
+        "3.1.2"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [
+        "gl3-3.1.2-passive-construction-prohibited"
+      ],
+      "status": "needs-review",
+      "exercisePrintedPage": 46,
+      "exercisePdfPage": 48,
+      "theoryPrintedPages": [
+        108,
+        110,
+        111
+      ],
+      "theoryPdfPages": [
+        110,
+        112,
+        113
+      ],
+      "mappingReason": "PDF 答案 A 使用 строится 的被动／反身式构造；而 3.1.2 第 3 条明确说被动结构中逻辑主体与语法主体不一致，不得使用动名副词。原书答案与规则出现表面冲突，必须保留 needs-review，不能由答案反向改写规则。 3.1.2 第 3 条：在被动结构中，逻辑主体与语法主体不一致；动名副词只在二者一致时才可使用，因此不得使用。",
+      "reviewStatus": "needs-review"
+    },
+    "GL3-Q040": {
+      "exerciseId": "GL3-Q040",
+      "printedNumber": 40,
+      "chapterId": "gl3",
+      "sectionIds": [
+        "3.1",
+        "3.1.1"
+      ],
+      "ruleIds": [
+        "gl3-3.1.1-shared-subject-personal"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 46,
+      "exercisePdfPage": 48,
+      "theoryPrintedPages": [
+        108,
+        109,
+        110
+      ],
+      "theoryPdfPages": [
+        110,
+        111,
+        112
+      ],
+      "mappingReason": "Получив ссуду，фермеры освоят...；两项动作由 фермеры 实施。 3.1.1 第 1 条：人称句中语法主体与逻辑主体一致，且主动作由动词表达时，动名副词可表达附加动作。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL3-Q041": {
+      "exerciseId": "GL3-Q041",
+      "printedNumber": 41,
+      "chapterId": "gl3",
+      "sectionIds": [
+        "3.1",
+        "3.1.1"
+      ],
+      "ruleIds": [
+        "gl3-3.1.1-shared-subject-personal"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 46,
+      "exercisePdfPage": 48,
+      "theoryPrintedPages": [
+        108,
+        109,
+        110
+      ],
+      "theoryPdfPages": [
+        110,
+        111,
+        112
+      ],
+      "mappingReason": "борясь со стихией，люди выбились из сил；同一主体实施斗争并承受结果。 3.1.1 第 1 条：人称句中语法主体与逻辑主体一致，且主动作由动词表达时，动名副词可表达附加动作。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL3-Q042": {
+      "exerciseId": "GL3-Q042",
+      "printedNumber": 42,
+      "chapterId": "gl3",
+      "sectionIds": [
+        "3.1",
+        "3.1.1"
+      ],
+      "ruleIds": [
+        "gl3-3.1.1-shared-subject-personal"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 46,
+      "exercisePdfPage": 48,
+      "theoryPrintedPages": [
+        108,
+        109,
+        110
+      ],
+      "theoryPdfPages": [
+        110,
+        111,
+        112
+      ],
+      "mappingReason": "реки，впадая в море，оказывают влияние...；河流是两个动作的共同主体。 3.1.1 第 1 条：人称句中语法主体与逻辑主体一致，且主动作由动词表达时，动名副词可表达附加动作。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL3-Q043": {
+      "exerciseId": "GL3-Q043",
+      "printedNumber": 43,
+      "chapterId": "gl3",
+      "sectionIds": [
+        "3.1",
+        "3.1.1"
+      ],
+      "ruleIds": [
+        "gl3-3.1.1-impersonal-single-logical-subject"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 46,
+      "exercisePdfPage": 48,
+      "theoryPrintedPages": [
+        108,
+        109,
+        110
+      ],
+      "theoryPdfPages": [
+        110,
+        111,
+        112
+      ],
+      "mappingReason": "Гуляя...，можно набрести...；对应可恢复的同一逻辑主体。 3.1.1 第 2 条：无主句若主动作与附加动作按逻辑由同一人实施，动名副词符合规范；原书列出带不定式的 безличные глаголы、谓词副词和情态词。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL3-Q044": {
+      "exerciseId": "GL3-Q044",
+      "printedNumber": 44,
+      "chapterId": "gl3",
+      "sectionIds": [
+        "3.1",
+        "3.1.1"
+      ],
+      "ruleIds": [
+        "gl3-3.1.1-shared-subject-personal"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 47,
+      "exercisePdfPage": 49,
+      "theoryPrintedPages": [
+        108,
+        109,
+        110
+      ],
+      "theoryPdfPages": [
+        110,
+        111,
+        112
+      ],
+      "mappingReason": "Являясь самым широким...，Кон привлекает...；Кон 是状态与主动作共同主体。 3.1.1 第 1 条：人称句中语法主体与逻辑主体一致，且主动作由动词表达时，动名副词可表达附加动作。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL3-Q045": {
+      "exerciseId": "GL3-Q045",
+      "printedNumber": 45,
+      "chapterId": "gl3",
+      "sectionIds": [
+        "3.1",
+        "3.1.1"
+      ],
+      "ruleIds": [
+        "gl3-3.1.1-shared-subject-personal"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 47,
+      "exercisePdfPage": 49,
+      "theoryPrintedPages": [
+        108,
+        109,
+        110
+      ],
+      "theoryPdfPages": [
+        110,
+        111,
+        112
+      ],
+      "mappingReason": "Улавливая сигналы，животные предчувствуют...；动物实施感知与预感。 3.1.1 第 1 条：人称句中语法主体与逻辑主体一致，且主动作由动词表达时，动名副词可表达附加动作。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL3-Q046": {
+      "exerciseId": "GL3-Q046",
+      "printedNumber": 46,
+      "chapterId": "gl3",
+      "sectionIds": [
+        "3.1"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 47,
+      "exercisePdfPage": 49,
+      "theoryPrintedPages": [
+        108
+      ],
+      "theoryPdfPages": [
+        110
+      ],
+      "mappingReason": "题目要求参与式与定语从句的同义转换；当前理论区没有参与式时态、语态或关系从句转换的独立规则。",
+      "reviewStatus": "needs-review"
+    },
+    "GL3-Q047": {
+      "exerciseId": "GL3-Q047",
+      "printedNumber": 47,
+      "chapterId": "gl3",
+      "sectionIds": [
+        "3.1"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 47,
+      "exercisePdfPage": 49,
+      "theoryPrintedPages": [
+        108
+      ],
+      "theoryPdfPages": [
+        110
+      ],
+      "mappingReason": "题目要求参与式与定语从句的同义转换；当前理论区没有参与式时态、语态或关系从句转换的独立规则。",
+      "reviewStatus": "needs-review"
+    },
+    "GL3-Q048": {
+      "exerciseId": "GL3-Q048",
+      "printedNumber": 48,
+      "chapterId": "gl3",
+      "sectionIds": [
+        "3.1"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 47,
+      "exercisePdfPage": 49,
+      "theoryPrintedPages": [
+        108
+      ],
+      "theoryPdfPages": [
+        110
+      ],
+      "mappingReason": "题目要求参与式与定语从句的同义转换；当前理论区没有参与式时态、语态或关系从句转换的独立规则。",
+      "reviewStatus": "needs-review"
+    },
+    "GL3-Q049": {
+      "exerciseId": "GL3-Q049",
+      "printedNumber": 49,
+      "chapterId": "gl3",
+      "sectionIds": [
+        "3.1"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 47,
+      "exercisePdfPage": 49,
+      "theoryPrintedPages": [
+        108
+      ],
+      "theoryPdfPages": [
+        110
+      ],
+      "mappingReason": "题目要求参与式与定语从句的同义转换；当前理论区没有参与式时态、语态或关系从句转换的独立规则。",
+      "reviewStatus": "needs-review"
+    },
+    "GL3-Q050": {
+      "exerciseId": "GL3-Q050",
+      "printedNumber": 50,
+      "chapterId": "gl3",
+      "sectionIds": [
+        "3.1"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 48,
+      "exercisePdfPage": 50,
+      "theoryPrintedPages": [
+        108
+      ],
+      "theoryPdfPages": [
+        110
+      ],
+      "mappingReason": "题目要求参与式与定语从句的同义转换；当前理论区没有参与式时态、语态或关系从句转换的独立规则。",
+      "reviewStatus": "needs-review"
+    },
+    "GL3-Q051": {
+      "exerciseId": "GL3-Q051",
+      "printedNumber": 51,
+      "chapterId": "gl3",
+      "sectionIds": [
+        "3.1"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 48,
+      "exercisePdfPage": 50,
+      "theoryPrintedPages": [
+        108
+      ],
+      "theoryPdfPages": [
+        110
+      ],
+      "mappingReason": "题目要求参与式与定语从句的同义转换；当前理论区没有参与式时态、语态或关系从句转换的独立规则。",
+      "reviewStatus": "needs-review"
+    },
+    "GL3-Q052": {
+      "exerciseId": "GL3-Q052",
+      "printedNumber": 52,
+      "chapterId": "gl3",
+      "sectionIds": [
+        "3.1"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 48,
+      "exercisePdfPage": 50,
+      "theoryPrintedPages": [
+        108
+      ],
+      "theoryPdfPages": [
+        110
+      ],
+      "mappingReason": "题目要求参与式与定语从句的同义转换；当前理论区没有参与式时态、语态或关系从句转换的独立规则。",
+      "reviewStatus": "needs-review"
+    },
+    "GL3-Q053": {
+      "exerciseId": "GL3-Q053",
+      "printedNumber": 53,
+      "chapterId": "gl3",
+      "sectionIds": [
+        "3.1"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 48,
+      "exercisePdfPage": 50,
+      "theoryPrintedPages": [
+        108
+      ],
+      "theoryPdfPages": [
+        110
+      ],
+      "mappingReason": "题目要求参与式与定语从句的同义转换；当前理论区没有参与式时态、语态或关系从句转换的独立规则。",
+      "reviewStatus": "needs-review"
+    },
+    "GL3-Q054": {
+      "exerciseId": "GL3-Q054",
+      "printedNumber": 54,
+      "chapterId": "gl3",
+      "sectionIds": [
+        "3.1"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 48,
+      "exercisePdfPage": 50,
+      "theoryPrintedPages": [
+        108
+      ],
+      "theoryPdfPages": [
+        110
+      ],
+      "mappingReason": "题目要求参与式与定语从句的同义转换；当前理论区没有参与式时态、语态或关系从句转换的独立规则。",
+      "reviewStatus": "needs-review"
+    },
+    "GL3-Q055": {
+      "exerciseId": "GL3-Q055",
+      "printedNumber": 55,
+      "chapterId": "gl3",
+      "sectionIds": [
+        "3.1"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 48,
+      "exercisePdfPage": 50,
+      "theoryPrintedPages": [
+        108
+      ],
+      "theoryPdfPages": [
+        110
+      ],
+      "mappingReason": "题目要求参与式与定语从句的同义转换；当前理论区没有参与式时态、语态或关系从句转换的独立规则。",
+      "reviewStatus": "needs-review"
+    },
+    "GL3-Q056": {
+      "exerciseId": "GL3-Q056",
+      "printedNumber": 56,
+      "chapterId": "gl3",
+      "sectionIds": [
+        "3.1"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 48,
+      "exercisePdfPage": 50,
+      "theoryPrintedPages": [
+        108
+      ],
+      "theoryPdfPages": [
+        110
+      ],
+      "mappingReason": "题目要求参与式与定语从句的同义转换；当前理论区没有参与式时态、语态或关系从句转换的独立规则。",
+      "reviewStatus": "needs-review"
+    },
+    "GL3-Q057": {
+      "exerciseId": "GL3-Q057",
+      "printedNumber": 57,
+      "chapterId": "gl3",
+      "sectionIds": [
+        "3.1"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 49,
+      "exercisePdfPage": 51,
+      "theoryPrintedPages": [
+        108
+      ],
+      "theoryPdfPages": [
+        110
+      ],
+      "mappingReason": "题目要求参与式与定语从句的同义转换；当前理论区没有参与式时态、语态或关系从句转换的独立规则。",
+      "reviewStatus": "needs-review"
+    },
+    "GL3-Q058": {
+      "exerciseId": "GL3-Q058",
+      "printedNumber": 58,
+      "chapterId": "gl3",
+      "sectionIds": [
+        "3.1"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 49,
+      "exercisePdfPage": 51,
+      "theoryPrintedPages": [
+        108
+      ],
+      "theoryPdfPages": [
+        110
+      ],
+      "mappingReason": "题目要求参与式与定语从句的同义转换；当前理论区没有参与式时态、语态或关系从句转换的独立规则。",
+      "reviewStatus": "needs-review"
+    },
+    "GL3-Q059": {
+      "exerciseId": "GL3-Q059",
+      "printedNumber": 59,
+      "chapterId": "gl3",
+      "sectionIds": [
+        "3.1"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 49,
+      "exercisePdfPage": 51,
+      "theoryPrintedPages": [
+        108
+      ],
+      "theoryPdfPages": [
+        110
+      ],
+      "mappingReason": "题目要求参与式与定语从句的同义转换；当前理论区没有参与式时态、语态或关系从句转换的独立规则。",
+      "reviewStatus": "needs-review"
+    },
+    "GL3-Q060": {
+      "exerciseId": "GL3-Q060",
+      "printedNumber": 60,
+      "chapterId": "gl3",
+      "sectionIds": [
+        "3.1"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 49,
+      "exercisePdfPage": 51,
+      "theoryPrintedPages": [
+        108
+      ],
+      "theoryPdfPages": [
+        110
+      ],
+      "mappingReason": "题目要求参与式与定语从句的同义转换；当前理论区没有参与式时态、语态或关系从句转换的独立规则。",
+      "reviewStatus": "needs-review"
+    },
+    "GL3-Q061": {
+      "exerciseId": "GL3-Q061",
+      "printedNumber": 61,
+      "chapterId": "gl3",
+      "sectionIds": [
+        "3.1"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 49,
+      "exercisePdfPage": 51,
+      "theoryPrintedPages": [
+        108
+      ],
+      "theoryPdfPages": [
+        110
+      ],
+      "mappingReason": "题目要求参与式与定语从句的同义转换；当前理论区没有参与式时态、语态或关系从句转换的独立规则。",
+      "reviewStatus": "needs-review"
+    },
+    "GL3-Q062": {
+      "exerciseId": "GL3-Q062",
+      "printedNumber": 62,
+      "chapterId": "gl3",
+      "sectionIds": [
+        "3.1"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 49,
+      "exercisePdfPage": 51,
+      "theoryPrintedPages": [
+        108
+      ],
+      "theoryPdfPages": [
+        110
+      ],
+      "mappingReason": "题目要求参与式与定语从句的同义转换；当前理论区没有参与式时态、语态或关系从句转换的独立规则。",
+      "reviewStatus": "needs-review"
+    },
+    "GL3-Q063": {
+      "exerciseId": "GL3-Q063",
+      "printedNumber": 63,
+      "chapterId": "gl3",
+      "sectionIds": [
+        "3.1"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 49,
+      "exercisePdfPage": 51,
+      "theoryPrintedPages": [
+        108
+      ],
+      "theoryPdfPages": [
+        110
+      ],
+      "mappingReason": "题目要求参与式与定语从句的同义转换；当前理论区没有参与式时态、语态或关系从句转换的独立规则。",
+      "reviewStatus": "needs-review"
+    },
+    "GL3-Q064": {
+      "exerciseId": "GL3-Q064",
+      "printedNumber": 64,
+      "chapterId": "gl3",
+      "sectionIds": [
+        "3.1"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 50,
+      "exercisePdfPage": 52,
+      "theoryPrintedPages": [
+        108
+      ],
+      "theoryPdfPages": [
+        110
+      ],
+      "mappingReason": "题目要求参与式与定语从句的同义转换；当前理论区没有参与式时态、语态或关系从句转换的独立规则。",
+      "reviewStatus": "needs-review"
+    },
+    "GL3-Q065": {
+      "exerciseId": "GL3-Q065",
+      "printedNumber": 65,
+      "chapterId": "gl3",
+      "sectionIds": [
+        "3.1"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 50,
+      "exercisePdfPage": 52,
+      "theoryPrintedPages": [
+        108
+      ],
+      "theoryPdfPages": [
+        110
+      ],
+      "mappingReason": "题目要求参与式与定语从句的同义转换；当前理论区没有参与式时态、语态或关系从句转换的独立规则。",
+      "reviewStatus": "needs-review"
+    },
+    "GL3-Q066": {
+      "exerciseId": "GL3-Q066",
+      "printedNumber": 66,
+      "chapterId": "gl3",
+      "sectionIds": [
+        "3.1"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 50,
+      "exercisePdfPage": 52,
+      "theoryPrintedPages": [
+        108
+      ],
+      "theoryPdfPages": [
+        110
+      ],
+      "mappingReason": "题目要求参与式与定语从句的同义转换；当前理论区没有参与式时态、语态或关系从句转换的独立规则。",
+      "reviewStatus": "needs-review"
+    },
+    "GL3-Q067": {
+      "exerciseId": "GL3-Q067",
+      "printedNumber": 67,
+      "chapterId": "gl3",
+      "sectionIds": [
+        "3.1"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 50,
+      "exercisePdfPage": 52,
+      "theoryPrintedPages": [
+        108
+      ],
+      "theoryPdfPages": [
+        110
+      ],
+      "mappingReason": "题目要求参与式与定语从句的同义转换；当前理论区没有参与式时态、语态或关系从句转换的独立规则。",
+      "reviewStatus": "needs-review"
+    },
+    "GL3-Q068": {
+      "exerciseId": "GL3-Q068",
+      "printedNumber": 68,
+      "chapterId": "gl3",
+      "sectionIds": [
+        "3.1",
+        "3.1.1"
+      ],
+      "ruleIds": [
+        "gl3-3.1.1-shared-subject-personal",
+        "gl3-3.1.1-secondary-action"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 50,
+      "exercisePdfPage": 52,
+      "theoryPrintedPages": [
+        108,
+        109,
+        110
+      ],
+      "theoryPdfPages": [
+        110,
+        111,
+        112
+      ],
+      "mappingReason": "题目在动名副词与从句／名词性结构间转换；原书的直接依据是附加动作与主动作同一主体，具体同义关系仍由题面与答案共同核对。 3.1.1 第 1 条：人称句中语法主体与逻辑主体一致，且主动作由动词表达时，动名副词可表达附加动作。 3.1.1 规定动名副词／动名副词短语用于 обозначение добавочного действия；主动作与附加动作需由同一主体实施。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL3-Q069": {
+      "exerciseId": "GL3-Q069",
+      "printedNumber": 69,
+      "chapterId": "gl3",
+      "sectionIds": [
+        "3.1",
+        "3.1.1"
+      ],
+      "ruleIds": [
+        "gl3-3.1.1-shared-subject-personal",
+        "gl3-3.1.1-secondary-action"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 50,
+      "exercisePdfPage": 52,
+      "theoryPrintedPages": [
+        108,
+        109,
+        110
+      ],
+      "theoryPdfPages": [
+        110,
+        111,
+        112
+      ],
+      "mappingReason": "题目在动名副词与从句／名词性结构间转换；原书的直接依据是附加动作与主动作同一主体，具体同义关系仍由题面与答案共同核对。 3.1.1 第 1 条：人称句中语法主体与逻辑主体一致，且主动作由动词表达时，动名副词可表达附加动作。 3.1.1 规定动名副词／动名副词短语用于 обозначение добавочного действия；主动作与附加动作需由同一主体实施。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL3-Q070": {
+      "exerciseId": "GL3-Q070",
+      "printedNumber": 70,
+      "chapterId": "gl3",
+      "sectionIds": [
+        "3.1",
+        "3.1.1"
+      ],
+      "ruleIds": [
+        "gl3-3.1.1-shared-subject-personal",
+        "gl3-3.1.1-secondary-action"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 51,
+      "exercisePdfPage": 53,
+      "theoryPrintedPages": [
+        108,
+        109,
+        110
+      ],
+      "theoryPdfPages": [
+        110,
+        111,
+        112
+      ],
+      "mappingReason": "题目在动名副词与从句／名词性结构间转换；原书的直接依据是附加动作与主动作同一主体，具体同义关系仍由题面与答案共同核对。 3.1.1 第 1 条：人称句中语法主体与逻辑主体一致，且主动作由动词表达时，动名副词可表达附加动作。 3.1.1 规定动名副词／动名副词短语用于 обозначение добавочного действия；主动作与附加动作需由同一主体实施。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL3-Q071": {
+      "exerciseId": "GL3-Q071",
+      "printedNumber": 71,
+      "chapterId": "gl3",
+      "sectionIds": [
+        "3.1",
+        "3.1.1"
+      ],
+      "ruleIds": [
+        "gl3-3.1.1-shared-subject-personal",
+        "gl3-3.1.1-secondary-action"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 51,
+      "exercisePdfPage": 53,
+      "theoryPrintedPages": [
+        108,
+        109,
+        110
+      ],
+      "theoryPdfPages": [
+        110,
+        111,
+        112
+      ],
+      "mappingReason": "题目在动名副词与从句／名词性结构间转换；原书的直接依据是附加动作与主动作同一主体，具体同义关系仍由题面与答案共同核对。 3.1.1 第 1 条：人称句中语法主体与逻辑主体一致，且主动作由动词表达时，动名副词可表达附加动作。 3.1.1 规定动名副词／动名副词短语用于 обозначение добавочного действия；主动作与附加动作需由同一主体实施。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL3-Q072": {
+      "exerciseId": "GL3-Q072",
+      "printedNumber": 72,
+      "chapterId": "gl3",
+      "sectionIds": [
+        "3.1",
+        "3.1.1"
+      ],
+      "ruleIds": [
+        "gl3-3.1.1-shared-subject-personal",
+        "gl3-3.1.1-secondary-action"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 51,
+      "exercisePdfPage": 53,
+      "theoryPrintedPages": [
+        108,
+        109,
+        110
+      ],
+      "theoryPdfPages": [
+        110,
+        111,
+        112
+      ],
+      "mappingReason": "题目在动名副词与从句／名词性结构间转换；原书的直接依据是附加动作与主动作同一主体，具体同义关系仍由题面与答案共同核对。 3.1.1 第 1 条：人称句中语法主体与逻辑主体一致，且主动作由动词表达时，动名副词可表达附加动作。 3.1.1 规定动名副词／动名副词短语用于 обозначение добавочного действия；主动作与附加动作需由同一主体实施。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL3-Q073": {
+      "exerciseId": "GL3-Q073",
+      "printedNumber": 73,
+      "chapterId": "gl3",
+      "sectionIds": [
+        "3.1",
+        "3.1.1"
+      ],
+      "ruleIds": [
+        "gl3-3.1.1-shared-subject-personal",
+        "gl3-3.1.1-secondary-action"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 51,
+      "exercisePdfPage": 53,
+      "theoryPrintedPages": [
+        108,
+        109,
+        110
+      ],
+      "theoryPdfPages": [
+        110,
+        111,
+        112
+      ],
+      "mappingReason": "题目在动名副词与从句／名词性结构间转换；原书的直接依据是附加动作与主动作同一主体，具体同义关系仍由题面与答案共同核对。 3.1.1 第 1 条：人称句中语法主体与逻辑主体一致，且主动作由动词表达时，动名副词可表达附加动作。 3.1.1 规定动名副词／动名副词短语用于 обозначение добавочного действия；主动作与附加动作需由同一主体实施。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL3-Q074": {
+      "exerciseId": "GL3-Q074",
+      "printedNumber": 74,
+      "chapterId": "gl3",
+      "sectionIds": [
+        "3.1",
+        "3.1.1"
+      ],
+      "ruleIds": [
+        "gl3-3.1.1-shared-subject-personal",
+        "gl3-3.1.1-secondary-action"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 51,
+      "exercisePdfPage": 53,
+      "theoryPrintedPages": [
+        108,
+        109,
+        110
+      ],
+      "theoryPdfPages": [
+        110,
+        111,
+        112
+      ],
+      "mappingReason": "题目在动名副词与从句／名词性结构间转换；原书的直接依据是附加动作与主动作同一主体，具体同义关系仍由题面与答案共同核对。 3.1.1 第 1 条：人称句中语法主体与逻辑主体一致，且主动作由动词表达时，动名副词可表达附加动作。 3.1.1 规定动名副词／动名副词短语用于 обозначение добавочного действия；主动作与附加动作需由同一主体实施。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL3-Q075": {
+      "exerciseId": "GL3-Q075",
+      "printedNumber": 75,
+      "chapterId": "gl3",
+      "sectionIds": [
+        "3.1",
+        "3.1.1"
+      ],
+      "ruleIds": [
+        "gl3-3.1.1-shared-subject-personal",
+        "gl3-3.1.1-secondary-action"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 51,
+      "exercisePdfPage": 53,
+      "theoryPrintedPages": [
+        108,
+        109,
+        110
+      ],
+      "theoryPdfPages": [
+        110,
+        111,
+        112
+      ],
+      "mappingReason": "题目在动名副词与从句／名词性结构间转换；原书的直接依据是附加动作与主动作同一主体，具体同义关系仍由题面与答案共同核对。 3.1.1 第 1 条：人称句中语法主体与逻辑主体一致，且主动作由动词表达时，动名副词可表达附加动作。 3.1.1 规定动名副词／动名副词短语用于 обозначение добавочного действия；主动作与附加动作需由同一主体实施。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL3-Q076": {
+      "exerciseId": "GL3-Q076",
+      "printedNumber": 76,
+      "chapterId": "gl3",
+      "sectionIds": [
+        "3.1",
+        "3.1.1"
+      ],
+      "ruleIds": [
+        "gl3-3.1.1-shared-subject-personal",
+        "gl3-3.1.1-secondary-action"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 51,
+      "exercisePdfPage": 53,
+      "theoryPrintedPages": [
+        108,
+        109,
+        110
+      ],
+      "theoryPdfPages": [
+        110,
+        111,
+        112
+      ],
+      "mappingReason": "题目在动名副词与从句／名词性结构间转换；原书的直接依据是附加动作与主动作同一主体，具体同义关系仍由题面与答案共同核对。 3.1.1 第 1 条：人称句中语法主体与逻辑主体一致，且主动作由动词表达时，动名副词可表达附加动作。 3.1.1 规定动名副词／动名副词短语用于 обозначение добавочного действия；主动作与附加动作需由同一主体实施。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL3-Q077": {
+      "exerciseId": "GL3-Q077",
+      "printedNumber": 77,
+      "chapterId": "gl3",
+      "sectionIds": [
+        "3.1",
+        "3.1.1"
+      ],
+      "ruleIds": [
+        "gl3-3.1.1-shared-subject-personal",
+        "gl3-3.1.1-secondary-action"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 51,
+      "exercisePdfPage": 53,
+      "theoryPrintedPages": [
+        108,
+        109,
+        110
+      ],
+      "theoryPdfPages": [
+        110,
+        111,
+        112
+      ],
+      "mappingReason": "题目在动名副词与从句／名词性结构间转换；原书的直接依据是附加动作与主动作同一主体，具体同义关系仍由题面与答案共同核对。 3.1.1 第 1 条：人称句中语法主体与逻辑主体一致，且主动作由动词表达时，动名副词可表达附加动作。 3.1.1 规定动名副词／动名副词短语用于 обозначение добавочного действия；主动作与附加动作需由同一主体实施。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL3-Q078": {
+      "exerciseId": "GL3-Q078",
+      "printedNumber": 78,
+      "chapterId": "gl3",
+      "sectionIds": [
+        "3.1",
+        "3.1.1"
+      ],
+      "ruleIds": [
+        "gl3-3.1.1-shared-subject-personal",
+        "gl3-3.1.1-secondary-action"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 52,
+      "exercisePdfPage": 54,
+      "theoryPrintedPages": [
+        108,
+        109,
+        110
+      ],
+      "theoryPdfPages": [
+        110,
+        111,
+        112
+      ],
+      "mappingReason": "题目在动名副词与从句／名词性结构间转换；原书的直接依据是附加动作与主动作同一主体，具体同义关系仍由题面与答案共同核对。 3.1.1 第 1 条：人称句中语法主体与逻辑主体一致，且主动作由动词表达时，动名副词可表达附加动作。 3.1.1 规定动名副词／动名副词短语用于 обозначение добавочного действия；主动作与附加动作需由同一主体实施。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL3-Q079": {
+      "exerciseId": "GL3-Q079",
+      "printedNumber": 79,
+      "chapterId": "gl3",
+      "sectionIds": [
+        "3.1",
+        "3.1.1"
+      ],
+      "ruleIds": [
+        "gl3-3.1.1-shared-subject-personal",
+        "gl3-3.1.1-secondary-action"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 52,
+      "exercisePdfPage": 54,
+      "theoryPrintedPages": [
+        108,
+        109,
+        110
+      ],
+      "theoryPdfPages": [
+        110,
+        111,
+        112
+      ],
+      "mappingReason": "题目在动名副词与从句／名词性结构间转换；原书的直接依据是附加动作与主动作同一主体，具体同义关系仍由题面与答案共同核对。 3.1.1 第 1 条：人称句中语法主体与逻辑主体一致，且主动作由动词表达时，动名副词可表达附加动作。 3.1.1 规定动名副词／动名副词短语用于 обозначение добавочного действия；主动作与附加动作需由同一主体实施。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL3-Q080": {
+      "exerciseId": "GL3-Q080",
+      "printedNumber": 80,
+      "chapterId": "gl3",
+      "sectionIds": [
+        "3.1",
+        "3.1.1"
+      ],
+      "ruleIds": [
+        "gl3-3.1.1-shared-subject-personal",
+        "gl3-3.1.1-secondary-action"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 52,
+      "exercisePdfPage": 54,
+      "theoryPrintedPages": [
+        108,
+        109,
+        110
+      ],
+      "theoryPdfPages": [
+        110,
+        111,
+        112
+      ],
+      "mappingReason": "题目在动名副词与从句／名词性结构间转换；原书的直接依据是附加动作与主动作同一主体，具体同义关系仍由题面与答案共同核对。 3.1.1 第 1 条：人称句中语法主体与逻辑主体一致，且主动作由动词表达时，动名副词可表达附加动作。 3.1.1 规定动名副词／动名副词短语用于 обозначение добавочного действия；主动作与附加动作需由同一主体实施。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL3-Q081": {
+      "exerciseId": "GL3-Q081",
+      "printedNumber": 81,
+      "chapterId": "gl3",
+      "sectionIds": [
+        "3.1",
+        "3.1.1"
+      ],
+      "ruleIds": [
+        "gl3-3.1.1-shared-subject-personal",
+        "gl3-3.1.1-secondary-action"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 52,
+      "exercisePdfPage": 54,
+      "theoryPrintedPages": [
+        108,
+        109,
+        110
+      ],
+      "theoryPdfPages": [
+        110,
+        111,
+        112
+      ],
+      "mappingReason": "题目在动名副词与从句／名词性结构间转换；原书的直接依据是附加动作与主动作同一主体，具体同义关系仍由题面与答案共同核对。 3.1.1 第 1 条：人称句中语法主体与逻辑主体一致，且主动作由动词表达时，动名副词可表达附加动作。 3.1.1 规定动名副词／动名副词短语用于 обозначение добавочного действия；主动作与附加动作需由同一主体实施。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL3-Q082": {
+      "exerciseId": "GL3-Q082",
+      "printedNumber": 82,
+      "chapterId": "gl3",
+      "sectionIds": [
+        "3.1",
+        "3.1.1"
+      ],
+      "ruleIds": [
+        "gl3-3.1.1-shared-subject-personal",
+        "gl3-3.1.1-secondary-action"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 52,
+      "exercisePdfPage": 54,
+      "theoryPrintedPages": [
+        108,
+        109,
+        110
+      ],
+      "theoryPdfPages": [
+        110,
+        111,
+        112
+      ],
+      "mappingReason": "题目在动名副词与从句／名词性结构间转换；原书的直接依据是附加动作与主动作同一主体，具体同义关系仍由题面与答案共同核对。 3.1.1 第 1 条：人称句中语法主体与逻辑主体一致，且主动作由动词表达时，动名副词可表达附加动作。 3.1.1 规定动名副词／动名副词短语用于 обозначение добавочного действия；主动作与附加动作需由同一主体实施。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL3-Q083": {
+      "exerciseId": "GL3-Q083",
+      "printedNumber": 83,
+      "chapterId": "gl3",
+      "sectionIds": [
+        "3.1",
+        "3.1.1"
+      ],
+      "ruleIds": [
+        "gl3-3.1.1-shared-subject-personal",
+        "gl3-3.1.1-secondary-action"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 52,
+      "exercisePdfPage": 54,
+      "theoryPrintedPages": [
+        108,
+        109,
+        110
+      ],
+      "theoryPdfPages": [
+        110,
+        111,
+        112
+      ],
+      "mappingReason": "题目在动名副词与从句／名词性结构间转换；原书的直接依据是附加动作与主动作同一主体，具体同义关系仍由题面与答案共同核对。 3.1.1 第 1 条：人称句中语法主体与逻辑主体一致，且主动作由动词表达时，动名副词可表达附加动作。 3.1.1 规定动名副词／动名副词短语用于 обозначение добавочного действия；主动作与附加动作需由同一主体实施。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL3-Q084": {
+      "exerciseId": "GL3-Q084",
+      "printedNumber": 84,
+      "chapterId": "gl3",
+      "sectionIds": [
+        "3.1",
+        "3.1.1"
+      ],
+      "ruleIds": [
+        "gl3-3.1.1-shared-subject-personal",
+        "gl3-3.1.1-secondary-action"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 52,
+      "exercisePdfPage": 54,
+      "theoryPrintedPages": [
+        108,
+        109,
+        110
+      ],
+      "theoryPdfPages": [
+        110,
+        111,
+        112
+      ],
+      "mappingReason": "题目在动名副词与从句／名词性结构间转换；原书的直接依据是附加动作与主动作同一主体，具体同义关系仍由题面与答案共同核对。 3.1.1 第 1 条：人称句中语法主体与逻辑主体一致，且主动作由动词表达时，动名副词可表达附加动作。 3.1.1 规定动名副词／动名副词短语用于 обозначение добавочного действия；主动作与附加动作需由同一主体实施。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL3-Q085": {
+      "exerciseId": "GL3-Q085",
+      "printedNumber": 85,
+      "chapterId": "gl3",
+      "sectionIds": [
+        "3.1",
+        "3.1.1"
+      ],
+      "ruleIds": [
+        "gl3-3.1.1-shared-subject-personal",
+        "gl3-3.1.1-secondary-action"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 52,
+      "exercisePdfPage": 54,
+      "theoryPrintedPages": [
+        108,
+        109,
+        110
+      ],
+      "theoryPdfPages": [
+        110,
+        111,
+        112
+      ],
+      "mappingReason": "题目在动名副词与从句／名词性结构间转换；原书的直接依据是附加动作与主动作同一主体，具体同义关系仍由题面与答案共同核对。 3.1.1 第 1 条：人称句中语法主体与逻辑主体一致，且主动作由动词表达时，动名副词可表达附加动作。 3.1.1 规定动名副词／动名副词短语用于 обозначение добавочного действия；主动作与附加动作需由同一主体实施。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL3-Q086": {
+      "exerciseId": "GL3-Q086",
+      "printedNumber": 86,
+      "chapterId": "gl3",
+      "sectionIds": [
+        "3.1"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 53,
+      "exercisePdfPage": 55,
+      "theoryPrintedPages": [
+        108
+      ],
+      "theoryPdfPages": [
+        110
+      ],
+      "mappingReason": "узнанные 是参与式定语；当前理论区无参与式语义问句规则。",
+      "reviewStatus": "needs-review"
+    },
+    "GL3-Q087": {
+      "exerciseId": "GL3-Q087",
+      "printedNumber": 87,
+      "chapterId": "gl3",
+      "sectionIds": [
+        "3.1"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 53,
+      "exercisePdfPage": 55,
+      "theoryPrintedPages": [
+        108
+      ],
+      "theoryPdfPages": [
+        110
+      ],
+      "mappingReason": "не зарабатывая 位于含两个不同主体的条件复句中，题目考查语义问句而非原书说明的规范使用条件；不从答案倒推规则。",
+      "reviewStatus": "needs-review"
+    },
+    "GL3-Q088": {
+      "exerciseId": "GL3-Q088",
+      "printedNumber": 88,
+      "chapterId": "gl3",
+      "sectionIds": [
+        "3.1"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 53,
+      "exercisePdfPage": 55,
+      "theoryPrintedPages": [
+        108
+      ],
+      "theoryPdfPages": [
+        110
+      ],
+      "mappingReason": "несущимися 是参与式定语；当前理论区无参与式语义问句规则。",
+      "reviewStatus": "needs-review"
+    },
+    "GL3-Q089": {
+      "exerciseId": "GL3-Q089",
+      "printedNumber": 89,
+      "chapterId": "gl3",
+      "sectionIds": [
+        "3.1"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 53,
+      "exercisePdfPage": 55,
+      "theoryPrintedPages": [
+        108
+      ],
+      "theoryPdfPages": [
+        110
+      ],
+      "mappingReason": "наполненный 是参与式定语；当前理论区无参与式语义问句规则。",
+      "reviewStatus": "needs-review"
+    },
+    "GL3-Q090": {
+      "exerciseId": "GL3-Q090",
+      "printedNumber": 90,
+      "chapterId": "gl3",
+      "sectionIds": [
+        "3.1",
+        "3.1.1"
+      ],
+      "ruleIds": [
+        "gl3-3.1.1-shared-subject-personal",
+        "gl3-3.1.1-secondary-action"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 53,
+      "exercisePdfPage": 55,
+      "theoryPrintedPages": [
+        108,
+        109,
+        110
+      ],
+      "theoryPdfPages": [
+        110,
+        111,
+        112
+      ],
+      "mappingReason": "мячики прыгали，отбрасывая тени；动名副词表示同一主体的附加动作。 3.1.1 第 1 条：人称句中语法主体与逻辑主体一致，且主动作由动词表达时，动名副词可表达附加动作。 3.1.1 规定动名副词／动名副词短语用于 обозначение добавочного действия；主动作与附加动作需由同一主体实施。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL3-Q091": {
+      "exerciseId": "GL3-Q091",
+      "printedNumber": 91,
+      "chapterId": "gl3",
+      "sectionIds": [
+        "3.1",
+        "3.1.1"
+      ],
+      "ruleIds": [
+        "gl3-3.1.1-shared-subject-personal",
+        "gl3-3.1.1-secondary-action"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 53,
+      "exercisePdfPage": 55,
+      "theoryPrintedPages": [
+        108,
+        109,
+        110
+      ],
+      "theoryPdfPages": [
+        110,
+        111,
+        112
+      ],
+      "mappingReason": "Он ушёл，кивая、подмигивая、зная...；所有附加动作与主句主体 он 一致。 3.1.1 第 1 条：人称句中语法主体与逻辑主体一致，且主动作由动词表达时，动名副词可表达附加动作。 3.1.1 规定动名副词／动名副词短语用于 обозначение добавочного действия；主动作与附加动作需由同一主体实施。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL3-Q092": {
+      "exerciseId": "GL3-Q092",
+      "printedNumber": 92,
+      "chapterId": "gl3",
+      "sectionIds": [
+        "3.1"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 54,
+      "exercisePdfPage": 56,
+      "theoryPrintedPages": [
+        108
+      ],
+      "theoryPdfPages": [
+        110
+      ],
+      "mappingReason": "спрятанные 是参与式定语；当前理论区无参与式语义问句规则。",
+      "reviewStatus": "needs-review"
+    },
+    "GL3-Q093": {
+      "exerciseId": "GL3-Q093",
+      "printedNumber": 93,
+      "chapterId": "gl3",
+      "sectionIds": [
+        "3.1",
+        "3.1.1"
+      ],
+      "ruleIds": [
+        "gl3-3.1.1-shared-subject-personal",
+        "gl3-3.1.1-secondary-action"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 54,
+      "exercisePdfPage": 56,
+      "theoryPrintedPages": [
+        108,
+        109,
+        110
+      ],
+      "theoryPdfPages": [
+        110,
+        111,
+        112
+      ],
+      "mappingReason": "кошка сидела，лениво позёвывая；同一主体的附加动作。 3.1.1 第 1 条：人称句中语法主体与逻辑主体一致，且主动作由动词表达时，动名副词可表达附加动作。 3.1.1 规定动名副词／动名副词短语用于 обозначение добавочного действия；主动作与附加动作需由同一主体实施。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL3-Q094": {
+      "exerciseId": "GL3-Q094",
+      "printedNumber": 94,
+      "chapterId": "gl3",
+      "sectionIds": [
+        "3.1"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 54,
+      "exercisePdfPage": 56,
+      "theoryPrintedPages": [
+        108
+      ],
+      "theoryPdfPages": [
+        110
+      ],
+      "mappingReason": "пахнущем 是参与式定语；当前理论区无参与式语义问句规则。",
+      "reviewStatus": "needs-review"
+    },
+    "GL3-Q095": {
+      "exerciseId": "GL3-Q095",
+      "printedNumber": 95,
+      "chapterId": "gl3",
+      "sectionIds": [
+        "3.1"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 54,
+      "exercisePdfPage": 56,
+      "theoryPrintedPages": [
+        108
+      ],
+      "theoryPdfPages": [
+        110
+      ],
+      "mappingReason": "нашедшие 是参与式定语；当前理论区无参与式语义问句规则。",
+      "reviewStatus": "needs-review"
+    },
+    "GL3-Q096": {
+      "exerciseId": "GL3-Q096",
+      "printedNumber": 96,
+      "chapterId": "gl3",
+      "sectionIds": [
+        "3.1"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 54,
+      "exercisePdfPage": 56,
+      "theoryPrintedPages": [
+        108
+      ],
+      "theoryPdfPages": [
+        110
+      ],
+      "mappingReason": "анализирующие 是参与式定语；当前理论区无参与式语义问句规则。",
+      "reviewStatus": "needs-review"
+    },
+    "GL3-Q097": {
+      "exerciseId": "GL3-Q097",
+      "printedNumber": 97,
+      "chapterId": "gl3",
+      "sectionIds": [
+        "3.1"
+      ],
+      "ruleIds": [],
+      "candidateRuleIds": [],
+      "status": "source-exercise-only",
+      "exercisePrintedPage": 54,
+      "exercisePdfPage": 56,
+      "theoryPrintedPages": [
+        108
+      ],
+      "theoryPdfPages": [
+        110
+      ],
+      "mappingReason": "завёрнутые 是参与式定语；当前理论区无参与式语义问句规则。",
+      "reviewStatus": "needs-review"
+    },
+    "GL3-Q098": {
+      "exerciseId": "GL3-Q098",
+      "printedNumber": 98,
+      "chapterId": "gl3",
+      "sectionIds": [
+        "3.1",
+        "3.1.1"
+      ],
+      "ruleIds": [
+        "gl3-3.1.1-shared-subject-personal",
+        "gl3-3.1.1-secondary-action"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 54,
+      "exercisePdfPage": 56,
+      "theoryPrintedPages": [
+        108,
+        109,
+        110
+      ],
+      "theoryPdfPages": [
+        110,
+        111,
+        112
+      ],
+      "mappingReason": "мама шла，толкая коляску；两项动作由 мама 实施。 3.1.1 第 1 条：人称句中语法主体与逻辑主体一致，且主动作由动词表达时，动名副词可表达附加动作。 3.1.1 规定动名副词／动名副词短语用于 обозначение добавочного действия；主动作与附加动作需由同一主体实施。",
+      "reviewStatus": "source-and-pdf-checked"
+    },
+    "GL3-Q099": {
+      "exerciseId": "GL3-Q099",
+      "printedNumber": 99,
+      "chapterId": "gl3",
+      "sectionIds": [
+        "3.1",
+        "3.1.1"
+      ],
+      "ruleIds": [
+        "gl3-3.1.1-impersonal-single-logical-subject",
+        "gl3-3.1.1-secondary-action"
+      ],
+      "candidateRuleIds": [],
+      "status": "mapped",
+      "exercisePrintedPage": 55,
+      "exercisePdfPage": 57,
+      "theoryPrintedPages": [
+        108,
+        109,
+        110
+      ],
+      "theoryPdfPages": [
+        110,
+        111,
+        112
+      ],
+      "mappingReason": "Неплохо провести отпуск，нежась、купаясь、выбираясь...；主动作不定式与附加动作指向同一隐含休假者，归入原书的单一逻辑主体范围。 3.1.1 第 2 条：无主句若主动作与附加动作按逻辑由同一人实施，动名副词符合规范；原书列出带不定式的 безличные глаголы、谓词副词和情态词。 3.1.1 规定动名副词／动名副词短语用于 обозначение добавочного действия；主动作与附加动作需由同一主体实施。",
+      "reviewStatus": "source-and-pdf-checked"
+    }
+  }
+}

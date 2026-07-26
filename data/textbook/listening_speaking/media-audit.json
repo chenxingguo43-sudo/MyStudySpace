@@ -1,0 +1,14 @@
+{
+  "status": "rejected",
+  "verifiedAt": "2026-07-26",
+  "expectedCollection": "В мире людей. Выпуск 2. Аудирование. Говорение",
+  "actualCollection": "Учебно-тренировочные тесты по русскому языку как иностранному. Выпуск 4. Аудирование. Говорение",
+  "fileRange": "media/01.mp3-media/78.mp3",
+  "evidence": [
+    "Track 01 is the audio collection introduction, not Диалог 1.1.1.",
+    "Track 02 begins with Задание второе and discusses a monkey using a computer game.",
+    "Track 03 begins with Задание третье and contains unrelated news items.",
+    "Tracks 01 and 78 share the same 2012 album metadata for Выпуск 4."
+  ],
+  "action": "Do not bind this collection to listening_speaking chapters. Restore playback only after the correct companion audio is verified against textbook transcripts."
+}

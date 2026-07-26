@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>点词查义交互预览</title>
+  <style>
+    :root {
+      --bg: #020617;
+      --panel: #0f172a;
+      --panel-raised: #131e35;
+      --line: rgba(226, 232, 240, 0.12);
+      --line-soft: rgba(226, 232, 240, 0.08);
+      --text: #e8eefb;
+      --muted: #9ba8c1;
+      --dim: #71809d;
+      --accent: #818cf8;
+      --accent-soft: rgba(129, 140, 248, 0.18);
+      --accent-border: rgba(165, 180, 252, 0.42);
+      --gold: #f5c76d;
+      --success: #5ee0b5;
+      --radius: 16px;
+      --shadow: 0 22px 52px rgba(0, 0, 0, 0.38);
+    }
+
+    * { box-sizing: border-box; }
+    html { background: var(--bg); }
+    body {
+      min-height: 100dvh;
+      margin: 0;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 9% 4%, rgba(79, 70, 229, 0.20), transparent 26rem),
+        radial-gradient(circle at 94% 12%, rgba(30, 64, 175, 0.15), transparent 24rem),
+        var(--bg);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", sans-serif;
+    }
+
+    button { font: inherit; }
+    .page { width: min(1420px, calc(100% - 32px)); margin: 0 auto; padding: 34px 0 46px; }
+    .topbar { display: flex; align-items: center; justify-content: space-between; gap: 22px; margin-bottom: 26px; }
+    .title-kicker { color: var(--accent); font-size: 12px; font-weight: 750; letter-spacing: 0.1em; }
+    h1 { margin: 6px 0 0; font-size: clamp(24px, 3vw, 38px); letter-spacing: -0.045em; line-height: 1.08; }
+    .lede { max-width: 650px; margin: 11px 0 0; color: var(--muted); font-size: 15px; line-height: 1.65; }
+
+    .view-switch { display: inline-flex; padding: 4px; border: 1px solid var(--line); border-radius: 12px; background: rgba(15, 23, 42, 0.82); }
+    .view-switch button { min-height: 40px; padding: 0 15px; border: 0; border-radius: 8px; color: var(--muted); background: transparent; cursor: pointer; }
+    .view-switch button[aria-pressed="true"] { color: #fff; background: var(--accent); box-shadow: 0 6px 18px rgba(79, 70, 229, 0.35); }
+    button:focus-visible { outline: 3px solid rgba(165, 180, 252, 0.72); outline-offset: 3px; }
+
+    .design-note { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 20px; padding: 13px 15px; border: 1px solid var(--line-soft); border-radius: 12px; color: var(--muted); background: rgba(15, 23, 42, 0.64); font-size: 13px; line-height: 1.55; }
+    .design-note strong { color: #dbe5ff; font-weight: 700; }
+    .note-marker { width: 8px; height: 8px; flex: 0 0 auto; margin-top: 6px; border-radius: 50%; background: var(--success); box-shadow: 0 0 0 4px rgba(94, 224, 181, 0.12); }
+
+    .preview-wrap { display: grid; place-items: center; min-height: 720px; }
+    .device { position: relative; overflow: hidden; border: 1px solid rgba(226, 232, 240, 0.16); border-radius: 22px; background: #0a1122; box-shadow: var(--shadow); transition: width 240ms ease, height 240ms ease, border-radius 240ms ease; }
+    .device.tablet { width: min(100%, 1180px); height: 690px; }
+    .device.mobile { width: min(100%, 410px); height: 785px; border-radius: 34px; border-color: rgba(226, 232, 240, 0.22); }
+
+    .reader-header { height: 58px; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 0 20px; border-bottom: 1px solid var(--line-soft); background: rgba(15, 23, 42, 0.88); }
+    .reader-brand { font-size: 13px; font-weight: 750; letter-spacing: 0.02em; }
+    .reader-brand span { color: var(--accent); }
+    .reader-meta { color: var(--dim); font-size: 12px; }
+    .practice-chip { display: inline-flex; align-items: center; min-height: 30px; padding: 0 10px; border: 1px solid var(--accent-border); border-radius: 999px; color: #dbe5ff; background: var(--accent-soft); font-size: 12px; font-weight: 700; }
+
+    .reader-body { height: calc(100% - 58px); display: grid; grid-template-columns: minmax(0, 3fr) minmax(250px, 1fr); }
+    .article-pane { position: relative; overflow: auto; padding: 44px clamp(30px, 5vw, 78px) 100px; }
+    .chapter { max-width: 750px; }
+    .chapter-label { margin: 0 0 12px; color: var(--accent); font-size: 12px; font-weight: 750; letter-spacing: 0.1em; }
+    .chapter h2 { margin: 0; font-family: Georgia, "Noto Serif", serif; font-size: clamp(27px, 3vw, 43px); line-height: 1.15; letter-spacing: -0.04em; }
+    .chapter .translation { margin: 11px 0 32px; color: var(--muted); font-size: 14px; }
+    .reading-progress { display: flex; align-items: center; gap: 8px; margin: 0 0 28px; color: var(--dim); font-size: 12px; }
+    .reading-progress::before { content: ""; width: 48px; height: 3px; border-radius: 999px; background: var(--accent); }
+    .paragraph { margin: 0 0 20px; color: #e6edf9; font-family: Georgia, "Noto Serif", serif; font-size: 20px; line-height: 1.92; }
+    .translation-line { margin: -10px 0 21px; color: var(--muted); font-size: 14px; line-height: 1.7; }
+
+    .word-token { position: relative; display: inline; padding: 0 2px; border: 0; border-radius: 4px; color: inherit; background: transparent; font-family: inherit; font-size: inherit; cursor: pointer; transition: color 160ms ease, background 160ms ease; }
+    .word-token:hover, .word-token:focus-visible, .word-token.is-active { color: #fff3d4; background: rgba(245, 199, 109, 0.19); outline: none; }
+    .word-token.is-active::after { content: ""; position: absolute; right: 3px; bottom: -3px; left: 3px; height: 2px; border-radius: 2px; background: var(--gold); }
+
+    .question-pane { overflow: auto; padding: 22px 16px 28px; border-left: 1px solid var(--line); background: rgba(15, 23, 42, 0.70); }
+    .pane-eyebrow { margin: 0 0 6px; color: var(--accent); font-size: 11px; font-weight: 750; letter-spacing: 0.09em; }
+    .question-pane h3 { margin: 0 0 18px; font-size: 17px; letter-spacing: -0.02em; }
+    .question { margin: 0 0 12px; padding: 14px; border: 1px solid var(--line); border-radius: 12px; background: rgba(2, 6, 23, 0.28); }
+    .question.active { border-color: var(--accent-border); background: rgba(99, 102, 241, 0.10); }
+    .question-number { color: var(--accent); font-size: 11px; font-weight: 800; }
+    .question-title { margin: 6px 0 10px; color: #dce6fa; font-size: 13px; line-height: 1.55; }
+    .answer-row { display: flex; align-items: center; gap: 7px; min-height: 28px; color: var(--muted); font-size: 12px; }
+    .answer-key { display: grid; width: 18px; height: 18px; place-items: center; border: 1px solid var(--line); border-radius: 50%; color: var(--dim); font-size: 10px; }
+    .answer-row.selected { color: #e8eeff; }
+    .answer-row.selected .answer-key { border-color: var(--accent); color: white; background: var(--accent); }
+
+    .word-card { position: absolute; z-index: 5; width: min(318px, calc(100% - 44px)); padding: 16px; border: 1px solid var(--accent-border); border-radius: var(--radius); background: rgba(19, 30, 53, 0.98); box-shadow: 0 18px 44px rgba(0, 0, 0, 0.48); animation: card-in 180ms ease-out; }
+    .tablet-card { top: 205px; left: min(42%, 385px); }
+    .card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+    .card-word { margin: 0; color: #fff; font-family: Georgia, "Noto Serif", serif; font-size: 28px; line-height: 1.1; }
+    .card-sound { display: block; margin-top: 3px; color: var(--muted); font-size: 12px; }
+    .card-close { width: 32px; height: 32px; border: 1px solid var(--line); border-radius: 10px; color: var(--muted); background: transparent; cursor: pointer; font-size: 18px; line-height: 1; }
+    .card-close:hover { color: #fff; background: rgba(255, 255, 255, 0.07); }
+    .card-tag { display: inline-flex; align-items: center; min-height: 23px; margin-top: 12px; padding: 0 8px; border-radius: 999px; color: #d8e0ff; background: var(--accent-soft); font-size: 11px; font-weight: 750; }
+    .card-meaning { margin: 10px 0 0; color: #f0f4ff; font-size: 17px; font-weight: 700; }
+    .card-detail { margin: 6px 0 0; color: var(--muted); font-size: 13px; line-height: 1.58; }
+    .card-example { margin: 14px 0 0; padding: 11px 12px; border-left: 2px solid var(--gold); border-radius: 0 9px 9px 0; color: #ccd6eb; background: rgba(2, 6, 23, 0.28); font-family: Georgia, "Noto Serif", serif; font-size: 13px; line-height: 1.58; }
+    .card-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 14px; }
+    .card-actions button { min-height: 38px; border: 1px solid var(--line); border-radius: 10px; color: #dce6fb; background: rgba(255, 255, 255, 0.04); cursor: pointer; font-size: 12px; }
+    .card-actions button.primary { border-color: transparent; color: #fff; background: var(--accent); }
+    .card-actions button:hover { filter: brightness(1.09); }
+
+    .mobile-sheet { display: none; }
+    .mobile-reading-label { display: none; }
+    .device.mobile .reader-header { padding: 0 16px; }
+    .device.mobile .reader-meta { display: none; }
+    .device.mobile .reader-body { display: block; height: calc(100% - 58px); }
+    .device.mobile .article-pane { height: 100%; padding: 31px 22px 310px; }
+    .device.mobile .chapter h2 { font-size: 29px; }
+    .device.mobile .chapter .translation { margin-bottom: 22px; }
+    .device.mobile .paragraph { font-size: 18px; line-height: 1.86; }
+    .device.mobile .translation-line { font-size: 13px; }
+    .device.mobile .question-pane, .device.mobile .tablet-card { display: none; }
+    .device.mobile .mobile-reading-label { display: inline-flex; margin: 0 0 13px; color: var(--dim); font-size: 12px; }
+    .device.mobile .mobile-sheet { position: absolute; z-index: 8; right: 0; bottom: 0; left: 0; display: block; min-height: 286px; padding: 10px 20px max(22px, env(safe-area-inset-bottom)); border-top: 1px solid var(--accent-border); border-radius: 24px 24px 0 0; background: rgba(15, 23, 42, 0.99); box-shadow: 0 -18px 40px rgba(0, 0, 0, 0.38); animation: sheet-in 200ms ease-out; }
+    .sheet-handle { width: 38px; height: 4px; margin: 0 auto 15px; border-radius: 999px; background: rgba(226, 232, 240, 0.30); }
+    .device.mobile .mobile-sheet .word-card { position: static; width: 100%; padding: 0; border: 0; border-radius: 0; background: transparent; box-shadow: none; animation: none; }
+    .device.mobile .card-top { align-items: center; }
+    .device.mobile .card-word { font-size: 25px; }
+    .device.mobile .card-example { display: none; }
+    .device.mobile .card-actions { grid-template-columns: 1.15fr 0.85fr; }
+
+    .legend { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px 23px; margin-top: 20px; color: var(--muted); font-size: 13px; }
+    .legend span { display: inline-flex; align-items: center; gap: 7px; }
+    .legend b { width: 9px; height: 9px; border-radius: 50%; background: var(--accent); }
+    .legend span:nth-child(2) b { background: var(--gold); }
+    .legend span:nth-child(3) b { background: var(--success); }
+
+    @keyframes card-in { from { opacity: 0; transform: translateY(8px) scale(0.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
+    @keyframes sheet-in { from { transform: translateY(24px); } to { transform: translateY(0); } }
+    @media (max-width: 700px) {
+      .page { width: min(100% - 20px, 540px); padding-top: 22px; }
+      .topbar { align-items: flex-start; flex-direction: column; margin-bottom: 18px; }
+      .view-switch { width: 100%; }
+      .view-switch button { flex: 1; }
+      .preview-wrap { min-height: auto; }
+      .device.tablet { width: 100%; height: 720px; }
+      .device.tablet .reader-body { display: block; }
+      .device.tablet .question-pane { display: none; }
+      .device.tablet .article-pane { height: 100%; padding: 31px 22px 320px; }
+      .device.tablet .tablet-card { top: auto; right: 15px; bottom: 15px; left: 15px; width: auto; }
+    }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 1ms !important; transition-duration: 1ms !important; } }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="topbar">
+      <div>
+        <div class="title-kicker">阅读器交互预览</div>
+        <h1>点词后，单词卡应该怎样出现？</h1>
+        <p class="lede">同一张词卡在平板上贴近被点击的词，在手机上从底部弹出。右侧位置留给练习题，不再长期占用给词卡。</p>
+      </div>
+      <div class="view-switch" role="group" aria-label="选择设备预览">
+        <button type="button" data-view="tablet" aria-pressed="true">平板浮窗</button>
+        <button type="button" data-view="mobile" aria-pressed="false">手机底部卡</button>
+      </div>
+    </header>
+
+    <div class="design-note"><span class="note-marker" aria-hidden="true"></span><span><strong>请直接点原文中高亮的俄语词。</strong> 平板会显示就近的小浮窗，手机会保留原文位置并唤起底部词卡。</span></div>
+
+    <section class="preview-wrap" aria-label="点击单词卡交互预览">
+      <div class="device tablet" id="devicePreview">
+        <div class="reader-header">
+          <div class="reader-brand"><span>Р</span> 俄语阅读舱</div>
+          <div class="reader-meta">第 2 篇 · 攀岩者与自然保护区</div>
+          <span class="practice-chip">练习 2 / 5</span>
+        </div>
+        <div class="reader-body">
+          <article class="article-pane">
+            <div class="chapter">
+              <p class="chapter-label">ЧТЕНИЕ · B2</p>
+              <h2>Скалолаз в заповеднике</h2>
+              <p class="translation">攀岩者在自然保护区</p>
+              <div class="mobile-reading-label">轻触带下划线的词查看释义</div>
+              <div class="reading-progress">阅读进度 42%</div>
+              <p class="paragraph">Однажды молодой <button class="word-token" type="button" data-word="скалолаз">скалолаз</button> приехал в горный <button class="word-token is-active" type="button" data-word="заповедник">заповедник</button>. Он хотел подняться на вершину, но сначала внимательно прочитал правила поведения на этой территории.</p>
+              <p class="translation-line">一天，一位年轻的攀岩者来到山区自然保护区。他想登上山顶，但先认真阅读了在这片区域活动的规则。</p>
+              <p class="paragraph">Сотрудник объяснил, что редкие птицы строят гнёзда на скалах. Поэтому посетителям нельзя шуметь, оставлять мусор или сходить с обозначенной тропы.</p>
+              <p class="translation-line">工作人员解释说，稀有鸟类会在岩石上筑巢。因此游客不能喧哗、乱丢垃圾，也不能离开标记好的步道。</p>
+              <p class="paragraph">Скалолаз согласился: для него важнее сохранить природу, чем выбрать самый короткий путь к вершине.</p>
+              <p class="translation-line">攀岩者同意了：对他来说，保护自然比选择最快到达山顶的路线更重要。</p>
+            </div>
+
+            <aside class="word-card tablet-card" id="tabletCard" aria-live="polite">
+              <div class="card-top">
+                <div>
+                  <h3 class="card-word" data-card="word">заповедник</h3>
+                  <span class="card-sound" data-card="sound">[ zapavʲédnʲik ]</span>
+                </div>
+                <button class="card-close" type="button" aria-label="关闭词卡">×</button>
+              </div>
+              <span class="card-tag" data-card="pos">名词 · 阳性</span>
+              <p class="card-meaning" data-card="meaning">自然保护区</p>
+              <p class="card-detail" data-card="detail">重点记忆：受保护的自然区域，不是普通公园。</p>
+              <p class="card-example" data-card="example">В этом заповеднике живут редкие птицы.</p>
+              <div class="card-actions">
+                <button class="primary" type="button">加入生词本</button>
+                <button type="button">查看例句</button>
+              </div>
+            </aside>
+          </article>
+
+          <aside class="question-pane" aria-label="练习题">
+            <p class="pane-eyebrow">练习题</p>
+            <h3>边读边答</h3>
+            <section class="question active">
+              <div class="question-number">01</div>
+              <p class="question-title">攀岩者为什么先阅读规则？</p>
+              <div class="answer-row"><span class="answer-key">A</span>他迷路了</div>
+              <div class="answer-row selected"><span class="answer-key">B</span>他要进入保护区</div>
+              <div class="answer-row"><span class="answer-key">C</span>他在找同伴</div>
+            </section>
+            <section class="question">
+              <div class="question-number">02</div>
+              <p class="question-title">文中不允许的行为是什么？</p>
+              <div class="answer-row"><span class="answer-key">A</span>走指定步道</div>
+              <div class="answer-row"><span class="answer-key">B</span>观察鸟类</div>
+              <div class="answer-row"><span class="answer-key">C</span>制造噪音</div>
+            </section>
+            <section class="question">
+              <div class="question-number">03</div>
+              <p class="question-title">作者想强调什么？</p>
+              <div class="answer-row"><span class="answer-key">A</span>尊重自然规则</div>
+              <div class="answer-row"><span class="answer-key">B</span>快速登顶</div>
+            </section>
+          </aside>
+        </div>
+
+        <section class="mobile-sheet" aria-label="手机单词卡">
+          <div class="sheet-handle" aria-hidden="true"></div>
+          <div class="word-card" id="mobileCard" aria-live="polite">
+            <div class="card-top">
+              <div>
+                <h3 class="card-word" data-card="word">заповедник</h3>
+                <span class="card-sound" data-card="sound">[ zapavʲédnʲik ]</span>
+              </div>
+              <button class="card-close" type="button" aria-label="关闭词卡">×</button>
+            </div>
+            <span class="card-tag" data-card="pos">名词 · 阳性</span>
+            <p class="card-meaning" data-card="meaning">自然保护区</p>
+            <p class="card-detail" data-card="detail">重点记忆：受保护的自然区域，不是普通公园。</p>
+            <p class="card-example" data-card="example">В этом заповеднике живут редкие птицы.</p>
+            <div class="card-actions">
+              <button class="primary" type="button">加入生词本</button>
+              <button type="button">收起</button>
+            </div>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <div class="legend" aria-label="预览说明">
+      <span><b></b>紫色代表当前练习状态</span>
+      <span><b></b>金色下划线代表刚刚查过的词</span>
+      <span><b></b>词卡只在需要时出现</span>
+    </div>
+  </main>
+
+  <script>
+    (function () {
+      var entries = {
+        'заповедник': {
+          word: 'заповедник', sound: '[ zapavʲédnʲik ]', pos: '名词 · 阳性', meaning: '自然保护区',
+          detail: '重点记忆：受保护的自然区域，不是普通公园。', example: 'В этом заповеднике живут редкие птицы.'
+        },
+        'скалолаз': {
+          word: 'скалолаз', sound: '[ skalalás ]', pos: '名词 · 阳性', meaning: '攀岩者',
+          detail: '由 скала（岩石）和 лазить（攀爬）构成。', example: 'Скалолаз проверил снаряжение перед подъёмом.'
+        }
+      };
+      var device = document.getElementById('devicePreview');
+      var viewButtons = document.querySelectorAll('[data-view]');
+      var wordButtons = document.querySelectorAll('[data-word]');
+      var closeButtons = document.querySelectorAll('.card-close');
+      var cards = document.querySelectorAll('[data-card]');
+
+      function updateCards(entry) {
+        cards.forEach(function (node) { node.textContent = entry[node.getAttribute('data-card')]; });
+      }
+
+      function selectWord(button) {
+        wordButtons.forEach(function (node) { node.classList.toggle('is-active', node === button); });
+        updateCards(entries[button.getAttribute('data-word')]);
+      }
+
+      wordButtons.forEach(function (button) { button.addEventListener('click', function () { selectWord(button); }); });
+      viewButtons.forEach(function (button) {
+        button.addEventListener('click', function () {
+          var view = button.getAttribute('data-view');
+          device.classList.toggle('tablet', view === 'tablet');
+          device.classList.toggle('mobile', view === 'mobile');
+          viewButtons.forEach(function (node) { node.setAttribute('aria-pressed', String(node === button)); });
+        });
+      });
+      closeButtons.forEach(function (button) {
+        button.addEventListener('click', function () {
+          var parent = button.closest('.word-card');
+          if (parent) parent.style.visibility = 'hidden';
+        });
+      });
+      wordButtons.forEach(function (button) {
+        button.addEventListener('click', function () {
+          document.querySelectorAll('.word-card').forEach(function (card) { card.style.visibility = 'visible'; });
+        });
+      });
+    }());
+  </script>
+</body>
+</html>

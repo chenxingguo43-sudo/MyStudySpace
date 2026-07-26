@@ -44,8 +44,8 @@ function alignTranscript(audioTranscript, whisperSegments) {
     var lines = (audioTranscript || '').split(/\n+/).filter(function(l) { return l.trim(); });
     if (!lines.length) return [];
     return lines.map(function(line) {
-      var cueMatch = line.match(/^(.+?)：\s*(.+)/);
-      var content = cueMatch ? cueMatch[2] : line.trim();
+      var cueMatch = line.match(/^(.+?)[：:]\s*(.+)/);
+      var content = cueMatch ? cueMatch[2].replace(/^[—–-]\s*/, '') : line.trim();
       var speakerInfo = parseSpeakerLabel(line);
       return {
         speaker: speakerInfo.speaker,
@@ -67,8 +67,8 @@ function alignTranscript(audioTranscript, whisperSegments) {
   var whisperOffset = 0;
   for (var i = 0; i < lines.length; i++) {
     var line = lines[i].trim();
-    var cueMatch = line.match(/^(.+?)：\s*(.+)/);
-    var content = cueMatch ? cueMatch[2] : line;
+    var cueMatch = line.match(/^(.+?)[：:]\s*(.+)/);
+    var content = cueMatch ? cueMatch[2].replace(/^[—–-]\s*/, '') : line;
     var speakerInfo = parseSpeakerLabel(line);
 
     // Find best matching whisper segment range using word overlap
@@ -107,8 +107,10 @@ function alignTranscript(audioTranscript, whisperSegments) {
       }
     }
 
-    var startTime = whisperSegments[bestStart] ? whisperSegments[bestStart].startTime : 0;
-    var endTime = whisperSegments[bestEnd] ? whisperSegments[bestEnd].endTime : 0;
+    var minimumMatches = contentWords.length <= 2 ? 1 : Math.min(3, Math.ceil(contentWords.length * 0.2));
+    var alignmentAccepted = bestScore >= minimumMatches;
+    var startTime = alignmentAccepted && whisperSegments[bestStart] ? whisperSegments[bestStart].startTime : 0;
+    var endTime = alignmentAccepted && whisperSegments[bestEnd] ? whisperSegments[bestEnd].endTime : 0;
 
     result.push({
       speaker: speakerInfo.speaker,
@@ -119,7 +121,7 @@ function alignTranscript(audioTranscript, whisperSegments) {
     });
 
     // Advance whisper offset for next line
-    whisperOffset = Math.max(whisperOffset, bestEnd);
+    if (alignmentAccepted) whisperOffset = Math.max(whisperOffset, bestEnd);
   }
 
   return result;
@@ -141,7 +143,10 @@ function convertSegment(segment, index) {
     }
   }
 
-  var transcriptSegments = alignTranscript(segment.audioTranscript, whisperSegments);
+  var transcriptSegments = alignTranscript(
+    segment.audioTranscript,
+    segment.mediaStatus === 'source-mismatch' ? [] : whisperSegments
+  );
 
   var chapter = {
     id: segment.id,
@@ -149,7 +154,12 @@ function convertSegment(segment, index) {
     title: segment.title,
     section: segment.section,
     sourcePages: segment.sourcePages || [],
-    media: {
+    media: segment.mediaStatus === 'source-mismatch' ? {
+      provenance: 'unavailable',
+      status: 'source-mismatch',
+      reason: segment.mediaReason || 'The imported audio collection does not match this textbook.',
+      rejectedFile: segment.rejectedMediaFile || segment.mediaFile || ''
+    } : {
       provenance: 'teacher-provided',
       file: segment.mediaFile
     },
@@ -191,4 +201,8 @@ segments.forEach(function(segment, index) {
 });
 
 console.log('\nDone! Generated ' + generated + ' chapter files in ' + OUTPUT_DIR);
-console.log('Run whisper batch to get timestamps: python scripts/batch_transcribe.py');
+if (segments.some(function(segment) { return segment.mediaStatus === 'source-mismatch'; })) {
+  console.log('Correct companion audio must be verified before timestamps can be generated.');
+} else {
+  console.log('Run whisper batch to get timestamps: python scripts/batch_transcribe.py');
+}
