@@ -448,8 +448,11 @@ test('Zlatoust 1.4.1 uses a separate integrated learning page without duplicatin
   assert.match(reader, /renderQuizItem\(exercise, getQuizRecord\(exercise\.id\)\)/);
   assert.match(reader, /function returnToZlatoustRoute\(\)/);
   assert.match(reader, /goChapter\(target\.chapterIndex, \{ scroll: target\.scroll \|\| 0 \}\)/);
-  assert.match(reader, /ZLATOUST_KNOWLEDGE_POINT_SECTIONS = \{ 'gl1:gl1-4-1': '1\.4\.1' \}/);
+  assert.match(reader, /ZLATOUST_KNOWLEDGE_POINT_SECTIONS = \{[\s\S]*?'gl1:gl1-4-1': '1\.4\.1'/);
   assert.match(reader, /function renderZlatoustLearningRoute\(page\)/);
+  assert.match(reader, /function renderZlatoustTransferTasks\(sectionId, tasks\)/);
+  assert.match(reader, /zlatoust-time-gate/);
+  assert.match(reader, /四条防误解提醒/);
   assert.match(reader, /data-zlatoust-learning-route/);
   assert.match(reader, /function getZlatoustLearningStageState\(sectionId, stage, finalStage\)/);
   assert.match(reader, /function toggleZlatoustStageReview\(sectionId, stageId, checked\)/);
@@ -458,6 +461,119 @@ test('Zlatoust 1.4.1 uses a separate integrated learning page without duplicatin
   assert.match(reader, /function renderZlatoustExternalReference\(source, fallbackConclusion\)/);
   assert.match(reader, /来源核验（可选，不影响学习）/);
   assert.match(reader, /外部资料原页（可选核验，无需阅读英文）/);
+  assert.doesNotMatch(reader, /<i>vs<\/i>/);
+});
+
+test('reader keeps appended film listening exercises separate from exam and intensive timelines', () => {
+  assert.match(reader, /片尾听辨/);
+  assert.match(reader, /function hasVerifiedListeningMediaExercise\(data\)/);
+  assert.match(reader, /sourceStatus === 'verified-cleaned-source'/);
+  assert.match(reader, /function renderListeningMediaExercise\(data\)/);
+  assert.match(reader, /hasVerifiedListeningMediaExercise\(data\) \? '<button class="lw-mode/);
+  assert.match(reader, /transcriptSegments: \[\]/);
+  assert.match(reader, /initialTime: isMediaExercise/);
+  assert.match(reader, /教材片尾听辨练习/);
+  assert.match(reader, /整段播放，不提供伪造的逐句跳转/);
+});
+
+test('Zlatoust 1.1 maps both original knowledge cards to one complete agreement learning page', () => {
+  assert.match(reader, /'1\.1': \{ stageCount: 4, exerciseCount: 13 \}/);
+  assert.match(reader, /'gl1:gl1-1-1': '1\.1'/);
+  assert.match(reader, /'gl1:gl1-1-2': '1\.1'/);
+});
+
+test('Zlatoust 1.2 maps its quantity-agreement card to a five-axis learning page', () => {
+  assert.match(reader, /'1\.2': \{ stageCount: 5, exerciseCount: 6 \}/);
+  assert.match(reader, /'gl1:gl1-2': '1\.2'/);
+});
+
+test('Zlatoust 1.3 maps its full-and-short-adjective card to a five-axis learning page', () => {
+  assert.match(reader, /'1\.3': \{ stageCount: 5, exerciseCount: 18 \}/);
+  assert.match(reader, /'gl1:gl1-3': '1\.3'/);
+});
+
+test('Zlatoust 1.5 remains an explicitly supplementary review page and reuses its original exercises', () => {
+  assert.match(reader, /'1\.5-review': \{ chapterId: 'gl1', stageCount: 4, exerciseCount: 19, pageKind: 'supplementary' \}/);
+  assert.match(reader, /'gl1:gl1-5': '1\.5-review'/);
+  assert.match(reader, /教辅综合页（不计入原书 32 个理论小节）/);
+  assert.match(reader, /原书题面依据/);
+});
+
+test('Zlatoust 2.1 loads a five-stage source-table learning page', () => {
+  assert.match(reader, /'2\.1': \{ stageCount: 5, exerciseCount: 22 \}/);
+  assert.match(reader, /var chapterNumber = getZlatoustChapterIndex\(page\.chapterId\) \+ 1/);
+  assert.match(reader, /原书题面依据/);
+});
+
+test('Zlatoust 2.3 loads a five-stage instrumental decision learning page', () => {
+  assert.match(reader, /'2\.3': \{ stageCount: 5, exerciseCount: 12 \}/);
+});
+
+test('Zlatoust 2.4.1 loads its five-stage bare-attribute learning page', () => {
+  assert.match(reader, /'2\.4\.1': \{ stageCount: 5, exerciseCount: 7 \}/);
+});
+
+test('Zlatoust 2.4.2 loads its five-stage prepositional-attribute learning page', () => {
+  assert.match(reader, /'2\.4\.2': \{ stageCount: 5, exerciseCount: 15 \}/);
+});
+
+test('Zlatoust 2.4 loads its independent relationship-routing overview', () => {
+  assert.match(reader, /'2\.4': \{ stageCount: 5, exerciseCount: 21 \}/);
+});
+
+test('Zlatoust 2.5 loads its five-stage time-relation decision learning page', () => {
+  assert.match(reader, /'2\.5': \{ stageCount: 5, exerciseCount: 24 \}/);
+});
+
+test('Zlatoust 2.6 loads its five-stage spatial-question learning page', () => {
+  assert.match(reader, /'2\.6': \{ stageCount: 5, exerciseCount: 17 \}/);
+  assert.match(reader, /page\.timeGate \|\| page\.entryGate/);
+});
+
+test('Zlatoust 2.7 loads its five-stage causal-nature learning page', () => {
+  assert.match(reader, /'2\.7': \{ stageCount: 5, exerciseCount: 15 \}/);
+});
+
+test('Zlatoust 2.8 loads its five-stage purpose-and-evidence learning page', () => {
+  assert.match(reader, /'2\.8': \{ stageCount: 5, exerciseCount: 4 \}/);
+});
+
+test('Zlatoust 1.4.2 is configured as its own negation learning page', () => {
+  assert.match(reader, /'1\.4\.2': \{ stageCount: 3, exerciseCount: 3 \}/);
+  assert.match(reader, /'gl1:gl1-4-2': '1\.4\.2'/);
+  assert.match(reader, /function renderZlatoustLearningMindMap\(page\)/);
+});
+
+test('Zlatoust 1.4.3 is configured with two independent infinitive decision axes', () => {
+  assert.match(reader, /'1\.4\.3': \{ stageCount: 4, exerciseCount: 6 \}/);
+  assert.match(reader, /'gl1:gl1-4-3': '1\.4\.3'/);
+  assert.match(reader, /zlatoust-unit-map-axes-2/);
+});
+
+test('Zlatoust 1.4.4 has an independent lexical-constraint learning card', () => {
+  assert.match(reader, /'1\.4\.4': \{ stageCount: 4, exerciseCount: 13 \}/);
+  assert.match(reader, /'gl1:gl1-4-4-lexical': '1\.4\.4'/);
+  assert.match(reader, /page\.mindMapIntro \|\| '这张图只表示概念关系/);
+});
+
+test('Zlatoust 1.4.5 has an independent нельзя learning card', () => {
+  assert.match(reader, /'1\.4\.5': \{ stageCount: 2, exerciseCount: 4 \}/);
+  assert.match(reader, /'gl1:gl1-4-5-cannot': '1\.4\.5'/);
+});
+
+test('Zlatoust 1.4.6 has an independent negative-infinitive learning card', () => {
+  assert.match(reader, /'1\.4\.6': \{ stageCount: 5, exerciseCount: 18 \}/);
+  assert.match(reader, /'gl1:gl1-4-6-negative-infinitive': '1\.4\.6'/);
+});
+
+test('Zlatoust 1.4.7 has an independent imperative learning card', () => {
+  assert.match(reader, /'1\.4\.7': \{ stageCount: 4, exerciseCount: 6 \}/);
+  assert.match(reader, /'gl1:gl1-4-7-imperative': '1\.4\.7'/);
+});
+
+test('Zlatoust 1.4.8 has an independent negative-imperative learning card', () => {
+  assert.match(reader, /'1\.4\.8': \{ stageCount: 3, exerciseCount: 6 \}/);
+  assert.match(reader, /'gl1:gl1-4-8-negative-imperative': '1\.4\.8'/);
 });
 
 test('Zlatoust learning checks update only their own block and keep targeted feedback', () => {
@@ -550,4 +666,21 @@ test('writing-speaking bookshelf entry has correct metadata', () => {
   assert.equal(wsBook.chapters, 19);
   assert.equal(wsBook.dir, 'writing_speaking');
   assert.equal(wsBook.kind, 'textbook');
+});
+
+test('unavailable listening chapters omit playback controls and name the missing verified media', () => {
+  const playerBody = reader.match(/function renderListeningPlayer\(data, mediaBase\) \{([\s\S]*?)\n\}/);
+  assert.ok(playerBody);
+  assert.match(playerBody[1], /media\.status === 'source-mismatch' \|\| !mediaUrl\) return ''/);
+  assert.match(reader, /尚未找到正确配套媒体/);
+});
+
+test('listening mode switches preserve scroll and restore all supported listening modes', () => {
+  const modeStart = reader.indexOf('function setListeningViewMode(mode)');
+  const modeEnd = reader.indexOf('function openListeningIntensive()', modeStart);
+  const modeBody = reader.slice(modeStart, modeEnd);
+  assert.ok(modeStart >= 0 && modeEnd > modeStart);
+  assert.match(modeBody, /var scrollPosition = window\.scrollY/);
+  assert.match(modeBody, /renderListeningPractice\(currentListeningData, scrollPosition\)/);
+  assert.match(reader, /\['exam', 'intensive', 'media-exercise', 'review', 'quality-review'\]/);
 });

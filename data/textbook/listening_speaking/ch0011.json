@@ -7,11 +7,15 @@
     33,
     34
   ],
+  "mediaStructure": null,
+  "mediaExercise": null,
   "media": {
-    "provenance": "unavailable",
-    "status": "source-mismatch",
-    "reason": "Imported audio belongs to Uchebno-trenirovochnye testy po russkomu iazyku kak inostrannomu. Vypusk 4. Audirovanie. Govorenie, not V mire liudei. Vypusk 2. Audirovanie. Govorenie.",
-    "rejectedFile": "media/12.mp3"
+    "provenance": "verified-original-audio",
+    "status": "verified",
+    "kind": "audio",
+    "file": "media/world-people-v2/12.mp4",
+    "sourceCollection": "В мире людей. Выпуск 2. Аудирование. Говорение",
+    "sourceTrack": "12.mov"
   },
   "questions": [
     {
@@ -117,95 +121,112 @@
   ],
   "transcriptSegments": [
     {
-      "speaker": "A",
-      "displayLabel": "Д",
       "text": "Ищете работу с гарантированной стабильной оплатой?",
-      "startTime": 0,
-      "endTime": 0
-    },
-    {
+      "playlistIndex": 0,
       "speaker": "A",
       "displayLabel": "Д",
-      "text": "Вы молоды? Активны? Вам от 15 до 35 лет?",
-      "startTime": 0,
-      "endTime": 0
+      "matchRatio": 0.833,
+      "matchedWords": 5,
+      "expectedWords": 6,
+      "startTime": 5.17,
+      "endTime": 7.51,
+      "timingStatus": "aligned"
     },
     {
+      "text": "Вы молоды?",
+      "playlistIndex": 0,
       "speaker": "A",
       "displayLabel": "Д",
+      "matchRatio": 1,
+      "matchedWords": 2,
+      "expectedWords": 2,
+      "startTime": 7.79,
+      "endTime": 8.81,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Активны?",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 1,
+      "matchedWords": 1,
+      "expectedWords": 1,
+      "startTime": 8.95,
+      "endTime": 9.51,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Вам от 15 до 35 лет?",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 1,
+      "matchedWords": 4,
+      "expectedWords": 4,
+      "startTime": 9.93,
+      "endTime": 12.09,
+      "timingStatus": "aligned"
+    },
+    {
       "text": "«СИТИ» — компания № 1 среди московских курьерских компаний!",
-      "startTime": 0,
-      "endTime": 0
-    },
-    {
+      "playlistIndex": 0,
       "speaker": "A",
       "displayLabel": "Д",
+      "matchRatio": 0.833,
+      "matchedWords": 5,
+      "expectedWords": 6,
+      "startTime": 14.13,
+      "endTime": 17.73,
+      "timingStatus": "aligned"
+    },
+    {
       "text": "10 лет безупречной работы!",
-      "startTime": 0,
-      "endTime": 0
-    },
-    {
+      "playlistIndex": 0,
       "speaker": "A",
       "displayLabel": "Д",
-      "text": "Предлагаем:",
-      "startTime": 0,
-      "endTime": 0
+      "matchRatio": 1,
+      "matchedWords": 3,
+      "expectedWords": 3,
+      "startTime": 18.55,
+      "endTime": 19.97,
+      "timingStatus": "aligned"
     },
     {
+      "text": "бесплатное обучение;\n- униформу, проездной, мобильный телефон;\n- эффективный рабочий график;\n- возможность сочетать работу с учёбой;\n- среднюю зарплату 30 тысяч рублей, ежемесячные премии по результатам работы; для новичков — фиксированный доход;\n- шанс познакомиться с работой крупнейших фирм и зарекомендовать себя с лучшей стороны.",
+      "playlistIndex": 0,
       "speaker": "A",
       "displayLabel": "Д",
-      "text": "- бесплатное обучение;",
-      "startTime": 0,
-      "endTime": 0
+      "matchRatio": 0.974,
+      "matchedWords": 38,
+      "expectedWords": 39,
+      "startTime": 21.03,
+      "endTime": 42.45,
+      "timingStatus": "aligned"
     },
     {
-      "speaker": "A",
-      "displayLabel": "Д",
-      "text": "- униформу, проездной, мобильный телефон;",
-      "startTime": 0,
-      "endTime": 0
-    },
-    {
-      "speaker": "A",
-      "displayLabel": "Д",
-      "text": "- эффективный рабочий график;",
-      "startTime": 0,
-      "endTime": 0
-    },
-    {
-      "speaker": "A",
-      "displayLabel": "Д",
-      "text": "- возможность сочетать работу с учёбой;",
-      "startTime": 0,
-      "endTime": 0
-    },
-    {
-      "speaker": "A",
-      "displayLabel": "Д",
-      "text": "- среднюю зарплату 30 тысяч рублей, ежемесячные премии по результатам работы; для новичков — фиксированный доход;",
-      "startTime": 0,
-      "endTime": 0
-    },
-    {
-      "speaker": "A",
-      "displayLabel": "Д",
-      "text": "- шанс познакомиться с работой крупнейших фирм и зарекомендовать себя с лучшей стороны.",
-      "startTime": 0,
-      "endTime": 0
-    },
-    {
-      "speaker": "A",
-      "displayLabel": "Д",
       "text": "Компания «СИТИ» ждёт вас!",
-      "startTime": 0,
-      "endTime": 0
-    },
-    {
+      "playlistIndex": 0,
       "speaker": "A",
       "displayLabel": "Д",
+      "matchRatio": 0.75,
+      "matchedWords": 3,
+      "expectedWords": 4,
+      "startTime": 43.03,
+      "endTime": 45.53,
+      "timingStatus": "aligned"
+    },
+    {
       "text": "Подробная информация и запись на интервью на сайте.",
-      "startTime": 0,
-      "endTime": 0
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 1,
+      "matchedWords": 8,
+      "expectedWords": 8,
+      "startTime": 46.01,
+      "endTime": 48.77,
+      "timingStatus": "aligned"
     }
   ]
 }

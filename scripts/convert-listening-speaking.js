@@ -20,11 +20,20 @@ const ROOT = path.join(__dirname, '..');
 const SEGMENTS_PATH = path.join(ROOT, 'data', 'listening_speaking_segments.json');
 const TRANSCRIPTS_DIR = path.join(ROOT, 'data', 'listening_speaking_transcripts');
 const OUTPUT_DIR = path.join(ROOT, 'data', 'textbook', 'listening_speaking');
+const TIMELINES_DIR = path.join(OUTPUT_DIR, 'timelines');
+const MEDIA_STRUCTURE_PATH = path.join(OUTPUT_DIR, 'media-structure-audit.json');
+const MEDIA_EXERCISES_PATH = path.join(OUTPUT_DIR, 'media-exercises.json');
 
 // Ensure output directory exists
 fs.mkdirSync(OUTPUT_DIR, { recursive: true });
 
 const segments = JSON.parse(fs.readFileSync(SEGMENTS_PATH, 'utf-8'));
+const mediaStructure = fs.existsSync(MEDIA_STRUCTURE_PATH)
+  ? JSON.parse(fs.readFileSync(MEDIA_STRUCTURE_PATH, 'utf8')).tracks || {}
+  : {};
+const mediaExercises = fs.existsSync(MEDIA_EXERCISES_PATH)
+  ? JSON.parse(fs.readFileSync(MEDIA_EXERCISES_PATH, 'utf8')).chapters || {}
+  : {};
 console.log('Loaded ' + segments.length + ' segments');
 
 // Map speaker labels from dialog cues
@@ -129,6 +138,28 @@ function alignTranscript(audioTranscript, whisperSegments) {
 
 function round3(n) { return Math.round(n * 1000) / 1000; }
 
+function loadVerifiedTimeline(index) {
+  var timelinePath = path.join(TIMELINES_DIR, 'ch' + String(index).padStart(4, '0') + '.json');
+  if (!fs.existsSync(timelinePath)) return null;
+  try {
+    var timeline = JSON.parse(fs.readFileSync(timelinePath, 'utf8'));
+    if (!['verified', 'partial'].includes(timeline.status) || !Array.isArray(timeline.segments) || !timeline.segments.length) return null;
+    var timedCount = 0;
+    var valid = timeline.segments.every(function(item) {
+      var start = Number(item.startTime);
+      var end = Number(item.endTime);
+      var timed = Number.isFinite(start) && Number.isFinite(end) && end > start;
+      if (timed) timedCount++;
+      return timed || (start === 0 && end === 0 && item.timingStatus === 'unmatched');
+    });
+    if (timeline.status === 'verified' && timedCount !== timeline.segments.length) return null;
+    return valid && timedCount ? timeline.segments : null;
+  } catch (error) {
+    console.warn('  WARN: Failed to parse verified timeline for chapter ' + index);
+    return null;
+  }
+}
+
 // Convert a segment entry to chapter JSON
 function convertSegment(segment, index) {
   var mp3Num = segment.mp3;
@@ -143,9 +174,9 @@ function convertSegment(segment, index) {
     }
   }
 
-  var transcriptSegments = alignTranscript(
+  var transcriptSegments = loadVerifiedTimeline(index) || alignTranscript(
     segment.audioTranscript,
-    segment.mediaStatus === 'source-mismatch' ? [] : whisperSegments
+    segment.mediaStatus === 'source-mismatch' || segment.mediaStatus === 'verified' ? [] : whisperSegments
   );
 
   var chapter = {
@@ -154,7 +185,9 @@ function convertSegment(segment, index) {
     title: segment.title,
     section: segment.section,
     sourcePages: segment.sourcePages || [],
-    media: segment.mediaStatus === 'source-mismatch' ? {
+    mediaStructure: mediaStructure[String(mp3Num || '').padStart(2, '0')] || null,
+    mediaExercise: mediaExercises[String(index)] || null,
+    media: segment.media || (segment.mediaStatus === 'source-mismatch' ? {
       provenance: 'unavailable',
       status: 'source-mismatch',
       reason: segment.mediaReason || 'The imported audio collection does not match this textbook.',
@@ -162,7 +195,7 @@ function convertSegment(segment, index) {
     } : {
       provenance: 'teacher-provided',
       file: segment.mediaFile
-    },
+    }),
     questions: (segment.questions || []).map(function(q, qi) {
       return {
         id: 'LS-' + segment.id.replace(/[^A-Za-z0-9]/g, '-').toUpperCase() + '-Q' + String(qi + 1).padStart(2, '0'),

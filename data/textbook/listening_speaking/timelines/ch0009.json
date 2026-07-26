@@ -1,0 +1,65 @@
+{
+  "chapter": 9,
+  "source": "verified-world-people-v2-media",
+  "model": "small",
+  "status": "partial",
+  "segments": [
+    {
+      "text": "Объявляется приём работ на Второй Всероссийский конкурс произведений для детей и юношества «Алые паруса».",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 0.929,
+      "matchedWords": 13,
+      "expectedWords": 14,
+      "startTime": 5.28,
+      "endTime": 13.88,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Список отобранных произведений публикуется в СМИ.",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 0.167,
+      "matchedWords": 1,
+      "expectedWords": 6,
+      "startTime": 0,
+      "endTime": 0,
+      "timingStatus": "unmatched",
+      "recognizedSnippet": "конкурс алле паруса проводится в целях поощрения талантливых авторов"
+    },
+    {
+      "text": "Принимаются работы, опубликованные в текущем году, а также рукописи, принятые к выпуску.",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 0.917,
+      "matchedWords": 11,
+      "expectedWords": 12,
+      "startTime": 36.58,
+      "endTime": 42.48,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Победители получают денежную премию.",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 1.0,
+      "matchedWords": 4,
+      "expectedWords": 4,
+      "startTime": 57.78,
+      "endTime": 60.52,
+      "timingStatus": "aligned"
+    }
+  ],
+  "reviewQueue": [
+    {
+      "playlistIndex": 0,
+      "text": "Список отобранных произведений публикуется в СМИ.",
+      "matchRatio": 0.167,
+      "recognizedSnippet": "конкурс алле паруса проводится в целях поощрения талантливых авторов"
+    }
+  ]
+}

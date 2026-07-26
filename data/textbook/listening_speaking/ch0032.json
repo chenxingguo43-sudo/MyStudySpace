@@ -7,11 +7,67 @@
     80,
     103
   ],
+  "mediaStructure": null,
+  "mediaExercise": null,
   "media": {
-    "provenance": "unavailable",
-    "status": "source-mismatch",
-    "reason": "Imported audio belongs to Uchebno-trenirovochnye testy po russkomu iazyku kak inostrannomu. Vypusk 4. Audirovanie. Govorenie, not V mire liudei. Vypusk 2. Audirovanie. Govorenie.",
-    "rejectedFile": "media/33.mp3"
+    "provenance": "verified-original-audio",
+    "status": "verified",
+    "kind": "audio",
+    "file": "media/world-people-v2/41.mp4",
+    "sourceCollection": "В мире людей. Выпуск 2. Аудирование. Говорение",
+    "sourceTrack": "41.mov",
+    "playlist": [
+      {
+        "provenance": "verified-original-audio",
+        "status": "verified",
+        "kind": "audio",
+        "file": "media/world-people-v2/41.mp4",
+        "sourceCollection": "В мире людей. Выпуск 2. Аудирование. Говорение",
+        "sourceTrack": "41.mov",
+        "id": "news-41",
+        "label": "新闻 1"
+      },
+      {
+        "provenance": "verified-original-audio",
+        "status": "verified",
+        "kind": "audio",
+        "file": "media/world-people-v2/42.mp4",
+        "sourceCollection": "В мире людей. Выпуск 2. Аудирование. Говорение",
+        "sourceTrack": "42.mov",
+        "id": "news-42",
+        "label": "新闻 2"
+      },
+      {
+        "provenance": "verified-original-audio",
+        "status": "verified",
+        "kind": "audio",
+        "file": "media/world-people-v2/43.mp4",
+        "sourceCollection": "В мире людей. Выпуск 2. Аудирование. Говорение",
+        "sourceTrack": "43.mov",
+        "id": "news-43",
+        "label": "新闻 3"
+      },
+      {
+        "provenance": "verified-original-audio",
+        "status": "verified",
+        "kind": "audio",
+        "file": "media/world-people-v2/44.mp4",
+        "sourceCollection": "В мире людей. Выпуск 2. Аудирование. Говорение",
+        "sourceTrack": "44.mov",
+        "id": "news-44",
+        "label": "新闻 4"
+      },
+      {
+        "provenance": "verified-original-audio",
+        "status": "verified",
+        "kind": "audio",
+        "file": "media/world-people-v2/45.mp4",
+        "sourceCollection": "В мире людей. Выпуск 2. Аудирование. Говорение",
+        "sourceTrack": "45.mov",
+        "id": "news-45",
+        "label": "新闻 5"
+      }
+    ]
   },
   "questions": [
     {
@@ -117,46 +173,232 @@
   ],
   "transcriptSegments": [
     {
+      "text": "Минздрав намерен вернуть систему профилактических медосмотров.",
+      "playlistIndex": 0,
       "speaker": "A",
       "displayLabel": "Д",
-      "text": "Новости по теме «Личность в современном мире».",
-      "startTime": 0,
-      "endTime": 0
+      "matchRatio": 1,
+      "matchedWords": 6,
+      "expectedWords": 6,
+      "startTime": 4.41,
+      "endTime": 8.83,
+      "timingStatus": "aligned"
     },
     {
+      "text": "Постоянный мониторинг здоровья ребёнка будет вестись в обязательном порядке.",
+      "playlistIndex": 0,
       "speaker": "A",
       "displayLabel": "Д",
-      "text": "Минздрав намерен вернуть систему профилактических медосмотров. Постоянный мониторинг здоровья ребёнка будет вестись в обязательном порядке. Взрослое население в зависимости от возраста и от состояния здоровья также будет проходить диспансеризацию. Должны быть предприняты меры, чтобы заставить общество следить за своим здоровьем. Усилия только со стороны системы здравоохранения и медработников недостаточны.",
-      "startTime": 0,
-      "endTime": 0
+      "matchRatio": 1,
+      "matchedWords": 9,
+      "expectedWords": 9,
+      "startTime": 9.79,
+      "endTime": 14.35,
+      "timingStatus": "aligned"
     },
     {
+      "text": "Взрослое население в зависимости от возраста и от состояния здоровья также будет проходить диспансеризацию.",
+      "playlistIndex": 0,
       "speaker": "A",
       "displayLabel": "Д",
-      "text": "выходные дни 5 и 6 января, совпадающие с нерабочими праздничными днями, будут перенесены на 2 и 3 мая. Таким образом, у россиян период зимнего отдыха составит 10 дней, а в мае — 5 дней на Первое мая и 4 — на День Победы.",
-      "startTime": 0,
-      "endTime": 0
+      "matchRatio": 1,
+      "matchedWords": 14,
+      "expectedWords": 14,
+      "startTime": 14.95,
+      "endTime": 21.89,
+      "timingStatus": "aligned"
     },
     {
+      "text": "Должны быть предприняты меры, чтобы заставить общество следить за своим здоровьем.",
+      "playlistIndex": 0,
       "speaker": "A",
       "displayLabel": "Д",
-      "text": "На вопрос специалистов Всероссийского центра исследования общественного мнения, оправдались ли ваши ожидания в прошедшем году, четверть россиян ответила положительно. К сожалению, для 39 % опрошенных прошлый год не принёс ожидаемых результатов. А вот 28 % жителей страны ни на что и не надеялись, а поэтому ничем не разочарованы. 8 % наших сограждан затруднились с ответом.",
-      "startTime": 0,
-      "endTime": 0
+      "matchRatio": 1,
+      "matchedWords": 11,
+      "expectedWords": 11,
+      "startTime": 22.69,
+      "endTime": 27.65,
+      "timingStatus": "aligned"
     },
     {
+      "text": "Усилия только со стороны системы здравоохранения и медработников недостаточны.",
+      "playlistIndex": 0,
       "speaker": "A",
       "displayLabel": "Д",
-      "text": "при разводе родителей у ребёнка могут начаться проблемы в школе, и такие дети, возможно, никогда не догонят в своём развитии сверстников из полных семей. Этому мешают чувства тревоги, одиночества, ощущение печали. Самый серьёзный удар наносится успеваемости по математике и поведению.",
-      "startTime": 0,
-      "endTime": 0
+      "matchRatio": 0.889,
+      "matchedWords": 8,
+      "expectedWords": 9,
+      "startTime": 27.65,
+      "endTime": 33.51,
+      "timingStatus": "aligned"
     },
     {
+      "text": "Утверждён перенос выходных дней в следующем году.",
+      "playlistIndex": 1,
       "speaker": "A",
       "displayLabel": "Д",
-      "text": "Сайт знакомств провёл опрос среди женщин, с представителями каких профессий они хотели бы встречаться. Больше всего шансов у юристов и архитекторов, немного им уступают врачи и инженеры. Далее следуют художники, учёные, журналисты, маркетологи. Как ни странно, пилотов и полицейских выбрали всего 13 %, а банкиров ещё меньше — 10 %. Завершают список бизнесмены и фрилансеры.",
-      "startTime": 0,
-      "endTime": 0
+      "matchRatio": 1,
+      "matchedWords": 7,
+      "expectedWords": 7,
+      "startTime": 4.74,
+      "endTime": 8.02,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Об этом сообщили в пресс-службе правительства: выходные дни 5 и 6 января, совпадающие с нерабочими праздничными днями, будут перенесены на 2 и 3 мая.",
+      "playlistIndex": 1,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 1,
+      "matchedWords": 21,
+      "expectedWords": 21,
+      "startTime": 8.86,
+      "endTime": 20.92,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Таким образом, у россиян период зимнего отдыха составит 10 дней, а в мае — 5 дней на Первое мая и 4 — на День Победы.",
+      "playlistIndex": 1,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 0.95,
+      "matchedWords": 19,
+      "expectedWords": 20,
+      "startTime": 21.8,
+      "endTime": 32.18,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "На вопрос специалистов Всероссийского центра исследования общественного мнения, оправдались ли ваши ожидания в прошедшем году, четверть россиян ответила положительно.",
+      "playlistIndex": 2,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 1,
+      "matchedWords": 19,
+      "expectedWords": 19,
+      "startTime": 4.46,
+      "endTime": 14.88,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "К сожалению, для 39 % опрошенных прошлый год не принёс ожидаемых результатов.",
+      "playlistIndex": 2,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 1,
+      "matchedWords": 10,
+      "expectedWords": 10,
+      "startTime": 15.42,
+      "endTime": 21.96,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "А вот 28 % жителей страны ни на что и не надеялись, а поэтому ничем не разочарованы. 8 % наших сограждан затруднились с ответом.",
+      "playlistIndex": 2,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 1,
+      "matchedWords": 20,
+      "expectedWords": 20,
+      "startTime": 22.42,
+      "endTime": 32.86,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Специалисты социальной службы по поддержке семьи, материнства и детства предупреждают: при разводе родителей у ребёнка могут начаться проблемы в школе, и такие дети, возможно, никогда не догонят в своём развитии сверстников из полных семей.",
+      "playlistIndex": 3,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 1,
+      "matchedWords": 34,
+      "expectedWords": 34,
+      "startTime": 5.43,
+      "endTime": 21.89,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Этому мешают чувства тревоги, одиночества, ощущение печали.",
+      "playlistIndex": 3,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 1,
+      "matchedWords": 7,
+      "expectedWords": 7,
+      "startTime": 22.45,
+      "endTime": 26.87,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Самый серьёзный удар наносится успеваемости по математике и поведению.",
+      "playlistIndex": 3,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 1,
+      "matchedWords": 9,
+      "expectedWords": 9,
+      "startTime": 26.87,
+      "endTime": 32.43,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Сайт знакомств провёл опрос среди женщин, с представителями каких профессий они хотели бы встречаться.",
+      "playlistIndex": 4,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 1,
+      "matchedWords": 14,
+      "expectedWords": 14,
+      "startTime": 4.51,
+      "endTime": 11.93,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Больше всего шансов у юристов и архитекторов, немного им уступают врачи и инженеры.",
+      "playlistIndex": 4,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 1,
+      "matchedWords": 13,
+      "expectedWords": 13,
+      "startTime": 12.73,
+      "endTime": 18.87,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Далее следуют художники, учёные, журналисты, маркетологи.",
+      "playlistIndex": 4,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 1,
+      "matchedWords": 6,
+      "expectedWords": 6,
+      "startTime": 19.63,
+      "endTime": 23.79,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Как ни странно, пилотов и полицейских выбрали всего 13 %, а банкиров ещё меньше — 10 %.",
+      "playlistIndex": 4,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 1,
+      "matchedWords": 12,
+      "expectedWords": 12,
+      "startTime": 24.41,
+      "endTime": 31.13,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Завершают список бизнесмены и фрилансеры.",
+      "playlistIndex": 4,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 1,
+      "matchedWords": 5,
+      "expectedWords": 5,
+      "startTime": 32.61,
+      "endTime": 36.53,
+      "timingStatus": "aligned"
     }
   ]
 }

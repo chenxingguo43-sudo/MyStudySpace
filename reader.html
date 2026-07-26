@@ -656,6 +656,12 @@ body {
 .world-chapter-directory .chapter-list-header { padding: 22px 0 18px; }
 .world-chapter-directory .chapter-list-header h2 { color: var(--text); font-size: clamp(26px, 2.2vw, 34px); line-height: 1.25; }
 .listening-directory { display: grid; gap: 14px; padding: 8px 0 30px; }
+.listening-mock-entry { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 15px 16px; border: 1px solid var(--accent-border); border-radius: 14px; background: var(--surface-solid); box-shadow: 0 4px 12px rgba(120, 90, 40, 0.05); }
+.listening-mock-entry strong { display: block; color: var(--text); font: 650 17px/1.4 'Noto Serif', 'PT Serif', Georgia, serif; }
+.listening-mock-entry span { display: block; margin-top: 4px; color: var(--text-secondary); font-size: 13px; line-height: 1.4; }
+.listening-mock-entry button { flex: 0 0 auto; min-height: 36px; padding: 0 14px; border: 1px solid var(--accent-border); border-radius: 8px; background: var(--glass); color: var(--text); cursor: pointer; font: 600 13px/1 inherit; }
+.listening-mock-entry button:hover { background: var(--glass-hover); border-color: var(--accent); }
+.listening-mock-entry button:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
 .listening-section { border: 1px solid var(--accent-border); border-radius: 14px; background: var(--surface-solid); box-shadow: 0 4px 12px rgba(120, 90, 40, 0.05); overflow: clip; }
 .listening-section summary { display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 15px 16px; color: var(--text); cursor: pointer; font-weight: 650; list-style: none; }
 .listening-section summary::-webkit-details-marker { display: none; }
@@ -672,11 +678,17 @@ body {
 .listening-entry-zh { display: block; margin-top: 4px; color: var(--text-secondary); font-size: 13px; line-height: 1.4; }
 .listening-entry.done .listening-entry-num { color: var(--success); }
 body.theme-warm .listening-section { background: #e6ddc9; border-color: rgba(139, 119, 89, .20); box-shadow: none; }
+body.theme-warm .listening-mock-entry { background: #e6ddc9; border-color: rgba(139, 119, 89, .20); box-shadow: none; }
+body.theme-warm .listening-mock-entry strong { color: #493d32; }
+body.theme-warm .listening-mock-entry span { color: #766a5a; }
+body.theme-warm .listening-mock-entry button { background: #e9e1d1; border-color: rgba(139, 119, 89, .10); color: #493d32; }
+body.theme-warm .listening-mock-entry button:hover { background: #e9e1d1; border-color: rgba(139, 119, 89, .26); }
 body.theme-warm .listening-entry { background: #e9e1d1; border-color: rgba(139, 119, 89, .10); }
 body.theme-warm .listening-entry:hover { background: #e9e1d1; border-color: rgba(139, 119, 89, .26); }
 body.theme-warm .listening-entry-ru, body.theme-warm .listening-section summary { color: #493d32; }
 body.theme-warm .listening-entry-zh, body.theme-warm .listening-section-count { color: #766a5a; }
 @media (max-width: 760px) { .listening-entry-grid { grid-template-columns: 1fr; } }
+@media (max-width: 460px) { .listening-mock-entry { align-items: flex-start; flex-direction: column; } .listening-mock-entry button { width: 100%; } }
 @media (max-width: 600px) {
   .world-chapter-grid { grid-template-columns: 1fr; }
   .world-chapter-directory { max-width: 720px; }
@@ -1286,6 +1298,51 @@ body.theme-warm .listening-entry-zh, body.theme-warm .listening-section-count { 
 .zlatoust-unit-map-list li::before { content: ''; position: absolute; top: 0; left: 50%; width: 1px; height: 17px; background: var(--accent-border); }
 .zlatoust-unit-map-list button { width: 100%; min-height: 132px; padding: 13px 11px; border: 1px solid var(--border); border-radius: 8px; color: var(--text); background: var(--surface-solid); cursor: pointer; font: inherit; text-align: left; transition: border-color .18s ease, background .18s ease, transform .18s ease; }
 .zlatoust-unit-map-list button:hover, .zlatoust-unit-map-list button:focus-visible { border-color: var(--accent); background: var(--accent-dim); transform: translateY(-1px); }
+.zlatoust-unit-map-tree .zlatoust-map-trunk { margin-bottom: 16px; }
+.zlatoust-tree-gate { width: min(620px, 100%); margin: 0 auto 18px; padding: 14px 16px; border: 1px solid var(--accent-border); border-left: 3px solid var(--accent); background: var(--glass); }
+.zlatoust-tree-gate small, .zlatoust-tree-gate strong, .zlatoust-tree-gate span { display: block; }
+.zlatoust-tree-gate small { color: var(--accent); font-size: 11px; font-weight: 700; }
+.zlatoust-tree-gate strong { margin-top: 4px; font-size: 15px; }
+.zlatoust-tree-branches { position: relative; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; width: min(900px, 100%); margin: 0 auto; }
+.zlatoust-tree-branches::before { content: ''; position: absolute; top: -9px; right: 25%; left: 25%; height: 1px; background: var(--accent-border); }
+.zlatoust-tree-branch { position: relative; padding-top: 12px; }
+.zlatoust-tree-branch::before { content: ''; position: absolute; top: -9px; left: 50%; width: 1px; height: 21px; background: var(--accent-border); }
+.zlatoust-tree-answer { width: 100%; min-height: 106px; padding: 14px; border: 1px solid var(--border); border-radius: 8px; color: var(--text); background: var(--surface-solid); cursor: pointer; font: inherit; text-align: left; transition: border-color .18s ease, background .18s ease, transform .18s ease; }
+.zlatoust-tree-answer:hover, .zlatoust-tree-answer:focus-visible { border-color: var(--accent); background: var(--accent-dim); transform: translateY(-1px); }
+.zlatoust-tree-answer small, .zlatoust-tree-answer strong, .zlatoust-tree-answer span { display: block; }
+.zlatoust-tree-answer small { color: var(--accent); font-weight: 700; }
+.zlatoust-tree-answer strong { margin-top: 5px; }
+.zlatoust-tree-answer span { margin-top: 6px; color: var(--text-secondary); font-size: 12px; line-height: 1.55; }
+.zlatoust-tree-followup { margin-top: 12px; padding: 12px; border-left: 2px solid var(--accent-border); background: rgba(128, 98, 74, .05); }
+.zlatoust-tree-followup > strong { display: block; margin-bottom: 9px; font-size: 13px; }
+.zlatoust-tree-followup-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.zlatoust-time-gate { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 9px; margin: -10px 0 26px; padding: 14px; border: 1px solid var(--accent-border); background: var(--glass); }
+.zlatoust-map-trunk { width: 2px; height: 18px; margin: -36px auto 18px; background: color-mix(in srgb, var(--accent) 62%, #80624a); border-radius: 2px; box-shadow: 0 0 0 3px rgba(128,98,74,.08); }
+.zlatoust-time-gate h3 { grid-column: 1 / -1; margin: 0; font-size: 14px; }
+.zlatoust-time-gate article { min-width: 0; padding: 9px; border-left: 3px solid var(--accent); background: var(--surface-solid); }
+.zlatoust-time-gate .zlatoust-gate-present { border-left-style: dashed; opacity: .62; }
+.zlatoust-time-gate .zlatoust-gate-future { border-left-color: #4f7cac; }
+.zlatoust-time-gate .zlatoust-gate-past { border-left-color: #9a6b35; }
+.zlatoust-time-gate strong, .zlatoust-time-gate span { display: block; }
+.zlatoust-time-gate span { margin-top: 4px; color: var(--text-secondary); font-size: 12px; line-height: 1.5; }
+.zlatoust-unit-map-axes .zlatoust-unit-map-list { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+.zlatoust-unit-map-axes-2 .zlatoust-unit-map-list { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 760px; margin-right: auto; margin-left: auto; }
+.zlatoust-unit-map-axes .zlatoust-unit-map-list small { display: block; margin-bottom: 6px; color: var(--accent); font-size: 11px; font-weight: 700; }
+.zlatoust-unit-map-axes .zlatoust-unit-map-list li { --axis: #a86b37; }
+.zlatoust-unit-map-axes .zlatoust-unit-map-list li:nth-child(2) { --axis: #6577a8; }
+.zlatoust-unit-map-axes .zlatoust-unit-map-list li:nth-child(3) { --axis: #4d8877; }
+.zlatoust-unit-map-axes .zlatoust-unit-map-list li:nth-child(4) { --axis: #a45c70; }
+.zlatoust-unit-map-axes .zlatoust-unit-map-list li:nth-child(5) { --axis: #a48132; }
+.zlatoust-unit-map-axes .zlatoust-unit-map-list button { border-top: 3px solid var(--axis); box-shadow: 0 4px 12px rgba(104,77,48,.10); }
+.zlatoust-unit-map-axes .zlatoust-unit-map-list button:hover, .zlatoust-unit-map-axes .zlatoust-unit-map-list button:focus-visible { border-color: var(--axis); box-shadow: 0 7px 16px rgba(104,77,48,.16); }
+.zlatoust-unit-map-axes .zlatoust-unit-map-list small { color: var(--axis); }
+.zlatoust-axis-warnings { margin-top: 16px; padding: 12px 14px; border-left: 3px solid #f59e0b; background: rgba(245,158,11,.08); }
+.zlatoust-axis-warnings h3 { margin: 0 0 7px; font-size: 14px; }
+.zlatoust-axis-warnings ul { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px 18px; margin: 0; padding-left: 18px; }
+.zlatoust-axis-warnings li::marker { color: #a86b37; }
+.zlatoust-axis-warnings .zlatoust-warning-1::marker { color: #4d8877; }
+.zlatoust-axis-warnings .zlatoust-warning-2::marker { color: #a48132; }
+.zlatoust-axis-warnings .zlatoust-warning-3::marker { color: #a45c70; }
 .zlatoust-map-question { display: block; min-height: 44px; color: var(--text-secondary); font-size: 11px; line-height: 1.45; }
 .zlatoust-map-poles { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 5px; margin-top: 12px; }
 .zlatoust-map-poles strong { font-size: 12px; line-height: 1.35; text-align: center; }
@@ -1350,6 +1407,14 @@ body.theme-warm .listening-entry-zh, body.theme-warm .listening-section-count { 
 .zlatoust-summary-table h2 { margin-bottom: 12px; }
 .zlatoust-summary-table .zlatoust-table { min-width: 720px; font-family: inherit; }
 .zlatoust-final-check { margin: 30px 0; scroll-margin-top: 72px; }
+.zlatoust-stage-deep-dive, .zlatoust-stage-practice { margin: 18px 0; border-top: 1px solid var(--border); }
+.zlatoust-stage-deep-dive > summary, .zlatoust-stage-practice > summary { padding: 12px 0; cursor: pointer; color: var(--accent); font-weight: 700; }
+.zlatoust-transfer { margin: 30px 0; scroll-margin-top: 72px; }
+.zlatoust-transfer-task { margin: 14px 0; padding: 14px; border: 1px solid var(--border); border-radius: 8px; background: var(--surface-solid); }
+.zlatoust-transfer-task h3 { margin: 0 0 7px; font-size: 16px; }
+.zlatoust-transfer-task textarea { box-sizing: border-box; width: 100%; min-height: 100px; margin-top: 7px; padding: 10px; border: 1px solid var(--border); border-radius: 6px; color: var(--text); background: var(--glass); font: inherit; line-height: 1.55; resize: vertical; }
+.zlatoust-transfer-hint { color: var(--text-secondary); font-size: 13px; line-height: 1.55; }
+.zlatoust-stage-source-evidence { padding: 12px; border-left: 3px solid #0ea5e9; border-radius: 0 10px 10px 0; background: rgba(14,165,233,.06); font-family: Georgia, 'Times New Roman', serif; line-height: 1.65; }
 .zlatoust-external-guide { margin: 18px 0 0; padding: 15px 17px; border-left: 3px solid #8b5cf6; background: rgba(139,92,246,.06); }
 .zlatoust-external-guide h4 { margin: 9px 0 11px; font-size: 15px; }
 .zlatoust-external-guide p { margin: 8px 0; line-height: 1.7; }
@@ -1385,6 +1450,13 @@ body.theme-warm .listening-entry-zh, body.theme-warm .listening-section-count { 
   .zlatoust-unit-map-root { margin-bottom: 22px; }
   .zlatoust-unit-map-root::after, .zlatoust-unit-map-list::before { display: none; }
   .zlatoust-unit-map-list { grid-template-columns: 1fr; gap: 10px; padding-left: 24px; }
+  .zlatoust-time-gate { grid-template-columns: 1fr; }
+  .zlatoust-unit-map-axes .zlatoust-unit-map-list { grid-template-columns: 1fr; }
+  .zlatoust-tree-branches, .zlatoust-tree-followup-grid { grid-template-columns: 1fr; }
+  .zlatoust-tree-branches::before { right: auto; left: 8px; bottom: 0; width: 1px; height: auto; }
+  .zlatoust-tree-branch { padding: 0 0 0 24px; }
+  .zlatoust-tree-branch::before { top: 30px; left: 8px; width: 16px; height: 1px; }
+  .zlatoust-axis-warnings ul { grid-template-columns: 1fr; }
   .zlatoust-unit-map-list::after { content: ''; position: absolute; top: 0; bottom: 0; left: 8px; width: 1px; background: var(--accent-border); }
   .zlatoust-unit-map-list li { padding-top: 0; }
   .zlatoust-unit-map-list li::before { top: 28px; left: -16px; width: 16px; height: 1px; }
@@ -1460,6 +1532,7 @@ body.theme-warm .listening-entry-zh, body.theme-warm .listening-section-count { 
 <script src="js/russian-b2/reading-review.js?v=20260723-1"></script>
 <script src="js/russian-b2/dashboard.js"></script>
 <script src="js/russian-b2/listening-session.js?v=20260726-1"></script>
+<script src="js/russian-b2/listening-quality.js?v=20260726-1"></script>
 <script src="js/russian-b2/listening-workbench.js?v=20260726-6"></script>
 <script src="js/zlatoust-progress-migration.js"></script>
 <script>
@@ -1553,7 +1626,7 @@ function getCurrentWorldChapterTitle() {
   if (curBook && curBook.id === 'writing_speaking' && _currentWSData && _currentWSData.title) return _currentWSData.title;
   var cached = curBook && cacheGet(getChapterCacheBookId(curBook), curCh);
   var data = curBook && curBook.id === 'zlatoust_grammar' ? currentQuizData :
-    curBook && curBook.id === 'listening_speaking' ? currentListeningData :
+    curBook && (curBook.id === 'listening_speaking' || curBook.id === 'listening_speaking_mock') ? currentListeningData :
     curBook && curBook.id === 'reading_speaking' ? _currentRSData :
     curBook && curBook.id === 'writing_speaking' ? _currentWSData : cached;
   return data && data.title || (curBook && curBook.chapterTitles && curBook.chapterTitles[curCh]) || '';
@@ -1576,7 +1649,7 @@ function saveLastRead() {
   try {
     if (curBook && curCh >= 0) {
       var activeQuestionId = curBook.isB2Module ? getActiveB2QuestionId(restoreState) : (isWorldPeopleBook(curBook) ? getActiveWorldQuestionId(restoreState) : '');
-      var viewMode = (curBook.isB2Module && curBook.moduleId === 'listening') || curBook.id === 'listening_speaking'
+      var viewMode = (curBook.isB2Module && curBook.moduleId === 'listening') || curBook.id === 'listening_speaking' || curBook.id === 'listening_speaking_mock'
         ? (restoreState && restoreState.viewMode || listeningViewMode) : undefined;
       var record = window.RussianB2Dashboard.createB2LastReadRecord({
         book: curBook,
@@ -1808,7 +1881,7 @@ function openWorldBreadcrumbChapter(bookId, chapterIndex) {
 }
 function renderWorldBreadcrumbBranch(level) {
   var html = '';
-  WORLD_PEOPLE_BOOK_IDS.forEach(function(bookId) {
+  WORLD_PEOPLE_MODULE_IDS.forEach(function(bookId) {
     var book = getBookById(bookId); if (!book) return;
     var moduleOpen = !!worldBreadcrumbOpen.modules[bookId], active = curBook && curBook.id === bookId;
     html += '<div class="breadcrumb-tree-row' + (active ? ' is-current' : '') + '" style="--tree-level:' + level + '"><button type="button" class="breadcrumb-tree-toggle" onclick="toggleWorldBreadcrumbModule(\'' + escapeHtml(bookId) + '\')" aria-label="' + (moduleOpen ? '收起' : '展开') + escapeHtml(getWorldModuleLabel(bookId)) + '">' + (moduleOpen ? '▾' : '▸') + '</button><button type="button" class="breadcrumb-tree-label" onclick="openWorldBreadcrumbModule(\'' + escapeHtml(bookId) + '\')">' + escapeHtml(getWorldModuleLabel(bookId)) + '<span class="breadcrumb-tree-detail">' + escapeHtml(getWorldResumeLocation(bookId, getWorldPeopleResumeState(bookId))) + '</span></button></div>';
@@ -2058,10 +2131,12 @@ function getBookById(bookId) {
   }
   return null;
 }
-var WORLD_PEOPLE_BOOK_IDS = ['reading_speaking', 'listening_speaking', 'writing_speaking', 'zlatoust_grammar'];
+var WORLD_PEOPLE_MODULE_IDS = ['reading_speaking', 'listening_speaking', 'writing_speaking', 'zlatoust_grammar'];
+var WORLD_PEOPLE_BOOK_IDS = WORLD_PEOPLE_MODULE_IDS.concat(['listening_speaking_mock']);
 var WORLD_MODULE_LABELS = {
   reading_speaking: '阅读口语',
   listening_speaking: '听力口语',
+  listening_speaking_mock: 'ТРКИ-2 模拟考试',
   writing_speaking: '写作口语',
   zlatoust_grammar: '语法词汇'
 };
@@ -2073,9 +2148,20 @@ function getWorldResumeLocation(bookId, record) {
   if (!record || typeof record.chapter !== 'number') return '从目录开始';
   var unit = bookId === 'reading_speaking' ? '第 ' + (record.chapter + 1) + ' 篇' :
     bookId === 'listening_speaking' ? '第 ' + (record.chapter + 1) + ' 条' :
+    bookId === 'listening_speaking_mock' ? 'ТРКИ-2 模拟考试 · 第 1-25 题' :
     bookId === 'writing_speaking' ? '主题 ' + (record.chapter + 1) : '第 ' + (record.chapter + 1) + ' 章';
   if (bookId === 'zlatoust_grammar' && record.activeQuestionId) unit += ' · 题目 ' + record.activeQuestionId;
   return record.chapterTitle ? unit + ' · ' + record.chapterTitle : unit;
+}
+function getWorldModuleResume(bookId) {
+  var candidates = bookId === 'listening_speaking' ? ['listening_speaking', 'listening_speaking_mock'] : [bookId];
+  var latest = null;
+  candidates.forEach(function(candidateId) {
+    var record = getWorldPeopleResumeState(candidateId);
+    if (!record || typeof record.chapter !== 'number') return;
+    if (!latest || String(record.updatedAt || '') > String(latest.record.updatedAt || '')) latest = { bookId: candidateId, record: record };
+  });
+  return latest || { bookId: bookId, record: null };
 }
 function getLatestWorldPeopleResume() {
   var records = getWorldPeopleResumeRecords(), latest = null;
@@ -2092,7 +2178,7 @@ function resumeWorldPeopleModule(bookId) {
   if (!book) return;
   if (!record || typeof record.chapter !== 'number') { showChapters(bookId); return; }
   curBook = book;
-  if (bookId === 'listening_speaking' && (record.viewMode === 'exam' || record.viewMode === 'intensive')) listeningViewMode = record.viewMode;
+  if (bookId === 'listening_speaking' && ['exam', 'intensive', 'media-exercise', 'review', 'quality-review'].indexOf(record.viewMode) !== -1) listeningViewMode = record.viewMode;
   if (bookId === 'zlatoust_grammar' && record.activeQuestionId) pendingQuizJumpId = record.activeQuestionId;
   var chapter = Math.min(Math.max(record.chapter, 0), Math.max((book.chapters || 1) - 1, 0));
   goChapter(chapter, record);
@@ -2187,10 +2273,10 @@ function toggleListeningDirectoryGroup(groupIndex) {
   if (!book || book.id !== 'listening_speaking') return false;
   if (listeningDirectoryOpen[groupIndex]) {
     ensureListeningGroupTitles(book, groupIndex).then(function() {
-      if (curView === 'chapters' && curBook && curBook.id === book.id) showChapters(book.id);
+      if (curView === 'chapters' && curBook && curBook.id === book.id) showChapters(book.id, true);
     });
   }
-  showChapters(book.id);
+  showChapters(book.id, true);
   return false;
 }
 function ensureWorldDirectoryGroupTitles(book, groupIndex) {
@@ -2219,7 +2305,7 @@ function toggleWorldDirectoryGroup(bookId, groupIndex) {
   worldDirectoryOpen[bookId][groupIndex] = !worldDirectoryOpen[bookId][groupIndex];
   if (worldDirectoryOpen[bookId][groupIndex]) {
     ensureWorldDirectoryGroupTitles(book, groupIndex).then(function() {
-      if (curView === 'chapters' && curBook && curBook.id === bookId) showChapters(bookId);
+      if (curView === 'chapters' && curBook && curBook.id === bookId) showChapters(bookId, true);
     });
   }
   showChapters(bookId);
@@ -2231,7 +2317,8 @@ function getListeningTitleParts(title) {
   return { ru: raw, zh: '' };
 }
 function renderListeningDirectory(book, stats) {
-  return '<div class="listening-directory">' + LISTENING_DIRECTORY_GROUPS.map(function(group, groupIndex) {
+  var mockEntry = renderListeningMockEntry(book);
+  return '<div class="listening-directory">' + mockEntry + LISTENING_DIRECTORY_GROUPS.map(function(group, groupIndex) {
     var entries = Array.from({ length: group.count }, function(_, offset) {
       var index = group.start + offset, item = getListeningCatalogItem(book.id, index);
       var parts = item ? getListeningTitleParts(item.title) : { ru: '正在读取题名…', zh: '' };
@@ -2243,10 +2330,19 @@ function renderListeningDirectory(book, stats) {
     return '<details class="listening-section"' + (listeningDirectoryOpen[groupIndex] ? ' open' : '') + '><summary onclick="return toggleListeningDirectoryGroup(' + groupIndex + ')"><span class="listening-section-label"><span>' + escapeHtml(group.label) + '</span><span class="listening-section-count">' + group.count + ' 条</span></span></summary><div class="listening-entry-grid">' + entries + '</div></details>';
   }).join('') + '</div>';
 }
+function renderListeningMockEntry(book) {
+  if (!book || book.id !== 'listening_speaking') return '';
+  var mockBook = getBookById('listening_speaking_mock');
+  if (!mockBook) return '';
+  var progress = getWorldPeopleProgress(mockBook);
+  return '<section class="listening-mock-entry" aria-label="ТРКИ-2 模拟考试">' +
+    '<div><strong>ТРКИ-2 模拟考试</strong><span>第 1-25 题 · 5 段配套音频 · 已完成 ' + progress.completed + ' / ' + progress.total + '</span></div>' +
+    '<button type="button" onclick="showChapters(\'listening_speaking_mock\')">进入</button></section>';
+}
 function renderWorldGroupedDirectory(book, stats) {
   var groups = getWorldDirectoryGroups(book);
   var openState = book.id === 'listening_speaking' ? listeningDirectoryOpen : (worldDirectoryOpen[book.id] || { 0: true });
-  return '<div class="listening-directory">' + groups.map(function(group, groupIndex) {
+  return '<div class="listening-directory">' + renderListeningMockEntry(book) + groups.map(function(group, groupIndex) {
     var entries = Array.from({ length: group.count }, function(_, offset) {
       var index = group.start + offset, item = getWorldDirectoryCatalogItem(book.id, index);
       var parts = item ? getListeningTitleParts(item.title) : { ru: '正在读取题名…', zh: '' };
@@ -2261,6 +2357,13 @@ function renderWorldGroupedDirectory(book, stats) {
 function getWorldPeopleProgress(book) {
   var total = book.chapters || 0;
   var completed = getBookProgress(book.id);
+  if (book.id === 'listening_speaking') {
+    var mockBook = getBookById('listening_speaking_mock');
+    if (mockBook) {
+      total += mockBook.chapters || 0;
+      completed += getBookProgress(mockBook.id);
+    }
+  }
   return { total: total, completed: completed, pct: total ? Math.round(completed / total * 100) : 0 };
 }
 function showWorldPeopleModule(bookId) {
@@ -2389,17 +2492,18 @@ function renderShelf() {
     '<div class="shelf-tools"><button class="shelf-tool" type="button" onclick="showWrongAnswerBook()">错题复习 · ' + wrongCount + ' 题待掌握</button><button class="shelf-tool" type="button" onclick="showB2ArchivePanel()">学习记录备份</button></div>',
     '<section class="shelf-section"><div class="shelf-section-heading"><h2>我的教材</h2></div><div class="shelf-book-grid">'];
   var worldDone = 0, worldTotal = 0;
-  WORLD_PEOPLE_BOOK_IDS.forEach(function(bookId) {
+  WORLD_PEOPLE_MODULE_IDS.forEach(function(bookId) {
     var worldBook = getBookById(bookId);
     if (!worldBook) return;
-    worldDone += getBookProgress(bookId);
-    worldTotal += worldBook.chapters || 0;
+    var worldProgress = getWorldPeopleProgress(worldBook);
+    worldDone += worldProgress.completed;
+    worldTotal += worldProgress.total;
   });
   var worldPct = worldTotal ? Math.round(worldDone / worldTotal * 100) : 0;
-  var worldModules = WORLD_PEOPLE_BOOK_IDS.map(function(bookId) {
-    var book = getBookById(bookId), progress = book && getWorldPeopleProgress(book), resume = getWorldPeopleResumeState(bookId);
+  var worldModules = WORLD_PEOPLE_MODULE_IDS.map(function(bookId) {
+    var book = getBookById(bookId), progress = book && getWorldPeopleProgress(book), resumeTarget = getWorldModuleResume(bookId);
     if (!book) return '';
-    return '<button type="button" class="world-shelf-module" onclick="showChapters(\'' + escapeHtml(bookId) + '\')"><strong>' + escapeHtml(getWorldModuleLabel(bookId)) + '</strong><small>' + escapeHtml(getWorldResumeLocation(bookId, resume)) + '</small><small>' + progress.completed + '/' + progress.total + ' · ' + progress.pct + '%</small></button>';
+    return '<button type="button" class="world-shelf-module" onclick="showChapters(\'' + escapeHtml(bookId) + '\')"><strong>' + escapeHtml(getWorldModuleLabel(bookId)) + '</strong><small>' + escapeHtml(getWorldResumeLocation(resumeTarget.bookId, resumeTarget.record)) + '</small><small>' + progress.completed + '/' + progress.total + ' · ' + progress.pct + '%</small></button>';
   }).join('');
   parts.push('<article class="book-card world-shelf-card"><div class="world-shelf-card-main"><div><h3><span class="book-kind">教材</span>В мире людей</h3><div class="book-meta"><span>📚 阅读、听力、写作、语法词汇</span><span>4 个模块</span></div><div class="book-desc">ТРКИ-2/3 综合学习教材</div><div class="book-progress"><div class="progress-bar"><div class="progress-fill" style="width:' + worldPct + '%"></div></div><div class="progress-text">总进度 ' + worldDone + '/' + worldTotal + ' (' + worldPct + '%)</div></div></div><button type="button" class="world-shelf-open" onclick="showWorldPeopleDashboard()">打开总仪表盘</button></div><div class="world-shelf-modules">' + worldModules + '</div></article>');
   if (b2Book) parts.push(renderB2ShelfCard(b2Book));
@@ -2457,7 +2561,8 @@ function showB2ArchivePanel() {
 /* ══════════════════════════════════════════════
    章节目录
    ══════════════════════════════════════════════ */
-function showChapters(bookId) {
+function showChapters(bookId, preserveScroll) {
+  var previousScroll = preserveScroll ? window.scrollY : 0;
   saveLastRead();
   curView = 'chapters'; curCh = -1; stopTimer();
   var prompt = document.getElementById('completePrompt'); if (prompt) prompt.classList.remove('visible');
@@ -2507,18 +2612,18 @@ function showChapters(bookId) {
     html += '</div>' + directoryActions + '</div>';
   }
   document.getElementById('app').innerHTML = html;
-  window.scrollTo(0, 0);
+  window.scrollTo(0, previousScroll);
   if (usesGroupedWorldDirectory) {
     var openState = curBook.id === 'listening_speaking' ? listeningDirectoryOpen : (worldDirectoryOpen[curBook.id] || { 0: true });
     var openGroup = Object.keys(openState).map(Number).find(function(index) { return openState[index]; });
     var group = getWorldDirectoryGroups(curBook)[typeof openGroup === 'number' ? openGroup : 0];
     var loaded = group && Array.from({ length: group.count }, function(_, offset) { return getWorldDirectoryCatalogItem(curBook.id, group.start + offset); }).every(Boolean);
     if (!loaded) ensureWorldDirectoryGroupTitles(curBook, typeof openGroup === 'number' ? openGroup : 0).then(function() {
-      if (curView === 'chapters' && curBook && curBook.id === bookId) showChapters(bookId);
+      if (curView === 'chapters' && curBook && curBook.id === bookId) showChapters(bookId, true);
     });
   } else if (isWorldModule && (!curBook.chapterTitles || curBook.chapterTitles.length !== curBook.chapters)) {
     ensureWorldChapterTitles(curBook).then(function() {
-      if (curView === 'chapters' && curBook && curBook.id === bookId) showChapters(bookId);
+      if (curView === 'chapters' && curBook && curBook.id === bookId) showChapters(bookId, true);
     });
   }
 }
@@ -2689,7 +2794,7 @@ function restoreLastRead(lastRead) {
     function resumeModule(index) {
       curBook.chapters = index.chapters || module.chapters || 0;
       curBook.chapterTitles = index.chapterTitles || module.chapterTitles || [];
-      if (module.id === 'listening' && lastRead.viewMode === 'intensive') listeningViewMode = 'intensive';
+      if (module.id === 'listening' && ['exam', 'intensive', 'media-exercise', 'review', 'quality-review'].indexOf(lastRead.viewMode) !== -1) listeningViewMode = lastRead.viewMode;
       if (lastRead.activeQuestionId) pendingQuizJumpId = lastRead.activeQuestionId;
       var chapter = Math.min(Math.max(lastRead.chapter, 0), Math.max(curBook.chapters - 1, 0));
       goChapter(chapter, lastRead);
@@ -3052,8 +3157,45 @@ function getTextbookKnowledgePoints(chapter) {
 /* ─── Zlatoust: source-traceable theory and exercise links ─── */
 var ZLATOUST_THEORY_ROOT = 'data/textbook/zlatoust_grammar/theory';
 var ZLATOUST_LEARNING_PROGRESS_KEY = 'rr_zlatoust_learning_v1';
-var ZLATOUST_CUSTOM_LEARNING_SECTIONS = { '1.4.1': true };
-var ZLATOUST_KNOWLEDGE_POINT_SECTIONS = { 'gl1:gl1-4-1': '1.4.1' };
+var ZLATOUST_CUSTOM_LEARNING_SECTIONS = {
+  '2.1': { stageCount: 5, exerciseCount: 22 },
+  '2.2': { stageCount: 5, exerciseCount: 11 },
+  '2.3': { stageCount: 5, exerciseCount: 12 },
+  '2.4.1': { stageCount: 5, exerciseCount: 7 },
+  '2.4.2': { stageCount: 5, exerciseCount: 15 },
+  '2.4': { stageCount: 5, exerciseCount: 21 },
+  '2.5': { stageCount: 5, exerciseCount: 24 },
+  '2.6': { stageCount: 5, exerciseCount: 17 },
+  '2.7': { stageCount: 5, exerciseCount: 15 },
+  '2.8': { stageCount: 5, exerciseCount: 4 },
+  '1.1': { stageCount: 4, exerciseCount: 13 },
+  '1.2': { stageCount: 5, exerciseCount: 6 },
+  '1.3': { stageCount: 5, exerciseCount: 18 },
+  '1.4.1': { stageCount: 5, exerciseCount: 13 },
+  '1.4.2': { stageCount: 3, exerciseCount: 3 },
+  '1.4.3': { stageCount: 4, exerciseCount: 6 },
+  '1.4.4': { stageCount: 4, exerciseCount: 13 },
+  '1.4.5': { stageCount: 2, exerciseCount: 4 },
+  '1.4.6': { stageCount: 5, exerciseCount: 18 },
+  '1.4.7': { stageCount: 4, exerciseCount: 6 },
+  '1.4.8': { stageCount: 3, exerciseCount: 6 },
+  '1.5-review': { chapterId: 'gl1', stageCount: 4, exerciseCount: 19, pageKind: 'supplementary' }
+};
+var ZLATOUST_KNOWLEDGE_POINT_SECTIONS = {
+  'gl1:gl1-1-1': '1.1',
+  'gl1:gl1-1-2': '1.1',
+  'gl1:gl1-2': '1.2',
+  'gl1:gl1-3': '1.3',
+  'gl1:gl1-4-1': '1.4.1',
+  'gl1:gl1-4-2': '1.4.2',
+  'gl1:gl1-4-3': '1.4.3',
+  'gl1:gl1-4-4-lexical': '1.4.4',
+  'gl1:gl1-4-5-cannot': '1.4.5',
+  'gl1:gl1-4-6-negative-infinitive': '1.4.6',
+  'gl1:gl1-4-7-imperative': '1.4.7',
+  'gl1:gl1-4-8-negative-imperative': '1.4.8',
+  'gl1:gl1-5': '1.5-review'
+};
 var zlatoustTheoryState = { index: null, indexPromise: null, chapters: {}, units: {}, learningPages: {} };
 function getZlatoustIntegratedSectionForKnowledgePoint(partId, pointId) {
   if (!isZlatoustGrammarBook(curBook)) return '';
@@ -3107,7 +3249,7 @@ function getLoadedZlatoustChapterTheory(chapterIndex) {
   return state && state.ready ? state : null;
 }
 function getZlatoustStatusLabel(status) {
-  return ({ mapped: '已映射原书规则', 'needs-review': '需复核边界', 'source-exercise-only': '原书仅有练习' })[status] || '来源复核中';
+  return ({ mapped: '已映射原书规则', 'needs-review': '待复核', 'source-exercise-only': '原书仅有练习' })[status] || '来源复核中';
 }
 function getZlatoustLearningProgress() {
   try { return JSON.parse(localStorage.getItem(ZLATOUST_LEARNING_PROGRESS_KEY) || '{"units":{}}') || { units: {} }; }
@@ -3147,8 +3289,12 @@ function getZlatoustLearningStatus(sectionId, state) {
   if (activelyWeak) return 'weak';
   var submitted = checkRecords.filter(function(item) { return item && item.submitted; });
   var correct = submitted.filter(function(item) { return item.correct; }).length;
-  var total = Number(record.totalChecks || 0);
-  if (total && submitted.length >= total && record.finalCompleted && correct / total >= .8) return 'mastered';
+  var total = Number(record.totalChecks || 0), stageTotal = Number(record.stageCheckTotal || 0);
+  var stageSubmitted = stageCheckRecords.filter(function(item) { return item && item.submitted; });
+  var stageCorrect = stageSubmitted.filter(function(item) { return item.correct; }).length;
+  var transferTasks = zlatoustTheoryState.learningPages[sectionId] && zlatoustTheoryState.learningPages[sectionId].transferTasks || [];
+  var transferComplete = !transferTasks.length || transferTasks.every(function(task) { var item = record.transfer && record.transfer[task.id]; return item && item.submitted; });
+  if (stageTotal && stageSubmitted.length >= stageTotal && stageCorrect / stageTotal >= .8 && transferComplete) return 'mastered';
   if (record.stageCheckTotal && stageCheckRecords.filter(function(item) { return item && item.submitted; }).length >= record.stageCheckTotal) return 'learned';
   if (record.openedAt) return 'learning';
   if (expectedQuizCount && quizRecords.length === expectedQuizCount && quizRecords.every(function(item) { return item && item.submitted && item.lastResult === 'correct'; })) return 'mastered';
@@ -3275,8 +3421,10 @@ function loadZlatoustLearningPage(sectionId) {
   if (zlatoustTheoryState.learningPages[sectionId]) return Promise.resolve(zlatoustTheoryState.learningPages[sectionId]);
   return loadZlatoustTheoryIndex().then(function(index) {
     var section = (index.sections || []).find(function(item) { return item.id === sectionId; });
-    if (!section) throw new Error('Unknown Zlatoust learning section: ' + sectionId);
-    return fetchJson(ZLATOUST_THEORY_ROOT + '/learning-pages/' + section.chapterId + '/section-' + encodeURIComponent(sectionId) + '.json', null)
+    var config = ZLATOUST_CUSTOM_LEARNING_SECTIONS[sectionId];
+    var chapterId = section ? section.chapterId : config.chapterId;
+    if (!chapterId) throw new Error('Unknown Zlatoust learning section: ' + sectionId);
+    return fetchJson(ZLATOUST_THEORY_ROOT + '/learning-pages/' + chapterId + '/section-' + encodeURIComponent(sectionId) + '.json', null)
       .then(function(page) { zlatoustTheoryState.learningPages[sectionId] = page; return page; });
   });
 }
@@ -3285,7 +3433,11 @@ function showZlatoustRuleUnit(sectionId, ruleId) {
   if (curView !== 'zlatoust-rule') zlatoustRouteReturn = { chapterIndex: curCh, scroll: window.scrollY };
   var app = document.getElementById('app');
   app.innerHTML = b2FloatingNavigation({ backAction: 'returnToZlatoustRoute()', backTitle: '返回知识点卡片', menuAction: 'showBreadcrumb()' }) + '<main class="main-container"><div class="loading"><div class="spinner"></div><div>加载知识点教学页...</div></div></main>';
-  Promise.all([loadZlatoustRuleUnit(sectionId), loadZlatoustLearningPage(sectionId)]).then(function(result) {
+  var learningPromise = loadZlatoustLearningPage(sectionId);
+  var unitPromise = ZLATOUST_CUSTOM_LEARNING_SECTIONS[sectionId] && ZLATOUST_CUSTOM_LEARNING_SECTIONS[sectionId].pageKind === 'supplementary'
+    ? learningPromise.then(function(page) { return { chapterId: page.chapterId, source: page.source || {} }; })
+    : loadZlatoustRuleUnit(sectionId);
+  Promise.all([unitPromise, learningPromise]).then(function(result) {
     var unit = result[0], learningPage = result[1];
     var chapterIndex = getZlatoustChapterIndex(unit.chapterId);
     curView = 'zlatoust-rule';
@@ -3437,8 +3589,7 @@ function getZlatoustLearningStageState(sectionId, stage, finalStage) {
   var weak = !!reviews[routeId] || checks.some(function(item) { return item.submitted && !item.correct; }) || exercises.some(function(item) { return item.submitted && item.lastResult === 'wrong'; });
   if (weak) return 'weak';
   var checksComplete = checkIds.length > 0 && checks.length === checkIds.length && checks.every(function(item) { return item.submitted && item.correct; });
-  var exercisesComplete = !exercises.length || exercises.every(function(item) { return item.submitted && item.lastResult === 'correct'; });
-  if (checksComplete && exercisesComplete) return 'completed';
+  if (checksComplete) return 'completed';
   if (checks.some(function(item) { return item.submitted; }) || exercises.some(function(item) { return item.submitted; }) || record.lastStage === routeId) return 'learning';
   return 'unstarted';
 }
@@ -3448,28 +3599,42 @@ function getZlatoustLearningStageStateLabel(status) {
 function renderZlatoustLearningRoute(page) {
   var record = zlatoustLearningPageRecord(page.sectionId), reviews = record.reviewStages || {};
   var steps = (page.stages || []).map(function(stage) { return { id: stage.id, number: stage.number, title: stage.title, stage: stage, finalStage: false }; });
-  if (page.finalCheck) steps.push({ id: 'zlatoust-final', number: steps.length + 1, title: '综合判断与回顾', stage: page.finalCheck, finalStage: true });
   var states = steps.map(function(step) { return getZlatoustLearningStageState(page.sectionId, Object.assign({}, step.stage, { routeId: step.id }), step.finalStage); });
   var completed = states.filter(function(status) { return status === 'completed'; }).length;
   var progress = steps.length ? Math.round(completed / steps.length * 100) : 0;
-  return '<section class="zlatoust-unit-route" data-zlatoust-learning-route aria-labelledby="zlatoust-unit-route-title"><header class="zlatoust-unit-route-header"><div><h2 id="zlatoust-unit-route-title">本知识点学习路线</h2><p>按顺序完成五组判断，再进入综合判断。阶段状态由随堂题和对应原书题自动更新。</p></div><span class="zlatoust-route-count">已完成 ' + completed + ' / ' + steps.length + '</span></header>' +
+  return '<section class="zlatoust-unit-route" data-zlatoust-learning-route aria-labelledby="zlatoust-unit-route-title"><header class="zlatoust-unit-route-header"><div><h2 id="zlatoust-unit-route-title">本知识点学习路线</h2><p>按顺序完成 ' + page.stages.length + ' 个核心判断，再进入综合判断。阶段状态由随堂题和对应原书题自动更新。</p></div><span class="zlatoust-route-count">已完成 ' + completed + ' / ' + steps.length + '</span></header>' +
     '<div class="zlatoust-unit-route-progress" aria-hidden="true"><span style="width:' + progress + '%"></span></div><ol class="zlatoust-unit-route-list">' + steps.map(function(step, index) {
       var status = states[index], checked = !!reviews[step.id];
-      return '<li class="zlatoust-unit-route-step" data-stage-status="' + status + '"><button type="button" class="zlatoust-route-step-button" onclick="scrollToZlatoustStage(\'' + zlatoustEscapeForOnclick(step.id) + '\')"><span class="zlatoust-route-step-number">' + String(index + 1).padStart(2, '0') + '</span><strong>' + escapeHtml(step.title) + '</strong><small>' + escapeHtml(getZlatoustLearningStageStateLabel(status)) + '</small></button><label class="zlatoust-stage-review"><input type="checkbox"' + (checked ? ' checked' : '') + ' onchange="toggleZlatoustStageReview(\'' + zlatoustEscapeForOnclick(page.sectionId) + '\',\'' + zlatoustEscapeForOnclick(step.id) + '\',this.checked)">标记复习</label></li>';
+      return '<li class="zlatoust-unit-route-step" data-stage-status="' + status + '"><button type="button" class="zlatoust-route-step-button" onclick="scrollToZlatoustStage(\'' + zlatoustEscapeForOnclick(page.sectionId) + '\',\'' + zlatoustEscapeForOnclick(step.id) + '\')"><span class="zlatoust-route-step-number">' + String(index + 1).padStart(2, '0') + '</span><strong>' + escapeHtml(step.title) + '</strong><small>' + escapeHtml(getZlatoustLearningStageStateLabel(status)) + '</small></button><label class="zlatoust-stage-review"><input type="checkbox" aria-label="标记复习：' + escapeHtml(step.title) + '"' + (checked ? ' checked' : '') + ' onchange="toggleZlatoustStageReview(\'' + zlatoustEscapeForOnclick(page.sectionId) + '\',\'' + zlatoustEscapeForOnclick(step.id) + '\',this.checked)">标记复习</label></li>';
     }).join('') + '</ol></section>';
 }
 function renderZlatoustLearningMindMap(page) {
-  return '<section class="zlatoust-unit-map" aria-labelledby="zlatoust-unit-map-title"><h2 id="zlatoust-unit-map-title">本知识点思维导图</h2><p>这张图只表示概念关系：面对过去时或将来时，先判断说话人把注意力放在哪一类意义上。</p><div class="zlatoust-unit-map-root"><small>中心知识点</small><strong>' + escapeHtml(page.titleZh) + '</strong></div><ol class="zlatoust-unit-map-list">' +
+  if ((page.timeGate || page.entryGate) && page.decisionAxes) {
+    var gate = page.entryGate || page.timeGate;
+    var description = page.mindMapDescription || '它是判断模型，不是学习进度。先过时态闸门，再按需要组合判断轴；一句话可以同时经过多个轴。';
+    return '<section class="zlatoust-unit-map zlatoust-unit-map-axes" aria-labelledby="zlatoust-unit-map-title"><h2 id="zlatoust-unit-map-title">本知识点思维导图</h2><p>' + escapeHtml(description) + '</p><div class="zlatoust-unit-map-root"><small>中心知识点</small><strong>' + escapeHtml(page.titleZh) + '</strong></div><div class="zlatoust-map-trunk" aria-hidden="true"></div><section class="zlatoust-time-gate"><h3>' + escapeHtml(gate.title || '判断闸门') + '</h3>' + (gate.items || []).map(function(item) { return '<article class="zlatoust-gate-' + escapeHtml(item.id) + '"><strong>' + escapeHtml(item.label) + '</strong><span>' + escapeHtml(item.action) + '</span></article>'; }).join('') + '</section><ol class="zlatoust-unit-map-list">' + page.decisionAxes.map(function(axis, index) { var poles = String(axis.label || '').split(/\s*\/\s*/); return '<li class="zlatoust-axis-' + index + '"><button type="button" onclick="scrollToZlatoustStage(\'' + zlatoustEscapeForOnclick(page.sectionId) + '\',\'' + zlatoustEscapeForOnclick(axis.id) + '\')"><small>' + escapeHtml(axis.name) + '</small><span class="zlatoust-map-question">' + escapeHtml(axis.question) + '</span><span class="zlatoust-map-poles"><strong>' + escapeHtml(poles[0] || '') + '</strong><i>对比</i><strong>' + escapeHtml(poles[1] || '') + '</strong></span></button></li>'; }).join('') + '</ol><aside class="zlatoust-axis-warnings"><h3>四条防误解提醒</h3><ul>' + (page.crossAxisWarnings || []).map(function(item, index) { return '<li class="zlatoust-warning-' + index + '">' + escapeHtml(item) + '</li>'; }).join('') + '</ul></aside></section>';
+  }
+  if (page.decisionAxes) {
+    return '<section class="zlatoust-unit-map zlatoust-unit-map-axes zlatoust-unit-map-axes-2" aria-labelledby="zlatoust-unit-map-title"><h2 id="zlatoust-unit-map-title">本知识点思维导图</h2><p>这是两条可组合的判断轴，不是四选一。先看动作有没有完成边界，再单独看事件是重复规律还是一次目标。</p><div class="zlatoust-unit-map-root"><small>中心知识点</small><strong>' + escapeHtml(page.titleZh) + '</strong></div><div class="zlatoust-map-trunk" aria-hidden="true"></div><ol class="zlatoust-unit-map-list">' + page.decisionAxes.map(function(axis, index) { var poles = String(axis.label || '').split(/\s*\/\s*/); return '<li class="zlatoust-axis-' + index + '"><button type="button" onclick="scrollToZlatoustStage(\'' + zlatoustEscapeForOnclick(page.sectionId) + '\',\'' + zlatoustEscapeForOnclick(axis.id) + '\')"><small>' + escapeHtml(axis.name) + '</small><span class="zlatoust-map-question">' + escapeHtml(axis.question) + '</span><span class="zlatoust-map-poles"><strong>' + escapeHtml(poles[0] || '') + '</strong><i>对比</i><strong>' + escapeHtml(poles[1] || '') + '</strong></span></button></li>'; }).join('') + '</ol></section>';
+  }
+  if (page.decisionTree) {
+    var tree = page.decisionTree, treeNo = tree.no || {}, treeYes = tree.yes || {}, treeNoYes = treeNo.yes || {}, treeNoNo = treeNo.no || {};
+    var treeButton = function(branch, label) {
+      return '<button type="button" class="zlatoust-tree-answer" onclick="scrollToZlatoustStage(\'' + zlatoustEscapeForOnclick(page.sectionId) + '\',\'' + zlatoustEscapeForOnclick(branch.id) + '\')"><small>' + escapeHtml(label) + '</small><strong>' + escapeHtml(branch.label || '') + '</strong><span>' + escapeHtml(branch.detail || '') + '</span></button>';
+    };
+    return '<section class="zlatoust-unit-map zlatoust-unit-map-tree" aria-labelledby="zlatoust-unit-map-title"><h2 id="zlatoust-unit-map-title">本知识点思维导图</h2><p>按顺序走这张分支图：先看有没有被期待的结果；只有在没有结果预期时，才继续区分一般未做和明确拒绝。</p><div class="zlatoust-unit-map-root"><small>中心知识点</small><strong>' + escapeHtml(page.titleZh) + '</strong></div><div class="zlatoust-map-trunk" aria-hidden="true"></div><section class="zlatoust-tree-gate"><small>第 1 步</small><strong>' + escapeHtml(tree.question || '') + '</strong></section><div class="zlatoust-tree-branches"><article class="zlatoust-tree-branch">' + treeButton(treeYes, '有') + '</article><article class="zlatoust-tree-branch"><section class="zlatoust-tree-followup"><strong>没有：' + escapeHtml(treeNo.question || '') + '</strong><div class="zlatoust-tree-followup-grid">' + treeButton(treeNoYes, '是') + treeButton(treeNoNo, '否') + '</div></section></article></div></section>';
+  }
+  return '<section class="zlatoust-unit-map" aria-labelledby="zlatoust-unit-map-title"><h2 id="zlatoust-unit-map-title">本知识点思维导图</h2><p>' + escapeHtml(page.mindMapIntro || '这张图只表示概念关系：先判断说话人把注意力放在哪一类意义上。') + '</p><div class="zlatoust-unit-map-root"><small>中心知识点</small><strong>' + escapeHtml(page.titleZh) + '</strong></div><ol class="zlatoust-unit-map-list">' +
     (page.mindMap || []).map(function(node, index) {
       var poles = String(node.shortLabel || node.label || '').split(/\s*\/\s*/);
-      return '<li><button type="button" onclick="scrollToZlatoustStage(\'' + zlatoustEscapeForOnclick(node.id) + '\')"><span class="zlatoust-map-question">' + escapeHtml(node.label || '') + '</span><span class="zlatoust-map-poles"><strong>' + escapeHtml(poles[0] || '') + '</strong><i>vs</i><strong>' + escapeHtml(poles[1] || '') + '</strong></span></button></li>';
+      return '<li><button type="button" onclick="scrollToZlatoustStage(\'' + zlatoustEscapeForOnclick(page.sectionId) + '\',\'' + zlatoustEscapeForOnclick(node.id) + '\')"><span class="zlatoust-map-question">' + escapeHtml(node.label || '') + '</span><span class="zlatoust-map-poles"><strong>' + escapeHtml(poles[0] || '') + '</strong><i>对比</i><strong>' + escapeHtml(poles[1] || '') + '</strong></span></button></li>';
     }).join('') + '</ol></section>';
 }
 function renderZlatoustLearningToc(page, mobile) {
   var items = (page.stages || []).map(function(stage) {
-    return '<li><button type="button" data-zlatoust-toc="' + escapeHtml(stage.id) + '" onclick="scrollToZlatoustStage(\'' + zlatoustEscapeForOnclick(stage.id) + '\')">' + stage.number + '. ' + escapeHtml(stage.title) + '</button></li>';
-  }).join('') + '<li><button type="button" data-zlatoust-toc="zlatoust-summary" onclick="scrollToZlatoustStage(\'zlatoust-summary\')">判断总表</button></li>' +
-    '<li><button type="button" data-zlatoust-toc="zlatoust-final" onclick="scrollToZlatoustStage(\'zlatoust-final\')">综合判断</button></li>';
+    return '<li><button type="button" data-zlatoust-toc="' + escapeHtml(stage.id) + '" onclick="scrollToZlatoustStage(\'' + zlatoustEscapeForOnclick(page.sectionId) + '\',\'' + zlatoustEscapeForOnclick(stage.id) + '\')">' + stage.number + '. ' + escapeHtml(stage.title) + '</button></li>';
+  }).join('') + '<li><button type="button" data-zlatoust-toc="zlatoust-summary" onclick="scrollToZlatoustStage(\'' + zlatoustEscapeForOnclick(page.sectionId) + '\',\'zlatoust-summary\')">判断总表</button></li>' +
+    '<li><button type="button" data-zlatoust-toc="zlatoust-final" onclick="scrollToZlatoustStage(\'' + zlatoustEscapeForOnclick(page.sectionId) + '\',\'zlatoust-final\')">综合判断</button></li>';
   if (mobile) return '<details class="zlatoust-learning-mobile-toc"><summary>本节目录</summary><ol>' + items + '</ol></details>';
   return '<aside class="zlatoust-learning-toc" aria-label="知识点页目录"><h2>本节目录</h2><ol>' + items + '</ol></aside>';
 }
@@ -3496,12 +3661,20 @@ function renderZlatoustStageSourceRule(rule) {
     '<p class="ru">' + renderRuText(rule.ru || '', lookupContext('grammar', 'zlatoust-source-rule', 'source-rule', rule.ru || '', rule.zh || '', (rule.source && rule.source.pdfPages) || [])) + '</p><p class="zh">' + escapeHtml(rule.zh || '') + '</p>' +
     (zlatoustSourcePages(rule.source) ? '<small>' + escapeHtml(zlatoustSourcePages(rule.source)) + '</small>' : '') + '</article></section>';
 }
+function renderZlatoustStageSourceEvidence(evidence) {
+  if (!evidence) return '';
+  var heading = evidence.sourceType === 'exercise-example' ? '原书题面依据' : '原书逐字证据';
+  return '<section class="zlatoust-stage-block"><h3>' + heading + '</h3><article class="zlatoust-stage-source-evidence">' + renderZlatoustSourceBadge(evidence.sourceType || 'source-rule') +
+    '<p class="ru">' + renderRuText(evidence.ru || '', lookupContext('grammar', 'zlatoust-source-evidence', 'source-rule', evidence.ru || '', evidence.zh || '', (evidence.source && evidence.source.pdfPages) || [])) + '</p><p class="zh">' + escapeHtml(evidence.zh || '') + '</p>' +
+    (zlatoustSourcePages(evidence.source) ? '<small>' + escapeHtml(zlatoustSourcePages(evidence.source)) + '</small>' : '') + '</article></section>';
+}
 function renderZlatoustStageExamples(stage) {
   var items = stage.sourceExamples || [];
   if (!items.length) return '';
-  return '<section class="zlatoust-stage-block"><h3>原书例句逐句解析</h3><div class="zlatoust-example-list">' + items.map(function(item, index) {
+  var heading = items.every(function(item) { return item.sourceType === 'exercise-example'; }) ? '原书题面片段与定位' : '原书例句逐句解析';
+  return '<section class="zlatoust-stage-block"><h3>' + heading + '</h3><div class="zlatoust-example-list">' + items.map(function(item, index) {
     var taskId = stage.id + '-example-' + index;
-    return '<article class="zlatoust-example-row">' + renderZlatoustSourceBadge(item.sourceType || 'source-example') + '<p class="ru">' + renderRuText(item.ru || '', lookupContext('grammar', taskId, 'source-example', item.ru || '', item.zh || '', [])) + '</p><p class="zh">' + escapeHtml(item.zh || '') + '</p><p class="analysis"><strong>为什么这样用：</strong>' + escapeHtml(item.analysis || '') + '</p></article>';
+    return '<article class="zlatoust-example-row">' + renderZlatoustSourceBadge(item.sourceType || 'source-example') + '<p class="ru">' + renderRuText(item.ru || '', lookupContext('grammar', taskId, 'source-example', item.ru || '', item.zh || '', (item.source && item.source.pdfPages) || [])) + '</p><p class="zh">' + escapeHtml(item.zh || '') + '</p><p class="analysis"><strong>为什么这样用：</strong>' + escapeHtml(item.analysis || '') + '</p>' + (zlatoustSourcePages(item.source) ? '<small>' + escapeHtml(zlatoustSourcePages(item.source)) + '</small>' : '') + '</article>';
   }).join('') + '</div></section>';
 }
 function renderZlatoustStageContrasts(stage) {
@@ -3537,37 +3710,58 @@ function renderZlatoustLearningCheck(sectionId, stageId, check, finalCheck) {
     return '<button type="button" class="zlatoust-learning-check-option' + klass + '" onclick="answerZlatoustLearningCheck(\'' + zlatoustEscapeForOnclick(sectionId) + '\',\'' + zlatoustEscapeForOnclick(stageId || '') + '\',\'' + zlatoustEscapeForOnclick(check.id) + '\',\'' + zlatoustEscapeForOnclick(option.key) + '\',' + (finalCheck ? 'true' : 'false') + ')"><strong>' + escapeHtml(option.key) + '</strong><span>' + escapeHtml(option.text) + '</span></button>';
   }).join('');
   return '<article class="zlatoust-learning-check" data-zlatoust-check="' + escapeHtml(check.id) + '"><h4>' + (finalCheck ? '综合判断' : '随堂判断') + '</h4><p class="zlatoust-learning-check-prompt">' + escapeHtml(check.prompt || '') + '</p><div class="zlatoust-learning-check-options">' + options + '</div>' +
-    (submitted ? renderZlatoustLearningFeedback(check.feedback, record.correct) + (!record.correct ? renderZlatoustLearningRetry(sectionId, stageId, check) : '') : '') + '</article>';
+    (submitted ? renderZlatoustLearningFeedback(check.feedback, record.correct) + renderZlatoustLearningRetry(sectionId, stageId, check) : '') + '</article>';
 }
 function renderZlatoustStageExercises(stage) {
   var exercises = (stage.exerciseIds || []).map(function(exerciseId) {
     return currentQuizAllExercises.find(function(exercise) { return exercise.id === exerciseId; });
   }).filter(Boolean);
-  return '<section class="zlatoust-original-practice"><h3>原书正式练习</h3><p>这里直接使用正式题库中的原题与原 ID。你的选择、错题和最后结果会同步回题库。</p>' + exercises.map(function(exercise) {
+  return '<section class="zlatoust-original-practice"><h3>原书正式练习</h3><p>这里直接使用正式题库中的原题与原 ID。你的选择、错题和最后结果会同步回题库。</p>' + (exercises.length ? exercises.map(function(exercise) {
     return renderQuizItem(exercise, getQuizRecord(exercise.id));
-  }).join('') + '</section>';
+  }).join('') : '<p class="b2-study-empty">原书没有为这一条判断单独配置可映射练习，本阶段用随堂题巩固，不虚构原书题。</p>') + '</section>';
 }
 function renderZlatoustLearningStage(page, stage) {
   var external = stage.externalNote;
   return '<section class="zlatoust-stage" id="' + escapeHtml(stage.id) + '"><p class="zlatoust-stage-number">阶段 ' + stage.number + ' / ' + page.stages.length + '</p><h2>' + escapeHtml(stage.title) + '</h2><p class="zlatoust-stage-question">' + escapeHtml(stage.question || '') + '</p>' +
     '<div class="zlatoust-context-entry"><p class="ru">' + renderRuText((stage.entry && stage.entry.ru) || '', lookupContext('grammar', stage.id + '-entry', 'learning-example', (stage.entry && stage.entry.ru) || '', '', [])) + '</p><p>' + escapeHtml((stage.entry && stage.entry.prompt) || '') + '</p></div>' +
     '<section class="zlatoust-teacher-copy"><h3>老师拆解</h3>' + (stage.teacherExplanation || []).map(function(paragraph) { return '<p>' + escapeHtml(paragraph) + '</p>'; }).join('') + '</section>' +
-    renderZlatoustStageSourceRule(stage.sourceRule) + renderZlatoustStageExamples(stage) + renderZlatoustStageContrasts(stage) +
+    renderZlatoustStageSourceRule(stage.sourceRule) + renderZlatoustStageSourceEvidence(stage.sourceEvidence) + renderZlatoustStageExamples(stage) + renderZlatoustStageContrasts(stage) +
     (external ? '<section class="zlatoust-stage-block"><h3>外部教辅补充（中文整理）</h3>' + renderZlatoustExternalReference(external.source, external.text) + '</section>' : '') +
-    renderZlatoustStageSignals(stage) + '<section class="zlatoust-stage-block"><h3>常见误判</h3>' + renderZlatoustCommonErrors(stage.commonErrors || []) + '</section>' +
+    '<details class="zlatoust-stage-deep-dive"><summary>展开信号词边界、常见误判与更多同类提醒</summary>' + renderZlatoustStageSignals(stage) + '<section class="zlatoust-stage-block"><h3>常见误判</h3>' + renderZlatoustCommonErrors(stage.commonErrors || []) + '</section></details>' +
     '<section class="zlatoust-stage-block"><h3>随堂判断与定向反馈</h3>' + (stage.checks || []).map(function(check) { return renderZlatoustLearningCheck(page.sectionId, stage.id, check, false); }).join('') + '</section>' +
-    renderZlatoustStageExercises(stage) + '</section>';
+    '<details class="zlatoust-stage-practice"><summary>原书正式题：' + (stage.exerciseIds || []).length + ' 题</summary>' + renderZlatoustStageExercises(stage) + '</details></section>';
 }
 function renderZlatoustSummaryTable(page) {
   var rows = (page.summaryTable || []).map(function(row) { return '<tr><td>' + escapeHtml(row.question) + '</td><td>' + escapeHtml(row.imperfective) + '</td><td>' + escapeHtml(row.perfective) + '</td><td>' + escapeHtml(row.boundary) + '</td></tr>'; }).join('');
-  return '<section class="zlatoust-summary-table" id="zlatoust-summary"><h2>五组判断总表</h2><div class="zlatoust-table-wrap"><table class="zlatoust-table"><thead><tr><th>先问什么</th><th>未完成体视角</th><th>完成体视角</th><th>必须防止的误判</th></tr></thead><tbody>' + rows + '</tbody></table></div></section>';
+  return '<section class="zlatoust-summary-table" id="zlatoust-summary"><h2>' + page.stages.length + ' 组判断总表</h2><div class="zlatoust-table-wrap"><table class="zlatoust-table"><thead><tr><th>先问什么</th><th>未完成体视角</th><th>完成体视角</th><th>必须防止的误判</th></tr></thead><tbody>' + rows + '</tbody></table></div></section>';
+}
+function renderZlatoustTransferTasks(sectionId, tasks) {
+  if (!tasks || !tasks.length) return '';
+  var record = zlatoustLearningPageRecord(sectionId), answers = record.transfer || {};
+  return '<section class="zlatoust-transfer" id="zlatoust-final"><h2>跨阶段综合迁移</h2><p>这里要处理新语境。完成四项任务后，系统才会把本节标为“已掌握”。</p>' + tasks.map(function(task) {
+    var saved = answers[task.id] || {};
+    if (task.kind === 'text') return '<article class="zlatoust-transfer-task"><h3>' + escapeHtml(task.title) + '</h3><p>' + escapeHtml(task.prompt) + '</p><textarea data-zlatoust-transfer-text="' + escapeHtml(task.id) + '" aria-label="' + escapeHtml(task.title) + '作答" placeholder="写下你的判断…">' + escapeHtml(saved.text || '') + '</textarea><p class="zlatoust-transfer-hint">' + escapeHtml(task.hint || '') + '</p><button type="button" class="zlatoust-back-link" onclick="saveZlatoustTransferText(\'' + zlatoustEscapeForOnclick(sectionId) + '\',\'' + zlatoustEscapeForOnclick(task.id) + '\')">保存作答</button></article>';
+    return '<article class="zlatoust-transfer-task"><h3>' + escapeHtml(task.title) + '</h3><p>' + escapeHtml(task.prompt) + '</p><div class="zlatoust-learning-check-options">' + (task.options || []).map(function(option) { var klass = saved.submitted && option.key === task.answer ? ' is-correct' : saved.submitted && option.key === saved.selected ? ' is-wrong' : ''; return '<button type="button" class="zlatoust-learning-check-option' + klass + '" onclick="answerZlatoustTransferChoice(\'' + zlatoustEscapeForOnclick(sectionId) + '\',\'' + zlatoustEscapeForOnclick(task.id) + '\',\'' + zlatoustEscapeForOnclick(option.key) + '\')"><strong>' + escapeHtml(option.key) + '</strong><span>' + escapeHtml(option.text) + '</span></button>'; }).join('') + '</div>' + (saved.submitted ? '<p class="zlatoust-learning-feedback' + (saved.correct ? '' : ' is-wrong') + '">' + escapeHtml(task.feedback || '') + '</p>' : '') + '</article>';
+  }).join('') + '</section>';
+}
+function answerZlatoustTransferChoice(sectionId, taskId, optionKey) {
+  var page = zlatoustTheoryState.learningPages[sectionId], task = page && (page.transferTasks || []).find(function(item) { return item.id === taskId; });
+  if (!task) return;
+  updateZlatoustLearningRecord(sectionId, function(record) { record.transfer = record.transfer || {}; record.transfer[taskId] = { selected: optionKey, submitted: true, correct: optionKey === task.answer, answeredAt: new Date().toISOString() }; });
+  var target = document.getElementById('zlatoust-final'); if (target) target.outerHTML = renderZlatoustTransferTasks(sectionId, page.transferTasks);
+  refreshZlatoustLearningHeader(sectionId);
+}
+function saveZlatoustTransferText(sectionId, taskId) {
+  var input = document.querySelector('[data-zlatoust-transfer-text="' + taskId + '"]'); if (!input) return;
+  updateZlatoustLearningRecord(sectionId, function(record) { record.transfer = record.transfer || {}; record.transfer[taskId] = { text: input.value, submitted: !!input.value.trim(), answeredAt: new Date().toISOString() }; });
+  refreshZlatoustLearningHeader(sectionId);
 }
 function renderZlatoustLearningSources(page) {
   var coreSources = (page.sources || []).filter(function(source) { return source.sourceType !== 'external-note'; });
   var externalSources = (page.sources || []).filter(function(source) { return source.sourceType === 'external-note'; });
   var core = coreSources.map(function(source) {
     var pages = zlatoustSourcePages(source);
-    return '<li>' + renderZlatoustSourceBadge(source.sourceType) + ' ' + escapeHtml(source.label || '来源') + (pages ? ' · ' + escapeHtml(pages) : '') + (source.status ? ' · ' + escapeHtml(source.status) : '') + '</li>';
+    return '<li>' + renderZlatoustSourceBadge(source.sourceType) + ' ' + escapeHtml(source.label || '来源') + (pages ? ' · ' + escapeHtml(pages) : '') + (source.status ? ' · ' + escapeHtml(getZlatoustStatusLabel(source.status)) : '') + '</li>';
   }).join('');
   var external = externalSources.length ? '<details><summary>外部资料原页（可选核验，无需阅读英文）</summary><div class="zlatoust-rule-body"><ul>' + externalSources.map(function(source) {
     return '<li>' + escapeHtml(source.label || '外部资料') + (source.url ? ' · <a href="' + escapeHtml(source.url) + '" target="_blank" rel="noopener noreferrer">英文原页，仅供核验</a>' : '') + '</li>';
@@ -3582,13 +3776,17 @@ function renderZlatoustLearningResult(sectionId) {
 function renderZlatoustLearningPage(page, unit, chapterIndex) {
   var sectionRecord = getZlatoustSectionRecord(page.sectionId) || {}, sections = (zlatoustTheoryState.index && zlatoustTheoryState.index.sections || []).filter(function(section) { return section.chapterId === page.chapterId; });
   var currentIndex = sections.findIndex(function(section) { return section.id === page.sectionId; });
-  var previous = sections[currentIndex - 1], next = sections[currentIndex + 1];
+  var previous = currentIndex >= 0 ? sections[currentIndex - 1] : null, next = currentIndex >= 0 ? sections[currentIndex + 1] : null;
+  var exerciseCount = Array.from(new Set((page.stages || []).reduce(function(ids, stage) { return ids.concat(stage.exerciseIds || []); }, []))).length;
+  var isSupplementary = page.pageKind === 'supplementary';
+  var chapterNumber = getZlatoustChapterIndex(page.chapterId) + 1;
+  var kicker = isSupplementary ? '第 ' + chapterNumber + ' 章 · 教辅综合页（不计入原书 32 个理论小节）' : '第 ' + chapterNumber + ' 章 · 知识点 ' + escapeHtml(page.sectionId);
   return '<main class="main-container zlatoust-learning-page"><div class="zlatoust-learning-topbar"><button type="button" class="zlatoust-back-link" onclick="returnToZlatoustRoute()">返回知识点卡片</button><span class="zlatoust-progress-summary" data-zlatoust-progress>' + escapeHtml(renderZlatoustLearningProgressText(page.sectionId)) + '</span></div>' +
-    '<header class="zlatoust-learning-hero"><p class="zlatoust-learning-kicker">第 1 章 · 知识点 ' + escapeHtml(page.sectionId) + '</p><h1>' + escapeHtml(page.titleZh) + '</h1><p class="zlatoust-learning-title-ru">' + escapeHtml(page.titleRu) + '</p><p class="zlatoust-learning-problem">' + escapeHtml(page.problem) + '</p><div class="zlatoust-learning-meta"><span>预计 ' + escapeHtml(page.estimatedMinutes) + ' 分钟</span><span>5 个连续阶段</span><span>13 道原书题</span><span>' + escapeHtml(zlatoustSourcePages(unit.source)) + '</span><span>来源状态 ' + escapeHtml(page.reviewStatus) + '</span></div></header>' +
+    '<header class="zlatoust-learning-hero"><p class="zlatoust-learning-kicker">' + kicker + '</p><h1>' + escapeHtml(page.titleZh) + '</h1><p class="zlatoust-learning-title-ru">' + escapeHtml(page.titleRu) + '</p><p class="zlatoust-learning-problem">' + escapeHtml(page.problem) + '</p><div class="zlatoust-learning-meta"><span>核心首学 ' + escapeHtml(typeof page.estimatedMinutes === 'object' ? page.estimatedMinutes.core : ('约 ' + page.estimatedMinutes + ' 分钟')) + '</span><span>' + page.stages.length + ' 个连续阶段</span><span>' + exerciseCount + ' 道原书题</span><span>' + escapeHtml(zlatoustSourcePages(unit && unit.source)) + '</span><span>来源状态 待复核</span></div></header>' +
     renderZlatoustLearningRoute(page) + renderZlatoustLearningMindMap(page) + '<div class="zlatoust-learning-layout">' + renderZlatoustLearningToc(page, false) + '<article class="zlatoust-learning-content">' + renderZlatoustLearningToc(page, true) +
     '<section class="zlatoust-objectives"><h2>学完以后你要能做到</h2><p>' + escapeHtml(page.scopeNote || '') + '</p><ul>' + (page.objectives || []).map(function(item) { return '<li>' + escapeHtml(item) + '</li>'; }).join('') + '</ul></section>' + renderZlatoustDiagnostic(page.diagnostic) +
     (page.stages || []).map(function(stage) { return renderZlatoustLearningStage(page, stage); }).join('') + renderZlatoustSummaryTable(page) +
-    '<section class="zlatoust-final-check" id="zlatoust-final"><h2>综合练习</h2><p>最后不再问某个单独信号词，而是检查你是否掌握完整判断顺序。</p>' + renderZlatoustLearningCheck(page.sectionId, '', page.finalCheck, true) + '</section>' +
+    '<section class="zlatoust-final-check"><h2>判断顺序热身</h2>' + renderZlatoustLearningCheck(page.sectionId, '', page.finalCheck, true) + '</section>' + renderZlatoustTransferTasks(page.sectionId, page.transferTasks) +
     renderZlatoustLearningResult(page.sectionId) + renderZlatoustLearningSources(page) +
     '<nav class="zlatoust-learning-footer" aria-label="知识点前后导航">' + (previous ? '<button type="button" class="zlatoust-back-link" onclick="showZlatoustRuleUnit(\'' + zlatoustEscapeForOnclick(previous.id) + '\')">上一个：' + escapeHtml(previous.id) + '</button>' : '<span></span>') +
     '<button type="button" class="zlatoust-back-link" onclick="returnToZlatoustRoute()">返回知识点卡片</button>' + (next ? '<button type="button" class="zlatoust-back-link" onclick="showZlatoustRuleUnit(\'' + zlatoustEscapeForOnclick(next.id) + '\')">下一个：' + escapeHtml(next.id) + '</button>' : '<span></span>') + '</nav></article></div></main>';
@@ -3644,10 +3842,10 @@ function refreshZlatoustLearningHeader(sectionId) {
   var page = zlatoustTheoryState.learningPages[sectionId];
   if (route && page) route.outerHTML = renderZlatoustLearningRoute(page);
 }
-function scrollToZlatoustStage(stageId) {
+function scrollToZlatoustStage(sectionId, stageId) {
   var target = document.getElementById(stageId);
   if (!target) return;
-  updateZlatoustLearningRecord('1.4.1', function(record) { record.lastStage = stageId; record.lastVisitedAt = new Date().toISOString(); });
+  updateZlatoustLearningRecord(sectionId, function(record) { record.lastStage = stageId; record.lastVisitedAt = new Date().toISOString(); });
   target.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 function initZlatoustLearningPageObserver() {
@@ -3912,7 +4110,8 @@ function renderKnowledgePointNav(points, partId) {
       var sectionId = getZlatoustIntegratedSectionForKnowledgePoint(partId, point.studyCardId);
       var state = sectionId ? getLoadedZlatoustChapterTheory(curCh) : null;
       var learningStatus = sectionId ? getZlatoustLearningStatus(sectionId, state) : '';
-      var meta = sectionId === '1.4.1' ? '知识点学习卡 · 5 个学习阶段 · 13 道原书题' : '知识点学习卡 · ' + range;
+      var learningMeta = sectionId && ZLATOUST_CUSTOM_LEARNING_SECTIONS[sectionId];
+      var meta = learningMeta ? '知识点学习卡 · ' + learningMeta.stageCount + ' 个学习阶段 · ' + learningMeta.exerciseCount + ' 道原书题' : '知识点学习卡 · ' + range;
       studyCards += '<button class="b2-knowledge-card b2-knowledge-study-card' + (sectionId ? ' is-integrated' : '') + '"' + (sectionId ? ' data-learning-status="' + learningStatus + '"' : '') + ' onclick="showStudyCard(\'' + escapeHtml(partId) + '\',\'' + escapeHtml(point.studyCardId) + '\')"><strong>' + escapeHtml(point.title) + '</strong><span>' + meta + '</span><small>' + escapeHtml(point.rule) + '</small><em>' + (sectionId ? escapeHtml(getZlatoustLearningStatusLabel(learningStatus)) + ' · 进入完整教学页 →' : '打开学习卡 →') + '</em></button>';
     } else {
       exerciseNav += '<button class="b2-knowledge-card" onclick="restartQuiz(\'knowledge\',' + escapeHtml(JSON.stringify(point.exerciseIds)).replace(/"/g, '&quot;') + ')"><strong>' + escapeHtml(point.title) + '</strong><span>对应练习导航 · ' + range + '</span><small>' + escapeHtml(point.rule) + '</small><em>去练习 →</em></button>';
@@ -4262,6 +4461,8 @@ var LISTENING_ATTEMPTS_KEY = 'rr_listening_attempts_v1';
 var currentListeningData = null;
 var listeningViewMode = 'exam';
 var listeningPendingEvidenceQuestionId = '';
+var listeningPendingQualityRecordId = '';
+var listeningPendingQualityAction = '';
 function getListeningJson(key, fallback) { try { return JSON.parse(localStorage.getItem(key) || '') || fallback; } catch (e) { return fallback; } }
 function saveListeningJson(key, value) { try { localStorage.setItem(key, JSON.stringify(value)); } catch (e) {} }
 function getListeningProgress() { return getListeningJson(LISTENING_PROGRESS_KEY, {}); }
@@ -4270,6 +4471,88 @@ function getListeningDrafts() { return getListeningJson(LISTENING_DRAFTS_KEY, {}
 function saveListeningDrafts(drafts) { saveListeningJson(LISTENING_DRAFTS_KEY, drafts); }
 function getListeningAttempts() { var value = getListeningJson(LISTENING_ATTEMPTS_KEY, []); return Array.isArray(value) ? value : []; }
 function saveListeningAttempts(attempts) { saveListeningJson(LISTENING_ATTEMPTS_KEY, (attempts || []).slice(-500)); }
+function getListeningQualityRecords() { return RussianListeningQuality.read(); }
+function saveListeningQualityRecords(records) { return RussianListeningQuality.write(records); }
+function getListeningQualityDetails(data, index) {
+  var segment = data && (data.transcriptSegments || [])[index] || {}, media = data && data.media || {};
+  return {
+    bookId: curBook && curBook.id || '', chapterId: data && data.id || '', segmentIndex: index,
+    text: segment.text || '', mediaFile: media.file || '', playlistIndex: Number(segment.playlistIndex) || 0,
+    startTime: Number(segment.startTime), endTime: Number(segment.endTime), source: 'feature'
+  };
+}
+function hasReliableListeningSegment(data, index) {
+  var details = getListeningQualityDetails(data, index);
+  return !!(data && data.media && data.media.status !== 'source-mismatch' && Number.isFinite(details.startTime) && Number.isFinite(details.endTime) && details.endTime > details.startTime);
+}
+function getListeningQualityRecord(data, index) {
+  var details = getListeningQualityDetails(data, index);
+  return getListeningQualityRecords()[RussianListeningQuality.makeSegmentId(details)] || null;
+}
+function refreshListeningQualityControl(index) {
+  if (!currentListeningData) return;
+  var row = document.querySelector('.lw-transcript-row[data-segment-index="' + index + '"]');
+  if (!row) return;
+  var record = getListeningQualityRecord(currentListeningData, index), difficult = record && record.status === 'difficult';
+  var marker = row.querySelector('.lw-difficult-control');
+  if (marker) { marker.classList.toggle('is-active', difficult); marker.setAttribute('aria-pressed', difficult ? 'true' : 'false'); marker.title = difficult ? '取消难句标记' : '标记难句'; }
+}
+function toggleListeningDifficult(index) {
+  if (!currentListeningData) return;
+  var details = getListeningQualityDetails(currentListeningData, index);
+  saveListeningQualityRecords(RussianListeningQuality.markDifficult(getListeningQualityRecords(), details));
+  refreshListeningQualityControl(index);
+}
+function toggleListeningDictation(index) {
+  if (!currentListeningData || !hasReliableListeningSegment(currentListeningData, index)) return;
+  var panel = document.getElementById('lwDictation-' + index), input = document.getElementById('lwDictationInput-' + index);
+  if (!panel) return;
+  panel.hidden = !panel.hidden;
+  if (!panel.hidden) {
+    RussianListeningWorkbench.selectSegment(index, false);
+    if (input) input.focus();
+  }
+}
+function toggleListeningDictationSource(index) {
+  var source = document.getElementById('lwDictationSource-' + index);
+  if (source) source.hidden = !source.hidden;
+}
+function checkListeningDictation(index) {
+  if (!currentListeningData || !hasReliableListeningSegment(currentListeningData, index)) return;
+  var input = document.getElementById('lwDictationInput-' + index), feedback = document.getElementById('lwDictationFeedback-' + index);
+  if (!input || !feedback) return;
+  var outcome = RussianListeningQuality.recordDictation(getListeningQualityRecords(), getListeningQualityDetails(currentListeningData, index), input.value);
+  saveListeningQualityRecords(outcome.records);
+  feedback.textContent = '完成度 ' + outcome.result.score + '% · 缺失：' + (outcome.result.missingWords.join('、') || '无') + ' · 多余：' + (outcome.result.extraWords.join('、') || '无');
+  feedback.dataset.complete = outcome.result.completed ? 'true' : 'false';
+}
+function findListeningQualitySegmentIndex(data, record) {
+  return (data.transcriptSegments || []).findIndex(function(segment, index) {
+    return RussianListeningQuality.makeSegmentId(getListeningQualityDetails(data, index)) === record.id;
+  });
+}
+function openListeningQualityRecord(recordId, action) {
+  var record = getListeningQualityRecords()[recordId];
+  if (!record) return;
+  listeningPendingQualityRecordId = recordId;
+  listeningPendingQualityAction = action || 'play';
+  if (currentListeningData && curBook && record.bookId === curBook.id && record.chapterId === currentListeningData.id) {
+    listeningViewMode = 'intensive'; renderListeningPractice(currentListeningData, 0); return;
+  }
+  var book = getBookById(record.bookId);
+  if (!book) return;
+  Promise.all(Array.from({ length: Number(book.chapters) || 0 }, function(_, index) { return fetchChapter(book.id, index); })).then(function(chapters) {
+    var chapterIndex = chapters.findIndex(function(chapter) { return chapter && chapter.id === record.chapterId; });
+    if (chapterIndex < 0) return;
+    curBook = book; goChapter(chapterIndex);
+  });
+}
+function markListeningQualityMastered(recordId) {
+  saveListeningQualityRecords(RussianListeningQuality.markReviewed(getListeningQualityRecords(), recordId, 'mastered'));
+  if (listeningViewMode === 'quality-review') renderListeningPractice(currentListeningData, 0);
+  else if (currentListeningData) renderListeningPractice(currentListeningData, window.scrollY);
+}
+function openListeningQualityReview() { setListeningViewMode('quality-review'); }
 function getListeningDraft(unitId, createIfMissing) {
   var drafts = getListeningDrafts(), draft = drafts[unitId];
   if (!draft && createIfMissing !== false) {
@@ -4326,12 +4609,19 @@ function restartListeningAttempt() {
   saveListeningDrafts(drafts); listeningViewMode = 'exam'; renderListeningPractice(currentListeningData, 0);
 }
 function setListeningViewMode(mode) {
-  if (['exam','intensive','review'].indexOf(mode) === -1 || !currentListeningData) return;
-  listeningViewMode = mode; renderListeningPractice(currentListeningData, 0);
+  if (['exam','intensive','review','quality-review','media-exercise'].indexOf(mode) === -1 || !currentListeningData) return;
+  if (mode === 'media-exercise' && !hasVerifiedListeningMediaExercise(currentListeningData)) return;
+  var scrollPosition = window.scrollY;
+  listeningViewMode = mode; renderListeningPractice(currentListeningData, scrollPosition);
 }
 function openListeningIntensive() { setListeningViewMode('intensive'); }
 function returnToListeningExam() { setListeningViewMode('exam'); }
 function openListeningReview() { setListeningViewMode('review'); }
+function hasVerifiedListeningMediaExercise(data) {
+  var exercise = data && data.mediaExercise;
+  return !!(exercise && exercise.sourceStatus === 'verified-cleaned-source' && exercise.available !== false &&
+    Array.isArray(exercise.tasks) && exercise.tasks.some(function(task) { return task && task.prompt && Array.isArray(task.items) && task.items.length; }));
+}
 function getListeningQuestion(questionId) {
   return currentListeningData && (currentListeningData.questions || []).find(function(question) { return question.id === questionId; }) || null;
 }
@@ -4372,35 +4662,51 @@ function renderListeningQuestion(question) {
     '<div class="lw-options">' + options + '</div>' + result + '</article>';
 }
 function renderListeningTopbar(data, sourcePages) {
+  var mediaExerciseMode = hasVerifiedListeningMediaExercise(data) ? '<button class="lw-mode' + (listeningViewMode === 'media-exercise' ? ' is-active' : '') + '" type="button" onclick="setListeningViewMode(\'media-exercise\')">片尾听辨</button>' : '';
   return '<header class="lw-topbar"><div class="lw-title"><h1>' + escapeHtml(data.title || '听力工作台') + '</h1><p>' + escapeHtml(data.section || '') + (sourcePages ? ' · 原书页 ' + escapeHtml(sourcePages) : '') + '</p></div>' +
     '<nav class="lw-modes" aria-label="听力模式"><button class="lw-mode' + (listeningViewMode === 'exam' ? ' is-active' : '') + '" type="button" onclick="setListeningViewMode(\'exam\')">考试</button>' +
     '<button class="lw-mode' + (listeningViewMode === 'intensive' ? ' is-active' : '') + '" type="button" onclick="setListeningViewMode(\'intensive\')">精听</button>' +
-    '<button class="lw-mode' + (listeningViewMode === 'review' ? ' is-active' : '') + '" type="button" onclick="setListeningViewMode(\'review\')">复盘</button></nav>' +
+    mediaExerciseMode +
+    '<button class="lw-mode' + (listeningViewMode === 'review' ? ' is-active' : '') + '" type="button" onclick="setListeningViewMode(\'review\')">复盘</button>' +
+    '<button class="lw-mode' + (listeningViewMode === 'quality-review' ? ' is-active' : '') + '" type="button" onclick="openListeningQualityReview()">精听复习</button></nav>' +
     '<button class="lw-icon-button" id="lwSettingsToggle" type="button" onclick="RussianListeningWorkbench.toggleSettings()" aria-expanded="false" title="听力设置">⚙</button></header>';
 }
 function renderListeningPlayer(data, mediaBase) {
   var media = data.media || {}, mediaUrl = media.file ? mediaBase + media.file : '', captionsUrl = media.captions ? mediaBase + media.captions : '';
+  if (media.status === 'source-mismatch' || !mediaUrl) return '';
+  var usesVideo = media.kind === 'video';
+  var playlist = Array.isArray(media.playlist) ? media.playlist : [];
+  var playlistLinks = playlist.length ? '<nav class="lw-playlist" aria-label="媒体播放列表">' + playlist.map(function(item, index) {
+    return '<button type="button" data-lw-playlist-index="' + index + '" class="lw-playlist-item' + (index === 0 ? ' is-active' : '') + '" onclick="RussianListeningWorkbench.selectPlaylistItem(' + index + ',true)">' + escapeHtml(item.label || ('第 ' + (index + 1) + ' 段')) + '</button>';
+  }).join('') + '</nav>' : '';
   var isIntensive = listeningViewMode === 'intensive';
   var intensiveSettings = isIntensive ?
     '<label>句间停顿<select id="lwPause" onchange="RussianListeningWorkbench.updateSetting(\'sentencePauseMs\',this.value)"><option value="0">无</option><option value="500">0.5 秒</option><option value="1000">1 秒</option><option value="2000">2 秒</option></select></label>' +
     '<label>字幕显示<select id="lwSubtitleMode" onchange="RussianListeningWorkbench.updateSetting(\'subtitleMode\',this.value)"><option value="hidden">仅当前句</option><option value="intensive">逐句揭示</option><option value="always">全部显示</option></select></label>' +
-    '<label class="lw-check-setting"><input id="lwAutoAdvance" type="checkbox" onchange="RussianListeningWorkbench.updateSetting(\'autoAdvance\',this.checked)"><span>播完自动下一句</span></label>' : '';
+    '<label class="lw-check-setting"><input id="lwAutoAdvance" type="checkbox" onchange="RussianListeningWorkbench.updateSetting(\'autoAdvance\',this.checked)"><span>播完自动下一句</span></label>' +
+    '<label class="lw-check-setting"><input id="lwABLoop" type="checkbox" onchange="RussianListeningWorkbench.toggleABLoop()"><span>A/B 循环当前句</span></label>' +
+    '<label>A 前缓冲<select id="lwABBefore" onchange="RussianListeningWorkbench.updateSetting(\'abBeforeSeconds\',this.value)"><option value="0">无</option><option value="0.15">0.15 秒</option><option value="0.3">0.3 秒</option><option value="0.5">0.5 秒</option></select></label>' +
+    '<label>B 后缓冲<select id="lwABAfter" onchange="RussianListeningWorkbench.updateSetting(\'abAfterSeconds\',this.value)"><option value="0">无</option><option value="0.15">0.15 秒</option><option value="0.3">0.3 秒</option><option value="0.5">0.5 秒</option></select></label>' : '';
   var sentenceTools = isIntensive ?
     '<button class="lw-control" id="lwPrevSentence" type="button" onclick="RussianListeningWorkbench.moveSegment(-1)" title="上一句" aria-label="上一句">←</button>' +
     '<button class="lw-control" id="lwNextSentence" type="button" onclick="RussianListeningWorkbench.moveSegment(1)" title="下一句" aria-label="下一句">→</button>' +
     '<button class="lw-control" id="lwLoopSentence" type="button" onclick="RussianListeningWorkbench.toggleLoop()" aria-pressed="false">循环</button>' +
+    '<button class="lw-control" id="lwABLoopControl" type="button" onclick="RussianListeningWorkbench.toggleABLoop()" title="A/B 循环当前句" aria-label="A/B 循环当前句" aria-pressed="false">A/B</button>' +
     '<span class="lw-sentence-position" id="lwSentencePosition">正在校验时间轴</span>' : '';
   return '<section class="lw-settings-panel" id="lwSettingsPanel" hidden><div class="lw-settings-grid">' +
     '<label>播放速度<select id="lwRate" onchange="RussianListeningWorkbench.updateSetting(\'playbackRate\',this.value)"><option value="0.75">0.75x</option><option value="0.85">0.85x</option><option value="1">1.00x</option><option value="1.15">1.15x</option><option value="1.25">1.25x</option></select></label>' +
     intensiveSettings + '</div></section>' +
     '<section class="lw-player' + (isIntensive ? ' is-intensive' : '') + '" aria-label="听力播放器">' +
-    (mediaUrl ? '<audio id="lwAudio" preload="metadata"><source src="' + escapeHtml(mediaUrl) + '" type="audio/mpeg">' + (captionsUrl ? '<track kind="subtitles" srclang="ru" label="Русский" src="' + escapeHtml(captionsUrl) + '">' : '') + '</audio>' : '<audio id="lwAudio" preload="metadata"></audio>') +
+    (usesVideo
+      ? (mediaUrl ? '<video id="lwAudio" class="lw-video" preload="metadata" playsinline><source src="' + escapeHtml(mediaUrl) + '" type="video/mp4">' + (captionsUrl ? '<track kind="subtitles" srclang="ru" label="Русский" src="' + escapeHtml(captionsUrl) + '">' : '') + '</video>' : '<video id="lwAudio" class="lw-video" preload="metadata" playsinline></video>')
+      : (mediaUrl ? '<audio id="lwAudio" preload="metadata"><source src="' + escapeHtml(mediaUrl) + '" type="audio/mp4"></audio>' : '<audio id="lwAudio" preload="metadata"></audio>')) +
     '<button class="lw-control lw-play" id="lwPlay" type="button" onclick="RussianListeningWorkbench.togglePlay()"' + (mediaUrl ? '' : ' disabled') + ' aria-label="播放">▶</button>' +
     '<input class="lw-progress" id="lwProgress" type="range" min="0" max="100" value="0" step="0.1" oninput="RussianListeningWorkbench.seek(this.value)" aria-label="播放进度"' + (mediaUrl ? '' : ' disabled') + '>' +
     '<span class="lw-time" id="lwTime">00:00 / 00:00</span>' + sentenceTools + '</section>' +
-    (isIntensive ? '<p class="lw-timeline-status" id="lwTimelineStatus">正在读取字幕时间轴...</p>' : '');
+    (isIntensive ? '<p class="lw-timeline-status" id="lwTimelineStatus">正在读取字幕时间轴...</p>' : '') + playlistLinks;
 }
 function renderListeningExam(data) {
+  if (data.mediaOnly) return '<div class="lw-content lw-empty"><h2>模拟考试媒体</h2><p>' + escapeHtml(data.mediaOnly.note || '本套媒体未附带可机器读取的题面，保留原始音频和分段播放。') + '</p><button class="lw-secondary-action" type="button" onclick="openListeningIntensive()">查看媒体列表</button></div>';
   var questions = data.questions || [], draft = getListeningDraft(data.id, true), answered = Object.keys(draft.answers || {}).filter(function(id) { return draft.answers[id]; }).length;
   var mediaUnavailable = !data.media || !data.media.file || data.media.status === 'source-mismatch';
   var percent = questions.length ? Math.round(answered / questions.length * 100) : 0;
@@ -4412,9 +4718,12 @@ function renderListeningExam(data) {
 function renderListeningTranscript(data) {
   return '<div class="lw-transcript" id="lwTranscript">' + (data.transcriptSegments || []).map(function(segment, index) {
     var context = lookupContext('listening', data.id + '-segment-' + (index + 1), 'listening-transcript', segment.text || '', segment.translation || '', data.sourcePages || []);
+    var record = getListeningQualityRecord(data, index), difficult = record && record.status === 'difficult';
+    var translation = segment.translation ? '<details class="lw-transcript-translation"><summary>中文对照</summary><p>' + escapeHtml(segment.translation) + '</p></details>' : '';
     return '<article class="lw-transcript-row" data-segment-index="' + index + '" data-timeline-ready="false" data-plain-text="' + escapeHtml(segment.text || '') + '" tabindex="0" onclick="RussianListeningWorkbench.selectSegmentFromRow(' + index + ',event)" onkeydown="if(event.key===\'Enter\'||event.key===\' \'){event.preventDefault();RussianListeningWorkbench.selectSegmentFromRow(' + index + ',event)}">' +
-      '<div class="lw-transcript-meta"><span class="lw-transcript-time">--:--</span><button class="lw-transcript-play" type="button" onclick="event.stopPropagation();RussianListeningWorkbench.selectSegment(' + index + ',true)" disabled aria-label="播放本句">▶</button></div>' +
-      '<div class="lw-transcript-copy"><span class="lw-transcript-speaker">' + escapeHtml(segment.displayLabel || segment.speaker || '') + '</span><span class="lw-transcript-text">' + renderRuText(segment.text || '', context) + '</span></div></article>';
+      '<div class="lw-transcript-meta"><span class="lw-transcript-time">--:--</span><button class="lw-transcript-play" type="button" onclick="event.stopPropagation();RussianListeningWorkbench.selectSegment(' + index + ',true)" disabled aria-label="播放本句" title="播放本句">▶</button><div class="lw-transcript-actions"><button class="lw-row-icon lw-difficult-control' + (difficult ? ' is-active' : '') + '" type="button" onclick="event.stopPropagation();toggleListeningDifficult(' + index + ')" aria-label="' + (difficult ? '取消难句标记' : '标记难句') + '" aria-pressed="' + (difficult ? 'true' : 'false') + '" title="' + (difficult ? '取消难句标记' : '标记难句') + '">⚑</button><button class="lw-row-icon lw-dictation-control" type="button" onclick="event.stopPropagation();toggleListeningDictation(' + index + ')" disabled aria-label="逐句听写" title="逐句听写">✎</button></div></div>' +
+      '<div class="lw-transcript-copy"><span class="lw-transcript-speaker">' + escapeHtml(segment.displayLabel || segment.speaker || '') + '</span><span class="lw-transcript-text">' + renderRuText(segment.text || '', context) + '</span>' + translation +
+      '<section class="lw-dictation" id="lwDictation-' + index + '" hidden onclick="event.stopPropagation()"><div class="lw-dictation-actions"><button type="button" class="lw-row-icon" onclick="RussianListeningWorkbench.selectSegment(' + index + ',true)" aria-label="播放本句" title="播放本句">▶</button><button type="button" class="lw-row-icon" onclick="RussianListeningWorkbench.toggleLoop()" aria-label="循环本句" title="循环本句">↻</button><button type="button" class="lw-text-command" onclick="checkListeningDictation(' + index + ')">检查</button><button type="button" class="lw-text-command" onclick="toggleListeningDictationSource(' + index + ')">显示原文</button></div><textarea id="lwDictationInput-' + index + '" placeholder="听写本句…" aria-label="第 ' + (index + 1) + ' 句听写"></textarea><p id="lwDictationFeedback-' + index + '" class="lw-dictation-feedback" aria-live="polite"></p><p id="lwDictationSource-' + index + '" class="lw-dictation-source" hidden>' + escapeHtml(segment.text || '') + '</p></section></div></article>';
   }).join('') + '</div>';
 }
 function renderListeningEvidenceList(data) {
@@ -4426,12 +4735,26 @@ function renderListeningEvidenceList(data) {
   }).join('') : '<div class="lw-empty">这组材料尚未逐题绑定听力依据。</div>') + '</div>';
 }
 function renderListeningIntensive(data) {
-  return '<div class="lw-content lw-intensive-layout"><main><div class="lw-section-heading"><h2>逐句精听</h2><p id="lwTranscriptHint">正在校验逐句时间轴...</p></div>' + renderListeningTranscript(data) + '</main>' +
+  var structure = data.mediaStructure || {};
+  var featureEnd = Number(structure.featureEndSeconds);
+  var structureHint = '';
+  if (Number.isFinite(featureEnd) && featureEnd > 0) {
+    var minutes = String(Math.floor(featureEnd / 60)).padStart(2, '0');
+    var seconds = String(Math.floor(featureEnd % 60)).padStart(2, '0');
+    structureHint = '<p class="lw-media-structure">正片范围 00:00–' + minutes + ':' + seconds + '；随后为听辨练习，未纳入逐句跳播。</p>';
+  }
+  return '<div class="lw-content lw-intensive-layout"><main><div class="lw-section-heading"><h2>逐句精听</h2><p id="lwTranscriptHint">正在校验逐句时间轴...</p>' + structureHint + '</div>' + renderListeningTranscript(data) + '</main>' +
     '<aside class="lw-intensive-side"><div class="lw-section-heading"><h2>题目依据</h2><p>依据来自已核验题目数据</p></div>' + renderListeningEvidenceList(data) + '</aside></div>';
 }
 function renderListeningReview(data) {
   var attempt = getLatestListeningAttempt(data.id);
-  if (!attempt) return '<div class="lw-content lw-empty"><p>这组材料还没有完整提交记录。</p><button class="lw-submit" type="button" onclick="setListeningViewMode(\'exam\')">开始作答</button></div>';
+  var difficultRows = Object.keys(getListeningQualityRecords()).map(function(id) { return getListeningQualityRecords()[id]; }).filter(function(record) {
+    return record.bookId === (curBook && curBook.id || '') && record.chapterId === data.id && record.status === 'difficult';
+  }).map(function(record) {
+    var timed = Number.isFinite(Number(record.startTime)) && Number.isFinite(Number(record.endTime)) && Number(record.endTime) > Number(record.startTime);
+    return '<article class="lw-review-item"><h3>难句' + (timed ? ' · 可定位播放' : ' · 仅原文') + '</h3><p class="lw-review-answer">' + escapeHtml(record.text) + '</p><p>复习 ' + Number(record.reviewCount || 0) + ' 次</p><div class="lw-inline-actions"><button class="lw-secondary-action" type="button" onclick="openListeningQualityRecord(\'' + escapeHtml(record.id) + '\',\'play\')">' + (timed ? '定位播放' : '定位原文') + '</button><button class="lw-secondary-action" type="button" onclick="openListeningQualityRecord(\'' + escapeHtml(record.id) + '\',\'dictation\')"' + (timed ? '' : ' disabled') + '>听写</button><button class="lw-secondary-action" type="button" onclick="markListeningQualityMastered(\'' + escapeHtml(record.id) + '\')">标记掌握</button></div></article>';
+  }).join('');
+  if (!attempt) return '<div class="lw-content"><section class="lw-empty"><p>这组材料还没有完整提交记录。</p><button class="lw-submit" type="button" onclick="setListeningViewMode(\'exam\')">开始作答</button></section><section class="lw-review-list"><div class="lw-section-heading"><h2>本章难句</h2><p>仅显示当前章节</p></div>' + (difficultRows || '<div class="lw-empty">本章还没有难句标记。</div>') + '</section></div>';
   var questions = {}; (data.questions || []).forEach(function(question) { questions[question.id] = question; });
   var reviewRows = (attempt.answers || []).filter(function(answer) { return answer.result !== 'correct'; }).map(function(answer) {
     var question = questions[answer.questionId] || {}, evidence = question.evidence || {};
@@ -4441,31 +4764,74 @@ function renderListeningReview(data) {
   }).join('');
   return '<div class="lw-content"><section class="lw-review-summary"><div class="lw-review-stat"><strong>' + attempt.accuracy + '%</strong><span>正确率</span></div><div class="lw-review-stat"><strong>' + attempt.correct + '</strong><span>正确</span></div><div class="lw-review-stat"><strong>' + attempt.wrong + '</strong><span>错误</span></div><div class="lw-review-stat"><strong>' + attempt.unanswered + '</strong><span>未答</span></div></section>' +
     '<section class="lw-review-list"><div class="lw-section-heading"><h2>本次复盘</h2><p>' + escapeHtml(new Date(attempt.submittedAt).toLocaleString('zh-CN')) + '</p></div>' + (reviewRows || '<div class="lw-empty">本组全部答对。</div>') + '</section>' +
-    '<button class="lw-submit" type="button" onclick="restartListeningAttempt()">再练一次</button></div>';
+    '<section class="lw-review-list"><div class="lw-section-heading"><h2>本章难句</h2><p>仅显示当前章节</p></div>' + (difficultRows || '<div class="lw-empty">本章还没有难句标记。</div>') + '</section><button class="lw-submit" type="button" onclick="restartListeningAttempt()">再练一次</button></div>';
+}
+function renderListeningQualityReview() {
+  var records = getListeningQualityRecords(), queue = RussianListeningQuality.getReviewQueue(records), mastered = Object.keys(records).map(function(id) { return records[id]; }).filter(function(record) { return record.status === 'mastered'; });
+  function row(item) {
+    var record = item.record || item, timed = Number.isFinite(Number(record.startTime)) && Number.isFinite(Number(record.endTime)) && Number(record.endTime) > Number(record.startTime);
+    var state = record.status === 'difficult' ? '难句' : record.dictation && record.dictation.completed ? '听写完成' : '听写待完成';
+    return '<article class="lw-review-item"><h3>' + escapeHtml(record.chapterId || '听力章节') + ' · ' + state + '</h3><p class="lw-review-answer">' + escapeHtml(record.text) + '</p><p>最近：' + escapeHtml(record.lastReviewedAt || record.firstMarkedAt || '尚未复习') + (record.dictation && record.dictation.lastScore != null ? ' · 听写 ' + Number(record.dictation.lastScore) + '%' : '') + '</p><div class="lw-inline-actions"><button class="lw-secondary-action" type="button" onclick="openListeningQualityRecord(\'' + escapeHtml(record.id) + '\',\'play\')">' + (timed ? '播放' : '定位原文') + '</button><button class="lw-secondary-action" type="button" onclick="openListeningQualityRecord(\'' + escapeHtml(record.id) + '\',\'dictation\')"' + (timed ? '' : ' disabled') + '>听写</button><button class="lw-secondary-action" type="button" onclick="markListeningQualityMastered(\'' + escapeHtml(record.id) + '\')">标记掌握</button></div></article>';
+  }
+  return '<div class="lw-content"><section class="lw-review-list"><div class="lw-section-heading"><h2>精听复习</h2><p>仅存本机，按新难句、低分听写、到期复习排序</p></div>' + (queue.map(row).join('') || '<div class="lw-empty">今天没有待复习的精听句。</div>') + '</section><section class="lw-review-list"><div class="lw-section-heading"><h2>已掌握</h2><p>保留历史记录</p></div>' + (mastered.map(row).join('') || '<div class="lw-empty">还没有已掌握内容。</div>') + '</section></div>';
+}
+function renderListeningMediaExercise(data) {
+  var exercise = data.mediaExercise || {};
+  if (!hasVerifiedListeningMediaExercise(data)) return '<div class="lw-content lw-empty"><p>本章没有已核验的教材片尾听辨题面。</p></div>';
+  var tasks = Array.isArray(exercise.tasks) && exercise.tasks.length ? exercise.tasks : [{ prompt: exercise.prompt || '', items: exercise.items || [] }];
+  var sourcePages = (exercise.sourcePages || []).map(function(page) { return 'PDF-' + String(page).padStart(3, '0'); }).join('、');
+  var tasksHtml = tasks.map(function(task, taskIndex) {
+    var items = (task.items || []).map(function(item, itemIndex) {
+      var number = item.number == null ? '片段' : String(item.number);
+      var text = item.text || '';
+      var context = lookupContext('listening', data.id + '-media-exercise-' + taskIndex + '-' + itemIndex, 'listening-transcript', text, '', exercise.sourcePages || []);
+      return '<article class="lw-media-exercise-item"><span>' + escapeHtml(number) + '</span><p>' + renderRuText(text, context) + '</p></article>';
+    }).join('');
+    return '<section class="lw-media-exercise-task"><p class="lw-media-exercise-prompt">' + renderRuText(task.prompt || '', lookupContext('listening', data.id + '-media-exercise-prompt-' + taskIndex, 'listening-question', task.prompt || '', '', exercise.sourcePages || [])) + '</p>' +
+      '<div class="lw-media-exercise-list">' + items + '</div></section>';
+  }).join('');
+  return '<div class="lw-content lw-media-exercise"><div class="lw-section-heading"><h2>教材片尾听辨练习</h2><p>原书 Аудиозадание · 整段播放，不提供伪造的逐句跳转</p></div>' +
+    '<p class="lw-media-exercise-source">来源：' + escapeHtml(exercise.sourceDescription || '原书清洁 Markdown') + (sourcePages ? ' · 原书页 ' + escapeHtml(sourcePages) : '') + '</p>' + tasksHtml + '</div>';
 }
 function renderListeningPractice(data, scrollPosition) {
   var restoreState = arguments[2];
-  if (restoreState && ['exam','intensive','review'].indexOf(restoreState.viewMode) !== -1) listeningViewMode = restoreState.viewMode;
+  if (restoreState && ['exam','intensive','review','quality-review'].indexOf(restoreState.viewMode) !== -1) listeningViewMode = restoreState.viewMode;
+  else if (restoreState && restoreState.viewMode === 'media-exercise' && hasVerifiedListeningMediaExercise(data)) listeningViewMode = 'media-exercise';
   else if (!currentListeningData || currentListeningData.id !== data.id) listeningViewMode = 'exam';
   currentListeningData = data;
   var sourcePages = (data.sourcePages || []).map(function(page) { return 'PDF-' + String(page).padStart(3, '0'); }).join('、');
   var mediaBase = getListeningMediaBase(), media = data.media || {};
   var mediaNotice = media.status === 'source-mismatch'
-    ? '<section class="lw-media-warning"><strong>已停用不匹配的音频</strong><p>当前导入音轨属于另一套教材，不能用于本单元考试或精听。题目与教材原文保留，等待正确配套音频重新绑定。</p></section>'
+    ? '<section class="lw-media-warning"><strong>尚未找到正确配套媒体</strong><p>旧导入音轨属于另一套教材，不能用于本单元考试或精听。题目与教材原文保留，等待正确配套音频重新绑定。</p></section>'
     : '<p class="reading-answer-source">来源：' + escapeHtml(media.provenance || '来源待核对') + (media.provenance === 'reconstructed-tts' ? ' · 重建音频，不等同于原始配套录音' : '') + '</p>';
-  var modeBody = listeningViewMode === 'intensive' ? renderListeningIntensive(data) : listeningViewMode === 'review' ? renderListeningReview(data) : renderListeningExam(data);
+  var modeBody = listeningViewMode === 'intensive' ? renderListeningIntensive(data) : listeningViewMode === 'media-exercise' ? renderListeningMediaExercise(data) : listeningViewMode === 'review' ? renderListeningReview(data) : listeningViewMode === 'quality-review' ? renderListeningQualityReview() : renderListeningExam(data);
   var listeningBackAction = isWorldPeopleBook(curBook) ? 'showChapters(\'' + escapeHtml(curBook.id) + '\')' : 'showB2Dashboard()';
   var listeningBackTitle = isWorldPeopleBook(curBook) ? '目录' : '仪表盘';
   document.getElementById('app').innerHTML = b2FloatingNavigation({ backAction: listeningBackAction, backTitle: listeningBackTitle, menuAction: 'showBreadcrumb()' }) +
     '<main class="lw-workbench" data-mode="' + listeningViewMode + '" data-timeline-ready="loading">' + renderListeningTopbar(data, sourcePages) + renderListeningPlayer(data, mediaBase) +
     mediaNotice + modeBody + '</main>';
   window.scrollTo(0, typeof scrollPosition === 'number' ? scrollPosition : 0); applyTheme(); saveLastRead(restoreState);
-  var initResult = RussianListeningWorkbench.init({ data: data, captionsUrl: media.captions ? mediaBase + media.captions : '' });
+  var isMediaExercise = listeningViewMode === 'media-exercise' && hasVerifiedListeningMediaExercise(data);
+  var playerData = isMediaExercise ? Object.assign({}, data, { transcriptSegments: [] }) : data;
+  var initResult = RussianListeningWorkbench.init({ data: playerData, captionsUrl: isMediaExercise ? '' : (media.captions ? mediaBase + media.captions : ''), initialTime: isMediaExercise && data.mediaExercise ? Number(data.mediaExercise.exerciseStartSeconds) : 0, playlist: (media.playlist || []).map(function(item) { return { url: mediaBase + item.file, label: item.label || '' }; }) });
   Promise.resolve(initResult).then(function() {
-    if (!listeningPendingEvidenceQuestionId) return;
-    var pendingQuestion = getListeningQuestion(listeningPendingEvidenceQuestionId);
-    listeningPendingEvidenceQuestionId = '';
-    if (pendingQuestion && pendingQuestion.evidence) RussianListeningWorkbench.focusEvidence(pendingQuestion.evidence.quote || '');
+    if (listeningPendingEvidenceQuestionId) {
+      var pendingQuestion = getListeningQuestion(listeningPendingEvidenceQuestionId);
+      listeningPendingEvidenceQuestionId = '';
+      if (pendingQuestion && pendingQuestion.evidence) RussianListeningWorkbench.focusEvidence(pendingQuestion.evidence.quote || '');
+    }
+    if (!listeningPendingQualityRecordId) return;
+    var record = getListeningQualityRecords()[listeningPendingQualityRecordId], action = listeningPendingQualityAction;
+    listeningPendingQualityRecordId = ''; listeningPendingQualityAction = '';
+    if (!record) return;
+    var segmentIndex = findListeningQualitySegmentIndex(currentListeningData, record);
+    if (segmentIndex < 0) return;
+    var row = document.querySelector('.lw-transcript-row[data-segment-index="' + segmentIndex + '"]');
+    if (row) row.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    if (hasReliableListeningSegment(currentListeningData, segmentIndex)) {
+      if (action === 'dictation') toggleListeningDictation(segmentIndex);
+      else { RussianListeningWorkbench.selectSegment(segmentIndex, true); saveListeningQualityRecords(RussianListeningQuality.markReviewed(getListeningQualityRecords(), record.id)); }
+    }
   });
 }
 var EXAM_PROGRESS_KEY = 'russian_b2_exam_progress_v1';
@@ -6173,17 +6539,17 @@ function showWorldPeopleDashboard() {
         '<button type="button" onclick="resumeWorldPeopleModule(\'' + escapeHtml(lastBook.id) + '\')">继续学习</button></section>';
     }
   }
-  var cards = WORLD_PEOPLE_BOOK_IDS.map(function(bookId) {
+  var cards = WORLD_PEOPLE_MODULE_IDS.map(function(bookId) {
     var book = getBookById(bookId); if (!book) return '';
-    var progress = getWorldPeopleProgress(book), resume = getWorldPeopleResumeState(bookId);
+    var progress = getWorldPeopleProgress(book), resumeTarget = getWorldModuleResume(bookId);
     var unitLabel = bookId === 'zlatoust_grammar' ? '章 · 597 道题' : '章';
     return '<article class="world-module-card" onclick="showWorldPeopleModule(\'' + escapeHtml(book.id) + '\')">' +
       '<span class="book-kind">学习模块</span><h2>' + escapeHtml(book.title) + '</h2><p>' + escapeHtml(book.description || '') + '</p>' +
       '<div class="progress-bar"><div class="progress-fill" style="width:' + progress.pct + '%"></div></div>' +
       '<div class="progress-text">已完成 ' + progress.completed + ' / ' + progress.total + ' ' + unitLabel + ' · ' + progress.pct + '%</div>' +
-      '<div class="world-module-resume"><strong>上次学习：</strong>' + escapeHtml(getWorldResumeLocation(bookId, resume)) + '</div>' +
+      '<div class="world-module-resume"><strong>上次学习：</strong>' + escapeHtml(getWorldResumeLocation(resumeTarget.bookId, resumeTarget.record)) + '</div>' +
       '<div class="world-module-actions"><button type="button" class="b2-finish" onclick="event.stopPropagation();showChapters(\'' + escapeHtml(book.id) + '\')">打开目录</button>' +
-      '<button type="button" class="world-module-continue" onclick="event.stopPropagation();resumeWorldPeopleModule(\'' + escapeHtml(book.id) + '\')">继续 ↗</button></div></article>';
+      '<button type="button" class="world-module-continue" onclick="event.stopPropagation();resumeWorldPeopleModule(\'' + escapeHtml(resumeTarget.bookId) + '\')">继续 ↗</button></div></article>';
   }).join('');
   document.getElementById('app').innerHTML =
     b2FloatingNavigation({ backAction: 'showShelf()', backTitle: '书架', menuAction: 'showBreadcrumb()' }) +

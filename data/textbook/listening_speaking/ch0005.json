@@ -7,11 +7,15 @@
     21,
     22
   ],
+  "mediaStructure": null,
+  "mediaExercise": null,
   "media": {
-    "provenance": "unavailable",
-    "status": "source-mismatch",
-    "reason": "Imported audio belongs to Uchebno-trenirovochnye testy po russkomu iazyku kak inostrannomu. Vypusk 4. Audirovanie. Govorenie, not V mire liudei. Vypusk 2. Audirovanie. Govorenie.",
-    "rejectedFile": "media/06.mp3"
+    "provenance": "verified-original-audio",
+    "status": "verified",
+    "kind": "audio",
+    "file": "media/world-people-v2/06.mp4",
+    "sourceCollection": "В мире людей. Выпуск 2. Аудирование. Говорение",
+    "sourceTrack": "06.mov"
   },
   "questions": [
     {
@@ -117,18 +121,76 @@
   ],
   "transcriptSegments": [
     {
+      "text": "Администрация Владивостока сообщает, что в тестовом режиме начали работу 9 интерактивных сенсорных панелей на остановках общественного транспорта.",
+      "playlistIndex": 0,
       "speaker": "A",
       "displayLabel": "Д",
-      "text": "Администрация Владивостока сообщает, что в тестовом режиме начали работу 9 интерактивных сенсорных панелей на остановках общественного транспорта. Жители и гости города могут узнавать расписание общественного транспорта, время сеансов в кинотеатрах, определять по карте расположение остановки, на которой они находятся, находить ближайшие кафе, читать новости, смотреть объявления, самостоятельно и бесплатно размещать их.",
-      "startTime": 0,
-      "endTime": 0
+      "matchRatio": 1,
+      "matchedWords": 16,
+      "expectedWords": 16,
+      "startTime": 4.68,
+      "endTime": 14.98,
+      "timingStatus": "aligned"
     },
     {
+      "text": "Жители и гости города могут узнавать расписание общественного транспорта, время сеансов в кинотеатрах, определять по карте расположение остановки, на которой они находятся, находить ближайшие кафе, читать новости, смотреть объявления, самостоятельно и бесплатно размещать их.",
+      "playlistIndex": 0,
       "speaker": "A",
       "displayLabel": "Д",
-      "text": "зайти на сайт, добавить текст объявления и, если необходимо, — фотографию или картинку. Объявление появится сразу на всех информационных интерактивных панелях. Скоро для удобства планируется ввести услугу отправки объявления с помощью смс. Этот сервис также будет бесплатным.",
-      "startTime": 0,
-      "endTime": 0
+      "matchRatio": 1,
+      "matchedWords": 34,
+      "expectedWords": 34,
+      "startTime": 15.52,
+      "endTime": 35.16,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "зайти на сайт, добавить текст объявления и, если необходимо, — фотографию или картинку.",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 1,
+      "matchedWords": 12,
+      "expectedWords": 12,
+      "startTime": 38.84,
+      "endTime": 46.08,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Объявление появится сразу на всех информационных интерактивных панелях.",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 1,
+      "matchedWords": 8,
+      "expectedWords": 8,
+      "startTime": 46.82,
+      "endTime": 51.74,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Скоро для удобства планируется ввести услугу отправки объявления с помощью смс.",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 0.727,
+      "matchedWords": 8,
+      "expectedWords": 11,
+      "startTime": 52.6,
+      "endTime": 56.22,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Этот сервис также будет бесплатным.",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 1,
+      "matchedWords": 5,
+      "expectedWords": 5,
+      "startTime": 57.34,
+      "endTime": 59.56,
+      "timingStatus": "aligned"
     }
   ]
 }

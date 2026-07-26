@@ -11,7 +11,10 @@
     sentencePauseMs: 500,
     autoAdvance: false,
     subtitleMode: 'intensive',
-    replayWrongEvidence: true
+    replayWrongEvidence: true,
+    abLoop: false,
+    abBeforeSeconds: 0.15,
+    abAfterSeconds: 0.15
   };
 
   function clone(value) {
@@ -37,13 +40,18 @@
     value = value && typeof value === 'object' ? value : {};
     var rate = Number(value.playbackRate);
     var pause = Number(value.sentencePauseMs);
+    var abBefore = Number(value.abBeforeSeconds);
+    var abAfter = Number(value.abAfterSeconds);
     var subtitleMode = ['hidden', 'intensive', 'always'].indexOf(value.subtitleMode) !== -1 ? value.subtitleMode : DEFAULT_SETTINGS.subtitleMode;
     return {
       playbackRate: [0.75, 0.85, 1, 1.15, 1.25].indexOf(rate) !== -1 ? rate : DEFAULT_SETTINGS.playbackRate,
       sentencePauseMs: [0, 500, 1000, 2000].indexOf(pause) !== -1 ? pause : DEFAULT_SETTINGS.sentencePauseMs,
       autoAdvance: value.autoAdvance === true,
       subtitleMode: subtitleMode,
-      replayWrongEvidence: value.replayWrongEvidence !== false
+      replayWrongEvidence: value.replayWrongEvidence !== false,
+      abLoop: value.abLoop === true,
+      abBeforeSeconds: [0, 0.15, 0.3, 0.5].indexOf(abBefore) !== -1 ? abBefore : DEFAULT_SETTINGS.abBeforeSeconds,
+      abAfterSeconds: [0, 0.15, 0.3, 0.5].indexOf(abAfter) !== -1 ? abAfter : DEFAULT_SETTINGS.abAfterSeconds
     };
   }
 

@@ -7,11 +7,15 @@
     67,
     79
   ],
+  "mediaStructure": null,
+  "mediaExercise": null,
   "media": {
-    "provenance": "unavailable",
-    "status": "source-mismatch",
-    "reason": "Imported audio belongs to Uchebno-trenirovochnye testy po russkomu iazyku kak inostrannomu. Vypusk 4. Audirovanie. Govorenie, not V mire liudei. Vypusk 2. Audirovanie. Govorenie.",
-    "rejectedFile": "media/28.mp3"
+    "provenance": "verified-original-audio",
+    "status": "verified",
+    "kind": "audio",
+    "file": "media/world-people-v2/28.mp4",
+    "sourceCollection": "В мире людей. Выпуск 2. Аудирование. Говорение",
+    "sourceTrack": "28.mov"
   },
   "questions": [
     {
@@ -117,81 +121,354 @@
   ],
   "transcriptSegments": [
     {
-      "speaker": "A",
-      "displayLabel": "Д",
       "text": "Вспомни, пожалуйста, своё прошлое и скажи, возникало ли когда-нибудь желание что-то изменить?",
-      "startTime": 0,
-      "endTime": 0
-    },
-    {
+      "playlistIndex": 0,
       "speaker": "A",
       "displayLabel": "Д",
-      "text": "Как бы желание и есть, но я не был бы тем, кем я сейчас являюсь, верно? Каждая моя частичка — бесценна. Любой опыт, который я получаю в жизни, — бесценен. Из этих капель собирается дождь, который иногда можно назвать человеком.",
-      "startTime": 0,
-      "endTime": 0
+      "matchRatio": 1,
+      "matchedWords": 14,
+      "expectedWords": 14,
+      "startTime": 8.39,
+      "endTime": 14.71,
+      "timingStatus": "aligned"
     },
     {
+      "text": "Как бы желание и есть, но я не был бы тем, кем я сейчас являюсь, верно?",
+      "playlistIndex": 0,
       "speaker": "A",
       "displayLabel": "Д",
+      "matchRatio": 1,
+      "matchedWords": 16,
+      "expectedWords": 16,
+      "startTime": 15.55,
+      "endTime": 19.97,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Каждая моя частичка — бесценна.",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 1,
+      "matchedWords": 4,
+      "expectedWords": 4,
+      "startTime": 20.51,
+      "endTime": 22.31,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Любой опыт, который я получаю в жизни, — бесценен.",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 1,
+      "matchedWords": 8,
+      "expectedWords": 8,
+      "startTime": 22.77,
+      "endTime": 25.27,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Из этих капель собирается дождь, который иногда можно назвать человеком.",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 0.9,
+      "matchedWords": 9,
+      "expectedWords": 10,
+      "startTime": 25.83,
+      "endTime": 29.69,
+      "timingStatus": "aligned"
+    },
+    {
       "text": "Расскажи о своих увлечениях и занятиях вне мира онлайн.",
-      "startTime": 0,
-      "endTime": 0
-    },
-    {
+      "playlistIndex": 0,
       "speaker": "A",
       "displayLabel": "Д",
-      "text": "Я просто живу, как обычный человек. Самое тупое и ужасное, от чего мне удалось избавиться — это от тяги к планированию. Сразу почувствовал, что жить стало легче и проще.",
-      "startTime": 0,
-      "endTime": 0
+      "matchRatio": 1,
+      "matchedWords": 9,
+      "expectedWords": 9,
+      "startTime": 30.21,
+      "endTime": 34.65,
+      "timingStatus": "aligned"
     },
     {
+      "text": "Я просто живу, как обычный человек.",
+      "playlistIndex": 0,
       "speaker": "A",
       "displayLabel": "Д",
+      "matchRatio": 1,
+      "matchedWords": 6,
+      "expectedWords": 6,
+      "startTime": 35.13,
+      "endTime": 37.07,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Самое тупое и ужасное, от чего мне удалось избавиться — это от тяги к планированию.",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 0.857,
+      "matchedWords": 12,
+      "expectedWords": 14,
+      "startTime": 37.59,
+      "endTime": 42.21,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Сразу почувствовал, что жить стало легче и проще.",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 1,
+      "matchedWords": 8,
+      "expectedWords": 8,
+      "startTime": 42.59,
+      "endTime": 45.31,
+      "timingStatus": "aligned"
+    },
+    {
       "text": "Какое из этих качеств характерно для тебя: лень или трудолюбие?",
-      "startTime": 0,
-      "endTime": 0
-    },
-    {
+      "playlistIndex": 0,
       "speaker": "A",
       "displayLabel": "Д",
-      "text": "Скорее, всё-таки трудолюбие. Ну видишь, смотря какая лень. Если лень — это читать книги и больше ничего не делать, то такую лень я люблю и ленью-то не считаю. Всё, что даёт новую информацию и даёт пищу мозгам, всё, что заставляет думать — это не лень. Даже просто лёжа на диване можно найти интересные идеи. Иногда я так и делаю, потом быстро-быстро встаю и начинаю это воплощать.",
-      "startTime": 0,
-      "endTime": 0
+      "matchRatio": 1,
+      "matchedWords": 10,
+      "expectedWords": 10,
+      "startTime": 46.07,
+      "endTime": 50.83,
+      "timingStatus": "aligned"
     },
     {
+      "text": "Скорее, всё-таки трудолюбие.",
+      "playlistIndex": 0,
       "speaker": "A",
       "displayLabel": "Д",
-      "text": "Ты один из самых самоироничных блогеров современности. Какие ещё черты своего характера можешь назвать?",
-      "startTime": 0,
-      "endTime": 0
+      "matchRatio": 1,
+      "matchedWords": 4,
+      "expectedWords": 4,
+      "startTime": 51.21,
+      "endTime": 52.59,
+      "timingStatus": "aligned"
     },
     {
+      "text": "Ну видишь, смотря какая лень.",
+      "playlistIndex": 0,
       "speaker": "A",
       "displayLabel": "Д",
-      "text": "Ээээ... трудно сказать. Все ведь люди разные, верно? Мы бываем и смешливыми, и раздражительными, и... И в то же время я всегда найду слова для поддержки человека. Я больше замкнутый, но в компаниях часто бываю центром, шучу обычно остроумно и без пафоса. Я нравлюсь людям, но иногда вызываю недоумение. Всё, сложный это вопрос. Пусть другие оценивают.",
-      "startTime": 0,
-      "endTime": 0
+      "matchRatio": 1,
+      "matchedWords": 5,
+      "expectedWords": 5,
+      "startTime": 52.93,
+      "endTime": 54.75,
+      "timingStatus": "aligned"
     },
     {
+      "text": "Если лень — это читать книги и больше ничего не делать, то такую лень я люблю и ленью-то не считаю.",
+      "playlistIndex": 0,
       "speaker": "A",
       "displayLabel": "Д",
+      "matchRatio": 1,
+      "matchedWords": 20,
+      "expectedWords": 20,
+      "startTime": 55.49,
+      "endTime": 61.21,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Всё, что даёт новую информацию и даёт пищу мозгам, всё, что заставляет думать — это не лень.",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 1,
+      "matchedWords": 16,
+      "expectedWords": 16,
+      "startTime": 61.69,
+      "endTime": 66.93,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Даже просто лёжа на диване можно найти интересные идеи.",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 1,
+      "matchedWords": 9,
+      "expectedWords": 9,
+      "startTime": 67.33,
+      "endTime": 70.01,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Иногда я так и делаю, потом быстро-быстро встаю и начинаю это воплощать.",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 1,
+      "matchedWords": 13,
+      "expectedWords": 13,
+      "startTime": 70.57,
+      "endTime": 74.49,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Ты один из самых самоироничных блогеров современности.",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 0.857,
+      "matchedWords": 6,
+      "expectedWords": 7,
+      "startTime": 75.21,
+      "endTime": 79.23,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Какие ещё черты своего характера можешь назвать?",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 1,
+      "matchedWords": 7,
+      "expectedWords": 7,
+      "startTime": 79.89,
+      "endTime": 82.85,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Ээээ... трудно сказать.",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 0.667,
+      "matchedWords": 2,
+      "expectedWords": 3,
+      "startTime": 0,
+      "endTime": 0,
+      "timingStatus": "unmatched",
+      "recognizedSnippet": "своего характера можешь назвать трудно сказать все ведь люди разные"
+    },
+    {
+      "text": "Все ведь люди разные, верно?",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 1,
+      "matchedWords": 5,
+      "expectedWords": 5,
+      "startTime": 86.39,
+      "endTime": 87.79,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Мы бываем и смешливыми, и раздражительными, и...",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 0.857,
+      "matchedWords": 6,
+      "expectedWords": 7,
+      "startTime": 87.79,
+      "endTime": 92.01,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "И в то же время я всегда найду слова для поддержки человека.",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 1,
+      "matchedWords": 12,
+      "expectedWords": 12,
+      "startTime": 92.51,
+      "endTime": 95.85,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Я больше замкнутый, но в компаниях часто бываю центром, шучу обычно остроумно и без пафоса.",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 1,
+      "matchedWords": 15,
+      "expectedWords": 15,
+      "startTime": 96.35,
+      "endTime": 101.69,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Я нравлюсь людям, но иногда вызываю недоумение.",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 1,
+      "matchedWords": 7,
+      "expectedWords": 7,
+      "startTime": 102.39,
+      "endTime": 105.17,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Всё, сложный это вопрос.",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 0.5,
+      "matchedWords": 2,
+      "expectedWords": 4,
+      "startTime": 0,
+      "endTime": 0,
+      "timingStatus": "unmatched",
+      "recognizedSnippet": "но иногда вызываю недоумения все сложен этот вопрос пусть другие оценивают вопрос"
+    },
+    {
+      "text": "Пусть другие оценивают.",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 1,
+      "matchedWords": 3,
+      "expectedWords": 3,
+      "startTime": 107.89,
+      "endTime": 108.89,
+      "timingStatus": "aligned"
+    },
+    {
       "text": "Вопрос стандартный: твои пожелания и предостережения новичкам-блогерам.",
-      "startTime": 0,
-      "endTime": 0
-    },
-    {
+      "playlistIndex": 0,
       "speaker": "A",
       "displayLabel": "Д",
+      "matchRatio": 1,
+      "matchedWords": 8,
+      "expectedWords": 8,
+      "startTime": 109.51,
+      "endTime": 114.73,
+      "timingStatus": "aligned"
+    },
+    {
       "text": "Делайте что-нибудь, о чём можно было бы написать в блог.",
-      "startTime": 0,
-      "endTime": 0
-    },
-    {
+      "playlistIndex": 0,
       "speaker": "A",
       "displayLabel": "Д",
+      "matchRatio": 1,
+      "matchedWords": 11,
+      "expectedWords": 11,
+      "startTime": 114.73,
+      "endTime": 117.57,
+      "timingStatus": "aligned"
+    },
+    {
       "text": "Спасибо большое за ответы, Андрей, удачи тебе и успехов!",
-      "startTime": 0,
-      "endTime": 0
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 1,
+      "matchedWords": 9,
+      "expectedWords": 9,
+      "startTime": 118.15,
+      "endTime": 122.03,
+      "timingStatus": "aligned"
     }
   ]
 }

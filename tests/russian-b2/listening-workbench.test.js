@@ -50,10 +50,38 @@ test('listening workbench rejects repeated tail timestamps', () => {
   assert.deepEqual(segments, []);
 });
 
+test('listening workbench preserves untimed rows inside a partial timeline', () => {
+  const segments = Workbench.normalizeDataSegments([
+    { startTime: 0, endTime: 0, timingStatus: 'unmatched', text: 'Нет точного времени.' },
+    { startTime: 8.2, endTime: 11.4, timingStatus: 'aligned', text: 'Надёжная фраза.' }
+  ]);
+
+  assert.equal(segments.length, 2);
+  assert.equal(segments[0].timed, false);
+  assert.equal(segments[1].timed, true);
+});
+
+test('listening workbench validates playlist timelines independently', () => {
+  const segments = Workbench.normalizeDataSegments([
+    { playlistIndex: 0, startTime: 5, endTime: 12, text: 'Первая новость.' },
+    { playlistIndex: 1, startTime: 3, endTime: 9, text: 'Вторая новость.' },
+    { playlistIndex: 1, startTime: 10, endTime: 14, text: 'Продолжение.' }
+  ]);
+
+  assert.equal(segments.length, 3);
+  assert.equal(segments[1].playlistIndex, 1);
+});
+
 test('unreliable timelines degrade to a readable full transcript', () => {
   assert.match(workbenchSource, /dataset\.timelineReady = timelineReady/);
   assert.match(workbenchSource, /仅支持整段播放/);
   assert.match(workbenchSource, /清晰文字稿/);
+  assert.match(workbenchSource, /未匹配句子不会错误跳转/);
   assert.match(workbenchCss, /data-timeline-ready="true"\]\[data-subtitle-mode="intensive"/);
   assert.match(workbenchCss, /data-timeline-ready="false"\] \.lw-transcript-meta \{ display: none; \}/);
+});
+
+test('media exercise playback can seek to its audited starting point without a transcript timeline', () => {
+  assert.match(workbenchSource, /var initialTime = Number\(current\.initialTime\)/);
+  assert.match(workbenchSource, /audio\.currentTime = Math\.min\(initialTime/);
 });

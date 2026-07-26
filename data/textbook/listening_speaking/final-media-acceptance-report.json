@@ -1,0 +1,1891 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-07-26T16:12:45.643Z",
+  "scope": "В мире людей. Выпуск 2 · 听力口语模块基础媒体与状态验收",
+  "summary": {
+    "chapters": 63,
+    "verified": 30,
+    "playlists": 5,
+    "unavailable": 28,
+    "staticPassed": 63,
+    "staticFailed": 0
+  },
+  "checks": [
+    {
+      "id": "rejected-mp3-audit",
+      "passed": true,
+      "detail": "旧错误 mp3 集合保持 rejected，并带有来源不匹配证据。"
+    },
+    {
+      "id": "film-structure-audit",
+      "passed": true,
+      "detail": "10 个电影轨道均有 feature/end 与 exercise/start 边界。"
+    },
+    {
+      "id": "chapter-ch0000.json",
+      "passed": true,
+      "detail": "媒体、时间轴和状态静态检查通过。"
+    },
+    {
+      "id": "chapter-ch0001.json",
+      "passed": true,
+      "detail": "媒体、时间轴和状态静态检查通过。"
+    },
+    {
+      "id": "chapter-ch0002.json",
+      "passed": true,
+      "detail": "媒体、时间轴和状态静态检查通过。"
+    },
+    {
+      "id": "chapter-ch0003.json",
+      "passed": true,
+      "detail": "媒体、时间轴和状态静态检查通过。"
+    },
+    {
+      "id": "chapter-ch0004.json",
+      "passed": true,
+      "detail": "媒体、时间轴和状态静态检查通过。"
+    },
+    {
+      "id": "chapter-ch0005.json",
+      "passed": true,
+      "detail": "媒体、时间轴和状态静态检查通过。"
+    },
+    {
+      "id": "chapter-ch0006.json",
+      "passed": true,
+      "detail": "媒体、时间轴和状态静态检查通过。"
+    },
+    {
+      "id": "chapter-ch0007.json",
+      "passed": true,
+      "detail": "媒体、时间轴和状态静态检查通过。"
+    },
+    {
+      "id": "chapter-ch0008.json",
+      "passed": true,
+      "detail": "媒体、时间轴和状态静态检查通过。"
+    },
+    {
+      "id": "chapter-ch0009.json",
+      "passed": true,
+      "detail": "媒体、时间轴和状态静态检查通过。"
+    },
+    {
+      "id": "chapter-ch0010.json",
+      "passed": true,
+      "detail": "媒体、时间轴和状态静态检查通过。"
+    },
+    {
+      "id": "chapter-ch0011.json",
+      "passed": true,
+      "detail": "媒体、时间轴和状态静态检查通过。"
+    },
+    {
+      "id": "chapter-ch0012.json",
+      "passed": true,
+      "detail": "媒体、时间轴和状态静态检查通过。"
+    },
+    {
+      "id": "chapter-ch0013.json",
+      "passed": true,
+      "detail": "媒体、时间轴和状态静态检查通过。"
+    },
+    {
+      "id": "chapter-ch0014.json",
+      "passed": true,
+      "detail": "媒体、时间轴和状态静态检查通过。"
+    },
+    {
+      "id": "chapter-ch0015.json",
+      "passed": true,
+      "detail": "媒体、时间轴和状态静态检查通过。"
+    },
+    {
+      "id": "chapter-ch0016.json",
+      "passed": true,
+      "detail": "媒体、时间轴和状态静态检查通过。"
+    },
+    {
+      "id": "chapter-ch0017.json",
+      "passed": true,
+      "detail": "媒体、时间轴和状态静态检查通过。"
+    },
+    {
+      "id": "chapter-ch0018.json",
+      "passed": true,
+      "detail": "媒体、时间轴和状态静态检查通过。"
+    },
+    {
+      "id": "chapter-ch0019.json",
+      "passed": true,
+      "detail": "媒体、时间轴和状态静态检查通过。"
+    },
+    {
+      "id": "chapter-ch0020.json",
+      "passed": true,
+      "detail": "媒体、时间轴和状态静态检查通过。"
+    },
+    {
+      "id": "chapter-ch0021.json",
+      "passed": true,
+      "detail": "媒体、时间轴和状态静态检查通过。"
+    },
+    {
+      "id": "chapter-ch0022.json",
+      "passed": true,
+      "detail": "媒体、时间轴和状态静态检查通过。"
+    },
+    {
+      "id": "chapter-ch0023.json",
+      "passed": true,
+      "detail": "媒体、时间轴和状态静态检查通过。"
+    },
+    {
+      "id": "chapter-ch0024.json",
+      "passed": true,
+      "detail": "媒体、时间轴和状态静态检查通过。"
+    },
+    {
+      "id": "chapter-ch0025.json",
+      "passed": true,
+      "detail": "媒体、时间轴和状态静态检查通过。"
+    },
+    {
+      "id": "chapter-ch0026.json",
+      "passed": true,
+      "detail": "媒体、时间轴和状态静态检查通过。"
+    },
+    {
+      "id": "chapter-ch0027.json",
+      "passed": true,
+      "detail": "媒体、时间轴和状态静态检查通过。"
+    },
+    {
+      "id": "chapter-ch0028.json",
+      "passed": true,
+      "detail": "媒体、时间轴和状态静态检查通过。"
+    },
+    {
+      "id": "chapter-ch0029.json",
+      "passed": true,
+      "detail": "媒体、时间轴和状态静态检查通过。"
+    },
+    {
+      "id": "chapter-ch0030.json",
+      "passed": true,
+      "detail": "媒体、时间轴和状态静态检查通过。"
+    },
+    {
+      "id": "chapter-ch0031.json",
+      "passed": true,
+      "detail": "媒体、时间轴和状态静态检查通过。"
+    },
+    {
+      "id": "chapter-ch0032.json",
+      "passed": true,
+      "detail": "媒体、时间轴和状态静态检查通过。"
+    },
+    {
+      "id": "chapter-ch0033.json",
+      "passed": true,
+      "detail": "媒体、时间轴和状态静态检查通过。"
+    },
+    {
+      "id": "chapter-ch0034.json",
+      "passed": true,
+      "detail": "媒体、时间轴和状态静态检查通过。"
+    },
+    {
+      "id": "chapter-ch0035.json",
+      "passed": true,
+      "detail": "媒体、时间轴和状态静态检查通过。"
+    },
+    {
+      "id": "chapter-ch0036.json",
+      "passed": true,
+      "detail": "媒体、时间轴和状态静态检查通过。"
+    },
+    {
+      "id": "chapter-ch0037.json",
+      "passed": true,
+      "detail": "媒体、时间轴和状态静态检查通过。"
+    },
+    {
+      "id": "chapter-ch0038.json",
+      "passed": true,
+      "detail": "媒体、时间轴和状态静态检查通过。"
+    },
+    {
+      "id": "chapter-ch0039.json",
+      "passed": true,
+      "detail": "媒体、时间轴和状态静态检查通过。"
+    },
+    {
+      "id": "chapter-ch0040.json",
+      "passed": true,
+      "detail": "媒体、时间轴和状态静态检查通过。"
+    },
+    {
+      "id": "chapter-ch0041.json",
+      "passed": true,
+      "detail": "媒体、时间轴和状态静态检查通过。"
+    },
+    {
+      "id": "chapter-ch0042.json",
+      "passed": true,
+      "detail": "媒体、时间轴和状态静态检查通过。"
+    },
+    {
+      "id": "chapter-ch0043.json",
+      "passed": true,
+      "detail": "媒体、时间轴和状态静态检查通过。"
+    },
+    {
+      "id": "chapter-ch0044.json",
+      "passed": true,
+      "detail": "媒体、时间轴和状态静态检查通过。"
+    },
+    {
+      "id": "chapter-ch0045.json",
+      "passed": true,
+      "detail": "媒体、时间轴和状态静态检查通过。"
+    },
+    {
+      "id": "chapter-ch0046.json",
+      "passed": true,
+      "detail": "媒体、时间轴和状态静态检查通过。"
+    },
+    {
+      "id": "chapter-ch0047.json",
+      "passed": true,
+      "detail": "媒体、时间轴和状态静态检查通过。"
+    },
+    {
+      "id": "chapter-ch0048.json",
+      "passed": true,
+      "detail": "媒体、时间轴和状态静态检查通过。"
+    },
+    {
+      "id": "chapter-ch0049.json",
+      "passed": true,
+      "detail": "媒体、时间轴和状态静态检查通过。"
+    },
+    {
+      "id": "chapter-ch0050.json",
+      "passed": true,
+      "detail": "媒体、时间轴和状态静态检查通过。"
+    },
+    {
+      "id": "chapter-ch0051.json",
+      "passed": true,
+      "detail": "媒体、时间轴和状态静态检查通过。"
+    },
+    {
+      "id": "chapter-ch0052.json",
+      "passed": true,
+      "detail": "媒体、时间轴和状态静态检查通过。"
+    },
+    {
+      "id": "chapter-ch0053.json",
+      "passed": true,
+      "detail": "媒体、时间轴和状态静态检查通过。"
+    },
+    {
+      "id": "chapter-ch0054.json",
+      "passed": true,
+      "detail": "媒体、时间轴和状态静态检查通过。"
+    },
+    {
+      "id": "chapter-ch0055.json",
+      "passed": true,
+      "detail": "媒体、时间轴和状态静态检查通过。"
+    },
+    {
+      "id": "chapter-ch0056.json",
+      "passed": true,
+      "detail": "媒体、时间轴和状态静态检查通过。"
+    },
+    {
+      "id": "chapter-ch0057.json",
+      "passed": true,
+      "detail": "媒体、时间轴和状态静态检查通过。"
+    },
+    {
+      "id": "chapter-ch0058.json",
+      "passed": true,
+      "detail": "媒体、时间轴和状态静态检查通过。"
+    },
+    {
+      "id": "chapter-ch0059.json",
+      "passed": true,
+      "detail": "媒体、时间轴和状态静态检查通过。"
+    },
+    {
+      "id": "chapter-ch0060.json",
+      "passed": true,
+      "detail": "媒体、时间轴和状态静态检查通过。"
+    },
+    {
+      "id": "chapter-ch0061.json",
+      "passed": true,
+      "detail": "媒体、时间轴和状态静态检查通过。"
+    },
+    {
+      "id": "chapter-ch0062.json",
+      "passed": true,
+      "detail": "媒体、时间轴和状态静态检查通过。"
+    }
+  ],
+  "chapters": [
+    {
+      "chapterId": "ls-t1.2-d1.1.1",
+      "chapterFile": "ch0000.json",
+      "title": "Диалог 1.1.1 — 年轻人暑期去向",
+      "mediaStatus": "verified",
+      "mediaKind": "audio",
+      "mediaFiles": [
+        "media/world-people-v2/01.mp4"
+      ],
+      "jumpableSegments": 10,
+      "totalTranscriptSegments": 10,
+      "untimedSegments": 0,
+      "mediaExercise": null,
+      "knownMissingReason": null,
+      "staticRegression": "passed",
+      "browserRegression": "passed",
+      "errors": []
+    },
+    {
+      "chapterId": "ls-t1.2-d1.1.2",
+      "chapterFile": "ch0001.json",
+      "title": "Диалог 1.1.2 — 职场晋升犹豫",
+      "mediaStatus": "verified",
+      "mediaKind": "audio",
+      "mediaFiles": [
+        "media/world-people-v2/02.mp4"
+      ],
+      "jumpableSegments": 8,
+      "totalTranscriptSegments": 8,
+      "untimedSegments": 0,
+      "mediaExercise": null,
+      "knownMissingReason": null,
+      "staticRegression": "passed",
+      "browserRegression": "not-run",
+      "errors": []
+    },
+    {
+      "chapterId": "ls-t1.2-d1.1.3",
+      "chapterFile": "ch0002.json",
+      "title": "Диалог 1.1.3 — 女儿出嫁的烦恼",
+      "mediaStatus": "verified",
+      "mediaKind": "audio",
+      "mediaFiles": [
+        "media/world-people-v2/03.mp4"
+      ],
+      "jumpableSegments": 9,
+      "totalTranscriptSegments": 9,
+      "untimedSegments": 0,
+      "mediaExercise": null,
+      "knownMissingReason": null,
+      "staticRegression": "passed",
+      "browserRegression": "not-run",
+      "errors": []
+    },
+    {
+      "chapterId": "ls-t1.2-d1.1.4",
+      "chapterFile": "ch0003.json",
+      "title": "Диалог 1.1.4 — 新设备与论坛信息",
+      "mediaStatus": "verified",
+      "mediaKind": "audio",
+      "mediaFiles": [
+        "media/world-people-v2/04.mp4"
+      ],
+      "jumpableSegments": 6,
+      "totalTranscriptSegments": 6,
+      "untimedSegments": 0,
+      "mediaExercise": null,
+      "knownMissingReason": null,
+      "staticRegression": "passed",
+      "browserRegression": "not-run",
+      "errors": []
+    },
+    {
+      "chapterId": "ls-t1.2-d1.1.5",
+      "chapterFile": "ch0004.json",
+      "title": "Диалог 1.1.5 — 疲惫与画展",
+      "mediaStatus": "verified",
+      "mediaKind": "audio",
+      "mediaFiles": [
+        "media/world-people-v2/05.mp4"
+      ],
+      "jumpableSegments": 11,
+      "totalTranscriptSegments": 11,
+      "untimedSegments": 0,
+      "mediaExercise": null,
+      "knownMissingReason": null,
+      "staticRegression": "passed",
+      "browserRegression": "not-run",
+      "errors": []
+    },
+    {
+      "chapterId": "ls-t1.3-m1.2.1",
+      "chapterFile": "ch0005.json",
+      "title": "Монолог 1.2.1 — 海参崴公交信息屏公告",
+      "mediaStatus": "verified",
+      "mediaKind": "audio",
+      "mediaFiles": [
+        "media/world-people-v2/06.mp4"
+      ],
+      "jumpableSegments": 6,
+      "totalTranscriptSegments": 6,
+      "untimedSegments": 0,
+      "mediaExercise": null,
+      "knownMissingReason": null,
+      "staticRegression": "passed",
+      "browserRegression": "not-run",
+      "errors": []
+    },
+    {
+      "chapterId": "ls-t1.3-m1.2.2",
+      "chapterFile": "ch0006.json",
+      "title": "Монолог 1.2.2 — 莫斯科地铁警犬招聘",
+      "mediaStatus": "verified",
+      "mediaKind": "audio",
+      "mediaFiles": [
+        "media/world-people-v2/07.mp4"
+      ],
+      "jumpableSegments": 2,
+      "totalTranscriptSegments": 3,
+      "untimedSegments": 1,
+      "mediaExercise": null,
+      "knownMissingReason": null,
+      "staticRegression": "passed",
+      "browserRegression": "not-run",
+      "errors": []
+    },
+    {
+      "chapterId": "ls-t1.3-m1.2.3",
+      "chapterFile": "ch0007.json",
+      "title": "Монолог 1.2.3 — 牧首湖畔节日",
+      "mediaStatus": "verified",
+      "mediaKind": "audio",
+      "mediaFiles": [
+        "media/world-people-v2/08.mp4"
+      ],
+      "jumpableSegments": 6,
+      "totalTranscriptSegments": 6,
+      "untimedSegments": 0,
+      "mediaExercise": null,
+      "knownMissingReason": null,
+      "staticRegression": "passed",
+      "browserRegression": "not-run",
+      "errors": []
+    },
+    {
+      "chapterId": "ls-t1.3-m1.2.4",
+      "chapterFile": "ch0008.json",
+      "title": "Монолог 1.2.4 — 学院研讨会邀请",
+      "mediaStatus": "verified",
+      "mediaKind": "audio",
+      "mediaFiles": [
+        "media/world-people-v2/09.mp4"
+      ],
+      "jumpableSegments": 2,
+      "totalTranscriptSegments": 2,
+      "untimedSegments": 0,
+      "mediaExercise": null,
+      "knownMissingReason": null,
+      "staticRegression": "passed",
+      "browserRegression": "not-run",
+      "errors": []
+    },
+    {
+      "chapterId": "ls-t1.3-m1.2.5",
+      "chapterFile": "ch0009.json",
+      "title": "Монолог 1.2.5 — «红帆»全俄竞赛",
+      "mediaStatus": "verified",
+      "mediaKind": "audio",
+      "mediaFiles": [
+        "media/world-people-v2/10.mp4"
+      ],
+      "jumpableSegments": 3,
+      "totalTranscriptSegments": 4,
+      "untimedSegments": 1,
+      "mediaExercise": null,
+      "knownMissingReason": null,
+      "staticRegression": "passed",
+      "browserRegression": "not-run",
+      "errors": []
+    },
+    {
+      "chapterId": "ls-t1.4-m1.3.1",
+      "chapterFile": "ch0010.json",
+      "title": "Монолог 1.3.1 — 喀山旅游广告",
+      "mediaStatus": "verified",
+      "mediaKind": "audio",
+      "mediaFiles": [
+        "media/world-people-v2/11.mp4"
+      ],
+      "jumpableSegments": 8,
+      "totalTranscriptSegments": 9,
+      "untimedSegments": 1,
+      "mediaExercise": null,
+      "knownMissingReason": null,
+      "staticRegression": "passed",
+      "browserRegression": "not-run",
+      "errors": []
+    },
+    {
+      "chapterId": "ls-t1.4-m1.3.2",
+      "chapterFile": "ch0011.json",
+      "title": "Монолог 1.3.2 — 快递公司招聘",
+      "mediaStatus": "verified",
+      "mediaKind": "audio",
+      "mediaFiles": [
+        "media/world-people-v2/12.mp4"
+      ],
+      "jumpableSegments": 9,
+      "totalTranscriptSegments": 9,
+      "untimedSegments": 0,
+      "mediaExercise": null,
+      "knownMissingReason": null,
+      "staticRegression": "passed",
+      "browserRegression": "not-run",
+      "errors": []
+    },
+    {
+      "chapterId": "ls-t1.4-m1.3.3",
+      "chapterFile": "ch0012.json",
+      "title": "Монолог 1.3.3 — 瓦尔瓦尔卡咖啡馆",
+      "mediaStatus": "verified",
+      "mediaKind": "audio",
+      "mediaFiles": [
+        "media/world-people-v2/13.mp4"
+      ],
+      "jumpableSegments": 8,
+      "totalTranscriptSegments": 8,
+      "untimedSegments": 0,
+      "mediaExercise": null,
+      "knownMissingReason": null,
+      "staticRegression": "passed",
+      "browserRegression": "not-run",
+      "errors": []
+    },
+    {
+      "chapterId": "ls-t1.4-m1.3.4",
+      "chapterFile": "ch0013.json",
+      "title": "Монолог 1.3.4 — DNA解码设备",
+      "mediaStatus": "verified",
+      "mediaKind": "audio",
+      "mediaFiles": [
+        "media/world-people-v2/14.mp4"
+      ],
+      "jumpableSegments": 6,
+      "totalTranscriptSegments": 6,
+      "untimedSegments": 0,
+      "mediaExercise": null,
+      "knownMissingReason": null,
+      "staticRegression": "passed",
+      "browserRegression": "not-run",
+      "errors": []
+    },
+    {
+      "chapterId": "ls-t1.4-m1.3.5",
+      "chapterFile": "ch0014.json",
+      "title": "Монолог 1.3.5 — ЦДЛ电影厅",
+      "mediaStatus": "verified",
+      "mediaKind": "audio",
+      "mediaFiles": [
+        "media/world-people-v2/15.mp4"
+      ],
+      "jumpableSegments": 9,
+      "totalTranscriptSegments": 9,
+      "untimedSegments": 0,
+      "mediaExercise": null,
+      "knownMissingReason": null,
+      "staticRegression": "passed",
+      "browserRegression": "not-run",
+      "errors": []
+    },
+    {
+      "chapterId": "ls-t1.5-m2.1.1",
+      "chapterFile": "ch0015.json",
+      "title": "Монолог 2.1.1 — 吉普赛男爵的独白（电影《深渊上的兔子》）",
+      "mediaStatus": "verified",
+      "mediaKind": "video",
+      "mediaFiles": [
+        "media/world-people-v2/16.mp4"
+      ],
+      "jumpableSegments": 29,
+      "totalTranscriptSegments": 44,
+      "untimedSegments": 15,
+      "mediaExercise": {
+        "status": "verified-cleaned-source",
+        "exerciseStartSeconds": 146.7,
+        "timedSegments": 0,
+        "playback": "whole-program-only"
+      },
+      "knownMissingReason": null,
+      "staticRegression": "passed",
+      "browserRegression": "not-run",
+      "errors": []
+    },
+    {
+      "chapterId": "ls-t1.5-m2.1.2",
+      "chapterFile": "ch0016.json",
+      "title": "Монолог 2.1.2 — 陪审员的自述（电影《十二怒汉》）",
+      "mediaStatus": "verified",
+      "mediaKind": "video",
+      "mediaFiles": [
+        "media/world-people-v2/17.mp4"
+      ],
+      "jumpableSegments": 29,
+      "totalTranscriptSegments": 31,
+      "untimedSegments": 2,
+      "mediaExercise": {
+        "status": "verified-cleaned-source",
+        "exerciseStartSeconds": 183.44,
+        "timedSegments": 0,
+        "playback": "whole-program-only"
+      },
+      "knownMissingReason": null,
+      "staticRegression": "passed",
+      "browserRegression": "not-run",
+      "errors": []
+    },
+    {
+      "chapterId": "ls-t1.5-m2.1.3",
+      "chapterFile": "ch0017.json",
+      "title": "Монолог 2.1.3 — 女孩讲述对方人生（电影《清洁工》）",
+      "mediaStatus": "verified",
+      "mediaKind": "video",
+      "mediaFiles": [
+        "media/world-people-v2/18.mp4"
+      ],
+      "jumpableSegments": 26,
+      "totalTranscriptSegments": 26,
+      "untimedSegments": 0,
+      "mediaExercise": {
+        "status": "verified-cleaned-source",
+        "exerciseStartSeconds": 132.81,
+        "timedSegments": 0,
+        "playback": "whole-program-only"
+      },
+      "knownMissingReason": null,
+      "staticRegression": "passed",
+      "browserRegression": "not-run",
+      "errors": []
+    },
+    {
+      "chapterId": "ls-t1.5-m2.1.4",
+      "chapterFile": "ch0018.json",
+      "title": "Монолог 2.1.4 — 院士的答谢演讲（电影《独白》）",
+      "mediaStatus": "verified",
+      "mediaKind": "video",
+      "mediaFiles": [
+        "media/world-people-v2/19.mp4"
+      ],
+      "jumpableSegments": 14,
+      "totalTranscriptSegments": 17,
+      "untimedSegments": 3,
+      "mediaExercise": {
+        "status": "verified-cleaned-source",
+        "exerciseStartSeconds": 118.28,
+        "timedSegments": 0,
+        "playback": "whole-program-only"
+      },
+      "knownMissingReason": null,
+      "staticRegression": "passed",
+      "browserRegression": "not-run",
+      "errors": []
+    },
+    {
+      "chapterId": "ls-t1.5-m2.1.5",
+      "chapterFile": "ch0019.json",
+      "title": "Монолог 2.1.5 — 音乐教师的战争回忆（电影《白夜旋律》）",
+      "mediaStatus": "verified",
+      "mediaKind": "video",
+      "mediaFiles": [
+        "media/world-people-v2/20.mp4"
+      ],
+      "jumpableSegments": 27,
+      "totalTranscriptSegments": 40,
+      "untimedSegments": 13,
+      "mediaExercise": {
+        "status": "verified-cleaned-source",
+        "exerciseStartSeconds": 157.93,
+        "timedSegments": 0,
+        "playback": "whole-program-only"
+      },
+      "knownMissingReason": null,
+      "staticRegression": "passed",
+      "browserRegression": "not-run",
+      "errors": []
+    },
+    {
+      "chapterId": "ls-t1.6-d2.2.1",
+      "chapterFile": "ch0020.json",
+      "title": "Диалог 2.2.1 — 电影《自己人中的外人》——黄金与背叛",
+      "mediaStatus": "verified",
+      "mediaKind": "video",
+      "mediaFiles": [
+        "media/world-people-v2/21.mp4"
+      ],
+      "jumpableSegments": 24,
+      "totalTranscriptSegments": 57,
+      "untimedSegments": 33,
+      "mediaExercise": {
+        "status": "verified-cleaned-source",
+        "exerciseStartSeconds": 302.7,
+        "timedSegments": 0,
+        "playback": "whole-program-only"
+      },
+      "knownMissingReason": null,
+      "staticRegression": "passed",
+      "browserRegression": "not-run",
+      "errors": []
+    },
+    {
+      "chapterId": "ls-t1.6-d2.2.2",
+      "chapterFile": "ch0021.json",
+      "title": "Диалог 2.2.2 — 电影《安德烈·卢布廖夫》——师父训徒",
+      "mediaStatus": "verified",
+      "mediaKind": "video",
+      "mediaFiles": [
+        "media/world-people-v2/22.mp4"
+      ],
+      "jumpableSegments": 20,
+      "totalTranscriptSegments": 32,
+      "untimedSegments": 12,
+      "mediaExercise": {
+        "status": "verified-cleaned-source",
+        "exerciseStartSeconds": 169.58,
+        "timedSegments": 0,
+        "playback": "whole-program-only"
+      },
+      "knownMissingReason": null,
+      "staticRegression": "passed",
+      "browserRegression": "not-run",
+      "errors": []
+    },
+    {
+      "chapterId": "ls-t1.6-d2.2.3",
+      "chapterFile": "ch0022.json",
+      "title": "Диалог 2.2.3 — 电影《我的男友是天使》——天使不懂人间烟火",
+      "mediaStatus": "verified",
+      "mediaKind": "video",
+      "mediaFiles": [
+        "media/world-people-v2/23.mp4"
+      ],
+      "jumpableSegments": 36,
+      "totalTranscriptSegments": 56,
+      "untimedSegments": 20,
+      "mediaExercise": {
+        "status": "verified-cleaned-source",
+        "exerciseStartSeconds": 247.02,
+        "timedSegments": 0,
+        "playback": "whole-program-only"
+      },
+      "knownMissingReason": null,
+      "staticRegression": "passed",
+      "browserRegression": "not-run",
+      "errors": []
+    },
+    {
+      "chapterId": "ls-t1.6-d2.2.4",
+      "chapterFile": "ch0023.json",
+      "title": "Диалог 2.2.4 — 电影《独白》——被遗忘的天才论文",
+      "mediaStatus": "verified",
+      "mediaKind": "video",
+      "mediaFiles": [
+        "media/world-people-v2/24.mp4"
+      ],
+      "jumpableSegments": 18,
+      "totalTranscriptSegments": 30,
+      "untimedSegments": 12,
+      "mediaExercise": {
+        "status": "verified-cleaned-source",
+        "exerciseStartSeconds": 153.69,
+        "timedSegments": 0,
+        "playback": "whole-program-only"
+      },
+      "knownMissingReason": null,
+      "staticRegression": "passed",
+      "browserRegression": "not-run",
+      "errors": []
+    },
+    {
+      "chapterId": "ls-t1.6-d2.2.5",
+      "chapterFile": "ch0024.json",
+      "title": "Диалог 2.2.5 — 电影《莫斯科郊外的晚上》——手稿之争",
+      "mediaStatus": "verified",
+      "mediaKind": "video",
+      "mediaFiles": [
+        "media/world-people-v2/25.mp4"
+      ],
+      "jumpableSegments": 24,
+      "totalTranscriptSegments": 31,
+      "untimedSegments": 7,
+      "mediaExercise": {
+        "status": "verified-cleaned-source",
+        "exerciseStartSeconds": 128.32,
+        "timedSegments": 0,
+        "playback": "whole-program-only"
+      },
+      "knownMissingReason": null,
+      "staticRegression": "passed",
+      "browserRegression": "passed",
+      "errors": []
+    },
+    {
+      "chapterId": "ls-t1.7-d3.1.1",
+      "chapterFile": "ch0025.json",
+      "title": "Диалог 3.1.1 — 柳德米拉·库斯托娃谈民族性格",
+      "mediaStatus": "verified",
+      "mediaKind": "audio",
+      "mediaFiles": [
+        "media/world-people-v2/26.mp4"
+      ],
+      "jumpableSegments": 22,
+      "totalTranscriptSegments": 22,
+      "untimedSegments": 0,
+      "mediaExercise": null,
+      "knownMissingReason": null,
+      "staticRegression": "passed",
+      "browserRegression": "not-run",
+      "errors": []
+    },
+    {
+      "chapterId": "ls-t1.7-d3.1.2",
+      "chapterFile": "ch0026.json",
+      "title": "Диалог 3.1.2 — 叶莲娜·米亚斯尼科娃谈事业与女权",
+      "mediaStatus": "verified",
+      "mediaKind": "audio",
+      "mediaFiles": [
+        "media/world-people-v2/27.mp4"
+      ],
+      "jumpableSegments": 25,
+      "totalTranscriptSegments": 25,
+      "untimedSegments": 0,
+      "mediaExercise": null,
+      "knownMissingReason": null,
+      "staticRegression": "passed",
+      "browserRegression": "not-run",
+      "errors": []
+    },
+    {
+      "chapterId": "ls-t1.7-d3.1.3",
+      "chapterFile": "ch0027.json",
+      "title": "Диалог 3.1.3 — 博主安德烈·特罗伊谈人生哲学",
+      "mediaStatus": "verified",
+      "mediaKind": "audio",
+      "mediaFiles": [
+        "media/world-people-v2/28.mp4"
+      ],
+      "jumpableSegments": 27,
+      "totalTranscriptSegments": 29,
+      "untimedSegments": 2,
+      "mediaExercise": null,
+      "knownMissingReason": null,
+      "staticRegression": "passed",
+      "browserRegression": "not-run",
+      "errors": []
+    },
+    {
+      "chapterId": "ls-t1.7-d3.1.4",
+      "chapterFile": "ch0028.json",
+      "title": "Диалог 3.1.4 — 宇航员格奥尔吉·格列奇科访谈",
+      "mediaStatus": "verified",
+      "mediaKind": "audio",
+      "mediaFiles": [
+        "media/world-people-v2/29.mp4"
+      ],
+      "jumpableSegments": 35,
+      "totalTranscriptSegments": 36,
+      "untimedSegments": 1,
+      "mediaExercise": null,
+      "knownMissingReason": null,
+      "staticRegression": "passed",
+      "browserRegression": "not-run",
+      "errors": []
+    },
+    {
+      "chapterId": "ls-t1.7-d3.1.5",
+      "chapterFile": "ch0029.json",
+      "title": "Диалог 3.1.5 — 青年画家阿列克谢·金访谈",
+      "mediaStatus": "verified",
+      "mediaKind": "audio",
+      "mediaFiles": [
+        "media/world-people-v2/30.mp4"
+      ],
+      "jumpableSegments": 34,
+      "totalTranscriptSegments": 35,
+      "untimedSegments": 1,
+      "mediaExercise": null,
+      "knownMissingReason": null,
+      "staticRegression": "passed",
+      "browserRegression": "not-run",
+      "errors": []
+    },
+    {
+      "chapterId": "ls-t1.8-m3.2.1",
+      "chapterFile": "ch0030.json",
+      "title": "Монолог 3.2.1 — 社会问题新闻",
+      "mediaStatus": "playlist",
+      "mediaKind": "audio",
+      "mediaFiles": [
+        "media/world-people-v2/31.mp4",
+        "media/world-people-v2/32.mp4",
+        "media/world-people-v2/33.mp4",
+        "media/world-people-v2/34.mp4",
+        "media/world-people-v2/35.mp4"
+      ],
+      "jumpableSegments": 16,
+      "totalTranscriptSegments": 16,
+      "untimedSegments": 0,
+      "mediaExercise": null,
+      "knownMissingReason": null,
+      "staticRegression": "passed",
+      "browserRegression": "passed",
+      "errors": []
+    },
+    {
+      "chapterId": "ls-t1.8-m3.2.2",
+      "chapterFile": "ch0031.json",
+      "title": "Монолог 3.2.2 — 职业活动新闻",
+      "mediaStatus": "playlist",
+      "mediaKind": "audio",
+      "mediaFiles": [
+        "media/world-people-v2/36.mp4",
+        "media/world-people-v2/37.mp4",
+        "media/world-people-v2/38.mp4",
+        "media/world-people-v2/39.mp4",
+        "media/world-people-v2/40.mp4"
+      ],
+      "jumpableSegments": 17,
+      "totalTranscriptSegments": 17,
+      "untimedSegments": 0,
+      "mediaExercise": null,
+      "knownMissingReason": null,
+      "staticRegression": "passed",
+      "browserRegression": "not-run",
+      "errors": []
+    },
+    {
+      "chapterId": "ls-t1.8-m3.2.3",
+      "chapterFile": "ch0032.json",
+      "title": "Монолог 3.2.3 — 现代社会中的个人新闻",
+      "mediaStatus": "playlist",
+      "mediaKind": "audio",
+      "mediaFiles": [
+        "media/world-people-v2/41.mp4",
+        "media/world-people-v2/42.mp4",
+        "media/world-people-v2/43.mp4",
+        "media/world-people-v2/44.mp4",
+        "media/world-people-v2/45.mp4"
+      ],
+      "jumpableSegments": 19,
+      "totalTranscriptSegments": 19,
+      "untimedSegments": 0,
+      "mediaExercise": null,
+      "knownMissingReason": null,
+      "staticRegression": "passed",
+      "browserRegression": "not-run",
+      "errors": []
+    },
+    {
+      "chapterId": "ls-t1.8-m3.2.4",
+      "chapterFile": "ch0033.json",
+      "title": "Монолог 3.2.4 — 科技新闻",
+      "mediaStatus": "playlist",
+      "mediaKind": "audio",
+      "mediaFiles": [
+        "media/world-people-v2/46.mp4",
+        "media/world-people-v2/47.mp4",
+        "media/world-people-v2/48.mp4",
+        "media/world-people-v2/49.mp4",
+        "media/world-people-v2/50.mp4"
+      ],
+      "jumpableSegments": 17,
+      "totalTranscriptSegments": 17,
+      "untimedSegments": 0,
+      "mediaExercise": null,
+      "knownMissingReason": null,
+      "staticRegression": "passed",
+      "browserRegression": "not-run",
+      "errors": []
+    },
+    {
+      "chapterId": "ls-t1.8-m3.2.5",
+      "chapterFile": "ch0034.json",
+      "title": "Монолог 3.2.5 — 现代文化新闻",
+      "mediaStatus": "playlist",
+      "mediaKind": "audio",
+      "mediaFiles": [
+        "media/world-people-v2/51.mp4",
+        "media/world-people-v2/52.mp4",
+        "media/world-people-v2/53.mp4",
+        "media/world-people-v2/54.mp4",
+        "media/world-people-v2/55.mp4"
+      ],
+      "jumpableSegments": 23,
+      "totalTranscriptSegments": 23,
+      "untimedSegments": 0,
+      "mediaExercise": null,
+      "knownMissingReason": null,
+      "staticRegression": "passed",
+      "browserRegression": "not-run",
+      "errors": []
+    },
+    {
+      "chapterId": "ls-t2.1-p1.1.1",
+      "chapterFile": "ch0035.json",
+      "title": "Полилог 1.1.1 — 付费停车争议",
+      "mediaStatus": "unavailable",
+      "mediaKind": null,
+      "mediaFiles": [],
+      "jumpableSegments": 0,
+      "totalTranscriptSegments": 2,
+      "untimedSegments": 2,
+      "mediaExercise": null,
+      "knownMissingReason": "Imported audio belongs to Uchebno-trenirovochnye testy po russkomu iazyku kak inostrannomu. Vypusk 4. Audirovanie. Govorenie, not V mire liudei. Vypusk 2. Audirovanie. Govorenie.",
+      "staticRegression": "passed",
+      "browserRegression": "passed",
+      "errors": []
+    },
+    {
+      "chapterId": "ls-t2.1-p1.1.2",
+      "chapterFile": "ch0036.json",
+      "title": "Полилог 1.1.2 — 换工作的决定",
+      "mediaStatus": "unavailable",
+      "mediaKind": null,
+      "mediaFiles": [],
+      "jumpableSegments": 0,
+      "totalTranscriptSegments": 3,
+      "untimedSegments": 3,
+      "mediaExercise": null,
+      "knownMissingReason": "Imported audio belongs to Uchebno-trenirovochnye testy po russkomu iazyku kak inostrannomu. Vypusk 4. Audirovanie. Govorenie, not V mire liudei. Vypusk 2. Audirovanie. Govorenie.",
+      "staticRegression": "passed",
+      "browserRegression": "not-run",
+      "errors": []
+    },
+    {
+      "chapterId": "ls-t2.1-p1.1.3",
+      "chapterFile": "ch0037.json",
+      "title": "Полилог 1.1.3 — 新房交付的喜悦",
+      "mediaStatus": "unavailable",
+      "mediaKind": null,
+      "mediaFiles": [],
+      "jumpableSegments": 0,
+      "totalTranscriptSegments": 3,
+      "untimedSegments": 3,
+      "mediaExercise": null,
+      "knownMissingReason": "Imported audio belongs to Uchebno-trenirovochnye testy po russkomu iazyku kak inostrannomu. Vypusk 4. Audirovanie. Govorenie, not V mire liudei. Vypusk 2. Audirovanie. Govorenie.",
+      "staticRegression": "passed",
+      "browserRegression": "not-run",
+      "errors": []
+    },
+    {
+      "chapterId": "ls-t2.1-p1.1.4",
+      "chapterFile": "ch0038.json",
+      "title": "Полилог 1.1.4 — 斯科尔科沃之外的创新",
+      "mediaStatus": "unavailable",
+      "mediaKind": null,
+      "mediaFiles": [],
+      "jumpableSegments": 0,
+      "totalTranscriptSegments": 3,
+      "untimedSegments": 3,
+      "mediaExercise": null,
+      "knownMissingReason": "Imported audio belongs to Uchebno-trenirovochnye testy po russkomu iazyku kak inostrannomu. Vypusk 4. Audirovanie. Govorenie, not V mire liudei. Vypusk 2. Audirovanie. Govorenie.",
+      "staticRegression": "passed",
+      "browserRegression": "not-run",
+      "errors": []
+    },
+    {
+      "chapterId": "ls-t2.1-p1.1.5",
+      "chapterFile": "ch0039.json",
+      "title": "Полилог 1.1.5 — 新剧首演讨论",
+      "mediaStatus": "unavailable",
+      "mediaKind": null,
+      "mediaFiles": [],
+      "jumpableSegments": 0,
+      "totalTranscriptSegments": 3,
+      "untimedSegments": 3,
+      "mediaExercise": null,
+      "knownMissingReason": "Imported audio belongs to Uchebno-trenirovochnye testy po russkomu iazyku kak inostrannomu. Vypusk 4. Audirovanie. Govorenie, not V mire liudei. Vypusk 2. Audirovanie. Govorenie.",
+      "staticRegression": "passed",
+      "browserRegression": "not-run",
+      "errors": []
+    },
+    {
+      "chapterId": "ls-t2.2-m1.2.1",
+      "chapterFile": "ch0040.json",
+      "title": "Монолог 1.2.1 — 库尔干州长谈地区发展与个人经历",
+      "mediaStatus": "unavailable",
+      "mediaKind": null,
+      "mediaFiles": [],
+      "jumpableSegments": 0,
+      "totalTranscriptSegments": 3,
+      "untimedSegments": 3,
+      "mediaExercise": null,
+      "knownMissingReason": "Imported audio belongs to Uchebno-trenirovochnye testy po russkomu iazyku kak inostrannomu. Vypusk 4. Audirovanie. Govorenie, not V mire liudei. Vypusk 2. Audirovanie. Govorenie.",
+      "staticRegression": "passed",
+      "browserRegression": "not-run",
+      "errors": []
+    },
+    {
+      "chapterId": "ls-t2.2-m1.2.2",
+      "chapterFile": "ch0041.json",
+      "title": "Монолог 1.2.2 — 女飞行员谈飞行之梦与性别突破",
+      "mediaStatus": "unavailable",
+      "mediaKind": null,
+      "mediaFiles": [],
+      "jumpableSegments": 0,
+      "totalTranscriptSegments": 10,
+      "untimedSegments": 10,
+      "mediaExercise": null,
+      "knownMissingReason": "Imported audio belongs to Uchebno-trenirovochnye testy po russkomu iazyku kak inostrannomu. Vypusk 4. Audirovanie. Govorenie, not V mire liudei. Vypusk 2. Audirovanie. Govorenie.",
+      "staticRegression": "passed",
+      "browserRegression": "not-run",
+      "errors": []
+    },
+    {
+      "chapterId": "ls-t2.2-m1.2.3",
+      "chapterFile": "ch0042.json",
+      "title": "Монолог 1.2.3 — 莫斯科图书大厦总经理谈工作与家庭平衡",
+      "mediaStatus": "unavailable",
+      "mediaKind": null,
+      "mediaFiles": [],
+      "jumpableSegments": 0,
+      "totalTranscriptSegments": 4,
+      "untimedSegments": 4,
+      "mediaExercise": null,
+      "knownMissingReason": "Imported audio belongs to Uchebno-trenirovochnye testy po russkomu iazyku kak inostrannomu. Vypusk 4. Audirovanie. Govorenie, not V mire liudei. Vypusk 2. Audirovanie. Govorenie.",
+      "staticRegression": "passed",
+      "browserRegression": "not-run",
+      "errors": []
+    },
+    {
+      "chapterId": "ls-t2.2-m1.2.4",
+      "chapterFile": "ch0043.json",
+      "title": "Монолог 1.2.4 — 科学院院士谈基因科学与人类未来",
+      "mediaStatus": "unavailable",
+      "mediaKind": null,
+      "mediaFiles": [],
+      "jumpableSegments": 0,
+      "totalTranscriptSegments": 6,
+      "untimedSegments": 6,
+      "mediaExercise": null,
+      "knownMissingReason": "Imported audio belongs to Uchebno-trenirovochnye testy po russkomu iazyku kak inostrannomu. Vypusk 4. Audirovanie. Govorenie, not V mire liudei. Vypusk 2. Audirovanie. Govorenie.",
+      "staticRegression": "passed",
+      "browserRegression": "not-run",
+      "errors": []
+    },
+    {
+      "chapterId": "ls-t2.2-m1.2.5",
+      "chapterFile": "ch0044.json",
+      "title": "Монолог 1.2.5 — 钢琴家马楚耶夫谈音乐教育与人才培养",
+      "mediaStatus": "unavailable",
+      "mediaKind": null,
+      "mediaFiles": [],
+      "jumpableSegments": 0,
+      "totalTranscriptSegments": 3,
+      "untimedSegments": 3,
+      "mediaExercise": null,
+      "knownMissingReason": "Imported audio belongs to Uchebno-trenirovochnye testy po russkomu iazyku kak inostrannomu. Vypusk 4. Audirovanie. Govorenie, not V mire liudei. Vypusk 2. Audirovanie. Govorenie.",
+      "staticRegression": "passed",
+      "browserRegression": "not-run",
+      "errors": []
+    },
+    {
+      "chapterId": "ls-t2.3-d2.1.1",
+      "chapterFile": "ch0045.json",
+      "title": "Диалог 2.1.1 — 电影《未完成的机械钢琴曲》",
+      "mediaStatus": "unavailable",
+      "mediaKind": null,
+      "mediaFiles": [],
+      "jumpableSegments": 0,
+      "totalTranscriptSegments": 13,
+      "untimedSegments": 13,
+      "mediaExercise": null,
+      "knownMissingReason": "Imported audio belongs to Uchebno-trenirovochnye testy po russkomu iazyku kak inostrannomu. Vypusk 4. Audirovanie. Govorenie, not V mire liudei. Vypusk 2. Audirovanie. Govorenie.",
+      "staticRegression": "passed",
+      "browserRegression": "not-run",
+      "errors": []
+    },
+    {
+      "chapterId": "ls-t2.3-d2.1.2",
+      "chapterFile": "ch0046.json",
+      "title": "Диалог 2.1.2 — 电影《大师与玛格丽特》",
+      "mediaStatus": "unavailable",
+      "mediaKind": null,
+      "mediaFiles": [],
+      "jumpableSegments": 0,
+      "totalTranscriptSegments": 26,
+      "untimedSegments": 26,
+      "mediaExercise": null,
+      "knownMissingReason": "Imported audio belongs to Uchebno-trenirovochnye testy po russkomu iazyku kak inostrannomu. Vypusk 4. Audirovanie. Govorenie, not V mire liudei. Vypusk 2. Audirovanie. Govorenie.",
+      "staticRegression": "passed",
+      "browserRegression": "not-run",
+      "errors": []
+    },
+    {
+      "chapterId": "ls-t2.3-d2.1.3",
+      "chapterFile": "ch0047.json",
+      "title": "Диалог 2.1.3 — 电影《叶莲娜》",
+      "mediaStatus": "unavailable",
+      "mediaKind": null,
+      "mediaFiles": [],
+      "jumpableSegments": 0,
+      "totalTranscriptSegments": 38,
+      "untimedSegments": 38,
+      "mediaExercise": null,
+      "knownMissingReason": "Imported audio belongs to Uchebno-trenirovochnye testy po russkomu iazyku kak inostrannomu. Vypusk 4. Audirovanie. Govorenie, not V mire liudei. Vypusk 2. Audirovanie. Govorenie.",
+      "staticRegression": "passed",
+      "browserRegression": "not-run",
+      "errors": []
+    },
+    {
+      "chapterId": "ls-t2.3-d2.1.4",
+      "chapterFile": "ch0048.json",
+      "title": "Диалог 2.1.4 — 电影《索拉里斯》",
+      "mediaStatus": "unavailable",
+      "mediaKind": null,
+      "mediaFiles": [],
+      "jumpableSegments": 0,
+      "totalTranscriptSegments": 29,
+      "untimedSegments": 29,
+      "mediaExercise": null,
+      "knownMissingReason": "Imported audio belongs to Uchebno-trenirovochnye testy po russkomu iazyku kak inostrannomu. Vypusk 4. Audirovanie. Govorenie, not V mire liudei. Vypusk 2. Audirovanie. Govorenie.",
+      "staticRegression": "passed",
+      "browserRegression": "not-run",
+      "errors": []
+    },
+    {
+      "chapterId": "ls-t2.3-d2.1.5",
+      "chapterFile": "ch0049.json",
+      "title": "Диалог 2.1.5 — 电影《成功》",
+      "mediaStatus": "unavailable",
+      "mediaKind": null,
+      "mediaFiles": [],
+      "jumpableSegments": 0,
+      "totalTranscriptSegments": 25,
+      "untimedSegments": 25,
+      "mediaExercise": null,
+      "knownMissingReason": "Imported audio belongs to Uchebno-trenirovochnye testy po russkomu iazyku kak inostrannomu. Vypusk 4. Audirovanie. Govorenie, not V mire liudei. Vypusk 2. Audirovanie. Govorenie.",
+      "staticRegression": "passed",
+      "browserRegression": "not-run",
+      "errors": []
+    },
+    {
+      "chapterId": "ls-t2.4-d2.2.1",
+      "chapterFile": "ch0050.json",
+      "title": "Диалог 2.2.1 — 信息安全专家采访",
+      "mediaStatus": "unavailable",
+      "mediaKind": null,
+      "mediaFiles": [],
+      "jumpableSegments": 0,
+      "totalTranscriptSegments": 7,
+      "untimedSegments": 7,
+      "mediaExercise": null,
+      "knownMissingReason": "Imported audio belongs to Uchebno-trenirovochnye testy po russkomu iazyku kak inostrannomu. Vypusk 4. Audirovanie. Govorenie, not V mire liudei. Vypusk 2. Audirovanie. Govorenie.",
+      "staticRegression": "passed",
+      "browserRegression": "not-run",
+      "errors": []
+    },
+    {
+      "chapterId": "ls-t2.4-d2.2.2",
+      "chapterFile": "ch0051.json",
+      "title": "Диалог 2.2.2 — 年度幼师获奖者采访",
+      "mediaStatus": "unavailable",
+      "mediaKind": null,
+      "mediaFiles": [],
+      "jumpableSegments": 0,
+      "totalTranscriptSegments": 13,
+      "untimedSegments": 13,
+      "mediaExercise": null,
+      "knownMissingReason": "Imported audio belongs to Uchebno-trenirovochnye testy po russkomu iazyku kak inostrannomu. Vypusk 4. Audirovanie. Govorenie, not V mire liudei. Vypusk 2. Audirovanie. Govorenie.",
+      "staticRegression": "passed",
+      "browserRegression": "not-run",
+      "errors": []
+    },
+    {
+      "chapterId": "ls-t2.4-d2.2.3",
+      "chapterFile": "ch0052.json",
+      "title": "Диалог 2.2.3 — 奥运奖牌得主采访",
+      "mediaStatus": "unavailable",
+      "mediaKind": null,
+      "mediaFiles": [],
+      "jumpableSegments": 0,
+      "totalTranscriptSegments": 17,
+      "untimedSegments": 17,
+      "mediaExercise": null,
+      "knownMissingReason": "Imported audio belongs to Uchebno-trenirovochnye testy po russkomu iazyku kak inostrannomu. Vypusk 4. Audirovanie. Govorenie, not V mire liudei. Vypusk 2. Audirovanie. Govorenie.",
+      "staticRegression": "passed",
+      "browserRegression": "not-run",
+      "errors": []
+    },
+    {
+      "chapterId": "ls-t2.4-d2.2.4",
+      "chapterFile": "ch0053.json",
+      "title": "Диалог 2.2.4 — 人类进化科学家采访",
+      "mediaStatus": "unavailable",
+      "mediaKind": null,
+      "mediaFiles": [],
+      "jumpableSegments": 0,
+      "totalTranscriptSegments": 16,
+      "untimedSegments": 16,
+      "mediaExercise": null,
+      "knownMissingReason": "Imported audio belongs to Uchebno-trenirovochnye testy po russkomu iazyku kak inostrannomu. Vypusk 4. Audirovanie. Govorenie, not V mire liudei. Vypusk 2. Audirovanie. Govorenie.",
+      "staticRegression": "passed",
+      "browserRegression": "not-run",
+      "errors": []
+    },
+    {
+      "chapterId": "ls-t2.4-d2.2.5",
+      "chapterFile": "ch0054.json",
+      "title": "Диалог 2.2.5 — 文学评论家采访",
+      "mediaStatus": "unavailable",
+      "mediaKind": null,
+      "mediaFiles": [],
+      "jumpableSegments": 0,
+      "totalTranscriptSegments": 18,
+      "untimedSegments": 18,
+      "mediaExercise": null,
+      "knownMissingReason": "Imported audio belongs to Uchebno-trenirovochnye testy po russkomu iazyku kak inostrannomu. Vypusk 4. Audirovanie. Govorenie, not V mire liudei. Vypusk 2. Audirovanie. Govorenie.",
+      "staticRegression": "passed",
+      "browserRegression": "not-run",
+      "errors": []
+    },
+    {
+      "chapterId": "ls-t2.5-m2.3.1",
+      "chapterFile": "ch0055.json",
+      "title": "Монолог 2.3.1 — 献花仪式报道",
+      "mediaStatus": "unavailable",
+      "mediaKind": null,
+      "mediaFiles": [],
+      "jumpableSegments": 0,
+      "totalTranscriptSegments": 11,
+      "untimedSegments": 11,
+      "mediaExercise": null,
+      "knownMissingReason": "Imported audio belongs to Uchebno-trenirovochnye testy po russkomu iazyku kak inostrannomu. Vypusk 4. Audirovanie. Govorenie, not V mire liudei. Vypusk 2. Audirovanie. Govorenie.",
+      "staticRegression": "passed",
+      "browserRegression": "not-run",
+      "errors": []
+    },
+    {
+      "chapterId": "ls-t2.5-m2.3.2",
+      "chapterFile": "ch0056.json",
+      "title": "Монолог 2.3.2 — 程序员报道",
+      "mediaStatus": "unavailable",
+      "mediaKind": null,
+      "mediaFiles": [],
+      "jumpableSegments": 0,
+      "totalTranscriptSegments": 11,
+      "untimedSegments": 11,
+      "mediaExercise": null,
+      "knownMissingReason": "Imported audio belongs to Uchebno-trenirovochnye testy po russkomu iazyku kak inostrannomu. Vypusk 4. Audirovanie. Govorenie, not V mire liudei. Vypusk 2. Audirovanie. Govorenie.",
+      "staticRegression": "passed",
+      "browserRegression": "not-run",
+      "errors": []
+    },
+    {
+      "chapterId": "ls-t2.5-m2.3.3",
+      "chapterFile": "ch0057.json",
+      "title": "Монолог 2.3.3 — 篮球节报道",
+      "mediaStatus": "unavailable",
+      "mediaKind": null,
+      "mediaFiles": [],
+      "jumpableSegments": 0,
+      "totalTranscriptSegments": 9,
+      "untimedSegments": 9,
+      "mediaExercise": null,
+      "knownMissingReason": "Imported audio belongs to Uchebno-trenirovochnye testy po russkomu iazyku kak inostrannomu. Vypusk 4. Audirovanie. Govorenie, not V mire liudei. Vypusk 2. Audirovanie. Govorenie.",
+      "staticRegression": "passed",
+      "browserRegression": "not-run",
+      "errors": []
+    },
+    {
+      "chapterId": "ls-t2.5-m2.3.4",
+      "chapterFile": "ch0058.json",
+      "title": "Монолог 2.3.4 — 青年科学家报道",
+      "mediaStatus": "unavailable",
+      "mediaKind": null,
+      "mediaFiles": [],
+      "jumpableSegments": 0,
+      "totalTranscriptSegments": 10,
+      "untimedSegments": 10,
+      "mediaExercise": null,
+      "knownMissingReason": "Imported audio belongs to Uchebno-trenirovochnye testy po russkomu iazyku kak inostrannomu. Vypusk 4. Audirovanie. Govorenie, not V mire liudei. Vypusk 2. Audirovanie. Govorenie.",
+      "staticRegression": "passed",
+      "browserRegression": "not-run",
+      "errors": []
+    },
+    {
+      "chapterId": "ls-t2.5-m2.3.5",
+      "chapterFile": "ch0059.json",
+      "title": "Монолог 2.3.5 — 街头艺术家报道",
+      "mediaStatus": "unavailable",
+      "mediaKind": null,
+      "mediaFiles": [],
+      "jumpableSegments": 0,
+      "totalTranscriptSegments": 10,
+      "untimedSegments": 10,
+      "mediaExercise": null,
+      "knownMissingReason": "Imported audio belongs to Uchebno-trenirovochnye testy po russkomu iazyku kak inostrannomu. Vypusk 4. Audirovanie. Govorenie, not V mire liudei. Vypusk 2. Audirovanie. Govorenie.",
+      "staticRegression": "passed",
+      "browserRegression": "not-run",
+      "errors": []
+    },
+    {
+      "chapterId": "ls-t2.6-d3.1.1",
+      "chapterFile": "ch0060.json",
+      "title": "Диалог 3.1.1 — 电影《经典》片段",
+      "mediaStatus": "unavailable",
+      "mediaKind": null,
+      "mediaFiles": [],
+      "jumpableSegments": 0,
+      "totalTranscriptSegments": 4,
+      "untimedSegments": 4,
+      "mediaExercise": null,
+      "knownMissingReason": "Imported audio belongs to Uchebno-trenirovochnye testy po russkomu iazyku kak inostrannomu. Vypusk 4. Audirovanie. Govorenie, not V mire liudei. Vypusk 2. Audirovanie. Govorenie.",
+      "staticRegression": "passed",
+      "browserRegression": "not-run",
+      "errors": []
+    },
+    {
+      "chapterId": "ls-t2.6-d3.1.2",
+      "chapterFile": "ch0061.json",
+      "title": "Диалог 3.1.2 — 州长访谈",
+      "mediaStatus": "unavailable",
+      "mediaKind": null,
+      "mediaFiles": [],
+      "jumpableSegments": 0,
+      "totalTranscriptSegments": 11,
+      "untimedSegments": 11,
+      "mediaExercise": null,
+      "knownMissingReason": "Imported audio belongs to Uchebno-trenirovochnye testy po russkomu iazyku kak inostrannomu. Vypusk 4. Audirovanie. Govorenie, not V mire liudei. Vypusk 2. Audirovanie. Govorenie.",
+      "staticRegression": "passed",
+      "browserRegression": "not-run",
+      "errors": []
+    },
+    {
+      "chapterId": "ls-t2.6-m3.2.1",
+      "chapterFile": "ch0062.json",
+      "title": "Монолог 3.2.1 — 施密特演讲",
+      "mediaStatus": "unavailable",
+      "mediaKind": null,
+      "mediaFiles": [],
+      "jumpableSegments": 0,
+      "totalTranscriptSegments": 5,
+      "untimedSegments": 5,
+      "mediaExercise": null,
+      "knownMissingReason": "Imported audio belongs to Uchebno-trenirovochnye testy po russkomu iazyku kak inostrannomu. Vypusk 4. Audirovanie. Govorenie, not V mire liudei. Vypusk 2. Audirovanie. Govorenie.",
+      "staticRegression": "passed",
+      "browserRegression": "not-run",
+      "errors": []
+    }
+  ],
+  "serverDelivery": {
+    "status": "passed",
+    "checkedUrls": [
+      {
+        "url": "/data/textbook/listening_speaking/media/world-people-v2/01.mp4",
+        "statusCode": 206,
+        "contentType": "video/mp4",
+        "acceptRanges": "bytes"
+      },
+      {
+        "url": "/data/textbook/listening_speaking/media/world-people-v2/02.mp4",
+        "statusCode": 206,
+        "contentType": "video/mp4",
+        "acceptRanges": "bytes"
+      },
+      {
+        "url": "/data/textbook/listening_speaking/media/world-people-v2/03.mp4",
+        "statusCode": 206,
+        "contentType": "video/mp4",
+        "acceptRanges": "bytes"
+      },
+      {
+        "url": "/data/textbook/listening_speaking/media/world-people-v2/04.mp4",
+        "statusCode": 206,
+        "contentType": "video/mp4",
+        "acceptRanges": "bytes"
+      },
+      {
+        "url": "/data/textbook/listening_speaking/media/world-people-v2/05.mp4",
+        "statusCode": 206,
+        "contentType": "video/mp4",
+        "acceptRanges": "bytes"
+      },
+      {
+        "url": "/data/textbook/listening_speaking/media/world-people-v2/06.mp4",
+        "statusCode": 206,
+        "contentType": "video/mp4",
+        "acceptRanges": "bytes"
+      },
+      {
+        "url": "/data/textbook/listening_speaking/media/world-people-v2/07.mp4",
+        "statusCode": 206,
+        "contentType": "video/mp4",
+        "acceptRanges": "bytes"
+      },
+      {
+        "url": "/data/textbook/listening_speaking/media/world-people-v2/08.mp4",
+        "statusCode": 206,
+        "contentType": "video/mp4",
+        "acceptRanges": "bytes"
+      },
+      {
+        "url": "/data/textbook/listening_speaking/media/world-people-v2/09.mp4",
+        "statusCode": 206,
+        "contentType": "video/mp4",
+        "acceptRanges": "bytes"
+      },
+      {
+        "url": "/data/textbook/listening_speaking/media/world-people-v2/10.mp4",
+        "statusCode": 206,
+        "contentType": "video/mp4",
+        "acceptRanges": "bytes"
+      },
+      {
+        "url": "/data/textbook/listening_speaking/media/world-people-v2/11.mp4",
+        "statusCode": 206,
+        "contentType": "video/mp4",
+        "acceptRanges": "bytes"
+      },
+      {
+        "url": "/data/textbook/listening_speaking/media/world-people-v2/12.mp4",
+        "statusCode": 206,
+        "contentType": "video/mp4",
+        "acceptRanges": "bytes"
+      },
+      {
+        "url": "/data/textbook/listening_speaking/media/world-people-v2/13.mp4",
+        "statusCode": 206,
+        "contentType": "video/mp4",
+        "acceptRanges": "bytes"
+      },
+      {
+        "url": "/data/textbook/listening_speaking/media/world-people-v2/14.mp4",
+        "statusCode": 206,
+        "contentType": "video/mp4",
+        "acceptRanges": "bytes"
+      },
+      {
+        "url": "/data/textbook/listening_speaking/media/world-people-v2/15.mp4",
+        "statusCode": 206,
+        "contentType": "video/mp4",
+        "acceptRanges": "bytes"
+      },
+      {
+        "url": "/data/textbook/listening_speaking/media/world-people-v2/16.mp4",
+        "statusCode": 206,
+        "contentType": "video/mp4",
+        "acceptRanges": "bytes"
+      },
+      {
+        "url": "/data/textbook/listening_speaking/media/world-people-v2/17.mp4",
+        "statusCode": 206,
+        "contentType": "video/mp4",
+        "acceptRanges": "bytes"
+      },
+      {
+        "url": "/data/textbook/listening_speaking/media/world-people-v2/18.mp4",
+        "statusCode": 206,
+        "contentType": "video/mp4",
+        "acceptRanges": "bytes"
+      },
+      {
+        "url": "/data/textbook/listening_speaking/media/world-people-v2/19.mp4",
+        "statusCode": 206,
+        "contentType": "video/mp4",
+        "acceptRanges": "bytes"
+      },
+      {
+        "url": "/data/textbook/listening_speaking/media/world-people-v2/20.mp4",
+        "statusCode": 206,
+        "contentType": "video/mp4",
+        "acceptRanges": "bytes"
+      },
+      {
+        "url": "/data/textbook/listening_speaking/media/world-people-v2/21.mp4",
+        "statusCode": 206,
+        "contentType": "video/mp4",
+        "acceptRanges": "bytes"
+      },
+      {
+        "url": "/data/textbook/listening_speaking/media/world-people-v2/22.mp4",
+        "statusCode": 206,
+        "contentType": "video/mp4",
+        "acceptRanges": "bytes"
+      },
+      {
+        "url": "/data/textbook/listening_speaking/media/world-people-v2/23.mp4",
+        "statusCode": 206,
+        "contentType": "video/mp4",
+        "acceptRanges": "bytes"
+      },
+      {
+        "url": "/data/textbook/listening_speaking/media/world-people-v2/24.mp4",
+        "statusCode": 206,
+        "contentType": "video/mp4",
+        "acceptRanges": "bytes"
+      },
+      {
+        "url": "/data/textbook/listening_speaking/media/world-people-v2/25.mp4",
+        "statusCode": 206,
+        "contentType": "video/mp4",
+        "acceptRanges": "bytes"
+      },
+      {
+        "url": "/data/textbook/listening_speaking/media/world-people-v2/26.mp4",
+        "statusCode": 206,
+        "contentType": "video/mp4",
+        "acceptRanges": "bytes"
+      },
+      {
+        "url": "/data/textbook/listening_speaking/media/world-people-v2/27.mp4",
+        "statusCode": 206,
+        "contentType": "video/mp4",
+        "acceptRanges": "bytes"
+      },
+      {
+        "url": "/data/textbook/listening_speaking/media/world-people-v2/28.mp4",
+        "statusCode": 206,
+        "contentType": "video/mp4",
+        "acceptRanges": "bytes"
+      },
+      {
+        "url": "/data/textbook/listening_speaking/media/world-people-v2/29.mp4",
+        "statusCode": 206,
+        "contentType": "video/mp4",
+        "acceptRanges": "bytes"
+      },
+      {
+        "url": "/data/textbook/listening_speaking/media/world-people-v2/30.mp4",
+        "statusCode": 206,
+        "contentType": "video/mp4",
+        "acceptRanges": "bytes"
+      },
+      {
+        "url": "/data/textbook/listening_speaking/media/world-people-v2/31.mp4",
+        "statusCode": 206,
+        "contentType": "video/mp4",
+        "acceptRanges": "bytes"
+      },
+      {
+        "url": "/data/textbook/listening_speaking/media/world-people-v2/32.mp4",
+        "statusCode": 206,
+        "contentType": "video/mp4",
+        "acceptRanges": "bytes"
+      },
+      {
+        "url": "/data/textbook/listening_speaking/media/world-people-v2/33.mp4",
+        "statusCode": 206,
+        "contentType": "video/mp4",
+        "acceptRanges": "bytes"
+      },
+      {
+        "url": "/data/textbook/listening_speaking/media/world-people-v2/34.mp4",
+        "statusCode": 206,
+        "contentType": "video/mp4",
+        "acceptRanges": "bytes"
+      },
+      {
+        "url": "/data/textbook/listening_speaking/media/world-people-v2/35.mp4",
+        "statusCode": 206,
+        "contentType": "video/mp4",
+        "acceptRanges": "bytes"
+      },
+      {
+        "url": "/data/textbook/listening_speaking/media/world-people-v2/36.mp4",
+        "statusCode": 206,
+        "contentType": "video/mp4",
+        "acceptRanges": "bytes"
+      },
+      {
+        "url": "/data/textbook/listening_speaking/media/world-people-v2/37.mp4",
+        "statusCode": 206,
+        "contentType": "video/mp4",
+        "acceptRanges": "bytes"
+      },
+      {
+        "url": "/data/textbook/listening_speaking/media/world-people-v2/38.mp4",
+        "statusCode": 206,
+        "contentType": "video/mp4",
+        "acceptRanges": "bytes"
+      },
+      {
+        "url": "/data/textbook/listening_speaking/media/world-people-v2/39.mp4",
+        "statusCode": 206,
+        "contentType": "video/mp4",
+        "acceptRanges": "bytes"
+      },
+      {
+        "url": "/data/textbook/listening_speaking/media/world-people-v2/40.mp4",
+        "statusCode": 206,
+        "contentType": "video/mp4",
+        "acceptRanges": "bytes"
+      },
+      {
+        "url": "/data/textbook/listening_speaking/media/world-people-v2/41.mp4",
+        "statusCode": 206,
+        "contentType": "video/mp4",
+        "acceptRanges": "bytes"
+      },
+      {
+        "url": "/data/textbook/listening_speaking/media/world-people-v2/42.mp4",
+        "statusCode": 206,
+        "contentType": "video/mp4",
+        "acceptRanges": "bytes"
+      },
+      {
+        "url": "/data/textbook/listening_speaking/media/world-people-v2/43.mp4",
+        "statusCode": 206,
+        "contentType": "video/mp4",
+        "acceptRanges": "bytes"
+      },
+      {
+        "url": "/data/textbook/listening_speaking/media/world-people-v2/44.mp4",
+        "statusCode": 206,
+        "contentType": "video/mp4",
+        "acceptRanges": "bytes"
+      },
+      {
+        "url": "/data/textbook/listening_speaking/media/world-people-v2/45.mp4",
+        "statusCode": 206,
+        "contentType": "video/mp4",
+        "acceptRanges": "bytes"
+      },
+      {
+        "url": "/data/textbook/listening_speaking/media/world-people-v2/46.mp4",
+        "statusCode": 206,
+        "contentType": "video/mp4",
+        "acceptRanges": "bytes"
+      },
+      {
+        "url": "/data/textbook/listening_speaking/media/world-people-v2/47.mp4",
+        "statusCode": 206,
+        "contentType": "video/mp4",
+        "acceptRanges": "bytes"
+      },
+      {
+        "url": "/data/textbook/listening_speaking/media/world-people-v2/48.mp4",
+        "statusCode": 206,
+        "contentType": "video/mp4",
+        "acceptRanges": "bytes"
+      },
+      {
+        "url": "/data/textbook/listening_speaking/media/world-people-v2/49.mp4",
+        "statusCode": 206,
+        "contentType": "video/mp4",
+        "acceptRanges": "bytes"
+      },
+      {
+        "url": "/data/textbook/listening_speaking/media/world-people-v2/50.mp4",
+        "statusCode": 206,
+        "contentType": "video/mp4",
+        "acceptRanges": "bytes"
+      },
+      {
+        "url": "/data/textbook/listening_speaking/media/world-people-v2/51.mp4",
+        "statusCode": 206,
+        "contentType": "video/mp4",
+        "acceptRanges": "bytes"
+      },
+      {
+        "url": "/data/textbook/listening_speaking/media/world-people-v2/52.mp4",
+        "statusCode": 206,
+        "contentType": "video/mp4",
+        "acceptRanges": "bytes"
+      },
+      {
+        "url": "/data/textbook/listening_speaking/media/world-people-v2/53.mp4",
+        "statusCode": 206,
+        "contentType": "video/mp4",
+        "acceptRanges": "bytes"
+      },
+      {
+        "url": "/data/textbook/listening_speaking/media/world-people-v2/54.mp4",
+        "statusCode": 206,
+        "contentType": "video/mp4",
+        "acceptRanges": "bytes"
+      },
+      {
+        "url": "/data/textbook/listening_speaking/media/world-people-v2/55.mp4",
+        "statusCode": 206,
+        "contentType": "video/mp4",
+        "acceptRanges": "bytes"
+      },
+      {
+        "url": "/data/textbook/listening_speaking_mock/media/56.mp4",
+        "statusCode": 206,
+        "contentType": "video/mp4",
+        "acceptRanges": "bytes"
+      },
+      {
+        "url": "/data/textbook/listening_speaking_mock/media/57.mp4",
+        "statusCode": 206,
+        "contentType": "video/mp4",
+        "acceptRanges": "bytes"
+      },
+      {
+        "url": "/data/textbook/listening_speaking_mock/media/58.mp4",
+        "statusCode": 206,
+        "contentType": "video/mp4",
+        "acceptRanges": "bytes"
+      },
+      {
+        "url": "/data/textbook/listening_speaking_mock/media/59.mp4",
+        "statusCode": 206,
+        "contentType": "video/mp4",
+        "acceptRanges": "bytes"
+      },
+      {
+        "url": "/data/textbook/listening_speaking_mock/media/60.mp4",
+        "statusCode": 206,
+        "contentType": "video/mp4",
+        "acceptRanges": "bytes"
+      }
+    ],
+    "errors": []
+  },
+  "browserRegression": {
+    "status": "recorded-manual-browser-validation",
+    "desktop": [
+      {
+        "id": "ch0000",
+        "status": "passed"
+      },
+      {
+        "id": "ch0024",
+        "status": "passed"
+      },
+      {
+        "id": "ch0030",
+        "status": "passed"
+      },
+      {
+        "id": "listening_speaking_mock",
+        "status": "passed"
+      },
+      {
+        "id": "ch0035",
+        "status": "passed"
+      }
+    ],
+    "mobile": [
+      {
+        "id": "ch0024",
+        "status": "passed"
+      },
+      {
+        "id": "ch0030",
+        "status": "passed"
+      }
+    ]
+  }
+}

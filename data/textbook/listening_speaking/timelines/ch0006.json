@@ -1,0 +1,52 @@
+{
+  "chapter": 6,
+  "source": "verified-world-people-v2-media",
+  "model": "small",
+  "status": "partial",
+  "segments": [
+    {
+      "text": "Управление внутренних дел на Московском метрополитене приглашает на работу граждан Российской Федерации в возрасте от 18 до 35 лет, имеющих образование не ниже среднего, для прохождения службы на метрополитене со служебно-розыскными собаками.",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 0.903,
+      "matchedWords": 28,
+      "expectedWords": 31,
+      "startTime": 4.54,
+      "endTime": 22.88,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Сотрудники имеют стабильную заработную плату от 35 тысяч рублей, гибкий график работы, ежемесячную надбавку от мэрии Москвы, отпуск от 35 до 50 суток, бесплатное медицинское обслуживание, различные льготы для членов семей, возможность получения бесплатного высшего юридического образования, льготную пенсию после 20 лет службы.",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 0.949,
+      "matchedWords": 37,
+      "expectedWords": 39,
+      "startTime": 23.4,
+      "endTime": 48.76,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "8 499 624 42 27.",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 0,
+      "matchedWords": 0,
+      "expectedWords": 0,
+      "startTime": 0,
+      "endTime": 0,
+      "timingStatus": "unmatched"
+    }
+  ],
+  "reviewQueue": [
+    {
+      "playlistIndex": 0,
+      "text": "8 499 624 42 27.",
+      "matchRatio": 0,
+      "recognizedSnippet": ""
+    }
+  ]
+}

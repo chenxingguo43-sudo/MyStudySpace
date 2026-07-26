@@ -7,11 +7,15 @@
     14,
     15
   ],
+  "mediaStructure": null,
+  "mediaExercise": null,
   "media": {
-    "provenance": "unavailable",
-    "status": "source-mismatch",
-    "reason": "Imported audio belongs to Uchebno-trenirovochnye testy po russkomu iazyku kak inostrannomu. Vypusk 4. Audirovanie. Govorenie, not V mire liudei. Vypusk 2. Audirovanie. Govorenie.",
-    "rejectedFile": "media/04.mp3"
+    "provenance": "verified-original-audio",
+    "status": "verified",
+    "kind": "audio",
+    "file": "media/world-people-v2/04.mp4",
+    "sourceCollection": "В мире людей. Выпуск 2. Аудирование. Говорение",
+    "sourceTrack": "04.mov"
   },
   "questions": [
     {
@@ -117,25 +121,76 @@
   ],
   "transcriptSegments": [
     {
+      "text": "Слышал, оборудование новое пришло?..",
+      "playlistIndex": 0,
       "speaker": "B",
       "displayLabel": "М",
-      "text": "Слышал, оборудование новое пришло?.. Вот зашёл на форум: самому же нереально всё протестировать...",
-      "startTime": 0,
-      "endTime": 0
+      "matchRatio": 1,
+      "matchedWords": 4,
+      "expectedWords": 4,
+      "startTime": 4.54,
+      "endTime": 6.6,
+      "timingStatus": "aligned"
     },
     {
+      "text": "Вот зашёл на форум: самому же нереально всё протестировать...",
+      "playlistIndex": 0,
       "speaker": "B",
       "displayLabel": "М",
-      "text": "А что форум? Практически базар: есть настроение — ответят, нет — даже не зайдут. Так что особо не рассчитывай!",
-      "startTime": 0,
-      "endTime": 0
+      "matchRatio": 1,
+      "matchedWords": 9,
+      "expectedWords": 9,
+      "startTime": 6.94,
+      "endTime": 10.06,
+      "timingStatus": "aligned"
     },
     {
+      "text": "А что форум?",
+      "playlistIndex": 0,
       "speaker": "B",
       "displayLabel": "М",
+      "matchRatio": 1,
+      "matchedWords": 3,
+      "expectedWords": 3,
+      "startTime": 10.68,
+      "endTime": 11.5,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Практически базар: есть настроение — ответят, нет — даже не зайдут.",
+      "playlistIndex": 0,
+      "speaker": "B",
+      "displayLabel": "М",
+      "matchRatio": 1,
+      "matchedWords": 9,
+      "expectedWords": 9,
+      "startTime": 12.18,
+      "endTime": 16.36,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Так что особо не рассчитывай!",
+      "playlistIndex": 0,
+      "speaker": "B",
+      "displayLabel": "М",
+      "matchRatio": 1,
+      "matchedWords": 5,
+      "expectedWords": 5,
+      "startTime": 16.74,
+      "endTime": 18.24,
+      "timingStatus": "aligned"
+    },
+    {
       "text": "Да нет, по себе знаю, дорога любая информация.",
-      "startTime": 0,
-      "endTime": 0
+      "playlistIndex": 0,
+      "speaker": "B",
+      "displayLabel": "М",
+      "matchRatio": 1,
+      "matchedWords": 8,
+      "expectedWords": 8,
+      "startTime": 18.72,
+      "endTime": 21.56,
+      "timingStatus": "aligned"
     }
   ]
 }

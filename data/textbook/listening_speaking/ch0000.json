@@ -7,11 +7,15 @@
     14,
     15
   ],
+  "mediaStructure": null,
+  "mediaExercise": null,
   "media": {
-    "provenance": "unavailable",
-    "status": "source-mismatch",
-    "reason": "Imported audio belongs to Uchebno-trenirovochnye testy po russkomu iazyku kak inostrannomu. Vypusk 4. Audirovanie. Govorenie, not V mire liudei. Vypusk 2. Audirovanie. Govorenie.",
-    "rejectedFile": "media/01.mp3"
+    "provenance": "verified-original-audio",
+    "status": "verified",
+    "kind": "audio",
+    "file": "media/world-people-v2/01.mp4",
+    "sourceCollection": "В мире людей. Выпуск 2. Аудирование. Говорение",
+    "sourceTrack": "01.mov"
   },
   "questions": [
     {
@@ -117,25 +121,124 @@
   ],
   "transcriptSegments": [
     {
+      "text": "Олечка!",
+      "playlistIndex": 0,
       "speaker": "A",
       "displayLabel": "Ж",
-      "text": "Олечка! Прекрасно выглядишь! Как муж? Сынок?",
-      "startTime": 0,
-      "endTime": 0
+      "matchRatio": 1,
+      "matchedWords": 1,
+      "expectedWords": 1,
+      "startTime": 2.96,
+      "endTime": 5.06,
+      "timingStatus": "aligned"
     },
     {
+      "text": "Прекрасно выглядишь!",
+      "playlistIndex": 0,
       "speaker": "A",
       "displayLabel": "Ж",
-      "text": "Муж как всегда, а вот сын... На каникулах хотели отправить в Италию, а он ни в какую: хочу в Курск, к бабушке, к ребятам. Там все свои, всё запросто, по-нашему... Представляешь?!",
-      "startTime": 0,
-      "endTime": 0
+      "matchRatio": 1,
+      "matchedWords": 2,
+      "expectedWords": 2,
+      "startTime": 5.6,
+      "endTime": 6.62,
+      "timingStatus": "aligned"
     },
     {
+      "text": "Как муж?",
+      "playlistIndex": 0,
       "speaker": "A",
       "displayLabel": "Ж",
-      "text": "А что! Ну и правильно...",
-      "startTime": 0,
-      "endTime": 0
+      "matchRatio": 1,
+      "matchedWords": 2,
+      "expectedWords": 2,
+      "startTime": 7.02,
+      "endTime": 7.6,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Сынок?",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Ж",
+      "matchRatio": 1,
+      "matchedWords": 1,
+      "expectedWords": 1,
+      "startTime": 7.8,
+      "endTime": 8.12,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Муж как всегда, а вот сын...",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Ж",
+      "matchRatio": 1,
+      "matchedWords": 6,
+      "expectedWords": 6,
+      "startTime": 8.84,
+      "endTime": 10.68,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "На каникулах хотели отправить в Италию, а он ни в какую: хочу в Курск, к бабушке, к ребятам.",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Ж",
+      "matchRatio": 1,
+      "matchedWords": 18,
+      "expectedWords": 18,
+      "startTime": 11.06,
+      "endTime": 17.48,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Там все свои, всё запросто, по-нашему...",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Ж",
+      "matchRatio": 1,
+      "matchedWords": 7,
+      "expectedWords": 7,
+      "startTime": 17.82,
+      "endTime": 20.04,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Представляешь?!",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Ж",
+      "matchRatio": 1,
+      "matchedWords": 1,
+      "expectedWords": 1,
+      "startTime": 20.48,
+      "endTime": 21.12,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "А что!",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Ж",
+      "matchRatio": 1,
+      "matchedWords": 2,
+      "expectedWords": 2,
+      "startTime": 21.6,
+      "endTime": 22.12,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Ну и правильно...",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Ж",
+      "matchRatio": 1,
+      "matchedWords": 3,
+      "expectedWords": 3,
+      "startTime": 22.76,
+      "endTime": 23.32,
+      "timingStatus": "aligned"
     }
   ]
 }

@@ -1,0 +1,1299 @@
+{
+  "status": "verified",
+  "verifiedAt": "2026-07-26",
+  "collection": "В мире людей. Выпуск 2. Аудирование. Говорение",
+  "publisher": "Златоуст",
+  "year": 2016,
+  "isbn": "978-5-86547-916-1",
+  "sourceDirectory": "E:\\Desktop\\в мире людей 音频\\в мире людей 音频",
+  "sourcePolicy": "Original MOV files are read-only and remain on E:\\Desktop. Browser MP4 outputs preserve the source orientation. Only tracks 16-25 are presented as video; all other supplied tracks use audio-only controls.",
+  "mappings": {
+    "singleMediaChapters": "01-30 -> ch0000-ch0029; tracks 16-25 are video and the rest are audio-only",
+    "newsPlaylists": "31-55 -> ch0030-ch0034, five audio-only files per chapter",
+    "mockExam": "56-60 -> listening_speaking_mock/ch0000 audio-only playlist",
+    "unavailable": "ch0035-ch0062 are ТРКИ-3 and have no supplied companion media."
+  },
+  "outputs": [
+    {
+      "number": 0,
+      "sourceFile": "00 .mov",
+      "source": {
+        "durationSeconds": 20.371,
+        "codecs": [
+          "video:h264",
+          "audio:aac"
+        ]
+      },
+      "outputFile": "data/textbook/listening_speaking/media/world-people-v2/00.mp4",
+      "output": {
+        "durationSeconds": 20.371,
+        "codecs": [
+          "video:h264",
+          "audio:aac"
+        ]
+      },
+      "presentation": "audio",
+      "use": "collection-introduction-not-bound"
+    },
+    {
+      "number": 1,
+      "sourceFile": "01 - 1.1.1.mov",
+      "source": {
+        "durationSeconds": 25.817,
+        "codecs": [
+          "video:h264",
+          "audio:aac"
+        ]
+      },
+      "outputFile": "data/textbook/listening_speaking/media/world-people-v2/01.mp4",
+      "output": {
+        "durationSeconds": 25.827,
+        "codecs": [
+          "video:h264",
+          "audio:aac"
+        ]
+      },
+      "presentation": "audio",
+      "use": "listening-speaking"
+    },
+    {
+      "number": 2,
+      "sourceFile": "02 -  1.1.2.mov",
+      "source": {
+        "durationSeconds": 29.784,
+        "codecs": [
+          "video:h264",
+          "audio:aac"
+        ]
+      },
+      "outputFile": "data/textbook/listening_speaking/media/world-people-v2/02.mp4",
+      "output": {
+        "durationSeconds": 29.8,
+        "codecs": [
+          "video:h264",
+          "audio:aac"
+        ]
+      },
+      "presentation": "audio",
+      "use": "listening-speaking"
+    },
+    {
+      "number": 3,
+      "sourceFile": "03 -  1.1.3.mov",
+      "source": {
+        "durationSeconds": 27.384,
+        "codecs": [
+          "video:h264",
+          "audio:aac"
+        ]
+      },
+      "outputFile": "data/textbook/listening_speaking/media/world-people-v2/03.mp4",
+      "output": {
+        "durationSeconds": 27.4,
+        "codecs": [
+          "video:h264",
+          "audio:aac"
+        ]
+      },
+      "presentation": "audio",
+      "use": "listening-speaking"
+    },
+    {
+      "number": 4,
+      "sourceFile": "04 -  1.1.4.mov",
+      "source": {
+        "durationSeconds": 23.058,
+        "codecs": [
+          "video:h264",
+          "audio:aac"
+        ]
+      },
+      "outputFile": "data/textbook/listening_speaking/media/world-people-v2/04.mp4",
+      "output": {
+        "durationSeconds": 23.08,
+        "codecs": [
+          "video:h264",
+          "audio:aac"
+        ]
+      },
+      "presentation": "audio",
+      "use": "listening-speaking"
+    },
+    {
+      "number": 5,
+      "sourceFile": "05 -  1.1.5.mov",
+      "source": {
+        "durationSeconds": 27.104,
+        "codecs": [
+          "video:h264",
+          "audio:aac"
+        ]
+      },
+      "outputFile": "data/textbook/listening_speaking/media/world-people-v2/05.mp4",
+      "output": {
+        "durationSeconds": 27.12,
+        "codecs": [
+          "video:h264",
+          "audio:aac"
+        ]
+      },
+      "presentation": "audio",
+      "use": "listening-speaking"
+    },
+    {
+      "number": 6,
+      "sourceFile": "06 - 1.2.1.mov",
+      "source": {
+        "durationSeconds": 118.292,
+        "codecs": [
+          "video:hevc",
+          "audio:aac"
+        ]
+      },
+      "outputFile": "data/textbook/listening_speaking/media/world-people-v2/06.mp4",
+      "output": {
+        "durationSeconds": 118.32,
+        "codecs": [
+          "video:h264",
+          "audio:aac"
+        ]
+      },
+      "presentation": "audio",
+      "use": "listening-speaking"
+    },
+    {
+      "number": 7,
+      "sourceFile": "07 -  1.2.2.mov",
+      "source": {
+        "durationSeconds": 56.409,
+        "codecs": [
+          "video:hevc",
+          "audio:aac"
+        ]
+      },
+      "outputFile": "data/textbook/listening_speaking/media/world-people-v2/07.mp4",
+      "output": {
+        "durationSeconds": 56.408,
+        "codecs": [
+          "video:h264",
+          "audio:aac"
+        ]
+      },
+      "presentation": "audio",
+      "use": "listening-speaking"
+    },
+    {
+      "number": 8,
+      "sourceFile": "08 - 1.2.3.mov",
+      "source": {
+        "durationSeconds": 111.95,
+        "codecs": [
+          "video:hevc",
+          "audio:aac"
+        ]
+      },
+      "outputFile": "data/textbook/listening_speaking/media/world-people-v2/08.mp4",
+      "output": {
+        "durationSeconds": 111.95,
+        "codecs": [
+          "video:h264",
+          "audio:aac"
+        ]
+      },
+      "presentation": "audio",
+      "use": "listening-speaking"
+    },
+    {
+      "number": 9,
+      "sourceFile": "09 - 1.2.4.mov",
+      "source": {
+        "durationSeconds": 51.546,
+        "codecs": [
+          "video:hevc",
+          "audio:aac"
+        ]
+      },
+      "outputFile": "data/textbook/listening_speaking/media/world-people-v2/09.mp4",
+      "output": {
+        "durationSeconds": 51.56,
+        "codecs": [
+          "video:h264",
+          "audio:aac"
+        ]
+      },
+      "presentation": "audio",
+      "use": "listening-speaking"
+    },
+    {
+      "number": 10,
+      "sourceFile": "10 - 1.2.5.mov",
+      "source": {
+        "durationSeconds": 68.787,
+        "codecs": [
+          "video:hevc",
+          "audio:aac"
+        ]
+      },
+      "outputFile": "data/textbook/listening_speaking/media/world-people-v2/10.mp4",
+      "output": {
+        "durationSeconds": 68.8,
+        "codecs": [
+          "video:h264",
+          "audio:aac"
+        ]
+      },
+      "presentation": "audio",
+      "use": "listening-speaking"
+    },
+    {
+      "number": 11,
+      "sourceFile": "11 -  1.3.1.mov",
+      "source": {
+        "durationSeconds": 64.505,
+        "codecs": [
+          "video:hevc",
+          "audio:aac"
+        ]
+      },
+      "outputFile": "data/textbook/listening_speaking/media/world-people-v2/11.mp4",
+      "output": {
+        "durationSeconds": 64.52,
+        "codecs": [
+          "video:h264",
+          "audio:aac"
+        ]
+      },
+      "presentation": "audio",
+      "use": "listening-speaking"
+    },
+    {
+      "number": 12,
+      "sourceFile": "12 -  1.3.2.mov",
+      "source": {
+        "durationSeconds": 51.486,
+        "codecs": [
+          "video:hevc",
+          "audio:aac"
+        ]
+      },
+      "outputFile": "data/textbook/listening_speaking/media/world-people-v2/12.mp4",
+      "output": {
+        "durationSeconds": 51.486,
+        "codecs": [
+          "video:h264",
+          "audio:aac"
+        ]
+      },
+      "presentation": "audio",
+      "use": "listening-speaking"
+    },
+    {
+      "number": 13,
+      "sourceFile": "13 - 1.3.3.mov",
+      "source": {
+        "durationSeconds": 55.131,
+        "codecs": [
+          "video:hevc",
+          "audio:aac"
+        ]
+      },
+      "outputFile": "data/textbook/listening_speaking/media/world-people-v2/13.mp4",
+      "output": {
+        "durationSeconds": 55.155,
+        "codecs": [
+          "video:h264",
+          "audio:aac"
+        ]
+      },
+      "presentation": "audio",
+      "use": "listening-speaking"
+    },
+    {
+      "number": 14,
+      "sourceFile": "14 - 1.3.4.mov",
+      "source": {
+        "durationSeconds": 64.876,
+        "codecs": [
+          "video:hevc",
+          "audio:aac"
+        ]
+      },
+      "outputFile": "data/textbook/listening_speaking/media/world-people-v2/14.mp4",
+      "output": {
+        "durationSeconds": 64.92,
+        "codecs": [
+          "video:h264",
+          "audio:aac"
+        ]
+      },
+      "presentation": "audio",
+      "use": "listening-speaking"
+    },
+    {
+      "number": 15,
+      "sourceFile": "15 -  1.3.5.mov",
+      "source": {
+        "durationSeconds": 56.426,
+        "codecs": [
+          "video:hevc",
+          "audio:aac"
+        ]
+      },
+      "outputFile": "data/textbook/listening_speaking/media/world-people-v2/15.mp4",
+      "output": {
+        "durationSeconds": 56.44,
+        "codecs": [
+          "video:h264",
+          "audio:aac"
+        ]
+      },
+      "presentation": "audio",
+      "use": "listening-speaking"
+    },
+    {
+      "number": 16,
+      "sourceFile": "16 - 2.1.1.1.mov",
+      "source": {
+        "durationSeconds": 235.596,
+        "codecs": [
+          "video:h264",
+          "audio:aac"
+        ]
+      },
+      "outputFile": "data/textbook/listening_speaking/media/world-people-v2/16.mp4",
+      "output": {
+        "durationSeconds": 235.596,
+        "codecs": [
+          "video:h264",
+          "audio:aac"
+        ]
+      },
+      "presentation": "video",
+      "use": "listening-speaking"
+    },
+    {
+      "number": 17,
+      "sourceFile": "17 - 2.1.1.2.mov",
+      "source": {
+        "durationSeconds": 227.461,
+        "codecs": [
+          "video:h264",
+          "audio:aac"
+        ]
+      },
+      "outputFile": "data/textbook/listening_speaking/media/world-people-v2/17.mp4",
+      "output": {
+        "durationSeconds": 227.48,
+        "codecs": [
+          "video:h264",
+          "audio:aac"
+        ]
+      },
+      "presentation": "video",
+      "use": "listening-speaking"
+    },
+    {
+      "number": 18,
+      "sourceFile": "18 - 2.1.1.3.mov",
+      "source": {
+        "durationSeconds": 183.909,
+        "codecs": [
+          "video:h264",
+          "audio:aac"
+        ]
+      },
+      "outputFile": "data/textbook/listening_speaking/media/world-people-v2/18.mp4",
+      "output": {
+        "durationSeconds": 183.92,
+        "codecs": [
+          "video:h264",
+          "audio:aac"
+        ]
+      },
+      "presentation": "video",
+      "use": "listening-speaking"
+    },
+    {
+      "number": 19,
+      "sourceFile": "19 -  2.1.1.4.mov",
+      "source": {
+        "durationSeconds": 166.782,
+        "codecs": [
+          "video:h264",
+          "audio:aac"
+        ]
+      },
+      "outputFile": "data/textbook/listening_speaking/media/world-people-v2/19.mp4",
+      "output": {
+        "durationSeconds": 166.8,
+        "codecs": [
+          "video:h264",
+          "audio:aac"
+        ]
+      },
+      "presentation": "video",
+      "use": "listening-speaking"
+    },
+    {
+      "number": 20,
+      "sourceFile": "20 - 2.1.1.5.mov",
+      "source": {
+        "durationSeconds": 200.237,
+        "codecs": [
+          "video:h264",
+          "audio:aac"
+        ]
+      },
+      "outputFile": "data/textbook/listening_speaking/media/world-people-v2/20.mp4",
+      "output": {
+        "durationSeconds": 200.24,
+        "codecs": [
+          "video:h264",
+          "audio:aac"
+        ]
+      },
+      "presentation": "video",
+      "use": "listening-speaking"
+    },
+    {
+      "number": 21,
+      "sourceFile": "21 -  2.1.2.1.mov",
+      "source": {
+        "durationSeconds": 363.413,
+        "codecs": [
+          "video:h264",
+          "audio:aac"
+        ]
+      },
+      "outputFile": "data/textbook/listening_speaking/media/world-people-v2/21.mp4",
+      "output": {
+        "durationSeconds": 363.413,
+        "codecs": [
+          "video:h264",
+          "audio:aac"
+        ]
+      },
+      "presentation": "video",
+      "use": "listening-speaking"
+    },
+    {
+      "number": 22,
+      "sourceFile": "22 -  2.1.2.2.mov",
+      "source": {
+        "durationSeconds": 220.209,
+        "codecs": [
+          "video:hevc",
+          "audio:aac"
+        ]
+      },
+      "outputFile": "data/textbook/listening_speaking/media/world-people-v2/22.mp4",
+      "output": {
+        "durationSeconds": 220.24,
+        "codecs": [
+          "video:h264",
+          "audio:aac"
+        ]
+      },
+      "presentation": "video",
+      "use": "listening-speaking"
+    },
+    {
+      "number": 23,
+      "sourceFile": "23 - 2.1.2.3.mov",
+      "source": {
+        "durationSeconds": 300.106,
+        "codecs": [
+          "video:hevc",
+          "audio:aac"
+        ]
+      },
+      "outputFile": "data/textbook/listening_speaking/media/world-people-v2/23.mp4",
+      "output": {
+        "durationSeconds": 300.12,
+        "codecs": [
+          "video:h264",
+          "audio:aac"
+        ]
+      },
+      "presentation": "video",
+      "use": "listening-speaking"
+    },
+    {
+      "number": 24,
+      "sourceFile": "24 - 2.1.2.4.mov",
+      "source": {
+        "durationSeconds": 197.862,
+        "codecs": [
+          "video:h264",
+          "audio:aac"
+        ]
+      },
+      "outputFile": "data/textbook/listening_speaking/media/world-people-v2/24.mp4",
+      "output": {
+        "durationSeconds": 197.88,
+        "codecs": [
+          "video:h264",
+          "audio:aac"
+        ]
+      },
+      "presentation": "video",
+      "use": "listening-speaking"
+    },
+    {
+      "number": 25,
+      "sourceFile": "25 -  2.1.2.5.mov",
+      "source": {
+        "durationSeconds": 177.117,
+        "codecs": [
+          "video:h264",
+          "audio:aac"
+        ]
+      },
+      "outputFile": "data/textbook/listening_speaking/media/world-people-v2/25.mp4",
+      "output": {
+        "durationSeconds": 177.12,
+        "codecs": [
+          "video:h264",
+          "audio:aac"
+        ]
+      },
+      "presentation": "video",
+      "use": "listening-speaking"
+    },
+    {
+      "number": 26,
+      "sourceFile": "26 - 2.2.1.mov",
+      "source": {
+        "durationSeconds": 131.068,
+        "codecs": [
+          "video:hevc",
+          "audio:aac"
+        ]
+      },
+      "outputFile": "data/textbook/listening_speaking/media/world-people-v2/26.mp4",
+      "output": {
+        "durationSeconds": 131.08,
+        "codecs": [
+          "video:h264",
+          "audio:aac"
+        ]
+      },
+      "presentation": "audio",
+      "use": "listening-speaking"
+    },
+    {
+      "number": 27,
+      "sourceFile": "27 - 2.2.2.mov",
+      "source": {
+        "durationSeconds": 137.059,
+        "codecs": [
+          "video:hevc",
+          "audio:aac"
+        ]
+      },
+      "outputFile": "data/textbook/listening_speaking/media/world-people-v2/27.mp4",
+      "output": {
+        "durationSeconds": 137.08,
+        "codecs": [
+          "video:h264",
+          "audio:aac"
+        ]
+      },
+      "presentation": "audio",
+      "use": "listening-speaking"
+    },
+    {
+      "number": 28,
+      "sourceFile": "28 - 2.2.3.mov",
+      "source": {
+        "durationSeconds": 124.11,
+        "codecs": [
+          "video:h264",
+          "audio:aac"
+        ]
+      },
+      "outputFile": "data/textbook/listening_speaking/media/world-people-v2/28.mp4",
+      "output": {
+        "durationSeconds": 124.12,
+        "codecs": [
+          "video:h264",
+          "audio:aac"
+        ]
+      },
+      "presentation": "audio",
+      "use": "listening-speaking"
+    },
+    {
+      "number": 29,
+      "sourceFile": "29 -  2.2.4.mov",
+      "source": {
+        "durationSeconds": 157.394,
+        "codecs": [
+          "video:hevc",
+          "audio:aac"
+        ]
+      },
+      "outputFile": "data/textbook/listening_speaking/media/world-people-v2/29.mp4",
+      "output": {
+        "durationSeconds": 157.44,
+        "codecs": [
+          "video:h264",
+          "audio:aac"
+        ]
+      },
+      "presentation": "audio",
+      "use": "listening-speaking"
+    },
+    {
+      "number": 30,
+      "sourceFile": "30 - 2.2.5.mov",
+      "source": {
+        "durationSeconds": 127.308,
+        "codecs": [
+          "video:h264",
+          "audio:aac"
+        ]
+      },
+      "outputFile": "data/textbook/listening_speaking/media/world-people-v2/30.mp4",
+      "output": {
+        "durationSeconds": 127.32,
+        "codecs": [
+          "video:h264",
+          "audio:aac"
+        ]
+      },
+      "presentation": "audio",
+      "use": "listening-speaking"
+    },
+    {
+      "number": 31,
+      "sourceFile": "31 - 3.1.1.1.mov",
+      "source": {
+        "durationSeconds": 37.291,
+        "codecs": [
+          "video:hevc",
+          "audio:aac"
+        ]
+      },
+      "outputFile": "data/textbook/listening_speaking/media/world-people-v2/31.mp4",
+      "output": {
+        "durationSeconds": 37.32,
+        "codecs": [
+          "video:h264",
+          "audio:aac"
+        ]
+      },
+      "presentation": "audio",
+      "use": "listening-speaking"
+    },
+    {
+      "number": 32,
+      "sourceFile": "32 -  3.1.1.2.mov",
+      "source": {
+        "durationSeconds": 38.499,
+        "codecs": [
+          "video:hevc",
+          "audio:aac"
+        ]
+      },
+      "outputFile": "data/textbook/listening_speaking/media/world-people-v2/32.mp4",
+      "output": {
+        "durationSeconds": 38.52,
+        "codecs": [
+          "video:h264",
+          "audio:aac"
+        ]
+      },
+      "presentation": "audio",
+      "use": "listening-speaking"
+    },
+    {
+      "number": 33,
+      "sourceFile": "33 - 3.1.1.3.mov",
+      "source": {
+        "durationSeconds": 32.755,
+        "codecs": [
+          "video:hevc",
+          "audio:aac"
+        ]
+      },
+      "outputFile": "data/textbook/listening_speaking/media/world-people-v2/33.mp4",
+      "output": {
+        "durationSeconds": 32.8,
+        "codecs": [
+          "video:h264",
+          "audio:aac"
+        ]
+      },
+      "presentation": "audio",
+      "use": "listening-speaking"
+    },
+    {
+      "number": 34,
+      "sourceFile": "34 - 3.1.1.4.mov",
+      "source": {
+        "durationSeconds": 38.419,
+        "codecs": [
+          "video:h264",
+          "audio:aac"
+        ]
+      },
+      "outputFile": "data/textbook/listening_speaking/media/world-people-v2/34.mp4",
+      "output": {
+        "durationSeconds": 38.44,
+        "codecs": [
+          "video:h264",
+          "audio:aac"
+        ]
+      },
+      "presentation": "audio",
+      "use": "listening-speaking"
+    },
+    {
+      "number": 35,
+      "sourceFile": "35 - 3.1.1.5.mov",
+      "source": {
+        "durationSeconds": 36.835,
+        "codecs": [
+          "video:hevc",
+          "audio:aac"
+        ]
+      },
+      "outputFile": "data/textbook/listening_speaking/media/world-people-v2/35.mp4",
+      "output": {
+        "durationSeconds": 36.88,
+        "codecs": [
+          "video:h264",
+          "audio:aac"
+        ]
+      },
+      "presentation": "audio",
+      "use": "listening-speaking"
+    },
+    {
+      "number": 36,
+      "sourceFile": "36 - 3.1.2.1.mov",
+      "source": {
+        "durationSeconds": 51.625,
+        "codecs": [
+          "video:hevc",
+          "audio:aac"
+        ]
+      },
+      "outputFile": "data/textbook/listening_speaking/media/world-people-v2/36.mp4",
+      "output": {
+        "durationSeconds": 51.625,
+        "codecs": [
+          "video:h264",
+          "audio:aac"
+        ]
+      },
+      "presentation": "audio",
+      "use": "listening-speaking"
+    },
+    {
+      "number": 37,
+      "sourceFile": "37 - 3.1.2.2.mov",
+      "source": {
+        "durationSeconds": 30.475,
+        "codecs": [
+          "video:hevc",
+          "audio:aac"
+        ]
+      },
+      "outputFile": "data/textbook/listening_speaking/media/world-people-v2/37.mp4",
+      "output": {
+        "durationSeconds": 30.52,
+        "codecs": [
+          "video:h264",
+          "audio:aac"
+        ]
+      },
+      "presentation": "audio",
+      "use": "listening-speaking"
+    },
+    {
+      "number": 38,
+      "sourceFile": "38 -  3.1.2.3.mov",
+      "source": {
+        "durationSeconds": 26.744,
+        "codecs": [
+          "video:h264",
+          "audio:aac"
+        ]
+      },
+      "outputFile": "data/textbook/listening_speaking/media/world-people-v2/38.mp4",
+      "output": {
+        "durationSeconds": 26.76,
+        "codecs": [
+          "video:h264",
+          "audio:aac"
+        ]
+      },
+      "presentation": "audio",
+      "use": "listening-speaking"
+    },
+    {
+      "number": 39,
+      "sourceFile": "39 - 3.1.2.4.mov",
+      "source": {
+        "durationSeconds": 35.035,
+        "codecs": [
+          "video:hevc",
+          "audio:aac"
+        ]
+      },
+      "outputFile": "data/textbook/listening_speaking/media/world-people-v2/39.mp4",
+      "output": {
+        "durationSeconds": 35.08,
+        "codecs": [
+          "video:h264",
+          "audio:aac"
+        ]
+      },
+      "presentation": "audio",
+      "use": "listening-speaking"
+    },
+    {
+      "number": 40,
+      "sourceFile": "40 - 3.1.2.5.mov",
+      "source": {
+        "durationSeconds": 33.669,
+        "codecs": [
+          "video:hevc",
+          "audio:aac"
+        ]
+      },
+      "outputFile": "data/textbook/listening_speaking/media/world-people-v2/40.mp4",
+      "output": {
+        "durationSeconds": 33.68,
+        "codecs": [
+          "video:h264",
+          "audio:aac"
+        ]
+      },
+      "presentation": "audio",
+      "use": "listening-speaking"
+    },
+    {
+      "number": 41,
+      "sourceFile": "41 -  3.1.3.1.mov",
+      "source": {
+        "durationSeconds": 36.635,
+        "codecs": [
+          "video:hevc",
+          "audio:aac"
+        ]
+      },
+      "outputFile": "data/textbook/listening_speaking/media/world-people-v2/41.mp4",
+      "output": {
+        "durationSeconds": 36.68,
+        "codecs": [
+          "video:h264",
+          "audio:aac"
+        ]
+      },
+      "presentation": "audio",
+      "use": "listening-speaking"
+    },
+    {
+      "number": 42,
+      "sourceFile": "42 - 3.1.3.2.mov",
+      "source": {
+        "durationSeconds": 34.635,
+        "codecs": [
+          "video:hevc",
+          "audio:aac"
+        ]
+      },
+      "outputFile": "data/textbook/listening_speaking/media/world-people-v2/42.mp4",
+      "output": {
+        "durationSeconds": 34.68,
+        "codecs": [
+          "video:h264",
+          "audio:aac"
+        ]
+      },
+      "presentation": "audio",
+      "use": "listening-speaking"
+    },
+    {
+      "number": 43,
+      "sourceFile": "43 -  3.1.3.3.mov",
+      "source": {
+        "durationSeconds": 35.759,
+        "codecs": [
+          "video:hevc",
+          "audio:aac"
+        ]
+      },
+      "outputFile": "data/textbook/listening_speaking/media/world-people-v2/43.mp4",
+      "output": {
+        "durationSeconds": 35.76,
+        "codecs": [
+          "video:h264",
+          "audio:aac"
+        ]
+      },
+      "presentation": "audio",
+      "use": "listening-speaking"
+    },
+    {
+      "number": 44,
+      "sourceFile": "44 - 3.1.3.4.mov",
+      "source": {
+        "durationSeconds": 36.223,
+        "codecs": [
+          "video:hevc",
+          "audio:aac"
+        ]
+      },
+      "outputFile": "data/textbook/listening_speaking/media/world-people-v2/44.mp4",
+      "output": {
+        "durationSeconds": 36.223,
+        "codecs": [
+          "video:h264",
+          "audio:aac"
+        ]
+      },
+      "presentation": "audio",
+      "use": "listening-speaking"
+    },
+    {
+      "number": 45,
+      "sourceFile": "45 - 3.1.3.5.mov",
+      "source": {
+        "durationSeconds": 39.435,
+        "codecs": [
+          "video:hevc",
+          "audio:aac"
+        ]
+      },
+      "outputFile": "data/textbook/listening_speaking/media/world-people-v2/45.mp4",
+      "output": {
+        "durationSeconds": 39.48,
+        "codecs": [
+          "video:h264",
+          "audio:aac"
+        ]
+      },
+      "presentation": "audio",
+      "use": "listening-speaking"
+    },
+    {
+      "number": 46,
+      "sourceFile": "46 - 3.1.4.1.mov",
+      "source": {
+        "durationSeconds": 29.264,
+        "codecs": [
+          "video:h264",
+          "audio:aac"
+        ]
+      },
+      "outputFile": "data/textbook/listening_speaking/media/world-people-v2/46.mp4",
+      "output": {
+        "durationSeconds": 29.28,
+        "codecs": [
+          "video:h264",
+          "audio:aac"
+        ]
+      },
+      "presentation": "audio",
+      "use": "listening-speaking"
+    },
+    {
+      "number": 47,
+      "sourceFile": "47 - 3.1.4.2.mov",
+      "source": {
+        "durationSeconds": 36.193,
+        "codecs": [
+          "video:hevc",
+          "audio:aac"
+        ]
+      },
+      "outputFile": "data/textbook/listening_speaking/media/world-people-v2/47.mp4",
+      "output": {
+        "durationSeconds": 36.198,
+        "codecs": [
+          "video:h264",
+          "audio:aac"
+        ]
+      },
+      "presentation": "audio",
+      "use": "listening-speaking"
+    },
+    {
+      "number": 48,
+      "sourceFile": "48 - 3.1.4.3.mov",
+      "source": {
+        "durationSeconds": 39.288,
+        "codecs": [
+          "video:hevc",
+          "audio:aac"
+        ]
+      },
+      "outputFile": "data/textbook/listening_speaking/media/world-people-v2/48.mp4",
+      "output": {
+        "durationSeconds": 39.288,
+        "codecs": [
+          "video:h264",
+          "audio:aac"
+        ]
+      },
+      "presentation": "audio",
+      "use": "listening-speaking"
+    },
+    {
+      "number": 49,
+      "sourceFile": "49 - 3.1.4.4.mov",
+      "source": {
+        "durationSeconds": 37.593,
+        "codecs": [
+          "video:h264",
+          "audio:aac"
+        ]
+      },
+      "outputFile": "data/textbook/listening_speaking/media/world-people-v2/49.mp4",
+      "output": {
+        "durationSeconds": 37.6,
+        "codecs": [
+          "video:h264",
+          "audio:aac"
+        ]
+      },
+      "presentation": "audio",
+      "use": "listening-speaking"
+    },
+    {
+      "number": 50,
+      "sourceFile": "50 -  3.1.4.5.mov",
+      "source": {
+        "durationSeconds": 34.073,
+        "codecs": [
+          "video:h264",
+          "audio:aac"
+        ]
+      },
+      "outputFile": "data/textbook/listening_speaking/media/world-people-v2/50.mp4",
+      "output": {
+        "durationSeconds": 34.08,
+        "codecs": [
+          "video:h264",
+          "audio:aac"
+        ]
+      },
+      "presentation": "audio",
+      "use": "listening-speaking"
+    },
+    {
+      "number": 51,
+      "sourceFile": "51 - 3.1.5.1.mov",
+      "source": {
+        "durationSeconds": 36.355,
+        "codecs": [
+          "video:hevc",
+          "audio:aac"
+        ]
+      },
+      "outputFile": "data/textbook/listening_speaking/media/world-people-v2/51.mp4",
+      "output": {
+        "durationSeconds": 36.4,
+        "codecs": [
+          "video:h264",
+          "audio:aac"
+        ]
+      },
+      "presentation": "audio",
+      "use": "listening-speaking"
+    },
+    {
+      "number": 52,
+      "sourceFile": "52 - 3.1.5.2.mov",
+      "source": {
+        "durationSeconds": 33.855,
+        "codecs": [
+          "video:hevc",
+          "audio:aac"
+        ]
+      },
+      "outputFile": "data/textbook/listening_speaking/media/world-people-v2/52.mp4",
+      "output": {
+        "durationSeconds": 33.88,
+        "codecs": [
+          "video:h264",
+          "audio:aac"
+        ]
+      },
+      "presentation": "audio",
+      "use": "listening-speaking"
+    },
+    {
+      "number": 53,
+      "sourceFile": "53 - 3.1.5.3.mov",
+      "source": {
+        "durationSeconds": 36.553,
+        "codecs": [
+          "video:h264",
+          "audio:aac"
+        ]
+      },
+      "outputFile": "data/textbook/listening_speaking/media/world-people-v2/53.mp4",
+      "output": {
+        "durationSeconds": 36.56,
+        "codecs": [
+          "video:h264",
+          "audio:aac"
+        ]
+      },
+      "presentation": "audio",
+      "use": "listening-speaking"
+    },
+    {
+      "number": 54,
+      "sourceFile": "54 - 3.1.5.4.mov",
+      "source": {
+        "durationSeconds": 39.66,
+        "codecs": [
+          "video:hevc",
+          "audio:aac"
+        ]
+      },
+      "outputFile": "data/textbook/listening_speaking/media/world-people-v2/54.mp4",
+      "output": {
+        "durationSeconds": 39.659,
+        "codecs": [
+          "video:h264",
+          "audio:aac"
+        ]
+      },
+      "presentation": "audio",
+      "use": "listening-speaking"
+    },
+    {
+      "number": 55,
+      "sourceFile": "55 -  3.1.5.5.mov",
+      "source": {
+        "durationSeconds": 39.427,
+        "codecs": [
+          "video:hevc",
+          "audio:aac"
+        ]
+      },
+      "outputFile": "data/textbook/listening_speaking/media/world-people-v2/55.mp4",
+      "output": {
+        "durationSeconds": 39.427,
+        "codecs": [
+          "video:h264",
+          "audio:aac"
+        ]
+      },
+      "presentation": "audio",
+      "use": "listening-speaking"
+    },
+    {
+      "number": 56,
+      "sourceFile": "56 - 1-5.mov",
+      "source": {
+        "durationSeconds": 37.477,
+        "codecs": [
+          "video:hevc",
+          "audio:aac"
+        ]
+      },
+      "outputFile": "data/textbook/listening_speaking_mock/media/56.mp4",
+      "output": {
+        "durationSeconds": 37.52,
+        "codecs": [
+          "video:h264",
+          "audio:aac"
+        ]
+      },
+      "presentation": "audio",
+      "use": "trki2-mock-exam"
+    },
+    {
+      "number": 57,
+      "sourceFile": "57 - 6-10.mov",
+      "source": {
+        "durationSeconds": 87.152,
+        "codecs": [
+          "video:hevc",
+          "audio:aac"
+        ]
+      },
+      "outputFile": "data/textbook/listening_speaking_mock/media/57.mp4",
+      "output": {
+        "durationSeconds": 87.151,
+        "codecs": [
+          "video:h264",
+          "audio:aac"
+        ]
+      },
+      "presentation": "audio",
+      "use": "trki2-mock-exam"
+    },
+    {
+      "number": 58,
+      "sourceFile": "58 - 11-15.mov",
+      "source": {
+        "durationSeconds": 147.025,
+        "codecs": [
+          "video:hevc",
+          "audio:aac"
+        ]
+      },
+      "outputFile": "data/textbook/listening_speaking_mock/media/58.mp4",
+      "output": {
+        "durationSeconds": 147.04,
+        "codecs": [
+          "video:h264",
+          "audio:aac"
+        ]
+      },
+      "presentation": "audio",
+      "use": "trki2-mock-exam"
+    },
+    {
+      "number": 59,
+      "sourceFile": "59 - 16-20.mov",
+      "source": {
+        "durationSeconds": 124.923,
+        "codecs": [
+          "video:hevc",
+          "audio:aac"
+        ]
+      },
+      "outputFile": "data/textbook/listening_speaking_mock/media/59.mp4",
+      "output": {
+        "durationSeconds": 124.922,
+        "codecs": [
+          "video:h264",
+          "audio:aac"
+        ]
+      },
+      "presentation": "audio",
+      "use": "trki2-mock-exam"
+    },
+    {
+      "number": 60,
+      "sourceFile": "60 - 21-25.mov",
+      "source": {
+        "durationSeconds": 149.425,
+        "codecs": [
+          "video:hevc",
+          "audio:aac"
+        ]
+      },
+      "outputFile": "data/textbook/listening_speaking_mock/media/60.mp4",
+      "output": {
+        "durationSeconds": 149.44,
+        "codecs": [
+          "video:h264",
+          "audio:aac"
+        ]
+      },
+      "presentation": "audio",
+      "use": "trki2-mock-exam"
+    }
+  ]
+}

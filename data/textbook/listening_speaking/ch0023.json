@@ -7,11 +7,83 @@
     54,
     66
   ],
+  "mediaStructure": {
+    "chapter": 23,
+    "featureEndSeconds": 153.69,
+    "exerciseStartSeconds": 153.69
+  },
+  "mediaExercise": {
+    "chapter": 23,
+    "index": 23,
+    "title": "Диалог 2.1.2.4",
+    "prompt": "Прослушайте фразы и определите, какие интенции они выражают.",
+    "items": [
+      {
+        "number": 1,
+        "text": "Имею честь говорить с академиком Сретенским?"
+      },
+      {
+        "number": 2,
+        "text": "Это была абсолютно безумная идея по тем временам."
+      },
+      {
+        "number": 3,
+        "text": "Вы могли бы стать новым Эйнштейном!"
+      },
+      {
+        "number": 4,
+        "text": "Послушайте! Оставьте нас в покое!"
+      },
+      {
+        "number": 5,
+        "text": "Только сейчас ваши идеи ещё брезжат в толковых умах!"
+      }
+    ],
+    "tasks": [
+      {
+        "prompt": "Прослушайте фразы и определите, какие интенции они выражают.",
+        "items": [
+          {
+            "number": 1,
+            "text": "Имею честь говорить с академиком Сретенским?"
+          },
+          {
+            "number": 2,
+            "text": "Это была абсолютно безумная идея по тем временам."
+          },
+          {
+            "number": 3,
+            "text": "Вы могли бы стать новым Эйнштейном!"
+          },
+          {
+            "number": 4,
+            "text": "Послушайте! Оставьте нас в покое!"
+          },
+          {
+            "number": 5,
+            "text": "Только сейчас ваши идеи ещё брезжат в толковых умах!"
+          }
+        ]
+      }
+    ],
+    "exerciseStartSeconds": 153.69,
+    "sourceChapterIdentifier": "Тема 1.6 · ТРКИ-2 电影对话（Художественные фильмы — Диалоги）",
+    "sourceStatus": "verified-cleaned-source",
+    "available": true,
+    "sourcePages": [
+      54,
+      66
+    ],
+    "sourceFile": "俄语资料库/В мире людей 听力口语 Markdown版/章节/Тема 1.6 -- ТРКИ-2 电影对话（Художественные фильмы — Диалоги）.md",
+    "sourceDescription": "原书清洁 Markdown：Тема 1.6 — ТРКИ-2 电影对话（Художественные фильмы — Диалоги）"
+  },
   "media": {
-    "provenance": "unavailable",
-    "status": "source-mismatch",
-    "reason": "Imported audio belongs to Uchebno-trenirovochnye testy po russkomu iazyku kak inostrannomu. Vypusk 4. Audirovanie. Govorenie, not V mire liudei. Vypusk 2. Audirovanie. Govorenie.",
-    "rejectedFile": "media/24.mp3"
+    "provenance": "verified-original-video",
+    "status": "verified",
+    "kind": "video",
+    "file": "media/world-people-v2/24.mp4",
+    "sourceCollection": "В мире людей. Выпуск 2. Аудирование. Говорение",
+    "sourceTrack": "24.mov"
   },
   "questions": [
     {
@@ -117,95 +189,364 @@
   ],
   "transcriptSegments": [
     {
-      "speaker": "A",
-      "displayLabel": "Д",
       "text": "Имею честь говорить с академиком Сретенским?",
-      "startTime": 0,
-      "endTime": 0
-    },
-    {
+      "playlistIndex": 0,
       "speaker": "A",
       "displayLabel": "Д",
-      "text": "Да. Имеете эту честь. Только я крайне занят.",
+      "matchRatio": 0,
+      "matchedWords": 0,
+      "expectedWords": 6,
       "startTime": 0,
-      "endTime": 0
+      "endTime": 0,
+      "timingStatus": "unmatched"
     },
     {
+      "text": "Да.",
+      "playlistIndex": 0,
       "speaker": "A",
       "displayLabel": "Д",
-      "text": "Есть дело, не терпящее отлагательств. Константин Николаевич Котиков. Кандидат наук, кафедра биохимии.",
+      "matchRatio": 0,
+      "matchedWords": 0,
+      "expectedWords": 1,
       "startTime": 0,
-      "endTime": 0
+      "endTime": 0,
+      "timingStatus": "unmatched"
     },
     {
+      "text": "Имеете эту честь.",
+      "playlistIndex": 0,
       "speaker": "A",
       "displayLabel": "Д",
-      "text": "Очень рад. Но я действительно крайне занят, коллега. День рождения внучки.",
+      "matchRatio": 0,
+      "matchedWords": 0,
+      "expectedWords": 3,
       "startTime": 0,
-      "endTime": 0
+      "endTime": 0,
+      "timingStatus": "unmatched"
     },
     {
+      "text": "Только я крайне занят.",
+      "playlistIndex": 0,
       "speaker": "A",
       "displayLabel": "Д",
-      "text": "Поздравляю. У меня дело чрезвычайной важности. Я прошу пять минут.",
+      "matchRatio": 0,
+      "matchedWords": 0,
+      "expectedWords": 4,
       "startTime": 0,
-      "endTime": 0
+      "endTime": 0,
+      "timingStatus": "unmatched"
     },
     {
+      "text": "Есть дело, не терпящее отлагательств.",
+      "playlistIndex": 0,
       "speaker": "A",
       "displayLabel": "Д",
-      "text": "Прошу!.. Итак?..",
+      "matchRatio": 0,
+      "matchedWords": 0,
+      "expectedWords": 5,
       "startTime": 0,
-      "endTime": 0
+      "endTime": 0,
+      "timingStatus": "unmatched"
     },
     {
+      "text": "Константин Николаевич Котиков.",
+      "playlistIndex": 0,
       "speaker": "A",
       "displayLabel": "Д",
+      "matchRatio": 0,
+      "matchedWords": 0,
+      "expectedWords": 3,
+      "startTime": 0,
+      "endTime": 0,
+      "timingStatus": "unmatched"
+    },
+    {
+      "text": "Кандидат наук, кафедра биохимии.",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 0,
+      "matchedWords": 0,
+      "expectedWords": 4,
+      "startTime": 0,
+      "endTime": 0,
+      "timingStatus": "unmatched"
+    },
+    {
+      "text": "Очень рад.",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 0,
+      "matchedWords": 0,
+      "expectedWords": 2,
+      "startTime": 0,
+      "endTime": 0,
+      "timingStatus": "unmatched"
+    },
+    {
+      "text": "Но я действительно крайне занят, коллега.",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 0,
+      "matchedWords": 0,
+      "expectedWords": 6,
+      "startTime": 0,
+      "endTime": 0,
+      "timingStatus": "unmatched"
+    },
+    {
+      "text": "День рождения внучки.",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 0,
+      "matchedWords": 0,
+      "expectedWords": 3,
+      "startTime": 0,
+      "endTime": 0,
+      "timingStatus": "unmatched"
+    },
+    {
+      "text": "Поздравляю.",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 0,
+      "matchedWords": 0,
+      "expectedWords": 1,
+      "startTime": 0,
+      "endTime": 0,
+      "timingStatus": "unmatched"
+    },
+    {
+      "text": "У меня дело чрезвычайной важности.",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 1,
+      "matchedWords": 5,
+      "expectedWords": 5,
+      "startTime": 37.38,
+      "endTime": 40.86,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Я прошу пять минут.",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 0.75,
+      "matchedWords": 3,
+      "expectedWords": 4,
+      "startTime": 41.24,
+      "endTime": 42.54,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Прошу!..",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 1,
+      "matchedWords": 1,
+      "expectedWords": 1,
+      "startTime": 45.26,
+      "endTime": 45.56,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Итак?..",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 1,
+      "matchedWords": 1,
+      "expectedWords": 1,
+      "startTime": 64.12,
+      "endTime": 64.42,
+      "timingStatus": "aligned"
+    },
+    {
       "text": "Три года назад, листая один старинный журнальчик, я натолкнулся на вашу статью, которую вы опубликовали, едва выйдя из университета.",
-      "startTime": 0,
-      "endTime": 0
-    },
-    {
+      "playlistIndex": 0,
       "speaker": "A",
       "displayLabel": "Д",
-      "text": "В ней излагался принцип синтеза нового белка. Это была абсолютно безумная идея по тем временам. Вы получали белок из клеток головного мозга.",
-      "startTime": 0,
-      "endTime": 0
+      "matchRatio": 0.737,
+      "matchedWords": 14,
+      "expectedWords": 19,
+      "startTime": 68.38,
+      "endTime": 76.9,
+      "timingStatus": "aligned"
     },
     {
+      "text": "В ней излагался принцип синтеза нового белка.",
+      "playlistIndex": 0,
       "speaker": "A",
       "displayLabel": "Д",
-      "text": "Вы могли бы стать новым Эйнштейном! Если бы не отказались от этой затеи, чтоб потом всю жизнь заниматься Бог знает чем!",
-      "startTime": 0,
-      "endTime": 0
+      "matchRatio": 1,
+      "matchedWords": 7,
+      "expectedWords": 7,
+      "startTime": 80.34,
+      "endTime": 85.58,
+      "timingStatus": "aligned"
     },
     {
+      "text": "Это была абсолютно безумная идея по тем временам.",
+      "playlistIndex": 0,
       "speaker": "A",
       "displayLabel": "Д",
-      "text": "Послушайте! Оставьте нас в покое!",
-      "startTime": 0,
-      "endTime": 0
+      "matchRatio": 0.875,
+      "matchedWords": 7,
+      "expectedWords": 8,
+      "startTime": 85.58,
+      "endTime": 90.36,
+      "timingStatus": "aligned"
     },
     {
+      "text": "Вы получали белок из клеток головного мозга.",
+      "playlistIndex": 0,
       "speaker": "A",
       "displayLabel": "Д",
-      "text": "Вы уже тогда всё предсказали про этот самый белок, стабилизирующий функцию мозга! Вы обогнали науку на полвека!",
-      "startTime": 0,
-      "endTime": 0
+      "matchRatio": 0.857,
+      "matchedWords": 6,
+      "expectedWords": 7,
+      "startTime": 90.84,
+      "endTime": 93.34,
+      "timingStatus": "aligned"
     },
     {
+      "text": "Вы могли бы стать новым Эйнштейном!",
+      "playlistIndex": 0,
       "speaker": "A",
       "displayLabel": "Д",
+      "matchRatio": 0.833,
+      "matchedWords": 5,
+      "expectedWords": 6,
+      "startTime": 95,
+      "endTime": 96.12,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Если бы не отказались от этой затеи, чтоб потом всю жизнь заниматься Бог знает чем!",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 0.933,
+      "matchedWords": 14,
+      "expectedWords": 15,
+      "startTime": 97.94,
+      "endTime": 101.92,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Послушайте!",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 0,
+      "matchedWords": 0,
+      "expectedWords": 1,
+      "startTime": 0,
+      "endTime": 0,
+      "timingStatus": "unmatched"
+    },
+    {
+      "text": "Оставьте нас в покое!",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 0.75,
+      "matchedWords": 3,
+      "expectedWords": 4,
+      "startTime": 106.04,
+      "endTime": 124.13,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Вы уже тогда всё предсказали про этот самый белок, стабилизирующий функцию мозга!",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 1,
+      "matchedWords": 12,
+      "expectedWords": 12,
+      "startTime": 133.33,
+      "endTime": 138.09,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Вы обогнали науку на полвека!",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 0.8,
+      "matchedWords": 4,
+      "expectedWords": 5,
+      "startTime": 139.21,
+      "endTime": 140.57,
+      "timingStatus": "aligned"
+    },
+    {
       "text": "Однако с тех пор наука давно обогнала меня.",
-      "startTime": 0,
-      "endTime": 0
-    },
-    {
+      "playlistIndex": 0,
       "speaker": "A",
       "displayLabel": "Д",
-      "text": "Ни в коей мере! Только сейчас ваши идеи ещё брезжат в толковых умах! Вот. Ваша схема с моими поправками.",
-      "startTime": 0,
-      "endTime": 0
+      "matchRatio": 1,
+      "matchedWords": 8,
+      "expectedWords": 8,
+      "startTime": 141.49,
+      "endTime": 143.79,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Ни в коей мере!",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 0.75,
+      "matchedWords": 3,
+      "expectedWords": 4,
+      "startTime": 144.33,
+      "endTime": 145.17,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Только сейчас ваши идеи ещё брезжат в толковых умах!",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 0.667,
+      "matchedWords": 6,
+      "expectedWords": 9,
+      "startTime": 145.73,
+      "endTime": 148.61,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Вот.",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 1,
+      "matchedWords": 1,
+      "expectedWords": 1,
+      "startTime": 149.58,
+      "endTime": 150.09,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Ваша схема с моими поправками.",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 1,
+      "matchedWords": 5,
+      "expectedWords": 5,
+      "startTime": 150.75,
+      "endTime": 152.71,
+      "timingStatus": "aligned"
     }
   ]
 }

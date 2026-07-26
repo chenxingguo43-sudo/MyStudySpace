@@ -285,14 +285,28 @@ const server = http.createServer((req, res) => {
     const extname = path.extname(filePath).toLowerCase();
     const contentType = mimeTypes[extname] || 'application/octet-stream';
 
-    fs.readFile(filePath, (error, content) => {
-        if (error) {
+    fs.stat(filePath, (error, stats) => {
+        if (error || !stats.isFile()) {
             res.writeHead(404);
             res.end('Not Found');
-        } else {
-            res.writeHead(200, { 'Content-Type': contentType });
-            res.end(content, 'utf-8');
+            return;
         }
+        const range = req.headers.range;
+        if (range && /^(video|audio)\//.test(contentType)) {
+            const match = /bytes=(\d*)-(\d*)/.exec(range);
+            const start = match && match[1] ? Number(match[1]) : 0;
+            const end = match && match[2] ? Math.min(Number(match[2]), stats.size - 1) : stats.size - 1;
+            if (!match || start > end || start >= stats.size) {
+                res.writeHead(416, { 'Content-Range': 'bytes */' + stats.size });
+                res.end();
+                return;
+            }
+            res.writeHead(206, { 'Content-Type': contentType, 'Accept-Ranges': 'bytes', 'Content-Range': 'bytes ' + start + '-' + end + '/' + stats.size, 'Content-Length': end - start + 1 });
+            fs.createReadStream(filePath, { start, end }).pipe(res);
+            return;
+        }
+        res.writeHead(200, { 'Content-Type': contentType, 'Content-Length': stats.size, 'Accept-Ranges': /^(video|audio)\//.test(contentType) ? 'bytes' : 'none' });
+        fs.createReadStream(filePath).pipe(res);
     });
 });
 

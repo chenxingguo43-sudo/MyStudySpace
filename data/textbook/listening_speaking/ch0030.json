@@ -7,11 +7,67 @@
     80,
     103
   ],
+  "mediaStructure": null,
+  "mediaExercise": null,
   "media": {
-    "provenance": "unavailable",
-    "status": "source-mismatch",
-    "reason": "Imported audio belongs to Uchebno-trenirovochnye testy po russkomu iazyku kak inostrannomu. Vypusk 4. Audirovanie. Govorenie, not V mire liudei. Vypusk 2. Audirovanie. Govorenie.",
-    "rejectedFile": "media/31.mp3"
+    "provenance": "verified-original-audio",
+    "status": "verified",
+    "kind": "audio",
+    "file": "media/world-people-v2/31.mp4",
+    "sourceCollection": "В мире людей. Выпуск 2. Аудирование. Говорение",
+    "sourceTrack": "31.mov",
+    "playlist": [
+      {
+        "provenance": "verified-original-audio",
+        "status": "verified",
+        "kind": "audio",
+        "file": "media/world-people-v2/31.mp4",
+        "sourceCollection": "В мире людей. Выпуск 2. Аудирование. Говорение",
+        "sourceTrack": "31.mov",
+        "id": "news-31",
+        "label": "新闻 1"
+      },
+      {
+        "provenance": "verified-original-audio",
+        "status": "verified",
+        "kind": "audio",
+        "file": "media/world-people-v2/32.mp4",
+        "sourceCollection": "В мире людей. Выпуск 2. Аудирование. Говорение",
+        "sourceTrack": "32.mov",
+        "id": "news-32",
+        "label": "新闻 2"
+      },
+      {
+        "provenance": "verified-original-audio",
+        "status": "verified",
+        "kind": "audio",
+        "file": "media/world-people-v2/33.mp4",
+        "sourceCollection": "В мире людей. Выпуск 2. Аудирование. Говорение",
+        "sourceTrack": "33.mov",
+        "id": "news-33",
+        "label": "新闻 3"
+      },
+      {
+        "provenance": "verified-original-audio",
+        "status": "verified",
+        "kind": "audio",
+        "file": "media/world-people-v2/34.mp4",
+        "sourceCollection": "В мире людей. Выпуск 2. Аудирование. Говорение",
+        "sourceTrack": "34.mov",
+        "id": "news-34",
+        "label": "新闻 4"
+      },
+      {
+        "provenance": "verified-original-audio",
+        "status": "verified",
+        "kind": "audio",
+        "file": "media/world-people-v2/35.mp4",
+        "sourceCollection": "В мире людей. Выпуск 2. Аудирование. Говорение",
+        "sourceTrack": "35.mov",
+        "id": "news-35",
+        "label": "新闻 5"
+      }
+    ]
   },
   "questions": [
     {
@@ -117,46 +173,196 @@
   ],
   "transcriptSegments": [
     {
+      "text": "Российскую столицу необходимо внести в Книгу рекордов Гиннесса как город, где менее чем за полгода будет построено 100 детских садов, заявил первый заместитель мэра в правительстве Москвы.",
+      "playlistIndex": 0,
       "speaker": "A",
       "displayLabel": "Д",
-      "text": "Новости по теме «Проблемы общества».",
-      "startTime": 0,
-      "endTime": 0
+      "matchRatio": 1,
+      "matchedWords": 26,
+      "expectedWords": 26,
+      "startTime": 5.01,
+      "endTime": 18.89,
+      "timingStatus": "aligned"
     },
     {
+      "text": "По его словам, ранее город никогда не строил более 20 садов в год.",
+      "playlistIndex": 0,
       "speaker": "A",
       "displayLabel": "Д",
-      "text": "Российскую столицу необходимо внести в Книгу рекордов Гиннесса как город, где менее чем за полгода будет построено 100 детских садов, заявил первый заместитель мэра в правительстве Москвы. По его словам, ранее город никогда не строил более 20 садов в год. Все новые детские сады сдаются с современными игровыми площадками и бассейнами. Некоторые из них построены по индивидуальным проектам.",
-      "startTime": 0,
-      "endTime": 0
+      "matchRatio": 1,
+      "matchedWords": 12,
+      "expectedWords": 12,
+      "startTime": 19.29,
+      "endTime": 23.69,
+      "timingStatus": "aligned"
     },
     {
+      "text": "Все новые детские сады сдаются с современными игровыми площадками и бассейнами.",
+      "playlistIndex": 0,
       "speaker": "A",
       "displayLabel": "Д",
-      "text": "В следующем году в России будет выдано ипотечных кредитов на 960 миллиардов рублей, считают в Агентстве по ипотечному жилищному кредитованию. Рост составит 35 %. Специалисты считают, что четвёртый квартал текущего года будет характеризоваться ростом объёма выданных ипотечных кредитов на первичном рынке, проведением акций банков совместно с застройщиками, либерализацией требований банков к объектам застройки.",
-      "startTime": 0,
-      "endTime": 0
+      "matchRatio": 0.909,
+      "matchedWords": 10,
+      "expectedWords": 11,
+      "startTime": 24.31,
+      "endTime": 29.73,
+      "timingStatus": "aligned"
     },
     {
+      "text": "Некоторые из них построены по индивидуальным проектам.",
+      "playlistIndex": 0,
       "speaker": "A",
       "displayLabel": "Д",
-      "text": "Префект Восточного административного округа Москвы сообщил о строительстве объекта, на территории которого разместится около двухсот памятников истории. Он будет аналогичен брюссельскому парку «Мини-Европа», где расположены миниатюрные «двойники» известнейших европейских зданий. В парке «Старая Москва» будут представлены шедевры столичной архитектуры. Авторы проекта надеются, что парк станет частью столичной туристической индустрии.",
-      "startTime": 0,
-      "endTime": 0
+      "matchRatio": 1,
+      "matchedWords": 7,
+      "expectedWords": 7,
+      "startTime": 29.73,
+      "endTime": 33.85,
+      "timingStatus": "aligned"
     },
     {
+      "text": "В следующем году в России будет выдано ипотечных кредитов на 960 миллиардов рублей, считают в Агентстве по ипотечному жилищному кредитованию.",
+      "playlistIndex": 1,
       "speaker": "A",
       "displayLabel": "Д",
+      "matchRatio": 0.789,
+      "matchedWords": 15,
+      "expectedWords": 19,
+      "startTime": 3.63,
+      "endTime": 13.43,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Рост составит 35 %.",
+      "playlistIndex": 1,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 1,
+      "matchedWords": 2,
+      "expectedWords": 2,
+      "startTime": 14.27,
+      "endTime": 15.35,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Специалисты считают, что четвёртый квартал текущего года будет характеризоваться ростом объёма выданных ипотечных кредитов на первичном рынке, проведением акций банков совместно с застройщиками, либерализацией требований банков к объектам застройки.",
+      "playlistIndex": 1,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 1,
+      "matchedWords": 29,
+      "expectedWords": 29,
+      "startTime": 16.67,
+      "endTime": 35.57,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Префект Восточного административного округа Москвы сообщил о строительстве объекта, на территории которого разместится около двухсот памятников истории.",
+      "playlistIndex": 2,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 0.941,
+      "matchedWords": 16,
+      "expectedWords": 17,
+      "startTime": 4.91,
+      "endTime": 12.59,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Он будет аналогичен брюссельскому парку «Мини-Европа», где расположены миниатюрные «двойники» известнейших европейских зданий.",
+      "playlistIndex": 2,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 1,
+      "matchedWords": 14,
+      "expectedWords": 14,
+      "startTime": 13.13,
+      "endTime": 19.63,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "В парке «Старая Москва» будут представлены шедевры столичной архитектуры.",
+      "playlistIndex": 2,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 1,
+      "matchedWords": 9,
+      "expectedWords": 9,
+      "startTime": 20.13,
+      "endTime": 24.15,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Авторы проекта надеются, что парк станет частью столичной туристической индустрии.",
+      "playlistIndex": 2,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 1,
+      "matchedWords": 10,
+      "expectedWords": 10,
+      "startTime": 24.53,
+      "endTime": 29.19,
+      "timingStatus": "aligned"
+    },
+    {
       "text": "По данным социологического опроса, 38 % респондентов на вопрос, каким способом можно добиться повышения зарплаты, ответили, что лучше всего перейти на другое место работы, 14 % опрошенных считает, что их материальное положение может улучшиться после разговора с руководством, 6 % россиян уверяет, что вопрос о повышении зарплаты для них неактуален.",
-      "startTime": 0,
-      "endTime": 0
-    },
-    {
+      "playlistIndex": 3,
       "speaker": "A",
       "displayLabel": "Д",
-      "text": "Со следующего учебного года в российских школах начнётся эксперимент по введению электронных учебников. Журналистам рассказали об итогах конкурса на разработку электронного контента и показали экспериментальные образцы пособий. Например, учебник музыки предоставляет возможность прослушивать музыкальные фрагменты и предлагает интерактивные задания. Однако, по мнению специалистов, ещё длительное время в школе будут использоваться бумажные учебники.",
-      "startTime": 0,
-      "endTime": 0
+      "matchRatio": 1,
+      "matchedWords": 44,
+      "expectedWords": 44,
+      "startTime": 5.03,
+      "endTime": 35.24,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Со следующего учебного года в российских школах начнётся эксперимент по введению электронных учебников.",
+      "playlistIndex": 4,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 1,
+      "matchedWords": 13,
+      "expectedWords": 13,
+      "startTime": 5.02,
+      "endTime": 11.12,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Журналистам рассказали об итогах конкурса на разработку электронного контента и показали экспериментальные образцы пособий.",
+      "playlistIndex": 4,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 1,
+      "matchedWords": 14,
+      "expectedWords": 14,
+      "startTime": 11.84,
+      "endTime": 19.34,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Например, учебник музыки предоставляет возможность прослушивать музыкальные фрагменты и предлагает интерактивные задания.",
+      "playlistIndex": 4,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 1,
+      "matchedWords": 12,
+      "expectedWords": 12,
+      "startTime": 20.16,
+      "endTime": 27.02,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Однако, по мнению специалистов, ещё длительное время в школе будут использоваться бумажные учебники.",
+      "playlistIndex": 4,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 1,
+      "matchedWords": 13,
+      "expectedWords": 13,
+      "startTime": 27.02,
+      "endTime": 33.8,
+      "timingStatus": "aligned"
     }
   ]
 }

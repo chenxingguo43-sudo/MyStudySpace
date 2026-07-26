@@ -7,11 +7,15 @@
     24,
     25
   ],
+  "mediaStructure": null,
+  "mediaExercise": null,
   "media": {
-    "provenance": "unavailable",
-    "status": "source-mismatch",
-    "reason": "Imported audio belongs to Uchebno-trenirovochnye testy po russkomu iazyku kak inostrannomu. Vypusk 4. Audirovanie. Govorenie, not V mire liudei. Vypusk 2. Audirovanie. Govorenie.",
-    "rejectedFile": "media/10.mp3"
+    "provenance": "verified-original-audio",
+    "status": "verified",
+    "kind": "audio",
+    "file": "media/world-people-v2/10.mp4",
+    "sourceCollection": "В мире людей. Выпуск 2. Аудирование. Говорение",
+    "sourceTrack": "10.mov"
   },
   "questions": [
     {
@@ -117,11 +121,53 @@
   ],
   "transcriptSegments": [
     {
+      "text": "Объявляется приём работ на Второй Всероссийский конкурс произведений для детей и юношества «Алые паруса».",
+      "playlistIndex": 0,
       "speaker": "A",
       "displayLabel": "Д",
-      "text": "Объявляется приём работ на Второй Всероссийский конкурс произведений для детей и юношества «Алые паруса». Список отобранных произведений публикуется в СМИ. Принимаются работы, опубликованные в текущем году, а также рукописи, принятые к выпуску. Победители получают денежную премию.",
+      "matchRatio": 0.929,
+      "matchedWords": 13,
+      "expectedWords": 14,
+      "startTime": 5.28,
+      "endTime": 13.88,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Список отобранных произведений публикуется в СМИ.",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 0.167,
+      "matchedWords": 1,
+      "expectedWords": 6,
       "startTime": 0,
-      "endTime": 0
+      "endTime": 0,
+      "timingStatus": "unmatched",
+      "recognizedSnippet": "конкурс алле паруса проводится в целях поощрения талантливых авторов"
+    },
+    {
+      "text": "Принимаются работы, опубликованные в текущем году, а также рукописи, принятые к выпуску.",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 0.917,
+      "matchedWords": 11,
+      "expectedWords": 12,
+      "startTime": 36.58,
+      "endTime": 42.48,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Победители получают денежную премию.",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 1,
+      "matchedWords": 4,
+      "expectedWords": 4,
+      "startTime": 57.78,
+      "endTime": 60.52,
+      "timingStatus": "aligned"
     }
   ]
 }

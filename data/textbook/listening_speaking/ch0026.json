@@ -7,11 +7,15 @@
     67,
     79
   ],
+  "mediaStructure": null,
+  "mediaExercise": null,
   "media": {
-    "provenance": "unavailable",
-    "status": "source-mismatch",
-    "reason": "Imported audio belongs to Uchebno-trenirovochnye testy po russkomu iazyku kak inostrannomu. Vypusk 4. Audirovanie. Govorenie, not V mire liudei. Vypusk 2. Audirovanie. Govorenie.",
-    "rejectedFile": "media/27.mp3"
+    "provenance": "verified-original-audio",
+    "status": "verified",
+    "kind": "audio",
+    "file": "media/world-people-v2/27.mp4",
+    "sourceCollection": "В мире людей. Выпуск 2. Аудирование. Говорение",
+    "sourceTrack": "27.mov"
   },
   "questions": [
     {
@@ -117,60 +121,304 @@
   ],
   "transcriptSegments": [
     {
-      "speaker": "A",
-      "displayLabel": "Д",
       "text": "Скажите, как можно сопоставить семью и карьеру в вашей жизни?",
-      "startTime": 0,
-      "endTime": 0
-    },
-    {
+      "playlistIndex": 0,
       "speaker": "A",
       "displayLabel": "Д",
-      "text": "Наверное, я уделяю дому меньше внимания, но с этим нет проблем, потому что мне повезло с мужем. Думаю, что мы отдыхаем, смотрим телевизор и общаемся не меньше, чем любая другая семья, которая менее интенсивно работает, но зато много времени тратит на быт.",
-      "startTime": 0,
-      "endTime": 0
+      "matchRatio": 1,
+      "matchedWords": 10,
+      "expectedWords": 10,
+      "startTime": 7.17,
+      "endTime": 10.73,
+      "timingStatus": "aligned"
     },
     {
+      "text": "Наверное, я уделяю дому меньше внимания, но с этим нет проблем, потому что мне повезло с мужем.",
+      "playlistIndex": 0,
       "speaker": "A",
       "displayLabel": "Д",
+      "matchRatio": 0.941,
+      "matchedWords": 16,
+      "expectedWords": 17,
+      "startTime": 11.35,
+      "endTime": 17.35,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Думаю, что мы отдыхаем, смотрим телевизор и общаемся не меньше, чем любая другая семья, которая менее интенсивно работает, но зато много времени тратит на быт.",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 0.96,
+      "matchedWords": 24,
+      "expectedWords": 25,
+      "startTime": 17.81,
+      "endTime": 28.37,
+      "timingStatus": "aligned"
+    },
+    {
       "text": "Елена, а у вас есть собственная формула успеха?",
-      "startTime": 0,
-      "endTime": 0
-    },
-    {
+      "playlistIndex": 0,
       "speaker": "A",
       "displayLabel": "Д",
-      "text": "Любовь к своему делу, честная работа, любопытство, желание учиться. Я не тот человек, который хорошо освоит что-то и дальше с радостью этим занимается. Мне сразу становится скучно. Возможно, быстрое насыщение одним делом — это недостаток, но в моём случае все сложилось очень удачно. В нашем деле смена занятий поощряется. Мне повезло, что особенности моего характера совпали с возможностями карьерного роста.",
-      "startTime": 0,
-      "endTime": 0
+      "matchRatio": 1,
+      "matchedWords": 8,
+      "expectedWords": 8,
+      "startTime": 28.97,
+      "endTime": 31.93,
+      "timingStatus": "aligned"
     },
     {
+      "text": "Любовь к своему делу, честная работа, любопытство, желание учиться.",
+      "playlistIndex": 0,
       "speaker": "A",
       "displayLabel": "Д",
+      "matchRatio": 1,
+      "matchedWords": 9,
+      "expectedWords": 9,
+      "startTime": 32.35,
+      "endTime": 36.73,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Я не тот человек, который хорошо освоит что-то и дальше с радостью этим занимается.",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 1,
+      "matchedWords": 15,
+      "expectedWords": 15,
+      "startTime": 37.39,
+      "endTime": 41.93,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Мне сразу становится скучно.",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 1,
+      "matchedWords": 4,
+      "expectedWords": 4,
+      "startTime": 42.53,
+      "endTime": 44.25,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Возможно, быстрое насыщение одним делом — это недостаток, но в моём случае все сложилось очень удачно.",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 1,
+      "matchedWords": 15,
+      "expectedWords": 15,
+      "startTime": 44.87,
+      "endTime": 51.63,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "В нашем деле смена занятий поощряется.",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 1,
+      "matchedWords": 6,
+      "expectedWords": 6,
+      "startTime": 51.63,
+      "endTime": 54.55,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Мне повезло, что особенности моего характера совпали с возможностями карьерного роста.",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 1,
+      "matchedWords": 11,
+      "expectedWords": 11,
+      "startTime": 55.03,
+      "endTime": 60.07,
+      "timingStatus": "aligned"
+    },
+    {
       "text": "Признайтесь, вам часто приходится идти на риск?",
-      "startTime": 0,
-      "endTime": 0
-    },
-    {
+      "playlistIndex": 0,
       "speaker": "A",
       "displayLabel": "Д",
-      "text": "Женщины, вероятно, более осторожны в бизнесе, чем мужчины. Наш издательский дом не самый авантюрный. За нами нет мощной международной корпорации. Если мы проигрываем, то теряем текущие заработки, ведь мы живём только на то, что зарабатываем. Поэтому мы достаточно осторожны.",
-      "startTime": 0,
-      "endTime": 0
+      "matchRatio": 1,
+      "matchedWords": 7,
+      "expectedWords": 7,
+      "startTime": 60.83,
+      "endTime": 63.29,
+      "timingStatus": "aligned"
     },
     {
+      "text": "Женщины, вероятно, более осторожны в бизнесе, чем мужчины.",
+      "playlistIndex": 0,
       "speaker": "A",
       "displayLabel": "Д",
+      "matchRatio": 1,
+      "matchedWords": 8,
+      "expectedWords": 8,
+      "startTime": 63.91,
+      "endTime": 67.47,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Наш издательский дом не самый авантюрный.",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 1,
+      "matchedWords": 6,
+      "expectedWords": 6,
+      "startTime": 68.09,
+      "endTime": 70.45,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "За нами нет мощной международной корпорации.",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 1,
+      "matchedWords": 6,
+      "expectedWords": 6,
+      "startTime": 70.89,
+      "endTime": 73.37,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Если мы проигрываем, то теряем текущие заработки, ведь мы живём только на то, что зарабатываем.",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 1,
+      "matchedWords": 15,
+      "expectedWords": 15,
+      "startTime": 74.15,
+      "endTime": 79.53,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Поэтому мы достаточно осторожны.",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 1,
+      "matchedWords": 4,
+      "expectedWords": 4,
+      "startTime": 80.09,
+      "endTime": 82.53,
+      "timingStatus": "aligned"
+    },
+    {
       "text": "А как бы вы определили, что такое феминизм?",
-      "startTime": 0,
-      "endTime": 0
-    },
-    {
+      "playlistIndex": 0,
       "speaker": "A",
       "displayLabel": "Д",
-      "text": "Мне трудно отвечать на этот вопрос. Неправильно думать, что феминистка и домохозяйка — диаметральные противоположности. Домохозяйка — женщина, ей не чужд феминизм, и феминизму не чужда она. Я бы сказала, что феминизм — это признание равных прав людей, независимо от пола. Кстати, многие представители сильного пола поняли, что женщина, уверенная в себе, вовсе не угроза для мужчины. У наших мужчин раньше был некий комплекс неполноценности, любую состоявшуюся женщину они воспринимали в штыки. Сейчас мужчины нашли себя, им уже не страшно смотреть на успех своих подруг. Они поняли, что женщины не претендуют на их успех.",
-      "startTime": 0,
-      "endTime": 0
+      "matchRatio": 1,
+      "matchedWords": 8,
+      "expectedWords": 8,
+      "startTime": 83.47,
+      "endTime": 86.23,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Мне трудно отвечать на этот вопрос.",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 1,
+      "matchedWords": 6,
+      "expectedWords": 6,
+      "startTime": 86.85,
+      "endTime": 89.93,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Неправильно думать, что феминистка и домохозяйка — диаметральные противоположности.",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 1,
+      "matchedWords": 8,
+      "expectedWords": 8,
+      "startTime": 90.73,
+      "endTime": 95.39,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Домохозяйка — женщина, ей не чужд феминизм, и феминизму не чужда она.",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 0.909,
+      "matchedWords": 10,
+      "expectedWords": 11,
+      "startTime": 96.11,
+      "endTime": 101.73,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Я бы сказала, что феминизм — это признание равных прав людей, независимо от пола.",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 1,
+      "matchedWords": 13,
+      "expectedWords": 13,
+      "startTime": 102.25,
+      "endTime": 108.51,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Кстати, многие представители сильного пола поняли, что женщина, уверенная в себе, вовсе не угроза для мужчины.",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 1,
+      "matchedWords": 16,
+      "expectedWords": 16,
+      "startTime": 108.51,
+      "endTime": 117.21,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "У наших мужчин раньше был некий комплекс неполноценности, любую состоявшуюся женщину они воспринимали в штыки.",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 1,
+      "matchedWords": 15,
+      "expectedWords": 15,
+      "startTime": 117.65,
+      "endTime": 124.95,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Сейчас мужчины нашли себя, им уже не страшно смотреть на успех своих подруг.",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 1,
+      "matchedWords": 13,
+      "expectedWords": 13,
+      "startTime": 125.45,
+      "endTime": 130.41,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Они поняли, что женщины не претендуют на их успех.",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 1,
+      "matchedWords": 9,
+      "expectedWords": 9,
+      "startTime": 130.75,
+      "endTime": 134.55,
+      "timingStatus": "aligned"
     }
   ]
 }

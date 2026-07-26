@@ -7,11 +7,15 @@
     23,
     24
   ],
+  "mediaStructure": null,
+  "mediaExercise": null,
   "media": {
-    "provenance": "unavailable",
-    "status": "source-mismatch",
-    "reason": "Imported audio belongs to Uchebno-trenirovochnye testy po russkomu iazyku kak inostrannomu. Vypusk 4. Audirovanie. Govorenie, not V mire liudei. Vypusk 2. Audirovanie. Govorenie.",
-    "rejectedFile": "media/09.mp3"
+    "provenance": "verified-original-audio",
+    "status": "verified",
+    "kind": "audio",
+    "file": "media/world-people-v2/09.mp4",
+    "sourceCollection": "В мире людей. Выпуск 2. Аудирование. Говорение",
+    "sourceTrack": "09.mov"
   },
   "questions": [
     {
@@ -117,11 +121,28 @@
   ],
   "transcriptSegments": [
     {
+      "text": "социальные сети.",
+      "playlistIndex": 0,
       "speaker": "A",
       "displayLabel": "Д",
-      "text": "социальные сети. Наш семинар открыт для всех.",
-      "startTime": 0,
-      "endTime": 0
+      "matchRatio": 1,
+      "matchedWords": 2,
+      "expectedWords": 2,
+      "startTime": 35.8,
+      "endTime": 36.7,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Наш семинар открыт для всех.",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 1,
+      "matchedWords": 5,
+      "expectedWords": 5,
+      "startTime": 37.34,
+      "endTime": 39.06,
+      "timingStatus": "aligned"
     }
   ]
 }

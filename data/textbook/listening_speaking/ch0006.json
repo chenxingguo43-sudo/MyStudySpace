@@ -7,11 +7,15 @@
     21,
     22
   ],
+  "mediaStructure": null,
+  "mediaExercise": null,
   "media": {
-    "provenance": "unavailable",
-    "status": "source-mismatch",
-    "reason": "Imported audio belongs to Uchebno-trenirovochnye testy po russkomu iazyku kak inostrannomu. Vypusk 4. Audirovanie. Govorenie, not V mire liudei. Vypusk 2. Audirovanie. Govorenie.",
-    "rejectedFile": "media/07.mp3"
+    "provenance": "verified-original-audio",
+    "status": "verified",
+    "kind": "audio",
+    "file": "media/world-people-v2/07.mp4",
+    "sourceCollection": "В мире людей. Выпуск 2. Аудирование. Говорение",
+    "sourceTrack": "07.mov"
   },
   "questions": [
     {
@@ -117,11 +121,40 @@
   ],
   "transcriptSegments": [
     {
+      "text": "Управление внутренних дел на Московском метрополитене приглашает на работу граждан Российской Федерации в возрасте от 18 до 35 лет, имеющих образование не ниже среднего, для прохождения службы на метрополитене со служебно-розыскными собаками.",
+      "playlistIndex": 0,
       "speaker": "A",
       "displayLabel": "Д",
-      "text": "УВД на Московском метрополитене приглашает на работу граждан Российской Федерации, имеющих образование не ниже среднего, для работы со служебно-розыскными собаками. Предлагается заработная плата от 35 тыс. руб., полное медицинское обслуживание и другие льготы.",
+      "matchRatio": 0.903,
+      "matchedWords": 28,
+      "expectedWords": 31,
+      "startTime": 4.54,
+      "endTime": 22.88,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Сотрудники имеют стабильную заработную плату от 35 тысяч рублей, гибкий график работы, ежемесячную надбавку от мэрии Москвы, отпуск от 35 до 50 суток, бесплатное медицинское обслуживание, различные льготы для членов семей, возможность получения бесплатного высшего юридического образования, льготную пенсию после 20 лет службы.",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 0.949,
+      "matchedWords": 37,
+      "expectedWords": 39,
+      "startTime": 23.4,
+      "endTime": 48.76,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "8 499 624 42 27.",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 0,
+      "matchedWords": 0,
+      "expectedWords": 0,
       "startTime": 0,
-      "endTime": 0
+      "endTime": 0,
+      "timingStatus": "unmatched"
     }
   ]
 }

@@ -7,11 +7,15 @@
     37,
     38
   ],
+  "mediaStructure": null,
+  "mediaExercise": null,
   "media": {
-    "provenance": "unavailable",
-    "status": "source-mismatch",
-    "reason": "Imported audio belongs to Uchebno-trenirovochnye testy po russkomu iazyku kak inostrannomu. Vypusk 4. Audirovanie. Govorenie, not V mire liudei. Vypusk 2. Audirovanie. Govorenie.",
-    "rejectedFile": "media/14.mp3"
+    "provenance": "verified-original-audio",
+    "status": "verified",
+    "kind": "audio",
+    "file": "media/world-people-v2/14.mp4",
+    "sourceCollection": "В мире людей. Выпуск 2. Аудирование. Говорение",
+    "sourceTrack": "14.mov"
   },
   "questions": [
     {
@@ -117,32 +121,76 @@
   ],
   "transcriptSegments": [
     {
-      "speaker": "A",
-      "displayLabel": "Д",
       "text": "в режиме реального времени считывается информация с образца, например, с капельки крови.",
-      "startTime": 0,
-      "endTime": 0
-    },
-    {
+      "playlistIndex": 0,
       "speaker": "A",
       "displayLabel": "Д",
-      "text": "Это перспективное направление в науке и медицине. Оно даёт возможность проводить за считанные минуты анализы, на которые раньше требовались недели.",
-      "startTime": 0,
-      "endTime": 0
+      "matchRatio": 0.833,
+      "matchedWords": 10,
+      "expectedWords": 12,
+      "startTime": 8.53,
+      "endTime": 15.35,
+      "timingStatus": "aligned"
     },
     {
+      "text": "Это перспективное направление в науке и медицине.",
+      "playlistIndex": 0,
       "speaker": "A",
       "displayLabel": "Д",
-      "text": "Одноразовое устройство заменяет большие приборы стоимостью почти 100 тысяч долларов. Недавно в продажу поступил вариант стоимостью 900 долларов, в следующем году планируется выпуск более мощного варианта.",
-      "startTime": 0,
-      "endTime": 0
+      "matchRatio": 1,
+      "matchedWords": 7,
+      "expectedWords": 7,
+      "startTime": 16.29,
+      "endTime": 19.97,
+      "timingStatus": "aligned"
     },
     {
+      "text": "Оно даёт возможность проводить за считанные минуты анализы, на которые раньше требовались недели.",
+      "playlistIndex": 0,
       "speaker": "A",
       "displayLabel": "Д",
+      "matchRatio": 0.846,
+      "matchedWords": 11,
+      "expectedWords": 13,
+      "startTime": 20.71,
+      "endTime": 27.41,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Одноразовое устройство заменяет большие приборы стоимостью почти 100 тысяч долларов.",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 0.889,
+      "matchedWords": 8,
+      "expectedWords": 9,
+      "startTime": 27.41,
+      "endTime": 34.55,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Недавно в продажу поступил вариант стоимостью 900 долларов, в следующем году планируется выпуск более мощного варианта.",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 1,
+      "matchedWords": 15,
+      "expectedWords": 15,
+      "startTime": 35.55,
+      "endTime": 44.63,
+      "timingStatus": "aligned"
+    },
+    {
       "text": "Появление компактных и относительно дешёвых приборов позволит учёным, медикам, криминалистам проводить исследования и ставить эксперименты, которые ранее были доступны только в крупных лабораториях.",
-      "startTime": 0,
-      "endTime": 0
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 1,
+      "matchedWords": 23,
+      "expectedWords": 23,
+      "startTime": 45.93,
+      "endTime": 61.01,
+      "timingStatus": "aligned"
     }
   ]
 }

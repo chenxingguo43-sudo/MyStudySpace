@@ -7,11 +7,15 @@
     67,
     79
   ],
+  "mediaStructure": null,
+  "mediaExercise": null,
   "media": {
-    "provenance": "unavailable",
-    "status": "source-mismatch",
-    "reason": "Imported audio belongs to Uchebno-trenirovochnye testy po russkomu iazyku kak inostrannomu. Vypusk 4. Audirovanie. Govorenie, not V mire liudei. Vypusk 2. Audirovanie. Govorenie.",
-    "rejectedFile": "media/29.mp3"
+    "provenance": "verified-original-audio",
+    "status": "verified",
+    "kind": "audio",
+    "file": "media/world-people-v2/29.mp4",
+    "sourceCollection": "В мире людей. Выпуск 2. Аудирование. Говорение",
+    "sourceTrack": "29.mov"
   },
   "questions": [
     {
@@ -117,88 +121,436 @@
   ],
   "transcriptSegments": [
     {
+      "text": "Среди всех моих знакомых ты — единственный, кто готов отправиться в экспедицию в любую точку Земли.",
+      "playlistIndex": 0,
       "speaker": "A",
       "displayLabel": "Д",
-      "text": "Среди всех моих знакомых ты — единственный, кто готов отправиться в экспедицию в любую точку Земли. Вот и сейчас... Неужели веришь, что найдёшь корабль инопланетян?",
-      "startTime": 0,
-      "endTime": 0
+      "matchRatio": 1,
+      "matchedWords": 15,
+      "expectedWords": 15,
+      "startTime": 6.93,
+      "endTime": 14.41,
+      "timingStatus": "aligned"
     },
     {
+      "text": "Вот и сейчас...",
+      "playlistIndex": 0,
       "speaker": "A",
       "displayLabel": "Д",
-      "text": "Вероятнее всего, нет, но я должен собственными глазами увидеть, что его там нет. Как известно, в науке отрицательный результат не менее важен, чем положительный.",
-      "startTime": 0,
-      "endTime": 0
+      "matchRatio": 1,
+      "matchedWords": 3,
+      "expectedWords": 3,
+      "startTime": 14.79,
+      "endTime": 15.47,
+      "timingStatus": "aligned"
     },
     {
+      "text": "Неужели веришь, что найдёшь корабль инопланетян?",
+      "playlistIndex": 0,
       "speaker": "A",
       "displayLabel": "Д",
-      "text": "Давай вспомним, как ты начинал. Мы встретились впервые в 69-м, в Центре управления полётом. Тогда ты сказал: «Следующим пойду я». Как появилась уверенность, что обязательно полетишь?",
-      "startTime": 0,
-      "endTime": 0
+      "matchRatio": 1,
+      "matchedWords": 6,
+      "expectedWords": 6,
+      "startTime": 16.13,
+      "endTime": 19.59,
+      "timingStatus": "aligned"
     },
     {
+      "text": "Вероятнее всего, нет, но я должен собственными глазами увидеть, что его там нет.",
+      "playlistIndex": 0,
       "speaker": "A",
       "displayLabel": "Д",
-      "text": "Уверенности, что полетишь, нет никогда. Ведь не знаешь, включат тебя в экипаж или нет, заменят или нет, не отстранят ли в последнюю минуту врачи от полёта — и так далее, и тому подобное.",
-      "startTime": 0,
-      "endTime": 0
+      "matchRatio": 1,
+      "matchedWords": 13,
+      "expectedWords": 13,
+      "startTime": 20.17,
+      "endTime": 25.61,
+      "timingStatus": "aligned"
     },
     {
+      "text": "Как известно, в науке отрицательный результат не менее важен, чем положительный.",
+      "playlistIndex": 0,
       "speaker": "A",
       "displayLabel": "Д",
+      "matchRatio": 1,
+      "matchedWords": 11,
+      "expectedWords": 11,
+      "startTime": 25.61,
+      "endTime": 30.65,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Давай вспомним, как ты начинал.",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 1,
+      "matchedWords": 5,
+      "expectedWords": 5,
+      "startTime": 31.61,
+      "endTime": 33.21,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Мы встретились впервые в 69-м, в Центре управления полётом.",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 1,
+      "matchedWords": 9,
+      "expectedWords": 9,
+      "startTime": 33.71,
+      "endTime": 37.61,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Тогда ты сказал: «Следующим пойду я».",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 1,
+      "matchedWords": 6,
+      "expectedWords": 6,
+      "startTime": 38.01,
+      "endTime": 40.11,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Как появилась уверенность, что обязательно полетишь?",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 1,
+      "matchedWords": 6,
+      "expectedWords": 6,
+      "startTime": 40.99,
+      "endTime": 43.91,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Уверенности, что полетишь, нет никогда.",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 1,
+      "matchedWords": 5,
+      "expectedWords": 5,
+      "startTime": 44.85,
+      "endTime": 47.43,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Ведь не знаешь, включат тебя в экипаж или нет, заменят или нет, не отстранят ли в последнюю минуту врачи от полёта — и так далее, и тому подобное.",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 0.963,
+      "matchedWords": 26,
+      "expectedWords": 27,
+      "startTime": 47.97,
+      "endTime": 56.93,
+      "timingStatus": "aligned"
+    },
+    {
       "text": "Откуда же появилась эта уверенность?",
-      "startTime": 0,
-      "endTime": 0
-    },
-    {
+      "playlistIndex": 0,
       "speaker": "A",
       "displayLabel": "Д",
-      "text": "От судьбы. Уверен, что она есть у человека. Утверждаю, что у меня судьба была стать космонавтом.",
+      "matchRatio": 0,
+      "matchedWords": 0,
+      "expectedWords": 5,
       "startTime": 0,
-      "endTime": 0
+      "endTime": 0,
+      "timingStatus": "unmatched"
     },
     {
+      "text": "От судьбы.",
+      "playlistIndex": 0,
       "speaker": "A",
       "displayLabel": "Д",
+      "matchRatio": 1,
+      "matchedWords": 2,
+      "expectedWords": 2,
+      "startTime": 59.09,
+      "endTime": 59.75,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Уверен, что она есть у человека.",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 1,
+      "matchedWords": 6,
+      "expectedWords": 6,
+      "startTime": 60.49,
+      "endTime": 62.51,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Утверждаю, что у меня судьба была стать космонавтом.",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 1,
+      "matchedWords": 8,
+      "expectedWords": 8,
+      "startTime": 62.97,
+      "endTime": 66.41,
+      "timingStatus": "aligned"
+    },
+    {
       "text": "Ты один из людей, которые летали в космос не ради славы — тебя всегда влекла наука.",
-      "startTime": 0,
-      "endTime": 0
-    },
-    {
+      "playlistIndex": 0,
       "speaker": "A",
       "displayLabel": "Д",
-      "text": "Страсть к науке появилась в раннем детстве. В Ленинграде был Дом занимательной науки и техники. Там разные явления подавались столь необычно, что если у кого-то был хотя бы какой-то интерес к науке, он сразу же этим увлекался. Там и появилась у меня тяга к науке. Юрий Гагарин перед стартом сказал: «Поехали», а я произнёс: «Поехали на работу!»",
-      "startTime": 0,
-      "endTime": 0
+      "matchRatio": 0.933,
+      "matchedWords": 14,
+      "expectedWords": 15,
+      "startTime": 67.05,
+      "endTime": 72.47,
+      "timingStatus": "aligned"
     },
     {
+      "text": "Страсть к науке появилась в раннем детстве.",
+      "playlistIndex": 0,
       "speaker": "A",
       "displayLabel": "Д",
-      "text": "Религия и фантастика, как мне кажется, очень близки. Поэтому космонавтов обязательно спрашивают, что необычного они видели в полётах.",
-      "startTime": 0,
-      "endTime": 0
+      "matchRatio": 1,
+      "matchedWords": 7,
+      "expectedWords": 7,
+      "startTime": 72.97,
+      "endTime": 75.85,
+      "timingStatus": "aligned"
     },
     {
+      "text": "В Ленинграде был Дом занимательной науки и техники.",
+      "playlistIndex": 0,
       "speaker": "A",
       "displayLabel": "Д",
-      "text": "Я не верю, что вокруг Земли крутятся «летающие тарелки». Но если говорить всерьёз, то считаю, что они к нам прилетали. В Лондонском музее я увидел картину с НЛО 1480 года. Я был потрясён.",
-      "startTime": 0,
-      "endTime": 0
+      "matchRatio": 1,
+      "matchedWords": 8,
+      "expectedWords": 8,
+      "startTime": 75.85,
+      "endTime": 79.61,
+      "timingStatus": "aligned"
     },
     {
+      "text": "Там разные явления подавались столь необычно, что если у кого-то был хотя бы какой-то интерес к науке, он сразу же этим увлекался.",
+      "playlistIndex": 0,
       "speaker": "A",
       "displayLabel": "Д",
-      "text": "Прежде чем пожелать успеха в новой экспедиции, прошу два слова о будущем космонавтики. Как оно видится тебе?",
-      "startTime": 0,
-      "endTime": 0
+      "matchRatio": 1,
+      "matchedWords": 24,
+      "expectedWords": 24,
+      "startTime": 80.29,
+      "endTime": 88.95,
+      "timingStatus": "aligned"
     },
     {
+      "text": "Там и появилась у меня тяга к науке.",
+      "playlistIndex": 0,
       "speaker": "A",
       "displayLabel": "Д",
-      "text": "Я работал на трёх разных станциях. Пришёл к выводу, что использовать их не следует. Нужны автоматические аппараты, которые выполняют определённые цели. Сейчас возникли новые возможности в космонавтике: полеты к Луне, на Марс. Это надо использовать. Нужно немедленно начать работу над жилым межпланетным блоком! Мы же до сих пор крутимся вокруг Земли, а туда не летим.",
-      "startTime": 0,
-      "endTime": 0
+      "matchRatio": 1,
+      "matchedWords": 8,
+      "expectedWords": 8,
+      "startTime": 89.41,
+      "endTime": 92.23,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Юрий Гагарин перед стартом сказал: «Поехали», а я произнёс: «Поехали на работу!»",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 1,
+      "matchedWords": 12,
+      "expectedWords": 12,
+      "startTime": 92.73,
+      "endTime": 98.01,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Религия и фантастика, как мне кажется, очень близки.",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 0.75,
+      "matchedWords": 6,
+      "expectedWords": 8,
+      "startTime": 99.09,
+      "endTime": 101.33,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Поэтому космонавтов обязательно спрашивают, что необычного они видели в полётах.",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 1,
+      "matchedWords": 10,
+      "expectedWords": 10,
+      "startTime": 101.65,
+      "endTime": 106.63,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Я не верю, что вокруг Земли крутятся «летающие тарелки».",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 1,
+      "matchedWords": 9,
+      "expectedWords": 9,
+      "startTime": 106.95,
+      "endTime": 110.57,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Но если говорить всерьёз, то считаю, что они к нам прилетали.",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 1,
+      "matchedWords": 11,
+      "expectedWords": 11,
+      "startTime": 111.17,
+      "endTime": 114.95,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "В Лондонском музее я увидел картину с НЛО 1480 года.",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 0.778,
+      "matchedWords": 7,
+      "expectedWords": 9,
+      "startTime": 115.39,
+      "endTime": 120.75,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Я был потрясён.",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 1,
+      "matchedWords": 3,
+      "expectedWords": 3,
+      "startTime": 121.41,
+      "endTime": 122.53,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Прежде чем пожелать успеха в новой экспедиции, прошу два слова о будущем космонавтики.",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 1,
+      "matchedWords": 13,
+      "expectedWords": 13,
+      "startTime": 122.95,
+      "endTime": 128.89,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Как оно видится тебе?",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 1,
+      "matchedWords": 4,
+      "expectedWords": 4,
+      "startTime": 129.49,
+      "endTime": 130.55,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Я работал на трёх разных станциях.",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 1,
+      "matchedWords": 6,
+      "expectedWords": 6,
+      "startTime": 130.55,
+      "endTime": 133.31,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Пришёл к выводу, что использовать их не следует.",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 1,
+      "matchedWords": 8,
+      "expectedWords": 8,
+      "startTime": 133.51,
+      "endTime": 135.97,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Нужны автоматические аппараты, которые выполняют определённые цели.",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 1,
+      "matchedWords": 7,
+      "expectedWords": 7,
+      "startTime": 136.47,
+      "endTime": 140.11,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Сейчас возникли новые возможности в космонавтике: полеты к Луне, на Марс.",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 1,
+      "matchedWords": 11,
+      "expectedWords": 11,
+      "startTime": 140.67,
+      "endTime": 145.61,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Это надо использовать.",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 1,
+      "matchedWords": 3,
+      "expectedWords": 3,
+      "startTime": 146.03,
+      "endTime": 146.97,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Нужно немедленно начать работу над жилым межпланетным блоком!",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 1,
+      "matchedWords": 8,
+      "expectedWords": 8,
+      "startTime": 147.47,
+      "endTime": 151.77,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Мы же до сих пор крутимся вокруг Земли, а туда не летим.",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 1,
+      "matchedWords": 12,
+      "expectedWords": 12,
+      "startTime": 152.21,
+      "endTime": 155.51,
+      "timingStatus": "aligned"
     }
   ]
 }

@@ -7,11 +7,15 @@
     39,
     40
   ],
+  "mediaStructure": null,
+  "mediaExercise": null,
   "media": {
-    "provenance": "unavailable",
-    "status": "source-mismatch",
-    "reason": "Imported audio belongs to Uchebno-trenirovochnye testy po russkomu iazyku kak inostrannomu. Vypusk 4. Audirovanie. Govorenie, not V mire liudei. Vypusk 2. Audirovanie. Govorenie.",
-    "rejectedFile": "media/15.mp3"
+    "provenance": "verified-original-audio",
+    "status": "verified",
+    "kind": "audio",
+    "file": "media/world-people-v2/15.mp4",
+    "sourceCollection": "В мире людей. Выпуск 2. Аудирование. Говорение",
+    "sourceTrack": "15.mov"
   },
   "questions": [
     {
@@ -117,67 +121,112 @@
   ],
   "transcriptSegments": [
     {
-      "speaker": "A",
-      "displayLabel": "Д",
       "text": "Вас трогают шедевры кинематографа или вы — фанат современного кино?",
-      "startTime": 0,
-      "endTime": 0
-    },
-    {
+      "playlistIndex": 0,
       "speaker": "A",
       "displayLabel": "Д",
+      "matchRatio": 0.889,
+      "matchedWords": 8,
+      "expectedWords": 9,
+      "startTime": 4.5,
+      "endTime": 9.4,
+      "timingStatus": "aligned"
+    },
+    {
       "text": "Кинозал «ЦДЛ» в двух шагах от Садового кольца — то, что вам нужно!",
-      "startTime": 0,
-      "endTime": 0
-    },
-    {
+      "playlistIndex": 0,
       "speaker": "A",
       "displayLabel": "Д",
+      "matchRatio": 0.917,
+      "matchedWords": 11,
+      "expectedWords": 12,
+      "startTime": 9.98,
+      "endTime": 13.8,
+      "timingStatus": "aligned"
+    },
+    {
       "text": "Качественный сервис и парковка не оставят равнодушным любого клиента! 440 мест — это золотая середина между неудобствами тесного зала и дискомфортом огромного зала на тысячу мест.",
-      "startTime": 0,
-      "endTime": 0
-    },
-    {
+      "playlistIndex": 0,
       "speaker": "A",
       "displayLabel": "Д",
-      "text": "В репертуаре:",
-      "startTime": 0,
-      "endTime": 0
+      "matchRatio": 1,
+      "matchedWords": 24,
+      "expectedWords": 24,
+      "startTime": 14.38,
+      "endTime": 27.76,
+      "timingStatus": "aligned"
     },
     {
+      "text": "кассовые блокбастеры и мировые кинохиты;\n- культовые отечественные ленты и авторское кино.",
+      "playlistIndex": 0,
       "speaker": "A",
       "displayLabel": "Д",
-      "text": "- кассовые блокбастеры и мировые кинохиты;",
-      "startTime": 0,
-      "endTime": 0
+      "matchRatio": 1,
+      "matchedWords": 11,
+      "expectedWords": 11,
+      "startTime": 29.76,
+      "endTime": 35.9,
+      "timingStatus": "aligned"
     },
     {
-      "speaker": "A",
-      "displayLabel": "Д",
-      "text": "- культовые отечественные ленты и авторское кино.",
-      "startTime": 0,
-      "endTime": 0
-    },
-    {
-      "speaker": "A",
-      "displayLabel": "Д",
       "text": "У нас часто проходят интересные акции и тематические кинофестивали.",
-      "startTime": 0,
-      "endTime": 0
-    },
-    {
+      "playlistIndex": 0,
       "speaker": "A",
       "displayLabel": "Д",
-      "text": "Вас приятно удивят наши цены. Для школьников и пенсионеров — гибкая система скидок.",
-      "startTime": 0,
-      "endTime": 0
+      "matchRatio": 1,
+      "matchedWords": 9,
+      "expectedWords": 9,
+      "startTime": 36.46,
+      "endTime": 40.56,
+      "timingStatus": "aligned"
     },
     {
+      "text": "Вас приятно удивят наши цены.",
+      "playlistIndex": 0,
       "speaker": "A",
       "displayLabel": "Д",
-      "text": "Никитская, 53. Заказ билетов на сайте.",
-      "startTime": 0,
-      "endTime": 0
+      "matchRatio": 0.6,
+      "matchedWords": 3,
+      "expectedWords": 5,
+      "startTime": 41.74,
+      "endTime": 42.9,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Для школьников и пенсионеров — гибкая система скидок.",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 1,
+      "matchedWords": 7,
+      "expectedWords": 7,
+      "startTime": 43.32,
+      "endTime": 47.14,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Никитская, 53.",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 1,
+      "matchedWords": 1,
+      "expectedWords": 1,
+      "startTime": 48.54,
+      "endTime": 49.06,
+      "timingStatus": "aligned"
+    },
+    {
+      "text": "Заказ билетов на сайте.",
+      "playlistIndex": 0,
+      "speaker": "A",
+      "displayLabel": "Д",
+      "matchRatio": 1,
+      "matchedWords": 4,
+      "expectedWords": 4,
+      "startTime": 50.24,
+      "endTime": 51.7,
+      "timingStatus": "aligned"
     }
   ]
 }
