@@ -17,13 +17,19 @@ test('listening settings reject unsupported values and preserve learning prefere
     sentencePauseMs: 1000,
     autoAdvance: true,
     subtitleMode: 'always',
-    replayWrongEvidence: false
+    replayWrongEvidence: false,
+    abLoop: false,
+    abBeforeSeconds: 0.15,
+    abAfterSeconds: 0.15
   }), {
     playbackRate: 1.15,
     sentencePauseMs: 1000,
     autoAdvance: true,
     subtitleMode: 'always',
-    replayWrongEvidence: false
+    replayWrongEvidence: false,
+    abLoop: false,
+    abBeforeSeconds: 0.15,
+    abAfterSeconds: 0.15
   });
   assert.equal(Session.normalizeSettings({ playbackRate: 3 }).playbackRate, 1);
 });

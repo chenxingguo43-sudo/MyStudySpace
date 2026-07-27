@@ -49,7 +49,8 @@ test('World People keeps independent module resume states and exposes tree navig
   assert.match(reader, /curView = 'chapters'; curCh = -1/);
   assert.doesNotMatch(reader, /world-module-switcher/);
   assert.match(reader, /record\.chapterTitle = getCurrentWorldChapterTitle\(\)/);
-  assert.match(reader, /record\.viewMode === 'intensive'/);
+  assert.match(reader, /viewMode: viewMode/);
+  assert.match(reader, /\['exam', 'intensive', 'media-exercise', 'review', 'quality-review'\]\.indexOf\(record\.viewMode\) !== -1/);
 });
 
 test('World People shelf card provides direct module entry without duplicating books', () => {

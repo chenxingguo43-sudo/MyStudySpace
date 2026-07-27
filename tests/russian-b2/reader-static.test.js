@@ -74,10 +74,42 @@ test('quiz interactions update only the active question without resetting the re
   assert.ok(selectBody && submitBody && explanationBody);
   assert.match(selectBody[1], /refreshQuizQuestion\(/);
   assert.match(submitBody[1], /refreshQuizQuestion\(/);
-  assert.match(explanationBody[1], /refreshQuizQuestion\(/);
+  assert.match(explanationBody[1], /panel\.innerHTML = renderQuizExplanation\(exercise\)/);
+  assert.match(explanationBody[1], /panel\.hidden = false/);
+  assert.match(explanationBody[1], /panel\.innerHTML = ''/);
   assert.doesNotMatch(selectBody[1], /renderQuizChapter\(/);
   assert.doesNotMatch(submitBody[1], /renderQuizChapter\(/);
   assert.doesNotMatch(explanationBody[1], /renderQuizChapter\(/);
+});
+
+test('quiz explanations are rendered lazily and toggled without replacing the question', () => {
+  const itemBody = reader.match(/function renderQuizItem\(exercise, record\) \{([\s\S]*?)\n\}/);
+  const explanationBody = reader.match(/function toggleQuizExplanation\(questionId\) \{([\s\S]*?)\n\}/);
+  assert.ok(itemBody && explanationBody);
+  assert.match(itemBody[1], /record\.explanationOpen \? renderQuizExplanation\(exercise\) : ''/);
+  assert.match(itemBody[1], /aria-expanded=/);
+  assert.match(explanationBody[1], /item\.querySelector\('\.b2-explanation'\)/);
+  assert.doesNotMatch(explanationBody[1], /target\.outerHTML/);
+});
+
+test('Zlatoust quiz chapters use a bounded virtual window without changing B2 module rendering', () => {
+  assert.match(reader, /var ZLATOUST_VIRTUAL_MINIMUM_ITEMS = 20/);
+  assert.match(reader, /function getZlatoustVirtualRange\(state, scrollTop\)/);
+  assert.match(reader, /function renderZlatoustVirtualWindow\(state, range, preserveAnchor\)/);
+  assert.match(reader, /function initializeZlatoustVirtualQuiz\(exercises, contextGroups, initialExerciseId\)/);
+  assert.match(reader, /data-zlatoust-virtual-spacer="top"/);
+  assert.match(reader, /data-zlatoust-virtual-items/);
+  assert.match(reader, /ResizeObserver/);
+  assert.match(reader, /requestAnimationFrame/);
+  assert.match(reader, /ensureZlatoustVirtualExercise\(exerciseId, 'smooth'\)/);
+  assert.match(reader, /scheduleZlatoustVirtualWindow\(\)/);
+  assert.doesNotMatch(reader, /function renderZlatoustQuizPager\(/);
+  assert.match(reader, /quizRestoreState = \{ activeQuestionId: initialZlatoustVirtualExerciseId \|\| currentQuizExercises\[0\]\.id, scroll: 0 \}/);
+  assert.match(reader, /isWorldPeopleBook\(curBook\) && activeQuestionId\) record\.activeQuestionId = activeQuestionId/);
+  const renderBody = reader.match(/function renderQuizChapter\(data, scrollPosition\) \{([\s\S]*?)\n\}/);
+  assert.ok(renderBody);
+  assert.match(renderBody[1], /isZlatoustGrammarBook\(curBook\)\) initializeZlatoustVirtualQuiz/);
+  assert.doesNotMatch(renderBody[1], /zlatoust-quiz-pager/);
 });
 
 test('B2 progress uses permanent unit identifiers and migrates the pilot once', () => {
@@ -464,6 +496,26 @@ test('Zlatoust 1.4.1 uses a separate integrated learning page without duplicatin
   assert.doesNotMatch(reader, /<i>vs<\/i>/);
 });
 
+test('Zlatoust quiz explanations load rule-unit option analysis and retain provenance boundaries', () => {
+  assert.match(reader, /function buildZlatoustOptionAnalysisIndex\(state, units\)/);
+  const chapterLoadBody = reader.match(/function loadZlatoustChapterTheory\(chapterIndex\) \{([\s\S]*?)\n\}/);
+  assert.ok(chapterLoadBody);
+  assert.match(chapterLoadBody[1], /sectionIds/);
+  assert.match(chapterLoadBody[1], /loadZlatoustRuleUnit\(sectionId\)/);
+  assert.match(chapterLoadBody[1], /buildZlatoustOptionAnalysisIndex\(state, units\)/);
+  assert.match(reader, /function renderZlatoustQuizExplanation\(exercise\)/);
+  assert.match(reader, /optionAnalysisByExercise\[exercise\.id\]/);
+  assert.match(reader, /showZlatoustRuleUnit\(/);
+  assert.match(reader, /以下理由由本项目依据所列原书规则整理，不是教材逐题原文解析。/);
+  assert.match(reader, /这题仍待复核。原书答案已保留；规则边界或题目条件尚未完全确认。以下学习说明仅作辅助，不替代最终定论。/);
+  assert.match(reader, /原书仅有练习。未找到独立的原书理论页，不要把推测性的规则伪装成教材解析。/);
+  const quizExplanationStart = reader.indexOf('function renderQuizExplanation(exercise)');
+  const aiPromptStart = reader.indexOf('function copyQuestionAsAiPrompt(exerciseId)');
+  const quizExplanationBody = reader.slice(quizExplanationStart, aiPromptStart);
+  assert.match(quizExplanationBody, /isZlatoustGrammarBook\(curBook\)\) return renderZlatoustQuizExplanation/);
+  assert.ok(quizExplanationBody.indexOf('if (isZlatoustGrammarBook(curBook)) return renderZlatoustQuizExplanation(exercise);') < quizExplanationBody.indexOf('copyQuestionAsAiPrompt'));
+});
+
 test('reader keeps appended film listening exercises separate from exam and intensive timelines', () => {
   assert.match(reader, /片尾听辨/);
   assert.match(reader, /function hasVerifiedListeningMediaExercise\(data\)/);
@@ -536,6 +588,40 @@ test('Zlatoust 2.7 loads its five-stage causal-nature learning page', () => {
 
 test('Zlatoust 2.8 loads its five-stage purpose-and-evidence learning page', () => {
   assert.match(reader, /'2\.8': \{ stageCount: 5, exerciseCount: 4 \}/);
+});
+
+test('Zlatoust 3.1 is configured as a five-stage gerund subject-routing page', () => {
+  assert.match(reader, /'3\.1': \{ stageCount: 5, exerciseCount: 35 \}/);
+  assert.match(reader, /'3\.1\.1': \{ stageCount: 5, exerciseCount: 35 \}/);
+  assert.match(reader, /'3\.1\.2': \{ stageCount: 5, exerciseCount: 0 \}/);
+  assert.match(reader, /function renderZlatoustLearningMindMap\(page\)/);
+});
+
+test('Zlatoust 4.1 is configured as a five-stage clause-relation learning page', () => {
+  assert.match(reader, /'4\.1': \{ stageCount: 5, exerciseCount: 24 \}/);
+  assert.match(reader, /renderZlatoustLearningMindMap\(page\)/);
+});
+
+test('Zlatoust Chapter 5 routes all remaining theory cards to source-traceable learning pages', () => {
+  assert.match(reader, /'5\.1': \{ stageCount: 4, exerciseCount: 22 \}/);
+  assert.match(reader, /'5\.2': \{ stageCount: 4, exerciseCount: 23 \}/);
+  assert.match(reader, /'5\.lexical': \{ stageCount: 5, exerciseCount: 30 \}/);
+  const root = require('node:path').join(__dirname, '..', '..', 'data', 'textbook', 'zlatoust_grammar', 'theory', 'learning-pages', 'gl5');
+  for (const file of ['section-5.1.json', 'section-5.2.json', 'section-5.lexical.json']) {
+    const page = JSON.parse(fs.readFileSync(require('node:path').join(root, file), 'utf8'));
+    assert.equal(page.reviewStatus, 'needs-review');
+    assert.ok(page.entryGate && page.decisionAxes.length === page.stages.length);
+    assert.ok(page.stages.every(stage => stage.checks.length >= 2 && stage.sourceExamples.length >= 2));
+  }
+});
+
+test('Zlatoust 4.2 is configured as a five-stage relative-word learning page', () => {
+  assert.match(reader, /'4\.2': \{ stageCount: 5, exerciseCount: 13 \}/);
+});
+
+test('Zlatoust 4.3 and 4.4 configure time and раз learning pages without invented formal practice', () => {
+  assert.match(reader, /'4\.3': \{ stageCount: 5, exerciseCount: 2 \}/);
+  assert.match(reader, /'4\.4': \{ stageCount: 5, exerciseCount: 0 \}/);
 });
 
 test('Zlatoust 1.4.2 is configured as its own negation learning page', () => {

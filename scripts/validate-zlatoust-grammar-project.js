@@ -61,7 +61,47 @@ const requiredFiles = [
   'mappings/chapter-05-mapping-review.json',
   'rule-units/README.md',
   'learning-pages/README.md',
+  'learning-pages/gl1/section-1.1.json',
+  'learning-pages/gl1/section-1.2.json',
+  'learning-pages/gl1/section-1.3.json',
   'learning-pages/gl1/section-1.4.1.json',
+  'learning-pages/gl1/section-1.4.2.json',
+  'learning-pages/gl1/section-1.4.3.json',
+  'learning-pages/gl1/section-1.4.4.json',
+  'learning-pages/gl1/section-1.4.5.json',
+  'learning-pages/gl1/section-1.4.6.json',
+  'learning-pages/gl1/section-1.4.7.json',
+  'learning-pages/gl1/section-1.4.8.json',
+  'learning-pages/gl1/section-1.5-review.json',
+  'learning-pages/gl2/section-2.1.json',
+  'learning-pages/gl3/section-3.1.json',
+  'learning-pages/gl3/section-3.1.1.json',
+  'learning-pages/gl3/section-3.1.2.json',
+  'learning-pages/gl4/section-4.1.json',
+  'learning-pages/gl4/section-4.2.json',
+  'learning-pages/gl4/section-4.3.json',
+  'learning-pages/gl4/section-4.4.json',
+  'learning-pages/gl5/section-5.1.json',
+  'learning-pages/gl5/section-5.2.json',
+  'learning-pages/gl5/section-5.lexical.json',
+  'quality-reports/integrated-learning-sample-1.4.6.md',
+  'quality-reports/integrated-learning-sample-1.4.7.md',
+  'quality-reports/integrated-learning-sample-1.4.8.md',
+  'quality-reports/integrated-learning-sample-1.1.md',
+  'quality-reports/integrated-learning-sample-1.2.md',
+  'quality-reports/integrated-learning-sample-1.3.md',
+  'quality-reports/integrated-learning-supplementary-1.5.md',
+  'quality-reports/integrated-learning-sample-2.1.md',
+  'quality-reports/integrated-learning-sample-3.1.md',
+  'quality-reports/integrated-learning-sample-3.1.1.md',
+  'quality-reports/integrated-learning-sample-3.1.2.md',
+  'quality-reports/integrated-learning-sample-4.1.md',
+  'quality-reports/integrated-learning-sample-4.2.md',
+  'quality-reports/integrated-learning-sample-4.3.md',
+  'quality-reports/integrated-learning-sample-4.4.md',
+  'quality-reports/integrated-learning-sample-5.1.md',
+  'quality-reports/integrated-learning-sample-5.2.md',
+  'quality-reports/integrated-learning-sample-5.lexical.md',
   'quality-reports/baseline.md',
   'quality-reports/coverage-report.md',
   'quality-reports/bidirectional-mapping-report.md',
@@ -120,7 +160,37 @@ const chapterTwoSectionIds = ['2.1', '2.2', '2.3', '2.4', '2.4.1', '2.4.2', '2.5
 const chapterThreeSectionIds = ['3.1', '3.1.1', '3.1.2'];
 const chapterFourSectionIds = ['4.1', '4.2', '4.3', '4.4'];
 const chapterFiveSectionIds = ['5.1', '5.2', '5.lexical'];
+const agreementLearningPage = readJson(path.join(projectRoot, 'learning-pages', 'gl1', 'section-1.1.json'));
+const quantityLearningPage = readJson(path.join(projectRoot, 'learning-pages', 'gl1', 'section-1.2.json'));
+const adjectiveLearningPage = readJson(path.join(projectRoot, 'learning-pages', 'gl1', 'section-1.3.json'));
 const aspectLearningPage = readJson(path.join(projectRoot, 'learning-pages', 'gl1', 'section-1.4.1.json'));
+const negationLearningPage = readJson(path.join(projectRoot, 'learning-pages', 'gl1', 'section-1.4.2.json'));
+const infinitiveLearningPage = readJson(path.join(projectRoot, 'learning-pages', 'gl1', 'section-1.4.3.json'));
+const lexicalInfinitiveLearningPage = readJson(path.join(projectRoot, 'learning-pages', 'gl1', 'section-1.4.4.json'));
+const cannotLearningPage = readJson(path.join(projectRoot, 'learning-pages', 'gl1', 'section-1.4.5.json'));
+const negativeInfinitiveLearningPage = readJson(path.join(projectRoot, 'learning-pages', 'gl1', 'section-1.4.6.json'));
+const imperativeLearningPage = readJson(path.join(projectRoot, 'learning-pages', 'gl1', 'section-1.4.7.json'));
+const negativeImperativeLearningPage = readJson(path.join(projectRoot, 'learning-pages', 'gl1', 'section-1.4.8.json'));
+const supplementaryAspectReviewPage = readJson(path.join(projectRoot, 'learning-pages', 'gl1', 'section-1.5-review.json'));
+const objectGovernmentLearningPage = readJson(path.join(projectRoot, 'learning-pages', 'gl2', 'section-2.1.json'));
+const instrumentalLearningPage = readJson(path.join(projectRoot, 'learning-pages', 'gl2', 'section-2.3.json'));
+const bareAttributeLearningPage = readJson(path.join(projectRoot, 'learning-pages', 'gl2', 'section-2.4.1.json'));
+const prepositionalAttributeLearningPage = readJson(path.join(projectRoot, 'learning-pages', 'gl2', 'section-2.4.2.json'));
+const attributeOverviewLearningPage = readJson(path.join(projectRoot, 'learning-pages', 'gl2', 'section-2.4.json'));
+const timeRelationsLearningPage = readJson(path.join(projectRoot, 'learning-pages', 'gl2', 'section-2.5.json'));
+const spatialRelationsLearningPage = readJson(path.join(projectRoot, 'learning-pages', 'gl2', 'section-2.6.json'));
+const causalRelationsLearningPage = readJson(path.join(projectRoot, 'learning-pages', 'gl2', 'section-2.7.json'));
+const goalRelationsLearningPage = readJson(path.join(projectRoot, 'learning-pages', 'gl2', 'section-2.8.json'));
+const gerundOverviewLearningPage = readJson(path.join(projectRoot, 'learning-pages', 'gl3', 'section-3.1.json'));
+const gerundAllowedLearningPage = readJson(path.join(projectRoot, 'learning-pages', 'gl3', 'section-3.1.1.json'));
+const gerundForbiddenLearningPage = readJson(path.join(projectRoot, 'learning-pages', 'gl3', 'section-3.1.2.json'));
+const conjunctionLearningPage = readJson(path.join(projectRoot, 'learning-pages', 'gl4', 'section-4.1.json'));
+const relativeWordLearningPage = readJson(path.join(projectRoot, 'learning-pages', 'gl4', 'section-4.2.json'));
+const timeConjunctionLearningPage = readJson(path.join(projectRoot, 'learning-pages', 'gl4', 'section-4.3.json'));
+const razLearningPage = readJson(path.join(projectRoot, 'learning-pages', 'gl4', 'section-4.4.json'));
+const chapterFiveStyleLearningPage = readJson(path.join(projectRoot, 'learning-pages', 'gl5', 'section-5.1.json'));
+const chapterFiveIndefiniteLearningPage = readJson(path.join(projectRoot, 'learning-pages', 'gl5', 'section-5.2.json'));
+const chapterFiveLexicalLearningPage = readJson(path.join(projectRoot, 'learning-pages', 'gl5', 'section-5.lexical.json'));
 
 if (manifest) {
   if (manifest.scope?.pdfPages?.[0] !== 93 || manifest.scope?.pdfPages?.[1] !== 124) {
@@ -851,22 +921,22 @@ if (chapterFiveExerciseToRules && chapterFiveSectionToExercises && chapterFiveMa
   if (coverage?.validatedExerciseMappingCount !== chapterOneCount + chapterTwoCount + chapterThreeCount + chapterFourCount + entries.length) fail(`Coverage validated mapping count differs from completed Chapters 1-5: ${coverage?.validatedExerciseMappingCount} vs ${chapterOneCount + chapterTwoCount + chapterThreeCount + chapterFourCount + entries.length}`);
 }
 
-if (aspectLearningPage && sectionToExercises) {
-  const expectedStageIds = ['stage-fact', 'stage-process', 'stage-repeat', 'stage-order', 'stage-result'];
+if (agreementLearningPage && sectionToExercises) {
   const allowedSourceTypes = new Set(['source-rule', 'source-table', 'source-example', 'exercise-example', 'learning-note', 'external-note']);
-  const stages = aspectLearningPage.stages || [];
+  const stages = agreementLearningPage.stages || [];
+  const expectedStageIds = ['stage-title', 'stage-attribute', 'stage-compound', 'stage-predicate'];
   const actualStageIds = stages.map(stage => stage.id);
-  if (aspectLearningPage.sectionId !== '1.4.1' || aspectLearningPage.chapterId !== 'gl1') fail('1.4.1 learning page has an invalid identity');
-  if (actualStageIds.join(',') !== expectedStageIds.join(',')) fail(`1.4.1 learning stages must preserve the confirmed five-stage order: ${actualStageIds.join(',')}`);
-  if ((aspectLearningPage.mindMap || []).map(node => node.id).join(',') !== expectedStageIds.join(',')) fail('1.4.1 learning mind map must link all five stages in order');
-  if (!aspectLearningPage.problem || !aspectLearningPage.scopeNote || (aspectLearningPage.objectives || []).length < 3) fail('1.4.1 learning page lacks the teaching problem, scope or objectives');
+  if (agreementLearningPage.sectionId !== '1.1' || agreementLearningPage.chapterId !== 'gl1') fail('1.1 learning page has an invalid identity');
+  if (actualStageIds.join(',') !== expectedStageIds.join(',')) fail(`1.1 learning stages must preserve the four agreement decision branches: ${actualStageIds.join(',')}`);
+  if ((agreementLearningPage.mindMap || []).map(node => node.id).join(',') !== expectedStageIds.join(',')) fail('1.1 learning map must preserve title, register, compound-title and predicate branches');
+  if (!agreementLearningPage.problem || !agreementLearningPage.scopeNote || !agreementLearningPage.mindMapIntro || (agreementLearningPage.objectives || []).length < 3) fail('1.1 learning page lacks the teaching problem, scope, objectives or map guidance');
   const exerciseIds = [];
   let checkCount = 0;
   for (const stage of stages) {
     if (!stage.title || !stage.question || !stage.entry?.ru || !stage.entry?.prompt) fail(`${stage.id} lacks a real context entry or teaching question`);
     if ((stage.teacherExplanation || []).length < 3 || stage.teacherExplanation.some(paragraph => paragraph.length < 35)) fail(`${stage.id} teacher explanation is too thin`);
-    if (stage.sourceRule?.sourceType !== 'source-rule' || !stage.sourceRule.ru || !stage.sourceRule.zh || !stage.sourceRule.source?.pdfPages?.length || !stage.sourceRule.source?.printedPages?.length) fail(`${stage.id} lacks traceable bilingual source rules`);
-    if ((stage.sourceExamples || []).length < 3 || stage.sourceExamples.some(example => example.sourceType !== 'source-example' || !example.ru || !example.zh || !example.analysis)) fail(`${stage.id} lacks complete source-example analysis`);
+    if (stage.sourceRule?.sourceType !== 'learning-note' || !stage.sourceRule.ru || !stage.sourceRule.zh || !stage.sourceEvidence?.ru || stage.sourceEvidence.sourceType !== 'source-rule' || !stage.sourceEvidence.source?.pdfPages?.length || !stage.sourceEvidence.source?.printedPages?.length) fail(`${stage.id} lacks separated learning notes and traceable source evidence`);
+    if ((stage.sourceExamples || []).length < 2 || stage.sourceExamples.some(example => example.sourceType !== 'source-example' || !example.ru || !example.zh || !example.analysis || !example.source?.pdfPages?.length || !example.source?.printedPages?.length)) fail(`${stage.id} lacks complete page-traceable source-example analysis`);
     if ((stage.contrasts || []).length < 2 || stage.contrasts.some(contrast => !contrast.left || !contrast.right || !contrast.analysis)) fail(`${stage.id} lacks minimum contrasts`);
     if ((stage.signals || []).length < 2 || stage.signals.some(signal => !signal.words?.length || !signal.validWhen || !signal.failsWhen)) fail(`${stage.id} lacks signal-word boundaries`);
     if ((stage.commonErrors || []).length < 3) fail(`${stage.id} lacks common-error explanations`);
@@ -875,7 +945,105 @@ if (aspectLearningPage && sectionToExercises) {
       checkCount += 1;
       if (!check.id || !check.prompt || !check.answer || !check.options?.some(option => option.key === check.answer)) fail(`${stage.id} has an invalid formative check`);
       if (!check.feedback?.correct || !check.feedback?.misconception || !check.feedback?.review || !check.feedback?.contrast) fail(`${check.id} lacks targeted wrong-answer feedback`);
-      if (check.retry && (!check.retry.prompt || !check.retry.answer || !check.retry.options?.some(option => option.key === check.retry.answer))) fail(`${check.id} has an invalid retry question`);
+      if (!check.retry || !check.retry.prompt || !check.retry.answer || !check.retry.options?.some(option => option.key === check.retry.answer)) fail(`${check.id} has no valid retry question`);
+    }
+    exerciseIds.push(...(stage.exerciseIds || []));
+  }
+  if (checkCount !== 8) fail(`1.1 learning page must contain 8 stage checks, found ${checkCount}`);
+  const expectedExerciseIds = (sectionToExercises.sections?.['1.1']?.exerciseIds || []).slice().sort();
+  if (new Set(exerciseIds).size !== exerciseIds.length || exerciseIds.slice().sort().join(',') !== expectedExerciseIds.join(',')) fail('1.1 learning page must embed all 13 mapped exercise IDs exactly once');
+  const transferIds = (agreementLearningPage.transferTasks || []).map(task => task.id);
+  if (!agreementLearningPage.finalCheck?.answer || !agreementLearningPage.finalCheck.options?.some(option => option.key === agreementLearningPage.finalCheck.answer) || transferIds.length !== 4 || !['transfer-context', 'transfer-rewrite', 'transfer-explain', 'transfer-boundary'].every(id => transferIds.includes(id))) fail('1.1 learning page lacks required transfer assessment');
+  if ((agreementLearningPage.summaryTable || []).length !== 4 || agreementLearningPage.reviewStatus !== 'needs-review' || !(agreementLearningPage.riskRecord || []).some(risk => risk.includes('OCR'))) fail('1.1 learning page must preserve summary and OCR risk');
+  for (const source of agreementLearningPage.sources || []) if (!allowedSourceTypes.has(source.sourceType)) fail(`Invalid 1.1 learning source type: ${source.sourceType}`);
+}
+
+if (quantityLearningPage && sectionToExercises) {
+  const allowedSourceTypes = new Set(['source-rule', 'source-table', 'source-example', 'exercise-example', 'learning-note', 'external-note']);
+  const stages = quantityLearningPage.stages || [];
+  const expectedStageIds = ['stage-collective', 'stage-measure', 'stage-preposed', 'stage-distance', 'stage-action'];
+  const actualStageIds = stages.map(stage => stage.id);
+  if (quantityLearningPage.sectionId !== '1.2' || quantityLearningPage.chapterId !== 'gl1') fail('1.2 learning page has an invalid identity');
+  if (actualStageIds.join(',') !== expectedStageIds.join(',')) fail(`1.2 learning stages must preserve the quantity, position and action decision axes: ${actualStageIds.join(',')}`);
+  if ((quantityLearningPage.mindMap || []).map(node => node.id).join(',') !== expectedStageIds.join(',')) fail('1.2 learning map must preserve collective, measure, position, distance and action axes');
+  if (!quantityLearningPage.problem || !quantityLearningPage.scopeNote || !quantityLearningPage.mindMapIntro || (quantityLearningPage.objectives || []).length < 3) fail('1.2 learning page lacks the teaching problem, scope, objectives or map guidance');
+  const exerciseIds = [];
+  let checkCount = 0;
+  for (const stage of stages) {
+    if (!stage.title || !stage.question || !stage.entry?.ru || !stage.entry?.prompt) fail(`${stage.id} lacks a real context entry or teaching question`);
+    if ((stage.teacherExplanation || []).length < 3 || stage.teacherExplanation.some(paragraph => paragraph.length < 35)) fail(`${stage.id} teacher explanation is too thin`);
+    if (stage.sourceRule?.sourceType !== 'learning-note' || !stage.sourceRule.ru || !stage.sourceRule.zh || !stage.sourceEvidence?.ru || stage.sourceEvidence.sourceType !== 'source-rule' || !stage.sourceEvidence.source?.pdfPages?.length || !stage.sourceEvidence.source?.printedPages?.length) fail(`${stage.id} lacks separated learning notes and traceable source evidence`);
+    if ((stage.sourceExamples || []).length < 2 || stage.sourceExamples.some(example => example.sourceType !== 'source-example' || !example.ru || /\.\.\./.test(example.ru) || !example.zh || !example.analysis || !example.source?.pdfPages?.length || !example.source?.printedPages?.length)) fail(`${stage.id} lacks complete unabridged page-traceable source-example analysis`);
+    if ((stage.contrasts || []).length < 2 || stage.contrasts.some(contrast => !contrast.left || !contrast.right || !contrast.analysis)) fail(`${stage.id} lacks minimum contrasts`);
+    if ((stage.signals || []).length < 2 || stage.signals.some(signal => !signal.words?.length || !signal.validWhen || !signal.failsWhen)) fail(`${stage.id} lacks signal-word boundaries`);
+    if ((stage.commonErrors || []).length < 3) fail(`${stage.id} lacks common-error explanations`);
+    if ((stage.checks || []).length < 2) fail(`${stage.id} lacks two formative checks`);
+    for (const check of stage.checks || []) {
+      checkCount += 1;
+      if (!check.id || !check.prompt || !check.answer || !check.options?.some(option => option.key === check.answer)) fail(`${stage.id} has an invalid formative check`);
+      if (!check.feedback?.correct || !check.feedback?.misconception || !check.feedback?.review || !check.feedback?.contrast) fail(`${check.id} lacks targeted wrong-answer feedback`);
+      if (!check.retry || !check.retry.prompt || !check.retry.answer || !check.retry.options?.some(option => option.key === check.retry.answer)) fail(`${check.id} has no valid retry question`);
+    }
+    exerciseIds.push(...(stage.exerciseIds || []));
+  }
+  if (checkCount !== 10) fail(`1.2 learning page must contain 10 stage checks, found ${checkCount}`);
+  const expectedExerciseIds = (sectionToExercises.sections?.['1.2']?.exerciseIds || []).slice().sort();
+  if (new Set(exerciseIds).size !== exerciseIds.length || exerciseIds.slice().sort().join(',') !== expectedExerciseIds.join(',')) fail('1.2 learning page must embed all 6 mapped exercise IDs exactly once');
+  const transferIds = (quantityLearningPage.transferTasks || []).map(task => task.id);
+  if (!quantityLearningPage.finalCheck?.answer || !quantityLearningPage.finalCheck.options?.some(option => option.key === quantityLearningPage.finalCheck.answer) || transferIds.length !== 4 || !['transfer-context', 'transfer-rewrite', 'transfer-explain', 'transfer-boundary'].every(id => transferIds.includes(id))) fail('1.2 learning page lacks required transfer assessment');
+  if ((quantityLearningPage.summaryTable || []).length !== 4 || quantityLearningPage.reviewStatus !== 'needs-review' || !(quantityLearningPage.riskRecord || []).some(risk => risk.includes('OCR'))) fail('1.2 learning page must preserve summary and OCR risk');
+  for (const source of quantityLearningPage.sources || []) if (!allowedSourceTypes.has(source.sourceType)) fail(`Invalid 1.2 learning source type: ${source.sourceType}`);
+}
+
+if (adjectiveLearningPage && sectionToExercises) {
+  const stages = adjectiveLearningPage.stages || [];
+  const expectedStageIds = ['stage-position', 'stage-meaning', 'stage-short-required', 'stage-opposites', 'stage-instrumental'];
+  const exerciseIds = [];
+  let checkCount = 0;
+  if (adjectiveLearningPage.sectionId !== '1.3' || adjectiveLearningPage.chapterId !== 'gl1') fail('1.3 learning page has an invalid identity');
+  if (stages.map(stage => stage.id).join(',') !== expectedStageIds.join(',') || (adjectiveLearningPage.mindMap || []).map(node => node.id).join(',') !== expectedStageIds.join(',')) fail('1.3 learning page must preserve its five syntax-and-meaning axes');
+  if (!adjectiveLearningPage.problem || !adjectiveLearningPage.scopeNote || !adjectiveLearningPage.mindMapIntro || (adjectiveLearningPage.objectives || []).length < 3) fail('1.3 learning page lacks teaching guidance');
+  for (const stage of stages) {
+    if (!stage.title || !stage.question || !stage.entry?.ru || !stage.entry?.prompt || (stage.teacherExplanation || []).length < 3 || stage.teacherExplanation.some(text => text.length < 35)) fail(`${stage.id} lacks a complete teaching entry`);
+    if (stage.sourceRule?.sourceType !== 'learning-note' || !stage.sourceRule?.ru || !stage.sourceRule?.zh || stage.sourceEvidence?.sourceType !== 'source-rule' || !stage.sourceEvidence?.ru || !stage.sourceEvidence?.source?.printedPages?.length || !stage.sourceEvidence?.source?.pdfPages?.length) fail(`${stage.id} lacks separated traceable source evidence`);
+    if ((stage.sourceExamples || []).length < 2 || stage.sourceExamples.some(example => example.sourceType !== 'source-example' || !example.ru || /\.\.\./.test(example.ru) || !example.zh || !example.analysis || !example.source?.printedPages?.length || !example.source?.pdfPages?.length)) fail(`${stage.id} lacks complete unabridged source examples`);
+    if ((stage.contrasts || []).length < 2 || (stage.signals || []).length < 2 || (stage.commonErrors || []).length < 3) fail(`${stage.id} lacks boundaries or contrasts`);
+    for (const check of stage.checks || []) { checkCount += 1; if (!check.id || !check.answer || !check.options?.some(option => option.key === check.answer) || !check.feedback?.correct || !check.feedback?.misconception || !check.feedback?.review || !check.feedback?.contrast || !check.retry?.answer || !check.retry?.options?.some(option => option.key === check.retry.answer)) fail(`${check.id || stage.id} lacks actionable retry feedback`); }
+    exerciseIds.push(...(stage.exerciseIds || []));
+  }
+  if (checkCount !== 10) fail(`1.3 learning page must contain 10 stage checks, found ${checkCount}`);
+  const expectedExerciseIds = (sectionToExercises.sections?.['1.3']?.exerciseIds || []).slice().sort();
+  if (new Set(exerciseIds).size !== exerciseIds.length || exerciseIds.slice().sort().join(',') !== expectedExerciseIds.join(',')) fail('1.3 learning page must embed all 18 mapped exercise IDs exactly once');
+  const transferIds = (adjectiveLearningPage.transferTasks || []).map(task => task.id);
+  if (!adjectiveLearningPage.finalCheck?.answer || !adjectiveLearningPage.finalCheck.options?.some(option => option.key === adjectiveLearningPage.finalCheck.answer) || transferIds.length !== 4 || !['transfer-context', 'transfer-rewrite', 'transfer-explain', 'transfer-boundary'].every(id => transferIds.includes(id))) fail('1.3 learning page lacks required transfer assessment');
+  if ((adjectiveLearningPage.summaryTable || []).length !== 4 || adjectiveLearningPage.reviewStatus !== 'needs-review' || !(adjectiveLearningPage.riskRecord || []).some(risk => risk.includes('OCR'))) fail('1.3 learning page must preserve summary and OCR risk');
+}
+
+if (aspectLearningPage && sectionToExercises) {
+  const expectedStageIds = ['stage-fact', 'stage-process', 'stage-repeat', 'stage-order', 'stage-result'];
+  const allowedSourceTypes = new Set(['source-rule', 'source-table', 'source-example', 'exercise-example', 'learning-note', 'external-note']);
+  const stages = aspectLearningPage.stages || [];
+  const actualStageIds = stages.map(stage => stage.id);
+  if (aspectLearningPage.sectionId !== '1.4.1' || aspectLearningPage.chapterId !== 'gl1') fail('1.4.1 learning page has an invalid identity');
+  if (actualStageIds.join(',') !== expectedStageIds.join(',')) fail(`1.4.1 learning stages must preserve the confirmed five-stage order: ${actualStageIds.join(',')}`);
+  if ((aspectLearningPage.decisionAxes || []).map(axis => axis.id).join(',') !== expectedStageIds.join(',') || (aspectLearningPage.timeGate?.items || []).length !== 3 || (aspectLearningPage.crossAxisWarnings || []).length !== 4) fail('1.4.1 learning map must contain the time gate, five decision axes and four cross-axis warnings');
+  if (!aspectLearningPage.problem || !aspectLearningPage.scopeNote || (aspectLearningPage.objectives || []).length < 3) fail('1.4.1 learning page lacks the teaching problem, scope or objectives');
+  const exerciseIds = [];
+  let checkCount = 0;
+  for (const stage of stages) {
+    if (!stage.title || !stage.question || !stage.entry?.ru || !stage.entry?.prompt) fail(`${stage.id} lacks a real context entry or teaching question`);
+    if ((stage.teacherExplanation || []).length < 3 || stage.teacherExplanation.some(paragraph => paragraph.length < 35)) fail(`${stage.id} teacher explanation is too thin`);
+    if (stage.sourceRule?.sourceType !== 'learning-note' || !stage.sourceRule.ru || !stage.sourceRule.zh || !stage.sourceEvidence?.ru || stage.sourceEvidence.sourceType !== 'source-rule' || !stage.sourceEvidence.source?.pdfPages?.length || !stage.sourceEvidence.source?.printedPages?.length) fail(`${stage.id} lacks separated learning notes and traceable source evidence`);
+    if ((stage.sourceExamples || []).length < 3 || stage.sourceExamples.some(example => example.sourceType !== 'source-example' || !example.ru || !example.zh || !example.analysis || !example.source?.pdfPages?.length || !example.source?.printedPages?.length)) fail(`${stage.id} lacks complete page-traceable source-example analysis`);
+    if ((stage.contrasts || []).length < 2 || stage.contrasts.some(contrast => !contrast.left || !contrast.right || !contrast.analysis)) fail(`${stage.id} lacks minimum contrasts`);
+    if ((stage.signals || []).length < 2 || stage.signals.some(signal => !signal.words?.length || !signal.validWhen || !signal.failsWhen)) fail(`${stage.id} lacks signal-word boundaries`);
+    if ((stage.commonErrors || []).length < 3) fail(`${stage.id} lacks common-error explanations`);
+    if ((stage.checks || []).length < 2) fail(`${stage.id} lacks two formative checks`);
+    for (const check of stage.checks || []) {
+      checkCount += 1;
+      if (!check.id || !check.prompt || !check.answer || !check.options?.some(option => option.key === check.answer)) fail(`${stage.id} has an invalid formative check`);
+      if (!check.feedback?.correct || !check.feedback?.misconception || !check.feedback?.review || !check.feedback?.contrast) fail(`${check.id} lacks targeted wrong-answer feedback`);
+      if (!check.retry || !check.retry.prompt || !check.retry.answer || !check.retry.options?.some(option => option.key === check.retry.answer)) fail(`${check.id} has no valid retry question`);
     }
     exerciseIds.push(...(stage.exerciseIds || []));
   }
@@ -885,6 +1053,8 @@ if (aspectLearningPage && sectionToExercises) {
   if (new Set(exerciseIds).size !== exerciseIds.length || actualExerciseIds.join(',') !== expectedExerciseIds.join(',')) fail('1.4.1 learning page must embed all 13 mapped exercise IDs exactly once');
   const finalCheck = aspectLearningPage.finalCheck;
   if (!finalCheck?.id || !finalCheck.answer || !finalCheck.options?.some(option => option.key === finalCheck.answer) || !finalCheck.feedback?.misconception) fail('1.4.1 learning page lacks the final integrated check');
+  const transferTasks = aspectLearningPage.transferTasks || [];
+  if (transferTasks.length !== 4 || !transferTasks.some(task => task.id === 'transfer-past') || !transferTasks.some(task => task.id === 'transfer-future') || !transferTasks.some(task => task.id === 'transfer-rewrite') || !transferTasks.some(task => task.id === 'transfer-explain')) fail('1.4.1 learning page lacks the required past, future, rewrite and explanation transfer tasks');
   if ((aspectLearningPage.summaryTable || []).length !== 5) fail('1.4.1 learning page summary table must preserve all five oppositions');
   if (aspectLearningPage.reviewStatus !== 'needs-review' || !(aspectLearningPage.riskRecord || []).some(risk => risk.includes('OCR'))) fail('1.4.1 learning page must preserve source REVIEW risk');
   for (const source of aspectLearningPage.sources || []) if (!allowedSourceTypes.has(source.sourceType)) fail(`Invalid 1.4.1 learning source type: ${source.sourceType}`);
@@ -898,6 +1068,608 @@ if (aspectLearningPage && sectionToExercises) {
     if (source.originalLanguage !== '英文' || !source.url) fail(`1.4.1 external reference must retain an optional English verification URL: ${source.label || 'unknown'}`);
   }
 }
+
+if (negationLearningPage && sectionToExercises) {
+  const allowedSourceTypes = new Set(['source-rule', 'source-table', 'source-example', 'exercise-example', 'learning-note', 'external-note']);
+  const stages = negationLearningPage.stages || [];
+  const expectedStageIds = ['stage-fact', 'stage-result', 'stage-categorical'];
+  const actualStageIds = stages.map(stage => stage.id);
+  if (negationLearningPage.sectionId !== '1.4.2' || negationLearningPage.chapterId !== 'gl1') fail('1.4.2 learning page has an invalid identity');
+  if (actualStageIds.join(',') !== expectedStageIds.join(',')) fail(`1.4.2 learning stages must preserve the confirmed three-stage order: ${actualStageIds.join(',')}`);
+  if ((negationLearningPage.mindMap || []).map(node => node.id).join(',') !== expectedStageIds.join(',')) fail('1.4.2 learning map must preserve the negation decision branches');
+  if (!negationLearningPage.problem || !negationLearningPage.scopeNote || (negationLearningPage.objectives || []).length < 3) fail('1.4.2 learning page lacks the teaching problem, scope or objectives');
+  const exerciseIds = [];
+  let checkCount = 0;
+  for (const stage of stages) {
+    if (!stage.title || !stage.question || !stage.entry?.ru || !stage.entry?.prompt) fail(`${stage.id} lacks a real context entry or teaching question`);
+    if ((stage.teacherExplanation || []).length < 3 || stage.teacherExplanation.some(paragraph => paragraph.length < 35)) fail(`${stage.id} teacher explanation is too thin`);
+    if (stage.sourceRule?.sourceType !== 'learning-note' || !stage.sourceRule.ru || !stage.sourceRule.zh || !stage.sourceEvidence?.ru || stage.sourceEvidence.sourceType !== 'source-rule' || !stage.sourceEvidence.source?.pdfPages?.length || !stage.sourceEvidence.source?.printedPages?.length) fail(`${stage.id} lacks separated learning notes and traceable source evidence`);
+    if ((stage.sourceExamples || []).length < 2 || stage.sourceExamples.some(example => example.sourceType !== 'source-example' || !example.ru || !example.zh || !example.analysis || !example.source?.pdfPages?.length || !example.source?.printedPages?.length)) fail(`${stage.id} lacks complete page-traceable source-example analysis`);
+    if ((stage.contrasts || []).length < 2 || stage.contrasts.some(contrast => !contrast.left || !contrast.right || !contrast.analysis)) fail(`${stage.id} lacks minimum contrasts`);
+    if ((stage.signals || []).length < 2 || stage.signals.some(signal => !signal.words?.length || !signal.validWhen || !signal.failsWhen)) fail(`${stage.id} lacks signal-word boundaries`);
+    if ((stage.commonErrors || []).length < 3) fail(`${stage.id} lacks common-error explanations`);
+    if ((stage.checks || []).length < 2) fail(`${stage.id} lacks two formative checks`);
+    for (const check of stage.checks || []) {
+      checkCount += 1;
+      if (!check.id || !check.prompt || !check.answer || !check.options?.some(option => option.key === check.answer)) fail(`${stage.id} has an invalid formative check`);
+      if (!check.feedback?.correct || !check.feedback?.misconception || !check.feedback?.review || !check.feedback?.contrast) fail(`${check.id} lacks targeted wrong-answer feedback`);
+      if (!check.retry || !check.retry.prompt || !check.retry.answer || !check.retry.options?.some(option => option.key === check.retry.answer)) fail(`${check.id} has no valid retry question`);
+    }
+    exerciseIds.push(...(stage.exerciseIds || []));
+  }
+  if (checkCount !== 6) fail(`1.4.2 learning page must contain 6 stage checks, found ${checkCount}`);
+  const expectedExerciseIds = (sectionToExercises.sections?.['1.4.2']?.exerciseIds || []).slice().sort();
+  const actualExerciseIds = exerciseIds.slice().sort();
+  if (new Set(exerciseIds).size !== exerciseIds.length || actualExerciseIds.join(',') !== expectedExerciseIds.join(',')) fail('1.4.2 learning page must embed all 3 mapped exercise IDs exactly once');
+  const finalCheck = negationLearningPage.finalCheck;
+  if (!finalCheck?.id || !finalCheck.answer || !finalCheck.options?.some(option => option.key === finalCheck.answer) || !finalCheck.feedback?.misconception) fail('1.4.2 learning page lacks the final integrated check');
+  const transferTasks = negationLearningPage.transferTasks || [];
+  if (transferTasks.length !== 4 || !transferTasks.some(task => task.id === 'transfer-past') || !transferTasks.some(task => task.id === 'transfer-future') || !transferTasks.some(task => task.id === 'transfer-rewrite') || !transferTasks.some(task => task.id === 'transfer-explain')) fail('1.4.2 learning page lacks the required past, future, rewrite and explanation transfer tasks');
+  if ((negationLearningPage.summaryTable || []).length !== 3) fail('1.4.2 learning page summary table must preserve all three negation branches');
+  if (negationLearningPage.reviewStatus !== 'needs-review' || !(negationLearningPage.riskRecord || []).some(risk => risk.includes('OCR'))) fail('1.4.2 learning page must preserve source REVIEW risk');
+  for (const source of negationLearningPage.sources || []) if (!allowedSourceTypes.has(source.sourceType)) fail(`Invalid 1.4.2 learning source type: ${source.sourceType}`);
+}
+
+if (infinitiveLearningPage && sectionToExercises) {
+  const allowedSourceTypes = new Set(['source-rule', 'source-table', 'source-example', 'exercise-example', 'learning-note', 'external-note']);
+  const stages = infinitiveLearningPage.stages || [];
+  const expectedStageIds = ['stage-process', 'stage-result', 'stage-repeat', 'stage-single'];
+  const actualStageIds = stages.map(stage => stage.id);
+  if (infinitiveLearningPage.sectionId !== '1.4.3' || infinitiveLearningPage.chapterId !== 'gl1') fail('1.4.3 learning page has an invalid identity');
+  if (actualStageIds.join(',') !== expectedStageIds.join(',')) fail(`1.4.3 learning stages must preserve the confirmed four-stage order: ${actualStageIds.join(',')}`);
+  if ((infinitiveLearningPage.decisionAxes || []).map(axis => axis.id).join(',') !== 'stage-process,stage-repeat') fail('1.4.3 learning map must preserve the process/result and repeat/single axes');
+  if (!infinitiveLearningPage.problem || !infinitiveLearningPage.scopeNote || (infinitiveLearningPage.objectives || []).length < 3) fail('1.4.3 learning page lacks the teaching problem, scope or objectives');
+  const exerciseIds = [];
+  let checkCount = 0;
+  for (const stage of stages) {
+    if (!stage.title || !stage.question || !stage.entry?.ru || !stage.entry?.prompt) fail(`${stage.id} lacks a real context entry or teaching question`);
+    if ((stage.teacherExplanation || []).length < 3 || stage.teacherExplanation.some(paragraph => paragraph.length < 35)) fail(`${stage.id} teacher explanation is too thin`);
+    if (stage.sourceRule?.sourceType !== 'learning-note' || !stage.sourceRule.ru || !stage.sourceRule.zh || !stage.sourceEvidence?.ru || stage.sourceEvidence.sourceType !== 'source-rule' || !stage.sourceEvidence.source?.pdfPages?.length || !stage.sourceEvidence.source?.printedPages?.length) fail(`${stage.id} lacks separated learning notes and traceable source evidence`);
+    if ((stage.sourceExamples || []).length < 2 || stage.sourceExamples.some(example => example.sourceType !== 'source-example' || !example.ru || !example.zh || !example.analysis || !example.source?.pdfPages?.length || !example.source?.printedPages?.length)) fail(`${stage.id} lacks complete page-traceable source-example analysis`);
+    if ((stage.contrasts || []).length < 2 || stage.contrasts.some(contrast => !contrast.left || !contrast.right || !contrast.analysis)) fail(`${stage.id} lacks minimum contrasts`);
+    if ((stage.signals || []).length < 2 || stage.signals.some(signal => !signal.words?.length || !signal.validWhen || !signal.failsWhen)) fail(`${stage.id} lacks signal-word boundaries`);
+    if ((stage.commonErrors || []).length < 3) fail(`${stage.id} lacks common-error explanations`);
+    if ((stage.checks || []).length < 2) fail(`${stage.id} lacks two formative checks`);
+    for (const check of stage.checks || []) {
+      checkCount += 1;
+      if (!check.id || !check.prompt || !check.answer || !check.options?.some(option => option.key === check.answer)) fail(`${stage.id} has an invalid formative check`);
+      if (!check.feedback?.correct || !check.feedback?.misconception || !check.feedback?.review || !check.feedback?.contrast) fail(`${check.id} lacks targeted wrong-answer feedback`);
+      if (!check.retry || !check.retry.prompt || !check.retry.answer || !check.retry.options?.some(option => option.key === check.retry.answer)) fail(`${check.id} has no valid retry question`);
+    }
+    exerciseIds.push(...(stage.exerciseIds || []));
+  }
+  if (checkCount !== 8) fail(`1.4.3 learning page must contain 8 stage checks, found ${checkCount}`);
+  const expectedExerciseIds = (sectionToExercises.sections?.['1.4.3']?.exerciseIds || []).slice().sort();
+  const actualExerciseIds = exerciseIds.slice().sort();
+  if (new Set(exerciseIds).size !== exerciseIds.length || actualExerciseIds.join(',') !== expectedExerciseIds.join(',')) fail('1.4.3 learning page must embed all 6 mapped exercise IDs exactly once');
+  const finalCheck = infinitiveLearningPage.finalCheck;
+  if (!finalCheck?.id || !finalCheck.answer || !finalCheck.options?.some(option => option.key === finalCheck.answer) || !finalCheck.feedback?.misconception) fail('1.4.3 learning page lacks the final integrated check');
+  const transferTasks = infinitiveLearningPage.transferTasks || [];
+  if (transferTasks.length !== 4 || !transferTasks.some(task => task.id === 'transfer-context') || !transferTasks.some(task => task.id === 'transfer-rewrite') || !transferTasks.some(task => task.id === 'transfer-explain') || !transferTasks.some(task => task.id === 'transfer-boundary')) fail('1.4.3 learning page lacks the required context, rewrite, explanation and boundary transfer tasks');
+  if ((infinitiveLearningPage.summaryTable || []).length !== 3) fail('1.4.3 learning page summary table must preserve the two axes and lexical boundary');
+  if (infinitiveLearningPage.reviewStatus !== 'needs-review' || !(infinitiveLearningPage.riskRecord || []).some(risk => risk.includes('OCR'))) fail('1.4.3 learning page must preserve source REVIEW risk');
+  for (const source of infinitiveLearningPage.sources || []) if (!allowedSourceTypes.has(source.sourceType)) fail(`Invalid 1.4.3 learning source type: ${source.sourceType}`);
+}
+
+if (lexicalInfinitiveLearningPage && sectionToExercises) {
+  const allowedSourceTypes = new Set(['source-rule', 'source-table', 'source-example', 'exercise-example', 'learning-note', 'external-note']);
+  const stages = lexicalInfinitiveLearningPage.stages || [];
+  const expectedStageIds = ['stage-phase', 'stage-habit', 'stage-negative', 'stage-perfective'];
+  const actualStageIds = stages.map(stage => stage.id);
+  if (lexicalInfinitiveLearningPage.sectionId !== '1.4.4' || lexicalInfinitiveLearningPage.chapterId !== 'gl1') fail('1.4.4 learning page has an invalid identity');
+  if (actualStageIds.join(',') !== expectedStageIds.join(',')) fail(`1.4.4 learning stages must preserve the confirmed four-group order: ${actualStageIds.join(',')}`);
+  if (!lexicalInfinitiveLearningPage.problem || !lexicalInfinitiveLearningPage.scopeNote || !lexicalInfinitiveLearningPage.mindMapIntro || (lexicalInfinitiveLearningPage.objectives || []).length < 3) fail('1.4.4 learning page lacks the teaching problem, lexical boundary, map guidance or objectives');
+  const exerciseIds = [];
+  let checkCount = 0;
+  for (const stage of stages) {
+    if (!stage.title || !stage.question || !stage.entry?.ru || !stage.entry?.prompt) fail(`${stage.id} lacks a real context entry or teaching question`);
+    if ((stage.teacherExplanation || []).length < 3 || stage.teacherExplanation.some(paragraph => paragraph.length < 35)) fail(`${stage.id} teacher explanation is too thin`);
+    if (stage.sourceRule?.sourceType !== 'learning-note' || !stage.sourceRule.ru || !stage.sourceRule.zh || !stage.sourceEvidence?.ru || stage.sourceEvidence.sourceType !== 'source-rule' || !stage.sourceEvidence.source?.pdfPages?.length || !stage.sourceEvidence.source?.printedPages?.length) fail(`${stage.id} lacks separated learning notes and traceable source evidence`);
+    if ((stage.sourceExamples || []).length < 2 || stage.sourceExamples.some(example => example.sourceType !== 'source-example' || !example.ru || !example.zh || !example.analysis || !example.source?.pdfPages?.length || !example.source?.printedPages?.length)) fail(`${stage.id} lacks complete page-traceable source-example analysis`);
+    if ((stage.contrasts || []).length < 2 || stage.contrasts.some(contrast => !contrast.left || !contrast.right || !contrast.analysis)) fail(`${stage.id} lacks minimum contrasts`);
+    if ((stage.signals || []).length < 2 || stage.signals.some(signal => !signal.words?.length || !signal.validWhen || !signal.failsWhen)) fail(`${stage.id} lacks signal-word boundaries`);
+    if ((stage.commonErrors || []).length < 3) fail(`${stage.id} lacks common-error explanations`);
+    if ((stage.checks || []).length < 2) fail(`${stage.id} lacks two formative checks`);
+    for (const check of stage.checks || []) {
+      checkCount += 1;
+      if (!check.id || !check.prompt || !check.answer || !check.options?.some(option => option.key === check.answer)) fail(`${stage.id} has an invalid formative check`);
+      if (!check.feedback?.correct || !check.feedback?.misconception || !check.feedback?.review || !check.feedback?.contrast) fail(`${check.id} lacks targeted wrong-answer feedback`);
+      if (!check.retry || !check.retry.prompt || !check.retry.answer || !check.retry.options?.some(option => option.key === check.retry.answer)) fail(`${check.id} has no valid retry question`);
+    }
+    exerciseIds.push(...(stage.exerciseIds || []));
+  }
+  if (checkCount !== 8) fail(`1.4.4 learning page must contain 8 stage checks, found ${checkCount}`);
+  const expectedExerciseIds = (sectionToExercises.sections?.['1.4.4']?.exerciseIds || []).slice().sort();
+  const actualExerciseIds = exerciseIds.slice().sort();
+  if (new Set(exerciseIds).size !== exerciseIds.length || actualExerciseIds.join(',') !== expectedExerciseIds.join(',')) fail('1.4.4 learning page must embed all 13 mapped exercise IDs exactly once');
+  const finalCheck = lexicalInfinitiveLearningPage.finalCheck;
+  if (!finalCheck?.id || !finalCheck.answer || !finalCheck.options?.some(option => option.key === finalCheck.answer) || !finalCheck.feedback?.misconception) fail('1.4.4 learning page lacks the final integrated check');
+  const transferTasks = lexicalInfinitiveLearningPage.transferTasks || [];
+  if (transferTasks.length !== 4 || !transferTasks.some(task => task.id === 'transfer-lookup') || !transferTasks.some(task => task.id === 'transfer-context') || !transferTasks.some(task => task.id === 'transfer-rewrite') || !transferTasks.some(task => task.id === 'transfer-explain')) fail('1.4.4 learning page lacks the required lookup, context, rewrite and explanation transfer tasks');
+  if ((lexicalInfinitiveLearningPage.summaryTable || []).length !== 4) fail('1.4.4 learning page summary table must preserve the lexical-group boundary');
+  if (lexicalInfinitiveLearningPage.reviewStatus !== 'needs-review' || !(lexicalInfinitiveLearningPage.riskRecord || []).some(risk => risk.includes('OCR'))) fail('1.4.4 learning page must preserve source REVIEW risk');
+  for (const source of lexicalInfinitiveLearningPage.sources || []) if (!allowedSourceTypes.has(source.sourceType)) fail(`Invalid 1.4.4 learning source type: ${source.sourceType}`);
+}
+
+if (cannotLearningPage && sectionToExercises) {
+  const stages = cannotLearningPage.stages || [];
+  const expectedStageIds = ['stage-prohibition', 'stage-impossibility'];
+  const exerciseIds = [];
+  let checkCount = 0;
+  if (cannotLearningPage.sectionId !== '1.4.5' || cannotLearningPage.chapterId !== 'gl1') fail('1.4.5 learning page has an invalid identity');
+  if (stages.map(stage => stage.id).join(',') !== expectedStageIds.join(',')) fail('1.4.5 learning page must preserve the prohibition/impossibility order');
+  if (!cannotLearningPage.problem || !cannotLearningPage.scopeNote || !cannotLearningPage.mindMapIntro || (cannotLearningPage.mindMap || []).map(item => item.id).join(',') !== expectedStageIds.join(',')) fail('1.4.5 learning page lacks a bounded two-branch decision map');
+  for (const stage of stages) {
+    if (!stage.title || !stage.question || !stage.entry?.ru || !stage.entry?.prompt || (stage.teacherExplanation || []).length < 3) fail(`${stage.id} lacks a complete teaching entry`);
+    if (stage.sourceRule?.sourceType !== 'learning-note' || stage.sourceEvidence?.sourceType !== 'source-rule' || !stage.sourceEvidence?.source?.printedPages?.length || !stage.sourceEvidence?.source?.pdfPages?.length) fail(`${stage.id} lacks source separation and page traceability`);
+    if ((stage.sourceExamples || []).length < 2 || stage.sourceExamples.some(example => example.sourceType !== 'source-example' || !example.source?.printedPages?.length || !example.source?.pdfPages?.length)) fail(`${stage.id} lacks traceable source examples`);
+    if ((stage.contrasts || []).length < 2 || (stage.signals || []).length < 2 || (stage.commonErrors || []).length < 3) fail(`${stage.id} lacks boundaries or minimum contrasts`);
+    for (const check of stage.checks || []) {
+      checkCount += 1;
+      if (!check.id || !check.answer || !check.options?.some(option => option.key === check.answer) || !check.feedback?.correct || !check.feedback?.misconception || !check.feedback?.review || !check.feedback?.contrast || !check.retry?.answer || !check.retry?.options?.some(option => option.key === check.retry.answer)) fail(`${check.id || stage.id} lacks actionable retry feedback`);
+    }
+    exerciseIds.push(...(stage.exerciseIds || []));
+  }
+  if (checkCount !== 4) fail(`1.4.5 learning page must contain 4 stage checks, found ${checkCount}`);
+  const expectedExerciseIds = (sectionToExercises.sections?.['1.4.5']?.exerciseIds || []).slice().sort();
+  if (new Set(exerciseIds).size !== exerciseIds.length || exerciseIds.slice().sort().join(',') !== expectedExerciseIds.join(',')) fail('1.4.5 learning page must embed all 4 mapped exercise IDs exactly once');
+  const transferIds = (cannotLearningPage.transferTasks || []).map(task => task.id);
+  if (!cannotLearningPage.finalCheck?.answer || !cannotLearningPage.finalCheck.options?.some(option => option.key === cannotLearningPage.finalCheck.answer) || transferIds.length !== 4 || !['transfer-context', 'transfer-rewrite', 'transfer-explain', 'transfer-boundary'].every(id => transferIds.includes(id))) fail('1.4.5 learning page lacks required transfer assessment');
+  if ((cannotLearningPage.summaryTable || []).length !== 3 || cannotLearningPage.reviewStatus !== 'needs-review' || !(cannotLearningPage.riskRecord || []).some(risk => risk.includes('OCR'))) fail('1.4.5 learning page must preserve summary and OCR risk');
+}
+
+if (negativeInfinitiveLearningPage && sectionToExercises) {
+  const allowedSourceTypes = new Set(['source-rule', 'source-table', 'source-example', 'exercise-example', 'learning-note', 'external-note']);
+  const stages = negativeInfinitiveLearningPage.stages || [];
+  const expectedStageIds = ['stage-dependent', 'stage-independent-impossibility', 'stage-independent-suggestion', 'stage-moch', 'stage-advice'];
+  const exerciseIds = [];
+  let checkCount = 0;
+  if (negativeInfinitiveLearningPage.sectionId !== '1.4.6' || negativeInfinitiveLearningPage.chapterId !== 'gl1') fail('1.4.6 learning page has an invalid identity');
+  if (stages.map(stage => stage.id).join(',') !== expectedStageIds.join(',')) fail('1.4.6 learning page must preserve the confirmed five-framework order');
+  if (!negativeInfinitiveLearningPage.problem || !negativeInfinitiveLearningPage.scopeNote || !negativeInfinitiveLearningPage.mindMapIntro || (negativeInfinitiveLearningPage.mindMap || []).map(item => item.id).join(',') !== expectedStageIds.join(',')) fail('1.4.6 learning page lacks a framework-first decision map');
+  for (const stage of stages) {
+    if (!stage.title || !stage.question || !stage.entry?.ru || !stage.entry?.prompt || (stage.teacherExplanation || []).length < 3) fail(`${stage.id} lacks a complete teaching entry`);
+    if (stage.sourceRule?.sourceType !== 'learning-note' || !stage.sourceRule?.ru || !stage.sourceRule?.zh || stage.sourceEvidence?.sourceType !== 'source-rule' || !stage.sourceEvidence?.ru || !stage.sourceEvidence?.source?.printedPages?.length || !stage.sourceEvidence?.source?.pdfPages?.length) fail(`${stage.id} lacks source separation and page traceability`);
+    if ((stage.sourceExamples || []).length < 2 || stage.sourceExamples.some(example => example.sourceType !== 'source-example' || !example.ru || !example.zh || !example.analysis || !example.source?.printedPages?.length || !example.source?.pdfPages?.length)) fail(`${stage.id} lacks traceable source examples`);
+    if ((stage.contrasts || []).length < 2 || (stage.signals || []).length < 2 || (stage.commonErrors || []).length < 3) fail(`${stage.id} lacks boundaries or minimum contrasts`);
+    for (const check of stage.checks || []) {
+      checkCount += 1;
+      if (!check.id || !check.answer || !check.options?.some(option => option.key === check.answer) || !check.feedback?.correct || !check.feedback?.misconception || !check.feedback?.review || !check.feedback?.contrast || !check.retry?.answer || !check.retry?.options?.some(option => option.key === check.retry.answer)) fail(`${check.id || stage.id} lacks actionable retry feedback`);
+    }
+    exerciseIds.push(...(stage.exerciseIds || []));
+  }
+  if (checkCount !== 10) fail(`1.4.6 learning page must contain 10 stage checks, found ${checkCount}`);
+  const expectedExerciseIds = (sectionToExercises.sections?.['1.4.6']?.mappedIds || []).slice().sort();
+  if (new Set(exerciseIds).size !== exerciseIds.length || exerciseIds.slice().sort().join(',') !== expectedExerciseIds.join(',')) fail('1.4.6 learning page must embed all 18 mapped exercise IDs exactly once and exclude source-exercise-only GL1-Q076');
+  const transferIds = (negativeInfinitiveLearningPage.transferTasks || []).map(task => task.id);
+  if (!negativeInfinitiveLearningPage.finalCheck?.answer || !negativeInfinitiveLearningPage.finalCheck.options?.some(option => option.key === negativeInfinitiveLearningPage.finalCheck.answer) || transferIds.length !== 4 || !['transfer-context', 'transfer-rewrite', 'transfer-explain', 'transfer-boundary'].every(id => transferIds.includes(id))) fail('1.4.6 learning page lacks required transfer assessment');
+  if ((negativeInfinitiveLearningPage.summaryTable || []).length !== 4 || negativeInfinitiveLearningPage.reviewStatus !== 'needs-review' || !(negativeInfinitiveLearningPage.riskRecord || []).some(risk => risk.includes('OCR')) || !(negativeInfinitiveLearningPage.riskRecord || []).some(risk => risk.includes('GL1-Q078')) || !(negativeInfinitiveLearningPage.riskRecord || []).some(risk => risk.includes('GL1-Q076'))) fail('1.4.6 learning page must preserve both OCR and source-exercise boundary risks');
+  for (const source of negativeInfinitiveLearningPage.sources || []) if (!allowedSourceTypes.has(source.sourceType)) fail(`Invalid 1.4.6 learning source type: ${source.sourceType}`);
+}
+
+if (imperativeLearningPage && sectionToExercises) {
+  const stages = imperativeLearningPage.stages || [];
+  const expectedStageIds = ['stage-routine', 'stage-task', 'stage-prompt', 'stage-invitation'];
+  const exerciseIds = [];
+  let checkCount = 0;
+  if (imperativeLearningPage.sectionId !== '1.4.7' || imperativeLearningPage.chapterId !== 'gl1') fail('1.4.7 learning page has an invalid identity');
+  if (stages.map(stage => stage.id).join(',') !== expectedStageIds.join(',')) fail('1.4.7 learning page must preserve the four imperative decision stages');
+  if (!imperativeLearningPage.problem || !imperativeLearningPage.scopeNote || !imperativeLearningPage.mindMapIntro || (imperativeLearningPage.mindMap || []).map(item => item.id).join(',') !== expectedStageIds.join(',')) fail('1.4.7 learning page lacks an interaction-first decision map');
+  for (const stage of stages) {
+    if (!stage.title || !stage.question || !stage.entry?.ru || !stage.entry?.prompt || (stage.teacherExplanation || []).length < 3) fail(`${stage.id} lacks a complete teaching entry`);
+    if (stage.sourceRule?.sourceType !== 'learning-note' || !stage.sourceRule?.ru || !stage.sourceRule?.zh || stage.sourceEvidence?.sourceType !== 'source-rule' || !stage.sourceEvidence?.ru || !stage.sourceEvidence?.source?.printedPages?.length || !stage.sourceEvidence?.source?.pdfPages?.length) fail(`${stage.id} lacks source separation and page traceability`);
+    if ((stage.sourceExamples || []).length < 2 || stage.sourceExamples.some(example => example.sourceType !== 'source-example' || !example.ru || !example.zh || !example.analysis || !example.source?.printedPages?.length || !example.source?.pdfPages?.length)) fail(`${stage.id} lacks traceable source examples`);
+    if ((stage.contrasts || []).length < 2 || (stage.signals || []).length < 2 || (stage.commonErrors || []).length < 3) fail(`${stage.id} lacks boundaries or minimum contrasts`);
+    for (const check of stage.checks || []) {
+      checkCount += 1;
+      if (!check.id || !check.answer || !check.options?.some(option => option.key === check.answer) || !check.feedback?.correct || !check.feedback?.misconception || !check.feedback?.review || !check.feedback?.contrast || !check.retry?.answer || !check.retry?.options?.some(option => option.key === check.retry.answer)) fail(`${check.id || stage.id} lacks actionable retry feedback`);
+    }
+    exerciseIds.push(...(stage.exerciseIds || []));
+  }
+  if (checkCount !== 8) fail(`1.4.7 learning page must contain 8 stage checks, found ${checkCount}`);
+  const expectedExerciseIds = (sectionToExercises.sections?.['1.4.7']?.mappedIds || []).slice().sort();
+  if (new Set(exerciseIds).size !== exerciseIds.length || exerciseIds.slice().sort().join(',') !== expectedExerciseIds.join(',')) fail('1.4.7 learning page must embed all 6 mapped exercise IDs exactly once');
+  const transferIds = (imperativeLearningPage.transferTasks || []).map(task => task.id);
+  if (!imperativeLearningPage.finalCheck?.answer || !imperativeLearningPage.finalCheck.options?.some(option => option.key === imperativeLearningPage.finalCheck.answer) || transferIds.length !== 4 || !['transfer-context', 'transfer-rewrite', 'transfer-explain', 'transfer-boundary'].every(id => transferIds.includes(id))) fail('1.4.7 learning page lacks required transfer assessment');
+  if ((imperativeLearningPage.summaryTable || []).length !== 4 || imperativeLearningPage.reviewStatus !== 'needs-review' || !(imperativeLearningPage.riskRecord || []).some(risk => risk.includes('OCR'))) fail('1.4.7 learning page must preserve source OCR risk');
+}
+
+if (negativeImperativeLearningPage && sectionToExercises) {
+  const stages = negativeImperativeLearningPage.stages || [];
+  const expectedStageIds = ['stage-prohibition', 'stage-warning', 'stage-counterfactual'];
+  const exerciseIds = [];
+  let checkCount = 0;
+  if (negativeImperativeLearningPage.sectionId !== '1.4.8' || negativeImperativeLearningPage.chapterId !== 'gl1') fail('1.4.8 learning page has an invalid identity');
+  if (stages.map(stage => stage.id).join(',') !== expectedStageIds.join(',')) fail('1.4.8 learning page must preserve prohibition, warning and counterfactual order');
+  if (!negativeImperativeLearningPage.problem || !negativeImperativeLearningPage.scopeNote || !negativeImperativeLearningPage.mindMapIntro || (negativeImperativeLearningPage.mindMap || []).map(item => item.id).join(',') !== expectedStageIds.join(',')) fail('1.4.8 learning page lacks a three-branch decision map');
+  for (const stage of stages) {
+    if (!stage.title || !stage.question || !stage.entry?.ru || !stage.entry?.prompt || (stage.teacherExplanation || []).length < 3) fail(`${stage.id} lacks a complete teaching entry`);
+    if (stage.sourceRule?.sourceType !== 'learning-note' || !stage.sourceRule?.ru || !stage.sourceRule?.zh || stage.sourceEvidence?.sourceType !== 'source-rule' || !stage.sourceEvidence?.ru || !stage.sourceEvidence?.source?.printedPages?.length || !stage.sourceEvidence?.source?.pdfPages?.length) fail(`${stage.id} lacks source separation and page traceability`);
+    if ((stage.sourceExamples || []).length < 2 || stage.sourceExamples.some(example => example.sourceType !== 'source-example' || !example.ru || !example.zh || !example.analysis || !example.source?.printedPages?.length || !example.source?.pdfPages?.length)) fail(`${stage.id} lacks traceable source examples`);
+    if ((stage.contrasts || []).length < 2 || (stage.signals || []).length < 2 || (stage.commonErrors || []).length < 3) fail(`${stage.id} lacks boundaries or minimum contrasts`);
+    for (const check of stage.checks || []) {
+      checkCount += 1;
+      if (!check.id || !check.answer || !check.options?.some(option => option.key === check.answer) || !check.feedback?.correct || !check.feedback?.misconception || !check.feedback?.review || !check.feedback?.contrast || !check.retry?.answer || !check.retry?.options?.some(option => option.key === check.retry.answer)) fail(`${check.id || stage.id} lacks actionable retry feedback`);
+    }
+    exerciseIds.push(...(stage.exerciseIds || []));
+  }
+  if (checkCount !== 6) fail(`1.4.8 learning page must contain 6 stage checks, found ${checkCount}`);
+  const expectedExerciseIds = (sectionToExercises.sections?.['1.4.8']?.mappedIds || []).slice().sort();
+  if (new Set(exerciseIds).size !== exerciseIds.length || exerciseIds.slice().sort().join(',') !== expectedExerciseIds.join(',')) fail('1.4.8 learning page must embed all 6 mapped exercise IDs exactly once');
+  const transferIds = (negativeImperativeLearningPage.transferTasks || []).map(task => task.id);
+  if (!negativeImperativeLearningPage.finalCheck?.answer || !negativeImperativeLearningPage.finalCheck.options?.some(option => option.key === negativeImperativeLearningPage.finalCheck.answer) || transferIds.length !== 4 || !['transfer-context', 'transfer-rewrite', 'transfer-explain', 'transfer-boundary'].every(id => transferIds.includes(id))) fail('1.4.8 learning page lacks required transfer assessment');
+  if ((negativeImperativeLearningPage.summaryTable || []).length !== 4 || negativeImperativeLearningPage.reviewStatus !== 'needs-review' || !(negativeImperativeLearningPage.riskRecord || []).some(risk => risk.includes('OCR'))) fail('1.4.8 learning page must preserve OCR risk');
+}
+
+if (supplementaryAspectReviewPage) {
+  const stages = supplementaryAspectReviewPage.stages || [];
+  const expectedStageIds = ['stage-past-future', 'stage-negative', 'stage-imperative', 'stage-negative-imperative'];
+  const expectedExerciseIds = Array.from({ length: 19 }, (_, index) => `GL1-Q${String(index + 89).padStart(3, '0')}`);
+  const exerciseIds = stages.flatMap(stage => stage.exerciseIds || []);
+  const transferIds = (supplementaryAspectReviewPage.transferTasks || []).map(task => task.id);
+  if (supplementaryAspectReviewPage.pageKind !== 'supplementary' || supplementaryAspectReviewPage.sectionId !== '1.5-review' || supplementaryAspectReviewPage.chapterId !== 'gl1') fail('1.5 review must remain a supplementary Chapter 1 page, not an original theory section');
+  if (stages.map(stage => stage.id).join(',') !== expectedStageIds.join(',') || (supplementaryAspectReviewPage.mindMap || []).map(item => item.id).join(',') !== expectedStageIds.join(',')) fail('1.5 review must retain its four diagnostic routes');
+  for (const stage of stages) {
+    if (!stage.title || !stage.question || !stage.entry?.ru || !stage.entry?.prompt || (stage.teacherExplanation || []).length < 3) fail(`${stage.id} lacks complete review teaching guidance`);
+    if (stage.sourceRule?.sourceType !== 'learning-note' || stage.sourceEvidence?.sourceType !== 'exercise-example' || !stage.sourceEvidence?.source?.printedPages?.length || !stage.sourceEvidence?.source?.pdfPages?.length) fail(`${stage.id} must distinguish supplementary guidance from original exercise evidence`);
+    if ((stage.sourceExamples || []).length < 2 || stage.sourceExamples.some(example => example.sourceType !== 'exercise-example' || !example.source?.printedPages?.length || !example.source?.pdfPages?.length)) fail(`${stage.id} lacks traceable original exercise excerpts`);
+    for (const check of stage.checks || []) if (!check.answer || !check.options?.some(option => option.key === check.answer) || !check.feedback?.misconception || !check.feedback?.review || !check.feedback?.contrast || !check.retry?.answer || !check.retry?.options?.some(option => option.key === check.retry.answer)) fail(`${check.id || stage.id} lacks actionable supplementary feedback and retry`);
+  }
+  if (new Set(exerciseIds).size !== exerciseIds.length || exerciseIds.join(',') !== expectedExerciseIds.join(',')) fail('1.5 review must reuse GL1-Q089-GL1-Q107 exactly once');
+  if (!supplementaryAspectReviewPage.finalCheck?.answer || transferIds.length !== 4 || !['transfer-context', 'transfer-rewrite', 'transfer-explain', 'transfer-boundary'].every(id => transferIds.includes(id))) fail('1.5 review lacks its required transfer assessment');
+  if (supplementaryAspectReviewPage.reviewStatus !== 'needs-review' || !(supplementaryAspectReviewPage.riskRecord || []).some(risk => risk.includes('OCR'))) fail('1.5 review must preserve its OCR review risk');
+}
+
+if (objectGovernmentLearningPage && chapterTwoSectionToExercises) {
+  const stages = objectGovernmentLearningPage.stages || [];
+  const expectedStageIds = ['stage-genitive', 'stage-dative', 'stage-na-acc', 'stage-instrumental', 'stage-frames'];
+  const exerciseIds = stages.flatMap(stage => stage.exerciseIds || []);
+  const expectedExerciseIds = (chapterTwoSectionToExercises.sections?.['2.1']?.mappedIds || []).slice().sort();
+  const transferIds = (objectGovernmentLearningPage.transferTasks || []).map(task => task.id);
+  if (objectGovernmentLearningPage.sectionId !== '2.1' || objectGovernmentLearningPage.chapterId !== 'gl2') fail('2.1 learning page has an invalid identity');
+  if (stages.map(stage => stage.id).join(',') !== expectedStageIds.join(',') || (objectGovernmentLearningPage.mindMap || []).map(item => item.id).join(',') !== expectedStageIds.join(',')) fail('2.1 learning page must preserve its five object-government decision routes');
+  for (const stage of stages) {
+    if (!stage.title || !stage.question || !stage.entry?.ru || !stage.entry?.prompt || (stage.teacherExplanation || []).length < 3) fail(`${stage.id} lacks complete object-government teaching guidance`);
+    if (stage.sourceRule?.sourceType !== 'learning-note' || stage.sourceEvidence?.sourceType !== 'source-table' || !stage.sourceEvidence?.ru || !stage.sourceEvidence?.source?.printedPages?.length || !stage.sourceEvidence?.source?.pdfPages?.length) fail(`${stage.id} lacks separated traceable original table evidence`);
+    if ((stage.sourceExamples || []).length < 2 || stage.sourceExamples.some(example => example.sourceType !== 'source-example' || !example.ru || !example.zh || !example.analysis || !example.source?.printedPages?.length || !example.source?.pdfPages?.length)) fail(`${stage.id} lacks traceable table examples`);
+    if ((stage.contrasts || []).length < 2 || (stage.signals || []).length < 2 || (stage.commonErrors || []).length < 3) fail(`${stage.id} lacks object-government boundaries`);
+    for (const check of stage.checks || []) if (!check.id || !check.answer || !check.options?.some(option => option.key === check.answer) || !check.feedback?.correct || !check.feedback?.misconception || !check.feedback?.review || !check.feedback?.contrast || !check.retry?.answer || !check.retry?.options?.some(option => option.key === check.retry.answer)) fail(`${check.id || stage.id} lacks actionable object-government feedback and retry`);
+  }
+  if (new Set(exerciseIds).size !== exerciseIds.length || exerciseIds.slice().sort().join(',') !== expectedExerciseIds.join(',')) fail('2.1 learning page must embed all 22 mapped exercise IDs exactly once and exclude source-exercise-only items');
+  if (!objectGovernmentLearningPage.finalCheck?.answer || transferIds.length !== 4 || !['transfer-context', 'transfer-rewrite', 'transfer-explain', 'transfer-boundary'].every(id => transferIds.includes(id))) fail('2.1 learning page lacks required transfer assessment');
+  if ((objectGovernmentLearningPage.summaryTable || []).length !== 5 || objectGovernmentLearningPage.reviewStatus !== 'needs-review' || !(objectGovernmentLearningPage.riskRecord || []).some(risk => risk.includes('OCR')) || !(objectGovernmentLearningPage.riskRecord || []).some(risk => risk.includes('GL2-Q003')) || !(objectGovernmentLearningPage.riskRecord || []).some(risk => risk.includes('GL2-Q007')) || !(objectGovernmentLearningPage.riskRecord || []).some(risk => risk.includes('GL2-Q142'))) fail('2.1 learning page must preserve summary, OCR, and source-exercise-only boundaries');
+}
+
+if (instrumentalLearningPage && chapterTwoSectionToExercises) {
+  const stages = instrumentalLearningPage.stages || [];
+  const expectedStageIds = ['stage-feeling', 'stage-accompany', 'stage-quality', 'stage-test', 'stage-boundary'];
+  const exerciseIds = stages.flatMap(stage => stage.exerciseIds || []);
+  const expectedExerciseIds = (chapterTwoSectionToExercises.sections?.['2.3']?.mappedIds || []).slice().sort();
+  const transferIds = (instrumentalLearningPage.transferTasks || []).map(task => task.id);
+  if (instrumentalLearningPage.sectionId !== '2.3' || instrumentalLearningPage.chapterId !== 'gl2') fail('2.3 learning page has an invalid identity');
+  if (stages.map(stage => stage.id).join(',') !== expectedStageIds.join(',') || (instrumentalLearningPage.mindMap || []).map(item => item.id).join(',') !== expectedStageIds.join(',')) fail('2.3 learning page must preserve its five instrumental decision axes');
+  for (const stage of stages) {
+    if (!stage.title || !stage.question || !stage.entry?.ru || !stage.entry?.prompt || (stage.teacherExplanation || []).length < 3) fail(`${stage.id} lacks complete instrumental teaching guidance`);
+    if (stage.sourceRule?.sourceType !== 'source-rule' || !stage.sourceRule?.ru || !stage.sourceRule?.source?.printedPages?.length || !stage.sourceRule?.source?.pdfPages?.length) fail(`${stage.id} lacks traceable original instrumental rule evidence`);
+    if (stage.sourceEvidence?.sourceType !== 'source-example' || !stage.sourceEvidence?.ru || !stage.sourceEvidence?.source?.printedPages?.length || !stage.sourceEvidence?.source?.pdfPages?.length) fail(`${stage.id} lacks traceable original instrumental examples`);
+    if (!stage.sourceExamples?.length || !stage.contrasts?.length || !stage.signals?.length || !stage.commonErrors?.length) fail(`${stage.id} lacks instrumental analysis layers`);
+    for (const check of stage.checks || []) if (!check.id || !check.answer || !check.options?.some(option => option.key === check.answer) || !check.feedback?.correct || !check.feedback?.misconception || !check.feedback?.review || !check.feedback?.contrast || !check.retry?.answer || !check.retry?.options?.some(option => option.key === check.retry.answer)) fail(`${check.id || stage.id} lacks actionable instrumental feedback and retry`);
+  }
+  if (new Set(exerciseIds).size !== exerciseIds.length || exerciseIds.slice().sort().join(',') !== expectedExerciseIds.join(',')) fail('2.3 learning page must embed all 12 mapped exercise IDs exactly once and exclude review/source-only items');
+  if (!instrumentalLearningPage.finalCheck?.answer || transferIds.length !== 4 || !['transfer-context', 'transfer-rewrite', 'transfer-explain', 'transfer-boundary'].every(id => transferIds.includes(id))) fail('2.3 learning page lacks required transfer assessment');
+  const risk = instrumentalLearningPage.riskRecord || [];
+  if ((instrumentalLearningPage.summaryTable || []).length !== 5 || instrumentalLearningPage.reviewStatus !== 'needs-review' || !risk.some(item => item.includes('OCR')) || !risk.some(item => item.includes('GL2-Q036')) || !risk.some(item => item.includes('GL2-Q039')) || !risk.some(item => item.includes('GL2-Q045')) || !risk.some(item => item.includes('GL2-Q046')) || !risk.some(item => item.includes('GL2-Q139'))) fail('2.3 learning page must preserve summary, OCR, review, and source-exercise-only boundaries');
+}
+
+if (bareAttributeLearningPage && chapterTwoSectionToExercises) {
+  const stages = bareAttributeLearningPage.stages || [];
+  const expectedStageIds = ['stage-gate', 'stage-sphere', 'stage-whole', 'stage-quality', 'stage-comparison'];
+  const exerciseIds = stages.flatMap(stage => stage.exerciseIds || []);
+  const expectedExerciseIds = (chapterTwoSectionToExercises.sections?.['2.4.1']?.mappedIds || []).slice().sort();
+  const transferIds = (bareAttributeLearningPage.transferTasks || []).map(task => task.id);
+  if (bareAttributeLearningPage.sectionId !== '2.4.1' || bareAttributeLearningPage.chapterId !== 'gl2') fail('2.4.1 learning page has an invalid identity');
+  if (stages.map(stage => stage.id).join(',') !== expectedStageIds.join(',') || (bareAttributeLearningPage.mindMap || []).map(item => item.id).join(',') !== expectedStageIds.join(',')) fail('2.4.1 learning page must preserve its five bare-attribute decision axes');
+  for (const stage of stages) {
+    if (!stage.title || !stage.question || !stage.entry?.ru || !stage.entry?.prompt || (stage.teacherExplanation || []).length < 3) fail(`${stage.id} lacks complete bare-attribute teaching guidance`);
+    if (!['source-table', 'source-rule'].includes(stage.sourceRule?.sourceType) || !stage.sourceRule?.ru || !stage.sourceRule?.source?.printedPages?.length || !stage.sourceRule?.source?.pdfPages?.length) fail(`${stage.id} lacks traceable original bare-attribute rule evidence`);
+    if (!['source-table', 'source-example'].includes(stage.sourceEvidence?.sourceType) || !stage.sourceEvidence?.ru || !stage.sourceEvidence?.source?.printedPages?.length || !stage.sourceEvidence?.source?.pdfPages?.length) fail(`${stage.id} lacks traceable original bare-attribute examples`);
+    if (!stage.sourceExamples?.length || !stage.contrasts?.length || !stage.signals?.length || !stage.commonErrors?.length) fail(`${stage.id} lacks bare-attribute analysis layers`);
+    for (const check of stage.checks || []) if (!check.id || !check.answer || !check.options?.some(option => option.key === check.answer) || !check.feedback?.correct || !check.feedback?.misconception || !check.feedback?.review || !check.feedback?.contrast || !check.retry?.answer || !check.retry?.options?.some(option => option.key === check.retry.answer)) fail(`${check.id || stage.id} lacks actionable bare-attribute feedback and retry`);
+  }
+  if (new Set(exerciseIds).size !== exerciseIds.length || exerciseIds.slice().sort().join(',') !== expectedExerciseIds.join(',')) fail('2.4.1 learning page must embed all 7 mapped exercise IDs exactly once');
+  if (!bareAttributeLearningPage.finalCheck?.answer || transferIds.length !== 4 || !['transfer-context', 'transfer-rewrite', 'transfer-explain', 'transfer-boundary'].every(id => transferIds.includes(id))) fail('2.4.1 learning page lacks required transfer assessment');
+  if ((bareAttributeLearningPage.summaryTable || []).length !== 5 || bareAttributeLearningPage.reviewStatus !== 'needs-review' || !(bareAttributeLearningPage.riskRecord || []).some(item => item.includes('OCR'))) fail('2.4.1 learning page must preserve summary and OCR review risk');
+}
+
+if (prepositionalAttributeLearningPage && chapterTwoSectionToExercises) {
+  const stages = prepositionalAttributeLearningPage.stages || [];
+  const expectedStageIds = ['stage-material', 'stage-acc', 'stage-feature-space', 'stage-infinitive', 'stage-boundary'];
+  const exerciseIds = stages.flatMap(stage => stage.exerciseIds || []);
+  const expectedExerciseIds = (chapterTwoSectionToExercises.sections?.['2.4.2']?.mappedIds || []).slice().sort();
+  const transferIds = (prepositionalAttributeLearningPage.transferTasks || []).map(task => task.id);
+  if (prepositionalAttributeLearningPage.sectionId !== '2.4.2' || prepositionalAttributeLearningPage.chapterId !== 'gl2') fail('2.4.2 learning page has an invalid identity');
+  if (stages.map(stage => stage.id).join(',') !== expectedStageIds.join(',') || (prepositionalAttributeLearningPage.mindMap || []).map(item => item.id).join(',') !== expectedStageIds.join(',')) fail('2.4.2 learning page must preserve its five prepositional-attribute decision axes');
+  for (const stage of stages) {
+    if (!stage.title || !stage.question || !stage.entry?.ru || !stage.entry?.prompt || (stage.teacherExplanation || []).length < 3) fail(`${stage.id} lacks complete prepositional-attribute teaching guidance`);
+    if (!['source-table', 'source-rule'].includes(stage.sourceRule?.sourceType) || !stage.sourceRule?.ru || !stage.sourceRule?.source?.printedPages?.length || !stage.sourceRule?.source?.pdfPages?.length) fail(`${stage.id} lacks traceable original prepositional-attribute rule evidence`);
+    if (!['source-table', 'source-example', 'exercise-example'].includes(stage.sourceEvidence?.sourceType) || !stage.sourceEvidence?.ru || !stage.sourceEvidence?.source?.printedPages?.length || !stage.sourceEvidence?.source?.pdfPages?.length) fail(`${stage.id} lacks traceable original prepositional-attribute examples`);
+    if (!stage.sourceExamples?.length || !stage.contrasts?.length || !stage.signals?.length || !stage.commonErrors?.length) fail(`${stage.id} lacks prepositional-attribute analysis layers`);
+    for (const check of stage.checks || []) if (!check.id || !check.answer || !check.options?.some(option => option.key === check.answer) || !check.feedback?.correct || !check.feedback?.misconception || !check.feedback?.review || !check.feedback?.contrast || !check.retry?.answer || !check.retry?.options?.some(option => option.key === check.retry.answer)) fail(`${check.id || stage.id} lacks actionable prepositional-attribute feedback and retry`);
+  }
+  if (new Set(exerciseIds).size !== exerciseIds.length || exerciseIds.slice().sort().join(',') !== expectedExerciseIds.join(',')) fail('2.4.2 learning page must embed all 15 mapped exercise IDs exactly once and exclude needs-review items');
+  if (!prepositionalAttributeLearningPage.finalCheck?.answer || transferIds.length !== 4 || !['transfer-context', 'transfer-rewrite', 'transfer-explain', 'transfer-boundary'].every(id => transferIds.includes(id))) fail('2.4.2 learning page lacks required transfer assessment');
+  if ((prepositionalAttributeLearningPage.summaryTable || []).length !== 5 || prepositionalAttributeLearningPage.reviewStatus !== 'needs-review' || !(prepositionalAttributeLearningPage.riskRecord || []).some(item => item.includes('OCR')) || !(prepositionalAttributeLearningPage.riskRecord || []).some(item => item.includes('GL2-Q062'))) fail('2.4.2 learning page must preserve summary, OCR, and needs-review boundary');
+}
+
+if (attributeOverviewLearningPage && chapterTwoSectionToExercises) {
+  const stages = attributeOverviewLearningPage.stages || [];
+  const expectedStageIds = ['stage-head', 'stage-bare', 'stage-prep', 'stage-inf', 'stage-boundary'];
+  const exerciseIds = stages.flatMap(stage => stage.exerciseIds || []);
+  const expectedExerciseIds = (chapterTwoSectionToExercises.sections?.['2.4']?.mappedIds || []).slice().sort();
+  if (attributeOverviewLearningPage.sectionId !== '2.4' || attributeOverviewLearningPage.chapterId !== 'gl2') fail('2.4 learning page has an invalid identity');
+  if (stages.map(stage => stage.id).join(',') !== expectedStageIds.join(',') || (attributeOverviewLearningPage.mindMap || []).map(item => item.id).join(',') !== expectedStageIds.join(',')) fail('2.4 learning page must preserve its five relationship-routing axes');
+  for (const stage of stages) {
+    if (!stage.entry?.ru || !stage.entry?.prompt || (stage.teacherExplanation || []).length < 3 || !stage.sourceRule?.source?.printedPages?.length || !stage.sourceEvidence?.source?.pdfPages?.length || !stage.sourceExamples?.length || !stage.contrasts?.length || !stage.signals?.length || !stage.commonErrors?.length) fail(`${stage.id} lacks complete overview teaching layers`);
+    for (const check of stage.checks || []) if (!check.feedback?.correct || !check.feedback?.misconception || !check.feedback?.review || !check.feedback?.contrast || !check.retry?.answer) fail(`${check.id || stage.id} lacks overview feedback and retry`);
+  }
+  if (new Set(exerciseIds).size !== exerciseIds.length || exerciseIds.slice().sort().join(',') !== expectedExerciseIds.join(',')) fail('2.4 learning page must embed all 21 mapped exercise IDs exactly once and exclude GL2-Q062');
+  if ((attributeOverviewLearningPage.transferTasks || []).length !== 4 || attributeOverviewLearningPage.reviewStatus !== 'needs-review' || !(attributeOverviewLearningPage.riskRecord || []).some(item => item.includes('GL2-Q062'))) fail('2.4 learning page must preserve transfer and needs-review boundary');
+}
+
+if (timeRelationsLearningPage && chapterTwoSectionToExercises) {
+  const stages = timeRelationsLearningPage.stages || [];
+  const expectedStageIds = ['stage-period', 'stage-frequency', 'stage-duration', 'stage-sequence', 'stage-boundary'];
+  const exerciseIds = stages.flatMap(stage => stage.exerciseIds || []);
+  const expectedExerciseIds = (chapterTwoSectionToExercises.sections?.['2.5']?.mappedIds || []).slice().sort();
+  const transferIds = (timeRelationsLearningPage.transferTasks || []).map(task => task.id);
+  const excludedIds = ['GL2-Q070', 'GL2-Q089', 'GL2-Q137'];
+  if (timeRelationsLearningPage.sectionId !== '2.5' || timeRelationsLearningPage.chapterId !== 'gl2') fail('2.5 learning page has an invalid identity');
+  if (stages.map(stage => stage.id).join(',') !== expectedStageIds.join(',') || (timeRelationsLearningPage.mindMap || []).map(item => item.id).join(',') !== expectedStageIds.join(',')) fail('2.5 learning page must preserve its five time-relation decision axes');
+  for (const stage of stages) {
+    if (!stage.title || !stage.question || !stage.entry?.ru || !stage.entry?.prompt || (stage.teacherExplanation || []).length < 3) fail(`${stage.id} lacks complete time-relation teaching guidance`);
+    if (stage.sourceRule?.sourceType !== 'source-rule' || !stage.sourceRule?.ru || !stage.sourceRule?.source?.printedPages?.length || !stage.sourceRule?.source?.pdfPages?.length) fail(`${stage.id} lacks traceable original time-relation rule evidence`);
+    if (!['source-example', 'source-table', 'exercise-example'].includes(stage.sourceEvidence?.sourceType) || !stage.sourceEvidence?.ru || !stage.sourceEvidence?.source?.printedPages?.length || !stage.sourceEvidence?.source?.pdfPages?.length) fail(`${stage.id} lacks traceable original time-relation examples`);
+    if (!stage.sourceExamples?.length || !stage.contrasts?.length || !stage.signals?.length || !stage.commonErrors?.length) fail(`${stage.id} lacks time-relation analysis layers`);
+    for (const check of stage.checks || []) if (!check.id || !check.answer || !check.options?.some(option => option.key === check.answer) || !check.feedback?.correct || !check.feedback?.misconception || !check.feedback?.review || !check.feedback?.contrast || !check.retry?.answer || !check.retry?.options?.some(option => option.key === check.retry.answer)) fail(`${check.id || stage.id} lacks actionable time-relation feedback and retry`);
+  }
+  if (new Set(exerciseIds).size !== exerciseIds.length || exerciseIds.slice().sort().join(',') !== expectedExerciseIds.join(',')) fail('2.5 learning page must embed all 24 mapped exercise IDs exactly once');
+  if (excludedIds.some(id => exerciseIds.includes(id))) fail('2.5 learning page must exclude GL2-Q070, GL2-Q089, and GL2-Q137 from formal practice');
+  if (!timeRelationsLearningPage.finalCheck?.answer || transferIds.length !== 4 || !['transfer-context', 'transfer-rewrite', 'transfer-explain', 'transfer-boundary'].every(id => transferIds.includes(id))) fail('2.5 learning page lacks required transfer assessment');
+  const risk = timeRelationsLearningPage.riskRecord || [];
+  if ((timeRelationsLearningPage.summaryTable || []).length !== 5 || timeRelationsLearningPage.reviewStatus !== 'needs-review' || !risk.some(item => item.includes('OCR')) || !risk.some(item => item.includes('GL2-Q070')) || !risk.some(item => item.includes('GL2-Q089')) || !risk.some(item => item.includes('GL2-Q137'))) fail('2.5 learning page must preserve summary, OCR, and excluded-formal-item boundaries');
+}
+
+if (spatialRelationsLearningPage && chapterTwoSectionToExercises) {
+  const stages = spatialRelationsLearningPage.stages || [];
+  const expectedStageIds = ['stage-gate', 'stage-pairs', 'stage-person', 'stage-shape', 'stage-boundary'];
+  const exerciseIds = stages.flatMap(stage => stage.exerciseIds || []);
+  const expectedExerciseIds = (chapterTwoSectionToExercises.sections?.['2.6']?.mappedIds || []).slice().sort();
+  const transferIds = (spatialRelationsLearningPage.transferTasks || []).map(task => task.id);
+  if (spatialRelationsLearningPage.sectionId !== '2.6' || spatialRelationsLearningPage.chapterId !== 'gl2') fail('2.6 learning page has an invalid identity');
+  if (stages.map(stage => stage.id).join(',') !== expectedStageIds.join(',') || (spatialRelationsLearningPage.decisionAxes || []).map(axis => axis.id).join(',') !== expectedStageIds.join(',')) fail('2.6 learning page must preserve its five spatial decision axes');
+  if (!spatialRelationsLearningPage.entryGate?.items?.length || !spatialRelationsLearningPage.mindMapDescription) fail('2.6 learning page must use a space-question gate instead of a flat rule list');
+  for (const stage of stages) {
+    if (!stage.title || !stage.question || !stage.entry?.ru || !stage.entry?.prompt || (stage.teacherExplanation || []).length < 3) fail(`${stage.id} lacks complete spatial teaching guidance`);
+    if (stage.sourceRule?.sourceType !== 'source-rule' || !stage.sourceRule?.ru || !stage.sourceRule?.source?.printedPages?.length || !stage.sourceRule?.source?.pdfPages?.length) fail(`${stage.id} lacks traceable original spatial rule evidence`);
+    if (!['source-example', 'source-table', 'exercise-example'].includes(stage.sourceEvidence?.sourceType) || !stage.sourceEvidence?.ru || !stage.sourceEvidence?.source?.printedPages?.length || !stage.sourceEvidence?.source?.pdfPages?.length) fail(`${stage.id} lacks traceable original spatial examples`);
+    if (!stage.sourceExamples?.length || !stage.sourceExamples.some(example => ['source-example', 'source-table'].includes(example.sourceType) && example.source?.printedPages?.length && example.source?.pdfPages?.length) || !stage.contrasts?.length || !stage.signals?.length || !stage.commonErrors?.length) fail(`${stage.id} lacks separated spatial analysis layers`);
+    for (const check of stage.checks || []) if (!check.id || !check.answer || !check.options?.some(option => option.key === check.answer) || !check.feedback?.correct || !check.feedback?.misconception || !check.feedback?.review || !check.feedback?.contrast || !check.retry?.answer || !check.retry?.options?.some(option => option.key === check.retry.answer)) fail(`${check.id || stage.id} lacks actionable spatial feedback and retry`);
+  }
+  if (new Set(exerciseIds).size !== exerciseIds.length || exerciseIds.slice().sort().join(',') !== expectedExerciseIds.join(',')) fail('2.6 learning page must embed all 17 mapped exercise IDs exactly once');
+  if (exerciseIds.includes('GL2-Q099')) fail('2.6 learning page must exclude GL2-Q099 from formal practice');
+  if (!spatialRelationsLearningPage.finalCheck?.answer || transferIds.length !== 4 || !['transfer-context', 'transfer-rewrite', 'transfer-explain', 'transfer-boundary'].every(id => transferIds.includes(id))) fail('2.6 learning page lacks required transfer assessment');
+  const risk = spatialRelationsLearningPage.riskRecord || [];
+  if ((spatialRelationsLearningPage.summaryTable || []).length !== 5 || spatialRelationsLearningPage.reviewStatus !== 'needs-review' || !risk.some(item => item.includes('OCR')) || !risk.some(item => item.includes('GL2-Q099')) || !risk.some(item => item.includes('2.4.2'))) fail('2.6 learning page must preserve summary, OCR, source-only, and cross-section boundaries');
+}
+
+if (causalRelationsLearningPage && chapterTwoSectionToExercises) {
+  const stages = causalRelationsLearningPage.stages || [];
+  const expectedStageIds = ['stage-valence', 'stage-agency', 'stage-condition', 'stage-result', 'stage-boundary'];
+  const exerciseIds = stages.flatMap(stage => stage.exerciseIds || []);
+  const expectedExerciseIds = (chapterTwoSectionToExercises.sections?.['2.7']?.mappedIds || []).slice().sort();
+  const transferIds = (causalRelationsLearningPage.transferTasks || []).map(task => task.id);
+  if (causalRelationsLearningPage.sectionId !== '2.7' || causalRelationsLearningPage.chapterId !== 'gl2') fail('2.7 learning page has an invalid identity');
+  if (stages.map(stage => stage.id).join(',') !== expectedStageIds.join(',') || (causalRelationsLearningPage.decisionAxes || []).map(axis => axis.id).join(',') !== expectedStageIds.join(',')) fail('2.7 learning page must preserve its five causal decision axes');
+  if (!causalRelationsLearningPage.entryGate?.items?.length || !causalRelationsLearningPage.mindMapDescription) fail('2.7 learning page must use a cause-nature gate instead of a flat preposition list');
+  for (const stage of stages) {
+    if (!stage.title || !stage.question || !stage.entry?.ru || !stage.entry?.prompt || (stage.teacherExplanation || []).length < 3) fail(`${stage.id} lacks complete causal teaching guidance`);
+    if (stage.sourceRule?.sourceType !== 'source-rule' || !stage.sourceRule?.ru || !stage.sourceRule?.source?.printedPages?.length || !stage.sourceRule?.source?.pdfPages?.length) fail(`${stage.id} lacks traceable original causal rule evidence`);
+    if (!['source-example', 'source-table', 'exercise-example'].includes(stage.sourceEvidence?.sourceType) || !stage.sourceEvidence?.ru || !stage.sourceEvidence?.source?.printedPages?.length || !stage.sourceEvidence?.source?.pdfPages?.length) fail(`${stage.id} lacks traceable original causal examples`);
+    if (!stage.sourceExamples?.length || !stage.sourceExamples.some(example => example.sourceType === 'source-example' && example.source?.printedPages?.length && example.source?.pdfPages?.length) || !stage.contrasts?.length || !stage.signals?.length || !stage.commonErrors?.length) fail(`${stage.id} lacks separated causal analysis layers`);
+    for (const check of stage.checks || []) if (!check.id || !check.answer || !check.options?.some(option => option.key === check.answer) || !check.feedback?.correct || !check.feedback?.misconception || !check.feedback?.review || !check.feedback?.contrast || !check.retry?.answer || !check.retry?.options?.some(option => option.key === check.retry.answer)) fail(`${check.id || stage.id} lacks actionable causal feedback and retry`);
+  }
+  if (new Set(exerciseIds).size !== exerciseIds.length || exerciseIds.slice().sort().join(',') !== expectedExerciseIds.join(',')) fail('2.7 learning page must embed all 15 mapped exercise IDs exactly once');
+  if (!causalRelationsLearningPage.finalCheck?.answer || transferIds.length !== 4 || !['transfer-context', 'transfer-rewrite', 'transfer-explain', 'transfer-boundary'].every(id => transferIds.includes(id))) fail('2.7 learning page lacks required transfer assessment');
+  const risk = causalRelationsLearningPage.riskRecord || [];
+  if ((causalRelationsLearningPage.summaryTable || []).length !== 5 || causalRelationsLearningPage.reviewStatus !== 'needs-review' || !risk.some(item => item.includes('OCR')) || !risk.some(item => item.includes('с(со)'))) fail('2.7 learning page must preserve summary, OCR, and colloquial-boundary risks');
+}
+
+if (goalRelationsLearningPage && chapterTwoSectionToExercises) {
+  const stages = goalRelationsLearningPage.stages || [];
+  const expectedStageIds = ['stage-gate', 'stage-dlya', 'stage-verb', 'stage-contrast', 'stage-boundary'];
+  const exerciseIds = stages.flatMap(stage => stage.exerciseIds || []);
+  const expectedExerciseIds = (chapterTwoSectionToExercises.sections?.['2.8']?.mappedIds || []).slice().sort();
+  const transferIds = (goalRelationsLearningPage.transferTasks || []).map(task => task.id);
+  const excludedIds = ['GL2-Q124', 'GL2-Q125', 'GL2-Q126', 'GL2-Q127', 'GL2-Q129', 'GL2-Q130', 'GL2-Q131', 'GL2-Q132', 'GL2-Q134', 'GL2-Q136'];
+  if (goalRelationsLearningPage.sectionId !== '2.8' || goalRelationsLearningPage.chapterId !== 'gl2') fail('2.8 learning page has an invalid identity');
+  if (stages.map(stage => stage.id).join(',') !== expectedStageIds.join(',') || (goalRelationsLearningPage.decisionAxes || []).map(axis => axis.id).join(',') !== expectedStageIds.join(',')) fail('2.8 learning page must preserve its five goal-relation decision axes');
+  if (!goalRelationsLearningPage.entryGate?.items?.length || !goalRelationsLearningPage.mindMapDescription) fail('2.8 learning page must use a purpose gate instead of a flat preposition list');
+  for (const stage of stages) {
+    if (!stage.title || !stage.question || !stage.entry?.ru || !stage.entry?.prompt || (stage.teacherExplanation || []).length < 3) fail(`${stage.id} lacks complete goal-relation teaching guidance`);
+    if (stage.sourceRule?.sourceType !== 'source-rule' || !stage.sourceRule?.ru || !stage.sourceRule?.source?.printedPages?.length || !stage.sourceRule?.source?.pdfPages?.length) fail(`${stage.id} lacks traceable original goal-rule evidence`);
+    if (!['source-example', 'source-table', 'exercise-example'].includes(stage.sourceEvidence?.sourceType) || !stage.sourceEvidence?.ru || !stage.sourceEvidence?.source?.printedPages?.length || !stage.sourceEvidence?.source?.pdfPages?.length) fail(`${stage.id} lacks traceable original goal examples`);
+    if (!stage.sourceExamples?.length || !stage.sourceExamples.some(example => example.sourceType === 'source-example' && example.source?.printedPages?.length && example.source?.pdfPages?.length) || !stage.contrasts?.length || !stage.signals?.length || !stage.commonErrors?.length) fail(`${stage.id} lacks separated goal analysis layers`);
+    for (const check of stage.checks || []) if (!check.id || !check.answer || !check.options?.some(option => option.key === check.answer) || !check.feedback?.correct || !check.feedback?.misconception || !check.feedback?.review || !check.feedback?.contrast || !check.retry?.answer || !check.retry?.options?.some(option => option.key === check.retry.answer)) fail(`${check.id || stage.id} lacks actionable goal feedback and retry`);
+  }
+  if (new Set(exerciseIds).size !== exerciseIds.length || exerciseIds.slice().sort().join(',') !== expectedExerciseIds.join(',')) fail('2.8 learning page must embed all 4 mapped exercise IDs exactly once');
+  if (excludedIds.some(id => exerciseIds.includes(id))) fail('2.8 learning page must exclude all needs-review goal exercises from formal practice');
+  if (!goalRelationsLearningPage.finalCheck?.answer || transferIds.length !== 4 || !['transfer-context', 'transfer-rewrite', 'transfer-explain', 'transfer-boundary'].every(id => transferIds.includes(id))) fail('2.8 learning page lacks required transfer assessment');
+  const risk = goalRelationsLearningPage.riskRecord || [];
+  if ((goalRelationsLearningPage.summaryTable || []).length !== 5 || goalRelationsLearningPage.reviewStatus !== 'needs-review' || !risk.some(item => item.includes('OCR')) || !risk.some(item => item.includes('GL2-Q124')) || !risk.some(item => item.includes('ради、за、на'))) fail('2.8 learning page must preserve summary, OCR, and needs-review boundaries');
+}
+
+if (gerundOverviewLearningPage && chapterThreeSectionToExercises) {
+  const stages = gerundOverviewLearningPage.stages || [];
+  const expectedStageIds = ['stage-subject', 'stage-personal', 'stage-implicit', 'stage-impersonal', 'stage-boundary'];
+  const exerciseIds = stages.flatMap(stage => stage.exerciseIds || []);
+  const expectedExerciseIds = (chapterThreeSectionToExercises.sections?.['3.1']?.mappedIds || []).slice().sort();
+  const transferIds = (gerundOverviewLearningPage.transferTasks || []).map(task => task.id);
+  if (gerundOverviewLearningPage.sectionId !== '3.1' || gerundOverviewLearningPage.chapterId !== 'gl3') fail('3.1 learning page has an invalid identity');
+  if (stages.map(stage => stage.id).join(',') !== expectedStageIds.join(',') || (gerundOverviewLearningPage.decisionAxes || []).map(axis => axis.id).join(',') !== expectedStageIds.join(',')) fail('3.1 learning page must preserve its five subject-routing decision axes');
+  if (!gerundOverviewLearningPage.entryGate?.items?.length || !gerundOverviewLearningPage.mindMapDescription) fail('3.1 learning page must use a subject-consistency gate instead of a flat gerund list');
+  for (const stage of stages) {
+    if (!stage.title || !stage.question || !stage.entry?.ru || !stage.entry?.prompt || (stage.teacherExplanation || []).length < 3) fail(`${stage.id} lacks complete gerund teaching guidance`);
+    if (stage.sourceRule?.sourceType !== 'source-rule' || !stage.sourceRule?.ru || !stage.sourceRule?.source?.printedPages?.length || !stage.sourceRule?.source?.pdfPages?.length) fail(`${stage.id} lacks traceable original gerund-rule evidence`);
+    if (!['source-example', 'source-table', 'exercise-example'].includes(stage.sourceEvidence?.sourceType) || !stage.sourceEvidence?.ru || !stage.sourceEvidence?.source?.printedPages?.length || !stage.sourceEvidence?.source?.pdfPages?.length) fail(`${stage.id} lacks traceable original gerund examples`);
+    if (!stage.sourceExamples?.length || !stage.sourceExamples.some(example => example.sourceType === 'source-example' && example.source?.printedPages?.length && example.source?.pdfPages?.length) || !stage.contrasts?.length || !stage.signals?.length || !stage.commonErrors?.length) fail(`${stage.id} lacks separated gerund analysis layers`);
+    for (const check of stage.checks || []) if (!check.id || !check.answer || !check.options?.some(option => option.key === check.answer) || !check.feedback?.correct || !check.feedback?.misconception || !check.feedback?.review || !check.feedback?.contrast || !check.retry?.answer || !check.retry?.options?.some(option => option.key === check.retry.answer)) fail(`${check.id || stage.id} lacks actionable gerund feedback and retry`);
+  }
+  if (new Set(exerciseIds).size !== exerciseIds.length || exerciseIds.slice().sort().join(',') !== expectedExerciseIds.join(',')) fail('3.1 learning page must embed all 35 mapped exercise IDs exactly once');
+  if (exerciseIds.includes('GL3-Q039')) fail('3.1 learning page must exclude GL3-Q039 from formal practice while it remains needs-review');
+  if (!gerundOverviewLearningPage.finalCheck?.answer || transferIds.length !== 4 || !['gerund-transfer-context', 'gerund-transfer-rewrite', 'gerund-transfer-explain', 'gerund-transfer-boundary'].every(id => transferIds.includes(id))) fail('3.1 learning page lacks required transfer assessment');
+  const risk = gerundOverviewLearningPage.riskRecord || [];
+  if ((gerundOverviewLearningPage.summaryTable || []).length !== 5 || gerundOverviewLearningPage.reviewStatus !== 'needs-review' || !risk.some(item => item.includes('OCR')) || !risk.some(item => item.includes('GL3-Q039')) || !risk.some(item => item.includes('source-exercise-only'))) fail('3.1 learning page must preserve summary, OCR, Q039, and source-only boundaries');
+}
+
+if (gerundAllowedLearningPage && chapterThreeSectionToExercises) {
+  const stages = gerundAllowedLearningPage.stages || [];
+  const expectedStageIds = ['stage-explicit', 'stage-personal', 'stage-impersonal', 'stage-predicate', 'stage-rewrite'];
+  const exerciseIds = stages.flatMap(stage => stage.exerciseIds || []);
+  const expectedExerciseIds = (chapterThreeSectionToExercises.sections?.['3.1.1']?.mappedIds || []).slice().sort();
+  const transferIds = (gerundAllowedLearningPage.transferTasks || []).map(task => task.id);
+  if (gerundAllowedLearningPage.sectionId !== '3.1.1' || gerundAllowedLearningPage.chapterId !== 'gl3') fail('3.1.1 learning page has an invalid identity');
+  if (stages.map(stage => stage.id).join(',') !== expectedStageIds.join(',') || (gerundAllowedLearningPage.decisionAxes || []).map(axis => axis.id).join(',') !== expectedStageIds.join(',')) fail('3.1.1 learning page must preserve its five allowed-use decision axes');
+  if (!gerundAllowedLearningPage.entryGate?.items?.length || !gerundAllowedLearningPage.mindMapDescription) fail('3.1.1 learning page must use a shared-subject entry gate');
+  for (const stage of stages) {
+    if (!stage.title || !stage.question || !stage.entry?.ru || !stage.entry?.prompt || (stage.teacherExplanation || []).length < 3) fail(`${stage.id} lacks complete allowed-gerund teaching guidance`);
+    if (stage.sourceRule?.sourceType !== 'source-rule' || !stage.sourceRule?.ru || !stage.sourceRule?.source?.printedPages?.length || !stage.sourceRule?.source?.pdfPages?.length) fail(`${stage.id} lacks traceable allowed-gerund rule evidence`);
+    if (!['source-rule', 'source-example', 'source-table', 'exercise-example'].includes(stage.sourceEvidence?.sourceType) || !stage.sourceEvidence?.ru || !stage.sourceEvidence?.source?.printedPages?.length || !stage.sourceEvidence?.source?.pdfPages?.length) fail(`${stage.id} lacks traceable allowed-gerund examples`);
+    if (!stage.sourceExamples?.length || !stage.sourceExamples.some(example => example.source?.printedPages?.length && example.source?.pdfPages?.length) || !stage.contrasts?.length || !stage.signals?.length || !stage.commonErrors?.length) fail(`${stage.id} lacks separated allowed-gerund analysis layers`);
+    for (const check of stage.checks || []) if (!check.id || !check.answer || !check.options?.some(option => option.key === check.answer) || !check.feedback?.correct || !check.feedback?.misconception || !check.feedback?.review || !check.feedback?.contrast || !check.retry?.answer || !check.retry?.options?.some(option => option.key === check.retry.answer)) fail(`${check.id || stage.id} lacks actionable allowed-gerund feedback and retry`);
+  }
+  if (new Set(exerciseIds).size !== exerciseIds.length || exerciseIds.slice().sort().join(',') !== expectedExerciseIds.join(',')) fail('3.1.1 learning page must embed all 35 mapped exercise IDs exactly once');
+  if (exerciseIds.includes('GL3-Q039')) fail('3.1.1 learning page must exclude GL3-Q039 from formal practice');
+  if (!gerundAllowedLearningPage.finalCheck?.answer || transferIds.length !== 4 || !['allowed-transfer-context', 'allowed-transfer-rewrite', 'allowed-transfer-explain', 'allowed-transfer-boundary'].every(id => transferIds.includes(id))) fail('3.1.1 learning page lacks required transfer assessment');
+  const risk = gerundAllowedLearningPage.riskRecord || [];
+  if ((gerundAllowedLearningPage.summaryTable || []).length !== 5 || gerundAllowedLearningPage.reviewStatus !== 'needs-review' || !risk.some(item => item.includes('OCR')) || !risk.some(item => item.includes('GL3-Q039')) || !risk.some(item => item.includes('source-exercise-only'))) fail('3.1.1 learning page must preserve summary, OCR, Q039, and source-only boundaries');
+}
+
+if (gerundForbiddenLearningPage && chapterThreeSectionToExercises) {
+  const stages = gerundForbiddenLearningPage.stages || [];
+  const expectedStageIds = ['stage-two-subjects', 'stage-impersonal', 'stage-passive', 'stage-rewrite', 'stage-review'];
+  const exerciseIds = stages.flatMap(stage => stage.exerciseIds || []);
+  const transferIds = (gerundForbiddenLearningPage.transferTasks || []).map(task => task.id);
+  if (gerundForbiddenLearningPage.sectionId !== '3.1.2' || gerundForbiddenLearningPage.chapterId !== 'gl3') fail('3.1.2 learning page has an invalid identity');
+  if (stages.map(stage => stage.id).join(',') !== expectedStageIds.join(',') || (gerundForbiddenLearningPage.decisionAxes || []).map(axis => axis.id).join(',') !== expectedStageIds.join(',')) fail('3.1.2 learning page must preserve its five prohibition decision axes');
+  if (!gerundForbiddenLearningPage.entryGate?.items?.length || !gerundForbiddenLearningPage.mindMapDescription) fail('3.1.2 learning page must use a responsibility-break entry gate');
+  for (const stage of stages) {
+    if (!stage.title || !stage.question || !stage.entry?.ru || !stage.entry?.prompt || (stage.teacherExplanation || []).length < 3) fail(`${stage.id} lacks complete forbidden-gerund teaching guidance`);
+    if (stage.sourceRule?.sourceType !== 'source-rule' || !stage.sourceRule?.ru || !stage.sourceRule?.source?.printedPages?.length || !stage.sourceRule?.source?.pdfPages?.length) fail(`${stage.id} lacks traceable forbidden-gerund rule evidence`);
+    if (!['source-rule', 'source-example', 'source-table', 'exercise-example'].includes(stage.sourceEvidence?.sourceType) || !stage.sourceEvidence?.ru || !stage.sourceEvidence?.source?.printedPages?.length || !stage.sourceEvidence?.source?.pdfPages?.length) fail(`${stage.id} lacks traceable forbidden-gerund examples`);
+    if (!stage.sourceExamples?.length || !stage.sourceExamples.some(example => example.source?.printedPages?.length && example.source?.pdfPages?.length) || !stage.contrasts?.length || !stage.signals?.length || !stage.commonErrors?.length) fail(`${stage.id} lacks separated forbidden-gerund analysis layers`);
+    for (const check of stage.checks || []) if (!check.id || !check.answer || !check.options?.some(option => option.key === check.answer) || !check.feedback?.correct || !check.feedback?.misconception || !check.feedback?.review || !check.feedback?.contrast || !check.retry?.answer || !check.retry?.options?.some(option => option.key === check.retry.answer)) fail(`${check.id || stage.id} lacks actionable forbidden-gerund feedback and retry`);
+  }
+  if (exerciseIds.length !== 0 || (chapterThreeSectionToExercises.sections?.['3.1.2']?.mappedIds || []).length !== 0) fail('3.1.2 learning page must not invent formal practice when only Q039 is needs-review');
+  if (!gerundForbiddenLearningPage.finalCheck?.answer || transferIds.length !== 4 || !['forbidden-transfer-context', 'forbidden-transfer-rewrite', 'forbidden-transfer-explain', 'forbidden-transfer-boundary'].every(id => transferIds.includes(id))) fail('3.1.2 learning page lacks required transfer assessment');
+  const risk = gerundForbiddenLearningPage.riskRecord || [];
+  if ((gerundForbiddenLearningPage.summaryTable || []).length !== 5 || gerundForbiddenLearningPage.reviewStatus !== 'needs-review' || !risk.some(item => item.includes('OCR')) || !risk.some(item => item.includes('GL3-Q039')) || !risk.some(item => item.includes('没有 mapped 正式题'))) fail('3.1.2 learning page must preserve summary, OCR, Q039, and zero-official-practice boundaries');
+}
+
+if (conjunctionLearningPage && chapterFourSectionToExercises) {
+  const stages = conjunctionLearningPage.stages || [];
+  const expectedStageIds = ['stage-link', 'stage-contrast', 'stage-compensation', 'stage-distribution', 'stage-inventory'];
+  const exerciseIds = stages.flatMap(stage => stage.exerciseIds || []);
+  const expectedExerciseIds = (chapterFourSectionToExercises.sections?.['4.1']?.mappedIds || []).slice().sort();
+  const transferIds = (conjunctionLearningPage.transferTasks || []).map(task => task.id);
+  if (conjunctionLearningPage.sectionId !== '4.1' || conjunctionLearningPage.chapterId !== 'gl4') fail('4.1 learning page has an invalid identity');
+  if (stages.map(stage => stage.id).join(',') !== expectedStageIds.join(',') || (conjunctionLearningPage.decisionAxes || []).map(axis => axis.id).join(',') !== expectedStageIds.join(',')) fail('4.1 learning page must preserve its five clause-relation decision axes');
+  if (!conjunctionLearningPage.entryGate?.items?.length || !conjunctionLearningPage.mindMapDescription) fail('4.1 learning page must use a clause-relation entry gate instead of a flat conjunction list');
+  for (const stage of stages) {
+    if (!stage.title || !stage.question || !stage.entry?.ru || !stage.entry?.prompt || (stage.teacherExplanation || []).length < 3) fail(`${stage.id} lacks complete conjunction teaching guidance`);
+    if (stage.sourceRule?.sourceType !== 'source-rule' || !stage.sourceRule?.ru || !stage.sourceRule?.source?.printedPages?.length || !stage.sourceRule?.source?.pdfPages?.length) fail(`${stage.id} lacks traceable original conjunction-rule evidence`);
+    if (!['source-rule', 'source-example', 'source-table', 'exercise-example'].includes(stage.sourceEvidence?.sourceType) || !stage.sourceEvidence?.ru || !stage.sourceEvidence?.source?.printedPages?.length || !stage.sourceEvidence?.source?.pdfPages?.length) fail(`${stage.id} lacks traceable original conjunction examples`);
+    if ((stage.sourceExamples || []).length < 2 || !stage.sourceExamples.every(example => example.sourceType === 'source-example' && example.ru && example.zh && example.analysis && example.source?.printedPages?.length && example.source?.pdfPages?.length) || (stage.contrasts || []).length < 2 || !stage.signals?.length || (stage.commonErrors || []).length < 3) fail(`${stage.id} lacks separated conjunction-analysis layers`);
+    for (const check of stage.checks || []) if (!check.id || !check.answer || !check.options?.some(option => option.key === check.answer) || !check.feedback?.correct || !check.feedback?.misconception || !check.feedback?.review || !check.feedback?.contrast || !check.retry?.answer || !check.retry?.options?.some(option => option.key === check.retry.answer)) fail(`${check.id || stage.id} lacks actionable conjunction feedback and retry`);
+  }
+  if (new Set(exerciseIds).size !== exerciseIds.length || exerciseIds.slice().sort().join(',') !== expectedExerciseIds.join(',')) fail('4.1 learning page must embed all 24 mapped exercise IDs exactly once');
+  if (!conjunctionLearningPage.finalCheck?.answer || transferIds.length !== 4 || !['conjunction-transfer-context', 'conjunction-transfer-rewrite', 'conjunction-transfer-explain', 'conjunction-transfer-boundary'].every(id => transferIds.includes(id))) fail('4.1 learning page lacks required transfer assessment');
+  const risk = conjunctionLearningPage.riskRecord || [];
+  if ((conjunctionLearningPage.summaryTable || []).length !== 5 || conjunctionLearningPage.reviewStatus !== 'needs-review' || !risk.some(item => item.includes('OCR')) || !risk.some(item => item.includes('24 道 mapped')) || !risk.some(item => item.includes('rr_zlatoust_learning_v1'))) fail('4.1 learning page must preserve summary, OCR, mapped-exercise, and progress-storage boundaries');
+}
+
+if (relativeWordLearningPage && chapterFourSectionToExercises) {
+  const stages = relativeWordLearningPage.stages || [];
+  const expectedStageIds = ['stage-route', 'stage-kakoi-comparison', 'stage-kakoi-class', 'stage-kotoryi', 'stage-chei'];
+  const exerciseIds = stages.flatMap(stage => stage.exerciseIds || []);
+  const expectedExerciseIds = (chapterFourSectionToExercises.sections?.['4.2']?.mappedIds || []).slice().sort();
+  const transferIds = (relativeWordLearningPage.transferTasks || []).map(task => task.id);
+  if (relativeWordLearningPage.sectionId !== '4.2' || relativeWordLearningPage.chapterId !== 'gl4') fail('4.2 learning page has an invalid identity');
+  if (stages.map(stage => stage.id).join(',') !== expectedStageIds.join(',') || (relativeWordLearningPage.decisionAxes || []).map(axis => axis.id).join(',') !== expectedStageIds.join(',')) fail('4.2 learning page must preserve its five relative-word decision axes');
+  if (!relativeWordLearningPage.entryGate?.items?.length || !relativeWordLearningPage.mindMapDescription) fail('4.2 learning page must use a semantic relative-word entry gate instead of a flat word list');
+  for (const stage of stages) {
+    if (!stage.title || !stage.question || !stage.entry?.ru || !stage.entry?.prompt || (stage.teacherExplanation || []).length < 3) fail(`${stage.id} lacks complete relative-word teaching guidance`);
+    if (stage.sourceRule?.sourceType !== 'source-rule' || !stage.sourceRule?.ru || !stage.sourceRule?.source?.printedPages?.length || !stage.sourceRule?.source?.pdfPages?.length) fail(`${stage.id} lacks traceable original relative-word rule evidence`);
+    if (!['source-rule', 'source-example', 'source-table', 'exercise-example'].includes(stage.sourceEvidence?.sourceType) || !stage.sourceEvidence?.ru || !stage.sourceEvidence?.source?.printedPages?.length || !stage.sourceEvidence?.source?.pdfPages?.length) fail(`${stage.id} lacks traceable original relative-word examples`);
+    if ((stage.sourceExamples || []).length < 2 || !stage.sourceExamples.every(example => example.sourceType === 'source-example' && example.ru && example.zh && example.analysis && example.source?.printedPages?.length && example.source?.pdfPages?.length) || (stage.contrasts || []).length < 2 || !stage.signals?.length || (stage.commonErrors || []).length < 3) fail(`${stage.id} lacks separated relative-word analysis layers`);
+    for (const check of stage.checks || []) if (!check.id || !check.answer || !check.options?.some(option => option.key === check.answer) || !check.feedback?.correct || !check.feedback?.misconception || !check.feedback?.review || !check.feedback?.contrast || !check.retry?.answer || !check.retry?.options?.some(option => option.key === check.retry.answer)) fail(`${check.id || stage.id} lacks actionable relative-word feedback and retry`);
+  }
+  if (new Set(exerciseIds).size !== exerciseIds.length || exerciseIds.slice().sort().join(',') !== expectedExerciseIds.join(',')) fail('4.2 learning page must embed all 13 mapped exercise IDs exactly once');
+  if (!relativeWordLearningPage.finalCheck?.answer || transferIds.length !== 4 || !['relative-transfer-context', 'relative-transfer-rewrite', 'relative-transfer-explain', 'relative-transfer-boundary'].every(id => transferIds.includes(id))) fail('4.2 learning page lacks required transfer assessment');
+  const risk = relativeWordLearningPage.riskRecord || [];
+  if ((relativeWordLearningPage.summaryTable || []).length !== 5 || relativeWordLearningPage.reviewStatus !== 'needs-review' || !risk.some(item => item.includes('OCR')) || !risk.some(item => item.includes('source-exercise-only')) || !risk.some(item => item.includes('rr_zlatoust_learning_v1'))) fail('4.2 learning page must preserve summary, OCR, source-only, and progress-storage boundaries');
+}
+
+function validateChapterFourTimeOrRazPage(page, sectionId, expectedStageIds, expectedExerciseIds, transferIds, zeroOfficial) {
+  const stages = page.stages || [];
+  const exerciseIds = stages.flatMap(stage => stage.exerciseIds || []);
+  if (page.sectionId !== sectionId || page.chapterId !== 'gl4') fail(`${sectionId} learning page has an invalid identity`);
+  if (stages.map(stage => stage.id).join(',') !== expectedStageIds.join(',') || (page.decisionAxes || []).map(axis => axis.id).join(',') !== expectedStageIds.join(',')) fail(`${sectionId} learning page must preserve its five decision axes`);
+  if (!page.entryGate?.items?.length || !page.mindMapDescription) fail(`${sectionId} learning page must use an entry gate instead of a flat conjunction list`);
+  for (const stage of stages) {
+    if (!stage.title || !stage.question || !stage.entry?.ru || !stage.entry?.prompt || (stage.teacherExplanation || []).length < 3) fail(`${sectionId}:${stage.id} lacks complete teaching guidance`);
+    if (stage.sourceRule?.sourceType !== 'source-rule' || !stage.sourceRule?.ru || !stage.sourceRule?.source?.printedPages?.length || !stage.sourceRule?.source?.pdfPages?.length) fail(`${sectionId}:${stage.id} lacks traceable source-rule evidence`);
+    if (!['source-rule', 'source-example', 'source-table', 'exercise-example'].includes(stage.sourceEvidence?.sourceType) || !stage.sourceEvidence?.ru || !stage.sourceEvidence?.source?.printedPages?.length || !stage.sourceEvidence?.source?.pdfPages?.length) fail(`${sectionId}:${stage.id} lacks traceable source evidence`);
+    if (!stage.sourceExamples?.some(example => example.sourceType === 'source-example' && example.source?.printedPages?.length && example.source?.pdfPages?.length) || !stage.contrasts?.length || !stage.signals?.length || (stage.commonErrors || []).length < 3) fail(`${sectionId}:${stage.id} lacks source/example/contrast/error layers`);
+    for (const check of stage.checks || []) if (!check.id || !check.answer || !check.options?.some(option => option.key === check.answer) || !check.feedback?.correct || !check.feedback?.misconception || !check.feedback?.review || !check.feedback?.contrast || !check.retry?.answer || !check.retry?.options?.some(option => option.key === check.retry.answer)) fail(`${sectionId}:${check.id || stage.id} lacks actionable feedback and retry`);
+  }
+  if (new Set(exerciseIds).size !== exerciseIds.length || exerciseIds.slice().sort().join(',') !== expectedExerciseIds.slice().sort().join(',')) fail(`${sectionId} learning page must embed its mapped exercise IDs exactly once`);
+  if (zeroOfficial && exerciseIds.length !== 0) fail(`${sectionId} learning page must not invent formal practice`);
+  if (!page.finalCheck?.answer || (page.transferTasks || []).map(task => task.id).join(',') !== transferIds.join(',')) fail(`${sectionId} learning page lacks required transfer assessment`);
+  const risk = page.riskRecord || [];
+  if ((page.summaryTable || []).length !== 5 || page.reviewStatus !== 'needs-review' || !risk.some(item => item.includes('OCR')) || !risk.some(item => item.includes('rr_zlatoust_learning_v1'))) fail(`${sectionId} learning page must preserve summary, OCR, and learning-storage boundaries`);
+}
+
+if (timeConjunctionLearningPage && chapterFourSectionToExercises) validateChapterFourTimeOrRazPage(timeConjunctionLearningPage, '4.3', ['stage-line', 'stage-kogda-sync', 'stage-poka-sync', 'stage-kogda-sequence', 'stage-poka-ne'], (chapterFourSectionToExercises.sections?.['4.3']?.mappedIds || []).slice(), ['time-transfer-context', 'time-transfer-rewrite', 'time-transfer-explain', 'time-transfer-boundary'], false);
+if (razLearningPage && chapterFourSectionToExercises) validateChapterFourTimeOrRazPage(razLearningPage, '4.4', ['stage-route', 'stage-ground', 'stage-cause', 'stage-reality', 'stage-once'], [], ['raz-transfer-context', 'raz-transfer-rewrite', 'raz-transfer-explain', 'raz-transfer-boundary'], true);
+
+function validateChapterFiveLearningPage(page, sectionId, expectedStageIds, expectedTransferIds, extraRisk) {
+  const expectedExerciseIds = (chapterFiveSectionToExercises.sections?.[sectionId]?.mappedIds || []).slice().sort();
+  const stages = page.stages || [];
+  const exerciseIds = stages.flatMap(stage => stage.exerciseIds || []);
+  const transferIds = (page.transferTasks || []).map(task => task.id);
+  if (page.sectionId !== sectionId || page.chapterId !== 'gl5') fail(`${sectionId} learning page has an invalid identity`);
+  if (stages.map(stage => stage.id).join(',') !== expectedStageIds.join(',') || (page.decisionAxes || []).map(axis => axis.id).join(',') !== expectedStageIds.join(',')) fail(`${sectionId} learning page must preserve its declared semantic decision axes`);
+  if (!page.entryGate?.items?.length || !page.mindMapDescription || !page.mindMapIntro) fail(`${sectionId} learning page lacks a separate learning route and decision-map entry gate`);
+  for (const stage of stages) {
+    if (!stage.title || !stage.question || !stage.entry?.ru || !stage.entry?.prompt || (stage.teacherExplanation || []).length < 3 || stage.teacherExplanation.some(item => item.length < 35)) fail(`${sectionId}:${stage.id} lacks a full context-to-teacher teaching entry`);
+    if (!['source-rule', 'source-table'].includes(stage.sourceRule?.sourceType) || !stage.sourceRule?.ru || !stage.sourceRule?.zh || !stage.sourceRule?.source?.printedPages?.length || !stage.sourceRule?.source?.pdfPages?.length) fail(`${sectionId}:${stage.id} lacks traceable original rule/table evidence`);
+    if (!['source-rule', 'source-table'].includes(stage.sourceEvidence?.sourceType) || !stage.sourceEvidence?.ru || !stage.sourceEvidence?.zh || !stage.sourceEvidence?.source?.printedPages?.length || !stage.sourceEvidence?.source?.pdfPages?.length) fail(`${sectionId}:${stage.id} lacks a second traceable original evidence layer`);
+    if ((stage.sourceExamples || []).length < 2 || !stage.sourceExamples.every(item => item.sourceType === 'source-example' && item.ru && item.zh && item.analysis && item.source?.printedPages?.length && item.source?.pdfPages?.length)) fail(`${sectionId}:${stage.id} lacks complete page-traceable source examples`);
+    if ((stage.contrasts || []).length < 2 || (stage.signals || []).length < 2 || (stage.commonErrors || []).length < 3) fail(`${sectionId}:${stage.id} lacks comparisons, decision boundaries, or error analysis`);
+    if ((stage.checks || []).length < 2) fail(`${sectionId}:${stage.id} lacks immediate checks and real retries`);
+    for (const check of stage.checks || []) {
+      if (!check.id || !check.prompt || !check.answer || !check.options?.some(option => option.key === check.answer) || !check.feedback?.correct || !check.feedback?.misconception || !check.feedback?.review || !check.feedback?.contrast || !check.retry?.prompt || !check.retry?.answer || !check.retry?.options?.some(option => option.key === check.retry.answer)) fail(`${sectionId}:${check.id || stage.id} lacks targeted feedback or a valid same-type retry`);
+    }
+  }
+  if (new Set(exerciseIds).size !== exerciseIds.length || exerciseIds.slice().sort().join(',') !== expectedExerciseIds.join(',')) fail(`${sectionId} learning page must embed every mapped formal exercise exactly once`);
+  if (!page.finalCheck?.answer || !page.finalCheck.options?.some(option => option.key === page.finalCheck.answer) || transferIds.join(',') !== expectedTransferIds.join(',')) fail(`${sectionId} learning page lacks its final check or four transfer tasks`);
+  const risk = page.riskRecord || [];
+  if ((page.summaryTable || []).length !== expectedStageIds.length || page.reviewStatus !== 'needs-review' || !risk.some(item => item.includes('OCR')) || !risk.some(item => item.includes('rr_zlatoust_learning_v1')) || (extraRisk && !risk.some(item => item.includes(extraRisk)))) fail(`${sectionId} learning page must preserve its summary, OCR, storage, and source-boundary risk record`);
+}
+
+if (chapterFiveStyleLearningPage && chapterFiveSectionToExercises) validateChapterFiveLearningPage(chapterFiveStyleLearningPage, '5.1', ['stage-recurrence', 'stage-emphatic-choice', 'stage-acceptance', 'stage-evaluation-impossibility'], ['style-transfer-context', 'style-transfer-rewrite', 'style-transfer-explain', 'style-transfer-boundary']);
+if (chapterFiveIndefiniteLearningPage && chapterFiveSectionToExercises) validateChapterFiveLearningPage(chapterFiveIndefiniteLearningPage, '5.2', ['stage-information', 'stage-open-choice', 'stage-place-time', 'stage-preposition'], ['indef-transfer-context', 'indef-transfer-rewrite', 'indef-transfer-explain', 'indef-transfer-boundary']);
+if (chapterFiveLexicalLearningPage && chapterFiveSectionToExercises) validateChapterFiveLearningPage(chapterFiveLexicalLearningPage, '5.lexical', ['stage-object-collaboration', 'stage-choice-landscape', 'stage-quantifier-material', 'stage-social-mental', 'stage-terms-collocations'], ['lex-transfer-context', 'lex-transfer-rewrite', 'lex-transfer-explain', 'lex-transfer-boundary'], 'source-exercise-only');
 
 const result = {
   status: failures.length ? 'FAIL' : 'REVIEW',
