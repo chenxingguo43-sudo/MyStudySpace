@@ -218,12 +218,13 @@ body {
 .rs-reader-mode-switch button:hover { color: var(--text); background: var(--glass-hover); }
 .rs-reader-mode-switch button[aria-pressed="true"] { color: #fff; background: var(--accent); box-shadow: 0 5px 14px rgba(0,0,0,.2); }
 .rs-practice-panel { display: none; }
-.reader-layout.rs-practice-mode .reader-pane { flex: 1 1 auto; min-width: 0; max-width: none; padding-right: 18px; }
+.reader-layout.rs-practice-mode { flex-direction: column; }
+.reader-layout.rs-practice-mode .reader-pane { flex: 1 1 auto; width: 100%; min-width: 0; max-width: none; padding-right: 8px; }
 .reader-layout.rs-practice-mode .resize-handle { display: none; }
 .reader-layout.rs-practice-mode .rs-practice-panel {
-  display: block; flex: 0 0 clamp(320px, 32vw, 440px); min-width: 0; max-height: calc(100dvh - 68px); overflow-y: auto;
-  position: sticky; top: 52px; align-self: flex-start; padding: 18px 16px 30px;
-  border-left: 1px solid var(--border); background: var(--surface-solid);
+  display: block; order: 2; flex: 0 0 auto; width: 100%; min-width: 0; max-height: none; overflow: visible;
+  position: static; padding: 20px 16px 90px;
+  border-top: 1px solid var(--border); border-left: 0; background: var(--surface-solid);
 }
 .rs-practice-panel-header { margin: 0 0 14px; }
 .rs-practice-panel-kicker { margin: 0 0 4px; color: var(--accent); font-size: 11px; font-weight: 700; letter-spacing: .08em; }
