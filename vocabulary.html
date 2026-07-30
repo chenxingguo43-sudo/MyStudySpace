@@ -1855,9 +1855,11 @@
 
     <script src="js/vocabulary-session-scheduler.js?v=20260726-1"></script>
     <script src="js/russian-dictionary/review.js?v=20260723-1"></script>
+    <script src="js/app-runtime.js"></script>
     <script>
     // ─── 状态 ─────────────────────────────────────────────────────
     var allWords = [];           // 全部词条
+    var appRuntime = AppRuntime.createAppRuntime({ storage: localStorage });
     var filtered = [];           // 筛选后的词条
     var deck = [];               // 本轮主卡组
     var sessionDeckTotal = 0;    // 本轮唯一词条数，不随回炉次数变化
@@ -2051,9 +2053,7 @@
                 if (!r.ok) throw new Error('词库加载失败 (' + r.status + ')');
                 return r.json();
             }),
-            fetch('/api/novel-vocab-list').then(function(r) {
-                return r.ok ? r.json() : [];
-            }).catch(function() { return []; })
+            appRuntime.loadVocabularyExtras()
         ])
             .then(function(results) {
                 var data = Array.isArray(results[0]) ? results[0] : [];
@@ -2080,6 +2080,7 @@
                 });
                 var records = getRecords();
                 Object.keys(records).forEach(function(id) {
+                    if (appRuntime.isAndroid() && records[id] && records[id].source === 'novel') return;
                     if (data.some(function(word) { return word.id === id; })) return;
                     var record = records[id] || {};
                     data.push({ id: id, word: record.lemma || record.word || (record.forms || [])[0] || id, meaning: record.meaning || '', type: record.partOfSpeech || 'reader', contexts: record.contexts || record.sources || [] });
@@ -2306,7 +2307,7 @@
         localStorage.setItem(VOCAB_CUSTOM_BG_KEY, JSON.stringify(items));
     }
 
-    function openReader() { window.location.href = 'reader.html'; }
+    function openReader() { appRuntime.navigate('reader.html'); }
 
     function getCurrentVocabBackground() {
         return getSettings().background || 'default';
@@ -4889,13 +4890,7 @@
             if (records[id].mastery >= 5) mastered++;
             if (!records[id].nextReview || new Date(records[id].nextReview) <= new Date()) due++;
         }
-        try {
-            fetch('/api/vocab-sync', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ date: todayKey, reviewed: reviewed, mastered: mastered, due: due, streak: streak })
-            }).catch(function() {});
-        } catch(e) {}
+        appRuntime.syncStudyStats({ date: todayKey, reviewed: reviewed, mastered: mastered, due: due, streak: streak }).catch(function() {});
     }
 
     window.addEventListener('beforeunload', _doSync);
@@ -5094,13 +5089,13 @@
         if (event) event.stopPropagation();
         var records = getRecords();
         var rec = records[wordId];
-        if (!rec || rec.source !== 'novel' || !rec.sourceBook) {
+        if (!rec || (rec.source !== 'reader' && rec.source !== 'novel') || !rec.sourceBook) {
             alert('该词非来自阅读');
             return;
         }
         var url = 'reader.html?book=' + encodeURIComponent(rec.sourceBook) +
                   '&ch=' + (rec.sourceChapter != null ? rec.sourceChapter : 0);
-        window.open(url, '_blank');
+        appRuntime.navigate(url);
     }
 
     // ─── 启动 ──────────────────────────────────────────────────────

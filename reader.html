@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>📖 小说阅读 — 俄语学习舱</title>
+<title>Reader | 白夜俄语</title>
 <link rel="stylesheet" href="css/reader-listening-workbench.css?v=20260726-5">
 <style>
 /* ─── 主题变量 ─── */
@@ -77,6 +77,12 @@ body {
 }
 .ru-word[data-stress-source="auto"] { text-decoration: underline dotted color-mix(in srgb, var(--accent) 55%, transparent); text-underline-offset: 0.16em; }
 .ru-word[data-stress-source="source"] { text-decoration: underline dotted color-mix(in srgb, var(--success) 55%, transparent); text-underline-offset: 0.16em; }
+.ru-stress-vowel { position: relative; display: inline; white-space: nowrap; }
+.ru-stress-vowel::after {
+  content: "\00B4"; position: absolute; left: 56%; top: -0.34em;
+  color: currentColor; font-family: Georgia, 'Noto Serif', serif; font-size: 0.72em;
+  font-weight: 700; line-height: 1; pointer-events: none;
+}
 /* ─── 自定义滚动条 ─── */
 ::-webkit-scrollbar { width: 6px; height: 6px; }
 ::-webkit-scrollbar-track { background: transparent; }
@@ -178,6 +184,7 @@ body {
   min-width: 0;               /* 允许收缩 */
   position: sticky; top: 0; align-self: flex-start;
   max-height: 100vh; overflow-y: auto;
+  background: var(--surface-solid); border-left: 1px solid var(--border);
   /* 注意：无 transition！拖拽需要即时响应 */
 }
 .detail-panel-inner { padding: 20px; }
@@ -242,7 +249,7 @@ body {
 .reader-layout.rs-practice-mode #detailPanel .dp-head { margin-bottom: 10px; }
 .reader-layout.rs-practice-mode #detailPanel .dp-section { margin-bottom: 12px; }
 .reader-layout.rs-practice-mode #detailPanel .dp-ai-section { margin-top: 14px; padding-top: 10px; }
-@media (max-width: 1024px) and (orientation: portrait) {
+@media (max-width: 1180px) and (orientation: portrait) {
   .reader-layout.rs-practice-mode { display: flex; flex-direction: column; }
   .reader-layout.rs-practice-mode .reader-pane { flex: 1 1 auto; width: 100%; padding-right: 0; }
   .reader-layout.rs-practice-mode .rs-practice-panel {
@@ -794,7 +801,7 @@ body.theme-warm .listening-entry-zh, body.theme-warm .listening-section-count { 
 .highlight-search.current { outline: 2px solid rgba(56,189,248,0.8); }
 
 /* ─── 可点击单词 ─── */
-.ru-word { cursor: pointer; border-radius: 2px; transition: background 0.1s; user-select: none; -webkit-user-select: none; -webkit-touch-callout: none; }
+.ru-word { cursor: pointer; border-radius: 2px; transition: background 0.1s; user-select: none; -webkit-user-select: none; -webkit-touch-callout: none; letter-spacing: normal; word-spacing: normal; }
 .ru-word:hover { background: var(--highlight-word); }
 .ru-word:active { background: var(--accent-dim); }
 
@@ -1189,7 +1196,7 @@ body.theme-warm .listening-entry-zh, body.theme-warm .listening-section-count { 
 .breadcrumb-tree-detail { display: block; color: var(--text-secondary); font-size: 11px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .breadcrumb-tree-leaf { grid-template-columns: 28px minmax(0, 1fr); }
 .breadcrumb-tree-leaf::before { content: '·'; color: var(--text-dim); text-align: center; font-size: 16px; }
-@media (min-width: 761px) and (max-width: 1024px) and (orientation: portrait) {
+@media (min-width: 761px) and (max-width: 1180px) and (orientation: portrait) {
   .reader-layout { display: block; max-width: 100%; padding: 0 0 72px; }
   .reader-pane { width: 100%; min-width: 0; padding: 0 clamp(22px, 5vw, 52px); }
   .resize-handle { display: none; }
@@ -1559,6 +1566,7 @@ body.theme-warm .listening-entry-zh, body.theme-warm .listening-section-count { 
 <script src="js/russian-b2/listening-quality.js?v=20260726-1"></script>
 <script src="js/russian-b2/listening-workbench.js?v=20260726-6"></script>
 <script src="js/zlatoust-progress-migration.js"></script>
+<script src="js/app-runtime.js"></script>
 <script>
 /* ══════════════════════════════════════════════
    状态管理
@@ -1575,6 +1583,7 @@ var SORT_OPTIONS = [
 ];
 
 var state = { theme: 'warm', fontSize: 'medium', fontFamily: 'serif', sort: 'default' };
+var appRuntime = AppRuntime.createAppRuntime({ storage: localStorage });
 var curView = 'shelf', curBook = null, curCh = -1, chDone = false, chStart = 0;
 var b2BookManifest = null;
 var selText = '', selContext = '', selTranslationContext = '';
@@ -1590,7 +1599,11 @@ var _sessionSavedWords = []; // 当前章节保存的生词（用于完成时统
 var _sessionLookedUp = []; // 当前章节查过的所有词（用于完成时统计，去重）
 var _syncFailQueue = []; // 服务器同步失败的词汇队列
 var _stressMap = {}; // 重音表：无重音词 → 带重音词
-try { _syncFailQueue = JSON.parse(localStorage.getItem('rr_sync_fail_queue') || '[]'); } catch(e) {}
+if (appRuntime.getRuntime() === 'web-server') {
+  try { _syncFailQueue = JSON.parse(localStorage.getItem('rr_sync_fail_queue') || '[]'); } catch(e) {}
+} else {
+  try { localStorage.removeItem('rr_sync_fail_queue'); } catch(e) {}
+}
 var searchMatches = [], searchIdx = -1;
 var localLookupReady = false;
 var localLookupPromise = null;
@@ -1825,7 +1838,7 @@ function escapeHtml(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&l
 
 function openVocabulary() {
   saveLastRead();
-  window.location.href = 'vocabulary.html';
+  appRuntime.navigate('vocabulary.html');
 }
 
 function b2FloatingNavigation(options) {
@@ -2143,17 +2156,7 @@ function fetchJson(url, staticUrl) {
     });
 }
 function fetchIndex() {
-  return fetchJson('/api/novel/index', 'data/novel/index.json')
-    .then(function(d) { return d; })
-    .catch(function() {
-      // 合并novel和textbook的index
-      return Promise.all([
-        fetchJson('data/novel/index.json', null).catch(function() { return {books:[]}; }),
-        fetchJson('data/textbook/index.json', null).catch(function() { return {books:[]}; })
-      ]).then(function(arr) {
-        return { books: arr[0].books.concat(arr[1].books) };
-      });
-    });
+  return appRuntime.loadCatalogue();
 }
 function getBookById(bookId) {
   for (var i = 0; i < booksData.length; i++) {
@@ -2417,17 +2420,8 @@ function isQuizFirstBook(book) {
   return !!book && book.kind === 'textbook' && book.format === 'quiz-first';
 }
 function fetchChapter(bookId, idx) {
-  var padIdx = String(idx).padStart(4, '0');
   var book = curBook && curBook.id === bookId && curBook.isB2Module ? curBook : getBookById(bookId);
-  var dataDir = getBookDataDir(bookId);
-  var directory = book && book.dir ? book.dir : bookId;
-  if (book && book.isB2Module) {
-    return fetchJson(dataDir + '/' + directory + '/ch' + padIdx + '.json', null);
-  }
-  return fetchJson(
-    '/api/novel/' + encodeURIComponent(bookId) + '/' + idx,
-    dataDir + '/' + directory + '/ch' + padIdx + '.json'
-  );
+  return appRuntime.loadChapter(book, idx);
 }
 
 /* ══════════════════════════════════════════════
@@ -5873,6 +5867,21 @@ function preserveStressCase(source, stressed) {
   if (source.charAt(0) === source.charAt(0).toUpperCase()) return stressed.charAt(0).toUpperCase() + stressed.slice(1);
   return stressed;
 }
+function renderStressMarkup(stressed) {
+  var characters = Array.from(String(stressed || '').normalize('NFD'));
+  var html = '';
+  for (var i = 0; i < characters.length; i++) {
+    var character = characters[i];
+    var hasFollowingStress = /[аеёиоуыэюя]/i.test(character) && /[\u0301\u0341]/.test(characters[i + 1] || '');
+    if (hasFollowingStress) {
+      html += '<span class="ru-stress-vowel" aria-hidden="true">' + escapeHtml(character) + '</span>';
+      i++;
+    } else if (!/[\u0300\u0301\u0341]/.test(character)) {
+      html += escapeHtml(character);
+    }
+  }
+  return html;
+}
 function applyStressMarks(root) {
   if (!Object.keys(_stressMap).length) return;
   var words = (root || document).querySelectorAll('.ru-word');
@@ -5882,17 +5891,28 @@ function applyStressMarks(root) {
     if (!original) continue;
     if (!el.getAttribute('data-original-word')) el.setAttribute('data-original-word', original);
     if (hasStressMark(original)) {
-      el.setAttribute('data-word', original); el.setAttribute('data-stress-source', 'source');
+      el.setAttribute('data-word', original); el.setAttribute('aria-label', original); el.setAttribute('data-stress-source', 'source');
+      if (el.getAttribute('data-rendered-stress') !== original) {
+        el.innerHTML = renderStressMarkup(original);
+        el.setAttribute('data-rendered-stress', original);
+      }
       continue;
     }
     var key = normalizeStressKey(original);
     var stressed = _stressMap[original.toLowerCase()] || _stressMap[key] || _stressMap[key.replace(/ё/g, 'е')];
     if (stressed) {
       var result = preserveStressCase(original, String(stressed).normalize('NFC'));
-      el.setAttribute('data-word', result); el.setAttribute('data-stress-source', 'auto');
-      if (el.textContent !== result) el.textContent = result;
+      el.setAttribute('data-word', result); el.setAttribute('aria-label', result); el.setAttribute('data-stress-source', 'auto');
+      if (el.getAttribute('data-rendered-stress') !== result) {
+        el.innerHTML = renderStressMarkup(result);
+        el.setAttribute('data-rendered-stress', result);
+      }
     } else {
-      el.setAttribute('data-word', original); el.setAttribute('data-stress-source', 'none');
+      el.setAttribute('data-word', original); el.removeAttribute('aria-label'); el.setAttribute('data-stress-source', 'none');
+      if (el.getAttribute('data-rendered-stress')) {
+        el.textContent = original;
+        el.removeAttribute('data-rendered-stress');
+      }
     }
   }
 }
@@ -5986,12 +6006,11 @@ function resolveDictionaryLookup(word, context, recordMissing) {
 function onlineDictionaryLookup() {
   var term = normalizeLookupWord(selText || _lastLookupWord);
   if (!term) return;
+  if (!appRuntime.canUseOnlineDictionary()) return;
   var includeContext = Boolean(selContext) && window.confirm('是否把当前俄语句子附在本地查询记录中？词典服务只查询单词本身。');
   var inner = document.getElementById('detailInner');
   if (inner) inner.innerHTML = '<div class="dict-loading">正在查询 Russian Wiktionary…</div>';
-  var params = new URLSearchParams({ term: term, includeContext: includeContext ? '1' : '0', context: includeContext ? (selContext || '').slice(0, 500) : '' });
-  fetch('/api/dictionary/lookup?' + params.toString())
-    .then(function(response) { if (!response.ok) throw new Error('lookup failed'); return response.json(); })
+  appRuntime.lookupDictionary(term, { includeContext: includeContext, context: selContext || '' })
     .then(function(result) {
       if (!result.found) {
         if (inner) inner.innerHTML = '<div class="dict-word">' + escapeHtml(term) + '</div><div class="dict-meaning">Russian Wiktionary 也未找到可用词条。</div>';
@@ -6361,9 +6380,10 @@ function autoLookup(word) {
     });
   }
   var inner = document.getElementById('detailInner');
+  var onlineAction = appRuntime.canUseOnlineDictionary() ? '<button class="tb-btn" type="button" onclick="onlineDictionaryLookup()">一键联网查询</button>' : '';
   if (inner) inner.innerHTML = result
     ? renderDetailPanel(clean, result)
-    : '<button class="detail-close" type="button" onclick="event.stopPropagation();dictionaryController.close()" aria-label="关闭词典">✕</button><div class="dict-word">' + escapeHtml(clean) + '</div><div class="dict-meaning" style="color:var(--text-dim)">本地词典暂未收录</div><div class="dict-source">已加入缺词清单</div><button class="tb-btn" type="button" onclick="onlineDictionaryLookup()">一键联网查询</button>';
+    : '<button class="detail-close" type="button" onclick="event.stopPropagation();dictionaryController.close()" aria-label="关闭词典">✕</button><div class="dict-word">' + escapeHtml(clean) + '</div><div class="dict-meaning" style="color:var(--text-dim)">本地词典暂未收录</div><div class="dict-source">已加入缺词清单</div>' + onlineAction;
   updateSaveButton(clean);
 }
 function updateSaveButton(word) {
@@ -6478,7 +6498,10 @@ function doSaveWord() {
   if (!saved.interval) saved.interval = 1;
   if (!saved.easeFactor) saved.easeFactor = 2.5;
   if (saved.count === undefined) saved.count = 0;
-  try { var allRecords = JSON.parse(localStorage.getItem('vocabulary-review-records') || '{}'); allRecords[clean] = saved; localStorage.setItem('vocabulary-review-records', JSON.stringify(allRecords)); } catch(e) {}
+  saved.source = 'reader';
+  saved.sourceBook = curBook ? curBook.id : '';
+  saved.sourceChapter = curCh;
+  appRuntime.saveVocabulary(clean, saved);
   /*
   records[clean] = {
     mastery: 0,
@@ -6517,12 +6540,11 @@ function doSaveWord() {
 }
 
 function _syncWordToServer(payload) {
-  fetch('/api/novel-vocab', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) })
-    .then(function(r) {
-      if (r.ok) { _flushSyncQueue(); return; }
-      throw new Error('server error ' + r.status);
+  appRuntime.syncVocabularyEntry(payload)
+    .then(function(result) {
+      if (result.sent) _flushSyncQueue();
     })
-    .catch(function() { _queueFailedSync(payload); });
+    .catch(function() { if (appRuntime.getRuntime() === 'web-server') _queueFailedSync(payload); });
 }
 function _queueFailedSync(payload) {
   _syncFailQueue.push(payload);
@@ -6530,14 +6552,14 @@ function _queueFailedSync(payload) {
   toast('📝 已保存到本机（同步笔记库失败，稍后自动重试）');
 }
 function _flushSyncQueue() {
+  if (appRuntime.getRuntime() !== 'web-server') return;
   if (!_syncFailQueue.length) return;
   var queue = _syncFailQueue.slice();
   _syncFailQueue = [];
   try { localStorage.removeItem('rr_sync_fail_queue'); } catch(e) {}
   var remaining = queue.length;
   queue.forEach(function(p) {
-    fetch('/api/novel-vocab', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(p) })
-      .then(function(r) { if (!r.ok) throw new Error('fail'); })
+    appRuntime.syncVocabularyEntry(p)
       .catch(function() { _syncFailQueue.push(p); })
       .then(function() {
         remaining--;
@@ -7403,7 +7425,7 @@ function positionReadingSpeakingDictionary(element) {
   if (!isReadingSpeakingPracticeMode() || !element) return;
   var panel = document.getElementById('detailPanel');
   if (!panel) return;
-  var isPortrait = window.matchMedia && window.matchMedia('(max-width: 1024px) and (orientation: portrait)').matches;
+  var isPortrait = window.matchMedia && window.matchMedia('(max-width: 1180px) and (orientation: portrait)').matches;
   if (isPortrait) {
     clearReadingSpeakingDictionaryPosition();
     return;
