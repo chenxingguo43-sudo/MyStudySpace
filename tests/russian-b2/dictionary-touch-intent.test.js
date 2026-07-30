@@ -12,6 +12,12 @@ test('touch scrolling across a word does not open the dictionary, while a delibe
   };
   const span = {
     textContent: '\u0441\u043b\u043e\u0432\u043e',
+    classList: {
+      values: new Set(),
+      add(value) { this.values.add(value); },
+      remove(value) { this.values.delete(value); },
+      contains(value) { return this.values.has(value); }
+    },
     getAttribute(name) {
       if (name === 'data-word') return this.textContent;
       if (name === 'data-lookup-context') return '{}';
@@ -42,6 +48,10 @@ test('touch scrolling across a word does not open the dictionary, while a delibe
     preventDefault() {}, stopPropagation() {}
   });
   assert.deepEqual(requests, [span.textContent]);
+  assert.equal(span.classList.contains('dictionary-active'), true);
+
+  controller.close();
+  assert.equal(span.classList.contains('dictionary-active'), false);
 
   controller.destroy();
   assert.equal(listeners.touchstart, undefined);

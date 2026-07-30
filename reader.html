@@ -800,6 +800,11 @@ body.theme-warm .listening-entry-zh, body.theme-warm .listening-section-count { 
 .ru-word { cursor: pointer; border-radius: 2px; transition: background 0.1s; user-select: none; -webkit-user-select: none; -webkit-touch-callout: none; letter-spacing: normal; word-spacing: normal; white-space: nowrap; }
 .ru-word:hover { background: var(--highlight-word); }
 .ru-word:active { background: var(--accent-dim); }
+.ru-word.dictionary-active,
+.ru-word.dictionary-active:hover,
+.ru-word.dictionary-active:active {
+  background: #fde68a; color: #422006; box-shadow: 0 1px 0 rgba(180,83,9,0.32);
+}
 
 /* ─── 右上悬浮功能按钮 ─── */
 .fab-group-top {
@@ -1562,10 +1567,10 @@ body.theme-warm .listening-entry-zh, body.theme-warm .listening-section-count { 
 </div>
 
 <script src="data/russian-morphology.js"></script>
-<script src="js/russian-dictionary/core.js?v=20260718-1"></script>
+<script src="js/russian-dictionary/core.js?v=20260730-2"></script>
 <script src="js/russian-dictionary/review.js?v=20260723-1"></script>
-<script src="js/russian-dictionary/storage.js?v=20260718-1"></script>
-<script src="js/russian-dictionary/runtime.js?v=20260718-1"></script>
+<script src="js/russian-dictionary/storage.js?v=20260730-2"></script>
+<script src="js/russian-dictionary/runtime.js?v=20260730-2"></script>
 <script src="js/russian-b2/reading-review.js?v=20260723-1"></script>
 <script src="js/russian-b2/dashboard.js"></script>
 <script src="js/russian-b2/listening-session.js?v=20260726-1"></script>
@@ -1612,6 +1617,9 @@ if (appRuntime.getRuntime() === 'web-server') {
 var searchMatches = [], searchIdx = -1;
 var localLookupReady = false;
 var localLookupPromise = null;
+var supplementalLookupReady = false;
+var supplementalLookupPromise = null;
+var dictionaryLoadFailures = {};
 var localVocabLookup = {};
 var localLookupCache = {};
 var corpusMorphology = {};
@@ -5797,64 +5805,89 @@ function hasChineseText(text) {
   return /[\u4e00-\u9fff]/.test(String(text || ''));
 }
 
+var DICTIONARY_DATA_VERSION = '20260730-2';
+
+function fetchDictionaryJson(path, fallback) {
+  var separator = path.indexOf('?') >= 0 ? '&' : '?';
+  var versionedUrl = path + separator + 'v=' + DICTIONARY_DATA_VERSION;
+  function request(url, cacheMode) {
+    return fetch(url, { cache: cacheMode }).then(function(response) {
+      if (!response.ok) throw new Error(path + ' returned ' + response.status);
+      return response.json();
+    });
+  }
+  return request(versionedUrl, 'no-cache')
+    .catch(function() { return request(versionedUrl + '&retry=1', 'reload'); })
+    .then(function(result) {
+      delete dictionaryLoadFailures[path];
+      return result;
+    })
+    .catch(function(error) {
+      dictionaryLoadFailures[path] = true;
+      console.warn('[Dict] Failed to load ' + path + ':', error);
+      return fallback;
+    });
+}
+
 function loadLocalLookupData() {
   try { localLookupCache = JSON.parse(localStorage.getItem('rr_local_lookup_cache') || '{}'); } catch(e) { localLookupCache = {}; }
+
+  // Load morphology and the compact Chinese dictionaries first. The two large
+  // supplements load afterwards so iPad Safari does not parse every large JSON
+  // response concurrently and discard the whole dictionary on one failure.
   return Promise.all([
-    fetch('data/vocabulary.json').then(function(r) { return r.ok ? r.json() : []; }),
-    fetch('data/external-vocab.json').then(function(r) { return r.ok ? r.json() : {}; }).catch(function() { return {}; }),
-    fetch('data/dictionary/function-word-forms.json').then(function(r) { return r.ok ? r.json() : {}; }).catch(function() { return {}; }),
-    fetch('data/dictionary/corpus-morphology.json').then(function(r) { return r.ok ? r.json() : {}; }).catch(function() { return {}; }),
-    fetch('data/dictionary/freedict-rus-zh.json').then(function(r) { return r.ok ? r.json() : {}; }).catch(function() { return {}; }),
-    fetch('data/dictionary/markdown-glossary.json').then(function(r) { return r.ok ? r.json() : {}; }).catch(function() { return {}; }),
-    fetch('data/dictionary/reviewed-function-entries.json').then(function(r) { return r.ok ? r.json() : {}; }).catch(function() { return {}; }),
-    fetch('data/dictionary/openrussian-en.json').then(function(r) { return r.ok ? r.json() : {}; }).catch(function() { return {}; }),
-    fetch('data/dictionary/wiktionary-ru.json').then(function(r) { return r.ok ? r.json() : {}; }).catch(function() { return {}; }),
-    fetch('data/dictionary/salad-vocab.json').then(function(r) { return r.ok ? r.json() : {}; }).catch(function() { return {}; })
-  ])
-    .then(function(results) {
-      var words = results[0], extVocab = results[1];
-      functionWordForms = results[2] || {};
-      corpusMorphology = results[3] || {};
-      freeDictLookup = results[4] || {};
-      markdownGlossaryLookup = results[5] || {};
-      reviewedFunctionLookup = results[6] || {};
-      openRussianLookup = results[7] || {};
-      wiktionaryRuLookup = results[8] || {};
-      saladVocabLookup = results[9] || {};
-      localVocabLookup = {};
-      // 主词典
-      if (!Array.isArray(words)) words = [];
-      words.forEach(function(w) {
-        if (!w || !w.word || !w.meaning || !hasChineseText(w.meaning)) return;
-        var key = normalizeLookupWord(w.word);
-        if (!key || localVocabLookup[key]) return;
-        localVocabLookup[key] = {
-          meaning: w.meaning,
-          type: w.type || '',
-          source: '本地词库',
-          _raw: w  // 保留原始词条用于详情面板渲染
-        };
-      });
-      // 外部补充词库 (Gemini 翻译)
-      Object.keys(extVocab).forEach(function(lemma) {
-        var e = extVocab[lemma];
-        var key = normalizeLookupWord(lemma);
-        if (!key) return;
-        if (localVocabLookup[key]) return; // 不覆盖主词典
-        if (!hasChineseText(e.meaning)) return;
-        localVocabLookup[key] = {
-          meaning: e.meaning,
-          type: e.type || '',
-          source: '扩展词库'
-        };
-      });
-      console.log('[Dict] Local:', Object.keys(localVocabLookup).length, 'entries; Salad:', Object.keys(saladVocabLookup).length, '; FreeDict:', Object.keys(freeDictLookup).length);
-      localLookupReady = true;
-    })
-    .catch(function(err) {
-      console.warn('本地查词数据加载失败:', err);
-      localLookupReady = true;
+    fetchDictionaryJson('data/vocabulary.json', []),
+    fetchDictionaryJson('data/external-vocab.json', {}),
+    fetchDictionaryJson('data/dictionary/function-word-forms.json', {}),
+    fetchDictionaryJson('data/dictionary/corpus-morphology.json', {}),
+    fetchDictionaryJson('data/dictionary/markdown-glossary.json', {}),
+    fetchDictionaryJson('data/dictionary/reviewed-function-entries.json', {}),
+    fetchDictionaryJson('data/dictionary/wiktionary-ru.json', {}),
+    fetchDictionaryJson('data/dictionary/salad-vocab.json', {})
+  ]).then(function(results) {
+    var words = results[0], extVocab = results[1] || {};
+    functionWordForms = results[2] || {};
+    corpusMorphology = results[3] || {};
+    markdownGlossaryLookup = results[4] || {};
+    reviewedFunctionLookup = results[5] || {};
+    wiktionaryRuLookup = results[6] || {};
+    saladVocabLookup = results[7] || {};
+    localVocabLookup = {};
+    if (!Array.isArray(words)) words = [];
+    words.forEach(function(w) {
+      if (!w || !w.word || !w.meaning || !hasChineseText(w.meaning)) return;
+      var key = normalizeLookupWord(w.word);
+      if (!key || localVocabLookup[key]) return;
+      localVocabLookup[key] = {
+        meaning: w.meaning,
+        type: w.type || '',
+        source: '本地词库',
+        _raw: w
+      };
     });
+    Object.keys(extVocab).forEach(function(lemma) {
+      var e = extVocab[lemma];
+      var key = normalizeLookupWord(lemma);
+      if (!key || localVocabLookup[key] || !hasChineseText(e.meaning)) return;
+      localVocabLookup[key] = { meaning: e.meaning, type: e.type || '', source: '扩展词库' };
+    });
+    localLookupReady = true;
+
+    supplementalLookupPromise = fetchDictionaryJson('data/dictionary/freedict-rus-zh.json', {})
+      .then(function(result) {
+        freeDictLookup = result || {};
+        return fetchDictionaryJson('data/dictionary/openrussian-en.json', {});
+      })
+      .then(function(result) {
+        openRussianLookup = result || {};
+        supplementalLookupReady = true;
+        console.log('[Dict] Local:', Object.keys(localVocabLookup).length, 'entries; Morphology:', Object.keys(corpusMorphology).length, '; FreeDict:', Object.keys(freeDictLookup).length);
+      });
+  }).catch(function(error) {
+    console.warn('本地查词核心数据加载失败:', error);
+    localLookupReady = true;
+    supplementalLookupReady = true;
+  });
 }
 
 function getCachedLocalLookup(word) {
@@ -6342,7 +6375,17 @@ function autoLookup(word) {
     return;
   }
   var context = dictionaryController.getCurrent() && dictionaryController.getCurrent().context || {};
-  var resolved = resolveDictionaryLookup(clean, context, true);
+  var resolved = resolveDictionaryLookup(clean, context, false);
+  if (!resolved.entry && !supplementalLookupReady && supplementalLookupPromise) {
+    preview.innerHTML = '<div class="dict-loading">补充词典加载中...</div>';
+    Promise.resolve(supplementalLookupPromise).then(function() {
+      if (_lastLookupWord === clean) autoLookup(word);
+    });
+    return;
+  }
+  if (!resolved.entry) {
+    resolved = resolveDictionaryLookup(clean, context, Object.keys(dictionaryLoadFailures).length === 0);
+  }
   var result = resolved.entry;
   if (result) {
     result = Object.assign({}, result, {
@@ -6354,9 +6397,10 @@ function autoLookup(word) {
   }
   var inner = document.getElementById('detailInner');
   var onlineAction = appRuntime.canUseOnlineDictionary() ? '<button class="tb-btn" type="button" onclick="onlineDictionaryLookup()">一键联网查询</button>' : '';
+  var loadIncomplete = Object.keys(dictionaryLoadFailures).length > 0;
   if (inner) inner.innerHTML = result
     ? renderDetailPanel(clean, result)
-    : '<button class="detail-close" type="button" onclick="event.stopPropagation();dictionaryController.close()" aria-label="关闭词典">✕</button><div class="dict-word">' + escapeHtml(clean) + '</div><div class="dict-meaning" style="color:var(--text-dim)">本地词典暂未收录</div><div class="dict-source">已加入缺词清单</div>' + onlineAction;
+    : '<button class="detail-close" type="button" onclick="event.stopPropagation();dictionaryController.close()" aria-label="关闭词典">✕</button><div class="dict-word">' + escapeHtml(clean) + '</div><div class="dict-meaning" style="color:var(--text-dim)">' + (loadIncomplete ? '部分词典数据加载失败，请刷新后重试' : '本地词典暂未收录') + '</div>' + (loadIncomplete ? '' : '<div class="dict-source">已加入缺词清单</div>') + onlineAction;
   updateSaveButton(clean);
 }
 function updateSaveButton(word) {

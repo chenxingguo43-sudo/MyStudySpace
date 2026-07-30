@@ -19,6 +19,7 @@
     let examPolicy = { mode: 'learning', lookupUnlocked: true };
     let lastTouchAt = 0;
     let touchIntent = null;
+    let activeWordElement = null;
     let drawerStartY = null;
     let pendingSelection = null;
 
@@ -157,6 +158,11 @@
       if (!core.normalizeRussian(word)) return false;
       if (event.preventDefault) event.preventDefault();
       if (event.stopPropagation) event.stopPropagation();
+      if (activeWordElement && activeWordElement !== element && activeWordElement.classList) {
+        activeWordElement.classList.remove('dictionary-active');
+      }
+      activeWordElement = element;
+      if (activeWordElement.classList) activeWordElement.classList.add('dictionary-active');
       openWord(word, parseContext(element), element);
       return true;
     }
@@ -286,6 +292,8 @@
 
     function close() {
       current = null;
+      if (activeWordElement && activeWordElement.classList) activeWordElement.classList.remove('dictionary-active');
+      activeWordElement = null;
       setPanelState('closed');
       hidePhraseAction();
       if (options.onClose) options.onClose();
