@@ -18,6 +18,7 @@
     let current = null;
     let examPolicy = { mode: 'learning', lookupUnlocked: true };
     let lastTouchAt = 0;
+    let touchIntent = null;
     let drawerStartY = null;
     let pendingSelection = null;
 
@@ -176,9 +177,43 @@
       activateWord(event);
     }
 
+    function touchPoint(event, key) {
+      const list = event && event[key];
+      return list && list.length ? list[0] : null;
+    }
+
+    function onTouchStart(event) {
+      const point = touchPoint(event, 'touches');
+      const element = event.target && event.target.closest
+        ? event.target.closest('.ru-word')
+        : null;
+      touchIntent = point && element ? {
+        element,
+        x: Number(point.clientX || 0),
+        y: Number(point.clientY || 0),
+        startedAt: Date.now()
+      } : null;
+    }
+
     function onTouchEnd(event) {
-      if (!activateWord(event)) return;
+      const intent = touchIntent;
+      touchIntent = null;
+      const point = touchPoint(event, 'changedTouches');
+      if (!intent || !point) return;
+      const dx = Number(point.clientX || 0) - intent.x;
+      const dy = Number(point.clientY || 0) - intent.y;
+      if (Math.hypot(dx, dy) > 12 || Date.now() - intent.startedAt > 650) return;
+      const selection = selectionObject();
+      if (selection && !selection.isCollapsed) return;
+      const endedWord = event.target && event.target.closest
+        ? event.target.closest('.ru-word')
+        : null;
+      if (endedWord !== intent.element || !activateWord(event)) return;
       lastTouchAt = Date.now();
+    }
+
+    function onTouchCancel() {
+      touchIntent = null;
     }
 
     function onKeyDown(event) {
@@ -213,7 +248,9 @@
     function init() {
       if (initialized) return;
       root.addEventListener('click', onClick);
+      root.addEventListener('touchstart', onTouchStart, { passive: true });
       root.addEventListener('touchend', onTouchEnd, { passive: false });
+      root.addEventListener('touchcancel', onTouchCancel);
       root.addEventListener('keydown', onKeyDown);
       root.addEventListener('pointerdown', onPointerDown);
       root.addEventListener('pointerup', onPointerUp);
@@ -224,7 +261,9 @@
     function destroy() {
       if (!initialized) return;
       root.removeEventListener('click', onClick);
+      root.removeEventListener('touchstart', onTouchStart, { passive: true });
       root.removeEventListener('touchend', onTouchEnd, { passive: false });
+      root.removeEventListener('touchcancel', onTouchCancel);
       root.removeEventListener('keydown', onKeyDown);
       root.removeEventListener('pointerdown', onPointerDown);
       root.removeEventListener('pointerup', onPointerUp);

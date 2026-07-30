@@ -909,6 +909,10 @@ body.theme-warm .listening-entry-zh, body.theme-warm .listening-section-count { 
   background: rgba(255,255,255,0.03); border-radius: 4px;
   font-size: 12px; color: var(--text-secondary); line-height: 1.6;
 }
+.dict-context-word {
+  padding: 0 2px; border-radius: 3px; color: var(--text);
+  background: color-mix(in srgb, var(--accent) 24%, transparent); font-weight: 700;
+}
 .popup-actions { display: flex; gap: 8px; align-items: center; padding: 8px 10px; }
 .btn-save-vocab {
   flex: 1; padding: 8px 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2);
@@ -1206,6 +1210,12 @@ body.theme-warm .listening-entry-zh, body.theme-warm .listening-section-count { 
   .reader-pane { flex: 0 0 65%; min-width: 0; }
   .detail-panel { flex: 1 1 35%; min-width: 300px; }
   .resize-handle { display: block; }
+}
+@media (min-width: 900px) and (orientation: landscape) {
+  .reader-layout.rs-reading-mode { display: flex; flex-direction: row; }
+  .reader-layout.rs-reading-mode .reader-pane { flex: 0 0 70%; width: auto; min-width: 25%; max-width: 85%; }
+  .reader-layout.rs-reading-mode .resize-handle { display: block; }
+  .reader-layout.rs-reading-mode #detailPanel[data-dictionary-state="closed"] { display: block; }
 }
 /* ─── Zlatoust grammar reference system ─── */
 .zlatoust-theory-nav { margin: 22px 0; padding: 18px; border: 1px solid var(--accent-border); border-radius: 16px; background: linear-gradient(135deg, var(--accent-dim), var(--surface-solid)); }
@@ -5625,7 +5635,7 @@ function requestAiAnalysis() {
 }
 
 function toggleDetailPanel(word) {
-  if (_detailWord === word) { closeDetailPanel(); return true; }
+  if (_detailWord === word) return false;
   openDetailPanel(word);
   return false;
 }
@@ -5641,7 +5651,8 @@ function restoreSplitRatio() {
 
   // The reading/speaking view has no draggable split. Never let a saved ratio
   // from another reader reserve an invisible column on tablet layouts.
-  if (layout.classList.contains('rs-reading-mode') || layout.classList.contains('rs-practice-mode')) {
+  if (layout.classList.contains('rs-practice-mode') ||
+      (layout.classList.contains('rs-reading-mode') && !isReadingSpeakingSplitViewport())) {
     pane.style.removeProperty('flex-basis');
     return;
   }
@@ -5715,6 +5726,10 @@ var _lastSplitOrientation = null;
 window.addEventListener('resize', function() {
   var layout = document.getElementById('readerLayout');
   if (!layout) return;
+  if (layout.classList.contains('rs-reading-mode') || layout.classList.contains('rs-practice-mode')) {
+    restoreSplitRatio();
+    return;
+  }
   var isH = getComputedStyle(layout).flexDirection === 'row';
   var cur = isH ? 'h' : 'v';
   if (cur !== _lastSplitOrientation) {
@@ -6056,7 +6071,7 @@ function renderDetailPanel(word, result) {
   // ── 当前题干 / 选项翻译 ──
   if (selContext || selTranslationContext) {
     html += '<div class="dp-section dict-context">';
-    if (selContext) html += '<div><b>所在原句</b>：' + escapeHtml(selContext) + '</div>';
+    if (selContext) html += '<div><b>所在原句</b>：' + renderHighlightedLookupContext(selContext, word) + '</div>';
     if (selTranslationContext) html += '<div><b>中文翻译</b>：' + escapeHtml(selTranslationContext) + '</div>';
     html += '</div>';
   }
@@ -6721,6 +6736,65 @@ function showBookReport() {
 /* ══════════════════════════════════════════════
    初始化
    ══════════════════════════════════════════════ */
+function segmentSentences(text, locale) {
+  text = String(text || '');
+  if (!text.trim()) return [];
+  try {
+    if (typeof Intl !== 'undefined' && Intl.Segmenter) {
+      return Array.from(new Intl.Segmenter(locale || 'ru', { granularity: 'sentence' }).segment(text)).map(function(item) {
+        return { text: item.segment, index: item.index };
+      });
+    }
+  } catch (e) {}
+  var segments = [], re = /[^.!?。！？…]+(?:[.!?。！？…]+[»”’"')\]]*)?|.+$/g, match;
+  while ((match = re.exec(text))) segments.push({ text: match[0], index: match.index });
+  return segments;
+}
+
+function sentenceAtOffset(text, offset, locale) {
+  var segments = segmentSentences(text, locale);
+  for (var i = 0; i < segments.length; i++) {
+    var start = segments[i].index;
+    var end = start + segments[i].text.length;
+    if (offset >= start && offset <= end) return { text: segments[i].text.trim(), index: i };
+  }
+  return { text: String(text || '').trim(), index: 0 };
+}
+
+function extractLookupSentence(element) {
+  var block = element && element.closest ? element.closest('.para-block') : null;
+  if (!block) return { ru: '', zh: '' };
+  var ruElement = block.querySelector('.ru-text');
+  var zhElement = block.querySelector('.cn-text');
+  if (!ruElement) return { ru: '', zh: zhElement ? zhElement.textContent.trim() : '' };
+  var offset = 0;
+  try {
+    var range = document.createRange();
+    range.selectNodeContents(ruElement);
+    range.setEndBefore(element);
+    offset = range.toString().length;
+  } catch (e) {}
+  var ruSentence = sentenceAtOffset(ruElement.textContent || '', offset, 'ru');
+  var zhSegments = segmentSentences(zhElement ? zhElement.textContent || '' : '', 'zh');
+  var zhSentence = zhSegments[ruSentence.index] || (zhSegments.length === 1 ? zhSegments[0] : null);
+  return {
+    ru: ruSentence.text,
+    zh: zhSentence ? zhSentence.text.trim() : ''
+  };
+}
+
+function renderHighlightedLookupContext(sentence, word) {
+  sentence = String(sentence || '');
+  word = stripStressMarks(String(word || ''));
+  var haystack = stripStressMarks(sentence).toLocaleLowerCase('ru-RU');
+  var needle = word.toLocaleLowerCase('ru-RU');
+  var index = needle ? haystack.indexOf(needle) : -1;
+  if (index < 0) return escapeHtml(sentence);
+  return escapeHtml(sentence.slice(0, index)) +
+    '<mark class="dict-context-word">' + escapeHtml(sentence.slice(index, index + word.length)) + '</mark>' +
+    escapeHtml(sentence.slice(index + word.length));
+}
+
 var dictionaryStorage = RussianDictionaryStorage.createDictionaryStorage({ storage: localStorage });
 var dictionaryController = RussianDictionaryRuntime.createController({
   core: RussianDictionaryCore,
@@ -6733,14 +6807,12 @@ var dictionaryController = RussianDictionaryRuntime.createController({
     selContext = context.sentenceRu || '';
     selTranslationContext = context.sentenceZh || '';
     if ((!selContext || !selTranslationContext) && element && element.closest) {
-      var paraBlock = element.closest('.para-block');
-      if (paraBlock) {
-        var ruElement = paraBlock.querySelector('.ru-text');
-        var zhElement = paraBlock.querySelector('.cn-text');
-        if (!selContext && ruElement) selContext = ruElement.textContent || '';
-        if (!selTranslationContext && zhElement) selTranslationContext = zhElement.textContent || '';
-      }
+      var extracted = extractLookupSentence(element);
+      if (!selContext) selContext = extracted.ru;
+      if (!selTranslationContext) selTranslationContext = extracted.zh;
     }
+    context.sentenceRu = selContext;
+    context.sentenceZh = selTranslationContext;
     var didClose = toggleDetailPanel(word);
     if (didClose) {
       dictionaryController.setPanelState('closed');
@@ -7366,6 +7438,10 @@ function isReadingSpeakingPhoneViewport() {
   return !!(window.matchMedia && window.matchMedia('(max-width: 760px)').matches);
 }
 
+function isReadingSpeakingSplitViewport() {
+  return !!(window.matchMedia && window.matchMedia('(min-width: 900px) and (orientation: landscape)').matches);
+}
+
 function isReadingSpeakingPracticeMode() {
   var layout = document.getElementById('readerLayout');
   return !!layout && layout.classList.contains('rs-practice-mode');
@@ -7418,6 +7494,7 @@ function setReadingSpeakingLayoutMode(mode) {
   var pane = document.getElementById('readerPane');
   if (pane) {
     pane.style.removeProperty('flex-basis');
+    if (!isPractice) restoreSplitRatio();
   }
   clearReadingSpeakingDictionaryPosition();
   if (dictionaryController) dictionaryController.close();
