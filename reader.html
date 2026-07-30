@@ -77,10 +77,6 @@ body {
 }
 .ru-word[data-stress-source="auto"] { text-decoration: underline dotted color-mix(in srgb, var(--accent) 55%, transparent); text-underline-offset: 0.16em; }
 .ru-word[data-stress-source="source"] { text-decoration: underline dotted color-mix(in srgb, var(--success) 55%, transparent); text-underline-offset: 0.16em; }
-.ru-stress-vowel {
-  display: inline; white-space: inherit;
-  font: inherit; line-height: inherit; text-indent: 0; vertical-align: baseline;
-}
 /* ─── 自定义滚动条 ─── */
 ::-webkit-scrollbar { width: 6px; height: 6px; }
 ::-webkit-scrollbar-track { background: transparent; }
@@ -5878,19 +5874,13 @@ function preserveStressCase(source, stressed) {
   return stressed;
 }
 function renderStressMarkup(stressed) {
-  var characters = Array.from(String(stressed || '').normalize('NFD'));
-  var html = '';
-  for (var i = 0; i < characters.length; i++) {
-    var character = characters[i];
-    var hasFollowingStress = /[аеёиоуыэюя]/i.test(character) && /[\u0301\u0341]/.test(characters[i + 1] || '');
-    if (hasFollowingStress) {
-      html += '<span class="ru-stress-vowel" aria-hidden="true">' + escapeHtml(character) + '\u0301</span>';
-      i++;
-    } else if (!/[\u0300\u0301\u0341]/.test(character)) {
-      html += escapeHtml(character);
-    }
-  }
-  return html;
+  // Keep the whole word in one text node. WebKit adds visible spacing around
+  // nested inline elements inside Cyrillic words, which makes stressed words
+  // look split apart on iPad.
+  var normalized = String(stressed || '').normalize('NFD')
+    .replace(/\u0341/g, '\u0301')
+    .replace(/\u0300/g, '');
+  return escapeHtml(normalized);
 }
 function applyStressMarks(root) {
   if (!Object.keys(_stressMap).length) return;
