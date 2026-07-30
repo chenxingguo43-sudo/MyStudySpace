@@ -77,10 +77,9 @@ body {
 }
 .ru-word[data-stress-source="auto"] { text-decoration: underline dotted color-mix(in srgb, var(--accent) 55%, transparent); text-underline-offset: 0.16em; }
 .ru-word[data-stress-source="source"] { text-decoration: underline dotted color-mix(in srgb, var(--success) 55%, transparent); text-underline-offset: 0.16em; }
-.ru-stress-vowel { ruby-align: center; ruby-position: over; white-space: nowrap; }
-.ru-stress-vowel rt {
-  color: currentColor; font-family: Arial, sans-serif; font-size: 0.52em;
-  font-weight: 700; line-height: 0; text-align: center;
+.ru-stress-vowel {
+  display: inline; white-space: inherit;
+  font: inherit; line-height: inherit; text-indent: 0; vertical-align: baseline;
 }
 /* ─── 自定义滚动条 ─── */
 ::-webkit-scrollbar { width: 6px; height: 6px; }
@@ -217,7 +216,7 @@ body {
 .rs-reader-mode-switch button:hover { color: var(--text); background: var(--glass-hover); }
 .rs-reader-mode-switch button[aria-pressed="true"] { color: #fff; background: var(--accent); box-shadow: 0 5px 14px rgba(0,0,0,.2); }
 .rs-practice-panel { display: none; }
-.reader-layout.rs-reading-mode .reader-pane { flex: 1 1 70%; max-width: none; }
+.reader-layout.rs-reading-mode .reader-pane { flex: 1 1 100%; width: 100%; min-width: 0; max-width: none; }
 .reader-layout.rs-reading-mode .resize-handle { display: none; }
 .reader-layout.rs-reading-mode #detailPanel[data-dictionary-state="closed"] { display: none; }
 .reader-layout.rs-practice-mode { flex-direction: column; }
@@ -5646,6 +5645,14 @@ function restoreSplitRatio() {
 
   var isH = getComputedStyle(layout).flexDirection === 'row';
   _lastSplitOrientation = isH ? 'h' : 'v';
+
+  // The reading/speaking view has no draggable split. Never let a saved ratio
+  // from another reader reserve an invisible column on tablet layouts.
+  if (layout.classList.contains('rs-reading-mode') || layout.classList.contains('rs-practice-mode')) {
+    pane.style.removeProperty('flex-basis');
+    return;
+  }
+
   var key = isH ? 'rr_split_h' : 'rr_split_v';
   var saved = null;
   try { saved = localStorage.getItem(key); } catch(e) {}
@@ -5877,7 +5884,7 @@ function renderStressMarkup(stressed) {
     var character = characters[i];
     var hasFollowingStress = /[аеёиоуыэюя]/i.test(character) && /[\u0301\u0341]/.test(characters[i + 1] || '');
     if (hasFollowingStress) {
-      html += '<ruby class="ru-stress-vowel" aria-hidden="true"><rb>' + escapeHtml(character) + '</rb><rt>\u00B4</rt></ruby>';
+      html += '<span class="ru-stress-vowel" aria-hidden="true">' + escapeHtml(character) + '\u0301</span>';
       i++;
     } else if (!/[\u0300\u0301\u0341]/.test(character)) {
       html += escapeHtml(character);
@@ -7463,8 +7470,7 @@ function setReadingSpeakingLayoutMode(mode) {
   });
   var pane = document.getElementById('readerPane');
   if (pane) {
-    if (isPractice) pane.style.flexBasis = '';
-    else { pane.style.flexBasis = ''; restoreSplitRatio(); }
+    pane.style.removeProperty('flex-basis');
   }
   clearReadingSpeakingDictionaryPosition();
   if (dictionaryController) dictionaryController.close();
