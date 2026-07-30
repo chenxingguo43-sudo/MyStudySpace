@@ -77,6 +77,12 @@ body {
 }
 .ru-word[data-stress-source="auto"] { text-decoration: underline dotted color-mix(in srgb, var(--accent) 55%, transparent); text-underline-offset: 0.16em; }
 .ru-word[data-stress-source="source"] { text-decoration: underline dotted color-mix(in srgb, var(--success) 55%, transparent); text-underline-offset: 0.16em; }
+.ru-word[data-stress-index] { position: relative; }
+.ru-word[data-stress-index]::after {
+  content: "\00B4"; position: absolute; left: var(--stress-left, 50%); top: -0.28em;
+  color: currentColor; font-family: Arial, sans-serif; font-size: 0.62em; font-weight: 700;
+  line-height: 1; pointer-events: none; transform: translateX(-24%); text-decoration: none;
+}
 /* ─── 自定义滚动条 ─── */
 ::-webkit-scrollbar { width: 6px; height: 6px; }
 ::-webkit-scrollbar-track { background: transparent; }
@@ -1793,12 +1799,12 @@ function cycleTheme() {
 function cycleFont() {
   var i = SIZES.indexOf(state.fontSize);
   state.fontSize = SIZES[(i + 1) % 4];
-  saveState(); applyTheme();
+  saveState(); applyTheme(); positionStressOverlays();
   toast('字号: ' + SIZE_LABELS[state.fontSize]);
 }
 function cycleFontFamily() {
   state.fontFamily = state.fontFamily === 'sans' ? 'serif' : 'sans';
-  saveState(); applyTheme();
+  saveState(); applyTheme(); positionStressOverlays();
   toast('字体: ' + (state.fontFamily === 'sans' ? '无衬线' : '衬线'));
 }
 
@@ -5873,15 +5879,51 @@ function preserveStressCase(source, stressed) {
   if (source.charAt(0) === source.charAt(0).toUpperCase()) return stressed.charAt(0).toUpperCase() + stressed.slice(1);
   return stressed;
 }
-function renderStressMarkup(stressed) {
-  // Keep the whole word in one text node. WebKit adds visible spacing around
-  // nested inline elements inside Cyrillic words, which makes stressed words
-  // look split apart on iPad.
-  var normalized = String(stressed || '').normalize('NFD')
-    .replace(/\u0341/g, '\u0301')
-    .replace(/\u0300/g, '');
-  return escapeHtml(normalized);
+function getStressRenderData(stressed) {
+  var normalized = String(stressed || '').normalize('NFD').replace(/\u0341/g, '\u0301');
+  var stressOffset = normalized.search(/\u0301/);
+  var vowelOffset = stressOffset > 0
+    ? normalized.slice(0, stressOffset - 1).replace(/[\u0300\u0301]/g, '').normalize('NFC').length
+    : -1;
+  var plain = normalized.replace(/[\u0300\u0301]/g, '').normalize('NFC');
+  return { text: plain, index: vowelOffset };
 }
+function renderStressMarkup(stressed) {
+  return escapeHtml(getStressRenderData(stressed).text);
+}
+function setStressOverlay(el, stressed) {
+  var rendered = getStressRenderData(stressed);
+  if (rendered.index < 0 || rendered.index >= rendered.text.length) {
+    el.removeAttribute('data-stress-index');
+    el.style.removeProperty('--stress-left');
+    return;
+  }
+  el.setAttribute('data-stress-index', String(rendered.index));
+}
+function positionStressOverlays(root) {
+  var scope = root && root.querySelectorAll ? root : document;
+  var words = scope.querySelectorAll('.ru-word[data-stress-index]');
+  for (var i = 0; i < words.length; i++) {
+    var el = words[i];
+    var textNode = el.firstChild;
+    var index = Number(el.getAttribute('data-stress-index'));
+    if (!textNode || textNode.nodeType !== 3 || !Number.isFinite(index) || index < 0 || index >= textNode.length) continue;
+    var range = document.createRange();
+    range.setStart(textNode, index); range.setEnd(textNode, index + 1);
+    var vowelRect = range.getBoundingClientRect();
+    var wordRect = el.getBoundingClientRect();
+    el.style.setProperty('--stress-left', (vowelRect.left - wordRect.left + vowelRect.width / 2).toFixed(2) + 'px');
+  }
+}
+var _stressPositionFrame = 0;
+function scheduleStressOverlayPosition() {
+  if (_stressPositionFrame) cancelAnimationFrame(_stressPositionFrame);
+  _stressPositionFrame = requestAnimationFrame(function() {
+    _stressPositionFrame = 0;
+    positionStressOverlays();
+  });
+}
+window.addEventListener('resize', scheduleStressOverlayPosition);
 function applyStressMarks(root) {
   if (!Object.keys(_stressMap).length) return;
   var words = (root || document).querySelectorAll('.ru-word');
@@ -5896,6 +5938,7 @@ function applyStressMarks(root) {
         el.innerHTML = renderStressMarkup(original);
         el.setAttribute('data-rendered-stress', original);
       }
+      setStressOverlay(el, original);
       continue;
     }
     var key = normalizeStressKey(original);
@@ -5907,14 +5950,17 @@ function applyStressMarks(root) {
         el.innerHTML = renderStressMarkup(result);
         el.setAttribute('data-rendered-stress', result);
       }
+      setStressOverlay(el, result);
     } else {
       el.setAttribute('data-word', original); el.removeAttribute('aria-label'); el.setAttribute('data-stress-source', 'none');
+      el.removeAttribute('data-stress-index'); el.style.removeProperty('--stress-left');
       if (el.getAttribute('data-rendered-stress')) {
         el.textContent = original;
         el.removeAttribute('data-rendered-stress');
       }
     }
   }
+  positionStressOverlays(root);
 }
 
 function lookupLocalChineseMeaning(word) {
