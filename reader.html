@@ -75,14 +75,6 @@ body {
   font-variant-ligatures: common-ligatures;
   font-variant-position: normal;
 }
-.ru-word[data-stress-source="auto"] { text-decoration: underline dotted color-mix(in srgb, var(--accent) 55%, transparent); text-underline-offset: 0.16em; }
-.ru-word[data-stress-source="source"] { text-decoration: underline dotted color-mix(in srgb, var(--success) 55%, transparent); text-underline-offset: 0.16em; }
-.ru-word[data-stress-index] { position: relative; }
-.ru-word[data-stress-index]::after {
-  content: "\00B4"; position: absolute; left: var(--stress-left, 50%); top: -0.28em;
-  color: currentColor; font-family: Arial, sans-serif; font-size: 0.62em; font-weight: 700;
-  line-height: 1; pointer-events: none; transform: translateX(-24%); text-decoration: none;
-}
 /* ─── 自定义滚动条 ─── */
 ::-webkit-scrollbar { width: 6px; height: 6px; }
 ::-webkit-scrollbar-track { background: transparent; }
@@ -1602,7 +1594,6 @@ var bookmarks = {}; // {bookId: {chIdx: [paraIdx, ...]}}
 var _sessionSavedWords = []; // 当前章节保存的生词（用于完成时统计）
 var _sessionLookedUp = []; // 当前章节查过的所有词（用于完成时统计，去重）
 var _syncFailQueue = []; // 服务器同步失败的词汇队列
-var _stressMap = {}; // 重音表：无重音词 → 带重音词
 if (appRuntime.getRuntime() === 'web-server') {
   try { _syncFailQueue = JSON.parse(localStorage.getItem('rr_sync_fail_queue') || '[]'); } catch(e) {}
 } else {
@@ -1799,12 +1790,12 @@ function cycleTheme() {
 function cycleFont() {
   var i = SIZES.indexOf(state.fontSize);
   state.fontSize = SIZES[(i + 1) % 4];
-  saveState(); applyTheme(); positionStressOverlays();
+  saveState(); applyTheme();
   toast('字号: ' + SIZE_LABELS[state.fontSize]);
 }
 function cycleFontFamily() {
   state.fontFamily = state.fontFamily === 'sans' ? 'serif' : 'sans';
-  saveState(); applyTheme(); positionStressOverlays();
+  saveState(); applyTheme();
   toast('字体: ' + (state.fontFamily === 'sans' ? '无衬线' : '衬线'));
 }
 
@@ -5863,104 +5854,25 @@ function saveCachedLocalLookup(word, result) {
   try { localStorage.setItem('rr_local_lookup_cache', JSON.stringify(localLookupCache)); } catch(e) {}
 }
 
-/* ─── 重音表 ─── */
-function loadStressMap() {
-  fetch('data/dictionary/stress-map.json')
-    .then(function(r) { return r.ok ? r.json() : {}; })
-    .then(function(data) { _stressMap = data || {}; applyStressMarks(); })
-    .catch(function() { _stressMap = {}; });
+/* ─── 重音显示已全局关闭；源数据保留，Reader 只呈现无重音纯文本 ─── */
+function stripStressMarks(text) {
+  return String(text || '').normalize('NFD').replace(/[\u0300\u0301\u0341]/g, '').normalize('NFC');
 }
-function hasStressMark(text) { return /[\u0301\u0341]/.test(String(text || '').normalize('NFD')); }
-function normalizeStressKey(text) {
-  return String(text || '').normalize('NFD').replace(/[\u0300\u0301\u0341]/g, '').normalize('NFC').toLowerCase();
-}
-function preserveStressCase(source, stressed) {
-  if (source === source.toUpperCase()) return stressed.toUpperCase();
-  if (source.charAt(0) === source.charAt(0).toUpperCase()) return stressed.charAt(0).toUpperCase() + stressed.slice(1);
-  return stressed;
-}
-function getStressRenderData(stressed) {
-  var normalized = String(stressed || '').normalize('NFD').replace(/\u0341/g, '\u0301');
-  var stressOffset = normalized.search(/\u0301/);
-  var vowelOffset = stressOffset > 0
-    ? normalized.slice(0, stressOffset - 1).replace(/[\u0300\u0301]/g, '').normalize('NFC').length
-    : -1;
-  var plain = normalized.replace(/[\u0300\u0301]/g, '').normalize('NFC');
-  return { text: plain, index: vowelOffset };
-}
-function renderStressMarkup(stressed) {
-  return escapeHtml(getStressRenderData(stressed).text);
-}
-function setStressOverlay(el, stressed) {
-  var rendered = getStressRenderData(stressed);
-  if (rendered.index < 0 || rendered.index >= rendered.text.length) {
-    el.removeAttribute('data-stress-index');
-    el.style.removeProperty('--stress-left');
-    return;
-  }
-  el.setAttribute('data-stress-index', String(rendered.index));
-}
-function positionStressOverlays(root) {
-  var scope = root && root.querySelectorAll ? root : document;
-  var words = scope.querySelectorAll('.ru-word[data-stress-index]');
-  for (var i = 0; i < words.length; i++) {
-    var el = words[i];
-    var textNode = el.firstChild;
-    var index = Number(el.getAttribute('data-stress-index'));
-    if (!textNode || textNode.nodeType !== 3 || !Number.isFinite(index) || index < 0 || index >= textNode.length) continue;
-    var range = document.createRange();
-    range.setStart(textNode, index); range.setEnd(textNode, index + 1);
-    var vowelRect = range.getBoundingClientRect();
-    var wordRect = el.getBoundingClientRect();
-    el.style.setProperty('--stress-left', (vowelRect.left - wordRect.left + vowelRect.width / 2).toFixed(2) + 'px');
-  }
-}
-var _stressPositionFrame = 0;
-function scheduleStressOverlayPosition() {
-  if (_stressPositionFrame) cancelAnimationFrame(_stressPositionFrame);
-  _stressPositionFrame = requestAnimationFrame(function() {
-    _stressPositionFrame = 0;
-    positionStressOverlays();
-  });
-}
-window.addEventListener('resize', scheduleStressOverlayPosition);
 function applyStressMarks(root) {
-  if (!Object.keys(_stressMap).length) return;
   var words = (root || document).querySelectorAll('.ru-word');
   for (var i = 0; i < words.length; i++) {
     var el = words[i];
-    var original = (el.getAttribute('data-original-word') || el.getAttribute('data-word') || el.textContent || '').trim().normalize('NFC');
-    if (!original) continue;
-    if (!el.getAttribute('data-original-word')) el.setAttribute('data-original-word', original);
-    if (hasStressMark(original)) {
-      el.setAttribute('data-word', original); el.setAttribute('aria-label', original); el.setAttribute('data-stress-source', 'source');
-      if (el.getAttribute('data-rendered-stress') !== original) {
-        el.innerHTML = renderStressMarkup(original);
-        el.setAttribute('data-rendered-stress', original);
-      }
-      setStressOverlay(el, original);
-      continue;
-    }
-    var key = normalizeStressKey(original);
-    var stressed = _stressMap[original.toLowerCase()] || _stressMap[key] || _stressMap[key.replace(/ё/g, 'е')];
-    if (stressed) {
-      var result = preserveStressCase(original, String(stressed).normalize('NFC'));
-      el.setAttribute('data-word', result); el.setAttribute('aria-label', result); el.setAttribute('data-stress-source', 'auto');
-      if (el.getAttribute('data-rendered-stress') !== result) {
-        el.innerHTML = renderStressMarkup(result);
-        el.setAttribute('data-rendered-stress', result);
-      }
-      setStressOverlay(el, result);
-    } else {
-      el.setAttribute('data-word', original); el.removeAttribute('aria-label'); el.setAttribute('data-stress-source', 'none');
-      el.removeAttribute('data-stress-index'); el.style.removeProperty('--stress-left');
-      if (el.getAttribute('data-rendered-stress')) {
-        el.textContent = original;
-        el.removeAttribute('data-rendered-stress');
-      }
-    }
+    var plain = stripStressMarks(el.getAttribute('data-original-word') || el.getAttribute('data-word') || el.textContent || '').trim();
+    if (!plain) continue;
+    el.textContent = plain;
+    el.setAttribute('data-word', plain);
+    el.setAttribute('data-original-word', plain);
+    el.removeAttribute('aria-label');
+    el.removeAttribute('data-stress-source');
+    el.removeAttribute('data-stress-index');
+    el.removeAttribute('data-rendered-stress');
+    el.style.removeProperty('--stress-left');
   }
-  positionStressOverlays(root);
 }
 
 function lookupLocalChineseMeaning(word) {
@@ -6870,7 +6782,6 @@ applyTheme();
 loadSavedWords();
 localLookupPromise = loadLocalLookupData();  // 启动词典加载（异步）
 initMorphology();  // 后台异步加载形态映射表
-loadStressMap();   // 加载重音表
 
 if (_jumpBook) {
   fetchIndex()
