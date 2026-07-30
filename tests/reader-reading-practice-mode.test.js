@@ -16,9 +16,22 @@ test('reading-speaking chapters provide separate reading and practice layouts', 
 test('landscape reading mode restores the draggable dictionary split without affecting portrait', () => {
   assert.match(reader, /function isReadingSpeakingSplitViewport\(\)/);
   assert.match(reader, /\(min-width: 900px\) and \(orientation: landscape\)/);
-  assert.match(reader, /\.reader-layout\.rs-reading-mode \.reader-pane \{ flex: 0 0 70%/);
+  assert.match(reader, /\.reader-layout\.rs-reading-mode \.reader-pane \{ flex: 0 1 70%/);
   assert.match(reader, /\.reader-layout\.rs-reading-mode \.resize-handle \{ display: block; \}/);
+  assert.match(reader, /\.reader-layout\.rs-reading-mode #detailPanel \{ min-width: 300px; \}/);
   assert.match(reader, /if \(!isPractice\) restoreSplitRatio\(\);/);
+});
+
+test('landscape split clamps the reading pane against the dictionary minimum width', () => {
+  assert.match(reader, /function getHorizontalSplitBounds\(layout, pane\)/);
+  assert.match(reader, /rect\.width - handleWidth - detailMinWidth/);
+  assert.match(reader, /setHorizontalSplitBasis\(layoutEl, paneEl, e\.clientX - rect\.left\)/);
+  assert.match(reader, /overflow-x: hidden; overflow-x: clip/);
+});
+
+test('landscape reading keeps the docked dictionary open on outside clicks', () => {
+  assert.match(reader, /var keepSplitDictionaryOpen = isReadingSpeakingSplitViewport\(\)/);
+  assert.match(reader, /!keepSplitDictionaryOpen && panel/);
 });
 
 test('word lookup extracts a sentence around the tapped word and highlights that word', () => {
@@ -40,11 +53,13 @@ test('desktop contextual dictionary card is clamped inside the viewport', () => 
   assert.match(reader, /window\.innerHeight - panelHeight - 16/);
 });
 
-test('phones use one continuous reading-to-practice flow while wider screens keep full-width practice content', () => {
+test('phones use one continuous flow while landscape restores the right-side practice rail', () => {
   assert.match(reader, /function isReadingSpeakingPhoneViewport\(\)/);
   assert.match(reader, /\(max-width: 760px\)/);
   assert.match(reader, /\.rs-reader-mode-switch \{ display: none; \}/);
-  assert.match(reader, /\.reader-layout\.rs-practice-mode \.reader-pane \{ flex: 1 1 auto; width: 100%/);
+  assert.match(reader, /\.reader-layout\.rs-practice-mode \{ display: flex; flex-direction: row; \}/);
+  assert.match(reader, /flex: 0 0 clamp\(320px, 32vw, 440px\)/);
+  assert.match(reader, /border-top: 0; border-left: 1px solid var\(--border\)/);
   assert.match(reader, /isReadingSpeakingPhoneViewport\(\) \? 'practice' : getReadingSpeakingLayoutMode\(\)/);
 });
 
