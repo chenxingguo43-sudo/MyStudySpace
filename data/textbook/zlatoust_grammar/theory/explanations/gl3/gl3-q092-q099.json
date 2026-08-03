@@ -1,0 +1,512 @@
+{
+  "schemaVersion": 1,
+  "authorLabel": "项目教辅解析（非教材原文注释）",
+  "pilotScope": "GL3-Q092 至 GL3-Q099",
+  "reviewStatus": "review",
+  "explanations": [
+    {
+      "exerciseId": "GL3-Q092",
+      "sourceOnlyWarning": "原书仅保留该练习与答案键，未找到独立规则页；不将推测性的规则或选项理由伪装成教材解析。",
+      "completeSentence": {
+        "ru": "«Варя вспомнила, что согласно психологической науке спрятанные за спиной руки означают нежелание говорить правду» (Б. Акунин).",
+        "zh": "请结合原书题面与答案页复核本题。"
+      },
+      "conclusion": "原书答案键为「А：какие?」。未找到独立规则页，保留来源边界。",
+      "decisionSteps": [
+        {
+          "step": 1,
+          "text": "先确认题干要求的词形、搭配或语义关系。"
+        },
+        {
+          "step": 2,
+          "text": "本题没有独立原书规则页，不扩展为推测性规则。"
+        },
+        {
+          "step": 3,
+          "text": "依据原书答案键选择 А：какие?。"
+        }
+      ],
+      "correctOption": {
+        "key": "А"
+      },
+      "distractors": [
+        {
+          "key": "Б"
+        },
+        {
+          "key": "В"
+        },
+        {
+          "key": "Г"
+        }
+      ],
+      "memoryRule": "没有独立规则页时，只记已核对答案与来源边界。",
+      "_source": {
+        "question": {
+          "printedPage": 54,
+          "pdfPage": 56
+        },
+        "answer": {
+          "printedPage": 125,
+          "pdfPage": 127
+        },
+        "rulePages": {
+          "printed": [
+            108
+          ],
+          "pdf": [
+            110
+          ]
+        },
+        "rules": []
+      }
+    },
+    {
+      "exerciseId": "GL3-Q093",
+      "completeSentence": {
+        "ru": "«Кошка Джина, лениво позёвывая, сидела в кресле — видно, Инна её разбудила» (Т.В. Устинова).",
+        "zh": "请结合原书题面与答案页复核本题。"
+      },
+      "conclusion": "原书答案键为「Б：как?」。题目映射到规则：gl3-3.1.1-shared-subject-personal、gl3-3.1.1-secondary-action。",
+      "decisionSteps": [
+        {
+          "step": 1,
+          "text": "先确认题干要求的词形、搭配或语义关系。"
+        },
+        {
+          "step": 2,
+          "text": "对照原书映射的规则：gl3-3.1.1-shared-subject-personal、gl3-3.1.1-secondary-action。"
+        },
+        {
+          "step": 3,
+          "text": "依据原书答案键选择 Б：как?。"
+        }
+      ],
+      "correctOption": {
+        "key": "Б",
+        "analysis": "原书答案键指定「Б：как?」；对应映射规则为 gl3-3.1.1-shared-subject-personal、gl3-3.1.1-secondary-action。"
+      },
+      "distractors": [
+        {
+          "key": "А",
+          "reason": "该项不是原书答案「Б：как?」。本题映射到原书规则 gl3-3.1.1-shared-subject-personal、gl3-3.1.1-secondary-action，请按题干与规则页复核。"
+        },
+        {
+          "key": "В",
+          "reason": "该项不是原书答案「Б：как?」。本题映射到原书规则 gl3-3.1.1-shared-subject-personal、gl3-3.1.1-secondary-action，请按题干与规则页复核。"
+        },
+        {
+          "key": "Г",
+          "reason": "该项不是原书答案「Б：как?」。本题映射到原书规则 gl3-3.1.1-shared-subject-personal、gl3-3.1.1-secondary-action，请按题干与规则页复核。"
+        }
+      ],
+      "memoryRule": "先核对题干，再回看规则 gl3-3.1.1-shared-subject-personal、gl3-3.1.1-secondary-action。",
+      "_source": {
+        "question": {
+          "printedPage": 54,
+          "pdfPage": 56
+        },
+        "answer": {
+          "printedPage": 125,
+          "pdfPage": 127
+        },
+        "rulePages": {
+          "printed": [
+            108,
+            109,
+            110
+          ],
+          "pdf": [
+            110,
+            111,
+            112
+          ]
+        },
+        "rules": [
+          {
+            "sectionId": "3.1.1",
+            "ruleId": "gl3-3.1.1-shared-subject-personal"
+          },
+          {
+            "sectionId": "3.1.1",
+            "ruleId": "gl3-3.1.1-secondary-action"
+          }
+        ]
+      }
+    },
+    {
+      "exerciseId": "GL3-Q094",
+      "sourceOnlyWarning": "原书仅保留该练习与答案键，未找到独立规则页；不将推测性的规则或选项理由伪装成教材解析。",
+      "completeSentence": {
+        "ru": "«Каждое утро они просыпались в доме, пахнущем деревом, и видели в раскрытое окно цветущие яблони» (В.С. Токарева).",
+        "zh": "请结合原书题面与答案页复核本题。"
+      },
+      "conclusion": "原书答案键为「В：каком?」。未找到独立规则页，保留来源边界。",
+      "decisionSteps": [
+        {
+          "step": 1,
+          "text": "先确认题干要求的词形、搭配或语义关系。"
+        },
+        {
+          "step": 2,
+          "text": "本题没有独立原书规则页，不扩展为推测性规则。"
+        },
+        {
+          "step": 3,
+          "text": "依据原书答案键选择 В：каком?。"
+        }
+      ],
+      "correctOption": {
+        "key": "В"
+      },
+      "distractors": [
+        {
+          "key": "А"
+        },
+        {
+          "key": "Б"
+        },
+        {
+          "key": "Г"
+        }
+      ],
+      "memoryRule": "没有独立规则页时，只记已核对答案与来源边界。",
+      "_source": {
+        "question": {
+          "printedPage": 54,
+          "pdfPage": 56
+        },
+        "answer": {
+          "printedPage": 125,
+          "pdfPage": 127
+        },
+        "rulePages": {
+          "printed": [
+            108
+          ],
+          "pdf": [
+            110
+          ]
+        },
+        "rules": []
+      }
+    },
+    {
+      "exerciseId": "GL3-Q095",
+      "sourceOnlyWarning": "原书仅保留该练习与答案键，未找到独立规则页；不将推测性的规则或选项理由伪装成教材解析。",
+      "completeSentence": {
+        "ru": "Растения, нашедшие приют в вашем доме, очень быстро становятся его полноправными обитателями.",
+        "zh": "请结合原书题面与答案页复核本题。"
+      },
+      "conclusion": "原书答案键为「Г：какие?」。未找到独立规则页，保留来源边界。",
+      "decisionSteps": [
+        {
+          "step": 1,
+          "text": "先确认题干要求的词形、搭配或语义关系。"
+        },
+        {
+          "step": 2,
+          "text": "本题没有独立原书规则页，不扩展为推测性规则。"
+        },
+        {
+          "step": 3,
+          "text": "依据原书答案键选择 Г：какие?。"
+        }
+      ],
+      "correctOption": {
+        "key": "Г"
+      },
+      "distractors": [
+        {
+          "key": "А"
+        },
+        {
+          "key": "Б"
+        },
+        {
+          "key": "В"
+        }
+      ],
+      "memoryRule": "没有独立规则页时，只记已核对答案与来源边界。",
+      "_source": {
+        "question": {
+          "printedPage": 54,
+          "pdfPage": 56
+        },
+        "answer": {
+          "printedPage": 125,
+          "pdfPage": 127
+        },
+        "rulePages": {
+          "printed": [
+            108
+          ],
+          "pdf": [
+            110
+          ]
+        },
+        "rules": []
+      }
+    },
+    {
+      "exerciseId": "GL3-Q096",
+      "sourceOnlyWarning": "原书仅保留该练习与答案键，未找到独立规则页；不将推测性的规则或选项理由伪装成教材解析。",
+      "completeSentence": {
+        "ru": "Антропологи, анализирующие первобытное мышление, утверждают, что внешний мир ничего не значил для человека племени.",
+        "zh": "请结合原书题面与答案页复核本题。"
+      },
+      "conclusion": "原书答案键为「В：какие?」。未找到独立规则页，保留来源边界。",
+      "decisionSteps": [
+        {
+          "step": 1,
+          "text": "先确认题干要求的词形、搭配或语义关系。"
+        },
+        {
+          "step": 2,
+          "text": "本题没有独立原书规则页，不扩展为推测性规则。"
+        },
+        {
+          "step": 3,
+          "text": "依据原书答案键选择 В：какие?。"
+        }
+      ],
+      "correctOption": {
+        "key": "В"
+      },
+      "distractors": [
+        {
+          "key": "А"
+        },
+        {
+          "key": "Б"
+        },
+        {
+          "key": "Г"
+        }
+      ],
+      "memoryRule": "没有独立规则页时，只记已核对答案与来源边界。",
+      "_source": {
+        "question": {
+          "printedPage": 54,
+          "pdfPage": 56
+        },
+        "answer": {
+          "printedPage": 125,
+          "pdfPage": 127
+        },
+        "rulePages": {
+          "printed": [
+            108
+          ],
+          "pdf": [
+            110
+          ]
+        },
+        "rules": []
+      }
+    },
+    {
+      "exerciseId": "GL3-Q097",
+      "sourceOnlyWarning": "原书仅保留该练习与答案键，未找到独立规则页；不将推测性的规则或选项理由伪装成教材解析。",
+      "completeSentence": {
+        "ru": "Я с детства люблю осторожно вынимать из картонной коробки завёрнутые в бумагу ёлочные украшения.",
+        "zh": "请结合原书题面与答案页复核本题。"
+      },
+      "conclusion": "原书答案键为「Б：какие?」。未找到独立规则页，保留来源边界。",
+      "decisionSteps": [
+        {
+          "step": 1,
+          "text": "先确认题干要求的词形、搭配或语义关系。"
+        },
+        {
+          "step": 2,
+          "text": "本题没有独立原书规则页，不扩展为推测性规则。"
+        },
+        {
+          "step": 3,
+          "text": "依据原书答案键选择 Б：какие?。"
+        }
+      ],
+      "correctOption": {
+        "key": "Б"
+      },
+      "distractors": [
+        {
+          "key": "А"
+        },
+        {
+          "key": "В"
+        },
+        {
+          "key": "Г"
+        }
+      ],
+      "memoryRule": "没有独立规则页时，只记已核对答案与来源边界。",
+      "_source": {
+        "question": {
+          "printedPage": 54,
+          "pdfPage": 56
+        },
+        "answer": {
+          "printedPage": 125,
+          "pdfPage": 127
+        },
+        "rulePages": {
+          "printed": [
+            108
+          ],
+          "pdf": [
+            110
+          ]
+        },
+        "rules": []
+      }
+    },
+    {
+      "exerciseId": "GL3-Q098",
+      "completeSentence": {
+        "ru": "Молодая мама шла по улице, толкая перед собой коляску с ребёнком.",
+        "zh": "请结合原书题面与答案页复核本题。"
+      },
+      "conclusion": "原书答案键为「А：как?」。题目映射到规则：gl3-3.1.1-shared-subject-personal、gl3-3.1.1-secondary-action。",
+      "decisionSteps": [
+        {
+          "step": 1,
+          "text": "先确认题干要求的词形、搭配或语义关系。"
+        },
+        {
+          "step": 2,
+          "text": "对照原书映射的规则：gl3-3.1.1-shared-subject-personal、gl3-3.1.1-secondary-action。"
+        },
+        {
+          "step": 3,
+          "text": "依据原书答案键选择 А：как?。"
+        }
+      ],
+      "correctOption": {
+        "key": "А",
+        "analysis": "原书答案键指定「А：как?」；对应映射规则为 gl3-3.1.1-shared-subject-personal、gl3-3.1.1-secondary-action。"
+      },
+      "distractors": [
+        {
+          "key": "Б",
+          "reason": "该项不是原书答案「А：как?」。本题映射到原书规则 gl3-3.1.1-shared-subject-personal、gl3-3.1.1-secondary-action，请按题干与规则页复核。"
+        },
+        {
+          "key": "В",
+          "reason": "该项不是原书答案「А：как?」。本题映射到原书规则 gl3-3.1.1-shared-subject-personal、gl3-3.1.1-secondary-action，请按题干与规则页复核。"
+        },
+        {
+          "key": "Г",
+          "reason": "该项不是原书答案「А：как?」。本题映射到原书规则 gl3-3.1.1-shared-subject-personal、gl3-3.1.1-secondary-action，请按题干与规则页复核。"
+        }
+      ],
+      "memoryRule": "先核对题干，再回看规则 gl3-3.1.1-shared-subject-personal、gl3-3.1.1-secondary-action。",
+      "_source": {
+        "question": {
+          "printedPage": 54,
+          "pdfPage": 56
+        },
+        "answer": {
+          "printedPage": 125,
+          "pdfPage": 127
+        },
+        "rulePages": {
+          "printed": [
+            108,
+            109,
+            110
+          ],
+          "pdf": [
+            110,
+            111,
+            112
+          ]
+        },
+        "rules": [
+          {
+            "sectionId": "3.1.1",
+            "ruleId": "gl3-3.1.1-shared-subject-personal"
+          },
+          {
+            "sectionId": "3.1.1",
+            "ruleId": "gl3-3.1.1-secondary-action"
+          }
+        ]
+      }
+    },
+    {
+      "exerciseId": "GL3-Q099",
+      "completeSentence": {
+        "ru": "Неплохо провести отпуск, нежась на солнце, купаясь в море и изредка выбираясь в горы.",
+        "zh": "请结合原书题面与答案页复核本题。"
+      },
+      "conclusion": "原书答案键为「В：как?」。题目映射到规则：gl3-3.1.1-impersonal-single-logical-subject、gl3-3.1.1-secondary-action。",
+      "decisionSteps": [
+        {
+          "step": 1,
+          "text": "先确认题干要求的词形、搭配或语义关系。"
+        },
+        {
+          "step": 2,
+          "text": "对照原书映射的规则：gl3-3.1.1-impersonal-single-logical-subject、gl3-3.1.1-secondary-action。"
+        },
+        {
+          "step": 3,
+          "text": "依据原书答案键选择 В：как?。"
+        }
+      ],
+      "correctOption": {
+        "key": "В",
+        "analysis": "原书答案键指定「В：как?」；对应映射规则为 gl3-3.1.1-impersonal-single-logical-subject、gl3-3.1.1-secondary-action。"
+      },
+      "distractors": [
+        {
+          "key": "А",
+          "reason": "该项不是原书答案「В：как?」。本题映射到原书规则 gl3-3.1.1-impersonal-single-logical-subject、gl3-3.1.1-secondary-action，请按题干与规则页复核。"
+        },
+        {
+          "key": "Б",
+          "reason": "该项不是原书答案「В：как?」。本题映射到原书规则 gl3-3.1.1-impersonal-single-logical-subject、gl3-3.1.1-secondary-action，请按题干与规则页复核。"
+        },
+        {
+          "key": "Г",
+          "reason": "该项不是原书答案「В：как?」。本题映射到原书规则 gl3-3.1.1-impersonal-single-logical-subject、gl3-3.1.1-secondary-action，请按题干与规则页复核。"
+        }
+      ],
+      "memoryRule": "先核对题干，再回看规则 gl3-3.1.1-impersonal-single-logical-subject、gl3-3.1.1-secondary-action。",
+      "_source": {
+        "question": {
+          "printedPage": 55,
+          "pdfPage": 57
+        },
+        "answer": {
+          "printedPage": 125,
+          "pdfPage": 127
+        },
+        "rulePages": {
+          "printed": [
+            108,
+            109,
+            110
+          ],
+          "pdf": [
+            110,
+            111,
+            112
+          ]
+        },
+        "rules": [
+          {
+            "sectionId": "3.1.1",
+            "ruleId": "gl3-3.1.1-impersonal-single-logical-subject"
+          },
+          {
+            "sectionId": "3.1.1",
+            "ruleId": "gl3-3.1.1-secondary-action"
+          }
+        ]
+      }
+    }
+  ]
+}

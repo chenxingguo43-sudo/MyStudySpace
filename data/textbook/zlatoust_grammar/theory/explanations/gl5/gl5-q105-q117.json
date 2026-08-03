@@ -1,0 +1,833 @@
+{
+  "schemaVersion": 1,
+  "authorLabel": "项目教辅解析（非教材原文注释）",
+  "pilotScope": "GL5-Q105 至 GL5-Q117",
+  "reviewStatus": "review",
+  "explanations": [
+    {
+      "exerciseId": "GL5-Q105",
+      "sourceOnlyWarning": "原书仅保留该练习与答案键，未找到独立规则页；不将推测性的规则或选项理由伪装成教材解析。",
+      "completeSentence": {
+        "ru": "В телепрограмме «Бизнес. Персона» успешные бизнес-леди ведут разговор об эффективности женского управления в фирмах и компаниях.",
+        "zh": "请结合原书题面与答案页复核本题。"
+      },
+      "conclusion": "原书答案键为「А：ведут разговор」。未找到独立规则页，保留来源边界。",
+      "decisionSteps": [
+        {
+          "step": 1,
+          "text": "先确认题干要求的词形、搭配或语义关系。"
+        },
+        {
+          "step": 2,
+          "text": "本题没有独立原书规则页，不扩展为推测性规则。"
+        },
+        {
+          "step": 3,
+          "text": "依据原书答案键选择 А：ведут разговор。"
+        }
+      ],
+      "correctOption": {
+        "key": "А"
+      },
+      "distractors": [
+        {
+          "key": "Б"
+        },
+        {
+          "key": "В"
+        },
+        {
+          "key": "Г"
+        }
+      ],
+      "memoryRule": "没有独立规则页时，只记已核对答案与来源边界。",
+      "_source": {
+        "question": {
+          "printedPage": 84,
+          "pdfPage": 86
+        },
+        "answer": {
+          "printedPage": 127,
+          "pdfPage": 129
+        },
+        "rulePages": {
+          "printed": [
+            117,
+            118,
+            119,
+            120,
+            121,
+            122
+          ],
+          "pdf": [
+            119,
+            120,
+            121,
+            122,
+            123,
+            124
+          ]
+        },
+        "rules": []
+      }
+    },
+    {
+      "exerciseId": "GL5-Q106",
+      "completeSentence": {
+        "ru": "В современных условиях энергетические потребности экономики способны эффективно обеспечивать только атомные электростанции.",
+        "zh": "请结合原书题面与答案页复核本题。"
+      },
+      "conclusion": "原书答案键为「А：эффективно」。题目映射到规则：gl5-5.lexical-row-086。",
+      "decisionSteps": [
+        {
+          "step": 1,
+          "text": "先确认题干要求的词形、搭配或语义关系。"
+        },
+        {
+          "step": 2,
+          "text": "对照原书映射的规则：gl5-5.lexical-row-086。"
+        },
+        {
+          "step": 3,
+          "text": "依据原书答案键选择 А：эффективно。"
+        }
+      ],
+      "correctOption": {
+        "key": "А",
+        "analysis": "原书答案键指定「А：эффективно」；对应映射规则为 gl5-5.lexical-row-086。"
+      },
+      "distractors": [
+        {
+          "key": "Б",
+          "reason": "该项不是原书答案「А：эффективно」。本题映射到原书规则 gl5-5.lexical-row-086，请按题干与规则页复核。"
+        },
+        {
+          "key": "В",
+          "reason": "该项不是原书答案「А：эффективно」。本题映射到原书规则 gl5-5.lexical-row-086，请按题干与规则页复核。"
+        }
+      ],
+      "memoryRule": "先核对题干，再回看规则 gl5-5.lexical-row-086。",
+      "_source": {
+        "question": {
+          "printedPage": 84,
+          "pdfPage": 86
+        },
+        "answer": {
+          "printedPage": 127,
+          "pdfPage": 129
+        },
+        "rulePages": {
+          "printed": [
+            117,
+            118,
+            119,
+            120,
+            121,
+            122
+          ],
+          "pdf": [
+            119,
+            120,
+            121,
+            122,
+            123,
+            124
+          ]
+        },
+        "rules": [
+          {
+            "sectionId": "5.lexical",
+            "ruleId": "gl5-5.lexical-row-086"
+          }
+        ]
+      }
+    },
+    {
+      "exerciseId": "GL5-Q107",
+      "sourceOnlyWarning": "原书仅保留该练习与答案键，未找到独立规则页；不将推测性的规则或选项理由伪装成教材解析。",
+      "completeSentence": {
+        "ru": "В центральной прессе сейчас много пишут о настоящей революции в той области медицинской науки, которая занимается стволовыми клетками.",
+        "zh": "请结合原书题面与答案页复核本题。"
+      },
+      "conclusion": "原书答案键为「Г：много」。未找到独立规则页，保留来源边界。",
+      "decisionSteps": [
+        {
+          "step": 1,
+          "text": "先确认题干要求的词形、搭配或语义关系。"
+        },
+        {
+          "step": 2,
+          "text": "本题没有独立原书规则页，不扩展为推测性规则。"
+        },
+        {
+          "step": 3,
+          "text": "依据原书答案键选择 Г：много。"
+        }
+      ],
+      "correctOption": {
+        "key": "Г"
+      },
+      "distractors": [
+        {
+          "key": "А"
+        },
+        {
+          "key": "Б"
+        },
+        {
+          "key": "В"
+        }
+      ],
+      "memoryRule": "没有独立规则页时，只记已核对答案与来源边界。",
+      "_source": {
+        "question": {
+          "printedPage": 84,
+          "pdfPage": 86
+        },
+        "answer": {
+          "printedPage": 127,
+          "pdfPage": 129
+        },
+        "rulePages": {
+          "printed": [
+            117,
+            118,
+            119,
+            120,
+            121,
+            122
+          ],
+          "pdf": [
+            119,
+            120,
+            121,
+            122,
+            123,
+            124
+          ]
+        },
+        "rules": []
+      }
+    },
+    {
+      "exerciseId": "GL5-Q108",
+      "completeSentence": {
+        "ru": "Природные территории, относящиеся к объектам общенационального достояния, особо охраняются государством.",
+        "zh": "请结合原书题面与答案页复核本题。"
+      },
+      "conclusion": "原书答案键为「Б：особо」。题目映射到规则：gl5-5.lexical-row-054。",
+      "decisionSteps": [
+        {
+          "step": 1,
+          "text": "先确认题干要求的词形、搭配或语义关系。"
+        },
+        {
+          "step": 2,
+          "text": "对照原书映射的规则：gl5-5.lexical-row-054。"
+        },
+        {
+          "step": 3,
+          "text": "依据原书答案键选择 Б：особо。"
+        }
+      ],
+      "correctOption": {
+        "key": "Б",
+        "analysis": "原书答案键指定「Б：особо」；对应映射规则为 gl5-5.lexical-row-054。"
+      },
+      "distractors": [
+        {
+          "key": "А",
+          "reason": "该项不是原书答案「Б：особо」。本题映射到原书规则 gl5-5.lexical-row-054，请按题干与规则页复核。"
+        }
+      ],
+      "memoryRule": "先核对题干，再回看规则 gl5-5.lexical-row-054。",
+      "_source": {
+        "question": {
+          "printedPage": 85,
+          "pdfPage": 87
+        },
+        "answer": {
+          "printedPage": 127,
+          "pdfPage": 129
+        },
+        "rulePages": {
+          "printed": [
+            117,
+            118,
+            119,
+            120,
+            121,
+            122
+          ],
+          "pdf": [
+            119,
+            120,
+            121,
+            122,
+            123,
+            124
+          ]
+        },
+        "rules": [
+          {
+            "sectionId": "5.lexical",
+            "ruleId": "gl5-5.lexical-row-054"
+          }
+        ]
+      }
+    },
+    {
+      "exerciseId": "GL5-Q109",
+      "sourceOnlyWarning": "原书仅保留该练习与答案键，未找到独立规则页；不将推测性的规则或选项理由伪装成教材解析。",
+      "completeSentence": {
+        "ru": "Русский поэт, лауреат Нобелевской премии Иосиф Бродский был также удостоен американской Национальной книжной премии.",
+        "zh": "请结合原书题面与答案页复核本题。"
+      },
+      "conclusion": "原书答案键为「Б：также」。未找到独立规则页，保留来源边界。",
+      "decisionSteps": [
+        {
+          "step": 1,
+          "text": "先确认题干要求的词形、搭配或语义关系。"
+        },
+        {
+          "step": 2,
+          "text": "本题没有独立原书规则页，不扩展为推测性规则。"
+        },
+        {
+          "step": 3,
+          "text": "依据原书答案键选择 Б：также。"
+        }
+      ],
+      "correctOption": {
+        "key": "Б"
+      },
+      "distractors": [
+        {
+          "key": "А"
+        }
+      ],
+      "memoryRule": "没有独立规则页时，只记已核对答案与来源边界。",
+      "_source": {
+        "question": {
+          "printedPage": 85,
+          "pdfPage": 87
+        },
+        "answer": {
+          "printedPage": 127,
+          "pdfPage": 129
+        },
+        "rulePages": {
+          "printed": [
+            117,
+            118,
+            119,
+            120,
+            121,
+            122
+          ],
+          "pdf": [
+            119,
+            120,
+            121,
+            122,
+            123,
+            124
+          ]
+        },
+        "rules": []
+      }
+    },
+    {
+      "exerciseId": "GL5-Q110",
+      "sourceOnlyWarning": "原书仅保留该练习与答案键，未找到独立规则页；不将推测性的规则或选项理由伪装成教材解析。",
+      "completeSentence": {
+        "ru": "В музее изобразительных искусств открылись сразу две выставки: «Времени наперекор» и «Люди и коллекции».",
+        "zh": "请结合原书题面与答案页复核本题。"
+      },
+      "conclusion": "原书答案键为「А：сразу」。未找到独立规则页，保留来源边界。",
+      "decisionSteps": [
+        {
+          "step": 1,
+          "text": "先确认题干要求的词形、搭配或语义关系。"
+        },
+        {
+          "step": 2,
+          "text": "本题没有独立原书规则页，不扩展为推测性规则。"
+        },
+        {
+          "step": 3,
+          "text": "依据原书答案键选择 А：сразу。"
+        }
+      ],
+      "correctOption": {
+        "key": "А"
+      },
+      "distractors": [
+        {
+          "key": "Б"
+        }
+      ],
+      "memoryRule": "没有独立规则页时，只记已核对答案与来源边界。",
+      "_source": {
+        "question": {
+          "printedPage": 85,
+          "pdfPage": 87
+        },
+        "answer": {
+          "printedPage": 127,
+          "pdfPage": 129
+        },
+        "rulePages": {
+          "printed": [
+            117,
+            118,
+            119,
+            120,
+            121,
+            122
+          ],
+          "pdf": [
+            119,
+            120,
+            121,
+            122,
+            123,
+            124
+          ]
+        },
+        "rules": []
+      }
+    },
+    {
+      "exerciseId": "GL5-Q111",
+      "sourceOnlyWarning": "原书仅保留该练习与答案键，未找到独立规则页；不将推测性的规则或选项理由伪装成教材解析。",
+      "completeSentence": {
+        "ru": "Вы можете заполнить анкету и отправить её на наш электронный адрес прямо сейчас .",
+        "zh": "请结合原书题面与答案页复核本题。"
+      },
+      "conclusion": "原书答案键为「Б：сейчас」。未找到独立规则页，保留来源边界。",
+      "decisionSteps": [
+        {
+          "step": 1,
+          "text": "先确认题干要求的词形、搭配或语义关系。"
+        },
+        {
+          "step": 2,
+          "text": "本题没有独立原书规则页，不扩展为推测性规则。"
+        },
+        {
+          "step": 3,
+          "text": "依据原书答案键选择 Б：сейчас。"
+        }
+      ],
+      "correctOption": {
+        "key": "Б"
+      },
+      "distractors": [
+        {
+          "key": "А"
+        }
+      ],
+      "memoryRule": "没有独立规则页时，只记已核对答案与来源边界。",
+      "_source": {
+        "question": {
+          "printedPage": 85,
+          "pdfPage": 87
+        },
+        "answer": {
+          "printedPage": 127,
+          "pdfPage": 129
+        },
+        "rulePages": {
+          "printed": [
+            117,
+            118,
+            119,
+            120,
+            121,
+            122
+          ],
+          "pdf": [
+            119,
+            120,
+            121,
+            122,
+            123,
+            124
+          ]
+        },
+        "rules": []
+      }
+    },
+    {
+      "exerciseId": "GL5-Q112",
+      "completeSentence": {
+        "ru": "Даже в горах можно ездить экономично, если использовать силу инерции движения автомобиля.",
+        "zh": "请结合原书题面与答案页复核本题。"
+      },
+      "conclusion": "原书答案键为「А：экономично」。题目映射到规则：gl5-5.lexical-row-083。",
+      "decisionSteps": [
+        {
+          "step": 1,
+          "text": "先确认题干要求的词形、搭配或语义关系。"
+        },
+        {
+          "step": 2,
+          "text": "对照原书映射的规则：gl5-5.lexical-row-083。"
+        },
+        {
+          "step": 3,
+          "text": "依据原书答案键选择 А：экономично。"
+        }
+      ],
+      "correctOption": {
+        "key": "А",
+        "analysis": "原书答案键指定「А：экономично」；对应映射规则为 gl5-5.lexical-row-083。"
+      },
+      "distractors": [
+        {
+          "key": "Б",
+          "reason": "该项不是原书答案「А：экономично」。本题映射到原书规则 gl5-5.lexical-row-083，请按题干与规则页复核。"
+        }
+      ],
+      "memoryRule": "先核对题干，再回看规则 gl5-5.lexical-row-083。",
+      "_source": {
+        "question": {
+          "printedPage": 85,
+          "pdfPage": 87
+        },
+        "answer": {
+          "printedPage": 127,
+          "pdfPage": 129
+        },
+        "rulePages": {
+          "printed": [
+            117,
+            118,
+            119,
+            120,
+            121,
+            122
+          ],
+          "pdf": [
+            119,
+            120,
+            121,
+            122,
+            123,
+            124
+          ]
+        },
+        "rules": [
+          {
+            "sectionId": "5.lexical",
+            "ruleId": "gl5-5.lexical-row-083"
+          }
+        ]
+      }
+    },
+    {
+      "exerciseId": "GL5-Q113",
+      "completeSentence": {
+        "ru": "Эксперты предупреждают, что некоторые компьютерные программы, несущие вирус, приходят вместе со спамом.",
+        "zh": "请结合原书题面与答案页复核本题。"
+      },
+      "conclusion": "原书答案键为「А：вместе」。题目映射到规则：gl5-5.lexical-row-003。",
+      "decisionSteps": [
+        {
+          "step": 1,
+          "text": "先确认题干要求的词形、搭配或语义关系。"
+        },
+        {
+          "step": 2,
+          "text": "对照原书映射的规则：gl5-5.lexical-row-003。"
+        },
+        {
+          "step": 3,
+          "text": "依据原书答案键选择 А：вместе。"
+        }
+      ],
+      "correctOption": {
+        "key": "А",
+        "analysis": "原书答案键指定「А：вместе」；对应映射规则为 gl5-5.lexical-row-003。"
+      },
+      "distractors": [
+        {
+          "key": "Б",
+          "reason": "该项不是原书答案「А：вместе」。本题映射到原书规则 gl5-5.lexical-row-003，请按题干与规则页复核。"
+        }
+      ],
+      "memoryRule": "先核对题干，再回看规则 gl5-5.lexical-row-003。",
+      "_source": {
+        "question": {
+          "printedPage": 85,
+          "pdfPage": 87
+        },
+        "answer": {
+          "printedPage": 127,
+          "pdfPage": 129
+        },
+        "rulePages": {
+          "printed": [
+            117,
+            118,
+            119,
+            120,
+            121,
+            122
+          ],
+          "pdf": [
+            119,
+            120,
+            121,
+            122,
+            123,
+            124
+          ]
+        },
+        "rules": [
+          {
+            "sectionId": "5.lexical",
+            "ruleId": "gl5-5.lexical-row-003"
+          }
+        ]
+      }
+    },
+    {
+      "exerciseId": "GL5-Q114",
+      "completeSentence": {
+        "ru": "«Вырастет эта девочка и узнает в свой срок всё то, что когда-то и у меня было, — молодость, любовь, надежды» (И.А. Бунин).",
+        "zh": "请结合原书题面与答案页复核本题。"
+      },
+      "conclusion": "原书答案键为「Б：когда-то」。题目映射到规则：gl5-5.2-kogda-to-past。",
+      "decisionSteps": [
+        {
+          "step": 1,
+          "text": "先确认题干要求的词形、搭配或语义关系。"
+        },
+        {
+          "step": 2,
+          "text": "对照原书映射的规则：gl5-5.2-kogda-to-past。"
+        },
+        {
+          "step": 3,
+          "text": "依据原书答案键选择 Б：когда-то。"
+        }
+      ],
+      "correctOption": {
+        "key": "Б",
+        "analysis": "原书答案键指定「Б：когда-то」；对应映射规则为 gl5-5.2-kogda-to-past。"
+      },
+      "distractors": [
+        {
+          "key": "А",
+          "reason": "该项不是原书答案「Б：когда-то」。本题映射到原书规则 gl5-5.2-kogda-to-past，请按题干与规则页复核。"
+        }
+      ],
+      "memoryRule": "先核对题干，再回看规则 gl5-5.2-kogda-to-past。",
+      "_source": {
+        "question": {
+          "printedPage": 85,
+          "pdfPage": 87
+        },
+        "answer": {
+          "printedPage": 127,
+          "pdfPage": 129
+        },
+        "rulePages": {
+          "printed": [
+            116,
+            117
+          ],
+          "pdf": [
+            118,
+            119
+          ]
+        },
+        "rules": [
+          {
+            "sectionId": "5.2",
+            "ruleId": "gl5-5.2-kogda-to-past"
+          }
+        ]
+      }
+    },
+    {
+      "exerciseId": "GL5-Q115",
+      "completeSentence": {
+        "ru": "«Иногда он позвонит откуда-нибудь по телефону, спросит Лену» (Ю.В. Трифонов).",
+        "zh": "请结合原书题面与答案页复核本题。"
+      },
+      "conclusion": "原书答案键为「А：откуда-нибудь」。题目映射到规则：gl5-5.2-nibud-indifferent。",
+      "decisionSteps": [
+        {
+          "step": 1,
+          "text": "先确认题干要求的词形、搭配或语义关系。"
+        },
+        {
+          "step": 2,
+          "text": "对照原书映射的规则：gl5-5.2-nibud-indifferent。"
+        },
+        {
+          "step": 3,
+          "text": "依据原书答案键选择 А：откуда-нибудь。"
+        }
+      ],
+      "correctOption": {
+        "key": "А",
+        "analysis": "原书答案键指定「А：откуда-нибудь」；对应映射规则为 gl5-5.2-nibud-indifferent。"
+      },
+      "distractors": [
+        {
+          "key": "Б",
+          "reason": "该项不是原书答案「А：откуда-нибудь」。本题映射到原书规则 gl5-5.2-nibud-indifferent，请按题干与规则页复核。"
+        }
+      ],
+      "memoryRule": "先核对题干，再回看规则 gl5-5.2-nibud-indifferent。",
+      "_source": {
+        "question": {
+          "printedPage": 85,
+          "pdfPage": 87
+        },
+        "answer": {
+          "printedPage": 127,
+          "pdfPage": 129
+        },
+        "rulePages": {
+          "printed": [
+            116,
+            117
+          ],
+          "pdf": [
+            118,
+            119
+          ]
+        },
+        "rules": [
+          {
+            "sectionId": "5.2",
+            "ruleId": "gl5-5.2-nibud-indifferent"
+          }
+        ]
+      }
+    },
+    {
+      "exerciseId": "GL5-Q116",
+      "completeSentence": {
+        "ru": "Моросил дождь, и кое-где машину заносило на мокром асфальте.",
+        "zh": "请结合原书题面与答案页复核本题。"
+      },
+      "conclusion": "原书答案键为「Б：кое-где」。题目映射到规则：gl5-5.2-koe-some-places。",
+      "decisionSteps": [
+        {
+          "step": 1,
+          "text": "先确认题干要求的词形、搭配或语义关系。"
+        },
+        {
+          "step": 2,
+          "text": "对照原书映射的规则：gl5-5.2-koe-some-places。"
+        },
+        {
+          "step": 3,
+          "text": "依据原书答案键选择 Б：кое-где。"
+        }
+      ],
+      "correctOption": {
+        "key": "Б",
+        "analysis": "原书答案键指定「Б：кое-где」；对应映射规则为 gl5-5.2-koe-some-places。"
+      },
+      "distractors": [
+        {
+          "key": "А",
+          "reason": "该项不是原书答案「Б：кое-где」。本题映射到原书规则 gl5-5.2-koe-some-places，请按题干与规则页复核。"
+        }
+      ],
+      "memoryRule": "先核对题干，再回看规则 gl5-5.2-koe-some-places。",
+      "_source": {
+        "question": {
+          "printedPage": 85,
+          "pdfPage": 87
+        },
+        "answer": {
+          "printedPage": 127,
+          "pdfPage": 129
+        },
+        "rulePages": {
+          "printed": [
+            116,
+            117
+          ],
+          "pdf": [
+            118,
+            119
+          ]
+        },
+        "rules": [
+          {
+            "sectionId": "5.2",
+            "ruleId": "gl5-5.2-koe-some-places"
+          }
+        ]
+      }
+    },
+    {
+      "exerciseId": "GL5-Q117",
+      "completeSentence": {
+        "ru": "Мне очень нравятся предновогодние дни: везде ёлки, огни, все куда-то спешат и у всех праздничное настроение.",
+        "zh": "请结合原书题面与答案页复核本题。"
+      },
+      "conclusion": "原书答案键为「А：куда-то」。题目映射到规则：gl5-5.2-to-speaker-unknown。",
+      "decisionSteps": [
+        {
+          "step": 1,
+          "text": "先确认题干要求的词形、搭配或语义关系。"
+        },
+        {
+          "step": 2,
+          "text": "对照原书映射的规则：gl5-5.2-to-speaker-unknown。"
+        },
+        {
+          "step": 3,
+          "text": "依据原书答案键选择 А：куда-то。"
+        }
+      ],
+      "correctOption": {
+        "key": "А",
+        "analysis": "原书答案键指定「А：куда-то」；对应映射规则为 gl5-5.2-to-speaker-unknown。"
+      },
+      "distractors": [
+        {
+          "key": "Б",
+          "reason": "该项不是原书答案「А：куда-то」。本题映射到原书规则 gl5-5.2-to-speaker-unknown，请按题干与规则页复核。"
+        }
+      ],
+      "memoryRule": "先核对题干，再回看规则 gl5-5.2-to-speaker-unknown。",
+      "_source": {
+        "question": {
+          "printedPage": 85,
+          "pdfPage": 87
+        },
+        "answer": {
+          "printedPage": 127,
+          "pdfPage": 129
+        },
+        "rulePages": {
+          "printed": [
+            116,
+            117
+          ],
+          "pdf": [
+            118,
+            119
+          ]
+        },
+        "rules": [
+          {
+            "sectionId": "5.2",
+            "ruleId": "gl5-5.2-to-speaker-unknown"
+          }
+        ]
+      }
+    }
+  ]
+}

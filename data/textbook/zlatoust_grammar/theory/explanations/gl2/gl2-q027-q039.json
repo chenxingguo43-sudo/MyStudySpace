@@ -1,0 +1,833 @@
+{
+  "schemaVersion": 1,
+  "authorLabel": "项目教辅解析（非教材原文注释）",
+  "pilotScope": "GL2-Q027 至 GL2-Q039",
+  "reviewStatus": "review",
+  "explanations": [
+    {
+      "exerciseId": "GL2-Q027",
+      "completeSentence": {
+        "ru": "Люди, склонные воспринимать жизнь с юмором, обычно терпимы к окружающим .",
+        "zh": "请结合原书题面与答案页复核本题。"
+      },
+      "conclusion": "原书答案键为「А：к окружающим」。题目映射到规则：gl2-2.2-terpim-k-dat。",
+      "decisionSteps": [
+        {
+          "step": 1,
+          "text": "先确认题干要求的词形、搭配或语义关系。"
+        },
+        {
+          "step": 2,
+          "text": "对照原书映射的规则：gl2-2.2-terpim-k-dat。"
+        },
+        {
+          "step": 3,
+          "text": "依据原书答案键选择 А：к окружающим。"
+        }
+      ],
+      "correctOption": {
+        "key": "А",
+        "analysis": "原书答案键指定「А：к окружающим」；对应映射规则为 gl2-2.2-terpim-k-dat。"
+      },
+      "distractors": [
+        {
+          "key": "Б",
+          "reason": "该项不是原书答案「А：к окружающим」。本题映射到原书规则 gl2-2.2-terpim-k-dat，请按题干与规则页复核。"
+        },
+        {
+          "key": "В",
+          "reason": "该项不是原书答案「А：к окружающим」。本题映射到原书规则 gl2-2.2-terpim-k-dat，请按题干与规则页复核。"
+        },
+        {
+          "key": "Г",
+          "reason": "该项不是原书答案「А：к окружающим」。本题映射到原书规则 gl2-2.2-terpim-k-dat，请按题干与规则页复核。"
+        }
+      ],
+      "memoryRule": "先核对题干，再回看规则 gl2-2.2-terpim-k-dat。",
+      "_source": {
+        "question": {
+          "printedPage": 22,
+          "pdfPage": 24
+        },
+        "answer": {
+          "printedPage": 124,
+          "pdfPage": 126
+        },
+        "rulePages": {
+          "printed": [
+            99
+          ],
+          "pdf": [
+            101
+          ]
+        },
+        "rules": [
+          {
+            "sectionId": "2.2",
+            "ruleId": "gl2-2.2-terpim-k-dat"
+          }
+        ]
+      }
+    },
+    {
+      "exerciseId": "GL2-Q028",
+      "sourceOnlyWarning": "原书仅保留该练习与答案键，未找到独立规则页；不将推测性的规则或选项理由伪装成教材解析。",
+      "completeSentence": {
+        "ru": "Желание быть принятым и оценённым окружающими свойственно любому человеку .",
+        "zh": "请结合原书题面与答案页复核本题。"
+      },
+      "conclusion": "原书答案键为「В：любому человеку」。未找到独立规则页，保留来源边界。",
+      "decisionSteps": [
+        {
+          "step": 1,
+          "text": "先确认题干要求的词形、搭配或语义关系。"
+        },
+        {
+          "step": 2,
+          "text": "本题没有独立原书规则页，不扩展为推测性规则。"
+        },
+        {
+          "step": 3,
+          "text": "依据原书答案键选择 В：любому человеку。"
+        }
+      ],
+      "correctOption": {
+        "key": "В"
+      },
+      "distractors": [
+        {
+          "key": "А"
+        },
+        {
+          "key": "Б"
+        },
+        {
+          "key": "Г"
+        }
+      ],
+      "memoryRule": "没有独立规则页时，只记已核对答案与来源边界。",
+      "_source": {
+        "question": {
+          "printedPage": 22,
+          "pdfPage": 24
+        },
+        "answer": {
+          "printedPage": 124,
+          "pdfPage": 126
+        },
+        "rulePages": {
+          "printed": [
+            99
+          ],
+          "pdf": [
+            101
+          ]
+        },
+        "rules": []
+      }
+    },
+    {
+      "exerciseId": "GL2-Q029",
+      "completeSentence": {
+        "ru": "«Понятие красоты не только не совпадает с добром, но, скорее, противоположно ему» (Л.Н. Толстой).",
+        "zh": "请结合原书题面与答案页复核本题。"
+      },
+      "conclusion": "原书答案键为「Г：ему」。题目映射到规则：gl2-2.2-protivopolozhen-dat。",
+      "decisionSteps": [
+        {
+          "step": 1,
+          "text": "先确认题干要求的词形、搭配或语义关系。"
+        },
+        {
+          "step": 2,
+          "text": "对照原书映射的规则：gl2-2.2-protivopolozhen-dat。"
+        },
+        {
+          "step": 3,
+          "text": "依据原书答案键选择 Г：ему。"
+        }
+      ],
+      "correctOption": {
+        "key": "Г",
+        "analysis": "原书答案键指定「Г：ему」；对应映射规则为 gl2-2.2-protivopolozhen-dat。"
+      },
+      "distractors": [
+        {
+          "key": "А",
+          "reason": "该项不是原书答案「Г：ему」。本题映射到原书规则 gl2-2.2-protivopolozhen-dat，请按题干与规则页复核。"
+        },
+        {
+          "key": "Б",
+          "reason": "该项不是原书答案「Г：ему」。本题映射到原书规则 gl2-2.2-protivopolozhen-dat，请按题干与规则页复核。"
+        },
+        {
+          "key": "В",
+          "reason": "该项不是原书答案「Г：ему」。本题映射到原书规则 gl2-2.2-protivopolozhen-dat，请按题干与规则页复核。"
+        }
+      ],
+      "memoryRule": "先核对题干，再回看规则 gl2-2.2-protivopolozhen-dat。",
+      "_source": {
+        "question": {
+          "printedPage": 22,
+          "pdfPage": 24
+        },
+        "answer": {
+          "printedPage": 124,
+          "pdfPage": 126
+        },
+        "rulePages": {
+          "printed": [
+            99
+          ],
+          "pdf": [
+            101
+          ]
+        },
+        "rules": [
+          {
+            "sectionId": "2.2",
+            "ruleId": "gl2-2.2-protivopolozhen-dat"
+          }
+        ]
+      }
+    },
+    {
+      "exerciseId": "GL2-Q030",
+      "completeSentence": {
+        "ru": "Описывая героев своих произведений, писатель Иван Бунин всегда внимателен к деталям .",
+        "zh": "请结合原书题面与答案页复核本题。"
+      },
+      "conclusion": "原书答案键为「А：к деталям」。题目映射到规则：gl2-2.2-vnimatelen-k-dat。",
+      "decisionSteps": [
+        {
+          "step": 1,
+          "text": "先确认题干要求的词形、搭配或语义关系。"
+        },
+        {
+          "step": 2,
+          "text": "对照原书映射的规则：gl2-2.2-vnimatelen-k-dat。"
+        },
+        {
+          "step": 3,
+          "text": "依据原书答案键选择 А：к деталям。"
+        }
+      ],
+      "correctOption": {
+        "key": "А",
+        "analysis": "原书答案键指定「А：к деталям」；对应映射规则为 gl2-2.2-vnimatelen-k-dat。"
+      },
+      "distractors": [
+        {
+          "key": "Б",
+          "reason": "该项不是原书答案「А：к деталям」。本题映射到原书规则 gl2-2.2-vnimatelen-k-dat，请按题干与规则页复核。"
+        },
+        {
+          "key": "В",
+          "reason": "该项不是原书答案「А：к деталям」。本题映射到原书规则 gl2-2.2-vnimatelen-k-dat，请按题干与规则页复核。"
+        },
+        {
+          "key": "Г",
+          "reason": "该项不是原书答案「А：к деталям」。本题映射到原书规则 gl2-2.2-vnimatelen-k-dat，请按题干与规则页复核。"
+        }
+      ],
+      "memoryRule": "先核对题干，再回看规则 gl2-2.2-vnimatelen-k-dat。",
+      "_source": {
+        "question": {
+          "printedPage": 22,
+          "pdfPage": 24
+        },
+        "answer": {
+          "printedPage": 124,
+          "pdfPage": 126
+        },
+        "rulePages": {
+          "printed": [
+            99
+          ],
+          "pdf": [
+            101
+          ]
+        },
+        "rules": [
+          {
+            "sectionId": "2.2",
+            "ruleId": "gl2-2.2-vnimatelen-k-dat"
+          }
+        ]
+      }
+    },
+    {
+      "exerciseId": "GL2-Q031",
+      "completeSentence": {
+        "ru": "Французский писатель Виктор Гюго считал, что люди должны быть снисходительны к счастливым .",
+        "zh": "请结合原书题面与答案页复核本题。"
+      },
+      "conclusion": "原书答案键为「В：к счастливым」。题目映射到规则：gl2-2.2-snishoditelen-k-dat。",
+      "decisionSteps": [
+        {
+          "step": 1,
+          "text": "先确认题干要求的词形、搭配或语义关系。"
+        },
+        {
+          "step": 2,
+          "text": "对照原书映射的规则：gl2-2.2-snishoditelen-k-dat。"
+        },
+        {
+          "step": 3,
+          "text": "依据原书答案键选择 В：к счастливым。"
+        }
+      ],
+      "correctOption": {
+        "key": "В",
+        "analysis": "原书答案键指定「В：к счастливым」；对应映射规则为 gl2-2.2-snishoditelen-k-dat。"
+      },
+      "distractors": [
+        {
+          "key": "А",
+          "reason": "该项不是原书答案「В：к счастливым」。本题映射到原书规则 gl2-2.2-snishoditelen-k-dat，请按题干与规则页复核。"
+        },
+        {
+          "key": "Б",
+          "reason": "该项不是原书答案「В：к счастливым」。本题映射到原书规则 gl2-2.2-snishoditelen-k-dat，请按题干与规则页复核。"
+        },
+        {
+          "key": "Г",
+          "reason": "该项不是原书答案「В：к счастливым」。本题映射到原书规则 gl2-2.2-snishoditelen-k-dat，请按题干与规则页复核。"
+        }
+      ],
+      "memoryRule": "先核对题干，再回看规则 gl2-2.2-snishoditelen-k-dat。",
+      "_source": {
+        "question": {
+          "printedPage": 22,
+          "pdfPage": 24
+        },
+        "answer": {
+          "printedPage": 124,
+          "pdfPage": 126
+        },
+        "rulePages": {
+          "printed": [
+            99
+          ],
+          "pdf": [
+            101
+          ]
+        },
+        "rules": [
+          {
+            "sectionId": "2.2",
+            "ruleId": "gl2-2.2-snishoditelen-k-dat"
+          }
+        ]
+      }
+    },
+    {
+      "exerciseId": "GL2-Q032",
+      "completeSentence": {
+        "ru": "Сегодня погода не слишком благоприятна для прогулки: и дождь, и снег, и холод — всё вместе.",
+        "zh": "请结合原书题面与答案页复核本题。"
+      },
+      "conclusion": "原书答案键为「Б：для прогулки」。题目映射到规则：gl2-2.2-blagopriyatен-dlya-gen。",
+      "decisionSteps": [
+        {
+          "step": 1,
+          "text": "先确认题干要求的词形、搭配或语义关系。"
+        },
+        {
+          "step": 2,
+          "text": "对照原书映射的规则：gl2-2.2-blagopriyatен-dlya-gen。"
+        },
+        {
+          "step": 3,
+          "text": "依据原书答案键选择 Б：для прогулки。"
+        }
+      ],
+      "correctOption": {
+        "key": "Б",
+        "analysis": "原书答案键指定「Б：для прогулки」；对应映射规则为 gl2-2.2-blagopriyatен-dlya-gen。"
+      },
+      "distractors": [
+        {
+          "key": "А",
+          "reason": "该项不是原书答案「Б：для прогулки」。本题映射到原书规则 gl2-2.2-blagopriyatен-dlya-gen，请按题干与规则页复核。"
+        },
+        {
+          "key": "В",
+          "reason": "该项不是原书答案「Б：для прогулки」。本题映射到原书规则 gl2-2.2-blagopriyatен-dlya-gen，请按题干与规则页复核。"
+        },
+        {
+          "key": "Г",
+          "reason": "该项不是原书答案「Б：для прогулки」。本题映射到原书规则 gl2-2.2-blagopriyatен-dlya-gen，请按题干与规则页复核。"
+        }
+      ],
+      "memoryRule": "先核对题干，再回看规则 gl2-2.2-blagopriyatен-dlya-gen。",
+      "_source": {
+        "question": {
+          "printedPage": 22,
+          "pdfPage": 24
+        },
+        "answer": {
+          "printedPage": 124,
+          "pdfPage": 126
+        },
+        "rulePages": {
+          "printed": [
+            99
+          ],
+          "pdf": [
+            101
+          ]
+        },
+        "rules": [
+          {
+            "sectionId": "2.2",
+            "ruleId": "gl2-2.2-blagopriyatен-dlya-gen"
+          }
+        ]
+      }
+    },
+    {
+      "exerciseId": "GL2-Q033",
+      "completeSentence": {
+        "ru": "Благодаря разумной ценовой политике московского Дома моды его одежда доступна среднему классу .",
+        "zh": "请结合原书题面与答案页复核本题。"
+      },
+      "conclusion": "原书答案键为「А：среднему классу」。题目映射到规则：gl2-2.2-dostupen-dat。",
+      "decisionSteps": [
+        {
+          "step": 1,
+          "text": "先确认题干要求的词形、搭配或语义关系。"
+        },
+        {
+          "step": 2,
+          "text": "对照原书映射的规则：gl2-2.2-dostupen-dat。"
+        },
+        {
+          "step": 3,
+          "text": "依据原书答案键选择 А：среднему классу。"
+        }
+      ],
+      "correctOption": {
+        "key": "А",
+        "analysis": "原书答案键指定「А：среднему классу」；对应映射规则为 gl2-2.2-dostupen-dat。"
+      },
+      "distractors": [
+        {
+          "key": "Б",
+          "reason": "该项不是原书答案「А：среднему классу」。本题映射到原书规则 gl2-2.2-dostupen-dat，请按题干与规则页复核。"
+        },
+        {
+          "key": "В",
+          "reason": "该项不是原书答案「А：среднему классу」。本题映射到原书规则 gl2-2.2-dostupen-dat，请按题干与规则页复核。"
+        },
+        {
+          "key": "Г",
+          "reason": "该项不是原书答案「А：среднему классу」。本题映射到原书规则 gl2-2.2-dostupen-dat，请按题干与规则页复核。"
+        }
+      ],
+      "memoryRule": "先核对题干，再回看规则 gl2-2.2-dostupen-dat。",
+      "_source": {
+        "question": {
+          "printedPage": 23,
+          "pdfPage": 25
+        },
+        "answer": {
+          "printedPage": 124,
+          "pdfPage": 126
+        },
+        "rulePages": {
+          "printed": [
+            99
+          ],
+          "pdf": [
+            101
+          ]
+        },
+        "rules": [
+          {
+            "sectionId": "2.2",
+            "ruleId": "gl2-2.2-dostupen-dat"
+          }
+        ]
+      }
+    },
+    {
+      "exerciseId": "GL2-Q034",
+      "completeSentence": {
+        "ru": "Стеклообои безвредны для человеческого организма и устойчивы к воздействию окружающей среды.",
+        "zh": "请结合原书题面与答案页复核本题。"
+      },
+      "conclusion": "原书答案键为「Г：к воздействию」。题目映射到规则：gl2-2.2-ustoichiv-k-dat。",
+      "decisionSteps": [
+        {
+          "step": 1,
+          "text": "先确认题干要求的词形、搭配或语义关系。"
+        },
+        {
+          "step": 2,
+          "text": "对照原书映射的规则：gl2-2.2-ustoichiv-k-dat。"
+        },
+        {
+          "step": 3,
+          "text": "依据原书答案键选择 Г：к воздействию。"
+        }
+      ],
+      "correctOption": {
+        "key": "Г",
+        "analysis": "原书答案键指定「Г：к воздействию」；对应映射规则为 gl2-2.2-ustoichiv-k-dat。"
+      },
+      "distractors": [
+        {
+          "key": "А",
+          "reason": "该项不是原书答案「Г：к воздействию」。本题映射到原书规则 gl2-2.2-ustoichiv-k-dat，请按题干与规则页复核。"
+        },
+        {
+          "key": "Б",
+          "reason": "该项不是原书答案「Г：к воздействию」。本题映射到原书规则 gl2-2.2-ustoichiv-k-dat，请按题干与规则页复核。"
+        },
+        {
+          "key": "В",
+          "reason": "该项不是原书答案「Г：к воздействию」。本题映射到原书规则 gl2-2.2-ustoichiv-k-dat，请按题干与规则页复核。"
+        }
+      ],
+      "memoryRule": "先核对题干，再回看规则 gl2-2.2-ustoichiv-k-dat。",
+      "_source": {
+        "question": {
+          "printedPage": 23,
+          "pdfPage": 25
+        },
+        "answer": {
+          "printedPage": 124,
+          "pdfPage": 126
+        },
+        "rulePages": {
+          "printed": [
+            99
+          ],
+          "pdf": [
+            101
+          ]
+        },
+        "rules": [
+          {
+            "sectionId": "2.2",
+            "ruleId": "gl2-2.2-ustoichiv-k-dat"
+          }
+        ]
+      }
+    },
+    {
+      "exerciseId": "GL2-Q035",
+      "completeSentence": {
+        "ru": "По мнению нашего тренера, ничья в матче с командой-чемпионом равноценна победе .",
+        "zh": "请结合原书题面与答案页复核本题。"
+      },
+      "conclusion": "原书答案键为「В：победе」。题目映射到规则：gl2-2.2-raven-dat。",
+      "decisionSteps": [
+        {
+          "step": 1,
+          "text": "先确认题干要求的词形、搭配或语义关系。"
+        },
+        {
+          "step": 2,
+          "text": "对照原书映射的规则：gl2-2.2-raven-dat。"
+        },
+        {
+          "step": 3,
+          "text": "依据原书答案键选择 В：победе。"
+        }
+      ],
+      "correctOption": {
+        "key": "В",
+        "analysis": "原书答案键指定「В：победе」；对应映射规则为 gl2-2.2-raven-dat。"
+      },
+      "distractors": [
+        {
+          "key": "А",
+          "reason": "该项不是原书答案「В：победе」。本题映射到原书规则 gl2-2.2-raven-dat，请按题干与规则页复核。"
+        },
+        {
+          "key": "Б",
+          "reason": "该项不是原书答案「В：победе」。本题映射到原书规则 gl2-2.2-raven-dat，请按题干与规则页复核。"
+        },
+        {
+          "key": "Г",
+          "reason": "该项不是原书答案「В：победе」。本题映射到原书规则 gl2-2.2-raven-dat，请按题干与规则页复核。"
+        }
+      ],
+      "memoryRule": "先核对题干，再回看规则 gl2-2.2-raven-dat。",
+      "_source": {
+        "question": {
+          "printedPage": 23,
+          "pdfPage": 25
+        },
+        "answer": {
+          "printedPage": 124,
+          "pdfPage": 126
+        },
+        "rulePages": {
+          "printed": [
+            99
+          ],
+          "pdf": [
+            101
+          ]
+        },
+        "rules": [
+          {
+            "sectionId": "2.2",
+            "ruleId": "gl2-2.2-raven-dat"
+          }
+        ]
+      }
+    },
+    {
+      "exerciseId": "GL2-Q036",
+      "reviewWarning": "本题规则边界仍待复核；以下仅作来源受限的学习辅助。",
+      "completeSentence": {
+        "ru": "Поезда московского метро ходят с промежутком в полторы-две минуты.",
+        "zh": "请结合原书题面与答案页复核本题。"
+      },
+      "conclusion": "原书答案键为「В：с промежутком」。题目映射到规则：。",
+      "decisionSteps": [
+        {
+          "step": 1,
+          "text": "先确认题干要求的词形、搭配或语义关系。"
+        },
+        {
+          "step": 2,
+          "text": "对照原书映射的规则：。"
+        },
+        {
+          "step": 3,
+          "text": "依据原书答案键选择 В：с промежутком。"
+        }
+      ],
+      "correctOption": {
+        "key": "В",
+        "analysis": "原书答案键指定「В：с промежутком」；对应映射规则为 。"
+      },
+      "distractors": [
+        {
+          "key": "А",
+          "reason": "该项不是原书答案「В：с промежутком」。本题映射到原书规则 ，请按题干与规则页复核。"
+        },
+        {
+          "key": "Б",
+          "reason": "该项不是原书答案「В：с промежутком」。本题映射到原书规则 ，请按题干与规则页复核。"
+        },
+        {
+          "key": "Г",
+          "reason": "该项不是原书答案「В：с промежутком」。本题映射到原书规则 ，请按题干与规则页复核。"
+        }
+      ],
+      "memoryRule": "先核对题干，再回看规则 。",
+      "_source": {
+        "question": {
+          "printedPage": 23,
+          "pdfPage": 25
+        },
+        "answer": {
+          "printedPage": 124,
+          "pdfPage": 126
+        },
+        "rulePages": {
+          "printed": [
+            100
+          ],
+          "pdf": [
+            102
+          ]
+        },
+        "rules": []
+      }
+    },
+    {
+      "exerciseId": "GL2-Q037",
+      "completeSentence": {
+        "ru": "Окно с громким шумом распахнулось, и в комнату ворвались звуки улицы: детский крик, гудки машин, птичий гомон.",
+        "zh": "请结合原书题面与答案页复核本题。"
+      },
+      "conclusion": "原书答案键为「А：с громким шумом」。题目映射到规则：gl2-2.3-s-inst-accompanying。",
+      "decisionSteps": [
+        {
+          "step": 1,
+          "text": "先确认题干要求的词形、搭配或语义关系。"
+        },
+        {
+          "step": 2,
+          "text": "对照原书映射的规则：gl2-2.3-s-inst-accompanying。"
+        },
+        {
+          "step": 3,
+          "text": "依据原书答案键选择 А：с громким шумом。"
+        }
+      ],
+      "correctOption": {
+        "key": "А",
+        "analysis": "原书答案键指定「А：с громким шумом」；对应映射规则为 gl2-2.3-s-inst-accompanying。"
+      },
+      "distractors": [
+        {
+          "key": "Б",
+          "reason": "该项不是原书答案「А：с громким шумом」。本题映射到原书规则 gl2-2.3-s-inst-accompanying，请按题干与规则页复核。"
+        },
+        {
+          "key": "В",
+          "reason": "该项不是原书答案「А：с громким шумом」。本题映射到原书规则 gl2-2.3-s-inst-accompanying，请按题干与规则页复核。"
+        },
+        {
+          "key": "Г",
+          "reason": "该项不是原书答案「А：с громким шумом」。本题映射到原书规则 gl2-2.3-s-inst-accompanying，请按题干与规则页复核。"
+        }
+      ],
+      "memoryRule": "先核对题干，再回看规则 gl2-2.3-s-inst-accompanying。",
+      "_source": {
+        "question": {
+          "printedPage": 23,
+          "pdfPage": 25
+        },
+        "answer": {
+          "printedPage": 124,
+          "pdfPage": 126
+        },
+        "rulePages": {
+          "printed": [
+            100
+          ],
+          "pdf": [
+            102
+          ]
+        },
+        "rules": [
+          {
+            "sectionId": "2.3",
+            "ruleId": "gl2-2.3-s-inst-accompanying"
+          }
+        ]
+      }
+    },
+    {
+      "exerciseId": "GL2-Q038",
+      "completeSentence": {
+        "ru": "У англичан есть одна особенность: они умеют остроумно шутить и говорить смешные вещи с серьёзным выражением лица.",
+        "zh": "请结合原书题面与答案页复核本题。"
+      },
+      "conclusion": "原书答案键为「Б：с серьёзным выражением」。题目映射到规则：gl2-2.3-s-inst-accompanying。",
+      "decisionSteps": [
+        {
+          "step": 1,
+          "text": "先确认题干要求的词形、搭配或语义关系。"
+        },
+        {
+          "step": 2,
+          "text": "对照原书映射的规则：gl2-2.3-s-inst-accompanying。"
+        },
+        {
+          "step": 3,
+          "text": "依据原书答案键选择 Б：с серьёзным выражением。"
+        }
+      ],
+      "correctOption": {
+        "key": "Б",
+        "analysis": "原书答案键指定「Б：с серьёзным выражением」；对应映射规则为 gl2-2.3-s-inst-accompanying。"
+      },
+      "distractors": [
+        {
+          "key": "А",
+          "reason": "该项不是原书答案「Б：с серьёзным выражением」。本题映射到原书规则 gl2-2.3-s-inst-accompanying，请按题干与规则页复核。"
+        },
+        {
+          "key": "В",
+          "reason": "该项不是原书答案「Б：с серьёзным выражением」。本题映射到原书规则 gl2-2.3-s-inst-accompanying，请按题干与规则页复核。"
+        },
+        {
+          "key": "Г",
+          "reason": "该项不是原书答案「Б：с серьёзным выражением」。本题映射到原书规则 gl2-2.3-s-inst-accompanying，请按题干与规则页复核。"
+        }
+      ],
+      "memoryRule": "先核对题干，再回看规则 gl2-2.3-s-inst-accompanying。",
+      "_source": {
+        "question": {
+          "printedPage": 23,
+          "pdfPage": 25
+        },
+        "answer": {
+          "printedPage": 124,
+          "pdfPage": 126
+        },
+        "rulePages": {
+          "printed": [
+            100
+          ],
+          "pdf": [
+            102
+          ]
+        },
+        "rules": [
+          {
+            "sectionId": "2.3",
+            "ruleId": "gl2-2.3-s-inst-accompanying"
+          }
+        ]
+      }
+    },
+    {
+      "exerciseId": "GL2-Q039",
+      "sourceOnlyWarning": "原书仅保留该练习与答案键，未找到独立规则页；不将推测性的规则或选项理由伪装成教材解析。",
+      "completeSentence": {
+        "ru": "Куда бы Эрмитаж ни привозил свои экспонаты, его выставки всегда проходят на высоком уровне .",
+        "zh": "请结合原书题面与答案页复核本题。"
+      },
+      "conclusion": "原书答案键为「Г：на высоком уровне」。未找到独立规则页，保留来源边界。",
+      "decisionSteps": [
+        {
+          "step": 1,
+          "text": "先确认题干要求的词形、搭配或语义关系。"
+        },
+        {
+          "step": 2,
+          "text": "本题没有独立原书规则页，不扩展为推测性规则。"
+        },
+        {
+          "step": 3,
+          "text": "依据原书答案键选择 Г：на высоком уровне。"
+        }
+      ],
+      "correctOption": {
+        "key": "Г"
+      },
+      "distractors": [
+        {
+          "key": "А"
+        },
+        {
+          "key": "Б"
+        },
+        {
+          "key": "В"
+        }
+      ],
+      "memoryRule": "没有独立规则页时，只记已核对答案与来源边界。",
+      "_source": {
+        "question": {
+          "printedPage": 24,
+          "pdfPage": 26
+        },
+        "answer": {
+          "printedPage": 124,
+          "pdfPage": 126
+        },
+        "rulePages": {
+          "printed": [
+            100
+          ],
+          "pdf": [
+            102
+          ]
+        },
+        "rules": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,611 @@
+{
+  "schemaVersion": 1,
+  "authorLabel": "项目教辅解析（非教材原文注释）",
+  "pilotScope": "GL5-Q131 至 GL5-Q139",
+  "reviewStatus": "review",
+  "explanations": [
+    {
+      "exerciseId": "GL5-Q131",
+      "completeSentence": {
+        "ru": "— Завтрак был очень полезным. — Тоже мне полезным! Одни углеводы.",
+        "zh": "请结合原书题面与答案页复核本题。"
+      },
+      "conclusion": "原书答案键为「В：Завтрак был полезным!」。题目映射到规则：gl5-5.1-tozhe-mne-negative-evaluation。",
+      "decisionSteps": [
+        {
+          "step": 1,
+          "text": "先确认题干要求的词形、搭配或语义关系。"
+        },
+        {
+          "step": 2,
+          "text": "对照原书映射的规则：gl5-5.1-tozhe-mne-negative-evaluation。"
+        },
+        {
+          "step": 3,
+          "text": "依据原书答案键选择 В：Завтрак был полезным!。"
+        }
+      ],
+      "correctOption": {
+        "key": "В",
+        "analysis": "原书答案键指定「В：Завтрак был полезным!」；对应映射规则为 gl5-5.1-tozhe-mne-negative-evaluation。"
+      },
+      "distractors": [
+        {
+          "key": "А",
+          "reason": "该项不是原书答案「В：Завтрак был полезным!」。本题映射到原书规则 gl5-5.1-tozhe-mne-negative-evaluation，请按题干与规则页复核。"
+        },
+        {
+          "key": "Б",
+          "reason": "该项不是原书答案「В：Завтрак был полезным!」。本题映射到原书规则 gl5-5.1-tozhe-mne-negative-evaluation，请按题干与规则页复核。"
+        },
+        {
+          "key": "Г",
+          "reason": "该项不是原书答案「В：Завтрак был полезным!」。本题映射到原书规则 gl5-5.1-tozhe-mne-negative-evaluation，请按题干与规则页复核。"
+        }
+      ],
+      "memoryRule": "先核对题干，再回看规则 gl5-5.1-tozhe-mne-negative-evaluation。",
+      "_source": {
+        "question": {
+          "printedPage": 87,
+          "pdfPage": 89
+        },
+        "answer": {
+          "printedPage": 127,
+          "pdfPage": 129
+        },
+        "rulePages": {
+          "printed": [
+            115,
+            116
+          ],
+          "pdf": [
+            117,
+            118
+          ]
+        },
+        "rules": [
+          {
+            "sectionId": "5.1",
+            "ruleId": "gl5-5.1-tozhe-mne-negative-evaluation"
+          }
+        ]
+      }
+    },
+    {
+      "exerciseId": "GL5-Q132",
+      "completeSentence": {
+        "ru": "— Тебе повезло: муж всегда помогает. — Тоже мне помогает! Сегодня, правда, сорвал листок календаря.",
+        "zh": "请结合原书题面与答案页复核本题。"
+      },
+      "conclusion": "原书答案键为「Б：Разве это помощь?!」。题目映射到规则：gl5-5.1-tozhe-mne-negative-evaluation。",
+      "decisionSteps": [
+        {
+          "step": 1,
+          "text": "先确认题干要求的词形、搭配或语义关系。"
+        },
+        {
+          "step": 2,
+          "text": "对照原书映射的规则：gl5-5.1-tozhe-mne-negative-evaluation。"
+        },
+        {
+          "step": 3,
+          "text": "依据原书答案键选择 Б：Разве это помощь?!。"
+        }
+      ],
+      "correctOption": {
+        "key": "Б",
+        "analysis": "原书答案键指定「Б：Разве это помощь?!」；对应映射规则为 gl5-5.1-tozhe-mne-negative-evaluation。"
+      },
+      "distractors": [
+        {
+          "key": "А",
+          "reason": "该项不是原书答案「Б：Разве это помощь?!」。本题映射到原书规则 gl5-5.1-tozhe-mne-negative-evaluation，请按题干与规则页复核。"
+        },
+        {
+          "key": "В",
+          "reason": "该项不是原书答案「Б：Разве это помощь?!」。本题映射到原书规则 gl5-5.1-tozhe-mne-negative-evaluation，请按题干与规则页复核。"
+        },
+        {
+          "key": "Г",
+          "reason": "该项不是原书答案「Б：Разве это помощь?!」。本题映射到原书规则 gl5-5.1-tozhe-mne-negative-evaluation，请按题干与规则页复核。"
+        }
+      ],
+      "memoryRule": "先核对题干，再回看规则 gl5-5.1-tozhe-mne-negative-evaluation。",
+      "_source": {
+        "question": {
+          "printedPage": 87,
+          "pdfPage": 89
+        },
+        "answer": {
+          "printedPage": 127,
+          "pdfPage": 129
+        },
+        "rulePages": {
+          "printed": [
+            115,
+            116
+          ],
+          "pdf": [
+            117,
+            118
+          ]
+        },
+        "rules": [
+          {
+            "sectionId": "5.1",
+            "ruleId": "gl5-5.1-tozhe-mne-negative-evaluation"
+          }
+        ]
+      }
+    },
+    {
+      "exerciseId": "GL5-Q133",
+      "completeSentence": {
+        "ru": "Дети есть дети. Родители всё им простят и всё ради них сделают.",
+        "zh": "请结合原书题面与答案页复核本题。"
+      },
+      "conclusion": "原书答案键为「В：Дети дороже всего.」。题目映射到规则：gl5-5.1-x-est-x-acceptance。",
+      "decisionSteps": [
+        {
+          "step": 1,
+          "text": "先确认题干要求的词形、搭配或语义关系。"
+        },
+        {
+          "step": 2,
+          "text": "对照原书映射的规则：gl5-5.1-x-est-x-acceptance。"
+        },
+        {
+          "step": 3,
+          "text": "依据原书答案键选择 В：Дети дороже всего.。"
+        }
+      ],
+      "correctOption": {
+        "key": "В",
+        "analysis": "原书答案键指定「В：Дети дороже всего.」；对应映射规则为 gl5-5.1-x-est-x-acceptance。"
+      },
+      "distractors": [
+        {
+          "key": "А",
+          "reason": "该项不是原书答案「В：Дети дороже всего.」。本题映射到原书规则 gl5-5.1-x-est-x-acceptance，请按题干与规则页复核。"
+        },
+        {
+          "key": "Б",
+          "reason": "该项不是原书答案「В：Дети дороже всего.」。本题映射到原书规则 gl5-5.1-x-est-x-acceptance，请按题干与规则页复核。"
+        },
+        {
+          "key": "Г",
+          "reason": "该项不是原书答案「В：Дети дороже всего.」。本题映射到原书规则 gl5-5.1-x-est-x-acceptance，请按题干与规则页复核。"
+        }
+      ],
+      "memoryRule": "先核对题干，再回看规则 gl5-5.1-x-est-x-acceptance。",
+      "_source": {
+        "question": {
+          "printedPage": 88,
+          "pdfPage": 90
+        },
+        "answer": {
+          "printedPage": 127,
+          "pdfPage": 129
+        },
+        "rulePages": {
+          "printed": [
+            115,
+            116
+          ],
+          "pdf": [
+            117,
+            118
+          ]
+        },
+        "rules": [
+          {
+            "sectionId": "5.1",
+            "ruleId": "gl5-5.1-x-est-x-acceptance"
+          }
+        ]
+      }
+    },
+    {
+      "exerciseId": "GL5-Q134",
+      "completeSentence": {
+        "ru": "Она танцует на дискотеке, а мы переводи за неё статью.",
+        "zh": "请结合原书题面与答案页复核本题。"
+      },
+      "conclusion": "原书答案键为「Г：мы вынуждены переводить」。题目映射到规则：gl5-5.1-imperative-forced-action。",
+      "decisionSteps": [
+        {
+          "step": 1,
+          "text": "先确认题干要求的词形、搭配或语义关系。"
+        },
+        {
+          "step": 2,
+          "text": "对照原书映射的规则：gl5-5.1-imperative-forced-action。"
+        },
+        {
+          "step": 3,
+          "text": "依据原书答案键选择 Г：мы вынуждены переводить。"
+        }
+      ],
+      "correctOption": {
+        "key": "Г",
+        "analysis": "原书答案键指定「Г：мы вынуждены переводить」；对应映射规则为 gl5-5.1-imperative-forced-action。"
+      },
+      "distractors": [
+        {
+          "key": "А",
+          "reason": "该项不是原书答案「Г：мы вынуждены переводить」。本题映射到原书规则 gl5-5.1-imperative-forced-action，请按题干与规则页复核。"
+        },
+        {
+          "key": "Б",
+          "reason": "该项不是原书答案「Г：мы вынуждены переводить」。本题映射到原书规则 gl5-5.1-imperative-forced-action，请按题干与规则页复核。"
+        },
+        {
+          "key": "В",
+          "reason": "该项不是原书答案「Г：мы вынуждены переводить」。本题映射到原书规则 gl5-5.1-imperative-forced-action，请按题干与规则页复核。"
+        }
+      ],
+      "memoryRule": "先核对题干，再回看规则 gl5-5.1-imperative-forced-action。",
+      "_source": {
+        "question": {
+          "printedPage": 88,
+          "pdfPage": 90
+        },
+        "answer": {
+          "printedPage": 127,
+          "pdfPage": 129
+        },
+        "rulePages": {
+          "printed": [
+            115,
+            116
+          ],
+          "pdf": [
+            117,
+            118
+          ]
+        },
+        "rules": [
+          {
+            "sectionId": "5.1",
+            "ruleId": "gl5-5.1-imperative-forced-action"
+          }
+        ]
+      }
+    },
+    {
+      "exerciseId": "GL5-Q135",
+      "completeSentence": {
+        "ru": "Мой сосед так одинок, что ему не с кем поговорить.",
+        "zh": "请结合原书题面与答案页复核本题。"
+      },
+      "conclusion": "原书答案键为「А：у него нет никого, с кем он может поговорить」。题目映射到规则：gl5-5.1-ne-forms-no-possibility。",
+      "decisionSteps": [
+        {
+          "step": 1,
+          "text": "先确认题干要求的词形、搭配或语义关系。"
+        },
+        {
+          "step": 2,
+          "text": "对照原书映射的规则：gl5-5.1-ne-forms-no-possibility。"
+        },
+        {
+          "step": 3,
+          "text": "依据原书答案键选择 А：у него нет никого, с кем он может поговорить。"
+        }
+      ],
+      "correctOption": {
+        "key": "А",
+        "analysis": "原书答案键指定「А：у него нет никого, с кем он может поговорить」；对应映射规则为 gl5-5.1-ne-forms-no-possibility。"
+      },
+      "distractors": [
+        {
+          "key": "Б",
+          "reason": "该项不是原书答案「А：у него нет никого, с кем он может поговорить」。本题映射到原书规则 gl5-5.1-ne-forms-no-possibility，请按题干与规则页复核。"
+        },
+        {
+          "key": "В",
+          "reason": "该项不是原书答案「А：у него нет никого, с кем он может поговорить」。本题映射到原书规则 gl5-5.1-ne-forms-no-possibility，请按题干与规则页复核。"
+        },
+        {
+          "key": "Г",
+          "reason": "该项不是原书答案「А：у него нет никого, с кем он может поговорить」。本题映射到原书规则 gl5-5.1-ne-forms-no-possibility，请按题干与规则页复核。"
+        }
+      ],
+      "memoryRule": "先核对题干，再回看规则 gl5-5.1-ne-forms-no-possibility。",
+      "_source": {
+        "question": {
+          "printedPage": 88,
+          "pdfPage": 90
+        },
+        "answer": {
+          "printedPage": 127,
+          "pdfPage": 129
+        },
+        "rulePages": {
+          "printed": [
+            115,
+            116
+          ],
+          "pdf": [
+            117,
+            118
+          ]
+        },
+        "rules": [
+          {
+            "sectionId": "5.1",
+            "ruleId": "gl5-5.1-ne-forms-no-possibility"
+          }
+        ]
+      }
+    },
+    {
+      "exerciseId": "GL5-Q136",
+      "completeSentence": {
+        "ru": "Мой племянник работает не кем-нибудь, а директором большого завода.",
+        "zh": "请结合原书题面与答案页复核本题。"
+      },
+      "conclusion": "原书答案键为「Б：работает директором」。题目映射到规则：gl5-5.1-ne-pronoun-a-emphatic。",
+      "decisionSteps": [
+        {
+          "step": 1,
+          "text": "先确认题干要求的词形、搭配或语义关系。"
+        },
+        {
+          "step": 2,
+          "text": "对照原书映射的规则：gl5-5.1-ne-pronoun-a-emphatic。"
+        },
+        {
+          "step": 3,
+          "text": "依据原书答案键选择 Б：работает директором。"
+        }
+      ],
+      "correctOption": {
+        "key": "Б",
+        "analysis": "原书答案键指定「Б：работает директором」；对应映射规则为 gl5-5.1-ne-pronoun-a-emphatic。"
+      },
+      "distractors": [
+        {
+          "key": "А",
+          "reason": "该项不是原书答案「Б：работает директором」。本题映射到原书规则 gl5-5.1-ne-pronoun-a-emphatic，请按题干与规则页复核。"
+        },
+        {
+          "key": "В",
+          "reason": "该项不是原书答案「Б：работает директором」。本题映射到原书规则 gl5-5.1-ne-pronoun-a-emphatic，请按题干与规则页复核。"
+        },
+        {
+          "key": "Г",
+          "reason": "该项不是原书答案「Б：работает директором」。本题映射到原书规则 gl5-5.1-ne-pronoun-a-emphatic，请按题干与规则页复核。"
+        }
+      ],
+      "memoryRule": "先核对题干，再回看规则 gl5-5.1-ne-pronoun-a-emphatic。",
+      "_source": {
+        "question": {
+          "printedPage": 88,
+          "pdfPage": 90
+        },
+        "answer": {
+          "printedPage": 127,
+          "pdfPage": 129
+        },
+        "rulePages": {
+          "printed": [
+            115,
+            116
+          ],
+          "pdf": [
+            117,
+            118
+          ]
+        },
+        "rules": [
+          {
+            "sectionId": "5.1",
+            "ruleId": "gl5-5.1-ne-pronoun-a-emphatic"
+          }
+        ]
+      }
+    },
+    {
+      "exerciseId": "GL5-Q137",
+      "completeSentence": {
+        "ru": "Начальник цеха всю работу развалил, а туда же, берётся всех судить и поучать.",
+        "zh": "请结合原书题面与答案页复核本题。"
+      },
+      "conclusion": "原书答案键为「Г：не умеет работать, но всех поучает」。题目映射到规则：gl5-5.1-a-tuda-zhe-disapproval。",
+      "decisionSteps": [
+        {
+          "step": 1,
+          "text": "先确认题干要求的词形、搭配或语义关系。"
+        },
+        {
+          "step": 2,
+          "text": "对照原书映射的规则：gl5-5.1-a-tuda-zhe-disapproval。"
+        },
+        {
+          "step": 3,
+          "text": "依据原书答案键选择 Г：не умеет работать, но всех поучает。"
+        }
+      ],
+      "correctOption": {
+        "key": "Г",
+        "analysis": "原书答案键指定「Г：не умеет работать, но всех поучает」；对应映射规则为 gl5-5.1-a-tuda-zhe-disapproval。"
+      },
+      "distractors": [
+        {
+          "key": "А",
+          "reason": "该项不是原书答案「Г：не умеет работать, но всех поучает」。本题映射到原书规则 gl5-5.1-a-tuda-zhe-disapproval，请按题干与规则页复核。"
+        },
+        {
+          "key": "Б",
+          "reason": "该项不是原书答案「Г：не умеет работать, но всех поучает」。本题映射到原书规则 gl5-5.1-a-tuda-zhe-disapproval，请按题干与规则页复核。"
+        },
+        {
+          "key": "В",
+          "reason": "该项不是原书答案「Г：не умеет работать, но всех поучает」。本题映射到原书规则 gl5-5.1-a-tuda-zhe-disapproval，请按题干与规则页复核。"
+        }
+      ],
+      "memoryRule": "先核对题干，再回看规则 gl5-5.1-a-tuda-zhe-disapproval。",
+      "_source": {
+        "question": {
+          "printedPage": 88,
+          "pdfPage": 90
+        },
+        "answer": {
+          "printedPage": 127,
+          "pdfPage": 129
+        },
+        "rulePages": {
+          "printed": [
+            115,
+            116
+          ],
+          "pdf": [
+            117,
+            118
+          ]
+        },
+        "rules": [
+          {
+            "sectionId": "5.1",
+            "ruleId": "gl5-5.1-a-tuda-zhe-disapproval"
+          }
+        ]
+      }
+    },
+    {
+      "exerciseId": "GL5-Q138",
+      "completeSentence": {
+        "ru": "Петя в ресторане с девушкой, а мы тут работай за него.",
+        "zh": "请结合原书题面与答案页复核本题。"
+      },
+      "conclusion": "原书答案键为「А：вынуждены работать」。题目映射到规则：gl5-5.1-imperative-forced-action。",
+      "decisionSteps": [
+        {
+          "step": 1,
+          "text": "先确认题干要求的词形、搭配或语义关系。"
+        },
+        {
+          "step": 2,
+          "text": "对照原书映射的规则：gl5-5.1-imperative-forced-action。"
+        },
+        {
+          "step": 3,
+          "text": "依据原书答案键选择 А：вынуждены работать。"
+        }
+      ],
+      "correctOption": {
+        "key": "А",
+        "analysis": "原书答案键指定「А：вынуждены работать」；对应映射规则为 gl5-5.1-imperative-forced-action。"
+      },
+      "distractors": [
+        {
+          "key": "Б",
+          "reason": "该项不是原书答案「А：вынуждены работать」。本题映射到原书规则 gl5-5.1-imperative-forced-action，请按题干与规则页复核。"
+        },
+        {
+          "key": "В",
+          "reason": "该项不是原书答案「А：вынуждены работать」。本题映射到原书规则 gl5-5.1-imperative-forced-action，请按题干与规则页复核。"
+        },
+        {
+          "key": "Г",
+          "reason": "该项不是原书答案「А：вынуждены работать」。本题映射到原书规则 gl5-5.1-imperative-forced-action，请按题干与规则页复核。"
+        }
+      ],
+      "memoryRule": "先核对题干，再回看规则 gl5-5.1-imperative-forced-action。",
+      "_source": {
+        "question": {
+          "printedPage": 88,
+          "pdfPage": 90
+        },
+        "answer": {
+          "printedPage": 127,
+          "pdfPage": 129
+        },
+        "rulePages": {
+          "printed": [
+            115,
+            116
+          ],
+          "pdf": [
+            117,
+            118
+          ]
+        },
+        "rules": [
+          {
+            "sectionId": "5.1",
+            "ruleId": "gl5-5.1-imperative-forced-action"
+          }
+        ]
+      }
+    },
+    {
+      "exerciseId": "GL5-Q139",
+      "completeSentence": {
+        "ru": "Жаловаться ему не на что: жена красавица, дети радуют, работа престижная.",
+        "zh": "请结合原书题面与答案页复核本题。"
+      },
+      "conclusion": "原书答案键为「Г：У него всё прекрасно.」。题目映射到规则：gl5-5.1-ne-forms-no-possibility。",
+      "decisionSteps": [
+        {
+          "step": 1,
+          "text": "先确认题干要求的词形、搭配或语义关系。"
+        },
+        {
+          "step": 2,
+          "text": "对照原书映射的规则：gl5-5.1-ne-forms-no-possibility。"
+        },
+        {
+          "step": 3,
+          "text": "依据原书答案键选择 Г：У него всё прекрасно.。"
+        }
+      ],
+      "correctOption": {
+        "key": "Г",
+        "analysis": "原书答案键指定「Г：У него всё прекрасно.」；对应映射规则为 gl5-5.1-ne-forms-no-possibility。"
+      },
+      "distractors": [
+        {
+          "key": "А",
+          "reason": "该项不是原书答案「Г：У него всё прекрасно.」。本题映射到原书规则 gl5-5.1-ne-forms-no-possibility，请按题干与规则页复核。"
+        },
+        {
+          "key": "Б",
+          "reason": "该项不是原书答案「Г：У него всё прекрасно.」。本题映射到原书规则 gl5-5.1-ne-forms-no-possibility，请按题干与规则页复核。"
+        },
+        {
+          "key": "В",
+          "reason": "该项不是原书答案「Г：У него всё прекрасно.」。本题映射到原书规则 gl5-5.1-ne-forms-no-possibility，请按题干与规则页复核。"
+        }
+      ],
+      "memoryRule": "先核对题干，再回看规则 gl5-5.1-ne-forms-no-possibility。",
+      "_source": {
+        "question": {
+          "printedPage": 88,
+          "pdfPage": 90
+        },
+        "answer": {
+          "printedPage": 127,
+          "pdfPage": 129
+        },
+        "rulePages": {
+          "printed": [
+            115,
+            116
+          ],
+          "pdf": [
+            117,
+            118
+          ]
+        },
+        "rules": [
+          {
+            "sectionId": "5.1",
+            "ruleId": "gl5-5.1-ne-forms-no-possibility"
+          }
+        ]
+      }
+    }
+  ]
+}

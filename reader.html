@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Reader | 白夜俄语</title>
 <link rel="stylesheet" href="css/reader-listening-workbench.css?v=20260726-5">
+<link rel="stylesheet" href="css/app-shell.css">
 <style>
 /* ─── 主题变量 ─── */
 :root {
@@ -761,6 +762,29 @@ body.theme-warm .listening-entry-zh, body.theme-warm .listening-section-count { 
 .rs-source-locate:hover { background: rgba(245,158,11,0.10); border-color: rgba(180,83,9,0.72); }
 .rs-source-locate:active { transform: translateY(1px); }
 [data-theme="dark"] .rs-source-locate { color: #fbbf24; }
+.rs-explanation { display: grid; gap: 10px; }
+.rs-answer-banner { display: flex; align-items: center; gap: 8px; padding: 10px 12px; border: 1px solid rgba(13, 148, 136, 0.28); border-radius: 8px; background: rgba(13, 148, 136, 0.08); color: var(--text); font-size: 14px; }
+.rs-answer-banner strong { color: #0f766e; }
+.rs-explanation-block { padding: 12px 13px; border: 1px solid var(--border); border-left: 4px solid var(--rs-section, var(--accent)); border-radius: 8px; background: var(--rs-surface, var(--surface-solid)); }
+.rs-explanation-block h4 { margin: 0 0 7px; color: var(--rs-section, var(--accent)); font-size: 13px; line-height: 1.35; }
+.rs-explanation-block p { margin: 0; color: var(--text); font-size: 14px; line-height: 1.78; overflow-wrap: anywhere; }
+.rs-explanation-block p + p { margin-top: 8px; }
+.rs-explanation-block--source { --rs-section: #0f766e; --rs-surface: rgba(13, 148, 136, 0.075); }
+.rs-explanation-block--correct { --rs-section: #15803d; --rs-surface: rgba(21, 128, 61, 0.075); }
+.rs-explanation-block--exclude { --rs-section: #b45309; --rs-surface: rgba(180, 83, 9, 0.08); }
+.rs-explanation-block--keywords { --rs-section: #1d4ed8; --rs-surface: rgba(29, 78, 216, 0.07); }
+.rs-explanation-block--breakdown { --rs-section: #7c3aed; --rs-surface: rgba(124, 58, 237, 0.065); }
+.rs-explanation-block--check { --rs-section: #be123c; --rs-surface: rgba(190, 18, 60, 0.06); }
+.rs-explanation-block--review { --rs-section: #475569; --rs-surface: rgba(71, 85, 105, 0.055); }
+.rs-explanation-block--source .rs-source-locate { color: #0f766e; border-color: rgba(15, 118, 110, 0.42); background: rgba(255, 255, 255, 0.48); }
+.rs-explanation-block--source .rs-source-locate:hover { background: rgba(13, 148, 136, 0.12); border-color: rgba(15, 118, 110, 0.75); }
+[data-theme="dark"] .rs-answer-banner { background: rgba(45, 212, 191, 0.1); border-color: rgba(45, 212, 191, 0.28); }
+[data-theme="dark"] .rs-answer-banner strong, [data-theme="dark"] .rs-explanation-block--source h4, [data-theme="dark"] .rs-explanation-block--source .rs-source-locate { color: #5eead4; }
+[data-theme="dark"] .rs-explanation-block--correct h4 { color: #86efac; }
+[data-theme="dark"] .rs-explanation-block--exclude h4 { color: #fbbf24; }
+[data-theme="dark"] .rs-explanation-block--keywords h4 { color: #93c5fd; }
+[data-theme="dark"] .rs-explanation-block--breakdown h4 { color: #c4b5fd; }
+[data-theme="dark"] .rs-explanation-block--check h4 { color: #fda4af; }
 .para-block.rs-source-paragraph-highlight { border-color: rgba(245,158,11,0.52); box-shadow: 0 0 0 2px rgba(245,158,11,0.12); }
 .ru-word.rs-source-word-highlight,
 .ru-word.rs-source-word-highlight:hover,
@@ -2805,6 +2829,8 @@ function continueB2Learning() {
 
 function renderB2ModuleChapters() {
   if (!curBook || !curBook.isB2Module) return;
+  curView = 'chapters';
+  curCh = -1;
   var stats = readStats['russian_b2:' + curBook.moduleId] || {};
   var html = b2FloatingNavigation({ backAction: 'showB2Dashboard()', backTitle: '仪表盘' }) +
     '<main class="main-container"><div class="chapter-list-header"><h2>' + escapeHtml(curBook.title) + '</h2><div class="ch-meta">' + curBook.chapters + ' 个学习单元</div></div><div class="chapter-grid">';
@@ -3876,7 +3902,7 @@ function renderZlatoustTransferTasks(sectionId, tasks) {
   var record = zlatoustLearningPageRecord(sectionId), answers = record.transfer || {};
   return '<section class="zlatoust-transfer" id="zlatoust-final"><h2>跨阶段综合迁移</h2><p>这里要处理新语境。完成四项任务后，系统才会把本节标为“已掌握”。</p>' + tasks.map(function(task) {
     var saved = answers[task.id] || {};
-    if (task.kind === 'text') return '<article class="zlatoust-transfer-task"><h3>' + escapeHtml(task.title) + '</h3><p>' + escapeHtml(task.prompt) + '</p><textarea data-zlatoust-transfer-text="' + escapeHtml(task.id) + '" aria-label="' + escapeHtml(task.title) + '作答" placeholder="写下你的判断…">' + escapeHtml(saved.text || '') + '</textarea><p class="zlatoust-transfer-hint">' + escapeHtml(task.hint || '') + '</p><button type="button" class="zlatoust-back-link" onclick="saveZlatoustTransferText(\'' + zlatoustEscapeForOnclick(sectionId) + '\',\'' + zlatoustEscapeForOnclick(task.id) + '\')">保存作答</button></article>';
+    if (task.kind === 'text') return '<article class="zlatoust-transfer-task"><h3>' + escapeHtml(task.title) + '</h3><p>' + escapeHtml(task.prompt) + '</p><textarea data-zlatoust-transfer-section="' + escapeHtml(sectionId) + '" data-zlatoust-transfer-text="' + escapeHtml(task.id) + '" aria-label="' + escapeHtml(task.title) + '作答" placeholder="写下你的判断…" oninput="saveZlatoustTransferText(\'' + zlatoustEscapeForOnclick(sectionId) + '\',\'' + zlatoustEscapeForOnclick(task.id) + '\')">' + escapeHtml(saved.text || '') + '</textarea><p class="zlatoust-transfer-hint">' + escapeHtml(task.hint || '') + '</p><button type="button" class="zlatoust-back-link" onclick="saveZlatoustTransferText(\'' + zlatoustEscapeForOnclick(sectionId) + '\',\'' + zlatoustEscapeForOnclick(task.id) + '\')">保存作答</button></article>';
     return '<article class="zlatoust-transfer-task"><h3>' + escapeHtml(task.title) + '</h3><p>' + escapeHtml(task.prompt) + '</p><div class="zlatoust-learning-check-options">' + (task.options || []).map(function(option) { var klass = saved.submitted && option.key === task.answer ? ' is-correct' : saved.submitted && option.key === saved.selected ? ' is-wrong' : ''; return '<button type="button" class="zlatoust-learning-check-option' + klass + '" onclick="answerZlatoustTransferChoice(\'' + zlatoustEscapeForOnclick(sectionId) + '\',\'' + zlatoustEscapeForOnclick(task.id) + '\',\'' + zlatoustEscapeForOnclick(option.key) + '\')"><strong>' + escapeHtml(option.key) + '</strong><span>' + escapeHtml(option.text) + '</span></button>'; }).join('') + '</div>' + (saved.submitted ? '<p class="zlatoust-learning-feedback' + (saved.correct ? '' : ' is-wrong') + '">' + escapeHtml(task.feedback || '') + '</p>' : '') + '</article>';
   }).join('') + '</section>';
 }
@@ -4317,7 +4343,7 @@ function renderQuizItem(exercise, record) {
   html += renderZlatoustExerciseReference(exercise);
   if (exercise.type === 'open-response') {
     var response = escapeHtml(record.response || '');
-    html += '<textarea class="b2-open-response" data-open-response="' + escapeHtml(exercise.id) + '" placeholder="在此输入你的改写答案">' + response + '</textarea>';
+    html += '<textarea class="b2-open-response" data-open-response="' + escapeHtml(exercise.id) + '" placeholder="在此输入你的改写答案" oninput="saveOpenResponseDraft(\'' + escapeHtml(exercise.id) + '\', this.value)">' + response + '</textarea>';
     html += '<button class="b2-explanation-toggle" onclick="submitOpenResponse(\'' + escapeHtml(exercise.id) + '\')">' + (record.submitted ? '更新作答记录' : '记录我的答案') + '</button>';
     html += '<div class="b2-result" aria-live="polite">' + (record.submitted ? '<span class="is-correct">已记录作答。</span>' : '') + '</div>';
     return html + '</section>';
@@ -5435,6 +5461,11 @@ function submitQuizQuestion(questionId) {
   saveQuizRecord(questionId, record);
   refreshQuizQuestion(questionId, exercise, record);
   if (document.querySelector('.zlatoust-learning-page')) refreshZlatoustLearningHeader('1.4.1');
+}
+function saveOpenResponseDraft(questionId, value) {
+  var record = getQuizRecord(questionId);
+  record.response = String(value || '');
+  saveQuizRecord(questionId, record);
 }
 function submitOpenResponse(questionId) {
   var exercise = getQuizExercise(questionId), input = document.querySelector('[data-open-response="' + questionId + '"]');
@@ -7864,29 +7895,44 @@ function renderReadingSpeakingExercise(ex) {
 }
 
 function renderReadingSpeakingExplanationContent(ex, exId) {
-  var html = '<p><strong>答案：' + escapeHtml(ex.answer) + '</strong></p>';
+  var html = '<div class="rs-explanation"><div class="rs-answer-banner"><span>正确答案</span><strong>' + escapeHtml(ex.answer) + '</strong></div>';
   if (ex.detailed_explanation) {
     var paragraphs = ex.detailed_explanation.split('\n').filter(function(p) { return p.trim(); });
+    var sections = [];
+    var activeSection = null;
     for (var p = 0; p < paragraphs.length; p++) {
       var para = paragraphs[p].trim();
       if (para.startsWith('【') && para.includes('】')) {
         var titleEnd = para.indexOf('】') + 1;
-        var sectionTitle = para.substring(0, titleEnd);
+        activeSection = { title: para.substring(0, titleEnd), body: [] };
         var sectionBody = para.substring(titleEnd).trim();
-        if (sectionTitle === '【学习辅助·原文定位】' && ex.sourceAnchor) {
-          html += '<div class="answer-section-title answer-source-row"><button type="button" class="rs-source-locate" onclick="locateReadingSpeakingSource(\'' + escapeHtml(exId) + '\',event)">' +
-            escapeHtml(sectionTitle) + '</button>' + escapeHtml(sectionBody) + '</div>';
-        } else {
-          html += '<div class="answer-section-title">' + escapeHtml(para) + '</div>';
-        }
+        if (sectionBody) activeSection.body.push(sectionBody);
+        sections.push(activeSection);
       } else {
-        html += '<div class="answer-para" style="margin:4px 0;line-height:1.7">' + escapeHtml(para) + '</div>';
+        if (activeSection) activeSection.body.push(para);
+        else sections.push({ title: '', body: [para] });
       }
     }
+    var classByTitle = {
+      '【学习辅助·原文定位】': 'source', '【定位原文】': 'source', '【正确项】': 'correct', '【正确答案】': 'correct',
+      '【排除项】': 'exclude', '【选项分析】': 'exclude', '【关键词】': 'keywords', '【原文逐句拆解】': 'breakdown',
+      '【题干与选项核对】': 'check', '【进一步辨析】': 'check', '【一句话复盘】': 'review', '【解题思路】': 'review'
+    };
+    sections.forEach(function(section) {
+      var kind = classByTitle[section.title] || 'review';
+      html += '<section class="rs-explanation-block rs-explanation-block--' + kind + '">';
+      if (section.title === '【学习辅助·原文定位】' || section.title === '【定位原文】') {
+        html += '<h4><button type="button" class="rs-source-locate" onclick="locateReadingSpeakingSource(\'' + escapeHtml(exId) + '\',event)">' + escapeHtml(section.title) + '</button></h4>';
+      } else if (section.title) {
+        html += '<h4>' + escapeHtml(section.title) + '</h4>';
+      }
+      section.body.forEach(function(body) { html += '<p>' + escapeHtml(body) + '</p>'; });
+      html += '</section>';
+    });
   } else if (ex.explanation) {
-    html += '<p>' + escapeHtml(ex.explanation) + '</p>';
+    html += '<section class="rs-explanation-block rs-explanation-block--review"><p>' + escapeHtml(ex.explanation) + '</p></section>';
   }
-  return html;
+  return html + '</div>';
 }
 
 function normalizeReadingSpeakingSourceWord(value) {
@@ -8047,5 +8093,55 @@ function updateReadingSpeakingQuestionDOM(exId) {
   updateReadingSpeakingPracticeProgress();
 }
 </script>
+<script src="js/reader-navigation.js"></script>
+<script src="js/app-shell.js"></script>
+<style>
+@media (max-width:700px) {
+  html.app-shell-enabled #detailPanel {
+    bottom:calc(var(--app-shell-nav-height) + var(--app-shell-safe-bottom)) !important;
+    max-height:calc(88dvh - var(--app-shell-nav-height) - var(--app-shell-safe-bottom)) !important;
+  }
+}
+</style>
+<script>
+function closeReaderTemporaryLayer() {
+  var breadcrumb = document.getElementById('breadcrumbOverlay');
+  if (breadcrumb) { closeBreadcrumb(); return true; }
+  var detail = document.getElementById('detailPanel');
+  if (detail && detail.getAttribute('data-dictionary-state') !== 'closed') { dictionaryController.close(); return true; }
+  var dialog = document.querySelector('dialog[open]');
+  if (dialog) { dialog.close(); return true; }
+  var modal = document.querySelector('.modal-overlay.visible');
+  if (modal) { modal.classList.remove('visible'); return true; }
+  var search = document.getElementById('searchBar');
+  if (search && search.classList.contains('visible')) { closeSearch(); return true; }
+  return false;
+}
+function prepareReaderBackNavigation() {
+  var unfinishedDictation = Array.from(document.querySelectorAll('.lw-dictation textarea')).some(function(input) { return input.value.trim(); });
+  if (unfinishedDictation) { toast('当前听写内容尚未提交，请先检查或清空后再返回'); return false; }
+  document.querySelectorAll('[data-open-response]').forEach(function(input) { saveOpenResponseDraft(input.getAttribute('data-open-response'), input.value); });
+  document.querySelectorAll('[data-zlatoust-transfer-text]').forEach(function(input) {
+    saveZlatoustTransferText(input.getAttribute('data-zlatoust-transfer-section'), input.getAttribute('data-zlatoust-transfer-text'));
+  });
+  if (document.activeElement && typeof document.activeElement.blur === 'function') document.activeElement.blur();
+  saveLastRead();
+  return true;
+}
+window.appShellHandleBack = function() {
+  return ReaderNavigation.handleBack({
+    curView: curView,
+    curBook: curBook,
+    isWorldPeopleBook: isWorldPeopleBook,
+    closeTemporaryLayer: closeReaderTemporaryLayer,
+    prepareToLeave: prepareReaderBackNavigation,
+    showChapters: showChapters,
+    showB2Dashboard: showB2Dashboard,
+    showWorldPeopleDashboard: showWorldPeopleDashboard,
+    showShelf: showShelf
+  });
+};
+</script>
+<script>AppShell.mount({ current: 'reader' });</script>
 </body>
 </html>
