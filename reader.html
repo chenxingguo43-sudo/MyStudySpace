@@ -627,10 +627,16 @@ body {
 .zlatoust-answer-explanation > section, .zlatoust-answer-explanation > aside { min-width: 0; padding: 13px; border: 1px solid var(--border); border-radius: 10px; background: var(--surface-solid); }
 .zlatoust-answer-explanation h4 { margin: 0 0 8px; font-size: 14px; }
 .zlatoust-answer-explanation p { line-height: 1.65; overflow-wrap: anywhere; }
+.zlatoust-learning-label { border-left: 3px solid var(--accent) !important; background: var(--accent-dim) !important; color: var(--text-secondary); font-size: 13px; line-height: 1.6; }
 .zlatoust-answer-sentence { margin: 8px 0 0; color: var(--text); font-family: Georgia, 'Times New Roman', serif; font-size: 16px; }
+.zlatoust-answer-translation { color: var(--text-secondary); font-size: 14px; }
 .zlatoust-answer-rules { display: flex; flex-wrap: wrap; gap: 8px; }
 .zlatoust-answer-rules button { border: 0; padding: 0; color: var(--accent); background: transparent; font: inherit; font-weight: 700; text-align: left; cursor: pointer; }
 .zlatoust-answer-rules button:hover { text-decoration: underline; }
+.zlatoust-answer-explanation .zlatoust-decision-steps { margin: 0; padding-left: 22px; display: grid; gap: 9px; list-style: decimal; counter-reset: none; }
+.zlatoust-answer-explanation .zlatoust-decision-steps li { padding-left: 3px; line-height: 1.65; overflow-wrap: anywhere; }
+.zlatoust-correct-analysis { border-left: 3px solid #10b981 !important; background: rgba(16,185,129,.08) !important; }
+.zlatoust-memory-rule { border-left: 3px solid #6366f1 !important; background: rgba(99,102,241,.08) !important; }
 .zlatoust-option-analysis { margin: 0; padding: 0; list-style: none; }
 .zlatoust-option-analysis li { margin-top: 8px; padding: 10px; border-left: 3px solid #f59e0b; background: rgba(245,158,11,.08); line-height: 1.65; overflow-wrap: anywhere; }
 .zlatoust-option-analysis li:first-child { margin-top: 0; border-left-color: #10b981; background: rgba(16,185,129,.08); }
@@ -3213,6 +3219,7 @@ function getTextbookKnowledgePoints(chapter) {
 /* ─── Zlatoust: source-traceable theory and exercise links ─── */
 var ZLATOUST_THEORY_ROOT = 'data/textbook/zlatoust_grammar/theory';
 var ZLATOUST_LEARNING_PROGRESS_KEY = 'rr_zlatoust_learning_v1';
+var ZLATOUST_STATIC_EXPLANATION_FILES = {};
 var ZLATOUST_CUSTOM_LEARNING_SECTIONS = {
   '5.lexical': { stageCount: 5, exerciseCount: 30 },
   '5.2': { stageCount: 4, exerciseCount: 23 },
@@ -3262,7 +3269,7 @@ var ZLATOUST_KNOWLEDGE_POINT_SECTIONS = {
   'gl1:gl1-4-8-negative-imperative': '1.4.8',
   'gl1:gl1-5': '1.5-review'
 };
-var zlatoustTheoryState = { index: null, indexPromise: null, chapters: {}, units: {}, learningPages: {} };
+var zlatoustTheoryState = { index: null, indexPromise: null, staticExplanationManifest: null, staticExplanationManifestPromise: null, chapters: {}, units: {}, learningPages: {} };
 function getZlatoustIntegratedSectionForKnowledgePoint(partId, pointId) {
   if (!isZlatoustGrammarBook(curBook)) return '';
   return ZLATOUST_KNOWLEDGE_POINT_SECTIONS[String(partId || '') + ':' + String(pointId || '')] || '';
@@ -3298,6 +3305,44 @@ function buildZlatoustOptionAnalysisIndex(state, units) {
   state.optionAnalysisByExercise = byExercise;
   return byExercise;
 }
+function isValidZlatoustStaticExplanation(entry) {
+  return !!entry && typeof entry.exerciseId === 'string' &&
+    !!entry.completeSentence && typeof entry.completeSentence.ru === 'string' && typeof entry.completeSentence.zh === 'string' &&
+    typeof entry.conclusion === 'string' && Array.isArray(entry.decisionSteps) &&
+    !!entry.correctOption && typeof entry.correctOption.key === 'string' &&
+    (typeof entry.correctOption.analysis === 'string' || typeof entry.sourceOnlyWarning === 'string') &&
+    Array.isArray(entry.distractors) && !!entry._source && Array.isArray(entry._source.rules);
+}
+function buildZlatoustStaticExplanationIndex(state, documents) {
+  var byExercise = {}, authorLabels = {};
+  (documents || []).forEach(function(document) {
+    if (!document || document.schemaVersion !== 1 || !Array.isArray(document.explanations)) return;
+    document.explanations.forEach(function(entry) {
+      if (!isValidZlatoustStaticExplanation(entry) || byExercise[entry.exerciseId]) return;
+      byExercise[entry.exerciseId] = entry;
+      authorLabels[entry.exerciseId] = document.authorLabel || '项目教辅解析（非教材原文注释）';
+    });
+  });
+  state.staticExplanationsByExercise = byExercise;
+  state.staticExplanationAuthorLabels = authorLabels;
+  return byExercise;
+}
+function loadZlatoustStaticExplanationDocuments(chapterId) {
+  if (!zlatoustTheoryState.staticExplanationManifestPromise) {
+    zlatoustTheoryState.staticExplanationManifestPromise = fetchJson(ZLATOUST_THEORY_ROOT + '/explanations/index.json', null)
+      .then(function(manifest) {
+        zlatoustTheoryState.staticExplanationManifest = manifest && manifest.schemaVersion === 1 ? manifest : { chapters: ZLATOUST_STATIC_EXPLANATION_FILES };
+        return zlatoustTheoryState.staticExplanationManifest;
+      })
+      .catch(function() { return { chapters: ZLATOUST_STATIC_EXPLANATION_FILES }; });
+  }
+  return zlatoustTheoryState.staticExplanationManifestPromise.then(function(manifest) {
+    var files = (manifest.chapters && manifest.chapters[chapterId]) || ZLATOUST_STATIC_EXPLANATION_FILES[chapterId] || [];
+    return Promise.all(files.map(function(file) {
+      return fetchJson(ZLATOUST_THEORY_ROOT + '/' + file, null).catch(function() { return null; });
+    }));
+  });
+}
 function loadZlatoustChapterTheory(chapterIndex) {
   var chapterId = getZlatoustChapterId(chapterIndex), state = zlatoustTheoryState.chapters[chapterId];
   if (state && state.ready) return Promise.resolve(state);
@@ -3306,11 +3351,13 @@ function loadZlatoustChapterTheory(chapterIndex) {
   state.promise = Promise.all([
     loadZlatoustTheoryIndex(),
     fetchJson(ZLATOUST_THEORY_ROOT + '/mappings/' + getZlatoustMappingFile(chapterId, 'exercise-to-rules'), null),
-    fetchJson(ZLATOUST_THEORY_ROOT + '/mappings/' + getZlatoustMappingFile(chapterId, 'section-to-exercises'), null)
+    fetchJson(ZLATOUST_THEORY_ROOT + '/mappings/' + getZlatoustMappingFile(chapterId, 'section-to-exercises'), null),
+    loadZlatoustStaticExplanationDocuments(chapterId)
   ]).then(function(result) {
     state.index = result[0];
     state.exerciseToRules = result[1];
     state.sectionToExercises = result[2];
+    buildZlatoustStaticExplanationIndex(state, result[3]);
     var mappings = state.exerciseToRules.exercises || {};
     var sectionIds = [];
     Object.keys(mappings).forEach(function(exerciseId) {
@@ -4106,6 +4153,49 @@ function renderZlatoustAnswerRuleLinks(mapping, state) {
     return '<button type="button" onclick="showZlatoustRuleUnit(\'' + zlatoustEscapeForOnclick(sectionId) + '\',\'' + zlatoustEscapeForOnclick(ruleId) + '\')">' + escapeHtml(rule.titleZh || ruleId) + '</button>';
   }).filter(Boolean).join('');
 }
+function getZlatoustStaticExplanation(exercise, state, answerKey) {
+  var entry = state && state.staticExplanationsByExercise && state.staticExplanationsByExercise[exercise.id];
+  if (!entry || entry.correctOption.key !== answerKey) return null;
+  var expectedDistractors = (exercise.options || []).filter(function(option) { return option.key !== answerKey; }).map(function(option) { return option.key; }).sort().join('|');
+  var actualDistractors = (entry.distractors || []).map(function(item) { return item.key; }).sort().join('|');
+  return expectedDistractors === actualDistractors ? entry : null;
+}
+function renderZlatoustStaticRuleLinks(explanation, state) {
+  var catalog = state && state.exerciseToRules && state.exerciseToRules.ruleCatalog || {};
+  return (explanation._source.rules || []).map(function(item) {
+    var rule = catalog[item.ruleId] || {}, sectionId = item.sectionId || rule.sectionId;
+    if (!sectionId) return '';
+    return '<button type="button" onclick="showZlatoustRuleUnit(\'' + zlatoustEscapeForOnclick(sectionId) + '\',\'' + zlatoustEscapeForOnclick(item.ruleId) + '\')">' + escapeHtml(rule.titleZh || item.ruleId) + '</button>';
+  }).filter(Boolean).join('');
+}
+function renderZlatoustStaticExplanation(exercise, explanation, state, answerKey, answerOption, mapping) {
+  var label = state.staticExplanationAuthorLabels && state.staticExplanationAuthorLabels[exercise.id] || '项目教辅解析（非教材原文注释）';
+  var ruleLinks = renderZlatoustStaticRuleLinks(explanation, state);
+  var optionByKey = {};
+  (exercise.options || []).forEach(function(option) { optionByKey[option.key] = option; });
+  var distractors = (explanation.distractors || []).map(function(item) {
+    var option = optionByKey[item.key] || {};
+    var reason = item.reason || '原书没有提供这一项的独立规则说明；这里只保留选项和已核对答案，不补写未经核实的理由。';
+    return '<li><strong>' + escapeHtml(item.key) + (option.text ? '：' + escapeHtml(option.text) : '') + '</strong><br>' + escapeHtml(reason) + '</li>';
+  }).join('');
+  var html = '<div class="zlatoust-answer-explanation">';
+  html += '<aside class="zlatoust-learning-label"><strong>' + escapeHtml(label) + '</strong><br>以下内容用于帮助理解判断过程，不是教材逐题原文解析。</aside>';
+  if (mapping.status === 'source-exercise-only') {
+    html += '<aside class="zlatoust-answer-source-only"><strong>原书只提供了练习与答案，没有独立的逐题解析。下面保留的是项目教辅学习解析，并明确与原书内容区分。</strong></aside>';
+  } else if (mapping.status === 'needs-review') {
+    html += '<aside class="zlatoust-answer-notice"><strong>这题的规则边界仍待复核；原书答案已保留，以下学习说明仅作辅助。</strong></aside>';
+  }
+  if (explanation.sourceTextWarning) html += '<aside class="zlatoust-answer-notice"><strong>' + escapeHtml(explanation.sourceTextWarning) + '</strong></aside>';
+  html += '<section><h4>原书答案（已核对）</h4><p><strong>' + escapeHtml(answerKey) + (answerOption ? '：' + escapeHtml(answerOption.text) : '') + '</strong></p><p class="zlatoust-answer-sentence">' + renderRuText(explanation.completeSentence.ru, lookupContext('grammar', exercise.id, 'zlatoust-static-answer-sentence', explanation.completeSentence.ru, '', exercise.answerPages || [])) + '</p><p class="zlatoust-answer-translation"><strong>中文：</strong>' + escapeHtml(explanation.completeSentence.zh) + '</p></section>';
+  html += '<section><h4>先说结论</h4><p>' + escapeHtml(explanation.conclusion) + '</p></section>';
+  html += '<section><h4>按这样判断</h4><ol class="zlatoust-decision-steps">' + explanation.decisionSteps.map(function(item) { return '<li>' + escapeHtml(item.text) + '</li>'; }).join('') + '</ol></section>';
+  var correctAnalysis = explanation.correctOption.analysis || explanation.conclusion;
+  html += '<section class="zlatoust-correct-analysis"><h4>正确项为什么对</h4><p><strong>' + escapeHtml(answerKey) + (answerOption ? '：' + escapeHtml(answerOption.text) : '') + '</strong><br>' + escapeHtml(correctAnalysis) + '</p></section>';
+  if (distractors) html += '<section><h4>其他选项为什么不对</h4><ul class="zlatoust-option-analysis">' + distractors + '</ul></section>';
+  if (explanation.memoryRule) html += '<section class="zlatoust-memory-rule"><h4>记忆提示</h4><p>' + escapeHtml(explanation.memoryRule) + '</p></section>';
+  html += '<section><h4>本题考查</h4>' + (ruleLinks ? '<div class="zlatoust-answer-rules">' + ruleLinks + '</div>' : '') + (mapping.mappingReason ? '<p>' + escapeHtml(mapping.mappingReason) + '</p>' : '') + '</section>';
+  return html + '</div>';
+}
 function renderZlatoustQuizExplanation(exercise) {
   var state = getLoadedZlatoustChapterTheory(curCh);
   var mapping = state && state.exerciseToRules && state.exerciseToRules.exercises && state.exerciseToRules.exercises[exercise.id] || {};
@@ -4113,6 +4203,8 @@ function renderZlatoustQuizExplanation(exercise) {
   var analysis = state && state.optionAnalysisByExercise && state.optionAnalysisByExercise[exercise.id];
   var answerKey = exercise.sourceAnswer || exercise.answer || '待核对';
   var answerOption = (exercise.options || []).find(function(item) { return item.key === answerKey; });
+  var staticExplanation = getZlatoustStaticExplanation(exercise, state, answerKey);
+  if (staticExplanation) return renderZlatoustStaticExplanation(exercise, staticExplanation, state, answerKey, answerOption, mapping);
   var sourcePages = [];
   if ((exercise.questionPages || []).length) sourcePages.push('<p class="zlatoust-provenance"><strong>题面页：</strong>' + escapeHtml(getZlatoustPageList(exercise.questionPages)) + '</p>');
   if ((exercise.answerPages || []).length) sourcePages.push('<p class="zlatoust-provenance"><strong>答案页：</strong>' + escapeHtml(getZlatoustPageList(exercise.answerPages)) + '</p>');
