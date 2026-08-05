@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Reader | 白夜俄语</title>
 <link rel="stylesheet" href="css/reader-listening-workbench.css?v=20260726-5">
+<link rel="stylesheet" href="css/app-shell.css">
 <style>
 /* ─── 主题变量 ─── */
 :root {
@@ -627,10 +628,16 @@ body {
 .zlatoust-answer-explanation > section, .zlatoust-answer-explanation > aside { min-width: 0; padding: 13px; border: 1px solid var(--border); border-radius: 10px; background: var(--surface-solid); }
 .zlatoust-answer-explanation h4 { margin: 0 0 8px; font-size: 14px; }
 .zlatoust-answer-explanation p { line-height: 1.65; overflow-wrap: anywhere; }
+.zlatoust-learning-label { border-left: 3px solid var(--accent) !important; background: var(--accent-dim) !important; color: var(--text-secondary); font-size: 13px; line-height: 1.6; }
 .zlatoust-answer-sentence { margin: 8px 0 0; color: var(--text); font-family: Georgia, 'Times New Roman', serif; font-size: 16px; }
+.zlatoust-answer-translation { color: var(--text-secondary); font-size: 14px; }
 .zlatoust-answer-rules { display: flex; flex-wrap: wrap; gap: 8px; }
 .zlatoust-answer-rules button { border: 0; padding: 0; color: var(--accent); background: transparent; font: inherit; font-weight: 700; text-align: left; cursor: pointer; }
 .zlatoust-answer-rules button:hover { text-decoration: underline; }
+.zlatoust-answer-explanation .zlatoust-decision-steps { margin: 0; padding-left: 22px; display: grid; gap: 9px; list-style: decimal; counter-reset: none; }
+.zlatoust-answer-explanation .zlatoust-decision-steps li { padding-left: 3px; line-height: 1.65; overflow-wrap: anywhere; }
+.zlatoust-correct-analysis { border-left: 3px solid #10b981 !important; background: rgba(16,185,129,.08) !important; }
+.zlatoust-memory-rule { border-left: 3px solid #6366f1 !important; background: rgba(99,102,241,.08) !important; }
 .zlatoust-option-analysis { margin: 0; padding: 0; list-style: none; }
 .zlatoust-option-analysis li { margin-top: 8px; padding: 10px; border-left: 3px solid #f59e0b; background: rgba(245,158,11,.08); line-height: 1.65; overflow-wrap: anywhere; }
 .zlatoust-option-analysis li:first-child { margin-top: 0; border-left-color: #10b981; background: rgba(16,185,129,.08); }
@@ -2799,6 +2806,8 @@ function continueB2Learning() {
 
 function renderB2ModuleChapters() {
   if (!curBook || !curBook.isB2Module) return;
+  curView = 'chapters';
+  curCh = -1;
   var stats = readStats['russian_b2:' + curBook.moduleId] || {};
   var html = b2FloatingNavigation({ backAction: 'showB2Dashboard()', backTitle: '仪表盘' }) +
     '<main class="main-container"><div class="chapter-list-header"><h2>' + escapeHtml(curBook.title) + '</h2><div class="ch-meta">' + curBook.chapters + ' 个学习单元</div></div><div class="chapter-grid">';
@@ -3213,6 +3222,7 @@ function getTextbookKnowledgePoints(chapter) {
 /* ─── Zlatoust: source-traceable theory and exercise links ─── */
 var ZLATOUST_THEORY_ROOT = 'data/textbook/zlatoust_grammar/theory';
 var ZLATOUST_LEARNING_PROGRESS_KEY = 'rr_zlatoust_learning_v1';
+var ZLATOUST_STATIC_EXPLANATION_FILES = {};
 var ZLATOUST_CUSTOM_LEARNING_SECTIONS = {
   '5.lexical': { stageCount: 5, exerciseCount: 30 },
   '5.2': { stageCount: 4, exerciseCount: 23 },
@@ -3262,7 +3272,7 @@ var ZLATOUST_KNOWLEDGE_POINT_SECTIONS = {
   'gl1:gl1-4-8-negative-imperative': '1.4.8',
   'gl1:gl1-5': '1.5-review'
 };
-var zlatoustTheoryState = { index: null, indexPromise: null, chapters: {}, units: {}, learningPages: {} };
+var zlatoustTheoryState = { index: null, indexPromise: null, staticExplanationManifest: null, staticExplanationManifestPromise: null, chapters: {}, units: {}, learningPages: {} };
 function getZlatoustIntegratedSectionForKnowledgePoint(partId, pointId) {
   if (!isZlatoustGrammarBook(curBook)) return '';
   return ZLATOUST_KNOWLEDGE_POINT_SECTIONS[String(partId || '') + ':' + String(pointId || '')] || '';
@@ -3298,6 +3308,44 @@ function buildZlatoustOptionAnalysisIndex(state, units) {
   state.optionAnalysisByExercise = byExercise;
   return byExercise;
 }
+function isValidZlatoustStaticExplanation(entry) {
+  return !!entry && typeof entry.exerciseId === 'string' &&
+    !!entry.completeSentence && typeof entry.completeSentence.ru === 'string' && typeof entry.completeSentence.zh === 'string' &&
+    typeof entry.conclusion === 'string' && Array.isArray(entry.decisionSteps) &&
+    !!entry.correctOption && typeof entry.correctOption.key === 'string' &&
+    (typeof entry.correctOption.analysis === 'string' || typeof entry.sourceOnlyWarning === 'string') &&
+    Array.isArray(entry.distractors) && !!entry._source && Array.isArray(entry._source.rules);
+}
+function buildZlatoustStaticExplanationIndex(state, documents) {
+  var byExercise = {}, authorLabels = {};
+  (documents || []).forEach(function(document) {
+    if (!document || document.schemaVersion !== 1 || !Array.isArray(document.explanations)) return;
+    document.explanations.forEach(function(entry) {
+      if (!isValidZlatoustStaticExplanation(entry) || byExercise[entry.exerciseId]) return;
+      byExercise[entry.exerciseId] = entry;
+      authorLabels[entry.exerciseId] = document.authorLabel || '项目教辅解析（非教材原文注释）';
+    });
+  });
+  state.staticExplanationsByExercise = byExercise;
+  state.staticExplanationAuthorLabels = authorLabels;
+  return byExercise;
+}
+function loadZlatoustStaticExplanationDocuments(chapterId) {
+  if (!zlatoustTheoryState.staticExplanationManifestPromise) {
+    zlatoustTheoryState.staticExplanationManifestPromise = fetchJson(ZLATOUST_THEORY_ROOT + '/explanations/index.json', null)
+      .then(function(manifest) {
+        zlatoustTheoryState.staticExplanationManifest = manifest && manifest.schemaVersion === 1 ? manifest : { chapters: ZLATOUST_STATIC_EXPLANATION_FILES };
+        return zlatoustTheoryState.staticExplanationManifest;
+      })
+      .catch(function() { return { chapters: ZLATOUST_STATIC_EXPLANATION_FILES }; });
+  }
+  return zlatoustTheoryState.staticExplanationManifestPromise.then(function(manifest) {
+    var files = (manifest.chapters && manifest.chapters[chapterId]) || ZLATOUST_STATIC_EXPLANATION_FILES[chapterId] || [];
+    return Promise.all(files.map(function(file) {
+      return fetchJson(ZLATOUST_THEORY_ROOT + '/' + file, null).catch(function() { return null; });
+    }));
+  });
+}
 function loadZlatoustChapterTheory(chapterIndex) {
   var chapterId = getZlatoustChapterId(chapterIndex), state = zlatoustTheoryState.chapters[chapterId];
   if (state && state.ready) return Promise.resolve(state);
@@ -3306,11 +3354,13 @@ function loadZlatoustChapterTheory(chapterIndex) {
   state.promise = Promise.all([
     loadZlatoustTheoryIndex(),
     fetchJson(ZLATOUST_THEORY_ROOT + '/mappings/' + getZlatoustMappingFile(chapterId, 'exercise-to-rules'), null),
-    fetchJson(ZLATOUST_THEORY_ROOT + '/mappings/' + getZlatoustMappingFile(chapterId, 'section-to-exercises'), null)
+    fetchJson(ZLATOUST_THEORY_ROOT + '/mappings/' + getZlatoustMappingFile(chapterId, 'section-to-exercises'), null),
+    loadZlatoustStaticExplanationDocuments(chapterId)
   ]).then(function(result) {
     state.index = result[0];
     state.exerciseToRules = result[1];
     state.sectionToExercises = result[2];
+    buildZlatoustStaticExplanationIndex(state, result[3]);
     var mappings = state.exerciseToRules.exercises || {};
     var sectionIds = [];
     Object.keys(mappings).forEach(function(exerciseId) {
@@ -3829,7 +3879,7 @@ function renderZlatoustTransferTasks(sectionId, tasks) {
   var record = zlatoustLearningPageRecord(sectionId), answers = record.transfer || {};
   return '<section class="zlatoust-transfer" id="zlatoust-final"><h2>跨阶段综合迁移</h2><p>这里要处理新语境。完成四项任务后，系统才会把本节标为“已掌握”。</p>' + tasks.map(function(task) {
     var saved = answers[task.id] || {};
-    if (task.kind === 'text') return '<article class="zlatoust-transfer-task"><h3>' + escapeHtml(task.title) + '</h3><p>' + escapeHtml(task.prompt) + '</p><textarea data-zlatoust-transfer-text="' + escapeHtml(task.id) + '" aria-label="' + escapeHtml(task.title) + '作答" placeholder="写下你的判断…">' + escapeHtml(saved.text || '') + '</textarea><p class="zlatoust-transfer-hint">' + escapeHtml(task.hint || '') + '</p><button type="button" class="zlatoust-back-link" onclick="saveZlatoustTransferText(\'' + zlatoustEscapeForOnclick(sectionId) + '\',\'' + zlatoustEscapeForOnclick(task.id) + '\')">保存作答</button></article>';
+    if (task.kind === 'text') return '<article class="zlatoust-transfer-task"><h3>' + escapeHtml(task.title) + '</h3><p>' + escapeHtml(task.prompt) + '</p><textarea data-zlatoust-transfer-section="' + escapeHtml(sectionId) + '" data-zlatoust-transfer-text="' + escapeHtml(task.id) + '" aria-label="' + escapeHtml(task.title) + '作答" placeholder="写下你的判断…" oninput="saveZlatoustTransferText(\'' + zlatoustEscapeForOnclick(sectionId) + '\',\'' + zlatoustEscapeForOnclick(task.id) + '\')">' + escapeHtml(saved.text || '') + '</textarea><p class="zlatoust-transfer-hint">' + escapeHtml(task.hint || '') + '</p><button type="button" class="zlatoust-back-link" onclick="saveZlatoustTransferText(\'' + zlatoustEscapeForOnclick(sectionId) + '\',\'' + zlatoustEscapeForOnclick(task.id) + '\')">保存作答</button></article>';
     return '<article class="zlatoust-transfer-task"><h3>' + escapeHtml(task.title) + '</h3><p>' + escapeHtml(task.prompt) + '</p><div class="zlatoust-learning-check-options">' + (task.options || []).map(function(option) { var klass = saved.submitted && option.key === task.answer ? ' is-correct' : saved.submitted && option.key === saved.selected ? ' is-wrong' : ''; return '<button type="button" class="zlatoust-learning-check-option' + klass + '" onclick="answerZlatoustTransferChoice(\'' + zlatoustEscapeForOnclick(sectionId) + '\',\'' + zlatoustEscapeForOnclick(task.id) + '\',\'' + zlatoustEscapeForOnclick(option.key) + '\')"><strong>' + escapeHtml(option.key) + '</strong><span>' + escapeHtml(option.text) + '</span></button>'; }).join('') + '</div>' + (saved.submitted ? '<p class="zlatoust-learning-feedback' + (saved.correct ? '' : ' is-wrong') + '">' + escapeHtml(task.feedback || '') + '</p>' : '') + '</article>';
   }).join('') + '</section>';
 }
@@ -4106,6 +4156,49 @@ function renderZlatoustAnswerRuleLinks(mapping, state) {
     return '<button type="button" onclick="showZlatoustRuleUnit(\'' + zlatoustEscapeForOnclick(sectionId) + '\',\'' + zlatoustEscapeForOnclick(ruleId) + '\')">' + escapeHtml(rule.titleZh || ruleId) + '</button>';
   }).filter(Boolean).join('');
 }
+function getZlatoustStaticExplanation(exercise, state, answerKey) {
+  var entry = state && state.staticExplanationsByExercise && state.staticExplanationsByExercise[exercise.id];
+  if (!entry || entry.correctOption.key !== answerKey) return null;
+  var expectedDistractors = (exercise.options || []).filter(function(option) { return option.key !== answerKey; }).map(function(option) { return option.key; }).sort().join('|');
+  var actualDistractors = (entry.distractors || []).map(function(item) { return item.key; }).sort().join('|');
+  return expectedDistractors === actualDistractors ? entry : null;
+}
+function renderZlatoustStaticRuleLinks(explanation, state) {
+  var catalog = state && state.exerciseToRules && state.exerciseToRules.ruleCatalog || {};
+  return (explanation._source.rules || []).map(function(item) {
+    var rule = catalog[item.ruleId] || {}, sectionId = item.sectionId || rule.sectionId;
+    if (!sectionId) return '';
+    return '<button type="button" onclick="showZlatoustRuleUnit(\'' + zlatoustEscapeForOnclick(sectionId) + '\',\'' + zlatoustEscapeForOnclick(item.ruleId) + '\')">' + escapeHtml(rule.titleZh || item.ruleId) + '</button>';
+  }).filter(Boolean).join('');
+}
+function renderZlatoustStaticExplanation(exercise, explanation, state, answerKey, answerOption, mapping) {
+  var label = state.staticExplanationAuthorLabels && state.staticExplanationAuthorLabels[exercise.id] || '项目教辅解析（非教材原文注释）';
+  var ruleLinks = renderZlatoustStaticRuleLinks(explanation, state);
+  var optionByKey = {};
+  (exercise.options || []).forEach(function(option) { optionByKey[option.key] = option; });
+  var distractors = (explanation.distractors || []).map(function(item) {
+    var option = optionByKey[item.key] || {};
+    var reason = item.reason || '原书没有提供这一项的独立规则说明；这里只保留选项和已核对答案，不补写未经核实的理由。';
+    return '<li><strong>' + escapeHtml(item.key) + (option.text ? '：' + escapeHtml(option.text) : '') + '</strong><br>' + escapeHtml(reason) + '</li>';
+  }).join('');
+  var html = '<div class="zlatoust-answer-explanation">';
+  html += '<aside class="zlatoust-learning-label"><strong>' + escapeHtml(label) + '</strong><br>以下内容用于帮助理解判断过程，不是教材逐题原文解析。</aside>';
+  if (mapping.status === 'source-exercise-only') {
+    html += '<aside class="zlatoust-answer-source-only"><strong>原书只提供了练习与答案，没有独立的逐题解析。下面保留的是项目教辅学习解析，并明确与原书内容区分。</strong></aside>';
+  } else if (mapping.status === 'needs-review') {
+    html += '<aside class="zlatoust-answer-notice"><strong>这题的规则边界仍待复核；原书答案已保留，以下学习说明仅作辅助。</strong></aside>';
+  }
+  if (explanation.sourceTextWarning) html += '<aside class="zlatoust-answer-notice"><strong>' + escapeHtml(explanation.sourceTextWarning) + '</strong></aside>';
+  html += '<section><h4>原书答案（已核对）</h4><p><strong>' + escapeHtml(answerKey) + (answerOption ? '：' + escapeHtml(answerOption.text) : '') + '</strong></p><p class="zlatoust-answer-sentence">' + renderRuText(explanation.completeSentence.ru, lookupContext('grammar', exercise.id, 'zlatoust-static-answer-sentence', explanation.completeSentence.ru, '', exercise.answerPages || [])) + '</p><p class="zlatoust-answer-translation"><strong>中文：</strong>' + escapeHtml(explanation.completeSentence.zh) + '</p></section>';
+  html += '<section><h4>先说结论</h4><p>' + escapeHtml(explanation.conclusion) + '</p></section>';
+  html += '<section><h4>按这样判断</h4><ol class="zlatoust-decision-steps">' + explanation.decisionSteps.map(function(item) { return '<li>' + escapeHtml(item.text) + '</li>'; }).join('') + '</ol></section>';
+  var correctAnalysis = explanation.correctOption.analysis || explanation.conclusion;
+  html += '<section class="zlatoust-correct-analysis"><h4>正确项为什么对</h4><p><strong>' + escapeHtml(answerKey) + (answerOption ? '：' + escapeHtml(answerOption.text) : '') + '</strong><br>' + escapeHtml(correctAnalysis) + '</p></section>';
+  if (distractors) html += '<section><h4>其他选项为什么不对</h4><ul class="zlatoust-option-analysis">' + distractors + '</ul></section>';
+  if (explanation.memoryRule) html += '<section class="zlatoust-memory-rule"><h4>记忆提示</h4><p>' + escapeHtml(explanation.memoryRule) + '</p></section>';
+  html += '<section><h4>本题考查</h4>' + (ruleLinks ? '<div class="zlatoust-answer-rules">' + ruleLinks + '</div>' : '') + (mapping.mappingReason ? '<p>' + escapeHtml(mapping.mappingReason) + '</p>' : '') + '</section>';
+  return html + '</div>';
+}
 function renderZlatoustQuizExplanation(exercise) {
   var state = getLoadedZlatoustChapterTheory(curCh);
   var mapping = state && state.exerciseToRules && state.exerciseToRules.exercises && state.exerciseToRules.exercises[exercise.id] || {};
@@ -4113,6 +4206,8 @@ function renderZlatoustQuizExplanation(exercise) {
   var analysis = state && state.optionAnalysisByExercise && state.optionAnalysisByExercise[exercise.id];
   var answerKey = exercise.sourceAnswer || exercise.answer || '待核对';
   var answerOption = (exercise.options || []).find(function(item) { return item.key === answerKey; });
+  var staticExplanation = getZlatoustStaticExplanation(exercise, state, answerKey);
+  if (staticExplanation) return renderZlatoustStaticExplanation(exercise, staticExplanation, state, answerKey, answerOption, mapping);
   var sourcePages = [];
   if ((exercise.questionPages || []).length) sourcePages.push('<p class="zlatoust-provenance"><strong>题面页：</strong>' + escapeHtml(getZlatoustPageList(exercise.questionPages)) + '</p>');
   if ((exercise.answerPages || []).length) sourcePages.push('<p class="zlatoust-provenance"><strong>答案页：</strong>' + escapeHtml(getZlatoustPageList(exercise.answerPages)) + '</p>');
@@ -4225,7 +4320,7 @@ function renderQuizItem(exercise, record) {
   html += renderZlatoustExerciseReference(exercise);
   if (exercise.type === 'open-response') {
     var response = escapeHtml(record.response || '');
-    html += '<textarea class="b2-open-response" data-open-response="' + escapeHtml(exercise.id) + '" placeholder="在此输入你的改写答案">' + response + '</textarea>';
+    html += '<textarea class="b2-open-response" data-open-response="' + escapeHtml(exercise.id) + '" placeholder="在此输入你的改写答案" oninput="saveOpenResponseDraft(\'' + escapeHtml(exercise.id) + '\', this.value)">' + response + '</textarea>';
     html += '<button class="b2-explanation-toggle" onclick="submitOpenResponse(\'' + escapeHtml(exercise.id) + '\')">' + (record.submitted ? '更新作答记录' : '记录我的答案') + '</button>';
     html += '<div class="b2-result" aria-live="polite">' + (record.submitted ? '<span class="is-correct">已记录作答。</span>' : '') + '</div>';
     return html + '</section>';
@@ -5343,6 +5438,11 @@ function submitQuizQuestion(questionId) {
   saveQuizRecord(questionId, record);
   refreshQuizQuestion(questionId, exercise, record);
   if (document.querySelector('.zlatoust-learning-page')) refreshZlatoustLearningHeader('1.4.1');
+}
+function saveOpenResponseDraft(questionId, value) {
+  var record = getQuizRecord(questionId);
+  record.response = String(value || '');
+  saveQuizRecord(questionId, record);
 }
 function submitOpenResponse(questionId) {
   var exercise = getQuizExercise(questionId), input = document.querySelector('[data-open-response="' + questionId + '"]');
@@ -7781,7 +7881,8 @@ function renderReadingSpeakingExplanationContent(ex, exId) {
         var titleEnd = para.indexOf('】') + 1;
         var sectionTitle = para.substring(0, titleEnd);
         var sectionBody = para.substring(titleEnd).trim();
-        if (sectionTitle === '【学习辅助·原文定位】' && ex.sourceAnchor) {
+        var isSourceLocationSection = sectionTitle === '【学习辅助·原文定位】' || sectionTitle === '【定位原文】';
+        if (isSourceLocationSection && ex.sourceAnchor) {
           html += '<div class="answer-section-title answer-source-row"><button type="button" class="rs-source-locate" onclick="locateReadingSpeakingSource(\'' + escapeHtml(exId) + '\',event)">' +
             escapeHtml(sectionTitle) + '</button>' + escapeHtml(sectionBody) + '</div>';
         } else {
@@ -7955,5 +8056,55 @@ function updateReadingSpeakingQuestionDOM(exId) {
   updateReadingSpeakingPracticeProgress();
 }
 </script>
+<script src="js/reader-navigation.js"></script>
+<script src="js/app-shell.js"></script>
+<style>
+@media (max-width:700px) {
+  html.app-shell-enabled #detailPanel {
+    bottom:calc(var(--app-shell-nav-height) + var(--app-shell-safe-bottom)) !important;
+    max-height:calc(88dvh - var(--app-shell-nav-height) - var(--app-shell-safe-bottom)) !important;
+  }
+}
+</style>
+<script>
+function closeReaderTemporaryLayer() {
+  var breadcrumb = document.getElementById('breadcrumbOverlay');
+  if (breadcrumb) { closeBreadcrumb(); return true; }
+  var detail = document.getElementById('detailPanel');
+  if (detail && detail.getAttribute('data-dictionary-state') !== 'closed') { dictionaryController.close(); return true; }
+  var dialog = document.querySelector('dialog[open]');
+  if (dialog) { dialog.close(); return true; }
+  var modal = document.querySelector('.modal-overlay.visible');
+  if (modal) { modal.classList.remove('visible'); return true; }
+  var search = document.getElementById('searchBar');
+  if (search && search.classList.contains('visible')) { closeSearch(); return true; }
+  return false;
+}
+function prepareReaderBackNavigation() {
+  var unfinishedDictation = Array.from(document.querySelectorAll('.lw-dictation textarea')).some(function(input) { return input.value.trim(); });
+  if (unfinishedDictation) { toast('当前听写内容尚未提交，请先检查或清空后再返回'); return false; }
+  document.querySelectorAll('[data-open-response]').forEach(function(input) { saveOpenResponseDraft(input.getAttribute('data-open-response'), input.value); });
+  document.querySelectorAll('[data-zlatoust-transfer-text]').forEach(function(input) {
+    saveZlatoustTransferText(input.getAttribute('data-zlatoust-transfer-section'), input.getAttribute('data-zlatoust-transfer-text'));
+  });
+  if (document.activeElement && typeof document.activeElement.blur === 'function') document.activeElement.blur();
+  saveLastRead();
+  return true;
+}
+window.appShellHandleBack = function() {
+  return ReaderNavigation.handleBack({
+    curView: curView,
+    curBook: curBook,
+    isWorldPeopleBook: isWorldPeopleBook,
+    closeTemporaryLayer: closeReaderTemporaryLayer,
+    prepareToLeave: prepareReaderBackNavigation,
+    showChapters: showChapters,
+    showB2Dashboard: showB2Dashboard,
+    showWorldPeopleDashboard: showWorldPeopleDashboard,
+    showShelf: showShelf
+  });
+};
+</script>
+<script>AppShell.mount({ current: 'reader' });</script>
 </body>
 </html>

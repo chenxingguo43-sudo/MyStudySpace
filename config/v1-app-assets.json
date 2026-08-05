@@ -1,0 +1,66 @@
+{
+  "schema": "mystudyspace-v1-app-assets",
+  "version": 1,
+  "generatedEntry": {
+    "mode": "phase4-home",
+    "source": "app-home.html",
+    "output": "index.html"
+  },
+  "pages": [
+    "app-home.html",
+    "reader.html",
+    "vocabulary.html",
+    "profile.html"
+  ],
+  "styles": [
+    "css/reader-listening-workbench.css",
+    "css/app-shell.css"
+  ],
+  "scripts": [
+    "data/russian-morphology.js",
+    "js/app-runtime.js",
+    "js/app-shell.js",
+    "js/app-home.js",
+    "js/app-profile.js",
+    "js/app-profile-page.js",
+    "js/reader-navigation.js",
+    "js/russian-b2/dashboard.js",
+    "js/russian-b2/listening-quality.js",
+    "js/russian-b2/listening-session.js",
+    "js/russian-b2/listening-workbench.js",
+    "js/russian-b2/reading-review.js",
+    "js/russian-dictionary/core.js",
+    "js/russian-dictionary/review.js",
+    "js/russian-dictionary/runtime.js",
+    "js/russian-dictionary/storage.js",
+    "js/vocabulary-session-scheduler.js",
+    "js/zlatoust-progress-migration.js"
+  ],
+  "backgrounds": [
+    "assets/IMG_20260405_015648.jpg",
+    "assets/IMG_20260405_015834.jpg",
+    "assets/IMG_20260405_015918.jpg",
+    "assets/IMG_20260405_020008.jpg",
+    "assets/IMG_20260405_020048.jpg",
+    "assets/mmexport1775325437154.jpg"
+  ],
+  "contentManifest": "data/app-content-manifest.json",
+  "contentFiles": "manifest.files",
+  "forbiddenOutput": [
+    "cloudsync-config.js",
+    "data/novel/",
+    "data/audio/*.mp3",
+    "data/textbook/**/media/",
+    "data/dictionary/*.backup.json",
+    "tmp/",
+    "tests/",
+    "scripts/",
+    "docs/",
+    "node_modules/",
+    "_zlatoust_"
+  ],
+  "deferredRuntimeBlockers": [
+    "Imported media resolution remains a missing-state stub until the media-pack phases.",
+    "Vocabulary still references Google Fonts; Phase 8 must make fonts offline-safe."
+  ]
+}

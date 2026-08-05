@@ -106,12 +106,26 @@
     const complete = item => {
       const ids = Array.isArray(item.questionIds) ? item.questionIds : [];
       const itemRecords = grammar ? safeObject(store['russian_b2:' + item.id]) : store;
+      if (grammar && safeObject(safeObject(store.__completed)['russian_b2:' + item.id]).completed === true) return true;
       return ids.every(id => safeObject(itemRecords[id])[grammar ? 'submitted' : 'answered'] === true);
     };
     const allRecords = grammar
       ? Object.values(store).flatMap(value => Object.values(safeObject(value)))
       : Object.values(store);
     return { total: inventory.length, completed: inventory.filter(complete).length, lastActivityAt: latestTimestamp(allRecords) };
+  }
+  function objectiveExerciseProgress(inventories, records, bookId) {
+    const store = safeObject(records), rootBookId = bookId || 'russian_b2';
+    const units = Array.isArray(inventories) ? inventories : [];
+    let total = 0, completed = 0;
+    units.forEach(item => {
+      const ids = Array.isArray(item.questionIds) ? item.questionIds : [];
+      const itemRecords = safeObject(store[rootBookId + ':' + item.id]);
+      const unitComplete = safeObject(safeObject(store.__completed)[rootBookId + ':' + item.id]).completed === true;
+      total += ids.length;
+      ids.forEach(id => { if (unitComplete || safeObject(itemRecords[id]).submitted === true) completed += 1; });
+    });
+    return { total, completed, pending: Math.max(0, total - completed) };
   }
   function manualModule(inventory, records, drafts, label) {
     const store = safeObject(records);
@@ -215,6 +229,6 @@
   }
   return {
     ARCHIVE_SCHEMA, ARCHIVE_KEYS, createArchive, validateArchive, mergeArchive,
-    safeObject, chapterInventory, getDashboardChapterPaths, createB2LastReadRecord, buildDashboardProgress
+    safeObject, chapterInventory, getDashboardChapterPaths, createB2LastReadRecord, buildDashboardProgress, objectiveExerciseProgress
   };
 });
