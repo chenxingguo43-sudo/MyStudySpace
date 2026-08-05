@@ -32,20 +32,24 @@ test('every restored reading-speaking source anchor points to its own article', 
         `${file}#${exercise.num}: paragraph index is outside the article`);
       assert.ok(normalizeRussian(chapter.original[paragraphIndex]).includes(normalizeRussian(quote)),
         `${file}#${exercise.num}: quote is not present in the selected paragraph`);
-      const correctIndex = 'абв'.indexOf(exercise.answer);
-      const correctOption = (exercise.options || [])[correctIndex];
+      const correctOption = (exercise.options || [])
+        .find((option) => option.startsWith(`${exercise.answer})`));
       assert.ok(correctOption, `${file}#${exercise.num}: answer does not select an option`);
       assert.ok(normalizeRussian(exercise.detailed_explanation).includes(normalizeRussian(correctOption)),
         `${file}#${exercise.num}: explanation does not discuss the current correct option`);
+      for (const heading of ['【学习辅助·原文定位】', '【正确项】', '【排除项】', '【关键词】', '【原文逐句拆解】', '【题干与选项核对】', '【进一步辨析】', '【一句话复盘】']) {
+        assert.ok(exercise.detailed_explanation.includes(heading),
+          `${file}#${exercise.num}: missing expanded learning section ${heading}`);
+      }
       anchored.push(`${file}#${exercise.num}`);
     }
   }
 
-  assert.equal(anchored.length, 24, 'the first verified recovery batch must contain exactly 24 anchors');
+  assert.equal(anchored.length, 192, 'every reading-speaking exercise must have a verified source anchor');
 });
 
 test('Reader turns both historical source-location headings into source buttons', () => {
   const reader = fs.readFileSync(path.join(root, 'reader.html'), 'utf8');
-  assert.match(reader, /sectionTitle === '【学习辅助·原文定位】'/);
-  assert.match(reader, /sectionTitle === '【定位原文】'/);
+  assert.match(reader, /section\.title === '【学习辅助·原文定位】'/);
+  assert.match(reader, /section\.title === '【定位原文】'/);
 });

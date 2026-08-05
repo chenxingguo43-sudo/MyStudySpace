@@ -54,8 +54,9 @@ test('the whitelist includes exactly the six approved backgrounds', () => {
 
 test('build copies every controlled content file with the frozen hash', () => {
   const before = textbookJsonHashes();
+  const sourceManifest = JSON.parse(fs.readFileSync(path.join(REPOSITORY_ROOT, 'data', 'app-content-manifest.json'), 'utf8'));
   const result = buildV1App();
-  assert.equal(result.contentManifest.files.length, 368);
+  assert.equal(result.contentManifest.files.length, sourceManifest.files.length);
   for (const record of result.contentManifest.files) {
     const outputFile = path.join(DEFAULT_OUTPUT, ...record.path.split('/'));
     assert.equal(fs.existsSync(outputFile), true, record.path);
