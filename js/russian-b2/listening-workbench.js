@@ -112,6 +112,17 @@
     });
     return distinctEnough ? list : [];
   }
+  function getDataTimelineState(data) {
+    var source = Array.isArray(data && data.transcriptSegments) ? data.transcriptSegments : [];
+    var normalized = normalizeDataSegments(source);
+    var timedCount = normalized.filter(function (segment) { return segment.timed; }).length;
+    return {
+      hasSource: source.length > 0,
+      hasTimed: timedCount > 0,
+      complete: source.length > 0 && normalized.length === source.length && timedCount === source.length,
+      segments: normalized
+    };
+  }
   function clearBoundaryTimer() {
     if (boundaryTimer) clearTimeout(boundaryTimer);
     boundaryTimer = null;
@@ -129,6 +140,8 @@
     var timelinePartial = timelineReady && timedCount < segments.length;
     var media = current && current.data && current.data.media || {};
     var mediaMismatch = media.status === 'source-mismatch';
+    var sourceTimeline = getDataTimelineState(current && current.data);
+    var timelineNeedsVerification = sourceTimeline.hasTimed && !sourceTimeline.complete;
     var workbench = document.querySelector('.lw-workbench');
     if (workbench) workbench.dataset.timelineReady = timelineReady ? 'true' : 'false';
     all('.lw-transcript-row').forEach(function (row, index) {
@@ -146,16 +159,20 @@
     var controls = ['lwPrevSentence', 'lwNextSentence', 'lwLoopSentence', 'lwABLoop', 'lwABLoopControl'];
     controls.forEach(function (id) { var node = byId(id); if (node) node.disabled = !timelineReady; });
     var position = byId('lwSentencePosition');
-    if (position && !timelineReady) position.textContent = mediaMismatch ? '等待正确音频' : '仅支持整段播放';
+    if (position && !timelineReady) position.textContent = mediaMismatch ? '等待正确音频' : timelineNeedsVerification ? '逐句时间轴待核验' : '仅支持整段播放';
     var transcriptHint = byId('lwTranscriptHint');
-    if (transcriptHint) transcriptHint.textContent = timelinePartial
+    if (transcriptHint) transcriptHint.textContent = timelineNeedsVerification
+      ? '原文与整段媒体已保留；逐句时间轴尚未完整核验，因此不提供跳转、循环或听写。'
+      : timelinePartial
       ? '可靠句子可点击跳播；显示“--:--”的句子保留原文，但暂不提供跳转'
       : timelineReady
       ? '点击句子跳播，当前句会自动高亮'
       : mediaMismatch
       ? '教材原文已保留；正确配套音频重新绑定前不提供播放与时间轴'
       : '当前材料暂无逐句时间轴，可边听整段音频边阅读文字稿';
-    timelineStatus(timelinePartial
+    timelineStatus(timelineNeedsVerification
+      ? '逐句时间轴尚未完整核验，已切换为整段播放，避免错误跳转。'
+      : timelinePartial
       ? '部分句子已建立可靠时间轴，未匹配句子不会错误跳转。'
       : timelineReady
       ? '字幕时间轴已就绪，可逐句跳播。'
@@ -279,7 +296,8 @@
   }
   function loadTimeline(data, captionsUrl) {
     var mediaMismatch = data && data.media && data.media.status === 'source-mismatch';
-    var fallback = mediaMismatch ? [] : normalizeDataSegments(data && data.transcriptSegments);
+    var sourceTimeline = getDataTimelineState(data);
+    var fallback = mediaMismatch || !sourceTimeline.complete ? [] : sourceTimeline.segments;
     if (!captionsUrl) {
       segments = fallback;
       updateTimelineRows();
@@ -450,6 +468,7 @@
     formatTime: formatTime,
     parseVtt: parseVtt,
     normalizeDataSegments: normalizeDataSegments,
+    getDataTimelineState: getDataTimelineState,
     togglePlay: togglePlay,
     seek: seek,
     selectSegment: selectSegment,

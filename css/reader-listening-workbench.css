@@ -5,9 +5,6 @@
   color: var(--text);
 }
 .lw-topbar {
-  position: sticky;
-  top: 58px;
-  z-index: 80;
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto auto;
   align-items: center;

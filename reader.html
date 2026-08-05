@@ -4916,7 +4916,11 @@ function getListeningQualityDetails(data, index) {
 }
 function hasReliableListeningSegment(data, index) {
   var details = getListeningQualityDetails(data, index);
-  return !!(data && data.media && data.media.status !== 'source-mismatch' && Number.isFinite(details.startTime) && Number.isFinite(details.endTime) && details.endTime > details.startTime);
+  var source = data && data.transcriptSegments || [];
+  var hasCompleteTimeline = source.length > 0 && source.every(function(segment) {
+    return Number.isFinite(Number(segment.startTime)) && Number.isFinite(Number(segment.endTime)) && Number(segment.endTime) > Number(segment.startTime) && segment.timingStatus !== 'unmatched';
+  });
+  return !!(hasCompleteTimeline && data && data.media && data.media.status !== 'source-mismatch' && Number.isFinite(details.startTime) && Number.isFinite(details.endTime) && details.endTime > details.startTime);
 }
 function getListeningQualityRecord(data, index) {
   var details = getListeningQualityDetails(data, index);

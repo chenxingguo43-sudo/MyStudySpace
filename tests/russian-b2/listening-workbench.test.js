@@ -61,6 +61,24 @@ test('listening workbench preserves untimed rows inside a partial timeline', () 
   assert.equal(segments[1].timed, true);
 });
 
+test('only a fully aligned data timeline enables granular listening controls', () => {
+  const complete = Workbench.getDataTimelineState({
+    transcriptSegments: [
+      { startTime: 0, endTime: 2, text: 'Первая фраза.', timingStatus: 'aligned' },
+      { startTime: 2, endTime: 4, text: 'Вторая фраза.', timingStatus: 'aligned' }
+    ]
+  });
+  const partial = Workbench.getDataTimelineState({
+    transcriptSegments: [
+      { startTime: 0, endTime: 2, text: 'Первая фраза.', timingStatus: 'aligned' },
+      { startTime: 0, endTime: 0, text: 'Вторая фраза.', timingStatus: 'unmatched' }
+    ]
+  });
+
+  assert.equal(complete.complete, true);
+  assert.equal(partial.complete, false);
+});
+
 test('listening workbench validates playlist timelines independently', () => {
   const segments = Workbench.normalizeDataSegments([
     { playlistIndex: 0, startTime: 5, endTime: 12, text: 'Первая новость.' },
@@ -73,6 +91,9 @@ test('listening workbench validates playlist timelines independently', () => {
 });
 
 test('unreliable timelines degrade to a readable full transcript', () => {
+  assert.match(workbenchSource, /function getDataTimelineState\(data\)/);
+  assert.match(workbenchSource, /sourceTimeline\.complete/);
+  assert.match(workbenchSource, /逐句时间轴尚未完整核验/);
   assert.match(workbenchSource, /dataset\.timelineReady = timelineReady/);
   assert.match(workbenchSource, /仅支持整段播放/);
   assert.match(workbenchSource, /清晰文字稿/);
