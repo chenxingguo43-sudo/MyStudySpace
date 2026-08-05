@@ -58,9 +58,17 @@ test('phones use one continuous flow while landscape restores the right-side pra
   assert.match(reader, /\(max-width: 760px\)/);
   assert.match(reader, /\.rs-reader-mode-switch \{ display: none; \}/);
   assert.match(reader, /\.reader-layout\.rs-practice-mode \{ display: flex; flex-direction: row; \}/);
-  assert.match(reader, /flex: 0 0 clamp\(320px, 32vw, 440px\)/);
+  assert.match(reader, /flex: none; width: clamp\(320px, 32vw, 440px\)/);
   assert.match(reader, /border-top: 0; border-left: 1px solid var\(--border\)/);
   assert.match(reader, /isReadingSpeakingPhoneViewport\(\) \? 'practice' : getReadingSpeakingLayoutMode\(\)/);
+});
+
+test('landscape practice rail stays below the sticky toolbar during touch scrolling', () => {
+  assert.match(reader, /height: calc\(100dvh - 48px\); max-height: none; overflow-y: auto;/);
+  assert.match(reader, /position: fixed; top: 48px; right: 0; z-index: 90;/);
+  assert.match(reader, /width: clamp\(320px, 32vw, 440px\); min-width: 300px;/);
+  assert.match(reader, /margin-right: clamp\(320px, 32vw, 440px\)/);
+  assert.match(reader, /overscroll-behavior: contain; -webkit-overflow-scrolling: touch;/);
 });
 
 test('reading practice exposes and refreshes a completed-question progress indicator', () => {

@@ -1255,12 +1255,18 @@ body.theme-warm .listening-entry-zh, body.theme-warm .listening-section-count { 
   .reader-layout.rs-reading-mode #detailPanel[data-dictionary-state="closed"] { display: block; }
   .reader-layout.rs-practice-mode { display: flex; flex-direction: row; }
   .reader-layout.rs-practice-mode .reader-pane {
-    flex: 1 1 0; width: auto; min-width: 0; max-width: none; padding-right: 8px;
+    flex: 0 0 calc(100% - clamp(320px, 32vw, 440px));
+    width: calc(100% - clamp(320px, 32vw, 440px));
+    min-width: 0; max-width: none; margin-right: clamp(320px, 32vw, 440px); padding-right: 8px;
   }
   .reader-layout.rs-practice-mode .resize-handle { display: none; }
   .reader-layout.rs-practice-mode .rs-practice-panel {
-    display: block; order: 2; flex: 0 0 clamp(320px, 32vw, 440px); width: auto; min-width: 300px;
-    max-height: 100vh; overflow-y: auto; position: sticky; top: 0; align-self: flex-start;
+    display: block; order: 2; flex: none; width: clamp(320px, 32vw, 440px); min-width: 300px;
+    /* A fixed rail avoids sticky's parent-bottom constraint, which makes the
+       panel jump upward as the reader reaches the end of a chapter. */
+    height: calc(100dvh - 48px); max-height: none; overflow-y: auto;
+    position: fixed; top: 48px; right: 0; z-index: 90;
+    overscroll-behavior: contain; -webkit-overflow-scrolling: touch;
     padding: 20px 16px 90px; border-top: 0; border-left: 1px solid var(--border);
   }
 }
