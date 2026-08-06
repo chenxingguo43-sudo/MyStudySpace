@@ -80,5 +80,24 @@
       "动词词族测试（хватать系列、читать系列、писать系列、доверять系列）如果混淆前缀语义，容易出错。",
       "动词体辨析（воспитывать/воспитать、приспосабливаться/приспособиться等）是常见失分点，需注意体的语法意义差异。 叙事型议论文如果用词过于单一或观点表达不清，影响得分。"
     ]
-  }
+  },
+  "taskTranslationsById": {
+    "ws-t5.3-w-p267-01": {
+      "prompt": "给熟人写一封信，在信中讨论文章中提出的问题。 信件提纲：来源（从何处获知该问题）变化（发生了什么变化）事实与原因预测态度 时间 — 25分钟。",
+      "source": "legacy-array-alignment",
+      "legacyIndex": 0,
+      "reviewStatus": "needs_review"
+    }
+  },
+  "taskTranslationStatus": "needs_review",
+  "taskTranslationContract": "taskId-v1",
+  "speakingTranslationsById": {
+    "ws-t5.3-s-p268-01": {
+      "prompt": "来源： 根据比托夫的访谈进行对话。 а) 赞同对方。 б) 表达对对方的不赞同。 台词： “应该读读比托夫！他写得太有意思了！” “可惜的是，现在几乎没人知道他。”",
+      "source": "legacy-array-alignment",
+      "legacyIndex": 0,
+      "reviewStatus": "needs_review"
+    }
+  },
+  "speakingTranslationStatus": "needs_review"
 }

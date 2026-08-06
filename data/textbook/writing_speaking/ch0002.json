@@ -21,40 +21,287 @@
   ],
   "status": "needs_review",
   "reviewStatus": "needs_review",
-  "readingMaterial": null,
+  "readingMaterial": {
+    "id": "input-34-3",
+    "title": "1.2 Чтение: иностранные интервью о Москве",
+    "text": "Прочитайте текст и выполните задание к нему.\nВ тексте представлены интервью нескольких иностранцев о жизни в Москве. Среди респондентов:\n- Stanley Williams\n- Berl Lazar\n- Borislav Milosevic\n- Neil McGowan\n- John Mayan\n- Mark Alan Brown\n- Archimandrite Zacchaeus\nТемы интервью: стабильность, доступность, свобода, трудности жизни в Москве для иностранцев.",
+    "sourcePage": 34,
+    "sourceKind": "original_book"
+  },
+  "inputMaterials": [
+    {
+      "id": "input-34-3",
+      "title": "1.2 Чтение: иностранные интервью о Москве",
+      "text": "Прочитайте текст и выполните задание к нему.\nВ тексте представлены интервью нескольких иностранцев о жизни в Москве. Среди респондентов:\n- Stanley Williams\n- Berl Lazar\n- Borislav Milosevic\n- Neil McGowan\n- John Mayan\n- Mark Alan Brown\n- Archimandrite Zacchaeus\nТемы интервью: стабильность, доступность, свобода, трудности жизни в Москве для иностранцев.",
+      "sourcePage": 34,
+      "sourceKind": "original_book"
+    }
+  ],
   "vocabularyPrep": [
     {
       "word": "экспат",
-      "task": "解释并造句"
+      "task": "解释并造句",
+      "sourceExamples": [
+        {
+          "word": "экспат",
+          "sentence": "В Москве живёт множество **экспатов** — иностранцев, работающих в российских компаниях.",
+          "sourceKind": "source_example",
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "dictionary": null
     },
     {
-      "word": "доступный",
-      "task": "解释并造句"
+      "word": "доступный (место)",
+      "task": "解释并造句",
+      "sourceExamples": [
+        {
+          "word": "доступный",
+          "sentence": "В центре города не так много **доступных** мест для жилья.",
+          "sourceKind": "source_example",
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "dictionary": {
+        "word": "досту́пный",
+        "meaning": "容易理解的，可获得的",
+        "type": "adjective",
+        "gender": "",
+        "aspect": "",
+        "pair": "",
+        "caseGov": "",
+        "grammarTable": "| 格 | 阳性 | 中性 | 阴性 | 复数 |\n|------|------|------|------|------|\n| 主格 | доступный | доступное | доступная | доступные |\n| 属格 | доступного | доступного | доступной | доступных |\n| 与格 | доступному | доступному | доступной | доступным |\n| 宾格 | доступный | доступное | доступную | доступные |\n| 工具格 | доступным | доступным | доступной | доступными |\n| 前格 | доступном | доступном | доступной | доступных |",
+        "detailZh": "",
+        "collocations": [],
+        "examples": [
+          {
+            "ru": "Окруже́ние в э́том ме́сте о́чень доступное.",
+            "zh": "这个地方的环境很容易理解。"
+          }
+        ],
+        "sourceKind": "project_dictionary",
+        "reviewStatus": "needs_review"
+      }
+    },
+    {
+      "word": "либерализация",
+      "task": "解释并造句",
+      "sourceExamples": [
+        {
+          "word": "либерализация",
+          "sentence": "После **либерализации** экономики страна изменилась.",
+          "sourceKind": "source_example",
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "dictionary": {
+        "word": "либеральный",
+        "meaning": "自由主义的",
+        "type": "adjective",
+        "gender": "",
+        "aspect": "",
+        "pair": "",
+        "caseGov": "",
+        "grammarTable": "либера́льный,либера́льного,либера́льному,либера́льный,либера́льным,либера́льном\r\nлибера́льная,либера́льной,либера́льной,либера́льную,либера́льной,либера́льной\r\nлибера́льное,либера́льного,либера́льному,либера́льное,либера́льным,либера́льном\r\nлибера́льные,либера́льных,либера́льным,либера́льные,либера́льными,либера́льных",
+        "detailZh": "либеральный 指自由主义的，坚持自由原则的、宽容的。用于政治观点、经济政策和社会态度。在俄罗斯语境中可含褒义（崇尚自由）或贬义（西化派）。",
+        "collocations": [
+          {
+            "phrase": "либеральные взгляды",
+            "ru": "У него либеральные взгляды на образование.",
+            "zh": "他对教育持自由主义观点。"
+          },
+          {
+            "phrase": "либеральная партия",
+            "ru": "Либеральная партия выступает за свободу слова.",
+            "zh": "自由主义政党主张言论自由。"
+          },
+          {
+            "phrase": "либеральная экономика",
+            "ru": "Либеральная экономика предполагает минимальное вмешательство государства.",
+            "zh": "自由经济意味着国家最小干预。"
+          },
+          {
+            "phrase": "либеральные ценности",
+            "ru": "Либеральные ценности включают свободу и равенство.",
+            "zh": "自由主义价值观包括自由与平等。"
+          }
+        ],
+        "examples": [
+          {
+            "ru": "Он придерживается ==либеральных== убеждений.",
+            "zh": "他持自由主义信念。"
+          }
+        ],
+        "sourceKind": "project_dictionary",
+        "reviewStatus": "needs_review"
+      }
+    },
+    {
+      "word": "коренной (москвич)",
+      "task": "解释并造句",
+      "sourceExamples": [
+        {
+          "word": "коренной",
+          "sentence": "Он **коренной** москвич — родился и вырос в Москве.",
+          "sourceKind": "source_example",
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "dictionary": null
+    },
+    {
+      "word": "кошерный (еда)",
+      "task": "解释并造句",
+      "sourceExamples": [
+        {
+          "word": "кошерный",
+          "sentence": "Для некоторых иностранцев найти **кошерную** еду в Москве — непростая задача.",
+          "sourceKind": "source_example",
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "dictionary": null
+    },
+    {
+      "word": "приватизация",
+      "task": "解释并造句",
+      "sourceExamples": [
+        {
+          "word": "приватизация",
+          "sentence": "**Приватизация** 1990-х годов привела к серьёзным социальным изменениям.",
+          "sourceKind": "source_example",
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "dictionary": null
+    },
+    {
+      "word": "кочевник",
+      "task": "解释并造句",
+      "sourceExamples": [
+        {
+          "word": "кочевник",
+          "sentence": "Некоторые экспаты живут как **кочевники** — переезжают из страны в страну.",
+          "sourceKind": "source_example",
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "dictionary": null
+    },
+    {
+      "word": "по общечеловеческим меркам",
+      "task": "解释并造句",
+      "sourceExamples": [
+        {
+          "word": "по общечеловеческим меркам",
+          "sentence": "**По общечеловеческим меркам**, жизнь в Москве вполне комфортна.",
+          "sourceKind": "source_example",
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "dictionary": null
+    },
+    {
+      "word": "иномарка",
+      "task": "解释并造句",
+      "sourceExamples": [
+        {
+          "word": "иномарка",
+          "sentence": "На московских улицах много **иномарок**.",
+          "sourceKind": "source_example",
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "dictionary": null
+    },
+    {
+      "word": "изгой",
+      "task": "解释并造句",
+      "sourceExamples": [
+        {
+          "word": "изгой",
+          "sentence": "Чувствовать себя **изгоем** в чужой стране — тяжёлый опыт.",
+          "sourceKind": "source_example",
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "dictionary": null
+    },
+    {
+      "word": "кириллица",
+      "task": "解释并造句",
+      "sourceExamples": [
+        {
+          "word": "кириллица",
+          "sentence": "Многие иностранцы сначала не могут прочитать **кириллицу**.",
+          "sourceKind": "source_example",
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "dictionary": null
+    },
+    {
+      "word": "диджей",
+      "task": "解释并造句",
+      "sourceExamples": [
+        {
+          "word": "диджей",
+          "sentence": "Молодой **диджей** из Лондона нашёл в Москве новую сцену.",
+          "sourceKind": "source_example",
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "dictionary": null
+    },
+    {
+      "word": "обрусеть",
+      "task": "解释并造句",
+      "sourceExamples": [
+        {
+          "word": "обрусеть",
+          "sentence": "За годы жизни в России он успел **обрусеть**.",
+          "sourceKind": "source_example",
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "dictionary": null
     }
   ],
   "writingTasks": [
     {
+      "taskId": "ws-t1.3-w-p36-01",
       "type": "письмо",
       "title": "1.3 Письмо другу о жизни в Москве",
       "prompt": "Прочитайте тест на понимание текста (10 утверждений True / False).\nПисьмо: Напишите письмо другу о жизни в Москве. Укажите источник информации. Время — 25 минут.",
       "time": "25 分钟",
-      "sourcePage": 36
+      "sourcePage": 36,
+      "inputMaterialIds": [
+        "input-34-3"
+      ],
+      "sourceKind": "original_book",
+      "reviewStatus": "needs_review"
     },
     {
+      "taskId": "ws-t1.3-w-p39-02",
       "type": "рекомендация",
       "title": "推荐信（рекомендация）",
       "prompt": "Напишите рекомендательное письмо о туристической фирме. Время — 20 минут.",
       "time": "20 分钟",
-      "sourcePage": 39
+      "sourcePage": 39,
+      "inputMaterialIds": [
+        "input-34-3"
+      ],
+      "sourceKind": "original_book",
+      "reviewStatus": "needs_review"
     }
   ],
   "speakingTasks": [
     {
+      "speakingId": "ws-t1.3-s-p37-01",
       "type": "диалог",
       "title": "对话：同意 / 不同意",
-      "prompt": "来源: , \nДиалог о работе за рубежом: выразите согласие / несогласие, используя синонимы и антонимы.\nОпределите интенции в предложенных выражениях.\nРекомендательное письмо: Рекомендуйте тур по России. Время — 20 минут.",
-      "sourcePage": 37,
-      "readingTextZh": "公文： 致经济系主任 塞达科夫 V.A.（发件人：副主任 托洛菲莫夫 I.E.）——大三学生的所有考试答卷完全一致（抄袭自互联网）。\n\n任务：\n\n与任课教师进行谈话。\n\n言语行为程序：说明主题、查明原因、阐述观点、宣布决定。"
+      "prompt": "Диалог о работе за рубежом: выразите согласие / несогласие, используя синонимы и антонимы.\nОпределите интенции в предложенных выражениях.\nРекомендательное письмо: Рекомендуйте тур по России. Время — 20 минут.",
+      "sourcePage": 37
     }
   ],
   "grammarTest": {
@@ -63,103 +310,167 @@
   },
   "studySupport": {
     "scoringRisks": [
-      "Письмо如果不注明信息来源，偏离任务要求。",
-      "只罗列外国人观点、没有自己的评论，内容会显得机械。",
-      "Диалог里如果只表达观点、不使用同义词/反义词手段，丢掉训练重点。",
-      "Рекомендательное письмо如果没有具体细节，显得空泛。",
-      "词汇语法测试部分：动词体的选择是最常见的错误来源；形动词形式需注意主动/被动和时间维度。",
-      "OCR 中部分页面可能有噪声，正式版需对照 PDF。"
+      {
+        "text": "Письмо如果不注明信息来源，偏离任务要求。",
+        "appliesToTaskIds": [
+          "ws-t1.3-w-p36-01"
+        ],
+        "sourceKind": "generated_study_support"
+      },
+      {
+        "text": "只罗列外国人观点、没有自己的评论，内容会显得机械。",
+        "appliesToTaskIds": [],
+        "sourceKind": "generated_study_support"
+      },
+      {
+        "text": "Диалог里如果只表达观点、不使用同义词/反义词手段，丢掉训练重点。",
+        "appliesToTaskIds": [],
+        "sourceKind": "generated_study_support"
+      },
+      {
+        "text": "Рекомендательное письмо如果没有具体细节，显得空泛。",
+        "appliesToTaskIds": [
+          "ws-t1.3-w-p36-01"
+        ],
+        "sourceKind": "generated_study_support"
+      },
+      {
+        "text": "词汇语法测试部分：动词体的选择是最常见的错误来源；形动词形式需注意主动/被动和时间维度。",
+        "appliesToTaskIds": [],
+        "sourceKind": "generated_study_support"
+      },
+      {
+        "text": "OCR 中部分页面可能有噪声，正式版需对照 PDF。",
+        "appliesToTaskIds": [],
+        "sourceKind": "generated_study_support"
+      }
     ],
     "expressions": [
       {
         "ru": "По мнению иностранных респондентов...",
-        "zh": "外籍受访者认为……",
-        "category": "描述外国人在俄体验"
+        "zh": "",
+        "category": "描述外国人在俄体验",
+        "appliesToTaskIds": [],
+        "sourceKind": "generated_study_support"
       },
       {
         "ru": "Многие иностранцы отмечают, что...",
-        "zh": "许多外国人指出……",
-        "category": "描述外国人在俄体验"
+        "zh": "",
+        "category": "描述外国人在俄体验",
+        "appliesToTaskIds": [],
+        "sourceKind": "generated_study_support"
       },
       {
         "ru": "Для иностранцев Москва представляет собой...",
-        "zh": "对外国人而言，莫斯科呈现为……",
-        "category": "描述外国人在俄体验"
+        "zh": "",
+        "category": "描述外国人在俄体验",
+        "appliesToTaskIds": [],
+        "sourceKind": "generated_study_support"
       },
       {
         "ru": "Жизнь в России оказалась неожиданно...",
-        "zh": "在俄罗斯的生活意想不到地……",
-        "category": "描述外国人在俄体验"
+        "zh": "",
+        "category": "描述外国人在俄体验",
+        "appliesToTaskIds": [],
+        "sourceKind": "generated_study_support"
       },
       {
         "ru": "По общечеловеческим меркам...",
-        "zh": "按人类通行的标准来看……",
-        "category": "描述外国人在俄体验"
+        "zh": "",
+        "category": "描述外国人在俄体验",
+        "appliesToTaskIds": [],
+        "sourceKind": "generated_study_support"
       },
       {
         "ru": "Стабильность и постоянство",
         "zh": "вот что ценят...",
-        "category": "稳定性与变化"
+        "category": "稳定性与变化",
+        "appliesToTaskIds": [],
+        "sourceKind": "generated_study_support"
       },
       {
         "ru": "После либерализации и приватизации...",
-        "zh": "在自由化和私有化之后……",
-        "category": "稳定性与变化"
+        "zh": "",
+        "category": "稳定性与变化",
+        "appliesToTaskIds": [],
+        "sourceKind": "generated_study_support"
       },
       {
         "ru": "Коренные жители относятся к переменам иначе...",
-        "zh": "原住民/当地居民对这些变化的态度有所不同……",
-        "category": "稳定性与变化"
+        "zh": "",
+        "category": "稳定性与变化",
+        "appliesToTaskIds": [],
+        "sourceKind": "generated_study_support"
       },
       {
         "ru": "Россия пережила огромные изменения...",
-        "zh": "俄罗斯经历了巨大的变革……",
-        "category": "稳定性与变化"
+        "zh": "",
+        "category": "稳定性与变化",
+        "appliesToTaskIds": [],
+        "sourceKind": "generated_study_support"
       },
       {
         "ru": "Я полностью согласен с этим мнением.",
-        "zh": "我完全赞同这一观点。",
-        "category": "同意与不同意"
+        "zh": "",
+        "category": "同意与不同意",
+        "appliesToTaskIds": [],
+        "sourceKind": "generated_study_support"
       },
       {
         "ru": "Разделяю точку зрения автора.",
-        "zh": "我赞同作者的观点。",
-        "category": "同意与不同意"
+        "zh": "",
+        "category": "同意与不同意",
+        "appliesToTaskIds": [],
+        "sourceKind": "generated_study_support"
       },
       {
         "ru": "Не могу согласиться, потому что...",
-        "zh": "我无法赞同，因为……",
-        "category": "同意与不同意"
+        "zh": "",
+        "category": "同意与不同意",
+        "appliesToTaskIds": [],
+        "sourceKind": "generated_study_support"
       },
       {
         "ru": "С одной стороны, это верно, но с другой...",
-        "zh": "一方面这是对的，但另一方面……",
-        "category": "同意与不同意"
+        "zh": "",
+        "category": "同意与不同意",
+        "appliesToTaskIds": [],
+        "sourceKind": "generated_study_support"
       },
       {
         "ru": "Наоборот, я считаю, что...",
-        "zh": "正相反，我认为……",
-        "category": "同意与不同意"
+        "zh": "",
+        "category": "同意与不同意",
+        "appliesToTaskIds": [],
+        "sourceKind": "generated_study_support"
       },
       {
         "ru": "Я настоятельно рекомендую...",
-        "zh": "我强烈建议……",
-        "category": "推荐与建议"
+        "zh": "",
+        "category": "推荐与建议",
+        "appliesToTaskIds": [],
+        "sourceKind": "generated_study_support"
       },
       {
         "ru": "Эта фирма заслуживает внимания, потому что...",
-        "zh": "这家公司值得关注，因为……",
-        "category": "推荐与建议"
+        "zh": "",
+        "category": "推荐与建议",
+        "appliesToTaskIds": [],
+        "sourceKind": "generated_study_support"
       },
       {
         "ru": "Если вы хотите попробовать...",
-        "zh": "如果您想尝试……",
-        "category": "推荐与建议"
+        "zh": "",
+        "category": "推荐与建议",
+        "appliesToTaskIds": [],
+        "sourceKind": "generated_study_support"
       },
       {
         "ru": "Обязательно посетите...",
-        "zh": "请务必游览/拜访……",
-        "category": "推荐与建议"
+        "zh": "",
+        "category": "推荐与建议",
+        "appliesToTaskIds": [],
+        "sourceKind": "generated_study_support"
       }
     ],
     "outputFrameworks": [
@@ -172,7 +483,11 @@
           "Детали и примеры: Конкретные высказывания респондентов...",
           "Личный комментарий: Мне показалось интересным, что...",
           "Заключение: До встречи! / Напиши, что думаешь."
-        ]
+        ],
+        "appliesToTaskIds": [
+          "ws-t1.3-w-p36-01"
+        ],
+        "sourceKind": "generated_study_support"
       },
       {
         "for": "Диалог о работе за рубежом",
@@ -181,7 +496,9 @@
           "Выразить согласие / несогласие (с синонимами / антонимами).",
           "Привести аргумент или пример.",
           "Задать встречный вопрос для поддержания диалога."
-        ]
+        ],
+        "appliesToTaskIds": [],
+        "sourceKind": "generated_study_support"
       },
       {
         "for": "Рекомендательное письмо",
@@ -191,13 +508,33 @@
           "Преимущества: маршрут, обслуживание, цена.",
           "Конкретные детали.",
           "Заключение с рекомендацией."
-        ]
+        ],
+        "appliesToTaskIds": [
+          "ws-t1.3-w-p36-01"
+        ],
+        "sourceKind": "generated_study_support"
       }
     ],
-    "modelAnswers": {
-      "_письмо_другу_о_жизни_в_москве": "Привет, Дима!\nНедавно я прочитал серию интервью с иностранцами, живущими в Москве, и решил поделиться с тобой впечатлениями.\nОдин из респондентов — американец Stanley Williams — отметил, что Москва поразила его стабильностью и доступностью. По его словам, после либерализации и приватизации город стал намного открытым для иностранцев. Другой интервьюируемый, Borislav Milosevic, подчеркнул свободу, которую он чувствует в Москве.\nВместе с тем некоторые иностранцы сталкиваются с трудностями. Например, кошерная еда не всегда доступна, а кириллица поначалу кажется сложной. Но многие из них со временем обрусевают и чувствуют себя как дома.\nМне показалось интересным, что по общечеловеческим меркам Москва — город, в котором можно жить вполне комфортно.\nНапиши, что ты об этом думаешь!\nДо встречи,\nАнтон",
-      "_рекомендательное_письмо_фрагмент": "Уважаемый коллега!\nХочу порекомендовать вам турфирму «Русские просторы», услугами которой я воспользовался прошлым летом. Фирма предлагает разнообразные туры по России — от маршрутов по Золотому кольцу до поездок на Байкал. Обслуживание на высшем уровне, цены доступные, а гиды знают своё дело."
-    },
+    "modelAnswers": [
+      {
+        "id": "model-_письмо_другу_о_жизни_в_москве",
+        "title": " письмо другу о жизни в москве",
+        "text": "Привет, Дима!\nНедавно я прочитал серию интервью с иностранцами, живущими в Москве, и решил поделиться с тобой впечатлениями.\nОдин из респондентов — американец Stanley Williams — отметил, что Москва поразила его стабильностью и доступностью. По его словам, после либерализации и приватизации город стал намного открытым для иностранцев. Другой интервьюируемый, Borislav Milosevic, подчеркнул свободу, которую он чувствует в Москве.\nВместе с тем некоторые иностранцы сталкиваются с трудностями. Например, кошерная еда не всегда доступна, а кириллица поначалу кажется сложной. Но многие из них со временем обрусевают и чувствуют себя как дома.\nМне показалось интересным, что по общечеловеческим меркам Москва — город, в котором можно жить вполне комфортно.\nНапиши, что ты об этом думаешь!\nДо встречи,\nАнтон",
+        "appliesToTaskIds": [
+          "ws-t1.3-w-p36-01"
+        ],
+        "sourceKind": "generated_study_support"
+      },
+      {
+        "id": "model-_рекомендательное_письмо_фрагмент",
+        "title": " рекомендательное письмо фрагмент",
+        "text": "Уважаемый коллега!\nХочу порекомендовать вам турфирму «Русские просторы», услугами которой я воспользовался прошлым летом. Фирма предлагает разнообразные туры по России — от маршрутов по Золотому кольцу до поездок на Байкал. Обслуживание на высшем уровне, цены доступные, а гиды знают своё дело.",
+        "appliesToTaskIds": [
+          "ws-t1.3-w-p36-01"
+        ],
+        "sourceKind": "generated_study_support"
+      }
+    ],
     "extraPrompts": [
       "Как вы думаете, почему иностранцы выбирают жизнь в России?",
       "С какими трудностями сталкиваются иностранцы в Москве?",
@@ -208,6 +545,113 @@
       "Напишите рекомендательное письмо о ресторане национальной кухни.",
       "Составьте диалог между двумя друзьями, один из которых хочет уехать работать за рубеж, а другой — нет.",
       "Напишите эссе на тему: «Россия глазами иностранцев»."
+    ],
+    "label": "学习辅助 · AI 生成 · 未经人工核对",
+    "vocabularyExamples": [
+      {
+        "word": "экспат",
+        "sentence": "В Москве живёт множество **экспатов** — иностранцев, работающих в российских компаниях.",
+        "sourceKind": "source_example",
+        "reviewStatus": "needs_review"
+      },
+      {
+        "word": "доступный",
+        "sentence": "В центре города не так много **доступных** мест для жилья.",
+        "sourceKind": "source_example",
+        "reviewStatus": "needs_review"
+      },
+      {
+        "word": "либерализация",
+        "sentence": "После **либерализации** экономики страна изменилась.",
+        "sourceKind": "source_example",
+        "reviewStatus": "needs_review"
+      },
+      {
+        "word": "коренной",
+        "sentence": "Он **коренной** москвич — родился и вырос в Москве.",
+        "sourceKind": "source_example",
+        "reviewStatus": "needs_review"
+      },
+      {
+        "word": "кошерный",
+        "sentence": "Для некоторых иностранцев найти **кошерную** еду в Москве — непростая задача.",
+        "sourceKind": "source_example",
+        "reviewStatus": "needs_review"
+      },
+      {
+        "word": "приватизация",
+        "sentence": "**Приватизация** 1990-х годов привела к серьёзным социальным изменениям.",
+        "sourceKind": "source_example",
+        "reviewStatus": "needs_review"
+      },
+      {
+        "word": "кочевник",
+        "sentence": "Некоторые экспаты живут как **кочевники** — переезжают из страны в страну.",
+        "sourceKind": "source_example",
+        "reviewStatus": "needs_review"
+      },
+      {
+        "word": "по общечеловеческим меркам",
+        "sentence": "**По общечеловеческим меркам**, жизнь в Москве вполне комфортна.",
+        "sourceKind": "source_example",
+        "reviewStatus": "needs_review"
+      },
+      {
+        "word": "иномарка",
+        "sentence": "На московских улицах много **иномарок**.",
+        "sourceKind": "source_example",
+        "reviewStatus": "needs_review"
+      },
+      {
+        "word": "изгой",
+        "sentence": "Чувствовать себя **изгоем** в чужой стране — тяжёлый опыт.",
+        "sourceKind": "source_example",
+        "reviewStatus": "needs_review"
+      },
+      {
+        "word": "кириллица",
+        "sentence": "Многие иностранцы сначала не могут прочитать **кириллицу**.",
+        "sourceKind": "source_example",
+        "reviewStatus": "needs_review"
+      },
+      {
+        "word": "диджей",
+        "sentence": "Молодой **диджей** из Лондона нашёл в Москве новую сцену.",
+        "sourceKind": "source_example",
+        "reviewStatus": "needs_review"
+      },
+      {
+        "word": "обрусеть",
+        "sentence": "За годы жизни в России он успел **обрусеть**.",
+        "sourceKind": "source_example",
+        "reviewStatus": "needs_review"
+      }
+    ],
+    "cardSuggestions": [
+      {
+        "title": "词汇卡",
+        "text": "экспат, либерализация, приватизация, кочевник, кириллица, обрусеть, изгой, кошерный, иномарка",
+        "sourceKind": "generated_study_support",
+        "reviewStatus": "needs_review"
+      },
+      {
+        "title": "同义/反义卡",
+        "text": "стабильность-постоянство, глубинка-провинция, достаток-бедность, вежливость-грубость, духовный-материальный",
+        "sourceKind": "generated_study_support",
+        "reviewStatus": "needs_review"
+      },
+      {
+        "title": "功能卡",
+        "text": "同意表达、不同意表达、推荐表达、写信开头/结尾",
+        "sourceKind": "generated_study_support",
+        "reviewStatus": "needs_review"
+      },
+      {
+        "title": "结构卡",
+        "text": "письмо другу / рекомендательное письмо / диалог 的段落框架",
+        "sourceKind": "generated_study_support",
+        "reviewStatus": "needs_review"
+      }
     ]
   },
   "sourceLabel": "原书内容 · OCR 来源 · 未经人工核对"

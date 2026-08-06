@@ -39,5 +39,27 @@
       "名词辨析（рубеж / граница / край / окраина / предел / уровень）需注意各词的具体含义和用法差异。",
       "OCR 中部分页面编号和格式存在噪声，正式版需对照 PDF。（关于“短文不能只写发展、后果、出现、发明”及其他未尽乱码片段的校对提示）"
     ]
-  }
+  },
+  "taskTranslationsById": {
+    "ws-t4.1-w-p199-01": {
+      "prompt": "根据原文，向从事科技进步（НТП）问题研究的相关人士撰写一份正式信息通报。请注明信息来源，使用缩略语，并按正式文书格式写明收件人信息。完成时间：20分钟。",
+      "source": "manual-taskId-alignment",
+      "reviewStatus": "needs_review"
+    },
+    "ws-t4.1-w-p201-02": {
+      "prompt": "请以《人类最有用的发明》为题写一篇议论文。文中需说明：问题是什么；该发明的正面和负面影响；你的评价；对该发明的描述；论证理由；对其未来发展的展望。完成时间：30分钟。",
+      "source": "manual-taskId-alignment",
+      "reviewStatus": "needs_review"
+    }
+  },
+  "speakingTranslationsById": {
+    "ws-t4.1-s-p200-01": {
+      "prompt": "任务1：与同伴讨论有益的发明。对给出的观点分别表示赞同和不同意。讨论话语：\"手机是最有用的发明。\"、\"有一点不好：别人总会给你打电话。\"\n\n任务2：判断给定表达传达的交际意图：惊讶、为难、赞同、不相信。\n\n任务3：朋友讲述一项俄罗斯社会调查：纸尿裤位居最有用发明第一名。请分别表达不相信、赞同、惊讶和为难。\n\n任务4：说服一位朋友。她给5岁的孩子买了电脑，现在很后悔；请说服她这是正确的决定。",
+      "source": "manual-taskId-alignment",
+      "reviewStatus": "needs_review"
+    }
+  },
+  "taskTranslationStatus": "needs_review",
+  "taskTranslationContract": "taskId-v1",
+  "speakingTranslationStatus": "needs_review"
 }

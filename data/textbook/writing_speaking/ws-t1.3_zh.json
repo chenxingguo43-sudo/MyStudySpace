@@ -58,5 +58,29 @@
       "词汇语法测试部分：动词体的选择是最常见的错误来源；形动词形式需注意主动/被动和时间维度。",
       "OCR 中部分页面可能有噪声，正式版需对照 PDF。 推荐：推荐会面/倾听...自由... [FW0-S... 使用... 分析... 对话..."
     ]
-  }
+  },
+  "taskTranslationsById": {
+    "ws-t1.3-w-p36-01": {
+      "prompt": "先完成阅读理解测试（10个判断题 True / False），然后给朋友写一封介绍莫斯科生活的信。请注明信息来源。完成时间：25分钟。",
+      "source": "manual-taskId-alignment",
+      "reviewStatus": "needs_review"
+    },
+    "ws-t1.3-w-p39-02": {
+      "prompt": "写一封关于旅游公司的推荐信。限时 — 20分钟。",
+      "source": "legacy-array-alignment",
+      "legacyIndex": 1,
+      "reviewStatus": "needs_review"
+    }
+  },
+  "taskTranslationStatus": "needs_review",
+  "taskTranslationContract": "taskId-v1",
+  "speakingTranslationsById": {
+    "ws-t1.3-s-p37-01": {
+      "prompt": "关于在国外工作的对话：使用同义词和反义词表达同意 / 不同意。 确定所提供表达中的意图。 推荐信：推荐一个俄罗斯旅游项目。限时 — 20分钟。",
+      "source": "legacy-array-alignment",
+      "legacyIndex": 0,
+      "reviewStatus": "needs_review"
+    }
+  },
+  "speakingTranslationStatus": "needs_review"
 }

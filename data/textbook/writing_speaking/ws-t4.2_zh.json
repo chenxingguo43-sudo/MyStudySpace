@@ -57,5 +57,27 @@
       "名词辨析题（пациент / больной / врач / доктор / консультант / эксперт / советник）需要结合具体使用场景。",
       "True/False 判断题需要仔细对照原文，不能凭印象判断。理解每个词含义的同时，动词体的选择是确保完整理解的关键。"
     ]
-  }
+  },
+  "taskTranslationsById": {
+    "ws-t4.2-w-p213-01": {
+      "prompt": "请以《心理支持服务：奢侈品还是必需品？》为题写一篇议论文。需包括：问题、不同观点、带论据的个人观点，以及对当代社会的评价。完成时间：30分钟。",
+      "source": "manual-taskId-alignment",
+      "reviewStatus": "needs_review"
+    }
+  },
+  "taskTranslationStatus": "needs_review",
+  "taskTranslationContract": "taskId-v1",
+  "speakingTranslationsById": {
+    "ws-t4.2-s-p211-01": {
+      "prompt": "任务1：一位熟人想选择精神分析师这一职业。请分别表示赞同和不同意，并说明理由。\n\n任务2：判断反应类型：不同意、讽刺、为难、拒绝。\n\n任务3：一位熟人认为精神分析不严肃。请表达不同意、讽刺、为难和拒绝。\n\n任务4：朋友看了心理治疗师后后悔了；请说服她继续治疗。",
+      "source": "manual-taskId-alignment",
+      "reviewStatus": "needs_review"
+    },
+    "ws-t4.2-s-p212-02": {
+      "prompt": "任务1：阅读心理咨询、心理治疗师和精神分析师的广告，打电话详细询问服务内容。\n\n任务2：赞同或反驳下列观点：每个人都有需要心理帮助的时候；提供帮助的不一定只能是受过高等教育的专家；借助心理学家可以解决任何问题；心理学家有权公开咨询材料。",
+      "source": "manual-taskId-alignment",
+      "reviewStatus": "needs_review"
+    }
+  },
+  "speakingTranslationStatus": "needs_review"
 }

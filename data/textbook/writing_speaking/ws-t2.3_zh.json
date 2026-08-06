@@ -72,5 +72,30 @@
       "语法测试部分（动词体、形动词、副动词）是独立的语法能力考查。",
       "雇主（работодатель） / 雇员（работник） / 工人（рабочий）等词汇的辨析是高频考点。"
     ]
-  }
+  },
+  "taskTranslationsById": {
+    "ws-t2.3-w-p94-01": {
+      "prompt": "根据阅读的文本，以传真的形式给有孩子并希望在家工作的年轻女性写一份书面通知。 同时要求：注明信息来源；使用通用缩写。 任务完成时间为30分钟。 以下为学习辅助整理，不是原书答案，需人工复核。 核心内容概括（基于 OCR 数据）：最佳工作时间为 4 小时（8 小时的一半）。\"夜猫子\"型：利用孩子最长午睡时间休息，晚上 21:00–01:00 工作。替代方案：午睡时间做复杂工作，晚间 21:00–23:00 工作 2 小时。可以雇保姆：负责任的退休邻居。找到最近的儿童游乐场，让孩子与同邻人交往。一切皆有可能，关键在于工作的意愿。",
+      "source": "legacy-array-alignment",
+      "legacyIndex": 1,
+      "reviewStatus": "needs_review"
+    },
+    "ws-t2.3-w-p98-02": {
+      "prompt": "来源： 您的熟人是一家大公司的 HR 经理。请向他推荐一位担任翻译职位的人选。写一封友好且非正式的信件。 请注明：个人品质；业务与专业素质；生活事实；结识的过程与情境。 任务完成时间为20分钟。",
+      "source": "legacy-array-alignment",
+      "legacyIndex": 2,
+      "reviewStatus": "needs_review"
+    }
+  },
+  "taskTranslationStatus": "needs_review",
+  "taskTranslationContract": "taskId-v1",
+  "speakingTranslationsById": {
+    "ws-t2.3-s-p96-01": {
+      "prompt": "来源： 朋友梦想在家工作。 任务 a) 使用同义表达结构表示赞同。 任务 b) 使用反义词表示反对。 对话台词：“在我看来，在家工作一点也不难。”“当然，合理分配自己的时间也很重要。” 确定意图： 同意、感兴趣、惊讶、赞许 任务 11： 您是一家公司的老板。一位年轻的女员工想要在家工作。请表达出：惊讶感兴趣赞许同意 任务 12： 担任老板的女友允许员工在家工作，现在感到犹豫。请反驳并说服她。 台词：“我允许了年轻女员工在家工作，但现在我又犹豫了。”",
+      "source": "legacy-array-alignment",
+      "legacyIndex": 0,
+      "reviewStatus": "needs_review"
+    }
+  },
+  "speakingTranslationStatus": "needs_review"
 }

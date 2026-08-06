@@ -67,5 +67,16 @@
       "动词词族测试（хватать系列、читать系列、писать系列、доверять系列）如果混淆前缀语义，容易出错。",
       "动词体辨析（воспитывать/воспитать、приспосабливаться/приспособиться等）是常见失分点，需注意体的语法意义差异。 叙事型议论文如果用词过于单一或观点表达不清，影响得分。"
     ]
-  }
+  },
+  "taskTranslationsById": {
+    "ws-t5.2-w-p256-01": {
+      "prompt": "请以《重要的不是美貌，而是品格》为题写一篇议论文。问题是道德与价值取向的改变。请讨论：价值取向变化的原因、关于社会理想的不同观点、未来预测和对价值观的评价。完成时间：30分钟。",
+      "source": "manual-taskId-alignment",
+      "reviewStatus": "needs_review"
+    }
+  },
+  "taskTranslationStatus": "needs_review",
+  "taskTranslationContract": "taskId-v1",
+  "speakingTranslationsById": {},
+  "speakingTranslationStatus": "needs_review"
 }

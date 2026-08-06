@@ -75,5 +75,29 @@
       "OCR 中部分页面数据不完整（如第110页内容缺失），正式版需对照 PDF 补充。",
       "语法测试部分（72题）需核对。要对照原书答案核对空缺。 --电话交谈社会页码及 0] 引言……STEP0] 致……？详细电话交谈-- [FW0 标题：俄罗斯科学院……页码：请假条：自…… 发展……"
     ]
-  }
+  },
+  "taskTranslationsById": {
+    "ws-t2.4-w-p109-01": {
+      "prompt": "根据所读文本，给您从事“现代社会中的女性地位”课题研究的社会学家朋友写一份传真形式的书面消息。注明信息来源；使用通用缩写。时间——20分钟。",
+      "source": "legacy-array-alignment",
+      "legacyIndex": 0,
+      "reviewStatus": "needs_review"
+    },
+    "ws-t2.4-w-p112-02": {
+      "prompt": "你是一名公司员工，因家庭原因需要请假。请向公司负责人写一份申请，说明请假原因和请假期限。完成时间：15分钟。",
+      "source": "manual-taskId-alignment",
+      "reviewStatus": "needs_review"
+    }
+  },
+  "taskTranslationStatus": "needs_review",
+  "taskTranslationContract": "taskId-v1",
+  "speakingTranslationsById": {
+    "ws-t2.4-s-p111-01": {
+      "prompt": "来源: 话语： “我的大多数下属都是男性。他们不会认真看待我。” 招聘启事： “阿芙托弗拉摩斯”开放式股份公司因生产项目拓展，现诚聘员工。要求：高等教育背景、熟练使用电脑、具备生产人员招聘经验、具备团队合作能力，年龄23-30岁。联系电话：775 40 20。 任务：您对这则招聘启事感兴趣。请拨打指定电话并详细询问所有情况。",
+      "source": "legacy-array-alignment",
+      "legacyIndex": 0,
+      "reviewStatus": "needs_review"
+    }
+  },
+  "speakingTranslationStatus": "needs_review"
 }

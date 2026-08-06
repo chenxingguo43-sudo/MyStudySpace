@@ -85,5 +85,60 @@
       "Эссе 不能只写个人喜好，必须覆盖问题所在、原因、不同观点、预测及个人立场。",
       "Эссе 如果不解释原因，内容会沦为对生活条件与便利程度的泛泛而谈。"
     ]
-  }
+  },
+  "taskTranslationsById": {
+    "ws-t1.1-w-p10-01": {
+      "prompt": "根据所读文本，给您一位对莫斯科人迁移至其他城市意愿感兴趣的社会学朋友写一封书面通知/短文。 要求：指明信息来源；在短文中使用常用缩写。 完成任务时间：20分钟。",
+      "source": "legacy-array-alignment",
+      "legacyIndex": 0,
+      "reviewStatus": "needs_review"
+    },
+    "ws-t1.1-w-p13-02": {
+      "prompt": "a) 您对这次旅行非常满意。请以旅行社经理为收件人写一封感谢信。",
+      "source": "legacy-array-alignment",
+      "legacyIndex": 4,
+      "reviewStatus": "needs_review"
+    },
+    "ws-t1.1-w-p13-03": {
+      "prompt": "б) 您对这次旅行非常不满意。请以旅行社经理为收件人写一封投诉信。 完成每个任务的时间：20分钟。",
+      "source": "legacy-array-alignment",
+      "legacyIndex": 5,
+      "reviewStatus": "needs_review"
+    },
+    "ws-t1.1-w-p13-04": {
+      "prompt": "赞同或反驳以下观点，并给出您的论据：小城市将逐渐从地球表面消失。到21世纪末，省份/小城镇的生活将与首都城市毫无差别。出生并在省份/小城镇度过童年的人，永远与在大城市出生长大的人有所不同。大城市的诱惑更多。",
+      "source": "legacy-array-alignment",
+      "legacyIndex": 6,
+      "reviewStatus": "needs_review"
+    },
+    "ws-t1.1-w-p13-05": {
+      "prompt": "以《现代生活：城市还是乡村？》为题写一篇议论文（Эссе）。 请在文中指出：问题所在；导致现状的客观和主观原因；关于居住地选择问题的不同观点；对未来的预测；您对该问题的态度。 完成任务时间：30分钟。口语任务（Speaking Tasks）",
+      "source": "legacy-array-alignment",
+      "legacyIndex": 8,
+      "reviewStatus": "needs_review"
+    },
+    "ws-t1.1-w-p13-06": {
+      "prompt": "以《现代生活：城市还是乡村？》为题写一篇议论文（Эссе）。 请在文中指出：问题所在；导致现状的客观和主观原因；关于居住地选择问题的不同观点；对未来的预测；您对该问题的态度。 完成任务时间：30分钟。口语任务（Speaking Tasks）",
+      "source": "legacy-array-alignment",
+      "legacyIndex": 8,
+      "reviewStatus": "needs_review"
+    }
+  },
+  "taskTranslationStatus": "needs_review",
+  "taskTranslationContract": "taskId-v1",
+  "speakingTranslationsById": {
+    "ws-t1.1-s-p11-01": {
+      "prompt": "来源： 您正在和朋友们讨论昨天参加的游览活动，但您的朋友并不喜欢这次游览。请参与对话。 您的任务：使用同义句结构表示赞同所表达的观点；使用反义词表示不赞同所表达的观点。 台词： —— 昨天的游览真是太糟糕了！ 阅读以下表达并确定它们传达的意图：冷漠 / 无所谓难以回答拒绝不赞同 / 反对 OCR 表达列表：才不是那样！ / 哪有这种事！有什么区别！ / 随便吧！算了，不想去。 情景对话：您的朋友们明天要去游览，而您留在大城市。您正在和一位购买了“金环”线路行程的熟人聊天，她现在很后悔。请反驳她，并说服她相信自己做出了正确的选择。",
+      "source": "legacy-array-alignment",
+      "legacyIndex": 0,
+      "reviewStatus": "needs_review"
+    },
+    "ws-t1.1-s-p12-02": {
+      "prompt": "来源： 您在报纸上看到了一则旅游线路的广告，并对此产生了兴趣。请拨打指定的电话，尽可能详细地询问所有细节，以便决定是否选择这家旅行社。 您是一家旅行社的经理，收到了顾客发来的一份投诉信。 投诉信片段： “致‘金环’旅行社经理 鲁达科夫 V.V.： 我们，即下方签名者，使用了贵社的服务，前往罗斯托夫市旅游。随行导游是贵社的 A.A. 伊万诺娃。在去往目的地的路上巴士坏了，因此我们在城市博物馆仅停留了1小时，而非原定的3小时。此外，我们团队错过了预订的午餐，不得不吃冷掉的饭菜。 我们要求您采取相应措施，并向我们赔偿……”范文示例（Model Responses）",
+      "source": "legacy-array-alignment",
+      "legacyIndex": 1,
+      "reviewStatus": "needs_review"
+    }
+  },
+  "speakingTranslationStatus": "needs_review"
 }

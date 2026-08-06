@@ -82,5 +82,42 @@
       "词汇辨析测试（опрос / запрос / вопрос / спрос / расспросы / допрос）需要特别注意语义差异。",
       "页面可能存在噪声，正式版本需对照原 PDF 校验。 OCR识别中需特别注意平衡亲切感与机械感的问题。"
     ]
-  }
+  },
+  "taskTranslationsById": {
+    "ws-t2.1-w-p64-01": {
+      "prompt": "根据所读文本，给一位对青年劳动力市场状况感兴趣的朋友写一封书面通知/消息。请注明信息来源；使用通用缩写。限时20分钟。",
+      "source": "legacy-array-alignment",
+      "legacyIndex": 1,
+      "reviewStatus": "needs_review"
+    },
+    "ws-t2.1-w-p68-02": {
+      "prompt": "您的好朋友是一家女装店的老板。请向他推荐一位应聘售货员/导购员职位的人选。写一封友好、非正式的信件。 信中需注明：个人品质；业务与专业素质；生活履历/事实；结识的过程与背景。 任务完成时间为20分钟。",
+      "source": "legacy-array-alignment",
+      "legacyIndex": 2,
+      "reviewStatus": "needs_review"
+    },
+    "ws-t2.1-w-p69-03": {
+      "prompt": "就以下任一主题撰写一篇文章/随笔：职业选择：热爱的工作还是社会的需要？远程办公：利与弊。 任务完成时间为30分钟。",
+      "source": "legacy-array-alignment",
+      "legacyIndex": 4,
+      "reviewStatus": "needs_review"
+    },
+    "ws-t2.1-w-p69-04": {
+      "prompt": "就以下任一主题撰写一篇文章/随笔：职业选择：热爱的工作还是社会的需要？远程办公：利与弊。 任务完成时间为30分钟。",
+      "source": "legacy-array-alignment",
+      "legacyIndex": 4,
+      "reviewStatus": "needs_review"
+    }
+  },
+  "taskTranslationStatus": "needs_review",
+  "taskTranslationContract": "taskId-v1",
+  "speakingTranslationsById": {
+    "ws-t2.1-s-p66-01": {
+      "prompt": "来源: 您正在与朋友讨论青年就业问题。 a) 使用同义表达表示赞同。 b) 使用反义表达表示反对。 话语： ——现在的年轻人很难找到一份合适的工作。 请阅读给出的表达方式，并确定它们传达的意图：反对/不同意建议惊讶怀疑/不信任 其他对话情境：朋友向您讲述她那找不到工作的女儿。请表达：不同意、惊讶、怀疑。",
+      "source": "legacy-array-alignment",
+      "legacyIndex": 0,
+      "reviewStatus": "needs_review"
+    }
+  },
+  "speakingTranslationStatus": "needs_review"
 }

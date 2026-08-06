@@ -105,5 +105,24 @@
       "动词词族测试（строить系列、бить系列、считать系列）：如果混淆前缀的语义，容易出错。",
       "语法测试中，形动词与形容词的区分是常见的失分点。"
     ]
-  }
+  },
+  "taskTranslationsById": {
+    "ws-t3.5-w-p182-01": {
+      "prompt": "来源: 利用第7题和第13题文本中的信息，给一位陷入家庭问题的女性朋友写一封信。请注明：信息来源、问题实质、影响因素、解决途径、你的评价。限时25分钟。",
+      "source": "legacy-array-alignment",
+      "legacyIndex": 0,
+      "reviewStatus": "needs_review"
+    }
+  },
+  "taskTranslationStatus": "needs_review",
+  "taskTranslationContract": "taskId-v1",
+  "speakingTranslationsById": {
+    "ws-t3.5-s-p180-01": {
+      "prompt": "来源: 家庭与婚姻问题研讨会。 а) 对该观点表示赞同。 б) 对该观点表示反对。 话语： “现在的家庭关系建立方式与以往完全不同。” “而现在，妻子占主导地位的情况已屡见不鲜。”",
+      "source": "legacy-array-alignment",
+      "legacyIndex": 0,
+      "reviewStatus": "needs_review"
+    }
+  },
+  "speakingTranslationStatus": "needs_review"
 }

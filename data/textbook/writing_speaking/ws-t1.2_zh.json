@@ -71,5 +71,30 @@
       "词汇语法测试需要特别注意动词体和形动词的区分。",
       "OCR 中部分页面有噪声，正式版需对照 PDF。[RI] 意图（理解回答的实质内容，引言：可以……区域、社会分化、朋友的…… 选择概览……你毕竟……支持，给予关注……短文……幸福……"
     ]
-  }
+  },
+  "taskTranslationsById": {
+    "ws-t1.2-w-p24-01": {
+      "prompt": "来源: 您的俄罗斯朋友打算在国外买房。请根据所给出的广告推荐一处地产。写一封推荐性质的非正式信函。 广告（来自 OCR）：希腊 / 克里特岛地产瑞士 / 蒙特勒地产保加利亚地产英国 / 伦敦地产德国 / 巴伐利亚地产 任务完成时间——20分钟。",
+      "source": "legacy-array-alignment",
+      "legacyIndex": 0,
+      "reviewStatus": "needs_review"
+    },
+    "ws-t1.2-w-p26-02": {
+      "prompt": "来源: 请赞同或反驳以下观点，并给出您的论据：财富并不能让人感到幸福。“靠正当劳动盖不起石头大厦”（意为：规规矩矩干活发不了大财）。财富意味着为所欲为。财富是从事慈善事业的机会。 请接续完成这个句子： “富人是指……” 请说说，如果您意外获得了一百万，您的生活会发生怎样的改变？ 请就以下任一主题撰写文章：社会阶层分化：问题与前景。靠正当劳动盖不起石头大厦。 任务完成时间——30分钟。",
+      "source": "legacy-array-alignment",
+      "legacyIndex": 1,
+      "reviewStatus": "needs_review"
+    }
+  },
+  "taskTranslationStatus": "needs_review",
+  "taskTranslationContract": "taskId-v1",
+  "speakingTranslationsById": {
+    "ws-t1.2-s-p25-01": {
+      "prompt": "来源: 社会问题。 您的朋友正在讲述一次莫斯科郊外的旅行。请参与对话。a) 使用同义句式表示赞同。b) 使用反义词表示反对。 台词（来自 OCR）：关于郊外豪宅关于并不富裕的人们 确定意图：同情支持惊讶建议 对话情境：您的朋友失业了。请表达同情、支持、惊讶，并给出建议。您的朋友买了欧洲环游行程，现在很后悔。请反驳他，并让他相信选择是正确的。",
+      "source": "legacy-array-alignment",
+      "legacyIndex": 0,
+      "reviewStatus": "needs_review"
+    }
+  },
+  "speakingTranslationStatus": "needs_review"
 }

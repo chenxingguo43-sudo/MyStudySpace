@@ -68,5 +68,30 @@
       "同义词和反义词匹配需注意近义词的细微差别（如 повод / причина）。",
       "OCR识别中部分反义词配对不完整（如 руководить 和 заставлять 的配对缺失），需对照 PDF 原件补充。"
     ]
-  }
+  },
+  "taskTranslationsById": {
+    "ws-t3.4-w-p166-01": {
+      "prompt": "给熟人写一封信，讨论文章中的问题。请注明：信息来源、变化、事实与原因、预测、态度。限时：25分钟。",
+      "source": "legacy-array-alignment",
+      "legacyIndex": 0,
+      "reviewStatus": "needs_review"
+    }
+  },
+  "taskTranslationStatus": "needs_review",
+  "taskTranslationContract": "taskId-v1",
+  "speakingTranslationsById": {
+    "ws-t3.4-s-p167-01": {
+      "prompt": "来源： 研讨会《现代家庭》： a) 赞同以下说法。 b) 反驳以下说法。 话语： “专家表示，男女结婚的年龄越来越晚。” “我看到报道说，政府正在试图鼓励组建家庭。” “但到目前为止，这并没有改变现状。” 确定意图：惊讶、理解、感兴趣、同情。 熟人：29岁的女儿，未婚。表达：惊讶、理解、感兴趣、同情",
+      "source": "legacy-array-alignment",
+      "legacyIndex": 0,
+      "reviewStatus": "needs_review"
+    },
+    "ws-t3.4-s-p168-02": {
+      "prompt": "来源： 讨论家庭与婚姻问题。20岁的女儿打算结婚。劝说她。 介绍在贵国人们在什么年龄结婚。同居（事实婚姻）？离婚？ 短文《婚姻非儿戏》。问题、变化、不同观点、社会认知、预测、对传统价值观的态度。限时：30分钟。",
+      "source": "legacy-array-alignment",
+      "legacyIndex": 1,
+      "reviewStatus": "needs_review"
+    }
+  },
+  "speakingTranslationStatus": "needs_review"
 }

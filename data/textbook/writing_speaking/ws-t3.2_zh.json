@@ -112,5 +112,24 @@
       "第145-148页语法练习具体内容不完整，需对照 PDF 补充。",
       "OCR 中第149页改写句子（11个句子）的具体内容缺失。 OCR 中同意/反驳缺失个人评价（ваш），信息来源缺乏……"
     ]
-  }
+  },
+  "taskTranslationsById": {
+    "ws-t3.2-w-p151-01": {
+      "prompt": "来源： 朋友想知道人们在哪儿以及如何度过假期。根据文章材料写一封信。限时：25分钟。需包含：信息来源心理学家的评价原因（假期压力）长期休息的危险建议您的评价",
+      "source": "legacy-array-alignment",
+      "legacyIndex": 0,
+      "reviewStatus": "needs_review"
+    }
+  },
+  "taskTranslationStatus": "needs_review",
+  "taskTranslationContract": "taskId-v1",
+  "speakingTranslationsById": {
+    "ws-t3.2-s-p152-01": {
+      "prompt": "来源： 关于假期计划的对话。 a) 同意该发言 / 不同意该发言。 发言： “那里可真是个能彻底嗨一把的地方！” 确定发言的意图：惊讶赞同祝愿警告/提醒",
+      "source": "legacy-array-alignment",
+      "legacyIndex": 0,
+      "reviewStatus": "needs_review"
+    }
+  },
+  "speakingTranslationStatus": "needs_review"
 }

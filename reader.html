@@ -425,17 +425,21 @@ body {
   background: var(--glass); color: var(--text-secondary); border: 1px solid var(--glass-border);
 }
 .ws-task-meta .time-badge { background: rgba(251,191,36,0.12); color: var(--warning); border-color: rgba(251,191,36,0.20); }
+.ws-chapter-summary { display:flex; justify-content:space-between; gap:12px; align-items:center; margin:0 0 16px; padding:10px 12px; border-left:3px solid var(--accent); background:var(--glass); color:var(--text-secondary); font-size:.88em; }
+.ws-task-workbench { display:grid; gap:14px; margin:14px 0 2px; }
+.ws-workbench-step { padding:0 0 14px; border-bottom:1px solid var(--border); }
+.ws-workbench-step:last-child { padding-bottom:0; border-bottom:0; }
+.ws-workbench-step h3 { margin:0 0 7px; color:var(--text); font-size:.96em; }
+.ws-workbench-step p { margin:0; color:var(--text-secondary); font-size:.9em; line-height:1.65; }
+.ws-stage-list { display:grid; gap:8px; margin-top:9px; }
+.ws-stage-check { display:flex; align-items:flex-start; gap:9px; color:var(--text-secondary); font-size:.9em; line-height:1.45; cursor:pointer; }
+.ws-stage-check input { width:18px; height:18px; margin:1px 0 0; accent-color:var(--accent); flex:0 0 auto; }
+.ws-paper-action { padding:11px 12px; border:1px dashed var(--accent-border); background:var(--accent-dim); color:var(--text); font-size:.9em; line-height:1.55; }
+.ws-assist-empty { padding:9px 0 0; color:var(--text-dim); font-size:.86em; }
+.ws-source-label { display:block; margin-top:7px; color:var(--text-dim); font-size:.78em; }
 .ws-requirements { margin: 10px 0; padding: 0; list-style: none; }
 .ws-requirements li { padding: 4px 0 4px 20px; position: relative; font-size: 0.88em; color: var(--text-secondary); }
 .ws-requirements li::before { content: '▸'; position: absolute; left: 0; color: var(--accent); }
-.ws-draft-area { width: 100%; min-height: 120px; margin: 12px 0; padding: 14px 16px;
-  border: 1px solid var(--glass-border); border-radius: 10px; background: var(--glass);
-  color: var(--ru-text); font-weight: 500; font-family: Georgia, 'Noto Serif', 'Segoe UI', serif; font-size: 0.95em; line-height: 1.7;
-  resize: vertical; box-sizing: border-box;
-}
-.ws-draft-area:focus { border-color: var(--accent-border); outline: none; box-shadow: 0 0 0 2px var(--accent-dim); }
-.ws-draft-status { font-size: 0.78em; color: var(--text-dim); margin: 4px 0 0; }
-.ws-draft-count { font-size: 0.78em; color: var(--text-dim); margin-left: 8px; }
 .ws-replica { margin: 8px 0; padding: 10px 14px; border-left: 3px solid var(--accent); border-radius: 0 8px 8px 0;
   background: var(--glass); font-style: italic; color: var(--text); font-size: 0.95em;
 }
@@ -509,6 +513,67 @@ body {
 .ws-assist-answer-ru { font-size: 0.9em; line-height: 1.8; color: var(--ru-text); font-weight: 500; white-space: pre-wrap; font-family: Georgia, 'Noto Serif', 'Segoe UI', serif; }
 .ws-assist-answer-ru-pad { padding: 10px 14px; border-radius: 8px; background: var(--glass); margin-bottom: 6px; }
 .ws-assist-answer-zh { font-size: 0.85em; line-height: 1.7; color: var(--text-secondary); padding: 0 4px; }
+.ws-inline-translation { margin: 7px 0 0; }
+.ws-inline-translation > summary {
+  display: inline-flex; align-items: center; gap: 4px; color: var(--text-dim);
+  font-size: 0.82em; cursor: pointer; list-style: none; user-select: none;
+}
+.ws-inline-translation > summary::-webkit-details-marker { display: none; }
+.ws-inline-translation > summary::before { content: '▸'; color: var(--accent); font-size: 0.9em; line-height: 1; }
+.ws-inline-translation[open] > summary::before { content: '▾'; }
+.ws-inline-translation > summary:hover { color: var(--accent); }
+.ws-translation-body { margin: 6px 0 0; padding: 8px 0 1px 12px; border-left: 2px solid var(--accent-border); color: var(--text-secondary); font-size: 0.88em; line-height: 1.7; white-space: pre-wrap; }
+.ws-guidance-goal { margin: 0 0 10px; padding: 10px 12px; border-left: 3px solid var(--accent); background: var(--accent-dim); color: var(--text); font-size: 0.9em; line-height: 1.6; }
+.ws-pattern-list { margin: 8px 0; padding: 0; list-style: none; }
+.ws-pattern-list li { padding: 9px 0; border-bottom: 1px solid var(--border); }
+.ws-pattern-list li:last-child { border-bottom: 0; }
+.ws-pattern-role { display: block; color: var(--text-dim); font-size: 0.78em; margin-bottom: 3px; }
+.ws-vocab-note { margin: 0 0 12px; color: var(--text-secondary); font-size: 0.88em; line-height: 1.6; }
+.ws-speaking-guidance { margin-top: 10px; padding: 10px 12px; border-left: 3px solid var(--success); background: var(--glass); color: var(--text-secondary); font-size: 0.89em; line-height: 1.65; }
+.ws-vocab-item { display: flex; flex-direction: column; gap: 5px; min-width: 0; overflow-wrap: anywhere; }
+.ws-vocab-item .ru-word, .ws-vocab-item .sentence, .ws-vocab-example-ru { white-space: normal !important; overflow-wrap: anywhere; word-break: break-word; }
+.ws-vocab-item .ru-word span, .ws-vocab-item .sentence span { white-space: normal !important; overflow-wrap: anywhere; word-break: break-word; }
+.ws-vocab-gloss { color: var(--text-secondary); font-size: 0.86em; line-height: 1.45; }
+.ws-vocab-detail { margin-top: 2px; border-top: 1px solid var(--border); padding-top: 6px; }
+.ws-vocab-detail > summary { cursor: pointer; color: var(--text-dim); font-size: 0.8em; list-style: none; }
+.ws-vocab-detail > summary::-webkit-details-marker { display: none; }
+.ws-vocab-detail > summary::before { content: '▸'; color: var(--accent); margin-right: 5px; }
+.ws-vocab-detail[open] > summary::before { content: '▾'; }
+.ws-vocab-detail-content { display: grid; gap: 10px; margin-top: 9px; }
+.ws-vocab-detail-section { min-width: 0; }
+.ws-vocab-detail-section h4 { margin: 0 0 4px; color: var(--text-dim); font-size: 0.78em; font-weight: 600; }
+.ws-vocab-detail-section p { margin: 0; color: var(--text-secondary); font-size: 0.85em; line-height: 1.65; }
+.ws-vocab-example-ru { color: var(--ru-text) !important; font-family: Georgia, 'Noto Serif', 'Segoe UI', serif; }
+.ws-vocab-example-zh { margin-top: 3px !important; color: var(--text-dim) !important; }
+.ws-vocab-collocations { display: grid; gap: 7px; margin: 0; padding: 0; list-style: none; }
+.ws-vocab-collocations li { padding: 0; color: var(--text-secondary); font-size: 0.84em; line-height: 1.55; }
+.ws-vocab-collocations strong { color: var(--ru-text); font-weight: 600; font-family: Georgia, 'Noto Serif', 'Segoe UI', serif; }
+.ws-vocab-study-cards { margin-top: 14px; padding-top: 10px; border-top: 1px solid var(--border); }
+.ws-vocab-study-cards > summary { cursor: pointer; color: var(--text-secondary); font-size: 0.84em; list-style: none; }
+.ws-vocab-study-cards > summary::-webkit-details-marker { display: none; }
+.ws-vocab-study-cards > summary::before { content: '▸'; color: var(--accent); margin-right: 6px; }
+.ws-vocab-study-cards[open] > summary::before { content: '▾'; }
+.ws-vocab-card-suggestion { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 8px; padding: 8px 0; border-bottom: 1px solid var(--border); }
+.ws-vocab-card-suggestion:last-of-type { border-bottom: 0; }
+.ws-vocab-card-suggestion strong { color: var(--text); font-size: 0.84em; }
+.ws-vocab-card-suggestion span { color: var(--text-secondary); font-size: 0.84em; line-height: 1.55; }
+.ws-structure-board { display: grid; gap: 12px; }
+.ws-structure-columns { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(13rem, 0.9fr); gap: 14px; }
+.ws-structure-group { min-width: 0; padding: 10px 0; border-top: 1px solid var(--border); }
+.ws-structure-group h4 { margin: 0 0 7px; color: var(--text-dim); font-size: 0.79em; font-weight: 600; }
+.ws-framework-title { margin: 0 0 7px; color: var(--accent); font-size: 0.86em; font-weight: 600; }
+.ws-structure-list { margin: 0; padding-left: 20px; }
+.ws-structure-list li { margin: 0 0 7px; color: var(--text-secondary); font-size: 0.86em; line-height: 1.55; }
+.ws-structure-list li:last-child { margin-bottom: 0; }
+.ws-compact-patterns { display: grid; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.ws-compact-patterns li { padding: 0; border: 0; }
+.ws-structure-risk { padding: 9px 11px; border-left: 2px solid var(--warning); background: rgba(251,191,36,0.07); }
+.ws-structure-risk .ws-risks { margin: 0; }
+@media (max-width: 640px) {
+  .ws-structure-columns { grid-template-columns: 1fr; gap: 0; }
+  .ws-vocab-grid { grid-template-columns: minmax(0, 1fr); }
+  .ws-vocab-card-suggestion { grid-template-columns: 1fr; gap: 2px; }
+}
 
 /* ─── 学习辅助卡片化 ─── */
 .learning-support { max-width: 780px; margin: 0 auto; padding: 24px 0 40px; }
@@ -1624,6 +1689,7 @@ body.theme-warm .listening-entry-zh, body.theme-warm .listening-section-count { 
 <script src="js/russian-b2/listening-session.js?v=20260726-1"></script>
 <script src="js/russian-b2/listening-quality.js?v=20260726-1"></script>
 <script src="js/russian-b2/listening-workbench.js?v=20260726-6"></script>
+<script src="js/russian-b2/writing-session.js?v=20260806-1"></script>
 <script src="js/zlatoust-progress-migration.js"></script>
 <script src="js/app-runtime.js"></script>
 <script>
@@ -2469,6 +2535,9 @@ function shouldUseScrollCompletion() {
 }
 function isChapterCompleted(bookId, chIdx) {
   if (!bookId || chIdx < 0) return false;
+  if (bookId === 'writing_speaking' && _currentWSData && _currentWSData.index === chIdx && window.RussianB2WritingSession) {
+    return RussianB2WritingSession.getChapterSummary(_currentWSData.writingTasks || []).isComplete;
+  }
   if (isQuizFirstBook(curBook)) return getB2CompletedUnits(bookId).indexOf(chIdx) >= 0;
   var stats = readStats[bookId] || {};
   return !!(stats[chIdx] && stats[chIdx].completed);
@@ -4692,13 +4761,6 @@ function rerenderReadingPracticePreservingScroll() {
 }
 
 var WRITING_DRAFTS_KEY = 'russian_b2_writing_drafts_v1';
-var WS_DRAFTS_KEY = 'rr_ws_drafts_v1';
-function getWsDrafts() { try { return JSON.parse(localStorage.getItem(WS_DRAFTS_KEY) || '{}'); } catch (e) { return {}; } }
-function saveWsDraft(taskId, value) {
-  var drafts = getWsDrafts(); drafts[taskId] = { value: value, updatedAt: new Date().toISOString() };
-  try { localStorage.setItem(WS_DRAFTS_KEY, JSON.stringify(drafts)); } catch (e) {}
-  var el = document.getElementById('ws-draft-status-' + taskId); if (el) el.textContent = '已保存 ' + new Date().toLocaleTimeString('zh-CN', {hour:'2-digit',minute:'2-digit'});
-}
 var WRITING_VERSIONS_KEY = 'russian_b2_writing_versions_v1';
 var WRITING_MODEL_UNLOCKS_KEY = 'russian_b2_writing_model_unlocks_v1';
 var WRITING_COMPLETED_KEY = 'russian_b2_writing_completed_v1';
@@ -6840,6 +6902,12 @@ window.addEventListener('scroll', function() {
 }, { passive: true });
 
 function markChapterDone() {
+  if (curBook && curBook.format === 'writing-speaking') {
+    var summary = window.RussianB2WritingSession && _currentWSData ? RussianB2WritingSession.getChapterSummary(_currentWSData.writingTasks || []) : null;
+    if (!summary || !summary.isComplete) { toast('请先逐项记录构思、纸上初稿和自查修改。'); return; }
+    syncWritingSpeakingChapterCompletion(_currentWSData);
+    return;
+  }
   if (chDone) return;
   chDone = true; stopTimer();
   if (!readStats[curBook.id]) readStats[curBook.id] = {};
@@ -7294,7 +7362,7 @@ function getReadingSpeakingExercise(exId) {
 
 var _zhCache = {};
 
-function renderWritingSpeakingChapter(data, scrollPosition, restoreState) {
+function renderWritingSpeakingChapterLegacy(data, scrollPosition, restoreState) {
   _currentWSData = data;
 
   // Lazy-load Chinese translation cache
@@ -7366,9 +7434,6 @@ function renderWritingSpeakingChapter(data, scrollPosition, restoreState) {
 
     data.writingTasks.forEach(function(task, ti) {
       var taskId = data.id + '_task' + ti;
-      var draft = (getWsDrafts()[taskId] || {}).value || '';
-      var wordCount = draft ? draft.split(/\s+/).filter(Boolean).length : 0;
-
       html += '<details class="learning-card ws-framework" style="margin-bottom:14px">';
       html += '<summary style="display:flex;align-items:center;gap:8px;cursor:pointer">';
       html += '<span style="font-weight:600;color:var(--text)">[' + (ti + 1) + '/' + data.writingTasks.length + '] ' + escapeHtml(task.title || '写作任务') + '</span>';
@@ -7652,6 +7717,354 @@ function renderWritingSpeakingChapter(data, scrollPosition, restoreState) {
   applyTheme();
   saveLastRead(arguments[2]);
   initCollapseAnimations();
+}
+
+function getWritingTaskSupportItems(support, key, taskId) {
+  return (support && Array.isArray(support[key]) ? support[key] : []).filter(function(item) {
+    return Array.isArray(item.appliesToTaskIds) && item.appliesToTaskIds.indexOf(taskId) >= 0;
+  });
+}
+
+function getWritingTaskTranslation(translation, taskId) {
+  var map = translation && translation.taskTranslationsById;
+  return map && map[taskId] && typeof map[taskId] === 'object' ? map[taskId] : null;
+}
+
+function getSpeakingTaskTranslation(translation, speakingId) {
+  var map = translation && translation.speakingTranslationsById;
+  return map && map[speakingId] && typeof map[speakingId] === 'object' ? map[speakingId] : null;
+}
+
+function getSupportTranslation(translation, key, item, sourceItems) {
+  var translated = translation && translation.studySupport && translation.studySupport[key];
+  if (!translated) return null;
+  if (Array.isArray(translated)) {
+    var index = Array.isArray(sourceItems) ? sourceItems.indexOf(item) : -1;
+    return index >= 0 ? translated[index] || null : null;
+  }
+  if (key === 'modelAnswers' && item && item.id) {
+    return translated[item.id.replace(/^model-/, '')] || null;
+  }
+  return null;
+}
+
+function renderWritingTranslation(text, label) {
+  if (!text) return '';
+  return '<details class="ws-inline-translation"><summary>' + escapeHtml(label || '中文') + '</summary><div class="ws-translation-body">' + escapeHtml(text) + '</div></details>';
+}
+
+function getWritingGuidance(task) {
+  var type = (task.type || '').toLowerCase();
+  if (type.indexOf('эссе') >= 0) return {
+    goal: '先确定你的立场，再按“问题 - 正反影响 - 论证 - 展望”组织段落。每一段只推进一个观点。',
+    patterns: [
+      { role: '引出问题', ru: 'В настоящее время вопрос о {теме} приобретает особую актуальность.', zh: '当前，{主题}问题具有特别的重要性。' },
+      { role: '表达立场', ru: 'На мой взгляд, {изобретение / явление} приносит больше пользы, чем вреда.', zh: '在我看来，{发明/现象}利大于弊。' },
+      { role: '转入反面', ru: 'Однако нельзя не учитывать и возможные отрицательные последствия.', zh: '不过，也不能忽视可能带来的负面后果。' },
+      { role: '收束展望', ru: 'Таким образом, многое зависит от того, как люди будут использовать {тему} в будущем.', zh: '因此，关键在于人们未来如何使用{主题}。' }
+    ]
+  };
+  if (type.indexOf('сообщен') >= 0) return {
+    goal: '把输入材料压缩成正式信息，不写个人感受。先写收件人与标题，再标来源、列数据、作简短结论。',
+    patterns: [
+      { role: '说明来信目的', ru: 'Сообщаю Вам о результатах {исследования / опроса}.', zh: '现向您通报{研究/调查}结果。' },
+      { role: '标注来源', ru: 'Согласно данным, опубликованным в {источнике}, ...', zh: '根据{来源}公布的数据，……' },
+      { role: '概括数据', ru: 'Наиболее значимым результатом является то, что ...', zh: '最值得注意的结果是……' },
+      { role: '正式收束', ru: 'Представленные данные могут быть использованы при дальнейшем анализе.', zh: '上述数据可供后续分析使用。' }
+    ]
+  };
+  if (type.indexOf('жалоб') >= 0 || type.indexOf('претенз') >= 0) return {
+    goal: '投诉信要清楚交代事实、造成的后果和你的明确诉求，保持正式克制，不使用情绪化指责。',
+    patterns: [
+      { role: '说明缘由', ru: 'Обращаюсь к Вам в связи с {ситуацией}.', zh: '我因{情况}向您反映。' },
+      { role: '陈述事实', ru: 'В результате {проблемы} мне были причинены неудобства.', zh: '由于{问题}，我遭受了不便。' },
+      { role: '提出诉求', ru: 'Прошу принять меры и сообщить мне о результате.', zh: '请采取措施，并告知我处理结果。' }
+    ]
+  };
+  if (type.indexOf('благодар') >= 0) return {
+    goal: '感谢信应交代受益的具体事项，写出真诚感谢，并用合适的礼貌结尾。',
+    patterns: [
+      { role: '写明感谢', ru: 'Хочу выразить искреннюю благодарность за {помощь / организацию}.', zh: '我想对{帮助/组织安排}表示诚挚感谢。' },
+      { role: '补充细节', ru: 'Благодаря Вашему вниманию {результат}.', zh: '多亏您的关注，{结果}得以实现。' },
+      { role: '礼貌结尾', ru: 'С уважением и наилучшими пожеланиями, ...', zh: '谨致敬意并致以最美好的祝愿。' }
+    ]
+  };
+  if (type.indexOf('рекомендац') >= 0) return {
+    goal: '推荐信不只夸人，要给出关系背景、可验证的能力和与岗位的匹配理由。',
+    patterns: [
+      { role: '说明关系', ru: 'Я знаком(а) с {имя} уже {срок} и могу рекомендовать его/её.', zh: '我认识{姓名}已有{时间}，可以推荐他/她。' },
+      { role: '举能力证据', ru: 'Он/она отличается {качествами} и имеет опыт в {сфере}.', zh: '他/她具备{品质}，并有{领域}经验。' },
+      { role: '明确推荐', ru: 'Уверен(а), что он/она успешно справится с этой работой.', zh: '我相信他/她能胜任这项工作。' }
+    ]
+  };
+  if (type.indexOf('аргумент') >= 0) return {
+    goal: '先亮明立场，再给出至少两个理由和例子；回应相反观点后再得出结论。',
+    patterns: [
+      { role: '表明立场', ru: 'Я согласен(на) с тем, что {тезис}, потому что ...', zh: '我赞同{观点}，因为……' },
+      { role: '补充论据', ru: 'Во-первых, ... Во-вторых, ...', zh: '第一，……；第二，……' },
+      { role: '回应反方', ru: 'Хотя можно возразить, что ..., я считаю, что ...', zh: '尽管有人可能反驳说……，但我认为……' }
+    ]
+  };
+  return {
+    goal: '先圈出题目要求的交际对象、文体和必须覆盖的信息点，再在纸上选择最适合的句型。',
+    patterns: [
+      { role: '开头', ru: 'Я хотел(а) бы сообщить / объяснить, что ...', zh: '我想说明/解释的是……' },
+      { role: '展开', ru: 'Прежде всего, необходимо отметить, что ...', zh: '首先，需要指出的是……' },
+      { role: '结尾', ru: 'Надеюсь, что эта информация будет полезна.', zh: '希望这些信息会有所帮助。' }
+    ]
+  };
+}
+
+function stripWritingVocabularyMarkup(text) {
+  return String(text || '').replace(/\*\*|==/g, '');
+}
+
+function renderWritingVocabularyDetail(data, item, index) {
+  var dictionary = item.dictionary || null;
+  var sourceExamples = item.sourceExamples || [];
+  var hasDictionary = dictionary && (dictionary.meaning || dictionary.detailZh || (dictionary.collocations || []).length);
+  if (!hasDictionary && !sourceExamples.length) return '';
+
+  var html = '<details class="ws-vocab-detail"><summary>释义、例句与搭配</summary><div class="ws-vocab-detail-content">';
+  if (hasDictionary) {
+    var meta = [];
+    if (dictionary.type) meta.push(dictionary.type);
+    if (dictionary.gender) meta.push(dictionary.gender);
+    if (dictionary.aspect) meta.push(dictionary.aspect + (dictionary.pair ? ' / ' + dictionary.pair : ''));
+    if (dictionary.caseGov) meta.push(dictionary.caseGov);
+    html += '<section class="ws-vocab-detail-section"><h4>项目词典</h4>';
+    if (dictionary.detailZh) html += '<p>' + escapeHtml(dictionary.detailZh) + '</p>';
+    if (meta.length) html += '<p class="ws-vocab-example-zh">' + escapeHtml(meta.join(' · ')) + '</p>';
+    html += '<span class="ws-source-label">项目词典 · needs_review</span></section>';
+    if ((dictionary.collocations || []).length) {
+      html += '<section class="ws-vocab-detail-section"><h4>常见搭配</h4><ul class="ws-vocab-collocations">';
+      dictionary.collocations.forEach(function(collocation) {
+        html += '<li><strong>' + escapeHtml(collocation.phrase || '') + '</strong>';
+        if (collocation.ru) html += '<br><span class="ws-vocab-example-ru">' + escapeHtml(collocation.ru) + '</span>';
+        if (collocation.zh) html += '<br><span class="ws-vocab-example-zh">' + escapeHtml(collocation.zh) + '</span>';
+        html += '</li>';
+      });
+      html += '</ul></section>';
+    }
+  }
+  if (sourceExamples.length) {
+    html += '<section class="ws-vocab-detail-section"><h4>本主题真实例句</h4>';
+    sourceExamples.forEach(function(example, exampleIndex) {
+      var sentence = stripWritingVocabularyMarkup(example.sentence || '');
+      html += '<p class="ws-vocab-example-ru">' + renderRuText(sentence, lookupContext('vocab', data.id + '-v-source-' + index + '-' + exampleIndex, 'vocab-example', sentence, '', data.sourcePages || [])) + '</p>';
+    });
+    html += '<span class="ws-source-label">本主题例句 · 需对照原书复核</span></section>';
+  }
+  return html + '</div></details>';
+}
+
+function renderWritingSpeakingVocabulary(data) {
+  var items = (data.vocabularyPrep || []).filter(function(item) { return item.word || item.sentence; });
+  if (!items.length) return '';
+  var seen = {};
+  items = items.filter(function(item) {
+    var key = item.word || item.sentence;
+    if (seen[key]) return false;
+    seen[key] = true;
+    return true;
+  });
+  var suggestions = data.studySupport && data.studySupport.cardSuggestions || [];
+  var html = '<details class="learning-card" open><summary class="ws-section-header"><h2>📝 待学词汇与改写准备</h2><span class="ws-task-badge">' + items.length + ' 项</span></summary><p class="ws-vocab-note">先完成词义、配对和改写，再进入写作。词条先露出核心释义；小三角里保留本主题例句、搭配和项目词典解析。配对答案不会直接展开。</p><div class="ws-vocab-grid">';
+  items.forEach(function(item, index) {
+    var isWord = !!item.word;
+    var source = isWord ? item.word : item.sentence || '';
+    var content = renderRuText(source, lookupContext('vocab', data.id + (isWord ? '-v-' : '-vs-') + index, 'vocab', source, '', data.sourcePages || []));
+    var gloss = item.dictionary && item.dictionary.meaning;
+    html += '<article class="ws-vocab-item' + (isWord ? '' : ' ws-vocab-rephrase') + '"><div class="' + (isWord ? 'ru-word' : 'sentence') + '">' + content + '</div>';
+    if (gloss) html += '<div class="ws-vocab-gloss">' + escapeHtml(gloss) + '</div>';
+    if (item.option) html += '<div class="option">配对候选：' + escapeHtml(item.option) + '</div>';
+    html += '<div class="task-label">' + escapeHtml(item.task || '词汇准备') + '</div>';
+    html += renderWritingVocabularyDetail(data, item, index);
+    html += '</article>';
+  });
+  html += '</div>';
+  if (suggestions.length) {
+    html += '<details class="ws-vocab-study-cards"><summary>配对与卡片复盘（' + suggestions.length + ' 项）</summary>';
+    suggestions.forEach(function(suggestion) {
+      html += '<div class="ws-vocab-card-suggestion"><strong>' + escapeHtml(suggestion.title || '学习卡') + '</strong><span>' + escapeHtml(suggestion.text || '') + '</span></div>';
+    });
+    html += '<span class="ws-source-label">学习辅助 · 需对照原书复核</span></details>';
+  }
+  return html + '<span class="ws-source-label">原书任务与项目词典分层展示 · OCR 内容未经人工核对</span></details>';
+}
+
+function syncWritingSpeakingChapterCompletion(data) {
+  if (!data || !curBook || curBook.id !== 'writing_speaking' || !window.RussianB2WritingSession) return;
+  var summary = RussianB2WritingSession.getChapterSummary(data.writingTasks || []);
+  if (!readStats.writing_speaking) readStats.writing_speaking = {};
+  if (summary.isComplete) {
+    readStats.writing_speaking[curCh] = { completed: true, completed_at: new Date().toISOString(), source: 'paper-writing-stages' };
+  } else if (readStats.writing_speaking[curCh] && readStats.writing_speaking[curCh].source === 'paper-writing-stages') {
+    delete readStats.writing_speaking[curCh];
+  }
+  saveStats();
+}
+
+function setWritingSpeakingStage(taskId, stage, checked) {
+  if (!window.RussianB2WritingSession) return;
+  RussianB2WritingSession.setStage(taskId, stage, checked);
+  syncWritingSpeakingChapterCompletion(_currentWSData);
+  renderWritingSpeakingChapter(_currentWSData, window.scrollY);
+}
+
+function renderWritingSpeakingStages(task) {
+  var state = window.RussianB2WritingSession ? RussianB2WritingSession.getTaskRecord(task.taskId) : {};
+  var stages = [
+    { key: 'planned', label: '我已在纸上列出关键词或提纲。' },
+    { key: 'paperDraft', label: '我已在纸上完成初稿。' },
+    { key: 'revised', label: '我已完成自查，并在纸上修改。' }
+  ];
+  return '<div class="ws-workbench-step"><h3>第 5 步 · 记录纸笔学习阶段</h3><p>这些勾选是你的学习记录，不是系统对纸面内容的自动验证。</p><div class="ws-stage-list">' + stages.map(function(stage) {
+    return '<label class="ws-stage-check"><input type="checkbox" ' + (state[stage.key] ? 'checked ' : '') + 'onchange="setWritingSpeakingStage(\'' + task.taskId + '\',\'' + stage.key + '\',this.checked)"><span>' + stage.label + '</span></label>';
+  }).join('') + '</div></div>';
+}
+
+function renderWritingSpeakingTaskSupport(task, support, translation) {
+  var frameworks = getWritingTaskSupportItems(support, 'outputFrameworks', task.taskId);
+  var expressions = getWritingTaskSupportItems(support, 'expressions', task.taskId);
+  var risks = getWritingTaskSupportItems(support, 'scoringRisks', task.taskId);
+  var guidance = getWritingGuidance(task);
+  var html = '<div class="ws-workbench-step ws-structure-board"><h3>第 4 步 · 结构与表达工具板</h3>';
+  html += '<p class="ws-guidance-goal"><strong>这题要完成什么：</strong>' + escapeHtml(guidance.goal) + '</p>';
+  html += '<div class="ws-structure-columns"><section class="ws-structure-group"><h4>段落骨架</h4>';
+  if (!frameworks.length) {
+    html += '<p class="ws-assist-empty">本题暂无专属框架，按右侧句型依次完成开头、展开和结尾。</p>';
+  }
+  frameworks.forEach(function(framework) {
+    var frameworkTranslation = getSupportTranslation(translation, 'outputFrameworks', framework, support.outputFrameworks || []);
+    html += '<div class="ws-framework-title">' + escapeHtml(framework.for || '输出框架') + '</div><ol class="ws-structure-list">' + (framework.steps || []).map(function(step, index) {
+      var zhStep = frameworkTranslation && frameworkTranslation.steps && frameworkTranslation.steps[index];
+      return '<li><span class="ws-assist-step-ru">' + escapeHtml(step) + '</span>' + (zhStep ? '<br><span class="ws-assist-step-zh">' + escapeHtml(zhStep) + '</span>' : '') + '</li>';
+    }).join('') + '</ol>';
+  });
+  html += '</section><section class="ws-structure-group"><h4>可直接落笔</h4><ul class="ws-compact-patterns">' + guidance.patterns.map(function(pattern) {
+    return '<li><span class="ws-pattern-role">' + escapeHtml(pattern.role) + '</span><span class="ws-assist-step-ru">' + escapeHtml(pattern.ru) + '</span><br><span class="ws-assist-step-zh">' + escapeHtml(pattern.zh) + '</span></li>';
+  }).join('') + '</ul>';
+  if (expressions.length) html += '<h4 class="ws-assist-answer">本题专属表达</h4><ul class="ws-compact-patterns">' + expressions.map(function(item) { return '<li><span class="ws-assist-step-ru">' + escapeHtml(item.ru || '') + '</span>' + (item.zh ? '<br><span class="ws-assist-step-zh">' + escapeHtml(item.zh) + '</span>' : '') + '</li>'; }).join('') + '</ul>';
+  html += '</section></div>';
+  if (risks.length) html += '<section class="ws-structure-group ws-structure-risk"><h4>写前检查</h4><ul class="ws-risks">' + risks.map(function(item) { return '<li>' + escapeHtml(item.text || '') + '</li>'; }).join('') + '</ul></section>';
+  html += '<span class="ws-source-label">学习辅助 · AI 生成 · 未经人工核对</span></div>';
+
+  return html;
+}
+
+function renderWritingSpeakingComparison(task, support, state, translation) {
+  var models = getWritingTaskSupportItems(support, 'modelAnswers', task.taskId);
+  var risks = getWritingTaskSupportItems(support, 'scoringRisks', task.taskId);
+  var html = '<div class="ws-workbench-step"><h3>第 6 步 · 对照与修改</h3>';
+  if (!state.paperDraft) {
+    html += '<p class="ws-paper-action">完成“我已在纸上完成初稿”后，再展开与本任务绑定的范文。</p>';
+  } else if (!models.length) {
+    html += '<p class="ws-assist-empty">当前任务暂无已绑定的范文参考。</p>';
+  } else {
+    models.forEach(function(model) {
+      var modelTranslation = getSupportTranslation(translation, 'modelAnswers', model, support.modelAnswers || []);
+      html += '<details class="ws-assist-block ws-animated-collapse"><summary class="ws-assist-summary">📋 范文参考 · ' + escapeHtml(model.title || '学习辅助') + '</summary><div class="ws-assist-answer-ru">' + renderRuText(model.text || '', lookupContext('model', task.taskId + '-' + model.id, 'model-answer', model.text || '', '', [])) + '</div>' + renderWritingTranslation(modelTranslation, '中文对照') + '<span class="ws-source-label">学习辅助 · AI 生成 · 未经人工核对</span></details>';
+    });
+  }
+  if (risks.length) html += '<details class="ws-assist-block ws-animated-collapse"><summary class="ws-assist-summary">⚠ 当前任务自查提醒（' + risks.length + ' 条）</summary><ul class="ws-risks">' + risks.map(function(item) { return '<li>' + escapeHtml(item.text || '') + '</li>'; }).join('') + '</ul></details>';
+  html += '</div>';
+  return html;
+}
+
+function getSpeakingGuidance(task) {
+  var type = (task.type || '').toLowerCase();
+  if (type.indexOf('интенц') >= 0) return '先判断每一句在完成什么交际动作，例如同意、怀疑、建议或惊讶；再用自己的话补一句同类表达。';
+  return '先明确你是谁、在和谁说、要达成什么目的；至少说出立场、理由和一条回应，不要只读题干里的词。';
+}
+
+function getSpeakingExpressions(support) {
+  return (support.expressions || []).filter(function(item) {
+    return /同意|不同意|惊讶|不信任|困难|说服|建议|反对|意图|情感|позици|соглас|несоглас|совет|удивлен/i.test(item.category || '');
+  }).slice(0, 14);
+}
+
+function renderWritingSpeakingSpeakingTask(data, task, index, support, translation) {
+  var speakingId = task.speakingId || (data.id + '-s-' + index);
+  var taskTranslation = getSpeakingTaskTranslation(translation, speakingId);
+  var expressions = getSpeakingExpressions(support);
+  var html = '<article class="ws-workbench-step"><h3>' + escapeHtml(task.title || '口语任务') + '</h3><div class="ws-task-prompt ru-text">' + renderRuText(task.prompt || '', lookupContext('speaking', speakingId, 'speaking-reference', task.prompt || '', '', data.sourcePages || [])) + '</div><span class="ws-source-label">原书内容 · 原书第 ' + escapeHtml(String(task.sourcePage || '待核对')) + ' 页</span>';
+  html += renderWritingTranslation(taskTranslation && taskTranslation.prompt, '中文');
+  html += '<div class="ws-speaking-guidance"><strong>怎么开口：</strong>' + escapeHtml(getSpeakingGuidance(task)) + '</div>';
+  if (task.replica) html += '<div class="ws-replica">💬 ' + escapeHtml(task.replica) + '</div>';
+  if (expressions.length) {
+    html += '<details class="ws-assist-block ws-animated-collapse"><summary class="ws-assist-summary">可调用的口语表达（' + expressions.length + ' 条）</summary><ul class="ws-requirements">' + expressions.map(function(expression) {
+      return '<li><span class="ws-assist-step-ru">' + escapeHtml(expression.ru || '') + '</span>' + (expression.zh ? '<br><span class="ws-assist-step-zh">' + escapeHtml(expression.zh) + '</span>' : '') + '<br><span class="ws-pattern-role">功能：' + escapeHtml(expression.category || '口语表达') + '</span></li>';
+    }).join('') + '</ul><span class="ws-source-label">学习辅助 · AI 生成 · 未经人工核对</span></details>';
+  }
+  return html + '</article>';
+}
+
+function renderWritingSpeakingChapter(data, scrollPosition, restoreState) {
+  _currentWSData = data;
+  var writingCompletePrompt = document.getElementById('completePrompt');
+  if (writingCompletePrompt) writingCompletePrompt.classList.remove('visible');
+  if (data._zh === undefined && !_zhCache[data.id]) {
+    _zhCache[data.id] = null;
+    fetchJson('data/textbook/writing_speaking/' + data.id + '_zh.json', null).then(function(zh) {
+      _zhCache[data.id] = zh || {};
+      renderWritingSpeakingChapter(data, window.scrollY, restoreState);
+    }).catch(function() { _zhCache[data.id] = {}; });
+  }
+  dictionaryController.setExamPolicy({ mode: 'learning', lookupUnlocked: true });
+  var totalChapters = (curBook && curBook.chapters) || 19;
+  var navP = curCh > 0 ? '<button class="fab-nav" onclick="goChapter(' + (curCh - 1) + ')">← 上一章</button>' : '<span class="fab-nav disabled">← 上一章</span>';
+  var navN = curCh < totalChapters - 1 ? '<button class="fab-nav" onclick="goChapter(' + (curCh + 1) + ')">下一章 →</button>' : '<span class="fab-nav disabled">下一章 →</span>';
+  var support = data.studySupport || {};
+  var zhData = (data._zh || _zhCache[data.id]) || {};
+  var summary = window.RussianB2WritingSession ? RussianB2WritingSession.getChapterSummary(data.writingTasks || []) : { total: 0, completed: 0, isComplete: false };
+  var html = b2FloatingNavigation({ backAction: 'showChapters(\'writing_speaking\')', backTitle: '目录', menuAction: 'showBreadcrumb()' });
+  var sourcePages = (data.sourcePages || []).map(function(p) { return 'PDF-' + String(p).padStart(3, '0'); }).join('、');
+  html += '<main class="ws-chapter"><header class="chapter-header"><h1>第 ' + (curCh + 1) + ' 章</h1><h2>' + escapeHtml(data.title || '') + '</h2><p class="reading-answer-source">' + escapeHtml(data.section || '') + ' · 原书页：' + escapeHtml(sourcePages) + '</p></header>';
+  html += '<div class="source-warning"><strong>⚠ ' + escapeHtml(data.sourceLabel || '原书内容 · OCR 来源 · 未经人工核对') + '</strong></div>';
+  html += '<div class="ws-chapter-summary"><span>纸笔写作记录：' + summary.completed + ' / ' + summary.total + ' 项已完成自查修改</span><span>' + (summary.isComplete ? '本章已完成' : '按任务逐项记录') + '</span></div>';
+
+  var materials = Array.isArray(data.inputMaterials) ? data.inputMaterials : [];
+  if (materials.length) {
+    html += '<details class="learning-card"><summary class="ws-section-header"><h2>📖 输入材料 / 原文</h2><span class="ws-task-badge">' + materials.length + ' 项</span></summary>';
+    materials.forEach(function(material) { html += '<article class="ws-workbench-step"><h3>' + escapeHtml(material.title || '输入材料') + '</h3><div class="ws-reading-text">' + renderRuText(material.text || '', lookupContext('reading', material.id, 'reading-body', material.text || '', '', data.sourcePages || [])) + '</div><span class="ws-source-label">原书内容 · 第 ' + escapeHtml(String(material.sourcePage || '待核对')) + ' 页</span></article>'; });
+    html += '</details>';
+  }
+
+  html += renderWritingSpeakingVocabulary(data);
+
+  if (data.writingTasks && data.writingTasks.length) {
+    html += '<details class="learning-card" open><summary class="ws-section-header"><h2>✍️ 写作任务</h2><span class="ws-task-badge">' + data.writingTasks.length + ' 项</span></summary>';
+    data.writingTasks.forEach(function(task, index) {
+      var state = window.RussianB2WritingSession ? RussianB2WritingSession.getTaskRecord(task.taskId) : {};
+      var taskTranslation = getWritingTaskTranslation(zhData, task.taskId);
+      var relatedMaterials = materials.filter(function(material) { return (task.inputMaterialIds || []).indexOf(material.id) >= 0; });
+      html += '<details class="learning-card ws-framework"' + (index === 0 ? ' open' : '') + '><summary style="display:flex;align-items:center;gap:8px;cursor:pointer"><span style="font-weight:600;color:var(--text)">[' + (index + 1) + '/' + data.writingTasks.length + '] ' + escapeHtml(task.title || '写作任务') + '</span><span class="ws-task-type-badge">' + escapeHtml(task.type || '') + '</span></summary><div class="ws-task-workbench">';
+      html += '<div class="ws-workbench-step"><h3>第 1 步 · 读懂原书任务</h3><div class="ws-task-prompt ru-text">' + renderRuText(task.prompt || '', lookupContext('writing', task.taskId, 'writing-material', task.prompt || '', '', data.sourcePages || [])) + '</div><span class="ws-source-label">原书内容 · 原书第 ' + escapeHtml(String(task.sourcePage || '待核对')) + ' 页</span>' + renderWritingTranslation(taskTranslation && taskTranslation.prompt, '中文') + '</div>';
+      if (relatedMaterials.length) html += '<div class="ws-workbench-step"><h3>第 2 步 · 核对输入材料</h3>' + relatedMaterials.map(function(material) { return '<p>' + escapeHtml(material.title || '输入材料') + ' · 第 ' + escapeHtml(String(material.sourcePage || '待核对')) + ' 页</p>'; }).join('') + '</div>';
+      html += '<div class="ws-workbench-step"><h3>第 3 步 · 在纸上形成内容</h3><p>请在纸上写下关键词、立场和段落提纲。页面不提供作文输入框，也不启动考试计时。</p></div>';
+      html += renderWritingSpeakingTaskSupport(task, support, zhData);
+      html += renderWritingSpeakingStages(task);
+      html += renderWritingSpeakingComparison(task, support, state, zhData);
+      html += '</div></details>';
+    });
+    html += '</details>';
+  } else {
+    html += '<div class="source-warning">本章没有已审核的写作任务。请保留 needs_review 状态，暂不将口语活动计入写作进度。</div>';
+  }
+
+  if (data.speakingTasks && data.speakingTasks.length) {
+    html += '<details class="learning-card"><summary class="ws-section-header"><h2>🗣 口语任务</h2><span class="ws-task-badge">' + data.speakingTasks.length + ' 项</span></summary>';
+    data.speakingTasks.forEach(function(task, index) {
+      html += renderWritingSpeakingSpeakingTask(data, task, index, support, zhData);
+    });
+    html += '</details>';
+  }
+
+  html += '<div class="ws-bottom-nav">' + navP + '<span class="fab-chapter">第 ' + (curCh + 1) + ' / ' + totalChapters + ' 章</span><span class="fab-nav ' + (summary.isComplete ? '' : 'disabled') + '">' + (summary.isComplete ? '✓ 本章已完成' : '完成所有任务后计入本章') + '</span>' + navN + '</div></main>';
+  document.getElementById('app').innerHTML = html;
+  window.scrollTo(0, typeof scrollPosition === 'number' ? scrollPosition : 0);
+  applyTheme(); saveLastRead(arguments[2]); initCollapseAnimations();
 }
 
 /* ─── 折叠面板过渡动画 ─── */

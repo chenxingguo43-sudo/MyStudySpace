@@ -11,6 +11,112 @@ const path = require('path');
 
 const SOURCE_DIR = path.join(__dirname, '..', '俄语资料库', 'В мире людей 写作口语 Markdown版', '学习单元');
 const OUTPUT_DIR = path.join(__dirname, '..', 'data', 'textbook', 'writing_speaking');
+const VOCABULARY_INDEX_PATH = path.join(__dirname, '..', 'data', 'vocabulary.json');
+
+var vocabularyReferenceIndex = null;
+
+function normalizeVocabularyKey(value) {
+  return String(value || '')
+    .toLowerCase()
+    .replace(/ё/g, 'е')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/\*|=|[«»"'`]/g, '')
+    .replace(/\([^)]*\)/g, ' ')
+    .replace(/[^\p{L}\p{N}\s-]/gu, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function vocabularyLookupCandidates(value) {
+  var normalized = normalizeVocabularyKey(value);
+  if (!normalized) return [];
+  var candidates = [normalized];
+  normalized.split(/[\s/—–-]+/).forEach(function(part) {
+    if (part.length >= 3) candidates.push(part);
+  });
+  return candidates.filter(function(candidate, index) {
+    return candidates.indexOf(candidate) === index;
+  });
+}
+
+function loadVocabularyReferenceIndex() {
+  if (vocabularyReferenceIndex) return vocabularyReferenceIndex;
+  var entries = [];
+  try {
+    var data = JSON.parse(fs.readFileSync(VOCABULARY_INDEX_PATH, 'utf8'));
+    entries = Array.isArray(data) ? data.filter(function(item) {
+      return item && item.word && item.source === 'vocab';
+    }) : [];
+  } catch (error) {
+    entries = [];
+  }
+  vocabularyReferenceIndex = entries;
+  return vocabularyReferenceIndex;
+}
+
+function compactVocabularyReference(entry) {
+  if (!entry) return null;
+  var usableExamples = (entry.examples || []).filter(function(example) {
+    return example && example.ru && example.ru.length <= 360 && (!example.zh || example.zh.length <= 280);
+  }).slice(0, 2).map(function(example) {
+    return { ru: example.ru, zh: example.zh || '' };
+  });
+  var collocations = (entry.collocations || []).filter(function(item) {
+    return item && item.phrase && (!item.ru || item.ru.length <= 260) && (!item.zh || item.zh.length <= 180);
+  }).slice(0, 4).map(function(item) {
+    return { phrase: item.phrase, ru: item.ru || '', zh: item.zh || '' };
+  });
+  return {
+    word: entry.word,
+    meaning: entry.meaning || '',
+    type: entry.type || '',
+    gender: entry.gender || '',
+    aspect: entry.aspect || '',
+    pair: entry.pair || '',
+    caseGov: entry.case_gov || '',
+    grammarTable: entry.grammarTable || '',
+    detailZh: (entry.detailZh || '').slice(0, 600),
+    collocations: collocations,
+    examples: usableExamples,
+    sourceKind: 'project_dictionary',
+    reviewStatus: 'needs_review'
+  };
+}
+
+function findVocabularyReference(value) {
+  var candidates = vocabularyLookupCandidates(value);
+  if (!candidates.length) return null;
+  var entries = loadVocabularyReferenceIndex();
+  var normalizedValue = normalizeVocabularyKey(value);
+  var exact = entries.filter(function(entry) {
+    var entryKey = normalizeVocabularyKey(entry.word);
+    return entryKey === candidates[0];
+  });
+  if (exact.length) {
+    exact.sort(function(a, b) {
+      return ((b.detailZh ? 2 : 0) + (b.collocations || []).length) - ((a.detailZh ? 2 : 0) + (a.collocations || []).length);
+    });
+    return compactVocabularyReference(exact[0]);
+  }
+
+  // A multi-word phrase must have a phrase-level dictionary entry. Matching
+  // just one token would turn "микроволновая печь" into the unrelated gloss
+  // for "печь" and is worse than showing a review-needed blank.
+  if (/\s/.test(normalizedValue)) return null;
+  var fuzzy = entries.filter(function(entry) {
+    var entryKey = normalizeVocabularyKey(entry.word);
+    return candidates.some(function(candidate) {
+      if (candidate.length < 6 || entryKey.length < 6) return false;
+      return candidate.slice(0, 6) === entryKey.slice(0, 6);
+    });
+  });
+  if (!fuzzy.length) return null;
+  fuzzy.sort(function(a, b) {
+    return ((b.detailZh ? 2 : 0) + (b.collocations || []).length) - ((a.detailZh ? 2 : 0) + (a.collocations || []).length);
+  });
+  return compactVocabularyReference(fuzzy[0]);
+}
 
 // ─── YAML frontmatter parser ───
 function parseFrontmatter(text) {
@@ -91,15 +197,13 @@ function cleanContent(text) {
   var skipNext = false;
 
   for (var i = 0; i < lines.length; i++) {
-    var line = lines[i];
+    var line = lines[i].replace(/^>\s*/, '');
     var trimmed = line.trim();
 
     // Skip callout markers
-    if (trimmed.match(/^>\s*\[!(?:note|info|warning|tip)\]/)) continue;
+    if (trimmed.match(/^(?:>\s*)?\[!(?:note|info|warning|tip)\]/)) continue;
     // Skip wiki links and source labels
     if (trimmed.match(/^来源:/) || trimmed.match(/^\*\*来源/)) continue;
-    // Remove blockquote prefix
-    line = line.replace(/^>\s*/, '');
     // Remove wiki links
     line = line.replace(/\[\[page_\d+\]\]/g, '');
 
@@ -209,6 +313,28 @@ function parseTable(content) {
   return rows;
 }
 
+// Parse every Markdown table in a subsection. Vocabulary preparation often
+// contains separate synonym and antonym tables; the old parser stopped after
+// the first one and, for Chinese/Russian headers, sometimes kept only "#".
+function parseTables(content) {
+  var lines = content.split(/\r?\n/);
+  var tables = [];
+  for (var i = 0; i < lines.length - 1; i++) {
+    if (!/^\|.*\|$/.test(lines[i]) || !/^\|[\s\-:|]+\|$/.test(lines[i + 1])) continue;
+    var headers = lines[i].split('|').filter(Boolean).map(function(h) { return h.trim(); });
+    var rows = [];
+    for (var j = i + 2; j < lines.length && /^\|.*\|$/.test(lines[j]); j++) {
+      var cells = lines[j].split('|').filter(Boolean).map(function(c) { return c.trim(); });
+      var row = {};
+      headers.forEach(function(header, index) { row[header] = cells[index] || ''; });
+      rows.push(row);
+    }
+    tables.push(rows);
+    i = j - 1;
+  }
+  return tables;
+}
+
 // ─── Get section/topic info from §0 ───
 function getField(content, regex) {
   var match = content.match(regex);
@@ -217,9 +343,19 @@ function getField(content, regex) {
 
 // ─── Categorize subsection ───
 function isVocabSubsection(title) { return title.match(/1\.1|词汇准备/); }
-function isWritingSubsection(title) { return title.match(/[Пп]исьм|сообщение|жалоб|благодарност|эссе|аргументац|претенз|перефразир|рекомендац|резюме|аннотац|заявлен|объявлен|характеристик/) && !title.match(/[Гг]оворен.*[Пп]исьм|[Пп]исьм.*[Гг]оворен/); }
-function isSpeakingSubsection(title) { return title.match(/[Гг]оворен|диалог|интенци|дискусси|бесед|обсужден/) && !title.match(/[Гг]оворен.*[Пп]исьм|[Пп]исьм.*[Гг]оворен/); }
-function isMixedSubsection(title) { return title.match(/[Гг]оворен.*[Пп]исьм|[Пп]исьм.*[Гг]оворен/); }
+function isVocabRephraseSubsection(title) { return /意义转述|改写|Перефраз|Передайте смысл/i.test(title || ''); }
+function isWritingSubsection(title) {
+  return /[Пп]исьм|сообщение|жалоб|благодарност|эссе|аргументац|претенз|перефразир|рекомендац|резюме|аннотац|заявлен|объявлен|характеристик|写作/.test(title) && !isMixedSubsection(title);
+}
+function isSpeakingSubsection(title) {
+  return /[Гг]оворен|диалог|интенци|дискусси|бесед|обсужден|口语/.test(title) && !isMixedSubsection(title);
+}
+function isMixedSubsection(title) {
+  return /(?:[Гг]оворен|口语).*(?:[Пп]исьм|写作|эссе)|(?:[Пп]исьм|写作|эссе).*(?:[Гг]оворен|口语)/.test(title);
+}
+function isInputMaterialSubsection(title) {
+  return /输入材料|核心输入材料|Входной текст|Чтение:|Чтение —/.test(title) && !/обсуждени/i.test(title);
+}
 
 // ─── Parse vocabulary prep ───
 function parseVocabPrep(content) {
@@ -227,25 +363,41 @@ function parseVocabPrep(content) {
   var text = content;
 
   // "解释词语" items
-  var explainPart = text.match(/(?:解释词语|Объясните значение)[\s\S]*?(?=составьте|Передайте|\(|$)/i);
+  var explainPart = text.match(/(?:解释(?:下列)?词语(?:和词组)?|Объясните значение)[\s\S]*?(?=\n#{1,4}\s|составьте|Передайте|$)/i);
   if (explainPart) {
     var items = extractListItems(explainPart[0]);
     items.forEach(function(item) { prep.push({ word: item, task: '解释并造句' }); });
   }
 
-  // Table with pair matching
-  var tables = parseTable(text);
-  tables.forEach(function(row) {
-    if (row['Word'] || row['#']) {
-      prep.push({ word: row['Word'] || row['#'] || '', option: row['Option'] || '', task: '近义词配对' });
-    }
+  // All synonym/antonym tables. Prefer the lexical column and never expose
+  // the numeric row marker as if it were a word.
+  parseTables(text).forEach(function(rows) {
+    rows.forEach(function(row) {
+      var word = row.Word || row['Слово'] || row['词语'] || '';
+      var option = row.Option || row['Вариант'] || row['Antonym option'] || row['Вариант антонима'] || row['选项'] || '';
+      if (word && /[А-Яа-яЁё]/.test(word)) {
+        prep.push({ word: word, option: option, task: /антоним|反义/i.test(Object.keys(row).join(' ')) ? '反义词配对' : '近义词配对' });
+      }
+    });
   });
 
   // "Передайте смысл" items
-  var rephrasePart = text.match(/Передайте смысл другими словами:?\s*\n([\s\S]*?)(?=\n\s*(?:###|##|$))/i);
+  var rephrasePart = text.match(/Передайте\s+смысл(?:\s+(?:другими|предложенными)\s+словами)?\s*:?\s*\n([\s\S]*?)(?=\n\s*(?:###|##|$))/i);
   if (rephrasePart) {
     var nums = extractNumberedItems(rephrasePart[1]);
     nums.forEach(function(item) { prep.push({ sentence: item, task: '改写句子' }); });
+  }
+
+  // Verb-family tasks are a meaningful part of lexical preparation. Keep the
+  // original group together so learners can compare prefixes and aspect pairs.
+  var aspectPart = text.match(/(?:Определите видовые пары|Образуйте парные глаголы)[\s\S]*?(?=\n#{1,4}\s|$)/i);
+  if (aspectPart) {
+    aspectPart[0].split(/\r?\n/).forEach(function(line) {
+      var group = line.match(/^\s*[а-яёa-z]\)\s*(.+)$/i);
+      if (group && /[А-Яа-яЁё]/.test(group[1])) {
+        prep.push({ word: group[1].trim(), task: '动词体与前缀辨析', kind: 'verb-family' });
+      }
+    });
   }
 
   // Also extract any remaining bullet items that look like vocabulary words
@@ -262,30 +414,126 @@ function parseVocabPrep(content) {
   return prep;
 }
 
-// ─── Parse reading material from §1.2 content ───
-function parseReadingMaterial(subContent) {
-  var clean = cleanContent(subContent);
+function parseVocabularyExamples(sections) {
+  var examples = [];
+  sections.filter(function(section) { return section.index === 10; }).forEach(function(section) {
+    cleanContent(section.content).split(/\r?\n/).forEach(function(line) {
+      var match = line.match(/^[-*]\s+\*\*(.+?)\*\*\s*[:：]\s*(.+)$/);
+      if (!match) return;
+      examples.push({
+        word: match[1].trim(),
+        sentence: match[2].trim(),
+        sourceKind: 'source_example',
+        reviewStatus: 'needs_review'
+      });
+    });
+  });
+  return examples;
+}
 
-  // The reading text is the Russian paragraph before "На основе прочитанного..."
-  var taskStart = clean.search(/На основе прочитанного|Прочитайте текст|Задания?:/i);
-  if (taskStart < 0) return null;
+function parseCardSuggestions(sections) {
+  var suggestions = [];
+  sections.filter(function(section) { return section.index === 11; }).forEach(function(section) {
+    cleanContent(section.content).split(/\r?\n/).forEach(function(line) {
+      var match = line.match(/^[-*]\s*([^:：]+)\s*[:：]\s*(.+)$/);
+      if (!match) return;
+      suggestions.push({
+        title: match[1].trim(),
+        text: match[2].trim(),
+        sourceKind: 'generated_study_support',
+        reviewStatus: 'needs_review'
+      });
+    });
+  });
+  return suggestions.filter(function(item, index) {
+    return suggestions.findIndex(function(candidate) {
+      return candidate.title === item.title && candidate.text === item.text;
+    }) === index;
+  });
+}
 
-  var readingPart = clean.slice(0, taskStart).trim();
-  // Remove the "Прочитайте текст и выполните задание к нему." instruction
-  readingPart = readingPart.replace(/^Прочитайте текст и выполните задание к нему\.?\s*/i, '').trim();
+function vocabularyKeysOverlap(left, right) {
+  var leftKeys = vocabularyLookupCandidates(left);
+  var rightKeys = vocabularyLookupCandidates(right);
+  return leftKeys.some(function(leftKey) {
+    return rightKeys.some(function(rightKey) {
+      if (leftKey === rightKey) return true;
+      if (leftKey.length < 5 || rightKey.length < 5) return false;
+      return leftKey.slice(0, Math.max(4, leftKey.length - 2)) === rightKey.slice(0, Math.max(4, rightKey.length - 2));
+    });
+  });
+}
 
-  if (readingPart.length < 50) return null;
+function attachVocabularyStudyData(items, vocabularyExamples) {
+  var enriched = items.map(function(item) {
+    var lookupValue = item.word || '';
+    var relatedExamples = lookupValue ? vocabularyExamples.filter(function(example) {
+      return vocabularyKeysOverlap(lookupValue, example.word);
+    }) : [];
+    return Object.assign({}, item, {
+      sourceExamples: relatedExamples,
+      dictionary: lookupValue && item.kind !== 'verb-family' ? findVocabularyReference(lookupValue) : null
+    });
+  });
+  vocabularyExamples.forEach(function(example) {
+    var alreadyRepresented = enriched.some(function(item) {
+      return item.word && vocabularyKeysOverlap(item.word, example.word);
+    });
+    if (alreadyRepresented) return;
+    enriched.push({
+      word: example.word,
+      task: '本主题词汇',
+      sourceExamples: [example],
+      dictionary: findVocabularyReference(example.word)
+    });
+  });
+  return enriched;
+}
 
-  return {
-    text: readingPart,
-    sourcePage: null,
-    note: readingPart.match(/опрос|исследовани|данны|респондент|мониторинг/i) ? '调查类文本' :
-          readingPart.match(/объявлен|фирм|ваканси|работ/i) ? '招聘/广告类文本' : '信息类文本'
-  };
+function parseInputMaterials(subsections) {
+  var materials = [];
+  subsections.forEach(function(sub, index) {
+    if (!isInputMaterialSubsection(sub.title || '')) return;
+    var text = cleanContent(sub.content);
+    if (text.length < 50) return;
+    var sourcePage = detectSourcePage(sub.content);
+    materials.push({
+      id: 'input-' + (sourcePage || 'unknown') + '-' + (index + 1),
+      title: sub.title,
+      text: text,
+      sourcePage: sourcePage || null,
+      sourceKind: 'original_book'
+    });
+  });
+  return materials;
+}
+
+function hasExplicitWritingInstruction(text) {
+  return /Напишите|Написать|Составьте\s+(?:информационное сообщение|письменное сообщение|сообщение|письмо|факс|заявление|объявление|резюме|аннотацию)|Оформите|Тема\s+эссе|эссе\s+(?:на\s+)?(?:одну\s+из\s+)?тем/iu.test(text);
+}
+
+function hasWrittenArgumentInstruction(text) {
+  return /(?:Согласитесь|Опровергните|Сравните|Согласны ли вы)[\s\S]{0,500}(?:Обоснуйте|аргумент|свою точку зрения|конкретн(?:ые|ыми) пример)/iu.test(text);
+}
+
+function isOralOnlyBlock(text) {
+  return /Позвоните|Расспросите|Проведите\s+беседу|Обсудите|Побеседуйте|Поговорите|Убедите|Диалог|Монолог/iu.test(text) && !hasExplicitWritingInstruction(text);
+}
+
+function buildTaskId(chapterId, sourcePage, ordinal) {
+  return chapterId + '-w-p' + (sourcePage || 'unknown') + '-' + String(ordinal).padStart(2, '0');
+}
+
+function getRelatedInputMaterialIds(inputMaterials, sourcePage) {
+  var candidates = inputMaterials.filter(function(material) {
+    return material.sourcePage && sourcePage && material.sourcePage <= sourcePage;
+  });
+  if (!candidates.length) return [];
+  return [candidates[candidates.length - 1].id];
 }
 
 // ─── Parse writing tasks from subsections ───
-function parseWritingTasks(subsections) {
+function parseWritingTasks(subsections, chapterId, inputMaterials) {
   var tasks = [];
 
   subsections.forEach(function(sub) {
@@ -302,11 +550,16 @@ function parseWritingTasks(subsections) {
     var taskBlocks = splitTaskBlocks(clean);
 
     taskBlocks.forEach(function(block) {
-      var trimmed = block.trim();
+      var trimmed = block.trim().replace(/^来源:\s*(?:,\s*)?/gim, '').trim();
       if (!trimmed || trimmed.length < 10) return;
 
       // Skip pure reading text blocks
       if (trimmed.match(/^(?:Почти|Большинство|В каких|Исследование|В столице|По данным|Согласно)/)) return;
+      if (/^(?:来源:\s*)?Прочитайте\s+/iu.test(trimmed) && !hasExplicitWritingInstruction(trimmed)) return;
+      if (isMixedSubsection(title) && !hasExplicitWritingInstruction(trimmed) && !hasWrittenArgumentInstruction(trimmed)) return;
+      if (isOralOnlyBlock(trimmed)) return;
+      if (!isWritingSubsection(title) && !hasExplicitWritingInstruction(trimmed) && !hasWrittenArgumentInstruction(trimmed)) return;
+      if (!hasExplicitWritingInstruction(trimmed) && !hasWrittenArgumentInstruction(trimmed)) return;
 
       var taskType = detectTaskType(trimmed, title);
       var taskTitle = detectTaskTitle(trimmed, title, tasks.length);
@@ -321,12 +574,16 @@ function parseWritingTasks(subsections) {
       }
 
       tasks.push({
+        taskId: buildTaskId(chapterId, sourcePage, tasks.length + 1),
         type: taskType,
         title: taskTitle,
         prompt: trimmed,
         requirements: requirements.length > 0 ? requirements : undefined,
         time: timeLimit,
-        sourcePage: sourcePage
+        sourcePage: sourcePage,
+        inputMaterialIds: getRelatedInputMaterialIds(inputMaterials, sourcePage),
+        sourceKind: 'original_book',
+        reviewStatus: 'needs_review'
       });
     });
   });
@@ -335,22 +592,37 @@ function parseWritingTasks(subsections) {
 }
 
 function splitTaskBlocks(content) {
-  // Split by lettered markers а), б), в), г) or key task-starting words
-  var parts = content.split(/\n(?=[а-г]\)\s|[a-d]\)\s|(?:\d+\.\s)?(?:Напишите|Составьте|Проведите|Сравните|Согласитесь|Вы\s|Прочитайте|Передайте|На\s+основе))/);
-  return parts.filter(function(p) { return p.trim().length > 0; });
+  var markers = /^(?:[\u0430\u0431\u0432\u0433a-d]\)|#{0,4}\s*Задание\s+\d+:|(?:\d+\.\s)?(?:Напишите|Составьте|Проведите|Сравните|Согласитесь|Прочитайте|Передайте|На\s+основе))/gmi;
+  var matches = [], match;
+  while ((match = markers.exec(content))) matches.push({ index: match.index, token: match[0] });
+  if (!matches.length) return [content];
+
+  var prefix = content.slice(0, matches[0].index).trim();
+  var letteredFirst = /^[\u0430\u0431\u0432\u0433a-d]\)/i.test(matches[0].token);
+  var parts = [];
+  for (var i = 0; i < matches.length; i++) {
+    var block = content.slice(matches[i].index, i + 1 < matches.length ? matches[i + 1].index : content.length).trim();
+    if (letteredFirst && prefix) block = prefix + '\n' + block;
+    else if (i === 0 && prefix) block = prefix + '\n' + block;
+    if (block) parts.push(block);
+  }
+  return parts;
 }
 
 function detectTaskType(content, sectionTitle) {
+  var contentText = content.toLowerCase();
   var text = (content + ' ' + sectionTitle).toLowerCase();
+  if (content.match(/согласитесь|согласны ли вы|опровергните|сравните|приведите свои аргументы|скажите,?\s+в\s+каком\s+городе/i)) return 'аргументация';
+  if (contentText.includes('жалоб') || contentText.includes('претенз')) return 'жалоба';
+  if (contentText.includes('благодарност')) return 'благодарность';
+  if (contentText.includes('эссе')) return 'эссе';
   if (text.includes('эссе')) return 'эссе';
-  if (text.includes('жалоб') && text.includes('благодарност')) return 'жалоба / благодарность';
-  if (text.includes('жалоб') || text.includes('претенз')) return 'жалоба';
-  if (text.includes('благодарност')) return 'благодарность';
   if (text.includes('сообщен')) return 'сообщение';
   if (text.includes('рекомендац') || text.includes('рекоменд')) return 'рекомендация';
   if (text.includes('резюме')) return 'резюме';
   if (text.includes('аннотац')) return 'аннотация';
   if (text.includes('заявлен')) return 'заявление';
+  if (text.includes('объявлен')) return 'объявление';
   if (text.includes('аргумент') || text.includes('опроверг') || text.includes('согласитесь')) return 'аргументация';
   if (text.includes('письм') || text.includes('напишите')) return 'письмо';
   if (text.includes('перефраз') || text.includes('перифраз')) return 'перефразирование';
@@ -358,16 +630,19 @@ function detectTaskType(content, sectionTitle) {
 }
 
 function detectTaskTitle(content, sectionTitle, index) {
+  var contentText = content.toLowerCase();
   var text = (content + ' ' + sectionTitle).toLowerCase();
+  if (content.match(/согласитесь|согласны ли вы|опровергните|сравните|приведите свои аргументы|скажите,?\s+в\s+каком\s+городе/i)) return '论证与反驳（аргументация）';
+  if (contentText.includes('жалоб') || contentText.includes('претенз')) return '投诉信（жалоба）';
+  if (contentText.includes('благодарност')) return '感谢信（благодарность）';
+  if (contentText.includes('эссе')) return '议论文（эссе）';
   if (text.includes('эссе')) return '议论文（эссе）';
-  if (text.includes('жалоб') && text.includes('благодарност')) return '投诉信 / 感谢信';
-  if (text.includes('жалоб') || text.includes('претенз')) return '投诉信（жалоба）';
-  if (text.includes('благодарност')) return '感谢信（благодарность）';
   if (text.includes('сообщен')) return '信息性 сообщение';
   if (text.includes('рекомендац') || text.includes('рекоменд')) return '推荐信（рекомендация）';
   if (text.includes('резюме')) return '简历（резюме）';
   if (text.includes('аннотац')) return '摘要（аннотация）';
   if (text.includes('заявлен')) return '申请书（заявление）';
+  if (text.includes('объявлен')) return '公告/启事（объявление）';
   if (text.includes('перефраз') || text.includes('перифраз')) return '改写（перефразирование）';
   if (text.includes('аргумент') || text.includes('опроверг')) return '论证与反驳（аргументация）';
   return sectionTitle || ('写作任务 ' + (index + 1));
@@ -387,7 +662,11 @@ function detectSourcePage(subContent) {
 }
 
 // ─── Parse speaking tasks from subsections ───
-function parseSpeakingTasks(subsections) {
+function buildSpeakingId(chapterId, sourcePage, ordinal) {
+  return chapterId + '-s-p' + (sourcePage || 'unknown') + '-' + String(ordinal).padStart(2, '0');
+}
+
+function parseSpeakingTasks(subsections, chapterId) {
   var tasks = [];
 
   subsections.forEach(function(sub) {
@@ -413,6 +692,7 @@ function parseSpeakingTasks(subsections) {
       if (repMatch) replica = repMatch[1].trim();
 
       tasks.push({
+        speakingId: buildSpeakingId(chapterId, detectSourcePage(sub.content), tasks.length + 1),
         type: 'диалог',
         title: extractDialogueTitle(clean, title),
         prompt: clean,
@@ -423,6 +703,7 @@ function parseSpeakingTasks(subsections) {
 
     if (hasIntents && !hasDialogue) {
       tasks.push({
+        speakingId: buildSpeakingId(chapterId, detectSourcePage(sub.content), tasks.length + 1),
         type: 'интенции',
         title: 'интенции 识别',
         prompt: clean,
@@ -434,6 +715,7 @@ function parseSpeakingTasks(subsections) {
     // If nothing specific matched but it's a speaking section
     if (tasks.length === 0) {
       tasks.push({
+        speakingId: buildSpeakingId(chapterId, detectSourcePage(sub.content), tasks.length + 1),
         type: 'диалог',
         title: title || '口语任务',
         prompt: clean,
@@ -574,6 +856,57 @@ function parseStudySupport(sections) {
   return support;
 }
 
+function supportMatchesTask(label, task) {
+  var text = (label || '').toLowerCase();
+  var type = (task.type || '').toLowerCase();
+  if (type.indexOf('эссе') >= 0) return /эссе|аргумент|позици|мнение/.test(text);
+  if (type.indexOf('жалоб') >= 0) return /жалоб|претенз/.test(text);
+  if (type.indexOf('рекомендац') >= 0) return /рекомендац/.test(text);
+  if (type.indexOf('сообщен') >= 0) return /сообщен|информацион|факс|делов/.test(text);
+  if (type.indexOf('заявлен') >= 0) return /заявлен/.test(text);
+  if (type.indexOf('письм') >= 0) return /письм|благодарност/.test(text);
+  if (type.indexOf('перефраз') >= 0) return /перефраз/.test(text);
+  return false;
+}
+
+function addTaskLinksToStudySupport(support, writingTasks) {
+  function taskIdsFor(label) {
+    return writingTasks.filter(function(task) { return supportMatchesTask(label, task); }).map(function(task) { return task.taskId; });
+  }
+
+  support.expressions = support.expressions.map(function(expression) {
+    return Object.assign({}, expression, {
+      appliesToTaskIds: taskIdsFor((expression.category || '') + ' ' + (expression.ru || '')),
+      sourceKind: 'generated_study_support'
+    });
+  });
+  support.outputFrameworks = support.outputFrameworks.map(function(framework) {
+    return Object.assign({}, framework, {
+      appliesToTaskIds: taskIdsFor(framework.for || ''),
+      sourceKind: 'generated_study_support'
+    });
+  });
+  support.scoringRisks = support.scoringRisks.map(function(risk) {
+    return {
+      text: risk,
+      appliesToTaskIds: taskIdsFor(risk),
+      sourceKind: 'generated_study_support'
+    };
+  });
+  support.modelAnswers = Object.keys(support.modelAnswers).map(function(key) {
+    var text = support.modelAnswers[key];
+    return {
+      id: 'model-' + key,
+      title: key.replace(/_/g, ' '),
+      text: text,
+      appliesToTaskIds: taskIdsFor(key + ' ' + text.slice(0, 140)),
+      sourceKind: 'generated_study_support'
+    };
+  });
+  support.label = '学习辅助 · AI 生成 · 未经人工核对';
+  return support;
+}
+
 // ─── Topic ordering ───
 function getTopicOrder(filename) {
   var match = filename.match(/Тема\s+(\d+)\.(\d+)/);
@@ -582,7 +915,7 @@ function getTopicOrder(filename) {
 }
 
 // ─── Parse a single file ───
-function parseMarkdownFile(filePath) {
+function parseMarkdownFile(filePath, chapterId) {
   var content = fs.readFileSync(filePath, 'utf8');
   var parsed = splitFrontmatterAndBody(content);
   var frontmatter = parsed.frontmatter;
@@ -597,23 +930,31 @@ function parseMarkdownFile(filePath) {
   // §1 subsections
   var subsections = section1 ? splitIntoSubsections(section1.content) : [];
 
-  // Vocab prep
-  var vocabSub = subsections.find(function(s) { return isVocabSubsection(s.title); });
-  var vocabularyPrep = vocabSub ? parseVocabPrep(vocabSub.content) : [];
+  // Vocabulary preparation is often split into a word list and a separate
+  // "meaning transfer" subsection. Both belong to the same pre-writing phase.
+  var vocabSubsections = subsections.filter(function(s) {
+    return isVocabSubsection(s.title) || isVocabRephraseSubsection(s.title);
+  });
+  var rawVocabularyPrep = [];
+  vocabSubsections.forEach(function(subsection) {
+    rawVocabularyPrep = rawVocabularyPrep.concat(parseVocabPrep(subsection.content));
+  });
+  var vocabularyExamples = parseVocabularyExamples(sections);
+  var vocabularyPrep = attachVocabularyStudyData(rawVocabularyPrep, vocabularyExamples);
+  var cardSuggestions = parseCardSuggestions(sections);
 
-  // Reading material from first writing subsection (usually §1.2)
-  var readingMaterial = null;
-  var firstWritingSub = subsections.find(function(s) { return isWritingSubsection(s.title) && s.title.match(/1\.2|сообщение/); });
-  if (firstWritingSub) readingMaterial = parseReadingMaterial(firstWritingSub.content);
+  var inputMaterials = parseInputMaterials(subsections);
 
   // Writing tasks
-  var writingTasks = parseWritingTasks(subsections);
+  var writingTasks = parseWritingTasks(subsections, chapterId, inputMaterials);
 
   // Speaking tasks
-  var speakingTasks = parseSpeakingTasks(subsections);
+  var speakingTasks = parseSpeakingTasks(subsections, chapterId);
 
   // Study support
-  var studySupport = parseStudySupport(sections);
+  var studySupport = addTaskLinksToStudySupport(parseStudySupport(sections), writingTasks);
+  studySupport.vocabularyExamples = vocabularyExamples;
+  studySupport.cardSuggestions = cardSuggestions;
 
   return {
     id: '',
@@ -624,7 +965,8 @@ function parseMarkdownFile(filePath) {
     sourcePages: frontmatter.source_pages || [],
     status: frontmatter.status || 'generated',
     reviewStatus: frontmatter.needs_review ? 'needs_review' : 'reviewed',
-    readingMaterial: readingMaterial,
+    readingMaterial: inputMaterials[0] || null,
+    inputMaterials: inputMaterials,
     vocabularyPrep: vocabularyPrep,
     writingTasks: writingTasks,
     speakingTasks: speakingTasks,
@@ -638,17 +980,13 @@ function parseMarkdownFile(filePath) {
 }
 
 // ─── Main ───
-function main() {
-  if (!fs.existsSync(SOURCE_DIR)) {
-    console.error('Source directory not found:', SOURCE_DIR);
-    process.exit(1);
-  }
+function buildWritingSpeaking(sourceDir, outputDir) {
+  var sourcePath = sourceDir || SOURCE_DIR;
+  var outputPath = outputDir || OUTPUT_DIR;
+  if (!fs.existsSync(sourcePath)) throw new Error('Source directory not found: ' + sourcePath);
+  if (!fs.existsSync(outputPath)) fs.mkdirSync(outputPath, { recursive: true });
 
-  if (!fs.existsSync(OUTPUT_DIR)) {
-    fs.mkdirSync(OUTPUT_DIR, { recursive: true });
-  }
-
-  var files = fs.readdirSync(SOURCE_DIR)
+  var files = fs.readdirSync(sourcePath)
     .filter(function(f) { return f.endsWith('.md'); })
     .filter(function(f) { return !f.includes('Методический комментарий') && !f.includes('附录'); });
 
@@ -663,17 +1001,18 @@ function main() {
 
   var results = [];
   files.forEach(function(file, index) {
-    var filePath = path.join(SOURCE_DIR, file);
+    var filePath = path.join(sourcePath, file);
     console.log('[' + (index + 1) + '/' + files.length + '] ' + file);
 
     try {
-      var data = parseMarkdownFile(filePath);
       var order = getTopicOrder(file);
-      data.id = 'ws-t' + order.section + '.' + order.topic;
+      var chapterId = 'ws-t' + order.section + '.' + order.topic;
+      var data = parseMarkdownFile(filePath, chapterId);
+      data.id = chapterId;
       data.index = index;
 
       var chapterFile = 'ch' + String(index).padStart(4, '0') + '.json';
-      fs.writeFileSync(path.join(OUTPUT_DIR, chapterFile), JSON.stringify(data, null, 2), 'utf8');
+      fs.writeFileSync(path.join(outputPath, chapterFile), JSON.stringify(data, null, 2), 'utf8');
 
       console.log('  → ' + chapterFile + '  section=' + data.section);
       console.log('    vocabPrep=' + data.vocabularyPrep.length +
@@ -703,7 +1042,15 @@ function main() {
   var failed = results.filter(function(r) { return !r.success; }).length;
   console.log('\n═══════════════════════════════');
   console.log('Done: ' + succeeded + ' success, ' + failed + ' failed');
-  console.log('Output: ' + OUTPUT_DIR);
+  console.log('Output: ' + outputPath);
+  return results;
 }
 
-main();
+if (require.main === module) buildWritingSpeaking();
+
+module.exports = {
+  buildWritingSpeaking: buildWritingSpeaking,
+  parseMarkdownFile: parseMarkdownFile,
+  parseWritingTasks: parseWritingTasks,
+  splitTaskBlocks: splitTaskBlocks
+};

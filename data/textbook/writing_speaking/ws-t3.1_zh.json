@@ -75,5 +75,54 @@
       "动词体的辨析是语法测试的重点，需要注意体的对应关系。",
       "OCR 中部分页面编号和格式有噪声，正式版需对照 PDF。词语配对需要准确，错误的简单同义句式表达：成为 标题：……"
     ]
-  }
+  },
+  "taskTranslationsById": {
+    "ws-t3.1-w-p127-01": {
+      "prompt": "来源： 朋友工作累了，周末来莫斯科。请根据广告材料推荐一个地方。写一封非正式信件。 广告材料：“漫画”展览 / “Vinzavod”艺术中心航天博物馆——讲座厅契诃夫 / 凡比洛夫剧院“美食！”烹饪节免费电影布尔加科夫博物馆 完成时间——20分钟。",
+      "source": "legacy-array-alignment",
+      "legacyIndex": 0,
+      "reviewStatus": "needs_review"
+    },
+    "ws-t3.1-w-p128-02": {
+      "prompt": "同意或反驳以下观点。请给出你的论据：压力是舒适的另一面。压力有助于动员潜能。应该总是分析发生的事情。任务 2：什么会让您处于压力状态？请讲述可能让您处于压力状态的情境。任务 3：议论文",
+      "source": "legacy-array-alignment",
+      "legacyIndex": 2,
+      "reviewStatus": "needs_review"
+    },
+    "ws-t3.1-w-p138-04": {
+      "prompt": "b) 你的朋友不喜欢节日，在节假日总是感到无聊。给朋友写一条消息，就如何过节提出建议。 完成时间——20分钟。",
+      "source": "legacy-array-alignment",
+      "legacyIndex": 5,
+      "reviewStatus": "needs_review"
+    },
+    "ws-t3.1-w-p128-03": {
+      "prompt": "同意或反驳以下观点。请给出你的论据：压力是舒适的另一面。压力有助于动员潜能。应该总是分析发生的事情。任务 2：什么会让您处于压力状态？请讲述可能让您处于压力状态的情境。任务 3：议论文",
+      "source": "legacy-array-alignment",
+      "legacyIndex": 2,
+      "reviewStatus": "needs_review"
+    },
+    "ws-t3.1-w-p138-05": {
+      "prompt": "b) 你的朋友不喜欢节日，在节假日总是感到无聊。给朋友写一条消息，就如何过节提出建议。 完成时间——20分钟。",
+      "source": "legacy-array-alignment",
+      "legacyIndex": 5,
+      "reviewStatus": "needs_review"
+    }
+  },
+  "taskTranslationStatus": "needs_review",
+  "taskTranslationContract": "taskId-v1",
+  "speakingTranslationsById": {
+    "ws-t3.1-s-p126-01": {
+      "prompt": "来源：任务 1：关于压力的会议对话您正在参加一个国际会议。在讨论过程中，人们对压力问题提出了不同的观点。 您的任务： a) 使用同义句式同意所表达的观点。使用反义词反对所表达的观点。 讨论的话语：“处于压力之下的人数在持续增长。”“不断的忙乱并不能带来我们预期的结果。”“然而，能够分析失败的人……最终会成为赢家。”任务 2：确定交际意图阅读给出的表达方式，并确定它们传达了哪些意图：建议惊讶怀疑不同意任务 3：对话——朋友分享对压力的看法朋友分享自己对压力问题的看法。请表达：怀疑不同意安慰 / 惊讶建议任务 4：说服一位熟人一位女性熟人与丈夫离婚了，现在很后悔。说服她她是做对了。[ST:任务 1：关于节日的对话您在与朋友们讨论节日。 a) 同意所表达的观点。 b) 反对所表达的观点。 这些话语与节日的讨论相关。任务 2：确定交际意图确定给出的表达方式传达了哪些意图：赞赏赞同建议不赞同任务 3：熟人讲述跨年一位女性熟人讲述她是如何过新年的。请表达：赞赏赞同不赞同建议任务 4：说服一位熟人一位女性熟人预订了儿童派对的策划组织服务，现在很后悔。说服她她是做对了。",
+      "source": "legacy-array-alignment",
+      "legacyIndex": 0,
+      "reviewStatus": "needs_review"
+    },
+    "ws-t3.1-s-p139-02": {
+      "prompt": "来源:任务 1：关于节日的对话你正在与朋友讨论节日。 a) 赞同所表达的观点。 b) 不赞同所表达的观点。 话语与节日的讨论相关。任务 2：确定意图确定所给出的表达传递了哪些意图：钦佩 / 赞叹赞同 / 认可建议不赞同 / 反对任务 3：熟人讲述跨年经历一位熟人讲述了她是如何跨年的。请表达：钦佩 / 赞叹赞同 / 认可不赞同 / 反对建议任务 4：说服熟人一位熟人预订了儿童派对策划服务，现在有些后悔。请说服她，让她相信自己做出了正确的选择。",
+      "source": "legacy-array-alignment",
+      "legacyIndex": 1,
+      "reviewStatus": "needs_review"
+    }
+  },
+  "speakingTranslationStatus": "needs_review"
 }

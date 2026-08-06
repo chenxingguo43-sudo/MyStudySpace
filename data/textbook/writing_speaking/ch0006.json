@@ -26,57 +26,455 @@
   "status": "generated",
   "reviewStatus": "needs_review",
   "readingMaterial": null,
+  "inputMaterials": [],
   "vocabularyPrep": [
     {
       "word": "работодатель",
-      "task": "解释并造句"
+      "task": "解释并造句",
+      "sourceExamples": [
+        {
+          "word": "работодатель",
+          "sentence": "[来源待补 — 本主题词汇表核心词]",
+          "sourceKind": "source_example",
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "dictionary": {
+        "word": "работода́тель",
+        "meaning": "雇主",
+        "type": "noun",
+        "gender": "masculine",
+        "aspect": "",
+        "pair": "",
+        "caseGov": "",
+        "grammarTable": "| 格 | 单数 | 复数 |\n|------|------|------|\n| 主格 | работодатель | работодателы |\n| 属格 | работодательа | работодательов |\n| 与格 | работодательу | работодательам |\n| 宾格 | работодатель | работодателы |\n| 工具格 | работодательом | работодательами |\n| 前格 | работодателье | работодательах |",
+        "detailZh": "",
+        "collocations": [],
+        "examples": [
+          {
+            "ru": "работода́тель о́чень удо́бный в испо́льзовании — я дово́лен.",
+            "zh": "这个雇主用起来特别顺手。"
+          }
+        ],
+        "sourceKind": "project_dictionary",
+        "reviewStatus": "needs_review"
+      }
     },
     {
       "word": "надомная работа",
-      "task": "解释并造句"
+      "task": "解释并造句",
+      "sourceExamples": [
+        {
+          "word": "надомная работа",
+          "sentence": "Оптимальный рабочий день при **надомной работе** — 4 часа.",
+          "sourceKind": "source_example",
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "dictionary": null
     },
     {
       "word": "соискатель",
-      "task": "解释并造句"
+      "task": "解释并造句",
+      "sourceExamples": [
+        {
+          "word": "соискатель",
+          "sentence": "[来源待补 — 本主题词汇表核心词]",
+          "sourceKind": "source_example",
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "dictionary": null
     },
     {
       "word": "поле деятельности",
-      "task": "解释并造句"
+      "task": "解释并造句",
+      "sourceExamples": [
+        {
+          "word": "поле деятельности",
+          "sentence": "[来源待补 — 本主题词汇表核心词]",
+          "sourceKind": "source_example",
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "dictionary": null
     },
     {
       "word": "высокопоставленный человек",
-      "task": "解释并造句"
+      "task": "解释并造句",
+      "sourceExamples": [],
+      "dictionary": null
     },
     {
       "word": "вести домашнее хозяйство",
-      "task": "解释并造句"
+      "task": "解释并造句",
+      "sourceExamples": [
+        {
+          "word": "вести домашнее хозяйство",
+          "sentence": "[来源待补 — 本主题词汇表核心词]",
+          "sourceKind": "source_example",
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "dictionary": null
     },
     {
       "word": "няня",
-      "task": "解释并造句"
+      "task": "解释并造句",
+      "sourceExamples": [
+        {
+          "word": "няня",
+          "sentence": "Можно нанять **няню** — ответственную соседку-пенсионерку.",
+          "sourceKind": "source_example",
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "dictionary": {
+        "word": "няня",
+        "meaning": "保姆，保育员",
+        "type": "noun",
+        "gender": "feminine",
+        "aspect": "",
+        "pair": "",
+        "caseGov": "",
+        "grammarTable": "",
+        "detailZh": "няня 是照看孩子的女性。含义：1）照顾孩子的人（家庭保姆、婴儿保姆）；2）幼儿园的保育员（幼儿园的保育员）；3）历史上：乳母、养育者（普希金的保姆阿丽娜·罗季昂诺夫娜）。在现代社会，保姆是一门需要育儿技能的专业职业。",
+        "collocations": [
+          {
+            "phrase": "детская няня",
+            "ru": "Мы наняли детскую няню.",
+            "zh": "我们雇了一个儿童保姆。"
+          },
+          {
+            "phrase": "няня для малыша",
+            "ru": "Нам нужна няня для малыша.",
+            "zh": "我们需要一个照看婴儿的保姆。"
+          },
+          {
+            "phrase": "няня в детском саду",
+            "ru": "Она работает няней в детском саду.",
+            "zh": "她在幼儿园当保育员。"
+          },
+          {
+            "phrase": "няня Пушкина",
+            "ru": "Няня Пушкина — Арина Родионовна.",
+            "zh": "普希金的保姆是阿丽娜·罗季昂诺夫娜。"
+          }
+        ],
+        "examples": [
+          {
+            "ru": "прежний заработок 8. то, семья, то, квалификация 9. вы, компьютер, работодатель, вы, он, те, компания 10. вы, ребёнок, домашнее хозяйство _ 13. ==няня==, лавочка, бабушки, ваш малыш _ 14 ваше желание СВ М.Н. Макова, 0.А. Ускова. В мире людей. Выпуск 1. Письмо. Говорение п",
+            "zh": "我出生于1922年4月，受难日星期六（复活节前的星期六）。我出生在至今仍居住的同一套公寓里。这实际上是一个极其罕见的案例。我的母亲在那套公寓里去世。我的保姆也在那套公寓里去世。我说这些是为了说明，这在很大程度上决定了我的性格和活动方式。"
+          }
+        ],
+        "sourceKind": "project_dictionary",
+        "reviewStatus": "needs_review"
+      }
     },
     {
       "word": "сидеть с ребёнком",
-      "task": "解释并造句"
+      "task": "解释并造句",
+      "sourceExamples": [
+        {
+          "word": "сидеть с ребёнком",
+          "sentence": "[来源待补 — 本主题词汇表核心词]",
+          "sourceKind": "source_example",
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "dictionary": null
     },
     {
       "word": "обуза",
-      "task": "解释并造句"
+      "task": "解释并造句",
+      "sourceExamples": [
+        {
+          "word": "обуза",
+          "sentence": "[来源待补 — 本主题词汇表核心词]",
+          "sourceKind": "source_example",
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "dictionary": null
     },
     {
       "word": "вносить лепту",
-      "task": "解释并造句"
+      "task": "解释并造句",
+      "sourceExamples": [
+        {
+          "word": "вносить лепту",
+          "sentence": "[来源待补 — 本主题词汇表核心词]",
+          "sourceKind": "source_example",
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "dictionary": null
+    },
+    {
+      "word": "добытчик",
+      "task": "本主题词汇",
+      "sourceExamples": [
+        {
+          "word": "добытчик",
+          "sentence": "[来源待补 — ]",
+          "sourceKind": "source_example",
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "dictionary": null
+    },
+    {
+      "word": "домохозяйка",
+      "task": "本主题词汇",
+      "sourceExamples": [
+        {
+          "word": "домохозяйка",
+          "sentence": "[来源待补 — ]",
+          "sourceKind": "source_example",
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "dictionary": {
+        "word": "домохозяйка",
+        "meaning": "家庭主妇",
+        "type": "noun",
+        "gender": "feminine",
+        "aspect": "",
+        "pair": "",
+        "caseGov": "",
+        "grammarTable": "（待补充）",
+        "detailZh": "домохозяйка 指从事家务劳动、不从事社会职业的女性。家庭主妇的主要职责包括做饭、打扫、教育孩子、购买食品等。在现代社会中，家庭主妇的角色受到不同评价：对一些人来说是自觉选择，对另一些人则是无奈之举。",
+        "collocations": [
+          {
+            "phrase": "быть домохозяйкой",
+            "ru": "Она решила быть домохозяйкой.",
+            "zh": "她决定做家庭主妇。"
+          },
+          {
+            "phrase": "обычная домохозяйка",
+            "ru": "Обычная домохозяйка встаёт в шесть утра.",
+            "zh": "普通家庭主妇早上六点起床。"
+          },
+          {
+            "phrase": "стать домохозяйкой",
+            "ru": "После рождения ребёнка она стала домохозяйкой.",
+            "zh": "孩子出生后她成了家庭主妇。"
+          },
+          {
+            "phrase": "жизнь домохозяйки",
+            "ru": "Жизнь домохозяйки непроста.",
+            "zh": "家庭主妇的生活并不轻松。"
+          }
+        ],
+        "examples": [
+          {
+            "ru": "\"Примите участие в обсуждении проблем, поднятых в интервью:",
+            "zh": ""
+          }
+        ],
+        "sourceKind": "project_dictionary",
+        "reviewStatus": "needs_review"
+      }
+    },
+    {
+      "word": "перечень / список",
+      "task": "本主题词汇",
+      "sourceExamples": [
+        {
+          "word": "перечень / список",
+          "sentence": "[来源待补]",
+          "sourceKind": "source_example",
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "dictionary": null
+    },
+    {
+      "word": "вакансия / свободное место",
+      "task": "本主题词汇",
+      "sourceExamples": [
+        {
+          "word": "вакансия / свободное место",
+          "sentence": "[来源待补]",
+          "sourceKind": "source_example",
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "dictionary": null
+    },
+    {
+      "word": "заработок / зарплата",
+      "task": "本主题词汇",
+      "sourceExamples": [
+        {
+          "word": "заработок / зарплата",
+          "sentence": "[来源待补]",
+          "sourceKind": "source_example",
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "dictionary": null
+    },
+    {
+      "word": "сотрудник / работник",
+      "task": "本主题词汇",
+      "sourceExamples": [
+        {
+          "word": "сотрудник / работник",
+          "sentence": "[来源待补]",
+          "sourceKind": "source_example",
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "dictionary": null
+    },
+    {
+      "word": "карапуз / малыш",
+      "task": "本主题词汇",
+      "sourceExamples": [
+        {
+          "word": "карапуз / малыш",
+          "sentence": "[来源待补]",
+          "sourceKind": "source_example",
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "dictionary": null
+    },
+    {
+      "word": "качественно / хорошо",
+      "task": "本主题词汇",
+      "sourceExamples": [
+        {
+          "word": "качественно / хорошо",
+          "sentence": "[来源待补]",
+          "sourceKind": "source_example",
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "dictionary": null
+    },
+    {
+      "word": "лишь / только",
+      "task": "本主题词汇",
+      "sourceExamples": [
+        {
+          "word": "лишь / только",
+          "sentence": "[来源待补]",
+          "sourceKind": "source_example",
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "dictionary": null
+    },
+    {
+      "word": "точно в срок / вовремя",
+      "task": "本主题词汇",
+      "sourceExamples": [
+        {
+          "word": "точно в срок / вовремя",
+          "sentence": "[来源待补]",
+          "sourceKind": "source_example",
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "dictionary": null
+    },
+    {
+      "word": "правило / исключение",
+      "task": "本主题词汇",
+      "sourceExamples": [
+        {
+          "word": "правило / исключение",
+          "sentence": "[来源待补]",
+          "sourceKind": "source_example",
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "dictionary": null
+    },
+    {
+      "word": "уход / возвращение",
+      "task": "本主题词汇",
+      "sourceExamples": [
+        {
+          "word": "уход / возвращение",
+          "sentence": "[来源待补]",
+          "sourceKind": "source_example",
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "dictionary": null
+    },
+    {
+      "word": "сомнение / уверенность",
+      "task": "本主题词汇",
+      "sourceExamples": [
+        {
+          "word": "сомнение / уверенность",
+          "sentence": "[来源待补]",
+          "sourceKind": "source_example",
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "dictionary": null
+    },
+    {
+      "word": "ответственность / халатность",
+      "task": "本主题词汇",
+      "sourceExamples": [
+        {
+          "word": "ответственность / халатность",
+          "sentence": "[来源待补]",
+          "sourceKind": "source_example",
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "dictionary": null
+    },
+    {
+      "word": "ожидаемый / неожиданный",
+      "task": "本主题词汇",
+      "sourceExamples": [
+        {
+          "word": "ожидаемый / неожиданный",
+          "sentence": "[来源待补]",
+          "sourceKind": "source_example",
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "dictionary": null
+    },
+    {
+      "word": "прежний / нынешний",
+      "task": "本主题词汇",
+      "sourceExamples": [
+        {
+          "word": "прежний / нынешний",
+          "sentence": "[来源待补]",
+          "sourceKind": "source_example",
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "dictionary": null
+    },
+    {
+      "word": "дневной / ночной",
+      "task": "本主题词汇",
+      "sourceExamples": [
+        {
+          "word": "дневной / ночной",
+          "sentence": "[来源待补]",
+          "sourceKind": "source_example",
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "dictionary": null
     }
   ],
   "writingTasks": [
     {
-      "type": "письмо",
-      "title": "1.2 Письмо: факс по материалам текста",
-      "prompt": "Прочитайте текст и выполните задание к нему.\nИсточник: газета «Элитный персонал».",
-      "time": null,
-      "sourcePage": 94
-    },
-    {
+      "taskId": "ws-t2.3-w-p94-01",
       "type": "сообщение",
       "title": "信息性 сообщение",
       "prompt": "На основе прочитанного текста составьте письменное сообщение в виде факса молодым женщинам, имеющим ребёнка и желающим получить надомную работу.\nПри этом:\n- укажите источник информации;\n- используйте общепринятые сокращения.\nВремя выполнения задания — 30 минут.\n以下为学习辅助整理，不是原书答案，需人工复核。\n核心内容概括（基于 OCR 数据）：\n- 最佳工作时间为 4 小时（标准 8 小时的一半）。\n- \"夜猫子\"型：利用孩子最长午睡时间休息，晚上 21:00–01:00 工作。\n- 替代方案：午睡时间做复杂工作，晚间 21:00–23:00 工作 2 小时。\n- 可以雇保姆：负责任的退休邻居。\n- 找到最近的儿童游乐场，让孩子与同龄人交往。\n- 一切皆有可能，关键在于工作的意愿。",
@@ -85,24 +483,30 @@
         "используйте общепринятые сокращения."
       ],
       "time": "30 分钟",
-      "sourcePage": 94
+      "sourcePage": 94,
+      "inputMaterialIds": [],
+      "sourceKind": "original_book",
+      "reviewStatus": "needs_review"
     },
     {
+      "taskId": "ws-t2.3-w-p98-02",
       "type": "рекомендация",
       "title": "推荐信（рекомендация）",
-      "prompt": "来源: \nВаш хороший знакомый — менеджер по персоналу крупной фирмы. Порекомендуйте человека на должность переводчика. Напишите дружеское, неформальное письмо.\nУкажите:\n- личностные качества;\n- деловые и профессиональные качества;\n- факты из жизни;\n- обстоятельства знакомства.\nВремя выполнения задания — 20 минут.",
+      "prompt": "Ваш хороший знакомый — менеджер по персоналу крупной фирмы. Порекомендуйте человека на должность переводчика. Напишите дружеское, неформальное письмо.\nУкажите:\n- личностные качества;\n- деловые и профессиональные качества;\n- факты из жизни;\n- обстоятельства знакомства.\nВремя выполнения задания — 20 минут.",
       "time": "20 分钟",
       "sourcePage": 98,
-      "readingTextZh": "任务 10： 您的朋友喜欢读报纸。\n\na) 使用同义句式表示赞同。\n\nб) 使用反义词表示反对。\n对话台词： “我非常喜欢读报纸。这太有趣了！”\n\n任务 11： 请指出下列表达对应的意图：\n\n愤慨 / 气愤\n\n不满\n\n怀疑\n\n建议\n\n任务 12： 正在讨论现代媒体。请表达以下意图：\n\n怀疑： “听说很快就完全没有报纸了。”\n\n不满： “真的真的。我对此还挺高兴的。”\n\n愤慨： “报纸上根本没写什么好东西。全是八卦！”\n\n建议\n\n任务 13： 朋友给孩子买了电脑，现在感到后悔。请反驳她并说服她。\n朋友的台词：\n\n电脑对孩子有坏影响。\n\n孩子学习的时间会变少。\n\n孩子会不再读书。"
+      "inputMaterialIds": [],
+      "sourceKind": "original_book",
+      "reviewStatus": "needs_review"
     }
   ],
   "speakingTasks": [
     {
+      "speakingId": "ws-t2.3-s-p96-01",
       "type": "диалог",
       "title": "对话：同意 / 不同意",
-      "prompt": "来源: \nПодруга мечтает о работе дома.\n**Задание а)** Согласитесь, используя синонимичные конструкции.\n**Задание б)** Не согласитесь, используя антонимы.\nРеплики:\n- «Мне кажется, трудиться дома — совсем нетрудно.»\n- «Ну и, конечно, важно правильно распределить своё время.»\n**Определите интенции:**\nсогласие, заинтересованность, удивление, одобрение\n**Задание 11:** Вы — начальник фирмы. Молодая сотрудница хочет работать дома. Выразите:\n- Удивление\n- Заинтересованность\n- Одобрение\n- Согласие\n**Задание 12:** Подруга-начальник разрешила сотруднице работать дома и жалеет. Возразите и убедите.\nРеплика: «Разрешила молодой сотруднице работать дома, а теперь сомневаюсь.»",
-      "sourcePage": 96,
-      "readingTextZh": "对话台词：\n\n“我的下属绝大多数都是男性，他们不会把我当回事的。”\n\n招聘广告：\n\n开放式股份公司“Avtoframos”因生产项目发展需要，现诚聘工作人员。\n\n任职要求： 高等学历、熟练掌握计算机技能、具备生产人员招聘经验、具备团队合作能力、年龄23–30岁。\n\n联系电话： 775 40 20。\n\n任务： 您对这则广告产生了兴趣。请拨打给出的电话进行详细咨询。"
+      "prompt": "Подруга мечтает о работе дома.\n**Задание а)** Согласитесь, используя синонимичные конструкции.\n**Задание б)** Не согласитесь, используя антонимы.\nРеплики:\n- «Мне кажется, трудиться дома — совсем нетрудно.»\n- «Ну и, конечно, важно правильно распределить своё время.»\n**Определите интенции:**\nсогласие, заинтересованность, удивление, одобрение\n**Задание 11:** Вы — начальник фирмы. Молодая сотрудница хочет работать дома. Выразите:\n- Удивление\n- Заинтересованность\n- Одобрение\n- Согласие\n**Задание 12:** Подруга-начальник разрешила сотруднице работать дома и жалеет. Возразите и убедите.\nРеплика: «Разрешила молодой сотруднице работать дома, а теперь сомневаюсь.»",
+      "sourcePage": 96
     }
   ],
   "grammarTest": {
@@ -111,160 +515,254 @@
   },
   "studySupport": {
     "scoringRisks": [
-      "Факс 格式错误（缺少发件人/收件人/日期/页数）会扣分。",
-      "不写信息来源，偏离任务要求。",
-      "Диалог 中如果缺少指定的 интенция（惊讶、感兴趣、赞同、同意），会丢训练重点。",
-      "Дружеское письмо 如果写成正式公函，语域不匹配。",
-      "Письмо-рекомендация 如果遗漏四个维度（个人品质、职业能力、生活事实、相识经过）中的任何一个，内容不完整。",
-      "Эссе 三种类型结构不同，不能混用。сопоставительное 强调对比，причинно-следственное 强调因果，доказательное 强调论证。",
-      "语法测试部分（виды глаголов、причастия、деепричастия）是独立的语法能力考查。",
-      "работодатель / работник / рабочий / работа 的辨析是高频考点。"
+      {
+        "text": "Факс 格式错误（缺少发件人/收件人/日期/页数）会扣分。",
+        "appliesToTaskIds": [
+          "ws-t2.3-w-p94-01"
+        ],
+        "sourceKind": "generated_study_support"
+      },
+      {
+        "text": "不写信息来源，偏离任务要求。",
+        "appliesToTaskIds": [],
+        "sourceKind": "generated_study_support"
+      },
+      {
+        "text": "Диалог 中如果缺少指定的 интенция（惊讶、感兴趣、赞同、同意），会丢训练重点。",
+        "appliesToTaskIds": [],
+        "sourceKind": "generated_study_support"
+      },
+      {
+        "text": "Дружеское письмо 如果写成正式公函，语域不匹配。",
+        "appliesToTaskIds": [],
+        "sourceKind": "generated_study_support"
+      },
+      {
+        "text": "Письмо-рекомендация 如果遗漏四个维度（个人品质、职业能力、生活事实、相识经过）中的任何一个，内容不完整。",
+        "appliesToTaskIds": [
+          "ws-t2.3-w-p98-02"
+        ],
+        "sourceKind": "generated_study_support"
+      },
+      {
+        "text": "Эссе 三种类型结构不同，不能混用。сопоставительное 强调对比，причинно-следственное 强调因果，доказательное 强调论证。",
+        "appliesToTaskIds": [],
+        "sourceKind": "generated_study_support"
+      },
+      {
+        "text": "语法测试部分（виды глаголов、причастия、деепричастия）是独立的语法能力考查。",
+        "appliesToTaskIds": [],
+        "sourceKind": "generated_study_support"
+      },
+      {
+        "text": "работодатель / работник / рабочий / работа 的辨析是高频考点。",
+        "appliesToTaskIds": [],
+        "sourceKind": "generated_study_support"
+      }
     ],
     "expressions": [
       {
         "ru": "По материалам газеты «Элитный персонал»...",
-        "zh": "根据《精英人才》报的材料……",
-        "category": "信息来源"
+        "zh": "",
+        "category": "信息来源",
+        "appliesToTaskIds": [],
+        "sourceKind": "generated_study_support"
       },
       {
         "ru": "Как сообщается в статье...",
-        "zh": "正如文章中报道的那样……",
-        "category": "信息来源"
+        "zh": "",
+        "category": "信息来源",
+        "appliesToTaskIds": [],
+        "sourceKind": "generated_study_support"
       },
       {
         "ru": "Согласно данным исследования...",
-        "zh": "根据研究数据……",
-        "category": "信息来源"
+        "zh": "",
+        "category": "信息来源",
+        "appliesToTaskIds": [],
+        "sourceKind": "generated_study_support"
       },
       {
         "ru": "надомная работа / работать на дому",
-        "zh": "居家办公 / 居家工作",
-        "category": "在家工作 / 就业"
+        "zh": "",
+        "category": "在家工作 / 就业",
+        "appliesToTaskIds": [],
+        "sourceKind": "generated_study_support"
       },
       {
         "ru": "оптимальный рабочий день",
-        "zh": "最优工作日安排",
-        "category": "在家工作 / 就业"
+        "zh": "",
+        "category": "在家工作 / 就业",
+        "appliesToTaskIds": [],
+        "sourceKind": "generated_study_support"
       },
       {
         "ru": "распределить своё время",
-        "zh": "合理分配自己的时间",
-        "category": "在家工作 / 就业"
+        "zh": "",
+        "category": "在家工作 / 就业",
+        "appliesToTaskIds": [],
+        "sourceKind": "generated_study_support"
       },
       {
         "ru": "нанять няню",
-        "zh": "雇佣保姆",
-        "category": "在家工作 / 就业"
+        "zh": "",
+        "category": "在家工作 / 就业",
+        "appliesToTaskIds": [],
+        "sourceKind": "generated_study_support"
       },
       {
         "ru": "найти ближайшую площадку для ребёнка",
-        "zh": "寻找离孩子最近的游乐场地",
-        "category": "在家工作 / 就业"
+        "zh": "",
+        "category": "在家工作 / 就业",
+        "appliesToTaskIds": [],
+        "sourceKind": "generated_study_support"
       },
       {
         "ru": "вносить лепту (в общее дело)",
-        "zh": "（为共同事业）做出贡献 / 贡献一份力量",
-        "category": "在家工作 / 就业"
+        "zh": "",
+        "category": "在家工作 / 就业",
+        "appliesToTaskIds": [],
+        "sourceKind": "generated_study_support"
       },
       {
         "ru": "Не может быть!",
-        "zh": "不可能吧！",
-        "category": "惊讶与感兴趣"
+        "zh": "",
+        "category": "惊讶与感兴趣",
+        "appliesToTaskIds": [],
+        "sourceKind": "generated_study_support"
       },
       {
         "ru": "Правда? Вот это да!",
-        "zh": "真的吗？哇！",
-        "category": "惊讶与感兴趣"
+        "zh": "",
+        "category": "惊讶与感兴趣",
+        "appliesToTaskIds": [],
+        "sourceKind": "generated_study_support"
       },
       {
         "ru": "Расскажи подробнее!",
-        "zh": "快详细讲讲！",
-        "category": "惊讶与感兴趣"
+        "zh": "",
+        "category": "惊讶与感兴趣",
+        "appliesToTaskIds": [],
+        "sourceKind": "generated_study_support"
       },
       {
         "ru": "Это действительно интересно.",
-        "zh": "这确实很有意思。",
-        "category": "惊讶与感兴趣"
+        "zh": "",
+        "category": "惊讶与感兴趣",
+        "appliesToTaskIds": [],
+        "sourceKind": "generated_study_support"
       },
       {
         "ru": "Я не ожидал(а) такого поворота.",
-        "zh": "我真没想到会有这样的转变。",
-        "category": "惊讶与感兴趣"
+        "zh": "",
+        "category": "惊讶与感兴趣",
+        "appliesToTaskIds": [],
+        "sourceKind": "generated_study_support"
       },
       {
         "ru": "Отличная идея!",
-        "zh": "好主意！ / 棒极了！",
-        "category": "赞同与同意"
+        "zh": "",
+        "category": "赞同与同意",
+        "appliesToTaskIds": [],
+        "sourceKind": "generated_study_support"
       },
       {
         "ru": "Я полностью согласен / согласна.",
-        "zh": "我完全赞同。",
-        "category": "赞同与同意"
+        "zh": "",
+        "category": "赞同与同意",
+        "appliesToTaskIds": [],
+        "sourceKind": "generated_study_support"
       },
       {
         "ru": "Безусловно, это правильный подход.",
-        "zh": "毫无疑问，这是正确的方法/途径。",
-        "category": "赞同与同意"
+        "zh": "",
+        "category": "赞同与同意",
+        "appliesToTaskIds": [],
+        "sourceKind": "generated_study_support"
       },
       {
         "ru": "Ты абсолютно прав / права.",
-        "zh": "你说的完全正确。",
-        "category": "赞同与同意"
+        "zh": "",
+        "category": "赞同与同意",
+        "appliesToTaskIds": [],
+        "sourceKind": "generated_study_support"
       },
       {
         "ru": "Я хочу порекомендовать вам...",
-        "zh": "我想向您推荐……",
-        "category": "推荐某人"
+        "zh": "",
+        "category": "推荐某人",
+        "appliesToTaskIds": [],
+        "sourceKind": "generated_study_support"
       },
       {
         "ru": "Это человек, которого я знаю уже много лет.",
-        "zh": "这是我认识多年的一个人。",
-        "category": "推荐某人"
+        "zh": "",
+        "category": "推荐某人",
+        "appliesToTaskIds": [],
+        "sourceKind": "generated_study_support"
       },
       {
         "ru": "Он / она обладает высоким профессионализмом.",
-        "zh": "他/她具备高度的专业素养。",
-        "category": "推荐某人"
+        "zh": "",
+        "category": "推荐某人",
+        "appliesToTaskIds": [],
+        "sourceKind": "generated_study_support"
       },
       {
         "ru": "Лично я могу поручиться за...",
-        "zh": "我个人可以为……担保。",
-        "category": "推荐某人"
+        "zh": "",
+        "category": "推荐某人",
+        "appliesToTaskIds": [],
+        "sourceKind": "generated_study_support"
       },
       {
         "ru": "За время нашего знакомства он / она показал(а) себя как...",
-        "zh": "在我们相识期间，他/她展现出了……",
-        "category": "推荐某人"
+        "zh": "",
+        "category": "推荐某人",
+        "appliesToTaskIds": [],
+        "sourceKind": "generated_study_support"
       },
       {
         "ru": "гендерные различия",
-        "zh": "性别差异",
-        "category": "性别与职业"
+        "zh": "",
+        "category": "性别与职业",
+        "appliesToTaskIds": [],
+        "sourceKind": "generated_study_support"
       },
       {
         "ru": "социальные роли мужчин и женщин",
-        "zh": "男女社会角色",
-        "category": "性别与职业"
+        "zh": "",
+        "category": "性别与职业",
+        "appliesToTaskIds": [],
+        "sourceKind": "generated_study_support"
       },
       {
         "ru": "равноправие полов",
-        "zh": "男女平等 / 性别平等",
-        "category": "性别与职业"
+        "zh": "",
+        "category": "性别与职业",
+        "appliesToTaskIds": [],
+        "sourceKind": "generated_study_support"
       },
       {
         "ru": "семейный очаг",
-        "zh": "家庭温情 / 家庭温馨的港湾",
-        "category": "性别与职业"
+        "zh": "",
+        "category": "性别与职业",
+        "appliesToTaskIds": [],
+        "sourceKind": "generated_study_support"
       },
       {
         "ru": "добытчик / домохозяйка",
-        "zh": "养家糊口者 / 全职家庭主妇",
-        "category": "性别与职业"
+        "zh": "",
+        "category": "性别与职业",
+        "appliesToTaskIds": [],
+        "sourceKind": "generated_study_support"
       },
       {
         "ru": "изменения в общественном сознании",
-        "zh": "社会意识的变化",
-        "category": "性别与职业"
+        "zh": "",
+        "category": "性别与职业",
+        "appliesToTaskIds": [],
+        "sourceKind": "generated_study_support"
       }
     ],
     "outputFrameworks": [
@@ -276,7 +774,11 @@
           "Основная информация: оптимальное время работы, как распределять день.",
           "Практические советы: няня, площадка для ребёнка, расписание.",
           "Заключение: ободрение, акцент на возможности совмещения работы и заботы о ребёнке."
-        ]
+        ],
+        "appliesToTaskIds": [
+          "ws-t2.3-w-p94-01"
+        ],
+        "sourceKind": "generated_study_support"
       },
       {
         "for": "Диалог с подругой",
@@ -284,7 +786,9 @@
           "Реплика подруги о работе дома.",
           "Реакция: удивление → заинтересованность → одобрение → согласие.",
           "Использование синонимичных конструкций (для согласия) или антонимов (для несогласия)."
-        ]
+        ],
+        "appliesToTaskIds": [],
+        "sourceKind": "generated_study_support"
       },
       {
         "for": "Письмо-рекомендация",
@@ -295,7 +799,11 @@
           "Профессиональные качества и достижения.",
           "Обстоятельства знакомства.",
           "Просьба рассмотреть кандидатуру."
-        ]
+        ],
+        "appliesToTaskIds": [
+          "ws-t2.3-w-p98-02"
+        ],
+        "sourceKind": "generated_study_support"
       },
       {
         "for": "Эссе (общая схема)",
@@ -304,14 +812,38 @@
           "Основная часть: аргументы / причины / точки зрения (в зависимости от типа).",
           "Своя точка зрения.",
           "Заключение: прогноз или вывод."
-        ]
+        ],
+        "appliesToTaskIds": [],
+        "sourceKind": "generated_study_support"
       }
     ],
-    "modelAnswers": {
-      "_факс": "```\nФакс\nКому: молодым женщинам, имеющим ребёнка\nОт: [Имя]\nДата: [дата]\nСтр.: 1\nУважаемые коллеги!\nПо материалам газеты «Элитный персонал» сообщаем следующую информацию для женщин, желающих получить надомную работу.\nОптимальный рабочий день при наличии маленького ребёнка составляет 4 часа. Рекомендуется работать во время дневного сна ребёнка (сложные задания) и вечером с 21:00 до 23:00. При необходимости можно нанять няню — например, ответственную соседку-пенсионерку.\nНичего невозможного нет — всё зависит от вашего желания работать.\nС уважением,\n[Имя]\n```",
-      "рекомендация": "Дорогой [Имя]!\nПишу тебе по одному делу. Знакомый моей жены, Алексей Петров, ищет работу переводчика, и я сразу подумал о тебе.\nЛёша — человек очень ответственный и коммуникабельный. За три года нашего знакомства он не раз помогал мне с переводами документов. В прошлом году он перевёл серию технических руководств для немецкой компании.",
-      "эссе_intro": "Проблема равноправия полов остаётся одной из самых обсуждаемых в современном обществе. Сторонники равноправия утверждают, что мужчины и женщины должны иметь одинаковые возможности в профессиональной и общественной жизни. Противники же считают, что различия между полами естественны и не следует их игнорировать."
-    },
+    "modelAnswers": [
+      {
+        "id": "model-_факс",
+        "title": " факс",
+        "text": "```\nФакс\nКому: молодым женщинам, имеющим ребёнка\nОт: [Имя]\nДата: [дата]\nСтр.: 1\nУважаемые коллеги!\nПо материалам газеты «Элитный персонал» сообщаем следующую информацию для женщин, желающих получить надомную работу.\nОптимальный рабочий день при наличии маленького ребёнка составляет 4 часа. Рекомендуется работать во время дневного сна ребёнка (сложные задания) и вечером с 21:00 до 23:00. При необходимости можно нанять няню — например, ответственную соседку-пенсионерку.\nНичего невозможного нет — всё зависит от вашего желания работать.\nС уважением,\n[Имя]\n```",
+        "appliesToTaskIds": [
+          "ws-t2.3-w-p94-01"
+        ],
+        "sourceKind": "generated_study_support"
+      },
+      {
+        "id": "model-рекомендация",
+        "title": "рекомендация",
+        "text": "Дорогой [Имя]!\nПишу тебе по одному делу. Знакомый моей жены, Алексей Петров, ищет работу переводчика, и я сразу подумал о тебе.\nЛёша — человек очень ответственный и коммуникабельный. За три года нашего знакомства он не раз помогал мне с переводами документов. В прошлом году он перевёл серию технических руководств для немецкой компании.",
+        "appliesToTaskIds": [
+          "ws-t2.3-w-p98-02"
+        ],
+        "sourceKind": "generated_study_support"
+      },
+      {
+        "id": "model-эссе_intro",
+        "title": "эссе intro",
+        "text": "Проблема равноправия полов остаётся одной из самых обсуждаемых в современном обществе. Сторонники равноправия утверждают, что мужчины и женщины должны иметь одинаковые возможности в профессиональной и общественной жизни. Противники же считают, что различия между полами естественны и не следует их игнорировать.",
+        "appliesToTaskIds": [],
+        "sourceKind": "generated_study_support"
+      }
+    ],
     "extraPrompts": [
       "Как вы думаете, надомная работа — это удобно или нет?",
       "Какие профессии подходят для работы на дому?",
@@ -324,6 +856,191 @@
       "Напишите дружеское письмо, в котором рекомендуете друга на должность офис-менеджера.",
       "Напишите эссе на тему «Надомная работа: за и против».",
       "Составьте диалог между начальником и сотрудницей, которая просит разрешения работать дома."
+    ],
+    "label": "学习辅助 · AI 生成 · 未经人工核对",
+    "vocabularyExamples": [
+      {
+        "word": "работодатель",
+        "sentence": "[来源待补 — 本主题词汇表核心词]",
+        "sourceKind": "source_example",
+        "reviewStatus": "needs_review"
+      },
+      {
+        "word": "надомная работа",
+        "sentence": "Оптимальный рабочий день при **надомной работе** — 4 часа.",
+        "sourceKind": "source_example",
+        "reviewStatus": "needs_review"
+      },
+      {
+        "word": "соискатель",
+        "sentence": "[来源待补 — 本主题词汇表核心词]",
+        "sourceKind": "source_example",
+        "reviewStatus": "needs_review"
+      },
+      {
+        "word": "поле деятельности",
+        "sentence": "[来源待补 — 本主题词汇表核心词]",
+        "sourceKind": "source_example",
+        "reviewStatus": "needs_review"
+      },
+      {
+        "word": "вести домашнее хозяйство",
+        "sentence": "[来源待补 — 本主题词汇表核心词]",
+        "sourceKind": "source_example",
+        "reviewStatus": "needs_review"
+      },
+      {
+        "word": "няня",
+        "sentence": "Можно нанять **няню** — ответственную соседку-пенсионерку.",
+        "sourceKind": "source_example",
+        "reviewStatus": "needs_review"
+      },
+      {
+        "word": "сидеть с ребёнком",
+        "sentence": "[来源待补 — 本主题词汇表核心词]",
+        "sourceKind": "source_example",
+        "reviewStatus": "needs_review"
+      },
+      {
+        "word": "обуза",
+        "sentence": "[来源待补 — 本主题词汇表核心词]",
+        "sourceKind": "source_example",
+        "reviewStatus": "needs_review"
+      },
+      {
+        "word": "вносить лепту",
+        "sentence": "[来源待补 — 本主题词汇表核心词]",
+        "sourceKind": "source_example",
+        "reviewStatus": "needs_review"
+      },
+      {
+        "word": "добытчик",
+        "sentence": "[来源待补 — ]",
+        "sourceKind": "source_example",
+        "reviewStatus": "needs_review"
+      },
+      {
+        "word": "домохозяйка",
+        "sentence": "[来源待补 — ]",
+        "sourceKind": "source_example",
+        "reviewStatus": "needs_review"
+      },
+      {
+        "word": "перечень / список",
+        "sentence": "[来源待补]",
+        "sourceKind": "source_example",
+        "reviewStatus": "needs_review"
+      },
+      {
+        "word": "вакансия / свободное место",
+        "sentence": "[来源待补]",
+        "sourceKind": "source_example",
+        "reviewStatus": "needs_review"
+      },
+      {
+        "word": "заработок / зарплата",
+        "sentence": "[来源待补]",
+        "sourceKind": "source_example",
+        "reviewStatus": "needs_review"
+      },
+      {
+        "word": "сотрудник / работник",
+        "sentence": "[来源待补]",
+        "sourceKind": "source_example",
+        "reviewStatus": "needs_review"
+      },
+      {
+        "word": "карапуз / малыш",
+        "sentence": "[来源待补]",
+        "sourceKind": "source_example",
+        "reviewStatus": "needs_review"
+      },
+      {
+        "word": "качественно / хорошо",
+        "sentence": "[来源待补]",
+        "sourceKind": "source_example",
+        "reviewStatus": "needs_review"
+      },
+      {
+        "word": "лишь / только",
+        "sentence": "[来源待补]",
+        "sourceKind": "source_example",
+        "reviewStatus": "needs_review"
+      },
+      {
+        "word": "точно в срок / вовремя",
+        "sentence": "[来源待补]",
+        "sourceKind": "source_example",
+        "reviewStatus": "needs_review"
+      },
+      {
+        "word": "правило / исключение",
+        "sentence": "[来源待补]",
+        "sourceKind": "source_example",
+        "reviewStatus": "needs_review"
+      },
+      {
+        "word": "уход / возвращение",
+        "sentence": "[来源待补]",
+        "sourceKind": "source_example",
+        "reviewStatus": "needs_review"
+      },
+      {
+        "word": "сомнение / уверенность",
+        "sentence": "[来源待补]",
+        "sourceKind": "source_example",
+        "reviewStatus": "needs_review"
+      },
+      {
+        "word": "ответственность / халатность",
+        "sentence": "[来源待补]",
+        "sourceKind": "source_example",
+        "reviewStatus": "needs_review"
+      },
+      {
+        "word": "ожидаемый / неожиданный",
+        "sentence": "[来源待补]",
+        "sourceKind": "source_example",
+        "reviewStatus": "needs_review"
+      },
+      {
+        "word": "прежний / нынешний",
+        "sentence": "[来源待补]",
+        "sourceKind": "source_example",
+        "reviewStatus": "needs_review"
+      },
+      {
+        "word": "дневной / ночной",
+        "sentence": "[来源待补]",
+        "sourceKind": "source_example",
+        "reviewStatus": "needs_review"
+      }
+    ],
+    "cardSuggestions": [
+      {
+        "title": "**表达卡**",
+        "text": "По материалам..., Согласно данным..., Не может быть!, Отличная идея!, Я хочу порекомендовать...",
+        "sourceKind": "generated_study_support",
+        "reviewStatus": "needs_review"
+      },
+      {
+        "title": "**功能卡**",
+        "text": "惊讶（удивление）、感兴趣（заинтересованность）、赞同（одобрение）、同意（согласие）、推荐（рекомендация）。",
+        "sourceKind": "generated_study_support",
+        "reviewStatus": "needs_review"
+      },
+      {
+        "title": "**结构卡**",
+        "text": "факс / дружеское письмо / эссе (三种类型) 的段落框架。",
+        "sourceKind": "generated_study_support",
+        "reviewStatus": "needs_review"
+      },
+      {
+        "title": "**词汇辨析卡**",
+        "text": "работодатель / работник / рабочий / работа；виды глаголов в будущем времени и инфинитиве。",
+        "sourceKind": "generated_study_support",
+        "reviewStatus": "needs_review"
+      }
     ]
   },
   "sourceLabel": "原书内容 · OCR 来源 · 未经人工核对"

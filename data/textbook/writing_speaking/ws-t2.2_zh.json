@@ -56,5 +56,24 @@
       "语法测试部分：动词前缀变化和形动词是重点难点，需要系统练习。",
       "OCR 中部分题号和格式有噪声，正式版需对照 PDF。信件不能以这种方式...有人认为/ 希望 [Sтел"
     ]
-  }
+  },
+  "taskTranslationsById": {
+    "ws-t2.2-w-p82-01": {
+      "prompt": "根据广告材料，向年轻专业人士推荐一家公司。写一封推荐性质的非正式信函。时间：20分钟。 广告：俄罗斯贸易公司；大型电信公司——个人助理。 ---T0] 来源: 关于青年问题的讨论。 a) 使用同义表达表示赞同。 b) 使用反义词表示反对。 发言： ——社会调查表明，年轻人的生活优先级经常发生变化。 ——在我看来，对年轻人来说最重要的就是不依赖长辈。 确定意图：赞同、不信任、惊讶、道歉。 任务12：讨论青年价值观问题。表达：赞同、不信任、惊讶、道歉。",
+      "source": "legacy-array-alignment",
+      "legacyIndex": 0,
+      "reviewStatus": "needs_review"
+    }
+  },
+  "taskTranslationStatus": "needs_review",
+  "taskTranslationContract": "taskId-v1",
+  "speakingTranslationsById": {
+    "ws-t2.2-s-p81-01": {
+      "prompt": "来源： 关于青年问题的讨论。 а) 使用同义表达表示同意。 б) 使用反义词表示不同意。 话语： — 社会学调查表明，青年的生活优先事项经常发生变化。 — 在我看来，对年轻人来说最重要的就是依附于长辈。 确定意图：同意、怀疑、惊讶、道歉。 任务 12：讨论青年价值观问题。表达同意、怀疑、惊讶、道歉。",
+      "source": "legacy-array-alignment",
+      "legacyIndex": 0,
+      "reviewStatus": "needs_review"
+    }
+  },
+  "speakingTranslationStatus": "needs_review"
 }

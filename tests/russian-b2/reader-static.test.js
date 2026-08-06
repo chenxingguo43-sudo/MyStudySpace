@@ -689,12 +689,52 @@ test('writing-speaking render includes sections for reading, writing, speaking, 
   assert.match(reader, /💡 口语追问/);
 });
 
-test('writing-speaking provides locally-persisted draft textareas', () => {
-  assert.match(reader, /var WS_DRAFTS_KEY = 'rr_ws_drafts_v1'/);
-  assert.match(reader, /function getWsDrafts\(\)/);
-  assert.match(reader, /function saveWsDraft\(taskId, value\)/);
-  assert.match(reader, /localStorage\.setItem\(WS_DRAFTS_KEY/);
-  assert.match(reader, /ws-draft-area/);
+test('writing-speaking records paper-writing stages without rendering an online composition field', () => {
+  const activeStart = reader.indexOf('function renderWritingSpeakingChapter(data, scrollPosition, restoreState)');
+  const activeEnd = reader.indexOf('/* ─── 折叠面板过渡动画 ─── */', activeStart);
+  const activeRenderer = reader.slice(activeStart, activeEnd);
+  assert.match(reader, /js\/russian-b2\/writing-session\.js/);
+  assert.match(reader, /RussianB2WritingSession\.setStage/);
+  assert.match(reader, /我已在纸上完成初稿/);
+  assert.match(activeRenderer, /页面不提供作文输入框，也不启动考试计时/);
+  assert.doesNotMatch(activeRenderer, /textarea|ws-draft-area|time-badge/);
+});
+
+test('writing-speaking keeps vocabulary, Chinese study aids, and bilingual speaking tasks in the active workbench', () => {
+  const activeStart = reader.indexOf('function renderWritingSpeakingChapter(data, scrollPosition, restoreState)');
+  const activeEnd = reader.indexOf('/* ─── 折叠面板过渡动画 ─── */', activeStart);
+  const activeRenderer = reader.slice(activeStart, activeEnd);
+  assert.match(reader, /function renderWritingSpeakingVocabulary\(data\)/);
+  assert.match(activeRenderer, /renderWritingSpeakingVocabulary\(data\)/);
+  assert.match(reader, /ws-inline-translation/);
+  assert.match(reader, /renderWritingTranslation\(taskTranslation && taskTranslation\.prompt, '中文'\)/);
+  assert.match(reader, /renderWritingTranslation\(modelTranslation, '中文对照'\)/);
+  assert.match(reader, /function getSpeakingTaskTranslation\(/);
+  assert.match(activeRenderer, /renderWritingSpeakingSpeakingTask\(/);
+});
+
+test('writing-speaking makes task translation an inline reveal and removes nested step-four accordions', () => {
+  const supportStart = reader.indexOf('function renderWritingSpeakingTaskSupport(task, support, translation)');
+  const supportEnd = reader.indexOf('function renderWritingSpeakingComparison', supportStart);
+  const taskSupport = reader.slice(supportStart, supportEnd);
+  assert.match(taskSupport, /结构与表达工具板/);
+  assert.match(taskSupport, /ws-structure-columns/);
+  assert.match(taskSupport, /段落骨架/);
+  assert.match(taskSupport, /可直接落笔/);
+  assert.doesNotMatch(taskSupport, /ws-animated-collapse/);
+  assert.doesNotMatch(taskSupport, /<details/);
+  assert.doesNotMatch(reader, /展开中文任务翻译/);
+});
+
+test('writing-speaking vocabulary exposes its retained examples and project-dictionary details', () => {
+  const vocabStart = reader.indexOf('function renderWritingSpeakingVocabulary(data)');
+  const vocabEnd = reader.indexOf('function syncWritingSpeakingChapterCompletion', vocabStart);
+  const vocabRenderer = reader.slice(vocabStart, vocabEnd);
+  assert.match(reader, /function renderWritingVocabularyDetail/);
+  assert.match(vocabRenderer, /item\.dictionary/);
+  assert.match(reader, /item\.sourceExamples/);
+  assert.match(reader, /ws-vocab-detail/);
+  assert.match(vocabRenderer, /配对与卡片复盘/);
 });
 
 test('writing-speaking integrates recording buttons through existing MediaRecorder flow', () => {
