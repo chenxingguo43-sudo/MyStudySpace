@@ -36,7 +36,29 @@
           "text": "работать в каникулы"
         }
       ],
-      "answer": "Б"
+      "answer": "А",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0000-s006"
+        ],
+        "quote": "На каникулах хотели отправить в Италию, а он ни в какую: хочу в Курск, к бабушке, к ребятам.",
+        "translation": "假期我们想送他去意大利，可他死活不肯：我要去库尔斯克，去奶奶那儿，去找小伙伴们。",
+        "reasoning": "儿子拒绝意大利，明确要去库尔斯克、祖母和伙伴身边；这对应选项 А“在祖国度夏”。",
+        "pages": [
+          14,
+          15
+        ],
+        "items": [
+          {
+            "quote": "На каникулах хотели отправить в Италию, а он ни в какую: хочу в Курск, к бабушке, к ребятам.",
+            "translation": "假期我们想送他去意大利，可他死活不肯：我要去库尔斯克，去奶奶那儿，去找小伙伴们。",
+            "segmentIds": [
+              "ch0000-s006"
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "LS-LS-T1-2-D1-1-1-Q02",
@@ -56,7 +78,29 @@
           "text": "желанием встретиться с друзьями"
         }
       ],
-      "answer": "В"
+      "answer": "В",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0000-s006"
+        ],
+        "quote": "На каникулах хотели отправить в Италию, а он ни в какую: хочу в Курск, к бабушке, к ребятам.",
+        "translation": "假期我们想送他去意大利，可他死活不肯：我要去库尔斯克，去奶奶那儿，去找小伙伴们。",
+        "reasoning": "儿子明确想去祖母和伙伴那里，依据是见朋友的愿望，故选项 В。",
+        "pages": [
+          14,
+          15
+        ],
+        "items": [
+          {
+            "quote": "На каникулах хотели отправить в Италию, а он ни в какую: хочу в Курск, к бабушке, к ребятам.",
+            "translation": "假期我们想送他去意大利，可他死活不肯：我要去库尔斯克，去奶奶那儿，去找小伙伴们。",
+            "segmentIds": [
+              "ch0000-s006"
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "LS-LS-T1-2-D1-1-1-Q03",
@@ -76,7 +120,29 @@
           "text": "с удивлением"
         }
       ],
-      "answer": "А"
+      "answer": "В",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0000-s008"
+        ],
+        "quote": "Представляешь?!",
+        "translation": "你能想象吗？！",
+        "reasoning": "教材答案键将本题定位到“Представляешь?!”；这是惊讶的表达，支持选项 В“感到惊讶”。",
+        "pages": [
+          14,
+          15
+        ],
+        "items": [
+          {
+            "quote": "Представляешь?!",
+            "translation": "你能想象吗？！",
+            "segmentIds": [
+              "ch0000-s008"
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "LS-LS-T1-2-D1-1-1-Q04",
@@ -96,7 +162,29 @@
           "text": "недоверие"
         }
       ],
-      "answer": "Б"
+      "answer": "Б",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0000-s010"
+        ],
+        "quote": "Ну и правильно...",
+        "translation": "那就对了……",
+        "reasoning": "“Ну и правильно”是明确肯定，直接支持选项 Б“赞同”。",
+        "pages": [
+          14,
+          15
+        ],
+        "items": [
+          {
+            "quote": "Ну и правильно...",
+            "translation": "那就对了……",
+            "segmentIds": [
+              "ch0000-s010"
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "LS-LS-T1-2-D1-1-1-Q05",
@@ -116,7 +204,45 @@
           "text": "людей неопределённого возраста"
         }
       ],
-      "answer": "А"
+      "answer": "А",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0000-s003",
+          "ch0000-s004",
+          "ch0000-s005"
+        ],
+        "quote": "Как муж? Сынок? Муж как всегда, а вот сын...",
+        "translation": "丈夫怎么样？儿子呢？丈夫还是老样子，不过儿子嘛……",
+        "reasoning": "谈话直接围绕丈夫和儿子展开，说明双方已婚并有子女，属于中年人，故选项 А。",
+        "pages": [
+          14,
+          15
+        ],
+        "items": [
+          {
+            "quote": "Как муж?",
+            "translation": "丈夫怎么样？",
+            "segmentIds": [
+              "ch0000-s003"
+            ]
+          },
+          {
+            "quote": "Сынок?",
+            "translation": "儿子呢？",
+            "segmentIds": [
+              "ch0000-s004"
+            ]
+          },
+          {
+            "quote": "Муж как всегда, а вот сын...",
+            "translation": "丈夫还是老样子，不过儿子嘛……",
+            "segmentIds": [
+              "ch0000-s005"
+            ]
+          }
+        ]
+      }
     }
   ],
   "transcriptSegments": [
@@ -130,7 +256,9 @@
       "expectedWords": 1,
       "startTime": 2.96,
       "endTime": 5.06,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "奥廖奇卡！",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Прекрасно выглядишь!",
@@ -142,7 +270,9 @@
       "expectedWords": 2,
       "startTime": 5.6,
       "endTime": 6.62,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "你看起来真漂亮！",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Как муж?",
@@ -154,7 +284,9 @@
       "expectedWords": 2,
       "startTime": 7.02,
       "endTime": 7.6,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "丈夫怎么样？",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Сынок?",
@@ -166,7 +298,9 @@
       "expectedWords": 1,
       "startTime": 7.8,
       "endTime": 8.12,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "儿子呢？",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Муж как всегда, а вот сын...",
@@ -178,7 +312,9 @@
       "expectedWords": 6,
       "startTime": 8.84,
       "endTime": 10.68,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "丈夫还是老样子，不过儿子嘛……",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "На каникулах хотели отправить в Италию, а он ни в какую: хочу в Курск, к бабушке, к ребятам.",
@@ -190,7 +326,9 @@
       "expectedWords": 18,
       "startTime": 11.06,
       "endTime": 17.48,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "假期我们想送他去意大利，可他死活不肯：我要去库尔斯克，去奶奶那儿，去找小伙伴们。",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Там все свои, всё запросто, по-нашему...",
@@ -202,7 +340,9 @@
       "expectedWords": 7,
       "startTime": 17.82,
       "endTime": 20.04,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "那里都是自己人，一切都很随意、很自在，就像我们自己家一样……",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Представляешь?!",
@@ -214,7 +354,9 @@
       "expectedWords": 1,
       "startTime": 20.48,
       "endTime": 21.12,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "你能想象吗？！",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "А что!",
@@ -226,7 +368,9 @@
       "expectedWords": 2,
       "startTime": 21.6,
       "endTime": 22.12,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "那有什么！",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Ну и правильно...",
@@ -238,7 +382,17 @@
       "expectedWords": 3,
       "startTime": 22.76,
       "endTime": 23.32,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "那就对了……",
+      "sourceSentenceIndexes": []
     }
-  ]
+  ],
+  "learningSupport": {
+    "status": "source-checked",
+    "scope": "sentence translations and per-question listening evidence",
+    "sourceFile": "俄语资料库/В мире людей 听力口语 Markdown版/翻译/Тема 1.2 -- ТРКИ-2 对话（Разговоры. Беседы） -- 中文对照.md",
+    "translationSourceStatus": "needs_review",
+    "reviewedAt": "2026-08-06",
+    "migratedFromStatus": "source-cross-checked"
+  }
 }

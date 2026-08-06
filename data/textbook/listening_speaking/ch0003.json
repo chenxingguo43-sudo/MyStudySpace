@@ -36,7 +36,29 @@
           "text": "на совещании"
         }
       ],
-      "answer": "Б"
+      "answer": "Б",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0003-s002"
+        ],
+        "quote": "Вот зашёл на форум: самому же нереально всё протестировать...",
+        "translation": "我刚上论坛看了看：自己不可能把一切都测试完……",
+        "reasoning": "论坛是互联网信息来源，选项 Б。",
+        "pages": [
+          14,
+          15
+        ],
+        "items": [
+          {
+            "quote": "Вот зашёл на форум: самому же нереально всё протестировать...",
+            "translation": "我刚上论坛看了看：自己不可能把一切都测试完……",
+            "segmentIds": [
+              "ch0003-s002"
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "LS-LS-T1-2-D1-1-4-Q02",
@@ -56,7 +78,37 @@
           "text": "освоить оборудование"
         }
       ],
-      "answer": "В"
+      "answer": "В",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0003-s001",
+          "ch0003-s002"
+        ],
+        "quote": "Слышал, оборудование новое пришло?.. ... самому же нереально всё протестировать...",
+        "translation": "听说新设备到了？……自己不可能把一切都测试完……",
+        "reasoning": "新设备到货且需要测试，说明任务是熟悉、掌握设备，选项 В。",
+        "pages": [
+          14,
+          15
+        ],
+        "items": [
+          {
+            "quote": "Слышал, оборудование новое пришло?..",
+            "translation": "听说新设备到了？……",
+            "segmentIds": [
+              "ch0003-s001"
+            ]
+          },
+          {
+            "quote": "Вот зашёл на форум: самому же нереально всё протестировать...",
+            "translation": "我刚上论坛看了看：自己不可能把一切都测试完……",
+            "segmentIds": [
+              "ch0003-s002"
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "LS-LS-T1-2-D1-1-4-Q03",
@@ -76,7 +128,37 @@
           "text": "с недоумением"
         }
       ],
-      "answer": "А"
+      "answer": "А",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0003-s004",
+          "ch0003-s005"
+        ],
+        "quote": "Практически базар: есть настроение — ответят, нет — даже не зайдут. Так что особо не рассчитывай!",
+        "translation": "简直像集市：有心情就回复，没心情连进去都不进。所以别抱太大希望！",
+        "reasoning": "把论坛贬为“集市”并劝他不要指望，表明怀疑态度，选项 А。",
+        "pages": [
+          14,
+          15
+        ],
+        "items": [
+          {
+            "quote": "Практически базар: есть настроение — ответят, нет — даже не зайдут.",
+            "translation": "简直像集市：有心情就回复，没心情连进去都不进。",
+            "segmentIds": [
+              "ch0003-s004"
+            ]
+          },
+          {
+            "quote": "Так что особо не рассчитывай!",
+            "translation": "所以别抱太大希望！",
+            "segmentIds": [
+              "ch0003-s005"
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "LS-LS-T1-2-D1-1-4-Q04",
@@ -96,7 +178,29 @@
           "text": "недоумение"
         }
       ],
-      "answer": "А"
+      "answer": "А",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0003-s006"
+        ],
+        "quote": "Да нет, по себе знаю, дорога любая информация.",
+        "translation": "不，我有亲身体会，任何信息都很宝贵。",
+        "reasoning": "“Да нет”直接反驳了前面对论坛的否定评价，选项 А。",
+        "pages": [
+          14,
+          15
+        ],
+        "items": [
+          {
+            "quote": "Да нет, по себе знаю, дорога любая информация.",
+            "translation": "不，我有亲身体会，任何信息都很宝贵。",
+            "segmentIds": [
+              "ch0003-s006"
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "LS-LS-T1-2-D1-1-4-Q05",
@@ -116,7 +220,37 @@
           "text": "профессионального"
         }
       ],
-      "answer": "В"
+      "answer": "В",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0003-s001",
+          "ch0003-s002"
+        ],
+        "quote": "Слышал, оборудование новое пришло?.. Вот зашёл на форум: самому же нереально всё протестировать...",
+        "translation": "听说新设备到了？……我刚上论坛看了看：自己不可能把一切都测试完……",
+        "reasoning": "谈话围绕设备测试和信息渠道，属于工作专业交流，选项 В。",
+        "pages": [
+          14,
+          15
+        ],
+        "items": [
+          {
+            "quote": "Слышал, оборудование новое пришло?..",
+            "translation": "听说新设备到了？……",
+            "segmentIds": [
+              "ch0003-s001"
+            ]
+          },
+          {
+            "quote": "Вот зашёл на форум: самому же нереально всё протестировать...",
+            "translation": "我刚上论坛看了看：自己不可能把一切都测试完……",
+            "segmentIds": [
+              "ch0003-s002"
+            ]
+          }
+        ]
+      }
     }
   ],
   "transcriptSegments": [
@@ -130,7 +264,9 @@
       "expectedWords": 4,
       "startTime": 4.54,
       "endTime": 6.6,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "听说新设备到了？……",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Вот зашёл на форум: самому же нереально всё протестировать...",
@@ -142,7 +278,9 @@
       "expectedWords": 9,
       "startTime": 6.94,
       "endTime": 10.06,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "我刚上论坛看了看：自己不可能把一切都测试完……",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "А что форум?",
@@ -154,7 +292,9 @@
       "expectedWords": 3,
       "startTime": 10.68,
       "endTime": 11.5,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "论坛又怎么样？",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Практически базар: есть настроение — ответят, нет — даже не зайдут.",
@@ -166,7 +306,9 @@
       "expectedWords": 9,
       "startTime": 12.18,
       "endTime": 16.36,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "简直像集市：有心情就回复，没心情连进去都不进。",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Так что особо не рассчитывай!",
@@ -178,7 +320,9 @@
       "expectedWords": 5,
       "startTime": 16.74,
       "endTime": 18.24,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "所以别抱太大希望！",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Да нет, по себе знаю, дорога любая информация.",
@@ -190,7 +334,17 @@
       "expectedWords": 8,
       "startTime": 18.72,
       "endTime": 21.56,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "不，我有亲身体会，任何信息都很宝贵。",
+      "sourceSentenceIndexes": []
     }
-  ]
+  ],
+  "learningSupport": {
+    "status": "source-checked",
+    "scope": "sentence translations and per-question listening evidence",
+    "sourceFile": "俄语资料库/В мире людей 听力口语 Markdown版/翻译/Тема 1.2 -- ТРКИ-2 对话（Разговоры. Беседы） -- 中文对照.md",
+    "translationSourceStatus": "needs_review",
+    "reviewedAt": "2026-08-06",
+    "migratedFromStatus": "source-cross-checked"
+  }
 }

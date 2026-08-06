@@ -1,0 +1,115 @@
+{
+  "schemaVersion": 1,
+  "chapterFile": "ch0022.json",
+  "unitId": "ls-t1.6-d2.2.3",
+  "status": "resolved-machine-crosscheck",
+  "sourcePages": [
+    54,
+    66
+  ],
+  "mediaFile": "media/world-people-v2/23.mp4",
+  "evidenceFiles": [
+    "俄语资料库/В мире людей 听力口语 Markdown版/章节/Тема 1.6 -- ТРКИ-2 电影对话（Художественные фильмы — Диалоги）.md",
+    "俄语资料库/В мире людей 听力口语 Markdown版/翻译/Тема 1.6 -- ТРКИ-2 电影对话（Художественные фильмы — Диалоги） -- 中文对照.md",
+    "tmp/listening-rebuild-asr/ch0022/ch0022.json",
+    "tmp/world-people-v2-word-timestamps/23-base.json"
+  ],
+  "conflicts": [
+    {
+      "id": "ch0022-opening-commands",
+      "status": "resolved-machine-crosscheck",
+      "type": "short-dialogue-boundaries",
+      "audioRange": [
+        5.74,
+        36.18
+      ],
+      "sourceSentenceIndexes": [
+        2,
+        5
+      ],
+      "textbookText": [
+        "Чё стоишь?",
+        "Рубаху тоже снимать?"
+      ],
+      "asrCandidate": "'снимать' appears at 29.86–30.28; the base ASR does not independently accept either complete sentence.",
+      "problem": "The two brief commands/questions are adjacent to longer turns and cannot be bounded from the accepted word matches alone.",
+      "neededDecision": "Confirm both utterances in the bound media and annotate independent start/end ranges.",
+      "resolution": {
+        "method": "textbook source plus base and small local ASR cross-check",
+        "externalNativeReview": false,
+        "omittedSourceSentenceIndexes": []
+      }
+    },
+    {
+      "id": "ch0022-household-command-cluster",
+      "status": "resolved-machine-crosscheck",
+      "type": "dense-short-command-cluster",
+      "audioRange": [
+        38.62,
+        69.26
+      ],
+      "sourceSentenceIndexes": [
+        7,
+        8,
+        10,
+        11,
+        12
+      ],
+      "questionIds": [
+        "LS-LS-T1-6-D2-2-3-Q03"
+      ],
+      "textbookText": [
+        "Совсем неверно.",
+        "На...",
+        "Кота покорми.",
+        "Еда в холодильнике!..",
+        "Кошмар какой..."
+      ],
+      "asrCandidate": "Partial snippets retain 'совсем', 'еда', and 'холодильнике' but no complete independently accepted boundaries.",
+      "problem": "Rapid commands and exclamations are conflated by ASR; assigning silent intervals would be fabricated.",
+      "neededDecision": "Mark each audible short turn and its exact boundaries, or identify omitted source turns.",
+      "resolution": {
+        "method": "textbook source plus base and small local ASR cross-check",
+        "externalNativeReview": false,
+        "omittedSourceSentenceIndexes": [
+          8,
+          12
+        ]
+      }
+    },
+    {
+      "id": "ch0022-quoted-objects-and-closing",
+      "status": "resolved-machine-crosscheck",
+      "type": "short-utterance-boundaries",
+      "audioRange": [
+        69.26,
+        239.28
+      ],
+      "sourceSentenceIndexes": [
+        14,
+        28,
+        38,
+        48,
+        53
+      ],
+      "textbookText": [
+        "Коты любят куриное мясо.",
+        "Ты пальто досуши.",
+        "На.",
+        "Укладчица номер пять.",
+        "Это очень печально."
+      ],
+      "asrCandidate": "Partial keyword snippets support the surrounding dialogue but do not give complete sentence boundaries for these isolated turns.",
+      "problem": "Each source turn is short enough that word-level matching is incomplete or ambiguous in the film soundtrack.",
+      "neededDecision": "Confirm the audible coverage and independent range for each listed turn.",
+      "resolution": {
+        "method": "textbook source plus base and small local ASR cross-check",
+        "externalNativeReview": false,
+        "omittedSourceSentenceIndexes": [
+          38,
+          53
+        ]
+      }
+    }
+  ]
+}

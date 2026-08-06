@@ -1,0 +1,839 @@
+{
+  "schemaVersion": 1,
+  "chapterFile": "ch0022.json",
+  "unitId": "ls-t1.6-d2.2.3",
+  "status": "release_ready",
+  "source": {
+    "chapterSha256": "1c95c46f72d4a02bfbdca3a0b026ee570d42fe7331e22d9d400416af3780faf5",
+    "timelineFile": "timelines/ch0022.json",
+    "sourcePages": [
+      54,
+      66
+    ],
+    "mediaFiles": [
+      "media/world-people-v2/23.mp4"
+    ]
+  },
+  "coverage": {
+    "kind": "excerpt",
+    "omittedSourceSentenceIndexes": [
+      8,
+      12,
+      38,
+      53
+    ],
+    "reason": "绑定媒体中这些教材短句未获得可复现的完整逐句边界，因此不显示为可播放精听句。",
+    "verifiedBy": [
+      "俄语资料库/В мире людей 听力口语 Markdown版/章节/Тема 1.6 -- ТРКИ-2 电影对话（Художественные фильмы — Диалоги）.md",
+      "俄语资料库/В мире людей 听力口语 Markdown版/翻译/Тема 1.6 -- ТРКИ-2 电影对话（Художественные фильмы — Диалоги） -- 中文对照.md",
+      "tmp/world-people-v2-word-timestamps/23-base.json",
+      "tmp/faster-whisper-results/23-small.json"
+    ],
+    "reviewMethod": "textbook-source-plus-two-local-asr-candidates; no external native-speaker review claimed"
+  },
+  "segments": [
+    {
+      "segmentId": "ch0022-s001",
+      "text": "Всё из-за тебя!",
+      "translation": "都怪你！",
+      "playlistIndex": 0,
+      "startTime": 4.66,
+      "endTime": 5.74,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        1
+      ]
+    },
+    {
+      "segmentId": "ch0022-s002",
+      "text": "Чё стоишь?",
+      "translation": "站着干嘛？",
+      "playlistIndex": 0,
+      "startTime": 16.72,
+      "endTime": 17.38,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        2
+      ]
+    },
+    {
+      "segmentId": "ch0022-s003",
+      "text": "Раздевайся!",
+      "translation": "脱衣服！",
+      "playlistIndex": 0,
+      "startTime": 17.42,
+      "endTime": 17.82,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        3
+      ]
+    },
+    {
+      "segmentId": "ch0022-s004",
+      "text": "Проходи!",
+      "translation": "进来！",
+      "playlistIndex": 0,
+      "startTime": 17.82,
+      "endTime": 18.24,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        4
+      ]
+    },
+    {
+      "segmentId": "ch0022-s005",
+      "text": "Рубаху тоже снимать?",
+      "translation": "衬衫也要脱吗？",
+      "playlistIndex": 0,
+      "startTime": 29.28,
+      "endTime": 30.28,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        5
+      ]
+    },
+    {
+      "segmentId": "ch0022-s006",
+      "text": "Прости, я тебя, наверное, не совсем правильно понял?",
+      "translation": "对不起，我可能没有完全理解你的意思？",
+      "playlistIndex": 0,
+      "startTime": 36.18,
+      "endTime": 38.62,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        6
+      ]
+    },
+    {
+      "segmentId": "ch0022-s007",
+      "text": "Совсем неверно.",
+      "translation": "完全理解错了。",
+      "playlistIndex": 0,
+      "startTime": 39.78,
+      "endTime": 40.92,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        7
+      ]
+    },
+    {
+      "segmentId": "ch0022-s008",
+      "text": "Чайник поставь!",
+      "translation": "把水壶烧上！",
+      "playlistIndex": 0,
+      "startTime": 43.08,
+      "endTime": 43.92,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        9
+      ]
+    },
+    {
+      "segmentId": "ch0022-s009",
+      "text": "Кота покорми.",
+      "translation": "喂猫。",
+      "playlistIndex": 0,
+      "startTime": 45.08,
+      "endTime": 45.72,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        10
+      ]
+    },
+    {
+      "segmentId": "ch0022-s010",
+      "text": "Еда в холодильнике!..",
+      "translation": "食物在冰箱里！……",
+      "playlistIndex": 0,
+      "startTime": 45.96,
+      "endTime": 46.82,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        11
+      ]
+    },
+    {
+      "segmentId": "ch0022-s011",
+      "text": "Ты зачем коту дал мою курицу?!",
+      "translation": "你为什么把我的鸡肉给猫吃了？！",
+      "playlistIndex": 0,
+      "startTime": 69.26,
+      "endTime": 71.02,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        13
+      ]
+    },
+    {
+      "segmentId": "ch0022-s012",
+      "text": "Коты любят куриное мясо.",
+      "translation": "猫喜欢鸡肉。",
+      "playlistIndex": 0,
+      "startTime": 72.02,
+      "endTime": 73.06,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        14
+      ]
+    },
+    {
+      "segmentId": "ch0022-s013",
+      "text": "Да?!",
+      "translation": "是吗？！",
+      "playlistIndex": 0,
+      "startTime": 73.75,
+      "endTime": 74.04,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        15
+      ]
+    },
+    {
+      "segmentId": "ch0022-s014",
+      "text": "Я тоже его люблю!",
+      "translation": "我也喜欢！",
+      "playlistIndex": 0,
+      "startTime": 74.7,
+      "endTime": 75.7,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        16
+      ]
+    },
+    {
+      "segmentId": "ch0022-s015",
+      "text": "Блин!",
+      "translation": "该死！",
+      "playlistIndex": 0,
+      "startTime": 78.57,
+      "endTime": 78.87,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        17
+      ]
+    },
+    {
+      "segmentId": "ch0022-s016",
+      "text": "Чего ты чайник не поставил?",
+      "translation": "你怎么没烧水壶？",
+      "playlistIndex": 0,
+      "startTime": 82.7,
+      "endTime": 83.88,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        18
+      ]
+    },
+    {
+      "segmentId": "ch0022-s017",
+      "text": "Блин.",
+      "translation": "该死。",
+      "playlistIndex": 0,
+      "startTime": 88.63,
+      "endTime": 88.93,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        19
+      ]
+    },
+    {
+      "segmentId": "ch0022-s018",
+      "text": "Я тебя не пришибла часом?",
+      "translation": "我刚才没伤着你吧？",
+      "playlistIndex": 0,
+      "startTime": 89.63,
+      "endTime": 90.43,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        20
+      ]
+    },
+    {
+      "segmentId": "ch0022-s019",
+      "text": "Может, ты зря в больницу не поехал?",
+      "translation": "也许你不去医院是白耽误了？",
+      "playlistIndex": 0,
+      "startTime": 90.85,
+      "endTime": 92.35,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        21
+      ]
+    },
+    {
+      "segmentId": "ch0022-s020",
+      "text": "Нет-нет.",
+      "translation": "不不。",
+      "playlistIndex": 0,
+      "startTime": 92.85,
+      "endTime": 93.19,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        22
+      ]
+    },
+    {
+      "segmentId": "ch0022-s021",
+      "text": "Я чувствую себя совершенно здоровым.",
+      "translation": "我感觉自己完全健康。",
+      "playlistIndex": 0,
+      "startTime": 93.31,
+      "endTime": 94.81,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        23
+      ]
+    },
+    {
+      "segmentId": "ch0022-s022",
+      "text": "Точно?",
+      "translation": "确定？",
+      "playlistIndex": 0,
+      "startTime": 95.25,
+      "endTime": 95.45,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        24
+      ]
+    },
+    {
+      "segmentId": "ch0022-s023",
+      "text": "Чайник ставят вот так.",
+      "translation": "水壶要这样烧。",
+      "playlistIndex": 0,
+      "startTime": 102.55,
+      "endTime": 103.59,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        25
+      ]
+    },
+    {
+      "segmentId": "ch0022-s024",
+      "text": "Запомни.",
+      "translation": "记住。",
+      "playlistIndex": 0,
+      "startTime": 104.09,
+      "endTime": 104.63,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        26
+      ]
+    },
+    {
+      "segmentId": "ch0022-s025",
+      "text": "Я пойду переоденусь.",
+      "translation": "我去换衣服。",
+      "playlistIndex": 0,
+      "startTime": 106.03,
+      "endTime": 107.53,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        27
+      ]
+    },
+    {
+      "segmentId": "ch0022-s026",
+      "text": "Ты пальто досуши.",
+      "translation": "你把大衣晾干。",
+      "playlistIndex": 0,
+      "startTime": 107.59,
+      "endTime": 108.33,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        28
+      ]
+    },
+    {
+      "segmentId": "ch0022-s027",
+      "text": "Оно в ванной.",
+      "translation": "它在浴室里。",
+      "playlistIndex": 0,
+      "startTime": 109.31,
+      "endTime": 109.69,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        29
+      ]
+    },
+    {
+      "segmentId": "ch0022-s028",
+      "text": "А ванна вот здесь...",
+      "translation": "浴室在这儿……",
+      "playlistIndex": 0,
+      "startTime": 110.99,
+      "endTime": 111.93,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        30
+      ]
+    },
+    {
+      "segmentId": "ch0022-s029",
+      "text": "Горячий воздух!",
+      "translation": "热风！",
+      "playlistIndex": 0,
+      "startTime": 123.34,
+      "endTime": 124.22,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        31
+      ]
+    },
+    {
+      "segmentId": "ch0022-s030",
+      "text": "Очень горячий!",
+      "translation": "非常热！",
+      "playlistIndex": 0,
+      "startTime": 124.32,
+      "endTime": 125.88,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        32
+      ]
+    },
+    {
+      "segmentId": "ch0022-s031",
+      "text": "А там что?",
+      "translation": "那里面有什么？",
+      "playlistIndex": 0,
+      "startTime": 130.96,
+      "endTime": 131.52,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        33
+      ]
+    },
+    {
+      "segmentId": "ch0022-s032",
+      "text": "Вот фенов нет, да?",
+      "translation": "没有吹风机，对吧？",
+      "playlistIndex": 0,
+      "startTime": 131.74,
+      "endTime": 133.52,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        34
+      ]
+    },
+    {
+      "segmentId": "ch0022-s033",
+      "text": "Ну а голову вы тогда чем сушите?",
+      "translation": "那你们平时用什么吹干头发？",
+      "playlistIndex": 0,
+      "startTime": 135.26,
+      "endTime": 137.46,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        35
+      ]
+    },
+    {
+      "segmentId": "ch0022-s034",
+      "text": "Голову?",
+      "translation": "头发？",
+      "playlistIndex": 0,
+      "startTime": 138.86,
+      "endTime": 139.44,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        36
+      ]
+    },
+    {
+      "segmentId": "ch0022-s035",
+      "text": "Прости, а зачем сушить голову?..",
+      "translation": "对不起，为什么要吹干头发？……",
+      "playlistIndex": 0,
+      "startTime": 142.28,
+      "endTime": 143.96,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        37
+      ]
+    },
+    {
+      "segmentId": "ch0022-s036",
+      "text": "Чай будешь?",
+      "translation": "喝茶吗？",
+      "playlistIndex": 0,
+      "startTime": 149.89,
+      "endTime": 150.43,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        39
+      ]
+    },
+    {
+      "segmentId": "ch0022-s037",
+      "text": "Зелёный, чёрный?..",
+      "translation": "绿茶，红茶？……",
+      "playlistIndex": 0,
+      "startTime": 151.87,
+      "endTime": 152.55,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        40
+      ]
+    },
+    {
+      "segmentId": "ch0022-s038",
+      "text": "Чай?",
+      "translation": "茶？",
+      "playlistIndex": 0,
+      "startTime": 152.63,
+      "endTime": 152.81,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        41
+      ]
+    },
+    {
+      "segmentId": "ch0022-s039",
+      "text": "Кофе?",
+      "translation": "咖啡？",
+      "playlistIndex": 0,
+      "startTime": 154.39,
+      "endTime": 154.97,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        42
+      ]
+    },
+    {
+      "segmentId": "ch0022-s040",
+      "text": "Этот чай рос на склоне горы в провинции Сычуань.",
+      "translation": "这茶生长在四川省的一座山坡上。",
+      "playlistIndex": 0,
+      "startTime": 171.19,
+      "endTime": 172.81,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        43
+      ]
+    },
+    {
+      "segmentId": "ch0022-s041",
+      "text": "Его собирала китайская девушка по имени Ли, которая любила человека по имени Чи Ян, но вышла замуж за Ли Женя, который работает на фабрике светодиодов.",
+      "translation": "是一个姓李的姑娘采摘的，她爱着一个叫奇阳的人，却嫁给了在发光二极管工厂工作的李仁佳。",
+      "playlistIndex": 0,
+      "startTime": 173.97,
+      "endTime": 183.21,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        44
+      ]
+    },
+    {
+      "segmentId": "ch0022-s042",
+      "text": "А Чи Ян пока так и не женился...",
+      "translation": "而奇阳至今未婚……",
+      "playlistIndex": 0,
+      "startTime": 185.33,
+      "endTime": 187.41,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        45
+      ]
+    },
+    {
+      "segmentId": "ch0022-s043",
+      "text": "Конфетка сливочная помадка с цукатами.",
+      "translation": "奶油太妃糖夹蜜饯。",
+      "playlistIndex": 0,
+      "startTime": 190.16,
+      "endTime": 192.06,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        46
+      ]
+    },
+    {
+      "segmentId": "ch0022-s044",
+      "text": "Произведено на фабрике «Красный октябрь», сгущённая с сахаром, молоко, масло сливочное, патока, цукаты, коньяк, ароматизаторы, четыреста одиннадцать калорий...",
+      "translation": "\"红色十月\"工厂生产，配料有炼乳加糖、牛奶、黄油、糖浆、蜜饯、白兰地、食用香精，四百一十一卡路里……",
+      "playlistIndex": 0,
+      "startTime": 193.92,
+      "endTime": 205.06,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        47
+      ]
+    },
+    {
+      "segmentId": "ch0022-s045",
+      "text": "Укладчица номер пять.",
+      "translation": "五号包装工。",
+      "playlistIndex": 0,
+      "startTime": 211.24,
+      "endTime": 211.94,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        48
+      ]
+    },
+    {
+      "segmentId": "ch0022-s046",
+      "text": "Блондинка, крашеная, мать-одиночка, лет сорока пяти.",
+      "translation": "染了头发的金发单身母亲，大约四十五岁。",
+      "playlistIndex": 0,
+      "startTime": 216.2,
+      "endTime": 220.52,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        49
+      ]
+    },
+    {
+      "segmentId": "ch0022-s047",
+      "text": "Извини, но ей тридцать два года, у неё волосы рыжего цвета и двое детей, близнецы Катя и Анжела.",
+      "translation": "抱歉，她三十二岁，头发是红褐色的，有两个孩子，双胞胎卡佳和安热拉。",
+      "playlistIndex": 0,
+      "startTime": 222.42,
+      "endTime": 227.92,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        50
+      ]
+    },
+    {
+      "segmentId": "ch0022-s048",
+      "text": "Иногда она берёт конфеты домой.",
+      "translation": "有时她会把糖果带回家。",
+      "playlistIndex": 0,
+      "startTime": 228.72,
+      "endTime": 230.48,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        51
+      ]
+    },
+    {
+      "segmentId": "ch0022-s049",
+      "text": "Если она не остановится, её скоро уволят.",
+      "translation": "如果她不停手，很快就会被解雇。",
+      "playlistIndex": 0,
+      "startTime": 232.32,
+      "endTime": 233.7,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        52
+      ]
+    },
+    {
+      "segmentId": "ch0022-s050",
+      "text": "Ты кто, вообще?",
+      "translation": "你到底是干什么的？",
+      "playlistIndex": 0,
+      "startTime": 239.28,
+      "endTime": 240.06,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        54
+      ]
+    },
+    {
+      "segmentId": "ch0022-s051",
+      "text": "Ну, то есть, занимаешься чем?",
+      "translation": "就是说，你做哪行？",
+      "playlistIndex": 0,
+      "startTime": 241.98,
+      "endTime": 243.8,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        55
+      ]
+    },
+    {
+      "segmentId": "ch0022-s052",
+      "text": "Я помогаю людям.",
+      "translation": "我帮助人们。",
+      "playlistIndex": 0,
+      "startTime": 244.74,
+      "endTime": 245.68,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        56
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "LS-LS-T1-6-D2-2-3-Q01",
+      "answer": "В",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0022-s050",
+          "ch0022-s051"
+        ],
+        "quote": "Ты кто, вообще? Ну, то есть, занимаешься чем?",
+        "translation": "你到底是干什么的？就是说，你做哪行？",
+        "reasoning": "萨沙在对话末尾仍询问谢拉菲姆是谁、做什么，说明二人刚认识，对应 В。",
+        "pages": [
+          54,
+          66
+        ],
+        "items": [
+          {
+            "quote": "Ты кто, вообще?",
+            "translation": "你到底是干什么的？",
+            "segmentIds": [
+              "ch0022-s050"
+            ]
+          },
+          {
+            "quote": "Ну, то есть, занимаешься чем?",
+            "translation": "就是说，你做哪行？",
+            "segmentIds": [
+              "ch0022-s051"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "LS-LS-T1-6-D2-2-3-Q02",
+      "answer": "Б",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0022-s006",
+          "ch0022-s016"
+        ],
+        "quote": "Прости, я тебя, наверное, не совсем правильно понял? / Чего ты чайник не поставил?",
+        "translation": "对不起，我可能没有完全理解你的意思？/ 你怎么没烧水壶？",
+        "reasoning": "谢拉菲姆明说自己没有正确理解，随后也没有按萨沙要求烧水壶，说明他误解请求，对应 Б。",
+        "pages": [
+          54,
+          66
+        ],
+        "items": [
+          {
+            "quote": "Прости, я тебя, наверное, не совсем правильно понял?",
+            "translation": "对不起，我可能没有完全理解你的意思？",
+            "segmentIds": [
+              "ch0022-s006"
+            ]
+          },
+          {
+            "quote": "Чего ты чайник не поставил?",
+            "translation": "你怎么没烧水壶？",
+            "segmentIds": [
+              "ch0022-s016"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "LS-LS-T1-6-D2-2-3-Q03",
+      "answer": "В",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0022-s012"
+        ],
+        "quote": "Коты любят куриное мясо.",
+        "translation": "猫喜欢鸡肉。",
+        "reasoning": "“Коты любят куриное мясо”在绑定媒体 72.02-73.06 秒内被教材文本、词级时间戳和第二次 ASR 一致支持，直接对应正确选项 В。",
+        "pages": [
+          54,
+          66
+        ],
+        "items": [
+          {
+            "quote": "Коты любят куриное мясо.",
+            "translation": "猫喜欢鸡肉。",
+            "segmentIds": [
+              "ch0022-s012"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "LS-LS-T1-6-D2-2-3-Q04",
+      "answer": "А",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0022-s023",
+          "ch0022-s035"
+        ],
+        "quote": "Чайник ставят вот так. / Прости, а зачем сушить голову?..",
+        "translation": "水壶要这样烧。/ 对不起，为什么要吹干头发？……",
+        "reasoning": "萨沙必须示范如何使用水壶，而谢拉菲姆甚至不理解吹干头发的用途，体现他不会使用家用电器，对应 А。",
+        "pages": [
+          54,
+          66
+        ],
+        "items": [
+          {
+            "quote": "Чайник ставят вот так.",
+            "translation": "水壶要这样烧。",
+            "segmentIds": [
+              "ch0022-s023"
+            ]
+          },
+          {
+            "quote": "Прости, а зачем сушить голову?..",
+            "translation": "对不起，为什么要吹干头发？……",
+            "segmentIds": [
+              "ch0022-s035"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "LS-LS-T1-6-D2-2-3-Q05",
+      "answer": "Б",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0022-s040",
+          "ch0022-s041",
+          "ch0022-s042"
+        ],
+        "quote": "Этот чай рос... / Его собирала китайская девушка... / А Чи Ян пока так и не женился...",
+        "translation": "这茶生长在……/ 是一个姓李的姑娘采摘的……/ 而奇阳至今未婚……",
+        "reasoning": "谢拉菲姆把普通茶叶延展为未经求证的天真长故事，呈现的是天真而非老练或愚蠢，对应 Б。",
+        "pages": [
+          54,
+          66
+        ],
+        "items": [
+          {
+            "quote": "Этот чай рос на склоне горы в провинции Сычуань.",
+            "translation": "这茶生长在四川省的一座山坡上。",
+            "segmentIds": [
+              "ch0022-s040"
+            ]
+          },
+          {
+            "quote": "Его собирала китайская девушка по имени Ли, которая любила человека по имени Чи Ян, но вышла замуж за Ли Женя, который работает на фабрике светодиодов.",
+            "translation": "是一个姓李的姑娘采摘的，她爱着一个叫奇阳的人，却嫁给了在发光二极管工厂工作的李仁佳。",
+            "segmentIds": [
+              "ch0022-s041"
+            ]
+          },
+          {
+            "quote": "А Чи Ян пока так и не женился...",
+            "translation": "而奇阳至今未婚……",
+            "segmentIds": [
+              "ch0022-s042"
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "learningSupport": {
+    "status": "source-checked",
+    "sourceFile": "俄语资料库/В мире людей 听力口语 Markdown版/翻译/Тема 1.6 -- ТРКИ-2 电影对话（Художественные фильмы — Диалоги） -- 中文对照.md",
+    "translationSourceStatus": "needs_review",
+    "verification": "逐句按教材俄文与本地中文对照交叉核对；短句重复项按 segmentId 和完整俄文文本锁定。"
+  },
+  "conflicts": []
+}

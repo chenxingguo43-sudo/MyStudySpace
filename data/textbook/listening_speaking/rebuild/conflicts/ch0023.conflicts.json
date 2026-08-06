@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "chapterFile": "ch0023.json",
+  "unitId": "ls-t1.6-d2.2.4",
+  "status": "resolved-machine-crosscheck",
+  "sourcePages": [
+    54,
+    66
+  ],
+  "mediaFile": "media/world-people-v2/24.mp4",
+  "evidenceFiles": [
+    "俄语资料库/В мире людей 听力口语 Markdown版/章节/Тема 1.6 -- ТРКИ-2 电影对话（Художественные фильмы — Диалоги）.md",
+    "俄语资料库/В мире людей 听力口语 Markdown版/翻译/Тема 1.6 -- ТРКИ-2 电影对话（Художественные фильмы — Диалоги） -- 中文对照.md",
+    "tmp/listening-rebuild-asr/ch0023/ch0023.json",
+    "tmp/world-people-v2-word-timestamps/24-base.json"
+  ],
+  "conflicts": [
+    {
+      "id": "ch0023-courtesy-and-introduction",
+      "status": "resolved-machine-crosscheck",
+      "type": "short-introduction-boundaries",
+      "audioRange": [
+        5.73,
+        31.52
+      ],
+      "sourceSentenceIndexes": [
+        3,
+        6,
+        7,
+        10
+      ],
+      "textbookText": [
+        "Имеете эту честь.",
+        "Константин Николаевич Котиков.",
+        "Кандидат наук, кафедра биохимии.",
+        "День рождения внучки."
+      ],
+      "asrCandidate": "The base cache has partial phonetic matches for 'честь' and 'день', but none reaches a complete accepted sentence boundary.",
+      "problem": "Names and short nominal phrases are distorted in the ASR output and cannot be timestamped by interpolation.",
+      "neededDecision": "Confirm the four audible turns and annotate exact ranges.",
+      "resolution": {
+        "method": "textbook source plus base and small local ASR cross-check",
+        "externalNativeReview": false,
+        "omittedSourceSentenceIndexes": []
+      }
+    },
+    {
+      "id": "ch0023-listen-exclamation",
+      "status": "resolved-machine-crosscheck",
+      "type": "single-word-exclamation-boundary",
+      "audioRange": [
+        186.66,
+        188.16
+      ],
+      "sourceSentenceIndexes": [
+        22
+      ],
+      "textbookText": [
+        "Послушайте!"
+      ],
+      "asrCandidate": "The word 'послушайте' appears at 187.38–187.76, but no sentence-level boundary is accepted automatically.",
+      "problem": "A single recognized word is insufficient to establish natural audible start/end without a direct media judgement.",
+      "neededDecision": "Confirm the independent utterance boundary around the recognized word.",
+      "resolution": {
+        "method": "textbook source plus base and small local ASR cross-check",
+        "externalNativeReview": false,
+        "omittedSourceSentenceIndexes": []
+      }
+    }
+  ]
+}

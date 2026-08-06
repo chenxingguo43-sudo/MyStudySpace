@@ -1,0 +1,609 @@
+{
+  "schemaVersion": 1,
+  "chapterFile": "ch0028.json",
+  "unitId": "ls-t1.7-d3.1.4",
+  "status": "release_ready",
+  "source": {
+    "chapterSha256": "241c9ee4485eeb77ed4bd806bbcb332320a8cff5a79357cc97eaff0e1d0b4f86",
+    "timelineFile": "timelines/ch0028.json",
+    "sourcePages": [
+      67,
+      79
+    ],
+    "mediaFiles": [
+      "media/world-people-v2/29.mp4"
+    ]
+  },
+  "coverage": {
+    "kind": "excerpt",
+    "omittedSourceSentenceIndexes": [
+      12
+    ],
+    "reason": "教材问句 Откуда же появилась эта уверенность?未出现在绑定媒体：上一教材句的词级 ASR 在 56.97 秒结束，随后媒体出现的是未列入教材的Всё зависит от случая，再于 59.13 秒开始下一教材句От судьбы.",
+    "verifiedBy": [
+      "俄语资料库/В мире людей 听力口语 Markdown版/章节/Тема 1.7 -- ТРКИ-2 采访（Интервью）.md",
+      "俄语资料库/В мире людей 听力口语 Markdown版/翻译/Тема 1.7 -- ТРКИ-2 采访（Интервью） -- 中文对照.md",
+      "tmp/listening-rebuild-asr/ch0028/ch0028.json",
+      "tmp/world-people-v2-word-timestamps/29-base.json"
+    ]
+  },
+  "segments": [
+    {
+      "segmentId": "ch0028-s001",
+      "text": "Среди всех моих знакомых ты — единственный, кто готов отправиться в экспедицию в любую точку Земли.",
+      "translation": "在我所有认识的人中，你是唯一一个随时准备前往地球任何角落探险的人。",
+      "playlistIndex": 0,
+      "startTime": 6.93,
+      "endTime": 14.41,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        1
+      ]
+    },
+    {
+      "segmentId": "ch0028-s002",
+      "text": "Вот и сейчас...",
+      "translation": "现在也是……",
+      "playlistIndex": 0,
+      "startTime": 14.79,
+      "endTime": 15.47,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        2
+      ]
+    },
+    {
+      "segmentId": "ch0028-s003",
+      "text": "Неужели веришь, что найдёшь корабль инопланетян?",
+      "translation": "你真的相信能找到外星人的飞船吗？",
+      "playlistIndex": 0,
+      "startTime": 16.13,
+      "endTime": 19.59,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        3
+      ]
+    },
+    {
+      "segmentId": "ch0028-s004",
+      "text": "Вероятнее всего, нет, но я должен собственными глазами увидеть, что его там нет.",
+      "translation": "很可能找不到，但我必须亲眼确认那里没有。",
+      "playlistIndex": 0,
+      "startTime": 20.17,
+      "endTime": 25.61,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        4
+      ]
+    },
+    {
+      "segmentId": "ch0028-s005",
+      "text": "Как известно, в науке отрицательный результат не менее важен, чем положительный.",
+      "translation": "众所周知，在科学中，否定的结果与肯定的结果同样重要。",
+      "playlistIndex": 0,
+      "startTime": 25.61,
+      "endTime": 30.65,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        5
+      ]
+    },
+    {
+      "segmentId": "ch0028-s006",
+      "text": "Давай вспомним, как ты начинал.",
+      "translation": "让我们回忆一下你是怎么起步的。",
+      "playlistIndex": 0,
+      "startTime": 31.61,
+      "endTime": 33.21,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        6
+      ]
+    },
+    {
+      "segmentId": "ch0028-s007",
+      "text": "Мы встретились впервые в 69-м, в Центре управления полётом.",
+      "translation": "我们第一次见面是在1969年，在飞行控制中心。",
+      "playlistIndex": 0,
+      "startTime": 33.71,
+      "endTime": 37.61,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        7
+      ]
+    },
+    {
+      "segmentId": "ch0028-s008",
+      "text": "Тогда ты сказал: «Следующим пойду я».",
+      "translation": "当时你说：\"下一个飞上去的就是我。",
+      "playlistIndex": 0,
+      "startTime": 38.01,
+      "endTime": 40.11,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        8
+      ]
+    },
+    {
+      "segmentId": "ch0028-s009",
+      "text": "Как появилась уверенность, что обязательно полетишь?",
+      "translation": "\"你怎么就有了一定会飞的把握？",
+      "playlistIndex": 0,
+      "startTime": 40.99,
+      "endTime": 43.91,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        9
+      ]
+    },
+    {
+      "segmentId": "ch0028-s010",
+      "text": "Уверенности, что полетишь, нет никогда.",
+      "translation": "永远不会有能飞上天的把握。",
+      "playlistIndex": 0,
+      "startTime": 44.85,
+      "endTime": 47.43,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        10
+      ]
+    },
+    {
+      "segmentId": "ch0028-s011",
+      "text": "Ведь не знаешь, включат тебя в экипаж или нет, заменят или нет, не отстранят ли в последнюю минуту врачи от полёта — и так далее, и тому подобное.",
+      "translation": "因为你不知道会不会被选入机组、会不会被替换、最后一刻会不会被医生取消飞行资格——等等等等。",
+      "playlistIndex": 0,
+      "startTime": 47.97,
+      "endTime": 56.93,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        11
+      ]
+    },
+    {
+      "segmentId": "ch0028-s012",
+      "text": "От судьбы.",
+      "translation": "来自命运。",
+      "playlistIndex": 0,
+      "startTime": 59.09,
+      "endTime": 59.75,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        13
+      ]
+    },
+    {
+      "segmentId": "ch0028-s013",
+      "text": "Уверен, что она есть у человека.",
+      "translation": "我坚信人是有命运的。",
+      "playlistIndex": 0,
+      "startTime": 60.49,
+      "endTime": 62.51,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        14
+      ]
+    },
+    {
+      "segmentId": "ch0028-s014",
+      "text": "Утверждаю, что у меня судьба была стать космонавтом.",
+      "translation": "我确信，我的命运就是成为一名宇航员。",
+      "playlistIndex": 0,
+      "startTime": 62.97,
+      "endTime": 66.41,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        15
+      ]
+    },
+    {
+      "segmentId": "ch0028-s015",
+      "text": "Ты один из людей, которые летали в космос не ради славы — тебя всегда влекла наука.",
+      "translation": "你是那些不是为了名声而飞上太空的人之一——吸引你的始终是科学。",
+      "playlistIndex": 0,
+      "startTime": 67.05,
+      "endTime": 72.47,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        16
+      ]
+    },
+    {
+      "segmentId": "ch0028-s016",
+      "text": "Страсть к науке появилась в раннем детстве.",
+      "translation": "对科学的热爱出现在童年早期。",
+      "playlistIndex": 0,
+      "startTime": 72.97,
+      "endTime": 75.85,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        17
+      ]
+    },
+    {
+      "segmentId": "ch0028-s017",
+      "text": "В Ленинграде был Дом занимательной науки и техники.",
+      "translation": "列宁格勒有一座趣味科学技术馆。",
+      "playlistIndex": 0,
+      "startTime": 75.85,
+      "endTime": 79.61,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        18
+      ]
+    },
+    {
+      "segmentId": "ch0028-s018",
+      "text": "Там разные явления подавались столь необычно, что если у кого-то был хотя бы какой-то интерес к науке, он сразу же этим увлекался.",
+      "translation": "那里以极其不同寻常的方式展示各种现象，只要有人对科学稍有兴趣，马上就会被吸引。",
+      "playlistIndex": 0,
+      "startTime": 80.29,
+      "endTime": 88.95,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        19
+      ]
+    },
+    {
+      "segmentId": "ch0028-s019",
+      "text": "Там и появилась у меня тяга к науке.",
+      "translation": "我对科学的热爱就是在那里产生的。",
+      "playlistIndex": 0,
+      "startTime": 89.41,
+      "endTime": 92.23,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        20
+      ]
+    },
+    {
+      "segmentId": "ch0028-s020",
+      "text": "Юрий Гагарин перед стартом сказал: «Поехали», а я произнёс: «Поехали на работу!»",
+      "translation": "尤里·加加林起飞前说“出发！”，而我说的是“出发去工作！”。",
+      "playlistIndex": 0,
+      "startTime": 92.73,
+      "endTime": 98.01,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        21
+      ]
+    },
+    {
+      "segmentId": "ch0028-s021",
+      "text": "Религия и фантастика, как мне кажется, очень близки.",
+      "translation": "我觉得宗教和科幻非常相近。",
+      "playlistIndex": 0,
+      "startTime": 99.09,
+      "endTime": 101.33,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        22
+      ]
+    },
+    {
+      "segmentId": "ch0028-s022",
+      "text": "Поэтому космонавтов обязательно спрашивают, что необычного они видели в полётах.",
+      "translation": "所以人们总是要问宇航员在飞行中看到了什么不寻常的东西。",
+      "playlistIndex": 0,
+      "startTime": 101.65,
+      "endTime": 106.63,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        23
+      ]
+    },
+    {
+      "segmentId": "ch0028-s023",
+      "text": "Я не верю, что вокруг Земли крутятся «летающие тарелки».",
+      "translation": "我不相信有\"飞碟\"绕着地球转。",
+      "playlistIndex": 0,
+      "startTime": 106.95,
+      "endTime": 110.57,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        24
+      ]
+    },
+    {
+      "segmentId": "ch0028-s024",
+      "text": "Но если говорить всерьёз, то считаю, что они к нам прилетали.",
+      "translation": "但说正经的，我认为它们确实来过地球。",
+      "playlistIndex": 0,
+      "startTime": 111.17,
+      "endTime": 114.95,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        25
+      ]
+    },
+    {
+      "segmentId": "ch0028-s025",
+      "text": "В Лондонском музее я увидел картину с НЛО 1480 года.",
+      "translation": "在伦敦博物馆，我看到了一幅1480年的画，上面画着不明飞行物。",
+      "playlistIndex": 0,
+      "startTime": 115.39,
+      "endTime": 120.75,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        26
+      ]
+    },
+    {
+      "segmentId": "ch0028-s026",
+      "text": "Я был потрясён.",
+      "translation": "我被震撼了。",
+      "playlistIndex": 0,
+      "startTime": 121.41,
+      "endTime": 122.53,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        27
+      ]
+    },
+    {
+      "segmentId": "ch0028-s027",
+      "text": "Прежде чем пожелать успеха в новой экспедиции, прошу два слова о будущем космонавтики.",
+      "translation": "在祝你新探险成功之前，请用两句话谈谈航天的未来。",
+      "playlistIndex": 0,
+      "startTime": 122.95,
+      "endTime": 128.89,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        28
+      ]
+    },
+    {
+      "segmentId": "ch0028-s028",
+      "text": "Как оно видится тебе?",
+      "translation": "你怎么看？",
+      "playlistIndex": 0,
+      "startTime": 129.49,
+      "endTime": 130.55,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        29
+      ]
+    },
+    {
+      "segmentId": "ch0028-s029",
+      "text": "Я работал на трёх разных станциях.",
+      "translation": "我在三个不同的空间站工作过。",
+      "playlistIndex": 0,
+      "startTime": 130.55,
+      "endTime": 133.31,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        30
+      ]
+    },
+    {
+      "segmentId": "ch0028-s030",
+      "text": "Пришёл к выводу, что использовать их не следует.",
+      "translation": "我得出的结论是，不应该继续使用空间站。",
+      "playlistIndex": 0,
+      "startTime": 133.51,
+      "endTime": 135.97,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        31
+      ]
+    },
+    {
+      "segmentId": "ch0028-s031",
+      "text": "Нужны автоматические аппараты, которые выполняют определённые цели.",
+      "translation": "需要的是能完成特定任务的自动装置。",
+      "playlistIndex": 0,
+      "startTime": 136.47,
+      "endTime": 140.11,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        32
+      ]
+    },
+    {
+      "segmentId": "ch0028-s032",
+      "text": "Сейчас возникли новые возможности в космонавтике: полеты к Луне, на Марс.",
+      "translation": "如今航天领域出现了新的可能性：飞往月球、飞往火星。",
+      "playlistIndex": 0,
+      "startTime": 140.67,
+      "endTime": 145.61,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        33
+      ]
+    },
+    {
+      "segmentId": "ch0028-s033",
+      "text": "Это надо использовать.",
+      "translation": "应当加以利用。",
+      "playlistIndex": 0,
+      "startTime": 146.03,
+      "endTime": 146.97,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        34
+      ]
+    },
+    {
+      "segmentId": "ch0028-s034",
+      "text": "Нужно немедленно начать работу над жилым межпланетным блоком!",
+      "translation": "必须立即开始研制宜居的星际舱体！",
+      "playlistIndex": 0,
+      "startTime": 147.47,
+      "endTime": 151.77,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        35
+      ]
+    },
+    {
+      "segmentId": "ch0028-s035",
+      "text": "Мы же до сих пор крутимся вокруг Земли, а туда не летим.",
+      "translation": "我们至今还在绕着地球转，而不往那里飞。",
+      "playlistIndex": 0,
+      "startTime": 152.21,
+      "endTime": 155.51,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        36
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "LS-LS-T1-7-D3-1-4-Q01",
+      "answer": "Б",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0028-s016",
+          "ch0028-s019"
+        ],
+        "quote": "Страсть к науке появилась в раннем детстве. Там и появилась у меня тяга к науке.",
+        "translation": "对科学的热爱出现在童年早期；我对科学的热情就是在那里产生的。",
+        "reasoning": "他明确把对科学的热爱追溯到童年，并说明兴趣从何而来，直接支持 Б“热爱科学”。",
+        "pages": [
+          67,
+          79
+        ],
+        "items": [
+          {
+            "quote": "Страсть к науке появилась в раннем детстве.",
+            "translation": "对科学的热爱出现在童年早期。",
+            "segmentIds": [
+              "ch0028-s016"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "LS-LS-T1-7-D3-1-4-Q02",
+      "answer": "В",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0028-s024",
+          "ch0028-s025"
+        ],
+        "quote": "Но если говорить всерьёз, то считаю, что они к нам прилетали. В Лондонском музее я увидел картину с НЛО 1480 года.",
+        "translation": "但认真说来，我认为它们确实来过地球；我在伦敦博物馆看见了一幅 1480 年带有不明飞行物的画。",
+        "reasoning": "他否认“绕地球飞行”的说法，却认真表示它们来过地球并给出博物馆画作作为经验依据；教材答案对应 В“客观现实”。",
+        "pages": [
+          67,
+          79
+        ],
+        "items": [
+          {
+            "quote": "Но если говорить всерьёз, то считаю, что они к нам прилетали.",
+            "translation": "但认真说来，我认为它们确实来过地球。",
+            "segmentIds": [
+              "ch0028-s024"
+            ]
+          },
+          {
+            "quote": "В Лондонском музее я увидел картину с НЛО 1480 года.",
+            "translation": "我在伦敦博物馆看见了一幅 1480 年带有不明飞行物的画。",
+            "segmentIds": [
+              "ch0028-s025"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "LS-LS-T1-7-D3-1-4-Q03",
+      "answer": "Б",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0028-s012",
+          "ch0028-s013",
+          "ch0028-s014"
+        ],
+        "quote": "От судьбы. Уверен, что она есть у человека. Утверждаю, что у меня судьба была стать космонавтом.",
+        "translation": "来自命运。我相信每个人都有命运；我断言，我的命运就是成为宇航员。",
+        "reasoning": "他直接肯定每个人都有命运，并用自己的宇航员经历说明，排除“人自己安排一切”和“一切由偶然决定”，对应 Б。",
+        "pages": [
+          67,
+          79
+        ],
+        "items": [
+          {
+            "quote": "Уверен, что она есть у человека.",
+            "translation": "我相信每个人都有命运。",
+            "segmentIds": [
+              "ch0028-s013"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "LS-LS-T1-7-D3-1-4-Q04",
+      "answer": "А",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0028-s001"
+        ],
+        "quote": "Среди всех моих знакомых ты — единственный, кто готов отправиться в экспедицию в любую точку Земли.",
+        "translation": "在我所有认识的人中，你是唯一一个随时准备前往地球任何角落探险的人。",
+        "reasoning": "记者把他描述为随时准备出发去任何地点探险的人，直接对应 А“行动积极、说走就走的人”。",
+        "pages": [
+          67,
+          79
+        ],
+        "items": [
+          {
+            "quote": "Ты — единственный, кто готов отправиться в экспедицию в любую точку Земли.",
+            "translation": "你是唯一一个准备前往地球任何角落探险的人。",
+            "segmentIds": [
+              "ch0028-s001"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "LS-LS-T1-7-D3-1-4-Q05",
+      "answer": "А",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0028-s006",
+          "ch0028-s027"
+        ],
+        "quote": "Давай вспомним, как ты начинал. Как оно видится тебе?",
+        "translation": "让我们回想一下你是怎样开始的。你怎么看？",
+        "reasoning": "记者用“давай”和“ты”邀请受访者分享经历并询问观点，语气亲切自然；没有越界的戏谑，也不是正式公文式提问，对应 А“友好”。",
+        "pages": [
+          67,
+          79
+        ],
+        "items": [
+          {
+            "quote": "Давай вспомним, как ты начинал.",
+            "translation": "让我们回想一下你是怎样开始的。",
+            "segmentIds": [
+              "ch0028-s006"
+            ]
+          },
+          {
+            "quote": "Как оно видится тебе?",
+            "translation": "你怎么看？",
+            "segmentIds": [
+              "ch0028-s027"
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "learningSupport": {
+    "status": "source-checked",
+    "sourceFile": "俄语资料库/В мире людей 听力口语 Markdown版/翻译/Тема 1.7 -- ТРКИ-2 采访（Интервью） -- 中文对照.md",
+    "translationSourceStatus": "needs_review"
+  },
+  "conflicts": []
+}

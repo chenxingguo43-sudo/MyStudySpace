@@ -1,0 +1,264 @@
+{
+  "schemaVersion": 1,
+  "chapterFile": "ch0013.json",
+  "unitId": "ls-t1.4-m1.3.4",
+  "status": "release_ready",
+  "source": {
+    "chapterSha256": "29fc78c9510ef6a7b09229966cf2af948c577a55e91417d654409a14a4a23a59",
+    "timelineFile": "timelines/ch0013.json",
+    "sourcePages": [
+      37,
+      38
+    ],
+    "mediaFiles": [
+      "media/world-people-v2/14.mp4"
+    ]
+  },
+  "coverage": {
+    "kind": "complete",
+    "verifiedBy": [
+      "俄语资料库/В мире людей 听力口语 Markdown版/翻译/Тема 1.4 -- ТРКИ-2 广告（Рекламные объявления） -- 中文对照.md",
+      "tmp/world-people-v2-word-timestamps/14-base.json",
+      "tmp/listening-rebuild-asr/ch0013/ch0013.json"
+    ]
+  },
+  "segments": [
+    {
+      "segmentId": "ch0013-s001",
+      "text": "Создан прибор для расшифровки ДНК.",
+      "translation": "一种用于解码 DNA 的设备已经研发成功。",
+      "playlistIndex": 0,
+      "startTime": 4.27,
+      "endTime": 7.61,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        1
+      ]
+    },
+    {
+      "segmentId": "ch0013-s002",
+      "text": "В режиме реального времени считывается информация с образца, например, с капельки крови.",
+      "translation": "它能实时读取样本中的信息，例如一滴血液中的信息。",
+      "playlistIndex": 0,
+      "startTime": 8.47,
+      "endTime": 15.39,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        2
+      ]
+    },
+    {
+      "segmentId": "ch0013-s003",
+      "text": "Это перспективное направление в науке и медицине.",
+      "translation": "这是科学和医学领域一个很有前景的方向。",
+      "playlistIndex": 0,
+      "startTime": 16.15,
+      "endTime": 20.01,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        3
+      ]
+    },
+    {
+      "segmentId": "ch0013-s004",
+      "text": "Оно даёт возможность проводить за считанные минуты анализы, на которые раньше требовались недели.",
+      "translation": "它能在几分钟内完成过去需要数周才能完成的分析。",
+      "playlistIndex": 0,
+      "startTime": 20.71,
+      "endTime": 27.39,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        4
+      ]
+    },
+    {
+      "segmentId": "ch0013-s005",
+      "text": "Одноразовое устройство заменяет большие приборы стоимостью почти 100 тысяч долларов.",
+      "translation": "这种一次性设备取代了价值近十万美元的大型仪器。",
+      "playlistIndex": 0,
+      "startTime": 29.47,
+      "endTime": 34.55,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        5
+      ]
+    },
+    {
+      "segmentId": "ch0013-s006",
+      "text": "Недавно в продажу поступил вариант стоимостью 900 долларов, в следующем году планируется выпуск более мощного варианта.",
+      "translation": "最近一种售价 900 美元的型号已上市，明年计划推出性能更强的型号。",
+      "playlistIndex": 0,
+      "startTime": 35.55,
+      "endTime": 44.63,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        6
+      ]
+    },
+    {
+      "segmentId": "ch0013-s007",
+      "text": "Появление компактных и относительно дешёвых приборов позволит учёным, медикам, криминалистам проводить исследования и ставить эксперименты, которые ранее были доступны только в крупных лабораториях.",
+      "translation": "小型且相对便宜的设备将使科学家、医务人员和法医能够进行过去只有大型实验室才能开展的研究和实验。",
+      "playlistIndex": 0,
+      "startTime": 46.25,
+      "endTime": 61.09,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        7
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "LS-LS-T1-4-M1-3-4-Q01",
+      "answer": "В",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0013-s007"
+        ],
+        "quote": "...учёным, медикам, криминалистам...",
+        "translation": "……科学家、医务人员和法医……",
+        "reasoning": "原句列出科学家、医务人员和法医三类不同职业，说明广告面向不同职业的人，对应选项 В。",
+        "pages": [
+          37,
+          38
+        ],
+        "items": [
+          {
+            "quote": "Появление компактных и относительно дешёвых приборов позволит учёным, медикам, криминалистам проводить исследования и ставить эксперименты, которые ранее были доступны только в крупных лабораториях.",
+            "translation": "小型且相对便宜的设备将使科学家、医务人员和法医能够进行过去只有大型实验室才能开展的研究和实验。",
+            "segmentIds": [
+              "ch0013-s007"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "LS-LS-T1-4-M1-3-4-Q02",
+      "answer": "А",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0013-s004"
+        ],
+        "quote": "...за считанные минуты анализы, на которые раньше требовались недели.",
+        "translation": "……在几分钟内完成过去需要数周的分析。",
+        "reasoning": "за считанные минуты 表示“只需几分钟”，对应选项 А。",
+        "pages": [
+          37,
+          38
+        ],
+        "items": [
+          {
+            "quote": "Оно даёт возможность проводить за считанные минуты анализы, на которые раньше требовались недели.",
+            "translation": "它能在几分钟内完成过去需要数周才能完成的分析。",
+            "segmentIds": [
+              "ch0013-s004"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "LS-LS-T1-4-M1-3-4-Q03",
+      "answer": "Б",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0013-s005"
+        ],
+        "quote": "Одноразовое устройство...",
+        "translation": "一次性设备……",
+        "reasoning": "одноразовое 直接表示“一次性的”，对应选项 Б。",
+        "pages": [
+          37,
+          38
+        ],
+        "items": [
+          {
+            "quote": "Одноразовое устройство заменяет большие приборы стоимостью почти 100 тысяч долларов.",
+            "translation": "这种一次性设备取代了价值近十万美元的大型仪器。",
+            "segmentIds": [
+              "ch0013-s005"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "LS-LS-T1-4-M1-3-4-Q04",
+      "answer": "В",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0013-s006"
+        ],
+        "quote": "Недавно в продажу поступил вариант стоимостью 900 долларов...",
+        "translation": "最近一种售价 900 美元的型号已上市……",
+        "reasoning": "原句直接给出上市型号价格为 900 美元，对应选项 В。",
+        "pages": [
+          37,
+          38
+        ],
+        "items": [
+          {
+            "quote": "Недавно в продажу поступил вариант стоимостью 900 долларов, в следующем году планируется выпуск более мощного варианта.",
+            "translation": "最近一种售价 900 美元的型号已上市，明年计划推出性能更强的型号。",
+            "segmentIds": [
+              "ch0013-s006"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "LS-LS-T1-4-M1-3-4-Q05",
+      "answer": "В",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0013-s003"
+        ],
+        "quote": "Это перспективное направление в науке и медицине.",
+        "translation": "这是科学和医学领域一个很有前景的方向。",
+        "reasoning": "原句明确说明该方向属于科学和医学，对应选项 В。",
+        "pages": [
+          37,
+          38
+        ],
+        "items": [
+          {
+            "quote": "Это перспективное направление в науке и медицине.",
+            "translation": "这是科学和医学领域一个很有前景的方向。",
+            "segmentIds": [
+              "ch0013-s003"
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "learningSupport": {
+    "status": "source-checked",
+    "scope": "complete source reconstruction, sentence translations, and per-question listening evidence",
+    "sourceFile": "俄语资料库/В мире людей 听力口语 Markdown版/翻译/Тема 1.4 -- ТРКИ-2 广告（Рекламные объявления） -- 中文对照.md",
+    "translationSourceStatus": "needs_review",
+    "reviewedAt": "2026-08-06",
+    "migratedFromStatus": "source-cross-checked"
+  },
+  "conflicts": [
+    {
+      "id": "ch0013-truncated-first-sentence",
+      "status": "resolved",
+      "type": "incomplete-formal-timeline",
+      "source": [
+        "俄语资料库/В мире людей 听力口语 Markdown版/翻译/Тема 1.4 -- ТРКИ-2 广告（Рекламные объявления） -- 中文对照.md",
+        "tmp/world-people-v2-word-timestamps/14-base.json"
+      ],
+      "resolution": "旧正式第一段从音频第 8.53 秒开始，遗漏已播出的“Создан прибор для расшифровки ДНК”。原书文本和词级 ASR 都支持将其恢复为独立首句。",
+      "resolvedAt": "2026-08-06"
+    }
+  ]
+}

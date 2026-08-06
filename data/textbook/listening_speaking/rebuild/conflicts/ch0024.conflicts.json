@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "chapterFile": "ch0024.json",
+  "unitId": "ls-t1.6-d2.2.5",
+  "status": "resolved-by-combined-overlap-excerpt",
+  "sourcePages": [54, 66],
+  "mediaFile": "media/world-people-v2/25.mp4",
+  "evidenceFiles": [
+    "俄语资料库/В мире людей 听力口语 Markdown版/章节/Тема 1.6 -- ТРКИ-2 电影对话（Художественные фильмы — Диалоги）.md",
+    "俄语资料库/В мире людей 听力口语 Markdown版/翻译/Тема 1.6 -- ТРКИ-2 电影对话（Художественные фильмы — Диалоги） -- 中文对照.md",
+    "tmp/listening-rebuild-asr/ch0024/ch0024.json",
+    "tmp/world-people-v2-word-timestamps/25-base.json"
+  ],
+  "conflicts": [
+    {
+      "id": "ch0024-overlapping-happiness-lines",
+      "status": "resolved",
+      "type": "overlapped-dialogue-boundary",
+      "audioRange": [84.02, 86.72],
+      "sourceSentenceIndexes": [18, 19],
+      "textbookText": [
+        "«Хочешь быть счастливым и будь им!» Все это знают.",
+        "Да, все это знают."
+      ],
+      "asrCandidate": "Sentence 18 aligns at 84.02–86.70 and sentence 19 at 85.88–86.72; the ranges overlap by 0.82 seconds.",
+      "problem": "The source dialogue overlaps. Clipping either line would make its quoted textbook sentence incomplete, while publishing both violates the non-overlap release contract.",
+      "resolution": "The two simultaneous source lines are represented as one playable overlap excerpt, ch0024-s018, covering 84.02–86.72 seconds with sourceSentenceIndexes [18, 19]. No source sentence or audio range was discarded."
+    }
+  ]
+}

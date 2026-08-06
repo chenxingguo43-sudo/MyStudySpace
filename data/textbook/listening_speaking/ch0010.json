@@ -36,7 +36,29 @@
           "text": "культурной столицы Поволжья"
         }
       ],
-      "answer": "А"
+      "answer": "А",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0010-s001"
+        ],
+        "quote": "Казань — ... столица Татарстана...",
+        "translation": "喀山是鞑靼斯坦首府。",
+        "reasoning": "столица Татарстана 表明它是共和国首府，对应 А。",
+        "pages": [
+          31,
+          32
+        ],
+        "items": [
+          {
+            "quote": "Казань — один из древнейших городов России, столица Татарстана — ждёт вас!",
+            "translation": "喀山，俄罗斯最古老城市之一、鞑靼斯坦首府，欢迎您！",
+            "segmentIds": [
+              "ch0010-s001"
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "LS-LS-T1-4-M1-3-1-Q02",
@@ -56,7 +78,29 @@
           "text": "на морском побережье"
         }
       ],
-      "answer": "Б"
+      "answer": "Б",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0010-s002"
+        ],
+        "quote": "Городу на Волге...",
+        "translation": "伏尔加河畔的城市。",
+        "reasoning": "на Волге 指位于伏尔加河畔，对应 Б。",
+        "pages": [
+          31,
+          32
+        ],
+        "items": [
+          {
+            "quote": "Городу на Волге более тысячи лет!",
+            "translation": "这座伏尔加河畔的城市已有千年历史！",
+            "segmentIds": [
+              "ch0010-s002"
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "LS-LS-T1-4-M1-3-1-Q03",
@@ -76,7 +120,29 @@
           "text": "Казанский Кремль"
         }
       ],
-      "answer": "В"
+      "answer": "В",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0010-s004"
+        ],
+        "quote": "Кремль, внесённый в список культурного наследия.",
+        "translation": "被列入文化遗产名录的克里姆林宫。",
+        "reasoning": "原句直接指明克里姆林宫，对应 В。",
+        "pages": [
+          31,
+          32
+        ],
+        "items": [
+          {
+            "quote": "Главной достопримечательностью по праву является Кремль, внесённый в список культурного наследия.",
+            "translation": "当之无愧的主要景点是被列入文化遗产名录的克里姆林宫。",
+            "segmentIds": [
+              "ch0010-s004"
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "LS-LS-T1-4-M1-3-1-Q04",
@@ -96,7 +162,29 @@
           "text": "обзорная экскурсия по городу"
         }
       ],
-      "answer": "В"
+      "answer": "В",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0010-s007"
+        ],
+        "quote": "В стоимость включается: проживание; питание; транспортное обслуживание; услуги гида-экскурсовода.",
+        "translation": "费用包含住宿、餐饮、交通服务和导游服务。",
+        "reasoning": "音频明确把导游服务和交通服务列为费用包含项，因此 А、Б 均不成立；剩余的未包含项目为 В（城市观光游）。",
+        "pages": [
+          31,
+          32
+        ],
+        "items": [
+          {
+            "quote": "В стоимость включается: проживание; питание; транспортное обслуживание; услуги гида-экскурсовода.",
+            "translation": "费用包含住宿、餐饮、交通服务和导游服务。",
+            "segmentIds": [
+              "ch0010-s007"
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "LS-LS-T1-4-M1-3-1-Q05",
@@ -116,117 +204,131 @@
           "text": "в офисе турагентства"
         }
       ],
-      "answer": "Б"
+      "answer": "Б",
+      "evidence": {
+        "status": "not-in-bound-media",
+        "quote": "Заказывайте экскурсии по телефону: (495) 974-77-74.",
+        "translation": "请通过电话预订观光游：(495) 974-77-74。",
+        "reasoning": "教材答案依据是结尾电话，但该电话号码未被绑定媒体录入；本题已禁用并从当前媒体计分中排除。",
+        "pages": [
+          31,
+          32
+        ],
+        "items": [
+          {
+            "quote": "Заказывайте экскурсии по телефону: (495) 974-77-74.",
+            "translation": "请通过电话预订观光游：(495) 974-77-74。",
+            "segmentIds": []
+          }
+        ]
+      }
     }
   ],
   "transcriptSegments": [
     {
       "text": "Казань — один из древнейших городов России, столица Татарстана — ждёт вас!",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 1,
-      "matchedWords": 10,
-      "expectedWords": 10,
+      "translation": "喀山，俄罗斯最古老城市之一、鞑靼斯坦首府，欢迎您！",
       "startTime": 4.84,
       "endTime": 10.84,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        1
+      ]
     },
     {
       "text": "Городу на Волге более тысячи лет!",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 1,
-      "matchedWords": 6,
-      "expectedWords": 6,
+      "translation": "这座伏尔加河畔的城市已有千年历史！",
       "startTime": 11.52,
       "endTime": 13.72,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        2
+      ]
     },
     {
       "text": "Туристов привлекают памятники архитектуры и культуры, имена Пушкина, Шаляпина, Льва Толстого, связанные с Казанью.",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 0.929,
-      "matchedWords": 13,
-      "expectedWords": 14,
+      "translation": "建筑与文化古迹，以及与喀山相关的普希金、夏里亚宾和列夫·托尔斯泰吸引着游客。",
       "startTime": 14.14,
       "endTime": 22.8,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        3
+      ]
     },
     {
       "text": "Главной достопримечательностью по праву является Кремль, внесённый в список культурного наследия.",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 1,
-      "matchedWords": 11,
-      "expectedWords": 11,
+      "translation": "当之无愧的主要景点是被列入文化遗产名录的克里姆林宫。",
       "startTime": 23.22,
       "endTime": 29.4,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        4
+      ]
     },
     {
       "text": "В программу экскурсии входит также посещение Богородицкого монастыря и мечети Марджани.",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 1,
-      "matchedWords": 11,
-      "expectedWords": 11,
+      "translation": "游览项目还包括参观圣母修道院和马尔贾尼清真寺。",
       "startTime": 30.34,
       "endTime": 36.78,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        5
+      ]
     },
     {
-      "text": "железнодорожные и автобусные; — индивидуальные и сборные экскурсионные.",
+      "text": "Железнодорожные и автобусные; индивидуальные и сборные экскурсионные.",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 1,
-      "matchedWords": 7,
-      "expectedWords": 7,
+      "translation": "提供铁路和巴士旅游，以及个人和拼团观光。",
       "startTime": 38.82,
       "endTime": 43.52,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        6
+      ]
     },
     {
-      "text": "проживание; питание; транспортное обслуживание; услуги гида-экскурсовода.",
+      "text": "Проживание; питание; транспортное обслуживание; услуги гида-экскурсовода.",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 1,
-      "matchedWords": 7,
-      "expectedWords": 7,
+      "translation": "费用包含住宿、餐饮、交通服务和导游服务。",
       "startTime": 44.92,
       "endTime": 50.18,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        7
+      ]
     },
     {
       "text": "Дополнительно оплачиваются: билеты и трансфер в гостиницу.",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 1,
-      "matchedWords": 7,
-      "expectedWords": 7,
+      "translation": "门票和前往酒店的接送服务需另行付费。",
       "startTime": 50.58,
       "endTime": 54.44,
-      "timingStatus": "aligned"
-    },
-    {
-      "text": "(495) 974-77-74.",
-      "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 0,
-      "matchedWords": 0,
-      "expectedWords": 0,
-      "startTime": 0,
-      "endTime": 0,
-      "timingStatus": "unmatched"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        8
+      ]
     }
-  ]
+  ],
+  "transcriptCoverage": {
+    "kind": "excerpt",
+    "omittedSourceSentenceIndexes": [
+      9
+    ],
+    "omissionReason": "结尾电话号码未在绑定媒体中播出。",
+    "verifiedBy": [
+      "俄语资料库/В мире людей 听力口语 Markdown版/翻译/Тема 1.4 -- ТРКИ-2 广告（Рекламные объявления） -- 中文对照.md",
+      "tmp/listening-rebuild-asr/ch0010/ch0010.json"
+    ]
+  },
+  "learningSupport": {
+    "status": "source-checked",
+    "sourceFile": "俄语资料库/В мире людей 听力口语 Markdown版/翻译/Тема 1.4 -- ТРКИ-2 广告（Рекламные объявления） -- 中文对照.md",
+    "translationSourceStatus": "needs_review",
+    "migratedFromStatus": "source-cross-checked"
+  }
 }

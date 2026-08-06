@@ -1,206 +1,103 @@
 {
   "chapter": 15,
   "source": "verified-world-people-v2-media",
-  "model": "small",
+  "model": "small + source-excerpt reconciliation",
   "mediaStructure": {
     "chapter": 15,
     "featureEndSeconds": 146.7,
     "exerciseStartSeconds": 146.7
   },
-  "status": "partial",
+  "status": "source-aligned-excerpt",
   "segments": [
-    {
-      "text": "Что?",
-      "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 0.0,
-      "matchedWords": 0,
-      "expectedWords": 1,
-      "startTime": 0,
-      "endTime": 0,
-      "timingStatus": "unmatched"
-    },
-    {
-      "text": "Смеёшься надо мной?",
-      "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 0.0,
-      "matchedWords": 0,
-      "expectedWords": 3,
-      "startTime": 0,
-      "endTime": 0,
-      "timingStatus": "unmatched"
-    },
-    {
-      "text": "Вот отец твой тоже смеялся.",
-      "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 0.0,
-      "matchedWords": 0,
-      "expectedWords": 5,
-      "startTime": 0,
-      "endTime": 0,
-      "timingStatus": "unmatched"
-    },
-    {
-      "text": "И что?",
-      "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 0.0,
-      "matchedWords": 0,
-      "expectedWords": 2,
-      "startTime": 0,
-      "endTime": 0,
-      "timingStatus": "unmatched"
-    },
-    {
-      "text": "Где он сейчас?",
-      "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 0.0,
-      "matchedWords": 0,
-      "expectedWords": 3,
-      "startTime": 0,
-      "endTime": 0,
-      "timingStatus": "unmatched"
-    },
-    {
-      "text": "Чего достиг?",
-      "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 0.0,
-      "matchedWords": 0,
-      "expectedWords": 2,
-      "startTime": 0,
-      "endTime": 0,
-      "timingStatus": "unmatched"
-    },
-    {
-      "text": "А ведь мог жить как человек, но он смеялся...",
-      "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 0.0,
-      "matchedWords": 0,
-      "expectedWords": 9,
-      "startTime": 0,
-      "endTime": 0,
-      "timingStatus": "unmatched"
-    },
-    {
-      "text": "Он пошёл играть в Кришму.",
-      "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 0.0,
-      "matchedWords": 0,
-      "expectedWords": 5,
-      "startTime": 0,
-      "endTime": 0,
-      "timingStatus": "unmatched"
-    },
-    {
-      "text": "Я его спрашивал: «Зачем тебе это?», хотя уже знал, что он пошёл из-за твоей матери.",
-      "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 0.0,
-      "matchedWords": 0,
-      "expectedWords": 16,
-      "startTime": 0,
-      "endTime": 0,
-      "timingStatus": "unmatched"
-    },
-    {
-      "text": "Ты ведь не помнишь свою мать, а я помню.",
-      "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 0.333,
-      "matchedWords": 3,
-      "expectedWords": 9,
-      "startTime": 0,
-      "endTime": 0,
-      "timingStatus": "unmatched",
-      "recognizedSnippet": "монолог а я помню она не была цыганкой"
-    },
     {
       "text": "Она не была цыганкой, но зато у неё был отец, твой дед, румын Чону.",
       "playlistIndex": 0,
       "speaker": "A",
       "displayLabel": "Д",
-      "matchRatio": 1.0,
+      "matchRatio": 1,
       "matchedWords": 14,
       "expectedWords": 14,
       "startTime": 31.74,
       "endTime": 39.5,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        11
+      ]
     },
     {
       "text": "Тот не имел ничего, кроме долгов.",
       "playlistIndex": 0,
       "speaker": "A",
       "displayLabel": "Д",
-      "matchRatio": 1.0,
+      "matchRatio": 1,
       "matchedWords": 6,
       "expectedWords": 6,
       "startTime": 40.26,
       "endTime": 41.94,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        12
+      ]
     },
     {
       "text": "Больших долгов, очень больших долгов.",
       "playlistIndex": 0,
       "speaker": "A",
       "displayLabel": "Д",
-      "matchRatio": 1.0,
+      "matchRatio": 1,
       "matchedWords": 5,
       "expectedWords": 5,
       "startTime": 42.12,
       "endTime": 44.12,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        13
+      ]
     },
     {
       "text": "Это были огромные деньги.",
       "playlistIndex": 0,
       "speaker": "A",
       "displayLabel": "Д",
-      "matchRatio": 1.0,
+      "matchRatio": 1,
       "matchedWords": 4,
       "expectedWords": 4,
       "startTime": 44.8,
       "endTime": 46.26,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        14
+      ]
     },
     {
       "text": "Я знал этих людей, этих цыган, которым он был должен.",
       "playlistIndex": 0,
       "speaker": "A",
       "displayLabel": "Д",
-      "matchRatio": 1.0,
+      "matchRatio": 1,
       "matchedWords": 10,
       "expectedWords": 10,
       "startTime": 46.64,
       "endTime": 49.82,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        15
+      ]
     },
     {
       "text": "Это были настоящие цыгане.",
       "playlistIndex": 0,
       "speaker": "A",
       "displayLabel": "Д",
-      "matchRatio": 1.0,
+      "matchRatio": 1,
       "matchedWords": 4,
       "expectedWords": 4,
       "startTime": 50.32,
       "endTime": 52.14,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        16
+      ]
     },
     {
       "text": "Сейчас уже таких нет.",
@@ -212,7 +109,10 @@
       "expectedWords": 4,
       "startTime": 52.34,
       "endTime": 53.42,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        17
+      ]
     },
     {
       "text": "И вот, когда они пришли просить у него свои деньги, он вышел во двор Кришмы и застрелил себя из ружья.",
@@ -224,19 +124,25 @@
       "expectedWords": 20,
       "startTime": 53.84,
       "endTime": 59.52,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        18
+      ]
     },
     {
       "text": "Вот так вот, понял?!",
       "playlistIndex": 0,
       "speaker": "A",
       "displayLabel": "Д",
-      "matchRatio": 1.0,
+      "matchRatio": 1,
       "matchedWords": 4,
       "expectedWords": 4,
       "startTime": 59.52,
       "endTime": 61.22,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        19
+      ]
     },
     {
       "text": "Сначала вы смеётесь, потом играете, а потом — пуффф.",
@@ -248,43 +154,27 @@
       "expectedWords": 8,
       "startTime": 61.9,
       "endTime": 65.74,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        20
+      ]
     },
     {
-      "text": "Думаешь, я не знаю, чего ты хочешь?",
+      "text": "Думаешь, я не знаю, чего ты хочешь? А? Лаутар, ты же вырос у меня на руках.",
       "playlistIndex": 0,
       "speaker": "A",
       "displayLabel": "Д",
-      "matchRatio": 1.0,
-      "matchedWords": 7,
-      "expectedWords": 7,
+      "matchRatio": 1,
+      "matchedWords": 16,
+      "expectedWords": 16,
       "startTime": 68.71,
-      "endTime": 70.23,
-      "timingStatus": "aligned"
-    },
-    {
-      "text": "А?",
-      "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 0.0,
-      "matchedWords": 0,
-      "expectedWords": 1,
-      "startTime": 0,
-      "endTime": 0,
-      "timingStatus": "unmatched"
-    },
-    {
-      "text": "Лаутар, ты же вырос у меня на руках.",
-      "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 1.0,
-      "matchedWords": 8,
-      "expectedWords": 8,
-      "startTime": 73.35,
       "endTime": 75.37,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        21,
+        22,
+        23
+      ]
     },
     {
       "text": "Когда твои родители сбежали, то я прятал тебя дома, у себя.",
@@ -296,127 +186,90 @@
       "expectedWords": 11,
       "startTime": 76.65,
       "endTime": 80.63,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        24
+      ]
     },
     {
       "text": "Ты думаешь, для чего?",
       "playlistIndex": 0,
       "speaker": "A",
       "displayLabel": "Д",
-      "matchRatio": 1.0,
+      "matchRatio": 1,
       "matchedWords": 4,
       "expectedWords": 4,
       "startTime": 81.27,
       "endTime": 82.03,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        25
+      ]
     },
     {
-      "text": "Для того, чтобы ты потом пришёл и взял мою дочь?",
+      "text": "Для того, чтобы ты потом пришёл и взял мою дочь? А?! И чтоб повёл в эти грязные Кришмы, куда приведёт тебя твоя скрипка?! Так? Эх! Ты вор!",
       "playlistIndex": 0,
       "speaker": "A",
       "displayLabel": "Д",
-      "matchRatio": 0.9,
-      "matchedWords": 9,
-      "expectedWords": 10,
+      "matchRatio": 1,
+      "matchedWords": 27,
+      "expectedWords": 27,
       "startTime": 82.31,
-      "endTime": 84.23,
-      "timingStatus": "aligned"
-    },
-    {
-      "text": "А?!",
-      "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 0.0,
-      "matchedWords": 0,
-      "expectedWords": 1,
-      "startTime": 0,
-      "endTime": 0,
-      "timingStatus": "unmatched"
-    },
-    {
-      "text": "И чтоб повёл в эти грязные Кришмы, куда приведёт тебя твоя скрипка?!",
-      "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 1.0,
-      "matchedWords": 12,
-      "expectedWords": 12,
-      "startTime": 85.01,
-      "endTime": 88.43,
-      "timingStatus": "aligned"
-    },
-    {
-      "text": "Так?",
-      "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 0.0,
-      "matchedWords": 0,
-      "expectedWords": 1,
-      "startTime": 0,
-      "endTime": 0,
-      "timingStatus": "unmatched"
-    },
-    {
-      "text": "Эх!",
-      "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 0.0,
-      "matchedWords": 0,
-      "expectedWords": 1,
-      "startTime": 0,
-      "endTime": 0,
-      "timingStatus": "unmatched"
-    },
-    {
-      "text": "Ты вор!",
-      "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 1.0,
-      "matchedWords": 2,
-      "expectedWords": 2,
-      "startTime": 89.87,
       "endTime": 90.79,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        26,
+        27,
+        28,
+        29,
+        30,
+        31
+      ]
     },
     {
       "text": "Ты сын вора!",
       "playlistIndex": 0,
       "speaker": "A",
       "displayLabel": "Д",
-      "matchRatio": 1.0,
+      "matchRatio": 1,
       "matchedWords": 3,
       "expectedWords": 3,
       "startTime": 92.35,
       "endTime": 93.61,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        32
+      ]
     },
     {
       "text": "Слушай меня внимательно.",
       "playlistIndex": 0,
       "speaker": "A",
       "displayLabel": "Д",
-      "matchRatio": 1.0,
+      "matchRatio": 1,
       "matchedWords": 3,
       "expectedWords": 3,
       "startTime": 94.75,
       "endTime": 96.25,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        33
+      ]
     },
     {
       "text": "Я прошёл много дорог, на любой из них ты сломал бы себе ноги.",
       "playlistIndex": 0,
       "speaker": "A",
       "displayLabel": "Д",
-      "matchRatio": 1.0,
+      "matchRatio": 1,
       "matchedWords": 13,
       "expectedWords": 13,
       "startTime": 96.95,
       "endTime": 100.29,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        34
+      ]
     },
     {
       "text": "А я не хочу, чтобы Анна видела эти дороги.",
@@ -428,7 +281,10 @@
       "expectedWords": 9,
       "startTime": 100.57,
       "endTime": 103.15,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        35
+      ]
     },
     {
       "text": "Я хочу видеть свою дочь богатой, богаче самого главного барона, который живёт в Стамбуле, ест золотыми вилками с золотых тарелок!",
@@ -440,7 +296,10 @@
       "expectedWords": 20,
       "startTime": 103.55,
       "endTime": 115.07,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        36
+      ]
     },
     {
       "text": "Нет, Лаутар, тебе не достанется она!",
@@ -452,80 +311,72 @@
       "expectedWords": 6,
       "startTime": 115.07,
       "endTime": 117.79,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        37
+      ]
     },
     {
       "text": "Это будет самый настоящий цыган, и придёт он ко мне как серьёзный человек!",
       "playlistIndex": 0,
       "speaker": "A",
       "displayLabel": "Д",
-      "matchRatio": 1.0,
+      "matchRatio": 1,
       "matchedWords": 13,
       "expectedWords": 13,
       "startTime": 118.61,
       "endTime": 124.29,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        38
+      ]
     },
     {
-      "text": "Он даже не позволил бы тебе играть для своих собак.",
+      "text": "Он даже не позволил бы тебе играть для своих собак. Ах ты, бродяга! Ах, полукровка!",
       "playlistIndex": 0,
       "speaker": "A",
       "displayLabel": "Д",
-      "matchRatio": 1.0,
-      "matchedWords": 10,
-      "expectedWords": 10,
+      "matchRatio": 1,
+      "matchedWords": 15,
+      "expectedWords": 15,
       "startTime": 124.51,
-      "endTime": 128.21,
-      "timingStatus": "aligned"
-    },
-    {
-      "text": "Ах ты, бродяга!",
-      "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 0.667,
-      "matchedWords": 2,
-      "expectedWords": 3,
-      "startTime": 0,
-      "endTime": 0,
-      "timingStatus": "unmatched",
-      "recognizedSnippet": "играть для своих собак ах ты бродняга ах ты полукровка"
-    },
-    {
-      "text": "Ах, полукровка!",
-      "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 1.0,
-      "matchedWords": 2,
-      "expectedWords": 2,
-      "startTime": 131.63,
       "endTime": 133.67,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        39,
+        40,
+        41
+      ]
     },
     {
       "text": "От тебя пахнет брынзой!",
       "playlistIndex": 0,
       "speaker": "A",
       "displayLabel": "Д",
-      "matchRatio": 1.0,
+      "matchRatio": 1,
       "matchedWords": 4,
       "expectedWords": 4,
       "startTime": 134.31,
       "endTime": 136.03,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        42
+      ]
     },
     {
       "text": "Ты что, пришёл ко мне как серьёзный человек?",
       "playlistIndex": 0,
       "speaker": "A",
       "displayLabel": "Д",
-      "matchRatio": 1.0,
+      "matchRatio": 1,
       "matchedWords": 8,
       "expectedWords": 8,
       "startTime": 136.59,
       "endTime": 138.59,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        43
+      ]
     },
     {
       "text": "Я что — не самый важный цыган во всей Бессарабии?",
@@ -537,99 +388,31 @@
       "expectedWords": 9,
       "startTime": 139.07,
       "endTime": 143.29,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        44
+      ]
     }
   ],
-  "reviewQueue": [
-    {
-      "playlistIndex": 0,
-      "text": "Что?",
-      "matchRatio": 0.0,
-      "recognizedSnippet": ""
+  "reviewQueue": [],
+  "provenance": {
+    "mediaFile": "media/world-people-v2/16.mp4",
+    "mediaSha256": "65B2DCECC3A1FE6861F5DD494210E7120F75F8F0DD550F08FF5383AF356D4D56",
+    "sourceTranscript": "В мире людей. Выпуск 2. Аудиотексты",
+    "method": "Retained only source lines matched to the actual film excerpt; merged unmatched interjections with adjacent spoken lines."
+  },
+  "coverage": {
+    "kind": "source-excerpt",
+    "textbookSentenceRange": {
+      "start": 11,
+      "end": 44
     },
-    {
-      "playlistIndex": 0,
-      "text": "Смеёшься надо мной?",
-      "matchRatio": 0.0,
-      "recognizedSnippet": ""
-    },
-    {
-      "playlistIndex": 0,
-      "text": "Вот отец твой тоже смеялся.",
-      "matchRatio": 0.0,
-      "recognizedSnippet": ""
-    },
-    {
-      "playlistIndex": 0,
-      "text": "И что?",
-      "matchRatio": 0.0,
-      "recognizedSnippet": ""
-    },
-    {
-      "playlistIndex": 0,
-      "text": "Где он сейчас?",
-      "matchRatio": 0.0,
-      "recognizedSnippet": ""
-    },
-    {
-      "playlistIndex": 0,
-      "text": "Чего достиг?",
-      "matchRatio": 0.0,
-      "recognizedSnippet": ""
-    },
-    {
-      "playlistIndex": 0,
-      "text": "А ведь мог жить как человек, но он смеялся...",
-      "matchRatio": 0.0,
-      "recognizedSnippet": ""
-    },
-    {
-      "playlistIndex": 0,
-      "text": "Он пошёл играть в Кришму.",
-      "matchRatio": 0.0,
-      "recognizedSnippet": ""
-    },
-    {
-      "playlistIndex": 0,
-      "text": "Я его спрашивал: «Зачем тебе это?», хотя уже знал, что он пошёл из-за твоей матери.",
-      "matchRatio": 0.0,
-      "recognizedSnippet": ""
-    },
-    {
-      "playlistIndex": 0,
-      "text": "Ты ведь не помнишь свою мать, а я помню.",
-      "matchRatio": 0.333,
-      "recognizedSnippet": "монолог а я помню она не была цыганкой"
-    },
-    {
-      "playlistIndex": 0,
-      "text": "А?",
-      "matchRatio": 0.0,
-      "recognizedSnippet": ""
-    },
-    {
-      "playlistIndex": 0,
-      "text": "А?!",
-      "matchRatio": 0.0,
-      "recognizedSnippet": ""
-    },
-    {
-      "playlistIndex": 0,
-      "text": "Так?",
-      "matchRatio": 0.0,
-      "recognizedSnippet": ""
-    },
-    {
-      "playlistIndex": 0,
-      "text": "Эх!",
-      "matchRatio": 0.0,
-      "recognizedSnippet": ""
-    },
-    {
-      "playlistIndex": 0,
-      "text": "Ах ты, бродяга!",
-      "matchRatio": 0.667,
-      "recognizedSnippet": "играть для своих собак ах ты бродняга ах ты полукровка"
-    }
-  ]
+    "omittedTextbookSentenceRanges": [
+      {
+        "start": 1,
+        "end": 10,
+        "reason": "Not spoken in the bound video excerpt."
+      }
+    ]
+  }
 }

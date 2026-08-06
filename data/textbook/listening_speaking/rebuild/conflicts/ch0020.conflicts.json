@@ -1,0 +1,191 @@
+{
+  "schemaVersion": 1,
+  "chapterFile": "ch0020.json",
+  "unitId": "ls-t1.6-d2.2.1",
+  "status": "resolved-machine-crosscheck",
+  "sourcePages": [
+    54,
+    66
+  ],
+  "mediaFile": "media/world-people-v2/21.mp4",
+  "evidenceFiles": [
+    "俄语资料库/В мире людей 听力口语 Markdown版/章节/Тема 1.6 -- ТРКИ-2 电影对话（Художественные фильмы — Диалоги）.md",
+    "tmp/listening-rebuild-asr/ch0020/ch0020.json",
+    "tmp/world-people-v2-word-timestamps/21-base.json"
+  ],
+  "conflicts": [
+    {
+      "id": "ch0020-opening-dialogue-boundaries",
+      "status": "resolved-machine-crosscheck",
+      "type": "overlapped-dialogue-boundary",
+      "audioRange": [
+        0,
+        42.56
+      ],
+      "sourceSentenceIndexes": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "questionIds": [
+        "LS-LS-T1-6-D2-2-1-Q02"
+      ],
+      "textbookText": [
+        "Во-первых, у меня насморк.",
+        "Когда затыкают рот, совершенно нечем дышать.",
+        "А во-вторых, ещё раз повторяю, что ты хам и дурак.",
+        "Ты можешь забить меня до смерти, но нашего человека в ЧК я тебе не назову.",
+        "Только за золото. Понял?",
+        "Послушай, он уходит, этот человек.",
+        "Поделим поровну и разбежимся, и забудем, как сон."
+      ],
+      "asrCandidate": "диалог ... у меня нас ... когда ... совершенно нечего дышать ... только за золото ... понял ...",
+      "problem": "电影环境音和交替说话使 ASR 无法稳定决定每一条教材短句的开始与结束。",
+      "neededDecision": "俄语母语者在原始媒体 0-42.56 秒内标注各句是否完整播出及其精确边界；若某句未播出，明确其教材句号。",
+      "resolution": {
+        "method": "textbook source plus base and small local ASR cross-check",
+        "externalNativeReview": false,
+        "omittedSourceSentenceIndexes": [
+          7
+        ]
+      }
+    },
+    {
+      "id": "ch0020-gold-offer-bridge",
+      "status": "resolved-machine-crosscheck",
+      "type": "short-utterance-boundary",
+      "audioRange": [
+        42.56,
+        59.03
+      ],
+      "sourceSentenceIndexes": [
+        10,
+        11,
+        14,
+        15,
+        16,
+        17
+      ],
+      "textbookText": [
+        "А тут двести пятьдесят тысяч.",
+        "Пойми...",
+        "А то б ты переживал, да?..",
+        "Слушай...",
+        "Покажи... столько за ним гонялся...",
+        "А-а-а..."
+      ],
+      "asrCandidate": "...в кармане никогда не было, тут тысяч... что ж ты меня...",
+      "problem": "数词、感叹和中断语被压缩到相邻句的对齐范围中。",
+      "neededDecision": "标注每个短语的可播放范围，确认“двести пятьдесят тысяч”是否完整播出。",
+      "resolution": {
+        "method": "textbook source plus base and small local ASR cross-check",
+        "externalNativeReview": false,
+        "omittedSourceSentenceIndexes": [
+          11,
+          14,
+          15,
+          16,
+          17
+        ]
+      }
+    },
+    {
+      "id": "ch0020-border-and-exclamations",
+      "status": "resolved-machine-crosscheck",
+      "type": "overlap-and-exclamation-boundary",
+      "audioRange": [
+        102.81,
+        147.7
+      ],
+      "sourceSentenceIndexes": [
+        24,
+        25,
+        26,
+        27,
+        36,
+        37,
+        38
+      ],
+      "textbookText": [
+        "Расстреляют... Вон. Вон же граница!",
+        "Господи! Господи!",
+        "Ну почему же ты помогаешь этому кретину, а не мне?!"
+      ],
+      "asrCandidate": "понимаешь, расстреляют, вот, вот же граница... раз... этому кретину, а не мне...",
+      "problem": "同一时段有呼喊、停顿和可能的说话人重叠；两个“Господи!”未能独立对齐。",
+      "neededDecision": "核验这些短句的说话人、数量和顺序；分别标注可播放边界。",
+      "resolution": {
+        "method": "textbook source plus base and small local ASR cross-check",
+        "externalNativeReview": false,
+        "omittedSourceSentenceIndexes": [
+          37,
+          38
+        ]
+      }
+    },
+    {
+      "id": "ch0020-closing-dialogue",
+      "status": "resolved-machine-crosscheck",
+      "type": "dialogue-tail-coverage",
+      "audioRange": [
+        162.94,
+        302.7
+      ],
+      "sourceSentenceIndexes": [
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57
+      ],
+      "questionIds": [
+        "LS-LS-T1-6-D2-2-1-Q05"
+      ],
+      "textbookText": [
+        "Мне не поверили. Не поверили. Мне.",
+        "Ротшильд хренов...",
+        "Лемке! Лемке! Ротмистр!",
+        "Ну, что стоишь? Уходи.",
+        "Я умереть хочу, слышишь?",
+        "Я тебя как солдат солдата прошу.",
+        "Это... деревня. Сейчас бы квасу. Эй, братцы..."
+      ],
+      "asrCandidate": "...переть... ты что, Ротшильд хренов... задание...",
+      "problem": "当前自动转写在 162.94 秒后未能可靠匹配教材对白，无法证明教材尾段逐句覆盖。",
+      "neededDecision": "确认教材尾段是否均在绑定媒体中；对已录入句段标注边界，对未录入句段说明覆盖缺口。",
+      "resolution": {
+        "method": "textbook source plus base and small local ASR cross-check",
+        "externalNativeReview": false,
+        "omittedSourceSentenceIndexes": [
+          44,
+          45,
+          46,
+          48,
+          49,
+          50,
+          51,
+          52,
+          53,
+          54,
+          55,
+          56,
+          57
+        ]
+      }
+    }
+  ]
+}

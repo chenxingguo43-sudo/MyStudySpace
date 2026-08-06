@@ -106,3 +106,9 @@ test('media exercise playback can seek to its audited starting point without a t
   assert.match(workbenchSource, /var initialTime = Number\(current\.initialTime\)/);
   assert.match(workbenchSource, /audio\.currentTime = Math\.min\(initialTime/);
 });
+
+test('playback highlighting never scrolls the reading page', () => {
+  assert.match(workbenchSource, /setActive\(nextActive, \{ scroll: false \}\)/);
+  assert.match(workbenchSource, /selectSegment\(nextIndex, true, 0, false\)/);
+  assert.match(workbenchSource, /selectSegment\(index, true, settings\.abBeforeSeconds, false\)/);
+});

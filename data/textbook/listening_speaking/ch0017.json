@@ -88,7 +88,29 @@
           "text": "о своей жизни"
         }
       ],
-      "answer": "А"
+      "answer": "А",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0017-s004"
+        ],
+        "quote": "Ты так и не решился поцеловать ни одну девочку.",
+        "translation": "你始终没敢亲吻任何一个女孩。",
+        "reasoning": "她全程用“ты”讲述对方从少年到婚姻的经历，对应 А“谈对方的人生”。",
+        "pages": [
+          47,
+          48
+        ],
+        "items": [
+          {
+            "quote": "Ты так и не решился поцеловать ни одну девочку.",
+            "translation": "你始终没敢亲吻任何一个女孩。",
+            "segmentIds": [
+              "ch0017-s004"
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "LS-LS-T1-5-M2-1-3-Q02",
@@ -108,7 +130,37 @@
           "text": "вдовец"
         }
       ],
-      "answer": "Б"
+      "answer": "Б",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0017-s018",
+          "ch0017-s023"
+        ],
+        "quote": "Вы поженились и были счастливы. Но она почему-то от тебя ушла...",
+        "translation": "你们结了婚且很幸福，但她不知为何离开了你。",
+        "reasoning": "先有婚姻，后妻子离开，说明他是离异而非已婚或丧偶，对应 Б。",
+        "pages": [
+          47,
+          48
+        ],
+        "items": [
+          {
+            "quote": "Вы поженились и были счастливы.",
+            "translation": "你们结了婚，而且很幸福。",
+            "segmentIds": [
+              "ch0017-s018"
+            ]
+          },
+          {
+            "quote": "Но она почему-то от тебя ушла...",
+            "translation": "可不知为什么，她离开了你……",
+            "segmentIds": [
+              "ch0017-s023"
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "LS-LS-T1-5-M2-1-3-Q03",
@@ -128,7 +180,29 @@
           "text": "искал свою вторую половину"
         }
       ],
-      "answer": "Б"
+      "answer": "Б",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0017-s014"
+        ],
+        "quote": "Там ты и расстался с мечтой осчастливить разом всё человечество.",
+        "translation": "在那里，你放弃了让全人类一下子幸福的梦想。",
+        "reasoning": "该句直接说明他青年时梦想让全人类幸福，对应 Б。",
+        "pages": [
+          47,
+          48
+        ],
+        "items": [
+          {
+            "quote": "Там ты и расстался с мечтой осчастливить разом всё человечество.",
+            "translation": "在那里，你放弃了让全人类一下子幸福的梦想。",
+            "segmentIds": [
+              "ch0017-s014"
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "LS-LS-T1-5-M2-1-3-Q04",
@@ -148,7 +222,37 @@
           "text": "не сложилась"
         }
       ],
-      "answer": "В"
+      "answer": "В",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0017-s023",
+          "ch0017-s024"
+        ],
+        "quote": "Она почему-то от тебя ушла... увидел рядом с собой не ту, не Её.",
+        "translation": "她离开了你；你发现身边不是她，不是“那一个她”。",
+        "reasoning": "婚姻结束后他无法接受新的伴侣，表明其个人生活没有顺利发展，对应 В。",
+        "pages": [
+          47,
+          48
+        ],
+        "items": [
+          {
+            "quote": "Но она почему-то от тебя ушла...",
+            "translation": "可不知为什么，她离开了你……",
+            "segmentIds": [
+              "ch0017-s023"
+            ]
+          },
+          {
+            "quote": "...увидел рядом с собой не ту, не Её.",
+            "translation": "……看见身边不是她，不是“那一个她”。",
+            "segmentIds": [
+              "ch0017-s024"
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "LS-LS-T1-5-M2-1-3-Q05",
@@ -168,7 +272,37 @@
           "text": "реалистом"
         }
       ],
-      "answer": "А"
+      "answer": "А",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0017-s005",
+          "ch0017-s014"
+        ],
+        "quote": "Читал слишком много книг... боялся, что в жизни это будет не так красиво. ...мечтой осчастливить разом всё человечество.",
+        "translation": "读书太多，害怕现实不够美好；梦想让全人类幸福。",
+        "reasoning": "对美好爱情的理想化期待和宏大的幸福梦想体现浪漫主义，而非务实或冷静现实主义，对应 А。",
+        "pages": [
+          47,
+          48
+        ],
+        "items": [
+          {
+            "quote": "...боялся, что в жизни это будет не так красиво.",
+            "translation": "……害怕现实里不会那么美好。",
+            "segmentIds": [
+              "ch0017-s005"
+            ]
+          },
+          {
+            "quote": "...мечтой осчастливить разом всё человечество.",
+            "translation": "……让全人类一下子幸福的梦想。",
+            "segmentIds": [
+              "ch0017-s014"
+            ]
+          }
+        ]
+      }
     }
   ],
   "transcriptSegments": [
@@ -182,7 +316,9 @@
       "expectedWords": 2,
       "startTime": 6.21,
       "endTime": 10.21,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "爱情……爱情……",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Такая разная.",
@@ -194,7 +330,9 @@
       "expectedWords": 2,
       "startTime": 11.98,
       "endTime": 12.86,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "如此不同。",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Странно, что называется одним словом.",
@@ -206,7 +344,9 @@
       "expectedWords": 5,
       "startTime": 16.02,
       "endTime": 17.76,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "奇怪的是，它都用同一个词来称呼。",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Ты так и не решился поцеловать ни одну девочку.",
@@ -218,7 +358,9 @@
       "expectedWords": 9,
       "startTime": 21.54,
       "endTime": 24.14,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "你始终没敢亲吻任何一个女孩。",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Потому что читал слишком много книг и дико боялся, что в жизни это будет не так красиво.",
@@ -230,7 +372,9 @@
       "expectedWords": 17,
       "startTime": 24.58,
       "endTime": 32.82,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "因为你读书太多，极度害怕现实里不会那么美好。",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "И в армии ты был единственным нецелованным и очень этого стеснялся.",
@@ -242,7 +386,9 @@
       "expectedWords": 11,
       "startTime": 33.38,
       "endTime": 36.58,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "在部队里，你是唯一从未接过吻的人，并为此很难为情。",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Всегда отмалчивался от похабных солдатских разговоров.",
@@ -254,7 +400,9 @@
       "expectedWords": 6,
       "startTime": 38.12,
       "endTime": 40.5,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "你总是避开那些粗俗的士兵谈话。",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "А мужики кругом были грубые, потому что служить тебя угораздило в десанте, в штурмовой бригаде...",
@@ -266,7 +414,9 @@
       "expectedWords": 15,
       "startTime": 41.04,
       "endTime": 47.38,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "周围的男人都很粗鲁，因为你偏偏在空降兵突击旅服役……",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Наверно, Афганистан.",
@@ -278,7 +428,9 @@
       "expectedWords": 2,
       "startTime": 51.74,
       "endTime": 53.18,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "大概是在阿富汗。",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Как раз те годы...",
@@ -290,7 +442,9 @@
       "expectedWords": 4,
       "startTime": 53.78,
       "endTime": 54.56,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "正好就是那些年……",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Ангола.",
@@ -302,7 +456,9 @@
       "expectedWords": 1,
       "startTime": 55.64,
       "endTime": 56.34,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "安哥拉。",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Тоже братская помощь.",
@@ -314,7 +470,9 @@
       "expectedWords": 3,
       "startTime": 57.16,
       "endTime": 58.74,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "也是所谓的兄弟援助。",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Только братья почернее.",
@@ -326,7 +484,9 @@
       "expectedWords": 3,
       "startTime": 59.08,
       "endTime": 60.36,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "只是那里的“兄弟”肤色更深。",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Там ты и расстался с мечтой осчастливить разом всё человечество.",
@@ -338,7 +498,9 @@
       "expectedWords": 10,
       "startTime": 63.58,
       "endTime": 68.18,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "在那里，你放弃了让全人类一下子幸福的梦想。",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "И решил сделать счастливым хотя бы одного человека.",
@@ -350,7 +512,9 @@
       "expectedWords": 8,
       "startTime": 68.18,
       "endTime": 70.94,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "并决定至少让一个人幸福。",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "И ты нашёл этого человека.",
@@ -362,7 +526,9 @@
       "expectedWords": 5,
       "startTime": 72.16,
       "endTime": 74.92,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "而你找到了这个人。",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Тихую близорукую сокурсницу.",
@@ -374,7 +540,9 @@
       "expectedWords": 3,
       "startTime": 75.66,
       "endTime": 77.22,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "一位安静、近视的大学同学。",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Вы поженились и были счастливы.",
@@ -386,7 +554,9 @@
       "expectedWords": 5,
       "startTime": 79.08,
       "endTime": 81.54,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "你们结了婚，而且很幸福。",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "И тебе не нужны были другие женщины.",
@@ -398,7 +568,9 @@
       "expectedWords": 7,
       "startTime": 85.16,
       "endTime": 86.58,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "你不需要别的女人。",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Хотя она и в тридцать лет краснела как девочка при слове «трахаться» и старательно заменяла его какими-то смешными детскими выражениями...",
@@ -410,7 +582,9 @@
       "expectedWords": 21,
       "startTime": 87.18,
       "endTime": 95.54,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "尽管她三十岁时听到“性交”仍会像小女孩一样脸红，并刻意换成滑稽的儿童用语……",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Тебя это трогало.",
@@ -422,7 +596,9 @@
       "expectedWords": 3,
       "startTime": 95.98,
       "endTime": 97.02,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "这让你很感动。",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Вы думали жить долго и умереть в один день...",
@@ -434,7 +610,9 @@
       "expectedWords": 9,
       "startTime": 97.02,
       "endTime": 101.2,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "你们以为会长相厮守，并在同一天去世……",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Но она почему-то от тебя ушла...",
@@ -446,7 +624,9 @@
       "expectedWords": 7,
       "startTime": 102.64,
       "endTime": 104.88,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "可不知为什么，她离开了你……",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Через год или два ты привёл какую-то случайную женщину, а проснувшись утром, закричал от ужаса и обиды, потому что увидел рядом с собой не ту, не Её.",
@@ -458,7 +638,9 @@
       "expectedWords": 28,
       "startTime": 106.84,
       "endTime": 120.69,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "一年或两年后，你带回过一个偶然认识的女人；早晨醒来后，你因恐惧和委屈叫了起来，因为身边不是她，不是“那一个她”。",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Потом были какие-то другие...",
@@ -470,7 +652,9 @@
       "expectedWords": 5,
       "startTime": 122.83,
       "endTime": 124.41,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "后来还有一些别的人……",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Хм, правда, к любви это не имеет никакого отношения!",
@@ -482,7 +666,14 @@
       "expectedWords": 9,
       "startTime": 126.55,
       "endTime": 129.89,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "嗯，不过这和爱情毫无关系！",
+      "sourceSentenceIndexes": []
     }
-  ]
+  ],
+  "learningSupport": {
+    "status": "source-checked",
+    "sourceFile": "俄语资料库/В мире людей 听力口语 Markdown版/翻译/Тема 1.5 -- ТРКИ-2 电影独白（Художественные фильмы — Монологи） -- 中文对照.md",
+    "translationSourceStatus": "needs_review"
+  }
 }

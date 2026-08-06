@@ -110,6 +110,53 @@ test('Patriarch Ponds chapter uses the scanned task and verified audio transcrip
   assert.ok(timeline.segments.every(segment => segment.timingStatus === 'aligned'));
 });
 
+test('source-aligned excerpts keep only the lines actually spoken in the bound media', () => {
+  const chapter = JSON.parse(fs.readFileSync(path.join(bookDir, 'ch0015.json'), 'utf8'));
+  assert.equal(chapter.transcriptCoverage.kind, 'source-excerpt');
+  assert.deepEqual(chapter.transcriptCoverage.textbookSentenceRange, { start: 11, end: 44 });
+  assert.ok(chapter.transcriptSegments.length < 34);
+  assert.ok(chapter.transcriptSegments.every(segment => segment.endTime > segment.startTime));
+  assert.doesNotMatch(chapter.transcriptSegments.map(segment => segment.text).join(' '), /^Что\? Смеёшься надо мной\?/);
+});
+
+test('the Rabbit Abyss excerpt provides visible translations and honest per-question evidence', () => {
+  const chapter = JSON.parse(fs.readFileSync(path.join(bookDir, 'ch0015.json'), 'utf8'));
+  assert.ok(chapter.transcriptSegments.every(segment => segment.translation), 'every playable line needs a Chinese translation');
+  assert.equal(chapter.questions.filter(question => question.evidence).length, 5);
+  assert.equal(chapter.questions.filter(question => question.evidence && question.evidence.status === 'not-in-bound-media').length, 1);
+  assert.equal(chapter.questions[3].evidence.status, 'not-in-bound-media');
+  chapter.questions.filter(question => question.evidence && question.evidence.status !== 'not-in-bound-media').forEach(question => {
+    assert.ok(chapter.transcriptSegments.some(segment => segment.text === question.evidence.quote), question.id);
+  });
+});
+
+test('promoted intensive-listening chapters satisfy the reusable translation and evidence contract', () => {
+  for (const name of ['ch0014.json', 'ch0015.json']) {
+    const chapter = JSON.parse(fs.readFileSync(path.join(bookDir, name), 'utf8'));
+    const spokenLines = new Set(chapter.transcriptSegments.map(segment => segment.text));
+    assert.equal(chapter.learningSupport.status, 'source-checked', name);
+    assert.ok(chapter.learningSupport.sourceFile, name);
+    assert.ok(chapter.transcriptSegments.every(segment => segment.translation), name + ' translations');
+    assert.ok(chapter.questions.every(question => question.evidence && question.evidence.translation), name + ' evidence');
+    chapter.questions.forEach(question => {
+      const evidence = question.evidence;
+      const items = Array.isArray(evidence.items) && evidence.items.length ? evidence.items : [evidence];
+      assert.ok(items.every(item => item.quote && item.translation), question.id);
+      if (evidence.status !== 'not-in-bound-media') {
+        assert.ok(items.every(item => spokenLines.has(item.quote)), question.id + ' must locate an exact playable line');
+      }
+    });
+  }
+});
+
+test('the listening converter preserves source-checked translations and question evidence', () => {
+  const converter = fs.readFileSync(path.join(root, 'scripts', 'convert-listening-speaking.js'), 'utf8');
+  assert.match(converter, /function loadExistingLearningSupport\(index\)/);
+  assert.match(converter, /existingLearningSupport\.translations\.get\(item\.text\)/);
+  assert.match(converter, /existingLearningSupport\.evidence\.get\(question\.id\)/);
+  assert.match(converter, /chapter\.learningSupport = existingLearningSupport\.learningSupport/);
+});
+
 test('media audit records the expected and actual source collections', () => {
   const audit = JSON.parse(fs.readFileSync(path.join(bookDir, 'media-audit.json'), 'utf8'));
   assert.equal(audit.status, 'rejected');

@@ -36,7 +36,30 @@
           "text": "абсолютно не похожа на другие семьи"
         }
       ],
-      "answer": "А"
+      "answer": "А",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0026-s002",
+          "ch0026-s003"
+        ],
+        "quote": "...с этим нет проблем... мы ... общаемся не меньше, чем любая другая семья.",
+        "translation": "这没有问题；我们交流的时间不比任何其他家庭少。",
+        "reasoning": "她承认工作繁忙但明确说家庭没有问题、相处不比其他家庭少，说明家庭和谐，对应 А。",
+        "pages": [
+          67,
+          79
+        ],
+        "items": [
+          {
+            "quote": "...с этим нет проблем, потому что мне повезло с мужем.",
+            "translation": "这没有问题，因为我很幸运有一位好丈夫。",
+            "segmentIds": [
+              "ch0026-s002"
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "LS-LS-T1-7-D3-1-2-Q02",
@@ -56,7 +79,38 @@
           "text": "возможностью рисковать"
         }
       ],
-      "answer": "Б"
+      "answer": "Б",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0026-s006",
+          "ch0026-s007",
+          "ch0026-s009"
+        ],
+        "quote": "...хорошо освоит что-то и дальше... Мне сразу становится скучно. В нашем деле смена занятий поощряется.",
+        "translation": "一旦熟练掌握某事我很快就会厌倦；我们这一行鼓励更换工作内容。",
+        "reasoning": "她重视持续变化，熟练后会感到无聊，故商业吸引力是不断的新鲜感，对应 Б。",
+        "pages": [
+          67,
+          79
+        ],
+        "items": [
+          {
+            "quote": "Мне сразу становится скучно.",
+            "translation": "我很快就会觉得无聊。",
+            "segmentIds": [
+              "ch0026-s007"
+            ]
+          },
+          {
+            "quote": "В нашем деле смена занятий поощряется.",
+            "translation": "我们这一行鼓励更换工作内容。",
+            "segmentIds": [
+              "ch0026-s009"
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "LS-LS-T1-7-D3-1-2-Q03",
@@ -76,7 +130,31 @@
           "text": "спокойно относятся к работающим женщинам"
         }
       ],
-      "answer": "В"
+      "answer": "В",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0026-s022",
+          "ch0026-s024",
+          "ch0026-s025"
+        ],
+        "quote": "...женщина... вовсе не угроза для мужчины. Сейчас мужчины нашли себя... женщины не претендуют на их успех.",
+        "translation": "自信的女性并不威胁男性；现在男性已经找到自我；女性并不觊觎他们的成功。",
+        "reasoning": "她认为当代男性不再害怕女性成功，因此平静对待职业女性，对应 В。",
+        "pages": [
+          67,
+          79
+        ],
+        "items": [
+          {
+            "quote": "Сейчас мужчины нашли себя, им уже не страшно смотреть на успех своих подруг.",
+            "translation": "现在男性已经找到自我，不再害怕看到伴侣的成功。",
+            "segmentIds": [
+              "ch0026-s024"
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "LS-LS-T1-7-D3-1-2-Q04",
@@ -96,7 +174,29 @@
           "text": "равноправие полов"
         }
       ],
-      "answer": "В"
+      "answer": "В",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0026-s021"
+        ],
+        "quote": "Феминизм — это признание равных прав людей, независимо от пола.",
+        "translation": "女权主义是承认人们不分性别享有平等权利。",
+        "reasoning": "原句直接定义为不分性别的平等权利，对应 В。",
+        "pages": [
+          67,
+          79
+        ],
+        "items": [
+          {
+            "quote": "Я бы сказала, что феминизм — это признание равных прав людей, независимо от пола.",
+            "translation": "我会说，女权主义是承认人们不分性别享有平等权利。",
+            "segmentIds": [
+              "ch0026-s021"
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "LS-LS-T1-7-D3-1-2-Q05",
@@ -116,7 +216,38 @@
           "text": "по сути своей карьеристка"
         }
       ],
-      "answer": "Б"
+      "answer": "Б",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0026-s004",
+          "ch0026-s005",
+          "ch0026-s010"
+        ],
+        "quote": "...собственная формула успеха? Любовь к своему делу... Мне повезло... с возможностями карьерного роста.",
+        "translation": "……你自己的成功公式？热爱工作……我很幸运，性格特点与职业发展的机会相吻合。",
+        "reasoning": "记者通过成功公式与职业成长发问，引导她展示女性能够取得职业成就，对应 Б。",
+        "pages": [
+          67,
+          79
+        ],
+        "items": [
+          {
+            "quote": "Елена, а у вас есть собственная формула успеха?",
+            "translation": "叶莲娜，你有自己的成功公式吗？",
+            "segmentIds": [
+              "ch0026-s004"
+            ]
+          },
+          {
+            "quote": "Мне повезло, что особенности моего характера совпали с возможностями карьерного роста.",
+            "translation": "我很幸运，我的性格特点与职业发展的机会相吻合。",
+            "segmentIds": [
+              "ch0026-s010"
+            ]
+          }
+        ]
+      }
     }
   ],
   "transcriptSegments": [
@@ -130,7 +261,9 @@
       "expectedWords": 10,
       "startTime": 7.17,
       "endTime": 10.73,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "请问，在您的生活中如何兼顾家庭和事业？",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Наверное, я уделяю дому меньше внимания, но с этим нет проблем, потому что мне повезло с мужем.",
@@ -142,7 +275,9 @@
       "expectedWords": 17,
       "startTime": 11.35,
       "endTime": 17.35,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "也许我对家庭的关注少一些，但这没有问题，因为我的丈夫很好。",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Думаю, что мы отдыхаем, смотрим телевизор и общаемся не меньше, чем любая другая семья, которая менее интенсивно работает, но зато много времени тратит на быт.",
@@ -154,7 +289,9 @@
       "expectedWords": 25,
       "startTime": 17.81,
       "endTime": 28.37,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "我觉得我们休息、看电视和交流的时间，不比那些工作不太忙但花很多时间在家务上的家庭少。",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Елена, а у вас есть собственная формула успеха?",
@@ -166,7 +303,9 @@
       "expectedWords": 8,
       "startTime": 28.97,
       "endTime": 31.93,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "叶莲娜，您有自己的成功秘诀吗？",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Любовь к своему делу, честная работа, любопытство, желание учиться.",
@@ -178,7 +317,9 @@
       "expectedWords": 9,
       "startTime": 32.35,
       "endTime": 36.73,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "热爱自己的事业、认真工作、好奇心、学习的意愿。",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Я не тот человек, который хорошо освоит что-то и дальше с радостью этим занимается.",
@@ -190,7 +331,9 @@
       "expectedWords": 15,
       "startTime": 37.39,
       "endTime": 41.93,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "我不是那种精通一件事之后就乐此不疲地做下去的人。",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Мне сразу становится скучно.",
@@ -202,7 +345,9 @@
       "expectedWords": 4,
       "startTime": 42.53,
       "endTime": 44.25,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "我很快就会感到厌倦。",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Возможно, быстрое насыщение одним делом — это недостаток, но в моём случае все сложилось очень удачно.",
@@ -214,7 +359,9 @@
       "expectedWords": 15,
       "startTime": 44.87,
       "endTime": 51.63,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "也许，对一件事快速感到饱和是一个缺点，但在我身上一切都发展得很顺利。",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "В нашем деле смена занятий поощряется.",
@@ -226,7 +373,9 @@
       "expectedWords": 6,
       "startTime": 51.63,
       "endTime": 54.55,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "在我们这个行业，变换工作内容是受到鼓励的。",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Мне повезло, что особенности моего характера совпали с возможностями карьерного роста.",
@@ -238,7 +387,9 @@
       "expectedWords": 11,
       "startTime": 55.03,
       "endTime": 60.07,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "我很幸运，我的性格特点与职业发展的机会正好吻合。",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Признайтесь, вам часто приходится идти на риск?",
@@ -250,7 +401,9 @@
       "expectedWords": 7,
       "startTime": 60.83,
       "endTime": 63.29,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "说实话，您经常需要冒险吗？",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Женщины, вероятно, более осторожны в бизнесе, чем мужчины.",
@@ -262,7 +415,9 @@
       "expectedWords": 8,
       "startTime": 63.91,
       "endTime": 67.47,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "女性在商业中可能比男性更谨慎。",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Наш издательский дом не самый авантюрный.",
@@ -274,7 +429,9 @@
       "expectedWords": 6,
       "startTime": 68.09,
       "endTime": 70.45,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "我们的出版社并不是最冒险的。",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "За нами нет мощной международной корпорации.",
@@ -286,7 +443,9 @@
       "expectedWords": 6,
       "startTime": 70.89,
       "endTime": 73.37,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "我们背后没有强大的国际公司。",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Если мы проигрываем, то теряем текущие заработки, ведь мы живём только на то, что зарабатываем.",
@@ -298,7 +457,9 @@
       "expectedWords": 15,
       "startTime": 74.15,
       "endTime": 79.53,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "如果我们输了，就会失去当前的收入，因为我们只靠赚的钱生活。",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Поэтому мы достаточно осторожны.",
@@ -310,7 +471,9 @@
       "expectedWords": 4,
       "startTime": 80.09,
       "endTime": 82.53,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "所以我们相当谨慎。",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "А как бы вы определили, что такое феминизм?",
@@ -322,7 +485,9 @@
       "expectedWords": 8,
       "startTime": 83.47,
       "endTime": 86.23,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "那您如何定义女权主义？",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Мне трудно отвечать на этот вопрос.",
@@ -334,7 +499,9 @@
       "expectedWords": 6,
       "startTime": 86.85,
       "endTime": 89.93,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "这个问题很难回答。",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Неправильно думать, что феминистка и домохозяйка — диаметральные противоположности.",
@@ -346,7 +513,9 @@
       "expectedWords": 8,
       "startTime": 90.73,
       "endTime": 95.39,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "认为女权主义者和家庭主妇是截然对立的，这是不对的。",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Домохозяйка — женщина, ей не чужд феминизм, и феминизму не чужда она.",
@@ -358,7 +527,9 @@
       "expectedWords": 11,
       "startTime": 96.11,
       "endTime": 101.73,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "家庭主妇也是女性，女权主义与她并不矛盾，她与女权主义也不矛盾。",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Я бы сказала, что феминизм — это признание равных прав людей, независимо от пола.",
@@ -370,7 +541,9 @@
       "expectedWords": 13,
       "startTime": 102.25,
       "endTime": 108.51,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "我想说的是，女权主义就是承认人与人之间不分性别的平等权利。",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Кстати, многие представители сильного пола поняли, что женщина, уверенная в себе, вовсе не угроза для мужчины.",
@@ -382,7 +555,9 @@
       "expectedWords": 16,
       "startTime": 108.51,
       "endTime": 117.21,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "顺便说一句，许多男性已经认识到，自信的女性对男性根本不是威胁。",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "У наших мужчин раньше был некий комплекс неполноценности, любую состоявшуюся женщину они воспринимали в штыки.",
@@ -394,7 +569,9 @@
       "expectedWords": 15,
       "startTime": 117.65,
       "endTime": 124.95,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "我国男性曾经有某种自卑情结，对任何成功的女性都持敌对态度。",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Сейчас мужчины нашли себя, им уже не страшно смотреть на успех своих подруг.",
@@ -406,7 +583,9 @@
       "expectedWords": 13,
       "startTime": 125.45,
       "endTime": 130.41,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "如今男性已经找到了自我，不再害怕看到伴侣的成功。",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Они поняли, что женщины не претендуют на их успех.",
@@ -418,7 +597,14 @@
       "expectedWords": 9,
       "startTime": 130.75,
       "endTime": 134.55,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "他们明白了，女性并不觊觎他们的成就。",
+      "sourceSentenceIndexes": []
     }
-  ]
+  ],
+  "learningSupport": {
+    "status": "source-checked",
+    "sourceFile": "俄语资料库/В мире людей 听力口语 Markdown版/翻译/Тема 1.7 -- ТРКИ-2 采访（Интервью） -- 中文对照.md",
+    "translationSourceStatus": "needs_review"
+  }
 }

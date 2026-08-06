@@ -1,0 +1,283 @@
+{
+  "schemaVersion": 1,
+  "chapterFile": "ch0001.json",
+  "unitId": "ls-t1.2-d1.1.2",
+  "status": "release_ready",
+  "source": {
+    "chapterSha256": "50935edc508262f67bb47f451deb10b6c385996fde524327d4aea9d370445460",
+    "timelineFile": "timelines/ch0001.json",
+    "sourcePages": [
+      14,
+      15
+    ],
+    "mediaFiles": [
+      "media/world-people-v2/02.mp4"
+    ]
+  },
+  "coverage": {
+    "kind": "unresolved"
+  },
+  "segments": [
+    {
+      "segmentId": "ch0001-s001",
+      "text": "Юль, привет!",
+      "translation": "尤拉，你好！",
+      "playlistIndex": 0,
+      "startTime": 5.3,
+      "endTime": 6.38,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": []
+    },
+    {
+      "segmentId": "ch0001-s002",
+      "text": "Давно не виделись!",
+      "translation": "好久没见了！",
+      "playlistIndex": 0,
+      "startTime": 6.86,
+      "endTime": 7.72,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": []
+    },
+    {
+      "segmentId": "ch0001-s003",
+      "text": "Говорят, тебя можно поздравить?!",
+      "translation": "听说可以祝贺你了？！",
+      "playlistIndex": 0,
+      "startTime": 8.14,
+      "endTime": 9.68,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": []
+    },
+    {
+      "segmentId": "ch0001-s004",
+      "text": "Да... сама не знаю... получится... не получится...",
+      "translation": "是啊……我自己也不知道……能不能成……",
+      "playlistIndex": 0,
+      "startTime": 10.26,
+      "endTime": 14.94,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": []
+    },
+    {
+      "segmentId": "ch0001-s005",
+      "text": "Ну подумай, какой из меня начальник!",
+      "translation": "你想想看，我哪像能当领导的人！",
+      "playlistIndex": 0,
+      "startTime": 16.16,
+      "endTime": 18.54,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": []
+    },
+    {
+      "segmentId": "ch0001-s006",
+      "text": "Характер не тот!",
+      "translation": "性格不合适！",
+      "playlistIndex": 0,
+      "startTime": 18.96,
+      "endTime": 19.8,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": []
+    },
+    {
+      "segmentId": "ch0001-s007",
+      "text": "И коллектив, прямо скажем, не подарок!",
+      "translation": "而且说实话，这个团队也不好带！",
+      "playlistIndex": 0,
+      "startTime": 20.56,
+      "endTime": 22.62,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": []
+    },
+    {
+      "segmentId": "ch0001-s008",
+      "text": "Тут жёсткость нужна, а я так не могу, ты ж меня знаешь...",
+      "translation": "这里需要强硬些，可我做不到，你又不是不了解我……",
+      "playlistIndex": 0,
+      "startTime": 23.26,
+      "endTime": 27.32,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": []
+    }
+  ],
+  "questions": [
+    {
+      "id": "LS-LS-T1-2-D1-1-2-Q01",
+      "answer": "А",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0001-s003",
+          "ch0001-s005"
+        ],
+        "quote": "Говорят, тебя можно поздравить?! Ну подумай, какой из меня начальник!",
+        "translation": "听说可以祝贺你了？！你想想看，我哪像能当领导的人！",
+        "reasoning": "“可以祝贺”与她对能否当领导的迟疑说明她获得了升职机会，选项 А。",
+        "pages": [
+          14,
+          15
+        ],
+        "items": [
+          {
+            "quote": "Говорят, тебя можно поздравить?!",
+            "translation": "听说可以祝贺你了？！",
+            "segmentIds": [
+              "ch0001-s003"
+            ]
+          },
+          {
+            "quote": "Ну подумай, какой из меня начальник!",
+            "translation": "你想想看，我哪像能当领导的人！",
+            "segmentIds": [
+              "ch0001-s005"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "LS-LS-T1-2-D1-1-2-Q02",
+      "answer": "Б",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0001-s003"
+        ],
+        "quote": "Говорят, тебя можно поздравить?!",
+        "translation": "听说可以祝贺你了？！",
+        "reasoning": "对方以“听说可以祝贺你了”开启话题，是为了确认自己听到的消息，选项 Б。",
+        "pages": [
+          14,
+          15
+        ],
+        "items": [
+          {
+            "quote": "Говорят, тебя можно поздравить?!",
+            "translation": "听说可以祝贺你了？！",
+            "segmentIds": [
+              "ch0001-s003"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "LS-LS-T1-2-D1-1-2-Q03",
+      "answer": "В",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0001-s008"
+        ],
+        "quote": "Тут жёсткость нужна, а я так не могу, ты ж меня знаешь...",
+        "translation": "这里需要强硬些，可我做不到，你又不是不了解我……",
+        "reasoning": "她明确说领导岗位需要“强硬”，对应选项 В“坚定”。",
+        "pages": [
+          14,
+          15
+        ],
+        "items": [
+          {
+            "quote": "Тут жёсткость нужна, а я так не могу, ты ж меня знаешь...",
+            "translation": "这里需要强硬些，可我做不到，你又不是不了解我……",
+            "segmentIds": [
+              "ch0001-s008"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "LS-LS-T1-2-D1-1-2-Q04",
+      "answer": "Б",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0001-s001",
+          "ch0001-s002",
+          "ch0001-s008"
+        ],
+        "quote": "Юль, привет! Давно не виделись! ... ты ж меня знаешь...",
+        "translation": "尤拉，你好！好久没见了！……你又不是不了解我……",
+        "reasoning": "昵称、久别问候和“你了解我”都表明是朋友关系，选项 Б。",
+        "pages": [
+          14,
+          15
+        ],
+        "items": [
+          {
+            "quote": "Юль, привет!",
+            "translation": "尤拉，你好！",
+            "segmentIds": [
+              "ch0001-s001"
+            ]
+          },
+          {
+            "quote": "Давно не виделись!",
+            "translation": "好久没见了！",
+            "segmentIds": [
+              "ch0001-s002"
+            ]
+          },
+          {
+            "quote": "Тут жёсткость нужна, а я так не могу, ты ж меня знаешь...",
+            "translation": "这里需要强硬些，可我做不到，你又不是不了解我……",
+            "segmentIds": [
+              "ch0001-s008"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "LS-LS-T1-2-D1-1-2-Q05",
+      "answer": "А",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0001-s001",
+          "ch0001-s007",
+          "ch0001-s008"
+        ],
+        "quote": "Юль, привет! ... И коллектив, прямо скажем, не подарок! Тут жёсткость нужна, а я так не могу, ты ж меня знаешь...",
+        "translation": "尤拉，你好！……而且说实话，这个团队也不好带！这里需要强硬些，可我做不到，你又不是不了解我……",
+        "reasoning": "“Юль”“прямо скажем”“ты ж”均为日常口语表达，选项 А。",
+        "pages": [
+          14,
+          15
+        ],
+        "items": [
+          {
+            "quote": "Юль, привет!",
+            "translation": "尤拉，你好！",
+            "segmentIds": [
+              "ch0001-s001"
+            ]
+          },
+          {
+            "quote": "И коллектив, прямо скажем, не подарок!",
+            "translation": "而且说实话，这个团队也不好带！",
+            "segmentIds": [
+              "ch0001-s007"
+            ]
+          },
+          {
+            "quote": "Тут жёсткость нужна, а я так не могу, ты ж меня знаешь...",
+            "translation": "这里需要强硬些，可我做不到，你又不是不了解我……",
+            "segmentIds": [
+              "ch0001-s008"
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "learningSupport": {
+    "status": "source-checked",
+    "scope": "sentence translations and per-question listening evidence",
+    "sourceFile": "俄语资料库/В мире людей 听力口语 Markdown版/翻译/Тема 1.2 -- ТРКИ-2 对话（Разговоры. Беседы） -- 中文对照.md",
+    "translationSourceStatus": "needs_review",
+    "reviewedAt": "2026-08-06",
+    "migratedFromStatus": "source-cross-checked"
+  },
+  "conflicts": []
+}

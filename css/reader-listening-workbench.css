@@ -104,7 +104,7 @@
   background: color-mix(in srgb, var(--surface-solid) 80%, transparent);
 }
 .lw-player.is-intensive { grid-template-columns: auto minmax(160px, 1fr) auto auto auto auto auto; }
-.lw-video { display: block; grid-column: 1 / -1; width: min(100%, 880px); max-height: min(52vh, 540px); margin: 0 auto; background: #000; border-radius: 6px; object-fit: contain; }
+.lw-video { display: block; grid-column: 1 / -1; width: min(100%, 880px); min-width: 0; max-width: 100%; max-height: min(52vh, 540px); margin: 0 auto; background: #000; border-radius: 6px; object-fit: contain; }
 .lw-playlist { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0 0; }
 .lw-playlist-item { min-height: 34px; padding: 6px 10px; border: 1px solid var(--border); border-radius: 6px; background: var(--glass); color: var(--text-secondary); cursor: pointer; font: 600 12px/1 inherit; }
 .lw-playlist-item:hover, .lw-playlist-item.is-active { border-color: var(--accent); background: var(--accent-dim); color: var(--accent); }
@@ -281,9 +281,8 @@
 .lw-dictation-feedback, .lw-dictation-source { margin: 8px 0 0; color: var(--text-secondary); font-size: 12px; line-height: 1.55; word-break: break-word; }
 .lw-dictation-feedback[data-complete="true"] { color: var(--success); }
 .lw-dictation-source { color: var(--ru-text); }
-.lw-transcript-translation { margin-top: 8px; color: var(--text-secondary); font-size: 13px; }
-.lw-transcript-translation summary { cursor: pointer; color: var(--accent); }
-.lw-transcript-translation p { margin: 5px 0 0; }
+.lw-transcript-translation { margin: 8px 0 0; color: var(--text-secondary); font-size: 13px; line-height: 1.6; }
+.lw-transcript-translation span, .lw-evidence-translation { color: var(--accent); }
 .lw-transcript-copy { min-width: 0; }
 .lw-transcript-speaker { display: inline-block; min-width: 28px; margin-right: 4px; color: var(--accent); font-weight: 700; }
 .lw-transcript-text { color: var(--ru-text); font: 500 17px/1.72 'Noto Serif', 'PT Serif', Georgia, serif; }
@@ -301,6 +300,12 @@
 .lw-evidence-item { padding: 13px 0; border-bottom: 1px solid var(--border); }
 .lw-evidence-item strong { display: block; margin-bottom: 5px; color: var(--text); font-size: 13px; }
 .lw-evidence-item p { margin: 0; color: var(--ru-text); font: 500 15px/1.6 'Noto Serif', 'PT Serif', Georgia, serif; }
+.lw-evidence-part-block + .lw-evidence-part-block { margin-top: 12px; padding-top: 12px; border-top: 1px dashed var(--border); }
+.lw-evidence-part { display: block; margin-bottom: 4px; color: var(--text-secondary); font-size: 11px; font-weight: 700; }
+.lw-evidence-item .lw-evidence-translation, .lw-evidence-item .lw-evidence-note { margin-top: 6px; font: 13px/1.55 inherit; }
+.lw-evidence-item .lw-evidence-note { color: var(--warning); }
+.lw-evidence-item .lw-evidence-reasoning { margin-top: 8px; color: var(--text-secondary); font: 13px/1.55 inherit; }
+.lw-evidence-item.is-unavailable { opacity: .82; }
 .lw-evidence-item button { margin-top: 8px; border: 0; background: transparent; color: var(--accent); cursor: pointer; font-weight: 600; }
 .lw-review-summary {
   display: grid;
@@ -342,6 +347,7 @@
   .lw-modes { grid-column: 1 / -1; grid-row: 2; grid-auto-flow: row; grid-auto-columns: auto; grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .lw-settings-grid { grid-template-columns: 1fr; }
   .lw-player { grid-template-columns: auto minmax(0, 1fr) auto; gap: 7px; padding: 10px 0; }
+  .lw-player.is-intensive { grid-template-columns: auto minmax(0, 1fr) auto; }
   .lw-time { text-align: right; }
   .lw-sentence-position { display: none; }
   #lwPrevSentence, #lwNextSentence, #lwLoopSentence, #lwABLoopControl { grid-row: 2; }

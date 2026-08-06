@@ -112,7 +112,37 @@
           "text": "только что познакомились"
         }
       ],
-      "answer": "В"
+      "answer": "В",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0022-s050",
+          "ch0022-s051"
+        ],
+        "quote": "Ты кто, вообще? Ну, то есть, занимаешься чем?",
+        "translation": "你到底是干什么的？就是说，你做哪行？",
+        "reasoning": "萨沙在对话末尾仍询问谢拉菲姆是谁、做什么，说明二人刚认识，对应 В。",
+        "pages": [
+          54,
+          66
+        ],
+        "items": [
+          {
+            "quote": "Ты кто, вообще?",
+            "translation": "你到底是干什么的？",
+            "segmentIds": [
+              "ch0022-s050"
+            ]
+          },
+          {
+            "quote": "Ну, то есть, занимаешься чем?",
+            "translation": "就是说，你做哪行？",
+            "segmentIds": [
+              "ch0022-s051"
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "LS-LS-T1-6-D2-2-3-Q02",
@@ -132,7 +162,37 @@
           "text": "отказывается выполнять"
         }
       ],
-      "answer": "Б"
+      "answer": "Б",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0022-s006",
+          "ch0022-s016"
+        ],
+        "quote": "Прости, я тебя, наверное, не совсем правильно понял? / Чего ты чайник не поставил?",
+        "translation": "对不起，我可能没有完全理解你的意思？/ 你怎么没烧水壶？",
+        "reasoning": "谢拉菲姆明说自己没有正确理解，随后也没有按萨沙要求烧水壶，说明他误解请求，对应 Б。",
+        "pages": [
+          54,
+          66
+        ],
+        "items": [
+          {
+            "quote": "Прости, я тебя, наверное, не совсем правильно понял?",
+            "translation": "对不起，我可能没有完全理解你的意思？",
+            "segmentIds": [
+              "ch0022-s006"
+            ]
+          },
+          {
+            "quote": "Чего ты чайник не поставил?",
+            "translation": "你怎么没烧水壶？",
+            "segmentIds": [
+              "ch0022-s016"
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "LS-LS-T1-6-D2-2-3-Q03",
@@ -152,7 +212,29 @@
           "text": "коты любят курицу"
         }
       ],
-      "answer": "В"
+      "answer": "В",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0022-s012"
+        ],
+        "quote": "Коты любят куриное мясо.",
+        "translation": "猫喜欢鸡肉。",
+        "reasoning": "“Коты любят куриное мясо”在绑定媒体 72.02-73.06 秒内被教材文本、词级时间戳和第二次 ASR 一致支持，直接对应正确选项 В。",
+        "pages": [
+          54,
+          66
+        ],
+        "items": [
+          {
+            "quote": "Коты любят куриное мясо.",
+            "translation": "猫喜欢鸡肉。",
+            "segmentIds": [
+              "ch0022-s012"
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "LS-LS-T1-6-D2-2-3-Q04",
@@ -172,7 +254,37 @@
           "text": "не видит необходимости в бытовой технике"
         }
       ],
-      "answer": "А"
+      "answer": "А",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0022-s023",
+          "ch0022-s035"
+        ],
+        "quote": "Чайник ставят вот так. / Прости, а зачем сушить голову?..",
+        "translation": "水壶要这样烧。/ 对不起，为什么要吹干头发？……",
+        "reasoning": "萨沙必须示范如何使用水壶，而谢拉菲姆甚至不理解吹干头发的用途，体现他不会使用家用电器，对应 А。",
+        "pages": [
+          54,
+          66
+        ],
+        "items": [
+          {
+            "quote": "Чайник ставят вот так.",
+            "translation": "水壶要这样烧。",
+            "segmentIds": [
+              "ch0022-s023"
+            ]
+          },
+          {
+            "quote": "Прости, а зачем сушить голову?..",
+            "translation": "对不起，为什么要吹干头发？……",
+            "segmentIds": [
+              "ch0022-s035"
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "LS-LS-T1-6-D2-2-3-Q05",
@@ -192,683 +304,642 @@
           "text": "глупого"
         }
       ],
-      "answer": "Б"
+      "answer": "Б",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0022-s040",
+          "ch0022-s041",
+          "ch0022-s042"
+        ],
+        "quote": "Этот чай рос... / Его собирала китайская девушка... / А Чи Ян пока так и не женился...",
+        "translation": "这茶生长在……/ 是一个姓李的姑娘采摘的……/ 而奇阳至今未婚……",
+        "reasoning": "谢拉菲姆把普通茶叶延展为未经求证的天真长故事，呈现的是天真而非老练或愚蠢，对应 Б。",
+        "pages": [
+          54,
+          66
+        ],
+        "items": [
+          {
+            "quote": "Этот чай рос на склоне горы в провинции Сычуань.",
+            "translation": "这茶生长在四川省的一座山坡上。",
+            "segmentIds": [
+              "ch0022-s040"
+            ]
+          },
+          {
+            "quote": "Его собирала китайская девушка по имени Ли, которая любила человека по имени Чи Ян, но вышла замуж за Ли Женя, который работает на фабрике светодиодов.",
+            "translation": "是一个姓李的姑娘采摘的，她爱着一个叫奇阳的人，却嫁给了在发光二极管工厂工作的李仁佳。",
+            "segmentIds": [
+              "ch0022-s041"
+            ]
+          },
+          {
+            "quote": "А Чи Ян пока так и не женился...",
+            "translation": "而奇阳至今未婚……",
+            "segmentIds": [
+              "ch0022-s042"
+            ]
+          }
+        ]
+      }
     }
   ],
   "transcriptSegments": [
     {
       "text": "Всё из-за тебя!",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 0,
-      "matchedWords": 0,
-      "expectedWords": 4,
-      "startTime": 0,
-      "endTime": 0,
-      "timingStatus": "unmatched"
+      "translation": "都怪你！",
+      "startTime": 4.66,
+      "endTime": 5.74,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        1
+      ]
     },
     {
       "text": "Чё стоишь?",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 0,
-      "matchedWords": 0,
-      "expectedWords": 2,
-      "startTime": 0,
-      "endTime": 0,
-      "timingStatus": "unmatched"
+      "translation": "站着干嘛？",
+      "startTime": 16.72,
+      "endTime": 17.38,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        2
+      ]
     },
     {
       "text": "Раздевайся!",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 0,
-      "matchedWords": 0,
-      "expectedWords": 1,
-      "startTime": 0,
-      "endTime": 0,
-      "timingStatus": "unmatched"
+      "translation": "脱衣服！",
+      "startTime": 17.42,
+      "endTime": 17.82,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        3
+      ]
     },
     {
       "text": "Проходи!",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 0,
-      "matchedWords": 0,
-      "expectedWords": 1,
-      "startTime": 0,
-      "endTime": 0,
-      "timingStatus": "unmatched"
+      "translation": "进来！",
+      "startTime": 17.82,
+      "endTime": 18.24,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        4
+      ]
     },
     {
       "text": "Рубаху тоже снимать?",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 0,
-      "matchedWords": 0,
-      "expectedWords": 3,
-      "startTime": 0,
-      "endTime": 0,
-      "timingStatus": "unmatched"
+      "translation": "衬衫也要脱吗？",
+      "startTime": 29.28,
+      "endTime": 30.28,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        5
+      ]
     },
     {
       "text": "Прости, я тебя, наверное, не совсем правильно понял?",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 0,
-      "matchedWords": 0,
-      "expectedWords": 8,
-      "startTime": 0,
-      "endTime": 0,
-      "timingStatus": "unmatched"
+      "translation": "对不起，我可能没有完全理解你的意思？",
+      "startTime": 36.18,
+      "endTime": 38.62,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        6
+      ]
     },
     {
       "text": "Совсем неверно.",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 0,
-      "matchedWords": 0,
-      "expectedWords": 2,
-      "startTime": 0,
-      "endTime": 0,
-      "timingStatus": "unmatched"
-    },
-    {
-      "text": "На...",
-      "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 0,
-      "matchedWords": 0,
-      "expectedWords": 1,
-      "startTime": 0,
-      "endTime": 0,
-      "timingStatus": "unmatched"
+      "translation": "完全理解错了。",
+      "startTime": 39.78,
+      "endTime": 40.92,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        7
+      ]
     },
     {
       "text": "Чайник поставь!",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 0,
-      "matchedWords": 0,
-      "expectedWords": 2,
-      "startTime": 0,
-      "endTime": 0,
-      "timingStatus": "unmatched"
+      "translation": "把水壶烧上！",
+      "startTime": 43.08,
+      "endTime": 43.92,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        9
+      ]
     },
     {
       "text": "Кота покорми.",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 0,
-      "matchedWords": 0,
-      "expectedWords": 2,
-      "startTime": 0,
-      "endTime": 0,
-      "timingStatus": "unmatched"
+      "translation": "喂猫。",
+      "startTime": 45.08,
+      "endTime": 45.72,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        10
+      ]
     },
     {
       "text": "Еда в холодильнике!..",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 0,
-      "matchedWords": 0,
-      "expectedWords": 3,
-      "startTime": 0,
-      "endTime": 0,
-      "timingStatus": "unmatched"
-    },
-    {
-      "text": "Кошмар какой...",
-      "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 0,
-      "matchedWords": 0,
-      "expectedWords": 2,
-      "startTime": 0,
-      "endTime": 0,
-      "timingStatus": "unmatched"
+      "translation": "食物在冰箱里！……",
+      "startTime": 45.96,
+      "endTime": 46.82,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        11
+      ]
     },
     {
       "text": "Ты зачем коту дал мою курицу?!",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 0,
-      "matchedWords": 0,
-      "expectedWords": 6,
-      "startTime": 0,
-      "endTime": 0,
-      "timingStatus": "unmatched"
+      "translation": "你为什么把我的鸡肉给猫吃了？！",
+      "startTime": 69.26,
+      "endTime": 71.02,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        13
+      ]
     },
     {
       "text": "Коты любят куриное мясо.",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 0,
-      "matchedWords": 0,
-      "expectedWords": 4,
-      "startTime": 0,
-      "endTime": 0,
-      "timingStatus": "unmatched"
+      "translation": "猫喜欢鸡肉。",
+      "startTime": 72.02,
+      "endTime": 73.06,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        14
+      ]
     },
     {
       "text": "Да?!",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 0,
-      "matchedWords": 0,
-      "expectedWords": 1,
-      "startTime": 0,
-      "endTime": 0,
-      "timingStatus": "unmatched"
+      "translation": "是吗？！",
+      "startTime": 73.75,
+      "endTime": 74.04,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        15
+      ]
     },
     {
       "text": "Я тоже его люблю!",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 0,
-      "matchedWords": 0,
-      "expectedWords": 4,
-      "startTime": 0,
-      "endTime": 0,
-      "timingStatus": "unmatched"
+      "translation": "我也喜欢！",
+      "startTime": 74.7,
+      "endTime": 75.7,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        16
+      ]
     },
     {
       "text": "Блин!",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 1,
-      "matchedWords": 1,
-      "expectedWords": 1,
-      "startTime": 78.39,
-      "endTime": 78.95,
-      "timingStatus": "aligned"
+      "translation": "该死！",
+      "startTime": 78.57,
+      "endTime": 78.87,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        17
+      ]
     },
     {
       "text": "Чего ты чайник не поставил?",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 0.8,
-      "matchedWords": 4,
-      "expectedWords": 5,
-      "startTime": 82.92,
-      "endTime": 86.2,
-      "timingStatus": "aligned"
+      "translation": "你怎么没烧水壶？",
+      "startTime": 82.7,
+      "endTime": 83.88,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        18
+      ]
     },
     {
       "text": "Блин.",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 1,
-      "matchedWords": 1,
-      "expectedWords": 1,
-      "startTime": 88.51,
-      "endTime": 88.97,
-      "timingStatus": "aligned"
+      "translation": "该死。",
+      "startTime": 88.63,
+      "endTime": 88.93,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        19
+      ]
     },
     {
       "text": "Я тебя не пришибла часом?",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 0.6,
-      "matchedWords": 3,
-      "expectedWords": 5,
-      "startTime": 89.83,
-      "endTime": 90.15,
-      "timingStatus": "aligned"
+      "translation": "我刚才没伤着你吧？",
+      "startTime": 89.63,
+      "endTime": 90.43,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        20
+      ]
     },
     {
       "text": "Может, ты зря в больницу не поехал?",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 0.857,
-      "matchedWords": 6,
-      "expectedWords": 7,
-      "startTime": 91.01,
-      "endTime": 92.29,
-      "timingStatus": "aligned"
+      "translation": "也许你不去医院是白耽误了？",
+      "startTime": 90.85,
+      "endTime": 92.35,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        21
+      ]
     },
     {
       "text": "Нет-нет.",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 1,
-      "matchedWords": 2,
-      "expectedWords": 2,
-      "startTime": 92.87,
-      "endTime": 93.17,
-      "timingStatus": "aligned"
+      "translation": "不不。",
+      "startTime": 92.85,
+      "endTime": 93.19,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        22
+      ]
     },
     {
       "text": "Я чувствую себя совершенно здоровым.",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 1,
-      "matchedWords": 5,
-      "expectedWords": 5,
+      "translation": "我感觉自己完全健康。",
       "startTime": 93.31,
       "endTime": 94.81,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        23
+      ]
     },
     {
       "text": "Точно?",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 1,
-      "matchedWords": 1,
-      "expectedWords": 1,
-      "startTime": 95.31,
-      "endTime": 95.53,
-      "timingStatus": "aligned"
+      "translation": "确定？",
+      "startTime": 95.25,
+      "endTime": 95.45,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        24
+      ]
     },
     {
       "text": "Чайник ставят вот так.",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 0.75,
-      "matchedWords": 3,
-      "expectedWords": 4,
-      "startTime": 102.57,
-      "endTime": 103.65,
-      "timingStatus": "aligned"
+      "translation": "水壶要这样烧。",
+      "startTime": 102.55,
+      "endTime": 103.59,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        25
+      ]
     },
     {
       "text": "Запомни.",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 1,
-      "matchedWords": 1,
-      "expectedWords": 1,
-      "startTime": 104.17,
-      "endTime": 104.65,
-      "timingStatus": "aligned"
+      "translation": "记住。",
+      "startTime": 104.09,
+      "endTime": 104.63,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        26
+      ]
     },
     {
       "text": "Я пойду переоденусь.",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 1,
-      "matchedWords": 3,
-      "expectedWords": 3,
+      "translation": "我去换衣服。",
       "startTime": 106.03,
       "endTime": 107.53,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        27
+      ]
     },
     {
       "text": "Ты пальто досуши.",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 0.333,
-      "matchedWords": 1,
-      "expectedWords": 3,
-      "startTime": 0,
-      "endTime": 0,
-      "timingStatus": "unmatched",
-      "recognizedSnippet": "я пойду переоденусь а ты потом заши подомоги в"
+      "translation": "你把大衣晾干。",
+      "startTime": 107.59,
+      "endTime": 108.33,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        28
+      ]
     },
     {
       "text": "Оно в ванной.",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 0.667,
-      "matchedWords": 2,
-      "expectedWords": 3,
+      "translation": "它在浴室里。",
       "startTime": 109.31,
       "endTime": 109.69,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        29
+      ]
     },
     {
       "text": "А ванна вот здесь...",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 1,
-      "matchedWords": 4,
-      "expectedWords": 4,
-      "startTime": 111.01,
-      "endTime": 111.95,
-      "timingStatus": "aligned"
+      "translation": "浴室在这儿……",
+      "startTime": 110.99,
+      "endTime": 111.93,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        30
+      ]
     },
     {
       "text": "Горячий воздух!",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 1,
-      "matchedWords": 2,
-      "expectedWords": 2,
+      "translation": "热风！",
       "startTime": 123.34,
       "endTime": 124.22,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        31
+      ]
     },
     {
       "text": "Очень горячий!",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 1,
-      "matchedWords": 2,
-      "expectedWords": 2,
-      "startTime": 124.96,
+      "translation": "非常热！",
+      "startTime": 124.32,
       "endTime": 125.88,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        32
+      ]
     },
     {
       "text": "А там что?",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 1,
-      "matchedWords": 3,
-      "expectedWords": 3,
-      "startTime": 130.76,
-      "endTime": 131.54,
-      "timingStatus": "aligned"
+      "translation": "那里面有什么？",
+      "startTime": 130.96,
+      "endTime": 131.52,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        33
+      ]
     },
     {
       "text": "Вот фенов нет, да?",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 0.75,
-      "matchedWords": 3,
-      "expectedWords": 4,
-      "startTime": 131.84,
-      "endTime": 133.54,
-      "timingStatus": "aligned"
+      "translation": "没有吹风机，对吧？",
+      "startTime": 131.74,
+      "endTime": 133.52,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        34
+      ]
     },
     {
       "text": "Ну а голову вы тогда чем сушите?",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 1,
-      "matchedWords": 7,
-      "expectedWords": 7,
-      "startTime": 135.34,
-      "endTime": 137.4,
-      "timingStatus": "aligned"
+      "translation": "那你们平时用什么吹干头发？",
+      "startTime": 135.26,
+      "endTime": 137.46,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        35
+      ]
     },
     {
       "text": "Голову?",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 1,
-      "matchedWords": 1,
-      "expectedWords": 1,
-      "startTime": 138.7,
-      "endTime": 139.42,
-      "timingStatus": "aligned"
+      "translation": "头发？",
+      "startTime": 138.86,
+      "endTime": 139.44,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        36
+      ]
     },
     {
       "text": "Прости, а зачем сушить голову?..",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 1,
-      "matchedWords": 5,
-      "expectedWords": 5,
-      "startTime": 142.26,
-      "endTime": 143.98,
-      "timingStatus": "aligned"
-    },
-    {
-      "text": "На.",
-      "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 0,
-      "matchedWords": 0,
-      "expectedWords": 1,
-      "startTime": 0,
-      "endTime": 0,
-      "timingStatus": "unmatched"
+      "translation": "对不起，为什么要吹干头发？……",
+      "startTime": 142.28,
+      "endTime": 143.96,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        37
+      ]
     },
     {
       "text": "Чай будешь?",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 1,
-      "matchedWords": 2,
-      "expectedWords": 2,
-      "startTime": 149.87,
-      "endTime": 150.41,
-      "timingStatus": "aligned"
+      "translation": "喝茶吗？",
+      "startTime": 149.89,
+      "endTime": 150.43,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        39
+      ]
     },
     {
       "text": "Зелёный, чёрный?..",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 1,
-      "matchedWords": 2,
-      "expectedWords": 2,
-      "startTime": 151.77,
-      "endTime": 152.57,
-      "timingStatus": "aligned"
+      "translation": "绿茶，红茶？……",
+      "startTime": 151.87,
+      "endTime": 152.55,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        40
+      ]
     },
     {
       "text": "Чай?",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 1,
-      "matchedWords": 1,
-      "expectedWords": 1,
-      "startTime": 152.69,
-      "endTime": 152.85,
-      "timingStatus": "aligned"
+      "translation": "茶？",
+      "startTime": 152.63,
+      "endTime": 152.81,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        41
+      ]
     },
     {
       "text": "Кофе?",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 1,
-      "matchedWords": 1,
-      "expectedWords": 1,
-      "startTime": 154.33,
+      "translation": "咖啡？",
+      "startTime": 154.39,
       "endTime": 154.97,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        42
+      ]
     },
     {
       "text": "Этот чай рос на склоне горы в провинции Сычуань.",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 1,
-      "matchedWords": 9,
-      "expectedWords": 9,
-      "startTime": 170.81,
-      "endTime": 173.37,
-      "timingStatus": "aligned"
+      "translation": "这茶生长在四川省的一座山坡上。",
+      "startTime": 171.19,
+      "endTime": 172.81,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        43
+      ]
     },
     {
       "text": "Его собирала китайская девушка по имени Ли, которая любила человека по имени Чи Ян, но вышла замуж за Ли Женя, который работает на фабрике светодиодов.",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 0.8,
-      "matchedWords": 20,
-      "expectedWords": 25,
-      "startTime": 173.99,
-      "endTime": 183.61,
-      "timingStatus": "aligned"
+      "translation": "是一个姓李的姑娘采摘的，她爱着一个叫奇阳的人，却嫁给了在发光二极管工厂工作的李仁佳。",
+      "startTime": 173.97,
+      "endTime": 183.21,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        44
+      ]
     },
     {
       "text": "А Чи Ян пока так и не женился...",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 0.75,
-      "matchedWords": 6,
-      "expectedWords": 8,
-      "startTime": 185.75,
-      "endTime": 187.39,
-      "timingStatus": "aligned"
+      "translation": "而奇阳至今未婚……",
+      "startTime": 185.33,
+      "endTime": 187.41,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        45
+      ]
     },
     {
       "text": "Конфетка сливочная помадка с цукатами.",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 1,
-      "matchedWords": 5,
-      "expectedWords": 5,
-      "startTime": 190.32,
-      "endTime": 192.54,
-      "timingStatus": "aligned"
+      "translation": "奶油太妃糖夹蜜饯。",
+      "startTime": 190.16,
+      "endTime": 192.06,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        46
+      ]
     },
     {
       "text": "Произведено на фабрике «Красный октябрь», сгущённая с сахаром, молоко, масло сливочное, патока, цукаты, коньяк, ароматизаторы, четыреста одиннадцать калорий...",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 0.722,
-      "matchedWords": 13,
-      "expectedWords": 18,
-      "startTime": 193.2,
+      "translation": "\"红色十月\"工厂生产，配料有炼乳加糖、牛奶、黄油、糖浆、蜜饯、白兰地、食用香精，四百一十一卡路里……",
+      "startTime": 193.92,
       "endTime": 205.06,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        47
+      ]
     },
     {
       "text": "Укладчица номер пять.",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 0.667,
-      "matchedWords": 2,
-      "expectedWords": 3,
-      "startTime": 0,
-      "endTime": 0,
-      "timingStatus": "unmatched",
-      "recognizedSnippet": "спирт коньяк ароматизаторы калорий укладывается номер блондинка красная мать одиночка"
+      "translation": "五号包装工。",
+      "startTime": 211.24,
+      "endTime": 211.94,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        48
+      ]
     },
     {
       "text": "Блондинка, крашеная, мать-одиночка, лет сорока пяти.",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 0.571,
-      "matchedWords": 4,
-      "expectedWords": 7,
-      "startTime": 214.06,
-      "endTime": 219.5,
-      "timingStatus": "aligned"
+      "translation": "染了头发的金发单身母亲，大约四十五岁。",
+      "startTime": 216.2,
+      "endTime": 220.52,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        49
+      ]
     },
     {
       "text": "Извини, но ей тридцать два года, у неё волосы рыжего цвета и двое детей, близнецы Катя и Анжела.",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 0.833,
-      "matchedWords": 15,
-      "expectedWords": 18,
-      "startTime": 222.26,
-      "endTime": 227.98,
-      "timingStatus": "aligned"
+      "translation": "抱歉，她三十二岁，头发是红褐色的，有两个孩子，双胞胎卡佳和安热拉。",
+      "startTime": 222.42,
+      "endTime": 227.92,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        50
+      ]
     },
     {
       "text": "Иногда она берёт конфеты домой.",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 1,
-      "matchedWords": 5,
-      "expectedWords": 5,
-      "startTime": 229.16,
+      "translation": "有时她会把糖果带回家。",
+      "startTime": 228.72,
       "endTime": 230.48,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        51
+      ]
     },
     {
       "text": "Если она не остановится, её скоро уволят.",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 1,
-      "matchedWords": 7,
-      "expectedWords": 7,
-      "startTime": 232.14,
-      "endTime": 234.3,
-      "timingStatus": "aligned"
-    },
-    {
-      "text": "Это очень печально.",
-      "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 0,
-      "matchedWords": 0,
-      "expectedWords": 3,
-      "startTime": 0,
-      "endTime": 0,
-      "timingStatus": "unmatched"
+      "translation": "如果她不停手，很快就会被解雇。",
+      "startTime": 232.32,
+      "endTime": 233.7,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        52
+      ]
     },
     {
       "text": "Ты кто, вообще?",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 1,
-      "matchedWords": 3,
-      "expectedWords": 3,
+      "translation": "你到底是干什么的？",
       "startTime": 239.28,
       "endTime": 240.06,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        54
+      ]
     },
     {
       "text": "Ну, то есть, занимаешься чем?",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 1,
-      "matchedWords": 5,
-      "expectedWords": 5,
-      "startTime": 242,
+      "translation": "就是说，你做哪行？",
+      "startTime": 241.98,
       "endTime": 243.8,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        55
+      ]
     },
     {
       "text": "Я помогаю людям.",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 1,
-      "matchedWords": 3,
-      "expectedWords": 3,
-      "startTime": 244.7,
+      "translation": "我帮助人们。",
+      "startTime": 244.74,
       "endTime": 245.68,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        56
+      ]
     }
-  ]
+  ],
+  "transcriptCoverage": {
+    "kind": "excerpt",
+    "omittedSourceSentenceIndexes": [
+      8,
+      12,
+      38,
+      53
+    ],
+    "reason": "绑定媒体中这些教材短句未获得可复现的完整逐句边界，因此不显示为可播放精听句。",
+    "verifiedBy": [
+      "俄语资料库/В мире людей 听力口语 Markdown版/章节/Тема 1.6 -- ТРКИ-2 电影对话（Художественные фильмы — Диалоги）.md",
+      "俄语资料库/В мире людей 听力口语 Markdown版/翻译/Тема 1.6 -- ТРКИ-2 电影对话（Художественные фильмы — Диалоги） -- 中文对照.md",
+      "tmp/world-people-v2-word-timestamps/23-base.json",
+      "tmp/faster-whisper-results/23-small.json"
+    ],
+    "reviewMethod": "textbook-source-plus-two-local-asr-candidates; no external native-speaker review claimed"
+  },
+  "learningSupport": {
+    "status": "source-checked",
+    "sourceFile": "俄语资料库/В мире людей 听力口语 Markdown版/翻译/Тема 1.6 -- ТРКИ-2 电影对话（Художественные фильмы — Диалоги） -- 中文对照.md",
+    "translationSourceStatus": "needs_review",
+    "verification": "逐句按教材俄文与本地中文对照交叉核对；短句重复项按 segmentId 和完整俄文文本锁定。"
+  }
 }

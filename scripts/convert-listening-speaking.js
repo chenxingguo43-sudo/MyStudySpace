@@ -138,12 +138,34 @@ function alignTranscript(audioTranscript, whisperSegments) {
 
 function round3(n) { return Math.round(n * 1000) / 1000; }
 
+function loadExistingLearningSupport(index) {
+  var chapterPath = path.join(OUTPUT_DIR, 'ch' + String(index).padStart(4, '0') + '.json');
+  if (!fs.existsSync(chapterPath)) return null;
+  try {
+    var chapter = JSON.parse(fs.readFileSync(chapterPath, 'utf8'));
+    var translations = new Map((chapter.transcriptSegments || []).filter(function(item) {
+      return item.text && item.translation;
+    }).map(function(item) { return [item.text, item.translation]; }));
+    var evidence = new Map((chapter.questions || []).filter(function(question) {
+      return question.id && question.evidence;
+    }).map(function(question) { return [question.id, question.evidence]; }));
+    return {
+      translations: translations,
+      evidence: evidence,
+      learningSupport: chapter.learningSupport || null
+    };
+  } catch (error) {
+    console.warn('  WARN: Failed to preserve learning support for chapter ' + index);
+    return null;
+  }
+}
+
 function loadVerifiedTimeline(index) {
   var timelinePath = path.join(TIMELINES_DIR, 'ch' + String(index).padStart(4, '0') + '.json');
   if (!fs.existsSync(timelinePath)) return null;
   try {
     var timeline = JSON.parse(fs.readFileSync(timelinePath, 'utf8'));
-    if (!['verified', 'partial'].includes(timeline.status) || !Array.isArray(timeline.segments) || !timeline.segments.length) return null;
+    if (!['verified', 'partial', 'source-aligned-excerpt'].includes(timeline.status) || !Array.isArray(timeline.segments) || !timeline.segments.length) return null;
     var timedCount = 0;
     var valid = timeline.segments.every(function(item) {
       var start = Number(item.startTime);
@@ -152,8 +174,12 @@ function loadVerifiedTimeline(index) {
       if (timed) timedCount++;
       return timed || (start === 0 && end === 0 && item.timingStatus === 'unmatched');
     });
-    if (timeline.status === 'verified' && timedCount !== timeline.segments.length) return null;
-    return valid && timedCount ? timeline.segments : null;
+    if ((timeline.status === 'verified' || timeline.status === 'source-aligned-excerpt') && timedCount !== timeline.segments.length) return null;
+    return valid && timedCount ? {
+      segments: timeline.segments,
+      coverage: timeline.coverage || null,
+      provenance: timeline.provenance || null
+    } : null;
   } catch (error) {
     console.warn('  WARN: Failed to parse verified timeline for chapter ' + index);
     return null;
@@ -174,7 +200,9 @@ function convertSegment(segment, index) {
     }
   }
 
-  var transcriptSegments = loadVerifiedTimeline(index) || alignTranscript(
+  var verifiedTimeline = loadVerifiedTimeline(index);
+  var existingLearningSupport = loadExistingLearningSupport(index);
+  var transcriptSegments = verifiedTimeline ? verifiedTimeline.segments : alignTranscript(
     segment.audioTranscript,
     segment.mediaStatus === 'source-mismatch' || segment.mediaStatus === 'verified' ? [] : whisperSegments
   );
@@ -205,8 +233,22 @@ function convertSegment(segment, index) {
         answer: q.answer
       };
     }),
-    transcriptSegments: transcriptSegments
+    transcriptSegments: transcriptSegments.map(function(item) {
+      var translation = existingLearningSupport && existingLearningSupport.translations.get(item.text);
+      return translation ? Object.assign({}, item, { translation: translation }) : item;
+    })
   };
+
+  if (existingLearningSupport) {
+    chapter.questions.forEach(function(question) {
+      var evidence = existingLearningSupport.evidence.get(question.id);
+      if (evidence) question.evidence = evidence;
+    });
+    if (existingLearningSupport.learningSupport) chapter.learningSupport = existingLearningSupport.learningSupport;
+  }
+
+  if (verifiedTimeline && verifiedTimeline.coverage) chapter.transcriptCoverage = verifiedTimeline.coverage;
+  if (verifiedTimeline && verifiedTimeline.provenance) chapter.transcriptProvenance = verifiedTimeline.provenance;
 
   // Preserve notes for human review
   if (segment._note) chapter._note = segment._note;

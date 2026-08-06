@@ -36,7 +36,29 @@
           "text": "стираются благодаря глобализации"
         }
       ],
-      "answer": "А"
+      "answer": "А",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0025-s004"
+        ],
+        "quote": "...некоторые черты сохраняются на протяжении веков.",
+        "translation": "某些特征会延续数个世纪。",
+        "reasoning": "她说民族特征长期保留，说明过去的民族差异更显著，而非被全球化抹平，对应 А。",
+        "pages": [
+          67,
+          79
+        ],
+        "items": [
+          {
+            "quote": "Если мы обратимся к вековой истории любого народа, то увидим, что некоторые черты сохраняются на протяжении веков.",
+            "translation": "如果回看任何民族的悠久历史，就会发现某些特征会延续数个世纪。",
+            "segmentIds": [
+              "ch0025-s004"
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "LS-LS-T1-7-D3-1-1-Q02",
@@ -56,7 +78,30 @@
           "text": "отличается на четырнадцать веков"
         }
       ],
-      "answer": "Б"
+      "answer": "Б",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0025-s011",
+          "ch0025-s012"
+        ],
+        "quote": "Я склоняюсь ко второй точке зрения. ...разница в возрасте с Европой — тысяча лет.",
+        "translation": "我倾向于第二种观点；与欧洲的年龄差是一千年。",
+        "reasoning": "她明确说明年龄差为一千年，对应 Б。",
+        "pages": [
+          67,
+          79
+        ],
+        "items": [
+          {
+            "quote": "В таком случае у нас разница в возрасте с Европой — тысяча лет.",
+            "translation": "这样的话，我们与欧洲的年龄差就是一千年。",
+            "segmentIds": [
+              "ch0025-s012"
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "LS-LS-T1-7-D3-1-1-Q03",
@@ -76,7 +121,31 @@
           "text": "оживить беседу"
         }
       ],
-      "answer": "Б"
+      "answer": "Б",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0025-s006",
+          "ch0025-s007",
+          "ch0025-s008"
+        ],
+        "quote": "Есть много анекдотов... Почему мы сами себе кажемся смешными?",
+        "translation": "有许多笑话……为什么我们觉得自己可笑？",
+        "reasoning": "记者用笑话引入“民族刻板印象/自我形象”的讨论，作用是展开主题，对应 Б。",
+        "pages": [
+          67,
+          79
+        ],
+        "items": [
+          {
+            "quote": "Есть много анекдотов типа «встретились русский, англичанин и француз...».",
+            "translation": "有很多“俄罗斯人、英国人和法国人相遇……”这类笑话。",
+            "segmentIds": [
+              "ch0025-s006"
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "LS-LS-T1-7-D3-1-1-Q04",
@@ -96,7 +165,39 @@
           "text": "логична и аргументирована"
         }
       ],
-      "answer": "В"
+      "answer": "В",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0025-s009",
+          "ch0025-s010",
+          "ch0025-s011",
+          "ch0025-s012"
+        ],
+        "quote": "Хотя тут есть разные точки зрения... Я склоняюсь ко второй точке зрения. В таком случае...",
+        "translation": "虽然有不同观点……我倾向于第二种观点；这样的话……",
+        "reasoning": "她先列举两种历史观点，再说明自己的选择和推论，论述逻辑清楚且有论据，对应 В。",
+        "pages": [
+          67,
+          79
+        ],
+        "items": [
+          {
+            "quote": "Хотя тут есть разные точки зрения...",
+            "translation": "当然也有不同看法……",
+            "segmentIds": [
+              "ch0025-s010"
+            ]
+          },
+          {
+            "quote": "Я склоняюсь ко второй точке зрения.",
+            "translation": "我倾向于第二种观点。",
+            "segmentIds": [
+              "ch0025-s011"
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "LS-LS-T1-7-D3-1-1-Q05",
@@ -116,7 +217,37 @@
           "text": "представить свои взгляды"
         }
       ],
-      "answer": "В"
+      "answer": "В",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0025-s001",
+          "ch0025-s002"
+        ],
+        "quote": "...есть точка зрения... Аргумент такой...",
+        "translation": "……有一种观点……理由是……",
+        "reasoning": "记者提出一个观点及其论据，请受访者回应并展示自己的看法，而非要求标新立异或谈个人性格，对应 В。",
+        "pages": [
+          67,
+          79
+        ],
+        "items": [
+          {
+            "quote": "Людмила Сергеевна, вот есть точка зрения, что никакого национального характера нет вообще.",
+            "translation": "柳德米拉·谢尔盖耶芙娜，有一种观点认为，根本不存在民族性格。",
+            "segmentIds": [
+              "ch0025-s001"
+            ]
+          },
+          {
+            "quote": "Аргумент такой...",
+            "translation": "理由是……",
+            "segmentIds": [
+              "ch0025-s002"
+            ]
+          }
+        ]
+      }
     }
   ],
   "transcriptSegments": [
@@ -130,7 +261,9 @@
       "expectedWords": 12,
       "startTime": 6.85,
       "endTime": 13.35,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "柳德米拉·谢尔盖耶芙娜，有一种观点认为，根本不存在民族性格。",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Аргумент такой: между русским инженером или врачом и, скажем, американским гораздо больше общего, чем между русскими же горожанином и сельским жителем, между безработным и бизнесменом.",
@@ -142,7 +275,9 @@
       "expectedWords": 25,
       "startTime": 14.07,
       "endTime": 25.89,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "理由是：俄罗斯工程师或医生与美国同行的共同点，比俄罗斯城市居民与农村居民、失业者与商人之间的共同点更多。",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Эта точка зрения возникла во времена глобализации, смешения культур.",
@@ -154,7 +289,9 @@
       "expectedWords": 9,
       "startTime": 25.89,
       "endTime": 31.33,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "这种观点产生于全球化和文化交融的时代。",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Если мы обратимся к вековой истории любого народа, то увидим, что некоторые черты сохраняются на протяжении веков.",
@@ -166,7 +303,9 @@
       "expectedWords": 17,
       "startTime": 32.05,
       "endTime": 39.71,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "如果回看任何民族的悠久历史，就会发现某些特征会延续数个世纪。",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Сейчас, говоря о национальном характере, используют другие термины — например, национальный стереотип, который складывается из представлений других народов о нас и нашего представления о самих себе.",
@@ -178,7 +317,9 @@
       "expectedWords": 25,
       "startTime": 40.43,
       "endTime": 53.95,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "如今谈及民族性格时，人们用的是其他术语，例如民族刻板印象，它由其他民族对我们的看法和我们对自身的看法构成。",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Есть много анекдотов типа «встретились русский, англичанин и француз...».",
@@ -190,7 +331,9 @@
       "expectedWords": 9,
       "startTime": 53.95,
       "endTime": 58.39,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "有很多“俄罗斯人、英国人和法国人相遇……”这类笑话。",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Самое неожиданное — это то, что сделает или скажет русский.",
@@ -202,7 +345,9 @@
       "expectedWords": 9,
       "startTime": 58.91,
       "endTime": 62.71,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "最出人意料的总是俄罗斯人会做什么或说什么。",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Почему мы сами себе кажемся смешными?",
@@ -214,7 +359,9 @@
       "expectedWords": 6,
       "startTime": 63.13,
       "endTime": 65.21,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "为什么我们自己觉得自己可笑？",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Если разбираться исторически, то тем же англичанам, в переводе на человеческий возраст, семьдесят лет, а нам — двенадцать.",
@@ -226,7 +373,9 @@
       "expectedWords": 17,
       "startTime": 66.03,
       "endTime": 73.63,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "若按历史换算成人的年龄，同样的英国人有七十岁，而我们只有十二岁。",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Хотя тут есть разные точки зрения: одни считают, что мы начали формироваться во времена Киевской Руси, другие — после Куликовской битвы, в XIV веке.",
@@ -238,7 +387,9 @@
       "expectedWords": 22,
       "startTime": 74.99,
       "endTime": 85.73,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "当然也有不同看法：有人认为我们始于基辅罗斯时期形成，另一些人认为是在十四世纪库利科沃战役之后。",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Я склоняюсь ко второй точке зрения.",
@@ -250,7 +401,9 @@
       "expectedWords": 6,
       "startTime": 86.23,
       "endTime": 88.39,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "我倾向于第二种观点。",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "В таком случае у нас разница в возрасте с Европой — тысяча лет.",
@@ -262,7 +415,9 @@
       "expectedWords": 12,
       "startTime": 89.13,
       "endTime": 92.87,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "这样的话，我们与欧洲的年龄差就是一千年。",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Мы часто повторяем слова: надежда умирает последней.",
@@ -274,7 +429,9 @@
       "expectedWords": 7,
       "startTime": 93.39,
       "endTime": 96.79,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "我们常说：希望是最后死去的。",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "А вот за рубежом говорят иначе: надежда — мать дураков.",
@@ -286,7 +443,9 @@
       "expectedWords": 9,
       "startTime": 97.69,
       "endTime": 101.93,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "而国外说法不同：希望是傻瓜之母。",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Кто прав?",
@@ -298,7 +457,9 @@
       "expectedWords": 2,
       "startTime": 101.93,
       "endTime": 102.33,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "谁是对的？",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Если человек во время опасности пассивно ждёт, то это глупо.",
@@ -310,7 +471,9 @@
       "expectedWords": 10,
       "startTime": 103.01,
       "endTime": 106.99,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "若人在危险时消极等待，那就是愚蠢。",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "А если не теряет надежды, что же тут плохого?",
@@ -322,7 +485,9 @@
       "expectedWords": 9,
       "startTime": 107.25,
       "endTime": 110.09,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "但如果不失去希望，又有什么不好呢？",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Сейчас весь мир меняется.",
@@ -334,7 +499,9 @@
       "expectedWords": 4,
       "startTime": 110.09,
       "endTime": 112.35,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "如今整个世界都在变化。",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "С одной стороны, глобализация, с другой — стремление сберечь неповторимость собственной культуры.",
@@ -346,7 +513,9 @@
       "expectedWords": 11,
       "startTime": 113.01,
       "endTime": 118.65,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "一方面是全球化，另一方面是保存自身文化独特性的愿望。",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Поэтому сейчас главное — сохранить национальную самобытность.",
@@ -358,7 +527,9 @@
       "expectedWords": 6,
       "startTime": 119.31,
       "endTime": 123.41,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "所以如今最重要的是保持民族本色。",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Беречь людей, заботиться друг о друге.",
@@ -370,7 +541,9 @@
       "expectedWords": 6,
       "startTime": 124.85,
       "endTime": 127.53,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "珍惜人们，彼此关心。",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "И всё будет в порядке.",
@@ -382,7 +555,14 @@
       "expectedWords": 5,
       "startTime": 128.01,
       "endTime": 129.19,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "一切都会好起来。",
+      "sourceSentenceIndexes": []
     }
-  ]
+  ],
+  "learningSupport": {
+    "status": "source-checked",
+    "sourceFile": "俄语资料库/В мире людей 听力口语 Markdown版/章节/Тема 1.7 -- ТРКИ-2 采访（Интервью）.md",
+    "translationSourceStatus": "needs_review"
+  }
 }

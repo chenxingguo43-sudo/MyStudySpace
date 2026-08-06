@@ -1,0 +1,873 @@
+{
+  "schemaVersion": 1,
+  "scope": "В мире людей. Выпуск 2 · 35 verified-media listening units",
+  "targetChapterCount": 35,
+  "releasePolicy": "atomic-35-unit-release",
+  "unavailablePolicy": "no-tts-no-substitute-media",
+  "units": [
+    {
+      "chapterFile": "ch0000.json",
+      "unitId": "ls-t1.2-d1.1.1",
+      "title": "Диалог 1.1.1 — 年轻人暑期去向",
+      "status": "published",
+      "source": {
+        "chapterSha256": "9620faae1d5be3c1c6433a4ecc87cca82f84e87b6298b86f0949bca5e0fcdc3d",
+        "timelineFile": "timelines/ch0000.json",
+        "sourcePages": [
+          14,
+          15
+        ],
+        "mediaFiles": [
+          "media/world-people-v2/01.mp4"
+        ]
+      },
+      "metrics": {
+        "segments": 10,
+        "timedSegments": 10,
+        "translatedSegments": 10,
+        "questions": 5,
+        "evidencedQuestions": 5
+      }
+    },
+    {
+      "chapterFile": "ch0001.json",
+      "unitId": "ls-t1.2-d1.1.2",
+      "title": "Диалог 1.1.2 — 职场晋升犹豫",
+      "status": "published",
+      "source": {
+        "chapterSha256": "50935edc508262f67bb47f451deb10b6c385996fde524327d4aea9d370445460",
+        "timelineFile": "timelines/ch0001.json",
+        "sourcePages": [
+          14,
+          15
+        ],
+        "mediaFiles": [
+          "media/world-people-v2/02.mp4"
+        ]
+      },
+      "metrics": {
+        "segments": 8,
+        "timedSegments": 8,
+        "translatedSegments": 8,
+        "questions": 5,
+        "evidencedQuestions": 5
+      }
+    },
+    {
+      "chapterFile": "ch0002.json",
+      "unitId": "ls-t1.2-d1.1.3",
+      "title": "Диалог 1.1.3 — 女儿出嫁的烦恼",
+      "status": "published",
+      "source": {
+        "chapterSha256": "088feaa25a7a54b31707d5831a74c06984d5885f3da30d31fa83793743409e9c",
+        "timelineFile": "timelines/ch0002.json",
+        "sourcePages": [
+          14,
+          15
+        ],
+        "mediaFiles": [
+          "media/world-people-v2/03.mp4"
+        ]
+      },
+      "metrics": {
+        "segments": 9,
+        "timedSegments": 9,
+        "translatedSegments": 9,
+        "questions": 5,
+        "evidencedQuestions": 5
+      }
+    },
+    {
+      "chapterFile": "ch0003.json",
+      "unitId": "ls-t1.2-d1.1.4",
+      "title": "Диалог 1.1.4 — 新设备与论坛信息",
+      "status": "published",
+      "source": {
+        "chapterSha256": "c6ded45fb4332c9a009c6d304a763309bcadfba5f10e342aef530eaa8e5d01d0",
+        "timelineFile": "timelines/ch0003.json",
+        "sourcePages": [
+          14,
+          15
+        ],
+        "mediaFiles": [
+          "media/world-people-v2/04.mp4"
+        ]
+      },
+      "metrics": {
+        "segments": 6,
+        "timedSegments": 6,
+        "translatedSegments": 6,
+        "questions": 5,
+        "evidencedQuestions": 5
+      }
+    },
+    {
+      "chapterFile": "ch0004.json",
+      "unitId": "ls-t1.2-d1.1.5",
+      "title": "Диалог 1.1.5 — 疲惫与画展",
+      "status": "published",
+      "source": {
+        "chapterSha256": "c0bab446d6adb1202240c83c1967cae7e9db815987471e1b7b4061fad6df1073",
+        "timelineFile": "timelines/ch0004.json",
+        "sourcePages": [
+          14,
+          15
+        ],
+        "mediaFiles": [
+          "media/world-people-v2/05.mp4"
+        ]
+      },
+      "metrics": {
+        "segments": 11,
+        "timedSegments": 11,
+        "translatedSegments": 11,
+        "questions": 5,
+        "evidencedQuestions": 5
+      }
+    },
+    {
+      "chapterFile": "ch0005.json",
+      "unitId": "ls-t1.3-m1.2.1",
+      "title": "Монолог 1.2.1 — 海参崴公交信息屏公告",
+      "status": "published",
+      "source": {
+        "chapterSha256": "dd2964ab38709039a0c8779730e3802a918662d02b4a5404131c861b6126b4c7",
+        "timelineFile": "timelines/ch0005.json",
+        "sourcePages": [
+          21,
+          22
+        ],
+        "mediaFiles": [
+          "media/world-people-v2/06.mp4"
+        ]
+      },
+      "metrics": {
+        "segments": 6,
+        "timedSegments": 6,
+        "translatedSegments": 6,
+        "questions": 5,
+        "evidencedQuestions": 5
+      }
+    },
+    {
+      "chapterFile": "ch0006.json",
+      "unitId": "ls-t1.3-m1.2.2",
+      "title": "Монолог 1.2.2 — 莫斯科地铁警犬招聘",
+      "status": "published",
+      "source": {
+        "chapterSha256": "880634104d17d340a1872233e2dd413fd46e12202d5f47d00078a7dd313c3425",
+        "timelineFile": "timelines/ch0006.json",
+        "sourcePages": [
+          21,
+          22
+        ],
+        "mediaFiles": [
+          "media/world-people-v2/07.mp4"
+        ]
+      },
+      "metrics": {
+        "segments": 2,
+        "timedSegments": 2,
+        "translatedSegments": 2,
+        "questions": 5,
+        "evidencedQuestions": 5
+      }
+    },
+    {
+      "chapterFile": "ch0007.json",
+      "unitId": "ls-t1.3-m1.2.3",
+      "title": "Монолог 1.2.3 — 牧首湖畔节日",
+      "status": "published",
+      "source": {
+        "chapterSha256": "09586f69b365c1090c2d3fa6e6d6621a0587225f073eee6bb5accdc036509b76",
+        "timelineFile": "timelines/ch0007.json",
+        "sourcePages": [
+          22,
+          23
+        ],
+        "mediaFiles": [
+          "media/world-people-v2/08.mp4"
+        ]
+      },
+      "metrics": {
+        "segments": 6,
+        "timedSegments": 6,
+        "translatedSegments": 6,
+        "questions": 5,
+        "evidencedQuestions": 5
+      }
+    },
+    {
+      "chapterFile": "ch0008.json",
+      "unitId": "ls-t1.3-m1.2.4",
+      "title": "Монолог 1.2.4 — 学院研讨会邀请",
+      "status": "published",
+      "source": {
+        "chapterSha256": "755e3da753b36bf74da487b470bca903be62fc5130bd04c84049d2e173d161bb",
+        "timelineFile": "timelines/ch0008.json",
+        "sourcePages": [
+          23,
+          24
+        ],
+        "mediaFiles": [
+          "media/world-people-v2/09.mp4"
+        ]
+      },
+      "metrics": {
+        "segments": 5,
+        "timedSegments": 5,
+        "translatedSegments": 5,
+        "questions": 5,
+        "evidencedQuestions": 5
+      }
+    },
+    {
+      "chapterFile": "ch0009.json",
+      "unitId": "ls-t1.3-m1.2.5",
+      "title": "Монолог 1.2.5 — «红帆»全俄竞赛",
+      "status": "published",
+      "source": {
+        "chapterSha256": "094f017e1e4e70a64f93624aa0e5feb6010bb559cf0c629e6c4f8d1b2998929a",
+        "timelineFile": "timelines/ch0009.json",
+        "sourcePages": [
+          24,
+          25
+        ],
+        "mediaFiles": [
+          "media/world-people-v2/10.mp4"
+        ]
+      },
+      "metrics": {
+        "segments": 8,
+        "timedSegments": 8,
+        "translatedSegments": 8,
+        "questions": 5,
+        "evidencedQuestions": 5
+      }
+    },
+    {
+      "chapterFile": "ch0010.json",
+      "unitId": "ls-t1.4-m1.3.1",
+      "title": "Монолог 1.3.1 — 喀山旅游广告",
+      "status": "published",
+      "source": {
+        "chapterSha256": "434923ffb93c7fe6de85de00580daf62947b4a3a2b458318d54eb3fda24a1a30",
+        "timelineFile": "timelines/ch0010.json",
+        "sourcePages": [
+          31,
+          32
+        ],
+        "mediaFiles": [
+          "media/world-people-v2/11.mp4"
+        ]
+      },
+      "metrics": {
+        "segments": 8,
+        "timedSegments": 8,
+        "translatedSegments": 8,
+        "questions": 5,
+        "evidencedQuestions": 5
+      }
+    },
+    {
+      "chapterFile": "ch0011.json",
+      "unitId": "ls-t1.4-m1.3.2",
+      "title": "Монолог 1.3.2 — 快递公司招聘",
+      "status": "published",
+      "source": {
+        "chapterSha256": "cd5cb8d72784805b797dcfa4c79dc09b2884d36e25347f5043edec683cc4c3b3",
+        "timelineFile": "timelines/ch0011.json",
+        "sourcePages": [
+          33,
+          34
+        ],
+        "mediaFiles": [
+          "media/world-people-v2/12.mp4"
+        ]
+      },
+      "metrics": {
+        "segments": 14,
+        "timedSegments": 14,
+        "translatedSegments": 14,
+        "questions": 5,
+        "evidencedQuestions": 5
+      }
+    },
+    {
+      "chapterFile": "ch0012.json",
+      "unitId": "ls-t1.4-m1.3.3",
+      "title": "Монолог 1.3.3 — 瓦尔瓦尔卡咖啡馆",
+      "status": "published",
+      "source": {
+        "chapterSha256": "db5bee01f720b7cbc1f1c8180611adac23d0ac2fbae8b78ea3f436e49ae6b8e3",
+        "timelineFile": "timelines/ch0012.json",
+        "sourcePages": [
+          35,
+          36
+        ],
+        "mediaFiles": [
+          "media/world-people-v2/13.mp4"
+        ]
+      },
+      "metrics": {
+        "segments": 8,
+        "timedSegments": 8,
+        "translatedSegments": 8,
+        "questions": 5,
+        "evidencedQuestions": 5
+      }
+    },
+    {
+      "chapterFile": "ch0013.json",
+      "unitId": "ls-t1.4-m1.3.4",
+      "title": "Монолог 1.3.4 — DNA解码设备",
+      "status": "published",
+      "source": {
+        "chapterSha256": "29fc78c9510ef6a7b09229966cf2af948c577a55e91417d654409a14a4a23a59",
+        "timelineFile": "timelines/ch0013.json",
+        "sourcePages": [
+          37,
+          38
+        ],
+        "mediaFiles": [
+          "media/world-people-v2/14.mp4"
+        ]
+      },
+      "metrics": {
+        "segments": 7,
+        "timedSegments": 7,
+        "translatedSegments": 7,
+        "questions": 5,
+        "evidencedQuestions": 5
+      }
+    },
+    {
+      "chapterFile": "ch0014.json",
+      "unitId": "ls-t1.4-m1.3.5",
+      "title": "Монолог 1.3.5 — ЦДЛ电影厅",
+      "status": "published",
+      "source": {
+        "chapterSha256": "caa090515227b542f4465d10bfb14246e1a3fbe77014d13ab1aff397c9445e80",
+        "timelineFile": "timelines/ch0014.json",
+        "sourcePages": [
+          39,
+          40
+        ],
+        "mediaFiles": [
+          "media/world-people-v2/15.mp4"
+        ]
+      },
+      "metrics": {
+        "segments": 9,
+        "timedSegments": 9,
+        "translatedSegments": 9,
+        "questions": 5,
+        "evidencedQuestions": 5
+      }
+    },
+    {
+      "chapterFile": "ch0015.json",
+      "unitId": "ls-t1.5-m2.1.1",
+      "title": "Монолог 2.1.1 — 吉普赛男爵的独白（电影《深渊上的兔子》）",
+      "status": "published",
+      "source": {
+        "chapterSha256": "90491f4a681eee6bdb2fcbdc32a6694b38901bfa5bb7e7b16b434607bfcc8ed8",
+        "timelineFile": "timelines/ch0015.json",
+        "sourcePages": [
+          41,
+          43
+        ],
+        "mediaFiles": [
+          "media/world-people-v2/16.mp4"
+        ]
+      },
+      "metrics": {
+        "segments": 25,
+        "timedSegments": 25,
+        "translatedSegments": 25,
+        "questions": 5,
+        "evidencedQuestions": 5
+      }
+    },
+    {
+      "chapterFile": "ch0016.json",
+      "unitId": "ls-t1.5-m2.1.2",
+      "title": "Монолог 2.1.2 — 陪审员的自述（电影《十二怒汉》）",
+      "status": "published",
+      "source": {
+        "chapterSha256": "ee4a436f764aa6a23e4ea6386be3896a2e788212d44a9b122fc70989d7a8be08",
+        "timelineFile": "timelines/ch0016.json",
+        "sourcePages": [
+          44,
+          46
+        ],
+        "mediaFiles": [
+          "media/world-people-v2/17.mp4"
+        ]
+      },
+      "metrics": {
+        "segments": 34,
+        "timedSegments": 34,
+        "translatedSegments": 34,
+        "questions": 5,
+        "evidencedQuestions": 5
+      }
+    },
+    {
+      "chapterFile": "ch0017.json",
+      "unitId": "ls-t1.5-m2.1.3",
+      "title": "Монолог 2.1.3 — 女孩讲述对方人生（电影《清洁工》）",
+      "status": "published",
+      "source": {
+        "chapterSha256": "d6f4c386514f56a4034129931848baef0657da6adade99f1886d9182d6f911db",
+        "timelineFile": "timelines/ch0017.json",
+        "sourcePages": [
+          47,
+          48
+        ],
+        "mediaFiles": [
+          "media/world-people-v2/18.mp4"
+        ]
+      },
+      "metrics": {
+        "segments": 26,
+        "timedSegments": 26,
+        "translatedSegments": 26,
+        "questions": 5,
+        "evidencedQuestions": 5
+      }
+    },
+    {
+      "chapterFile": "ch0018.json",
+      "unitId": "ls-t1.5-m2.1.4",
+      "title": "Монолог 2.1.4 — 院士的答谢演讲（电影《独白》）",
+      "status": "published",
+      "source": {
+        "chapterSha256": "0993411e6e3ba1c3b0f33830e929a9554324a6e4cf630b4979eb29d1990ae774",
+        "timelineFile": "timelines/ch0018.json",
+        "sourcePages": [
+          49,
+          50
+        ],
+        "mediaFiles": [
+          "media/world-people-v2/19.mp4"
+        ]
+      },
+      "metrics": {
+        "segments": 17,
+        "timedSegments": 17,
+        "translatedSegments": 17,
+        "questions": 5,
+        "evidencedQuestions": 5
+      }
+    },
+    {
+      "chapterFile": "ch0019.json",
+      "unitId": "ls-t1.5-m2.1.5",
+      "title": "Монолог 2.1.5 — 音乐教师的战争回忆（电影《白夜旋律》）",
+      "status": "published",
+      "source": {
+        "chapterSha256": "a43aab3700da4e924192ecbae0b44550e66bfb525e79ca4a8d7b64a2bc840358",
+        "timelineFile": "timelines/ch0019.json",
+        "sourcePages": [
+          51,
+          53
+        ],
+        "mediaFiles": [
+          "media/world-people-v2/20.mp4"
+        ]
+      },
+      "metrics": {
+        "segments": 39,
+        "timedSegments": 39,
+        "translatedSegments": 39,
+        "questions": 5,
+        "evidencedQuestions": 5
+      }
+    },
+    {
+      "chapterFile": "ch0020.json",
+      "unitId": "ls-t1.6-d2.2.1",
+      "title": "Диалог 2.2.1 — 电影《自己人中的外人》——黄金与背叛",
+      "status": "published",
+      "source": {
+        "chapterSha256": "46d2cfa800627e47b5792cf53997e907277470401ff32d4968315d4101ae83f9",
+        "timelineFile": "timelines/ch0020.json",
+        "sourcePages": [
+          54,
+          66
+        ],
+        "mediaFiles": [
+          "media/world-people-v2/21.mp4"
+        ]
+      },
+      "metrics": {
+        "segments": 35,
+        "timedSegments": 35,
+        "translatedSegments": 35,
+        "questions": 5,
+        "evidencedQuestions": 5
+      }
+    },
+    {
+      "chapterFile": "ch0021.json",
+      "unitId": "ls-t1.6-d2.2.2",
+      "title": "Диалог 2.2.2 — 电影《安德烈·卢布廖夫》——师父训徒",
+      "status": "published",
+      "source": {
+        "chapterSha256": "f4a566cb23ae4704758d264238641b10ed9ae29ef72de8566bf3dc7e8783e300",
+        "timelineFile": "timelines/ch0021.json",
+        "sourcePages": [
+          54,
+          66
+        ],
+        "mediaFiles": [
+          "media/world-people-v2/22.mp4"
+        ]
+      },
+      "metrics": {
+        "segments": 30,
+        "timedSegments": 30,
+        "translatedSegments": 30,
+        "questions": 5,
+        "evidencedQuestions": 5
+      }
+    },
+    {
+      "chapterFile": "ch0022.json",
+      "unitId": "ls-t1.6-d2.2.3",
+      "title": "Диалог 2.2.3 — 电影《我的男友是天使》——天使不懂人间烟火",
+      "status": "published",
+      "source": {
+        "chapterSha256": "1c95c46f72d4a02bfbdca3a0b026ee570d42fe7331e22d9d400416af3780faf5",
+        "timelineFile": "timelines/ch0022.json",
+        "sourcePages": [
+          54,
+          66
+        ],
+        "mediaFiles": [
+          "media/world-people-v2/23.mp4"
+        ]
+      },
+      "metrics": {
+        "segments": 52,
+        "timedSegments": 52,
+        "translatedSegments": 52,
+        "questions": 5,
+        "evidencedQuestions": 5
+      }
+    },
+    {
+      "chapterFile": "ch0023.json",
+      "unitId": "ls-t1.6-d2.2.4",
+      "title": "Диалог 2.2.4 — 电影《独白》——被遗忘的天才论文",
+      "status": "published",
+      "source": {
+        "chapterSha256": "eabdac86966fd0283331efbc0ace46792e87f8ad4455848fd01a0ec939e69ed4",
+        "timelineFile": "timelines/ch0023.json",
+        "sourcePages": [
+          54,
+          66
+        ],
+        "mediaFiles": [
+          "media/world-people-v2/24.mp4"
+        ]
+      },
+      "metrics": {
+        "segments": 30,
+        "timedSegments": 30,
+        "translatedSegments": 30,
+        "questions": 5,
+        "evidencedQuestions": 5
+      }
+    },
+    {
+      "chapterFile": "ch0024.json",
+      "unitId": "ls-t1.6-d2.2.5",
+      "title": "Диалог 2.2.5 — 电影《莫斯科郊外的晚上》——手稿之争",
+      "status": "published",
+      "source": {
+        "chapterSha256": "5187fbbb51cfdb694fb93e37cb651cd787b2b818797ac59fe5cb893b6515e8c8",
+        "timelineFile": "timelines/ch0024.json",
+        "sourcePages": [
+          54,
+          66
+        ],
+        "mediaFiles": [
+          "media/world-people-v2/25.mp4"
+        ]
+      },
+      "metrics": {
+        "segments": 30,
+        "timedSegments": 30,
+        "translatedSegments": 30,
+        "questions": 5,
+        "evidencedQuestions": 5
+      }
+    },
+    {
+      "chapterFile": "ch0025.json",
+      "unitId": "ls-t1.7-d3.1.1",
+      "title": "Диалог 3.1.1 — 柳德米拉·库斯托娃谈民族性格",
+      "status": "published",
+      "source": {
+        "chapterSha256": "5d94fba931be64a4d4de410b86660442b7862f279402febbf36a1a37ae8c0597",
+        "timelineFile": "timelines/ch0025.json",
+        "sourcePages": [
+          67,
+          79
+        ],
+        "mediaFiles": [
+          "media/world-people-v2/26.mp4"
+        ]
+      },
+      "metrics": {
+        "segments": 22,
+        "timedSegments": 22,
+        "translatedSegments": 22,
+        "questions": 5,
+        "evidencedQuestions": 5
+      }
+    },
+    {
+      "chapterFile": "ch0026.json",
+      "unitId": "ls-t1.7-d3.1.2",
+      "title": "Диалог 3.1.2 — 叶莲娜·米亚斯尼科娃谈事业与女权",
+      "status": "published",
+      "source": {
+        "chapterSha256": "9a164d21682e9456c8eb1c290d39fde93d51026d6640d20be81c9e2952299a40",
+        "timelineFile": "timelines/ch0026.json",
+        "sourcePages": [
+          67,
+          79
+        ],
+        "mediaFiles": [
+          "media/world-people-v2/27.mp4"
+        ]
+      },
+      "metrics": {
+        "segments": 25,
+        "timedSegments": 25,
+        "translatedSegments": 25,
+        "questions": 5,
+        "evidencedQuestions": 5
+      }
+    },
+    {
+      "chapterFile": "ch0027.json",
+      "unitId": "ls-t1.7-d3.1.3",
+      "title": "Диалог 3.1.3 — 博主安德烈·特罗伊谈人生哲学",
+      "status": "published",
+      "source": {
+        "chapterSha256": "b03b52ca050bed8388134c3898449217f71971388dd089c64e24c2f8637ffba8",
+        "timelineFile": "timelines/ch0027.json",
+        "sourcePages": [
+          67,
+          79
+        ],
+        "mediaFiles": [
+          "media/world-people-v2/28.mp4"
+        ]
+      },
+      "metrics": {
+        "segments": 29,
+        "timedSegments": 29,
+        "translatedSegments": 29,
+        "questions": 5,
+        "evidencedQuestions": 5
+      }
+    },
+    {
+      "chapterFile": "ch0028.json",
+      "unitId": "ls-t1.7-d3.1.4",
+      "title": "Диалог 3.1.4 — 宇航员格奥尔吉·格列奇科访谈",
+      "status": "published",
+      "source": {
+        "chapterSha256": "241c9ee4485eeb77ed4bd806bbcb332320a8cff5a79357cc97eaff0e1d0b4f86",
+        "timelineFile": "timelines/ch0028.json",
+        "sourcePages": [
+          67,
+          79
+        ],
+        "mediaFiles": [
+          "media/world-people-v2/29.mp4"
+        ]
+      },
+      "metrics": {
+        "segments": 35,
+        "timedSegments": 35,
+        "translatedSegments": 35,
+        "questions": 5,
+        "evidencedQuestions": 5
+      }
+    },
+    {
+      "chapterFile": "ch0029.json",
+      "unitId": "ls-t1.7-d3.1.5",
+      "title": "Диалог 3.1.5 — 青年画家阿列克谢·金访谈",
+      "status": "published",
+      "source": {
+        "chapterSha256": "e1e35c182d30463f76157ce2af6baf87d9f43c9376b8d5b308986897eb9c6585",
+        "timelineFile": "timelines/ch0029.json",
+        "sourcePages": [
+          67,
+          79
+        ],
+        "mediaFiles": [
+          "media/world-people-v2/30.mp4"
+        ]
+      },
+      "metrics": {
+        "segments": 35,
+        "timedSegments": 35,
+        "translatedSegments": 35,
+        "questions": 5,
+        "evidencedQuestions": 5
+      }
+    },
+    {
+      "chapterFile": "ch0030.json",
+      "unitId": "ls-t1.8-m3.2.1",
+      "title": "Монолог 3.2.1 — 社会问题新闻",
+      "status": "published",
+      "source": {
+        "chapterSha256": "e69a03a66b1e8cf07541a54b83a1a383467f257ec9ffd672dd3c40a213a0fb32",
+        "timelineFile": "timelines/ch0030.json",
+        "sourcePages": [
+          80,
+          103
+        ],
+        "mediaFiles": [
+          "media/world-people-v2/31.mp4",
+          "media/world-people-v2/32.mp4",
+          "media/world-people-v2/33.mp4",
+          "media/world-people-v2/34.mp4",
+          "media/world-people-v2/35.mp4"
+        ]
+      },
+      "metrics": {
+        "segments": 16,
+        "timedSegments": 16,
+        "translatedSegments": 16,
+        "questions": 5,
+        "evidencedQuestions": 5
+      }
+    },
+    {
+      "chapterFile": "ch0031.json",
+      "unitId": "ls-t1.8-m3.2.2",
+      "title": "Монолог 3.2.2 — 职业活动新闻",
+      "status": "published",
+      "source": {
+        "chapterSha256": "39606a203d63be1ff37ae21e3057aaf6885368a9a5615632b8dc333fd43c9cc4",
+        "timelineFile": "timelines/ch0031.json",
+        "sourcePages": [
+          80,
+          103
+        ],
+        "mediaFiles": [
+          "media/world-people-v2/36.mp4",
+          "media/world-people-v2/37.mp4",
+          "media/world-people-v2/38.mp4",
+          "media/world-people-v2/39.mp4",
+          "media/world-people-v2/40.mp4"
+        ]
+      },
+      "metrics": {
+        "segments": 19,
+        "timedSegments": 19,
+        "translatedSegments": 19,
+        "questions": 5,
+        "evidencedQuestions": 5
+      }
+    },
+    {
+      "chapterFile": "ch0032.json",
+      "unitId": "ls-t1.8-m3.2.3",
+      "title": "Монолог 3.2.3 — 现代社会中的个人新闻",
+      "status": "published",
+      "source": {
+        "chapterSha256": "3af03b76e261b26edd2c5aa21137a23f25c76e0743aac05219a0904ded38d8d0",
+        "timelineFile": "timelines/ch0032.json",
+        "sourcePages": [
+          80,
+          103
+        ],
+        "mediaFiles": [
+          "media/world-people-v2/41.mp4",
+          "media/world-people-v2/42.mp4",
+          "media/world-people-v2/43.mp4",
+          "media/world-people-v2/44.mp4",
+          "media/world-people-v2/45.mp4"
+        ]
+      },
+      "metrics": {
+        "segments": 20,
+        "timedSegments": 20,
+        "translatedSegments": 20,
+        "questions": 5,
+        "evidencedQuestions": 5
+      }
+    },
+    {
+      "chapterFile": "ch0033.json",
+      "unitId": "ls-t1.8-m3.2.4",
+      "title": "Монолог 3.2.4 — 科技新闻",
+      "status": "published",
+      "source": {
+        "chapterSha256": "a38315286e7ab8aa548c3be759b41a3816715efeb0925d04ec19b960f07a91e4",
+        "timelineFile": "timelines/ch0033.json",
+        "sourcePages": [
+          80,
+          103
+        ],
+        "mediaFiles": [
+          "media/world-people-v2/46.mp4",
+          "media/world-people-v2/47.mp4",
+          "media/world-people-v2/48.mp4",
+          "media/world-people-v2/49.mp4",
+          "media/world-people-v2/50.mp4"
+        ]
+      },
+      "metrics": {
+        "segments": 16,
+        "timedSegments": 16,
+        "translatedSegments": 16,
+        "questions": 5,
+        "evidencedQuestions": 5
+      }
+    },
+    {
+      "chapterFile": "ch0034.json",
+      "unitId": "ls-t1.8-m3.2.5",
+      "title": "Монолог 3.2.5 — 现代文化新闻",
+      "status": "published",
+      "source": {
+        "chapterSha256": "e724e60ec12bf39689f33c7a7a99a2c3c9403c2a4c996cd77c123f90ac79b5b8",
+        "timelineFile": "timelines/ch0034.json",
+        "sourcePages": [
+          80,
+          103
+        ],
+        "mediaFiles": [
+          "media/world-people-v2/51.mp4",
+          "media/world-people-v2/52.mp4",
+          "media/world-people-v2/53.mp4",
+          "media/world-people-v2/54.mp4",
+          "media/world-people-v2/55.mp4"
+        ]
+      },
+      "metrics": {
+        "segments": 22,
+        "timedSegments": 22,
+        "translatedSegments": 22,
+        "questions": 5,
+        "evidencedQuestions": 5
+      }
+    }
+  ],
+  "updatedAt": "2026-08-06T06:15:13.734Z",
+  "releaseReadyAt": "2026-08-06T05:09:51.369Z",
+  "publishedAt": "2026-08-06T05:22:43.722Z",
+  "releaseBackup": "releases/2026-08-06T05-22-43-525Z/before"
+}

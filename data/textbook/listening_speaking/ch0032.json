@@ -88,7 +88,37 @@
           "text": "для всего населения"
         }
       ],
-      "answer": "В"
+      "answer": "В",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0032-s002",
+          "ch0032-s003"
+        ],
+        "quote": "Постоянный мониторинг здоровья ребёнка ... Взрослое население ... также будет проходить диспансеризацию.",
+        "translation": "儿童健康将被强制持续监测；成年人口也将接受体检筛查。",
+        "reasoning": "儿童和成年人都纳入强制健康检查，因此对象是全体人口，对应选项 В。",
+        "pages": [
+          80,
+          103
+        ],
+        "items": [
+          {
+            "quote": "Постоянный мониторинг здоровья ребёнка будет вестись в обязательном порядке.",
+            "translation": "将强制持续监测儿童的健康状况。",
+            "segmentIds": [
+              "ch0032-s002"
+            ]
+          },
+          {
+            "quote": "Взрослое население в зависимости от возраста и от состояния здоровья также будет проходить диспансеризацию.",
+            "translation": "成年人口也将根据年龄和健康状况接受体检筛查。",
+            "segmentIds": [
+              "ch0032-s003"
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "LS-LS-T1-8-M3-2-3-Q02",
@@ -108,7 +138,29 @@
           "text": "5 дней"
         }
       ],
-      "answer": "А"
+      "answer": "А",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0032-s008"
+        ],
+        "quote": "...период зимнего отдыха составит 10 дней...",
+        "translation": "……冬季假期将为 10 天……",
+        "reasoning": "原句直接说明冬季休假为 10 天，对应选项 А。",
+        "pages": [
+          80,
+          103
+        ],
+        "items": [
+          {
+            "quote": "Таким образом, у россиян период зимнего отдыха составит 10 дней, а в мае — 5 дней на Первое мая и 4 — на День Победы.",
+            "translation": "因此，俄罗斯人的冬季假期将为 10 天；五月劳动节休 5 天，胜利日休 4 天。",
+            "segmentIds": [
+              "ch0032-s008"
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "LS-LS-T1-8-M3-2-3-Q03",
@@ -128,7 +180,29 @@
           "text": "39 %"
         }
       ],
-      "answer": "А"
+      "answer": "А",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0032-s009"
+        ],
+        "quote": "...четверть россиян ответила положительно.",
+        "translation": "……四分之一俄罗斯人给出了肯定回答。",
+        "reasoning": "четверть 即四分之一，也就是 25%，对应选项 А。",
+        "pages": [
+          80,
+          103
+        ],
+        "items": [
+          {
+            "quote": "На вопрос специалистов Всероссийского центра исследования общественного мнения, оправдались ли ваши ожидания в прошедшем году, четверть россиян ответила положительно.",
+            "translation": "面对全俄民意研究中心专家“去年您的期待是否实现”的问题，四分之一俄罗斯人给出了肯定回答。",
+            "segmentIds": [
+              "ch0032-s009"
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "LS-LS-T1-8-M3-2-3-Q04",
@@ -148,7 +222,37 @@
           "text": "осложняет процесс социализации ребёнка"
         }
       ],
-      "answer": "Б"
+      "answer": "Б",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0032-s013",
+          "ch0032-s015"
+        ],
+        "quote": "...у ребёнка могут начаться проблемы в школе... Самый серьёзный удар наносится успеваемости по математике и поведению.",
+        "translation": "……孩子可能在学校遇到问题……数学成绩和行为表现受到最严重冲击。",
+        "reasoning": "新闻明确把父母离异与学校问题、数学成绩和行为表现受损联系起来，对应选项 Б。",
+        "pages": [
+          80,
+          103
+        ],
+        "items": [
+          {
+            "quote": "Специалисты социальной службы по поддержке семьи, материнства и детства предупреждают: при разводе родителей у ребёнка могут начаться проблемы в школе, и такие дети, возможно, никогда не догонят в своём развитии сверстников из полных семей.",
+            "translation": "家庭、母亲和儿童支持社会服务机构的专家警告：父母离婚后，孩子可能在学校遇到问题，发展上可能永远赶不上完整家庭的同龄人。",
+            "segmentIds": [
+              "ch0032-s013"
+            ]
+          },
+          {
+            "quote": "Самый серьёзный удар наносится успеваемости по математике и поведению.",
+            "translation": "受到最严重冲击的是数学成绩和行为表现。",
+            "segmentIds": [
+              "ch0032-s015"
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "LS-LS-T1-8-M3-2-3-Q05",
@@ -168,237 +272,267 @@
           "text": "журналисты"
         }
       ],
-      "answer": "Б"
+      "answer": "Б",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0032-s017"
+        ],
+        "quote": "Больше всего шансов у юристов и архитекторов...",
+        "translation": "律师和建筑师最受欢迎……",
+        "reasoning": "女性调查中律师与建筑师的机会最多，因此律师对应选项 Б。",
+        "pages": [
+          80,
+          103
+        ],
+        "items": [
+          {
+            "quote": "Больше всего шансов у юристов и архитекторов, немного им уступают врачи и инженеры.",
+            "translation": "律师和建筑师最受欢迎，医生和工程师稍逊其后。",
+            "segmentIds": [
+              "ch0032-s017"
+            ]
+          }
+        ]
+      }
     }
   ],
   "transcriptSegments": [
     {
       "text": "Минздрав намерен вернуть систему профилактических медосмотров.",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 1,
-      "matchedWords": 6,
-      "expectedWords": 6,
+      "translation": "卫生部计划恢复预防性体检制度。",
       "startTime": 4.41,
       "endTime": 8.83,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        1
+      ]
     },
     {
       "text": "Постоянный мониторинг здоровья ребёнка будет вестись в обязательном порядке.",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 1,
-      "matchedWords": 9,
-      "expectedWords": 9,
+      "translation": "将强制持续监测儿童的健康状况。",
       "startTime": 9.79,
       "endTime": 14.35,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        2
+      ]
     },
     {
       "text": "Взрослое население в зависимости от возраста и от состояния здоровья также будет проходить диспансеризацию.",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 1,
-      "matchedWords": 14,
-      "expectedWords": 14,
+      "translation": "成年人口也将根据年龄和健康状况接受体检筛查。",
       "startTime": 14.95,
       "endTime": 21.89,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        3
+      ]
     },
     {
       "text": "Должны быть предприняты меры, чтобы заставить общество следить за своим здоровьем.",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 1,
-      "matchedWords": 11,
-      "expectedWords": 11,
+      "translation": "必须采取措施促使社会关注自身健康。",
       "startTime": 22.69,
       "endTime": 27.65,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        4
+      ]
     },
     {
       "text": "Усилия только со стороны системы здравоохранения и медработников недостаточны.",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 0.889,
-      "matchedWords": 8,
-      "expectedWords": 9,
+      "translation": "仅靠医疗体系和医务人员的努力是不够的。",
       "startTime": 27.65,
       "endTime": 33.51,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        5
+      ]
     },
     {
       "text": "Утверждён перенос выходных дней в следующем году.",
       "playlistIndex": 1,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 1,
-      "matchedWords": 7,
-      "expectedWords": 7,
+      "translation": "明年的调休安排已获批准。",
       "startTime": 4.74,
       "endTime": 8.02,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        6
+      ]
     },
     {
       "text": "Об этом сообщили в пресс-службе правительства: выходные дни 5 и 6 января, совпадающие с нерабочими праздничными днями, будут перенесены на 2 и 3 мая.",
       "playlistIndex": 1,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 1,
-      "matchedWords": 21,
-      "expectedWords": 21,
+      "translation": "政府新闻处称：与节假日重合的 1 月 5 日和 6 日休息日将调至 5 月 2 日和 3 日。",
       "startTime": 8.86,
       "endTime": 20.92,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        7
+      ]
     },
     {
       "text": "Таким образом, у россиян период зимнего отдыха составит 10 дней, а в мае — 5 дней на Первое мая и 4 — на День Победы.",
       "playlistIndex": 1,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 0.95,
-      "matchedWords": 19,
-      "expectedWords": 20,
+      "translation": "因此，俄罗斯人的冬季假期将为 10 天；五月劳动节休 5 天，胜利日休 4 天。",
       "startTime": 21.8,
       "endTime": 32.18,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        8
+      ]
     },
     {
       "text": "На вопрос специалистов Всероссийского центра исследования общественного мнения, оправдались ли ваши ожидания в прошедшем году, четверть россиян ответила положительно.",
       "playlistIndex": 2,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 1,
-      "matchedWords": 19,
-      "expectedWords": 19,
+      "translation": "面对全俄民意研究中心专家“去年您的期待是否实现”的问题，四分之一俄罗斯人给出了肯定回答。",
       "startTime": 4.46,
       "endTime": 14.88,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        9
+      ]
     },
     {
       "text": "К сожалению, для 39 % опрошенных прошлый год не принёс ожидаемых результатов.",
       "playlistIndex": 2,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 1,
-      "matchedWords": 10,
-      "expectedWords": 10,
+      "translation": "遗憾的是，对 39% 的受访者来说，过去一年没有带来预期结果。",
       "startTime": 15.42,
       "endTime": 21.96,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        10
+      ]
     },
     {
-      "text": "А вот 28 % жителей страны ни на что и не надеялись, а поэтому ничем не разочарованы. 8 % наших сограждан затруднились с ответом.",
+      "text": "А вот 28 % жителей страны ни на что и не надеялись, а поэтому ничем не разочарованы.",
       "playlistIndex": 2,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 1,
-      "matchedWords": 20,
-      "expectedWords": 20,
+      "translation": "另有 28% 的居民本来不抱希望，因此也没有失望。",
       "startTime": 22.42,
-      "endTime": 32.86,
-      "timingStatus": "aligned"
+      "endTime": 28.9,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        11
+      ]
+    },
+    {
+      "text": "8 % наших сограждан затруднились с ответом.",
+      "playlistIndex": 2,
+      "translation": "8% 的同胞难以作答。",
+      "startTime": 30.42,
+      "endTime": 32.88,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        12
+      ]
     },
     {
       "text": "Специалисты социальной службы по поддержке семьи, материнства и детства предупреждают: при разводе родителей у ребёнка могут начаться проблемы в школе, и такие дети, возможно, никогда не догонят в своём развитии сверстников из полных семей.",
       "playlistIndex": 3,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 1,
-      "matchedWords": 34,
-      "expectedWords": 34,
+      "translation": "家庭、母亲和儿童支持社会服务机构的专家警告：父母离婚后，孩子可能在学校遇到问题，发展上可能永远赶不上完整家庭的同龄人。",
       "startTime": 5.43,
       "endTime": 21.89,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        13
+      ]
     },
     {
       "text": "Этому мешают чувства тревоги, одиночества, ощущение печали.",
       "playlistIndex": 3,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 1,
-      "matchedWords": 7,
-      "expectedWords": 7,
+      "translation": "焦虑、孤独和悲伤感会妨碍这种发展。",
       "startTime": 22.45,
       "endTime": 26.87,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        14
+      ]
     },
     {
       "text": "Самый серьёзный удар наносится успеваемости по математике и поведению.",
       "playlistIndex": 3,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 1,
-      "matchedWords": 9,
-      "expectedWords": 9,
+      "translation": "受到最严重冲击的是数学成绩和行为表现。",
       "startTime": 26.87,
       "endTime": 32.43,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        15
+      ]
     },
     {
       "text": "Сайт знакомств провёл опрос среди женщин, с представителями каких профессий они хотели бы встречаться.",
       "playlistIndex": 4,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 1,
-      "matchedWords": 14,
-      "expectedWords": 14,
+      "translation": "一家交友网站调查了女性希望与哪些职业的人约会。",
       "startTime": 4.51,
       "endTime": 11.93,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        16
+      ]
     },
     {
       "text": "Больше всего шансов у юристов и архитекторов, немного им уступают врачи и инженеры.",
       "playlistIndex": 4,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 1,
-      "matchedWords": 13,
-      "expectedWords": 13,
+      "translation": "律师和建筑师最受欢迎，医生和工程师稍逊其后。",
       "startTime": 12.73,
       "endTime": 18.87,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        17
+      ]
     },
     {
       "text": "Далее следуют художники, учёные, журналисты, маркетологи.",
       "playlistIndex": 4,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 1,
-      "matchedWords": 6,
-      "expectedWords": 6,
+      "translation": "随后是画家、科学家、记者和营销人员。",
       "startTime": 19.63,
       "endTime": 23.79,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        18
+      ]
     },
     {
       "text": "Как ни странно, пилотов и полицейских выбрали всего 13 %, а банкиров ещё меньше — 10 %.",
       "playlistIndex": 4,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 1,
-      "matchedWords": 12,
-      "expectedWords": 12,
+      "translation": "奇怪的是，只有 13% 选择飞行员和警察，选择银行家的更少，仅 10%。",
       "startTime": 24.41,
       "endTime": 31.13,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        19
+      ]
     },
     {
       "text": "Завершают список бизнесмены и фрилансеры.",
       "playlistIndex": 4,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 1,
-      "matchedWords": 5,
-      "expectedWords": 5,
+      "translation": "排在名单最后的是商人和自由职业者。",
       "startTime": 32.61,
       "endTime": 36.53,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        20
+      ]
     }
-  ]
+  ],
+  "transcriptCoverage": {
+    "kind": "complete",
+    "verifiedBy": [
+      "俄语资料库/В мире людей 听力口语 Markdown版/翻译/Тема 1.8 -- ТРКИ-2 新闻（Новости） -- 中文对照.md",
+      "tmp/world-people-v2-word-timestamps/43-base.json",
+      "tmp/listening-rebuild-asr/ch0032/ch0032.json"
+    ]
+  },
+  "learningSupport": {
+    "status": "source-checked",
+    "scope": "complete source reconstruction, sentence translations, and per-question listening evidence",
+    "sourceFile": "俄语资料库/В мире людей 听力口语 Markdown版/翻译/Тема 1.8 -- ТРКИ-2 新闻（Новости） -- 中文对照.md",
+    "translationSourceStatus": "needs_review",
+    "reviewedAt": "2026-08-06",
+    "migratedFromStatus": "source-cross-checked"
+  }
 }

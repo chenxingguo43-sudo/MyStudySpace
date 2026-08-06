@@ -1,0 +1,547 @@
+{
+  "schemaVersion": 1,
+  "chapterFile": "ch0024.json",
+  "unitId": "ls-t1.6-d2.2.5",
+  "status": "release_ready",
+  "source": {
+    "chapterSha256": "5187fbbb51cfdb694fb93e37cb651cd787b2b818797ac59fe5cb893b6515e8c8",
+    "timelineFile": "timelines/ch0024.json",
+    "sourcePages": [
+      54,
+      66
+    ],
+    "mediaFiles": [
+      "media/world-people-v2/25.mp4"
+    ]
+  },
+  "coverage": {
+    "kind": "complete",
+    "verifiedBy": [
+      "俄语资料库/В мире людей 听力口语 Markdown版/章节/Тема 1.6 -- ТРКИ-2 电影对话（Художественные фильмы — Диалоги）.md",
+      "俄语资料库/В мире людей 听力口语 Markdown版/翻译/Тема 1.6 -- ТРКИ-2 电影对话（Художественные фильмы — Диалоги） -- 中文对照.md",
+      "tmp/listening-rebuild-asr/ch0024/ch0024.json",
+      "tmp/world-people-v2-word-timestamps/25-base.json"
+    ]
+  },
+  "segments": [
+    {
+      "segmentId": "ch0024-s001",
+      "text": "«В тот вечер он должен был уехать в другой город, но не уехал.",
+      "translation": "那天晚上，他本该去另一个城市，却没有离开。",
+      "playlistIndex": 0,
+      "startTime": 3.81,
+      "endTime": 9.45,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        1
+      ]
+    },
+    {
+      "segmentId": "ch0024-s002",
+      "text": "Вместо этого они пили вино и занимались любовью.",
+      "translation": "相反，他们喝了酒并做爱。",
+      "playlistIndex": 0,
+      "startTime": 9.79,
+      "endTime": 13.29,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        2
+      ]
+    },
+    {
+      "segmentId": "ch0024-s003",
+      "text": "Она теряла рассудок в его объятиях, теперь она окончательно поверила в своё счастье.",
+      "translation": "她在他的怀抱中神魂颠倒，如今终于相信自己会幸福。",
+      "playlistIndex": 0,
+      "startTime": 13.61,
+      "endTime": 19.49,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        3
+      ]
+    },
+    {
+      "segmentId": "ch0024-s004",
+      "text": "Она знала: ничто не может их разлучить.",
+      "translation": "她知道：没有什么能把他们分开。",
+      "playlistIndex": 0,
+      "startTime": 19.87,
+      "endTime": 22.27,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        4
+      ]
+    },
+    {
+      "segmentId": "ch0024-s005",
+      "text": "Им предстояло прожить долгие счастливые годы вместе, просыпаясь и засыпая рядом, всё деля — как вам это \"деля?\" — пополам...» — Вы можете мне ответить, кто это написал?",
+      "translation": "他们要一起度过漫长幸福的岁月，醒来和入睡都在彼此身边，一切平分——你这“平分”是什么意思？——各占一半……你能回答我这是谁写的吗？",
+      "playlistIndex": 0,
+      "startTime": 22.71,
+      "endTime": 37.08,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        5
+      ]
+    },
+    {
+      "segmentId": "ch0024-s006",
+      "text": "Вы можете ответить мне?",
+      "translation": "你能回答我吗？",
+      "playlistIndex": 0,
+      "startTime": 37.92,
+      "endTime": 38.78,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        6
+      ]
+    },
+    {
+      "segmentId": "ch0024-s007",
+      "text": "Зачем?",
+      "translation": "为什么？",
+      "playlistIndex": 0,
+      "startTime": 44.41,
+      "endTime": 44.89,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        7
+      ]
+    },
+    {
+      "segmentId": "ch0024-s008",
+      "text": "Зачем вы переписываете роман Ирины Дмитриевны?",
+      "translation": "你为什么改写伊琳娜·德米特里耶芙娜的小说？",
+      "playlistIndex": 0,
+      "startTime": 48.27,
+      "endTime": 50.29,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        8
+      ]
+    },
+    {
+      "segmentId": "ch0024-s009",
+      "text": "Мне кажется, так лучше.",
+      "translation": "我觉得这样更好。",
+      "playlistIndex": 0,
+      "startTime": 52.39,
+      "endTime": 54.11,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        9
+      ]
+    },
+    {
+      "segmentId": "ch0024-s010",
+      "text": "Катенька, я понимаю, что у вас большое горе.",
+      "translation": "卡佳，我明白你遭遇了巨大的不幸。",
+      "playlistIndex": 0,
+      "startTime": 57.11,
+      "endTime": 60.95,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        10
+      ]
+    },
+    {
+      "segmentId": "ch0024-s011",
+      "text": "Но всё-таки лучше будет, если принесёте нам оригинал.",
+      "translation": "不过最好还是把原稿带给我们。",
+      "playlistIndex": 0,
+      "startTime": 64,
+      "endTime": 69.58,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        11
+      ]
+    },
+    {
+      "segmentId": "ch0024-s012",
+      "text": "А это, пожалуйста, возьмите.",
+      "translation": "这个请拿回去。",
+      "playlistIndex": 0,
+      "startTime": 70.24,
+      "endTime": 72.54,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        12
+      ]
+    },
+    {
+      "segmentId": "ch0024-s013",
+      "text": "Нет.",
+      "translation": "不。",
+      "playlistIndex": 0,
+      "startTime": 73,
+      "endTime": 73.2,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        13
+      ]
+    },
+    {
+      "segmentId": "ch0024-s014",
+      "text": "Но я подумала, что так правдивее.",
+      "translation": "但我觉得这样更真实。",
+      "playlistIndex": 0,
+      "startTime": 73.28,
+      "endTime": 74.76,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        14
+      ]
+    },
+    {
+      "segmentId": "ch0024-s015",
+      "text": "Они захотели стать счастливыми и стали...",
+      "translation": "他们想变得幸福，结果就幸福了……",
+      "playlistIndex": 0,
+      "startTime": 75.54,
+      "endTime": 78.76,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        15
+      ]
+    },
+    {
+      "segmentId": "ch0024-s016",
+      "text": "Понимаете?",
+      "translation": "您明白吗？",
+      "playlistIndex": 0,
+      "startTime": 81.58,
+      "endTime": 82.02,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        16
+      ]
+    },
+    {
+      "segmentId": "ch0024-s017",
+      "text": "Конечно.",
+      "translation": "当然。",
+      "playlistIndex": 0,
+      "startTime": 82.18,
+      "endTime": 82.52,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        17
+      ]
+    },
+    {
+      "segmentId": "ch0024-s018",
+      "text": "«Хочешь быть счастливым и будь им!» Все это знают. / Да, все это знают.",
+      "translation": "“想幸福就幸福！”这谁都知道。/ 对，谁都知道。",
+      "playlistIndex": 0,
+      "startTime": 84.02,
+      "endTime": 86.72,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        18,
+        19
+      ]
+    },
+    {
+      "segmentId": "ch0024-s019",
+      "text": "Ну вот, видите.",
+      "translation": "您看，明白了吧。",
+      "playlistIndex": 0,
+      "startTime": 86.94,
+      "endTime": 87.52,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        20
+      ]
+    },
+    {
+      "segmentId": "ch0024-s020",
+      "text": "Разве я не права?",
+      "translation": "难道我不对吗？",
+      "playlistIndex": 0,
+      "startTime": 88.06,
+      "endTime": 88.82,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        21
+      ]
+    },
+    {
+      "segmentId": "ch0024-s021",
+      "text": "Правы, правы, конечно, правы.",
+      "translation": "对，对，当然对。",
+      "playlistIndex": 0,
+      "startTime": 89.28,
+      "endTime": 91.32,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        22
+      ]
+    },
+    {
+      "segmentId": "ch0024-s022",
+      "text": "Но редакции нужен роман Ирины Дмитриевны, а не ваш.",
+      "translation": "但编辑部需要的是伊琳娜·德米特里耶芙娜的小说，不是你的。",
+      "playlistIndex": 0,
+      "startTime": 91.4,
+      "endTime": 96.39,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        23
+      ]
+    },
+    {
+      "segmentId": "ch0024-s023",
+      "text": "Ну и печатайте эту муть!",
+      "translation": "那你们就去印这种垃圾吧！",
+      "playlistIndex": 0,
+      "startTime": 102.56,
+      "endTime": 103.9,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        24
+      ]
+    },
+    {
+      "segmentId": "ch0024-s024",
+      "text": "Но это уже не вам судить.",
+      "translation": "但这已经不是该由您来评判的了。",
+      "playlistIndex": 0,
+      "startTime": 107.52,
+      "endTime": 108.64,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        25
+      ]
+    },
+    {
+      "segmentId": "ch0024-s025",
+      "text": "Ваше дело — грамотно перепечатать.",
+      "translation": "您的工作是把它规范地誊打出来。",
+      "playlistIndex": 0,
+      "startTime": 110.04,
+      "endTime": 111.66,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        26
+      ]
+    },
+    {
+      "segmentId": "ch0024-s026",
+      "text": "Да вы понимаете?",
+      "translation": "您明白吗？",
+      "playlistIndex": 0,
+      "startTime": 112.94,
+      "endTime": 114.16,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        27
+      ]
+    },
+    {
+      "segmentId": "ch0024-s027",
+      "text": "Да посмотрите на себя!",
+      "translation": "您看看自己！",
+      "playlistIndex": 0,
+      "startTime": 116.16,
+      "endTime": 117.42,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        28
+      ]
+    },
+    {
+      "segmentId": "ch0024-s028",
+      "text": "Вы же убогий, и счастья у вас нет, потому что вы в него не верите!",
+      "translation": "您很可怜，也没有幸福，因为您不相信幸福！",
+      "playlistIndex": 0,
+      "startTime": 118.02,
+      "endTime": 122.36,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        29
+      ]
+    },
+    {
+      "segmentId": "ch0024-s029",
+      "text": "А я верю.",
+      "translation": "可我相信。",
+      "playlistIndex": 0,
+      "startTime": 122.92,
+      "endTime": 123.68,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        30
+      ]
+    },
+    {
+      "segmentId": "ch0024-s030",
+      "text": "Да что с вами разговаривать, бедный!",
+      "translation": "和您还有什么好说的，可怜人！",
+      "playlistIndex": 0,
+      "startTime": 125.5,
+      "endTime": 126.7,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        31
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "LS-LS-T1-6-D2-2-5-Q01",
+      "answer": "В",
+      "evidence": {
+        "status": "not-in-bound-media",
+        "segmentIds": [],
+        "quote": "Вы можете мне ответить, кто это написал?",
+        "translation": "你能回答我这是谁写的吗？",
+        "reasoning": "绑定媒体中只提出“是谁写的”的问题，未给出可独立播放的“作者是卡佳”回答；因此不能假造音频定位。",
+        "pages": [
+          54,
+          66
+        ],
+        "items": [
+          {
+            "quote": "Вы можете мне ответить, кто это написал?",
+            "translation": "你能回答我这是谁写的吗？",
+            "segmentIds": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "LS-LS-T1-6-D2-2-5-Q02",
+      "answer": "В",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0024-s011"
+        ],
+        "quote": "Но всё-таки лучше будет, если принесёте нам оригинал.",
+        "translation": "不过最好还是把原稿带给我们。",
+        "reasoning": "编辑要求带来原稿，表明他不接受卡佳改写的版本，反应是失望而非惊喜，对应 В。",
+        "pages": [
+          54,
+          66
+        ],
+        "items": [
+          {
+            "quote": "Но всё-таки лучше будет, если принесёте нам оригинал.",
+            "translation": "不过最好还是把原稿带给我们。",
+            "segmentIds": [
+              "ch0024-s011"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "LS-LS-T1-6-D2-2-5-Q03",
+      "answer": "Б",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0024-s022"
+        ],
+        "quote": "Но редакции нужен роман Ирины Дмитриевны, а не ваш.",
+        "translation": "但编辑部需要的是伊琳娜·德米特里耶芙娜的小说，不是你的。",
+        "reasoning": "编辑明确要求伊琳娜·德米特里耶芙娜的小说，而非卡佳的改写本，说明出版社只出版已被认可作者的作品，对应 Б。",
+        "pages": [
+          54,
+          66
+        ],
+        "items": [
+          {
+            "quote": "Но редакции нужен роман Ирины Дмитриевны, а не ваш.",
+            "translation": "但编辑部需要的是伊琳娜·德米特里耶芙娜的小说，不是你的。",
+            "segmentIds": [
+              "ch0024-s022"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "LS-LS-T1-6-D2-2-5-Q04",
+      "answer": "Б",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0024-s014",
+          "ch0024-s015"
+        ],
+        "quote": "Но я подумала, что так правдивее. Они захотели стать счастливыми и стали...",
+        "translation": "但我觉得这样更真实。他们想变得幸福，结果就幸福了……",
+        "reasoning": "卡佳用“更真实”说明她认为文学应呈现真实生活，而非只保留理想化结局，对应 Б。",
+        "pages": [
+          54,
+          66
+        ],
+        "items": [
+          {
+            "quote": "Но я подумала, что так правдивее.",
+            "translation": "但我觉得这样更真实。",
+            "segmentIds": [
+              "ch0024-s014"
+            ]
+          },
+          {
+            "quote": "Они захотели стать счастливыми и стали...",
+            "translation": "他们想变得幸福，结果就幸福了……",
+            "segmentIds": [
+              "ch0024-s015"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "LS-LS-T1-6-D2-2-5-Q05",
+      "answer": "В",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0024-s027",
+          "ch0024-s028",
+          "ch0024-s030"
+        ],
+        "quote": "Да посмотрите на себя! Вы же убогий... Да что с вами разговаривать, бедный!",
+        "translation": "您看看自己！您很可怜……和您还有什么好说的，可怜人！",
+        "reasoning": "结尾处卡佳连续贬低编辑并以“可怜人”收尾，说明她侮辱了在场的人，对应 В。",
+        "pages": [
+          54,
+          66
+        ],
+        "items": [
+          {
+            "quote": "Да посмотрите на себя!",
+            "translation": "您看看自己！",
+            "segmentIds": [
+              "ch0024-s027"
+            ]
+          },
+          {
+            "quote": "Вы же убогий, и счастья у вас нет, потому что вы в него не верите!",
+            "translation": "您很可怜，也没有幸福，因为您不相信幸福！",
+            "segmentIds": [
+              "ch0024-s028"
+            ]
+          },
+          {
+            "quote": "Да что с вами разговаривать, бедный!",
+            "translation": "和您还有什么好说的，可怜人！",
+            "segmentIds": [
+              "ch0024-s030"
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "learningSupport": {
+    "status": "source-checked",
+    "sourceFile": "俄语资料库/В мире людей 听力口语 Markdown版/翻译/Тема 1.6 -- ТРКИ-2 电影对话（Художественные фильмы — Диалоги） -- 中文对照.md",
+    "translationSourceStatus": "needs_review"
+  },
+  "conflicts": []
+}

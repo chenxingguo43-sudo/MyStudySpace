@@ -36,7 +36,29 @@
           "text": "много работы"
         }
       ],
-      "answer": "В"
+      "answer": "В",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0004-s003"
+        ],
+        "quote": "Одна сплошная работа!",
+        "translation": "没完没了地工作！",
+        "reasoning": "她直接抱怨“全是工作”，对应选项 В。",
+        "pages": [
+          14,
+          15
+        ],
+        "items": [
+          {
+            "quote": "Одна сплошная работа!",
+            "translation": "没完没了地工作！",
+            "segmentIds": [
+              "ch0004-s003"
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "LS-LS-T1-2-D1-1-5-Q02",
@@ -56,7 +78,37 @@
           "text": "поехать в Бурятию"
         }
       ],
-      "answer": "А"
+      "answer": "А",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0004-s007",
+          "ch0004-s011"
+        ],
+        "quote": "Вчера ходила на вернисаж. ... Сходи!",
+        "translation": "昨天我去看了画展开幕式。……你去看看！",
+        "reasoning": "她讲述自己去画展并明确劝朋友去，选项 А。",
+        "pages": [
+          14,
+          15
+        ],
+        "items": [
+          {
+            "quote": "Вчера ходила на вернисаж.",
+            "translation": "昨天我去看了画展开幕式。",
+            "segmentIds": [
+              "ch0004-s007"
+            ]
+          },
+          {
+            "quote": "Сходи!",
+            "translation": "你去看看！",
+            "segmentIds": [
+              "ch0004-s011"
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "LS-LS-T1-2-D1-1-5-Q03",
@@ -76,7 +128,29 @@
           "text": "выставок"
         }
       ],
-      "answer": "В"
+      "answer": "В",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0004-s009"
+        ],
+        "quote": "Ты знаешь, на удивление интересные работы.",
+        "translation": "你知道吗，作品出乎意料地有意思。",
+        "reasoning": "她说本次作品“出乎意料地有意思”，题干是问现在总体上缺少什么；与答案键对应，该对比指向选项 В“有趣的展览”。",
+        "pages": [
+          14,
+          15
+        ],
+        "items": [
+          {
+            "quote": "Ты знаешь, на удивление интересные работы.",
+            "translation": "你知道吗，作品出乎意料地有意思。",
+            "segmentIds": [
+              "ch0004-s009"
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "LS-LS-T1-2-D1-1-5-Q04",
@@ -96,7 +170,29 @@
           "text": "редко бывает на вернисажах"
         }
       ],
-      "answer": "В"
+      "answer": "В",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0004-s008"
+        ],
+        "quote": "Сто лет не была!",
+        "translation": "好多年没去了！",
+        "reasoning": "“好多年没去过”直接表示她很少参加画展开幕式，选项 В。",
+        "pages": [
+          14,
+          15
+        ],
+        "items": [
+          {
+            "quote": "Сто лет не была!",
+            "translation": "好多年没去了！",
+            "segmentIds": [
+              "ch0004-s008"
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "LS-LS-T1-2-D1-1-5-Q05",
@@ -116,7 +212,37 @@
           "text": "скептически настроенного"
         }
       ],
-      "answer": "А"
+      "answer": "А",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0004-s009",
+          "ch0004-s010"
+        ],
+        "quote": "Ты знаешь, на удивление интересные работы. Особенно из Бурятии.",
+        "translation": "你知道吗，作品出乎意料地有意思。尤其是布里亚特来的作品。",
+        "reasoning": "她以惊喜、赞赏的口气评价作品，选项 А。",
+        "pages": [
+          14,
+          15
+        ],
+        "items": [
+          {
+            "quote": "Ты знаешь, на удивление интересные работы.",
+            "translation": "你知道吗，作品出乎意料地有意思。",
+            "segmentIds": [
+              "ch0004-s009"
+            ]
+          },
+          {
+            "quote": "Особенно из Бурятии.",
+            "translation": "尤其是布里亚特来的作品。",
+            "segmentIds": [
+              "ch0004-s010"
+            ]
+          }
+        ]
+      }
     }
   ],
   "transcriptSegments": [
@@ -130,7 +256,9 @@
       "expectedWords": 5,
       "startTime": 5.01,
       "endTime": 6.97,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "我真是累坏了，斯维塔……",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Сил моих больше нет...",
@@ -142,7 +270,9 @@
       "expectedWords": 4,
       "startTime": 7.43,
       "endTime": 8.47,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "我一点力气都没有了……",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Одна сплошная работа!",
@@ -154,7 +284,9 @@
       "expectedWords": 3,
       "startTime": 9.07,
       "endTime": 10.69,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "没完没了地工作！",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Никакой жизни!",
@@ -166,7 +298,9 @@
       "expectedWords": 2,
       "startTime": 11.11,
       "endTime": 12.01,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "一点生活都没有！",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "А у меня сейчас отпуск...",
@@ -178,7 +312,9 @@
       "expectedWords": 5,
       "startTime": 12.87,
       "endTime": 15.15,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "而我现在在休假……",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Наслаждаюсь жизнью... читаю, гуляю...",
@@ -190,7 +326,9 @@
       "expectedWords": 4,
       "startTime": 15.57,
       "endTime": 18.73,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "我享受生活……读书、散步……",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Вчера ходила на вернисаж.",
@@ -202,7 +340,9 @@
       "expectedWords": 4,
       "startTime": 19.29,
       "endTime": 20.03,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "昨天我去看了画展开幕式。",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Сто лет не была!",
@@ -214,7 +354,9 @@
       "expectedWords": 4,
       "startTime": 20.81,
       "endTime": 21.27,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "好多年没去了！",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Ты знаешь, на удивление интересные работы.",
@@ -226,7 +368,9 @@
       "expectedWords": 6,
       "startTime": 21.89,
       "endTime": 24.07,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "你知道吗，作品出乎意料地有意思。",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Особенно из Бурятии.",
@@ -238,7 +382,9 @@
       "expectedWords": 3,
       "startTime": 24.61,
       "endTime": 25.69,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "尤其是布里亚特来的作品。",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Сходи!",
@@ -250,7 +396,17 @@
       "expectedWords": 1,
       "startTime": 26.07,
       "endTime": 26.57,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "你去看看！",
+      "sourceSentenceIndexes": []
     }
-  ]
+  ],
+  "learningSupport": {
+    "status": "source-checked",
+    "scope": "sentence translations and per-question listening evidence",
+    "sourceFile": "俄语资料库/В мире людей 听力口语 Markdown版/翻译/Тема 1.2 -- ТРКИ-2 对话（Разговоры. Беседы） -- 中文对照.md",
+    "translationSourceStatus": "needs_review",
+    "reviewedAt": "2026-08-06",
+    "migratedFromStatus": "source-cross-checked"
+  }
 }

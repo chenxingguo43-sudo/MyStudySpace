@@ -96,7 +96,30 @@
           "text": "беседы"
         }
       ],
-      "answer": "В"
+      "answer": "В",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0019-s001",
+          "ch0019-s017"
+        ],
+        "quote": "Это, деточка, давно было. Это, деточка, даже и рассказывать вам тяжело.",
+        "translation": "孩子，那是很久以前的事了。孩子，这些事连跟你们说起来都难受。",
+        "reasoning": "叙述者直接对听者称“деточка”，边讲述边回应听者，构成面对面交谈而不是采访或求职面谈，对应 В。",
+        "pages": [
+          51,
+          53
+        ],
+        "items": [
+          {
+            "quote": "Это, деточка, давно было.",
+            "translation": "孩子，那是很久以前的事了。",
+            "segmentIds": [
+              "ch0019-s001"
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "LS-LS-T1-5-M2-1-5-Q02",
@@ -116,7 +139,30 @@
           "text": "найти талантливых детей"
         }
       ],
-      "answer": "В"
+      "answer": "В",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0019-s019",
+          "ch0019-s020"
+        ],
+        "quote": "Шатались от голода, но по всей России ездили, собирали их. Детей, у которых был талант.",
+        "translation": "饿得东倒西歪，但还是跑遍了整个俄罗斯去寻找他们，寻找那些有才华的孩子。",
+        "reasoning": "她明确说在战争中四处奔走是为了搜集有才华的儿童，而不是逃避饥饿或抢救艺术品，对应 В。",
+        "pages": [
+          51,
+          53
+        ],
+        "items": [
+          {
+            "quote": "Детей, у которых был талант.",
+            "translation": "那些有才华的孩子。",
+            "segmentIds": [
+              "ch0019-s020"
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "LS-LS-T1-5-M2-1-5-Q03",
@@ -136,7 +182,31 @@
           "text": "учениками"
         }
       ],
-      "answer": "А"
+      "answer": "А",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0019-s027",
+          "ch0019-s028",
+          "ch0019-s029"
+        ],
+        "quote": "Но никто не нашёлся. И тогда я усыновила их. Так они стали братьями.",
+        "translation": "但没有人出现。于是我就收养了他们。就这样他们成了兄弟。",
+        "reasoning": "父母始终没有出现后，她明确说“我收养了他们”，说明伊利亚和费佳是她的养子，对应 А。",
+        "pages": [
+          51,
+          53
+        ],
+        "items": [
+          {
+            "quote": "И тогда я усыновила их.",
+            "translation": "于是我就收养了他们。",
+            "segmentIds": [
+              "ch0019-s028"
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "LS-LS-T1-5-M2-1-5-Q04",
@@ -156,7 +226,37 @@
           "text": "выбрали творческие профессии"
         }
       ],
-      "answer": "В"
+      "answer": "В",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0019-s034",
+          "ch0019-s035"
+        ],
+        "quote": "Илья — музыкант, ты знаешь. Федя — художник...",
+        "translation": "伊利亚是音乐家，你知道的。费佳是画家……",
+        "reasoning": "两人分别成为音乐家和画家，都是创意领域的职业；没有证据表明他们继承了老师职业或都成为知名音乐家，对应 В。",
+        "pages": [
+          51,
+          53
+        ],
+        "items": [
+          {
+            "quote": "Илья — музыкант, ты знаешь.",
+            "translation": "伊利亚是音乐家，你知道的。",
+            "segmentIds": [
+              "ch0019-s034"
+            ]
+          },
+          {
+            "quote": "Федя — художник...",
+            "translation": "费佳是画家……",
+            "segmentIds": [
+              "ch0019-s035"
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "LS-LS-T1-5-M2-1-5-Q05",
@@ -176,492 +276,488 @@
           "text": "с жалостью"
         }
       ],
-      "answer": "Б"
+      "answer": "Б",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0019-s017",
+          "ch0019-s018",
+          "ch0019-s023",
+          "ch0019-s024"
+        ],
+        "quote": "Это, деточка, даже и рассказывать вам тяжело. Мы сами, взрослые, тогда еле живые были... Они не помнили вкуса молока...",
+        "translation": "孩子，这些事连说起来都难受。我们大人那时候自己都快活不下去了……他们不记得牛奶的味道……",
+        "reasoning": "她以“难受”“快活不下去”并讲述饥饿儿童的痛苦经历，整体语调沉痛悲伤，而非夸张炫耀或怜悯式居高临下，对应 Б。",
+        "pages": [
+          51,
+          53
+        ],
+        "items": [
+          {
+            "quote": "Это, деточка, даже и рассказывать вам тяжело.",
+            "translation": "孩子，这些事连跟你们说起来都难受。",
+            "segmentIds": [
+              "ch0019-s017"
+            ]
+          },
+          {
+            "quote": "Мы сами, взрослые, тогда еле живые были...",
+            "translation": "我们大人那时候自己都快活不下去了……",
+            "segmentIds": [
+              "ch0019-s018"
+            ]
+          }
+        ]
+      }
     }
   ],
   "transcriptSegments": [
     {
       "text": "Это, деточка, давно было.",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 0,
-      "matchedWords": 0,
-      "expectedWords": 4,
-      "startTime": 0,
-      "endTime": 0,
-      "timingStatus": "unmatched"
+      "translation": "孩子，那是很久以前的事了。",
+      "startTime": 4.52,
+      "endTime": 6.04,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        1
+      ]
     },
     {
       "text": "В войну.",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 0,
-      "matchedWords": 0,
-      "expectedWords": 2,
-      "startTime": 0,
-      "endTime": 0,
-      "timingStatus": "unmatched"
+      "translation": "战争时期。",
+      "startTime": 7.1,
+      "endTime": 7.78,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        2
+      ]
     },
     {
       "text": "Тогда Ленинград бомбили страшно и голодом морили.",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 0,
-      "matchedWords": 0,
-      "expectedWords": 7,
-      "startTime": 0,
-      "endTime": 0,
-      "timingStatus": "unmatched"
+      "translation": "那时候列宁格勒被轰炸得很惨，还被活活饿着。",
+      "startTime": 9.94,
+      "endTime": 13,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        3
+      ]
     },
     {
       "text": "Гитлер, видите ли, придумал, что Ленинграда больше не будет, а будет просто болото, как до царя Петра...",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 0,
-      "matchedWords": 0,
-      "expectedWords": 17,
-      "startTime": 0,
-      "endTime": 0,
-      "timingStatus": "unmatched"
+      "translation": "希特勒异想天开，觉得列宁格勒不会再存在了，会变成一片沼泽，就像彼得大帝之前一样……",
+      "startTime": 17.34,
+      "endTime": 21.7,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        4
+      ]
     },
     {
       "text": "А ленинградцы, он полагал, помрут сами...",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 0,
-      "matchedWords": 0,
-      "expectedWords": 6,
-      "startTime": 0,
-      "endTime": 0,
-      "timingStatus": "unmatched"
+      "translation": "而列宁格勒人，他以为会自己死掉……",
+      "startTime": 23.38,
+      "endTime": 25.44,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        5
+      ]
     },
     {
       "text": "Одно время он даже решил на нас пули не тратить.",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 0,
-      "matchedWords": 0,
-      "expectedWords": 10,
-      "startTime": 0,
-      "endTime": 0,
-      "timingStatus": "unmatched"
+      "translation": "有一段时间他甚至决定不在我们身上浪费子弹。",
+      "startTime": 27.2,
+      "endTime": 29.96,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        6
+      ]
     },
     {
       "text": "Действительно, смешно!",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 0,
-      "matchedWords": 0,
-      "expectedWords": 2,
-      "startTime": 0,
-      "endTime": 0,
-      "timingStatus": "unmatched"
+      "translation": "真是可笑！",
+      "startTime": 30.86,
+      "endTime": 32.06,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        7
+      ]
     },
     {
       "text": "Ну, разве позволительно быть таким идиотом?..",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 0,
-      "matchedWords": 0,
-      "expectedWords": 6,
-      "startTime": 0,
-      "endTime": 0,
-      "timingStatus": "unmatched"
+      "translation": "怎么会有这样的白痴呢？……",
+      "startTime": 33.6,
+      "endTime": 35.9,
+      "timingStatus": "source-bounded",
+      "sourceSentenceIndexes": [
+        8
+      ]
     },
     {
       "text": "А я им и не бабка вовсе.",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 0.714,
-      "matchedWords": 5,
-      "expectedWords": 7,
+      "translation": "而且我根本不是他们的奶奶。",
       "startTime": 38.4,
       "endTime": 40.12,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        9
+      ]
     },
     {
       "text": "Ни Илье, ни Феде.",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 0,
-      "matchedWords": 0,
-      "expectedWords": 4,
-      "startTime": 0,
-      "endTime": 0,
-      "timingStatus": "unmatched"
+      "translation": "对伊利亚和费佳都不是。",
+      "startTime": 41.26,
+      "endTime": 43.6,
+      "timingStatus": "source-bounded",
+      "sourceSentenceIndexes": [
+        10
+      ]
     },
     {
       "text": "Никто.",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 1,
-      "matchedWords": 1,
-      "expectedWords": 1,
+      "translation": "谁都不是。",
       "startTime": 47.18,
       "endTime": 47.9,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        11
+      ]
     },
     {
       "text": "Учительница музыки.",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 1,
-      "matchedWords": 2,
-      "expectedWords": 2,
+      "translation": "我是音乐教师。",
       "startTime": 48.92,
       "endTime": 50.16,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        12
+      ]
     },
     {
       "text": "Родителей у них нету.",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 1,
-      "matchedWords": 4,
-      "expectedWords": 4,
+      "translation": "他们的父母都不在了。",
       "startTime": 52.42,
       "endTime": 53.66,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        13
+      ]
     },
     {
       "text": "Их поубивало в войну...",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 1,
-      "matchedWords": 4,
-      "expectedWords": 4,
+      "translation": "有的在战争中被打死了……",
       "startTime": 53.7,
       "endTime": 54.86,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        14
+      ]
     },
     {
       "text": "А кто с голоду помер...",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 1,
-      "matchedWords": 5,
-      "expectedWords": 5,
+      "translation": "有的饿死了……",
       "startTime": 55.48,
       "endTime": 56.66,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        15
+      ]
     },
     {
       "text": "Да они и не братья.",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 0.8,
-      "matchedWords": 4,
-      "expectedWords": 5,
+      "translation": "而且他们也不是亲兄弟。",
       "startTime": 58.77,
       "endTime": 59.97,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        16
+      ]
     },
     {
       "text": "Это, деточка, даже и рассказывать вам тяжело.",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 0.714,
-      "matchedWords": 5,
-      "expectedWords": 7,
+      "translation": "孩子，这些事连跟你们说起来都难受。",
       "startTime": 63.52,
       "endTime": 65.44,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        17
+      ]
     },
     {
       "text": "Мы сами, взрослые, тогда еле живые были...",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 1,
-      "matchedWords": 7,
-      "expectedWords": 7,
+      "translation": "我们大人那时候自己都快活不下去了……",
       "startTime": 66.32,
       "endTime": 68.74,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        18
+      ]
     },
     {
       "text": "Шатались от голода, но по всей России ездили, собирали их.",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 1,
-      "matchedWords": 10,
-      "expectedWords": 10,
+      "translation": "饿得东倒西歪，但还是跑遍了整个俄罗斯去寻找他们。",
       "startTime": 69.12,
       "endTime": 73.2,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        19
+      ]
     },
     {
       "text": "Детей, у которых был талант.",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 0.8,
-      "matchedWords": 4,
-      "expectedWords": 5,
+      "translation": "去寻找那些有才华的孩子。",
       "startTime": 76.33,
       "endTime": 77.51,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        20
+      ]
     },
     {
       "text": "Это невероятные, деточка, ребята были.",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 1,
-      "matchedWords": 5,
-      "expectedWords": 5,
+      "translation": "这些孩子真是令人难以置信。",
       "startTime": 78.71,
       "endTime": 81.05,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        21
+      ]
     },
     {
       "text": "Вот, поглядите.",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 1,
-      "matchedWords": 2,
-      "expectedWords": 2,
+      "translation": "你看。",
       "startTime": 82.01,
       "endTime": 82.97,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        22
+      ]
     },
     {
       "text": "Они не помнили вкуса молока, многие не знали, что такое сахар.",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 1,
-      "matchedWords": 11,
-      "expectedWords": 11,
+      "translation": "他们不记得牛奶的味道，很多孩子不知道糖是什么。",
       "startTime": 87.46,
       "endTime": 92.5,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        23
+      ]
     },
     {
       "text": "Они не могли одолеть ступеньку, самую обыкновенную ступеньку... потому что у них уже не было никаких физических сил.",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 0.944,
-      "matchedWords": 17,
-      "expectedWords": 18,
+      "translation": "他们连一个最普通的台阶都迈不上去，因为已经一点力气都没有。",
       "startTime": 93.2,
       "endTime": 103.5,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        24
+      ]
     },
     {
       "text": "Но талант, представьте, в них жил и искусство жило.",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 0.889,
-      "matchedWords": 8,
-      "expectedWords": 9,
+      "translation": "但是，你想想，才华在他们体内活着，艺术也在他们体内活着。",
       "startTime": 105.54,
       "endTime": 110.14,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        25
+      ]
     },
     {
       "text": "Потом, после войны уже, мы вернулись в Ленинград и ещё долго надеялись, что кто-то из родителей Феди или Ильи отыщется, отзовётся.",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 0.909,
-      "matchedWords": 20,
-      "expectedWords": 22,
+      "translation": "后来战争结束后，我们回到了列宁格勒，还久久盼望着费佳或伊利亚的父母能找到、能回应。",
       "startTime": 112.27,
       "endTime": 126.12,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        26
+      ]
     },
     {
       "text": "Но никто не нашёлся.",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 1,
-      "matchedWords": 4,
-      "expectedWords": 4,
+      "translation": "但没有人出现。",
       "startTime": 126.96,
       "endTime": 128.18,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        27
+      ]
     },
     {
       "text": "И тогда я усыновила их.",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 1,
-      "matchedWords": 5,
-      "expectedWords": 5,
+      "translation": "于是我就收养了他们。",
       "startTime": 128.84,
       "endTime": 130.14,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        28
+      ]
     },
     {
       "text": "Так они стали братьями.",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 1,
-      "matchedWords": 4,
-      "expectedWords": 4,
+      "translation": "就这样他们成了兄弟。",
       "startTime": 131.3,
       "endTime": 132.76,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        29
+      ]
     },
     {
       "text": "А меня почему-то прозвали бабкой.",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 1,
-      "matchedWords": 6,
-      "expectedWords": 6,
+      "translation": "而我也不知为什么被叫成了“奶奶”。",
       "startTime": 133.84,
       "endTime": 135.44,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        30
+      ]
     },
     {
       "text": "Годы идут, деточка.",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 0.667,
-      "matchedWords": 2,
-      "expectedWords": 3,
-      "startTime": 0,
-      "endTime": 0,
-      "timingStatus": "unmatched",
-      "recognizedSnippet": "то прозвали бабкой года идут деточка все как то наладилось"
+      "translation": "日子一年年过去，孩子。",
+      "startTime": 138.39,
+      "endTime": 139.43,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        31
+      ]
     },
     {
       "text": "Всё как-то наладилось, образовалось.",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 1,
-      "matchedWords": 5,
-      "expectedWords": 5,
+      "translation": "一切都慢慢好起来了，成形了。",
       "startTime": 140.23,
       "endTime": 141.95,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        32
+      ]
     },
     {
       "text": "Ребята выучились.",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 1,
-      "matchedWords": 2,
-      "expectedWords": 2,
+      "translation": "孩子们学成了。",
       "startTime": 142.89,
       "endTime": 143.95,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        33
+      ]
     },
     {
       "text": "Илья — музыкант, ты знаешь.",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 0.75,
-      "matchedWords": 3,
-      "expectedWords": 4,
+      "translation": "伊利亚成了音乐家，你知道的。",
       "startTime": 144.73,
       "endTime": 146.27,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        34
+      ]
     },
     {
       "text": "Федя — художник...",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 0.5,
-      "matchedWords": 1,
-      "expectedWords": 2,
-      "startTime": 0,
-      "endTime": 0,
-      "timingStatus": "unmatched",
-      "recognizedSnippet": "илья музыканты знаешь эти художники даже главные в оперном"
-    },
-    {
-      "text": "Хороший.",
-      "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 0,
-      "matchedWords": 0,
-      "expectedWords": 1,
-      "startTime": 0,
-      "endTime": 0,
-      "timingStatus": "unmatched"
+      "translation": "费佳成了画家……",
+      "startTime": 147.79,
+      "endTime": 148.85,
+      "timingStatus": "source-bounded",
+      "sourceSentenceIndexes": [
+        35
+      ]
     },
     {
       "text": "Даже главный...",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 1,
-      "matchedWords": 2,
-      "expectedWords": 2,
+      "translation": "甚至是首席……",
       "startTime": 150.85,
       "endTime": 151.63,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        37
+      ]
     },
     {
       "text": "В Оперном не была?",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 0.75,
-      "matchedWords": 3,
-      "expectedWords": 4,
+      "translation": "你去过歌剧院吗？",
       "startTime": 152.47,
       "endTime": 153.29,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        38
+      ]
     },
     {
       "text": "Сходи обязательно.",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 0.5,
-      "matchedWords": 1,
-      "expectedWords": 2,
-      "startTime": 0,
-      "endTime": 0,
-      "timingStatus": "unmatched",
-      "recognizedSnippet": "не было нет сходя обязательно очень красиво"
+      "translation": "一定要去看看。",
+      "startTime": 154.53,
+      "endTime": 156.21,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        39
+      ]
     },
     {
       "text": "Очень красиво.",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 1,
-      "matchedWords": 2,
-      "expectedWords": 2,
+      "translation": "非常漂亮。",
       "startTime": 156.41,
       "endTime": 157.27,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        40
+      ]
     }
-  ]
+  ],
+  "transcriptCoverage": {
+    "kind": "excerpt",
+    "omittedSourceSentenceIndexes": [
+      36
+    ],
+    "reason": "教材短句 Хороший.未出现在绑定媒体：词级 ASR 在 148.25–148.85 秒识别художник，下一教材句Даже главный...从 150.85 秒开始；中间没有хороший的词级记录。",
+    "verifiedBy": [
+      "俄语资料库/В мире людей 听力口语 Markdown版/章节/Тема 1.5 -- ТРКИ-2 电影独白（Художественные фильмы — Монологи）.md",
+      "俄语资料库/В мире людей 听力口语 Markdown版/翻译/Тема 1.5 -- ТРКИ-2 电影独白（Художественные фильмы — Монологи） -- 中文对照.md",
+      "tmp/listening-rebuild-asr/ch0019/ch0019.json",
+      "tmp/world-people-v2-word-timestamps/20-base.json"
+    ]
+  },
+  "learningSupport": {
+    "status": "source-checked",
+    "sourceFile": "俄语资料库/В мире людей 听力口语 Markdown版/翻译/Тема 1.5 -- ТРКИ-2 电影独白（Художественные фильмы — Монологи） -- 中文对照.md",
+    "translationSourceStatus": "needs_review"
+  }
 }

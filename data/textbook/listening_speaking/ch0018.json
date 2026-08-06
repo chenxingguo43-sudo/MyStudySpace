@@ -104,7 +104,37 @@
           "text": "на торжественном мероприятии"
         }
       ],
-      "answer": "В"
+      "answer": "В",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0018-s001",
+          "ch0018-s007"
+        ],
+        "quote": "...пришёл сегодня на наш скромный праздник. ...особенно важный для юбилея.",
+        "translation": "……今天来参加我们朴素的庆祝活动。……这对周年纪念尤其重要。",
+        "reasoning": "他欢迎来宾参加庆祝活动，并反复提到 юбилей（周年纪念），这是正式庆典而非会议或集会，对应 В。",
+        "pages": [
+          49,
+          50
+        ],
+        "items": [
+          {
+            "quote": "Спасибо всем, дорогие друзья, кто пришёл сегодня на наш скромный праздник.",
+            "translation": "感谢今天来参加我们这个朴素庆祝活动的所有亲爱的朋友。",
+            "segmentIds": [
+              "ch0018-s001"
+            ]
+          },
+          {
+            "quote": "Вот в чём вопрос!.. особенно важный для юбилея.",
+            "translation": "这就是问题所在！尤其对周年纪念而言重要。",
+            "segmentIds": [
+              "ch0018-s007"
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "LS-LS-T1-5-M2-1-4-Q02",
@@ -124,7 +154,31 @@
           "text": "считает правильным"
         }
       ],
-      "answer": "А"
+      "answer": "А",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0018-s005",
+          "ch0018-s006",
+          "ch0018-s007"
+        ],
+        "quote": "Это правильно. Но правильно ли я поступил, посвятив жизнь науке? Вот в чём вопрос!",
+        "translation": "这没错。但我把一生献给科学，这样做对吗？这就是问题！",
+        "reasoning": "他没有肯定或否定自己的选择，而是提出“是否正确”的问题，因此无法作出确定评价，对应 А。",
+        "pages": [
+          49,
+          50
+        ],
+        "items": [
+          {
+            "quote": "Но правильно ли я поступил, посвятив жизнь науке?",
+            "translation": "但我把一生献给科学，这样做对吗？",
+            "segmentIds": [
+              "ch0018-s006"
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "LS-LS-T1-5-M2-1-4-Q03",
@@ -144,7 +198,38 @@
           "text": "иметь учеников"
         }
       ],
-      "answer": "Б"
+      "answer": "Б",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0018-s009",
+          "ch0018-s010",
+          "ch0018-s011"
+        ],
+        "quote": "Он... должен рвать логику! Раздирать её!.. дважды два — четыре — только для школяров!",
+        "translation": "他必须打破逻辑、撕碎逻辑；二乘二等于四只适合小学生。",
+        "reasoning": "“打破、撕碎逻辑”明确要求科学家突破既有逻辑和刻板框架，对应 Б。",
+        "pages": [
+          49,
+          50
+        ],
+        "items": [
+          {
+            "quote": "Он, как и художник, должен рвать логику!",
+            "translation": "他和艺术家一样，必须打破逻辑！",
+            "segmentIds": [
+              "ch0018-s009"
+            ]
+          },
+          {
+            "quote": "Раздирать её!..",
+            "translation": "把它撕碎！",
+            "segmentIds": [
+              "ch0018-s010"
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "LS-LS-T1-5-M2-1-4-Q04",
@@ -164,7 +249,40 @@
           "text": "с удовлетворением"
         }
       ],
-      "answer": "А"
+      "answer": "А",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0018-s012",
+          "ch0018-s013",
+          "ch0018-s014",
+          "ch0018-s016"
+        ],
+        "quote": "Я не решился на это. Или не сумел. Я был недостаточно полоумным... я из тех, из подчищал.",
+        "translation": "我没敢这样做，或没能做到；我不够疯狂；我属于清理碎片的人。",
+        "reasoning": "他以自责和自嘲方式描述自己未能成为“打穿墙壁”的科学家，语气是苦涩，不是骄傲或满足，对应 А。",
+        "pages": [
+          49,
+          50
+        ],
+        "items": [
+          {
+            "quote": "Так вот: я не решился на это. Или не сумел.",
+            "translation": "而我没有敢这样做。或者说，我没能做到。",
+            "segmentIds": [
+              "ch0018-s012",
+              "ch0018-s013"
+            ]
+          },
+          {
+            "quote": "Так вот — я из тех, из подчищал...",
+            "translation": "而我属于后者，属于清理碎片的人……",
+            "segmentIds": [
+              "ch0018-s016"
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "LS-LS-T1-5-M2-1-4-Q05",
@@ -184,7 +302,37 @@
           "text": "с ответной речью"
         }
       ],
-      "answer": "В"
+      "answer": "В",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0018-s004",
+          "ch0018-s017"
+        ],
+        "quote": "Ораторы, выступавшие здесь до меня... могу ли я называться учёным, дорогие друзья, почтившие наш юбилей?",
+        "translation": "在我之前发言的演讲者……我还能称自己为科学家吗，亲临我们周年纪念的朋友们？",
+        "reasoning": "他提及先前的演讲者并直接回应他们的评价，因此是答谢/回应发言，而非阐述新理论或号召，对应 В。",
+        "pages": [
+          49,
+          50
+        ],
+        "items": [
+          {
+            "quote": "Ораторы, выступавшие здесь до меня, были единодушны...",
+            "translation": "我之前发言的各位演讲者一致认为……",
+            "segmentIds": [
+              "ch0018-s004"
+            ]
+          },
+          {
+            "quote": "...дорогие друзья, почтившие наш юбилей?",
+            "translation": "……亲临我们周年纪念的朋友们？",
+            "segmentIds": [
+              "ch0018-s017"
+            ]
+          }
+        ]
+      }
     }
   ],
   "transcriptSegments": [
@@ -196,9 +344,11 @@
       "matchRatio": 0,
       "matchedWords": 0,
       "expectedWords": 11,
-      "startTime": 0,
-      "endTime": 0,
-      "timingStatus": "unmatched"
+      "startTime": 6.96,
+      "endTime": 12.86,
+      "timingStatus": "aligned",
+      "translation": "感谢所有今天前来参加我们这个小小庆典的朋友们。",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Я говорю «наш», потому что круглые цифры моего возраста, по счастью, так легко делятся пополам.",
@@ -208,9 +358,11 @@
       "matchRatio": 0,
       "matchedWords": 0,
       "expectedWords": 15,
-      "startTime": 0,
-      "endTime": 0,
-      "timingStatus": "unmatched"
+      "startTime": 13.72,
+      "endTime": 21.12,
+      "timingStatus": "aligned",
+      "translation": "我说“我们”，是因为我年龄的整数很幸运地能轻易被一分为二。",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "И вторая половина — двадцать пять лет — прошла, я бы сказал, пробежала на ваших глазах, в наших общих с вами усилиях, удачах и неудачах, заботах и радостях.",
@@ -220,9 +372,11 @@
       "matchRatio": 0,
       "matchedWords": 0,
       "expectedWords": 26,
-      "startTime": 0,
-      "endTime": 0,
-      "timingStatus": "unmatched"
+      "startTime": 21.74,
+      "endTime": 32.56,
+      "timingStatus": "aligned",
+      "translation": "而后一半——二十五年——过去了，我可以说，它是在你们眼前、在我们共同的努力、成功与失败、操劳与喜悦中飞奔而过的。",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Ораторы, выступавшие здесь до меня, были единодушны в том, что я посвятил жизнь науке.",
@@ -234,7 +388,9 @@
       "expectedWords": 14,
       "startTime": 41.33,
       "endTime": 46.61,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "在我之前发言的演讲者们一致认为，我将一生献给了科学。",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Это правильно.",
@@ -246,7 +402,9 @@
       "expectedWords": 2,
       "startTime": 48.61,
       "endTime": 49.61,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "这是对的。",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Но правильно ли я поступил, посвятив жизнь науке?",
@@ -258,7 +416,9 @@
       "expectedWords": 8,
       "startTime": 51.63,
       "endTime": 53.87,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "但我将一生献给了科学，这样做对吗？",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Вот в чём вопрос!.. особенно важный для юбилея.",
@@ -270,7 +430,9 @@
       "expectedWords": 8,
       "startTime": 54.47,
       "endTime": 57.99,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "这就是问题所在！……对于一个周年纪念来说尤其重要。",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Мы с вами твёрдо знаем, и это единственное, что мы знаем наверняка, что учёный, как и художник, должен быть несколько... тронутым, что ли...",
@@ -282,7 +444,9 @@
       "expectedWords": 23,
       "startTime": 59.09,
       "endTime": 69.69,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "我们确信，而且这是我们唯一确信的事——科学家，就像艺术家一样，应该有些……怎么说呢……有点疯疯癫癫的……",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Он, как и художник, должен рвать логику!",
@@ -294,7 +458,9 @@
       "expectedWords": 7,
       "startTime": 71.27,
       "endTime": 73.75,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "他应该像艺术家一样，撕裂逻辑！",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Раздирать её!..",
@@ -306,7 +472,9 @@
       "expectedWords": 2,
       "startTime": 74.79,
       "endTime": 75.67,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "把它撕碎！……",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Следуя простой истине, что дважды два — четыре — только для школяров!",
@@ -318,7 +486,9 @@
       "expectedWords": 10,
       "startTime": 77.15,
       "endTime": 81.21,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "遵循一个简单的真理：二二得四——只对小学生适用！",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Так вот: я не решился на это.",
@@ -330,7 +500,9 @@
       "expectedWords": 7,
       "startTime": 84.27,
       "endTime": 87.41,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "而我：我没有勇气去这样做。",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Или не сумел.",
@@ -342,7 +514,9 @@
       "expectedWords": 3,
       "startTime": 88.01,
       "endTime": 89.63,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "或者说没能力。",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Я был недостаточно полоумным, чтобы воистину стать человеком науки.",
@@ -354,7 +528,9 @@
       "expectedWords": 9,
       "startTime": 89.63,
       "endTime": 96.06,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "我不够疯癫，无法真正成为一个科学界的人。",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "В науке существуют те, кто пробивает стены, и те, кто потом сто лет подчищает осколки.",
@@ -366,7 +542,9 @@
       "expectedWords": 15,
       "startTime": 97.04,
       "endTime": 104.58,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "在科学领域，有撞破墙壁的人，也有之后花一百年收拾碎片的人。",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Так вот — я из тех, из подчищал...",
@@ -378,7 +556,9 @@
       "expectedWords": 7,
       "startTime": 105.56,
       "endTime": 108.96,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "而我——就是收拾碎片的那种人……",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "И, следовательно, могу ли я называться учёным, дорогие друзья, почтившие наш юбилей?",
@@ -390,8 +570,16 @@
       "expectedWords": 12,
       "startTime": 110.86,
       "endTime": 115.2,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "那么，亲爱的朋友们，承蒙你们光临我们的周年庆典，我还能被称为科学家吗？",
+      "sourceSentenceIndexes": []
     }
   ],
-  "_note": "answer key missing for this segment in OCR; answers derived from source transcript"
+  "_note": "answer key missing for this segment in OCR; answers derived from source transcript",
+  "learningSupport": {
+    "status": "source-checked",
+    "sourceFile": "俄语资料库/В мире людей 听力口语 Markdown版/翻译/Тема 1.5 -- ТРКИ-2 电影独白（Художественные фильмы — Монологи） -- 中文对照.md",
+    "translationSourceStatus": "needs_review",
+    "verification": "逐句按教材俄文与本地中文对照交叉核对；短句重复项按 segmentId 和完整俄文文本锁定。"
+  }
 }

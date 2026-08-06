@@ -248,7 +248,7 @@
     boundaryTimer = setTimeout(function () {
       boundaryPending = false;
       boundaryTimer = null;
-      selectSegment(nextIndex, true);
+      selectSegment(nextIndex, true, 0, false);
     }, settings.sentencePauseMs);
   }
   function scheduleABBoundary(index) {
@@ -259,14 +259,15 @@
     boundaryTimer = setTimeout(function () {
       boundaryPending = false;
       boundaryTimer = null;
-      selectSegment(index, true, settings.abBeforeSeconds);
+      selectSegment(index, true, settings.abBeforeSeconds, false);
     }, settings.sentencePauseMs);
   }
   function handleTimeUpdate() {
     if (!audio) return;
     updatePlayerReadout();
     var nextActive = activeByTime(audio.currentTime);
-    if (nextActive >= 0 && nextActive !== activeIndex) setActive(nextActive, { scroll: getSettings().autoAdvance });
+    // Keep the learner's reading position stable while playback advances.
+    if (nextActive >= 0 && nextActive !== activeIndex) setActive(nextActive, { scroll: false });
     var abSegment = segments[abLoopIndex];
     if (abLoopIndex >= 0 && abSegment && abSegment.playlistIndex === playlistIndex) {
       if (activeIndex !== abLoopIndex) setActive(abLoopIndex, { scroll: false });
@@ -371,10 +372,10 @@
     clearBoundaryTimer();
     audio.currentTime = Math.max(0, Math.min(100, Number(percent) || 0)) / 100 * audio.duration;
   }
-  function selectSegment(index, play, beforeSeconds) {
+  function selectSegment(index, play, beforeSeconds, shouldScroll) {
     if (!audio || !segments[index] || segments[index].timed === false) return;
     clearBoundaryTimer();
-    setActive(index, { scroll: true });
+    setActive(index, { scroll: shouldScroll !== false });
     if (playlist.length && segments[index].playlistIndex !== playlistIndex) {
       audio.addEventListener('loadedmetadata', function onPlaylistLoaded() {
         audio.currentTime = Math.max(0, segments[index].start - (Number(beforeSeconds) || 0));

@@ -104,7 +104,37 @@
           "text": "сотрудники одной кафедры"
         }
       ],
-      "answer": "Б"
+      "answer": "Б",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0023-s001",
+          "ch0023-s008"
+        ],
+        "quote": "Имею честь говорить с академиком Сретенским? / Очень рад.",
+        "translation": "请问，我有幸在和斯列坚斯基院士说话吗？/ 非常高兴。",
+        "reasoning": "季科夫以正式的初次问候确认对方身份，斯列坚斯基以“很高兴”回应；这支持二人是首次见面，对应 Б。",
+        "pages": [
+          54,
+          66
+        ],
+        "items": [
+          {
+            "quote": "Имею честь говорить с академиком Сретенским?",
+            "translation": "请问，我有幸在和斯列坚斯基院士说话吗？",
+            "segmentIds": [
+              "ch0023-s001"
+            ]
+          },
+          {
+            "quote": "Очень рад.",
+            "translation": "非常高兴。",
+            "segmentIds": [
+              "ch0023-s008"
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "LS-LS-T1-6-D2-2-4-Q02",
@@ -124,7 +154,37 @@
           "text": "не представляет интереса для Сретенского"
         }
       ],
-      "answer": "В"
+      "answer": "В",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0023-s004",
+          "ch0023-s023"
+        ],
+        "quote": "Только я крайне занят. / Оставьте нас в покое!",
+        "translation": "只是我非常忙。/ 别管我们了！",
+        "reasoning": "斯列坚斯基反复强调自己忙碌并要求对方别打扰，表明他对季科夫提出的问题没有兴趣，对应 В。",
+        "pages": [
+          54,
+          66
+        ],
+        "items": [
+          {
+            "quote": "Только я крайне занят.",
+            "translation": "只是我非常忙。",
+            "segmentIds": [
+              "ch0023-s004"
+            ]
+          },
+          {
+            "quote": "Оставьте нас в покое!",
+            "translation": "别管我们了！",
+            "segmentIds": [
+              "ch0023-s023"
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "LS-LS-T1-6-D2-2-4-Q03",
@@ -144,7 +204,29 @@
           "text": "посредственностью"
         }
       ],
-      "answer": "А"
+      "answer": "А",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0023-s020"
+        ],
+        "quote": "Вы могли бы стать новым Эйнштейном!",
+        "translation": "您本可以成为新的爱因斯坦！",
+        "reasoning": "把斯列坚斯基比作“新的爱因斯坦”是对其科学天赋的高度评价，支持“天才科学家”，对应 А。",
+        "pages": [
+          54,
+          66
+        ],
+        "items": [
+          {
+            "quote": "Вы могли бы стать новым Эйнштейном!",
+            "translation": "您本可以成为新的爱因斯坦！",
+            "segmentIds": [
+              "ch0023-s020"
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "LS-LS-T1-6-D2-2-4-Q04",
@@ -164,7 +246,29 @@
           "text": "скептически"
         }
       ],
-      "answer": "В"
+      "answer": "В",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0023-s026"
+        ],
+        "quote": "Однако с тех пор наука давно обогнала меня.",
+        "translation": "然而从那以后，科学早已超越了我。",
+        "reasoning": "斯列坚斯基以“科学早已超越我”回应赞美，显示保留和怀疑，而不是受鼓舞，对应 В。",
+        "pages": [
+          54,
+          66
+        ],
+        "items": [
+          {
+            "quote": "Однако с тех пор наука давно обогнала меня.",
+            "translation": "然而从那以后，科学早已超越了我。",
+            "segmentIds": [
+              "ch0023-s026"
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "LS-LS-T1-6-D2-2-4-Q05",
@@ -184,7 +288,37 @@
           "text": "взаимным соглашением"
         }
       ],
-      "answer": "А"
+      "answer": "А",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0023-s029",
+          "ch0023-s030"
+        ],
+        "quote": "Вот. Ваша схема с моими поправками.",
+        "translation": "给。这里是您的方案，附有我的修改。",
+        "reasoning": "结尾季科夫交出附有自己修改的方案，实际提出继续讨论并完善该议题，对应 А。",
+        "pages": [
+          54,
+          66
+        ],
+        "items": [
+          {
+            "quote": "Вот.",
+            "translation": "给。",
+            "segmentIds": [
+              "ch0023-s029"
+            ]
+          },
+          {
+            "quote": "Ваша схема с моими поправками.",
+            "translation": "这里是您的方案，附有我的修改。",
+            "segmentIds": [
+              "ch0023-s030"
+            ]
+          }
+        ]
+      }
     }
   ],
   "transcriptSegments": [
@@ -196,9 +330,13 @@
       "matchRatio": 0,
       "matchedWords": 0,
       "expectedWords": 6,
-      "startTime": 0,
-      "endTime": 0,
-      "timingStatus": "unmatched"
+      "startTime": 5.57,
+      "endTime": 6.69,
+      "timingStatus": "aligned",
+      "translation": "请问，我有幸在和斯列坚斯基院士说话吗？",
+      "sourceSentenceIndexes": [
+        1
+      ]
     },
     {
       "text": "Да.",
@@ -208,9 +346,13 @@
       "matchRatio": 0,
       "matchedWords": 0,
       "expectedWords": 1,
-      "startTime": 0,
-      "endTime": 0,
-      "timingStatus": "unmatched"
+      "startTime": 8.29,
+      "endTime": 9.03,
+      "timingStatus": "aligned",
+      "translation": "是的。",
+      "sourceSentenceIndexes": [
+        2
+      ]
     },
     {
       "text": "Имеете эту честь.",
@@ -220,9 +362,13 @@
       "matchRatio": 0,
       "matchedWords": 0,
       "expectedWords": 3,
-      "startTime": 0,
-      "endTime": 0,
-      "timingStatus": "unmatched"
+      "startTime": 9.15,
+      "endTime": 9.93,
+      "timingStatus": "aligned",
+      "translation": "你有这个荣幸。",
+      "sourceSentenceIndexes": [
+        3
+      ]
     },
     {
       "text": "Только я крайне занят.",
@@ -232,9 +378,13 @@
       "matchRatio": 0,
       "matchedWords": 0,
       "expectedWords": 4,
-      "startTime": 0,
-      "endTime": 0,
-      "timingStatus": "unmatched"
+      "startTime": 11.27,
+      "endTime": 12.51,
+      "timingStatus": "aligned",
+      "translation": "只是我非常忙。",
+      "sourceSentenceIndexes": [
+        4
+      ]
     },
     {
       "text": "Есть дело, не терпящее отлагательств.",
@@ -244,9 +394,13 @@
       "matchRatio": 0,
       "matchedWords": 0,
       "expectedWords": 5,
-      "startTime": 0,
-      "endTime": 0,
-      "timingStatus": "unmatched"
+      "startTime": 13.97,
+      "endTime": 17.23,
+      "timingStatus": "aligned",
+      "translation": "有一件刻不容缓的事。",
+      "sourceSentenceIndexes": [
+        5
+      ]
     },
     {
       "text": "Константин Николаевич Котиков.",
@@ -256,9 +410,13 @@
       "matchRatio": 0,
       "matchedWords": 0,
       "expectedWords": 3,
-      "startTime": 0,
-      "endTime": 0,
-      "timingStatus": "unmatched"
+      "startTime": 19.43,
+      "endTime": 20.79,
+      "timingStatus": "aligned",
+      "translation": "康斯坦丁·尼古拉耶维奇·季科夫（Константин Николаевич Котиков）。",
+      "sourceSentenceIndexes": [
+        6
+      ]
     },
     {
       "text": "Кандидат наук, кафедра биохимии.",
@@ -268,9 +426,13 @@
       "matchRatio": 0,
       "matchedWords": 0,
       "expectedWords": 4,
-      "startTime": 0,
-      "endTime": 0,
-      "timingStatus": "unmatched"
+      "startTime": 22.66,
+      "endTime": 24.82,
+      "timingStatus": "aligned",
+      "translation": "副博士，生物化学教研室。",
+      "sourceSentenceIndexes": [
+        7
+      ]
     },
     {
       "text": "Очень рад.",
@@ -280,9 +442,13 @@
       "matchRatio": 0,
       "matchedWords": 0,
       "expectedWords": 2,
-      "startTime": 0,
-      "endTime": 0,
-      "timingStatus": "unmatched"
+      "startTime": 25.26,
+      "endTime": 25.66,
+      "timingStatus": "aligned",
+      "translation": "非常高兴。",
+      "sourceSentenceIndexes": [
+        8
+      ]
     },
     {
       "text": "Но я действительно крайне занят, коллега.",
@@ -292,9 +458,13 @@
       "matchRatio": 0,
       "matchedWords": 0,
       "expectedWords": 6,
-      "startTime": 0,
-      "endTime": 0,
-      "timingStatus": "unmatched"
+      "startTime": 28.7,
+      "endTime": 30.96,
+      "timingStatus": "aligned",
+      "translation": "但我确实非常忙，同事。",
+      "sourceSentenceIndexes": [
+        9
+      ]
     },
     {
       "text": "День рождения внучки.",
@@ -304,9 +474,13 @@
       "matchRatio": 0,
       "matchedWords": 0,
       "expectedWords": 3,
-      "startTime": 0,
-      "endTime": 0,
-      "timingStatus": "unmatched"
+      "startTime": 31.52,
+      "endTime": 32.74,
+      "timingStatus": "aligned",
+      "translation": "孙女过生日。",
+      "sourceSentenceIndexes": [
+        10
+      ]
     },
     {
       "text": "Поздравляю.",
@@ -316,9 +490,13 @@
       "matchRatio": 0,
       "matchedWords": 0,
       "expectedWords": 1,
-      "startTime": 0,
-      "endTime": 0,
-      "timingStatus": "unmatched"
+      "startTime": 33.96,
+      "endTime": 34.76,
+      "timingStatus": "aligned",
+      "translation": "恭喜。",
+      "sourceSentenceIndexes": [
+        11
+      ]
     },
     {
       "text": "У меня дело чрезвычайной важности.",
@@ -328,9 +506,13 @@
       "matchRatio": 1,
       "matchedWords": 5,
       "expectedWords": 5,
-      "startTime": 37.38,
-      "endTime": 40.86,
-      "timingStatus": "aligned"
+      "startTime": 37.24,
+      "endTime": 40.84,
+      "timingStatus": "aligned",
+      "translation": "我有一件万分重要的事。",
+      "sourceSentenceIndexes": [
+        12
+      ]
     },
     {
       "text": "Я прошу пять минут.",
@@ -340,9 +522,13 @@
       "matchRatio": 0.75,
       "matchedWords": 3,
       "expectedWords": 4,
-      "startTime": 41.24,
+      "startTime": 41.56,
       "endTime": 42.54,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "我请求五分钟时间。",
+      "sourceSentenceIndexes": [
+        13
+      ]
     },
     {
       "text": "Прошу!..",
@@ -352,9 +538,13 @@
       "matchRatio": 1,
       "matchedWords": 1,
       "expectedWords": 1,
-      "startTime": 45.26,
+      "startTime": 45.22,
       "endTime": 45.56,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "请讲！",
+      "sourceSentenceIndexes": [
+        14
+      ]
     },
     {
       "text": "Итак?..",
@@ -364,9 +554,13 @@
       "matchRatio": 1,
       "matchedWords": 1,
       "expectedWords": 1,
-      "startTime": 64.12,
+      "startTime": 64.08,
       "endTime": 64.42,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "……那么？",
+      "sourceSentenceIndexes": [
+        15
+      ]
     },
     {
       "text": "Три года назад, листая один старинный журнальчик, я натолкнулся на вашу статью, которую вы опубликовали, едва выйдя из университета.",
@@ -376,9 +570,13 @@
       "matchRatio": 0.737,
       "matchedWords": 14,
       "expectedWords": 19,
-      "startTime": 68.38,
-      "endTime": 76.9,
-      "timingStatus": "aligned"
+      "startTime": 68.02,
+      "endTime": 76.42,
+      "timingStatus": "aligned",
+      "translation": "……\r\n\r\n**季科夫：** 三年前，我在翻阅一本旧杂志时，偶然发现了您刚从大学毕业时发表的一篇文章。",
+      "sourceSentenceIndexes": [
+        16
+      ]
     },
     {
       "text": "В ней излагался принцип синтеза нового белка.",
@@ -389,8 +587,12 @@
       "matchedWords": 7,
       "expectedWords": 7,
       "startTime": 80.34,
-      "endTime": 85.58,
-      "timingStatus": "aligned"
+      "endTime": 85.56,
+      "timingStatus": "aligned",
+      "translation": "文中阐述了一种新蛋白质的合成原理。",
+      "sourceSentenceIndexes": [
+        17
+      ]
     },
     {
       "text": "Это была абсолютно безумная идея по тем временам.",
@@ -400,9 +602,13 @@
       "matchRatio": 0.875,
       "matchedWords": 7,
       "expectedWords": 8,
-      "startTime": 85.58,
-      "endTime": 90.36,
-      "timingStatus": "aligned"
+      "startTime": 85.56,
+      "endTime": 90.4,
+      "timingStatus": "aligned",
+      "translation": "在当时那完全是疯狂的想法。",
+      "sourceSentenceIndexes": [
+        18
+      ]
     },
     {
       "text": "Вы получали белок из клеток головного мозга.",
@@ -412,9 +618,13 @@
       "matchRatio": 0.857,
       "matchedWords": 6,
       "expectedWords": 7,
-      "startTime": 90.84,
-      "endTime": 93.34,
-      "timingStatus": "aligned"
+      "startTime": 90.9,
+      "endTime": 93.32,
+      "timingStatus": "aligned",
+      "translation": "您从脑细胞中提取蛋白质。",
+      "sourceSentenceIndexes": [
+        19
+      ]
     },
     {
       "text": "Вы могли бы стать новым Эйнштейном!",
@@ -425,8 +635,12 @@
       "matchedWords": 5,
       "expectedWords": 6,
       "startTime": 95,
-      "endTime": 96.12,
-      "timingStatus": "aligned"
+      "endTime": 96.14,
+      "timingStatus": "aligned",
+      "translation": "您本可以成为新的爱因斯坦！",
+      "sourceSentenceIndexes": [
+        20
+      ]
     },
     {
       "text": "Если бы не отказались от этой затеи, чтоб потом всю жизнь заниматься Бог знает чем!",
@@ -436,9 +650,13 @@
       "matchRatio": 0.933,
       "matchedWords": 14,
       "expectedWords": 15,
-      "startTime": 97.94,
-      "endTime": 101.92,
-      "timingStatus": "aligned"
+      "startTime": 98.1,
+      "endTime": 101.88,
+      "timingStatus": "aligned",
+      "translation": "如果不是您放弃了这个想法，然后一辈子去搞天知道什么东西的话！",
+      "sourceSentenceIndexes": [
+        21
+      ]
     },
     {
       "text": "Послушайте!",
@@ -448,9 +666,13 @@
       "matchRatio": 0,
       "matchedWords": 0,
       "expectedWords": 1,
-      "startTime": 0,
-      "endTime": 0,
-      "timingStatus": "unmatched"
+      "startTime": 104.58,
+      "endTime": 105.08,
+      "timingStatus": "aligned",
+      "translation": "您听我说！",
+      "sourceSentenceIndexes": [
+        22
+      ]
     },
     {
       "text": "Оставьте нас в покое!",
@@ -462,7 +684,11 @@
       "expectedWords": 4,
       "startTime": 106.04,
       "endTime": 124.13,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "别管我们了！",
+      "sourceSentenceIndexes": [
+        23
+      ]
     },
     {
       "text": "Вы уже тогда всё предсказали про этот самый белок, стабилизирующий функцию мозга!",
@@ -472,9 +698,13 @@
       "matchRatio": 1,
       "matchedWords": 12,
       "expectedWords": 12,
-      "startTime": 133.33,
-      "endTime": 138.09,
-      "timingStatus": "aligned"
+      "startTime": 133.61,
+      "endTime": 138.11,
+      "timingStatus": "aligned",
+      "translation": "您在那时就已经预言了这种稳定大脑功能的蛋白质的一切！",
+      "sourceSentenceIndexes": [
+        24
+      ]
     },
     {
       "text": "Вы обогнали науку на полвека!",
@@ -484,9 +714,13 @@
       "matchRatio": 0.8,
       "matchedWords": 4,
       "expectedWords": 5,
-      "startTime": 139.21,
+      "startTime": 139.13,
       "endTime": 140.57,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "您领先了科学半个世纪！",
+      "sourceSentenceIndexes": [
+        25
+      ]
     },
     {
       "text": "Однако с тех пор наука давно обогнала меня.",
@@ -496,9 +730,13 @@
       "matchRatio": 1,
       "matchedWords": 8,
       "expectedWords": 8,
-      "startTime": 141.49,
-      "endTime": 143.79,
-      "timingStatus": "aligned"
+      "startTime": 141.41,
+      "endTime": 143.83,
+      "timingStatus": "aligned",
+      "translation": "然而从那以后，科学早已超越了我。",
+      "sourceSentenceIndexes": [
+        26
+      ]
     },
     {
       "text": "Ни в коей мере!",
@@ -510,7 +748,11 @@
       "expectedWords": 4,
       "startTime": 144.33,
       "endTime": 145.17,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "绝对没有！",
+      "sourceSentenceIndexes": [
+        27
+      ]
     },
     {
       "text": "Только сейчас ваши идеи ещё брезжат в толковых умах!",
@@ -520,9 +762,13 @@
       "matchRatio": 0.667,
       "matchedWords": 6,
       "expectedWords": 9,
-      "startTime": 145.73,
-      "endTime": 148.61,
-      "timingStatus": "aligned"
+      "startTime": 145.39,
+      "endTime": 148.53,
+      "timingStatus": "aligned",
+      "translation": "只是现在您的想法才刚刚在有识之士的头脑中浮现。",
+      "sourceSentenceIndexes": [
+        28
+      ]
     },
     {
       "text": "Вот.",
@@ -532,9 +778,13 @@
       "matchRatio": 1,
       "matchedWords": 1,
       "expectedWords": 1,
-      "startTime": 149.58,
-      "endTime": 150.09,
-      "timingStatus": "aligned"
+      "startTime": 149.91,
+      "endTime": 150.13,
+      "timingStatus": "aligned",
+      "translation": "给。",
+      "sourceSentenceIndexes": [
+        29
+      ]
     },
     {
       "text": "Ваша схема с моими поправками.",
@@ -544,9 +794,18 @@
       "matchRatio": 1,
       "matchedWords": 5,
       "expectedWords": 5,
-      "startTime": 150.75,
-      "endTime": 152.71,
-      "timingStatus": "aligned"
+      "startTime": 151.11,
+      "endTime": 152.67,
+      "timingStatus": "aligned",
+      "translation": "这是您的方案，附有我的修改。",
+      "sourceSentenceIndexes": [
+        30
+      ]
     }
-  ]
+  ],
+  "learningSupport": {
+    "status": "source-checked",
+    "sourceFile": "俄语资料库/В мире людей 听力口语 Markdown版/翻译/Тема 1.6 -- ТРКИ-2 电影对话（Художественные фильмы — Диалоги） -- 中文对照.md",
+    "translationSourceStatus": "needs_review"
+  }
 }

@@ -88,7 +88,29 @@
           "text": "планируют заблокировать Skype"
         }
       ],
-      "answer": "А"
+      "answer": "А",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0033-s001"
+        ],
+        "quote": "Телефонные операторы Дании могут заблокировать Skype...",
+        "translation": "丹麦电话运营商可能封锁 Skype……",
+        "reasoning": "原句用 могут заблокировать（可能封锁），说明只是可能性，对应选项 А。",
+        "pages": [
+          80,
+          103
+        ],
+        "items": [
+          {
+            "quote": "Телефонные операторы Дании могут заблокировать Skype и похожие программы на пользовательских смартфонах, ноутбуках и планшетах.",
+            "translation": "丹麦电话运营商可能封锁用户智能手机、笔记本电脑和平板电脑上的 Skype 及类似程序。",
+            "segmentIds": [
+              "ch0033-s001"
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "LS-LS-T1-8-M3-2-4-Q02",
@@ -108,7 +130,29 @@
           "text": "практически решена"
         }
       ],
-      "answer": "А"
+      "answer": "А",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0033-s005"
+        ],
+        "quote": "...обеспечение людей экологически чистыми и полезными продуктами признано глобальной проблемой человечества.",
+        "translation": "……为人们提供环保健康食品被视为全球人类问题。",
+        "reasoning": "глобальной проблемой человечества 直接说明这是世界性问题，对应选项 А。",
+        "pages": [
+          80,
+          103
+        ],
+        "items": [
+          {
+            "quote": "Его создание особенно важно сегодня, когда обеспечение людей экологически чистыми и полезными продуктами признано глобальной проблемой человечества.",
+            "translation": "在为人们提供环保健康食品已被视为全球人类问题的今天，建立它尤为重要。",
+            "segmentIds": [
+              "ch0033-s005"
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "LS-LS-T1-8-M3-2-4-Q03",
@@ -128,7 +172,29 @@
           "text": "в десятый раз"
         }
       ],
-      "answer": "Б"
+      "answer": "Б",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0033-s008"
+        ],
+        "quote": "Это уже седьмой по счёту фестиваль...",
+        "translation": "这已经是第七届科学节……",
+        "reasoning": "седьмой по счёту 表示第七届，对应选项 Б。",
+        "pages": [
+          80,
+          103
+        ],
+        "items": [
+          {
+            "quote": "Это уже седьмой по счёту фестиваль, однако первые пять, организованные в «академическом» формате, на максимально широкий охват аудитории не претендовали.",
+            "translation": "这已经是第七届科学节；不过前五届以“学术”形式举办，并未追求最大范围的观众覆盖。",
+            "segmentIds": [
+              "ch0033-s008"
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "LS-LS-T1-8-M3-2-4-Q04",
@@ -148,7 +214,29 @@
           "text": "глубоководного аппарата"
         }
       ],
-      "answer": "В"
+      "answer": "В",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0033-s012"
+        ],
+        "quote": "С помощью подводного робота группа учёных нашла руины города...",
+        "translation": "借助水下机器人，一组科学家找到了城市遗址……",
+        "reasoning": "подводный робот 是深水作业设备，对应选项 В。",
+        "pages": [
+          80,
+          103
+        ],
+        "items": [
+          {
+            "quote": "С помощью подводного робота группа учёных нашла руины города, расположенного примерно в 700 м к северу от восточного побережья Кубы.",
+            "translation": "借助水下机器人，一组科学家找到了城市遗址，它位于古巴东海岸以北约 700 米处。",
+            "segmentIds": [
+              "ch0033-s012"
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "LS-LS-T1-8-M3-2-4-Q05",
@@ -168,213 +256,223 @@
           "text": "работы космической станции"
         }
       ],
-      "answer": "А"
+      "answer": "А",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0033-s014"
+        ],
+        "quote": "...обсудить результаты эксперимента «Марс-500»...",
+        "translation": "……讨论“火星-500”实验结果……",
+        "reasoning": "讨论对象明确是实验结果，不是飞行或空间站运行，对应选项 А。",
+        "pages": [
+          80,
+          103
+        ],
+        "items": [
+          {
+            "quote": "Учёные из России, Германии, Китая и США собрались в российской столице, чтобы обсудить результаты эксперимента «Марс-500» по моделированию полёта на эту планету.",
+            "translation": "来自俄罗斯、德国、中国和美国的科学家聚集在俄罗斯首都，讨论模拟飞往火星的“火星-500”实验结果。",
+            "segmentIds": [
+              "ch0033-s014"
+            ]
+          }
+        ]
+      }
     }
   ],
   "transcriptSegments": [
     {
       "text": "Телефонные операторы Дании могут заблокировать Skype и похожие программы на пользовательских смартфонах, ноутбуках и планшетах.",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 0.929,
-      "matchedWords": 13,
-      "expectedWords": 14,
+      "translation": "丹麦电话运营商可能封锁用户智能手机、笔记本电脑和平板电脑上的 Skype 及类似程序。",
       "startTime": 3.73,
       "endTime": 12.85,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        1
+      ]
     },
     {
       "text": "Компании идут на подобный шаг, так как их тревожит снижение доходов от телефонных переговоров, поскольку все большее число их клиентов использует свои мобильники для пересылки информации через Интернет.",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 1,
-      "matchedWords": 28,
-      "expectedWords": 28,
+      "translation": "公司采取这一步，是因为越来越多客户用手机通过互联网传递信息，导致电话通话收入下降，令它们担忧。",
       "startTime": 13.43,
       "endTime": 26.23,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        2
+      ]
     },
     {
       "text": "Указом президента Российской Федерации городу Мичуринску присвоен статус наукограда.",
       "playlistIndex": 1,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 0.889,
-      "matchedWords": 8,
-      "expectedWords": 9,
+      "translation": "根据俄罗斯联邦总统令，米丘林斯克市被授予科学城地位。",
       "startTime": 4.21,
       "endTime": 10.47,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        3
+      ]
     },
     {
       "text": "Это пятый наукоград в стране и первый, имеющий сельскохозяйственную направленность.",
       "playlistIndex": 1,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 1,
-      "matchedWords": 10,
-      "expectedWords": 10,
+      "translation": "这是该国第五座科学城，也是第一座以农业为方向的科学城。",
       "startTime": 10.93,
       "endTime": 16.41,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        4
+      ]
     },
     {
       "text": "Его создание особенно важно сегодня, когда обеспечение людей экологически чистыми и полезными продуктами признано глобальной проблемой человечества.",
       "playlistIndex": 1,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 1,
-      "matchedWords": 17,
-      "expectedWords": 17,
+      "translation": "在为人们提供环保健康食品已被视为全球人类问题的今天，建立它尤为重要。",
       "startTime": 17.01,
       "endTime": 26.11,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        5
+      ]
     },
     {
       "text": "В настоящее время в агропромышленный комплекс страны внедряется около 10 % научных разработок.",
       "playlistIndex": 1,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 1,
-      "matchedWords": 11,
-      "expectedWords": 11,
+      "translation": "目前，该国农业工业综合体仅应用了约 10% 的科研成果。",
       "startTime": 26.67,
       "endTime": 33.09,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        6
+      ]
     },
     {
-      "text": "С 8 по 10 октября в Москве пройдёт Фестиваль науки, организованный МГУ имени М.В.",
+      "text": "С 8 по 10 октября в Москве пройдёт Фестиваль науки, организованный МГУ имени М.В. Ломоносова совместно с правительством Москвы при участии российского Министерства образования и науки.",
       "playlistIndex": 2,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 0.846,
-      "matchedWords": 11,
-      "expectedWords": 13,
+      "translation": "10 月 8 日至 10 日，莫斯科将举行科学节，由罗蒙诺索夫莫斯科国立大学与莫斯科市政府共同举办，并有俄罗斯教育与科学部参与。",
       "startTime": 4.5,
-      "endTime": 11.52,
-      "timingStatus": "aligned"
-    },
-    {
-      "text": "Ломоносова совместно с правительством Москвы при участии российского Министерства образования и науки.",
-      "playlistIndex": 2,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 1,
-      "matchedWords": 12,
-      "expectedWords": 12,
-      "startTime": 11.52,
       "endTime": 18,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        7,
+        8
+      ]
     },
     {
       "text": "Это уже седьмой по счёту фестиваль, однако первые пять, организованные в «академическом» формате, на максимально широкий охват аудитории не претендовали.",
       "playlistIndex": 2,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 1,
-      "matchedWords": 20,
-      "expectedWords": 20,
+      "translation": "这已经是第七届科学节；不过前五届以“学术”形式举办，并未追求最大范围的观众覆盖。",
       "startTime": 18.78,
       "endTime": 29.64,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        9
+      ]
     },
     {
       "text": "На этот раз программа рассчитана на приобщение к знаниям подростков и детей.",
       "playlistIndex": 2,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 1,
-      "matchedWords": 12,
-      "expectedWords": 12,
+      "translation": "这一次的活动计划旨在让青少年和儿童接近知识。",
       "startTime": 30.44,
       "endTime": 35.88,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        10
+      ]
     },
     {
       "text": "Следы подводного города обнаружили в районе Бермудского треугольника канадские учёные.",
       "playlistIndex": 3,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 1,
-      "matchedWords": 10,
-      "expectedWords": 10,
+      "translation": "加拿大科学家在百慕大三角地区发现了水下城市的痕迹。",
       "startTime": 4.18,
       "endTime": 10.2,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        11
+      ]
     },
     {
       "text": "Исследователи считают, что им удалось найти легендарную Атлантиду.",
       "playlistIndex": 3,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 1,
-      "matchedWords": 8,
-      "expectedWords": 8,
+      "translation": "研究人员认为他们找到了传说中的亚特兰蒂斯。",
       "startTime": 11.06,
       "endTime": 15.86,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        12
+      ]
     },
     {
       "text": "С помощью подводного робота группа учёных нашла руины города, расположенного примерно в 700 м к северу от восточного побережья Кубы.",
       "playlistIndex": 3,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 0.947,
-      "matchedWords": 18,
-      "expectedWords": 19,
+      "translation": "借助水下机器人，一组科学家找到了城市遗址，它位于古巴东海岸以北约 700 米处。",
       "startTime": 16.94,
       "endTime": 26.6,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        13
+      ]
     },
     {
       "text": "Сделанные подводным аппаратом снимки свидетельствуют о том, что на дне моря располагаются монументальные здания.",
       "playlistIndex": 3,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 1,
-      "matchedWords": 14,
-      "expectedWords": 14,
+      "translation": "水下设备拍摄的照片表明，海底存在宏伟的建筑。",
       "startTime": 26.6,
       "endTime": 34.68,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        14
+      ]
     },
     {
       "text": "Учёные из России, Германии, Китая и США собрались в российской столице, чтобы обсудить результаты эксперимента «Марс-500» по моделированию полёта на эту планету.",
       "playlistIndex": 4,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 1,
-      "matchedWords": 22,
-      "expectedWords": 22,
+      "translation": "来自俄罗斯、德国、中国和美国的科学家聚集在俄罗斯首都，讨论模拟飞往火星的“火星-500”实验结果。",
       "startTime": 5.64,
       "endTime": 17.38,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        15
+      ]
     },
     {
       "text": "Было отмечено, что члены экипажа все 520 суток полёта были здоровы и работоспособны и не вступали в конфликты.",
       "playlistIndex": 4,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 0.941,
-      "matchedWords": 16,
-      "expectedWords": 17,
+      "translation": "会议指出，机组成员在全部 520 天飞行期间健康、能够工作，且未发生冲突。",
       "startTime": 17.84,
       "endTime": 26.12,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        16
+      ]
     },
     {
       "text": "Логическим продолжением эксперимента будет перенос его на международную космическую станцию.",
       "playlistIndex": 4,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 1,
-      "matchedWords": 10,
-      "expectedWords": 10,
+      "translation": "该实验的合理下一步是将其转移到国际空间站。",
       "startTime": 26.12,
       "endTime": 33.14,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        17
+      ]
     }
-  ]
+  ],
+  "transcriptCoverage": {
+    "kind": "complete",
+    "verifiedBy": [
+      "俄语资料库/В мире людей 听力口语 Markdown版/翻译/Тема 1.8 -- ТРКИ-2 新闻（Новости） -- 中文对照.md",
+      "data/textbook/listening_speaking/timelines/ch0033.json"
+    ]
+  },
+  "learningSupport": {
+    "status": "source-checked",
+    "scope": "complete source reconstruction, sentence translations, and per-question listening evidence",
+    "sourceFile": "俄语资料库/В мире людей 听力口语 Markdown版/翻译/Тема 1.8 -- ТРКИ-2 新闻（Новости） -- 中文对照.md",
+    "translationSourceStatus": "needs_review",
+    "reviewedAt": "2026-08-06",
+    "migratedFromStatus": "source-cross-checked"
+  }
 }

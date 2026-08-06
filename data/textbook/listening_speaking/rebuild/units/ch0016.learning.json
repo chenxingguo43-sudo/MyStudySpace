@@ -1,0 +1,621 @@
+{
+  "schemaVersion": 1,
+  "chapterFile": "ch0016.json",
+  "unitId": "ls-t1.5-m2.1.2",
+  "status": "release_ready",
+  "source": {
+    "chapterSha256": "ee4a436f764aa6a23e4ea6386be3896a2e788212d44a9b122fc70989d7a8be08",
+    "timelineFile": "timelines/ch0016.json",
+    "sourcePages": [
+      44,
+      46
+    ],
+    "mediaFiles": [
+      "media/world-people-v2/17.mp4"
+    ]
+  },
+  "coverage": {
+    "kind": "excerpt",
+    "omittedSourceSentenceIndexes": [
+      26
+    ],
+    "omissionReason": "教材中的“Ему просто очень плохо”未在绑定媒体的词级 ASR 结果中出现；其前半句在 113.04 秒结束，下一句教材原文从 130.93 秒开始。",
+    "verifiedBy": [
+      "俄语资料库/В мире людей 听力口语 Markdown版/原始OCR/page_046.md",
+      "俄语资料库/В мире людей 听力口语 Markdown版/翻译/Тема 1.5 -- ТРКИ-2 电影独白（Художественные фильмы — Монологи） -- 中文对照.md",
+      "tmp/world-people-v2-word-timestamps/17-base.json",
+      "tmp/listening-rebuild-asr/ch0016/ch0016.json"
+    ]
+  },
+  "segments": [
+    {
+      "segmentId": "ch0016-s001",
+      "text": "Я был младшим научным сотрудником в одном физическом НИИ и разрабатывал одну свою идею.",
+      "translation": "我曾是某物理研究所的一名初级研究员，一直在研究自己的一个构想。",
+      "playlistIndex": 0,
+      "startTime": 4.68,
+      "endTime": 13.42,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        1
+      ]
+    },
+    {
+      "segmentId": "ch0016-s002",
+      "text": "Поэтому жене приходилось работать на трёх работах, чтобы как-то сводить концы с концами.",
+      "translation": "因此，我妻子不得不打三份工，勉强维持生计。",
+      "playlistIndex": 0,
+      "startTime": 14.22,
+      "endTime": 19.08,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        2
+      ]
+    },
+    {
+      "segmentId": "ch0016-s003",
+      "text": "Короче, я изобрёл один новенький тонельный диод.",
+      "translation": "总之，我发明了一种新型隧道二极管。",
+      "playlistIndex": 0,
+      "startTime": 19.86,
+      "endTime": 22.68,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        3
+      ]
+    },
+    {
+      "segmentId": "ch0016-s004",
+      "text": "Это сложно объяснить...",
+      "translation": "这很难解释……",
+      "playlistIndex": 0,
+      "startTime": 23.82,
+      "endTime": 25.42,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        4
+      ]
+    },
+    {
+      "segmentId": "ch0016-s005",
+      "text": "Меня в институте похвалили, дали премию в 50 рублей и предложили заняться чем-то другим...",
+      "translation": "研究所表扬了我，给了我 50 卢布奖金，又建议我改做别的工作……",
+      "playlistIndex": 0,
+      "startTime": 26.9,
+      "endTime": 33.16,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        5
+      ]
+    },
+    {
+      "segmentId": "ch0016-s006",
+      "text": "И вот я принёс домой результат своей трёхлетней работы — 50 рублей...",
+      "translation": "于是，我把三年工作的成果带回了家：50 卢布……",
+      "playlistIndex": 0,
+      "startTime": 33.86,
+      "endTime": 39.72,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        6
+      ]
+    },
+    {
+      "segmentId": "ch0016-s007",
+      "text": "Жена посмотрела на меня таким взглядом, как смотрят на...",
+      "translation": "妻子用那种眼神看着我，就像人们看着……",
+      "playlistIndex": 0,
+      "startTime": 41.87,
+      "endTime": 45.41,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        7
+      ]
+    },
+    {
+      "segmentId": "ch0016-s008",
+      "text": "Одна западная крупная фирма мне предложила выкупить мой патент за большие деньги.",
+      "translation": "一家西方大公司提出高价购买我的专利。",
+      "playlistIndex": 0,
+      "startTime": 48.77,
+      "endTime": 55.33,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        8
+      ]
+    },
+    {
+      "segmentId": "ch0016-s009",
+      "text": "Но я — нет!",
+      "translation": "但我拒绝了！",
+      "playlistIndex": 0,
+      "startTime": 55.33,
+      "endTime": 56.09,
+      "timingStatus": "source-bounded",
+      "sourceSentenceIndexes": [
+        9
+      ]
+    },
+    {
+      "segmentId": "ch0016-s010",
+      "text": "Я хотел, чтобы здесь, у нас здесь работало!",
+      "translation": "我希望它能在这里、在我们这里发挥作用！",
+      "playlistIndex": 0,
+      "startTime": 56.09,
+      "endTime": 58.41,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        10
+      ]
+    },
+    {
+      "segmentId": "ch0016-s011",
+      "text": "Я ходил по большим инстанциям, мне говорили: «Очень здорово! ...Это никому не нужно!» Никому...",
+      "translation": "我跑了许多主管部门，他们对我说：“非常好！……可是谁都不需要这个！”没人需要……",
+      "playlistIndex": 0,
+      "startTime": 58.41,
+      "endTime": 63.77,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        11
+      ]
+    },
+    {
+      "segmentId": "ch0016-s012",
+      "text": "Я начал пить, начал страшно пить.",
+      "translation": "我开始喝酒，开始酗酒。",
+      "playlistIndex": 0,
+      "startTime": 65.55,
+      "endTime": 68.53,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        12
+      ]
+    },
+    {
+      "segmentId": "ch0016-s013",
+      "text": "Я потерял работу, от меня ушла жена.",
+      "translation": "我丢了工作，妻子离开了我。",
+      "playlistIndex": 0,
+      "startTime": 69.73,
+      "endTime": 71.35,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        13
+      ]
+    },
+    {
+      "segmentId": "ch0016-s014",
+      "text": "А мне ничего не было важно — только выпить...",
+      "translation": "而我什么都不在乎了，只想着喝酒……",
+      "playlistIndex": 0,
+      "startTime": 71.95,
+      "endTime": 73.27,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        14
+      ]
+    },
+    {
+      "segmentId": "ch0016-s015",
+      "text": "Однажды я ехал в электричке безобразно пьяный, грязный, вонючий...",
+      "translation": "有一次，我坐通勤电车时醉得不成样子，又脏又臭……",
+      "playlistIndex": 0,
+      "startTime": 76.4,
+      "endTime": 80.58,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        15
+      ]
+    },
+    {
+      "segmentId": "ch0016-s016",
+      "text": "Там было полно людей...",
+      "translation": "车厢里挤满了人……",
+      "playlistIndex": 0,
+      "startTime": 81.08,
+      "endTime": 81.92,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        16
+      ]
+    },
+    {
+      "segmentId": "ch0016-s017",
+      "text": "И я снова начал приставать ко всем...",
+      "translation": "我又开始纠缠所有人……",
+      "playlistIndex": 0,
+      "startTime": 81.92,
+      "endTime": 84.34,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        17
+      ]
+    },
+    {
+      "segmentId": "ch0016-s018",
+      "text": "Нет! Все сидели молчали.",
+      "translation": "不！所有人都坐着，一言不发。",
+      "playlistIndex": 0,
+      "startTime": 87.05,
+      "endTime": 88.25,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        18
+      ]
+    },
+    {
+      "segmentId": "ch0016-s019",
+      "text": "Отвели глаза, но сидели молчали...",
+      "translation": "他们移开目光，却仍坐着沉默不语……",
+      "playlistIndex": 0,
+      "startTime": 90.84,
+      "endTime": 93.24,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        19
+      ]
+    },
+    {
+      "segmentId": "ch0016-s020",
+      "text": "Кроме одной женщины, которая ехала с ребёнком лет пяти, девочкой.",
+      "translation": "只有一位带着约五岁小女孩乘车的女士例外。",
+      "playlistIndex": 0,
+      "startTime": 96.9,
+      "endTime": 99.68,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        20
+      ]
+    },
+    {
+      "segmentId": "ch0016-s021",
+      "text": "Я услышал, как девочка сказала:",
+      "translation": "我听到那个小女孩说：",
+      "playlistIndex": 0,
+      "startTime": 101.7,
+      "endTime": 103.66,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        21
+      ]
+    },
+    {
+      "segmentId": "ch0016-s022",
+      "text": "«Мама!",
+      "translation": "“妈妈！",
+      "playlistIndex": 0,
+      "startTime": 103.98,
+      "endTime": 104.18,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        22
+      ]
+    },
+    {
+      "segmentId": "ch0016-s023",
+      "text": "Дядя сумасшедший.",
+      "translation": "那个叔叔是疯子。",
+      "playlistIndex": 0,
+      "startTime": 104.48,
+      "endTime": 105.18,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        23
+      ]
+    },
+    {
+      "segmentId": "ch0016-s024",
+      "text": "Я его боюсь».",
+      "translation": "我害怕他。”",
+      "playlistIndex": 0,
+      "startTime": 105.2,
+      "endTime": 105.7,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        24
+      ]
+    },
+    {
+      "segmentId": "ch0016-s025",
+      "text": "А эта женщина ей ответила: «Нет, он не сумасшедший...",
+      "translation": "那位女士回答她：“不，他不是疯子……",
+      "playlistIndex": 0,
+      "startTime": 109.16,
+      "endTime": 113.04,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        25
+      ]
+    },
+    {
+      "segmentId": "ch0016-s026",
+      "text": "Я продал свою технологию одной западной фирме.",
+      "translation": "我把自己的技术卖给了一家西方公司。",
+      "playlistIndex": 0,
+      "startTime": 130.93,
+      "endTime": 132.83,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        27
+      ]
+    },
+    {
+      "segmentId": "ch0016-s027",
+      "text": "Она теперь работает практически в каждом втором мобильном телефоне.",
+      "translation": "现在，这项技术几乎应用在每两部手机中的一部里。",
+      "playlistIndex": 0,
+      "startTime": 134.88,
+      "endTime": 137.78,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        28
+      ]
+    },
+    {
+      "segmentId": "ch0016-s028",
+      "text": "А я — представитель этой компании.",
+      "translation": "而我是这家公司的代表。",
+      "playlistIndex": 0,
+      "startTime": 137.78,
+      "endTime": 142.09,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        29
+      ]
+    },
+    {
+      "segmentId": "ch0016-s029",
+      "text": "Но это неважно.",
+      "translation": "但这不重要。",
+      "playlistIndex": 0,
+      "startTime": 142.27,
+      "endTime": 142.79,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        30
+      ]
+    },
+    {
+      "segmentId": "ch0016-s030",
+      "text": "Эта женщина сейчас моя жена, девочка — дочь, у нас ещё сын есть, четыре года.",
+      "translation": "那位女士如今是我的妻子，那个女孩是我的女儿；我们还有一个四岁的儿子。",
+      "playlistIndex": 0,
+      "startTime": 145.25,
+      "endTime": 153.33,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        31
+      ]
+    },
+    {
+      "segmentId": "ch0016-s031",
+      "text": "Возможно, он, этот парень должен умереть в тюрьме.",
+      "translation": "也许这个年轻人应该死在监狱里。",
+      "playlistIndex": 0,
+      "startTime": 157.16,
+      "endTime": 161.54,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        32
+      ]
+    },
+    {
+      "segmentId": "ch0016-s032",
+      "text": "Может быть, это его судьба, кто знает?",
+      "translation": "也许这就是他的命运，谁知道呢？",
+      "playlistIndex": 0,
+      "startTime": 163.08,
+      "endTime": 164.98,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        33
+      ]
+    },
+    {
+      "segmentId": "ch0016-s033",
+      "text": "Я ведь тоже должен был сдохнуть под забором!",
+      "translation": "我当年也本该死在篱笆边！",
+      "playlistIndex": 0,
+      "startTime": 166.38,
+      "endTime": 168.18,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        34
+      ]
+    },
+    {
+      "segmentId": "ch0016-s034",
+      "text": "Но я не сдох, потому что один человек (один!) отнёсся ко мне более внимательно, чем все остальные.",
+      "translation": "但我没有死，因为有一个人（仅仅一个人！）比其他所有人都更关心我。",
+      "playlistIndex": 0,
+      "startTime": 169.06,
+      "endTime": 180.02,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        35
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "LS-LS-T1-5-M2-1-2-Q01",
+      "answer": "Б",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0016-s001"
+        ],
+        "quote": "Я был младшим научным сотрудником... и разрабатывал одну свою идею.",
+        "translation": "我曾是初级研究员，一直在研究自己的构想。",
+        "reasoning": "叙述者以第一人称讲述自己的工作、婚姻和人生经历，对应 Б“自己的人生”。",
+        "pages": [
+          44,
+          46
+        ],
+        "items": [
+          {
+            "quote": "Я был младшим научным сотрудником в одном физическом НИИ и разрабатывал одну свою идею.",
+            "translation": "我曾是某物理研究所的一名初级研究员，一直在研究自己的一个构想。",
+            "segmentIds": [
+              "ch0016-s001"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "LS-LS-T1-5-M2-1-2-Q02",
+      "answer": "А",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0016-s031",
+          "ch0016-s033",
+          "ch0016-s034"
+        ],
+        "quote": "Я ведь тоже должен был сдохнуть под забором! Но я не сдох, потому что один человек... отнёсся ко мне более внимательно...",
+        "translation": "我本来也该死在篱笆边，但我没有死，因为有一个人更关心我。",
+        "reasoning": "他用亲身经历论证不能轻易认定他人“注定”毁灭，借此支撑自己的立场，对应 А。",
+        "pages": [
+          44,
+          46
+        ],
+        "items": [
+          {
+            "quote": "Возможно, он, этот парень должен умереть в тюрьме.",
+            "translation": "也许这个年轻人应该死在监狱里。",
+            "segmentIds": [
+              "ch0016-s031"
+            ]
+          },
+          {
+            "quote": "Но я не сдох, потому что один человек (один!) отнёсся ко мне более внимательно, чем все остальные.",
+            "translation": "但我没有死，因为有一个人比其他所有人都更关心我。",
+            "segmentIds": [
+              "ch0016-s034"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "LS-LS-T1-5-M2-1-2-Q03",
+      "answer": "В",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0016-s018",
+          "ch0016-s019"
+        ],
+        "quote": "Все сидели молчали. Отвели глаза, но сидели молчали...",
+        "translation": "所有人都坐着沉默不语，移开目光却仍沉默。",
+        "reasoning": "周围人选择沉默和回避，体现的是 окружающих 的冷漠，对应 В。",
+        "pages": [
+          44,
+          46
+        ],
+        "items": [
+          {
+            "quote": "Нет! Все сидели молчали.",
+            "translation": "不！所有人都坐着，一言不发。",
+            "segmentIds": [
+              "ch0016-s018"
+            ]
+          },
+          {
+            "quote": "Отвели глаза, но сидели молчали...",
+            "translation": "他们移开目光，却仍坐着沉默不语……",
+            "segmentIds": [
+              "ch0016-s019"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "LS-LS-T1-5-M2-1-2-Q04",
+      "answer": "Б",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0016-s026",
+          "ch0016-s028"
+        ],
+        "quote": "Я продал свою технологию одной западной фирме. А я — представитель этой компании.",
+        "translation": "我把技术卖给了一家西方公司，而我是这家公司的代表。",
+        "reasoning": "他已成为购买其技术的西方公司的代表，而非失业或自创公司；对应 Б“有一份体面的工作”。",
+        "pages": [
+          44,
+          46
+        ],
+        "items": [
+          {
+            "quote": "Я продал свою технологию одной западной фирме.",
+            "translation": "我把自己的技术卖给了一家西方公司。",
+            "segmentIds": [
+              "ch0016-s026"
+            ]
+          },
+          {
+            "quote": "А я — представитель этой компании.",
+            "translation": "而我是这家公司的代表。",
+            "segmentIds": [
+              "ch0016-s028"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "LS-LS-T1-5-M2-1-2-Q05",
+      "answer": "А",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0016-s009",
+          "ch0016-s010",
+          "ch0016-s012"
+        ],
+        "quote": "Но я — нет! Я хотел, чтобы здесь, у нас здесь работало! Я начал пить, начал страшно пить.",
+        "translation": "但我拒绝了！我希望它在这里发挥作用！我开始酗酒。",
+        "reasoning": "反复、感叹和强烈情绪构成充满激情的自白，并非辱骂或平静陈述，对应 А。",
+        "pages": [
+          44,
+          46
+        ],
+        "items": [
+          {
+            "quote": "Но я — нет! Я хотел, чтобы здесь, у нас здесь работало!",
+            "translation": "但我拒绝了！我希望它能在这里、在我们这里发挥作用！",
+            "segmentIds": [
+              "ch0016-s009",
+              "ch0016-s010"
+            ]
+          },
+          {
+            "quote": "Я начал пить, начал страшно пить.",
+            "translation": "我开始喝酒，开始酗酒。",
+            "segmentIds": [
+              "ch0016-s012"
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "learningSupport": {
+    "status": "source-checked",
+    "sourceFile": "俄语资料库/В мире людей 听力口语 Markdown版/翻译/Тема 1.5 -- ТРКИ-2 电影独白（Художественные фильмы — Монологи） -- 中文对照.md",
+    "translationSourceStatus": "needs_review"
+  },
+  "conflicts": [
+    {
+      "id": "ch0016-unrecorded-woman-quote-ending",
+      "status": "resolved",
+      "type": "source-sentence-not-in-bound-media",
+      "resolution": "教材句“Ему просто очень плохо”未在绑定媒体 113.04 秒后的词级 ASR 中出现；摘录中不显示该句，且所有题目依据均不依赖它。",
+      "resolvedAt": "2026-08-06"
+    }
+  ]
+}

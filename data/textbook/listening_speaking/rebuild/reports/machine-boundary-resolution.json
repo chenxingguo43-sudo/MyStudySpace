@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-06T05:00:22.971Z",
+  "status": "machine-crosschecked-not-external-review",
+  "results": [
+    {
+      "chapter": "ch0020",
+      "displayedSegments": 35,
+      "omittedSourceSentenceIndexes": [
+        7,
+        11,
+        14,
+        15,
+        16,
+        17,
+        37,
+        38,
+        39,
+        44,
+        45,
+        46,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57
+      ]
+    },
+    {
+      "chapter": "ch0021",
+      "displayedSegments": 30,
+      "omittedSourceSentenceIndexes": [
+        16,
+        18
+      ]
+    },
+    {
+      "chapter": "ch0022",
+      "displayedSegments": 52,
+      "omittedSourceSentenceIndexes": [
+        8,
+        12,
+        38,
+        53
+      ]
+    },
+    {
+      "chapter": "ch0023",
+      "displayedSegments": 30,
+      "omittedSourceSentenceIndexes": []
+    }
+  ],
+  "constraints": [
+    "ASR is used only as a timing candidate and does not alter textbook Russian text.",
+    "Unverified source sentences are excluded from the playable excerpt instead of assigned fabricated time ranges.",
+    "No external native-speaker review is claimed."
+  ]
+}

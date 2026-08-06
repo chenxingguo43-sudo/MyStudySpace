@@ -1,0 +1,95 @@
+{
+  "schemaVersion": 1,
+  "chapterFile": "ch0021.json",
+  "unitId": "ls-t1.6-d2.2.2",
+  "status": "resolved-machine-crosscheck",
+  "sourcePages": [
+    54,
+    66
+  ],
+  "mediaFile": "media/world-people-v2/22.mp4",
+  "evidenceFiles": [
+    "俄语资料库/В мире людей 听力口语 Markdown版/章节/Тема 1.6 -- ТРКИ-2 电影对话（Художественные фильмы — Диалоги）.md",
+    "俄语资料库/В мире людей 听力口语 Markdown版/翻译/Тема 1.6 -- ТРКИ-2 电影对话（Художественные фильмы — Диалоги） -- 中文对照.md",
+    "tmp/listening-rebuild-asr/ch0021/ch0021.json",
+    "tmp/world-people-v2-word-timestamps/22-base.json"
+  ],
+  "conflicts": [
+    {
+      "id": "ch0021-postets-boundary",
+      "status": "resolved-machine-crosscheck",
+      "type": "short-utterance-not-recognized",
+      "audioRange": [
+        28.66,
+        32.72
+      ],
+      "sourceSentenceIndexes": [
+        8
+      ],
+      "textbookText": [
+        "Постец..."
+      ],
+      "asrCandidate": "No matching word was retained by the base ASR word timestamps.",
+      "problem": "The adjacent source sentences are aligned, but the one-word utterance has no independent word-level boundary.",
+      "neededDecision": "Confirm whether this utterance is audible in the bound media and mark its exact start/end, or confirm that it is omitted.",
+      "resolution": {
+        "method": "textbook source plus base and small local ASR cross-check",
+        "externalNativeReview": false,
+        "omittedSourceSentenceIndexes": []
+      }
+    },
+    {
+      "id": "ch0021-fohma-exclamation-cluster",
+      "status": "resolved-machine-crosscheck",
+      "type": "overlapped-short-utterances",
+      "audioRange": [
+        63.71,
+        113.24
+      ],
+      "sourceSentenceIndexes": [
+        16,
+        17,
+        18
+      ],
+      "textbookText": [
+        "Глянь, Фома!",
+        "Глянь, говорю!",
+        "Ничего, балда..."
+      ],
+      "asrCandidate": "The word-level cache contains 'Фома' at 94.74–95.12, but no independently aligned full utterance.",
+      "problem": "Three short turns occur in an unaligned dialogue interval; speaker changes and pauses prevent reliable automatic sentence boundaries.",
+      "neededDecision": "Identify each audible turn and annotate three independently playable ranges, or identify omitted textbook turns.",
+      "resolution": {
+        "method": "textbook source plus base and small local ASR cross-check",
+        "externalNativeReview": false,
+        "omittedSourceSentenceIndexes": [
+          16,
+          18
+        ]
+      }
+    },
+    {
+      "id": "ch0021-golubets-quote-boundary",
+      "status": "resolved-machine-crosscheck",
+      "type": "quoted-phrase-boundary",
+      "audioRange": [
+        133.12,
+        139.9
+      ],
+      "sourceSentenceIndexes": [
+        24
+      ],
+      "textbookText": [
+        "«Этот-то брат, голубец?»..."
+      ],
+      "asrCandidate": "Recognized snippet: 'твой сказал вот брата голубец мало что фиафан сказал'; word 'голубец' occurs at 134.38–134.94.",
+      "problem": "The keyword is present, but the word cache cannot establish the complete quoted phrase boundary.",
+      "neededDecision": "Verify the full quote in the media and annotate its independent range.",
+      "resolution": {
+        "method": "textbook source plus base and small local ASR cross-check",
+        "externalNativeReview": false,
+        "omittedSourceSentenceIndexes": []
+      }
+    }
+  ]
+}

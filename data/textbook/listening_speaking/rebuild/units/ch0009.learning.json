@@ -1,0 +1,287 @@
+{
+  "schemaVersion": 1,
+  "chapterFile": "ch0009.json",
+  "unitId": "ls-t1.3-m1.2.5",
+  "status": "release_ready",
+  "source": {
+    "chapterSha256": "094f017e1e4e70a64f93624aa0e5feb6010bb559cf0c629e6c4f8d1b2998929a",
+    "timelineFile": "timelines/ch0009.json",
+    "sourcePages": [
+      24,
+      25
+    ],
+    "mediaFiles": [
+      "media/world-people-v2/10.mp4"
+    ]
+  },
+  "coverage": {
+    "kind": "complete",
+    "verifiedBy": [
+      "俄语资料库/В мире людей 听力口语 Markdown版/原始OCR/page_024.md",
+      "俄语资料库/В мире людей 听力口语 Markdown版/原始OCR/page_026.md",
+      "俄语资料库/В мире людей 听力口语 Markdown版/原始OCR/page_095.md",
+      "tmp/world-people-v2-word-timestamps/10-base.json"
+    ]
+  },
+  "segments": [
+    {
+      "segmentId": "ch0009-s001",
+      "text": "Объявляется приём работ на Второй Всероссийский конкурс произведений для детей и юношества «Алые паруса».",
+      "translation": "现面向儿童和青少年作品征集第二届全俄“红帆”竞赛参赛作品。",
+      "playlistIndex": 0,
+      "startTime": 5.42,
+      "endTime": 13.6,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        1
+      ]
+    },
+    {
+      "segmentId": "ch0009-s002",
+      "text": "Ежегодный конкурс «Алые паруса» проводится в целях поощрения талантливых авторов, открытия новых имён.",
+      "translation": "年度“红帆”竞赛旨在鼓励有才华的作者，并发掘新的名字。",
+      "playlistIndex": 0,
+      "startTime": 14.5,
+      "endTime": 22.32,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        2
+      ]
+    },
+    {
+      "segmentId": "ch0009-s003",
+      "text": "Конкурс проходит по пяти номинациям: проза, поэзия, художественная иллюстрированная книга, познавательная литература, литературоведение и критика.",
+      "translation": "竞赛设五个类别：散文、诗歌、艺术插图书、知识性读物、文学研究与批评。",
+      "playlistIndex": 0,
+      "startTime": 23.28,
+      "endTime": 35.16,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        3
+      ]
+    },
+    {
+      "segmentId": "ch0009-s004",
+      "text": "Принимаются работы, опубликованные в текущем году, а также рукописи, принятые к выпуску.",
+      "translation": "接受本年度已出版的作品，以及已被接收出版的手稿。",
+      "playlistIndex": 0,
+      "startTime": 36,
+      "endTime": 42.5,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        4
+      ]
+    },
+    {
+      "segmentId": "ch0009-s005",
+      "text": "Произведения рассматриваются на конкурсной основе и выдвигаются издательствами, редакциями журналов, творческими союзами.",
+      "translation": "作品按竞赛原则评审，并由出版社、杂志编辑部和创作协会推荐参选。",
+      "playlistIndex": 0,
+      "startTime": 43.38,
+      "endTime": 52.36,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        5
+      ]
+    },
+    {
+      "segmentId": "ch0009-s006",
+      "text": "Список отобранных произведений публикуется в СМИ.",
+      "translation": "入选作品名单将在大众媒体上公布。",
+      "playlistIndex": 0,
+      "startTime": 53.36,
+      "endTime": 56.98,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        6
+      ]
+    },
+    {
+      "segmentId": "ch0009-s007",
+      "text": "Победители получают денежную премию и памятный приз.",
+      "translation": "获奖者将获得奖金和纪念奖品。",
+      "playlistIndex": 0,
+      "startTime": 57.88,
+      "endTime": 61.74,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        7
+      ]
+    },
+    {
+      "segmentId": "ch0009-s008",
+      "text": "Книги и рукописи принимаются по адресу: Москва, Страстной бульвар, 5.",
+      "translation": "图书和手稿请寄至：莫斯科斯特拉斯诺伊林荫大道 5 号。",
+      "playlistIndex": 0,
+      "startTime": 62.74,
+      "endTime": 67.82,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        8
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "LS-LS-T1-3-M1-2-5-Q01",
+      "answer": "Б",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0009-s001"
+        ],
+        "quote": "Объявляется приём работ на Второй Всероссийский конкурс произведений для детей и юношества «Алые паруса».",
+        "translation": "现面向儿童和青少年作品征集第二届全俄“红帆”竞赛参赛作品。",
+        "reasoning": "原句直接说明征集的是“第二届全俄竞赛”的作品，匹配选项 Б。",
+        "pages": [
+          24,
+          25
+        ],
+        "items": [
+          {
+            "quote": "Объявляется приём работ на Второй Всероссийский конкурс произведений для детей и юношества «Алые паруса».",
+            "translation": "现面向儿童和青少年作品征集第二届全俄“红帆”竞赛参赛作品。",
+            "segmentIds": [
+              "ch0009-s001"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "LS-LS-T1-3-M1-2-5-Q02",
+      "answer": "А",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0009-s001"
+        ],
+        "quote": "Объявляется приём работ на Второй Всероссийский конкурс произведений для детей и юношества «Алые паруса».",
+        "translation": "现面向儿童和青少年作品征集第二届全俄“红帆”竞赛参赛作品。",
+        "reasoning": "“для детей и юношества”明确说明作品面向儿童和青少年，匹配选项 А。",
+        "pages": [
+          24,
+          25
+        ],
+        "items": [
+          {
+            "quote": "Объявляется приём работ на Второй Всероссийский конкурс произведений для детей и юношества «Алые паруса».",
+            "translation": "现面向儿童和青少年作品征集第二届全俄“红帆”竞赛参赛作品。",
+            "segmentIds": [
+              "ch0009-s001"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "LS-LS-T1-3-M1-2-5-Q03",
+      "answer": "Б",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0009-s006"
+        ],
+        "quote": "Список отобранных произведений публикуется в СМИ.",
+        "translation": "入选作品名单将在大众媒体上公布。",
+        "reasoning": "“в СМИ”就是“在大众媒体中”，对应当前 Reader 选项 Б。",
+        "pages": [
+          24,
+          25
+        ],
+        "items": [
+          {
+            "quote": "Список отобранных произведений публикуется в СМИ.",
+            "translation": "入选作品名单将在大众媒体上公布。",
+            "segmentIds": [
+              "ch0009-s006"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "LS-LS-T1-3-M1-2-5-Q04",
+      "answer": "В",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0009-s004"
+        ],
+        "quote": "Принимаются работы, опубликованные в текущем году, а также рукописи, принятые к выпуску.",
+        "translation": "接受本年度已出版的作品，以及已被接收出版的手稿。",
+        "reasoning": "原句同时列出本年度已出版作品和获准出版的手稿，完整匹配选项 В。",
+        "pages": [
+          24,
+          25
+        ],
+        "items": [
+          {
+            "quote": "Принимаются работы, опубликованные в текущем году, а также рукописи, принятые к выпуску.",
+            "translation": "接受本年度已出版的作品，以及已被接收出版的手稿。",
+            "segmentIds": [
+              "ch0009-s004"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "LS-LS-T1-3-M1-2-5-Q05",
+      "answer": "Б",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0009-s007"
+        ],
+        "quote": "Победители получают денежную премию и памятный приз.",
+        "translation": "获奖者将获得奖金和纪念奖品。",
+        "reasoning": "原句明确写明获奖者获得 денежную премию（奖金）；当前 Reader 中这对应选项 Б。",
+        "pages": [
+          24,
+          25
+        ],
+        "items": [
+          {
+            "quote": "Победители получают денежную премию и памятный приз.",
+            "translation": "获奖者将获得奖金和纪念奖品。",
+            "segmentIds": [
+              "ch0009-s007"
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "learningSupport": {
+    "status": "source-checked",
+    "scope": "complete source reconstruction, sentence translations, and per-question listening evidence",
+    "sourceFile": "俄语资料库/В мире людей 听力口语 Markdown版/翻译/Тема 1.3 -- ТРКИ-2 公告（Объявления） -- 中文对照.md",
+    "translationSourceStatus": "needs_review",
+    "reviewedAt": "2026-08-06",
+    "migratedFromStatus": "source-cross-checked"
+  },
+  "conflicts": [
+    {
+      "id": "ch0009-incomplete-formal-timeline-and-option-order",
+      "status": "resolved",
+      "type": "incomplete-formal-timeline-and-derived-option-reordering",
+      "media": {
+        "file": "media/world-people-v2/10.mp4",
+        "durationSeconds": 68.33,
+        "alignedRangeSeconds": [
+          5.42,
+          67.82
+        ]
+      },
+      "source": [
+        "俄语资料库/В мире людей 听力口语 Markdown版/原始OCR/page_024.md",
+        "俄语资料库/В мире людей 听力口语 Markdown版/原始OCR/page_026.md",
+        "俄语资料库/В мире людей 听力口语 Markdown版/原始OCR/page_095.md",
+        "tmp/world-people-v2-word-timestamps/10-base.json"
+      ],
+      "resolution": "旧正式时间轴仅含四条作答定位句；原书完整听力文本与绑定媒体均支持八个连续句段。当前 Reader 的题目措辞和选项顺序与原书版不同，但五题所问事实和正确选项语义均由同一媒体句段支持；按当前选项集保留答案字母。",
+      "resolvedAt": "2026-08-06"
+    }
+  ]
+}

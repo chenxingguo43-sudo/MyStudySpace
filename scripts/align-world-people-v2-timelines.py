@@ -84,11 +84,13 @@ def transcript_sentences(text, playlist):
     return result
 
 
-def transcribe(model, media_path, model_name):
+def transcribe(model_ref, media_path, model_name):
     cache_path = TRANSCRIPT_CACHE_ROOT / f"{media_path.stem}-{model_name}.json"
     if cache_path.exists():
         return json.loads(cache_path.read_text(encoding="utf-8"))
-    raw_segments, _ = model.transcribe(
+    if model_ref[0] is None:
+        model_ref[0] = WhisperModel(model_name, device="cpu", compute_type="int8")
+    raw_segments, _ = model_ref[0].transcribe(
         str(media_path), language="ru", beam_size=5, word_timestamps=True, vad_filter=True
     )
     result = []
@@ -171,6 +173,11 @@ def main():
         default="",
         help="Optional comma-separated chapter:seconds limits. Use when a media file appends a separate exercise after its source text, e.g. 20:200.",
     )
+    parser.add_argument(
+        "--output-dir",
+        default=str(TIMELINES_ROOT),
+        help="Directory for generated timeline drafts. Defaults to the production timeline directory.",
+    )
     args = parser.parse_args()
     chapters = [int(value) for value in args.chapters.split(",") if value.strip()]
     media_structure = json.loads(MEDIA_STRUCTURE_PATH.read_text(encoding="utf-8")) if MEDIA_STRUCTURE_PATH.exists() else {"tracks": {}}
@@ -181,8 +188,11 @@ def main():
         chapter_text, seconds_text = value.split(":", 1)
         max_seconds[int(chapter_text)] = float(seconds_text)
     segments = json.loads(SEGMENTS_PATH.read_text(encoding="utf-8"))
-    TIMELINES_ROOT.mkdir(parents=True, exist_ok=True)
-    model = WhisperModel(args.model, device="cpu", compute_type="int8")
+    output_root = Path(args.output_dir).resolve()
+    output_root.mkdir(parents=True, exist_ok=True)
+    # Loading an ASR model dominates this script's runtime. Keep it lazy so
+    # cached word timestamps can be re-aligned without starting Whisper again.
+    model_ref = [None]
 
     for chapter in chapters:
         source = segments[chapter]
@@ -195,7 +205,7 @@ def main():
         aligned_sentences = []
         for playlist_index, track in enumerate(tracks):
             media_path = MEDIA_ROOT / f"{track:02d}.mp4"
-            recognized = transcribe(model, media_path, args.model)
+            recognized = transcribe(model_ref, media_path, args.model)
             audited_limit = media_structure.get("tracks", {}).get(f"{track:02d}", {}).get("featureEndSeconds")
             limit = max_seconds.get(chapter, audited_limit)
             if limit is not None:
@@ -229,9 +239,9 @@ def main():
                 if item["timingStatus"] == "unmatched"
             ],
         }
-        output = TIMELINES_ROOT / f"ch{chapter:04d}.json"
+        output = output_root / f"ch{chapter:04d}.json"
         output.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-        print(f"ch{chapter:04d}: {payload['status']} ({timed_count}/{len(aligned_sentences)} source sentences aligned)")
+        print(f"ch{chapter:04d}: {payload['status']} ({timed_count}/{len(aligned_sentences)} source sentences aligned)", flush=True)
 
 
 if __name__ == "__main__":

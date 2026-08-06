@@ -88,7 +88,29 @@
           "text": "рассказать об истории музея"
         }
       ],
-      "answer": "А"
+      "answer": "А",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0034-s002"
+        ],
+        "quote": "...приурочена к вековому юбилею ГМИИ.",
+        "translation": "……为纪念该博物馆百年馆庆而设。",
+        "reasoning": "展览专为百年 юбилей（周年纪念）举办，对应选项 А。",
+        "pages": [
+          80,
+          103
+        ],
+        "items": [
+          {
+            "quote": "Экспозиция называется «Музей под открытым небом» и приурочена к вековому юбилею ГМИИ.",
+            "translation": "展览名为“露天博物馆”，为纪念该博物馆百年馆庆而设。",
+            "segmentIds": [
+              "ch0034-s002"
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "LS-LS-T1-8-M3-2-5-Q02",
@@ -108,7 +130,29 @@
           "text": "11 наград"
         }
       ],
-      "answer": "Б"
+      "answer": "Б",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0034-s004"
+        ],
+        "quote": "...россияне получили 8 наград.",
+        "translation": "……俄罗斯人获得 8 个奖项。",
+        "reasoning": "原句直接给出 8 个奖项，对应选项 Б。",
+        "pages": [
+          80,
+          103
+        ],
+        "items": [
+          {
+            "quote": "В Хорватии прошёл Фестиваль анимационного кино, на котором россияне получили 8 наград.",
+            "translation": "克罗地亚举行了动画电影节，俄罗斯人获得 8 个奖项。",
+            "segmentIds": [
+              "ch0034-s004"
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "LS-LS-T1-8-M3-2-5-Q03",
@@ -128,7 +172,29 @@
           "text": "20 стран"
         }
       ],
-      "answer": "А"
+      "answer": "А",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0034-s010"
+        ],
+        "quote": "...17 конкурсантов из 10 стран мира.",
+        "translation": "……来自世界 10 个国家的 17 名选手。",
+        "reasoning": "题目问参赛歌手来自多少国家，原句是 10 个，对应选项 А。",
+        "pages": [
+          80,
+          103
+        ],
+        "items": [
+          {
+            "quote": "На сцену выйдут 17 конкурсантов из 10 стран мира.",
+            "translation": "来自世界 10 个国家的 17 名选手将登台。",
+            "segmentIds": [
+              "ch0034-s010"
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "LS-LS-T1-8-M3-2-5-Q04",
@@ -148,7 +214,29 @@
           "text": "израильтяне"
         }
       ],
-      "answer": "Б"
+      "answer": "Б",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0034-s014"
+        ],
+        "quote": "...родственники знаменитого американского актёра Чарли Чаплина.",
+        "translation": "……美国著名演员查理·卓别林的亲属。",
+        "reasoning": "揭幕者是美国演员卓别林的亲属，对应选项 Б。",
+        "pages": [
+          80,
+          103
+        ],
+        "items": [
+          {
+            "quote": "Х по счёту фестиваль откроют родственники знаменитого американского актёра Чарли Чаплина.",
+            "translation": "第十届戏剧节将由美国著名演员查理·卓别林的亲属揭幕。",
+            "segmentIds": [
+              "ch0034-s014"
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "LS-LS-T1-8-M3-2-5-Q05",
@@ -168,285 +256,289 @@
           "text": "создал виртуальный музей"
         }
       ],
-      "answer": "В"
+      "answer": "В",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0034-s019"
+        ],
+        "quote": "Герой занимается созданием виртуальных музеев.",
+        "translation": "主人公从事虚拟博物馆的创建。",
+        "reasoning": "原句直接说主人公创建虚拟博物馆，对应选项 В。",
+        "pages": [
+          80,
+          103
+        ],
+        "items": [
+          {
+            "quote": "Герой занимается созданием виртуальных музеев.",
+            "translation": "主人公从事虚拟博物馆的创建。",
+            "segmentIds": [
+              "ch0034-s019"
+            ]
+          }
+        ]
+      }
     }
   ],
   "transcriptSegments": [
     {
-      "text": "Государственный музей изобразительных искусств имени А.С.",
+      "text": "Государственный музей изобразительных искусств имени А.С. Пушкина устроил выставку на Гоголевском бульваре.",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 0.714,
-      "matchedWords": 5,
-      "expectedWords": 7,
+      "translation": "普希金国立美术博物馆在果戈理林荫大道举办了一场展览。",
       "startTime": 5.02,
-      "endTime": 8.54,
-      "timingStatus": "aligned"
-    },
-    {
-      "text": "Пушкина устроил выставку на Гоголевском бульваре.",
-      "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 1,
-      "matchedWords": 6,
-      "expectedWords": 6,
-      "startTime": 9.96,
       "endTime": 13.54,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        1,
+        2
+      ]
     },
     {
       "text": "Экспозиция называется «Музей под открытым небом» и приурочена к вековому юбилею ГМИИ.",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 1,
-      "matchedWords": 12,
-      "expectedWords": 12,
+      "translation": "展览名为“露天博物馆”，为纪念该博物馆百年馆庆而设。",
       "startTime": 14.18,
       "endTime": 21.28,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        3
+      ]
     },
     {
       "text": "Именно поэтому на выставке можно увидеть фотографии не только уникальных экспонатов музея, но и те, которые показывают ключевые события его истории.",
       "playlistIndex": 0,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 1,
-      "matchedWords": 21,
-      "expectedWords": 21,
+      "translation": "因此，展览上不仅能看到博物馆独特藏品的照片，也能看到展现其历史关键事件的照片。",
       "startTime": 21.84,
       "endTime": 33.14,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        4
+      ]
     },
     {
       "text": "В Хорватии прошёл Фестиваль анимационного кино, на котором россияне получили 8 наград.",
       "playlistIndex": 1,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 1,
-      "matchedWords": 11,
-      "expectedWords": 11,
+      "translation": "克罗地亚举行了动画电影节，俄罗斯人获得 8 个奖项。",
       "startTime": 4.53,
       "endTime": 10.21,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        5
+      ]
     },
     {
       "text": "В частности, из 11 отечественных мультфильмов 5 уехали с наградами.",
       "playlistIndex": 1,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 1,
-      "matchedWords": 8,
-      "expectedWords": 8,
+      "translation": "具体而言，11 部本国动画片中有 5 部获奖。",
       "startTime": 10.81,
       "endTime": 15.31,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        6
+      ]
     },
     {
       "text": "В основном конкурсе специальные призы получили два фильма.",
       "playlistIndex": 1,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 1,
-      "matchedWords": 8,
-      "expectedWords": 8,
+      "translation": "主竞赛单元中，两部影片获得特别奖。",
       "startTime": 15.83,
       "endTime": 18.89,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        7
+      ]
     },
     {
       "text": "Но ещё до начала фестиваля жюри присудило призы двум российским студиям, а внеконкурсный приз за достижения в профессии был присуждён легендарному создателю «Винни-Пуха» Фёдору Хитруку.",
       "playlistIndex": 1,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 0.923,
-      "matchedWords": 24,
-      "expectedWords": 26,
+      "translation": "但在电影节开幕前，评审团已向两家俄罗斯工作室颁奖；职业成就非竞赛奖授予了《小熊维尼》的传奇创作者费奥多尔·希特鲁克。",
       "startTime": 19.47,
       "endTime": 31.07,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        8
+      ]
     },
     {
       "text": "В Москве пройдёт Второй международный конкурс вокалистов имени Муслима Магомаева.",
       "playlistIndex": 2,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 1,
-      "matchedWords": 10,
-      "expectedWords": 10,
+      "translation": "莫斯科将举行第二届穆斯利姆·马戈马耶夫国际声乐家比赛。",
       "startTime": 3.88,
       "endTime": 10.42,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        9
+      ]
     },
     {
       "text": "На конкурс было подано около 230 заявок, отбор был очень жёсткий.",
       "playlistIndex": 2,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 1,
-      "matchedWords": 10,
-      "expectedWords": 10,
+      "translation": "比赛收到约 230 份申请，选拔十分严格。",
       "startTime": 10.74,
       "endTime": 16.26,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        10
+      ]
     },
     {
       "text": "На сцену выйдут 17 конкурсантов из 10 стран мира.",
       "playlistIndex": 2,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 1,
-      "matchedWords": 7,
-      "expectedWords": 7,
+      "translation": "来自世界 10 个国家的 17 名选手将登台。",
       "startTime": 16.72,
       "endTime": 20.96,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        11
+      ]
     },
     {
       "text": "Вокалисты исполнят оперные и эстрадные произведения.",
       "playlistIndex": 2,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 0.833,
-      "matchedWords": 5,
-      "expectedWords": 6,
+      "translation": "歌手将演唱歌剧和流行音乐作品。",
       "startTime": 21.6,
       "endTime": 24.96,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        12
+      ]
     },
     {
       "text": "Награда будет достойной: Гран-при составит 25 тысяч долларов, первое место — двадцать, второе — десять и третье — пять.",
       "playlistIndex": 2,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 0.812,
-      "matchedWords": 13,
-      "expectedWords": 16,
+      "translation": "奖金额度可观：大奖 2.5 万美元，一等奖 2 万、二等奖 1 万、三等奖 5000。",
       "startTime": 25.34,
       "endTime": 33.38,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        13
+      ]
     },
     {
       "text": "Это уже стало доброй традицией: раз в два года весной в Москву, на Международный театральный фестиваль имени Чехова, съезжаются лучшие спектакли со всего света.",
       "playlistIndex": 3,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 1,
-      "matchedWords": 24,
-      "expectedWords": 24,
+      "translation": "这已成为美好传统：每隔两年春天，世界各地优秀剧目齐聚莫斯科参加国际契诃夫戏剧节。",
       "startTime": 3.96,
       "endTime": 17.26,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        14
+      ]
     },
     {
       "text": "Х по счёту фестиваль откроют родственники знаменитого американского актёра Чарли Чаплина.",
       "playlistIndex": 3,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 0.909,
-      "matchedWords": 10,
-      "expectedWords": 11,
+      "translation": "第十届戏剧节将由美国著名演员查理·卓别林的亲属揭幕。",
       "startTime": 19.02,
       "endTime": 25.2,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        15
+      ]
     },
     {
       "text": "Среди приглашённых впервые только громкие имена.",
       "playlistIndex": 3,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 1,
-      "matchedWords": 6,
-      "expectedWords": 6,
+      "translation": "受邀者中首次全是知名大腕。",
       "startTime": 25.64,
       "endTime": 28.8,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        16
+      ]
     },
     {
       "text": "К примеру, один из ведущих театров Германии или известная танцевальная труппа из Израиля.",
       "playlistIndex": 3,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 0.923,
-      "matchedWords": 12,
-      "expectedWords": 13,
+      "translation": "例如，德国一家顶级剧院或以色列知名舞蹈团。",
       "startTime": 28.8,
       "endTime": 35.86,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        17
+      ]
     },
     {
       "text": "Вышла новая книга Александра Архангельского «Музей революции».",
       "playlistIndex": 4,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 1,
-      "matchedWords": 7,
-      "expectedWords": 7,
+      "translation": "亚历山大·阿尔汉格尔斯基的新书《革命博物馆》出版了。",
       "startTime": 4.61,
       "endTime": 10.29,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        18
+      ]
     },
     {
       "text": "Это сложный, интеллектуальный роман.",
       "playlistIndex": 4,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 1,
-      "matchedWords": 4,
-      "expectedWords": 4,
+      "translation": "这是一部复杂、富有思想性的小说。",
       "startTime": 10.29,
       "endTime": 12.65,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        19
+      ]
     },
     {
       "text": "Герой занимается созданием виртуальных музеев.",
       "playlistIndex": 4,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 1,
-      "matchedWords": 5,
-      "expectedWords": 5,
+      "translation": "主人公从事虚拟博物馆的创建。",
       "startTime": 13.75,
       "endTime": 16.59,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        20
+      ]
     },
     {
       "text": "Ему противостоит директор настоящей исторической усадьбы.",
       "playlistIndex": 4,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 1,
-      "matchedWords": 6,
-      "expectedWords": 6,
+      "translation": "与他对立的是一座真实历史庄园的馆长。",
       "startTime": 17.15,
       "endTime": 21.11,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        21
+      ]
     },
     {
       "text": "По мнению автора, история — это чувство, что ничего еще не кончилось, что всё продолжается здесь и сейчас.",
       "playlistIndex": 4,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 1,
-      "matchedWords": 17,
-      "expectedWords": 17,
+      "translation": "作者认为，历史是一种感觉：一切尚未结束，仍在此时此地继续。",
       "startTime": 21.65,
       "endTime": 29.39,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        22
+      ]
     },
     {
       "text": "И физическое ощущение истории оказывается куда важнее, чем любая виртуальная реальность.",
       "playlistIndex": 4,
-      "speaker": "A",
-      "displayLabel": "Д",
-      "matchRatio": 1,
-      "matchedWords": 11,
-      "expectedWords": 11,
+      "translation": "而对历史的真实切身感受远比任何虚拟现实重要。",
       "startTime": 29.39,
       "endTime": 36.79,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        23
+      ]
     }
-  ]
+  ],
+  "transcriptCoverage": {
+    "kind": "complete",
+    "verifiedBy": [
+      "俄语资料库/В мире людей 听力口语 Markdown版/翻译/Тема 1.8 -- ТРКИ-2 新闻（Новости） -- 中文对照.md",
+      "data/textbook/listening_speaking/timelines/ch0034.json"
+    ]
+  },
+  "learningSupport": {
+    "status": "source-checked",
+    "scope": "complete source reconstruction, sentence translations, and per-question listening evidence",
+    "sourceFile": "俄语资料库/В мире людей 听力口语 Markdown版/翻译/Тема 1.8 -- ТРКИ-2 新闻（Новости） -- 中文对照.md",
+    "translationSourceStatus": "needs_review",
+    "reviewedAt": "2026-08-06",
+    "migratedFromStatus": "source-cross-checked"
+  }
 }

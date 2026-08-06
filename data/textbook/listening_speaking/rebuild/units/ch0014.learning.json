@@ -1,0 +1,267 @@
+{
+  "schemaVersion": 1,
+  "chapterFile": "ch0014.json",
+  "unitId": "ls-t1.4-m1.3.5",
+  "status": "release_ready",
+  "source": {
+    "chapterSha256": "caa090515227b542f4465d10bfb14246e1a3fbe77014d13ab1aff397c9445e80",
+    "timelineFile": "timelines/ch0014.json",
+    "sourcePages": [
+      39,
+      40
+    ],
+    "mediaFiles": [
+      "media/world-people-v2/15.mp4"
+    ]
+  },
+  "coverage": {
+    "kind": "unresolved"
+  },
+  "segments": [
+    {
+      "segmentId": "ch0014-s001",
+      "text": "Вас трогают шедевры кинематографа или вы — фанат современного кино?",
+      "translation": "您是被电影经典之作所打动的人，还是现代电影的狂热爱好者？",
+      "playlistIndex": 0,
+      "startTime": 4.5,
+      "endTime": 9.4,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": []
+    },
+    {
+      "segmentId": "ch0014-s002",
+      "text": "Кинозал «ЦДЛ» в двух шагах от Садового кольца — то, что вам нужно!",
+      "translation": "距离花园环路仅几步之遥的ЦДЛ电影厅——正是您所需要的！",
+      "playlistIndex": 0,
+      "startTime": 9.98,
+      "endTime": 13.8,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": []
+    },
+    {
+      "segmentId": "ch0014-s003",
+      "text": "Качественный сервис и парковка не оставят равнодушным любого клиента! 440 мест — это золотая середина между неудобствами тесного зала и дискомфортом огромного зала на тысячу мест.",
+      "translation": "优质的服务和停车场会让每一位顾客满意！440个座位——这是局促的小厅和容纳千人的巨型大厅之间的完美折中。",
+      "playlistIndex": 0,
+      "startTime": 14.38,
+      "endTime": 27.76,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": []
+    },
+    {
+      "segmentId": "ch0014-s004",
+      "text": "кассовые блокбастеры и мировые кинохиты;\n- культовые отечественные ленты и авторское кино.",
+      "translation": "票房大片和世界电影佳作；经典国产影片和艺术电影。",
+      "playlistIndex": 0,
+      "startTime": 29.76,
+      "endTime": 35.9,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": []
+    },
+    {
+      "segmentId": "ch0014-s005",
+      "text": "У нас часто проходят интересные акции и тематические кинофестивали.",
+      "translation": "我们经常举办有趣的促销活动和主题电影节。",
+      "playlistIndex": 0,
+      "startTime": 36.46,
+      "endTime": 40.56,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": []
+    },
+    {
+      "segmentId": "ch0014-s006",
+      "text": "Вас приятно удивят наши цены.",
+      "translation": "我们的价格会让您惊喜。",
+      "playlistIndex": 0,
+      "startTime": 41.74,
+      "endTime": 42.9,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": []
+    },
+    {
+      "segmentId": "ch0014-s007",
+      "text": "Для школьников и пенсионеров — гибкая система скидок.",
+      "translation": "学生和退休人员享受灵活的折扣体系。",
+      "playlistIndex": 0,
+      "startTime": 43.32,
+      "endTime": 47.14,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": []
+    },
+    {
+      "segmentId": "ch0014-s008",
+      "text": "Никитская, 53.",
+      "translation": "尼基茨卡娅大街53号。",
+      "playlistIndex": 0,
+      "startTime": 48.54,
+      "endTime": 49.06,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": []
+    },
+    {
+      "segmentId": "ch0014-s009",
+      "text": "Заказ билетов на сайте.",
+      "translation": "在网站上订票。",
+      "playlistIndex": 0,
+      "startTime": 50.24,
+      "endTime": 51.7,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": []
+    }
+  ],
+  "questions": [
+    {
+      "id": "LS-LS-T1-4-M1-3-5-Q01",
+      "answer": "Б",
+      "evidence": {
+        "status": "playable",
+        "quote": "Кинозал «ЦДЛ» в двух шагах от Садового кольца — то, что вам нужно!",
+        "translation": "距离花园环路仅几步之遥的ЦДЛ电影厅——正是您所需要的！",
+        "reasoning": "“距花园环路仅几步”说明影院位于花园环路附近，而非环路上或中心，对应 Б。",
+        "pages": [
+          39,
+          40
+        ],
+        "items": [
+          {
+            "quote": "Кинозал «ЦДЛ» в двух шагах от Садового кольца — то, что вам нужно!",
+            "translation": "距离花园环路仅几步之遥的ЦДЛ电影厅——正是您所需要的！",
+            "segmentIds": [
+              "ch0014-s002"
+            ]
+          }
+        ],
+        "segmentIds": [
+          "ch0014-s002"
+        ]
+      }
+    },
+    {
+      "id": "LS-LS-T1-4-M1-3-5-Q02",
+      "answer": "В",
+      "evidence": {
+        "status": "playable",
+        "quote": "Качественный сервис и парковка не оставят равнодушным любого клиента! 440 мест — это золотая середина между неудобствами тесного зала и дискомфортом огромного зала на тысячу мест.",
+        "translation": "优质的服务和停车场会让每一位顾客满意！440个座位是局促的小厅和千人大型厅之间的完美折中。",
+        "reasoning": "440 个座位被明确称为小厅与千人大厅之间的“黄金中间值”，因此是中等规模，对应 В。",
+        "pages": [
+          39,
+          40
+        ],
+        "items": [
+          {
+            "quote": "Качественный сервис и парковка не оставят равнодушным любого клиента! 440 мест — это золотая середина между неудобствами тесного зала и дискомфортом огромного зала на тысячу мест.",
+            "translation": "优质的服务和停车场会让每一位顾客满意！440个座位是局促的小厅和千人大型厅之间的完美折中。",
+            "segmentIds": [
+              "ch0014-s003"
+            ]
+          }
+        ],
+        "segmentIds": [
+          "ch0014-s003"
+        ]
+      }
+    },
+    {
+      "id": "LS-LS-T1-4-M1-3-5-Q03",
+      "answer": "В",
+      "evidence": {
+        "status": "playable",
+        "quote": "Для школьников и пенсионеров — гибкая система скидок.",
+        "translation": "学生和退休人员享受灵活的折扣体系。",
+        "reasoning": "折扣明确面向学生和退休人员等特定群体，对应 В。",
+        "pages": [
+          39,
+          40
+        ],
+        "items": [
+          {
+            "quote": "Для школьников и пенсионеров — гибкая система скидок.",
+            "translation": "学生和退休人员享受灵活的折扣体系。",
+            "segmentIds": [
+              "ch0014-s007"
+            ]
+          }
+        ],
+        "segmentIds": [
+          "ch0014-s007"
+        ]
+      }
+    },
+    {
+      "id": "LS-LS-T1-4-M1-3-5-Q04",
+      "answer": "А",
+      "evidence": {
+        "status": "playable",
+        "quote": "Качественный сервис и парковка не оставят равнодушным любого клиента! 440 мест — это золотая середина между неудобствами тесного зала и дискомфортом огромного зала на тысячу мест.",
+        "translation": "优质服务、停车场和适中的大厅规模体现了影院的舒适度。",
+        "reasoning": "一条依据说明服务、停车和舒适座位，另一条列出大片、经典片和作者电影；两者共同支持“片源与舒适度”，对应 А。",
+        "pages": [
+          39,
+          40
+        ],
+        "items": [
+          {
+            "quote": "Качественный сервис и парковка не оставят равнодушным любого клиента! 440 мест — это золотая середина между неудобствами тесного зала и дискомфортом огромного зала на тысячу мест.",
+            "translation": "优质服务、停车场和适中的大厅规模体现了影院的舒适度。",
+            "segmentIds": [
+              "ch0014-s003"
+            ]
+          },
+          {
+            "quote": "кассовые блокбастеры и мировые кинохиты;\n- культовые отечественные ленты и авторское кино.",
+            "translation": "片源包括票房大片、世界电影佳作、经典国产影片和艺术电影。",
+            "segmentIds": [
+              "ch0014-s004"
+            ]
+          }
+        ],
+        "segmentIds": [
+          "ch0014-s003",
+          "ch0014-s004"
+        ]
+      }
+    },
+    {
+      "id": "LS-LS-T1-4-M1-3-5-Q05",
+      "answer": "В",
+      "evidence": {
+        "status": "playable",
+        "quote": "Вас трогают шедевры кинематографа или вы — фанат современного кино?",
+        "translation": "您是被电影经典之作所打动的人，还是现代电影的狂热爱好者？",
+        "reasoning": "宣传同时面向经典电影与现代电影爱好者，片单还覆盖商业、国产和作者电影，范围不局限于一种类型，对应 В。",
+        "pages": [
+          39,
+          40
+        ],
+        "items": [
+          {
+            "quote": "Вас трогают шедевры кинематографа или вы — фанат современного кино?",
+            "translation": "您是被电影经典之作所打动的人，还是现代电影的狂热爱好者？",
+            "segmentIds": [
+              "ch0014-s001"
+            ]
+          },
+          {
+            "quote": "кассовые блокбастеры и мировые кинохиты;\n- культовые отечественные ленты и авторское кино.",
+            "translation": "影院同时放映票房大片、世界热门影片、经典国产影片和艺术电影，覆盖多种类型。",
+            "segmentIds": [
+              "ch0014-s004"
+            ]
+          }
+        ],
+        "segmentIds": [
+          "ch0014-s001",
+          "ch0014-s004"
+        ]
+      }
+    }
+  ],
+  "learningSupport": {
+    "status": "source-checked",
+    "scope": "transcript translations and per-question listening evidence",
+    "sourceFile": "俄语资料库/В мире людей 听力口语 Markdown版/翻译/Тема 1.4 -- ТРКИ-2 广告（Рекламные объявления） -- 中文对照.md",
+    "reviewedAt": "2026-08-05"
+  },
+  "conflicts": []
+}

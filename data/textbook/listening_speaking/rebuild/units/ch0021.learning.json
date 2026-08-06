@@ -1,0 +1,573 @@
+{
+  "schemaVersion": 1,
+  "chapterFile": "ch0021.json",
+  "unitId": "ls-t1.6-d2.2.2",
+  "status": "release_ready",
+  "source": {
+    "chapterSha256": "f4a566cb23ae4704758d264238641b10ed9ae29ef72de8566bf3dc7e8783e300",
+    "timelineFile": "timelines/ch0021.json",
+    "sourcePages": [
+      54,
+      66
+    ],
+    "mediaFiles": [
+      "media/world-people-v2/22.mp4"
+    ]
+  },
+  "coverage": {
+    "kind": "excerpt",
+    "omittedSourceSentenceIndexes": [
+      16,
+      18
+    ],
+    "reason": "绑定媒体中这些教材短句未获得可复现的完整逐句边界，因此不显示为可播放精听句。",
+    "verifiedBy": [
+      "俄语资料库/В мире людей 听力口语 Markdown版/章节/Тема 1.6 -- ТРКИ-2 电影对话（Художественные фильмы — Диалоги）.md",
+      "俄语资料库/В мире людей 听力口语 Markdown版/翻译/Тема 1.6 -- ТРКИ-2 电影对话（Художественные фильмы — Диалоги） -- 中文对照.md",
+      "tmp/world-people-v2-word-timestamps/22-base.json",
+      "tmp/faster-whisper-results/22-small.json"
+    ],
+    "reviewMethod": "textbook-source-plus-two-local-asr-candidates; no external native-speaker review claimed"
+  },
+  "segments": [
+    {
+      "segmentId": "ch0021-s001",
+      "text": "Я три года Даниле кисти мыл, пока он мне икону не доверил, чудо!",
+      "translation": "我给丹尼拉洗了三年的画笔，他才肯把圣像交给我画，真是奇迹！",
+      "playlistIndex": 0,
+      "startTime": 6.54,
+      "endTime": 9.54,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        1
+      ]
+    },
+    {
+      "segmentId": "ch0021-s002",
+      "text": "Не подновить, а отмыть только...",
+      "translation": "不是翻新，只是清洗……",
+      "playlistIndex": 0,
+      "startTime": 11.08,
+      "endTime": 13.32,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        2
+      ]
+    },
+    {
+      "segmentId": "ch0021-s003",
+      "text": "Так ты же врёшь на каждом шагу.",
+      "translation": "可你走到哪儿都撒谎。",
+      "playlistIndex": 0,
+      "startTime": 15.26,
+      "endTime": 16.84,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        3
+      ]
+    },
+    {
+      "segmentId": "ch0021-s004",
+      "text": "Пришёл вчера: ряса липкая, склеилась вся...",
+      "translation": "昨天回来时，法衣黏糊糊的，全粘在一起了……",
+      "playlistIndex": 0,
+      "startTime": 17.7,
+      "endTime": 21.02,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        4
+      ]
+    },
+    {
+      "segmentId": "ch0021-s005",
+      "text": "Ну, где ты вчера был?",
+      "translation": "你昨天到底去哪儿了？",
+      "playlistIndex": 0,
+      "startTime": 21.42,
+      "endTime": 22.14,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        5
+      ]
+    },
+    {
+      "segmentId": "ch0021-s006",
+      "text": "А вчера сказал, что в Андроников ходил?..",
+      "translation": "昨天不是说去安德罗尼克修道院了吗？……",
+      "playlistIndex": 0,
+      "startTime": 23.74,
+      "endTime": 25,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        6
+      ]
+    },
+    {
+      "segmentId": "ch0021-s007",
+      "text": "Ты посмотри, на кого ты похож!",
+      "translation": "你看看自己成什么样了！",
+      "playlistIndex": 0,
+      "startTime": 26.56,
+      "endTime": 28.66,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        7
+      ]
+    },
+    {
+      "segmentId": "ch0021-s008",
+      "text": "Постец...",
+      "translation": "脓包……",
+      "playlistIndex": 0,
+      "startTime": 30.34,
+      "endTime": 30.98,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        8
+      ]
+    },
+    {
+      "segmentId": "ch0021-s009",
+      "text": "Примочи, что ль, чем-нибудь, землёй затри, а то заплывёшь, как боров.",
+      "translation": "敷点什么东西吧，用泥巴糊上，不然你肿得跟公猪似的。",
+      "playlistIndex": 0,
+      "startTime": 32.72,
+      "endTime": 36.18,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        9
+      ]
+    },
+    {
+      "segmentId": "ch0021-s010",
+      "text": "Да теперь поздно, небось...",
+      "translation": "现在大概晚了……",
+      "playlistIndex": 0,
+      "startTime": 37.34,
+      "endTime": 38.58,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        10
+      ]
+    },
+    {
+      "segmentId": "ch0021-s011",
+      "text": "Не поможет...",
+      "translation": "怕是没用了……",
+      "playlistIndex": 0,
+      "startTime": 38.84,
+      "endTime": 39.52,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        11
+      ]
+    },
+    {
+      "segmentId": "ch0021-s012",
+      "text": "Сочиняешь ты, брат, без конца.",
+      "translation": "你编故事没完没了，兄弟。",
+      "playlistIndex": 0,
+      "startTime": 43.17,
+      "endTime": 44.61,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        12
+      ]
+    },
+    {
+      "segmentId": "ch0021-s013",
+      "text": "Я даже думаю, что ты, может, болезнью заболел какой...",
+      "translation": "我都怀疑你是不是得了什么病……",
+      "playlistIndex": 0,
+      "startTime": 49.37,
+      "endTime": 51.81,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        13
+      ]
+    },
+    {
+      "segmentId": "ch0021-s014",
+      "text": "Да как же?",
+      "translation": "怎么不会？",
+      "playlistIndex": 0,
+      "startTime": 56.01,
+      "endTime": 56.87,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        14
+      ]
+    },
+    {
+      "segmentId": "ch0021-s015",
+      "text": "Есть, наверное, такая болезнь, что человек врёт, врёт и остановиться никак не может...",
+      "translation": "大概有这样一种病，人撒谎、撒谎，怎么也停不下来……",
+      "playlistIndex": 0,
+      "startTime": 58.03,
+      "endTime": 63.71,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        15
+      ]
+    },
+    {
+      "segmentId": "ch0021-s016",
+      "text": "Глянь, говорю!",
+      "translation": "你看啊！",
+      "playlistIndex": 0,
+      "startTime": 75.24,
+      "endTime": 76.46,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        17
+      ]
+    },
+    {
+      "segmentId": "ch0021-s017",
+      "text": "Не понимаю, как я тебя в ученики взял!..",
+      "translation": "我真不明白当初怎么收你当学徒的！……",
+      "playlistIndex": 0,
+      "startTime": 113.24,
+      "endTime": 115.6,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        19
+      ]
+    },
+    {
+      "segmentId": "ch0021-s018",
+      "text": "У тебя всегда так.",
+      "translation": "你总是这样。",
+      "playlistIndex": 0,
+      "startTime": 115.7,
+      "endTime": 116.76,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        20
+      ]
+    },
+    {
+      "segmentId": "ch0021-s019",
+      "text": "Сначала одно, потом другое.",
+      "translation": "先说一样，再说另一样。",
+      "playlistIndex": 0,
+      "startTime": 117.08,
+      "endTime": 118.5,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        21
+      ]
+    },
+    {
+      "segmentId": "ch0021-s020",
+      "text": "Сам Феофану говорил: «Этот на аршин в землю видит и голубец любит...»",
+      "translation": "你自己对费奥凡都说过：\"他能看透一俄尺深的地下，还喜欢在阳台上待着……\"",
+      "playlistIndex": 0,
+      "startTime": 118.8,
+      "endTime": 122.12,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        22
+      ]
+    },
+    {
+      "segmentId": "ch0021-s021",
+      "text": "Так ты ж тогда другим человеком был, старался, не врал, а потом, знаешь, что Феофан про голубец твой сказал?",
+      "translation": "那时候你是另一个人，你努力，不撒谎；后来你知道费奥凡怎么说你的阳台吗？",
+      "playlistIndex": 0,
+      "startTime": 122.68,
+      "endTime": 133.12,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        23
+      ]
+    },
+    {
+      "segmentId": "ch0021-s022",
+      "text": "«Этот-то брат, голубец?»...",
+      "translation": "\"这就是那个兄弟，阳台？\"……",
+      "playlistIndex": 0,
+      "startTime": 133.68,
+      "endTime": 134.92,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        24
+      ]
+    },
+    {
+      "segmentId": "ch0021-s023",
+      "text": "И поесть ты здоров...",
+      "translation": "而且你吃得可真多……",
+      "playlistIndex": 0,
+      "startTime": 139.9,
+      "endTime": 144.02,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        25
+      ]
+    },
+    {
+      "segmentId": "ch0021-s024",
+      "text": "Как ты только после этого пишешь?",
+      "translation": "你这样还怎么画画？",
+      "playlistIndex": 0,
+      "startTime": 144.74,
+      "endTime": 146.26,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        26
+      ]
+    },
+    {
+      "segmentId": "ch0021-s025",
+      "text": "Ума не приложу!",
+      "translation": "我实在想不明白！",
+      "playlistIndex": 0,
+      "startTime": 146.26,
+      "endTime": 147.1,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        27
+      ]
+    },
+    {
+      "segmentId": "ch0021-s026",
+      "text": "Так когда в брюхе звенит, что на ум-то идёт?",
+      "translation": "肚子咕咕叫的时候，脑子里能想什么？",
+      "playlistIndex": 0,
+      "startTime": 149.28,
+      "endTime": 152.36,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        28
+      ]
+    },
+    {
+      "segmentId": "ch0021-s027",
+      "text": "Только тот звон и слышишь...",
+      "translation": "就只听得见那咕咕声……",
+      "playlistIndex": 0,
+      "startTime": 153.18,
+      "endTime": 154.8,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        29
+      ]
+    },
+    {
+      "segmentId": "ch0021-s028",
+      "text": "Счастливый ты, Фома!",
+      "translation": "你可真幸福，福马！",
+      "playlistIndex": 0,
+      "startTime": 156.24,
+      "endTime": 157.4,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        30
+      ]
+    },
+    {
+      "segmentId": "ch0021-s029",
+      "text": "Всё тебе просто да ладно!",
+      "translation": "对你来说一切都简单又顺利！",
+      "playlistIndex": 0,
+      "startTime": 158.14,
+      "endTime": 159.44,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        31
+      ]
+    },
+    {
+      "segmentId": "ch0021-s030",
+      "text": "Тут через молитву только, от видимого к невидимому душа-то дойти может...",
+      "translation": "在这里只有通过祈祷，灵魂才能从可见之物到达不可见之物……",
+      "playlistIndex": 0,
+      "startTime": 164.08,
+      "endTime": 168.36,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        32
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "LS-LS-T1-6-D2-2-2-Q01",
+      "answer": "А",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0021-s017"
+        ],
+        "quote": "Не понимаю, как я тебя в ученики взял!..",
+        "translation": "我真不明白当初怎么收你当学徒的！……",
+        "reasoning": "安德烈直接称福马为自己收下的学徒，关系是师傅与学徒，对应 А。",
+        "pages": [
+          54,
+          66
+        ],
+        "items": [
+          {
+            "quote": "Не понимаю, как я тебя в ученики взял!..",
+            "translation": "我真不明白当初怎么收你当学徒的！……",
+            "segmentIds": [
+              "ch0021-s017"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "LS-LS-T1-6-D2-2-2-Q02",
+      "answer": "Б",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0021-s003",
+          "ch0021-s015"
+        ],
+        "quote": "Так ты же врёшь на каждом шагу. / ...человек врёт, врёт и остановиться никак не может...",
+        "translation": "可你走到哪儿都撒谎。/ ……人撒谎、撒谎，怎么也停不下来……",
+        "reasoning": "安德烈两次明确指责福马不断撒谎，对应 Б。",
+        "pages": [
+          54,
+          66
+        ],
+        "items": [
+          {
+            "quote": "Так ты же врёшь на каждом шагу.",
+            "translation": "可你走到哪儿都撒谎。",
+            "segmentIds": [
+              "ch0021-s003"
+            ]
+          },
+          {
+            "quote": "Есть, наверное, такая болезнь, что человек врёт, врёт и остановиться никак не может...",
+            "translation": "大概有这样一种病，人撒谎、撒谎，怎么也停不下来……",
+            "segmentIds": [
+              "ch0021-s015"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "LS-LS-T1-6-D2-2-2-Q03",
+      "answer": "А",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0021-s018",
+          "ch0021-s019"
+        ],
+        "quote": "У тебя всегда так. Сначала одно, потом другое.",
+        "translation": "你总是这样。先说一样，再说另一样。",
+        "reasoning": "福马没有认同责备，而是解释安德烈说话前后不一，表现为为自己辩解，对应 А。",
+        "pages": [
+          54,
+          66
+        ],
+        "items": [
+          {
+            "quote": "У тебя всегда так.",
+            "translation": "你总是这样。",
+            "segmentIds": [
+              "ch0021-s018"
+            ]
+          },
+          {
+            "quote": "Сначала одно, потом другое.",
+            "translation": "先说一样，再说另一样。",
+            "segmentIds": [
+              "ch0021-s019"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "LS-LS-T1-6-D2-2-2-Q04",
+      "answer": "Б",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0021-s001",
+          "ch0021-s030"
+        ],
+        "quote": "Я три года Даниле кисти мыл... / Тут через молитву только, от видимого к невидимому душа-то дойти может...",
+        "translation": "我给丹尼拉洗了三年的画笔……/ 在这里只有通过祈祷，灵魂才能从可见之物到达不可见之物……",
+        "reasoning": "安德烈以自己长期学艺经历和对创作精神的说明教导福马如何对待工作，而非布置新任务或讲旧画师轶事，对应 Б。",
+        "pages": [
+          54,
+          66
+        ],
+        "items": [
+          {
+            "quote": "Я три года Даниле кисти мыл, пока он мне икону не доверил, чудо!",
+            "translation": "我给丹尼拉洗了三年的画笔，他才肯把圣像交给我画，真是奇迹！",
+            "segmentIds": [
+              "ch0021-s001"
+            ]
+          },
+          {
+            "quote": "Тут через молитву только, от видимого к невидимому душа-то дойти может...",
+            "translation": "在这里只有通过祈祷，灵魂才能从可见之物到达不可见之物……",
+            "segmentIds": [
+              "ch0021-s030"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "LS-LS-T1-6-D2-2-2-Q05",
+      "answer": "В",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0021-s026",
+          "ch0021-s027",
+          "ch0021-s030"
+        ],
+        "quote": "Так когда в брюхе звенит... Только тот звон и слышишь... / Тут через молитву только...",
+        "translation": "肚子咕咕叫的时候……就只听得见那咕咕声……/ 在这里只有通过祈祷……",
+        "reasoning": "福马把注意力放在饥饿上，安德烈却以祈祷和灵魂回应；结尾两人的理解没有汇合，对应 В。",
+        "pages": [
+          54,
+          66
+        ],
+        "items": [
+          {
+            "quote": "Так когда в брюхе звенит, что на ум-то идёт?",
+            "translation": "肚子咕咕叫的时候，脑子里能想什么？",
+            "segmentIds": [
+              "ch0021-s026"
+            ]
+          },
+          {
+            "quote": "Только тот звон и слышишь...",
+            "translation": "就只听得见那咕咕声……",
+            "segmentIds": [
+              "ch0021-s027"
+            ]
+          },
+          {
+            "quote": "Тут через молитву только, от видимого к невидимому душа-то дойти может...",
+            "translation": "在这里只有通过祈祷，灵魂才能从可见之物到达不可见之物……",
+            "segmentIds": [
+              "ch0021-s030"
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "learningSupport": {
+    "status": "source-checked",
+    "sourceFile": "俄语资料库/В мире людей 听力口语 Markdown版/翻译/Тема 1.6 -- ТРКИ-2 电影对话（Художественные фильмы — Диалоги） -- 中文对照.md",
+    "translationSourceStatus": "needs_review",
+    "verification": "逐句按教材俄文顺序切分，并与本地中文对照逐项交叉核对。"
+  },
+  "conflicts": []
+}

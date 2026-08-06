@@ -1,0 +1,276 @@
+{
+  "schemaVersion": 1,
+  "chapterFile": "ch0012.json",
+  "unitId": "ls-t1.4-m1.3.3",
+  "status": "release_ready",
+  "source": {
+    "chapterSha256": "db5bee01f720b7cbc1f1c8180611adac23d0ac2fbae8b78ea3f436e49ae6b8e3",
+    "timelineFile": "timelines/ch0012.json",
+    "sourcePages": [
+      35,
+      36
+    ],
+    "mediaFiles": [
+      "media/world-people-v2/13.mp4"
+    ]
+  },
+  "coverage": {
+    "kind": "complete",
+    "verifiedBy": [
+      "俄语资料库/В мире людей 听力口语 Markdown版/翻译/Тема 1.4 -- ТРКИ-2 广告（Рекламные объявления） -- 中文对照.md",
+      "data/textbook/listening_speaking/timelines/ch0012.json"
+    ]
+  },
+  "segments": [
+    {
+      "segmentId": "ch0012-s001",
+      "text": "Желаете сделать свою жизнь слаще?",
+      "translation": "想让生活更甜蜜吗？",
+      "playlistIndex": 0,
+      "startTime": 4.15,
+      "endTime": 6.83,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        1
+      ]
+    },
+    {
+      "segmentId": "ch0012-s002",
+      "text": "«Кофейня на Варварке» ждёт вас!",
+      "translation": "\"瓦尔瓦尔卡咖啡馆\"（Кофейня на Варварке）等待您的光临！",
+      "playlistIndex": 0,
+      "startTime": 7.23,
+      "endTime": 9.53,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        2
+      ]
+    },
+    {
+      "segmentId": "ch0012-s003",
+      "text": "Большой ассортимент изысканных тортов, пирожных и восточных десертов приведёт в восторг любого сластёну!",
+      "translation": "品种丰富的精致蛋糕、小西点和东方甜点会让每一位甜食爱好者欣喜若狂！",
+      "playlistIndex": 0,
+      "startTime": 9.93,
+      "endTime": 17.41,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        3
+      ]
+    },
+    {
+      "segmentId": "ch0012-s004",
+      "text": "Буйная фантазия наших поваров и кондитеров находит воплощение в их кулинарных изделиях.",
+      "translation": "我们的厨师和糕点师天马行空的想象力在他们的烹饪作品中得到了完美的体现。",
+      "playlistIndex": 0,
+      "startTime": 18.17,
+      "endTime": 23.37,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        4
+      ]
+    },
+    {
+      "segmentId": "ch0012-s005",
+      "text": "Вас также приятно удивят блюда европейской кухни, которые по своим оригинальным рецептам готовят наши первоклассные повара.",
+      "translation": "我们的顶级厨师按照独创配方制作的欧洲菜肴也会给您带来惊喜。",
+      "playlistIndex": 0,
+      "startTime": 23.69,
+      "endTime": 32.17,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        5
+      ]
+    },
+    {
+      "segmentId": "ch0012-s006",
+      "text": "Уютная атмосфера старинного зала, кофейные ароматы, доброжелательность обслуживающего персонала и наши умеренные цены вызовут у вас желание прийти к нам ещё не один раз.",
+      "translation": "古色古香的大厅、温馨的氛围、咖啡的芬芳、服务人员的热情友善以及我们适中的价格，会让您不止一次地想要再来。",
+      "playlistIndex": 0,
+      "startTime": 32.65,
+      "endTime": 44.71,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        6
+      ]
+    },
+    {
+      "segmentId": "ch0012-s007",
+      "text": "Мы работаем с семи утра до 24 часов.",
+      "translation": "早上7点至24点。",
+      "playlistIndex": 0,
+      "startTime": 45.23,
+      "endTime": 48.55,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        7
+      ]
+    },
+    {
+      "segmentId": "ch0012-s008",
+      "text": "Для автовладельцев — бесплатная охраняемая стоянка.",
+      "translation": "车主可享受免费有停车位。",
+      "playlistIndex": 0,
+      "startTime": 49.05,
+      "endTime": 52.61,
+      "timingStatus": "aligned",
+      "sourceSentenceIndexes": [
+        8
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "LS-LS-T1-4-M1-3-3-Q01",
+      "answer": "Б",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0012-s003"
+        ],
+        "quote": "Большой ассортимент изысканных тортов, пирожных и восточных десертов приведёт в восторг любого сластёну!",
+        "translation": "丰富的精美蛋糕、小点心和东方甜点会令每位甜食爱好者欣喜不已！",
+        "reasoning": "广告突出蛋糕、小点心和甜点，面向糕点甜食爱好者，对应选项 Б。",
+        "pages": [
+          35,
+          36
+        ],
+        "items": [
+          {
+            "quote": "Большой ассортимент изысканных тортов, пирожных и восточных десертов приведёт в восторг любого сластёну!",
+            "translation": "丰富的精美蛋糕、小点心和东方甜点会令每位甜食爱好者欣喜不已！",
+            "segmentIds": [
+              "ch0012-s003"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "LS-LS-T1-4-M1-3-3-Q02",
+      "answer": "В",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0012-s003",
+          "ch0012-s005"
+        ],
+        "quote": "Восточные десерты; блюда европейской кухни.",
+        "translation": "东方甜点；欧洲菜肴。",
+        "reasoning": "广告同时提供东方甜点和欧洲菜，说明不是单一地区菜系，而是多国风味，对应选项 В。",
+        "pages": [
+          35,
+          36
+        ],
+        "items": [
+          {
+            "quote": "Большой ассортимент изысканных тортов, пирожных и восточных десертов приведёт в восторг любого сластёну!",
+            "translation": "丰富的精美蛋糕、小点心和东方甜点会令每位甜食爱好者欣喜不已！",
+            "segmentIds": [
+              "ch0012-s003"
+            ]
+          },
+          {
+            "quote": "Вас также приятно удивят блюда европейской кухни, которые по своим оригинальным рецептам готовят наши первоклассные повара.",
+            "translation": "我们一流厨师按原创配方制作的欧洲菜肴同样会给您带来惊喜。",
+            "segmentIds": [
+              "ch0012-s005"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "LS-LS-T1-4-M1-3-3-Q03",
+      "answer": "Б",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0012-s004",
+          "ch0012-s005"
+        ],
+        "quote": "Буйная фантазия наших поваров и кондитеров ... по своим оригинальным рецептам.",
+        "translation": "厨师和糕点师大胆的想象力……按原创配方制作。",
+        "reasoning": "“想象力”和“原创配方”都表明菜品具有作者式创意，而不是传统菜单，对应选项 Б。",
+        "pages": [
+          35,
+          36
+        ],
+        "items": [
+          {
+            "quote": "Буйная фантазия наших поваров и кондитеров находит воплощение в их кулинарных изделиях.",
+            "translation": "我们厨师和糕点师大胆的想象力体现在他们的烹饪作品中。",
+            "segmentIds": [
+              "ch0012-s004"
+            ]
+          },
+          {
+            "quote": "Вас также приятно удивят блюда европейской кухни, которые по своим оригинальным рецептам готовят наши первоклассные повара.",
+            "translation": "我们一流厨师按原创配方制作的欧洲菜肴同样会给您带来惊喜。",
+            "segmentIds": [
+              "ch0012-s005"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "LS-LS-T1-4-M1-3-3-Q04",
+      "answer": "Б",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0012-s006"
+        ],
+        "quote": "...наши умеренные цены...",
+        "translation": "……我们适中的价格……",
+        "reasoning": "умеренные цены 的意思是适中价格，对应选项 Б。",
+        "pages": [
+          35,
+          36
+        ],
+        "items": [
+          {
+            "quote": "Уютная атмосфера старинного зала, кофейные ароматы, доброжелательность обслуживающего персонала и наши умеренные цены вызовут у вас желание прийти к нам ещё не один раз.",
+            "translation": "古老大厅的舒适氛围、咖啡香气、友善的服务人员和我们适中的价格，会让您还想再次光临。",
+            "segmentIds": [
+              "ch0012-s006"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "LS-LS-T1-4-M1-3-3-Q05",
+      "answer": "В",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0012-s007"
+        ],
+        "quote": "Мы работаем с семи утра до 24 часов.",
+        "translation": "我们的营业时间从早上七点到二十四点。",
+        "reasoning": "营业从早晨开始，到 24 点结束，匹配选项 В“从早上到午夜”。",
+        "pages": [
+          35,
+          36
+        ],
+        "items": [
+          {
+            "quote": "Мы работаем с семи утра до 24 часов.",
+            "translation": "我们的营业时间从早上七点到二十四点。",
+            "segmentIds": [
+              "ch0012-s007"
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "learningSupport": {
+    "status": "source-checked",
+    "sourceFile": "俄语资料库/В мире людей 听力口语 Markdown版/翻译/Тема 1.4 -- ТРКИ-2 广告（Рекламные объявления） -- 中文对照.md",
+    "translationSourceStatus": "needs_review"
+  },
+  "conflicts": []
+}

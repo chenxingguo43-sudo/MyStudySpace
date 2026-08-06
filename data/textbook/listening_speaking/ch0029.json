@@ -36,7 +36,39 @@
           "text": "о молодом художнике"
         }
       ],
-      "answer": "В"
+      "answer": "В",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0029-s004",
+          "ch0029-s008"
+        ],
+        "quote": "Зовут меня Лёша, мне 26 лет... Сейчас работаю художником.",
+        "translation": "我叫廖沙，26 岁……现在从事绘画工作。",
+        "reasoning": "采访以 26 岁的阿列克谢及其目前画家身份为中心展开，介绍的是一位年轻画家，而不是画派传统或绘画新方向，对应 В。",
+        "pages": [
+          67,
+          79
+        ],
+        "items": [
+          {
+            "quote": "Собственно зовут меня Лёша, мне 26 лет...",
+            "translation": "我叫廖沙，26 岁……",
+            "segmentIds": [
+              "ch0029-s004",
+              "ch0029-s005",
+              "ch0029-s006"
+            ]
+          },
+          {
+            "quote": "Сейчас работаю художником.",
+            "translation": "现在从事绘画工作。",
+            "segmentIds": [
+              "ch0029-s008"
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "LS-LS-T1-7-D3-1-5-Q02",
@@ -56,7 +88,30 @@
           "text": "отличаются необычным цветом"
         }
       ],
-      "answer": "Б"
+      "answer": "Б",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0029-s011",
+          "ch0029-s012"
+        ],
+        "quote": "Ещё не нашёл! Я на самом деле до сих пор в поиске, пробую многое и разное, различные стили, приёмы работы с цветом и т. д.",
+        "translation": "还没找到；我一直在探索中，尝试各种不同的东西、不同风格和色彩手法等。",
+        "reasoning": "他明确说自己尝试不同风格，直接支持 Б“融合不同风格”，而不是已经固定个人风格或单一的特殊色彩。",
+        "pages": [
+          67,
+          79
+        ],
+        "items": [
+          {
+            "quote": "Пробую многое и разное, различные стили, приёмы работы с цветом и т. д.",
+            "translation": "我尝试各种不同的东西、不同风格和色彩手法等。",
+            "segmentIds": [
+              "ch0029-s012"
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "LS-LS-T1-7-D3-1-5-Q03",
@@ -76,7 +131,30 @@
           "text": "за это платят большие гонорары"
         }
       ],
-      "answer": "А"
+      "answer": "А",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0029-s026",
+          "ch0029-s027"
+        ],
+        "quote": "Моё хобби — это рисовать! Просто сейчас оно идёт параллельно с работой.",
+        "translation": "我的爱好就是画画；只是现在它与工作同步进行。",
+        "reasoning": "他把画画直接称为自己的爱好，并说明它同时也是工作，表明作画本身给他带来兴趣与满足，对应 А。",
+        "pages": [
+          67,
+          79
+        ],
+        "items": [
+          {
+            "quote": "Моё хобби — это рисовать!",
+            "translation": "我的爱好就是画画！",
+            "segmentIds": [
+              "ch0029-s026"
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "LS-LS-T1-7-D3-1-5-Q04",
@@ -96,7 +174,38 @@
           "text": "саморазвитие и совершенствование"
         }
       ],
-      "answer": "В"
+      "answer": "В",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0029-s021",
+          "ch0029-s022",
+          "ch0029-s023"
+        ],
+        "quote": "Продвижением как раз и должно стать саморазвитие и совершенствование. Чем больше ты рисуешь, тем больше понимаешь, как мало ты знаешь...",
+        "translation": "进步就应该体现在自我发展和自我完善上；画得越多，越明白自己懂得多么少……",
+        "reasoning": "他直接把创作上的进步定义为自我发展和自我完善，并说明学习与发展不可或缺，准确对应 В。",
+        "pages": [
+          67,
+          79
+        ],
+        "items": [
+          {
+            "quote": "Продвижением как раз и должно стать саморазвитие и совершенствование.",
+            "translation": "进步就应该体现在自我发展和自我完善上。",
+            "segmentIds": [
+              "ch0029-s021"
+            ]
+          },
+          {
+            "quote": "Творческого человека это должно подталкивать к учёбе и развитию.",
+            "translation": "这应该推动创作者学习和发展。",
+            "segmentIds": [
+              "ch0029-s023"
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "LS-LS-T1-7-D3-1-5-Q05",
@@ -116,7 +225,38 @@
           "text": "разностороннюю личность"
         }
       ],
-      "answer": "В"
+      "answer": "В",
+      "evidence": {
+        "status": "playable",
+        "segmentIds": [
+          "ch0029-s007",
+          "ch0029-s008",
+          "ch0029-s028"
+        ],
+        "quote": "Окончил школу и университет... Сейчас работаю художником. Помимо этого, играю в компьютерные игры, чтобы отдохнуть.",
+        "translation": "完成中小学和大学教育……现在从事绘画工作；此外还玩电脑游戏来放松。",
+        "reasoning": "采访呈现了他的工程教育、画家职业和绘画之外的电脑游戏爱好，说明他有多方面经历与兴趣，对应 В“兴趣广泛的人”。",
+        "pages": [
+          67,
+          79
+        ],
+        "items": [
+          {
+            "quote": "Там же окончил школу и университет, в котором отучился на специальность инженера.",
+            "translation": "在那里完成中小学和大学教育，学的是工程师专业。",
+            "segmentIds": [
+              "ch0029-s007"
+            ]
+          },
+          {
+            "quote": "Но, помимо этого, играю в компьютерные игры, чтобы отдохнуть.",
+            "translation": "除此之外，我还玩电脑游戏来放松。",
+            "segmentIds": [
+              "ch0029-s028"
+            ]
+          }
+        ]
+      }
     }
   ],
   "transcriptSegments": [
@@ -130,7 +270,9 @@
       "expectedWords": 2,
       "startTime": 8.43,
       "endTime": 9.25,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "你好，廖沙！",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Расскажи нам немного о себе, где учился и кем работаешь?",
@@ -142,7 +284,9 @@
       "expectedWords": 10,
       "startTime": 10.31,
       "endTime": 14.21,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "简单介绍一下自己，在哪里上学、做什么工作？",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Привет!",
@@ -154,7 +298,9 @@
       "expectedWords": 1,
       "startTime": 14.85,
       "endTime": 15.27,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "你好！",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Собственно зовут меня Лёша, мне 26 лет, живу и работаю в г.",
@@ -166,7 +312,9 @@
       "expectedWords": 11,
       "startTime": 16.11,
       "endTime": 20.51,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "我叫廖沙，26岁，在",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Москва, до этого учился и проживал в г.",
@@ -178,7 +326,9 @@
       "expectedWords": 8,
       "startTime": 20.83,
       "endTime": 23.77,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "莫斯科生活和工作；此前在",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Сургут.",
@@ -190,7 +340,9 @@
       "expectedWords": 1,
       "startTime": 24.07,
       "endTime": 24.41,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "苏尔古特学习和居住。",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Там же окончил школу и университет, в котором отучился на специальность инженера.",
@@ -202,7 +354,9 @@
       "expectedWords": 12,
       "startTime": 25.79,
       "endTime": 30.29,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "在那里完成了中小学和大学教育，学的是工程师专业。",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Сейчас работаю художником.",
@@ -214,7 +368,9 @@
       "expectedWords": 3,
       "startTime": 31.27,
       "endTime": 33.03,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "现在从事绘画工作。",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Как ты нашёл свой стиль?",
@@ -226,7 +382,9 @@
       "expectedWords": 5,
       "startTime": 33.89,
       "endTime": 35.33,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "你是怎么找到自己的风格的？",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Как ты его совершенствуешь?",
@@ -238,7 +396,9 @@
       "expectedWords": 4,
       "startTime": 36.13,
       "endTime": 37.59,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "你如何完善它？",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Ещё не нашёл!",
@@ -250,7 +410,9 @@
       "expectedWords": 3,
       "startTime": 38.19,
       "endTime": 38.99,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "还没找到呢！",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Я на самом деле до сих пор в поиске, пробую многое и разное, различные стили, приёмы работы с цветом и т. д.",
@@ -262,7 +424,9 @@
       "expectedWords": 22,
       "startTime": 39.73,
       "endTime": 47.69,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "说真的，我一直在探索中，尝试各种不同的东西——不同的风格、色彩运用手法等等。",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Твоя самая удачная работа?",
@@ -274,7 +438,9 @@
       "expectedWords": 4,
       "startTime": 48.61,
       "endTime": 50.23,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "你最成功的作品是哪幅？",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Та, над которой работаю сейчас.",
@@ -286,7 +452,9 @@
       "expectedWords": 5,
       "startTime": 50.85,
       "endTime": 51.89,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "就是现在正在画的这幅。",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "А если в плане удачной картинки, то такой, я думаю, нет, всегда есть за что себя упрекнуть и заставить в следующий раз делать лучше.",
@@ -298,7 +466,9 @@
       "expectedWords": 24,
       "startTime": 52.53,
       "endTime": 61.11,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "如果说成功的画作，我觉得没有，总有让自己不满意的地方，可以鞭策自己下次画得更好。",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Как, по твоему мнению, должен развиваться художник?",
@@ -310,7 +480,9 @@
       "expectedWords": 7,
       "startTime": 61.49,
       "endTime": 64.45,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "你认为画家应该如何发展？",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Что может способствовать его продвижению в творческой деятельности?",
@@ -322,7 +494,9 @@
       "expectedWords": 8,
       "startTime": 65.09,
       "endTime": 68.73,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "什么能促进其在创作活动中的进步？",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Должен?!",
@@ -334,7 +508,9 @@
       "expectedWords": 1,
       "startTime": 69.33,
       "endTime": 69.99,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "应该发展？！",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Обязан!",
@@ -346,7 +522,9 @@
       "expectedWords": 1,
       "startTime": 70.69,
       "endTime": 71.39,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "必须发展！",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Если художник не развивается, то зачем он вообще рисует?",
@@ -358,7 +536,9 @@
       "expectedWords": 9,
       "startTime": 71.83,
       "endTime": 75.07,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "如果画家不进步，那他画画还有什么意义？",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Продвижением как раз и должно стать саморазвитие и совершенствование.",
@@ -370,7 +550,9 @@
       "expectedWords": 9,
       "startTime": 75.93,
       "endTime": 79.73,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "进步就应该体现在自我发展和自我完善上。",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Чем больше ты рисуешь, тем больше понимаешь, как мало ты знаешь, чему тебе нужно научиться и сколько перед тобой непознанного.",
@@ -382,7 +564,9 @@
       "expectedWords": 20,
       "startTime": 80.49,
       "endTime": 88.73,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "你画得越多，就越明白自己懂得多么少，越清楚自己需要学什么，面前还有多少未知。",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Творческого человека это должно подталкивать к учёбе и развитию, иначе он ничего не добьётся.",
@@ -394,7 +578,9 @@
       "expectedWords": 14,
       "startTime": 89.43,
       "endTime": 94.93,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "这应该推动创作者学习和发展，否则他将一事无成。",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Чем ещё занимаешься помимо рисования?",
@@ -406,7 +592,9 @@
       "expectedWords": 5,
       "startTime": 95.61,
       "endTime": 97.97,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "除了画画你还做什么？",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Может хобби.",
@@ -418,7 +606,9 @@
       "expectedWords": 2,
       "startTime": 98.91,
       "endTime": 99.65,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "有什么爱好吗？",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Моё хобби — это рисовать!",
@@ -428,10 +618,12 @@
       "matchRatio": 0.5,
       "matchedWords": 2,
       "expectedWords": 4,
-      "startTime": 0,
-      "endTime": 0,
-      "timingStatus": "unmatched",
-      "recognizedSnippet": "помимо рисования может хобби мое хобби отрисовать просто сейчас оно"
+      "startTime": 100.17,
+      "endTime": 101.45,
+      "timingStatus": "source-bounded",
+      "recognizedSnippet": "помимо рисования может хобби мое хобби отрисовать просто сейчас оно",
+      "translation": "我的爱好就是画画！",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Просто сейчас оно идёт параллельно с работой.",
@@ -443,7 +635,9 @@
       "expectedWords": 7,
       "startTime": 102.29,
       "endTime": 104.89,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "只不过现在它和工作同步进行了。",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Но, помимо этого, играю в компьютерные игры, чтобы отдохнуть.",
@@ -455,7 +649,9 @@
       "expectedWords": 9,
       "startTime": 105.33,
       "endTime": 108.75,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "除此之外，我还玩电脑游戏来放松。",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Какие планы на будущее?",
@@ -467,7 +663,9 @@
       "expectedWords": 4,
       "startTime": 108.75,
       "endTime": 110.75,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "未来有什么计划？",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Какая цель или мечта?",
@@ -479,7 +677,9 @@
       "expectedWords": 4,
       "startTime": 111.53,
       "endTime": 113.17,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "有什么目标或梦想？",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "С чем-то глобальным ещё не определился.",
@@ -491,7 +691,9 @@
       "expectedWords": 7,
       "startTime": 113.47,
       "endTime": 115.47,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "关于宏大的目标还没想好。",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "И последний вопрос.",
@@ -503,7 +705,9 @@
       "expectedWords": 3,
       "startTime": 116.29,
       "endTime": 117.23,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "最后一个问题。",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Представь свою жизнь без графического планшета.",
@@ -515,7 +719,9 @@
       "expectedWords": 6,
       "startTime": 118.37,
       "endTime": 121.47,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "想象一下没有数位板的生活。",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Чем займёшься?",
@@ -527,7 +733,9 @@
       "expectedWords": 2,
       "startTime": 122.25,
       "endTime": 123.05,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "你会做什么？",
+      "sourceSentenceIndexes": []
     },
     {
       "text": "Создам графический планшет.",
@@ -539,7 +747,14 @@
       "expectedWords": 3,
       "startTime": 123.45,
       "endTime": 125.11,
-      "timingStatus": "aligned"
+      "timingStatus": "aligned",
+      "translation": "造一块数位板。",
+      "sourceSentenceIndexes": []
     }
-  ]
+  ],
+  "learningSupport": {
+    "status": "source-checked",
+    "sourceFile": "俄语资料库/В мире людей 听力口语 Markdown版/翻译/Тема 1.7 -- ТРКИ-2 采访（Интервью） -- 中文对照.md",
+    "translationSourceStatus": "needs_review"
+  }
 }

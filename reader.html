@@ -5024,12 +5024,37 @@ function getListeningRecord(questionId) {
   return Object.assign({}, record, { selected: draft && draft.answers[questionId] || '', answered: false, submittedResult: '' });
 }
 function rerenderListeningPreservingScroll() { if (currentListeningData) renderListeningPractice(currentListeningData, window.scrollY); }
+function updateListeningExamProgress() {
+  if (!currentListeningData || listeningViewMode !== 'exam') return;
+  var answered = Object.keys(getListeningDraft(currentListeningData.id, true).answers || {}).length;
+  var total = (currentListeningData.questions || []).filter(function(question) {
+    return !(question.evidence && question.evidence.status === 'not-in-bound-media');
+  }).length;
+  var value = document.getElementById('lwExamAnswered');
+  var track = document.getElementById('lwExamProgress');
+  if (value) value.textContent = answered + ' / ' + total;
+  if (track) track.style.width = (total ? Math.round(answered / total * 100) : 0) + '%';
+}
+function updateListeningQuestionSelection(questionId, selected) {
+  var question = document.getElementById('listening-question-' + questionId);
+  if (!question) return;
+  Array.from(question.querySelectorAll('.lw-question-option')).forEach(function(option) {
+    var isSelected = option.dataset.optionKey === selected;
+    option.classList.toggle('is-selected', isSelected);
+    option.setAttribute('aria-checked', isSelected ? 'true' : 'false');
+  });
+  var state = question.querySelector('.lw-question-state');
+  if (state) state.textContent = '已选择';
+  updateListeningExamProgress();
+}
 function answerListeningQuestion(questionId, selected) {
   if (!currentListeningData || listeningViewMode !== 'exam') return;
   var drafts = getListeningDrafts();
   var draft = drafts[currentListeningData.id] || RussianListeningSession.createDraft(currentListeningData.id);
   drafts[currentListeningData.id] = RussianListeningSession.selectAnswer(draft, questionId, selected);
-  saveListeningDrafts(drafts); rerenderListeningPreservingScroll();
+  saveListeningDrafts(drafts);
+  // Do not replace the question list: rapid clicks must remain on the original option.
+  updateListeningQuestionSelection(questionId, selected);
 }
 function toggleListeningAnswer(questionId) {
   var progress = getListeningProgress(), record = RussianListeningSession.normalizeProgressRecord(progress[questionId]);
@@ -5038,9 +5063,10 @@ function toggleListeningAnswer(questionId) {
 function submitListeningAttempt() {
   if (!currentListeningData) return;
   var draft = getListeningDraft(currentListeningData.id, true);
-  var attempt = RussianListeningSession.scoreDraft(currentListeningData, draft);
+  var scoringData = Object.assign({}, currentListeningData, { questions: getAnswerableListeningQuestions(currentListeningData) });
+  var attempt = RussianListeningSession.scoreDraft(scoringData, draft);
   var attempts = getListeningAttempts(); attempts.push(attempt); saveListeningAttempts(attempts);
-  saveListeningProgress(RussianListeningSession.applyAttempt(getListeningProgress(), currentListeningData, attempt));
+  saveListeningProgress(RussianListeningSession.applyAttempt(getListeningProgress(), scoringData, attempt));
   var drafts = getListeningDrafts(); delete drafts[currentListeningData.id]; saveListeningDrafts(drafts);
   listeningViewMode = 'review'; renderListeningPractice(currentListeningData, 0);
   toast('本次听力已提交：' + attempt.correct + '/' + attempt.total);
@@ -5068,9 +5094,19 @@ function hasVerifiedListeningMediaExercise(data) {
 function getListeningQuestion(questionId) {
   return currentListeningData && (currentListeningData.questions || []).find(function(question) { return question.id === questionId; }) || null;
 }
+function getAnswerableListeningQuestions(data) {
+  return (data && data.questions || []).filter(function(question) {
+    return !(question.evidence && question.evidence.status === 'not-in-bound-media');
+  });
+}
+function getListeningEvidenceItems(evidence) {
+  if (evidence && Array.isArray(evidence.items) && evidence.items.length) return evidence.items.filter(function(item) { return item && item.quote; });
+  return evidence && evidence.quote ? [{ quote: evidence.quote, translation: evidence.translation || '' }] : [];
+}
 function openListeningEvidence(questionId) {
   var question = getListeningQuestion(questionId);
   if (!question || !question.evidence || !question.evidence.quote) { toast('本题尚未绑定可定位的听力依据'); return; }
+  if (question.evidence.status === 'not-in-bound-media') { toast('本题依据不在当前绑定音频中，不能伪造定位播放'); return; }
   listeningPendingEvidenceQuestionId = questionId;
   setListeningViewMode('intensive');
 }
@@ -5082,7 +5118,8 @@ function renderListeningQuestion(question) {
   var record = getListeningRecord(question.id);
   var evidence = question.evidence || {};
   var submitted = listeningViewMode === 'review' && !!getLatestListeningAttempt(currentListeningData.id);
-  var mediaLocked = listeningViewMode === 'exam' && (!currentListeningData.media || !currentListeningData.media.file || currentListeningData.media.status === 'source-mismatch');
+  var evidenceUnavailable = evidence.status === 'not-in-bound-media';
+  var mediaLocked = listeningViewMode === 'exam' && (!currentListeningData.media || !currentListeningData.media.file || currentListeningData.media.status === 'source-mismatch' || evidenceUnavailable);
   var options = (question.options || []).map(function(option) {
     var selected = record.selected === option.key;
     var state = selected ? ' is-selected' : '';
@@ -5090,7 +5127,7 @@ function renderListeningQuestion(question) {
     if (submitted && selected && option.key !== question.answer) state += ' is-wrong';
     var optionContext = lookupContext('listening', question.id + '-option-' + option.key, 'listening-question', option.text, '', question.evidence && question.evidence.pages || []);
     var action = "answerListeningQuestion('" + escapeHtml(question.id) + "','" + escapeHtml(option.key) + "')";
-    return '<button type="button" class="lw-question-option' + state + '" role="radio" aria-checked="' + (selected ? 'true' : 'false') + '"' +
+    return '<button type="button" class="lw-question-option' + state + '" data-option-key="' + escapeHtml(option.key) + '" role="radio" aria-checked="' + (selected ? 'true' : 'false') + '"' +
       (submitted || mediaLocked ? ' disabled' : ' onclick="' + action + '"') + '><span class="lw-option-key">' + escapeHtml(option.key) + '.</span>' +
       '<span>' + renderRuText(option.text, optionContext) + '</span></button>';
   }).join('');
@@ -5101,7 +5138,7 @@ function renderListeningQuestion(question) {
   var translation = question.prompt && question.prompt !== promptRu ? '<p class="lw-question-translation">' + escapeHtml(question.prompt) + '</p>' : '';
   return '<article class="lw-question" id="listening-question-' + escapeHtml(question.id) + '"><div class="lw-question-head">' +
     '<span class="lw-question-number">' + escapeHtml(String(question.printedNumber || question.id)) + '</span><div><p class="lw-question-prompt">' + prompt + '</p>' + translation + '</div>' +
-    '<span class="lw-question-state">' + (submitted ? (record.submittedResult === 'correct' ? '正确' : record.submittedResult === 'wrong' ? '错误' : '未答') : mediaLocked ? '音频待补' : record.selected ? '已选择' : '未作答') + '</span></div>' +
+    '<span class="lw-question-state">' + (submitted ? (record.submittedResult === 'correct' ? '正确' : record.submittedResult === 'wrong' ? '错误' : '未答') : evidenceUnavailable ? '本音频未覆盖' : mediaLocked ? '音频待补' : record.selected ? '已选择' : '未作答') + '</span></div>' +
     '<div class="lw-options">' + options + '</div>' + result + '</article>';
 }
 function renderListeningTopbar(data, sourcePages) {
@@ -5150,11 +5187,11 @@ function renderListeningPlayer(data, mediaBase) {
 }
 function renderListeningExam(data) {
   if (data.mediaOnly) return '<div class="lw-content lw-empty"><h2>模拟考试媒体</h2><p>' + escapeHtml(data.mediaOnly.note || '本套媒体未附带可机器读取的题面，保留原始音频和分段播放。') + '</p><button class="lw-secondary-action" type="button" onclick="openListeningIntensive()">查看媒体列表</button></div>';
-  var questions = data.questions || [], draft = getListeningDraft(data.id, true), answered = Object.keys(draft.answers || {}).filter(function(id) { return draft.answers[id]; }).length;
+  var questions = data.questions || [], answerableQuestions = getAnswerableListeningQuestions(data), draft = getListeningDraft(data.id, true), answered = answerableQuestions.filter(function(question) { return draft.answers[question.id]; }).length;
   var mediaUnavailable = !data.media || !data.media.file || data.media.status === 'source-mismatch';
-  var percent = questions.length ? Math.round(answered / questions.length * 100) : 0;
+  var percent = answerableQuestions.length ? Math.round(answered / answerableQuestions.length * 100) : 0;
   return '<div class="lw-content lw-exam-layout"><main><div class="lw-section-heading"><h2>原书题目</h2><p>整组提交前不显示对错</p></div><div class="lw-question-list">' + questions.map(renderListeningQuestion).join('') + '</div></main>' +
-    '<aside class="lw-exam-side"><div class="lw-progress-block"><div class="lw-progress-value"><span>本次作答</span><strong>' + answered + ' / ' + questions.length + '</strong></div><div class="lw-progress-track"><span style="width:' + percent + '%"></span></div></div>' +
+    '<aside class="lw-exam-side"><div class="lw-progress-block"><div class="lw-progress-value"><span>本次作答</span><strong id="lwExamAnswered">' + answered + ' / ' + answerableQuestions.length + '</strong></div><div class="lw-progress-track"><span id="lwExamProgress" style="width:' + percent + '%"></span></div></div>' +
     '<button class="lw-submit" type="button" onclick="submitListeningAttempt()"' + (mediaUnavailable ? ' disabled' : '') + '>' + (mediaUnavailable ? '正确音频待补' : '提交本组') + '</button><button class="lw-secondary-action" type="button" onclick="openListeningIntensive()">查看教材原文</button>' +
     '<ul class="lw-hint-list"><li>答案会自动保存在本设备，离开后可以继续。</li><li>提交后统一显示正确率、错题与听力依据。</li><li>考试模式不显示文字稿和逐句定位。</li></ul></aside></div>';
 }
@@ -5162,7 +5199,7 @@ function renderListeningTranscript(data) {
   return '<div class="lw-transcript" id="lwTranscript">' + (data.transcriptSegments || []).map(function(segment, index) {
     var context = lookupContext('listening', data.id + '-segment-' + (index + 1), 'listening-transcript', segment.text || '', segment.translation || '', data.sourcePages || []);
     var record = getListeningQualityRecord(data, index), difficult = record && record.status === 'difficult';
-    var translation = segment.translation ? '<details class="lw-transcript-translation"><summary>中文对照</summary><p>' + escapeHtml(segment.translation) + '</p></details>' : '';
+    var translation = segment.translation ? '<p class="lw-transcript-translation"><span>中文：</span>' + escapeHtml(segment.translation) + '</p>' : '';
     return '<article class="lw-transcript-row" data-segment-index="' + index + '" data-timeline-ready="false" data-plain-text="' + escapeHtml(segment.text || '') + '" tabindex="0" onclick="RussianListeningWorkbench.selectSegmentFromRow(' + index + ',event)" onkeydown="if(event.key===\'Enter\'||event.key===\' \'){event.preventDefault();RussianListeningWorkbench.selectSegmentFromRow(' + index + ',event)}">' +
       '<div class="lw-transcript-meta"><span class="lw-transcript-time">--:--</span><button class="lw-transcript-play" type="button" onclick="event.stopPropagation();RussianListeningWorkbench.selectSegment(' + index + ',true)" disabled aria-label="播放本句" title="播放本句">▶</button><div class="lw-transcript-actions"><button class="lw-row-icon lw-difficult-control' + (difficult ? ' is-active' : '') + '" type="button" onclick="event.stopPropagation();toggleListeningDifficult(' + index + ')" aria-label="' + (difficult ? '取消难句标记' : '标记难句') + '" aria-pressed="' + (difficult ? 'true' : 'false') + '" title="' + (difficult ? '取消难句标记' : '标记难句') + '">⚑</button><button class="lw-row-icon lw-dictation-control" type="button" onclick="event.stopPropagation();toggleListeningDictation(' + index + ')" disabled aria-label="逐句听写" title="逐句听写">✎</button></div></div>' +
       '<div class="lw-transcript-copy"><span class="lw-transcript-speaker">' + escapeHtml(segment.displayLabel || segment.speaker || '') + '</span><span class="lw-transcript-text">' + renderRuText(segment.text || '', context) + '</span>' + translation +
@@ -5173,12 +5210,22 @@ function renderListeningEvidenceList(data) {
   var items = (data.questions || []).filter(function(question) { return question.evidence && question.evidence.quote; });
   return '<div class="lw-evidence-list">' + (items.length ? items.map(function(question) {
     var evidence = question.evidence;
-    return '<article class="lw-evidence-item"><strong>第 ' + escapeHtml(String(question.printedNumber || question.id)) + ' 题依据</strong><p>' + renderRuText(evidence.quote, lookupContext('listening', question.id + '-evidence', 'listening-transcript', evidence.quote, '', evidence.pages || [])) + '</p>' +
-      '<button type="button" onclick="RussianListeningWorkbench.focusEvidence(' + escapeHtml(JSON.stringify(evidence.quote)) + ')">定位并播放</button></article>';
+    var unavailable = evidence.status === 'not-in-bound-media';
+    var evidenceItems = getListeningEvidenceItems(evidence);
+    var reasoning = evidence.reasoning ? '<p class="lw-evidence-reasoning">判断：' + escapeHtml(evidence.reasoning) + '</p>' : '';
+    var evidenceBody = evidenceItems.map(function(item, itemIndex) {
+      var label = evidenceItems.length > 1 ? '<span class="lw-evidence-part">依据 ' + (itemIndex + 1) + '</span>' : '';
+      var translation = item.translation ? '<p class="lw-evidence-translation">中文：' + escapeHtml(item.translation) + '</p>' : '';
+      var action = unavailable ? '' : '<button type="button" onclick="RussianListeningWorkbench.focusEvidence(' + escapeHtml(JSON.stringify(item.quote)) + ')">定位并播放</button>';
+      return '<div class="lw-evidence-part-block">' + label + '<p>' + renderRuText(item.quote, lookupContext('listening', question.id + '-evidence-' + itemIndex, 'listening-transcript', item.quote, item.translation || '', evidence.pages || [])) + '</p>' + translation + action + '</div>';
+    }).join('');
+    var note = unavailable ? '<p class="lw-evidence-note">当前绑定视频未收录这段教材原文，不能提供假的音频定位；本题不计入本视频作答。</p>' : '';
+    return '<article class="lw-evidence-item' + (unavailable ? ' is-unavailable' : '') + '"><strong>第 ' + escapeHtml(String(question.printedNumber || question.id)) + ' 题依据</strong>' + evidenceBody + reasoning + note + '</article>';
   }).join('') : '<div class="lw-empty">这组材料尚未逐题绑定听力依据。</div>') + '</div>';
 }
 function renderListeningIntensive(data) {
   var structure = data.mediaStructure || {};
+  var coverage = data.transcriptCoverage || {};
   var featureEnd = Number(structure.featureEndSeconds);
   var structureHint = '';
   if (Number.isFinite(featureEnd) && featureEnd > 0) {
@@ -5186,8 +5233,11 @@ function renderListeningIntensive(data) {
     var seconds = String(Math.floor(featureEnd % 60)).padStart(2, '0');
     structureHint = '<p class="lw-media-structure">正片范围 00:00–' + minutes + ':' + seconds + '；随后为听辨练习，未纳入逐句跳播。</p>';
   }
+  if (coverage.kind === 'source-excerpt' && coverage.textbookSentenceRange) {
+    structureHint += '<p class="lw-media-structure">本视频仅覆盖教材原文第 ' + escapeHtml(String(coverage.textbookSentenceRange.start)) + '–' + escapeHtml(String(coverage.textbookSentenceRange.end)) + ' 句；逐句列表只显示视频中实际出现的台词。</p>';
+  }
   return '<div class="lw-content lw-intensive-layout"><main><div class="lw-section-heading"><h2>逐句精听</h2><p id="lwTranscriptHint">正在校验逐句时间轴...</p>' + structureHint + '</div>' + renderListeningTranscript(data) + '</main>' +
-    '<aside class="lw-intensive-side"><div class="lw-section-heading"><h2>题目依据</h2><p>依据来自已核验题目数据</p></div>' + renderListeningEvidenceList(data) + '</aside></div>';
+    '<aside class="lw-intensive-side"><div class="lw-section-heading"><h2>题目依据</h2><p>原文、中文与音频位置</p></div>' + renderListeningEvidenceList(data) + '</aside></div>';
 }
 function renderListeningReview(data) {
   var attempt = getLatestListeningAttempt(data.id);
