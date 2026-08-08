@@ -14,7 +14,9 @@
   ],
   "styles": [
     "css/reader-listening-workbench.css",
-    "css/app-shell.css"
+    "css/app-shell.css",
+    "css/reader-shell.css",
+    "css/reader-workbench.css"
   ],
   "scripts": [
     "data/russian-morphology.js",
@@ -23,12 +25,15 @@
     "js/app-home.js",
     "js/app-profile.js",
     "js/app-profile-page.js",
+    "js/study-activity-store.js",
+    "js/study-activity-session.js",
     "js/reader-navigation.js",
     "js/russian-b2/dashboard.js",
     "js/russian-b2/listening-quality.js",
     "js/russian-b2/listening-session.js",
     "js/russian-b2/listening-workbench.js",
     "js/russian-b2/reading-review.js",
+    "js/russian-b2/writing-session.js",
     "js/russian-dictionary/core.js",
     "js/russian-dictionary/review.js",
     "js/russian-dictionary/runtime.js",
@@ -43,6 +48,9 @@
     "assets/IMG_20260405_020008.jpg",
     "assets/IMG_20260405_020048.jpg",
     "assets/mmexport1775325437154.jpg"
+  ],
+  "homeAssets": [
+    "assets/white-night-bridge.png"
   ],
   "contentManifest": "data/app-content-manifest.json",
   "contentFiles": "manifest.files",

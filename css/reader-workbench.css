@@ -1,0 +1,615 @@
+/* Phase E: quiet, information-dense workbenches for Reader's complex learning modes. */
+:root {
+  --reader-workbench-wide: 1040px;
+  --reader-workbench-reading: 820px;
+  --reader-workbench-gap: clamp(16px, 3vw, 30px);
+}
+
+/* Theme tokens live on body.theme-*. Resolve derived colors in the same scope. */
+body {
+  --reader-workbench-line: color-mix(in srgb, var(--border) 82%, transparent);
+  --reader-workbench-panel: color-mix(in srgb, var(--surface-solid) 84%, transparent);
+  --reader-workbench-soft: color-mix(in srgb, var(--surface) 72%, transparent);
+  --reader-workbench-muted: color-mix(in srgb, var(--text-secondary) 90%, transparent);
+}
+
+.reader-workbench,
+.reader-workbench-index {
+  width: min(100%, var(--reader-workbench-wide));
+  margin-inline: auto;
+  padding-top: 76px;
+  padding-bottom: calc(96px + env(safe-area-inset-bottom, 0px));
+}
+
+.reader-workbench > .chapter-header,
+.reader-workbench > .b2-quiz-header,
+.reader-workbench-index > .b2-dashboard-hero {
+  max-width: var(--reader-workbench-reading);
+  margin: 0 0 28px;
+  padding: 8px 0 22px;
+  border: 0;
+  border-bottom: 1px solid var(--reader-workbench-line);
+  border-radius: 0;
+  background: transparent;
+  text-align: left;
+}
+
+.reader-workbench > .chapter-header h1,
+.reader-workbench > .b2-quiz-header h1,
+.reader-workbench-index > .b2-dashboard-hero h1 {
+  margin: 0;
+  color: var(--text);
+  font-family: Georgia, 'Noto Serif', serif;
+  font-size: 2rem;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0;
+}
+
+.reader-workbench > .chapter-header h2 {
+  margin: 7px 0 0;
+  color: var(--reader-workbench-muted);
+  font-family: Georgia, 'Noto Serif', serif;
+  font-size: 1.15rem;
+  font-weight: 400;
+  line-height: 1.45;
+  letter-spacing: 0;
+}
+
+.reader-workbench > .chapter-header p,
+.reader-workbench > .b2-quiz-header p,
+.reader-workbench-index > .b2-dashboard-hero p {
+  max-width: 62ch;
+  margin: 9px 0 0;
+  color: var(--reader-workbench-muted);
+  line-height: 1.65;
+}
+
+.reader-workbench .tb-btn,
+.reader-workbench .b2-finish,
+.reader-workbench-index .b2-finish,
+.reader-workbench-index .world-module-continue {
+  min-height: 40px;
+  border: 1px solid var(--accent-border);
+  border-radius: 9px;
+  background: transparent;
+  color: var(--text);
+  box-shadow: none;
+  font-weight: 600;
+}
+
+.reader-workbench .tb-btn:hover,
+.reader-workbench .b2-finish:hover,
+.reader-workbench-index .b2-finish:hover,
+.reader-workbench-index .world-module-continue:hover {
+  border-color: var(--accent);
+  background: var(--accent-dim);
+  transform: none;
+}
+
+/* Indexes: an editorial header followed by discrete, scannable module rows. */
+.reader-workbench-index .b2-dashboard-hero {
+  padding-top: 8px;
+}
+
+.reader-workbench-index .b2-module-grid,
+.reader-workbench-index .world-dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px 24px;
+  border-top: 1px solid var(--reader-workbench-line);
+  border-bottom: 1px solid var(--reader-workbench-line);
+}
+
+.reader-workbench-index .b2-module-card,
+.reader-workbench-index .world-module-card {
+  min-width: 0;
+  min-height: 0;
+  margin: 0;
+  padding: 20px 0 22px;
+  border: 0;
+  border-bottom: 1px solid var(--reader-workbench-line);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  transition: color .18s ease, border-color .18s ease;
+}
+
+.reader-workbench-index .b2-module-card:nth-last-child(-n + 2),
+.reader-workbench-index .world-module-card:nth-last-child(-n + 2) {
+  border-bottom-color: transparent;
+}
+
+.reader-workbench-index .b2-module-card:hover,
+.reader-workbench-index .world-module-card:hover {
+  border-color: var(--accent-border);
+  background: transparent;
+  box-shadow: none;
+  transform: none;
+}
+
+.reader-workbench-index .b2-module-card h2,
+.reader-workbench-index .world-module-card h2 {
+  margin: 5px 0 8px;
+  font-family: Georgia, 'Noto Serif', serif;
+  font-size: 1.35rem;
+  font-weight: 500;
+  line-height: 1.35;
+  letter-spacing: 0;
+}
+
+.reader-workbench-index .b2-module-card p,
+.reader-workbench-index .world-module-card p,
+.reader-workbench-index .world-module-resume {
+  color: var(--reader-workbench-muted);
+  line-height: 1.6;
+}
+
+.reader-workbench-index .b2-continue-card {
+  margin: 0 0 30px;
+  padding: 18px 0 20px;
+  border: 0;
+  border-bottom: 1px solid var(--reader-workbench-line);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.reader-workbench-index .b2-continue-card button {
+  border-radius: 999px;
+  box-shadow: none;
+}
+
+.reader-workbench-index .chapter-grid {
+  grid-template-columns: repeat(auto-fill, minmax(52px, 1fr));
+  gap: 8px;
+}
+
+.reader-workbench-index .chapter-grid .ch-item {
+  min-height: 48px;
+  border: 1px solid var(--reader-workbench-line);
+  border-radius: 8px;
+  background: transparent;
+  box-shadow: none;
+}
+
+/* Quizzes and exam questions are real interaction units, so they retain restrained boundaries. */
+.reader-workbench--quiz,
+.reader-workbench--exam,
+.reader-workbench--review {
+  max-width: 900px;
+}
+
+.reader-workbench .b2-quiz-item,
+.reader-workbench .reading-practice-question {
+  margin: 0 0 14px;
+  padding: 20px;
+  border: 1px solid var(--reader-workbench-line);
+  border-radius: 10px;
+  background: var(--reader-workbench-soft);
+  box-shadow: none;
+}
+
+.reader-workbench .b2-quiz-item h3,
+.reader-workbench .reading-practice-question > p:first-child {
+  margin-bottom: 14px;
+  font-family: Georgia, 'Noto Serif', serif;
+  font-size: 1.05rem;
+  font-weight: 500;
+  line-height: 1.65;
+  letter-spacing: 0;
+}
+
+.reader-workbench .b2-option,
+.reader-workbench .b2-option-row {
+  min-height: 44px;
+  border-radius: 8px;
+  background: transparent;
+  box-shadow: none;
+}
+
+.reader-workbench .b2-option-row:hover:not(.correct):not(.wrong):not(.submitted) {
+  border-color: var(--accent-border);
+  background: var(--glass-hover);
+  box-shadow: none;
+  transform: none;
+}
+
+.reader-workbench .b2-explanation,
+.reader-workbench .reading-error-reason,
+.reader-workbench .source-warning {
+  margin-top: 14px;
+  padding: 12px 14px;
+  border: 0;
+  border-left: 2px solid var(--accent-border);
+  border-radius: 0;
+  background: var(--glass);
+}
+
+.reader-workbench .source-warning {
+  border-left-color: var(--warning);
+  color: var(--reader-workbench-muted);
+}
+
+.reader-workbench--quiz .b2-knowledge-nav {
+  margin: 0 0 24px;
+  padding: 0 0 24px;
+  border: 0;
+  border-bottom: 1px solid var(--reader-workbench-line);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.reader-workbench--quiz .b2-knowledge-grid {
+  gap: 8px;
+}
+
+.reader-workbench--quiz .b2-knowledge-card {
+  min-height: 0;
+  padding: 14px;
+  border: 1px solid var(--reader-workbench-line);
+  border-radius: 8px;
+  background: transparent;
+  box-shadow: none;
+}
+
+.reader-workbench--quiz .b2-knowledge-card:hover {
+  border-color: var(--accent-border);
+  background: var(--glass-hover);
+  transform: none;
+}
+
+/* Writing, speaking, archive and exam metadata use dividers instead of stacked containers. */
+.reader-workbench--writing,
+.reader-workbench--speaking,
+.reader-workbench--archive {
+  max-width: 860px;
+}
+
+.reader-workbench--writing > section,
+.reader-workbench--speaking > section,
+.reader-workbench--archive > section,
+.reader-workbench--exam > section {
+  margin: 0;
+  padding: 22px 0;
+  border: 0;
+  border-bottom: 1px solid var(--reader-workbench-line);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.reader-workbench--writing > details,
+.reader-workbench--speaking > details {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-bottom: 1px solid var(--reader-workbench-line);
+  border-radius: 0;
+  background: transparent;
+}
+
+.reader-workbench--writing > details > summary,
+.reader-workbench--speaking > details > summary {
+  padding: 20px 0;
+}
+
+.reader-workbench--writing h2,
+.reader-workbench--speaking h2,
+.reader-workbench--archive h2,
+.reader-workbench--exam h2 {
+  margin: 0 0 10px;
+  font-size: 1rem;
+  font-weight: 650;
+  letter-spacing: 0;
+}
+
+.reader-workbench .writing-draft,
+.reader-workbench .speaking-transcript {
+  min-height: 220px;
+  border: 1px solid var(--reader-workbench-line);
+  border-radius: 8px;
+  background: var(--reader-workbench-panel);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / .04);
+}
+
+.reader-workbench .writing-draft:focus,
+.reader-workbench .speaking-transcript:focus {
+  outline: 2px solid var(--accent-border);
+  outline-offset: 2px;
+}
+
+.reader-workbench--archive input[type="file"] {
+  width: 100%;
+  margin-top: 12px;
+  padding: 12px;
+  border: 1px dashed var(--accent-border);
+  border-radius: 8px;
+  color: var(--reader-workbench-muted);
+  background: transparent;
+}
+
+/* Reading practice shares the calm reading measure while keeping exercises easy to scan. */
+.reader-workbench--reading-practice,
+.reader-workbench--reading-speaking {
+  max-width: var(--reader-workbench-wide);
+  padding-bottom: 0 !important;
+}
+
+.reader-workbench-layout.reader-reading-layout,
+.reader-workbench-layout.rs-reading-mode,
+.reader-workbench-layout.rs-practice-mode {
+  padding-top: 6px;
+}
+
+.reader-workbench-layout .reader-pane {
+  padding-left: var(--reader-workbench-gap);
+  padding-right: var(--reader-workbench-gap);
+}
+
+.reader-workbench-layout .chapter-content,
+.reader-workbench-layout .reader-pane > section,
+.reader-workbench-layout .reader-pane > nav,
+.reader-workbench-layout .learning-support {
+  max-width: var(--reader-workbench-reading);
+  margin-inline: auto;
+}
+
+.reader-workbench-layout .reader-pane > section:not(.chapter-content) {
+  margin-top: 30px;
+  padding-top: 24px;
+  border-top: 1px solid var(--reader-workbench-line);
+}
+
+.reader-workbench-layout .learning-support {
+  margin-top: 34px;
+  padding-top: 24px;
+  border-top: 1px solid var(--reader-workbench-line);
+}
+
+.reader-workbench-layout .learning-card {
+  margin: 0;
+  padding: 18px 0;
+  border: 0;
+  border-bottom: 1px solid var(--reader-workbench-line);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.reader-workbench-layout .rs-practice-panel {
+  border-color: var(--reader-workbench-line);
+  border-radius: 10px;
+  background: var(--reader-workbench-soft);
+  box-shadow: none;
+}
+
+.reader-workbench-layout .rs-practice-panel-header {
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--reader-workbench-line);
+}
+
+/* The listening engine owns player and timeline geometry; only the outer visual language converges. */
+.reader-workbench--listening {
+  width: min(100%, 1120px);
+  padding-top: 66px;
+}
+
+.reader-workbench--listening .lw-topbar,
+.reader-workbench--listening .lw-player,
+.reader-workbench--listening .lw-content,
+.reader-workbench--listening .lw-media-warning {
+  border-color: var(--reader-workbench-line);
+  box-shadow: none;
+}
+
+.reader-workbench--listening .lw-section-heading {
+  border-bottom-color: var(--reader-workbench-line);
+}
+
+.reader-workbench--listening .lw-empty {
+  min-height: 180px;
+  display: grid;
+  align-content: center;
+  justify-items: start;
+  color: var(--reader-workbench-muted);
+}
+
+/* Paper-writing support: flatten nested learning cards but retain source and stage labels. */
+.reader-workbench--writing-speaking {
+  max-width: 900px;
+}
+
+.reader-workbench--writing-speaking > .source-warning,
+.reader-workbench--writing-speaking > .ws-chapter-summary {
+  margin: 0 0 18px;
+}
+
+.reader-workbench--writing-speaking > .learning-card,
+.reader-workbench--writing-speaking > section,
+.reader-workbench--writing-speaking > details {
+  margin: 0;
+  padding: 20px 0;
+  border: 0;
+  border-bottom: 1px solid var(--reader-workbench-line);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.reader-workbench--writing-speaking .learning-card .learning-card,
+.reader-workbench--writing-speaking .ws-assist-block,
+.reader-workbench--writing-speaking .ws-task-workbench {
+  border-color: var(--reader-workbench-line);
+  border-radius: 8px;
+  background: var(--reader-workbench-soft);
+  box-shadow: none;
+}
+
+.reader-workbench--writing-speaking .ws-workbench-step {
+  border-bottom-color: var(--reader-workbench-line);
+}
+
+.reader-workbench--writing-speaking .ws-source-label,
+.reader-workbench--writing-speaking .ws-task-meta span,
+.reader-workbench--writing-speaking .ws-task-badge {
+  border-radius: 5px;
+  font-weight: 600;
+}
+
+/* Grammar knowledge pages read as reference documents, not a wall of cards. */
+.reader-workbench--knowledge {
+  max-width: 980px;
+}
+
+.reader-workbench--knowledge .b2-study-card-header,
+.reader-workbench--knowledge .zlatoust-rule-header,
+.reader-workbench--knowledge .zlatoust-learning-header {
+  padding: 20px 0;
+  border: 0;
+  border-bottom: 1px solid var(--reader-workbench-line);
+  border-radius: 0;
+  background: transparent;
+}
+
+.reader-workbench--knowledge .b2-study-section,
+.reader-workbench--knowledge .zlatoust-learning-panel,
+.reader-workbench--knowledge .zlatoust-objectives,
+.reader-workbench--knowledge .zlatoust-final-check {
+  padding-top: 18px;
+  border-top: 1px solid var(--reader-workbench-line);
+  background: transparent;
+  box-shadow: none;
+}
+
+.reader-workbench--knowledge .zlatoust-section-card,
+.reader-workbench--knowledge .zlatoust-contrast-card,
+.reader-workbench--knowledge details {
+  border-color: var(--reader-workbench-line);
+  border-radius: 8px;
+  box-shadow: none;
+}
+
+/* Empty, loading and error states stay quiet and use copy as the main signal. */
+.reader-workbench .loading,
+.reader-workbench-index .loading {
+  min-height: 220px;
+  display: grid;
+  place-content: center;
+  gap: 12px;
+  color: var(--reader-workbench-muted);
+  text-align: center;
+}
+
+.reader-workbench .loading .spinner,
+.reader-workbench-index .loading .spinner {
+  width: 26px;
+  height: 26px;
+  border-width: 2px;
+}
+
+@media (max-width: 760px) {
+  .reader-workbench,
+  .reader-workbench-index {
+    padding: 64px 16px calc(88px + env(safe-area-inset-bottom, 0px));
+  }
+
+  html.app-shell-enabled .reader-workbench,
+  html.app-shell-enabled .reader-workbench-index {
+    padding-top: calc(64px + var(--app-shell-safe-top, 0px));
+  }
+
+  .reader-workbench > .chapter-header h1,
+  .reader-workbench > .b2-quiz-header h1,
+  .reader-workbench-index > .b2-dashboard-hero h1 {
+    font-size: 1.65rem;
+  }
+
+  .reader-workbench-index .b2-module-grid,
+  .reader-workbench-index .world-dashboard-grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .reader-workbench-index .b2-module-card:nth-last-child(-n + 2),
+  .reader-workbench-index .world-module-card:nth-last-child(-n + 2) {
+    border-bottom-color: var(--reader-workbench-line);
+  }
+
+  .reader-workbench-index .b2-module-card:last-child,
+  .reader-workbench-index .world-module-card:last-child {
+    border-bottom-color: transparent;
+  }
+
+  .reader-workbench .b2-quiz-item,
+  .reader-workbench .reading-practice-question {
+    padding: 16px;
+  }
+
+  .reader-workbench-layout .reader-pane {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .reader-workbench--reading-practice,
+  .reader-workbench--reading-speaking {
+    padding-bottom: 0 !important;
+  }
+
+  .reader-workbench--listening {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .reader-workbench--listening > * {
+    max-width: calc(100% - 24px);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .reader-workbench--writing-speaking .ws-chapter-summary {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .reader-workbench-layout.rs-practice-mode .rs-practice-panel {
+    order: -1;
+    margin-bottom: 24px;
+    padding-top: 16px;
+    border-top: 0;
+    border-bottom: 1px solid var(--reader-workbench-line);
+  }
+
+  .reader-workbench-layout.rs-practice-mode .reader-pane {
+    order: 2;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reader-workbench *,
+  .reader-workbench-index * {
+    scroll-behavior: auto !important;
+  }
+
+  .reader-workbench .b2-option-row,
+  .reader-workbench .b2-quiz-item,
+  .reader-workbench-index .b2-module-card,
+  .reader-workbench-index .world-module-card {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .reader-workbench,
+  .reader-workbench-index,
+  .reader-workbench--listening .lw-topbar,
+  .reader-workbench--listening .lw-player,
+  .reader-workbench--listening .lw-content,
+  .reader-workbench-layout .rs-practice-panel {
+    background-color: var(--surface-solid);
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+}

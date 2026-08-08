@@ -22,10 +22,13 @@ test('textbook knowledge cards fall back to a source-labelled overview', () => {
   assert.match(reader, /来源与核对状态/);
 });
 
-test('stress rendering preserves source stress before applying automatic stress', () => {
+test('stress rendering stays disabled and normalizes source text to plain Russian', () => {
   assert.match(reader, /data-original-word/);
   assert.match(reader, /data-stress-source/);
-  assert.match(reader, /hasStressMark\(original\)/);
+  assert.match(reader, /function stripStressMarks\(text\)/);
+  assert.match(reader, /var plain = stripStressMarks/);
+  assert.match(reader, /removeAttribute\('data-stress-source'\)/);
+  assert.doesNotMatch(reader, /function hasStressMark\(/);
 });
 
 test('World People is a single bookshelf entry with cached chapter titles', () => {

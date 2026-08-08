@@ -320,6 +320,11 @@ body {
 .dp-ai-btn.loading { opacity: 0.6; pointer-events: none; }
 .dp-ai-result { margin-top: 12px; font-size: 13px; color: var(--text-secondary); line-height: 1.7; }
 .dp-ai-result:empty { display: none; }
+.dp-action-bar { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin-top: 18px; padding-top: 12px; border-top: 1px solid var(--border); }
+.dp-action-bar .dp-ai-btn { grid-column: 1 / -1; }
+.dp-action-bar .tb-btn, .dp-action-bar .btn-save-vocab { width: 100%; min-height: 40px; }
+.reader-ai-action { margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--border); }
+.reader-ai-action p { margin: 0 0 8px; color: var(--text-dim); font-size: 13px; line-height: 1.55; }
 
 /* 来源 */
 .dp-source { margin-top: 12px; font-size: 11px; color: var(--text-dim); }
@@ -699,6 +704,8 @@ body {
 .zlatoust-answer-rules { display: flex; flex-wrap: wrap; gap: 8px; }
 .zlatoust-answer-rules button { border: 0; padding: 0; color: var(--accent); background: transparent; font: inherit; font-weight: 700; text-align: left; cursor: pointer; }
 .zlatoust-answer-rules button:hover { text-decoration: underline; }
+.zlatoust-focus-axes { display: flex; flex-wrap: wrap; gap: 7px; margin: 0 0 10px; }
+.zlatoust-focus-axes span { padding: 5px 8px; border: 1px solid var(--border); border-radius: 6px; background: var(--surface); color: var(--text-dim); font-size: 12px; line-height: 1.4; }
 .zlatoust-answer-explanation .zlatoust-decision-steps { margin: 0; padding-left: 22px; display: grid; gap: 9px; list-style: decimal; counter-reset: none; }
 .zlatoust-answer-explanation .zlatoust-decision-steps li { padding-left: 3px; line-height: 1.65; overflow-wrap: anywhere; }
 .zlatoust-correct-analysis { border-left: 3px solid #10b981 !important; background: rgba(16,185,129,.08) !important; }
@@ -867,7 +874,7 @@ body.theme-warm .listening-entry-zh, body.theme-warm .listening-section-count { 
   margin-bottom: 0.6em; border-radius: 8px; cursor: pointer; padding: 6px 10px;
   border-left: 3px solid transparent; transition: all 0.2s; position: relative;
 }
-.para-block:hover { background: var(--para-hover); }
+@media (hover: hover) and (pointer: fine) { .para-block:hover { background: var(--para-hover); } }
 .para-block.expanded { border-left-color: var(--para-expanded-border); }
 .para-block:hover .para-actions { opacity: 1; }
 .ru-text { color: var(--ru-text); font-size: 1.05em; line-height: 1.9; font-family: Georgia, 'Noto Serif', 'Segoe UI', serif; text-rendering: optimizeLegibility; font-feature-settings: "kern" 1, "liga" 1; text-indent: 2em; }
@@ -894,7 +901,7 @@ body.theme-warm .listening-entry-zh, body.theme-warm .listening-section-count { 
 
 /* ─── 可点击单词 ─── */
 .ru-word { cursor: pointer; border-radius: 2px; transition: background 0.1s; user-select: none; -webkit-user-select: none; -webkit-touch-callout: none; letter-spacing: normal; word-spacing: normal; white-space: nowrap; }
-.ru-word:hover { background: var(--highlight-word); }
+@media (hover: hover) and (pointer: fine) { .ru-word:hover { background: var(--highlight-word); } }
 .ru-word:active { background: var(--accent-dim); }
 .ru-word.dictionary-active,
 .ru-word.dictionary-active:hover,
@@ -907,6 +914,7 @@ body.theme-warm .listening-entry-zh, body.theme-warm .listening-section-count { 
   position: fixed; top: 12px; right: 12px; z-index: 150;
   display: flex; gap: 8px;
 }
+.reader-shell-title { display: none; }
 .fab-btn {
   width: 38px; height: 38px; border-radius: 50%;
   background: rgba(255,255,255,0.3);
@@ -1218,20 +1226,29 @@ body.theme-warm .listening-entry-zh, body.theme-warm .listening-section-count { 
   .reader-pane { flex: 1 1 auto; min-height: 100%; }
   .resize-handle { display: none; }
   #detailPanel {
-    position: fixed; inset: auto 0 0; width: 100%; height: 52dvh;
+    --dictionary-half-height: 52dvh;
+    --dictionary-full-height: 92dvh;
+    position: fixed; inset: auto 0 0; width: 100%; height: var(--dictionary-half-height);
     min-height: 0; max-height: 92dvh; overflow-y: auto;
     z-index: 220; border-radius: 20px 20px 0 0;
     background: var(--surface-solid); box-shadow: 0 -12px 40px rgba(0,0,0,0.28);
     transform: translateY(105%); transition: transform 180ms ease, height 180ms ease;
+    overscroll-behavior: contain; -webkit-overflow-scrolling: touch;
   }
-  #detailPanel[data-dictionary-state="half"] { transform: translateY(0); height: 52dvh; }
-  #detailPanel[data-dictionary-state="full"] { transform: translateY(0); height: 92dvh; }
+  #detailPanel[data-dictionary-state="half"] { transform: translateY(0); height: var(--dictionary-half-height); }
+  #detailPanel[data-dictionary-state="full"] { transform: translateY(0); height: var(--dictionary-full-height); }
   #detailPanel[data-dictionary-state="closed"] { transform: translateY(105%); }
+  #detailPanel[data-dictionary-dragging="true"] { transition: none; will-change: height; }
   .dictionary-drawer-handle {
-    display: block; width: 48px; height: 5px; margin: 10px auto 2px;
-    border-radius: 999px; touch-action: none;
+    position: sticky; top: 0; z-index: 12; display: block; width: 100%; height: 42px; margin: 0;
+    border-radius: 20px 20px 0 0; touch-action: none; background: transparent;
   }
+  .dictionary-drawer-handle::before { content: ""; display: block; width: 48px; height: 5px; margin: 11px auto 0; border-radius: 999px; background: var(--text-dim); }
   .detail-panel-inner { padding: 8px 20px 24px; }
+  .detail-close { width: 42px; height: 42px; line-height: 42px; font-size: 18px; }
+  html.dictionary-sheet-open body { overflow: hidden; overscroll-behavior: none; }
+  .para-block, .ru-text { -webkit-tap-highlight-color: transparent; }
+  .para-block:active { background: transparent; }
 }
 /* ─── 章节完成提示条 ─── */
 .complete-prompt {
@@ -1301,10 +1318,14 @@ body.theme-warm .listening-entry-zh, body.theme-warm .listening-section-count { 
   .reader-layout { display: block; max-width: 100%; padding: 0 0 72px; }
   .reader-pane { width: 100%; min-width: 0; padding: 0 clamp(22px, 5vw, 52px); }
   .resize-handle { display: none; }
-  #detailPanel { position: fixed; inset: auto 0 0; z-index: 220; width: 100%; max-width: none; border-left: 0; border-radius: 16px 16px 0 0; transform: translateY(105%); }
-  #detailPanel[data-dictionary-state="half"] { height: 46dvh; transform: translateY(0); }
-  #detailPanel[data-dictionary-state="full"] { height: 88dvh; transform: translateY(0); }
-  .dictionary-drawer-handle { display: block; }
+  #detailPanel { --dictionary-half-height: 46dvh; --dictionary-full-height: 88dvh; position: fixed; inset: auto 0 0; z-index: 220; width: 100%; max-width: none; max-height: 88dvh; overflow-y: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; border-left: 0; border-radius: 16px 16px 0 0; transform: translateY(105%); transition: transform 180ms ease, height 180ms ease; }
+  #detailPanel[data-dictionary-state="half"] { height: var(--dictionary-half-height); transform: translateY(0); }
+  #detailPanel[data-dictionary-state="full"] { height: var(--dictionary-full-height); transform: translateY(0); }
+  #detailPanel[data-dictionary-dragging="true"] { transition: none; will-change: height; }
+  .dictionary-drawer-handle { position: sticky; top: 0; z-index: 12; display: block; width: 100%; height: 42px; margin: 0; border-radius: 16px 16px 0 0; touch-action: none; background: transparent; }
+  .dictionary-drawer-handle::before { content: ""; display: block; width: 48px; height: 5px; margin: 11px auto 0; border-radius: 999px; background: var(--text-dim); }
+  .detail-panel-inner { padding: 8px 28px 32px; }
+  html.dictionary-sheet-open body { overflow: hidden; overscroll-behavior: none; }
 }
 @media (min-width: 900px) and (max-width: 1366px) and (orientation: landscape) {
   .reader-layout { display: flex; max-width: 100%; }
@@ -1680,10 +1701,10 @@ body.theme-warm .listening-entry-zh, body.theme-warm .listening-section-count { 
 </div>
 
 <script src="data/russian-morphology.js"></script>
-<script src="js/russian-dictionary/core.js?v=20260730-2"></script>
+<script src="js/russian-dictionary/core.js?v=20260807-1"></script>
 <script src="js/russian-dictionary/review.js?v=20260723-1"></script>
-<script src="js/russian-dictionary/storage.js?v=20260730-2"></script>
-<script src="js/russian-dictionary/runtime.js?v=20260730-2"></script>
+<script src="js/russian-dictionary/storage.js?v=20260807-1"></script>
+<script src="js/russian-dictionary/runtime.js?v=20260807-1"></script>
 <script src="js/russian-b2/reading-review.js?v=20260723-1"></script>
 <script src="js/russian-b2/dashboard.js"></script>
 <script src="js/russian-b2/listening-session.js?v=20260726-1"></script>
@@ -1840,6 +1861,7 @@ function saveLastRead() {
       }
     }
   } catch(e) {}
+  if (window.syncReaderActivityContext) window.syncReaderActivityContext();
 }
 
 /* ══════════════════════════════════════════════
@@ -1909,9 +1931,34 @@ function writeMorphologyToIDB(data) {
 /* ══════════════════════════════════════════════
    主题 / 字号 / 字体
    ══════════════════════════════════════════════ */
+function resolveReaderShellView() {
+  var readerLayout = document.getElementById('readerLayout');
+  var practiceLayout = !!readerLayout && readerLayout.classList.contains('rs-practice-mode');
+  if (curView === 'reading') return practiceLayout ? 'practice' : 'reading';
+  if (curView === 'study-card' || curView === 'zlatoust-rule' || curView === 'wrong-book') return 'practice';
+  return curView === 'shelf' ? 'shelf' : 'chapters';
+}
+function syncReaderShellState() {
+  var root = document.documentElement;
+  if (!root) return;
+  root.dataset.appTheme = 'white-night';
+  root.dataset.readerView = resolveReaderShellView();
+}
 function applyTheme() {
-  document.body.className = 'theme-' + state.theme + ' size-' + state.fontSize + ' ';
-  if (state.fontFamily === 'sans') document.body.className += 'font-sans';
+  var body = document.body;
+  var root = document.documentElement;
+  if (!body || !root) return;
+  ['theme-dark', 'theme-sepia', 'theme-warm', 'theme-paper'].forEach(function(className) {
+    body.classList.remove(className);
+  });
+  ['size-small', 'size-medium', 'size-large', 'size-xlarge'].forEach(function(className) {
+    body.classList.remove(className);
+  });
+  body.classList.remove('font-sans');
+  body.classList.add('theme-' + state.theme, 'size-' + state.fontSize);
+  if (state.fontFamily === 'sans') body.classList.add('font-sans');
+  root.dataset.readingTheme = state.theme;
+  syncReaderShellState();
 }
 function cycleTheme() {
   var i = THEMES.indexOf(state.theme);
@@ -1980,8 +2027,10 @@ function b2FloatingNavigation(options) {
   if (options.menuAction) {
     buttons.push('<button class="fab-btn" id="breadcrumbTrigger" onclick="' + options.menuAction + '" title="导航" aria-label="导航目录">☰</button>');
   }
-  return '<nav class="reader-page-switcher" aria-label="学习应用切换"><button type="button" class="is-active" aria-current="page">阅读器</button><button type="button" onclick="openVocabulary()">生词本</button></nav>' +
-    '<nav class="fab-group-top b2-floating-navigation" aria-label="学习页面导航">' + buttons.join('') + '</nav>';
+  var shellTitle = options.title || (curView === 'reading' && curBook && curBook.title) || '';
+  var title = shellTitle ? '<span class="reader-shell-title" aria-live="polite">' + escapeHtml(shellTitle) + '</span>' : '';
+  return '<nav class="reader-page-switcher reader-shell-nav" aria-label="学习应用切换"><button type="button" class="is-active" aria-current="page">阅读器</button><button type="button" onclick="openVocabulary()">生词本</button></nav>' +
+    '<nav class="fab-group-top b2-floating-navigation reader-shell-tools" aria-label="学习页面导航">' + title + buttons.join('') + '</nav>';
 }
 
 /* ─── 面包屑目录浮窗 ─── */
@@ -2558,7 +2607,8 @@ function fetchChapter(bookId, idx) {
    书架
    ══════════════════════════════════════════════ */
 function showShelf() {
-  curView = 'shelf'; curBook = null; curCh = -1; stopTimer();
+  curView = 'shelf'; curBook = null; curCh = -1; stopTimer(); syncReaderShellState();
+  if (window.syncReaderActivityContext) window.syncReaderActivityContext();
   _wrongAnswerQuizReturn = null;
   var prompt = document.getElementById('completePrompt'); if (prompt) prompt.classList.remove('visible');
   var app = document.getElementById('app');
@@ -2642,7 +2692,7 @@ function renderShelf() {
     continueCard = '<section class="b2-continue-card shelf-continue"><p>继续上次学习</p><h2>' + escapeHtml(getShelfContinueLabel(latest)) + '</h2>' +
       (savedAt ? '<small>最近保存于 ' + escapeHtml(savedAt) + '</small>' : '') + '<button type="button" onclick="continueShelfLearning()">继续学习</button></section>';
   }
-  var parts = [b2FloatingNavigation({ menuAction: 'showBreadcrumb()' }) + '<main class="main-container"><header class="shelf-hero"><h1>学习书架</h1><p>从最近进度继续，或直接进入你要练的教材。</p></header>', continueCard,
+  var parts = [b2FloatingNavigation({ menuAction: 'showBreadcrumb()' }) + '<main class="main-container reader-shelf-view"><header class="shelf-hero"><h1>学习书架</h1><p>从最近进度继续，或直接进入你要练的教材。</p></header>', continueCard,
     '<div class="shelf-tools"><button class="shelf-tool" type="button" onclick="showWrongAnswerBook()">错题复习 · ' + wrongCount + ' 题待掌握</button><button class="shelf-tool" type="button" onclick="showB2ArchivePanel()">学习记录备份</button></div>',
     '<section class="shelf-section"><div class="shelf-section-heading"><h2>我的教材</h2></div><div class="shelf-book-grid">'];
   var worldDone = 0, worldTotal = 0;
@@ -2709,7 +2759,7 @@ function importB2LearningArchive(event) {
 }
 function showB2ArchivePanel() {
   var app = document.getElementById('app');
-  app.innerHTML = b2FloatingNavigation({ backAction: 'showShelf()', backTitle: '书架' }) + '<main class="main-container"><header class="chapter-header"><h1>学习记录备份</h1><p>仅包含俄语 B2 的做题进度、知识卡自测与写作/口语草稿；不会导出其他书籍、词典缓存或界面设置。</p></header><section><h2>导出</h2><p>下载一份 JSON 文件，用于迁移或离线备份。</p><button class="tb-btn" onclick="exportB2LearningArchive()">导出学习记录</button></section><section><h2>恢复与合并</h2><p>选择此前导出的备份。较新的记录会合并；相同时间但内容不同的记录保留本机版本。</p><input type="file" accept="application/json,.json" onchange="importB2LearningArchive(event)"></section></main>';
+  app.innerHTML = b2FloatingNavigation({ backAction: 'showShelf()', backTitle: '书架' }) + '<main class="main-container reader-workbench reader-workbench--archive"><header class="chapter-header"><h1>学习记录备份</h1><p>仅包含俄语 B2 的做题进度、知识卡自测与写作/口语草稿；不会导出其他书籍、词典缓存或界面设置。</p></header><section><h2>导出</h2><p>下载一份 JSON 文件，用于迁移或离线备份。</p><button class="tb-btn" onclick="exportB2LearningArchive()">导出学习记录</button></section><section><h2>恢复与合并</h2><p>选择此前导出的备份。较新的记录会合并；相同时间但内容不同的记录保留本机版本。</p><input type="file" accept="application/json,.json" onchange="importB2LearningArchive(event)"></section></main>';
 }
 
 /* ══════════════════════════════════════════════
@@ -2718,7 +2768,8 @@ function showB2ArchivePanel() {
 function showChapters(bookId, preserveScroll) {
   var previousScroll = preserveScroll ? window.scrollY : 0;
   saveLastRead();
-  curView = 'chapters'; curCh = -1; stopTimer();
+  curView = 'chapters'; curCh = -1; stopTimer(); syncReaderShellState();
+  if (window.syncReaderActivityContext) window.syncReaderActivityContext();
   var prompt = document.getElementById('completePrompt'); if (prompt) prompt.classList.remove('visible');
   document.getElementById('searchBar').classList.remove('visible');
   if (curBook && curBook.id === bookId && curBook.isB2Module) {
@@ -2746,7 +2797,7 @@ function showChapters(bookId, preserveScroll) {
   var isWorldModule = isWorldPeopleBook(curBook);
   var usesGroupedWorldDirectory = curBook.id === 'listening_speaking' || !!WORLD_DIRECTORY_GROUP_CONFIG[curBook.id];
   html +=
-    '<div class="main-container' + (isWorldModule ? ' world-chapter-directory' : '') + '"><div class="chapter-list-header">' +
+    '<div class="main-container reader-chapters-view' + (isWorldModule ? ' world-chapter-directory' : '') + '"><div class="chapter-list-header">' +
     '<h2>' + escapeHtml(curBook.title) + '</h2>' +
     '<div class="ch-meta">' + curBook.chapters + ' 章 · 已读 ' + done + ' 章' +
     (curBook.direction ? ' · ' + (curBook.direction === 'cn→ru' ? '中文→俄语' : '俄语→中文') : '') +
@@ -2830,9 +2881,10 @@ function loadB2DashboardInventories(manifest) {
 
 function renderB2Dashboard(book) {
   b2BookManifest = book;
-  curView = 'b2-dashboard';
+  curView = 'b2-dashboard'; syncReaderShellState();
   curBook = getBookById('russian_b2');
   curCh = -1;
+  var prompt = document.getElementById('completePrompt'); if (prompt) prompt.classList.remove('visible');
   var inventories = arguments[1] || {};
   var lastRead = parseStoredObject('rr_lastread_' + NOVEL_ID);
   var model = window.RussianB2Dashboard.buildDashboardProgress({
@@ -2863,13 +2915,14 @@ function renderB2Dashboard(book) {
       '<small>' + escapeHtml(getB2ModuleDescription(module)) + '</small></button>';
   }).join('');
   document.getElementById('app').innerHTML = b2FloatingNavigation({ backAction: 'showShelf()', backTitle: '书架' }) +
-    '<main class="main-container b2-dashboard"><header class="b2-dashboard-hero"><h1>俄语 B2 全模块</h1><p>所有专项属于同一本教材。可以从模块继续学习，也可以进入统一复习。</p></header>' + continueCard + '<div class="b2-module-grid">' + cards + '</div></main>';
+    '<main class="main-container b2-dashboard reader-workbench-index"><header class="b2-dashboard-hero"><h1>俄语 B2 全模块</h1><p>所有专项属于同一本教材。可以从模块继续学习，也可以进入统一复习。</p></header>' + continueCard + '<div class="b2-module-grid">' + cards + '</div></main>';
   window.scrollTo(0, 0);
 }
 
 function showB2Dashboard() {
   saveLastRead();
   _wrongAnswerQuizReturn = null;
+  var prompt = document.getElementById('completePrompt'); if (prompt) prompt.classList.remove('visible');
   var rootBook = getBookById('russian_b2');
   if (!rootBook) return;
   curBook = rootBook;
@@ -2904,7 +2957,7 @@ function continueB2Learning() {
 
 function renderB2ModuleChapters() {
   if (!curBook || !curBook.isB2Module) return;
-  curView = 'chapters';
+  curView = 'chapters'; syncReaderShellState();
   curCh = -1;
   var stats = readStats['russian_b2:' + curBook.moduleId] || {};
   var html = b2FloatingNavigation({ backAction: 'showB2Dashboard()', backTitle: '仪表盘' }) +
@@ -2967,7 +3020,7 @@ function restoreLastRead(lastRead) {
    阅读视图
    ══════════════════════════════════════════════ */
 function goChapter(idx, restoreState) {
-  curView = 'reading'; curCh = idx; chDone = false; chStart = Date.now(); peekCount = 0;
+  curView = 'reading'; curCh = idx; chDone = false; chStart = Date.now(); peekCount = 0; syncReaderShellState();
   _sessionSavedWords = [];
   _sessionLookedUp = [];
   _fetchId++;
@@ -3265,14 +3318,14 @@ function renderStudyCard(card, point) {
     '<section class="b2-study-section"><h2>这一组题考什么</h2><p>' + escapeHtml(card.overview) + '</p></section>' +
     '<section class="b2-study-section"><h2>做题判断顺序</h2><ol>' + card.decisionSteps.map(function(step) { return '<li>' + escapeHtml(step) + '</li>'; }).join('') + '</ol></section>' +
     '<section class="b2-study-section"><h2>核心规则</h2><div class="b2-study-rule-grid">' + rules + '</div></section>';
-  return '<div class="main-container b2-study-card">' +
+  return '<div class="main-container b2-study-card reader-workbench reader-workbench--knowledge">' +
     '<header class="b2-quiz-header"><h1>' + escapeHtml(card.title) + '</h1><p>对应练习：' + escapeHtml(formatQuestionRange(card.exerciseIds)) + '</p><div class="b2-study-status">已答 ' + progress.answered + ' · 历史错 ' + progress.everWrong + ' · 待掌握 ' + progress.pending + '</div></header>' +
     richBody +
     (card.lessons ? renderStudyChecks(card) : '') + renderStudyComparisons(card.comparisons, card.id) + renderStudyExamples(card.examples, card.id) + renderStudyPitfalls(card.pitfalls) +
     '<section class="b2-study-actions"><button class="b2-finish" onclick="openStudyCardPractice(\'' + card.partId + '\',' + quizIds + ',false)">做本知识点全部题目</button><button class="b2-finish" onclick="openStudyCardPractice(\'' + card.partId + '\',' + quizIds + ',true)">只重做本点错题</button><button class="b2-finish" onclick="showWrongAnswerBook(\'' + card.partId + '\',\'' + escapeHtml(point.title) + '\')">查看错题本</button></section></div>';
 }
 function showStudyCard(partId, pointId) {
-  curView = 'study-card'; stopTimer();
+  curView = 'study-card'; stopTimer(); syncReaderShellState();
   var app = document.getElementById('app');
   if (curBook && !curBook.isB2Module) {
     var integratedSectionId = getZlatoustIntegratedSectionForKnowledgePoint(partId, pointId);
@@ -3677,7 +3730,7 @@ function showZlatoustRuleUnit(sectionId, ruleId) {
   Promise.all([unitPromise, learningPromise]).then(function(result) {
     var unit = result[0], learningPage = result[1];
     var chapterIndex = getZlatoustChapterIndex(unit.chapterId);
-    curView = 'zlatoust-rule';
+    curView = 'zlatoust-rule'; syncReaderShellState();
     updateZlatoustLearningRecord(sectionId, function(record) {
       record.openedAt = record.openedAt || new Date().toISOString();
       record.lastVisitedAt = new Date().toISOString();
@@ -3969,8 +4022,10 @@ function renderZlatoustLearningStage(page, stage) {
     '<details class="zlatoust-stage-practice"><summary>原书正式题：' + (stage.exerciseIds || []).length + ' 题</summary>' + renderZlatoustStageExercises(stage) + '</details></section>';
 }
 function renderZlatoustSummaryTable(page) {
+  var headers = page.summaryTableHeaders || {};
   var rows = (page.summaryTable || []).map(function(row) { return '<tr><td>' + escapeHtml(row.question) + '</td><td>' + escapeHtml(row.imperfective) + '</td><td>' + escapeHtml(row.perfective) + '</td><td>' + escapeHtml(row.boundary) + '</td></tr>'; }).join('');
-  return '<section class="zlatoust-summary-table" id="zlatoust-summary"><h2>' + page.stages.length + ' 组判断总表</h2><div class="zlatoust-table-wrap"><table class="zlatoust-table"><thead><tr><th>先问什么</th><th>未完成体视角</th><th>完成体视角</th><th>必须防止的误判</th></tr></thead><tbody>' + rows + '</tbody></table></div></section>';
+  var intro = page.summaryIntro ? '<p>' + escapeHtml(page.summaryIntro) + '</p>' : '';
+  return '<section class="zlatoust-summary-table" id="zlatoust-summary"><h2>' + page.stages.length + ' 组判断总表</h2>' + intro + '<div class="zlatoust-table-wrap"><table class="zlatoust-table"><thead><tr><th>' + escapeHtml(headers.question || '先问什么') + '</th><th>' + escapeHtml(headers.imperfective || '未完成体视角') + '</th><th>' + escapeHtml(headers.perfective || '完成体视角') + '</th><th>' + escapeHtml(headers.boundary || '必须防止的误判') + '</th></tr></thead><tbody>' + rows + '</tbody></table></div></section>';
 }
 function renderZlatoustTransferTasks(sectionId, tasks) {
   if (!tasks || !tasks.length) return '';
@@ -4018,11 +4073,13 @@ function renderZlatoustLearningPage(page, unit, chapterIndex) {
   var isSupplementary = page.pageKind === 'supplementary';
   var chapterNumber = getZlatoustChapterIndex(page.chapterId) + 1;
   var kicker = isSupplementary ? '第 ' + chapterNumber + ' 章 · 教辅综合页（不计入原书 32 个理论小节）' : '第 ' + chapterNumber + ' 章 · 知识点 ' + escapeHtml(page.sectionId);
-  return '<main class="main-container zlatoust-learning-page"><div class="zlatoust-learning-topbar"><button type="button" class="zlatoust-back-link" onclick="returnToZlatoustRoute()">返回知识点卡片</button><span class="zlatoust-progress-summary" data-zlatoust-progress>' + escapeHtml(renderZlatoustLearningProgressText(page.sectionId)) + '</span></div>' +
+  var summaryBeforeStages = page.summaryPlacement === 'before-stages' ? renderZlatoustSummaryTable(page) : '';
+  var summaryAfterStages = page.summaryPlacement === 'before-stages' ? '' : renderZlatoustSummaryTable(page);
+  return '<main class="main-container zlatoust-learning-page reader-workbench reader-workbench--knowledge"><div class="zlatoust-learning-topbar"><button type="button" class="zlatoust-back-link" onclick="returnToZlatoustRoute()">返回知识点卡片</button><span class="zlatoust-progress-summary" data-zlatoust-progress>' + escapeHtml(renderZlatoustLearningProgressText(page.sectionId)) + '</span></div>' +
     '<header class="zlatoust-learning-hero"><p class="zlatoust-learning-kicker">' + kicker + '</p><h1>' + escapeHtml(page.titleZh) + '</h1><p class="zlatoust-learning-title-ru">' + escapeHtml(page.titleRu) + '</p><p class="zlatoust-learning-problem">' + escapeHtml(page.problem) + '</p><div class="zlatoust-learning-meta"><span>核心首学 ' + escapeHtml(typeof page.estimatedMinutes === 'object' ? page.estimatedMinutes.core : ('约 ' + page.estimatedMinutes + ' 分钟')) + '</span><span>' + page.stages.length + ' 个连续阶段</span><span>' + exerciseCount + ' 道原书题</span><span>' + escapeHtml(zlatoustSourcePages(unit && unit.source)) + '</span><span>来源状态 待复核</span></div></header>' +
     renderZlatoustLearningRoute(page) + renderZlatoustLearningMindMap(page) + '<div class="zlatoust-learning-layout">' + renderZlatoustLearningToc(page, false) + '<article class="zlatoust-learning-content">' + renderZlatoustLearningToc(page, true) +
-    '<section class="zlatoust-objectives"><h2>学完以后你要能做到</h2><p>' + escapeHtml(page.scopeNote || '') + '</p><ul>' + (page.objectives || []).map(function(item) { return '<li>' + escapeHtml(item) + '</li>'; }).join('') + '</ul></section>' + renderZlatoustDiagnostic(page.diagnostic) +
-    (page.stages || []).map(function(stage) { return renderZlatoustLearningStage(page, stage); }).join('') + renderZlatoustSummaryTable(page) +
+    '<section class="zlatoust-objectives"><h2>学完以后你要能做到</h2><p>' + escapeHtml(page.scopeNote || '') + '</p><ul>' + (page.objectives || []).map(function(item) { return '<li>' + escapeHtml(item) + '</li>'; }).join('') + '</ul></section>' + renderZlatoustDiagnostic(page.diagnostic) + summaryBeforeStages +
+    (page.stages || []).map(function(stage) { return renderZlatoustLearningStage(page, stage); }).join('') + summaryAfterStages +
     '<section class="zlatoust-final-check"><h2>判断顺序热身</h2>' + renderZlatoustLearningCheck(page.sectionId, '', page.finalCheck, true) + '</section>' + renderZlatoustTransferTasks(page.sectionId, page.transferTasks) +
     renderZlatoustLearningResult(page.sectionId) + renderZlatoustLearningSources(page) +
     '<nav class="zlatoust-learning-footer" aria-label="知识点前后导航">' + (previous ? '<button type="button" class="zlatoust-back-link" onclick="showZlatoustRuleUnit(\'' + zlatoustEscapeForOnclick(previous.id) + '\')">上一个：' + escapeHtml(previous.id) + '</button>' : '<span></span>') +
@@ -4101,7 +4158,7 @@ function renderZlatoustRuleUnit(unit, chapterIndex) {
   var sourceContent = sourceRules.map(function(item) { return renderZlatoustRuleItem(item); }).join('') + tables.map(renderZlatoustTable).join('') + examples.map(function(item) { return renderZlatoustRuleItem(item); }).join('');
   var semanticItems = zlatoustList(unit.semanticAnalysis);
   var risks = zlatoustList(unit.riskRecord).concat(zlatoustList(unit.knownRisks));
-  return '<main class="main-container zlatoust-rule-page"><button type="button" class="zlatoust-back-link" onclick="goChapter(' + chapterIndex + ')">返回本章练习</button>' +
+  return '<main class="main-container zlatoust-rule-page reader-workbench reader-workbench--knowledge"><button type="button" class="zlatoust-back-link" onclick="goChapter(' + chapterIndex + ')">返回本章练习</button>' +
     '<header class="zlatoust-rule-header"><span class="zlatoust-badge ' + escapeHtml(unit.reviewStatus || 'needs-review') + '">' + escapeHtml(getZlatoustStatusLabel(unit.reviewStatus)) + '</span><h1>' + escapeHtml(unit.sectionId || '') + ' · ' + escapeHtml(unit.titleZh || '原书规则') + '</h1><p class="zlatoust-rule-ru">' + escapeHtml(unit.titleRu || '') + '</p><div class="zlatoust-rule-meta"><span>' + escapeHtml(zlatoustSourcePages(source) || '页码待复核') + '</span><span>来源：' + escapeHtml(source.cleanedSource || source.file || '原书清洗层') + '</span></div></header>' +
     renderZlatoustLearningPath(unit) +
     (semanticItems.length ? '<details><summary>语义说明与判断依据</summary><div class="zlatoust-rule-body">' + semanticItems.map(function(item) { return renderZlatoustRuleItem(item); }).join('') + '</div></details>' : '') +
@@ -4134,7 +4191,7 @@ function renderTextbookKnowledgeCard(chapter, point) {
     return '<article class="b2-study-example"><p class="ru">' + renderRuText(exercise.question || '', lookupContext('grammar', exercise.id, 'study-card-example', exercise.question || '', '', exercise.questionPages || [])) + '</p><p class="kind">练习 ' + escapeHtml(exercise.id) + ' · 原书答案：' + escapeHtml(exercise.answer || '待核对') + '</p></article>';
   }).join('') : '<p class="b2-study-empty">本知识点暂未配置独立例题，请直接进入练习。</p>';
   var status = point.sourceStatus || '原书规则已整理';
-  return '<div class="main-container b2-study-card">' +
+  return '<div class="main-container b2-study-card reader-workbench reader-workbench--knowledge">' +
     '<header class="b2-quiz-header"><h1>' + escapeHtml(point.title || '知识点') + '</h1><div class="b2-study-meta"><span>' + escapeHtml(chapter.title || '') + '</span><span>练习 ' + escapeHtml(formatQuestionRange(point.exerciseIds || [])) + '</span><span>' + escapeHtml(formatSourcePages(sourcePages)) + '</span></div></header>' +
     '<section class="b2-study-section"><h2>核心规则</h2><p>' + escapeHtml(point.rule || '原书未提供规则摘要。') + '</p></section>' +
     '<section class="b2-study-section"><h2>结构与题型</h2><p>' + escapeHtml(structure) + '</p></section>' +
@@ -4170,7 +4227,7 @@ function getWrongAnswerItems() {
 var wrongAnswerBookMeta = null;
 function showWrongAnswerBook(partFilter, pointFilter) {
   saveLastRead();
-  curView = 'wrong-book'; stopTimer();
+  curView = 'wrong-book'; stopTimer(); syncReaderShellState();
   // 首次进入时根据上下文决定返回目标：有筛选→来自quiz页面→回仪表盘，无筛选→来自书架→回书架
   if (!wrongAnswerBookMeta) _wrongAnswerBookReturn = (partFilter || pointFilter) ? 'showB2Dashboard()' : 'showShelf()';
   var back = _wrongAnswerBookReturn;
@@ -4197,7 +4254,7 @@ function showWrongAnswerBook(partFilter, pointFilter) {
     var open = reading ? 'openReadingWrongAnswerItem(' + Number(item.chapterIndex) + ',\'' + item.exerciseId + '\')' : 'openWrongAnswerItem(\'' + item.partId + '\',\'' + item.exerciseId + '\')';
     return '<button class="b2-finish" onclick="' + open + '">' + (item.status === 'pending' ? '待掌握 · ' : '已掌握 · ') + label + ' · ' + item.exerciseId + '</button>';
   }).join('');
-  document.getElementById('app').innerHTML = b2FloatingNavigation({ backAction: back, backTitle: backTitle }) + '<div class="main-container"><div class="b2-quiz-header"><h1>错题复习</h1><p>待掌握 ' + pending.length + ' 题 · 已掌握 ' + mastered.length + ' 题</p>' + select + pointSelect + '</div>' + (rows || '<div class="loading">这个筛选下还没有错题。</div>') + '</div>';
+  document.getElementById('app').innerHTML = b2FloatingNavigation({ backAction: back, backTitle: backTitle }) + '<main class="main-container reader-workbench reader-workbench--review"><div class="b2-quiz-header"><h1>错题复习</h1><p>待掌握 ' + pending.length + ' 题 · 已掌握 ' + mastered.length + ' 题</p>' + select + pointSelect + '</div>' + (rows || '<div class="loading">这个筛选下还没有错题。</div>') + '</main>';
 }
 function openWrongAnswerItem(partId, exerciseId) {
   var book = getBookById('russian_b2'), index = book.unitIds.indexOf(partId);
@@ -4254,6 +4311,14 @@ function renderZlatoustAnswerRuleLinks(mapping, state) {
     return '<button type="button" onclick="showZlatoustRuleUnit(\'' + zlatoustEscapeForOnclick(sectionId) + '\',\'' + zlatoustEscapeForOnclick(ruleId) + '\')">' + escapeHtml(rule.titleZh || ruleId) + '</button>';
   }).filter(Boolean).join('');
 }
+function renderZlatoustFocusAxes(mapping) {
+  var axes = Array.isArray(mapping.focusAxes) ? mapping.focusAxes : [];
+  if (!axes.length) return '';
+  return '<div class="zlatoust-focus-axes" aria-label="本题判断轴">' + axes.map(function(axis) { return '<span>' + escapeHtml(axis) + '</span>'; }).join('') + '</div>';
+}
+function renderExerciseAiAction(exerciseId, kind) {
+  return '<section class="reader-ai-action"><p>需要进一步追问时，可复制完整题干、选项、作答状态和已核对材料。</p><button class="dp-ai-btn" type="button" onclick="copyExerciseAiPrompt(\'' + escapeHtml(exerciseId) + '\',\'' + escapeHtml(kind || 'exercise') + '\')">🤖 AI 深度解析</button></section>';
+}
 function getZlatoustStaticExplanation(exercise, state, answerKey) {
   var entry = state && state.staticExplanationsByExercise && state.staticExplanationsByExercise[exercise.id];
   if (!entry || entry.correctOption.key !== answerKey) return null;
@@ -4294,7 +4359,8 @@ function renderZlatoustStaticExplanation(exercise, explanation, state, answerKey
   html += '<section class="zlatoust-correct-analysis"><h4>正确项为什么对</h4><p><strong>' + escapeHtml(answerKey) + (answerOption ? '：' + escapeHtml(answerOption.text) : '') + '</strong><br>' + escapeHtml(correctAnalysis) + '</p></section>';
   if (distractors) html += '<section><h4>其他选项为什么不对</h4><ul class="zlatoust-option-analysis">' + distractors + '</ul></section>';
   if (explanation.memoryRule) html += '<section class="zlatoust-memory-rule"><h4>记忆提示</h4><p>' + escapeHtml(explanation.memoryRule) + '</p></section>';
-  html += '<section><h4>本题考查</h4>' + (ruleLinks ? '<div class="zlatoust-answer-rules">' + ruleLinks + '</div>' : '') + (mapping.mappingReason ? '<p>' + escapeHtml(mapping.mappingReason) + '</p>' : '') + '</section>';
+  html += '<section><h4>本题考查</h4>' + renderZlatoustFocusAxes(mapping) + (ruleLinks ? '<div class="zlatoust-answer-rules">' + ruleLinks + '</div>' : '') + (mapping.mappingReason ? '<p>' + escapeHtml(mapping.mappingReason) + '</p>' : '') + '</section>';
+  html += renderExerciseAiAction(exercise.id, 'exercise');
   return html + '</div>';
 }
 function renderZlatoustQuizExplanation(exercise) {
@@ -4320,7 +4386,7 @@ function renderZlatoustQuizExplanation(exercise) {
   html += '<section><h4>原书答案（已核对）</h4><p><strong>' + escapeHtml(answerKey) + (answerOption ? '：' + escapeHtml(answerOption.text) : '') + '</strong></p><p class="zlatoust-answer-sentence">' + renderRuText(getZlatoustCompletedSentence(exercise), lookupContext('grammar', exercise.id, 'zlatoust-answer-sentence', getZlatoustCompletedSentence(exercise), '', exercise.answerPages || [])) + '</p></section>';
   if (status !== 'source-exercise-only') {
     var ruleLinks = renderZlatoustAnswerRuleLinks(mapping, state || { exerciseToRules: {} });
-    html += '<section><h4>本题考查</h4>' + (ruleLinks ? '<div class="zlatoust-answer-rules">' + ruleLinks + '</div>' : '<p>对应规则仍在整理中。</p>') + (mapping.mappingReason ? '<p>' + escapeHtml(mapping.mappingReason) + '</p>' : '') + '</section>';
+    html += '<section><h4>本题考查</h4>' + renderZlatoustFocusAxes(mapping) + (ruleLinks ? '<div class="zlatoust-answer-rules">' + ruleLinks + '</div>' : '<p>对应规则仍在整理中。</p>') + (mapping.mappingReason ? '<p>' + escapeHtml(mapping.mappingReason) + '</p>' : '') + '</section>';
     if (analysis) {
       var distractors = analysis.distractors || [];
       html += '<section><h4>逐项学习解析</h4><p class="zlatoust-provenance">以下理由由本项目依据所列原书规则整理，不是教材逐题原文解析。</p><ul class="zlatoust-option-analysis">' +
@@ -4330,6 +4396,7 @@ function renderZlatoustQuizExplanation(exercise) {
     }
   }
   if (sourcePages.length) html += '<section><h4>可追溯依据</h4>' + sourcePages.join('') + '</section>';
+  html += renderExerciseAiAction(exercise.id, 'exercise');
   return html + '</div>';
 }
 function renderQuizExplanation(exercise) {
@@ -4341,66 +4408,22 @@ function renderQuizExplanation(exercise) {
   if (exercise.referenceExplanation) parts.push('<p><strong>参考解析</strong><br>' + renderRuText(exercise.referenceExplanation, lookupContext('grammar', exercise.id, 'quiz-explanation', exercise.referenceExplanation, '', exercise.answerPages || [])) + '</p>');
   if (exercise.pitfalls && exercise.pitfalls.length) parts.push('<p><strong>易错点</strong><br>' + escapeHtml(exercise.pitfalls.join('；')) + '</p>');
   if (questionPages || answerPages) parts.push('<p><strong>原书页</strong><br>' + escapeHtml([questionPages, answerPages].filter(Boolean).join('；')) + '</p>');
-  parts.push('<button class="tb-btn" style="margin-top:12px;font-size:13px" onclick="copyQuestionAsAiPrompt(\'' + escapeHtml(exercise.id) + '\')">📋 一键打包题目发给 AI 详解</button>');
+  parts.push(renderExerciseAiAction(exercise.id, 'exercise'));
   return parts.join('');
 }
 
 /* ─── 一键打包整题+选项+Prompt 复制到剪贴板 ─── */
-function copyQuestionAsAiPrompt(exerciseId) {
-  var exercise = getQuizExercise(exerciseId);
+function copyExerciseAiPrompt(exerciseId, kind) {
+  var isReadingSpeaking = kind === 'reading-speaking';
+  var exercise = isReadingSpeaking
+    ? (_currentRSExercises || []).find(function(item) { return item._exId === exerciseId; })
+    : getQuizExercise(exerciseId);
   if (!exercise) { toast('未找到题目数据'); return; }
-
-  var record = getQuizRecord(exerciseId);
-
-  // 拼接完整句子
-  var selectedText = '';
-  var selectedKey = '';
-  if (record.submitted && record.selected) {
-    var selOpt = (exercise.options || []).find(function(o) { return o.key === record.selected; });
-    if (selOpt) { selectedText = selOpt.text; selectedKey = record.selected; }
-  } else if (!record.submitted && record.selected) {
-    selectedKey = record.selected + '（已选，待确认）';
-    var pendingOpt = (exercise.options || []).find(function(o) { return o.key === record.selected; });
-    if (pendingOpt) selectedText = pendingOpt.text;
-  }
-  var completedSentence = selectedText
-    ? exercise.question.replace(/\.{3,}/, selectedText)
-    : exercise.question;
-
-  // 所有选项
-  var optionsList = (exercise.options || []).map(function(o) {
-    return o.key + '. ' + o.text + (o.key === exercise.answer ? ' ★正确答案' : '');
-  }).join('\n');
-
-  // 我选的
-  var myChoice = selectedKey || '未选';
-
-  var prompt = [
-    '你是一位专业的俄语教授和 TRKI-2 (B2) 考试专家。请为我深度解析以下这道俄语选择题：',
-    '',
-    '【完整题干】',
-    completedSentence,
-    '',
-    '【所有选项】',
-    optionsList,
-    '',
-    '【我目前的选项】',
-    myChoice,
-    '',
-    '【请从以下几个维度为我详细讲解】',
-    '1. 语境与语义分析：这句话翻译成中文是什么意思？整个语境在表达什么？',
-    '2. 核心词汇辨析：请重点对比这几个选项（尤其是词体/完成体与未完成体、接格关系、或者前缀的细微区别），解释为什么正确答案是它，而其他选项错在哪里。',
-    '3. 语法点与形态学：这道题涉及到了哪些 B2 级别必须掌握的俄语语法规则？（如动词变位、名词格的变化、特定句型等）',
-    '4. 拓展造句：请用这道题的核心考点或正确选项的单词，另外提供 2 个实用的俄语例句并附带中文翻译，帮我加深记忆。'
-  ];
-
-  if (exercise.sourceExplanation) {
-    prompt.push('', '【附：原书解析（供参考）】', exercise.sourceExplanation);
-  }
-
-  navigator.clipboard.writeText(prompt.join('\n'))
-    .then(function() { toast('✅ 题目已打包到剪贴板，发给 AI 即可'); })
-    .catch(function() { toast('❌ 复制失败'); });
+  var record = isReadingSpeaking ? getReadingSpeakingRecord(exerciseId) : getQuizRecord(exerciseId);
+  copyReaderAiPrompt(isReadingSpeaking ? 'reading-speaking' : 'exercise', { exercise: exercise, record: record }, '✅ 题目 AI 深度解析提示已复制');
+}
+function copyQuestionAsAiPrompt(exerciseId) {
+  copyExerciseAiPrompt(exerciseId, 'exercise');
 }
 function renderLookupOption(exercise, option, record) {
   var selected = record.selected === option.key;
@@ -4669,7 +4692,7 @@ function renderQuizChapter(data, scrollPosition) {
   var quizBackAction = isB2Quiz ? 'showB2Dashboard()' : 'showChapters(\'' + escapeHtml(curBook.id) + '\')';
   var quizBackTitle = isB2Quiz ? '仪表盘' : '目录';
   var contextGroupByExercise = renderQuizContextGroups(data.contextGroups || []);
-  var html = b2FloatingNavigation({ backAction: quizBackAction, backTitle: quizBackTitle, menuAction: 'showBreadcrumb()' }) + '<div class="main-container b2-quiz-page"><div class="b2-quiz-header">' +
+  var html = b2FloatingNavigation({ backAction: quizBackAction, backTitle: quizBackTitle, menuAction: 'showBreadcrumb()' }) + '<main class="main-container b2-quiz-page reader-workbench reader-workbench--quiz"><div class="b2-quiz-header">' +
     '<h1>' + escapeHtml(data.title || '') + '</h1>' +
     '<p>先独立作答；确认后只显示对错。答案与解析需要你手动展开。</p>' + (isB2Quiz ? '<button class="tb-btn" onclick="showWrongAnswerBook(\'' + data.id + '\')">本部分错题 ' + partWrongCount + ' 题</button>' : '') +
     wrongAnswerBack + '</div>' + renderKnowledgePointNav(data.knowledgePoints, data.id) + renderZlatoustTheoryNav();
@@ -4687,7 +4710,7 @@ function renderQuizChapter(data, scrollPosition) {
   html += '<div class="b2-quiz-nav">' +
     (curCh > 0 ? '<button class="fab-nav" onclick="goChapter(' + (curCh - 1) + ')">← 上一章</button>' : '<span class="fab-nav disabled">← 上一章</span>') +
     (curCh < curBook.chapters - 1 ? '<button class="fab-nav" onclick="goChapter(' + (curCh + 1) + ')">下一章 →</button>' : '<span class="fab-nav disabled">下一章 →</span>') +
-    '</div></div>';
+    '</div></main>';
   document.getElementById('app').innerHTML = html;
   if (isZlatoustGrammarBook(curBook)) initializeZlatoustVirtualQuiz(currentQuizExercises, contextGroupByExercise, initialZlatoustVirtualExerciseId);
   var quizRestoreState = arguments[2];
@@ -4745,6 +4768,7 @@ function answerReadingQuestion(questionId, selected, evt) {
   record = RussianB2ReadingReview.recordAttempt(record, Object.assign({}, question, { unitId: currentReadingData.id, moduleId: 'reading' }), selected, new Date().toISOString());
   record.chapterIndex = curCh;
   progress[questionId] = record; saveReadingProgress(progress); rerenderReadingPracticePreservingScroll();
+  recordB2Submission('reading', currentReadingData.id, [questionId]);
 }
 function setReadingErrorCategory(questionId, category) {
   var progress = getReadingProgress();
@@ -4758,6 +4782,44 @@ function toggleReadingAnswer(questionId) {
 }
 function rerenderReadingPracticePreservingScroll() {
   renderReadingPracticeChapter(currentReadingData, window.scrollY);
+}
+
+function recordB2Submission(submodule, unitId, itemIds) {
+  if (!window.StudyActivityStore || typeof StudyActivityStore.recordEvent !== 'function') return;
+  var ids = (itemIds || []).map(function(itemId) {
+    return ['b2', submodule || 'practice', unitId || '', itemId].map(String).join(':');
+  });
+  if (!ids.length) return;
+  StudyActivityStore.recordEvent({
+    module: 'b2',
+    submodule: submodule || 'practice',
+    action: 'submit',
+    attemptCount: ids.length,
+    completedCount: ids.length,
+    content: {
+      bookId: curBook && curBook.id || 'russian_b2',
+      chapterId: String(curCh),
+      unitId: String(unitId || ''),
+      itemIds: ids
+    },
+    capture: { source: 'reader.html' }
+  }).catch(function() {});
+}
+
+function recordReaderChapterCompletion() {
+  if (!window.StudyActivityStore || typeof StudyActivityStore.recordEvent !== 'function' || !curBook) return;
+  StudyActivityStore.recordEvent({
+    module: 'reader',
+    submodule: curBook.id || 'textbook',
+    action: 'complete',
+    completedCount: 1,
+    content: {
+      bookId: curBook.id || '',
+      chapterId: String(curCh),
+      itemIds: ['reader:' + String(curBook.id || '') + ':' + String(curCh)]
+    },
+    capture: { source: 'reader.html' }
+  }).catch(function() {});
 }
 
 var WRITING_DRAFTS_KEY = 'russian_b2_writing_drafts_v1';
@@ -4888,7 +4950,7 @@ function renderWritingWorkbench(data, scrollPosition) {
   var metadata = renderWritingMetadata(data.task || {});
   var sourceMaterialSection = materials ? '<section><h2>原书材料</h2><p class="writing-status">以下广告按原书逐项整理；点击俄语单词可查词。</p><div class="writing-materials-grid">' + materials + '</div></section>' : '';
   var supportSection = (outline || patterns) ? '<section class="writing-support-box"><h2>学习辅助（非原书内容）</h2>' + (outline ? '<h3>起草顺序</h3><ol>' + outline + '</ol>' : '') + (patterns ? '<h3>可复用表达</h3><ul>' + patterns + '</ul>' : '') + '</section>' : '';
-  document.getElementById('app').innerHTML = b2FloatingNavigation({ backAction: 'showB2Dashboard()', backTitle: '仪表盘', menuAction: 'showBreadcrumb()' }) + '<main class="main-container writing-workbench"><header class="chapter-header"><h1>' + escapeHtml(data.title || '') + '</h1><p>原书印刷页：' + escapeHtml(printedPages || '—') + ' · PDF：' + escapeHtml(sourcePages) + '</p>' + renderManualCompletionButton(WRITING_COMPLETED_KEY, data.id) + '</header><section class="writing-source-task"><h2>原书任务</h2><p class="ru-text">' + taskPrompt + '</p>' + (instructionsRu && data.task.prompt ? '<p class="question-translation">' + escapeHtml(data.task.prompt) + '</p>' : '') + metadata + '</section>' + sourceMaterialSection + '<section><h2>格式与内容清单</h2><ol>' + blocks + '</ol>' + (notes ? '<ul class="writing-status">' + notes + '</ul>' : '') + '</section><section><h2>你的草稿</h2><textarea class="writing-draft" id="writing-draft" placeholder="在这里用俄语起草…" oninput="saveWritingDraft(\'' + escapeHtml(data.id) + '\', this.value)">' + escapeHtml(draft) + '</textarea><p id="writing-draft-status" class="writing-status">本地自动保存 · ' + countWritingWords(draft) + ' 词</p><div class="writing-actions"><button class="tb-btn" onclick="copyWritingFeedbackPrompt(\'' + escapeHtml(data.id) + '\')">复制反馈提示</button><button class="tb-btn" onclick="saveWritingVersion(\'' + escapeHtml(data.id) + '\')">保存当前版本</button></div><div id="writing-version-list">' + renderWritingVersions(data.id) + '</div></section>' + (rubric ? '<section><h2>评分自查</h2><ul>' + rubric + '</ul></section>' : '') + '<details ontoggle="recordWritingModelUnlock(\'' + escapeHtml(data.id) + '\', this.open)"><summary>原书范文（完成后查看）</summary><p class="ru-text">' + model + '</p><small class="reading-answer-source">' + escapeHtml(data.model.source.label || 'B2 原书范文') + '</small></details>' + supportSection + '</main>';
+  document.getElementById('app').innerHTML = b2FloatingNavigation({ backAction: 'showB2Dashboard()', backTitle: '仪表盘', menuAction: 'showBreadcrumb()' }) + '<main class="main-container writing-workbench reader-workbench reader-workbench--writing"><header class="chapter-header"><h1>' + escapeHtml(data.title || '') + '</h1><p>原书印刷页：' + escapeHtml(printedPages || '—') + ' · PDF：' + escapeHtml(sourcePages) + '</p>' + renderManualCompletionButton(WRITING_COMPLETED_KEY, data.id) + '</header><section class="writing-source-task"><h2>原书任务</h2><p class="ru-text">' + taskPrompt + '</p>' + (instructionsRu && data.task.prompt ? '<p class="question-translation">' + escapeHtml(data.task.prompt) + '</p>' : '') + metadata + '</section>' + sourceMaterialSection + '<section><h2>格式与内容清单</h2><ol>' + blocks + '</ol>' + (notes ? '<ul class="writing-status">' + notes + '</ul>' : '') + '</section><section><h2>你的草稿</h2><textarea class="writing-draft" id="writing-draft" placeholder="在这里用俄语起草…" oninput="saveWritingDraft(\'' + escapeHtml(data.id) + '\', this.value)">' + escapeHtml(draft) + '</textarea><p id="writing-draft-status" class="writing-status">本地自动保存 · ' + countWritingWords(draft) + ' 词</p><div class="writing-actions"><button class="tb-btn" onclick="copyWritingFeedbackPrompt(\'' + escapeHtml(data.id) + '\')">复制反馈提示</button><button class="tb-btn" onclick="saveWritingVersion(\'' + escapeHtml(data.id) + '\')">保存当前版本</button></div><div id="writing-version-list">' + renderWritingVersions(data.id) + '</div></section>' + (rubric ? '<section><h2>评分自查</h2><ul>' + rubric + '</ul></section>' : '') + '<details ontoggle="recordWritingModelUnlock(\'' + escapeHtml(data.id) + '\', this.open)"><summary>原书范文（完成后查看）</summary><p class="ru-text">' + model + '</p><small class="reading-answer-source">' + escapeHtml(data.model.source.label || 'B2 原书范文') + '</small></details>' + supportSection + '</main>';
   window.scrollTo(0, typeof scrollPosition === 'number' ? scrollPosition : 0); applyTheme(); saveLastRead(arguments[2]);
 }
 var SPEAKING_DRAFTS_KEY = 'russian_b2_speaking_notes_v1';
@@ -4953,7 +5015,7 @@ function renderSpeakingPractice(data, scrollPosition) {
   var warning = data.media && data.media.provenance === 'missing-original-media' ? '<section class="source-warning"><strong>原始媒体缺失</strong><p>' + escapeHtml(data.media.note || '教材原始媒体未保存；这里只提供可追溯的文字资料。') + '</p></section>' : '';
   var speakingTask = renderRuText(data.task.prompt, lookupContext('speaking', data.id, 'speaking-reference', data.task.prompt, '', data.sourcePages || []));
   var sourceAnswer = renderRuText(data.sourceAnswer.text || '', lookupContext('speaking', data.id, 'speaking-reference', data.sourceAnswer.text || '', '', data.sourceAnswer.source && data.sourceAnswer.source.pages || data.sourcePages || []));
-  document.getElementById('app').innerHTML = b2FloatingNavigation({ backAction: 'showB2Dashboard()', backTitle: '仪表盘', menuAction: 'showBreadcrumb()' }) + '<main class="main-container speaking-practice"><header class="chapter-header"><h1>' + escapeHtml(data.title || '') + '</h1><p class="reading-answer-source">原书页：' + escapeHtml(sourcePages) + '</p>' + renderManualCompletionButton(SPEAKING_COMPLETED_KEY, data.id) + '</header><section><h2>原书任务</h2><p>' + speakingTask + '</p></section>' + warning + '<section><h2>渐进练习</h2><ol class="speaking-steps">' + steps + '</ol></section><section><h2>你的提纲 / 转写</h2><textarea class="speaking-transcript" placeholder="先列关键词，再写下你准备说的内容…" oninput="saveSpeakingNote(\'' + escapeHtml(data.id) + '\', this.value)">' + escapeHtml(note) + '</textarea><p id="speaking-note-status" class="speaking-recording-status">本地自动保存</p></section><section><h2>录音与回听</h2><p class="speaking-recording-status">录音只存到这台设备的浏览器 IndexedDB，不会上传。</p><div class="speaking-recording-controls"><button id="start-speaking-recording" class="tb-btn" onclick="startSpeakingRecording()">开始录音</button><button id="stop-speaking-recording" class="tb-btn" onclick="stopSpeakingRecording()" disabled>结束录音</button><span id="speaking-recording-status" class="speaking-recording-status">尚未录音</span></div><audio id="speaking-playback" class="speaking-playback" controls hidden></audio></section><details><summary>原书参考回答（已核对）</summary><p class="ru-text">' + sourceAnswer + '</p><small class="reading-answer-source">' + escapeHtml(data.sourceAnswer.source.label || 'B2 原书参考回答') + '</small></details><details><summary>学习辅助：自查清单</summary><ul>' + checklist + '</ul></details></main>';
+  document.getElementById('app').innerHTML = b2FloatingNavigation({ backAction: 'showB2Dashboard()', backTitle: '仪表盘', menuAction: 'showBreadcrumb()' }) + '<main class="main-container speaking-practice reader-workbench reader-workbench--speaking"><header class="chapter-header"><h1>' + escapeHtml(data.title || '') + '</h1><p class="reading-answer-source">原书页：' + escapeHtml(sourcePages) + '</p>' + renderManualCompletionButton(SPEAKING_COMPLETED_KEY, data.id) + '</header><section><h2>原书任务</h2><p>' + speakingTask + '</p></section>' + warning + '<section><h2>渐进练习</h2><ol class="speaking-steps">' + steps + '</ol></section><section><h2>你的提纲 / 转写</h2><textarea class="speaking-transcript" placeholder="先列关键词，再写下你准备说的内容…" oninput="saveSpeakingNote(\'' + escapeHtml(data.id) + '\', this.value)">' + escapeHtml(note) + '</textarea><p id="speaking-note-status" class="speaking-recording-status">本地自动保存</p></section><section><h2>录音与回听</h2><p class="speaking-recording-status">录音只存到这台设备的浏览器 IndexedDB，不会上传。</p><div class="speaking-recording-controls"><button id="start-speaking-recording" class="tb-btn" onclick="startSpeakingRecording()">开始录音</button><button id="stop-speaking-recording" class="tb-btn" onclick="stopSpeakingRecording()" disabled>结束录音</button><span id="speaking-recording-status" class="speaking-recording-status">尚未录音</span></div><audio id="speaking-playback" class="speaking-playback" controls hidden></audio></section><details><summary>原书参考回答（已核对）</summary><p class="ru-text">' + sourceAnswer + '</p><small class="reading-answer-source">' + escapeHtml(data.sourceAnswer.source.label || 'B2 原书参考回答') + '</small></details><details><summary>学习辅助：自查清单</summary><ul>' + checklist + '</ul></details></main>';
   window.scrollTo(0, typeof scrollPosition === 'number' ? scrollPosition : 0); applyTheme(); saveLastRead(arguments[2]);
 }
 var LISTENING_PROGRESS_KEY = 'russian_b2_listening_progress_v1';
@@ -5129,6 +5191,7 @@ function submitListeningAttempt() {
   var attempt = RussianListeningSession.scoreDraft(scoringData, draft);
   var attempts = getListeningAttempts(); attempts.push(attempt); saveListeningAttempts(attempts);
   saveListeningProgress(RussianListeningSession.applyAttempt(getListeningProgress(), scoringData, attempt));
+  recordB2Submission('listening', currentListeningData.id, (attempt.answers || []).map(function(answer) { return answer.questionId; }));
   var drafts = getListeningDrafts(); delete drafts[currentListeningData.id]; saveListeningDrafts(drafts);
   listeningViewMode = 'review'; renderListeningPractice(currentListeningData, 0);
   toast('本次听力已提交：' + attempt.correct + '/' + attempt.total);
@@ -5363,7 +5426,7 @@ function renderListeningPractice(data, scrollPosition) {
   var listeningBackAction = isWorldPeopleBook(curBook) ? 'showChapters(\'' + escapeHtml(curBook.id) + '\')' : 'showB2Dashboard()';
   var listeningBackTitle = isWorldPeopleBook(curBook) ? '目录' : '仪表盘';
   document.getElementById('app').innerHTML = b2FloatingNavigation({ backAction: listeningBackAction, backTitle: listeningBackTitle, menuAction: 'showBreadcrumb()' }) +
-    '<main class="lw-workbench" data-mode="' + listeningViewMode + '" data-timeline-ready="loading">' + renderListeningTopbar(data, sourcePages) + renderListeningPlayer(data, mediaBase) +
+    '<main class="lw-workbench reader-workbench reader-workbench--listening" data-mode="' + listeningViewMode + '" data-timeline-ready="loading">' + renderListeningTopbar(data, sourcePages) + renderListeningPlayer(data, mediaBase) +
     mediaNotice + modeBody + '</main>';
   window.scrollTo(0, typeof scrollPosition === 'number' ? scrollPosition : 0); applyTheme(); saveLastRead(restoreState);
   var isMediaExercise = listeningViewMode === 'media-exercise' && hasVerifiedListeningMediaExercise(data);
@@ -5418,6 +5481,7 @@ function answerExamQuestion(questionId, selected) {
   if (record.answered) return;
   record.selected = selected; record.answered = true; record.answeredAt = new Date().toISOString();
   progress[questionId] = record; saveExamProgress(progress); rerenderExamPracticePreservingScroll();
+  recordB2Submission('exam', currentExamData && currentExamData.id || 'exam', [questionId]);
 }
 function toggleExamAnswer(questionId) {
   var progress = getExamProgress(), record = progress[questionId] || { selected: '', answered: false, answerOpen: false };
@@ -5481,7 +5545,7 @@ function renderExamPracticeChapter(data, scrollPosition) {
     : '<section><button class="tb-btn" type="button" onclick="unlockExamLookup(\'' + escapeHtml(data.id) + '\')">解锁查词辅助</button><p class="writing-status">考试模式默认关闭查词；主动解锁后本次成绩不计入正式模拟趋势。</p></section>';
   var details = '<section><h2>本分测验</h2><p>时长：' + escapeHtml(String(data.durationMinutes || '')) + ' 分钟</p><p>原卷题量：' + escapeHtml(String(data.questionCount || '')) + ' 题</p><p class="reading-answer-source">原书页：' + escapeHtml(pages) + '</p></section>' + lookupState;
   var body = hasVerifiedQuestions ? '<section><h2>原卷练习</h2>' + data.questions.map(renderExamQuestion).join('') + '</section>' : hasVerifiedWriting ? '<section><h2>原卷写作</h2>' + data.tasks.map(renderExamWritingTask).join('') + '</section>' : '<section><h2>完整模拟</h2><p>完整计时与分模块练习会在题干、选项、原书答案和说明逐项核验后开放。</p></section>';
-  document.getElementById('app').innerHTML = b2FloatingNavigation({ backAction: 'showB2Dashboard()', backTitle: '仪表盘', menuAction: 'showBreadcrumb()' }) + '<main class="main-container speaking-practice"><header class="chapter-header"><h1>' + escapeHtml(data.title || '') + '</h1><p class="reading-answer-source">B2 原书真题 · ' + (hasVerifiedQuestions ? '题面与答案已核验' : '来源已索引') + '</p></header>' + sourceState + details + body + '</main>';
+  document.getElementById('app').innerHTML = b2FloatingNavigation({ backAction: 'showB2Dashboard()', backTitle: '仪表盘', menuAction: 'showBreadcrumb()' }) + '<main class="main-container speaking-practice reader-workbench reader-workbench--exam"><header class="chapter-header"><h1>' + escapeHtml(data.title || '') + '</h1><p class="reading-answer-source">B2 原书真题 · ' + (hasVerifiedQuestions ? '题面与答案已核验' : '来源已索引') + '</p></header>' + sourceState + details + body + '</main>';
   window.scrollTo(0, typeof scrollPosition === 'number' ? scrollPosition : 0); applyTheme(); saveLastRead(arguments[2]);
 }
 function renderReadingLookupOption(question, option, record) {
@@ -5525,8 +5589,8 @@ function renderReadingPracticeChapter(data, scrollPosition) {
   var support = renderReadingLearningSupport(data);
   var supportState = data.translationStatus === 'learning-support-approved' ? '学习辅助已审核发布。' : '原文已核对；译文与结构讲解将分批审核后发布。';
   document.getElementById('app').innerHTML = b2FloatingNavigation({ backAction: 'showB2Dashboard()', backTitle: '仪表盘', menuAction: 'showBreadcrumb()' }) +
-    '<main class="main-container" style="padding-bottom:20px"><header class="chapter-header"><h1>' + escapeHtml(data.title || '') + '</h1><p>' + supportState + '</p><p class="reading-answer-source">原书原文页：' + escapeHtml(sourcePages) + '</p></header></main>' +
-    '<div class="reader-layout" id="readerLayout">' +
+    '<main class="main-container reader-workbench reader-workbench--reading-practice" style="padding-bottom:20px"><header class="chapter-header"><h1>' + escapeHtml(data.title || '') + '</h1><p>' + supportState + '</p><p class="reading-answer-source">原书原文页：' + escapeHtml(sourcePages) + '</p></header></main>' +
+    '<div class="reader-layout reader-reading-layout reader-workbench-layout" id="readerLayout">' +
     '<div class="reader-pane" id="readerPane">' +
     '<section class="chapter-content">' + paragraphs + '</section>' + 
     '<section><h2>阅读理解</h2>' + questions + '</section>' +
@@ -5582,6 +5646,7 @@ function submitQuizQuestion(questionId) {
   record.submitted = true; record.attempts += 1; record.wrong = record.selected !== exercise.answer; record.everWrong = record.everWrong || record.wrong; record.lastResult = record.wrong ? 'wrong' : 'correct'; record.lastAnsweredAt = new Date().toISOString();
   saveQuizRecord(questionId, record);
   refreshQuizQuestion(questionId, exercise, record);
+  recordB2Submission(curBook && curBook.moduleId || 'quiz', currentQuizData && currentQuizData.id || getQuizUnitKey(), [questionId]);
   if (document.querySelector('.zlatoust-learning-page')) refreshZlatoustLearningHeader('1.4.1');
 }
 function saveOpenResponseDraft(questionId, value) {
@@ -5599,6 +5664,7 @@ function submitOpenResponse(questionId) {
   record.lastResult = 'recorded'; record.lastAnsweredAt = new Date().toISOString();
   saveQuizRecord(questionId, record);
   refreshQuizQuestion(questionId, exercise, record);
+  recordB2Submission(curBook && curBook.moduleId || 'quiz', currentQuizData && currentQuizData.id || getQuizUnitKey(), [questionId]);
 }
 function toggleQuizExplanation(questionId) {
   var record = getQuizRecord(questionId), exercise = getQuizExercise(questionId);
@@ -5692,12 +5758,13 @@ function renderChapter(data, restoreState) {
     b2FloatingNavigation({
       backAction: isWorldPeopleBook(curBook) ? 'showWorldPeopleDashboard()' : 'showChapters(\'' + escapeHtml(curBook.id) + '\')',
       backTitle: isWorldPeopleBook(curBook) ? '仪表盘' : '目录',
-      menuAction: 'showBreadcrumb()'
+      menuAction: 'showBreadcrumb()',
+      title: curBook && curBook.title
     }) +
     '<div class="peek-counter">👁 查看原文: <span id="peekCnt">0</span> / <span id="totalParas">' + visibleCount + '</span> 段</div>' +
-    '<div class="reader-layout" id="readerLayout">' +
+    '<div class="reader-layout reader-reading-layout" id="readerLayout">' +
     '<div class="reader-pane" id="readerPane"><div class="chapter-content">' +
-    '<div class="chapter-header"><h1>Глава ' + (curCh + 1) + '</h1><h2>' + escapeHtml(data.title || '') + '</h2></div>' +
+    '<div class="chapter-header reader-reading-header"><h1>Глава ' + (curCh + 1) + '</h1><h2>' + escapeHtml(data.title || '') + '</h2></div>' +
     parts.join('') + exercisesHtml + '</div></div>' +
     '<div class="resize-handle" id="resizeHandle"></div>' +
     '<div class="detail-panel" id="detailPanel" data-dictionary-state="closed">' +
@@ -5821,6 +5888,22 @@ function openDetailPanel(word) {
   // 面板始终可见，内容由 autoLookup → renderDetailPanel 填充
 }
 
+function renderDictionaryCloseButton() {
+  return '<button class="detail-close" type="button" onclick="event.stopPropagation();dictionaryController.close()" aria-label="关闭词典" title="关闭">✕</button>';
+}
+
+function renderDictionaryActionBar(options) {
+  options = options || {};
+  var aiAction = options.aiAction || 'requestAiAnalysis()';
+  var aiLabel = options.aiLabel || 'AI 深度解析';
+  var save = options.allowSave === false ? '' : '<button class="btn-save-vocab tb-btn" type="button" onclick="doSaveWord()"><span class="icon">⭐</span> 加入生词本</button>';
+  var online = options.allowOnline && appRuntime.canUseOnlineDictionary()
+    ? '<button class="tb-btn" type="button" onclick="onlineDictionaryLookup()">一键联网查询</button>'
+    : '';
+  var aiId = options.aiId ? ' id="' + escapeHtml(options.aiId) + '"' : '';
+  return '<div class="dp-action-bar">' + save + online + '<button class="dp-ai-btn"' + aiId + ' type="button" onclick="' + aiAction + '">🤖 ' + escapeHtml(aiLabel) + '</button></div>';
+}
+
 function closeDetailPanel() {
   _detailWord = '';
   var inner = document.getElementById('detailInner');
@@ -5834,7 +5917,7 @@ function resolvePhraseWord(word) {
 }
 
 function renderPhraseDetail(analysis, context) {
-  var html = '<button class="detail-close" type="button" onclick="event.stopPropagation();dictionaryController.close()" aria-label="关闭词典" title="关闭">✕</button>';
+  var html = renderDictionaryCloseButton();
   html += '<div class="dp-head"><div class="dp-word">' + escapeHtml(analysis.phrase || selText) + '</div><div class="dict-pos">短语查询</div></div>';
   if (analysis.kind === 'phrase-exact' && analysis.entry) {
     html += '<div class="dict-meaning">' + escapeHtml(analysis.entry.meaning || '已找到短语词条') + '</div>';
@@ -5852,17 +5935,82 @@ function renderPhraseDetail(analysis, context) {
       (context.sentenceZh ? '<div><b>中文</b>：' + escapeHtml(context.sentenceZh) + '</div>' : '') +
       '</div>';
   }
-  html += '<button class="dp-ai-btn" type="button" onclick="copyPhraseAnalysisPrompt()">🤖 复制短语深度解析提示</button>';
+  html += renderDictionaryActionBar({ aiAction: 'copyPhraseAnalysisPrompt()', aiLabel: 'AI 深度解析', allowSave: true, allowOnline: true });
   return html;
 }
 
-function copyPhraseAnalysisPrompt() {
-  var prompt = '请分析俄语短语“' + (selText || '') + '”在下面上下文中的整体含义、固定搭配、各词原形和语法关系。\n' +
-    '俄语原文：' + (selContext || '') + '\n中文翻译：' + (selTranslationContext || '') + '\n' +
-    '请区分固定短语义与逐词义，并用中文简明说明。';
+function buildReaderAiPrompt(kind, payload) {
+  payload = payload || {};
+  if (kind === 'word') {
+    return [
+      '你是一位专业的俄语教师。请用中文深度解析目标词在当前语境中的用法。',
+      '',
+      '【目标词】', payload.word || '',
+      '【俄语原句】', payload.sentenceRu || '（无）',
+      '【中文翻译】', payload.sentenceZh || '（无）',
+      '',
+      '请说明：原形、词性、当前词形与格/数/性或体、在此处的准确含义、句法关系，以及一个容易混淆的对比。若上下文不足，请明确指出，不要臆造。'
+    ].join('\n');
+  }
+  if (kind === 'phrase') {
+    return [
+      '你是一位专业的俄语教师。请用中文解析下面俄语短语。',
+      '',
+      '【短语】', payload.phrase || '',
+      '【俄语原句】', payload.sentenceRu || '（无）',
+      '【中文翻译】', payload.sentenceZh || '（无）',
+      '',
+      '请区分固定短语义与逐词义，说明各词原形、词性、语法关系、搭配限制，并给出一个自然例句和中文翻译。若没有足够依据，请明确标注不确定。'
+    ].join('\n');
+  }
+  if (kind === 'reading-speaking') {
+    return buildReaderExerciseAiPrompt(payload.exercise, payload.record, '阅读与口语练习');
+  }
+  if (kind === 'exercise') {
+    return buildReaderExerciseAiPrompt(payload.exercise, payload.record, 'TRKI-2 (B2) 俄语练习');
+  }
+  return '';
+}
+
+function buildReaderExerciseAiPrompt(exercise, record, title) {
+  exercise = exercise || {};
+  record = record || {};
+  var selectedKey = record.selected || '未选';
+  var selected = (exercise.options || []).find(function(option) {
+    var key = option.key || option.label || extractOptionKey(option.text || option);
+    return key === record.selected;
+  });
+  var selectedText = selected ? (selected.text || selected.label || '') : '';
+  var optionsList = (exercise.options || []).map(function(option) {
+    var key = option.key || option.label || extractOptionKey(option.text || option);
+    var text = option.text || option.label || option;
+    return key + '. ' + text + (key === (exercise.answer || exercise.sourceAnswer) ? ' ★正确答案' : '');
+  }).join('\n');
+  var question = exercise.question || exercise.prompt || '';
+  var completed = selectedText ? question.replace(/\.{3,}|_{3,}/, selectedText) : question;
+  return [
+    '你是一位专业的俄语教授和 ' + (title || '俄语练习') + ' 教师。请深度解析下面这道题。',
+    '',
+    '【完整题干】', completed,
+    '【所有选项】', optionsList || '（无选项）',
+    '【我的选择】', selectedKey,
+    '【正确答案】', exercise.answer || exercise.sourceAnswer || '（待核对）',
+    '',
+    '请依次说明：语境与中文含义、正确项为何成立、其他选项为何不成立、涉及的词汇/形态/句法规则、容易误判的边界，并提供 2 个同类俄语例句及中文翻译。只依据题面和已给材料，不要把推测写成教材原文。',
+    exercise.sourceExplanation ? '\n【已核对的原书解析（供参考）】\n' + exercise.sourceExplanation : ''
+  ].join('\n');
+}
+
+function copyReaderAiPrompt(kind, payload, successMessage) {
+  var prompt = buildReaderAiPrompt(kind, payload);
+  if (!prompt) { toast('无法生成解析提示'); return; }
   navigator.clipboard.writeText(prompt)
-    .then(function() { toast('📋 已复制短语解析提示'); })
+    .then(function() { toast(successMessage || '✅ AI 解析提示已复制'); })
     .catch(function() { toast('❌ 复制失败'); });
+}
+
+function copyPhraseAnalysisPrompt() {
+  copyReaderAiPrompt('phrase', { phrase: selText || _detailWord, sentenceRu: selContext, sentenceZh: selTranslationContext }, '✅ 短语 AI 解析提示已复制');
 }
 
 /* ─── AI 深度解析（clipboard 过渡方案，后续接入 AgentChat）─── */
@@ -5875,13 +6023,10 @@ function requestAiAnalysis() {
   var resultEl = document.getElementById('dpAiResult');
   if (btn) { btn.classList.add('loading'); btn.textContent = '⏳ AI 分析中...'; }
 
-  // 构建 prompt
   var context = selContext ? selContext.substring(0, 500) : '';
   var zhContext = selTranslationContext ? selTranslationContext.substring(0, 500) : '';
   var lemma = selText || _detailWord || '';
-  var prompt = '分析俄语单词 "' + lemma + '" 在以下上下文中的用法。\n' +
-    '俄语原文：' + context + '\n中文翻译：' + zhContext + '\n' +
-    '请用中文回答：这个词的原形、词性、在此处的语法形式、接格关系、以及为什么使用这个形式。';
+  var prompt = buildReaderAiPrompt('word', { word: lemma, sentenceRu: context, sentenceZh: zhContext });
 
   navigator.clipboard.writeText(prompt).then(function() {
     if (btn) { btn.classList.remove('loading'); btn.textContent = '✅ 已复制到剪贴板 — 粘贴到 Gemini/豆包'; }
@@ -6306,7 +6451,7 @@ function onlineDictionaryLookup() {
   appRuntime.lookupDictionary(term, { includeContext: includeContext, context: selContext || '' })
     .then(function(result) {
       if (!result.found) {
-        if (inner) inner.innerHTML = '<div class="dict-word">' + escapeHtml(term) + '</div><div class="dict-meaning">Russian Wiktionary 也未找到可用词条。</div>';
+        if (inner) inner.innerHTML = renderDictionaryCloseButton() + '<div class="dict-word">' + escapeHtml(term) + '</div><div class="dict-meaning">Russian Wiktionary 也未找到可用词条。</div>' + renderDictionaryActionBar({ aiId: 'dpAiBtn', allowOnline: false });
         return;
       }
       dictionaryStorage.saveProvisional({
@@ -6314,14 +6459,15 @@ function onlineDictionaryLookup() {
         queriedAt: result.queriedAt, meaningRu: result.meaningRu, meaningZh: '',
         context: includeContext ? (dictionaryController.getCurrent() && dictionaryController.getCurrent().context || {}) : {}
       });
-      if (inner) inner.innerHTML = '<button class="detail-close" type="button" onclick="event.stopPropagation();dictionaryController.close()" aria-label="关闭词典">✕</button>' +
+      if (inner) inner.innerHTML = renderDictionaryCloseButton() +
         '<div class="dict-word">' + escapeHtml(term) + '</div><div class="dict-pos">俄文释义（未翻译）</div>' +
         '<div class="dict-meaning" style="white-space:pre-wrap">' + escapeHtml(result.meaningRu) + '</div>' +
         '<div class="dict-source">' + escapeHtml(result.provider) + ' · 未复核</div>' +
-        '<a class="tb-btn" href="' + escapeHtml(result.sourceUrl) + '" target="_blank" rel="noopener noreferrer">查看来源页面</a>';
+        '<a class="tb-btn" href="' + escapeHtml(result.sourceUrl) + '" target="_blank" rel="noopener noreferrer">查看来源页面</a>' +
+        renderDictionaryActionBar({ aiId: 'dpAiBtn', allowOnline: false });
     })
     .catch(function() {
-      if (inner) inner.innerHTML = '<div class="dict-word">' + escapeHtml(term) + '</div><div class="dict-meaning">联网查询失败，请稍后再试。</div><button class="tb-btn" type="button" onclick="onlineDictionaryLookup()">重试</button>';
+      if (inner) inner.innerHTML = renderDictionaryCloseButton() + '<div class="dict-word">' + escapeHtml(term) + '</div><div class="dict-meaning">联网查询失败，请稍后再试。</div><button class="tb-btn" type="button" onclick="onlineDictionaryLookup()">重试</button>' + renderDictionaryActionBar({ aiId: 'dpAiBtn', allowOnline: false });
     });
 }
 
@@ -6364,14 +6510,15 @@ function renderLocalLookup(clean, result) {
 /* ─── 详情面板渲染（按词性展示富字段）─── */
 function renderDetailPanel(word, result) {
   if (!result || !result.meaning || result.meaning === '暂未收录') {
-    return '<div class="dict-word">' + escapeHtml(word) + '</div>' +
-      '<div class="dict-meaning" style="color:var(--text-dim)">暂未收录</div>';
+    return renderDictionaryCloseButton() + '<div class="dict-word">' + escapeHtml(word) + '</div>' +
+      '<div class="dict-meaning" style="color:var(--text-dim)">暂未收录</div>' +
+      renderDictionaryActionBar({ aiId: 'dpAiBtn', allowOnline: true });
   }
 
   var raw = result._raw || {};
   var posType = ((raw.type || result.type || '')).toLowerCase();
 
-  var html = '';
+  var html = renderDictionaryCloseButton();
 
   // ── 头部：单词 + 词性 ──
   html += '<div class="dp-head">';
@@ -6527,10 +6674,9 @@ function renderDetailPanel(word, result) {
     html += '<div class="dict-guess-label">' + escapeHtml(reliabilityLabels[result._reliability] || result._reliability) + '</div>';
   }
 
-  // ── AI 解析按钮 ──
-  html += '<div class="dp-ai-section">';
-  html += '<button class="dp-ai-btn" id="dpAiBtn" onclick="requestAiAnalysis()">AI 深度解析</button>';
-  html += '</div>';
+  // ── 统一底部操作区 ──
+  html += renderDictionaryActionBar({ aiId: 'dpAiBtn', allowOnline: true });
+  html += '<div class="dp-ai-result" id="dpAiResult"></div>';
 
   // ── 来源标注 ──
   html += '<div class="dp-source">来源：' + escapeHtml(result.source || '本地词库') + '</div>';
@@ -6647,6 +6793,14 @@ document.getElementById('searchInput').addEventListener('keydown', function(e) {
    ══════════════════════════════════════════════ */
 
 var _lastLookupWord = '';
+function renderMissingDictionaryCard(word, loadIncomplete) {
+  var message = loadIncomplete ? '部分词典数据加载失败，请刷新后重试' : '本地词典暂未收录';
+  return renderDictionaryCloseButton() +
+    '<div class="dp-head"><div class="dp-word">' + escapeHtml(word) + '</div><div class="dict-pos">查词结果</div></div>' +
+    '<div class="dict-meaning" style="color:var(--text-dim)">' + message + '</div>' +
+    (loadIncomplete ? '' : '<div class="dict-source">已加入缺词清单</div>') +
+    renderDictionaryActionBar({ aiId: 'dpAiBtn', allowOnline: !loadIncomplete });
+}
 function autoLookup(word) {
   var clean = normalizeLookupWord(word);
   if (!clean) return;
@@ -6683,25 +6837,25 @@ function autoLookup(word) {
     });
   }
   var inner = document.getElementById('detailInner');
-  var onlineAction = appRuntime.canUseOnlineDictionary() ? '<button class="tb-btn" type="button" onclick="onlineDictionaryLookup()">一键联网查询</button>' : '';
   var loadIncomplete = Object.keys(dictionaryLoadFailures).length > 0;
   if (inner) inner.innerHTML = result
     ? renderDetailPanel(clean, result)
-    : '<button class="detail-close" type="button" onclick="event.stopPropagation();dictionaryController.close()" aria-label="关闭词典">✕</button><div class="dict-word">' + escapeHtml(clean) + '</div><div class="dict-meaning" style="color:var(--text-dim)">' + (loadIncomplete ? '部分词典数据加载失败，请刷新后重试' : '本地词典暂未收录') + '</div>' + (loadIncomplete ? '' : '<div class="dict-source">已加入缺词清单</div>') + onlineAction;
+    : renderMissingDictionaryCard(clean, loadIncomplete);
   updateSaveButton(clean);
 }
 function updateSaveButton(word) {
   var records = {};
   try { records = JSON.parse(localStorage.getItem('vocabulary-review-records') || '{}'); } catch(e) {}
-  var saveBtn = document.querySelector('.btn-save-vocab');
-  if (!saveBtn) return;
-  if (records[word]) {
-    saveBtn.classList.add('saved');
-    saveBtn.innerHTML = '<span class="icon">✓</span> 已在背单词中';
-  } else {
-    saveBtn.classList.remove('saved');
-    saveBtn.innerHTML = '<span class="icon">⭐</span> 加入背单词';
-  }
+  var saveButtons = document.querySelectorAll('.btn-save-vocab');
+  saveButtons.forEach(function(saveBtn) {
+    if (records[word]) {
+      saveBtn.classList.add('saved');
+      saveBtn.innerHTML = '<span class="icon">✓</span> 已在生词本中';
+    } else {
+      saveBtn.classList.remove('saved');
+      saveBtn.innerHTML = '<span class="icon">⭐</span> 加入生词本';
+    }
+  });
 }
 function doLookup() {
   if (!selText) return;
@@ -6709,66 +6863,16 @@ function doLookup() {
   navigator.clipboard.writeText(text)
     .then(function() { toast('📋 已复制中俄上下文'); })
     .catch(function() { toast('❌ 复制失败'); });
-  closeDetailPanel();
+  dictionaryController.close();
 }
 function doAskAI() {
   if (!selText) return;
-
-  // 拼接完整上下文：句子 + 选项 + 译文
-  var parts = [];
-  var word = selText.trim();
-  var sentence = selContext || '';
-  var translation = selTranslationContext || '';
-
-  // 1) 尝试从当前 quiz/lookup 上下文中找出完整句子和选项
   var lookupCtx = dictionaryController.getCurrent && dictionaryController.getCurrent().context || {};
-  var fullSentence = lookupCtx.sentenceRu || sentence;
-  var fullTranslation = lookupCtx.sentenceZh || translation;
-
-  // 2) 如果当前在 quiz 页面，尝试找到对应题目
-  if (fullSentence && curView === 'reading' && currentQuizData) {
-    var exerciseId = lookupCtx.taskId || '';
-    var exercise = exerciseId && getQuizExercise(exerciseId);
-    if (exercise) {
-      // 拼接完整句子（填入用户选中的选项或提示有挖空）
-      var selectedText = '';
-      var record = getQuizRecord(exerciseId);
-      if (record.submitted && record.selected) {
-        var selOpt = (exercise.options || []).find(function(o) { return o.key === record.selected; });
-        if (selOpt) selectedText = selOpt.text;
-      }
-      var completedSentence = selectedText
-        ? exercise.question.replace(/\.{3,}/, selectedText)
-        : exercise.question;
-      fullSentence = completedSentence;
-
-      // 列出所有选项
-      var optionsList = (exercise.options || []).map(function(o) {
-        return o.key + '. ' + o.text + (o.key === exercise.answer ? ' ✓' : '');
-      }).join('\n');
-
-      parts.push('【原题】' + fullSentence);
-      parts.push('【选项】\n' + optionsList);
-      if (exercise.sourceExplanation) {
-        parts.push('【原书解析】' + exercise.sourceExplanation);
-      }
-      if (fullTranslation) parts.push('【译文】' + fullTranslation);
-    }
-  }
-
-  // 3) 兜底：如果没有 quiz 上下文，用基本格式
-  if (parts.length === 0) {
-    parts.push('【原句】' + (fullSentence || '(无)'));
-    if (fullTranslation) parts.push('【译文】' + fullTranslation);
-  }
-
-  // 4) 核心问题
-  parts.push('【目标词】' + word);
-  parts.push('请详细解析这个词在以上句子中的：词性、原形、语法形式、在此语境中的准确含义。如果有近义词或易混淆词，也请对比说明。请用中文回答。');
-
-  navigator.clipboard.writeText(parts.join('\n\n'))
-    .then(function() { toast('✅ 已复制完整上下文（含题干+选项+解析）'); })
-    .catch(function() { toast('❌ 复制失败'); });
+  copyReaderAiPrompt('word', {
+    word: selText.trim(),
+    sentenceRu: lookupCtx.sentenceRu || selContext || '',
+    sentenceZh: lookupCtx.sentenceZh || selTranslationContext || ''
+  }, '✅ 单词 AI 深度解析提示已复制');
   closeDetailPanel();
 }
 function doSaveWord() {
@@ -6840,7 +6944,7 @@ function doSaveWord() {
     sourceSentenceRu: selContext ? selContext.substring(0, 500) : '',
     sourceSentenceZh: selTranslationContext ? selTranslationContext.substring(0, 500) : ''
   });
-  closeDetailPanel();
+  dictionaryController.close();
 }
 
 function _syncWordToServer(payload) {
@@ -6915,6 +7019,7 @@ function markChapterDone() {
   var mins = Math.round(readTimer / 60);
   readStats[curBook.id][curCh] = { completed: true, peeks: peekCount, time_spent_sec: readTimer, completed_at: new Date().toISOString() };
   saveStats();
+  if (!curBook.isB2Module && curBook.id !== 'russian_b2') recordReaderChapterCompletion();
   // 通知父页面
   try { window.parent.postMessage({ type: 'NOVEL_CHAPTER_DONE', bookId: curBook.id, chapter: curCh, timeSec: readTimer, bookTitle: curBook.title }, '*'); } catch(e) {}
   // 更新提示条
@@ -7204,7 +7309,8 @@ if (_jumpBook) {
         if (isNaN(chIdx) || chIdx < 0) chIdx = 0;
         window.history.replaceState({}, '', 'reader.html');
         _jumpBook = null;
-        goChapter(chIdx);
+        if (target.format === 'b2-full') showB2Dashboard();
+        else goChapter(chIdx);
       } else { showShelf(); }
     }).catch(function() { showShelf(); });
 } else if (lr && lr.bookId && typeof lr.chapter === 'number') {
@@ -7221,7 +7327,7 @@ if (_jumpBook) {
    ══════════════════════════════════════════════ */
 function showWorldPeopleDashboard() {
   saveLastRead();
-  curView = 'world-people-dashboard'; curBook = null; curCh = -1; stopTimer();
+  curView = 'world-people-dashboard'; curBook = null; curCh = -1; stopTimer(); syncReaderShellState();
   document.getElementById('searchBar').classList.remove('visible');
   var prompt = document.getElementById('completePrompt'); if (prompt) prompt.classList.remove('visible');
   if (!booksData) { showShelf(); return; }
@@ -7254,14 +7360,14 @@ function showWorldPeopleDashboard() {
   }).join('');
   document.getElementById('app').innerHTML =
     b2FloatingNavigation({ backAction: 'showShelf()', backTitle: '书架', menuAction: 'showBreadcrumb()' }) +
-    '<main class="main-container b2-dashboard"><header class="b2-dashboard-hero"><h1>В мире людей</h1><p>阅读、听力、写作与语法词汇的一体化学习入口。</p></header>' + continueCard +
+    '<main class="main-container b2-dashboard reader-workbench-index"><header class="b2-dashboard-hero"><h1>В мире людей</h1><p>阅读、听力、写作与语法词汇的一体化学习入口。</p></header>' + continueCard +
     '<section class="world-dashboard-grid">' + cards + '</section></main>';
   window.scrollTo(0, 0);
 }
 
 function showReadingSpeakingDashboard() {
   saveLastRead();
-  curView = 'reading-speaking-dashboard';
+  curView = 'reading-speaking-dashboard'; syncReaderShellState();
   curBook = getBookById('reading_speaking');
   curCh = -1;
   stopTimer();
@@ -7294,7 +7400,7 @@ function showReadingSpeakingDashboard() {
 
   document.getElementById('app').innerHTML =
     b2FloatingNavigation({ backAction: 'showWorldPeopleDashboard()', backTitle: '仪表盘', menuAction: 'showBreadcrumb()' }) +
-    '<main class="main-container b2-dashboard"><header class="b2-dashboard-hero">' +
+    '<main class="main-container b2-dashboard reader-workbench-index"><header class="b2-dashboard-hero">' +
     '<h1>📖 ' + escapeHtml(curBook.title) + '</h1>' +
     '<p>' + escapeHtml(curBook.description || 'ТРКИ-2 阅读口语教材') + '</p>' +
     '</header>' +
@@ -8020,7 +8126,7 @@ function renderWritingSpeakingChapter(data, scrollPosition, restoreState) {
   var summary = window.RussianB2WritingSession ? RussianB2WritingSession.getChapterSummary(data.writingTasks || []) : { total: 0, completed: 0, isComplete: false };
   var html = b2FloatingNavigation({ backAction: 'showChapters(\'writing_speaking\')', backTitle: '目录', menuAction: 'showBreadcrumb()' });
   var sourcePages = (data.sourcePages || []).map(function(p) { return 'PDF-' + String(p).padStart(3, '0'); }).join('、');
-  html += '<main class="ws-chapter"><header class="chapter-header"><h1>第 ' + (curCh + 1) + ' 章</h1><h2>' + escapeHtml(data.title || '') + '</h2><p class="reading-answer-source">' + escapeHtml(data.section || '') + ' · 原书页：' + escapeHtml(sourcePages) + '</p></header>';
+  html += '<main class="ws-chapter reader-workbench reader-workbench--writing-speaking"><header class="chapter-header"><h1>第 ' + (curCh + 1) + ' 章</h1><h2>' + escapeHtml(data.title || '') + '</h2><p class="reading-answer-source">' + escapeHtml(data.section || '') + ' · 原书页：' + escapeHtml(sourcePages) + '</p></header>';
   html += '<div class="source-warning"><strong>⚠ ' + escapeHtml(data.sourceLabel || '原书内容 · OCR 来源 · 未经人工核对') + '</strong></div>';
   html += '<div class="ws-chapter-summary"><span>纸笔写作记录：' + summary.completed + ' / ' + summary.total + ' 项已完成自查修改</span><span>' + (summary.isComplete ? '本章已完成' : '按任务逐项记录') + '</span></div>';
 
@@ -8180,6 +8286,7 @@ function setReadingSpeakingLayoutMode(mode) {
   }
   clearReadingSpeakingDictionaryPosition();
   if (dictionaryController) dictionaryController.close();
+  syncReaderShellState();
 }
 
 var _readingSpeakingPhoneViewport = isReadingSpeakingPhoneViewport();
@@ -8272,12 +8379,12 @@ function renderReadingSpeakingChapter(data, scrollPosition, restoreState) {
   document.getElementById('app').innerHTML =
     b2FloatingNavigation({ backAction: 'showChapters(\'reading_speaking\')', backTitle: '目录', menuAction: 'showBreadcrumb()' }) +
     '<div class="peek-counter">👁 查看原文: <span id="peekCnt">0</span> / <span id="totalParas">' + visibleCount + '</span> 段</div>' +
-    '<div class="main-container" style="padding-bottom:20px"><header class="chapter-header"><h1>第 ' + (curCh + 1) + ' 章</h1><h2>' + escapeHtml(data.title || '') + '</h2>' +
+    '<main class="main-container reader-workbench reader-workbench--reading-speaking" style="padding-bottom:20px"><header class="chapter-header"><h1>第 ' + (curCh + 1) + ' 章</h1><h2>' + escapeHtml(data.title || '') + '</h2>' +
     '<div class="rs-reader-mode-switch" role="group" aria-label="阅读布局切换">' +
       '<button type="button" data-rs-layout-mode="reading" onclick="setReadingSpeakingLayoutMode(\'reading\')" aria-pressed="' + (layoutMode === 'reading') + '">阅读</button>' +
       '<button type="button" data-rs-layout-mode="practice" onclick="setReadingSpeakingLayoutMode(\'practice\')" aria-pressed="' + (layoutMode === 'practice') + '">练习</button>' +
-    '</div></header></div>' +
-    '<div class="reader-layout rs-' + layoutMode + '-mode" id="readerLayout">' +
+    '</div></header></main>' +
+    '<div class="reader-layout reader-workbench-layout rs-' + layoutMode + '-mode" id="readerLayout">' +
     '<div class="reader-pane" id="readerPane"><div class="chapter-content">' +
     parts.join('') +
     '</div></div>' +
@@ -8405,6 +8512,7 @@ function renderReadingSpeakingExplanationContent(ex, exId) {
   } else if (ex.explanation) {
     html += '<section class="rs-explanation-block rs-explanation-block--review"><p>' + escapeHtml(ex.explanation) + '</p></section>';
   }
+  html += renderExerciseAiAction(exId, 'reading-speaking');
   return html + '</div>';
 }
 
@@ -8477,6 +8585,7 @@ function submitReadingSpeakingOption(exId, key, evt) {
     var progress = getReadingSpeakingProgress();
     progress[exId] = record;
     saveReadingSpeakingProgress(progress);
+    recordB2Submission('reading-speaking', _currentRSData && _currentRSData.id || String(curCh), [exId]);
   } else {
     // 第一次点击 → 选中
     record.selected = key;
@@ -8567,12 +8676,21 @@ function updateReadingSpeakingQuestionDOM(exId) {
 }
 </script>
 <script src="js/reader-navigation.js"></script>
+<script src="js/study-activity-store.js?v=20260807-1"></script>
+<script src="js/study-activity-session.js?v=20260807-1"></script>
 <script src="js/app-shell.js"></script>
+<link rel="stylesheet" href="css/reader-shell.css" media="not all" data-reader-android-style>
+<link rel="stylesheet" href="css/reader-workbench.css" media="not all" data-reader-android-style>
 <style>
 @media (max-width:700px) {
   html.app-shell-enabled #detailPanel {
     bottom:calc(var(--app-shell-nav-height) + var(--app-shell-safe-bottom)) !important;
     max-height:calc(88dvh - var(--app-shell-nav-height) - var(--app-shell-safe-bottom)) !important;
+  }
+  html.app-shell-enabled[data-reader-view="reading"] #detailPanel,
+  html.app-shell-enabled[data-reader-view="practice"] #detailPanel {
+    bottom:var(--app-shell-safe-bottom) !important;
+    max-height:calc(92dvh - var(--app-shell-safe-bottom)) !important;
   }
 }
 </style>
@@ -8614,7 +8732,38 @@ window.appShellHandleBack = function() {
     showShelf: showShelf
   });
 };
+window.ReaderActivityTracker = StudyActivitySession.mount({
+  store: StudyActivityStore,
+  document: document,
+  window: window,
+  source: 'reader.html'
+});
+window.syncReaderActivityContext = function() {
+  if (!window.ReaderActivityTracker) return;
+  if (!curBook || curCh < 0) {
+    window.ReaderActivityTracker.setContext(null);
+    return;
+  }
+  var isB2Activity = !!curBook.isB2Module || curBook.id === 'russian_b2';
+  window.ReaderActivityTracker.setContext({
+    module: isB2Activity ? 'b2' : 'reader',
+    submodule: isB2Activity ? (curBook.moduleId || 'b2') : (curBook.id || 'textbook'),
+    action: isB2Activity ? 'practice' : 'study',
+    source: 'reader.html',
+    bookId: curBook.id || '',
+    chapterId: String(curCh),
+    unitId: isB2Activity ? (curBook.moduleId || '') : ''
+  });
+};
+window.syncReaderActivityContext();
 </script>
-<script>AppShell.mount({ current: 'reader' });</script>
+<script>
+var readerAppShellMount = AppShell.mount({ current: 'reader' });
+if (readerAppShellMount.mounted) {
+  document.querySelectorAll('[data-reader-android-style]').forEach(function(link) {
+    link.media = 'all';
+  });
+}
+</script>
 </body>
 </html>

@@ -9,6 +9,7 @@ const index = read('index.html');
 const legacyIndex = read('legacy/index.html');
 const reader = read('reader.html');
 const vocabulary = read('vocabulary.html');
+const appShellCss = read('css/app-shell.css');
 const server = read('server.js');
 
 test('root entry sends learners directly to the reader', () => {
@@ -20,14 +21,18 @@ test('root entry sends learners directly to the reader', () => {
 });
 
 test('reader and vocabulary expose direct same-tab navigation', () => {
-  assert.match(reader, /class="reader-page-switcher"/);
-  assert.match(reader, /function openVocabulary\(\) \{\s*saveLastRead\(\);\s*window\.location\.href = 'vocabulary\.html';/);
+  assert.match(reader, /class="reader-page-switcher reader-shell-nav"/);
+  assert.match(reader, /function openVocabulary\(\) \{\s*saveLastRead\(\);\s*appRuntime\.navigate\('vocabulary\.html'\);/);
   assert.match(reader, /aria-current="page">阅读器/);
   assert.match(reader, /onclick="openVocabulary\(\)">生词本/);
   assert.doesNotMatch(reader, /href="vocabulary\.html" target="_blank"/);
   assert.match(vocabulary, /class="slim-page-switcher"/);
-  assert.match(vocabulary, /function openReader\(\) \{ window\.location\.href = 'reader\.html'; \}/);
+  assert.match(vocabulary, /function openReader\(\) \{ appRuntime\.navigate\('reader\.html'\); \}/);
   assert.match(vocabulary, /aria-current="page">生词本/);
+});
+
+test('Android app shell removes the duplicate web page switchers', () => {
+  assert.match(appShellCss, /html\.app-shell-enabled \.slim-page-switcher,[\s\S]*html\.app-shell-enabled \.reader-page-switcher \{ display: none; \}/);
 });
 
 test('vocabulary owns its custom background data and preserves legacy choices once', () => {

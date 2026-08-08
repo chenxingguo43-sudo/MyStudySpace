@@ -8,6 +8,41 @@
     return !editable && words.length >= 2 && Boolean(startContext) && startContext === endContext;
   }
 
+  function resolveDrawerGesture(state, delta, options = {}) {
+    const current = ['closed', 'half', 'full'].includes(state) ? state : 'closed';
+    const movement = Number(delta || 0);
+    const velocity = Number(options.velocity || 0);
+    const tapSlop = Number(options.tapSlop || 10);
+    const flickVelocity = Number(options.flickVelocity || 0.55);
+    if (Math.abs(movement) <= tapSlop) return current === 'full' ? 'half' : 'full';
+
+    const height = Number(options.currentHeight);
+    const halfHeight = Number(options.halfHeight);
+    const fullHeight = Number(options.fullHeight);
+    if (Number.isFinite(height) && Number.isFinite(halfHeight) && Number.isFinite(fullHeight)) {
+      const projectedHeight = Math.max(0, Math.min(
+        fullHeight,
+        height - (Math.abs(velocity) >= flickVelocity ? velocity * 180 : 0)
+      ));
+      return [
+        { state: 'closed', height: 0 },
+        { state: 'half', height: halfHeight },
+        { state: 'full', height: fullHeight }
+      ].reduce((nearest, snap) => (
+        Math.abs(projectedHeight - snap.height) < Math.abs(projectedHeight - nearest.height) ? snap : nearest
+      )).state;
+    }
+
+    if (Math.abs(velocity) >= flickVelocity) {
+      if (velocity < 0) return 'full';
+      return current === 'full' ? 'half' : 'closed';
+    }
+
+    if (Math.abs(movement) < 36) return current;
+    if (movement < 0) return 'full';
+    return current === 'full' ? 'half' : 'closed';
+  }
+
   function createController(options = {}) {
     const core = options.core;
     const root = options.root;
@@ -20,7 +55,7 @@
     let lastTouchAt = 0;
     let touchIntent = null;
     let activeWordElement = null;
-    let drawerStartY = null;
+    let drawerGesture = null;
     let pendingSelection = null;
 
     function getPanel() {
@@ -34,10 +69,28 @@
       return panel && panel.getAttribute ? panel.getAttribute('data-dictionary-state') || 'closed' : 'closed';
     }
 
+    function clearDrawerGesture() {
+      const gesture = drawerGesture;
+      drawerGesture = null;
+      if (!gesture) return;
+      const { handle, panel, pointerId } = gesture;
+      if (panel && panel.removeAttribute) panel.removeAttribute('data-dictionary-dragging');
+      if (panel && panel.style && panel.style.removeProperty) panel.style.removeProperty('height');
+      if (handle && handle.releasePointerCapture && pointerId !== undefined) {
+        try {
+          if (!handle.hasPointerCapture || handle.hasPointerCapture(pointerId)) handle.releasePointerCapture(pointerId);
+        } catch (_error) {}
+      }
+    }
+
     function setPanelState(state) {
+      clearDrawerGesture();
       const next = ['closed', 'half', 'full'].includes(state) ? state : 'closed';
       const panel = getPanel();
       if (panel && panel.setAttribute) panel.setAttribute('data-dictionary-state', next);
+      if (root.documentElement && root.documentElement.classList) {
+        root.documentElement.classList.toggle('dictionary-sheet-open', next !== 'closed');
+      }
       return next;
     }
 
@@ -231,24 +284,90 @@
         ? event.target.closest('.dictionary-drawer-handle')
         : null;
       if (!handle) return;
-      drawerStartY = Number(event.clientY || 0);
+      const panel = getPanel();
+      const state = getPanelState();
+      if (!panel || state === 'closed' || (event.isPrimary === false) || (event.button !== undefined && event.button !== 0)) return;
+      const view = root.defaultView || (typeof window !== 'undefined' ? window : null);
+      const viewportHeight = Number((view && view.innerHeight) || (root.documentElement && root.documentElement.clientHeight) || 0);
+      const rect = panel.getBoundingClientRect ? panel.getBoundingClientRect() : null;
+      const startHeight = Number((rect && rect.height) || 0);
+      if (!startHeight) return;
+      const computed = view && view.getComputedStyle ? view.getComputedStyle(panel) : null;
+      const cssLength = (value, fallback) => {
+        const raw = String(value || '').trim();
+        const amount = parseFloat(raw);
+        if (!Number.isFinite(amount)) return fallback;
+        if (/d?vh$/i.test(raw)) return viewportHeight * amount / 100;
+        return amount;
+      };
+      const computedMax = computed ? cssLength(computed.maxHeight, Infinity) : Infinity;
+      const halfHeight = Math.min(
+        cssLength(computed && computed.getPropertyValue('--dictionary-half-height'), viewportHeight * 0.52),
+        computedMax
+      );
+      const fullHeight = Math.max(halfHeight, Math.min(
+        cssLength(computed && computed.getPropertyValue('--dictionary-full-height'), viewportHeight * 0.92),
+        computedMax
+      ));
+      const now = Number(event.timeStamp || Date.now());
+      drawerGesture = {
+        handle,
+        panel,
+        pointerId: event.pointerId,
+        state,
+        startY: Number(event.clientY || 0),
+        startHeight,
+        currentHeight: startHeight,
+        halfHeight,
+        fullHeight,
+        lastY: Number(event.clientY || 0),
+        lastAt: now,
+        velocity: 0
+      };
+      panel.setAttribute('data-dictionary-dragging', 'true');
+      panel.style.height = `${startHeight}px`;
+      if (handle.setPointerCapture && event.pointerId !== undefined) {
+        try { handle.setPointerCapture(event.pointerId); } catch (_error) {}
+      }
+      if (event.preventDefault) event.preventDefault();
+    }
+
+    function onPointerMove(event) {
+      const gesture = drawerGesture;
+      if (!gesture || (gesture.pointerId !== undefined && event.pointerId !== gesture.pointerId)) return;
+      const y = Number(event.clientY || 0);
+      const now = Number(event.timeStamp || Date.now());
+      const elapsed = now - gesture.lastAt;
+      if (elapsed > 0) gesture.velocity = (y - gesture.lastY) / elapsed;
+      gesture.lastY = y;
+      gesture.lastAt = now;
+      const delta = y - gesture.startY;
+      gesture.currentHeight = Math.max(42, Math.min(gesture.fullHeight, gesture.startHeight - delta));
+      gesture.panel.style.height = `${gesture.currentHeight}px`;
       if (event.preventDefault) event.preventDefault();
     }
 
     function onPointerUp(event) {
-      if (drawerStartY === null) return;
-      const delta = Number(event.clientY || 0) - drawerStartY;
-      drawerStartY = null;
-      const state = getPanelState();
-      if (Math.abs(delta) < 36) {
-        setPanelState(state === 'full' ? 'half' : 'full');
-      } else if (delta < 0) {
-        setPanelState('full');
-      } else if (state === 'full') {
-        setPanelState('half');
-      } else {
-        close();
-      }
+      const gesture = drawerGesture;
+      if (!gesture || (gesture.pointerId !== undefined && event.pointerId !== gesture.pointerId)) return;
+      onPointerMove(event);
+      const delta = Number(event.clientY || 0) - gesture.startY;
+      const next = resolveDrawerGesture(gesture.state, delta, {
+        velocity: gesture.velocity,
+        currentHeight: gesture.currentHeight,
+        halfHeight: gesture.halfHeight,
+        fullHeight: gesture.fullHeight
+      });
+      if (next === 'closed') close();
+      else setPanelState(next);
+    }
+
+    function onPointerCancel(event) {
+      const gesture = drawerGesture;
+      if (!gesture || (gesture.pointerId !== undefined && event.pointerId !== gesture.pointerId)) return;
+      const state = gesture.state;
+      clearDrawerGesture();
+      setPanelState(state);
     }
 
     function init() {
@@ -259,12 +378,15 @@
       root.addEventListener('touchcancel', onTouchCancel);
       root.addEventListener('keydown', onKeyDown);
       root.addEventListener('pointerdown', onPointerDown);
+      root.addEventListener('pointermove', onPointerMove);
       root.addEventListener('pointerup', onPointerUp);
+      root.addEventListener('pointercancel', onPointerCancel);
       root.addEventListener('selectionchange', refreshPhraseSelection);
       initialized = true;
     }
 
     function destroy() {
+      clearDrawerGesture();
       if (!initialized) return;
       root.removeEventListener('click', onClick);
       root.removeEventListener('touchstart', onTouchStart, { passive: true });
@@ -272,8 +394,11 @@
       root.removeEventListener('touchcancel', onTouchCancel);
       root.removeEventListener('keydown', onKeyDown);
       root.removeEventListener('pointerdown', onPointerDown);
+      root.removeEventListener('pointermove', onPointerMove);
       root.removeEventListener('pointerup', onPointerUp);
+      root.removeEventListener('pointercancel', onPointerCancel);
       root.removeEventListener('selectionchange', refreshPhraseSelection);
+      if (root.documentElement && root.documentElement.classList) root.documentElement.classList.remove('dictionary-sheet-open');
       hidePhraseAction();
       initialized = false;
     }
@@ -312,5 +437,5 @@
     };
   }
 
-  return { createController, isLookupSelectionAllowed };
+  return { createController, isLookupSelectionAllowed, resolveDrawerGesture };
 });

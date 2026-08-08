@@ -69,12 +69,18 @@ test('manifest lists normalized, unique controlled files with valid hashes', () 
     assert.equal(file.path.includes('\\'), false, file.path);
     assert.equal(file.path.includes('/media/'), false, file.path);
     assert.equal(file.path.includes('/_automation/'), false, file.path);
+    assert.equal(file.path.includes('/rebuild/'), false, file.path);
     assert.equal(file.path.startsWith('data/novel/'), false, file.path);
     assert.equal(file.path.endsWith('.backup.json'), false, file.path);
     const content = fs.readFileSync(path.join(root, file.path));
     assert.equal(file.bytes, content.length, file.path);
     assert.equal(file.sha256, sha256(content), file.path);
   }
+});
+
+test('manifest excludes listening rebuild staging data until it passes its release gate', () => {
+  const manifest = buildContentManifest({ root, generatedAt: '2026-07-27T00:00:00.000Z' });
+  assert.equal(manifest.files.some(file => file.path.includes('/rebuild/')), false);
 });
 
 test('manifest controls every critical offline content family', () => {

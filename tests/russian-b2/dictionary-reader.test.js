@@ -70,6 +70,108 @@ test('dictionary uses a desktop panel and accessible narrow-screen drawer', () =
   assert.match(reader, /#detailPanel\[data-dictionary-state="full"\]/);
 });
 
+test('dictionary drawer gestures expand, collapse, and close predictably', () => {
+  assert.equal(Runtime.resolveDrawerGesture('half', -80, { velocity: -0.7 }), 'full');
+  assert.equal(Runtime.resolveDrawerGesture('full', 80, { velocity: 0.7 }), 'half');
+  assert.equal(Runtime.resolveDrawerGesture('half', 220, { velocity: 0.7 }), 'closed');
+  assert.equal(Runtime.resolveDrawerGesture('full', 0), 'half');
+  assert.equal(Runtime.resolveDrawerGesture('half', 80, {
+    currentHeight: 440,
+    halfHeight: 480,
+    fullHeight: 820
+  }), 'half');
+  assert.equal(Runtime.resolveDrawerGesture('half', 300, {
+    currentHeight: 180,
+    halfHeight: 480,
+    fullHeight: 820
+  }), 'closed');
+  assert.equal(Runtime.resolveDrawerGesture('full', 120, {
+    velocity: 0.8,
+    currentHeight: 700,
+    halfHeight: 480,
+    fullHeight: 820
+  }), 'half');
+  assert.match(reader, /html\.dictionary-sheet-open body \{ overflow: hidden/);
+  assert.match(reader, /dictionary-drawer-handle::before/);
+  assert.match(reader, /data-dictionary-dragging="true"\] \{ transition: none; will-change: height/);
+});
+
+test('dictionary drawer follows the active pointer and cleans up every drag path', () => {
+  const listeners = {};
+  const attributes = new Map([['data-dictionary-state', 'half']]);
+  const styleValues = new Map();
+  const panel = {
+    style: {
+      set height(value) { styleValues.set('height', value); },
+      get height() { return styleValues.get('height') || ''; },
+      removeProperty(name) { styleValues.delete(name); }
+    },
+    getBoundingClientRect() { return { height: 480 }; },
+    getAttribute(name) { return attributes.get(name) || null; },
+    setAttribute(name, value) { attributes.set(name, value); },
+    removeAttribute(name) { attributes.delete(name); }
+  };
+  const captured = new Set();
+  const handle = {
+    setPointerCapture(id) { captured.add(id); },
+    hasPointerCapture(id) { return captured.has(id); },
+    releasePointerCapture(id) { captured.delete(id); }
+  };
+  const root = {
+    defaultView: {
+      innerHeight: 900,
+      getComputedStyle() {
+        return {
+          maxHeight: '828px',
+          getPropertyValue(name) {
+            return name === '--dictionary-half-height' ? '52dvh' : '92dvh';
+          }
+        };
+      }
+    },
+    documentElement: { classList: { toggle() {}, remove() {} } },
+    querySelector(selector) { return selector === '#detailPanel' ? panel : null; },
+    addEventListener(type, handler) { listeners[type] = handler; },
+    removeEventListener(type) { delete listeners[type]; }
+  };
+  const event = (type, y, time) => ({
+    pointerId: 7,
+    pointerType: 'touch',
+    isPrimary: true,
+    button: 0,
+    clientY: y,
+    timeStamp: time,
+    target: { closest(selector) { return type === 'down' && selector === '.dictionary-drawer-handle' ? handle : null; } },
+    preventDefault() {}
+  });
+  const controller = Runtime.createController({ core: Core, root });
+  controller.init();
+
+  listeners.pointerdown(event('down', 600, 100));
+  listeners.pointermove(event('move', 430, 300));
+  assert.equal(attributes.get('data-dictionary-dragging'), 'true');
+  assert.equal(styleValues.get('height'), '650px');
+  assert.equal(captured.has(7), true);
+  listeners.pointerup(event('up', 350, 340));
+  assert.equal(attributes.get('data-dictionary-state'), 'full');
+  assert.equal(attributes.has('data-dictionary-dragging'), false);
+  assert.equal(styleValues.has('height'), false);
+  assert.equal(captured.has(7), false);
+
+  attributes.set('data-dictionary-state', 'full');
+  panel.getBoundingClientRect = () => ({ height: 828 });
+  listeners.pointerdown(event('down', 300, 500));
+  listeners.pointermove(event('move', 430, 650));
+  listeners.pointercancel(event('cancel', 430, 650));
+  assert.equal(attributes.get('data-dictionary-state'), 'full');
+  assert.equal(attributes.has('data-dictionary-dragging'), false);
+  assert.equal(styleValues.has('height'), false);
+
+  controller.destroy();
+  assert.equal(listeners.pointermove, undefined);
+  assert.equal(listeners.pointercancel, undefined);
+});
+
 test('grammar, study cards, and reading pass explicit lookup contexts', () => {
   assert.match(reader, /function renderLookupOption\(exercise, option/);
   assert.match(reader, /lookupContext\('grammar',[^\n]+ 'quiz-option'/);
@@ -140,7 +242,8 @@ test('reader loads generated morphology and attributed dictionary supplements', 
 
 test('true misses expose only an explicit source-labelled online fallback', () => {
   assert.match(reader, /function onlineDictionaryLookup\(\)/);
-  assert.match(reader, /\/api\/dictionary\/lookup/);
+  assert.match(reader, /appRuntime\.canUseOnlineDictionary\(\)/);
+  assert.match(reader, /appRuntime\.lookupDictionary\(term/);
   assert.match(reader, /dictionaryStorage\.saveProvisional/);
   assert.match(reader, /俄文释义（未翻译）/);
   assert.match(reader, /一键联网查询/);
