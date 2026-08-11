@@ -1,6 +1,7 @@
 const test = require('node:test');
 const assert = require('node:assert/strict');
 const Core = require('../../js/russian-dictionary/core');
+const { morphologyGuess } = require('../../data/russian-morphology');
 
 test('tokenizes stressed and hyphenated Russian without losing punctuation', () => {
   assert.deepEqual(Core.tokenizeRussian('Из-за э́тих проблем.'), [
@@ -57,6 +58,15 @@ test('resolves common declined pronouns before definition lookup', () => {
     assert.equal(result.lemma, expected);
     assert.equal(result.reliability, 'reviewed-function-form');
   }
+});
+
+test('offers hard-stem noun plural candidates for dictionary-validated fallback', () => {
+  const candidates = morphologyGuess('собеседники');
+  assert.ok(candidates.includes('собеседник'));
+  const dictionary = { собеседник: { meaning: '对话者 / 交谈者' } };
+  const accepted = candidates.find(candidate => dictionary[candidate]);
+  assert.equal(accepted, 'собеседник');
+  assert.equal(dictionary[accepted].meaning, '对话者 / 交谈者');
 });
 
 test('phrase lookup prefers an exact collocation and otherwise returns components', () => {

@@ -1565,8 +1565,11 @@ body.theme-warm .listening-entry-zh, body.theme-warm .listening-section-count { 
 .zlatoust-learning-check { margin: 18px 0; padding: 16px; border: 1px solid var(--accent-border); border-radius: 8px; background: var(--glass); }
 .zlatoust-learning-check h4 { margin: 0 0 7px; font-size: 13px; }
 .zlatoust-learning-check-prompt { margin: 0 0 12px; font-family: Georgia, 'Times New Roman', serif; font-size: 17px; line-height: 1.6; }
+.zlatoust-learning-check-translation { margin: -7px 0 12px; color: var(--text-secondary); font-size: 14px; line-height: 1.55; }
 .zlatoust-learning-check-options { display: grid; gap: 7px; }
 .zlatoust-learning-check-option { display: flex; align-items: flex-start; gap: 9px; width: 100%; padding: 10px 11px; border: 1px solid var(--border); border-radius: 7px; color: var(--text); background: var(--surface-solid); cursor: pointer; font: inherit; text-align: left; transition: border-color .15s ease, background .15s ease, transform .15s ease; }
+.zlatoust-learning-check-option > span { display: grid; gap: 2px; }
+.zlatoust-learning-check-option small { color: var(--text-secondary); font-size: 12px; line-height: 1.4; }
 .zlatoust-learning-check-option:hover, .zlatoust-learning-check-option:focus-visible { border-color: var(--accent); background: var(--accent-dim); }
 .zlatoust-learning-check-option:active { transform: translateY(1px); }
 .zlatoust-learning-check-option.is-correct { border-color: rgba(16,185,129,.65); background: rgba(16,185,129,.08); }
@@ -3193,12 +3196,12 @@ function renderStudyCheck(check, index) {
   var controls = '';
   if (check.type === 'choice') controls = (check.options || []).map(function(option, optionIndex) {
     var value = escapeHtml(String(option)).replace(/'/g, '&#39;');
-    var context = lookupContext('grammar', cardId, 'study-check-option', String(option), '', check.source && check.source.pages || []);
+    var context = lookupContextWithSentence('grammar', cardId, 'study-check-option', String(option), '', check.source && check.source.pages || []);
     return '<span class="b2-study-check-choice"><button type="button" aria-label="选择选项 ' + (optionIndex + 1) + '" onclick="answerStudyCheck(\'' + safeCardId + '\',\'' + safeCheckId + '\',\'' + value + '\')">' + (optionIndex + 1) + '</button><span>' + renderRuText(String(option), context) + '</span></span>';
   }).join('');
   else if (check.type === 'judgment') controls = '<button type="button" onclick="answerStudyCheck(\'' + safeCardId + '\',\'' + safeCheckId + '\',\'true\')">正确</button><button type="button" onclick="answerStudyCheck(\'' + safeCardId + '\',\'' + safeCheckId + '\',\'false\')">错误</button>';
   else controls = '<button type="button" onclick="answerStudyCheck(\'' + safeCardId + '\',\'' + safeCheckId + '\',\'reveal\')">展开答案与依据</button>';
-  return '<div class="b2-study-check" data-study-check-id="' + safeCheckId + '"><strong>' + (check.type === 'reveal' ? '先思考，再展开' : '即时检查') + '</strong><p>' + renderRuText(check.prompt || '', lookupContext('grammar', cardId, 'study-check-prompt', check.prompt || '', '', check.source && check.source.pages || [])) + '</p><div class="b2-study-check-options">' + controls + '</div><div class="b2-study-check-result" data-study-result="' + safeCheckId + '">答案默认隐藏。</div></div>';
+  return '<div class="b2-study-check" data-study-check-id="' + safeCheckId + '"><strong>' + (check.type === 'reveal' ? '先思考，再展开' : '即时检查') + '</strong><p>' + renderRuText(check.prompt || '', lookupContextWithSentence('grammar', cardId, 'study-check-prompt', check.prompt || '', '', check.source && check.source.pages || [])) + '</p><div class="b2-study-check-options">' + controls + '</div><div class="b2-study-check-result" data-study-result="' + safeCheckId + '">答案默认隐藏。</div></div>';
 }
 function renderStudyChecks(card) {
   studyCardCheckRegistry[card.id] = card;
@@ -3279,7 +3282,7 @@ function renderStudyCaseChanges(changes, cardId) {
 function renderStudyLesson(lesson, index) {
   var related = lesson.scope === 'related-extension' ? ' related' : '';
   var examples = (lesson.examples || []).map(function(item) {
-    var context = lookupContext('grammar', lesson.cardId, 'study-example', item.ru || '', item.zh || '', item.source && item.source.pages || []);
+    var context = lookupContextWithSentence('grammar', lesson.cardId, 'study-example', item.ru || '', item.zh || '', item.source && item.source.pages || []);
     return '<article class="b2-study-example"><p class="ru">' + renderRuText(item.ru || '', context) + '</p><p class="zh">' + escapeHtml(item.zh || '') + '</p>' + renderStudySourceDisclosure(item.source) + '</article>';
   }).join('');
   var checks = (lesson.instantChecks || []).map(function(check, checkIndex) { return renderStudyCheck(Object.assign({ _cardId: lesson.cardId || '' }, check), checkIndex); }).join('');
@@ -3295,13 +3298,13 @@ function renderStudyLessons(card) {
 function renderStudyComparisons(comparisons, cardId) {
   if (!comparisons || !comparisons.length) return '';
   return '<section class="b2-study-section"><h2>易混对比</h2>' + comparisons.map(function(item) {
-    return '<article class="b2-study-comparison"><strong>' + renderRuText(item.left, lookupContext('grammar', cardId, 'study-comparison', item.left)) + '</strong> / <strong>' + renderRuText(item.right, lookupContext('grammar', cardId, 'study-comparison', item.right)) + '</strong><p>' + escapeHtml(item.note) + '</p>' + renderStudySource(item.source) + '</article>';
+    return '<article class="b2-study-comparison"><strong>' + renderRuText(item.left, lookupContextWithSentence('grammar', cardId, 'study-comparison', item.left)) + '</strong> / <strong>' + renderRuText(item.right, lookupContextWithSentence('grammar', cardId, 'study-comparison', item.right)) + '</strong><p>' + escapeHtml(item.note) + '</p>' + renderStudySource(item.source) + '</article>';
   }).join('') + '</section>';
 }
 function renderStudyExamples(examples, cardId) {
   if (!examples || !examples.length) return '';
   return '<section class="b2-study-section"><h2>语法书例句</h2>' + examples.map(function(item) {
-    return '<article class="b2-study-example"><p class="ru">' + renderRuText(item.ru, lookupContext('grammar', cardId, 'study-example', item.ru, item.zh, item.source && item.source.pages || [])) + '</p><p class="zh">' + escapeHtml(item.zh) + '</p>' + renderStudySource(item.source) + '</article>';
+    return '<article class="b2-study-example"><p class="ru">' + renderRuText(item.ru, lookupContextWithSentence('grammar', cardId, 'study-example', item.ru, item.zh, item.source && item.source.pages || [])) + '</p><p class="zh">' + escapeHtml(item.zh) + '</p>' + renderStudySource(item.source) + '</article>';
   }).join('') + '</section>';
 }
 function renderStudyPitfalls(pitfalls) {
@@ -3933,7 +3936,7 @@ function renderZlatoustDiagnostic(diagnostic) {
   var source = diagnostic.source || {};
   return '<section class="zlatoust-diagnostic"><h2>快速诊断</h2><p>' + escapeHtml(diagnostic.prompt || '') + '</p><div class="zlatoust-diagnostic-grid">' +
     (diagnostic.items || []).map(function(item, index) {
-      return '<article class="zlatoust-diagnostic-item"><p class="ru">' + renderRuText(item.ru || '', lookupContext('grammar', 'zlatoust-diagnostic-' + index, 'learning-example', item.ru || '', item.zh || '', [])) + '</p><span class="zh">' + escapeHtml(item.zh || '') + '</span><small>' + escapeHtml(item.focus || '') + '</small></article>';
+      return '<article class="zlatoust-diagnostic-item"><p class="ru">' + renderRuText(item.ru || '', lookupContextWithSentence('grammar', 'zlatoust-diagnostic-' + index, 'learning-example', item.ru || '', item.zh || '', [])) + '</p><span class="zh">' + escapeHtml(item.zh || '') + '</span><small>' + escapeHtml(item.focus || '') + '</small></article>';
     }).join('') + '</div>' + (source.url ? renderZlatoustExternalReference(source) : renderZlatoustSourceBadge(diagnostic.sourceType || 'learning-note')) + '</section>';
 }
 function renderZlatoustExternalReference(source, fallbackConclusion) {
@@ -3964,7 +3967,7 @@ function renderZlatoustStageExamples(stage) {
   var heading = items.every(function(item) { return item.sourceType === 'exercise-example'; }) ? '原书题面片段与定位' : '原书例句逐句解析';
   return '<section class="zlatoust-stage-block"><h3>' + heading + '</h3><div class="zlatoust-example-list">' + items.map(function(item, index) {
     var taskId = stage.id + '-example-' + index;
-    return '<article class="zlatoust-example-row">' + renderZlatoustSourceBadge(item.sourceType || 'source-example') + '<p class="ru">' + renderRuText(item.ru || '', lookupContext('grammar', taskId, 'source-example', item.ru || '', item.zh || '', (item.source && item.source.pdfPages) || [])) + '</p><p class="zh">' + escapeHtml(item.zh || '') + '</p><p class="analysis"><strong>为什么这样用：</strong>' + escapeHtml(item.analysis || '') + '</p>' + (zlatoustSourcePages(item.source) ? '<small>' + escapeHtml(zlatoustSourcePages(item.source)) + '</small>' : '') + '</article>';
+    return '<article class="zlatoust-example-row">' + renderZlatoustSourceBadge(item.sourceType || 'source-example') + '<p class="ru">' + renderRuText(item.ru || '', lookupContextWithSentence('grammar', taskId, 'source-example', item.ru || '', item.zh || '', (item.source && item.source.pdfPages) || [])) + '</p><p class="zh">' + escapeHtml(item.zh || '') + '</p><p class="analysis"><strong>为什么这样用：</strong>' + escapeHtml(item.analysis || '') + '</p>' + (zlatoustSourcePages(item.source) ? '<small>' + escapeHtml(zlatoustSourcePages(item.source)) + '</small>' : '') + '</article>';
   }).join('') + '</div></section>';
 }
 function renderZlatoustStageContrasts(stage) {
@@ -3984,22 +3987,40 @@ function renderZlatoustLearningFeedback(feedback, correct) {
     (!correct && feedback.review ? '<p><strong>回看规则：</strong>' + escapeHtml(feedback.review) + '</p>' : '') +
     (feedback.contrast ? '<p><strong>最小对比：</strong>' + escapeHtml(feedback.contrast) + '</p>' : '') + '</div>';
 }
+function zlatoustInteractiveText(text, context) {
+  text = String(text || '');
+  return /[А-Яа-яЁё]/.test(text) ? renderRuText(text, context) : escapeHtml(text);
+}
+function zlatoustCompletedCheckSentence(prompt, optionText) {
+  prompt = String(prompt || '');
+  optionText = String(optionText || '');
+  if (!optionText) return prompt;
+  return /\.{3}|…/.test(prompt) ? prompt.replace(/\.{3}|…/, optionText) : (prompt + ' ' + optionText).trim();
+}
+function zlatoustCheckOptionHtml(scopeId, prompt, promptZh, option, regionType) {
+  var sentenceRu = zlatoustCompletedCheckSentence(prompt, option.text);
+  var sentenceZh = zlatoustCompletedCheckSentence(promptZh, option.zh);
+  var context = lookupContextWithSentence('grammar', scopeId, regionType, sentenceRu, sentenceZh, []);
+  return '<span>' + zlatoustInteractiveText(option.text || '', context) + (option.zh ? '<small>' + escapeHtml(option.zh) + '</small>' : '') + '</span>';
+}
 function renderZlatoustLearningRetry(sectionId, stageId, check) {
   if (!check.retry) return '';
   var record = zlatoustLearningPageRecord(sectionId).retries[check.id] || {};
   var retry = check.retry;
-  return '<div class="zlatoust-retry"><strong>换一个语境再练一次</strong><p class="zlatoust-learning-check-prompt">' + escapeHtml(retry.prompt || '') + '</p><div class="zlatoust-learning-check-options">' + (retry.options || []).map(function(option) {
+  var retryContext = lookupContextWithSentence('grammar', check.id + '-retry-prompt', 'learning-check-retry', retry.prompt || '', retry.promptZh || '', []);
+  return '<div class="zlatoust-retry"><strong>换一个语境再练一次</strong><p class="zlatoust-learning-check-prompt">' + zlatoustInteractiveText(retry.prompt || '', retryContext) + '</p>' + (retry.promptZh ? '<p class="zlatoust-learning-check-translation">' + escapeHtml(retry.promptZh) + '</p>' : '') + '<div class="zlatoust-learning-check-options">' + (retry.options || []).map(function(option) {
     var klass = record.submitted && option.key === retry.answer ? ' is-correct' : record.submitted && option.key === record.selected ? ' is-wrong' : '';
-    return '<button type="button" class="zlatoust-learning-check-option' + klass + '" onclick="answerZlatoustLearningRetry(\'' + zlatoustEscapeForOnclick(sectionId) + '\',\'' + zlatoustEscapeForOnclick(stageId) + '\',\'' + zlatoustEscapeForOnclick(check.id) + '\',\'' + zlatoustEscapeForOnclick(option.key) + '\')"><strong>' + escapeHtml(option.key) + '</strong><span>' + escapeHtml(option.text) + '</span></button>';
+    return '<button type="button" class="zlatoust-learning-check-option' + klass + '" onclick="if(event.target.closest(\'.ru-word\'))return;answerZlatoustLearningRetry(\'' + zlatoustEscapeForOnclick(sectionId) + '\',\'' + zlatoustEscapeForOnclick(stageId) + '\',\'' + zlatoustEscapeForOnclick(check.id) + '\',\'' + zlatoustEscapeForOnclick(option.key) + '\')"><strong>' + escapeHtml(option.key) + '</strong>' + zlatoustCheckOptionHtml(check.id + '-retry-' + option.key, retry.prompt, retry.promptZh, option, 'learning-check-retry-option') + '</button>';
   }).join('') + '</div>' + (record.submitted ? '<p class="zlatoust-learning-feedback' + (record.correct ? '' : ' is-wrong') + '">' + (record.correct ? '这次判断正确。' : '还没有抓住决定条件，先回看上面的最小对比再试。') + '</p>' : '') + '</div>';
 }
 function renderZlatoustLearningCheck(sectionId, stageId, check, finalCheck) {
   var record = zlatoustLearningPageRecord(sectionId).checks[check.id] || {}, submitted = !!record.submitted;
+  var promptContext = lookupContextWithSentence('grammar', check.id + '-prompt', finalCheck ? 'learning-final-check' : 'learning-check', check.prompt || '', check.promptZh || '', []);
   var options = (check.options || []).map(function(option) {
     var klass = submitted && option.key === check.answer ? ' is-correct' : submitted && option.key === record.selected ? ' is-wrong' : '';
-    return '<button type="button" class="zlatoust-learning-check-option' + klass + '" onclick="answerZlatoustLearningCheck(\'' + zlatoustEscapeForOnclick(sectionId) + '\',\'' + zlatoustEscapeForOnclick(stageId || '') + '\',\'' + zlatoustEscapeForOnclick(check.id) + '\',\'' + zlatoustEscapeForOnclick(option.key) + '\',' + (finalCheck ? 'true' : 'false') + ')"><strong>' + escapeHtml(option.key) + '</strong><span>' + escapeHtml(option.text) + '</span></button>';
+    return '<button type="button" class="zlatoust-learning-check-option' + klass + '" onclick="if(event.target.closest(\'.ru-word\'))return;answerZlatoustLearningCheck(\'' + zlatoustEscapeForOnclick(sectionId) + '\',\'' + zlatoustEscapeForOnclick(stageId || '') + '\',\'' + zlatoustEscapeForOnclick(check.id) + '\',\'' + zlatoustEscapeForOnclick(option.key) + '\',' + (finalCheck ? 'true' : 'false') + ')"><strong>' + escapeHtml(option.key) + '</strong>' + zlatoustCheckOptionHtml(check.id + '-' + option.key, check.prompt, check.promptZh, option, finalCheck ? 'learning-final-option' : 'learning-check-option') + '</button>';
   }).join('');
-  return '<article class="zlatoust-learning-check" data-zlatoust-check="' + escapeHtml(check.id) + '"><h4>' + (finalCheck ? '综合判断' : '随堂判断') + '</h4><p class="zlatoust-learning-check-prompt">' + escapeHtml(check.prompt || '') + '</p><div class="zlatoust-learning-check-options">' + options + '</div>' +
+  return '<article class="zlatoust-learning-check" data-zlatoust-check="' + escapeHtml(check.id) + '"><h4>' + (finalCheck ? '综合判断' : '随堂判断') + '</h4><p class="zlatoust-learning-check-prompt">' + zlatoustInteractiveText(check.prompt || '', promptContext) + '</p>' + (check.promptZh ? '<p class="zlatoust-learning-check-translation">' + escapeHtml(check.promptZh) + '</p>' : '') + '<div class="zlatoust-learning-check-options">' + options + '</div>' +
     (submitted ? renderZlatoustLearningFeedback(check.feedback, record.correct) + renderZlatoustLearningRetry(sectionId, stageId, check) : '') + '</article>';
 }
 function renderZlatoustStageExercises(stage) {
@@ -4013,7 +4034,7 @@ function renderZlatoustStageExercises(stage) {
 function renderZlatoustLearningStage(page, stage) {
   var external = stage.externalNote;
   return '<section class="zlatoust-stage" id="' + escapeHtml(stage.id) + '"><p class="zlatoust-stage-number">阶段 ' + stage.number + ' / ' + page.stages.length + '</p><h2>' + escapeHtml(stage.title) + '</h2><p class="zlatoust-stage-question">' + escapeHtml(stage.question || '') + '</p>' +
-    '<div class="zlatoust-context-entry"><p class="ru">' + renderRuText((stage.entry && stage.entry.ru) || '', lookupContext('grammar', stage.id + '-entry', 'learning-example', (stage.entry && stage.entry.ru) || '', '', [])) + '</p><p>' + escapeHtml((stage.entry && stage.entry.prompt) || '') + '</p></div>' +
+    '<div class="zlatoust-context-entry"><p class="ru">' + renderRuText((stage.entry && stage.entry.ru) || '', lookupContextWithSentence('grammar', stage.id + '-entry', 'learning-example', (stage.entry && stage.entry.ru) || '', '', [])) + '</p><p>' + escapeHtml((stage.entry && stage.entry.prompt) || '') + '</p></div>' +
     '<section class="zlatoust-teacher-copy"><h3>老师拆解</h3>' + (stage.teacherExplanation || []).map(function(paragraph) { return '<p>' + escapeHtml(paragraph) + '</p>'; }).join('') + '</section>' +
     renderZlatoustStageSourceRule(stage.sourceRule) + renderZlatoustStageSourceEvidence(stage.sourceEvidence) + renderZlatoustStageExamples(stage) + renderZlatoustStageContrasts(stage) +
     (external ? '<section class="zlatoust-stage-block"><h3>外部教辅补充（中文整理）</h3>' + renderZlatoustExternalReference(external.source, external.text) + '</section>' : '') +
@@ -4032,8 +4053,13 @@ function renderZlatoustTransferTasks(sectionId, tasks) {
   var record = zlatoustLearningPageRecord(sectionId), answers = record.transfer || {};
   return '<section class="zlatoust-transfer" id="zlatoust-final"><h2>跨阶段综合迁移</h2><p>这里要处理新语境。完成四项任务后，系统才会把本节标为“已掌握”。</p>' + tasks.map(function(task) {
     var saved = answers[task.id] || {};
-    if (task.kind === 'text') return '<article class="zlatoust-transfer-task"><h3>' + escapeHtml(task.title) + '</h3><p>' + escapeHtml(task.prompt) + '</p><textarea data-zlatoust-transfer-section="' + escapeHtml(sectionId) + '" data-zlatoust-transfer-text="' + escapeHtml(task.id) + '" aria-label="' + escapeHtml(task.title) + '作答" placeholder="写下你的判断…" oninput="saveZlatoustTransferText(\'' + zlatoustEscapeForOnclick(sectionId) + '\',\'' + zlatoustEscapeForOnclick(task.id) + '\')">' + escapeHtml(saved.text || '') + '</textarea><p class="zlatoust-transfer-hint">' + escapeHtml(task.hint || '') + '</p><button type="button" class="zlatoust-back-link" onclick="saveZlatoustTransferText(\'' + zlatoustEscapeForOnclick(sectionId) + '\',\'' + zlatoustEscapeForOnclick(task.id) + '\')">保存作答</button></article>';
-    return '<article class="zlatoust-transfer-task"><h3>' + escapeHtml(task.title) + '</h3><p>' + escapeHtml(task.prompt) + '</p><div class="zlatoust-learning-check-options">' + (task.options || []).map(function(option) { var klass = saved.submitted && option.key === task.answer ? ' is-correct' : saved.submitted && option.key === saved.selected ? ' is-wrong' : ''; return '<button type="button" class="zlatoust-learning-check-option' + klass + '" onclick="answerZlatoustTransferChoice(\'' + zlatoustEscapeForOnclick(sectionId) + '\',\'' + zlatoustEscapeForOnclick(task.id) + '\',\'' + zlatoustEscapeForOnclick(option.key) + '\')"><strong>' + escapeHtml(option.key) + '</strong><span>' + escapeHtml(option.text) + '</span></button>'; }).join('') + '</div>' + (saved.submitted ? '<p class="zlatoust-learning-feedback' + (saved.correct ? '' : ' is-wrong') + '">' + escapeHtml(task.feedback || '') + '</p>' : '') + '</article>';
+    var promptContext = lookupContextWithSentence('grammar', task.id + '-prompt', 'learning-transfer', task.prompt || '', task.promptZh || '', []);
+    var promptHtml = '<p>' + zlatoustInteractiveText(task.prompt || '', promptContext) + '</p>' + (task.promptZh ? '<p class="zlatoust-learning-check-translation">' + escapeHtml(task.promptZh) + '</p>' : '');
+    if (task.kind === 'text') return '<article class="zlatoust-transfer-task"><h3>' + escapeHtml(task.title) + '</h3>' + promptHtml + '<textarea data-zlatoust-transfer-section="' + escapeHtml(sectionId) + '" data-zlatoust-transfer-text="' + escapeHtml(task.id) + '" aria-label="' + escapeHtml(task.title) + '作答" placeholder="写下你的判断…" oninput="saveZlatoustTransferText(\'' + zlatoustEscapeForOnclick(sectionId) + '\',\'' + zlatoustEscapeForOnclick(task.id) + '\')">' + escapeHtml(saved.text || '') + '</textarea><p class="zlatoust-transfer-hint">' + escapeHtml(task.hint || '') + '</p><button type="button" class="zlatoust-back-link" onclick="saveZlatoustTransferText(\'' + zlatoustEscapeForOnclick(sectionId) + '\',\'' + zlatoustEscapeForOnclick(task.id) + '\')">保存作答</button></article>';
+    return '<article class="zlatoust-transfer-task"><h3>' + escapeHtml(task.title) + '</h3>' + promptHtml + '<div class="zlatoust-learning-check-options">' + (task.options || []).map(function(option) {
+      var klass = saved.submitted && option.key === task.answer ? ' is-correct' : saved.submitted && option.key === saved.selected ? ' is-wrong' : '';
+      return '<button type="button" class="zlatoust-learning-check-option' + klass + '" onclick="if(event.target.closest(\'.ru-word\'))return;answerZlatoustTransferChoice(\'' + zlatoustEscapeForOnclick(sectionId) + '\',\'' + zlatoustEscapeForOnclick(task.id) + '\',\'' + zlatoustEscapeForOnclick(option.key) + '\')"><strong>' + escapeHtml(option.key) + '</strong>' + zlatoustCheckOptionHtml(task.id + '-' + option.key, task.prompt, task.promptZh, option, 'learning-transfer-option') + '</button>';
+    }).join('') + '</div>' + (saved.submitted ? '<p class="zlatoust-learning-feedback' + (saved.correct ? '' : ' is-wrong') + '">' + escapeHtml(task.feedback || '') + '</p>' : '') + '</article>';
   }).join('') + '</section>';
 }
 function answerZlatoustTransferChoice(sectionId, taskId, optionKey) {
@@ -4188,7 +4214,7 @@ function renderTextbookKnowledgeCard(chapter, point) {
   var sourcePages = point.sourcePages || chapter.sourcePages && chapter.sourcePages.rules || [];
   var structure = point.structure || '对应题型：' + formatQuestionRange(point.exerciseIds || []) + '。先判断句子需要的语法关系，再回到题目核对。';
   var exampleHtml = examples.length ? examples.map(function(exercise) {
-    return '<article class="b2-study-example"><p class="ru">' + renderRuText(exercise.question || '', lookupContext('grammar', exercise.id, 'study-card-example', exercise.question || '', '', exercise.questionPages || [])) + '</p><p class="kind">练习 ' + escapeHtml(exercise.id) + ' · 原书答案：' + escapeHtml(exercise.answer || '待核对') + '</p></article>';
+    return '<article class="b2-study-example"><p class="ru">' + renderRuText(exercise.question || '', lookupContextWithSentence('grammar', exercise.id, 'study-card-example', exercise.question || '', '', exercise.questionPages || [])) + '</p><p class="kind">练习 ' + escapeHtml(exercise.id) + ' · 原书答案：' + escapeHtml(exercise.answer || '待核对') + '</p></article>';
   }).join('') : '<p class="b2-study-empty">本知识点暂未配置独立例题，请直接进入练习。</p>';
   var status = point.sourceStatus || '原书规则已整理';
   return '<div class="main-container b2-study-card reader-workbench reader-workbench--knowledge">' +
@@ -4352,7 +4378,7 @@ function renderZlatoustStaticExplanation(exercise, explanation, state, answerKey
     html += '<aside class="zlatoust-answer-notice"><strong>这题的规则边界仍待复核；原书答案已保留，以下学习说明仅作辅助。</strong></aside>';
   }
   if (explanation.sourceTextWarning) html += '<aside class="zlatoust-answer-notice"><strong>' + escapeHtml(explanation.sourceTextWarning) + '</strong></aside>';
-  html += '<section><h4>原书答案（已核对）</h4><p><strong>' + escapeHtml(answerKey) + (answerOption ? '：' + escapeHtml(answerOption.text) : '') + '</strong></p><p class="zlatoust-answer-sentence">' + renderRuText(explanation.completeSentence.ru, lookupContext('grammar', exercise.id, 'zlatoust-static-answer-sentence', explanation.completeSentence.ru, '', exercise.answerPages || [])) + '</p><p class="zlatoust-answer-translation"><strong>中文：</strong>' + escapeHtml(explanation.completeSentence.zh) + '</p></section>';
+  html += '<section><h4>原书答案（已核对）</h4><p><strong>' + escapeHtml(answerKey) + (answerOption ? '：' + escapeHtml(answerOption.text) : '') + '</strong></p><p class="zlatoust-answer-sentence">' + renderRuText(explanation.completeSentence.ru, lookupContextWithSentence('grammar', exercise.id, 'zlatoust-static-answer-sentence', explanation.completeSentence.ru, explanation.completeSentence.zh || '', exercise.answerPages || [])) + '</p><p class="zlatoust-answer-translation"><strong>中文：</strong>' + escapeHtml(explanation.completeSentence.zh) + '</p></section>';
   html += '<section><h4>先说结论</h4><p>' + escapeHtml(explanation.conclusion) + '</p></section>';
   html += '<section><h4>按这样判断</h4><ol class="zlatoust-decision-steps">' + explanation.decisionSteps.map(function(item) { return '<li>' + escapeHtml(item.text) + '</li>'; }).join('') + '</ol></section>';
   var correctAnalysis = explanation.correctOption.analysis || explanation.conclusion;
@@ -4383,7 +4409,7 @@ function renderZlatoustQuizExplanation(exercise) {
   if (status === 'source-exercise-only') {
     html += '<aside class="zlatoust-answer-source-only"><strong>原书仅有练习。未找到独立的原书理论页，不要把推测性的规则伪装成教材解析。</strong></aside>';
   }
-  html += '<section><h4>原书答案（已核对）</h4><p><strong>' + escapeHtml(answerKey) + (answerOption ? '：' + escapeHtml(answerOption.text) : '') + '</strong></p><p class="zlatoust-answer-sentence">' + renderRuText(getZlatoustCompletedSentence(exercise), lookupContext('grammar', exercise.id, 'zlatoust-answer-sentence', getZlatoustCompletedSentence(exercise), '', exercise.answerPages || [])) + '</p></section>';
+  html += '<section><h4>原书答案（已核对）</h4><p><strong>' + escapeHtml(answerKey) + (answerOption ? '：' + escapeHtml(answerOption.text) : '') + '</strong></p><p class="zlatoust-answer-sentence">' + renderRuText(getZlatoustCompletedSentence(exercise), lookupContextWithSentence('grammar', exercise.id, 'zlatoust-answer-sentence', getZlatoustCompletedSentence(exercise), '', exercise.answerPages || [])) + '</p></section>';
   if (status !== 'source-exercise-only') {
     var ruleLinks = renderZlatoustAnswerRuleLinks(mapping, state || { exerciseToRules: {} });
     html += '<section><h4>本题考查</h4>' + renderZlatoustFocusAxes(mapping) + (ruleLinks ? '<div class="zlatoust-answer-rules">' + ruleLinks + '</div>' : '<p>对应规则仍在整理中。</p>') + (mapping.mappingReason ? '<p>' + escapeHtml(mapping.mappingReason) + '</p>' : '') + '</section>';
@@ -4430,14 +4456,14 @@ function renderLookupOption(exercise, option, record) {
   var pending = selected && !record.submitted;
   var state = record.submitted ? (' submitted' + (option.key === exercise.answer ? ' correct' : selected ? ' wrong' : '')) : (pending ? ' pending' : '');
   var pages = (exercise.questionPages || []).concat(exercise.answerPages || []);
-  var context = lookupContext('grammar', exercise.id, 'quiz-option', option.text, '', pages);
+  var context = lookupContextWithSentence('grammar', exercise.id, 'quiz-option', option.text, '', pages);
   return '<div class="b2-option-row' + state + '" onclick="submitQuizOption(\'' + escapeHtml(exercise.id) + '\',\'' + escapeHtml(option.key) + '\',event)" role="radio" aria-checked="' + (selected ? 'true' : 'false') + '" aria-label="' + (pending ? '再次点击确认选择 ' + escapeHtml(option.key) : '选择 ' + escapeHtml(option.key)) + '">' +
     '<span class="b2-option-radio">' + escapeHtml(option.key) + '.</span>' +
     '<span class="b2-option-text">' + renderRuText(option.text, context) + (pending ? ' <small style="color:var(--accent);font-weight:600">（再点确认）</small>' : '') + '</span></div>';
 }
 function renderQuizItem(exercise, record) {
   var html = '<section class="b2-quiz-item" data-question-id="' + escapeHtml(exercise.id) + '">';
-  html += '<h3>' + escapeHtml(exercise.id) + '. ' + renderRuText(exercise.question, lookupContext('grammar', exercise.id, 'quiz-prompt', exercise.question, '', exercise.questionPages)) + '</h3>';
+  html += '<h3>' + escapeHtml(exercise.id) + '. ' + renderRuText(exercise.question, lookupContextWithSentence('grammar', exercise.id, 'quiz-prompt', exercise.question, '', exercise.questionPages)) + '</h3>';
   html += renderZlatoustExerciseReference(exercise);
   if (exercise.type === 'open-response') {
     var response = escapeHtml(record.response || '');
@@ -5250,7 +5276,7 @@ function renderListeningQuestion(question) {
     var state = selected ? ' is-selected' : '';
     if (submitted && option.key === question.answer) state += ' is-correct';
     if (submitted && selected && option.key !== question.answer) state += ' is-wrong';
-    var optionContext = lookupContext('listening', question.id + '-option-' + option.key, 'listening-question', option.text, '', question.evidence && question.evidence.pages || []);
+    var optionContext = lookupContextWithSentence('listening', question.id + '-option-' + option.key, 'listening-question', option.text, '', question.evidence && question.evidence.pages || []);
     var action = "answerListeningQuestion('" + escapeHtml(question.id) + "','" + escapeHtml(option.key) + "')";
     return '<button type="button" class="lw-question-option' + state + '" data-option-key="' + escapeHtml(option.key) + '" role="radio" aria-checked="' + (selected ? 'true' : 'false') + '"' +
       (submitted || mediaLocked ? ' disabled' : ' onclick="' + action + '"') + '><span class="lw-option-key">' + escapeHtml(option.key) + '.</span>' +
@@ -5259,8 +5285,9 @@ function renderListeningQuestion(question) {
   var result = submitted ? '<p class="lw-question-result ' + (record.submittedResult === 'correct' ? 'is-correct' : 'is-wrong') + '">' +
     (record.submittedResult === 'correct' ? '回答正确' : record.submittedResult === 'unanswered' ? '本题未答' : '回答错误，正确答案是 ' + escapeHtml(question.answer)) + '</p>' : '';
   var promptRu = question.promptRu || question.prompt || '';
-  var prompt = renderRuText(promptRu, lookupContext('listening', question.id + '-prompt', 'listening-question', promptRu, '', evidence.pages || []));
-  var translation = question.prompt && question.prompt !== promptRu ? '<p class="lw-question-translation">' + escapeHtml(question.prompt) + '</p>' : '';
+  var translationText = question.prompt && question.prompt !== promptRu ? question.prompt : '';
+  var prompt = renderRuText(promptRu, lookupContextWithSentence('listening', question.id + '-prompt', 'listening-question', promptRu, translationText, evidence.pages || []));
+  var translation = translationText ? '<p class="lw-question-translation">' + escapeHtml(translationText) + '</p>' : '';
   return '<article class="lw-question" id="listening-question-' + escapeHtml(question.id) + '"><div class="lw-question-head">' +
     '<span class="lw-question-number">' + escapeHtml(String(question.printedNumber || question.id)) + '</span><div><p class="lw-question-prompt">' + prompt + '</p>' + translation + '</div>' +
     '<span class="lw-question-state">' + (submitted ? (record.submittedResult === 'correct' ? '正确' : record.submittedResult === 'wrong' ? '错误' : '未答') : evidenceUnavailable ? '本音频未覆盖' : mediaLocked ? '音频待补' : record.selected ? '已选择' : '未作答') + '</span></div>' +
@@ -6430,6 +6457,35 @@ function resolveDictionaryLookup(word, context, recordMissing) {
     morphology: (function() { var map = {}; map[clean] = combinedMorphologyFor(clean); return map; })(),
     lookupLemma: lookupLocalChineseMeaning
   });
+  if (resolved.entry && !hasChineseText(resolved.entry.meaning)) {
+    var chineseCandidates = [resolved.lemma]
+      .concat(combinedMorphologyFor(clean).lemmas || [], [clean], resolved.alternatives || []);
+    for (var candidateIndex = 0; candidateIndex < chineseCandidates.length; candidateIndex++) {
+      var chineseCandidate = normalizeLookupWord(chineseCandidates[candidateIndex]);
+      var chineseEntry = chineseCandidate && lookupLocalChineseMeaning(chineseCandidate);
+      if (!chineseEntry || !hasChineseText(chineseEntry.meaning)) continue;
+      resolved.entry = chineseEntry;
+      resolved.definitionForm = chineseCandidate;
+      break;
+    }
+  }
+  if (!resolved.entry && typeof morphologyGuess === 'function') {
+    var guessed = morphologyGuess(clean);
+    for (var i = 0; i < guessed.length; i++) {
+      var guessedLemma = normalizeLookupWord(guessed[i]);
+      var guessedEntry = guessedLemma && lookupLocalChineseMeaning(guessedLemma);
+      if (!guessedEntry) continue;
+      resolved = {
+        form: word,
+        normalized: clean,
+        lemma: guessedLemma,
+        entry: guessedEntry,
+        reliability: 'morphology-guess',
+        alternatives: guessed.filter(function(candidate) { return normalizeLookupWord(candidate) !== guessedLemma; })
+      };
+      break;
+    }
+  }
   if (!resolved.entry && recordMissing !== false) {
     dictionaryStorage.recordMissing({
       form: word,
@@ -6793,6 +6849,7 @@ document.getElementById('searchInput').addEventListener('keydown', function(e) {
    ══════════════════════════════════════════════ */
 
 var _lastLookupWord = '';
+var _lastDictionaryResolution = null;
 function renderMissingDictionaryCard(word, loadIncomplete) {
   var message = loadIncomplete ? '部分词典数据加载失败，请刷新后重试' : '本地词典暂未收录';
   return renderDictionaryCloseButton() +
@@ -6805,6 +6862,7 @@ function autoLookup(word) {
   var clean = normalizeLookupWord(word);
   if (!clean) return;
   _lastLookupWord = clean;
+  _lastDictionaryResolution = null;
   // 追踪查词（去重）
   if (_sessionLookedUp.indexOf(clean) === -1) _sessionLookedUp.push(clean);
 
@@ -6827,6 +6885,7 @@ function autoLookup(word) {
   if (!resolved.entry) {
     resolved = resolveDictionaryLookup(clean, context, Object.keys(dictionaryLoadFailures).length === 0);
   }
+  _lastDictionaryResolution = resolved;
   var result = resolved.entry;
   if (result) {
     result = Object.assign({}, result, {
@@ -6846,9 +6905,12 @@ function autoLookup(word) {
 function updateSaveButton(word) {
   var records = {};
   try { records = JSON.parse(localStorage.getItem('vocabulary-review-records') || '{}'); } catch(e) {}
+  var canonicalKey = _lastDictionaryResolution && _lastDictionaryResolution.entry
+    ? normalizeLookupWord(_lastDictionaryResolution.lemma)
+    : normalizeLookupWord(word);
   var saveButtons = document.querySelectorAll('.btn-save-vocab');
   saveButtons.forEach(function(saveBtn) {
-    if (records[word]) {
+    if (records[canonicalKey] || records[word]) {
       saveBtn.classList.add('saved');
       saveBtn.innerHTML = '<span class="icon">✓</span> 已在生词本中';
     } else {
@@ -6890,12 +6952,27 @@ function doSaveWord() {
   // 写入统一存储
   var today = new Date().toISOString().slice(0, 10);
   var context = dictionaryController.getCurrent && dictionaryController.getCurrent().context || {};
+  var saveOrigins = ['reader'];
+  if (context.moduleId && saveOrigins.indexOf(context.moduleId) === -1) saveOrigins.push(context.moduleId);
+  var resolution = _lastDictionaryResolution && _lastDictionaryResolution.normalized === normalizeLookupWord(clean)
+    ? _lastDictionaryResolution
+    : null;
+  var canonicalLemma = resolution && resolution.entry ? resolution.lemma : normalizeLookupWord(clean);
+  var canonicalKey = normalizeLookupWord(canonicalLemma);
   var saved = dictionaryStorage.mergeSavedWord({
     form: clean,
-    lemma: clean,
+    lemma: canonicalLemma,
+    identity: resolution && resolution.entry ? {
+      key: canonicalKey,
+      lemma: canonicalLemma,
+      partOfSpeech: posEl ? posEl.textContent : ''
+    } : null,
     meaning: meaning.trim(),
     partOfSpeech: posEl ? posEl.textContent : '',
-    reliability: '',
+    reliability: resolution ? resolution.reliability : 'not-found',
+    origin: 'reader',
+    origins: saveOrigins,
+    collection: 'saved',
     context: Object.assign({}, context, {
       surfaceForm: clean,
       sentenceRu: selContext ? selContext.substring(0, 500) : '',
@@ -6906,10 +6983,10 @@ function doSaveWord() {
   if (!saved.interval) saved.interval = 1;
   if (!saved.easeFactor) saved.easeFactor = 2.5;
   if (saved.count === undefined) saved.count = 0;
-  saved.source = 'reader';
+  saved.source = saved.source || 'reader';
   saved.sourceBook = curBook ? curBook.id : '';
   saved.sourceChapter = curCh;
-  appRuntime.saveVocabulary(clean, saved);
+  appRuntime.saveVocabulary(canonicalKey, saved);
   /*
   records[clean] = {
     mastery: 0,
@@ -6930,9 +7007,10 @@ function doSaveWord() {
 
   // 更新高亮
   savedWords.push(clean.toLowerCase());
+  if (canonicalKey !== clean.toLowerCase()) savedWords.push(canonicalKey);
   _sessionSavedWords.push(clean);
   highlightSavedWords();
-  toast('⭐ 已加入背单词: ' + clean);
+  toast('⭐ 已加入生词本: ' + (canonicalKey === clean.toLowerCase() ? clean : clean + ' → ' + canonicalLemma));
 
   // 可选：同步到 server（Obsidian 备份）
   var source = curBook ? (curBook.title + ' 第' + (curCh + 1) + '章') : '';

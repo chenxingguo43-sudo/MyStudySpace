@@ -2,7 +2,9 @@ const fs = require('node:fs');
 const test = require('node:test');
 const assert = require('node:assert/strict');
 
-const { extractRussianForms, analyzeWithPymorphy } = require('../../scripts/russian-dictionary/build-corpus-morphology');
+const path = require('node:path');
+const os = require('node:os');
+const { extractRussianForms, analyzeWithPymorphy, productionContentFiles, sourceFingerprint, verifyCorpusMorphologyFresh } = require('../../scripts/russian-dictionary/build-corpus-morphology');
 const { invertFreeDictXml, FREEDICT_VERSION } = require('../../scripts/russian-dictionary/build-freedict');
 const { extractGlossaryEntries } = require('../../scripts/russian-dictionary/build-markdown-glossary');
 const { parseOpenRussianTsv } = require('../../scripts/russian-dictionary/build-openrussian');
@@ -37,6 +39,23 @@ test('analyzes a corpus form with pinned local pymorphy', () => {
   assert.ok(result['тех']);
   assert.ok(result['тех'].lemmas.includes('тот'));
   assert.ok(Array.isArray(result['тех'].tags));
+});
+
+test('production morphology scope follows the content manifest and excludes rebuild history', () => {
+  const files = productionContentFiles();
+  assert.ok(files.some(file => file.endsWith(path.join('listening_speaking', 'ch0035.json'))));
+  assert.equal(files.some(file => file.includes(path.join('listening_speaking', 'rebuild'))), false);
+});
+
+test('detects production content changes after a morphology build', () => {
+  const directory = fs.mkdtempSync(path.join(os.tmpdir(), 'rr-morphology-'));
+  const source = path.join(directory, 'source.json');
+  const manifest = path.join(directory, 'manifest.json');
+  fs.writeFileSync(source, '{"sentence":"Собеседники говорят."}');
+  fs.writeFileSync(manifest, JSON.stringify({ morphology: { sourceFingerprint: sourceFingerprint([source]) } }));
+  assert.equal(verifyCorpusMorphologyFresh({ files: [source], manifestPath: manifest }).fresh, true);
+  fs.writeFileSync(source, '{"sentence":"Собеседники долго говорят."}');
+  assert.equal(verifyCorpusMorphologyFresh({ files: [source], manifestPath: manifest }).fresh, false);
 });
 
 test('inverts Chinese-Russian FreeDict entries into attributed Russian-Chinese entries', () => {

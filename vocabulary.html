@@ -1869,6 +1869,7 @@
     var onlyWrong = false;
     var onlyUnmastered = false;
     var includeAllFiltered = false; // 收藏/错题等专用模式不再被到期筛掉
+    var savedOnly = false;          // 生词本按用户显式收藏过滤，与词条来源无关
 
     // ─── 资料坐标系数据 ─────────────────────────────────────────
     var coordLexemeIndex = null;  // lexeme_index.json
@@ -2079,11 +2080,40 @@
                     else data.push(normalized);
                 });
                 var records = getRecords();
+                function normalizeSavedIdentity(value) {
+                    return String(value || '').normalize('NFD').replace(/[\u0300\u0301]/g, '').normalize('NFC').replace(/ё/g, 'е').toLowerCase().replace(/[^а-я-]/g, '');
+                }
                 Object.keys(records).forEach(function(id) {
                     if (appRuntime.isAndroid() && records[id] && records[id].source === 'novel') return;
-                    if (data.some(function(word) { return word.id === id; })) return;
                     var record = records[id] || {};
-                    data.push({ id: id, word: record.lemma || record.word || (record.forms || [])[0] || id, meaning: record.meaning || '', type: record.partOfSpeech || 'reader', contexts: record.contexts || record.sources || [] });
+                    var canonical = record.canonicalKey || record.lemma || record.word || id;
+                    var normalizedCanonical = normalizeSavedIdentity(canonical);
+                    var existingIndex = data.findIndex(function(word) {
+                        return word.id === id || normalizeSavedIdentity(word.lemma || word.word) === normalizedCanonical;
+                    });
+                    var savedFields = {
+                        _saved: true,
+                        canonicalKey: record.canonicalKey || normalizedCanonical,
+                        lemma: record.lemma || canonical,
+                        forms: record.forms || [],
+                        origins: record.origins || (record.source ? [record.source] : []),
+                        collection: record.collection || 'saved',
+                        contexts: record.contexts || record.sources || []
+                    };
+                    if (existingIndex >= 0) {
+                        data[existingIndex] = Object.assign({}, data[existingIndex], savedFields, {
+                            meaning: record.meaning || data[existingIndex].meaning || '',
+                            type: record.partOfSpeech || data[existingIndex].type || ''
+                        });
+                        return;
+                    }
+                    data.push(Object.assign({
+                        id: id,
+                        word: record.lemma || record.word || (record.forms || [])[0] || id,
+                        meaning: record.meaning || '',
+                        type: record.partOfSpeech || 'reader',
+                        source: record.source || (record.origins || [])[0] || 'reader'
+                    }, savedFields));
                 });
                 allWords = data;
                 initFilters();
@@ -2652,6 +2682,7 @@
         var extras = getExtras();
 
         filtered = allWords.filter(function(w) {
+            if (savedOnly && !w._saved) return false;
             if (src !== 'all' && w.source !== src) return false;
             if (type !== 'all') {
                 var wordType = VocabularySessionScheduler.normalizePartOfSpeech(w.type);
@@ -2874,6 +2905,7 @@
         onlyWrong = false;
         onlyUnmastered = false;
         includeAllFiltered = false;
+        savedOnly = false;
         document.getElementById('btnOnlyWrong').classList.remove('filter-btn-active');
         document.getElementById('btnOnlyUnmastered').classList.remove('filter-btn-active');
         document.getElementById('filterSource').value = 'all';
@@ -2883,7 +2915,8 @@
         if (mode === 'due') {
             showDueOnly = true;
         } else if (mode === 'vocab') {
-            document.getElementById('filterSource').value = 'vocab';
+            savedOnly = true;
+            includeAllFiltered = true;
         } else if (mode === 'b2') {
             document.getElementById('filterSource').value = 'b2';
         } else if (mode === 'freq') {

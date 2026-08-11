@@ -55,6 +55,7 @@
       regionType: String(value.regionType || ''),
       sentenceRu: String(value.sentenceRu || ''),
       sentenceZh: String(value.sentenceZh || ''),
+      surfaceForm: String(value.surfaceForm || ''),
       sourceLabel: String(value.sourceLabel || ''),
       sourcePages: Array.isArray(value.sourcePages) ? value.sourcePages.slice() : []
     };

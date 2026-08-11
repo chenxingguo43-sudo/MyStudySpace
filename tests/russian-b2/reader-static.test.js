@@ -822,6 +822,23 @@ test('writing-speaking records paper-writing stages without rendering an online 
   assert.doesNotMatch(activeRenderer, /textarea|ws-draft-area|time-badge/);
 });
 
+test('Zlatoust learning checks expose clickable Russian with sentence context without selecting the answer', () => {
+  const checkRenderer = reader.match(/function renderZlatoustLearningCheck\(sectionId, stageId, check, finalCheck\) \{([\s\S]*?)\n\}/);
+  const retryRenderer = reader.match(/function renderZlatoustLearningRetry\(sectionId, stageId, check\) \{([\s\S]*?)\n\}/);
+  assert.ok(checkRenderer && retryRenderer);
+  assert.match(checkRenderer[1], /lookupContextWithSentence\('grammar'/);
+  assert.match(checkRenderer[1], /zlatoustInteractiveText\(check\.prompt/);
+  assert.match(checkRenderer[1], /zlatoustCheckOptionHtml/);
+  assert.match(checkRenderer[1], /event\.target\.closest\(\\'\.ru-word\\'\)/);
+  assert.match(retryRenderer[1], /zlatoustInteractiveText\(retry\.prompt/);
+  assert.match(retryRenderer[1], /zlatoustCheckOptionHtml/);
+
+  const page = JSON.parse(fs.readFileSync('data/textbook/zlatoust_grammar/theory/learning-pages/gl1/section-1.2.json', 'utf8'));
+  const check = page.stages.flatMap(stage => stage.checks || []).find(item => item.id === 'collective-check-1');
+  assert.equal(check.promptZh, '谈到新方案时，大多数人……：“它是必要的。”');
+  assert.equal(check.options[0].zh, '会回答（单数）');
+});
+
 test('writing-speaking keeps vocabulary, Chinese study aids, and bilingual speaking tasks in the active workbench', () => {
   const activeStart = reader.indexOf('function renderWritingSpeakingChapter(data, scrollPosition, restoreState)');
   const activeEnd = reader.indexOf('/* ─── 折叠面板过渡动画 ─── */', activeStart);

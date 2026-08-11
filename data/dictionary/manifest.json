@@ -1,10 +1,12 @@
 {
   "morphology": {
     "engine": "pymorphy3",
-    "sourceFiles": 384,
-    "formCount": 56456,
+    "sourceFiles": 398,
+    "sourceFingerprint": "1a7676114772d55943390008356bfb136cf8f0a5f76c94bf22c77b676a8d59ec",
+    "sourceScope": "data/app-content-manifest.json production JSON",
+    "formCount": 21371,
     "output": "data/dictionary/corpus-morphology.json",
-    "sha256": "a26b8bec802d01094ad1241648c274a25174997652372b214f9f6c76d72626df"
+    "sha256": "dd2e5e6109ef32e83eff3bdf04895514655e2d5bec23947183299be509e0eeb2"
   },
   "freedict": {
     "dictionary": "zho-rus",

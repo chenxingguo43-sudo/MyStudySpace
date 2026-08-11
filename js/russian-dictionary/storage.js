@@ -75,6 +75,11 @@
         ...(Array.isArray(previous.forms) ? previous.forms : []),
         String(input.form || '').trim()
       ].filter(Boolean))];
+      const origins = [...new Set([
+        ...(Array.isArray(previous.origins) ? previous.origins : []),
+        input.origin,
+        ...(Array.isArray(input.origins) ? input.origins : [])
+      ].filter(Boolean))];
       const createdAt = previous.createdAt || now();
       const next = {
         ...previous,
@@ -85,6 +90,8 @@
         meaning: input.meaning || previous.meaning || '',
         partOfSpeech: input.identity && input.identity.partOfSpeech || input.partOfSpeech || previous.partOfSpeech || '',
         reliability: input.reliability || previous.reliability || '',
+        collection: input.collection || previous.collection || 'saved',
+        origins,
         contexts: sources,
         sources,
         createdAt,

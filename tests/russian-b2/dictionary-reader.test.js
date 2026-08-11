@@ -61,6 +61,67 @@ test('runtime delegates one word click with its serialized context', async () =>
   assert.equal(listeners.click, undefined);
 });
 
+test('listening and grammar word clicks preserve their sentence in the AI prompt', async () => {
+  const contextFunctions = reader.match(/function lookupContext\(moduleId[\s\S]*?\n\}/)[0] + '\n' +
+    reader.match(/function lookupContextWithSentence\(moduleId[\s\S]*?\n\}/)[0];
+  const promptFunction = reader.match(/function buildReaderAiPrompt\(kind, payload\) \{[\s\S]*?\n\}/)[0];
+  const createHelpers = new Function('curBook', `${contextFunctions}\n${promptFunction}\nreturn { lookupContextWithSentence, buildReaderAiPrompt };`);
+  const helpers = createHelpers({ id: 'reading_speaking' });
+
+  async function clickWord(word, context) {
+    const listeners = {};
+    const root = {
+      addEventListener(type, handler) { listeners[type] = handler; },
+      removeEventListener(type) { delete listeners[type]; }
+    };
+    const span = {
+      classList: { add() {}, remove() {} },
+      getAttribute(name) {
+        if (name === 'data-word') return word;
+        if (name === 'data-lookup-context') return JSON.stringify(context);
+        return '';
+      }
+    };
+    let prompt = '';
+    const controller = Runtime.createController({
+      core: Core,
+      root,
+      lookupWord(clickedWord, lookupContext) {
+        prompt = helpers.buildReaderAiPrompt('word', {
+          word: clickedWord,
+          sentenceRu: lookupContext.sentenceRu,
+          sentenceZh: lookupContext.sentenceZh
+        });
+      }
+    });
+    controller.init();
+    listeners.click({
+      target: { closest(selector) { return selector === '.ru-word' ? span : null; } },
+      preventDefault() {},
+      stopPropagation() {}
+    });
+    controller.destroy();
+    return prompt;
+  }
+
+  const listeningSentence = 'Собеседники обсуждают стремление молодёжи ...';
+  const listeningContext = helpers.lookupContextWithSentence(
+    'listening', 'question-1-prompt', 'listening-question', listeningSentence, '', []
+  );
+  const listeningPrompt = await clickWord('стремление', listeningContext);
+  assert.match(listeningPrompt, /【俄语原句】\nСобеседники обсуждают стремление молодёжи \.\.\./);
+  assert.doesNotMatch(listeningPrompt, /【俄语原句】\n（无）/);
+
+  const grammarSentence = 'Молодой человек аргументировал своё мнение хорошими заработками.';
+  const grammarTranslation = '年轻人用不错的收入来论证自己的观点。';
+  const grammarContext = helpers.lookupContextWithSentence(
+    'grammar', 'GL1-Q001', 'quiz-prompt', grammarSentence, grammarTranslation, []
+  );
+  const grammarPrompt = await clickWord('мнением', grammarContext);
+  assert.match(grammarPrompt, new RegExp(`【俄语原句】\\n${grammarSentence.replace('.', '\\.')}`));
+  assert.match(grammarPrompt, new RegExp(`【中文翻译】\\n${grammarTranslation.replace('。', '\\。')}`));
+});
+
 test('dictionary uses a desktop panel and accessible narrow-screen drawer', () => {
   assert.match(reader, /id="detailPanel"[^>]*data-dictionary-state="closed"/);
   assert.match(reader, /class="dictionary-drawer-handle"/);
@@ -174,10 +235,15 @@ test('dictionary drawer follows the active pointer and cleans up every drag path
 
 test('grammar, study cards, and reading pass explicit lookup contexts', () => {
   assert.match(reader, /function renderLookupOption\(exercise, option/);
-  assert.match(reader, /lookupContext\('grammar',[^\n]+ 'quiz-option'/);
-  assert.match(reader, /lookupContext\('grammar',[^\n]+ 'study-example'/);
+  assert.match(reader, /lookupContextWithSentence\('grammar',[^\n]+ 'quiz-option'/);
+  assert.match(reader, /lookupContextWithSentence\('grammar',[^\n]+ 'study-example'/);
   assert.match(reader, /lookupContext\('reading',[^\n]+ 'reading-body'/);
   assert.match(reader, /lookupContext\('reading',[^\n]+ 'reading-option'/);
+});
+
+test('listening questions preserve prompt and option text in lookup contexts', () => {
+  assert.match(reader, /lookupContextWithSentence\('listening',[^\n]+ 'listening-question', option\.text/);
+  assert.match(reader, /lookupContextWithSentence\('listening',[^\n]+ 'listening-question', promptRu, translationText/);
 });
 
 test('learning options separate the answer control from lookup words', () => {
@@ -238,6 +304,30 @@ test('reader loads generated morphology and attributed dictionary supplements', 
   assert.match(reader, /dictionaryStorage\.recordMissing/);
   assert.doesNotMatch(reader, /meaning: '待补中文释义'/);
   assert.doesNotMatch(reader, /allowedTypes/);
+});
+
+test('reader prefers an available Chinese definition over English and Russian fallbacks', () => {
+  const vocab = JSON.parse(fs.readFileSync('data/external-vocab.json', 'utf8'));
+  assert.equal(vocab['собирательный'].meaning, '集合的 / 集体的；（语法）集合意义的');
+  assert.match(reader, /resolved\.entry && !hasChineseText\(resolved\.entry\.meaning\)/);
+  assert.match(reader, /!chineseEntry \|\| !hasChineseText\(chineseEntry\.meaning\)/);
+});
+
+test('reader saves a resolved surface form under its canonical lemma', () => {
+  assert.match(reader, /var _lastDictionaryResolution = null/);
+  assert.match(reader, /canonicalLemma = resolution && resolution\.entry \? resolution\.lemma/);
+  assert.match(reader, /appRuntime\.saveVocabulary\(canonicalKey, saved\)/);
+  assert.match(reader, /origin: 'reader'/);
+  assert.match(reader, /origins: saveOrigins/);
+  assert.match(reader, /collection: 'saved'/);
+});
+
+test('vocabulary saved mode filters explicit saved records instead of dictionary source', () => {
+  const vocabulary = fs.readFileSync('vocabulary.html', 'utf8');
+  assert.match(vocabulary, /var savedOnly = false/);
+  assert.match(vocabulary, /if \(savedOnly && !w\._saved\) return false/);
+  assert.match(vocabulary, /else if \(mode === 'vocab'\) \{\s*savedOnly = true/);
+  assert.doesNotMatch(vocabulary, /mode === 'vocab'[\s\S]{0,100}filterSource'\)\.value = 'vocab'/);
 });
 
 test('true misses expose only an explicit source-labelled online fallback', () => {

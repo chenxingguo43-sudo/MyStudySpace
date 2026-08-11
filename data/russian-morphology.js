@@ -88,6 +88,10 @@ var morphologyRules = [
   // ─── 2字符后缀：名词格尾 ───
   { suffix: 'ях',  replacement: 'я',       posHint: 'n' },
   { suffix: 'ах',  replacement: '',        posHint: 'n' },
+
+  // ─── 1字符后缀：名词复数主格（仅作为词典命中后的降级候选）───
+  { suffix: 'и',   replacement: '',        posHint: 'n' },
+  { suffix: 'ы',   replacement: '',        posHint: 'n' },
 ];
 
 /**
@@ -116,6 +120,9 @@ function morphologyGuess(word) {
       // 对于名词空替换（硬辅音结尾），同时尝试加回 -а
       if (rule.posHint === 'n' && rule.replacement === '') {
         candidates.push(stem + 'а');
+        candidates.push(stem + 'я');
+        candidates.push(stem + 'ь');
+        candidates.push(stem + 'й');
       }
     }
   }

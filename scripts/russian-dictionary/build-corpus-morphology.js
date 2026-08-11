@@ -7,6 +7,7 @@ const ROOT = path.resolve(__dirname, '..', '..');
 const OUTPUT_DIR = path.join(ROOT, 'data', 'dictionary');
 const OUTPUT_PATH = path.join(OUTPUT_DIR, 'corpus-morphology.json');
 const MANIFEST_PATH = path.join(OUTPUT_DIR, 'manifest.json');
+const CONTENT_MANIFEST_PATH = path.join(ROOT, 'data', 'app-content-manifest.json');
 
 function normalizeRussian(value) {
   return String(value || '').normalize('NFD').replace(/[\u0300\u0301]/g, '').normalize('NFC').replace(/ё/g, 'е').replace(/Ё/g, 'е').toLowerCase();
@@ -81,6 +82,36 @@ function sha256(file) {
   return crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex');
 }
 
+function productionContentFiles(contentManifestPath = CONTENT_MANIFEST_PATH) {
+  const manifest = JSON.parse(fs.readFileSync(contentManifestPath, 'utf8'));
+  return (manifest.files || [])
+    .map(item => String(item && item.path || ''))
+    .filter(relative => /^(?:data\/textbook|data\/novel)\/.*\.json$/i.test(relative))
+    .map(relative => path.join(ROOT, ...relative.split('/')))
+    .filter(file => fs.existsSync(file))
+    .sort();
+}
+
+function sourceFingerprint(files) {
+  const hash = crypto.createHash('sha256');
+  files.forEach(file => {
+    hash.update(path.relative(ROOT, file).replace(/\\/g, '/'));
+    hash.update('\0');
+    hash.update(sha256(file));
+    hash.update('\n');
+  });
+  return hash.digest('hex');
+}
+
+function verifyCorpusMorphologyFresh(options = {}) {
+  const files = options.files || productionContentFiles(options.contentManifestPath);
+  let manifest = {};
+  try { manifest = JSON.parse(fs.readFileSync(options.manifestPath || MANIFEST_PATH, 'utf8')); } catch (_error) {}
+  const expected = manifest.morphology && manifest.morphology.sourceFingerprint || '';
+  const actual = sourceFingerprint(files);
+  return { fresh: Boolean(expected) && expected === actual, expected, actual, sourceFiles: files.length };
+}
+
 function updateManifest(patch) {
   fs.mkdirSync(OUTPUT_DIR, { recursive: true });
   let current = {};
@@ -91,8 +122,10 @@ function updateManifest(patch) {
 function buildCorpusMorphology(options = {}) {
   const localNovel = path.join(ROOT, 'data', 'novel');
   const canonicalNovel = path.resolve(ROOT, '..', '..', 'data', 'novel');
-  const roots = options.roots || [path.join(ROOT, 'data', 'textbook'), fs.existsSync(localNovel) ? localNovel : canonicalNovel];
-  const files = roots.flatMap(walkJson);
+  const roots = options.roots || null;
+  const files = options.files || (roots
+    ? roots.flatMap(walkJson)
+    : productionContentFiles(options.contentManifestPath));
   const forms = new Set();
   files.forEach(file => extractRussianForms(JSON.parse(fs.readFileSync(file, 'utf8'))).forEach(form => forms.add(form)));
   const result = analyzeWithPymorphy([...forms], options);
@@ -102,6 +135,8 @@ function buildCorpusMorphology(options = {}) {
     morphology: {
       engine: 'pymorphy3',
       sourceFiles: files.length,
+      sourceFingerprint: sourceFingerprint(files),
+      sourceScope: 'data/app-content-manifest.json production JSON',
       formCount: Object.keys(result).length,
       output: path.relative(ROOT, OUTPUT_PATH).replace(/\\/g, '/'),
       sha256: sha256(OUTPUT_PATH)
@@ -111,8 +146,18 @@ function buildCorpusMorphology(options = {}) {
 }
 
 if (require.main === module) {
+  if (process.argv.includes('--check')) {
+    const status = verifyCorpusMorphologyFresh();
+    if (!status.fresh) {
+      console.error(`Corpus morphology is stale: expected ${status.expected || '(missing)'}, actual ${status.actual}.`);
+      process.exitCode = 1;
+    } else {
+      console.log(`Corpus morphology is current for ${status.sourceFiles} production files.`);
+    }
+    return;
+  }
   const result = buildCorpusMorphology();
   console.log(`Built corpus morphology for ${Object.keys(result).length} forms.`);
 }
 
-module.exports = { extractRussianForms, analyzeWithPymorphy, buildCorpusMorphology };
+module.exports = { extractRussianForms, analyzeWithPymorphy, productionContentFiles, sourceFingerprint, verifyCorpusMorphologyFresh, buildCorpusMorphology };

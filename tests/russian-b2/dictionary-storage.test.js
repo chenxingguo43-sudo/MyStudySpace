@@ -61,6 +61,32 @@ test('deduplicates missing forms and increments occurrence count', () => {
   assert.equal(repeated.lastSeenAt, NOW);
 });
 
+test('merges inflected forms and origins into one explicitly saved lemma', () => {
+  const storage = new Map();
+  const db = createDictionaryStorage({ storage, now: () => NOW });
+
+  db.mergeSavedWord({
+    form: 'собеседники', lemma: 'собеседник',
+    identity: { key: 'собеседник', lemma: 'собеседник', partOfSpeech: 'noun' },
+    meaning: '对话者 / 交谈者', origin: 'listening', collection: 'saved',
+    context: { taskId: 'LS-Q001', surfaceForm: 'собеседники', sentenceRu: 'Собеседники обсуждают проблему.' }
+  });
+  const merged = db.mergeSavedWord({
+    form: 'собеседника', lemma: 'собеседник',
+    identity: { key: 'собеседник', lemma: 'собеседник', partOfSpeech: 'noun' },
+    origin: 'reader', collection: 'saved',
+    context: { taskId: 'R-Q001', surfaceForm: 'собеседника', sentenceRu: 'Я слушаю собеседника.' }
+  });
+
+  const records = JSON.parse(storage.get('vocabulary-review-records'));
+  assert.deepEqual(Object.keys(records), ['собеседник']);
+  assert.deepEqual(merged.forms.sort(), ['собеседника', 'собеседники']);
+  assert.deepEqual(merged.origins.sort(), ['listening', 'reader']);
+  assert.equal(merged.collection, 'saved');
+  assert.equal(merged.contexts.length, 2);
+  assert.equal(merged.contexts[0].surfaceForm, 'собеседники');
+});
+
 test('keeps online results provisional until an explicit review', () => {
   const storage = new Map();
   const db = createDictionaryStorage({ storage, now: () => NOW });
