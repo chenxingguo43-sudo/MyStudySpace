@@ -9,7 +9,7 @@ test('tablet dictionary loads core morphology independently from large supplemen
   assert.match(reader, /var DICTIONARY_DATA_VERSION = '[^']+'/);
   assert.match(reader, /fetchDictionaryJson\('data\/dictionary\/corpus-morphology\.json', \{\}\)/);
   assert.match(reader, /supplementalLookupPromise = fetchDictionaryJson\('data\/dictionary\/freedict-rus-zh\.json', \{\}\)/);
-  assert.match(reader, /return fetchDictionaryJson\('data\/dictionary\/openrussian-en\.json', \{\}\)/);
+  assert.doesNotMatch(reader, /fetchDictionaryJson\('data\/dictionary\/openrussian-en\.json', \{\}\)/);
   assert.match(reader, /补充词典加载中/);
 });
 

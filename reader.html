@@ -1765,9 +1765,8 @@ var functionWordForms = {};
 var freeDictLookup = {};
 var markdownGlossaryLookup = {};
 var reviewedFunctionLookup = {};
+var reviewedLexicalLookup = {};
 var saladVocabLookup = {}; // 沙拉俄语词库 (beidanci_jingjian)
-var openRussianLookup = {};
-var wiktionaryRuLookup = {};
 
 /* ─── 形态引擎状态 ─── */
 var morphologyDict = null;         // Object.create(null) 字典
@@ -6274,7 +6273,7 @@ function hasChineseText(text) {
   return /[\u4e00-\u9fff]/.test(String(text || ''));
 }
 
-var DICTIONARY_DATA_VERSION = '20260730-2';
+var DICTIONARY_DATA_VERSION = '20260812-1';
 
 function fetchDictionaryJson(path, fallback) {
   var separator = path.indexOf('?') >= 0 ? '&' : '?';
@@ -6311,7 +6310,7 @@ function loadLocalLookupData() {
     fetchDictionaryJson('data/dictionary/corpus-morphology.json', {}),
     fetchDictionaryJson('data/dictionary/markdown-glossary.json', {}),
     fetchDictionaryJson('data/dictionary/reviewed-function-entries.json', {}),
-    fetchDictionaryJson('data/dictionary/wiktionary-ru.json', {}),
+    fetchDictionaryJson('data/dictionary/reviewed-lexical-entries.json', {}),
     fetchDictionaryJson('data/dictionary/salad-vocab.json', {})
   ]).then(function(results) {
     var words = results[0], extVocab = results[1] || {};
@@ -6319,7 +6318,7 @@ function loadLocalLookupData() {
     corpusMorphology = results[3] || {};
     markdownGlossaryLookup = results[4] || {};
     reviewedFunctionLookup = results[5] || {};
-    wiktionaryRuLookup = results[6] || {};
+    reviewedLexicalLookup = results[6] || {};
     saladVocabLookup = results[7] || {};
     localVocabLookup = {};
     if (!Array.isArray(words)) words = [];
@@ -6345,10 +6344,6 @@ function loadLocalLookupData() {
     supplementalLookupPromise = fetchDictionaryJson('data/dictionary/freedict-rus-zh.json', {})
       .then(function(result) {
         freeDictLookup = result || {};
-        return fetchDictionaryJson('data/dictionary/openrussian-en.json', {});
-      })
-      .then(function(result) {
-        openRussianLookup = result || {};
         supplementalLookupReady = true;
         console.log('[Dict] Local:', Object.keys(localVocabLookup).length, 'entries; Morphology:', Object.keys(corpusMorphology).length, '; FreeDict:', Object.keys(freeDictLookup).length);
       });
@@ -6395,6 +6390,15 @@ function applyStressMarks(root) {
 function lookupLocalChineseMeaning(word) {
   var key = normalizeLookupWord(word);
   if (!key) return null;
+  var reviewedLexical = reviewedLexicalLookup[key];
+  if (reviewedLexical && reviewedLexical.meaning && hasChineseText(reviewedLexical.meaning)) {
+    return {
+      meaning: reviewedLexical.meaning,
+      type: reviewedLexical.type || '',
+      source: reviewedLexical.source || '项目词典 · 人工核对',
+      _raw: reviewedLexical
+    };
+  }
   if (localVocabLookup[key]) {
     saveCachedLocalLookup(key, localVocabLookup[key]);
     return localVocabLookup[key];
@@ -6419,22 +6423,6 @@ function lookupLocalChineseMeaning(word) {
       _raw: {}
     };
   }
-  if (openRussianLookup[key] && Array.isArray(openRussianLookup[key].meaningsEn) && openRussianLookup[key].meaningsEn.length) {
-    return {
-      meaning: openRussianLookup[key].meaningsEn.slice(0, 6).join('; '),
-      type: '英文释义',
-      source: openRussianLookup[key].source || 'OpenRussian · 英文释义 · CC BY-SA 4.0',
-      _raw: {}
-    };
-  }
-  if (wiktionaryRuLookup[key] && Array.isArray(wiktionaryRuLookup[key].definitionsRu) && wiktionaryRuLookup[key].definitionsRu.length) {
-    return {
-      meaning: wiktionaryRuLookup[key].definitionsRu.slice(0, 6).join('；'),
-      type: '俄文释义',
-      source: wiktionaryRuLookup[key].source || 'Русский Викисловарь · CC BY-SA 4.0',
-      _raw: {}
-    };
-  }
   var provisional = dictionaryStorage && dictionaryStorage.getProvisional ? dictionaryStorage.getProvisional(key) : null;
   if (provisional && (provisional.meaningZh || provisional.meaningRu)) {
     return {
@@ -6451,9 +6439,13 @@ function lookupLocalChineseMeaning(word) {
 function combinedMorphologyFor(form) {
   var normalized = normalizeLookupWord(form);
   var corpus = corpusMorphology[normalized] || {};
+  var reviewed = reviewedLexicalLookup[normalized] || {};
   var legacy = morphologyReady && morphologyDict[normalized] || [];
   var lemmas = [];
-  (corpus.lemmas || []).concat(Array.isArray(legacy) ? legacy : (legacy.lemmas || [])).forEach(function(lemma) {
+  var candidates = reviewed.lemma
+    ? [reviewed.lemma]
+    : (corpus.lemmas || []).concat(Array.isArray(legacy) ? legacy : (legacy.lemmas || []));
+  candidates.forEach(function(lemma) {
     lemma = normalizeLookupWord(lemma);
     if (lemma && lemmas.indexOf(lemma) === -1) lemmas.push(lemma);
   });
@@ -6466,6 +6458,9 @@ function resolveDictionaryLookup(word, context, recordMissing) {
     functionForms: functionWordForms,
     morphology: (function() { var map = {}; map[clean] = combinedMorphologyFor(clean); return map; })(),
     lookupLemma: lookupLocalChineseMeaning
+  });
+  resolved.alternatives = (resolved.alternatives || []).filter(function(candidate) {
+    return normalizeLookupWord(candidate) !== clean;
   });
   if (resolved.entry && !hasChineseText(resolved.entry.meaning)) {
     var chineseCandidates = [resolved.lemma]

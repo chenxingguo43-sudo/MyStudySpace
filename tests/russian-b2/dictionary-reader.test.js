@@ -6,6 +6,29 @@ const Core = require('../../js/russian-dictionary/core');
 
 const reader = fs.readFileSync('reader.html', 'utf8');
 const runtimeSource = fs.readFileSync('js/russian-dictionary/runtime.js', 'utf8');
+const reviewedLexicalEntries = JSON.parse(fs.readFileSync('data/dictionary/reviewed-lexical-entries.json', 'utf8'));
+
+test('reviewed lexical entries correct known FreeDict and morphology errors', () => {
+  assert.deepEqual(reviewedLexicalEntries['столетний'], {
+    lemma: 'столетний',
+    meaning: '百年的；百岁老的',
+    type: '形容词',
+    source: '项目词典 · 人工核对'
+  });
+  assert.equal(reviewedLexicalEntries['образованного'].lemma, 'образованный');
+  assert.equal(reviewedLexicalEntries['образованный'].meaning, '受过教育的；有教养的');
+  assert.equal(reviewedLexicalEntries['приплыли'].lemma, 'приплыть');
+  assert.equal(reviewedLexicalEntries['приплыть'].meaning, '游来；乘船而来');
+  assert.match(reader, /reviewed\.lemma\s*\? \[reviewed\.lemma\]\s*:\s*\(corpus\.lemmas/);
+});
+
+test('reader never exposes English or Russian fallbacks as learner-facing definitions', () => {
+  assert.doesNotMatch(reader, /fetchDictionaryJson\('data\/dictionary\/openrussian-en\.json'/);
+  assert.doesNotMatch(reader, /fetchDictionaryJson\('data\/dictionary\/wiktionary-ru\.json'/);
+  assert.doesNotMatch(reader, /meaning:\s*openRussianLookup\[key\]\.meaningsEn/);
+  assert.doesNotMatch(reader, /type:\s*'英文释义'/);
+  assert.doesNotMatch(reader, /type:\s*'俄文释义'/);
+});
 
 test('reader loads shared dictionary modules before its inline runtime', () => {
   const coreAt = reader.indexOf('js/russian-dictionary/core.js');
@@ -296,10 +319,9 @@ test('reader loads generated morphology and attributed dictionary supplements', 
   assert.match(reader, /data\/dictionary\/freedict-rus-zh\.json/);
   assert.match(reader, /data\/dictionary\/markdown-glossary\.json/);
   assert.match(reader, /data\/dictionary\/reviewed-function-entries\.json/);
-  assert.match(reader, /data\/dictionary\/openrussian-en\.json/);
-  assert.match(reader, /OpenRussian · 英文释义 · CC BY-SA 4\.0/);
-  assert.match(reader, /data\/dictionary\/wiktionary-ru\.json/);
-  assert.match(reader, /Русский Викисловарь · CC BY-SA 4\.0/);
+  assert.match(reader, /data\/dictionary\/reviewed-lexical-entries\.json/);
+  assert.doesNotMatch(reader, /data\/dictionary\/openrussian-en\.json/);
+  assert.doesNotMatch(reader, /data\/dictionary\/wiktionary-ru\.json/);
   assert.match(reader, /reviewed-function-form/);
   assert.match(reader, /dictionaryStorage\.recordMissing/);
   assert.doesNotMatch(reader, /meaning: '待补中文释义'/);
