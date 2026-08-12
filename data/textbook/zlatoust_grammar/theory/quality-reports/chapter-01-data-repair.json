@@ -302,10 +302,10 @@
           "printedPage": 123
         }
       },
-      "discrepancyType": "answer-key-mismatch",
+      "discrepancyType": "printed-answer-key-error",
       "repairedContent": {
-        "answer": "Г",
-        "sourceAnswer": "Г"
+        "answer": "В",
+        "sourceAnswer": "В"
       },
       "sourcePages": {
         "question": {
@@ -318,8 +318,8 @@
         }
       },
       "affectsLegacyAttempts": true,
-      "compatibilityTreatment": "保留 exerciseId、已选选项、尝试次数与历史记录；reader 接入阶段将按此账本在首次读取时重新计算 wrong / lastResult，并保留 everWrong 的历史值。",
-      "verification": "PDF 答案表视觉核对通过；修复后 answer === sourceAnswer，且答案键存在于原题选项中。"
+      "compatibilityTreatment": "保留 exerciseId、已选选项、尝试次数与历史记录；Reader 按更正后的答案重新判定本题，选择 В 的历史作答应视为正确。",
+      "verification": "题面为 чувствует себя абсолютно ...；固定结构 чувствовать себя 的状态补语用第五格，阳性单数正确形式只能是 В：свободным。PDF 答案表印作 Г：свободного，确认为原书答案表错误，项目按语法更正。"
     },
     {
       "exerciseId": "GL1-Q036",
