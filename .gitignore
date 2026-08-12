@@ -22,3 +22,20 @@ _zlatoust_transcriptions/*.txt
 _zlatoust_transcriptions/*.json
 !_zlatoust_transcriptions/SESSION_END_STATE.md
 !_zlatoust_transcriptions/CHECKPOINT.md
+
+# V1 Android generated outputs and local signing material
+/app-dist/
+/android/.gradle/
+/android/app/build/
+/android/build/
+/android/local.properties
+*.apk
+*.aab
+*.jks
+*.keystore
+keystore.properties
+
+# Local agent, browser-test, and disposable working files
+/.claude/settings.local.json
+/.playwright-mcp/
+/tmp/

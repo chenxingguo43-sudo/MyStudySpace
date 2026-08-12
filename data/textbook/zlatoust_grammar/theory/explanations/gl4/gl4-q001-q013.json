@@ -8,42 +8,42 @@
       "exerciseId": "GL4-Q001",
       "completeSentence": {
         "ru": "Общественные отношения воздействуют на природу человека, и под их влиянием у него формируются нравственные, политические и гражданские свойства.",
-        "zh": "请结合原书题面与答案页复核本题。"
+        "zh": "社会关系影响人的本性，在其影响下，人形成道德、政治和公民品质。"
       },
-      "conclusion": "原书答案键为「А：и」。题目映射到规则：gl4-4.1-i-cause-consequence。",
+      "conclusion": "选 А：и。前后是顺承补充关系，选 и。",
       "decisionSteps": [
         {
           "step": 1,
-          "text": "先确认题干要求的词形、搭配或语义关系。"
+          "text": "先判断两个分句是补充、对照、转折，还是对前句的补偿。"
         },
         {
           "step": 2,
-          "text": "对照原书映射的规则：gl4-4.1-i-cause-consequence。"
+          "text": "前后是顺承补充关系，选 и。"
         },
         {
           "step": 3,
-          "text": "依据原书答案键选择 А：и。"
+          "text": "所以选 А。补充、并列事实用 и。"
         }
       ],
       "correctOption": {
         "key": "А",
-        "analysis": "原书答案键指定「А：и」；对应映射规则为 gl4-4.1-i-cause-consequence。"
+        "analysis": "и 准确表达本句两部分的逻辑关系。补充、并列事实用 и。"
       },
       "distractors": [
         {
           "key": "Б",
-          "reason": "该项不是原书答案「А：и」。本题映射到原书规则 gl4-4.1-i-cause-consequence，请按题干与规则页复核。"
+          "reason": "а 表示的并列或转折关系与本句实际逻辑不一致。"
         },
         {
           "key": "В",
-          "reason": "该项不是原书答案「А：и」。本题映射到原书规则 gl4-4.1-i-cause-consequence，请按题干与规则页复核。"
+          "reason": "зато 表示的并列或转折关系与本句实际逻辑不一致。"
         },
         {
           "key": "Г",
-          "reason": "该项不是原书答案「А：и」。本题映射到原书规则 gl4-4.1-i-cause-consequence，请按题干与规则页复核。"
+          "reason": "но 表示的并列或转折关系与本句实际逻辑不一致。"
         }
       ],
-      "memoryRule": "先核对题干，再回看规则 gl4-4.1-i-cause-consequence。",
+      "memoryRule": "补充、并列事实用 и。",
       "_source": {
         "question": {
           "printedPage": 55,
@@ -75,42 +75,42 @@
       "exerciseId": "GL4-Q002",
       "completeSentence": {
         "ru": "У студентов, совмещающих работу с учёбой, зарплата небольшая, зато молодёжь приобретает ценный опыт.",
-        "zh": "请结合原书题面与答案页复核本题。"
+        "zh": "兼顾工作和学习的学生工资不高，但青年获得宝贵经验。"
       },
-      "conclusion": "原书答案键为「Б：зато」。题目映射到规则：gl4-4.1-zato-strong-compensation。",
+      "conclusion": "选 Б：зато。后半句补偿前半句的不利，选 зато。",
       "decisionSteps": [
         {
           "step": 1,
-          "text": "先确认题干要求的词形、搭配或语义关系。"
+          "text": "先判断两个分句是补充、对照、转折，还是对前句的补偿。"
         },
         {
           "step": 2,
-          "text": "对照原书映射的规则：gl4-4.1-zato-strong-compensation。"
+          "text": "后半句补偿前半句的不利，选 зато。"
         },
         {
           "step": 3,
-          "text": "依据原书答案键选择 Б：зато。"
+          "text": "所以选 Б。前有不足、后有补偿：зато。"
         }
       ],
       "correctOption": {
         "key": "Б",
-        "analysis": "原书答案键指定「Б：зато」；对应映射规则为 gl4-4.1-zato-strong-compensation。"
+        "analysis": "зато 准确表达本句两部分的逻辑关系。前有不足、后有补偿：зато。"
       },
       "distractors": [
         {
           "key": "А",
-          "reason": "该项不是原书答案「Б：зато」。本题映射到原书规则 gl4-4.1-zato-strong-compensation，请按题干与规则页复核。"
+          "reason": "и 表示的并列或转折关系与本句实际逻辑不一致。"
         },
         {
           "key": "В",
-          "reason": "该项不是原书答案「Б：зато」。本题映射到原书规则 gl4-4.1-zato-strong-compensation，请按题干与规则页复核。"
+          "reason": "а 表示的并列或转折关系与本句实际逻辑不一致。"
         },
         {
           "key": "Г",
-          "reason": "该项不是原书答案「Б：зато」。本题映射到原书规则 gl4-4.1-zato-strong-compensation，请按题干与规则页复核。"
+          "reason": "да 表示的并列或转折关系与本句实际逻辑不一致。"
         }
       ],
-      "memoryRule": "先核对题干，再回看规则 gl4-4.1-zato-strong-compensation。",
+      "memoryRule": "前有不足、后有补偿：зато。",
       "_source": {
         "question": {
           "printedPage": 55,
@@ -142,38 +142,38 @@
       "exerciseId": "GL4-Q003",
       "completeSentence": {
         "ru": "Ситуация на выборах мэра города пока до конца не прояснилась, однако предварительные результаты уже известны.",
-        "zh": "请结合原书题面与答案页复核本题。"
+        "zh": "市长选举的局势尚未完全明朗，不过初步结果已经知道。"
       },
-      "conclusion": "原书答案键为「А：однако」。题目映射到规则：gl4-4.1-odnako-restrictive-bookish。",
+      "conclusion": "选 А：однако。后句限制前句，选 однако。",
       "decisionSteps": [
         {
           "step": 1,
-          "text": "先确认题干要求的词形、搭配或语义关系。"
+          "text": "先判断两个分句是补充、对照、转折，还是对前句的补偿。"
         },
         {
           "step": 2,
-          "text": "对照原书映射的规则：gl4-4.1-odnako-restrictive-bookish。"
+          "text": "后句限制前句，选 однако。"
         },
         {
           "step": 3,
-          "text": "依据原书答案键选择 А：однако。"
+          "text": "所以选 А。书面语中“不过、然而”常用 однако。"
         }
       ],
       "correctOption": {
         "key": "А",
-        "analysis": "原书答案键指定「А：однако」；对应映射规则为 gl4-4.1-odnako-restrictive-bookish。"
+        "analysis": "однако 准确表达本句两部分的逻辑关系。书面语中“不过、然而”常用 однако。"
       },
       "distractors": [
         {
           "key": "Б",
-          "reason": "该项不是原书答案「А：однако」。本题映射到原书规则 gl4-4.1-odnako-restrictive-bookish，请按题干与规则页复核。"
+          "reason": "и 表示的并列或转折关系与本句实际逻辑不一致。"
         },
         {
           "key": "В",
-          "reason": "该项不是原书答案「А：однако」。本题映射到原书规则 gl4-4.1-odnako-restrictive-bookish，请按题干与规则页复核。"
+          "reason": "да 表示的并列或转折关系与本句实际逻辑不一致。"
         }
       ],
-      "memoryRule": "先核对题干，再回看规则 gl4-4.1-odnako-restrictive-bookish。",
+      "memoryRule": "书面语中“不过、然而”常用 однако。",
       "_source": {
         "question": {
           "printedPage": 55,
@@ -205,42 +205,42 @@
       "exerciseId": "GL4-Q004",
       "completeSentence": {
         "ru": "Мир разноязычен, но все люди одинаково плачут и смеются.",
-        "zh": "请结合原书题面与答案页复核本题。"
+        "zh": "世界语言不同，但所有人哭和笑的方式相同。"
       },
-      "conclusion": "原书答案键为「Г：но」。题目映射到规则：gl4-4.1-no-synonym-a。",
+      "conclusion": "选 Г：но。差异与共同点形成转折，选 но。",
       "decisionSteps": [
         {
           "step": 1,
-          "text": "先确认题干要求的词形、搭配或语义关系。"
+          "text": "先判断两个分句是补充、对照、转折，还是对前句的补偿。"
         },
         {
           "step": 2,
-          "text": "对照原书映射的规则：gl4-4.1-no-synonym-a。"
+          "text": "差异与共同点形成转折，选 но。"
         },
         {
           "step": 3,
-          "text": "依据原书答案键选择 Г：но。"
+          "text": "所以选 Г。直接转折、预期相反：но。"
         }
       ],
       "correctOption": {
         "key": "Г",
-        "analysis": "原书答案键指定「Г：но」；对应映射规则为 gl4-4.1-no-synonym-a。"
+        "analysis": "но 准确表达本句两部分的逻辑关系。直接转折、预期相反：но。"
       },
       "distractors": [
         {
           "key": "А",
-          "reason": "该项不是原书答案「Г：но」。本题映射到原书规则 gl4-4.1-no-synonym-a，请按题干与规则页复核。"
+          "reason": "и 表示的并列或转折关系与本句实际逻辑不一致。"
         },
         {
           "key": "Б",
-          "reason": "该项不是原书答案「Г：но」。本题映射到原书规则 gl4-4.1-no-synonym-a，请按题干与规则页复核。"
+          "reason": "да 表示的并列或转折关系与本句实际逻辑不一致。"
         },
         {
           "key": "В",
-          "reason": "该项不是原书答案「Г：но」。本题映射到原书规则 gl4-4.1-no-synonym-a，请按题干与规则页复核。"
+          "reason": "а 表示的并列或转折关系与本句实际逻辑不一致。"
         }
       ],
-      "memoryRule": "先核对题干，再回看规则 gl4-4.1-no-synonym-a。",
+      "memoryRule": "直接转折、预期相反：но。",
       "_source": {
         "question": {
           "printedPage": 55,
@@ -272,42 +272,42 @@
       "exerciseId": "GL4-Q005",
       "completeSentence": {
         "ru": "Формирование чернозёмов заняло у биосферы почти четыреста лет, а человек истощил эти земли за считанные десятилетия.",
-        "zh": "请结合原书题面与答案页复核本题。"
+        "zh": "生物圈形成黑土用了近四百年，而人类几十年就耗尽了这些土地。"
       },
-      "conclusion": "原书答案键为「Б：а」。题目映射到规则：gl4-4.1-a-sharp-contrast。",
+      "conclusion": "选 Б：а。两件事对照，选 а。",
       "decisionSteps": [
         {
           "step": 1,
-          "text": "先确认题干要求的词形、搭配或语义关系。"
+          "text": "先判断两个分句是补充、对照、转折，还是对前句的补偿。"
         },
         {
           "step": 2,
-          "text": "对照原书映射的规则：gl4-4.1-a-sharp-contrast。"
+          "text": "两件事对照，选 а。"
         },
         {
           "step": 3,
-          "text": "依据原书答案键选择 Б：а。"
+          "text": "所以选 Б。对照不同主体或事实用 а。"
         }
       ],
       "correctOption": {
         "key": "Б",
-        "analysis": "原书答案键指定「Б：а」；对应映射规则为 gl4-4.1-a-sharp-contrast。"
+        "analysis": "а 准确表达本句两部分的逻辑关系。对照不同主体或事实用 а。"
       },
       "distractors": [
         {
           "key": "А",
-          "reason": "该项不是原书答案「Б：а」。本题映射到原书规则 gl4-4.1-a-sharp-contrast，请按题干与规则页复核。"
+          "reason": "или 表示的并列或转折关系与本句实际逻辑不一致。"
         },
         {
           "key": "В",
-          "reason": "该项不是原书答案「Б：а」。本题映射到原书规则 gl4-4.1-a-sharp-contrast，请按题干与规则页复核。"
+          "reason": "зато 表示的并列或转折关系与本句实际逻辑不一致。"
         },
         {
           "key": "Г",
-          "reason": "该项不是原书答案「Б：а」。本题映射到原书规则 gl4-4.1-a-sharp-contrast，请按题干与规则页复核。"
+          "reason": "и 表示的并列或转折关系与本句实际逻辑不一致。"
         }
       ],
-      "memoryRule": "先核对题干，再回看规则 gl4-4.1-a-sharp-contrast。",
+      "memoryRule": "对照不同主体或事实用 а。",
       "_source": {
         "question": {
           "printedPage": 56,
@@ -339,38 +339,38 @@
       "exerciseId": "GL4-Q006",
       "completeSentence": {
         "ru": "В короткие зимние дни в Петербурге рано темнеет, зато в начале лета стоят долгие белые ночи.",
-        "zh": "请结合原书题面与答案页复核本题。"
+        "zh": "彼得堡冬日很快天黑，但初夏会有漫长的白夜。"
       },
-      "conclusion": "原书答案键为「В：зато」。题目映射到规则：gl4-4.1-zato-strong-compensation。",
+      "conclusion": "选 В：зато。冬天的短日与夏初白夜相互补偿，选 зато。",
       "decisionSteps": [
         {
           "step": 1,
-          "text": "先确认题干要求的词形、搭配或语义关系。"
+          "text": "先判断两个分句是补充、对照、转折，还是对前句的补偿。"
         },
         {
           "step": 2,
-          "text": "对照原书映射的规则：gl4-4.1-zato-strong-compensation。"
+          "text": "冬天的短日与夏初白夜相互补偿，选 зато。"
         },
         {
           "step": 3,
-          "text": "依据原书答案键选择 В：зато。"
+          "text": "所以选 В。一面不足、另一面补偿：зато。"
         }
       ],
       "correctOption": {
         "key": "В",
-        "analysis": "原书答案键指定「В：зато」；对应映射规则为 gl4-4.1-zato-strong-compensation。"
+        "analysis": "зато 准确表达本句两部分的逻辑关系。一面不足、另一面补偿：зато。"
       },
       "distractors": [
         {
           "key": "А",
-          "reason": "该项不是原书答案「В：зато」。本题映射到原书规则 gl4-4.1-zato-strong-compensation，请按题干与规则页复核。"
+          "reason": "или 表示的并列或转折关系与本句实际逻辑不一致。"
         },
         {
           "key": "Б",
-          "reason": "该项不是原书答案「В：зато」。本题映射到原书规则 gl4-4.1-zato-strong-compensation，请按题干与规则页复核。"
+          "reason": "и 表示的并列或转折关系与本句实际逻辑不一致。"
         }
       ],
-      "memoryRule": "先核对题干，再回看规则 gl4-4.1-zato-strong-compensation。",
+      "memoryRule": "一面不足、另一面补偿：зато。",
       "_source": {
         "question": {
           "printedPage": 56,
@@ -402,42 +402,42 @@
       "exerciseId": "GL4-Q007",
       "completeSentence": {
         "ru": "Тёплое Азовское море смягчает сухой степной воздух, а горячее дыхание степей уменьшает влажность моря.",
-        "zh": "请结合原书题面与答案页复核本题。"
+        "zh": "温暖的亚速海缓和干燥草原空气，而草原热气减少海水湿度。"
       },
-      "conclusion": "原书答案键为「А：а」。题目映射到规则：gl4-4.1-a-comparison。",
+      "conclusion": "选 А：а。两个主体的相反作用并列，选 а。",
       "decisionSteps": [
         {
           "step": 1,
-          "text": "先确认题干要求的词形、搭配或语义关系。"
+          "text": "先判断两个分句是补充、对照、转折，还是对前句的补偿。"
         },
         {
           "step": 2,
-          "text": "对照原书映射的规则：gl4-4.1-a-comparison。"
+          "text": "两个主体的相反作用并列，选 а。"
         },
         {
           "step": 3,
-          "text": "依据原书答案键选择 А：а。"
+          "text": "所以选 А。并列对照两个事实：а。"
         }
       ],
       "correctOption": {
         "key": "А",
-        "analysis": "原书答案键指定「А：а」；对应映射规则为 gl4-4.1-a-comparison。"
+        "analysis": "а 准确表达本句两部分的逻辑关系。并列对照两个事实：а。"
       },
       "distractors": [
         {
           "key": "Б",
-          "reason": "该项不是原书答案「А：а」。本题映射到原书规则 gl4-4.1-a-comparison，请按题干与规则页复核。"
+          "reason": "но 表示的并列或转折关系与本句实际逻辑不一致。"
         },
         {
           "key": "В",
-          "reason": "该项不是原书答案「А：а」。本题映射到原书规则 gl4-4.1-a-comparison，请按题干与规则页复核。"
+          "reason": "и 表示的并列或转折关系与本句实际逻辑不一致。"
         },
         {
           "key": "Г",
-          "reason": "该项不是原书答案「А：а」。本题映射到原书规则 gl4-4.1-a-comparison，请按题干与规则页复核。"
+          "reason": "или 表示的并列或转折关系与本句实际逻辑不一致。"
         }
       ],
-      "memoryRule": "先核对题干，再回看规则 gl4-4.1-a-comparison。",
+      "memoryRule": "并列对照两个事实：а。",
       "_source": {
         "question": {
           "printedPage": 56,
@@ -469,38 +469,38 @@
       "exerciseId": "GL4-Q008",
       "completeSentence": {
         "ru": "«Учёный из меня не вышел, зато я родителей не ослушался, старость их успокоил» (А.П. Чехов).",
-        "zh": "请结合原书题面与答案页复核本题。"
+        "zh": "“我没成为学者，但我没有违背父母，让他们晚年安心。”"
       },
-      "conclusion": "原书答案键为「Б：зато」。题目映射到规则：gl4-4.1-zato-strong-compensation。",
+      "conclusion": "选 Б：зато。没有成就与另一项值得肯定的事形成补偿，选 зато。",
       "decisionSteps": [
         {
           "step": 1,
-          "text": "先确认题干要求的词形、搭配或语义关系。"
+          "text": "先判断两个分句是补充、对照、转折，还是对前句的补偿。"
         },
         {
           "step": 2,
-          "text": "对照原书映射的规则：gl4-4.1-zato-strong-compensation。"
+          "text": "没有成就与另一项值得肯定的事形成补偿，选 зато。"
         },
         {
           "step": 3,
-          "text": "依据原书答案键选择 Б：зато。"
+          "text": "所以选 Б。“虽然没有……，但至少……”用 зато。"
         }
       ],
       "correctOption": {
         "key": "Б",
-        "analysis": "原书答案键指定「Б：зато」；对应映射规则为 gl4-4.1-zato-strong-compensation。"
+        "analysis": "зато 准确表达本句两部分的逻辑关系。“虽然没有……，但至少……”用 зато。"
       },
       "distractors": [
         {
           "key": "А",
-          "reason": "该项不是原书答案「Б：зато」。本题映射到原书规则 gl4-4.1-zato-strong-compensation，请按题干与规则页复核。"
+          "reason": "и 表示的并列或转折关系与本句实际逻辑不一致。"
         },
         {
           "key": "В",
-          "reason": "该项不是原书答案「Б：зато」。本题映射到原书规则 gl4-4.1-zato-strong-compensation，请按题干与规则页复核。"
+          "reason": "а 表示的并列或转折关系与本句实际逻辑不一致。"
         }
       ],
-      "memoryRule": "先核对题干，再回看规则 gl4-4.1-zato-strong-compensation。",
+      "memoryRule": "“虽然没有……，但至少……”用 зато。",
       "_source": {
         "question": {
           "printedPage": 56,
@@ -532,42 +532,42 @@
       "exerciseId": "GL4-Q009",
       "completeSentence": {
         "ru": "«Может быть, не надо было говорить при них, да я не дипломат» (Л.Н. Толстой).",
-        "zh": "请结合原书题面与答案页复核本题。"
+        "zh": "“也许不该当着他们说，但我不是外交家。”"
       },
-      "conclusion": "原书答案键为「А：да」。题目映射到规则：gl4-4.1-da-but-or-and。",
+      "conclusion": "选 А：да。说话人以理由补充解释，选 да，近似 но。",
       "decisionSteps": [
         {
           "step": 1,
-          "text": "先确认题干要求的词形、搭配或语义关系。"
+          "text": "先判断两个分句是补充、对照、转折，还是对前句的补偿。"
         },
         {
           "step": 2,
-          "text": "对照原书映射的规则：gl4-4.1-da-but-or-and。"
+          "text": "说话人以理由补充解释，选 да，近似 но。"
         },
         {
           "step": 3,
-          "text": "依据原书答案键选择 А：да。"
+          "text": "所以选 А。да 在书面/文学语境可表“但是”。"
         }
       ],
       "correctOption": {
         "key": "А",
-        "analysis": "原书答案键指定「А：да」；对应映射规则为 gl4-4.1-da-but-or-and。"
+        "analysis": "да 准确表达本句两部分的逻辑关系。да 在书面/文学语境可表“但是”。"
       },
       "distractors": [
         {
           "key": "Б",
-          "reason": "该项不是原书答案「А：да」。本题映射到原书规则 gl4-4.1-da-but-or-and，请按题干与规则页复核。"
+          "reason": "зато 表示的并列或转折关系与本句实际逻辑不一致。"
         },
         {
           "key": "В",
-          "reason": "该项不是原书答案「А：да」。本题映射到原书规则 gl4-4.1-da-but-or-and，请按题干与规则页复核。"
+          "reason": "или 表示的并列或转折关系与本句实际逻辑不一致。"
         },
         {
           "key": "Г",
-          "reason": "该项不是原书答案「А：да」。本题映射到原书规则 gl4-4.1-da-but-or-and，请按题干与规则页复核。"
+          "reason": "и 表示的并列或转折关系与本句实际逻辑不一致。"
         }
       ],
-      "memoryRule": "先核对题干，再回看规则 gl4-4.1-da-but-or-and。",
+      "memoryRule": "да 在书面/文学语境可表“但是”。",
       "_source": {
         "question": {
           "printedPage": 56,
@@ -599,38 +599,38 @@
       "exerciseId": "GL4-Q010",
       "completeSentence": {
         "ru": "«Игра и ужин уже кончились, но гости ещё не разъехались» (Л.Н. Толстой).",
-        "zh": "请结合原书题面与答案页复核本题。"
+        "zh": "“游戏和晚餐都结束了，但客人还没有散去。”"
       },
-      "conclusion": "原书答案键为「А：но」。题目映射到规则：gl4-4.1-no-noncorrespondence。",
+      "conclusion": "选 А：но。预期应离开却仍未离开，选 но。",
       "decisionSteps": [
         {
           "step": 1,
-          "text": "先确认题干要求的词形、搭配或语义关系。"
+          "text": "先判断两个分句是补充、对照、转折，还是对前句的补偿。"
         },
         {
           "step": 2,
-          "text": "对照原书映射的规则：gl4-4.1-no-noncorrespondence。"
+          "text": "预期应离开却仍未离开，选 но。"
         },
         {
           "step": 3,
-          "text": "依据原书答案键选择 А：но。"
+          "text": "所以选 А。与预期相反的事实用 но。"
         }
       ],
       "correctOption": {
         "key": "А",
-        "analysis": "原书答案键指定「А：но」；对应映射规则为 gl4-4.1-no-noncorrespondence。"
+        "analysis": "но 准确表达本句两部分的逻辑关系。与预期相反的事实用 но。"
       },
       "distractors": [
         {
           "key": "Б",
-          "reason": "该项不是原书答案「А：но」。本题映射到原书规则 gl4-4.1-no-noncorrespondence，请按题干与规则页复核。"
+          "reason": "или 表示的并列或转折关系与本句实际逻辑不一致。"
         },
         {
           "key": "В",
-          "reason": "该项不是原书答案「А：но」。本题映射到原书规则 gl4-4.1-no-noncorrespondence，请按题干与规则页复核。"
+          "reason": "зато 表示的并列或转折关系与本句实际逻辑不一致。"
         }
       ],
-      "memoryRule": "先核对题干，再回看规则 gl4-4.1-no-noncorrespondence。",
+      "memoryRule": "与预期相反的事实用 но。",
       "_source": {
         "question": {
           "printedPage": 56,
@@ -662,38 +662,38 @@
       "exerciseId": "GL4-Q011",
       "completeSentence": {
         "ru": "«Легли опять спать генералы, да не спится им натощак» (М.Е. Салтыков-Щедрин).",
-        "zh": "请结合原书题面与答案页复核本题。"
+        "zh": "将军们又躺下睡觉，可是空着肚子睡不着。"
       },
-      "conclusion": "原书答案键为「В：да」。题目映射到规则：gl4-4.1-da-but-or-and。",
+      "conclusion": "选 В：да。尝试睡觉与实际睡不着相反，选 да。",
       "decisionSteps": [
         {
           "step": 1,
-          "text": "先确认题干要求的词形、搭配或语义关系。"
+          "text": "先判断两个分句是补充、对照、转折，还是对前句的补偿。"
         },
         {
           "step": 2,
-          "text": "对照原书映射的规则：gl4-4.1-da-but-or-and。"
+          "text": "尝试睡觉与实际睡不着相反，选 да。"
         },
         {
           "step": 3,
-          "text": "依据原书答案键选择 В：да。"
+          "text": "所以选 В。да 可表示带口语色彩的转折“可是”。"
         }
       ],
       "correctOption": {
         "key": "В",
-        "analysis": "原书答案键指定「В：да」；对应映射规则为 gl4-4.1-da-but-or-and。"
+        "analysis": "да 准确表达本句两部分的逻辑关系。да 可表示带口语色彩的转折“可是”。"
       },
       "distractors": [
         {
           "key": "А",
-          "reason": "该项不是原书答案「В：да」。本题映射到原书规则 gl4-4.1-da-but-or-and，请按题干与规则页复核。"
+          "reason": "или 表示的并列或转折关系与本句实际逻辑不一致。"
         },
         {
           "key": "Б",
-          "reason": "该项不是原书答案「В：да」。本题映射到原书规则 gl4-4.1-da-but-or-and，请按题干与规则页复核。"
+          "reason": "зато 表示的并列或转折关系与本句实际逻辑不一致。"
         }
       ],
-      "memoryRule": "先核对题干，再回看规则 gl4-4.1-da-but-or-and。",
+      "memoryRule": "да 可表示带口语色彩的转折“可是”。",
       "_source": {
         "question": {
           "printedPage": 56,
@@ -725,38 +725,38 @@
       "exerciseId": "GL4-Q012",
       "completeSentence": {
         "ru": "«Каштанка бегала взад и вперёд и не находила хозяина, а между тем становилось темно» (А.П. Чехов).",
-        "zh": "请结合原书题面与答案页复核本题。"
+        "zh": "卡什坦卡跑来跑去找主人，而这时天渐渐黑了。"
       },
-      "conclusion": "原书答案键为「Б：а」。题目映射到规则：gl4-4.1-a-attached-parallel。",
+      "conclusion": "选 Б：а。两个并行背景事实，对照推进，选 а。",
       "decisionSteps": [
         {
           "step": 1,
-          "text": "先确认题干要求的词形、搭配或语义关系。"
+          "text": "先判断两个分句是补充、对照、转折，还是对前句的补偿。"
         },
         {
           "step": 2,
-          "text": "对照原书映射的规则：gl4-4.1-a-attached-parallel。"
+          "text": "两个并行背景事实，对照推进，选 а。"
         },
         {
           "step": 3,
-          "text": "依据原书答案键选择 Б：а。"
+          "text": "所以选 Б。叙事中 a 可把另一条事实引入画面。"
         }
       ],
       "correctOption": {
         "key": "Б",
-        "analysis": "原书答案键指定「Б：а」；对应映射规则为 gl4-4.1-a-attached-parallel。"
+        "analysis": "а 准确表达本句两部分的逻辑关系。叙事中 a 可把另一条事实引入画面。"
       },
       "distractors": [
         {
           "key": "А",
-          "reason": "该项不是原书答案「Б：а」。本题映射到原书规则 gl4-4.1-a-attached-parallel，请按题干与规则页复核。"
+          "reason": "и 表示的并列或转折关系与本句实际逻辑不一致。"
         },
         {
           "key": "В",
-          "reason": "该项不是原书答案「Б：а」。本题映射到原书规则 gl4-4.1-a-attached-parallel，请按题干与规则页复核。"
+          "reason": "да 表示的并列或转折关系与本句实际逻辑不一致。"
         }
       ],
-      "memoryRule": "先核对题干，再回看规则 gl4-4.1-a-attached-parallel。",
+      "memoryRule": "叙事中 a 可把另一条事实引入画面。",
       "_source": {
         "question": {
           "printedPage": 56,
@@ -788,38 +788,38 @@
       "exerciseId": "GL4-Q013",
       "completeSentence": {
         "ru": "«По хутору зажглись редкие огни, а Натальи всё не было» (М. А. Шолохов).",
-        "zh": "请结合原书题面与答案页复核本题。"
+        "zh": "农庄零星灯火亮起，而娜塔莉娅仍没有回来。"
       },
-      "conclusion": "原书答案键为「А：а」。题目映射到规则：gl4-4.1-a-attached-sequence。",
+      "conclusion": "选 А：а。环境变化与等待落空相对照，选 а。",
       "decisionSteps": [
         {
           "step": 1,
-          "text": "先确认题干要求的词形、搭配或语义关系。"
+          "text": "先判断两个分句是补充、对照、转折，还是对前句的补偿。"
         },
         {
           "step": 2,
-          "text": "对照原书映射的规则：gl4-4.1-a-attached-sequence。"
+          "text": "环境变化与等待落空相对照，选 а。"
         },
         {
           "step": 3,
-          "text": "依据原书答案键选择 А：а。"
+          "text": "所以选 А。对照两个情况，尤其后句含“仍然”：а。"
         }
       ],
       "correctOption": {
         "key": "А",
-        "analysis": "原书答案键指定「А：а」；对应映射规则为 gl4-4.1-a-attached-sequence。"
+        "analysis": "а 准确表达本句两部分的逻辑关系。对照两个情况，尤其后句含“仍然”：а。"
       },
       "distractors": [
         {
           "key": "Б",
-          "reason": "该项不是原书答案「А：а」。本题映射到原书规则 gl4-4.1-a-attached-sequence，请按题干与规则页复核。"
+          "reason": "и 表示的并列或转折关系与本句实际逻辑不一致。"
         },
         {
           "key": "В",
-          "reason": "该项不是原书答案「А：а」。本题映射到原书规则 gl4-4.1-a-attached-sequence，请按题干与规则页复核。"
+          "reason": "зато 表示的并列或转折关系与本句实际逻辑不一致。"
         }
       ],
-      "memoryRule": "先核对题干，再回看规则 gl4-4.1-a-attached-sequence。",
+      "memoryRule": "对照两个情况，尤其后句含“仍然”：а。",
       "_source": {
         "question": {
           "printedPage": 57,

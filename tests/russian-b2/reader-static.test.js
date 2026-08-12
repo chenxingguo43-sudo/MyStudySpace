@@ -638,6 +638,19 @@ test('Zlatoust quiz explanations load rule-unit option analysis and retain prove
   assert.match(quizExplanationBody, /renderExerciseAiAction\(exercise\.id, 'exercise'\)/);
 });
 
+test('Zlatoust quiz keeps source provenance clear and ignores empty option placeholders', () => {
+  const referenceBody = reader.match(/function renderZlatoustExerciseReference\(exercise\) \{([\s\S]*?)\n\}/);
+  const explanationBody = reader.match(/function getZlatoustStaticExplanation\(exercise, state, answerKey\) \{([\s\S]*?)\n\}/);
+  const quizBody = reader.match(/function renderQuizItem\(exercise, record\) \{([\s\S]*?)\n\}/);
+  const promptBody = reader.match(/function buildReaderExerciseAiPrompt\(exercise, record, title\) \{([\s\S]*?)\n\}/);
+  assert.ok(referenceBody && explanationBody && quizBody && promptBody);
+  assert.match(referenceBody[1], /原书未提供逐题解析/);
+  assert.match(referenceBody[1], /不是教材原文/);
+  assert.match(explanationBody[1], /String\(option\.text \|\| ''\)\.trim\(\)/);
+  assert.match(quizBody[1], /String\(exercise\.options\[i\]\.text \|\| ''\)\.trim\(\)/);
+  assert.match(promptBody[1], /filter\(function\(option\)/);
+});
+
 test('reader keeps appended film listening exercises separate from exam and intensive timelines', () => {
   assert.match(reader, /片尾听辨/);
   assert.match(reader, /function hasVerifiedListeningMediaExercise\(data\)/);

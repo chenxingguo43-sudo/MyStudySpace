@@ -4,18 +4,757 @@
   "pilotScope": "GL1-Q066 至 GL1-Q078",
   "reviewStatus": "review",
   "explanations": [
-    {"exerciseId":"GL1-Q066","completeSentence":{"ru":"Пропавший во время полёта на Марс космический аппарат мог не выдержать посадки на эту планету.","zh":"在飞往火星途中失踪的航天器可能没能承受在这颗行星上的着陆。"},"conclusion":"мог не 表示担心一个具体结果未能实现；着陆承受住与否是一次结果，选完成体 выдержать。","decisionSteps":[{"step":1,"text":"мог не 表示结果可能落空。"},{"step":2,"text":"着陆是一次具体事件。"},{"step":3,"text":"担心未实现结果用完成体。"}],"correctOption":{"key":"А","analysis":"выдержать 表示成功承受着陆这一结果。"},"distractors":[{"key":"Б","reason":"выдерживать 描述一般承受过程，弱化本次着陆能否成功。"}],"memoryRule":"мог не + 一次目标未达成 → 完成体。","_source":{"question":{"printedPage":13,"pdfPage":15},"answer":{"printedPage":123,"pdfPage":125},"rulePages":{"printed":[96,97],"pdf":[98,99]},"rules":[{"sectionId":"1.4.6","ruleId":"gl1-1.4.6-feared-nonfulfilment"}]}},
-    {"exerciseId":"GL1-Q067","completeSentence":{"ru":"Если Ваш компьютер поддерживает режим экономии энергии, то можете его не выключать в течение дня.","zh":"如果您的电脑支持节能模式，那么白天可以不关闭它。"},"conclusion":"можете не 表示许可/无必要；白天不关机是持续状态，原书规则要求未完成体 выключать。","decisionSteps":[{"step":1,"text":"можете не 是许可信号。"},{"step":2,"text":"说的是白天这一段时间内不必反复/通常关机。"},{"step":3,"text":"许可或无必要后选未完成体。"}],"correctOption":{"key":"А","analysis":"не выключать 表示允许不进行关机这一行为。"},"distractors":[{"key":"Б","reason":"не выключить 指某一次没有关掉，不是许可规则。"}],"memoryRule":"можно/можете не + 一般行为 → 未完成体。","_source":{"question":{"printedPage":13,"pdfPage":15},"answer":{"printedPage":123,"pdfPage":125},"rulePages":{"printed":[96,97],"pdf":[98,99]},"rules":[{"sectionId":"1.4.6","ruleId":"gl1-1.4.6-unnecessary-or-permitted"}]}},
-    {"exerciseId":"GL1-Q068","completeSentence":{"ru":"Многие английские студенты считают, что без мобильной связи экзамены они могут не сдать.","zh":"许多英国学生认为，没有移动通信，他们可能无法通过考试。"},"conclusion":"могут не 表示担心考试这一具体目标无法完成，选完成体 сдать。","decisionSteps":[{"step":1,"text":"考试通过是可核验的结果。"},{"step":2,"text":"могут не 表达结果未实现的担忧。"},{"step":3,"text":"选完成体 сдать。"}],"correctOption":{"key":"Б","analysis":"сдать 表示成功通过考试的结果。"},"distractors":[{"key":"А","reason":"сдавать 是备考/参加考试过程，不能突出“可能通不过”。"}],"memoryRule":"怕“没能通过/没能完成”时，用完成体。","_source":{"question":{"printedPage":13,"pdfPage":15},"answer":{"printedPage":123,"pdfPage":125},"rulePages":{"printed":[96,97],"pdf":[98,99]},"rules":[{"sectionId":"1.4.6","ruleId":"gl1-1.4.6-feared-nonfulfilment"}]}},
-    {"exerciseId":"GL1-Q069","completeSentence":{"ru":"Джинсы можно не отжимать после полоскания, а только расправить и повесить над ванной.","zh":"牛仔裤漂洗后可以不拧干，只需把它展平挂在浴缸上方。"},"conclusion":"можно не 表示许可；不拧干说的是不必进行这一一般处理过程，选未完成体 отжимать。","decisionSteps":[{"step":1,"text":"можно не 给出许可。"},{"step":2,"text":"洗后处理被当作通常会做的过程。"},{"step":3,"text":"许可不做一般行为用未完成体。"}],"correctOption":{"key":"Б","analysis":"не отжимать 表示允许省去拧干这一步。"},"distractors":[{"key":"А","reason":"не отжать 是一次未完成的结果，不是洗涤说明中的许可。"}],"memoryRule":"说明书里的“可以不做”多接未完成体。","_source":{"question":{"printedPage":13,"pdfPage":15},"answer":{"printedPage":123,"pdfPage":125},"rulePages":{"printed":[96,97],"pdf":[98,99]},"rules":[{"sectionId":"1.4.6","ruleId":"gl1-1.4.6-unnecessary-or-permitted"}]}},
-    {"exerciseId":"GL1-Q070","completeSentence":{"ru":"В детстве она верила в Деда Мороза, ждала его прихода каждый год и боялась, что он может не прийти.","zh":"小时候她相信圣诞老人，每年等他来，又担心他可能不来。"},"conclusion":"每年等待的焦点是某一年“他是否来了”这一结果；担心其无法实现，选完成体 прийти。","decisionSteps":[{"step":1,"text":"боялась, что он может не 指向结果落空。"},{"step":2,"text":"来访是一次具体到达。"},{"step":3,"text":"用完成体 прийти。"}],"correctOption":{"key":"А","analysis":"прийти 表示到达这一结果。"},"distractors":[{"key":"Б","reason":"приходить 表示一般反复来访，不能突出某次等待的结果。"}],"memoryRule":"等某人“能否来成”→ 完成体。","_source":{"question":{"printedPage":13,"pdfPage":15},"answer":{"printedPage":123,"pdfPage":125},"rulePages":{"printed":[96,97],"pdf":[98,99]},"rules":[{"sectionId":"1.4.6","ruleId":"gl1-1.4.6-feared-nonfulfilment"}]}},
-    {"exerciseId":"GL1-Q071","completeSentence":{"ru":"Научные исследования в области ядерной энергии не стоит запрещать, однако они должны контролироваться обществом.","zh":"不应禁止核能领域的科学研究，但它们应受到社会监督。"},"conclusion":"не стоит 表示建议/不宜；禁止的是一类一般行为，原书规则要求未完成体 запрещать。","decisionSteps":[{"step":1,"text":"не стоит 是建议性否定。"},{"step":2,"text":"讨论的是是否采取“禁止研究”这一政策行为。"},{"step":3,"text":"建议或不宜后用未完成体。"}],"correctOption":{"key":"А","analysis":"запрещать 表示一般性禁止行为。"},"distractors":[{"key":"Б","reason":"запретить 指一次实施禁令，题句评价的是政策取向。"}],"memoryRule":"не стоит + 一般建议 → 未完成体。","_source":{"question":{"printedPage":13,"pdfPage":15},"answer":{"printedPage":123,"pdfPage":125},"rulePages":{"printed":[96,97],"pdf":[98,99]},"rules":[{"sectionId":"1.4.6","ruleId":"gl1-1.4.6-advice-or-undesirability"}]}},
-    {"exerciseId":"GL1-Q072","completeSentence":{"ru":"Многие лекарства нельзя принимать вместе с пищей.","zh":"许多药物不能与食物一起服用。"},"conclusion":"нельзя 在此为常规禁令，针对一般服药行为；原书规定禁止时用未完成体 принимать。","decisionSteps":[{"step":1,"text":"нельзя 是禁止标记。"},{"step":2,"text":"药品说明针对任何一次/一般服用的规则。"},{"step":3,"text":"禁令用未完成体 принимать。"}],"correctOption":{"key":"Б","analysis":"принимать 表示一般的服药过程。"},"distractors":[{"key":"А","reason":"принять 突出一次服下结果，不是常规禁令的表达。"}],"memoryRule":"нельзя + 禁止行为 → 未完成体。","_source":{"question":{"printedPage":13,"pdfPage":15},"answer":{"printedPage":123,"pdfPage":125},"rulePages":{"printed":[96],"pdf":[98]},"rules":[{"sectionId":"1.4.5","ruleId":"gl1-1.4.5-prohibition-imperfective"}]}},
-    {"exerciseId":"GL1-Q073","completeSentence":{"ru":"С древних времён русское застолье нельзя представить без весёлых тостов.","zh":"自古以来，没有欢快的祝酒词便无法想象俄罗斯宴席。"},"conclusion":"нельзя 表达的是“无法形成这一整体图景”的客观不可能，而非禁止某人做事；原书规则用完成体 представить。","decisionSteps":[{"step":1,"text":"这里不是命令“不要想象”。"},{"step":2,"text":"句意是无法把俄罗斯宴席想象成没有祝酒词。"},{"step":3,"text":"客观不可能的完整认知结果选完成体。"}],"correctOption":{"key":"А","analysis":"представить 表示形成一个完整想象图景。"},"distractors":[{"key":"Б","reason":"представлять 是过程/反复想象，不能突出“无法形成这一图景”。"}],"memoryRule":"нельзя 先分流：禁令→未完成体；“不可能做到/想象成”→完成体。","_source":{"question":{"printedPage":13,"pdfPage":15},"answer":{"printedPage":123,"pdfPage":125},"rulePages":{"printed":[96],"pdf":[98]},"rules":[{"sectionId":"1.4.5","ruleId":"gl1-1.4.5-impossibility-perfective"}]}},
-    {"exerciseId":"GL1-Q074","completeSentence":{"ru":"«Если вы ошиблись номером телефона, то не рекомендуется спрашивать: „Какой это номер?“, лучше просто извиниться.»","zh":"“如果您拨错了电话，不建议问：‘这是哪个号码？’，最好只道歉。”"},"conclusion":"не рекомендуется 给出一般行为建议，针对打错电话时通常不该做的询问，选未完成体 спрашивать。","decisionSteps":[{"step":1,"text":"не рекомендуется 是行为建议。"},{"step":2,"text":"它评价的是在这类情境下问号码这一行为。"},{"step":3,"text":"建议/不宜结构使用未完成体。"}],"correctOption":{"key":"А","analysis":"спрашивать 表示一般的提问行为。"},"distractors":[{"key":"Б","reason":"спросить 是一次问出的结果，不符合一般礼仪建议。"}],"memoryRule":"не рекомендуется / не стоит 后，优先未完成体。","_source":{"question":{"printedPage":13,"pdfPage":15},"answer":{"printedPage":123,"pdfPage":125},"rulePages":{"printed":[96,97],"pdf":[98,99]},"rules":[{"sectionId":"1.4.6","ruleId":"gl1-1.4.6-advice-or-undesirability"}]}},
-    {"exerciseId":"GL1-Q075","completeSentence":{"ru":"Когда выпадает снег, везде образуются пробки, и по дорогам не проехать.","zh":"下雪时到处都会堵车，路上根本无法通行。"},"conclusion":"не проехать 表示在该情境下无法成功通过道路，是独立的客观不可能；选完成体。","decisionSteps":[{"step":1,"text":"句子没有施事者禁令，而是在陈述客观路况。"},{"step":2,"text":"关键是“无法通过到目的地”的结果。"},{"step":3,"text":"独立不可能结构用完成体 проехать。"}],"correctOption":{"key":"Б","analysis":"проехать 表示成功驶过/通过的完成结果。"},"distractors":[{"key":"А","reason":"проезжать 是一般行驶过程，不能突出“根本无法通过”。"}],"memoryRule":"не + 完成体可表示“客观上办不到”。","_source":{"question":{"printedPage":13,"pdfPage":15},"answer":{"printedPage":123,"pdfPage":125},"rulePages":{"printed":[96,97],"pdf":[98,99]},"rules":[{"sectionId":"1.4.6","ruleId":"gl1-1.4.6-independent-impossibility"}]}},
-    {"exerciseId":"GL1-Q076","sourceOnlyWarning":"原书在本地资料中仅保留该练习及答案键，未找到独立理论规则页；不将推测性的体貌或语用理由伪装成教材解析。","completeSentence":{"ru":"В гостиничных номерах принято вешать на дверь табличку с надписью: «Не беспокоить».","zh":"酒店房间通常会在门上挂一块写着“请勿打扰”的牌子。"},"conclusion":"原书答案键为 А：беспокоить。本条仅保留题目、答案与来源边界，不提供未经原书规则支持的选项理由。","decisionSteps":[{"step":1,"text":"确认原书答案键所列选项为 А。"},{"step":2,"text":"映射状态为 source-exercise-only，表示没有独立规则页。"},{"step":3,"text":"因此停止在来源边界，不编造规则或干扰项分析。"}],"correctOption":{"key":"А"},"distractors":[{"key":"Б"}],"memoryRule":"没有原书规则页时，只记已核对答案，不把推测当作教材规则。","_source":{"question":{"printedPage":14,"pdfPage":16},"answer":{"printedPage":123,"pdfPage":125},"rulePages":{"printed":[],"pdf":[]},"rules":[]}},
-    {"exerciseId":"GL1-Q077","completeSentence":{"ru":"В одиночку или вдвоём большое фермерское хозяйство не поднять.","zh":"一个人或两个人无法撑起一个大型农场。"},"conclusion":"не поднять 是独立客观不可能：无法把大型农场真正办起来/承担起来，结果未能达成，选完成体。","decisionSteps":[{"step":1,"text":"不是命令禁止，而是说明力量不足。"},{"step":2,"text":"撑起农场是需达到的整体结果。"},{"step":3,"text":"独立不可能选完成体 поднять。"}],"correctOption":{"key":"Б","analysis":"поднять 表示成功承担/办起这一结果。"},"distractors":[{"key":"А","reason":"поднимать 强调持续进行的过程，不能突出能力上无法完成整体任务。"}],"memoryRule":"“一个人办不成”式客观不可能，常用 не + 完成体。","_source":{"question":{"printedPage":14,"pdfPage":16},"answer":{"printedPage":123,"pdfPage":125},"rulePages":{"printed":[96,97],"pdf":[98,99]},"rules":[{"sectionId":"1.4.6","ruleId":"gl1-1.4.6-independent-impossibility"}]}},
-    {"exerciseId":"GL1-Q078","completeSentence":{"ru":"На канале НТВ решили не отстать от современных форматов и вести передачи круглые сутки.","zh":"NTV 频道决定不落后于现代节目形式，全天候播出节目。"},"conclusion":"решили 是依存谓语，决定不落后指向要避免的一次结果/状态变化；原书的否定依存不定式规则要求完成体 отстать。","decisionSteps":[{"step":1,"text":"решили 表示做出具体决定。"},{"step":2,"text":"目标是避免“落后”这一结果。"},{"step":3,"text":"依存否定不定式的结果目标选完成体。"}],"correctOption":{"key":"Б","analysis":"не отстать 表示决定不让频道落后。"},"distractors":[{"key":"А","reason":"не отставать 强调一般持续不落后，弱化了决定所指向的结果边界。"}],"memoryRule":"решить не + 为避免一个结果，优先完成体。","_source":{"question":{"printedPage":14,"pdfPage":16},"answer":{"printedPage":123,"pdfPage":125},"rulePages":{"printed":[96,97],"pdf":[98,99]},"rules":[{"sectionId":"1.4.6","ruleId":"gl1-1.4.6-dependent-negative-infinitive"}]}}
+    {
+      "exerciseId": "GL1-Q066",
+      "completeSentence": {
+        "ru": "Пропавший во время полёта на Марс космический аппарат мог не выдержать посадки на эту планету.",
+        "zh": "在飞往火星途中失踪的航天器可能没能承受在这颗行星上的着陆。"
+      },
+      "conclusion": "мог не 表示担心一个具体结果未能实现；着陆承受住与否是一次结果，选完成体 выдержать。",
+      "decisionSteps": [
+        {
+          "step": 1,
+          "text": "мог не 表示结果可能落空。"
+        },
+        {
+          "step": 2,
+          "text": "着陆是一次具体事件。"
+        },
+        {
+          "step": 3,
+          "text": "担心未实现结果用完成体。"
+        }
+      ],
+      "correctOption": {
+        "key": "А",
+        "analysis": "выдержать 表示成功承受着陆这一结果。"
+      },
+      "distractors": [
+        {
+          "key": "Б",
+          "reason": "выдерживать 描述一般承受过程，弱化本次着陆能否成功。"
+        }
+      ],
+      "memoryRule": "мог не + 一次目标未达成 → 完成体。",
+      "_source": {
+        "question": {
+          "printedPage": 13,
+          "pdfPage": 15
+        },
+        "answer": {
+          "printedPage": 123,
+          "pdfPage": 125
+        },
+        "rulePages": {
+          "printed": [
+            96,
+            97
+          ],
+          "pdf": [
+            98,
+            99
+          ]
+        },
+        "rules": [
+          {
+            "sectionId": "1.4.6",
+            "ruleId": "gl1-1.4.6-feared-nonfulfilment"
+          }
+        ]
+      }
+    },
+    {
+      "exerciseId": "GL1-Q067",
+      "completeSentence": {
+        "ru": "Если Ваш компьютер поддерживает режим экономии энергии, то можете его не выключать в течение дня.",
+        "zh": "如果您的电脑支持节能模式，那么白天可以不关闭它。"
+      },
+      "conclusion": "можете не 表示许可/无必要；白天不关机是持续状态，原书规则要求未完成体 выключать。",
+      "decisionSteps": [
+        {
+          "step": 1,
+          "text": "можете не 是许可信号。"
+        },
+        {
+          "step": 2,
+          "text": "说的是白天这一段时间内不必反复/通常关机。"
+        },
+        {
+          "step": 3,
+          "text": "许可或无必要后选未完成体。"
+        }
+      ],
+      "correctOption": {
+        "key": "А",
+        "analysis": "не выключать 表示允许不进行关机这一行为。"
+      },
+      "distractors": [
+        {
+          "key": "Б",
+          "reason": "не выключить 指某一次没有关掉，不是许可规则。"
+        }
+      ],
+      "memoryRule": "можно/можете не + 一般行为 → 未完成体。",
+      "_source": {
+        "question": {
+          "printedPage": 13,
+          "pdfPage": 15
+        },
+        "answer": {
+          "printedPage": 123,
+          "pdfPage": 125
+        },
+        "rulePages": {
+          "printed": [
+            96,
+            97
+          ],
+          "pdf": [
+            98,
+            99
+          ]
+        },
+        "rules": [
+          {
+            "sectionId": "1.4.6",
+            "ruleId": "gl1-1.4.6-unnecessary-or-permitted"
+          }
+        ]
+      }
+    },
+    {
+      "exerciseId": "GL1-Q068",
+      "completeSentence": {
+        "ru": "Многие английские студенты считают, что без мобильной связи экзамены они могут не сдать.",
+        "zh": "许多英国学生认为，没有移动通信，他们可能无法通过考试。"
+      },
+      "conclusion": "могут не 表示担心考试这一具体目标无法完成，选完成体 сдать。",
+      "decisionSteps": [
+        {
+          "step": 1,
+          "text": "考试通过是可核验的结果。"
+        },
+        {
+          "step": 2,
+          "text": "могут не 表达结果未实现的担忧。"
+        },
+        {
+          "step": 3,
+          "text": "选完成体 сдать。"
+        }
+      ],
+      "correctOption": {
+        "key": "Б",
+        "analysis": "сдать 表示成功通过考试的结果。"
+      },
+      "distractors": [
+        {
+          "key": "А",
+          "reason": "сдавать 是备考/参加考试过程，不能突出“可能通不过”。"
+        }
+      ],
+      "memoryRule": "怕“没能通过/没能完成”时，用完成体。",
+      "_source": {
+        "question": {
+          "printedPage": 13,
+          "pdfPage": 15
+        },
+        "answer": {
+          "printedPage": 123,
+          "pdfPage": 125
+        },
+        "rulePages": {
+          "printed": [
+            96,
+            97
+          ],
+          "pdf": [
+            98,
+            99
+          ]
+        },
+        "rules": [
+          {
+            "sectionId": "1.4.6",
+            "ruleId": "gl1-1.4.6-feared-nonfulfilment"
+          }
+        ]
+      }
+    },
+    {
+      "exerciseId": "GL1-Q069",
+      "completeSentence": {
+        "ru": "Джинсы можно не отжимать после полоскания, а только расправить и повесить над ванной.",
+        "zh": "牛仔裤漂洗后可以不拧干，只需把它展平挂在浴缸上方。"
+      },
+      "conclusion": "можно не 表示许可；不拧干说的是不必进行这一一般处理过程，选未完成体 отжимать。",
+      "decisionSteps": [
+        {
+          "step": 1,
+          "text": "можно не 给出许可。"
+        },
+        {
+          "step": 2,
+          "text": "洗后处理被当作通常会做的过程。"
+        },
+        {
+          "step": 3,
+          "text": "许可不做一般行为用未完成体。"
+        }
+      ],
+      "correctOption": {
+        "key": "Б",
+        "analysis": "не отжимать 表示允许省去拧干这一步。"
+      },
+      "distractors": [
+        {
+          "key": "А",
+          "reason": "не отжать 是一次未完成的结果，不是洗涤说明中的许可。"
+        }
+      ],
+      "memoryRule": "说明书里的“可以不做”多接未完成体。",
+      "_source": {
+        "question": {
+          "printedPage": 13,
+          "pdfPage": 15
+        },
+        "answer": {
+          "printedPage": 123,
+          "pdfPage": 125
+        },
+        "rulePages": {
+          "printed": [
+            96,
+            97
+          ],
+          "pdf": [
+            98,
+            99
+          ]
+        },
+        "rules": [
+          {
+            "sectionId": "1.4.6",
+            "ruleId": "gl1-1.4.6-unnecessary-or-permitted"
+          }
+        ]
+      }
+    },
+    {
+      "exerciseId": "GL1-Q070",
+      "completeSentence": {
+        "ru": "В детстве она верила в Деда Мороза, ждала его прихода каждый год и боялась, что он может не прийти.",
+        "zh": "小时候她相信圣诞老人，每年等他来，又担心他可能不来。"
+      },
+      "conclusion": "每年等待的焦点是某一年“他是否来了”这一结果；担心其无法实现，选完成体 прийти。",
+      "decisionSteps": [
+        {
+          "step": 1,
+          "text": "боялась, что он может не 指向结果落空。"
+        },
+        {
+          "step": 2,
+          "text": "来访是一次具体到达。"
+        },
+        {
+          "step": 3,
+          "text": "用完成体 прийти。"
+        }
+      ],
+      "correctOption": {
+        "key": "А",
+        "analysis": "прийти 表示到达这一结果。"
+      },
+      "distractors": [
+        {
+          "key": "Б",
+          "reason": "приходить 表示一般反复来访，不能突出某次等待的结果。"
+        }
+      ],
+      "memoryRule": "等某人“能否来成”→ 完成体。",
+      "_source": {
+        "question": {
+          "printedPage": 13,
+          "pdfPage": 15
+        },
+        "answer": {
+          "printedPage": 123,
+          "pdfPage": 125
+        },
+        "rulePages": {
+          "printed": [
+            96,
+            97
+          ],
+          "pdf": [
+            98,
+            99
+          ]
+        },
+        "rules": [
+          {
+            "sectionId": "1.4.6",
+            "ruleId": "gl1-1.4.6-feared-nonfulfilment"
+          }
+        ]
+      }
+    },
+    {
+      "exerciseId": "GL1-Q071",
+      "completeSentence": {
+        "ru": "Научные исследования в области ядерной энергии не стоит запрещать, однако они должны контролироваться обществом.",
+        "zh": "不应禁止核能领域的科学研究，但它们应受到社会监督。"
+      },
+      "conclusion": "не стоит 表示建议/不宜；禁止的是一类一般行为，原书规则要求未完成体 запрещать。",
+      "decisionSteps": [
+        {
+          "step": 1,
+          "text": "не стоит 是建议性否定。"
+        },
+        {
+          "step": 2,
+          "text": "讨论的是是否采取“禁止研究”这一政策行为。"
+        },
+        {
+          "step": 3,
+          "text": "建议或不宜后用未完成体。"
+        }
+      ],
+      "correctOption": {
+        "key": "А",
+        "analysis": "запрещать 表示一般性禁止行为。"
+      },
+      "distractors": [
+        {
+          "key": "Б",
+          "reason": "запретить 指一次实施禁令，题句评价的是政策取向。"
+        }
+      ],
+      "memoryRule": "не стоит + 一般建议 → 未完成体。",
+      "_source": {
+        "question": {
+          "printedPage": 13,
+          "pdfPage": 15
+        },
+        "answer": {
+          "printedPage": 123,
+          "pdfPage": 125
+        },
+        "rulePages": {
+          "printed": [
+            96,
+            97
+          ],
+          "pdf": [
+            98,
+            99
+          ]
+        },
+        "rules": [
+          {
+            "sectionId": "1.4.6",
+            "ruleId": "gl1-1.4.6-advice-or-undesirability"
+          }
+        ]
+      }
+    },
+    {
+      "exerciseId": "GL1-Q072",
+      "completeSentence": {
+        "ru": "Многие лекарства нельзя принимать вместе с пищей.",
+        "zh": "许多药物不能与食物一起服用。"
+      },
+      "conclusion": "нельзя 在此为常规禁令，针对一般服药行为；原书规定禁止时用未完成体 принимать。",
+      "decisionSteps": [
+        {
+          "step": 1,
+          "text": "нельзя 是禁止标记。"
+        },
+        {
+          "step": 2,
+          "text": "药品说明针对任何一次/一般服用的规则。"
+        },
+        {
+          "step": 3,
+          "text": "禁令用未完成体 принимать。"
+        }
+      ],
+      "correctOption": {
+        "key": "Б",
+        "analysis": "принимать 表示一般的服药过程。"
+      },
+      "distractors": [
+        {
+          "key": "А",
+          "reason": "принять 突出一次服下结果，不是常规禁令的表达。"
+        }
+      ],
+      "memoryRule": "нельзя + 禁止行为 → 未完成体。",
+      "_source": {
+        "question": {
+          "printedPage": 13,
+          "pdfPage": 15
+        },
+        "answer": {
+          "printedPage": 123,
+          "pdfPage": 125
+        },
+        "rulePages": {
+          "printed": [
+            96
+          ],
+          "pdf": [
+            98
+          ]
+        },
+        "rules": [
+          {
+            "sectionId": "1.4.5",
+            "ruleId": "gl1-1.4.5-prohibition-imperfective"
+          }
+        ]
+      }
+    },
+    {
+      "exerciseId": "GL1-Q073",
+      "completeSentence": {
+        "ru": "С древних времён русское застолье нельзя представить без весёлых тостов.",
+        "zh": "自古以来，没有欢快的祝酒词便无法想象俄罗斯宴席。"
+      },
+      "conclusion": "нельзя 表达的是“无法形成这一整体图景”的客观不可能，而非禁止某人做事；原书规则用完成体 представить。",
+      "decisionSteps": [
+        {
+          "step": 1,
+          "text": "这里不是命令“不要想象”。"
+        },
+        {
+          "step": 2,
+          "text": "句意是无法把俄罗斯宴席想象成没有祝酒词。"
+        },
+        {
+          "step": 3,
+          "text": "客观不可能的完整认知结果选完成体。"
+        }
+      ],
+      "correctOption": {
+        "key": "А",
+        "analysis": "представить 表示形成一个完整想象图景。"
+      },
+      "distractors": [
+        {
+          "key": "Б",
+          "reason": "представлять 是过程/反复想象，不能突出“无法形成这一图景”。"
+        }
+      ],
+      "memoryRule": "нельзя 先分流：禁令→未完成体；“不可能做到/想象成”→完成体。",
+      "_source": {
+        "question": {
+          "printedPage": 13,
+          "pdfPage": 15
+        },
+        "answer": {
+          "printedPage": 123,
+          "pdfPage": 125
+        },
+        "rulePages": {
+          "printed": [
+            96
+          ],
+          "pdf": [
+            98
+          ]
+        },
+        "rules": [
+          {
+            "sectionId": "1.4.5",
+            "ruleId": "gl1-1.4.5-impossibility-perfective"
+          }
+        ]
+      }
+    },
+    {
+      "exerciseId": "GL1-Q074",
+      "completeSentence": {
+        "ru": "«Если вы ошиблись номером телефона, то не рекомендуется спрашивать: „Какой это номер?“, лучше просто извиниться.»",
+        "zh": "“如果您拨错了电话，不建议问：‘这是哪个号码？’，最好只道歉。”"
+      },
+      "conclusion": "не рекомендуется 给出一般行为建议，针对打错电话时通常不该做的询问，选未完成体 спрашивать。",
+      "decisionSteps": [
+        {
+          "step": 1,
+          "text": "не рекомендуется 是行为建议。"
+        },
+        {
+          "step": 2,
+          "text": "它评价的是在这类情境下问号码这一行为。"
+        },
+        {
+          "step": 3,
+          "text": "建议/不宜结构使用未完成体。"
+        }
+      ],
+      "correctOption": {
+        "key": "А",
+        "analysis": "спрашивать 表示一般的提问行为。"
+      },
+      "distractors": [
+        {
+          "key": "Б",
+          "reason": "спросить 是一次问出的结果，不符合一般礼仪建议。"
+        }
+      ],
+      "memoryRule": "не рекомендуется / не стоит 后，优先未完成体。",
+      "_source": {
+        "question": {
+          "printedPage": 13,
+          "pdfPage": 15
+        },
+        "answer": {
+          "printedPage": 123,
+          "pdfPage": 125
+        },
+        "rulePages": {
+          "printed": [
+            96,
+            97
+          ],
+          "pdf": [
+            98,
+            99
+          ]
+        },
+        "rules": [
+          {
+            "sectionId": "1.4.6",
+            "ruleId": "gl1-1.4.6-advice-or-undesirability"
+          }
+        ]
+      }
+    },
+    {
+      "exerciseId": "GL1-Q075",
+      "completeSentence": {
+        "ru": "Когда выпадает снег, везде образуются пробки, и по дорогам не проехать.",
+        "zh": "下雪时到处都会堵车，路上根本无法通行。"
+      },
+      "conclusion": "не проехать 表示在该情境下无法成功通过道路，是独立的客观不可能；选完成体。",
+      "decisionSteps": [
+        {
+          "step": 1,
+          "text": "句子没有施事者禁令，而是在陈述客观路况。"
+        },
+        {
+          "step": 2,
+          "text": "关键是“无法通过到目的地”的结果。"
+        },
+        {
+          "step": 3,
+          "text": "独立不可能结构用完成体 проехать。"
+        }
+      ],
+      "correctOption": {
+        "key": "Б",
+        "analysis": "проехать 表示成功驶过/通过的完成结果。"
+      },
+      "distractors": [
+        {
+          "key": "А",
+          "reason": "проезжать 是一般行驶过程，不能突出“根本无法通过”。"
+        }
+      ],
+      "memoryRule": "не + 完成体可表示“客观上办不到”。",
+      "_source": {
+        "question": {
+          "printedPage": 13,
+          "pdfPage": 15
+        },
+        "answer": {
+          "printedPage": 123,
+          "pdfPage": 125
+        },
+        "rulePages": {
+          "printed": [
+            96,
+            97
+          ],
+          "pdf": [
+            98,
+            99
+          ]
+        },
+        "rules": [
+          {
+            "sectionId": "1.4.6",
+            "ruleId": "gl1-1.4.6-independent-impossibility"
+          }
+        ]
+      }
+    },
+    {
+      "exerciseId": "GL1-Q076",
+      "completeSentence": {
+        "ru": "В гостиничных номерах принято вешать на дверь табличку с надписью: «Не беспокоить».",
+        "zh": "酒店客房门上通常挂着写有“请勿打扰”的牌子。"
+      },
+      "conclusion": "选 А：беспокоить。Не беспокоить 是酒店、医院等场合的固定禁止表达，意思是“请勿打扰”。",
+      "decisionSteps": [
+        {
+          "step": 1,
+          "text": "先看题干是叙述动作背景，还是固定礼貌/禁止表达。"
+        },
+        {
+          "step": 2,
+          "text": "选 А：беспокоить。Не беспокоить 是酒店、医院等场合的固定禁止表达，意思是“请勿打扰”。"
+        },
+        {
+          "step": 3,
+          "text": "请勿打扰：Не беспокоить。"
+        }
+      ],
+      "correctOption": {
+        "key": "А",
+        "analysis": "А 对应本句需要的形式或固定表达。请勿打扰：Не беспокоить。"
+      },
+      "distractors": [
+        {
+          "key": "Б",
+          "reason": "该项不符合本句固定表达或所需的语义关系。"
+        }
+      ],
+      "memoryRule": "请勿打扰：Не беспокоить。",
+      "_source": {
+        "question": {
+          "printedPage": 14,
+          "pdfPage": 16
+        },
+        "answer": {
+          "printedPage": 123,
+          "pdfPage": 125
+        },
+        "rulePages": {
+          "printed": [],
+          "pdf": []
+        },
+        "rules": []
+      }
+    },
+    {
+      "exerciseId": "GL1-Q077",
+      "completeSentence": {
+        "ru": "В одиночку или вдвоём большое фермерское хозяйство не поднять.",
+        "zh": "一个人或两个人无法撑起一个大型农场。"
+      },
+      "conclusion": "не поднять 是独立客观不可能：无法把大型农场真正办起来/承担起来，结果未能达成，选完成体。",
+      "decisionSteps": [
+        {
+          "step": 1,
+          "text": "不是命令禁止，而是说明力量不足。"
+        },
+        {
+          "step": 2,
+          "text": "撑起农场是需达到的整体结果。"
+        },
+        {
+          "step": 3,
+          "text": "独立不可能选完成体 поднять。"
+        }
+      ],
+      "correctOption": {
+        "key": "Б",
+        "analysis": "поднять 表示成功承担/办起这一结果。"
+      },
+      "distractors": [
+        {
+          "key": "А",
+          "reason": "поднимать 强调持续进行的过程，不能突出能力上无法完成整体任务。"
+        }
+      ],
+      "memoryRule": "“一个人办不成”式客观不可能，常用 не + 完成体。",
+      "_source": {
+        "question": {
+          "printedPage": 14,
+          "pdfPage": 16
+        },
+        "answer": {
+          "printedPage": 123,
+          "pdfPage": 125
+        },
+        "rulePages": {
+          "printed": [
+            96,
+            97
+          ],
+          "pdf": [
+            98,
+            99
+          ]
+        },
+        "rules": [
+          {
+            "sectionId": "1.4.6",
+            "ruleId": "gl1-1.4.6-independent-impossibility"
+          }
+        ]
+      }
+    },
+    {
+      "exerciseId": "GL1-Q078",
+      "completeSentence": {
+        "ru": "На канале НТВ решили не отстать от современных форматов и вести передачи круглые сутки.",
+        "zh": "NTV 频道决定不落后于现代节目形式，全天候播出节目。"
+      },
+      "conclusion": "решили 是依存谓语，决定不落后指向要避免的一次结果/状态变化；原书的否定依存不定式规则要求完成体 отстать。",
+      "decisionSteps": [
+        {
+          "step": 1,
+          "text": "решили 表示做出具体决定。"
+        },
+        {
+          "step": 2,
+          "text": "目标是避免“落后”这一结果。"
+        },
+        {
+          "step": 3,
+          "text": "依存否定不定式的结果目标选完成体。"
+        }
+      ],
+      "correctOption": {
+        "key": "Б",
+        "analysis": "не отстать 表示决定不让频道落后。"
+      },
+      "distractors": [
+        {
+          "key": "А",
+          "reason": "не отставать 强调一般持续不落后，弱化了决定所指向的结果边界。"
+        }
+      ],
+      "memoryRule": "решить не + 为避免一个结果，优先完成体。",
+      "_source": {
+        "question": {
+          "printedPage": 14,
+          "pdfPage": 16
+        },
+        "answer": {
+          "printedPage": 123,
+          "pdfPage": 125
+        },
+        "rulePages": {
+          "printed": [
+            96,
+            97
+          ],
+          "pdf": [
+            98,
+            99
+          ]
+        },
+        "rules": [
+          {
+            "sectionId": "1.4.6",
+            "ruleId": "gl1-1.4.6-dependent-negative-infinitive"
+          }
+        ]
+      }
+    }
   ]
 }

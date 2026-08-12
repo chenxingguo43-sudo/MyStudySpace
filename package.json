@@ -33,6 +33,10 @@
   },
   "homepage": "https://github.com/chenxingguo43-sudo/MyStudySpace#readme",
   "dependencies": {
+    "@capacitor/core": "8.5.0",
+    "@capacitor/filesystem": "8.1.2",
+    "@capacitor/share": "8.0.1",
+    "@capawesome/capacitor-file-picker": "8.0.4",
     "@playwright/test": "^1.61.1",
     "cheerio": "^1.2.0",
     "opencc-js": "^1.4.1",

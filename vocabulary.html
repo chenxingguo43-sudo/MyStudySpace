@@ -6,6 +6,7 @@
     <meta name="theme-color" content="#c5f5ec">
     <title>背单词 | 俄语学习舱</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans:wght@600;700&family=Noto+Serif:ital,wght@0,400;0,600;0,700;1,400&family=Noto+Serif+SC:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/app-shell.css">
     <style>
         :root {
             color-scheme: dark;
@@ -5136,5 +5137,7 @@
     loadVocabulary();
     checkBackupReminder();
     </script>
+    <script src="js/app-shell.js"></script>
+    <script>AppShell.mount({ current: 'vocabulary' });</script>
 </body>
 </html>

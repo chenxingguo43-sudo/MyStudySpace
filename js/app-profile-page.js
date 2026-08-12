@@ -1,8 +1,8 @@
 (function (root, factory) {
-  const api = factory();
+  const api = factory(root);
   if (typeof module === 'object' && module.exports) module.exports = api;
   root.V1ProfilePage = api;
-})(typeof globalThis !== 'undefined' ? globalThis : this, function () {
+})(typeof globalThis !== 'undefined' ? globalThis : this, function (root) {
   'use strict';
 
   function escapeHtml(value) { return String(value || '').replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char]); }
@@ -18,6 +18,9 @@
     const cancelProfileButton = documentRef.getElementById('cancelProfile');
     const profileError = documentRef.getElementById('profileError');
     const restoreInput = documentRef.getElementById('restoreInput');
+    const archive = settings.archive || root.V1LearningArchive;
+    const transfer = settings.transfer || root.V1ArchiveFileTransfer;
+    const indexedDb = settings.indexedDB || root.indexedDB;
     let shouldRemoveAvatar = false;
 
     function setError(message) { profileError.textContent = message || ''; profileError.hidden = !message; }
@@ -36,7 +39,13 @@
     function bindRenderedControls() {
       documentRef.getElementById('checkin').addEventListener('click', function() { store.checkIn(storage); render(); });
       documentRef.getElementById('editProfile').addEventListener('click', openEditor);
-      documentRef.getElementById('backup').addEventListener('click', exportOrRestore);
+      const backup = documentRef.getElementById('backup');
+      backup.outerHTML = '<button class="row" id="exportQuick"><i>\u2191</i><span><b>\u5feb\u901f\u5bfc\u51fa</b><small>\u5bfc\u51fa\u5b66\u4e60\u8bb0\u5f55\uff0c\u4e0d\u5305\u542b\u5f55\u97f3</small></span><em class="arrow">\u203a</em></button>' +
+        '<button class="row" id="exportComplete"><i>\u21e7</i><span><b>\u5b8c\u6574\u5bfc\u51fa</b><small>\u5bfc\u51fa\u5b66\u4e60\u8bb0\u5f55\u548c\u672c\u673a\u5f55\u97f3</small></span><em class="arrow">\u203a</em></button>' +
+        '<button class="row" id="importArchive"><i>\u2193</i><span><b>\u5bfc\u5165\u5b66\u4e60\u6863\u6848</b><small>\u9ed8\u8ba4\u4e0e\u672c\u673a\u8bb0\u5f55\u5408\u5e76</small></span><em class="arrow">\u203a</em></button>';
+      documentRef.getElementById('exportQuick').addEventListener('click', function () { exportLearningArchive(false); });
+      documentRef.getElementById('exportComplete').addEventListener('click', function () { exportLearningArchive(true); });
+      documentRef.getElementById('importArchive').addEventListener('click', function () { restoreInput.click(); });
       documentRef.getElementById('media').addEventListener('click', function() { alert('教材媒体包会在后续媒体包阶段提供。'); });
       documentRef.getElementById('appearance').addEventListener('click', function() { alert('当前跟随系统外观。'); });
       documentRef.getElementById('clear').addEventListener('click', function() { alert('为避免遗漏或误删录音，统一清除学习数据会在 Phase 5 档案范围确定后启用。'); });
@@ -53,6 +62,21 @@
       } catch (error) { setError(error && error.message || '资料保存失败'); }
       finally { saveProfileButton.disabled = false; }
     }
+    async function exportLearningArchive(complete) {
+      if (!archive || !transfer) return alert('\u5b66\u4e60\u6863\u6848\u6a21\u5757\u672a\u6b63\u786e\u52a0\u8f7d');
+      try {
+        const value = complete
+          ? await archive.createCompleteArchive(storage, { indexedDB: indexedDb })
+          : archive.createArchive(storage);
+        await transfer.exportText({
+          runtime: root.Capacitor && root.Capacitor.isNativePlatform && root.Capacitor.isNativePlatform() ? 'android' : 'web-server',
+          capacitor: root.Capacitor,
+          document: documentRef,
+          text: JSON.stringify(value, null, 2),
+          fileName: transfer.archiveFileName(complete)
+        });
+      } catch (error) { alert(error && error.message || '\u5bfc\u51fa\u5b66\u4e60\u6863\u6848\u5931\u8d25'); }
+    }
     function exportOrRestore() {
       if (confirm('确定要导出本地资料吗？选择“取消”可改为导入。')) {
         const link = documentRef.createElement('a'); link.href = URL.createObjectURL(new Blob([JSON.stringify(store.archive(storage), null, 2)], { type: 'application/json' })); link.download = 'belye-nochi-profile.json'; link.click(); URL.revokeObjectURL(link.href);
@@ -62,7 +86,18 @@
     removeAvatarButton.addEventListener('click', function() { shouldRemoveAvatar = true; avatarFileInput.value = ''; setError('头像将在保存后移除'); });
     cancelProfileButton.addEventListener('click', function() { shouldRemoveAvatar = false; avatarFileInput.value = ''; setError(''); });
     saveProfileButton.addEventListener('click', saveEditor);
-    restoreInput.addEventListener('change', function() { const file = restoreInput.files[0]; if (!file) return; const reader = new FileReader(); reader.onload = function() { try { store.restore(storage, JSON.parse(reader.result)); render(); } catch (error) { alert(error.message); } }; reader.readAsText(file); });
+    restoreInput.addEventListener('change', async function(event) {
+      event.stopImmediatePropagation();
+      const file = restoreInput.files[0];
+      if (!file || !archive || !transfer) return;
+      try {
+        const picked = await transfer.importText({ runtime: 'web-server', file });
+        if (!picked.cancelled) await archive.importLearningArchive(storage, indexedDb, picked.text, { mode: 'merge' });
+        restoreInput.value = '';
+        render();
+        alert('\u5b66\u4e60\u6863\u6848\u5df2\u5bfc\u5165\u5e76\u5408\u5e76');
+      } catch (error) { alert(error && error.message || '\u5bfc\u5165\u5b66\u4e60\u6863\u6848\u5931\u8d25'); }
+    });
     render();
     return { render, openEditor };
   }

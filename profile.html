@@ -13,6 +13,9 @@
   <main class="profile" id="profilePage" aria-live="polite"></main>
   <dialog id="profileDialog"><form method="dialog"><h2>编辑本地资料</h2><label for="nickname">昵称</label><input id="nickname" maxlength="32"><label for="localId">本地 ID</label><input id="localId" maxlength="48"><label for="avatarFile">头像</label><input id="avatarFile" type="file" accept="image/jpeg,image/png,image/webp"><p id="profileError" role="alert" hidden></p><div class="dialog-actions"><button class="secondary" id="cancelProfile" value="cancel">取消</button><button class="secondary" id="removeAvatar" type="button">移除头像</button><button class="primary" id="saveProfile" type="button">保存</button></div></form></dialog>
   <input id="restoreInput" type="file" accept="application/json" hidden>
+  <script src="js/app-runtime.js"></script>
+  <script src="js/app-archive.js"></script>
+  <script src="js/app-file-transfer.js"></script>
   <script src="js/app-profile.js"></script>
   <script src="js/app-profile-page.js"></script>
   <script>V1ProfilePage.mount({ store: V1ProfileStore, storage: localStorage, document: document });</script>

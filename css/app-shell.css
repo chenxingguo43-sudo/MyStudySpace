@@ -78,8 +78,9 @@ html.app-shell-enabled body {
   white-space: nowrap;
 }
 
-/* Android has one persistent navigation system. Keep the desktop-only switcher out. */
-html.app-shell-enabled .slim-page-switcher { display: none; }
+/* Android has one persistent navigation system. Keep the web-only switchers out. */
+html.app-shell-enabled .slim-page-switcher,
+html.app-shell-enabled .reader-page-switcher { display: none; }
 
 /* Reader's sheet must always finish above the persistent app navigation. */
 @media (max-width: 700px) {

@@ -3689,6 +3689,10 @@ function renderZlatoustExerciseReference(exercise) {
   if (!mapping) return '';
   var status = mapping.status || 'needs-review';
   if (status === 'source-exercise-only') {
+    var projectExplanation = getZlatoustStaticExplanation(exercise, state, exercise.sourceAnswer || exercise.answer);
+    if (projectExplanation) {
+      return '<aside class="zlatoust-exercise-map"><span class="zlatoust-badge source-exercise-only">原书未提供逐题解析</span><span>下方是白夜俄语根据原书答案和已核对规则制作的学习解析，不是教材原文。</span></aside>';
+    }
     return '<aside class="zlatoust-exercise-map"><span class="zlatoust-badge source-exercise-only">原书仅有练习</span><span>本题未找到独立原书理论依据；保留练习入口，不虚构规则。</span></aside>';
   }
   var buttons = (mapping.ruleIds || []).map(function(ruleId) {
@@ -4348,7 +4352,9 @@ function renderExerciseAiAction(exerciseId, kind) {
 function getZlatoustStaticExplanation(exercise, state, answerKey) {
   var entry = state && state.staticExplanationsByExercise && state.staticExplanationsByExercise[exercise.id];
   if (!entry || entry.correctOption.key !== answerKey) return null;
-  var expectedDistractors = (exercise.options || []).filter(function(option) { return option.key !== answerKey; }).map(function(option) { return option.key; }).sort().join('|');
+  var expectedDistractors = (exercise.options || []).filter(function(option) {
+    return option.key !== answerKey && String(option.text || '').trim();
+  }).map(function(option) { return option.key; }).sort().join('|');
   var actualDistractors = (entry.distractors || []).map(function(item) { return item.key; }).sort().join('|');
   return expectedDistractors === actualDistractors ? entry : null;
 }
@@ -4474,7 +4480,9 @@ function renderQuizItem(exercise, record) {
   }
   html += '<fieldset class="b2-options"><legend class="sr-only">选择答案</legend>';
   for (var i = 0; i < exercise.options.length; i++) {
-    html += renderLookupOption(exercise, exercise.options[i], record);
+    if (String(exercise.options[i].text || '').trim()) {
+      html += renderLookupOption(exercise, exercise.options[i], record);
+    }
   }
   html += '</fieldset>';
   html += '<div class="b2-result" aria-live="polite">' + renderQuizResult(exercise, record) + '</div>';
@@ -6008,7 +6016,9 @@ function buildReaderExerciseAiPrompt(exercise, record, title) {
     return key === record.selected;
   });
   var selectedText = selected ? (selected.text || selected.label || '') : '';
-  var optionsList = (exercise.options || []).map(function(option) {
+  var optionsList = (exercise.options || []).filter(function(option) {
+    return String(option.text || option.label || (typeof option === 'string' ? option : '')).trim();
+  }).map(function(option) {
     var key = option.key || option.label || extractOptionKey(option.text || option);
     var text = option.text || option.label || option;
     return key + '. ' + text + (key === (exercise.answer || exercise.sourceAnswer) ? ' ★正确答案' : '');
