@@ -7,6 +7,7 @@ const Core = require('../../js/russian-dictionary/core');
 const reader = fs.readFileSync('reader.html', 'utf8');
 const runtimeSource = fs.readFileSync('js/russian-dictionary/runtime.js', 'utf8');
 const reviewedLexicalEntries = JSON.parse(fs.readFileSync('data/dictionary/reviewed-lexical-entries.json', 'utf8'));
+const freeDictQualityRules = JSON.parse(fs.readFileSync('data/dictionary/freedict-quality-rules.json', 'utf8'));
 
 test('reviewed lexical entries correct known FreeDict and morphology errors', () => {
   assert.deepEqual(reviewedLexicalEntries['столетний'], {
@@ -19,7 +20,20 @@ test('reviewed lexical entries correct known FreeDict and morphology errors', ()
   assert.equal(reviewedLexicalEntries['образованный'].meaning, '受过教育的；有教养的');
   assert.equal(reviewedLexicalEntries['приплыли'].lemma, 'приплыть');
   assert.equal(reviewedLexicalEntries['приплыть'].meaning, '游来；乘船而来');
+  assert.deepEqual(reviewedLexicalEntries['обеспокоить'], {
+    lemma: 'обеспокоить',
+    meaning: '使不安；打扰，麻烦（某人）',
+    type: '动词',
+    source: '项目词典 · 人工核对'
+  });
+  assert.ok(freeDictQualityRules.deprecatedMeanings.includes('奉烦'));
   assert.match(reader, /reviewed\.lemma\s*\? \[reviewed\.lemma\]\s*:\s*\(corpus\.lemmas/);
+});
+
+test('reader suppresses deprecated FreeDict meanings without inventing a replacement', () => {
+  assert.match(reader, /data\/dictionary\/freedict-quality-rules\.json/);
+  assert.match(reader, /var usableMeanings = freeDictLookup\[key\]\.meanings\.filter/);
+  assert.match(reader, /if \(!usableMeanings\.length\) return null/);
 });
 
 test('reader never exposes English or Russian fallbacks as learner-facing definitions', () => {
