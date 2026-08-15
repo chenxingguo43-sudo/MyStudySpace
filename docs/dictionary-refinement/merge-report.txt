@@ -1,0 +1,24 @@
+═ 统一词典合并报告 ═
+总词条: 99751
+
+质量分层:
+  minimal       49550 条
+  needs-refine  29524 条
+  standard      18930 条
+  full           1747 条
+
+最终来源分布:
+  freedict            79074 条
+  salad-vocab         13017 条
+  vocabulary           5917 条
+  reviewed-lexical      600 条
+  markdown-glossary     583 条
+  external-vocab        540 条
+  reviewed-function      20 条
+
+需要精修/修复的词条: 34691
+  古汉语垃圾: 29524
+  例句误填释义: 450
+  OCR乱码: 279
+  词性缺失/异常: 1575
+  缺变格变位表(实词): 3528
