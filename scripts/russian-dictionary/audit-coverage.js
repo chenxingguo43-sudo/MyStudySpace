@@ -111,9 +111,11 @@ function loadRealAudit() {
   const legacy = legacyRaw.map || legacyRaw;
   const external = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'external-vocab.json'), 'utf8'));
   const vocabulary = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'vocabulary.json'), 'utf8'));
+  const reviewedLexical = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'dictionary', 'reviewed-lexical-entries.json'), 'utf8'));
   const definitions = new Set(Object.keys(freeDict).map(normalize));
   Object.keys(markdownGlossary).forEach(key => definitions.add(normalize(key)));
   Object.keys(reviewedFunctions).forEach(key => definitions.add(normalize(key)));
+  Object.keys(reviewedLexical).forEach(key => definitions.add(normalize(key)));
   Object.keys(openRussian).forEach(key => definitions.add(normalize(key)));
   Object.keys(wiktionaryRu).forEach(key => definitions.add(normalize(key)));
   Object.keys(external).forEach(key => definitions.add(normalize(key)));
