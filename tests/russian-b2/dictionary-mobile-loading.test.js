@@ -8,7 +8,7 @@ const reader = fs.readFileSync(path.join(__dirname, '..', '..', 'reader.html'), 
 test('tablet dictionary loads core morphology independently from large supplements', () => {
   assert.match(reader, /var DICTIONARY_DATA_VERSION = '[^']+'/);
   assert.match(reader, /fetchDictionaryJson\('data\/dictionary\/corpus-morphology\.json', \{\}\)/);
-  assert.match(reader, /supplementalLookupPromise = fetchDictionaryJson\('data\/dictionary\/freedict-rus-zh\.json', \{\}\)/);
+  assert.match(reader, /supplementalLookupPromise = fetchDictionaryJson\('data\/dictionary\/unified-dictionary\.json', \{\}\)/);
   assert.doesNotMatch(reader, /fetchDictionaryJson\('data\/dictionary\/openrussian-en\.json', \{\}\)/);
   assert.match(reader, /补充词典加载中/);
 });

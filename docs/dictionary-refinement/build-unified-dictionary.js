@@ -184,7 +184,8 @@ for (const [k, v] of Object.entries(rl)) {
   if (!v.meaning) continue;
   add(k, {
     display: v.lemma || k, meaning: v.meaning, meanings: splitMeanings(v.meaning),
-    pos: normPos(v.type), source: ['reviewed-lexical'], quality: 'full'
+    pos: normPos(v.type), source: ['reviewed-lexical'], quality: 'full',
+    grammarTable: v.grammarTable || ''
   }, 1);
 }
 for (const [k, v] of Object.entries(rf)) {
@@ -237,14 +238,15 @@ for (const [key, e] of dict) {
 
 // ═══════════════ 输出 ═══════════════
 
-// 去 _ 前缀内部字段，输出最终词典
+// 去 _ 前缀内部字段，输出最终词典；过滤 needs-refine（古汉语垃圾，无学习价值）
 const finalDict = {};
 for (const [key, e] of dict) {
   const { _priority, _sourceKeys, ...rest } = e;
+  if (rest.quality === 'needs-refine') continue;
   finalDict[key] = rest;
 }
 
-const unifiedPath = path.join(OUT, 'unified-dictionary.json');
+const unifiedPath = path.join(ROOT, 'data', 'dictionary', 'unified-dictionary.json');
 const refinePath  = path.join(OUT, 'refine-list.json');
 const reportPath  = path.join(OUT, 'merge-report.txt');
 

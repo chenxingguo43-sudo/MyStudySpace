@@ -30,10 +30,10 @@ test('reviewed lexical entries correct known FreeDict and morphology errors', ()
   assert.match(reader, /reviewed\.lemma\s*\? \[reviewed\.lemma\]\s*:\s*\(corpus\.lemmas/);
 });
 
-test('reader suppresses deprecated FreeDict meanings without inventing a replacement', () => {
-  assert.match(reader, /data\/dictionary\/freedict-quality-rules\.json/);
-  assert.match(reader, /var usableMeanings = freeDictLookup\[key\]\.meanings\.filter/);
-  assert.match(reader, /if \(!usableMeanings\.length\) return null/);
+test('reader serves unified dictionary with no per-source garbage fallback', () => {
+  assert.match(reader, /data\/dictionary\/unified-dictionary\.json/);
+  assert.match(reader, /unifiedLookup\[key\]/);
+  assert.match(reader, /if \(unified && unified\.meaning && hasChineseText\(unified\.meaning\)\)/);
 });
 
 test('reader never exposes English or Russian fallbacks as learner-facing definitions', () => {
@@ -330,8 +330,7 @@ test('exam lookup is locked until the attempt is explicitly marked assisted', ()
 test('reader loads generated morphology and attributed dictionary supplements', () => {
   assert.match(reader, /data\/dictionary\/function-word-forms\.json/);
   assert.match(reader, /data\/dictionary\/corpus-morphology\.json/);
-  assert.match(reader, /data\/dictionary\/freedict-rus-zh\.json/);
-  assert.match(reader, /data\/dictionary\/markdown-glossary\.json/);
+  assert.match(reader, /data\/dictionary\/unified-dictionary\.json/);
   assert.match(reader, /data\/dictionary\/reviewed-function-entries\.json/);
   assert.match(reader, /data\/dictionary\/reviewed-lexical-entries\.json/);
   assert.doesNotMatch(reader, /data\/dictionary\/openrussian-en\.json/);

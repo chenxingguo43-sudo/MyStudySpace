@@ -1886,16 +1886,12 @@ var localLookupPromise = null;
 var supplementalLookupReady = false;
 var supplementalLookupPromise = null;
 var dictionaryLoadFailures = {};
-var localVocabLookup = {};
 var localLookupCache = {};
 var corpusMorphology = {};
 var functionWordForms = {};
-var freeDictLookup = {};
-var markdownGlossaryLookup = {};
+var unifiedLookup = {}; // 统一词典：reviewed + vocabulary + external + glossary + salad + freedict 合并（每词一条）
 var reviewedFunctionLookup = {};
 var reviewedLexicalLookup = {};
-var freeDictQualityRules = {};
-var saladVocabLookup = {}; // 沙拉俄语词库 (beidanci_jingjian)
 
 /* ─── 形态引擎状态 ─── */
 var morphologyDict = null;         // Object.create(null) 字典
@@ -6777,7 +6773,7 @@ function hasChineseText(text) {
   return /[\u4e00-\u9fff]/.test(String(text || ''));
 }
 
-var DICTIONARY_DATA_VERSION = '20260816-4';
+var DICTIONARY_DATA_VERSION = '20260816-5';
 
 function fetchDictionaryJson(path, fallback) {
   var separator = path.indexOf('?') >= 0 ? '&' : '?';
@@ -6804,54 +6800,25 @@ function fetchDictionaryJson(path, fallback) {
 function loadLocalLookupData() {
   try { localLookupCache = JSON.parse(localStorage.getItem('rr_local_lookup_cache') || '{}'); } catch(e) { localLookupCache = {}; }
 
-  // Load morphology and the compact Chinese dictionaries first. The two large
-  // supplements load afterwards so iPad Safari does not parse every large JSON
-  // response concurrently and discard the whole dictionary on one failure.
+  // 统一词典架构：小文件（词形/虚词/人工核对）先行，unified-dictionary.json
+  // 大文件最后加载，避免 iPad Safari 并发解析大 JSON 时丢弃整个词典。
   return Promise.all([
-    fetchDictionaryJson('data/vocabulary.json', []),
-    fetchDictionaryJson('data/external-vocab.json', {}),
     fetchDictionaryJson('data/dictionary/function-word-forms.json', {}),
     fetchDictionaryJson('data/dictionary/corpus-morphology.json', {}),
-    fetchDictionaryJson('data/dictionary/markdown-glossary.json', {}),
     fetchDictionaryJson('data/dictionary/reviewed-function-entries.json', {}),
-    fetchDictionaryJson('data/dictionary/reviewed-lexical-entries.json', {}),
-    fetchDictionaryJson('data/dictionary/freedict-quality-rules.json', {}),
-    fetchDictionaryJson('data/dictionary/salad-vocab.json', {})
+    fetchDictionaryJson('data/dictionary/reviewed-lexical-entries.json', {})
   ]).then(function(results) {
-    var words = results[0], extVocab = results[1] || {};
-    functionWordForms = results[2] || {};
-    corpusMorphology = results[3] || {};
-    markdownGlossaryLookup = results[4] || {};
-    reviewedFunctionLookup = results[5] || {};
-    reviewedLexicalLookup = results[6] || {};
-    freeDictQualityRules = results[7] || {};
-    saladVocabLookup = results[8] || {};
-    localVocabLookup = {};
-    if (!Array.isArray(words)) words = [];
-    words.forEach(function(w) {
-      if (!w || !w.word || !w.meaning || !hasChineseText(w.meaning)) return;
-      var key = normalizeLookupWord(w.word);
-      if (!key || localVocabLookup[key]) return;
-      localVocabLookup[key] = {
-        meaning: w.meaning,
-        type: w.type || '',
-        source: '本地词库',
-        _raw: w
-      };
-    });
-    Object.keys(extVocab).forEach(function(lemma) {
-      var e = extVocab[lemma];
-      var key = normalizeLookupWord(lemma);
-      if (!key || localVocabLookup[key] || !hasChineseText(e.meaning)) return;
-      localVocabLookup[key] = { meaning: e.meaning, type: e.type || '', source: '扩展词库', _raw: e };
-    });
+    functionWordForms = results[0] || {};
+    corpusMorphology = results[1] || {};
+    reviewedFunctionLookup = results[2] || {};
+    reviewedLexicalLookup = results[3] || {};
     localLookupReady = true;
 
-    supplementalLookupPromise = fetchDictionaryJson('data/dictionary/freedict-rus-zh.json', {})
+    supplementalLookupPromise = fetchDictionaryJson('data/dictionary/unified-dictionary.json', {})
       .then(function(result) {
-        freeDictLookup = result || {};
+        unifiedLookup = result || {};
         supplementalLookupReady = true;
-        console.log('[Dict] Local:', Object.keys(localVocabLookup).length, 'entries; Morphology:', Object.keys(corpusMorphology).length, '; FreeDict:', Object.keys(freeDictLookup).length);
+        console.log('[Dict] Reviewed:', Object.keys(reviewedLexicalLookup).length, '; Unified:', Object.keys(unifiedLookup).length, '; Morphology:', Object.keys(corpusMorphology).length);
       });
   }).catch(function(error) {
     console.warn('本地查词核心数据加载失败:', error);
@@ -6905,34 +6872,20 @@ function lookupLocalChineseMeaning(word) {
       _raw: reviewedLexical
     };
   }
-  if (localVocabLookup[key]) {
-    saveCachedLocalLookup(key, localVocabLookup[key]);
-    return localVocabLookup[key];
-  }
   if (reviewedFunctionLookup[key]) {
     return { meaning: reviewedFunctionLookup[key].meaning, type: 'function word', source: reviewedFunctionLookup[key].source, _raw: {} };
   }
-  if (markdownGlossaryLookup[key] && Array.isArray(markdownGlossaryLookup[key].meanings)) {
-    return {
-      meaning: markdownGlossaryLookup[key].meanings.slice(0, 6).join('；'), type: '',
-      source: markdownGlossaryLookup[key].source || '项目 Markdown 已核对词汇表', _raw: {}
+  var unified = unifiedLookup[key];
+  if (unified && unified.meaning && hasChineseText(unified.meaning)) {
+    var sourceLabel = Array.isArray(unified.source) ? unified.source[0] : (unified.source || '统一词典');
+    var result = {
+      meaning: unified.meaning,
+      type: unified.pos || unified.type || '',
+      source: sourceLabel === 'reviewed-lexical' ? '项目词典 · 人工核对' : sourceLabel,
+      _raw: unified
     };
-  }
-  if (saladVocabLookup[key]) {
-    return { meaning: saladVocabLookup[key], type: '', source: '沙拉俄语词库', _raw: {} };
-  }
-  if (freeDictLookup[key] && Array.isArray(freeDictLookup[key].meanings) && freeDictLookup[key].meanings.length) {
-    var deprecatedMeanings = freeDictQualityRules.deprecatedMeanings || [];
-    var usableMeanings = freeDictLookup[key].meanings.filter(function(meaning) {
-      return deprecatedMeanings.indexOf(String(meaning || '').trim()) === -1;
-    });
-    if (!usableMeanings.length) return null;
-    return {
-      meaning: usableMeanings.slice(0, 8).join('；'),
-      type: '',
-      source: freeDictLookup[key].source || 'FreeDict zho-rus 2025.11.23',
-      _raw: {}
-    };
+    saveCachedLocalLookup(key, result);
+    return result;
   }
   var provisional = dictionaryStorage && dictionaryStorage.getProvisional ? dictionaryStorage.getProvisional(key) : null;
   if (provisional && (provisional.meaningZh || provisional.meaningRu)) {
