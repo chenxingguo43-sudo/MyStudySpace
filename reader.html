@@ -297,12 +297,22 @@ body {
 .dp-coll-zh { font-size: 12px; color: var(--text-dim); margin-top: 2px; }
 
 /* 折叠 */
-.dp-collapse-toggle { font-size: 13px; color: var(--text-secondary); cursor: pointer; padding: 4px 0; user-select: none; }
+.dp-collapse-toggle { font-size: 13px; color: var(--text-secondary); cursor: pointer; padding: 6px 0; user-select: none; display: flex; align-items: center; gap: 4px; min-height: 28px; }
+.dp-collapse-toggle::before { content: '▸'; color: var(--text-dim); font-size: 11px; transition: transform 0.18s ease; }
+.dp-collapse-toggle.expanded::before { transform: rotate(90deg); }
 .dp-collapse-toggle:hover { color: var(--accent); }
-.dp-collapse-toggle.expanded::after { content: ' ▾'; }
+.dp-collapse-toggle:hover::before { color: var(--accent); }
 .dp-collapse-body { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
-.dp-collapse-body.open { max-height: 600px; overflow-y: auto; }
+.dp-collapse-body.open { max-height: 640px; overflow-y: auto; }
 .dp-detail { font-size: 13px; color: var(--text-secondary); line-height: 1.7; margin-top: 6px; }
+
+/* 变格/变位表 */
+.dict-table-wrap { margin-top: 8px; overflow-x: auto; -webkit-overflow-scrolling: touch; border: 1px solid var(--border); border-radius: 8px; }
+.dict-table { width: 100%; border-collapse: collapse; font-size: 13px; min-width: 260px; }
+.dict-table th { background: var(--accent-dim); color: var(--accent); font-weight: 600; padding: 7px 10px; text-align: left; white-space: nowrap; }
+.dict-table td { padding: 6px 10px; border-top: 1px solid var(--border); color: var(--text); font-family: 'Segoe UI', system-ui, 'Noto Serif', serif; white-space: nowrap; }
+.dict-table tr:nth-child(even) td { background: rgba(255,255,255,0.03); }
+.dict-table td:first-child { color: var(--text-secondary); font-family: inherit; white-space: nowrap; }
 
 /* 例句 */
 .dp-example { margin-bottom: 8px; padding: 6px 10px; background: rgba(255,255,255,0.03); border-radius: 6px; }
@@ -1447,7 +1457,10 @@ body.theme-warm .listening-entry-zh, body.theme-warm .listening-section-count { 
 .zlatoust-card-status.learning { color: var(--accent); }
 .zlatoust-card-status.learned, .zlatoust-card-status.mastered { color: #059669; }
 .zlatoust-card-status.weak { color: #d97706; }
-.zlatoust-learning-page { --zlatoust-reading-width: 760px; max-width: 1180px; }
+.main-container.zlatoust-learning-page { --zlatoust-reading-width: 760px; max-width: 1180px; }
+@media (min-width: 1200px) {
+  .main-container.zlatoust-learning-page { --zlatoust-reading-width: 960px; max-width: 1280px; }
+}
 .zlatoust-learning-topbar { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 12px 0 16px; }
 .zlatoust-learning-topbar .zlatoust-back-link { margin: 0; }
 .zlatoust-progress-summary { color: var(--text-secondary); font-size: 12px; font-variant-numeric: tabular-nums; }
@@ -1508,6 +1521,49 @@ body.theme-warm .listening-entry-zh, body.theme-warm .listening-section-count { 
 .zlatoust-tree-followup { margin-top: 12px; padding: 12px; border-left: 2px solid var(--accent-border); background: rgba(128, 98, 74, .05); }
 .zlatoust-tree-followup > strong { display: block; margin-bottom: 9px; font-size: 13px; }
 .zlatoust-tree-followup-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+/* ── SVG mind map (retrieval mode) ── */
+.zlatoust-mindmap-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; padding: 4px 0; }
+.zlatoust-mindmap-svg { display: block; width: 1100px; min-width: 1100px; height: auto; }
+.zlatoust-concept-map { margin-top: 18px; }
+.zlatoust-concept-map-root { padding: 16px 18px; border: 2px solid var(--accent); border-radius: 8px; background: var(--surface-solid); text-align: center; }
+.zlatoust-concept-map-root strong, .zlatoust-concept-map-node strong, .zlatoust-concept-map-node span { display: block; }
+.zlatoust-concept-map-root strong { font-family: Georgia, 'Times New Roman', serif; font-size: 18px; line-height: 1.45; }
+.zlatoust-concept-map-root span { display: block; margin-top: 6px; color: var(--text-secondary); font-size: 13px; line-height: 1.55; }
+.zlatoust-concept-map-relations { display: grid; gap: 12px; margin-top: 18px; }
+.zlatoust-concept-map-relation { display: grid; grid-template-columns: minmax(0, 1fr) minmax(128px, .62fr) minmax(0, 1fr); align-items: stretch; gap: 10px; }
+.zlatoust-concept-map-node { width: 100%; min-height: 104px; padding: 13px 14px; border: 1px solid var(--border); border-top: 3px solid var(--concept-color, var(--accent)); border-radius: 8px; color: var(--text); background: var(--surface-solid); font: inherit; text-align: left; }
+button.zlatoust-concept-map-node { cursor: pointer; }
+button.zlatoust-concept-map-node:hover, button.zlatoust-concept-map-node:focus-visible { border-color: var(--concept-color, var(--accent)); background: var(--accent-dim); }
+.zlatoust-concept-map-node strong { font-size: 14px; line-height: 1.45; }
+.zlatoust-concept-map-node span { margin-top: 6px; color: var(--text-secondary); font-size: 12px; line-height: 1.55; }
+.zlatoust-concept-map-link { display: grid; align-content: center; gap: 6px; min-width: 0; padding: 10px 8px; border-top: 1px solid var(--accent-border); border-bottom: 1px solid var(--accent-border); text-align: center; }
+.zlatoust-concept-map-link strong { color: var(--accent); font-size: 12px; line-height: 1.4; }
+.zlatoust-concept-map-link span { color: var(--text-secondary); font-size: 11px; line-height: 1.45; }
+.zlatoust-concept-map-link::before { content: '→'; color: var(--accent); font-size: 18px; line-height: 1; }
+.zlatoust-concept-map-relation:nth-child(5n + 1) { --concept-color: #4f7cac; }
+.zlatoust-concept-map-relation:nth-child(5n + 2) { --concept-color: #9a6b35; }
+.zlatoust-concept-map-relation:nth-child(5n + 3) { --concept-color: #4d8877; }
+.zlatoust-concept-map-relation:nth-child(5n + 4) { --concept-color: #a45c70; }
+.zlatoust-concept-map-relation:nth-child(5n) { --concept-color: #a48132; }
+/* legacy card styles kept for potential other uses, stripped of min-height */
+.zlatoust-retrieval-card { display: block; width: 100%; box-sizing: border-box; padding: 15px; border: 1px solid var(--border); border-top: 3px solid var(--retrieval-accent, var(--accent)); border-radius: 9px; color: var(--text); background: var(--surface-solid); text-align: left; font: inherit; }
+.zlatoust-retrieval-children { display: grid; gap: 9px; margin-top: 9px; padding: 11px 0 0 12px; border-left: 2px solid var(--retrieval-accent, var(--accent)); }
+.zlatoust-retrieval-example { margin-top: 22px; padding: 17px 18px; border-left: 4px solid var(--accent); background: var(--accent-dim); }
+.zlatoust-retrieval-example h3 { margin: 0 0 10px; font-size: 15px; }
+.zlatoust-retrieval-example > p.mm-sentence { margin: 0 0 16px; font-family: Georgia, 'Times New Roman', serif; font-size: 20px; line-height: 1.7; }
+.zlatoust-retrieval-example ol { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin: 0 0 14px; padding: 0; list-style: none; }
+.zlatoust-retrieval-example button { width: 100%; height: 100%; padding: 12px 13px; border: 1px solid var(--accent-border); border-radius: 8px; color: var(--text); background: var(--surface-solid); cursor: pointer; text-align: left; font: inherit; transition: border-color .15s, background .15s; }
+.zlatoust-retrieval-example button:hover, .zlatoust-retrieval-example button:focus-visible { background: var(--accent-dim); }
+.zlatoust-retrieval-example button strong { display: block; font-family: Georgia, 'Times New Roman', serif; font-size: 17px; margin-bottom: 6px; }
+.zlatoust-retrieval-example .mm-part-route { display: block; font-size: 12px; font-weight: 700; margin-bottom: 6px; }
+.zlatoust-retrieval-example .mm-part-steps { display: block; margin: 0; padding: 0; list-style: none; }
+.zlatoust-retrieval-example .mm-part-steps li { font-size: 12px; color: var(--text-secondary); line-height: 1.55; padding: 2px 0; border-top: 1px solid var(--border); }
+.zlatoust-retrieval-example .mm-part-steps li:first-child { border-top: none; }
+.zlatoust-retrieval-example .mm-trap { margin-top: 4px; padding: 11px 14px; border-radius: 7px; background: rgba(180,83,9,.08); border: 1px solid rgba(180,83,9,.22); font-size: 13px; }
+.zlatoust-retrieval-example .mm-trap strong { display: block; color: #b45309; font-size: 12px; font-weight: 700; margin-bottom: 4px; }
+.zlatoust-retrieval-example .mm-trap-row { display: flex; gap: 8px; align-items: baseline; margin: 3px 0; }
+.zlatoust-retrieval-example .mm-trap-x { color: #b45309; font-weight: 700; flex-shrink: 0; }
+.zlatoust-retrieval-example .mm-trap-ok { color: #15803d; font-weight: 700; flex-shrink: 0; }
 .zlatoust-time-gate { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 9px; margin: -10px 0 26px; padding: 14px; border: 1px solid var(--accent-border); background: var(--glass); }
 .zlatoust-map-trunk { width: 2px; height: 18px; margin: -36px auto 18px; background: color-mix(in srgb, var(--accent) 62%, #80624a); border-radius: 2px; box-shadow: 0 0 0 3px rgba(128,98,74,.08); }
 .zlatoust-time-gate h3 { grid-column: 1 / -1; margin: 0; font-size: 14px; }
@@ -1545,8 +1601,15 @@ body.theme-warm .listening-entry-zh, body.theme-warm .listening-section-count { 
 .zlatoust-learning-toc ol { margin: 0; padding: 0; list-style: none; }
 .zlatoust-learning-toc button { display: block; width: 100%; padding: 8px 0; border: 0; color: var(--text-secondary); background: transparent; text-align: left; cursor: pointer; font: inherit; font-size: 12px; line-height: 1.45; }
 .zlatoust-learning-toc button:hover, .zlatoust-learning-toc button:focus-visible, .zlatoust-learning-toc button.is-active { color: var(--accent); }
-.zlatoust-learning-mobile-toc { display: none; margin-bottom: 18px; }
-.zlatoust-learning-mobile-toc summary { cursor: pointer; font-weight: 700; }
+.zlatoust-learning-mobile-toc { display: none; margin-bottom: 22px; border-top: 2px solid var(--accent); border-bottom: 1px solid var(--border); background: color-mix(in srgb, var(--surface-solid) 72%, transparent); }
+.zlatoust-learning-mobile-toc summary { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 13px 2px; cursor: pointer; font-weight: 750; list-style: none; }
+.zlatoust-learning-mobile-toc summary::-webkit-details-marker { display: none; }
+.zlatoust-learning-mobile-toc summary::after { content: '展开'; color: var(--accent); font-size: 12px; font-weight: 700; }
+.zlatoust-learning-mobile-toc[open] summary::after { content: '收起'; }
+.zlatoust-learning-mobile-toc ol { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 18px; margin: 0; padding: 0 0 12px; list-style: none; }
+.zlatoust-learning-mobile-toc li { min-width: 0; border-top: 1px solid var(--border); }
+.zlatoust-learning-mobile-toc button { display: block; width: 100%; padding: 10px 2px; border: 0; color: var(--text-secondary); background: transparent; cursor: pointer; text-align: left; font: inherit; font-size: 12px; line-height: 1.5; }
+.zlatoust-learning-mobile-toc button:hover, .zlatoust-learning-mobile-toc button:focus-visible, .zlatoust-learning-mobile-toc button.is-active { color: var(--accent); }
 .zlatoust-learning-content { min-width: 0; }
 .zlatoust-objectives, .zlatoust-diagnostic { margin: 0 0 32px; padding-bottom: 28px; border-bottom: 1px solid var(--border); }
 .zlatoust-objectives h2, .zlatoust-diagnostic h2 { margin: 0 0 11px; font-size: 20px; }
@@ -1564,7 +1627,7 @@ body.theme-warm .listening-entry-zh, body.theme-warm .listening-section-count { 
 .zlatoust-context-entry p:last-child { margin: 8px 0 0; color: var(--text-secondary); line-height: 1.65; }
 .zlatoust-teacher-copy { margin: 0 0 24px; }
 .zlatoust-teacher-copy h3, .zlatoust-stage-block h3 { margin: 0 0 9px; font-size: 17px; }
-.zlatoust-teacher-copy p { max-width: 68ch; margin: 0 0 12px; line-height: 1.85; text-wrap: pretty; }
+.zlatoust-teacher-copy p { max-width: 100%; margin: 0 0 12px; line-height: 1.85; text-wrap: pretty; }
 .zlatoust-stage--teaching { --teaching-accent: var(--accent); }
 .zlatoust-teaching-conclusion { margin: 18px 0; padding: 20px 22px; border: 1px solid var(--accent-border); border-left: 5px solid var(--teaching-accent); border-radius: 12px; background: linear-gradient(135deg, var(--accent-dim), var(--surface-solid)); box-shadow: 0 10px 28px rgba(0,0,0,.08); }
 .zlatoust-teaching-conclusion span { display: block; margin-bottom: 6px; color: var(--teaching-accent); font-size: 12px; font-weight: 800; letter-spacing: .08em; }
@@ -1648,6 +1711,11 @@ body.theme-warm .listening-entry-zh, body.theme-warm .listening-section-count { 
 .zlatoust-learning-result p { margin: 5px 0; line-height: 1.65; }
 .zlatoust-learning-footer { display: grid; grid-template-columns: 1fr auto 1fr; gap: 10px; margin-top: 34px; padding-top: 24px; border-top: 1px solid var(--border); }
 .zlatoust-learning-footer button:last-child { justify-self: end; }
+@media (max-width: 1024px) {
+  .zlatoust-learning-layout { display: block; }
+  .zlatoust-learning-toc { display: none; }
+  .zlatoust-learning-mobile-toc { display: block; }
+}
 @media (max-width: 600px) {
   .main-container.tutor-review-page { padding-top: 68px; }
   .zlatoust-learning-page { padding-top: 64px; }
@@ -1669,6 +1737,10 @@ body.theme-warm .listening-entry-zh, body.theme-warm .listening-section-count { 
   .zlatoust-stage-review { margin: -20px 8px 16px 60px; }
   .zlatoust-unit-map-root { margin-bottom: 22px; }
   .zlatoust-unit-map-root::after, .zlatoust-unit-map-list::before { display: none; }
+  .zlatoust-concept-map-relation { grid-template-columns: 1fr; gap: 7px; }
+  .zlatoust-concept-map-node { min-height: 0; }
+  .zlatoust-concept-map-link { position: relative; justify-items: start; padding: 7px 2px 7px 22px; border-bottom: 0; text-align: left; }
+  .zlatoust-concept-map-link::before { position: absolute; margin-left: -19px; transform: rotate(90deg); }
   .zlatoust-unit-map-list { grid-template-columns: 1fr; gap: 10px; padding-left: 24px; }
   .zlatoust-time-gate { grid-template-columns: 1fr; }
   .zlatoust-unit-map-axes .zlatoust-unit-map-list { grid-template-columns: 1fr; }
@@ -1676,15 +1748,23 @@ body.theme-warm .listening-entry-zh, body.theme-warm .listening-section-count { 
   .zlatoust-tree-branches::before { right: auto; left: 8px; bottom: 0; width: 1px; height: auto; }
   .zlatoust-tree-branch { padding: 0 0 0 24px; }
   .zlatoust-tree-branch::before { top: 30px; left: 8px; width: 16px; height: 1px; }
+  .zlatoust-retrieval-branches { grid-template-columns: 1fr; gap: 10px; padding-left: 24px; }
+  .zlatoust-retrieval-branches::before { top: 0; right: auto; bottom: 0; left: 8px; width: 1px; height: auto; }
+  .zlatoust-retrieval-branch { padding: 0; }
+  .zlatoust-retrieval-branch::before { top: 28px; left: -16px; width: 16px; height: 1px; }
+  .zlatoust-retrieval-tree { padding-left: 0; }
+  .zlatoust-retrieval-tree-branch { padding-left: 20px; }
+  .zlatoust-retrieval-branch-header { font-size: 13px; }
+  .zlatoust-retrieval-leaf-text { font-size: 12px; }
+  .zlatoust-retrieval-card { min-height: 0; }
+  .zlatoust-retrieval-example ol { grid-template-columns: 1fr; }
   .zlatoust-axis-warnings ul { grid-template-columns: 1fr; }
   .zlatoust-unit-map-list::after { content: ''; position: absolute; top: 0; bottom: 0; left: 8px; width: 1px; background: var(--accent-border); }
   .zlatoust-unit-map-list li { padding-top: 0; }
   .zlatoust-unit-map-list li::before { top: 28px; left: -16px; width: 16px; height: 1px; }
   .zlatoust-unit-map-list button { min-height: 96px; }
   .zlatoust-map-question { min-height: 0; }
-  .zlatoust-learning-layout { display: block; }
-  .zlatoust-learning-toc { display: none; }
-  .zlatoust-learning-mobile-toc { display: block; }
+  .zlatoust-learning-mobile-toc ol { grid-template-columns: 1fr; }
   .zlatoust-diagnostic-grid { grid-template-columns: 1fr; }
   .zlatoust-stage { padding-bottom: 42px; }
   .zlatoust-stage h2 { font-size: 24px; }
@@ -1848,20 +1928,23 @@ function getWorldPeopleResumeState(bookId) {
 }
 function getActiveWorldQuestionId(restoreState) {
   if (restoreState && typeof restoreState.activeQuestionId === 'string') return restoreState.activeQuestionId;
+  if (isZlatoustGrammarBook(curBook) && zlatoustQuizJumpTargetId) return zlatoustQuizJumpTargetId;
+  var items = document.querySelectorAll('[data-question-id]');
+  if (items.length) {
+    var focusLine = Math.min(180, Math.max(60, window.innerHeight * 0.25));
+    var active = items[0];
+    for (var i = 0; i < items.length; i++) {
+      if (items[i].getBoundingClientRect().top > focusLine) break;
+      active = items[i];
+    }
+    return active.getAttribute('data-question-id') || '';
+  }
   if (isZlatoustGrammarBook(curBook) && zlatoustQuizVirtualState) {
     var virtualAnchor = getZlatoustVirtualAnchor(zlatoustQuizVirtualState);
     var virtualExercise = zlatoustQuizVirtualState.exercises[virtualAnchor.index];
     if (virtualExercise) return virtualExercise.id;
   }
-  var items = document.querySelectorAll('[data-question-id]');
-  if (!items.length) return '';
-  var focusLine = Math.min(180, Math.max(60, window.innerHeight * 0.25));
-  var active = items[0];
-  for (var i = 0; i < items.length; i++) {
-    if (items[i].getBoundingClientRect().top > focusLine) break;
-    active = items[i];
-  }
-  return active.getAttribute('data-question-id') || '';
+  return '';
 }
 function getCurrentWorldChapterTitle() {
   if (curBook && curBook.id === 'writing_speaking' && _currentWSData && _currentWSData.title) return _currentWSData.title;
@@ -2631,6 +2714,7 @@ function showWorldPeopleModule(bookId) {
 }
 function shouldUseScrollCompletion() {
   if (curView !== 'reading' || curCh < 0 || isQuizFirstBook(curBook)) return false;
+  if (document.querySelector('.zlatoust-learning-page')) return false;
   return !curBook || (curBook.format !== 'reading-practice' && curBook.format !== 'writing-workbench' && curBook.format !== 'speaking-practice' && curBook.format !== 'listening-practice' && curBook.format !== 'writing-speaking');
 }
 function isChapterCompleted(bookId, chIdx) {
@@ -3167,6 +3251,9 @@ var ZLATOUST_VIRTUAL_OVERSCAN_AFTER = 12;
 var ZLATOUST_VIRTUAL_MINIMUM_ITEMS = 20;
 var zlatoustQuizVirtualState = null;
 var pendingQuizJumpId = '';
+var zlatoustQuizJumpTargetId = '';
+var zlatoustQuizJumpTargetTimer = null;
+var zlatoustQuizJumpSequence = 0;
 var pendingQuizPractice = null;
 var _wrongAnswerBookReturn = 'showShelf()'; // 错题本的返回动作：从书架来→回书架，从quiz来→回仪表盘
 var _wrongAnswerQuizReturn = null; // 从错题本跳入题目时保存的筛选状态
@@ -4000,6 +4087,221 @@ function renderZlatoustLearningRoute(page) {
     }).join('') + '</ol></section>';
 }
 function renderZlatoustLearningMindMap(page) {
+  if (page.conceptMap && Array.isArray(page.conceptMap.nodes) && Array.isArray(page.conceptMap.edges)) {
+    var conceptMap = page.conceptMap;
+    var conceptNodes = {};
+    conceptMap.nodes.forEach(function(node) { conceptNodes[node.id] = node; });
+    var conceptRoot = conceptMap.nodes.find(function(node) { return node.type === 'root'; }) || conceptMap.nodes[0] || {};
+    var conceptNodeHtml = function(node) {
+      node = node || {};
+      var tag = node.stageId ? 'button type="button"' : 'div';
+      var action = node.stageId ? ' onclick="scrollToZlatoustStage(\'' + zlatoustEscapeForOnclick(page.sectionId) + '\',\'' + zlatoustEscapeForOnclick(node.stageId) + '\')"' : '';
+      return '<' + tag + ' class="zlatoust-concept-map-node"' + action + '><strong>' + escapeHtml(node.label || '') + '</strong><span>' + escapeHtml(node.summary || '') + '</span></' + tag.split(' ')[0] + '>';
+    };
+    var conceptRelations = conceptMap.edges.map(function(edge) {
+      var from = conceptNodes[edge.from] || {}, to = conceptNodes[edge.to] || {};
+      return '<article class="zlatoust-concept-map-relation">' + conceptNodeHtml(from) + '<div class="zlatoust-concept-map-link"><strong>' + escapeHtml(edge.label || '关联') + '</strong><span>' + escapeHtml(edge.explanation || '') + '</span></div>' + conceptNodeHtml(to) + '</article>';
+    }).join('');
+    return '<section class="zlatoust-unit-map zlatoust-concept-map" aria-labelledby="zlatoust-unit-map-title"><h2 id="zlatoust-unit-map-title">' + escapeHtml(conceptMap.title || '本知识点思维导图') + '</h2><p>' + escapeHtml(conceptMap.guidingQuestion || '沿着带文字的箭头看：每个词形由什么因素决定。') + '</p><div class="zlatoust-concept-map-root"><strong>' + escapeHtml(conceptRoot.label || page.titleZh) + '</strong><span>' + escapeHtml(conceptRoot.summary || '') + '</span></div><div class="zlatoust-concept-map-relations">' + conceptRelations + '</div></section>';
+  }
+  if (page.mindMapMode === 'retrieval' && page.mindMap) {
+    // SVG mind map: root circle → coloured Bezier curves → branch circles → leaf rows
+    var MM_COLORS = ['#5b7fc1', '#4d9e7b', '#d4850a', '#c05050'];
+    var MM_LEAF_DEFS = [
+      { key: 'recognize', label: '识别要点' },
+      { key: 'rule',      label: '核心规则' },
+      { key: 'example',   label: '例句' },
+      { key: 'trap',      label: '易错陷阱' }
+    ];
+    var MM_PAD_T = 24, MM_PAD_B = 22;
+    var MM_ROOT_CX = 52, MM_ROOT_R = 24;
+    var MM_BCX = 230, MM_BR = 11;
+    var MM_CTRL_X = 141;
+    var MM_LEAF_X1 = MM_BCX + MM_BR + 9;
+    var MM_LEAF_X2 = 1086;
+    var MM_KIND_X  = MM_LEAF_X1 + 2;
+    var MM_TEXT_X  = MM_KIND_X + 80;
+    var MM_TEXT_MAX_UNITS = 48;
+    var MM_BRANCH_LABEL_MAX_UNITS = 16;
+    var MM_LEAF_LINE_H = 18;
+    var MM_BRANCH_LABEL_LINE_H = 19;
+    var MM_LEAF_PAD_Y = 7;
+    var MM_LEAF_MIN_H = 30;
+    var MM_LEAF_GAP = 7;
+    var MM_GAP = 28;
+    var MM_SVG_W     = 1100;
+    var mmCharUnits = function(ch) {
+      if (/\s/.test(ch)) return 0.35;
+      if (/[\u3400-\u9fff\u3000-\u303f\uff00-\uffef]/.test(ch)) return 1;
+      if (/[A-Za-z0-9]/.test(ch)) return 0.68;
+      return 0.78;
+    };
+    var mmTextUnits = function(text) {
+      return Array.from(String(text || '')).reduce(function(total, ch) { return total + mmCharUnits(ch); }, 0);
+    };
+    // Keep every word visible. Chinese can wrap character by character; alphabetic words stay intact when possible.
+    var mmWrapText = function(text, maxUnits) {
+      var tokens = String(text || '').replace(/\s+/g, ' ').trim().match(/[\u3400-\u9fff]|[^\u3400-\u9fff\s]+|\s+/g) || [];
+      var lines = [], line = '', lineUnits = 0;
+      var pushLine = function() {
+        if (line.trim()) lines.push(line.trim());
+        line = '';
+        lineUnits = 0;
+      };
+      var appendToken = function(token) {
+        var tokenUnits = mmTextUnits(token);
+        if (line && lineUnits + tokenUnits > maxUnits) pushLine();
+        if (tokenUnits > maxUnits) {
+          Array.from(token).forEach(function(ch) {
+            var chUnits = mmCharUnits(ch);
+            if (line && lineUnits + chUnits > maxUnits) pushLine();
+            line += ch;
+            lineUnits += chUnits;
+          });
+          return;
+        }
+        line += token;
+        lineUnits += tokenUnits;
+      };
+      tokens.forEach(function(token) {
+        if (/^\s+$/.test(token)) {
+          if (line && !/\s$/.test(line)) {
+            line += ' ';
+            lineUnits += mmCharUnits(' ');
+          }
+          return;
+        }
+        appendToken(token);
+      });
+      pushLine();
+      return lines.length ? lines : [''];
+    };
+    var mmSvgTextLines = function(lines, x, firstBaseline, lineHeight, attributes) {
+      return '<text x="' + x + '" y="' + firstBaseline + '" ' + attributes + '>' + lines.map(function(line, index) {
+        return '<tspan x="' + x + '" dy="' + (index ? lineHeight : 0) + '">' + escapeHtml(line) + '</tspan>';
+      }).join('') + '</text>';
+    };
+    var mmBranches = page.mindMap.map(function(node, i) {
+      var leaves = MM_LEAF_DEFS.map(function(d) {
+        var t = node[d.key] || (d.key === 'rule' ? node.question : '');
+        if (!t) return null;
+        var lines = mmWrapText(t, MM_TEXT_MAX_UNITS);
+        return {
+          label: d.label,
+          text: String(t),
+          lines: lines,
+          height: Math.max(MM_LEAF_MIN_H, lines.length * MM_LEAF_LINE_H + MM_LEAF_PAD_Y * 2)
+        };
+      }).filter(Boolean);
+      var labelLines = mmWrapText(node.label || '', MM_BRANCH_LABEL_MAX_UNITS);
+      return { node: node, color: MM_COLORS[i % MM_COLORS.length], leaves: leaves, labelLines: labelLines, labelHeight: labelLines.length * MM_BRANCH_LABEL_LINE_H };
+    });
+    var mmCurY = MM_PAD_T;
+    var mmLaid = mmBranches.map(function(b) {
+      var bcy = mmCurY + b.labelHeight / 2;
+      var nextLeafTop = mmCurY + b.labelHeight + 8;
+      var leaves = b.leaves.map(function(leaf) {
+        var laidLeaf = { leaf: leaf, top: nextLeafTop, centerY: nextLeafTop + leaf.height / 2 };
+        nextLeafTop += leaf.height + MM_LEAF_GAP;
+        return laidLeaf;
+      });
+      mmCurY = (leaves.length ? nextLeafTop - MM_LEAF_GAP : mmCurY + b.labelHeight) + MM_GAP;
+      return { b: b, bcy: bcy, leaves: leaves };
+    });
+    var mmSvgH = mmCurY - MM_GAP + MM_PAD_B;
+    var mmRootCY = mmLaid.length ? (mmLaid[0].bcy + mmLaid[mmLaid.length - 1].bcy) / 2 : mmSvgH / 2;
+    var mmClick = function(id) {
+      return ' onclick="scrollToZlatoustStage(\'' + zlatoustEscapeForOnclick(page.sectionId) + '\',\'' + zlatoustEscapeForOnclick(id) + '\')" style="cursor:pointer"';
+    };
+    var mmP = [];
+    mmP.push('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ' + MM_SVG_W + ' ' + mmSvgH + '" class="zlatoust-mindmap-svg" role="img" aria-label="思维导图">');
+    mmLaid.forEach(function(item) {
+      mmP.push('<path d="M' + MM_ROOT_CX + ',' + mmRootCY + ' C' + MM_CTRL_X + ',' + mmRootCY + ' ' + MM_CTRL_X + ',' + item.bcy + ' ' + MM_BCX + ',' + item.bcy + '" fill="none" stroke="' + item.b.color + '" stroke-width="3" stroke-linecap="round"/>');
+    });
+    mmLaid.forEach(function(item) {
+      item.leaves.forEach(function(laidLeaf) {
+        var leaf = laidLeaf.leaf;
+        var ga = item.b.node.id ? mmClick(item.b.node.id) : '';
+        mmP.push('<g' + ga + '>');
+        mmP.push('<rect x="' + MM_LEAF_X1 + '" y="' + laidLeaf.top + '" width="' + (MM_LEAF_X2 - MM_LEAF_X1) + '" height="' + leaf.height + '" fill="transparent"/>');
+        mmP.push('<line x1="' + MM_LEAF_X1 + '" y1="' + laidLeaf.top + '" x2="' + MM_LEAF_X2 + '" y2="' + laidLeaf.top + '" stroke="' + item.b.color + '" stroke-width="1" stroke-opacity="0.45"/>');
+        mmP.push('<text x="' + MM_KIND_X + '" y="' + (laidLeaf.top + 16) + '" font-size="13" font-weight="700" fill="' + item.b.color + '" font-family="inherit">' + escapeHtml(leaf.label) + '</text>');
+        mmP.push(mmSvgTextLines(leaf.lines, MM_TEXT_X, laidLeaf.top + 16, MM_LEAF_LINE_H, 'font-size="13" fill="var(--text-secondary,#555)" font-family="inherit"'));
+        mmP.push('</g>');
+      });
+    });
+    var mmRootLines = page.mindMapRootLines || ['空格', '做什么'];
+    mmP.push('<circle cx="' + MM_ROOT_CX + '" cy="' + mmRootCY + '" r="' + MM_ROOT_R + '" fill="var(--surface-solid,#fff)" stroke="#9ca3af" stroke-width="2"/>');
+    mmP.push('<text x="' + MM_ROOT_CX + '" y="' + (mmRootCY - 3) + '" text-anchor="middle" font-size="12" fill="#6b7280" font-family="inherit">' + escapeHtml(mmRootLines[0] || '') + '</text>');
+    mmP.push('<text x="' + MM_ROOT_CX + '" y="' + (mmRootCY + 12) + '" text-anchor="middle" font-size="12" fill="#6b7280" font-family="inherit">' + escapeHtml(mmRootLines[1] || '') + '</text>');
+    mmLaid.forEach(function(item) {
+      var c = item.b.color;
+      var ga = item.b.node.id ? mmClick(item.b.node.id) : '';
+      mmP.push('<g' + ga + '>');
+      mmP.push('<circle cx="' + MM_BCX + '" cy="' + item.bcy + '" r="' + MM_BR + '" fill="var(--surface-solid,#fff)" stroke="' + c + '" stroke-width="2.5"/>');
+      mmP.push(mmSvgTextLines(item.b.labelLines, MM_BCX + MM_BR + 7, item.bcy - item.b.labelHeight / 2 + 15, MM_BRANCH_LABEL_LINE_H, 'font-size="17" font-weight="700" fill="' + c + '" font-family="inherit"'));
+      mmP.push('</g>');
+    });
+    mmP.push('</svg>');
+    var walkthrough = page.mindMapWalkthrough || {};
+    return '<section class="zlatoust-unit-map zlatoust-unit-map-retrieval" aria-labelledby="zlatoust-unit-map-title">' +
+      '<h2 id="zlatoust-unit-map-title">本知识点思维导图</h2>' +
+      (page.mindMapIntro ? '<p>' + escapeHtml(page.mindMapIntro) + '</p>' : '') +
+      '<div class="zlatoust-mindmap-wrap">' + mmP.join('') + '</div>' +
+      (walkthrough.ru ? (function() {
+        var MM_PART_COLORS = ['#5b7fc1', '#4d9e7b', '#d4850a', '#c05050'];
+        // build a lookup: stage-id → branch colour
+        var colorMap = {};
+        (page.mindMap || []).forEach(function(node, i) {
+          if (node.id) colorMap[node.id] = MM_PART_COLORS[i % MM_PART_COLORS.length];
+        });
+        // sentence: highlight each part word in its colour
+        var sentence = String(walkthrough.ru);
+        (walkthrough.parts || []).forEach(function(part) {
+          var color = colorMap[part.id] || '';
+          if (color && part.text) {
+            sentence = sentence.replace(
+              part.text,
+              '<span style="color:' + color + ';font-weight:700">' + escapeHtml(part.text) + '</span>'
+            );
+          }
+        });
+        // part cards with 3-step reasoning
+        var decisionMap = {};
+        (walkthrough.decisionWalkthrough || []).forEach(function(dw) {
+          decisionMap[dw.blank] = dw;
+        });
+        var partCards = (walkthrough.parts || []).map(function(part) {
+          var color = colorMap[part.id] || 'var(--accent)';
+          var dw = (walkthrough.decisionWalkthrough || []).filter(function(d) {
+            return d.blank && d.blank.indexOf(part.text) === 0;
+          })[0];
+          var steps = dw
+            ? '<ul class="mm-part-steps"><li>' + escapeHtml(dw.step1 || '') + '</li>' +
+              (dw.step2 ? '<li>' + escapeHtml(dw.step2) + '</li>' : '') +
+              (dw.step3 ? '<li>' + escapeHtml(dw.step3) + '</li>' : '') + '</ul>'
+            : '<span style="font-size:12px;color:var(--text-secondary)">' + escapeHtml(part.explanation || '') + '</span>';
+          return '<li><button type="button" style="border-top:3px solid ' + color + '" onclick="scrollToZlatoustStage(\'' + zlatoustEscapeForOnclick(page.sectionId) + '\',\'' + zlatoustEscapeForOnclick(part.id) + '\')">' +
+            '<strong>' + escapeHtml(part.text || '') + '</strong>' +
+            '<span class="mm-part-route" style="color:' + color + '">' + escapeHtml(part.explanation || '') + '</span>' +
+            steps + '</button></li>';
+        }).join('');
+        // trap block
+        var trap = walkthrough.trap || {};
+        var trapHtml = (trap.wrong || trap.correct)
+          ? '<div class="mm-trap"><strong>常见误解</strong>' +
+            (trap.wrong ? '<div class="mm-trap-row"><span class="mm-trap-x">✗</span><span>' + escapeHtml(trap.wrong) + '</span></div>' : '') +
+            (trap.correct ? '<div class="mm-trap-row"><span class="mm-trap-ok">✓</span><span>' + escapeHtml(trap.correct) + '</span></div>' : '') +
+            '</div>'
+          : '';
+        return '<aside class="zlatoust-retrieval-example">' +
+          '<h3>' + escapeHtml(walkthrough.title || '一句话串起全节') + '</h3>' +
+          '<p class="mm-sentence">' + sentence + '</p>' +
+          '<ol>' + partCards + '</ol>' +
+          trapHtml + '</aside>';
+      })() : '') +
+      '</section>';
+  }
   if ((page.timeGate || page.entryGate) && page.decisionAxes) {
     var gate = page.entryGate || page.timeGate;
     var description = page.mindMapDescription || '它是判断模型，不是学习进度。先过时态闸门，再按需要组合判断轴；一句话可以同时经过多个轴。';
@@ -4138,7 +4440,7 @@ function renderZlatoustStageExercises(stage) {
   }).join('') : '<p class="b2-study-empty">原书没有为这一条判断单独配置可映射练习，本阶段用随堂题巩固，不虚构原书题。</p>') + '</section>';
 }
 function hasZlatoustTeachingLayout(page, stage) {
-  return !!(page && page.sectionId === '1.1' && stage && stage.entry && stage.entry.ru && stage.entry.prompt &&
+  return !!(page && page.teachingLayoutVersion === 2 && stage && stage.entry && stage.entry.ru && stage.entry.prompt &&
     Array.isArray(stage.teacherExplanation) && stage.teacherExplanation.length >= 2 &&
     Array.isArray(stage.commonErrors) && stage.commonErrors.length &&
     Array.isArray(stage.checks) && stage.checks.length);
@@ -4713,6 +5015,17 @@ function getZlatoustVirtualAnchor(state) {
   var index = findZlatoustVirtualIndex(state, localTop);
   return { index: index, offset: localTop - getZlatoustVirtualOffset(state, index) };
 }
+function getZlatoustRenderedAnchor(state) {
+  if (!state || !state.items) return null;
+  var questions = state.items.querySelectorAll('[data-question-id]');
+  if (!questions.length) return null;
+  var anchor = questions[0];
+  for (var i = 0; i < questions.length; i++) {
+    var rect = questions[i].getBoundingClientRect();
+    if (rect.bottom > 0) { anchor = questions[i]; break; }
+  }
+  return { id: anchor.getAttribute('data-question-id'), top: anchor.getBoundingClientRect().top };
+}
 function renderZlatoustVirtualRow(exercise, record, contextGroup) {
   var html = '<div class="zlatoust-virtual-row" data-zlatoust-virtual-id="' + escapeHtml(exercise.id) + '">';
   if (contextGroup) html += renderQuizContextGroup(contextGroup);
@@ -4730,7 +5043,7 @@ function observeZlatoustVirtualRows(state) {
 }
 function renderZlatoustVirtualWindow(state, range, preserveAnchor) {
   if (!state.root || state !== zlatoustQuizVirtualState) return;
-  var anchor = preserveAnchor ? getZlatoustVirtualAnchor(state) : null;
+  var anchor = preserveAnchor ? getZlatoustRenderedAnchor(state) : null;
   state.start = range.start;
   state.end = range.end;
   var records = getB2Progress()[getQuizUnitKey()] || {}, html = '';
@@ -4744,13 +5057,13 @@ function renderZlatoustVirtualWindow(state, range, preserveAnchor) {
   observeZlatoustVirtualRows(state);
   applyStressMarks(state.items);
   if (anchor) {
-    var rootTop = state.root.getBoundingClientRect().top + window.scrollY;
-    window.scrollTo(0, rootTop + getZlatoustVirtualOffset(state, anchor.index) + anchor.offset);
+    var anchorTarget = state.items.querySelector('[data-question-id="' + anchor.id + '"]');
+    if (anchorTarget) window.scrollBy(0, anchorTarget.getBoundingClientRect().top - anchor.top);
   }
 }
 function scheduleZlatoustVirtualWindow() {
   var state = zlatoustQuizVirtualState;
-  if (!state || state.raf) return;
+  if (!state || state.raf || zlatoustQuizJumpTargetId) return;
   state.raf = requestAnimationFrame(function() {
     state.raf = 0;
     if (state !== zlatoustQuizVirtualState || !state.root || !state.root.isConnected) return;
@@ -4806,17 +5119,45 @@ function ensureZlatoustVirtualExercise(exerciseId, behavior) {
   };
   if (range.end - range.start < ZLATOUST_VIRTUAL_MINIMUM_ITEMS) range.start = Math.max(0, range.end - ZLATOUST_VIRTUAL_MINIMUM_ITEMS);
   if (index < state.start || index >= state.end) renderZlatoustVirtualWindow(state, range, false);
-  requestAnimationFrame(function() {
-    var target = document.querySelector('[data-question-id="' + exerciseId + '"]');
-    if (target) {
-      target.scrollIntoView({ behavior: behavior || 'smooth', block: 'start' });
-      target.classList.add('b2-quiz-target');
-      setTimeout(function() { target.classList.remove('b2-quiz-target'); }, 1600);
+  zlatoustQuizJumpTargetId = exerciseId;
+  clearTimeout(zlatoustQuizJumpTargetTimer);
+  zlatoustQuizJumpSequence += 1;
+  var jumpSequence = zlatoustQuizJumpSequence;
+  zlatoustQuizJumpTargetTimer = setTimeout(function() {
+    if (zlatoustQuizJumpSequence === jumpSequence && zlatoustQuizJumpTargetId === exerciseId) {
+      zlatoustQuizJumpTargetId = '';
+      scheduleZlatoustVirtualWindow();
+      [0, 160].forEach(function(delay, attempt) {
+        setTimeout(function() {
+          if (zlatoustQuizJumpSequence !== jumpSequence) return;
+          requestAnimationFrame(function() {
+            var target = document.querySelector('[data-question-id="' + exerciseId + '"]');
+            if (!target) return;
+            target.scrollIntoView({ behavior: 'auto', block: 'start' });
+            if (attempt === 1) saveLastRead({ activeQuestionId: exerciseId, scroll: window.scrollY });
+          });
+        }, delay);
+      });
     }
+  }, 1400);
+  [0, 120, 360, 800].forEach(function(delay, attempt) {
+    setTimeout(function() {
+      if (state !== zlatoustQuizVirtualState || zlatoustQuizJumpSequence !== jumpSequence || !state.root.isConnected) return;
+      requestAnimationFrame(function() {
+        if (state !== zlatoustQuizVirtualState || zlatoustQuizJumpSequence !== jumpSequence) return;
+        var target = document.querySelector('[data-question-id="' + exerciseId + '"]');
+        if (!target) return;
+        target.scrollIntoView({ behavior: attempt === 0 ? (behavior || 'smooth') : 'auto', block: 'start' });
+        target.classList.add('b2-quiz-target');
+        setTimeout(function() { target.classList.remove('b2-quiz-target'); }, 1600);
+        if (attempt === 3) saveLastRead({ activeQuestionId: exerciseId, scroll: window.scrollY });
+      });
+    }, delay);
   });
   return true;
 }
 function renderQuizChapter(data, scrollPosition) {
+  var explicitQuizRestoreState = arguments[2];
   if (curBook && !curBook.isB2Module) data = Object.assign({}, data, { knowledgePoints: getTextbookKnowledgePoints(data) });
   if (isZlatoustGrammarBook(curBook) && !getLoadedZlatoustChapterTheory(curCh)) {
     loadZlatoustChapterTheory(curCh).then(function() {
@@ -4837,7 +5178,7 @@ function renderQuizChapter(data, scrollPosition) {
   var visibleQuizExercises = currentQuizExercises;
   var initialZlatoustVirtualExerciseId = '';
   if (isZlatoustGrammarBook(curBook)) {
-    initialZlatoustVirtualExerciseId = pendingQuizJumpId || (currentQuizExercises[0] && currentQuizExercises[0].id) || '';
+    initialZlatoustVirtualExerciseId = pendingQuizJumpId || (explicitQuizRestoreState && explicitQuizRestoreState.activeQuestionId) || zlatoustQuizJumpTargetId || (currentQuizExercises[0] && currentQuizExercises[0].id) || '';
   }
   var isB2Quiz = !!(curBook && curBook.isB2Module);
   var chapterRecords = getB2Progress()[getQuizUnitKey()] || {};
@@ -4870,7 +5211,7 @@ function renderQuizChapter(data, scrollPosition) {
     '</div></main>';
   document.getElementById('app').innerHTML = html;
   if (isZlatoustGrammarBook(curBook)) initializeZlatoustVirtualQuiz(currentQuizExercises, contextGroupByExercise, initialZlatoustVirtualExerciseId);
-  var quizRestoreState = arguments[2];
+  var quizRestoreState = explicitQuizRestoreState;
   if (!quizRestoreState && isZlatoustGrammarBook(curBook) && currentQuizExercises.length) {
     quizRestoreState = { activeQuestionId: initialZlatoustVirtualExerciseId || currentQuizExercises[0].id, scroll: 0 };
   }
@@ -4881,6 +5222,8 @@ function renderQuizChapter(data, scrollPosition) {
     var pendingJump = pendingQuizJumpId;
     pendingQuizJumpId = '';
     restorePendingQuizQuestion(pendingJump, arguments[2]);
+  } else if (isZlatoustGrammarBook(curBook) && explicitQuizRestoreState && explicitQuizRestoreState.activeQuestionId) {
+    restorePendingQuizQuestion(explicitQuizRestoreState.activeQuestionId, explicitQuizRestoreState);
   }
   if (pendingQuizPractice && pendingQuizPractice.partId === data.id) {
     var practiceRequest = pendingQuizPractice;
@@ -6434,7 +6777,7 @@ function hasChineseText(text) {
   return /[\u4e00-\u9fff]/.test(String(text || ''));
 }
 
-var DICTIONARY_DATA_VERSION = '20260812-1';
+var DICTIONARY_DATA_VERSION = '20260816-4';
 
 function fetchDictionaryJson(path, fallback) {
   var separator = path.indexOf('?') >= 0 ? '&' : '?';
@@ -6500,7 +6843,7 @@ function loadLocalLookupData() {
       var e = extVocab[lemma];
       var key = normalizeLookupWord(lemma);
       if (!key || localVocabLookup[key] || !hasChineseText(e.meaning)) return;
-      localVocabLookup[key] = { meaning: e.meaning, type: e.type || '', source: '扩展词库' };
+      localVocabLookup[key] = { meaning: e.meaning, type: e.type || '', source: '扩展词库', _raw: e };
     });
     localLookupReady = true;
 
@@ -6802,7 +7145,7 @@ function renderDetailPanel(word, result) {
 
   // ── 变格/变位表 ──
   var grammarTable = raw.grammarTable || '';
-  if (grammarTable && grammarTable.length > 20) {
+  if (grammarTable && grammarTable.length > 20 && grammarTable.indexOf('|') > -1) {
     html += '<div class="dp-section">';
     var mt = grammarTable.replace(/\|/g, '\t').replace(/^\|(.+)\|\n\|[-| :]+\|\n/m, function(_, header) { return 'HDR:' + header + '\n'; });
     var lines = grammarTable.trim().split('\n');
@@ -6870,10 +7213,10 @@ function renderDetailPanel(word, result) {
     html += '</div></div>';
   }
 
-  // ── 变位/变格表（折叠）───
-  if (raw.grammarTable && raw.grammarTable.length > 10 && raw.grammarTable !== '（待补充）') {
+  // ── 变位/变格表（折叠，旧版纯文本兜底：仅当非 markdown 表格格式时）───
+  if (raw.grammarTable && raw.grammarTable.length > 10 && raw.grammarTable !== '（待补充）' && raw.grammarTable.indexOf('|') === -1) {
     html += '<div class="dp-section">';
-    html += '<div class="dp-collapse-toggle" onclick="var n=this.nextElementSibling;n.classList.toggle(\'open\');this.classList.toggle(\'expanded\')">变位/变格表</div>';
+    html += '<div class="dp-collapse-toggle" onclick="var n=this.nextElementSibling;n.classList.toggle(\'open\');this.classList.toggle(\'expanded\')">变位/变格表（原文格式）</div>';
     html += '<div class="dp-collapse-body" style="white-space:pre-wrap;font-size:13px">' + escapeHtml(raw.grammarTable) + '</div>';
     html += '</div>';
   }
