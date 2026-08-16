@@ -1186,9 +1186,11 @@ body.theme-warm .listening-entry-zh, body.theme-warm .listening-section-count { 
 .world-module-card button { align-self: flex-start; }
 .world-module-resume { margin: 0 0 14px; color: var(--text-secondary); font-size: 12px; line-height: 1.45; }
 .world-module-resume strong { color: var(--text); font-weight: 650; }
-.world-module-card .world-module-actions { display: flex; gap: 8px; align-items: center; margin-top: 2px; }
+.world-module-card .world-module-actions { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 2px; }
 .world-module-card .world-module-actions .b2-finish { margin: 0; }
-.world-module-card .world-module-actions .world-module-continue { padding: 8px 10px; border: 1px solid var(--accent-border); border-radius: 9px; background: transparent; color: var(--accent); font: inherit; font-size: 13px; cursor: pointer; }
+.world-module-card .world-module-actions .world-module-continue, .world-module-card .world-module-actions .world-module-export { padding: 8px 10px; border: 1px solid var(--accent-border); border-radius: 9px; background: transparent; color: var(--accent); font: inherit; font-size: 13px; cursor: pointer; }
+.world-module-card .world-module-actions .world-module-export { color: var(--text-secondary); border-color: var(--glass-border); }
+.world-module-card .world-module-actions .world-module-export:disabled { opacity: .55; cursor: wait; }
 .world-directory-resume { margin: 14px 0 18px; }
 .world-directory-resume .b2-continue-card { margin: 0; }
 .shelf-hero { padding: 24px 0 8px; }
@@ -1843,7 +1845,13 @@ button.zlatoust-concept-map-node:hover, button.zlatoust-concept-map-node:focus-v
 <script src="js/russian-b2/writing-session.js?v=20260806-1"></script>
 <script src="js/reader-answer-evidence.js?v=20260812-1"></script>
 <script src="js/zlatoust-progress-migration.js"></script>
+<script src="js/zlatoust-progress-snapshot.js?v=20260816-1"></script>
 <script src="js/app-runtime.js"></script>
+<script src="js/learning-event-schema.js"></script>
+<script src="js/learning-event-store.js"></script>
+<script src="js/learning-sync-client.js"></script>
+<script src="js/vocabulary-learning-events.js"></script>
+<script src="js/reader-learning-events.js"></script>
 <script>
 /* ══════════════════════════════════════════════
    状态管理
@@ -1861,6 +1869,16 @@ var SORT_OPTIONS = [
 
 var state = { theme: 'warm', fontSize: 'medium', fontFamily: 'serif', sort: 'default' };
 var appRuntime = AppRuntime.createAppRuntime({ storage: localStorage });
+var learningEventStore = BelyeNochiLearningEventStore.createLearningEventStore({});
+var learningSyncClient = appRuntime.getRuntime() === 'web-server'
+  ? BelyeNochiLearningSyncClient.createSyncClient({ store: learningEventStore })
+  : null;
+var readerLearningEvents = BelyeNochiReaderLearningEvents.createRecorder({
+  store: learningEventStore,
+  syncClient: learningSyncClient,
+  dedupeWindowMs: 15000
+});
+if (learningSyncClient) learningSyncClient.start();
 var curView = 'shelf', curBook = null, curCh = -1, chDone = false, chStart = 0;
 var b2BookManifest = null;
 var selText = '', selContext = '', selTranslationContext = '';
@@ -6773,7 +6791,7 @@ function hasChineseText(text) {
   return /[\u4e00-\u9fff]/.test(String(text || ''));
 }
 
-var DICTIONARY_DATA_VERSION = '20260816-5';
+var DICTIONARY_DATA_VERSION = '20260816-6';
 
 function fetchDictionaryJson(path, fallback) {
   var separator = path.indexOf('?') >= 0 ? '&' : '?';
@@ -6977,6 +6995,12 @@ function onlineDictionaryLookup() {
     .then(function(result) {
       if (!result.found) {
         if (inner) inner.innerHTML = renderDictionaryCloseButton() + '<div class="dict-word">' + escapeHtml(term) + '</div><div class="dict-meaning">Russian Wiktionary 也未找到可用词条。</div>' + renderDictionaryActionBar({ aiId: 'dpAiBtn', allowOnline: false });
+        var missingContext = dictionaryController.getCurrent() && dictionaryController.getCurrent().context || {};
+        var missingResolution = { lemma: term, alternatives: [], reliability: 'online-not-found', entry: null };
+        _lastDictionaryResolution = missingResolution;
+        recordReaderLookup(readerLookupEventInput(term, missingResolution, null, missingContext, {
+          failureCategory: 'online_not_found'
+        }));
         return;
       }
       dictionaryStorage.saveProvisional({
@@ -6984,6 +7008,22 @@ function onlineDictionaryLookup() {
         queriedAt: result.queriedAt, meaningRu: result.meaningRu, meaningZh: '',
         context: includeContext ? (dictionaryController.getCurrent() && dictionaryController.getCurrent().context || {}) : {}
       });
+      var onlineContext = dictionaryController.getCurrent() && dictionaryController.getCurrent().context || {};
+      var onlineEntry = {
+        meaning: result.meaningRu,
+        type: '',
+        source: result.provider + ' · 未复核',
+        _provisional: true,
+        _raw: { display: term }
+      };
+      _lastDictionaryResolution = {
+        normalized: term,
+        lemma: term,
+        entry: onlineEntry,
+        reliability: 'online-provisional',
+        alternatives: []
+      };
+      recordReaderLookup(readerLookupEventInput(term, _lastDictionaryResolution, onlineEntry, onlineContext));
       if (inner) inner.innerHTML = renderDictionaryCloseButton() +
         '<div class="dict-word">' + escapeHtml(term) + '</div><div class="dict-pos">俄文释义（未翻译）</div>' +
         '<div class="dict-meaning" style="white-space:pre-wrap">' + escapeHtml(result.meaningRu) + '</div>' +
@@ -7319,6 +7359,50 @@ document.getElementById('searchInput').addEventListener('keydown', function(e) {
 
 var _lastLookupWord = '';
 var _lastDictionaryResolution = null;
+var _lastLearningLookupEvent = null;
+var _lastLearningLookupPromise = null;
+var _readerLearningWritePending = false;
+
+window.addEventListener('online', function() {
+  if (learningSyncClient) learningSyncClient.kick();
+});
+document.addEventListener('visibilitychange', function() {
+  if (!document.hidden && learningSyncClient) learningSyncClient.kick();
+});
+
+function readerLookupEventInput(queryForm, resolved, result, context, overrides) {
+  resolved = resolved || {};
+  result = result || null;
+  var raw = result && result._raw && typeof result._raw === 'object' ? result._raw : {};
+  var candidates = [resolved.lemma].concat(resolved.alternatives || []);
+  return Object.assign({
+    succeeded: Boolean(result),
+    queryForm: queryForm,
+    surfaceForm: queryForm,
+    lemma: raw.lemma || raw.display || resolved.lemma || '',
+    lemmaCandidates: candidates,
+    partOfSpeech: raw.type || raw.pos || (result && result.type) || '',
+    reliability: resolved.reliability || (result ? 'dictionary-result' : 'not-found'),
+    raw: raw,
+    meaning: result && result.meaning || '',
+    context: context || {}
+  }, overrides || {});
+}
+
+function recordReaderLookup(input) {
+  var promise = readerLearningEvents.recordLookup(input)
+    .then(function(result) {
+      _lastLearningLookupEvent = result && result.event || null;
+      return result;
+    })
+    .catch(function(error) {
+      console.warn('[LearningEvents] Reader 查词事件保存失败:', error);
+      return null;
+    });
+  _lastLearningLookupPromise = promise;
+  return promise;
+}
+
 function renderMissingDictionaryCard(word, loadIncomplete) {
   var message = loadIncomplete ? '部分词典数据加载失败，请刷新后重试' : '本地词典暂未收录';
   return renderDictionaryCloseButton() +
@@ -7332,6 +7416,8 @@ function autoLookup(word) {
   if (!clean) return;
   _lastLookupWord = clean;
   _lastDictionaryResolution = null;
+  _lastLearningLookupEvent = null;
+  _lastLearningLookupPromise = null;
   // 追踪查词（去重）
   if (_sessionLookedUp.indexOf(clean) === -1) _sessionLookedUp.push(clean);
 
@@ -7370,6 +7456,11 @@ function autoLookup(word) {
     ? renderDetailPanel(clean, result)
     : renderMissingDictionaryCard(clean, loadIncomplete);
   updateSaveButton(clean);
+  if (result || !loadIncomplete) {
+    recordReaderLookup(readerLookupEventInput(selText || clean, resolved, result, context, {
+      failureCategory: result ? '' : 'definition_not_found'
+    }));
+  }
 }
 function updateSaveButton(word) {
   var records = {};
@@ -7406,17 +7497,16 @@ function doAskAI() {
   }, '✅ 单词 AI 深度解析提示已复制');
   closeDetailPanel();
 }
-function doSaveWord() {
-  if (!selText) return;
+async function doSaveWord() {
+  if (!selText || _readerLearningWritePending) return;
   var preview = document.getElementById('detailInner');
   if (preview && preview.querySelector('.dict-loading')) { toast('⏳ 释义加载中，请稍候'); return; }
   var clean = selText.replace(/[^a-zA-Zа-яА-ЯёЁ-]/g, '').trim();
   if (!clean) { toast('❌ 无效'); closeDetailPanel(); return; }
 
   // 获取释义
-  var meaning = '', posEl = document.querySelector('#detailInner .dict-pos'), defEl = document.querySelector('#detailInner .dict-meaning');
-  if (posEl) meaning += posEl.textContent + ' ';
-  if (defEl) meaning += defEl.textContent;
+  var meaning = '', posEl = document.querySelector('#detailInner .dp-pos, #detailInner .dict-pos'), defEl = document.querySelector('#detailInner .dp-meaning, #detailInner .dict-meaning');
+  if (defEl) meaning = defEl.textContent.trim();
 
   // 写入统一存储
   var today = new Date().toISOString().slice(0, 10);
@@ -7428,6 +7518,37 @@ function doSaveWord() {
     : null;
   var canonicalLemma = resolution && resolution.entry ? resolution.lemma : normalizeLookupWord(clean);
   var canonicalKey = normalizeLookupWord(canonicalLemma);
+  var existingRecords = appRuntime.readVocabularyRecords();
+  if (existingRecords[canonicalKey] || existingRecords[clean.toLowerCase()]) {
+    toast('✓ 已在生词本中');
+    updateSaveButton(clean);
+    return;
+  }
+
+  _readerLearningWritePending = true;
+  var learningAddition;
+  try {
+    var lookupResult = _lastLearningLookupPromise ? await _lastLearningLookupPromise : null;
+    var lookupContext = dictionaryController.getCurrent && dictionaryController.getCurrent().context || context;
+    var learningInput = readerLookupEventInput(clean, resolution || {
+      lemma: canonicalLemma,
+      alternatives: [],
+      reliability: 'not-found'
+    }, resolution && resolution.entry || null, lookupContext, {
+      meaning: meaning,
+      learningIdentity: existingRecords[canonicalKey] && existingRecords[canonicalKey].learningIdentity || null,
+      lookupEvent: lookupResult && lookupResult.event || _lastLearningLookupEvent,
+      addMethod: 'reader_save_button'
+    });
+    learningAddition = await readerLearningEvents.recordVocabularyAddition(learningInput);
+  } catch (error) {
+    console.warn('[LearningEvents] Reader 生词事件保存失败:', error);
+    toast('❌ 学习记录没有保存，请再点一次');
+    return;
+  } finally {
+    _readerLearningWritePending = false;
+  }
+
   var saved = dictionaryStorage.mergeSavedWord({
     form: clean,
     lemma: canonicalLemma,
@@ -7455,6 +7576,7 @@ function doSaveWord() {
   saved.source = saved.source || 'reader';
   saved.sourceBook = curBook ? curBook.id : '';
   saved.sourceChapter = curCh;
+  if (learningAddition && learningAddition.identity) saved.learningIdentity = learningAddition.identity;
   appRuntime.saveVocabulary(canonicalKey, saved);
   /*
   records[clean] = {
@@ -7872,6 +7994,39 @@ if (_jumpBook) {
 /* ══════════════════════════════════════════════
    В мире людей — 仪表盘
    ══════════════════════════════════════════════ */
+async function exportZlatoustObsidianProgressSnapshot(button) {
+  if (!window.ZlatoustProgressSnapshot) { toast('进度快照组件未加载，请刷新页面后重试'); return; }
+  var originalText = button && button.textContent;
+  if (button) { button.disabled = true; button.textContent = '正在生成…'; }
+  try {
+    var graph = await fetchJson(ZLATOUST_THEORY_ROOT + '/knowledge-graph.json', null);
+    var order = graph && graph.learningOrder || [];
+    if (order.length !== 32) throw new Error('知识点清单不是 32 张');
+    var pages = await Promise.all(order.map(function(sectionId) { return loadZlatoustLearningPage(sectionId); }));
+    if (pages.some(function(page) { return !page; })) throw new Error('有知识点卡未能加载');
+    var snapshot = ZlatoustProgressSnapshot.buildSnapshot({
+      pages: pages,
+      learningProgress: getZlatoustLearningProgress(),
+      officialProgress: getB2Progress(),
+      generatedAt: new Date()
+    });
+    var markdown = ZlatoustProgressSnapshot.renderMarkdown(snapshot);
+    var saved = await ZlatoustProgressSnapshot.saveMarkdown({
+      markdown: markdown,
+      fileName: '学习进度快照.md',
+      showSaveFilePicker: typeof window.showSaveFilePicker === 'function' ? window.showSaveFilePicker.bind(window) : null,
+      document: document,
+      urlApi: URL,
+      Blob: Blob
+    });
+    if (saved.cancelled) toast('已取消保存进度快照');
+    else toast(saved.method === 'picker' ? '学习进度快照已保存' : '学习进度快照已下载');
+  } catch (error) {
+    toast('生成进度快照失败：' + (error && error.message || '未知错误'));
+  } finally {
+    if (button) { button.disabled = false; button.textContent = originalText || '↓ 导出进度快照'; }
+  }
+}
 function showWorldPeopleDashboard() {
   saveLastRead();
   curView = 'world-people-dashboard'; curBook = null; curCh = -1; stopTimer(); syncReaderShellState();
@@ -7897,13 +8052,14 @@ function showWorldPeopleDashboard() {
     var book = getBookById(bookId); if (!book) return '';
     var progress = getWorldPeopleProgress(book), resumeTarget = getWorldModuleResume(bookId);
     var unitLabel = bookId === 'zlatoust_grammar' ? '章 · 597 道题' : '章';
+    var exportAction = bookId === 'zlatoust_grammar' ? '<button type="button" class="world-module-export" title="生成可保存到 Obsidian 的学习进度 Markdown" onclick="event.stopPropagation();exportZlatoustObsidianProgressSnapshot(this)">↓ 导出进度快照</button>' : '';
     return '<article class="world-module-card" onclick="showWorldPeopleModule(\'' + escapeHtml(book.id) + '\')">' +
       '<span class="book-kind">学习模块</span><h2>' + escapeHtml(book.title) + '</h2><p>' + escapeHtml(book.description || '') + '</p>' +
       '<div class="progress-bar"><div class="progress-fill" style="width:' + progress.pct + '%"></div></div>' +
       '<div class="progress-text">已完成 ' + progress.completed + ' / ' + progress.total + ' ' + unitLabel + ' · ' + progress.pct + '%</div>' +
       '<div class="world-module-resume"><strong>上次学习：</strong>' + escapeHtml(getWorldResumeLocation(resumeTarget.bookId, resumeTarget.record)) + '</div>' +
       '<div class="world-module-actions"><button type="button" class="b2-finish" onclick="event.stopPropagation();showChapters(\'' + escapeHtml(book.id) + '\')">打开目录</button>' +
-      '<button type="button" class="world-module-continue" onclick="event.stopPropagation();resumeWorldPeopleModule(\'' + escapeHtml(resumeTarget.bookId) + '\')">继续 ↗</button></div></article>';
+      '<button type="button" class="world-module-continue" onclick="event.stopPropagation();resumeWorldPeopleModule(\'' + escapeHtml(resumeTarget.bookId) + '\')">继续 ↗</button>' + exportAction + '</div></article>';
   }).join('');
   document.getElementById('app').innerHTML =
     b2FloatingNavigation({ backAction: 'showShelf()', backTitle: '书架', menuAction: 'showBreadcrumb()' }) +
