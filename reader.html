@@ -6791,7 +6791,7 @@ function hasChineseText(text) {
   return /[\u4e00-\u9fff]/.test(String(text || ''));
 }
 
-var DICTIONARY_DATA_VERSION = '20260816-6';
+var DICTIONARY_DATA_VERSION = '20260817-1';
 
 function fetchDictionaryJson(path, fallback) {
   var separator = path.indexOf('?') >= 0 ? '&' : '?';
