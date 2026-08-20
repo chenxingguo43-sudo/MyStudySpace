@@ -39,3 +39,28 @@ keystore.properties
 /.claude/settings.local.json
 /.playwright-mcp/
 /tmp/
+
+# Local runtime data and generated verification output
+/data/user/
+/test-results/
+/artifacts/
+/audio/
+/.hermes-*.log
+/.hermes-*.js
+/CONTEXT.md
+
+# External/local-only project folders and benchmark captures
+/Daisy-Voice-Agent/
+/data/asr-*.json
+/data/asr-results-*.json
+/assets/icons/*.png
+/assets/icons/*.jpg
+/assets/icons/*.webp
+/claude_apple.png
+/claude_favicon.svg
+/claude_mint_light.svg
+/deepseek_favicon.ico
+/deepseek_wiki_logo.svg
+/codex_cli_splash.png
+/codex_extension_icon.bin
+/codex_wallpaper.webp
