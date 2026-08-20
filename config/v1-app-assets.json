@@ -20,6 +20,8 @@
   ],
   "scripts": [
     "data/russian-morphology.js",
+    "js/app-archive.js",
+    "js/app-file-transfer.js",
     "js/app-runtime.js",
     "js/app-shell.js",
     "js/app-home.js",
@@ -27,6 +29,7 @@
     "js/app-profile-page.js",
     "js/study-activity-store.js",
     "js/study-activity-session.js",
+    "js/reader-answer-evidence.js",
     "js/reader-navigation.js",
     "js/russian-b2/dashboard.js",
     "js/russian-b2/listening-quality.js",

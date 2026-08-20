@@ -30,6 +30,39 @@ test('Zlatoust knowledge card returns to its own exercise directory', async ({ p
   await expect(page.locator('.chapter-grid .ch-item')).toHaveCount(5);
 });
 
+test('Zlatoust continue learning preserves the visible exercise after returning to the directory', async ({ page }) => {
+  await page.goto('http://127.0.0.1:3000/reader.html');
+  await page.locator('button[onclick="showWorldPeopleDashboard()"]').click();
+  await page.locator('.world-module-card', { hasText: '语法词汇' }).click();
+  await page.locator('.chapter-grid .ch-item').nth(0).click();
+
+  await page.evaluate(() => window.jumpToQuizExercise('GL1-Q046'));
+  await expect.poll(() => page.locator('[data-question-id="GL1-Q046"]').evaluate((item) => {
+    const rect = item.getBoundingClientRect();
+    return rect.top >= 0 && rect.top < window.innerHeight;
+  })).toBe(true);
+  await page.getByRole('button', { name: '目录', exact: true }).click();
+
+  await expect(page.locator('.world-directory-resume')).toContainText('GL1-Q046');
+  await page.locator('.world-directory-resume').getByRole('button', { name: '继续学习' }).click();
+  await expect.poll(() => page.locator('[data-question-id="GL1-Q046"]').evaluate((item) => {
+    const rect = item.getBoundingClientRect();
+    return rect.top >= 0 && rect.top < window.innerHeight;
+  })).toBe(true);
+  await expect.poll(() => page.evaluate(() => window.zlatoustQuizJumpTargetId)).toBe('');
+  await expect.poll(() => page.evaluate(() => {
+    const current = document.querySelector('[data-question-id="GL1-Q048"]');
+    const next = document.querySelector('[data-question-id="GL1-Q049"]');
+    if (!current || !next) return Infinity;
+    return Math.round(next.getBoundingClientRect().top - current.getBoundingClientRect().bottom);
+  })).toBeLessThan(80);
+  await page.evaluate(() => window.scrollBy(0, Math.round(window.innerHeight * 2.2)));
+  await expect.poll(() => page.locator('[data-question-id]').evaluateAll((items) => items.some((item) => {
+    const rect = item.getBoundingClientRect();
+    return Number(item.dataset.questionId.slice(-3)) > 48 && rect.bottom > 0 && rect.top < window.innerHeight;
+  }))).toBe(true);
+});
+
 test('world modules use the transparent four-button navigation', async ({ page }) => {
   await page.goto('http://127.0.0.1:3000/reader.html');
   await page.locator('.world-shelf-card', { hasText: 'В мире людей' }).getByRole('button', { name: '打开总仪表盘' }).click();
