@@ -18,6 +18,8 @@
     "audit:russian-dictionary": "node scripts/russian-dictionary/audit-coverage.js",
     "verify:russian-dictionary": "node scripts/russian-dictionary/audit-coverage.js --check && node --test tests/russian-b2/dictionary-*.test.js",
     "verify:russian-b2": "node scripts/russian-b2/build-full-book.js --check && npm run test:russian-b2",
+    "verify:llm-speaking": "node --test tests/speaking-llm-benchmark.test.js tests/reader-ai-provider.test.js && node scripts/run-speaking-llm-benchmark.js --offline",
+    "verify:speaking-v2": "node --test tests/speaking-*.test.js",
     "verify:v1-app": "node --test tests/app-runtime.test.js tests/v1-app-build.test.js tests/app-shell.test.js tests/app-home.test.js tests/app-profile.test.js"
   },
   "repository": {
@@ -41,6 +43,7 @@
     "cheerio": "^1.2.0",
     "opencc-js": "^1.4.1",
     "playwright-core": "^1.61.1",
-    "sql.js": "^1.14.1"
+    "sql.js": "^1.14.1",
+    "ts-fsrs": "5.4.1"
   }
 }

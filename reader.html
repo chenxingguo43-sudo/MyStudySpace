@@ -176,8 +176,9 @@ body {
 .detail-panel {
   flex: 1;                    /* 自动填满剩余空间 */
   min-width: 0;               /* 允许收缩 */
-  position: sticky; top: 0; align-self: flex-start;
-  max-height: 100vh; overflow-y: auto;
+  position: sticky; top: 48px; align-self: flex-start;
+  height: calc(100dvh - 48px); max-height: calc(100dvh - 48px); overflow-y: auto;
+  overscroll-behavior: contain; scrollbar-gutter: stable;
   background: var(--surface-solid); border-left: 1px solid var(--border);
   /* 注意：无 transition！拖拽需要即时响应 */
 }
@@ -232,6 +233,9 @@ body {
 .rs-practice-progress-line strong { color: var(--text); font-variant-numeric: tabular-nums; }
 .rs-practice-progress-track { height: 5px; margin-top: 8px; overflow: hidden; border-radius: 999px; background: var(--border); }
 .rs-practice-progress-fill { display: block; width: 0; height: 100%; border-radius: inherit; background: var(--accent); transition: width .2s ease; }
+.rs-chapter-completion { margin: 24px 0 8px; padding-top: 18px; border-top: 1px solid var(--border); text-align: center; }
+.rs-chapter-completion p { margin: 0 0 10px; color: var(--text-secondary); font-size: 13px; }
+.rs-chapter-completion .b2-finish { width: 100%; justify-content: center; }
 .rs-practice-panel .b2-quiz-item { margin: 0 0 12px; padding: 13px; border-radius: 12px; }
 .rs-practice-panel .b2-quiz-item h3 { font-size: 14px; line-height: 1.55; }
 .rs-practice-panel .b2-option-row { padding: 8px 7px; font-size: 13px; }
@@ -330,6 +334,42 @@ body {
 .dp-ai-btn.loading { opacity: 0.6; pointer-events: none; }
 .dp-ai-result { margin-top: 12px; font-size: 13px; color: var(--text-secondary); line-height: 1.7; }
 .dp-ai-result:empty { display: none; }
+.reader-ai-panel { margin-top: 12px; padding: 12px; border: 1px solid var(--accent-border); border-radius: 8px; background: var(--accent-dim); color: var(--text-secondary); overflow-wrap: anywhere; }
+.reader-ai-panel h4 { margin: 0 0 8px; color: var(--text); font-size: 14px; letter-spacing: 0; }
+.reader-ai-panel h5 { margin: 12px 0 5px; color: var(--text); font-size: 13px; letter-spacing: 0; }
+.reader-ai-panel p { margin: 5px 0; }
+.reader-ai-panel ul { margin: 5px 0; padding-left: 20px; }
+.reader-ai-panel .reader-ai-badge { display: inline-block; margin-bottom: 8px; padding: 2px 7px; border: 1px solid var(--accent-border); border-radius: 6px; color: var(--accent); font-size: 11px; font-weight: 700; }
+.reader-ai-panel .reader-ai-provisional { margin: 8px 0; padding: 8px; border-left: 3px solid #d97706; background: rgba(217,119,6,.1); color: var(--text); }
+.reader-ai-usage { margin-top: 10px !important; color: var(--text-dim); font-size: 11px; font-variant-numeric: tabular-nums; }
+.reader-ai-controls, .reader-ai-feedback { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+.reader-ai-controls button, .reader-ai-feedback button { min-height: 36px; padding: 7px 11px; border: 1px solid var(--glass-border); border-radius: 7px; background: var(--glass); color: var(--text); cursor: pointer; font: inherit; font-size: 12px; }
+.reader-ai-controls button:hover, .reader-ai-feedback button:hover { background: var(--glass-hover); }
+.reader-ai-reading-panel h5 { margin-top: 18px; padding-top: 8px; border-top: 1px solid var(--border); }
+.reader-ai-reading-evidence { margin: 8px 0; padding: 10px; border-left: 4px solid #2563eb; background: rgba(37,99,235,.08); }
+.reader-ai-reading-evidence .reader-ai-ru { color: var(--text); font-family: Georgia, 'Times New Roman', serif; font-size: 14px; line-height: 1.65; }
+.reader-ai-reading-evidence .reader-ai-zh { color: var(--text-secondary); }
+.reader-ai-reading-source-term { color: #0f766e; font-weight: 700; }
+.reader-ai-reading-option { margin: 8px 0; padding: 8px 10px; border-left: 4px solid var(--border); list-style-position: outside; }
+.reader-ai-reading-option.is-correct { border-left-color: #16a34a; background: rgba(22,163,74,.08); }
+.reader-ai-reading-option.is-wrong { border-left-color: #d97706; background: rgba(217,119,6,.08); }
+.reader-ai-reading-option small { color: #b45309; font-weight: 700; }
+.reader-ai-reading-option p { margin: 5px 0 0; }
+.rs-structured-analysis { margin: 10px 0; }
+.rs-structured-analysis > section { margin: 10px 0; padding: 10px 12px; border-left: 4px solid var(--border); background: var(--surface); }
+.rs-structured-analysis .rs-analysis-evidence { border-left-color: #2563eb; background: rgba(37,99,235,.08); }
+.rs-structured-analysis .rs-analysis-correct { border-left-color: #16a34a; background: rgba(22,163,74,.08); }
+.rs-structured-analysis .rs-analysis-wrong { border-left-color: #d97706; background: rgba(217,119,6,.08); }
+.rs-structured-analysis .rs-analysis-mapping { color: #0f766e; font-weight: 700; }
+.rs-structured-analysis h4 { margin: 0 0 7px; }
+.rs-structured-analysis p { margin: 5px 0; }
+.rs-structured-analysis ul { margin: 5px 0; padding-left: 22px; }
+.rs-source-locate-status { display: inline-flex; align-items: center; min-height: 30px; margin-left: 6px; padding: 3px 8px; border: 1px solid var(--border); border-radius: 6px; color: var(--text-secondary); font-size: 12px; font-weight: 600; vertical-align: middle; }
+.rs-source-locate-status--paragraph { border-color: rgba(217,119,6,.35); background: rgba(217,119,6,.08); color: #b45309; }
+.rs-source-locate-status--unavailable { color: var(--text-dim); }
+.reader-ai-status { display: flex; align-items: center; gap: 8px; min-height: 42px; }
+.reader-ai-status .spinner { width: 18px; height: 18px; flex: 0 0 18px; }
+.reader-ai-action .reader-ai-result { margin-top: 10px; }
 .dp-action-bar { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin-top: 18px; padding-top: 12px; border-top: 1px solid var(--border); }
 .dp-action-bar .dp-ai-btn { grid-column: 1 / -1; }
 .dp-action-bar .tb-btn, .dp-action-bar .btn-save-vocab { width: 100%; min-height: 40px; }
@@ -351,6 +391,38 @@ body {
 .book-card .book-meta { font-size: 13px; color: var(--text-secondary); display: flex; gap: 12px; }
 .book-card .book-desc { font-size: 13px; color: var(--text-dim); margin-top: 8px; }
 .book-card .book-progress { margin-top: 12px; }
+.reader-ai-settings-overlay { position: fixed; inset: 0; z-index: 420; display: none; align-items: center; justify-content: center; padding: 20px; background: rgba(12,15,22,.62); backdrop-filter: blur(5px); }
+.reader-ai-settings-overlay.visible { display: flex; }
+.reader-ai-settings-dialog { width: min(920px, 100%); max-height: min(820px, calc(100dvh - 40px)); overflow: hidden; border: 1px solid var(--glass-border); border-radius: 14px; background: var(--surface-solid); box-shadow: 0 24px 70px rgba(0,0,0,.34); }
+.reader-ai-settings-dialog > header { display: flex; align-items: center; justify-content: space-between; min-height: 70px; padding: 14px 18px; border-bottom: 1px solid var(--border); }
+.reader-ai-settings-dialog > header span { color: var(--accent); font-size: 11px; font-weight: 700; }
+.reader-ai-settings-dialog > header h2 { margin: 2px 0 0; font-size: 20px; }
+.reader-ai-settings-dialog > header button, .reader-ai-provider-list-head button { width: 38px; height: 38px; border: 1px solid var(--glass-border); border-radius: 8px; background: var(--glass); color: var(--text-secondary); cursor: pointer; font: inherit; font-size: 24px; line-height: 1; }
+.reader-ai-settings-body { max-height: calc(min(820px, 100dvh - 40px) - 70px); overflow-y: auto; overscroll-behavior: contain; padding: 18px; }
+.reader-ai-routing { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr) auto; align-items: end; gap: 12px; padding-bottom: 18px; border-bottom: 1px solid var(--border); }
+.reader-ai-routing label, .reader-ai-config-form label { display: grid; gap: 6px; color: var(--text-secondary); font-size: 12px; }
+.reader-ai-routing select, .reader-ai-config-form input, .reader-ai-config-form select { width: 100%; min-height: 42px; padding: 8px 10px; border: 1px solid var(--glass-border); border-radius: 7px; background: var(--surface); color: var(--text); font: inherit; font-size: 13px; }
+.reader-ai-settings-workspace { display: grid; grid-template-columns: 260px minmax(0,1fr); min-height: 430px; }
+.reader-ai-provider-list { padding: 18px 14px 18px 0; border-right: 1px solid var(--border); }
+.reader-ai-provider-list-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+.reader-ai-provider-list-head h3 { margin: 0; font-size: 14px; }
+.reader-ai-provider-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; width: 100%; min-height: 60px; margin: 0 0 7px; padding: 9px; border: 1px solid transparent; border-radius: 7px; background: transparent; color: var(--text); text-align: left; cursor: pointer; font: inherit; }
+.reader-ai-provider-row:hover, .reader-ai-provider-row.is-selected { border-color: var(--accent-border); background: var(--accent-dim); }
+.reader-ai-provider-row strong, .reader-ai-provider-row small { display: block; max-width: 132px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.reader-ai-provider-row strong { font-size: 13px; }.reader-ai-provider-row small { margin-top: 4px; color: var(--text-dim); font-size: 11px; }
+.reader-ai-provider-state { flex: 0 0 auto; color: var(--text-dim); font-size: 10px; }.reader-ai-provider-state.is-ready { color: #0f9f65; }
+.reader-ai-config-form { padding: 20px 0 20px 20px; }
+.reader-ai-config-form-head { display: flex; align-items: start; justify-content: space-between; gap: 12px; margin-bottom: 16px; }
+.reader-ai-config-form-head h3 { margin: 0; font-size: 16px; }.reader-ai-config-form-head p { margin: 5px 0 0; color: var(--text-dim); font-size: 11px; }
+.reader-ai-config-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 12px; }.reader-ai-config-wide { grid-column: 1 / -1; }
+.reader-ai-price-fields { margin: 18px 0 0; padding: 14px; border: 1px solid var(--border); border-radius: 8px; }.reader-ai-price-fields legend { padding: 0 6px; color: var(--text-secondary); font-size: 12px; }
+.reader-ai-price-grid { grid-template-columns: repeat(5,minmax(0,1fr)); }.reader-ai-price-grid input, .reader-ai-price-grid select { min-width: 0; }
+.reader-ai-config-actions { display: flex; gap: 9px; margin-top: 18px; }
+.reader-ai-config-primary, .reader-ai-config-danger { min-height: 42px; padding: 9px 14px; border: 1px solid var(--accent-border); border-radius: 7px; background: var(--accent-dim); color: var(--accent); cursor: pointer; font: inherit; font-weight: 700; }
+.reader-ai-config-danger { border-color: rgba(220,38,38,.3); background: rgba(220,38,38,.08); color: #dc2626; }
+.reader-ai-env-summary { display: grid; gap: 10px; margin: 0; }.reader-ai-env-summary div { display: grid; grid-template-columns: 70px minmax(0,1fr); gap: 10px; padding: 10px 0; border-bottom: 1px solid var(--border); }.reader-ai-env-summary dt { color: var(--text-dim); font-size: 12px; }.reader-ai-env-summary dd { min-width: 0; margin: 0; overflow-wrap: anywhere; }
+.reader-ai-settings-error { display: grid; justify-items: center; gap: 14px; padding: 50px 20px; color: var(--text-secondary); }
+@media (max-width: 760px) { .reader-ai-settings-overlay { padding: 0; }.reader-ai-settings-dialog { width: 100%; max-height: 100dvh; height: 100dvh; border: 0; border-radius: 0; }.reader-ai-settings-body { max-height: calc(100dvh - 70px); padding: 14px; }.reader-ai-routing { grid-template-columns: 1fr; }.reader-ai-settings-workspace { grid-template-columns: 1fr; }.reader-ai-provider-list { padding: 16px 0; border-right: 0; border-bottom: 1px solid var(--border); }.reader-ai-config-form { padding: 18px 0; }.reader-ai-config-grid, .reader-ai-price-grid { grid-template-columns: 1fr; }.reader-ai-config-wide { grid-column: auto; } }
 .b2-dashboard { max-width: 1080px; }
 .b2-dashboard-hero { padding: 26px; margin-bottom: 20px; border: 1px solid var(--accent-border); border-radius: 18px; background: linear-gradient(135deg, var(--accent-dim), var(--surface)); }
 .b2-dashboard-hero h1 { margin-bottom: 6px; }
@@ -632,6 +704,23 @@ body {
 .speaking-recording-controls button { min-height: 42px; }
 .speaking-recording-status { color: var(--text-dim); font-size: 13px; }
 .speaking-playback { width: 100%; margin-top: 12px; }
+.wn-speaking-recorder { margin-top: 14px; padding: 14px; border: 1px solid var(--border); border-radius: 8px; background: var(--surface); }
+.wn-speaking-recorder-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.wn-speaking-recorder-head strong { color: var(--text-secondary); font-size: 13px; }
+.wn-speaking-recorder-head small { color: var(--text-dim); font-size: 12px; }
+.wn-speaking-recorder-actions { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 10px; }
+.wn-speaking-recorder-actions button { min-height: 40px; }
+.wn-speaking-status { min-height: 20px; color: var(--text-dim); font-size: 13px; }
+.wn-speaking-status.is-error { color: var(--warning); }
+.wn-speaking-recordings { display: grid; gap: 8px; margin-top: 12px; }
+.wn-speaking-recording { display: grid; grid-template-columns: minmax(0, 1fr) minmax(190px, 0.7fr) auto; gap: 10px; align-items: center; padding-top: 10px; border-top: 1px solid var(--border); }
+.wn-speaking-recording strong, .wn-speaking-recording small { display: block; }
+.wn-speaking-recording small { margin-top: 3px; color: var(--text-dim); font-size: 11px; }
+.wn-speaking-audio { width: 100%; min-width: 0; }
+.wn-speaking-delete { min-height: 34px; padding: 6px 10px; border: 1px solid var(--border); border-radius: 6px; background: transparent; color: var(--text-secondary); cursor: pointer; }
+.wn-speaking-delete:hover { background: var(--glass-hover); color: var(--text); }
+.wn-speaking-empty { margin: 0; color: var(--text-dim); font-size: 12px; }
+@media (max-width: 640px) { .wn-speaking-recording { grid-template-columns: 1fr auto; }.wn-speaking-audio { grid-column: 1 / -1; grid-row: 2; }.wn-speaking-delete { grid-column: 2; grid-row: 1; } }
 .b2-context-group { margin: 28px 0 16px; padding: 18px; border: 1px solid var(--accent-border); border-radius: 12px; background: var(--accent-dim); }
 .b2-context-group h2 { font-size: 1.05em; margin-bottom: 10px; }
 .b2-context-material { margin-top: 12px; padding: 12px; border-left: 3px solid var(--accent); border-radius: 8px; background: var(--surface-solid); }
@@ -1813,7 +1902,7 @@ button.zlatoust-concept-map-node:hover, button.zlatoust-concept-map-node:focus-v
 <button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
 <div class="complete-prompt" id="completePrompt" onclick="markChapterDone()">
-  📖 看起来你读完了本章 — 点击标记完成
+  📖 读完本章后，点击记录完成
 </div>
 
 <div class="modal-overlay" id="chSummary">
@@ -1844,6 +1933,12 @@ button.zlatoust-concept-map-node:hover, button.zlatoust-concept-map-node:focus-v
 <script src="js/russian-b2/listening-workbench.js?v=20260726-6"></script>
 <script src="js/russian-b2/writing-session.js?v=20260806-1"></script>
 <script src="js/reader-answer-evidence.js?v=20260812-1"></script>
+<script src="js/reader-ai-client.js?v=20260817-1"></script>
+<script src="js/reader-ai-settings.js?v=20260817-1"></script>
+<script src="js/speaking/recording-store.js?v=20260818-1"></script>
+<script src="js/speaking/media-recorder-adapter.js?v=20260818-1"></script>
+<script src="js/speaking/recording-session.js?v=20260818-1"></script>
+<script src="js/speaking/reader-recording-bridge.js?v=20260818-1"></script>
 <script src="js/zlatoust-progress-migration.js"></script>
 <script src="js/zlatoust-progress-snapshot.js?v=20260816-1"></script>
 <script src="js/app-runtime.js"></script>
@@ -2729,7 +2824,7 @@ function showWorldPeopleModule(bookId) {
 function shouldUseScrollCompletion() {
   if (curView !== 'reading' || curCh < 0 || isQuizFirstBook(curBook)) return false;
   if (document.querySelector('.zlatoust-learning-page')) return false;
-  return !curBook || (curBook.format !== 'reading-practice' && curBook.format !== 'writing-workbench' && curBook.format !== 'speaking-practice' && curBook.format !== 'listening-practice' && curBook.format !== 'writing-speaking');
+  return !curBook || (curBook.id !== 'reading_speaking' && curBook.format !== 'reading-practice' && curBook.format !== 'writing-workbench' && curBook.format !== 'speaking-practice' && curBook.format !== 'listening-practice' && curBook.format !== 'writing-speaking');
 }
 function isChapterCompleted(bookId, chIdx) {
   if (!bookId || chIdx < 0) return false;
@@ -2842,7 +2937,7 @@ function renderShelf() {
       (savedAt ? '<small>最近保存于 ' + escapeHtml(savedAt) + '</small>' : '') + '<button type="button" onclick="continueShelfLearning()">继续学习</button></section>';
   }
   var parts = [b2FloatingNavigation({ menuAction: 'showBreadcrumb()' }) + '<main class="main-container reader-shelf-view"><header class="shelf-hero"><h1>学习书架</h1><p>从最近进度继续，或直接进入你要练的教材。</p></header>', continueCard,
-    '<div class="shelf-tools"><button class="shelf-tool" type="button" onclick="showWrongAnswerBook()">错题复习 · ' + wrongCount + ' 题待掌握</button><button class="shelf-tool" type="button" onclick="showTutorReview()">导师复盘</button><button class="shelf-tool" type="button" onclick="showB2ArchivePanel()">学习记录备份</button></div>',
+    '<div class="shelf-tools"><button class="shelf-tool" type="button" onclick="showWrongAnswerBook()">错题复习 · ' + wrongCount + ' 题待掌握</button><button class="shelf-tool" type="button" onclick="showTutorReview()">导师复盘</button><button class="shelf-tool" type="button" onclick="showB2ArchivePanel()">学习记录备份</button><button class="shelf-tool" type="button" onclick="ReaderAiSettings.open()">AI 服务</button></div>',
     '<section class="shelf-section"><div class="shelf-section-heading"><h2>我的教材</h2></div><div class="shelf-book-grid">'];
   var worldDone = 0, worldTotal = 0;
   WORLD_PEOPLE_MODULE_IDS.forEach(function(bookId) {
@@ -4786,7 +4881,12 @@ function renderZlatoustFocusAxes(mapping) {
   return '<div class="zlatoust-focus-axes" aria-label="本题判断轴">' + axes.map(function(axis) { return '<span>' + escapeHtml(axis) + '</span>'; }).join('') + '</div>';
 }
 function renderExerciseAiAction(exerciseId, kind) {
-  return '<section class="reader-ai-action"><p>需要进一步追问时，可复制完整题干、选项、作答状态和已核对材料。</p><button class="dp-ai-btn" type="button" onclick="copyExerciseAiPrompt(\'' + escapeHtml(exerciseId) + '\',\'' + escapeHtml(kind || 'exercise') + '\')">🤖 AI 深度解析</button></section>';
+  var safeId = escapeHtml(exerciseId);
+  var safeKind = escapeHtml(kind || 'exercise');
+  return '<section class="reader-ai-action"><p>AI 会读取本题必要的客观材料；解释属于 AI 建议，不会覆盖原始作答。</p>' +
+    '<div class="reader-ai-controls"><button class="dp-ai-btn" type="button" onclick="requestExerciseAiAnalysis(\'' + safeId + '\',\'' + safeKind + '\')">🤖 AI 直接解析</button>' +
+    '<button type="button" onclick="copyExerciseAiPrompt(\'' + safeId + '\',\'' + safeKind + '\')">复制提示词</button></div>' +
+    '<div class="reader-ai-result" id="readerAiExercise-' + safeId.replace(/[^a-zA-Z0-9_-]/g, '-') + '" aria-live="polite"></div></section>';
 }
 function getZlatoustStaticExplanation(exercise, state, answerKey) {
   var entry = state && state.staticExplanationsByExercise && state.staticExplanationsByExercise[exercise.id];
@@ -4892,6 +4992,207 @@ function copyExerciseAiPrompt(exerciseId, kind) {
   if (!exercise) { toast('未找到题目数据'); return; }
   var record = isReadingSpeaking ? getReadingSpeakingRecord(exerciseId) : getQuizRecord(exerciseId);
   copyReaderAiPrompt(isReadingSpeaking ? 'reading-speaking' : 'exercise', { exercise: exercise, record: record }, '✅ 题目 AI 深度解析提示已复制');
+}
+
+var readerAiApi = window.ReaderAiClient ? ReaderAiClient.createClient({}) : null;
+var _readerAiActive = {};
+
+function readerAiExerciseData(exerciseId, kind) {
+  var isReadingSpeaking = kind === 'reading-speaking';
+  var exercise = isReadingSpeaking
+    ? (_currentRSExercises || []).find(function(item) { return item._exId === exerciseId; })
+    : getQuizExercise(exerciseId);
+  if (!exercise) return null;
+  var evidence = null;
+  if (isReadingSpeaking && _currentRSData) {
+    var anchor = exercise.sourceAnchor || {};
+    var index = typeof anchor.paragraphIndex === 'number' ? anchor.paragraphIndex : null;
+    var paragraphs = _currentRSData.original || [];
+    var translations = _currentRSData.translated || [];
+    evidence = {
+      anchorQuoteRu: anchor.quote || '',
+      paragraphIndex: index,
+      paragraphRu: index !== null ? (paragraphs[index] || '') : '',
+      paragraphZh: index !== null ? (translations[index] || '') : '',
+      adjacentRu: index !== null && paragraphs[index + 1] ? paragraphs[index + 1] : '',
+      adjacentZh: index !== null && translations[index + 1] ? translations[index + 1] : ''
+    };
+  }
+  return {
+    exercise: exercise,
+    record: isReadingSpeaking ? getReadingSpeakingRecord(exerciseId) : getQuizRecord(exerciseId),
+    evidence: evidence
+  };
+}
+
+function readerAiList(items) {
+  return '<ul>' + (items || []).map(function(item) { return '<li>' + escapeHtml(item) + '</li>'; }).join('') + '</ul>';
+}
+
+function readerAiFeedbackHtml(interactionId) {
+  return '<div class="reader-ai-feedback" data-ai-feedback="' + escapeHtml(interactionId) + '"><span>这次解析：</span>' +
+    '<button type="button" onclick="sendReaderAiFeedback(\'' + escapeHtml(interactionId) + '\',\'helpful\',this)">有帮助</button>' +
+    '<button type="button" onclick="sendReaderAiFeedback(\'' + escapeHtml(interactionId) + '\',\'incorrect\',this)">不正确</button></div>';
+}
+
+function readerAiUsageHtml(usage) {
+  if (!usage || !usage.totalTokens) return '';
+  var cached = usage.cachedInputTokens ? '，其中缓存输入 ' + usage.cachedInputTokens : '';
+  var reasoning = usage.reasoningTokens ? '，其中推理 ' + usage.reasoningTokens : '';
+  var cost = usage.estimatedCost && Number(usage.estimatedCost.amount) > 0
+    ? ' · 估算费用 ' + escapeHtml(usage.estimatedCost.currency || 'CNY') + ' ' + Number(usage.estimatedCost.amount).toFixed(6)
+    : '';
+  return '<p class="reader-ai-usage">本次用量：输入 ' + Number(usage.inputTokens || 0) + cached +
+    '，输出 ' + Number(usage.outputTokens || 0) + reasoning + '，合计 ' + Number(usage.totalTokens || 0) + ' tokens' + cost + '</p>';
+}
+
+function renderReaderAiGrammarResult(payload) {
+  var answer = payload.answer || {};
+  var optionReasons = (answer.optionReasons || []).map(function(item) {
+    return '<li><strong>' + escapeHtml(item.key) + '</strong>：' + escapeHtml(item.reason) + '</li>';
+  }).join('');
+  var transfer = answer.transferQuestion || {};
+  return '<div class="reader-ai-panel"><span class="reader-ai-badge">AI 生成 · 不改动原始答案</span>' +
+    '<h4>正确答案为什么成立</h4><p>' + escapeHtml(answer.answerReason) + '</p>' +
+    '<h5>各选项分析</h5><ul>' + optionReasons + '</ul>' +
+    '<h5>知识点</h5>' + readerAiList(answer.knowledgePoints) +
+    '<h5>易错提醒</h5><p>' + escapeHtml(answer.pitfall) + '</p>' +
+    '<h5>迁移题（暂不公布答案）</h5><p>' + escapeHtml(transfer.prompt) + '</p>' + readerAiList(transfer.options) +
+    readerAiUsageHtml(payload.usage) + readerAiFeedbackHtml(payload.interactionId) + '</div>';
+}
+
+function renderReaderAiReadingResult(payload) {
+  var answer = payload.answer || {};
+  var evidence = (answer.evidence || []).map(function(item) {
+    return '<div class="reader-ai-reading-evidence"><p class="reader-ai-ru">' + escapeHtml(item.quoteRu) + '</p>' +
+      (item.quoteZh ? '<p class="reader-ai-zh">' + escapeHtml(item.quoteZh) + '</p>' : '') +
+      '<p>' + escapeHtml(item.explanation) + '</p></div>';
+  }).join('');
+  var mappings = (answer.correctMapping || []).map(function(item) {
+    return '<li><strong>' + escapeHtml(item.optionKey) + '</strong>：<span class="reader-ai-reading-source-term">' + escapeHtml(item.sourceRu) + '</span> → ' + escapeHtml(item.optionRu) + '<br>' + escapeHtml(item.explanation) + '</li>';
+  }).join('');
+  var options = (answer.optionAnalysis || []).map(function(item) {
+    var cls = item.status === 'correct' ? 'is-correct' : 'is-wrong';
+    var terms = item.conflictTerms && item.conflictTerms.length ? '<small>冲突词：' + escapeHtml(item.conflictTerms.join('、')) + '</small>' : '';
+    return '<li class="reader-ai-reading-option ' + cls + '"><strong>' + escapeHtml(item.key) + '</strong> ' + terms + '<p>' + escapeHtml(item.reason) + '</p></li>';
+  }).join('');
+  var mistake = answer.userMistake || {};
+  var transfer = answer.transferQuestion || {};
+  return '<div class="reader-ai-panel reader-ai-reading-panel"><span class="reader-ai-badge">AI 生成 · 阅读证据解析 · 不改动原始答案</span>' +
+    '<h4>先说结论</h4><p>' + escapeHtml(answer.conclusion) + '</p>' +
+    '<h5>原文证据</h5>' + evidence +
+    '<h5>正确项如何对应原文</h5><ul>' + mappings + '</ul>' +
+    '<h5>逐项排除</h5><ul>' + options + '</ul>' +
+    '<h5>你这次为什么容易选错</h5><p>' + escapeHtml(mistake.explanation) + '</p><p><strong>下次先检查：</strong>' + escapeHtml(mistake.nextCheck) + '</p>' +
+    '<h5>本题阅读判断轴</h5>' + readerAiList(answer.readingSkill) +
+    '<h5>迁移题（暂不公布答案）</h5><p>' + escapeHtml(transfer.prompt) + '</p>' + readerAiList(transfer.options) +
+    readerAiUsageHtml(payload.usage) + readerAiFeedbackHtml(payload.interactionId) + '</div>';
+}
+
+function renderReaderAiDictionaryResult(payload) {
+  var answer = payload.answer || {};
+  var examples = (answer.examples || []).map(function(item) {
+    return '<li>' + escapeHtml(item.ru) + (item.zh ? '<br><span>' + escapeHtml(item.zh) + '</span>' : '') + '</li>';
+  }).join('');
+  return '<div class="reader-ai-panel"><span class="reader-ai-badge">AI 生成 · 语境辅助</span>' +
+    (answer.provisional ? '<div class="reader-ai-provisional"><strong>临时解释，尚未核实。</strong> 不能自动变成正式词典事实，也不会直接影响复习排程。</div>' : '') +
+    '<h4>当前语境中的意思</h4><p>' + escapeHtml(answer.contextMeaning) + '</p>' +
+    '<h5>词形与语法作用</h5><p>' + escapeHtml(answer.morphology) + '</p>' +
+    '<h5>常见搭配</h5>' + readerAiList(answer.collocations) +
+    '<h5>例句</h5><ul>' + examples + '</ul>' +
+    '<h5>易混词</h5>' + readerAiList(answer.confusions) +
+    readerAiUsageHtml(payload.usage) + readerAiFeedbackHtml(payload.interactionId) + '</div>';
+}
+
+function readerAiErrorMessage(error) {
+  if (error && error.name === 'AbortError') return '请求已取消。';
+  if (error && error.code === 'not_configured') return 'AI 服务尚未配置，本地词典和学习保存仍可正常使用。';
+  if (error && error.code === 'timeout') return 'AI 请求超时，本地功能不受影响。';
+  if (error && error.code === 'invalid_response') return 'AI 返回内容格式不完整，请重试。';
+  return (error && error.message) || 'AI 暂时不可用，本地功能不受影响。';
+}
+
+function runReaderAiRequest(key, request, resultEl, renderSuccess) {
+  if (!readerAiApi || !resultEl) return;
+  if (_readerAiActive[key] && _readerAiActive[key].operation) return;
+  var operation = readerAiApi.start(request);
+  request.clientRequestId = operation.clientRequestId;
+  _readerAiActive[key] = { operation: operation, request: request };
+  resultEl.innerHTML = '<div class="reader-ai-panel"><div class="reader-ai-status"><span class="spinner"></span><span>AI 正在整理解析...</span></div>' +
+    '<div class="reader-ai-controls"><button type="button" onclick="cancelReaderAiRequest(\'' + escapeHtml(key) + '\')">取消</button></div></div>';
+  operation.promise.then(function(payload) {
+    resultEl.innerHTML = renderSuccess(payload);
+    var panel = resultEl.closest && resultEl.closest('#detailPanel');
+    if (panel) resultEl.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+  }).catch(function(error) {
+    var cancelled = error && error.name === 'AbortError';
+    resultEl.innerHTML = '<div class="reader-ai-panel"><p>' + escapeHtml(readerAiErrorMessage(error)) + '</p>' +
+      '<div class="reader-ai-controls"><button type="button" onclick="retryReaderAiRequest(\'' + escapeHtml(key) + '\')">重试</button>' +
+      (cancelled ? '' : '<button type="button" onclick="copyReaderAiRequestPrompt(\'' + escapeHtml(key) + '\')">复制提示词</button>') + '</div></div>';
+  }).finally(function() {
+    if (_readerAiActive[key]) _readerAiActive[key].operation = null;
+  });
+}
+
+function requestExerciseAiAnalysis(exerciseId, kind, retryRequest) {
+  var data = readerAiExerciseData(exerciseId, kind);
+  if (!data || !readerAiApi) { toast('AI 请求模块暂不可用'); return; }
+  var key = 'exercise:' + exerciseId;
+  var resultEl = document.getElementById('readerAiExercise-' + String(exerciseId).replace(/[^a-zA-Z0-9_-]/g, '-'));
+  var request = retryRequest || (kind === 'reading-speaking'
+    ? ReaderAiClient.readingRequest(data.exercise, data.record, data.evidence)
+    : ReaderAiClient.grammarRequest(data.exercise, data.record));
+  request.readerKind = kind || request.readerKind || 'exercise';
+  runReaderAiRequest(key, request, resultEl, request.requestType === 'reading' ? renderReaderAiReadingResult : renderReaderAiGrammarResult);
+}
+
+function cancelReaderAiRequest(key) {
+  var active = _readerAiActive[key];
+  if (active && active.operation) active.operation.cancel();
+}
+
+function retryReaderAiRequest(key) {
+  var active = _readerAiActive[key];
+  if (!active || !active.request) return;
+  delete _readerAiActive[key];
+  if (key.indexOf('exercise:') === 0) requestExerciseAiAnalysis(key.slice(9), active.request.readerKind || 'exercise', active.request);
+  else requestDictionaryAiAnalysis(active.request);
+}
+
+function copyReaderAiRequestPrompt(key) {
+  var active = _readerAiActive[key];
+  if (!active || !active.request) return;
+  var request = active.request;
+  var prompt = request.requestType === 'reading'
+    ? buildReaderAiPrompt('reading-speaking', {
+        exercise: { id: request.input.questionId, question: request.input.question, zhQuestion: request.input.questionZh, options: request.input.options, answer: request.input.correctAnswer },
+        record: { selected: request.input.userAnswer },
+        sourceAnchor: request.input.evidence
+      })
+    : request.requestType === 'grammar'
+    ? buildReaderAiPrompt('exercise', {
+        exercise: {
+          id: request.input.questionId,
+          question: request.input.question,
+          options: request.input.options,
+          answer: request.input.correctAnswer,
+          sourceExplanation: request.input.objectiveEvidence && request.input.objectiveEvidence.sourceExplanation
+        },
+        record: { selected: request.input.userAnswer }
+      })
+    : buildReaderAiPrompt(request.input.analysisKind === 'word' ? 'word' : 'phrase', {
+        word: request.input.target, phrase: request.input.target,
+        sentenceRu: request.input.sentenceRu, sentenceZh: request.input.sentenceZh
+      });
+  copyTextAndRecordReaderAiPrompt(prompt, request, '✅ AI 解析提示已复制');
+}
+
+function sendReaderAiFeedback(interactionId, value, button) {
+  if (!readerAiApi) return;
+  readerAiApi.feedback(interactionId, value).then(function() {
+    var group = button && button.closest('[data-ai-feedback]');
+    if (group) group.innerHTML = '<span>已记录：' + (value === 'helpful' ? '有帮助' : '不正确') + '</span>';
+  }).catch(function() { toast('反馈暂未保存，请稍后再试'); });
 }
 function copyQuestionAsAiPrompt(exerciseId) {
   copyExerciseAiPrompt(exerciseId, 'exercise');
@@ -5504,6 +5805,10 @@ function saveSpeakingRecording(taskId, blob) {
 }
 function setSpeakingRecordingStatus(message) { var el = document.getElementById('speaking-recording-status'); if (el) el.textContent = message; }
 function startSpeakingRecording() {
+  if (window.WhiteNightReaderSpeaking && currentSpeakingData && currentSpeakingData.id) {
+    WhiteNightReaderSpeaking.start(currentSpeakingData.id);
+    return;
+  }
   var speakTaskId = (currentSpeakingData && currentSpeakingData.id) || (window._wsSpeakTaskId) || null;
   if (!speakTaskId || !navigator.mediaDevices || !navigator.mediaDevices.getUserMedia || !window.MediaRecorder) { setSpeakingRecordingStatus('当前浏览器不支持录音；可先用下方文字提纲练习。'); return; }
   navigator.mediaDevices.getUserMedia({ audio: true }).then(function(stream) {
@@ -5531,7 +5836,13 @@ function startSpeakingRecording() {
     }
   }).catch(function() { setSpeakingRecordingStatus('未取得麦克风权限；你仍可用文字提纲完成练习。'); });
 }
-function stopSpeakingRecording() { if (activeSpeakingRecorder && activeSpeakingRecorder.state !== 'inactive') activeSpeakingRecorder.stop(); }
+function stopSpeakingRecording() {
+  if (window.WhiteNightReaderSpeaking) {
+    var taskId = (currentSpeakingData && currentSpeakingData.id) || window._wsSpeakTaskId;
+    if (taskId) { WhiteNightReaderSpeaking.stop(taskId); return; }
+  }
+  if (activeSpeakingRecorder && activeSpeakingRecorder.state !== 'inactive') activeSpeakingRecorder.stop();
+}
 function renderSpeakingPractice(data, scrollPosition) {
   currentSpeakingData = data;
   var sourcePages = (data.sourcePages || []).map(function(page) { return 'PDF-' + String(page).padStart(3, '0'); }).join('、');
@@ -5542,6 +5853,9 @@ function renderSpeakingPractice(data, scrollPosition) {
   var speakingTask = renderRuText(data.task.prompt, lookupContext('speaking', data.id, 'speaking-reference', data.task.prompt, '', data.sourcePages || []));
   var sourceAnswer = renderRuText(data.sourceAnswer.text || '', lookupContext('speaking', data.id, 'speaking-reference', data.sourceAnswer.text || '', '', data.sourceAnswer.source && data.sourceAnswer.source.pages || data.sourcePages || []));
   document.getElementById('app').innerHTML = b2FloatingNavigation({ backAction: 'showB2Dashboard()', backTitle: '仪表盘', menuAction: 'showBreadcrumb()' }) + '<main class="main-container speaking-practice reader-workbench reader-workbench--speaking"><header class="chapter-header"><h1>' + escapeHtml(data.title || '') + '</h1><p class="reading-answer-source">原书页：' + escapeHtml(sourcePages) + '</p>' + renderManualCompletionButton(SPEAKING_COMPLETED_KEY, data.id) + '</header><section><h2>原书任务</h2><p>' + speakingTask + '</p></section>' + warning + '<section><h2>渐进练习</h2><ol class="speaking-steps">' + steps + '</ol></section><section><h2>你的提纲 / 转写</h2><textarea class="speaking-transcript" placeholder="先列关键词，再写下你准备说的内容…" oninput="saveSpeakingNote(\'' + escapeHtml(data.id) + '\', this.value)">' + escapeHtml(note) + '</textarea><p id="speaking-note-status" class="speaking-recording-status">本地自动保存</p></section><section><h2>录音与回听</h2><p class="speaking-recording-status">录音只存到这台设备的浏览器 IndexedDB，不会上传。</p><div class="speaking-recording-controls"><button id="start-speaking-recording" class="tb-btn" onclick="startSpeakingRecording()">开始录音</button><button id="stop-speaking-recording" class="tb-btn" onclick="stopSpeakingRecording()" disabled>结束录音</button><span id="speaking-recording-status" class="speaking-recording-status">尚未录音</span></div><audio id="speaking-playback" class="speaking-playback" controls hidden></audio></section><details><summary>原书参考回答（已核对）</summary><p class="ru-text">' + sourceAnswer + '</p><small class="reading-answer-source">' + escapeHtml(data.sourceAnswer.source.label || 'B2 原书参考回答') + '</small></details><details><summary>学习辅助：自查清单</summary><ul>' + checklist + '</ul></details></main>';
+  var speakingCompletePrompt = document.getElementById('completePrompt');
+  if (speakingCompletePrompt) speakingCompletePrompt.classList.remove('visible');
+  if (window.WhiteNightReaderSpeaking) window.WhiteNightReaderSpeaking.mount(data.id);
   window.scrollTo(0, typeof scrollPosition === 'number' ? scrollPosition : 0); applyTheme(); saveLastRead(arguments[2]);
 }
 var LISTENING_PROGRESS_KEY = 'russian_b2_listening_progress_v1';
@@ -6446,14 +6760,18 @@ function renderDictionaryCloseButton() {
 
 function renderDictionaryActionBar(options) {
   options = options || {};
-  var aiAction = options.aiAction || 'requestAiAnalysis()';
+  var directAiAction = options.directAiAction || 'requestDictionaryAiAnalysis()';
+  var copyAiAction = options.copyAiAction || options.aiAction || 'copyCurrentDictionaryAiPrompt()';
   var aiLabel = options.aiLabel || 'AI 深度解析';
   var save = options.allowSave === false ? '' : '<button class="btn-save-vocab tb-btn" type="button" onclick="doSaveWord()"><span class="icon">⭐</span> 加入生词本</button>';
   var online = options.allowOnline && appRuntime.canUseOnlineDictionary()
     ? '<button class="tb-btn" type="button" onclick="onlineDictionaryLookup()">一键联网查询</button>'
     : '';
   var aiId = options.aiId ? ' id="' + escapeHtml(options.aiId) + '"' : '';
-  return '<div class="dp-action-bar">' + save + online + '<button class="dp-ai-btn"' + aiId + ' type="button" onclick="' + aiAction + '">🤖 ' + escapeHtml(aiLabel) + '</button></div>';
+  return '<div class="dp-action-bar">' + save + online +
+    '<button class="dp-ai-btn"' + aiId + ' type="button" onclick="' + directAiAction + '">🤖 ' + escapeHtml(aiLabel) + '</button>' +
+    '<button class="tb-btn" type="button" onclick="' + copyAiAction + '">复制提示词</button></div>' +
+    '<div class="dp-ai-result" id="dpAiResult" aria-live="polite"></div>';
 }
 
 function closeDetailPanel() {
@@ -6516,7 +6834,7 @@ function buildReaderAiPrompt(kind, payload) {
     ].join('\n');
   }
   if (kind === 'reading-speaking') {
-    return buildReaderExerciseAiPrompt(payload.exercise, payload.record, '阅读与口语练习');
+    return buildReaderExerciseAiPrompt(payload.exercise, payload.record, '阅读与口语练习', payload.sourceAnchor);
   }
   if (kind === 'exercise') {
     return buildReaderExerciseAiPrompt(payload.exercise, payload.record, 'TRKI-2 (B2) 俄语练习');
@@ -6524,7 +6842,7 @@ function buildReaderAiPrompt(kind, payload) {
   return '';
 }
 
-function buildReaderExerciseAiPrompt(exercise, record, title) {
+function buildReaderExerciseAiPrompt(exercise, record, title, evidence) {
   exercise = exercise || {};
   record = record || {};
   var selectedKey = record.selected || '未选';
@@ -6551,15 +6869,37 @@ function buildReaderExerciseAiPrompt(exercise, record, title) {
     '【正确答案】', exercise.answer || exercise.sourceAnswer || '（待核对）',
     '',
     '请依次说明：语境与中文含义、正确项为何成立、其他选项为何不成立、涉及的词汇/形态/句法规则、容易误判的边界，并提供 2 个同类俄语例句及中文翻译。只依据题面和已给材料，不要把推测写成教材原文。',
-    exercise.sourceExplanation ? '\n【已核对的原书解析（供参考）】\n' + exercise.sourceExplanation : ''
+    exercise.sourceExplanation ? '\n【已核对的原书解析（供参考）】\n' + exercise.sourceExplanation : '',
+    evidence && (evidence.anchorQuoteRu || evidence.paragraphRu) ? '\n【原文证据】\n' + (evidence.anchorQuoteRu || '') + '\n' + (evidence.paragraphRu || '') + '\n' + (evidence.paragraphZh || '') : ''
   ].join('\n');
 }
 
 function copyReaderAiPrompt(kind, payload, successMessage) {
   var prompt = buildReaderAiPrompt(kind, payload);
   if (!prompt) { toast('无法生成解析提示'); return; }
+  var request = null;
+  if (window.ReaderAiClient) {
+    var readingData = kind === 'reading-speaking' && payload.exercise
+      ? readerAiExerciseData(payload.exercise._exId || payload.exercise.id, kind)
+      : null;
+    request = kind === 'reading-speaking'
+      ? ReaderAiClient.readingRequest(payload.exercise, payload.record, readingData && readingData.evidence)
+      : kind === 'exercise'
+      ? ReaderAiClient.grammarRequest(payload.exercise, payload.record)
+      : ReaderAiClient.dictionaryRequest(payload.word || payload.phrase, {
+          sentenceRu: payload.sentenceRu || '', sentenceZh: payload.sentenceZh || ''
+        }, currentReaderAiDictionaryIdentity());
+    request.input.copiedPrompt = prompt;
+  }
+  copyTextAndRecordReaderAiPrompt(prompt, request, successMessage || '✅ AI 解析提示已复制');
+}
+
+function copyTextAndRecordReaderAiPrompt(prompt, request, successMessage) {
   navigator.clipboard.writeText(prompt)
-    .then(function() { toast(successMessage || '✅ AI 解析提示已复制'); })
+    .then(function() {
+      toast(successMessage || '✅ AI 解析提示已复制');
+      if (readerAiApi && request) readerAiApi.recordPromptCopy(request).catch(function() {});
+    })
     .catch(function() { toast('❌ 复制失败'); });
 }
 
@@ -6567,35 +6907,55 @@ function copyPhraseAnalysisPrompt() {
   copyReaderAiPrompt('phrase', { phrase: selText || _detailWord, sentenceRu: selContext, sentenceZh: selTranslationContext }, '✅ 短语 AI 解析提示已复制');
 }
 
-/* ─── AI 深度解析（clipboard 过渡方案，后续接入 AgentChat）─── */
-var _aiRequesting = false;
-
 function requestAiAnalysis() {
-  if (_aiRequesting) return;
-  _aiRequesting = true;
-  var btn = document.getElementById('dpAiBtn');
+  requestDictionaryAiAnalysis();
+}
+
+function currentReaderAiDictionaryIdentity() {
+  var resolution = _lastDictionaryResolution || {};
+  var entry = resolution.entry || null;
+  var lexemeKey = _lastLearningLookupEvent && _lastLearningLookupEvent.subject && _lastLearningLookupEvent.subject.lexemeKey || '';
+  var reliable = Boolean(entry && resolution.reliability !== 'morphology-guess' && !entry._provisional);
+  return {
+    found: reliable,
+    lemma: reliable ? (resolution.lemma || '') : '',
+    partOfSpeech: reliable ? (entry.type || entry.pos || (entry._raw && (entry._raw.pos || entry._raw.type)) || '') : '',
+    meaning: reliable ? (entry.meaning || '') : '',
+    reliability: resolution.reliability || 'not-found',
+    lexemeKey: reliable ? lexemeKey : ''
+  };
+}
+
+function currentReaderAiDictionaryRequest() {
+  var target = String(selText || _detailWord || '').trim();
+  var currentLookup = dictionaryController.getCurrent && dictionaryController.getCurrent();
+  var lookupCtx = currentLookup && currentLookup.context || {};
+  return ReaderAiClient.dictionaryRequest(target, {
+    sentenceRu: lookupCtx.sentenceRu || selContext || '',
+    sentenceZh: lookupCtx.sentenceZh || selTranslationContext || '',
+    taskId: lookupCtx.taskId || lookupCtx.questionId || lookupCtx.sourceId || ''
+  }, currentReaderAiDictionaryIdentity());
+}
+
+function requestDictionaryAiAnalysis(retryRequest) {
+  if (!readerAiApi || !window.ReaderAiClient) { toast('AI 请求模块暂不可用'); return; }
+  var request = retryRequest || currentReaderAiDictionaryRequest();
+  if (!request.input.target) { toast('请先选择单词、短语或句子'); return; }
+  var key = 'dictionary:' + request.input.target.slice(0, 80);
   var resultEl = document.getElementById('dpAiResult');
-  if (btn) { btn.classList.add('loading'); btn.textContent = '⏳ AI 分析中...'; }
+  runReaderAiRequest(key, request, resultEl, renderReaderAiDictionaryResult);
+}
 
-  var context = selContext ? selContext.substring(0, 500) : '';
-  var zhContext = selTranslationContext ? selTranslationContext.substring(0, 500) : '';
-  var lemma = selText || _detailWord || '';
-  var prompt = buildReaderAiPrompt('word', { word: lemma, sentenceRu: context, sentenceZh: zhContext });
-
-  navigator.clipboard.writeText(prompt).then(function() {
-    if (btn) { btn.classList.remove('loading'); btn.textContent = '✅ 已复制到剪贴板 — 粘贴到 Gemini/豆包'; }
-    if (resultEl) resultEl.innerHTML = '<div style="color:var(--text-dim);margin-top:8px">Prompt 已复制，粘贴到 AI 对话框获取深度解析</div>';
-    _aiRequesting = false;
-    setTimeout(function() {
-      if (btn) { btn.classList.remove('loading'); btn.textContent = '🤖 AI 深度解析'; }
-    }, 3000);
-  }).catch(function() {
-    if (btn) { btn.classList.remove('loading'); btn.textContent = '❌ 复制失败'; }
-    _aiRequesting = false;
-    setTimeout(function() {
-      if (btn) btn.textContent = '🤖 AI 深度解析';
-    }, 2000);
-  });
+function copyCurrentDictionaryAiPrompt() {
+  if (!window.ReaderAiClient) return;
+  var request = currentReaderAiDictionaryRequest();
+  var kind = request.input.analysisKind === 'word' ? 'word' : 'phrase';
+  copyReaderAiPrompt(kind, {
+    word: request.input.target,
+    phrase: request.input.target,
+    sentenceRu: request.input.sentenceRu,
+    sentenceZh: request.input.sentenceZh
+  }, '✅ AI 解析提示已复制');
 }
 
 function toggleDetailPanel(word) {
@@ -7241,7 +7601,6 @@ function renderDetailPanel(word, result) {
 
   // ── 统一底部操作区 ──
   html += renderDictionaryActionBar({ aiId: 'dpAiBtn', allowOnline: true });
-  html += '<div class="dp-ai-result" id="dpAiResult"></div>';
 
   // ── 来源标注 ──
   html += '<div class="dp-source">来源：' + escapeHtml(result.source || '本地词库') + '</div>';
@@ -7489,13 +7848,7 @@ function doLookup() {
 }
 function doAskAI() {
   if (!selText) return;
-  var lookupCtx = dictionaryController.getCurrent && dictionaryController.getCurrent().context || {};
-  copyReaderAiPrompt('word', {
-    word: selText.trim(),
-    sentenceRu: lookupCtx.sentenceRu || selContext || '',
-    sentenceZh: lookupCtx.sentenceZh || selTranslationContext || ''
-  }, '✅ 单词 AI 深度解析提示已复制');
-  closeDetailPanel();
+  requestDictionaryAiAnalysis();
 }
 async function doSaveWord() {
   if (!selText || _readerLearningWritePending) return;
@@ -7688,6 +8041,7 @@ function markChapterDone() {
   var mins = Math.round(readTimer / 60);
   readStats[curBook.id][curCh] = { completed: true, peeks: peekCount, time_spent_sec: readTimer, completed_at: new Date().toISOString() };
   saveStats();
+  if (curBook.id === 'reading_speaking') updateReadingSpeakingChapterCompletionAction();
   if (!curBook.isB2Module && curBook.id !== 'russian_b2') recordReaderChapterCompletion();
   // 通知父页面
   try { window.parent.postMessage({ type: 'NOVEL_CHAPTER_DONE', bookId: curBook.id, chapter: curCh, timeSec: readTimer, bookTitle: curBook.title }, '*'); } catch(e) {}
@@ -8160,6 +8514,10 @@ function getReadingSpeakingExercise(exId) {
     if (_currentRSExercises[i]._exId === exId) return _currentRSExercises[i];
   }
   return null;
+}
+
+function isReadingSpeakingAnswerVerified(exercise) {
+  return !!(exercise && exercise.answer && exercise.answerStatus !== 'unverified');
 }
 
 /* ══════════════════════════════════════════════
@@ -8806,6 +9164,7 @@ function renderWritingSpeakingSpeakingTask(data, task, index, support, translati
       return '<li><span class="ws-assist-step-ru">' + escapeHtml(expression.ru || '') + '</span>' + (expression.zh ? '<br><span class="ws-assist-step-zh">' + escapeHtml(expression.zh) + '</span>' : '') + '<br><span class="ws-pattern-role">功能：' + escapeHtml(expression.category || '口语表达') + '</span></li>';
     }).join('') + '</ul><span class="ws-source-label">学习辅助 · AI 生成 · 未经人工核对</span></details>';
   }
+  html += '<section class="wn-speaking-recorder" data-speaking-task="' + escapeHtml(speakingId) + '"><div class="wn-speaking-recorder-head"><strong>录音练习</strong><small>只保存在这台设备的浏览器中，不会上传。</small></div><div class="wn-speaking-recorder-actions"><button type="button" class="tb-btn" data-speaking-start onclick="WhiteNightReaderSpeaking.start(\'' + escapeHtml(speakingId) + '\')">开始录音</button><button type="button" class="tb-btn" data-speaking-stop onclick="WhiteNightReaderSpeaking.stop(\'' + escapeHtml(speakingId) + '\')" disabled>结束录音</button><span class="wn-speaking-status" aria-live="polite">尚未录音</span></div><div class="wn-speaking-recordings" aria-live="polite"></div></section>';
   return html + '</article>';
 }
 
@@ -8872,6 +9231,9 @@ function renderWritingSpeakingChapter(data, scrollPosition, restoreState) {
 
   html += '<div class="ws-bottom-nav">' + navP + '<span class="fab-chapter">第 ' + (curCh + 1) + ' / ' + totalChapters + ' 章</span><span class="fab-nav ' + (summary.isComplete ? '' : 'disabled') + '">' + (summary.isComplete ? '✓ 本章已完成' : '完成所有任务后计入本章') + '</span>' + navN + '</div></main>';
   document.getElementById('app').innerHTML = html;
+  if (window.WhiteNightReaderSpeaking && data.speakingTasks) data.speakingTasks.forEach(function(task, index) {
+    WhiteNightReaderSpeaking.mount(task.speakingId || (data.id + '-s-' + index));
+  });
   window.scrollTo(0, typeof scrollPosition === 'number' ? scrollPosition : 0);
   applyTheme(); saveLastRead(arguments[2]); initCollapseAnimations();
 }
@@ -9032,14 +9394,49 @@ function updateReadingSpeakingPracticeProgress() {
   root.setAttribute('aria-valuenow', String(progress.completed));
   if (text) text.textContent = '已完成 ' + progress.completed + ' / ' + progress.total;
   if (fill) fill.style.width = percent + '%';
+  updateReadingSpeakingChapterCompletionAction(progress);
+}
+
+function renderReadingSpeakingChapterCompletionAction(progress) {
+  if (!progress.total || progress.completed !== progress.total) return '';
+  if (isChapterCompleted('reading_speaking', curCh)) {
+    return '<section class="rs-chapter-completion" id="rsChapterCompletion"><p>本篇已记录为完成。</p></section>';
+  }
+  return '<section class="rs-chapter-completion" id="rsChapterCompletion"><p>' + progress.total + ' 道题已全部提交。</p><button type="button" class="b2-finish" onclick="requestReadingSpeakingChapterCompletion()">标记本篇完成</button></section>';
+}
+
+function updateReadingSpeakingChapterCompletionAction(progress) {
+  var panel = document.getElementById('readingSpeakingPracticePanel');
+  if (!panel) return;
+  var oldAction = document.getElementById('rsChapterCompletion');
+  var html = renderReadingSpeakingChapterCompletionAction(progress || getReadingSpeakingPracticeProgress());
+  if (oldAction) {
+    if (html) oldAction.outerHTML = html;
+    else oldAction.remove();
+  } else if (html) {
+    panel.insertAdjacentHTML('beforeend', html);
+  }
+}
+
+function requestReadingSpeakingChapterCompletion() {
+  var progress = getReadingSpeakingPracticeProgress();
+  if (progress.completed !== progress.total) {
+    toast('还有 ' + (progress.total - progress.completed) + ' 道题未提交。');
+    return;
+  }
+  if (!window.confirm('已完成 ' + progress.total + ' 道题。确定标记本篇完成吗？')) return;
+  markChapterDone();
 }
 
 function renderReadingSpeakingPracticePanel(exercises) {
   if (!exercises.length) return '<aside class="rs-practice-panel" id="readingSpeakingPracticePanel" aria-label="练习题"><div class="detail-placeholder">本章暂时没有练习题</div></aside>';
+  var progress = getReadingSpeakingPracticeProgress(exercises);
+  var completionAction = renderReadingSpeakingChapterCompletionAction(progress);
   return '<aside class="rs-practice-panel" id="readingSpeakingPracticePanel" aria-label="练习题">' +
     '<header class="rs-practice-panel-header"><p class="rs-practice-panel-kicker">练习模式</p><h2>边读边答</h2><p>题目固定在这里，点原文词语仍可随时查义。</p></header>' +
     renderReadingSpeakingPracticeProgress(exercises) +
     exercises.map(function(ex) { return renderReadingSpeakingExercise(ex); }).join('') +
+    completionAction +
     '</aside>';
 }
 
@@ -9055,13 +9452,14 @@ function renderReadingSpeakingChapter(data, scrollPosition, restoreState) {
     var isBm = bookMarks.indexOf(i) >= 0;
     // 移除 Markdown ** 标记（数据文件中残留的加粗语法）
     var cleanPara = paras[i].replace(/\*\*/g, '');
+    var translationHtml = trans[i] ? '<p class="cn-text">' + escapeHtml(trans[i]) + '</p>' : '';
     parts.push(
       '<div class="para-block" data-idx="' + i + '">' +
       '<div class="para-actions">' +
         '<button class="' + (isBm ? 'bookmarked' : '') + '" onclick="toggleBookmark(' + i + ',event)" title="收藏段落">' + (isBm ? '★' : '☆') + '</button>' +
       '</div>' +
       '<p class="ru-text rs-source-paragraph" id="rs-source-p-' + i + '">' + renderRuText(cleanPara, lookupContext('reading', 'reading_speaking-ch' + curCh + '-p' + i, 'reading-body', cleanPara, (trans[i] || ''), [])) + '</p>' +
-      '<p class="cn-text">' + escapeHtml(trans[i] || '') + '</p></div>'
+      translationHtml + '</div>'
     );
   }
   if (!visibleCount) parts.push('<div class="loading">📭 本章暂无内容</div>');
@@ -9102,7 +9500,6 @@ function renderReadingSpeakingChapter(data, scrollPosition, restoreState) {
     '</div>' +
     '<div class="fab-group-bottom">' + navP +
     '<span class="fab-chapter">第 ' + (curCh + 1) + ' / ' + totalChapters + ' 章</span>' +
-    '<button id="markDoneBtn" class="fab-nav fab-mark-done" onclick="markChapterDone()"' + (isChapterCompleted('reading_speaking', curCh) ? ' disabled' : '') + '>✓ 标记完成</button>' +
     navN + '</div>';
 
   window.scrollTo(0, typeof scrollPosition === 'number' ? scrollPosition : 0); applyTheme(); saveLastRead(restoreState);
@@ -9119,6 +9516,7 @@ function renderReadingSpeakingExercise(ex) {
   var exId = ex._exId || ('rs-' + curCh + '-ex' + ex.num);
   var record = getReadingSpeakingRecord(exId);
   var submitted = record.submitted;
+  var answerVerified = isReadingSpeakingAnswerVerified(ex);
 
   var html = '<div class="b2-quiz-item" data-question-id="' + escapeHtml(exId) + '">';
   var questionText = ex.question || '';
@@ -9136,7 +9534,7 @@ function renderReadingSpeakingExercise(ex) {
   for (var j = 0; j < (ex.options || []).length; j++) {
     var key = extractOptionKey(ex.options[j]);
     var selected = record.selected === key;
-    var isCorrectAnswer = key === ex.answer;
+    var isCorrectAnswer = answerVerified && key === ex.answer;
     var cls = 'b2-option-row';
     if (submitted && isCorrectAnswer) cls += ' correct';
     if (submitted && selected && !isCorrectAnswer) cls += ' wrong';
@@ -9160,8 +9558,9 @@ function renderReadingSpeakingExercise(ex) {
 
   // 结果
   if (submitted) {
-    html += '<p class="b2-quiz-result ' + (record.wrong ? 'wrong' : 'correct') + '">' +
-      (record.wrong ? '回答错误' : '回答正确') + '</p>';
+    var resultClass = record.unverified ? 'pending' : (record.wrong ? 'wrong' : 'correct');
+    var resultText = record.unverified ? '已记录，标准答案待确认' : (record.wrong ? '回答错误' : '回答正确');
+    html += '<p class="b2-quiz-result ' + resultClass + '">' + resultText + '</p>';
   }
 
   // 解析
@@ -9178,8 +9577,11 @@ function renderReadingSpeakingExercise(ex) {
 }
 
 function renderReadingSpeakingExplanationContent(ex, exId) {
-  var html = '<div class="rs-explanation"><div class="rs-answer-banner"><span>正确答案</span><strong>' + escapeHtml(ex.answer) + '</strong></div>';
-  if (ex.detailed_explanation) {
+  var answerVerified = isReadingSpeakingAnswerVerified(ex);
+  var html = '<div class="rs-explanation"><div class="rs-answer-banner"><span>' + (answerVerified ? '正确答案' : '答案状态') + '</span><strong>' + (answerVerified ? escapeHtml(ex.answer) : '标准答案待确认') + '</strong></div>';
+  if (ex.answerAnalysis) {
+    html += renderReadingStructuredExplanation(ex.answerAnalysis, exId);
+  } else if (ex.detailed_explanation) {
     var paragraphs = ex.detailed_explanation.split('\n').filter(function(p) { return p.trim(); });
     var sections = [];
     var activeSection = null;
@@ -9205,7 +9607,7 @@ function renderReadingSpeakingExplanationContent(ex, exId) {
       var kind = classByTitle[section.title] || 'review';
       html += '<section class="rs-explanation-block rs-explanation-block--' + kind + '">';
       if (section.title === '【学习辅助·原文定位】' || section.title === '【定位原文】') {
-        html += '<h4><button type="button" class="rs-source-locate" onclick="locateReadingSpeakingSource(\'' + escapeHtml(exId) + '\',event)">' + escapeHtml(section.title) + '</button></h4>';
+        html += '<h4>' + escapeHtml(section.title) + ' ' + renderReadingSpeakingLocatorControl(exId, ex.answerAnalysis && ex.answerAnalysis.locatorStatus) + '</h4>';
       } else if (section.title) {
         html += '<h4>' + escapeHtml(section.title) + '</h4>';
       }
@@ -9219,6 +9621,57 @@ function renderReadingSpeakingExplanationContent(ex, exId) {
   return html + '</div>';
 }
 
+function renderReadingStructuredExplanation(analysis, exId) {
+  analysis = analysis || {};
+  var evidence = analysis.evidence || {};
+  var evidenceItems = analysis.evidenceItems || [];
+  var mappings = (analysis.mappings || []).map(function(item) {
+    return '<li><span class="rs-analysis-mapping">' + escapeHtml(item.source) + ' → ' + escapeHtml(item.option) + '</span><br>' + escapeHtml(item.reason) + '</li>';
+  }).join('');
+  var options = (analysis.options || []).map(function(item) {
+    var cls = item.status === 'correct' ? 'rs-analysis-correct' : 'rs-analysis-wrong';
+    return '<section class="' + cls + '"><h4>' + escapeHtml(item.key) + '：' + escapeHtml(item.status === 'correct' ? '正确项' : '排除项') + '</h4>' +
+      '<p><strong>关键处：</strong>' + escapeHtml((item.terms || []).join('、')) + '</p><p>' + escapeHtml(item.reason) + '</p></section>';
+  }).join('');
+  var locate = renderReadingSpeakingLocatorControl(exId, analysis.locatorStatus);
+  var provenance = analysis.provenance && analysis.provenance.kind === 'ai-generated'
+    ? '<p class="reader-ai-generated-label">AI 生成内容 · 已按原书答案整理</p>' : '';
+  var evidenceHtml = evidenceItems.length ? evidenceItems.map(function(item, index) {
+    return '<div class="rs-analysis-evidence-item"><p><strong>证据 ' + (index + 1) + '</strong></p><p class="ru-text">' + escapeHtml(item.quoteRu || '') + '</p><p>' + escapeHtml(item.quoteZh || '') + '</p></div>';
+  }).join('') : '<p class="ru-text">' + escapeHtml(evidence.ru || '') + '</p><p>' + escapeHtml(evidence.zh || '') + '</p>';
+  var correctHtml = analysis.correctReason
+    ? '<p>' + escapeHtml(analysis.correctReason) + '</p>'
+    : '<ul>' + mappings + '</ul>';
+  var reviewHtml = analysis.review ? '<section><h4>一句话复盘</h4><p>' + escapeHtml(analysis.review) + '</p></section>' : '';
+  var nextCheckHtml = analysis.nextCheck ? '<p><strong>下次先检查：</strong>' + escapeHtml(analysis.nextCheck) + '</p>' : '';
+  return '<div class="rs-structured-analysis">' + provenance + '<section class="rs-analysis-evidence"><h4>原文证据 ' + locate + '</h4>' + evidenceHtml + '</section>' +
+    '<section class="rs-analysis-correct"><h4>正确项如何对应原文</h4>' + correctHtml + '</section>' +
+    '<section><h4>先说结论</h4><p>' + escapeHtml(analysis.conclusion || '') + '</p></section>' +
+    '<div class="rs-analysis-options"><h4>逐项排除</h4>' + options + '</div>' +
+    '<section class="rs-analysis-wrong"><h4>容易误选的原因</h4><p>' + escapeHtml(analysis.pitfall || '') + '</p>' + nextCheckHtml + '</section>' + reviewHtml + '</div>';
+}
+
+function getReadingSpeakingLocatorStatus(exId, status) {
+  if (status === 'exact' || status === 'paragraph' || status === 'unavailable') return status;
+  var exercise = getReadingSpeakingExercise(exId);
+  var anchors = exercise && exercise.evidenceAnchors && exercise.evidenceAnchors.length
+    ? exercise.evidenceAnchors
+    : (exercise && exercise.sourceAnchor && exercise.sourceAnchor.quote ? [exercise.sourceAnchor] : []);
+  if (!anchors.length) return 'unavailable';
+  return anchors.some(function(anchor) { return anchor.locatorLevel === 'paragraph'; }) ? 'paragraph' : 'exact';
+}
+
+function renderReadingSpeakingLocatorControl(exId, status) {
+  if (!exId) return '';
+  var level = getReadingSpeakingLocatorStatus(exId, status);
+  if (level === 'unavailable') {
+    return '<span class="rs-source-locate-status rs-source-locate-status--unavailable" title="当前 Reader 的原文版本无法可靠匹配网页解析引用">原文待核对</span>';
+  }
+  var label = level === 'paragraph' ? '定位相关段落' : '定位原文句子';
+  var hint = level === 'paragraph' ? '证据存在 OCR 或版本差异，将跳到相关段落' : '跳到并高亮原文证据句';
+  return '<button type="button" class="rs-source-locate" title="' + hint + '" onclick="locateReadingSpeakingSource(\'' + escapeHtml(exId) + '\',event)">' + label + '</button>';
+}
+
 function normalizeReadingSpeakingSourceWord(value) {
   return String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/ё/g, 'е').replace(/[^а-яa-z0-9-]/g, '');
 }
@@ -9226,49 +9679,57 @@ function normalizeReadingSpeakingSourceWord(value) {
 function locateReadingSpeakingSource(exId, evt) {
   if (evt) { evt.preventDefault(); evt.stopPropagation(); }
   var exercise = _currentRSExercises.find(function(item) { return item._exId === exId; });
-  if (!exercise || !exercise.sourceAnchor || !exercise.sourceAnchor.quote) { toast('这道题暂时没有可定位的原文句子'); return; }
+  var anchors = exercise && exercise.evidenceAnchors && exercise.evidenceAnchors.length
+    ? exercise.evidenceAnchors
+    : (exercise && exercise.sourceAnchor && exercise.sourceAnchor.quote ? [exercise.sourceAnchor] : []);
+  if (!anchors.length) { toast('这道题暂时没有可定位的原文句子'); return; }
+  var locatorStatus = getReadingSpeakingLocatorStatus(exId, exercise.answerAnalysis && exercise.answerAnalysis.locatorStatus);
 
   var oldWords = document.querySelectorAll('.rs-source-word-highlight');
   for (var i = 0; i < oldWords.length; i++) oldWords[i].classList.remove('rs-source-word-highlight');
   var oldParas = document.querySelectorAll('.rs-source-paragraph-highlight');
   for (var p = 0; p < oldParas.length; p++) oldParas[p].classList.remove('rs-source-paragraph-highlight');
 
-  var paragraph = typeof exercise.sourceAnchor.paragraphIndex === 'number'
-    ? document.getElementById('rs-source-p-' + exercise.sourceAnchor.paragraphIndex)
-    : null;
-  var anchorTokens = exercise.sourceAnchor.quote.split(/\s+/).map(normalizeReadingSpeakingSourceWord).filter(function(token) {
-    return /^[а-я-]+$/.test(token);
+  var firstTarget = null, missing = 0;
+  anchors.forEach(function(anchor) {
+    var paragraph = typeof anchor.paragraphIndex === 'number'
+      ? document.getElementById('rs-source-p-' + anchor.paragraphIndex)
+      : null;
+    var anchorTokens = String(anchor.quote || '').split(/\s+/).map(normalizeReadingSpeakingSourceWord).filter(function(token) {
+      return /^[а-я-]+$/.test(token);
+    });
+    if (!paragraph) {
+      var candidates = document.querySelectorAll('.rs-source-paragraph');
+      var anchorPreview = anchorTokens.slice(0, Math.min(5, anchorTokens.length)).join(' ');
+      for (var c = 0; c < candidates.length; c++) {
+        var candidateWords = Array.from(candidates[c].querySelectorAll('.ru-word')).map(function(word) { return normalizeReadingSpeakingSourceWord(word.textContent); }).filter(Boolean);
+        if (candidateWords.join(' ').indexOf(anchorPreview) >= 0) { paragraph = candidates[c]; break; }
+      }
+    }
+    if (!paragraph || !anchorTokens.length) { missing++; return; }
+    var wordElements = Array.from(paragraph.querySelectorAll('.ru-word'));
+    var paragraphTokens = wordElements.map(function(word) { return normalizeReadingSpeakingSourceWord(word.textContent); });
+    var matchStart = -1;
+    for (var start = 0; start <= paragraphTokens.length - anchorTokens.length; start++) {
+      var matches = true;
+      for (var offset = 0; offset < anchorTokens.length; offset++) {
+        if (paragraphTokens[start + offset] !== anchorTokens[offset]) { matches = false; break; }
+      }
+      if (matches) { matchStart = start; break; }
+    }
+    paragraph.closest('.para-block').classList.add('rs-source-paragraph-highlight');
+    if (matchStart >= 0) {
+      for (var w = matchStart; w < matchStart + anchorTokens.length; w++) wordElements[w].classList.add('rs-source-word-highlight');
+      if (!firstTarget) firstTarget = wordElements[matchStart];
+    } else {
+      missing++;
+      if (!firstTarget) firstTarget = paragraph;
+    }
   });
-  if (!paragraph) {
-    var candidates = document.querySelectorAll('.rs-source-paragraph');
-    var anchorPreview = anchorTokens.slice(0, Math.min(5, anchorTokens.length)).join(' ');
-    for (var c = 0; c < candidates.length; c++) {
-      var candidateWords = Array.from(candidates[c].querySelectorAll('.ru-word')).map(function(word) { return normalizeReadingSpeakingSourceWord(word.textContent); }).filter(Boolean);
-      if (candidateWords.join(' ').indexOf(anchorPreview) >= 0) { paragraph = candidates[c]; break; }
-    }
-  }
-  if (!paragraph) { toast('没有找到对应原文段落'); return; }
-
-  var wordElements = Array.from(paragraph.querySelectorAll('.ru-word'));
-  var paragraphTokens = wordElements.map(function(word) { return normalizeReadingSpeakingSourceWord(word.textContent); });
-  var matchStart = -1;
-  for (var start = 0; start <= paragraphTokens.length - anchorTokens.length; start++) {
-    var matches = true;
-    for (var offset = 0; offset < anchorTokens.length; offset++) {
-      if (paragraphTokens[start + offset] !== anchorTokens[offset]) { matches = false; break; }
-    }
-    if (matches) { matchStart = start; break; }
-  }
-
-  paragraph.closest('.para-block').classList.add('rs-source-paragraph-highlight');
-  var scrollTarget = paragraph;
-  if (matchStart >= 0) {
-    for (var w = matchStart; w < matchStart + anchorTokens.length; w++) wordElements[w].classList.add('rs-source-word-highlight');
-    scrollTarget = wordElements[matchStart];
-  } else {
-    toast('已定位到原文段落，句子匹配需要复核');
-  }
-  scrollTarget.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  if (!firstTarget) { toast('没有找到对应原文段落'); return; }
+  if (locatorStatus === 'paragraph') toast('已定位到相关段落；原句存在 OCR 或版本差异，请结合解析核对。');
+  else if (missing) toast('已定位可用证据，另有 ' + missing + ' 个片段需要复核');
+  firstTarget.scrollIntoView({ behavior: 'smooth', block: 'center' });
 }
 
 /* ══════════════════════════════════════════════
@@ -9284,14 +9745,15 @@ function submitReadingSpeakingOption(exId, key, evt) {
     // 第二次点击同一选项 → 确认提交
     record.submitted = true;
     var ex = getReadingSpeakingExercise(exId);
-    record.wrong = ex ? key !== ex.answer : false;
+    record.unverified = !isReadingSpeakingAnswerVerified(ex);
+    record.wrong = !record.unverified && ex ? key !== ex.answer : false;
     var progress = getReadingSpeakingProgress();
     progress[exId] = record;
     saveReadingSpeakingProgress(progress);
     recordB2Submission('reading-speaking', _currentRSData && _currentRSData.id || String(curCh), [exId], ex ? [{
       questionId: exId, printedNumber: ex.number || ex.printedNumber, prompt: ex.question || ex.prompt,
       options: ex.options, selected: key, answer: ex.answer,
-      answeredAt: new Date().toISOString(), result: record.wrong ? 'wrong' : 'correct'
+      answeredAt: new Date().toISOString(), result: record.unverified ? 'unverified' : (record.wrong ? 'wrong' : 'correct')
     }] : []);
   } else {
     // 第一次点击 → 选中
@@ -9326,7 +9788,7 @@ function updateReadingSpeakingQuestionDOM(exId) {
     var row = rows[j];
     var optionKey = extractOptionKey((ex.options || [])[j] || '');
     var selected = record.selected === optionKey;
-    var correct = optionKey === ex.answer;
+    var correct = isReadingSpeakingAnswerVerified(ex) && optionKey === ex.answer;
     // 清除旧状态 class
     row.classList.remove('pending', 'correct', 'wrong');
     row.style.pointerEvents = '';
@@ -9348,8 +9810,9 @@ function updateReadingSpeakingQuestionDOM(exId) {
 
   if (record.submitted) {
     // 结果
-    var resultHtml = '<p class="b2-quiz-result ' + (record.wrong ? 'wrong' : 'correct') + '">' +
-      (record.wrong ? '回答错误' : '回答正确') + '</p>';
+    var resultClass = record.unverified ? 'pending' : (record.wrong ? 'wrong' : 'correct');
+    var resultText = record.unverified ? '已记录，标准答案待确认' : (record.wrong ? '回答错误' : '回答正确');
+    var resultHtml = '<p class="b2-quiz-result ' + resultClass + '">' + resultText + '</p>';
     if (oldResult) oldResult.outerHTML = resultHtml;
     else rows[rows.length - 1].insertAdjacentHTML('afterend', resultHtml);
 

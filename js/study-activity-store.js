@@ -41,6 +41,28 @@
     return [...new Set((Array.isArray(values) ? values : []).map(value => String(value || '').trim()).filter(Boolean))];
   }
 
+  function answerSubmissions(values) {
+    return (Array.isArray(values) ? values : []).filter(value => value && typeof value === 'object').map(value => ({
+      schema: String(value.schema || 'belye-nochi-answer-evidence/v1'),
+      schemaVersion: integer(value.schemaVersion, 1) || 1,
+      questionId: String(value.questionId || ''),
+      printedNumber: String(value.printedNumber || ''),
+      prompt: String(value.prompt || ''),
+      options: (Array.isArray(value.options) ? value.options : []).map(option => ({
+        key: String(option && option.key || ''),
+        text: String(option && option.text || '')
+      })),
+      selectedAnswer: String(value.selectedAnswer || ''),
+      correctAnswer: String(value.correctAnswer || ''),
+      result: String(value.result || ''),
+      answeredAt: String(value.answeredAt || ''),
+      initialErrorCategory: String(value.initialErrorCategory || ''),
+      finalErrorCategory: String(value.finalErrorCategory || ''),
+      ruleIds: uniqueStrings(value.ruleIds),
+      ruleEvidence: String(value.ruleEvidence || '')
+    })).filter(value => value.questionId);
+  }
+
   function createId(prefix = 'act') {
     const random = environment.crypto && typeof environment.crypto.randomUUID === 'function'
       ? environment.crypto.randomUUID()
@@ -78,7 +100,8 @@
         bookId: String(input.content && input.content.bookId || input.bookId || ''),
         chapterId: String(input.content && input.content.chapterId || input.chapterId || ''),
         unitId: String(input.content && input.content.unitId || input.unitId || ''),
-        itemIds
+        itemIds,
+        submissions: answerSubmissions(input.content && input.content.submissions)
       },
       capture: {
         mode: String(input.capture && input.capture.mode || 'live'),
@@ -211,6 +234,7 @@
       async appendLegacyEvent(input = {}) { return adapter.put(normalizeRecord({ ...input, kind: 'event', capture: { ...(input.capture || {}), mode: 'legacy' }, quality: { ...(input.quality || {}), timePrecision: input.quality && input.quality.timePrecision || 'date-only' } })); },
       async retract(id, reason = '') { const previous = await adapter.get(id); if (!previous) return null; return adapter.put(mergeRecord(previous, { retractedAt: iso(), retractReason: reason })); },
       async queryRange(startDate, endDate = startDate) { const records = await adapter.all(); return records.filter(record => record.localDate >= startDate && record.localDate <= endDate && !record.retractedAt).sort((a, b) => String(b.startedAt).localeCompare(String(a.startedAt))); },
+      async queryAll() { return (await adapter.all()).filter(record => !record.retractedAt).sort((a, b) => String(b.startedAt).localeCompare(String(a.startedAt))); },
       async aggregateDay(day = localDate()) { return aggregateRecords(await adapter.all(), day); },
       async aggregateRange(startDate, endDate = startDate) { return aggregateRecords(await this.queryRange(startDate, endDate)); }
     };

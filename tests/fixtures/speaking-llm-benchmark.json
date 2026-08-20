@@ -1,0 +1,93 @@
+[
+  {
+    "id": "dual-asr-clarification-01",
+    "mode": "daily",
+    "title": "双通道转写不确定时先追问",
+    "input": {
+      "asrZh": "我今天想聊博物馆，但是最后一个词可能听错了。",
+      "asrRu": "Сегодня я хочу поговорить о музее, но последнее слово неясно.",
+      "confirmedTranscript": "",
+      "conversationContext": "用户刚开始一次十分钟俄语练习。"
+    },
+    "expectations": {
+      "mustAskClarification": true,
+      "mustContainCyrillic": true,
+      "maxReplySentences": 2,
+      "maxCorrections": 1
+    }
+  },
+  {
+    "id": "daily-follow-up-01",
+    "mode": "daily",
+    "title": "日常对话要短并继续追问",
+    "input": {
+      "asrZh": "我今天去了图书馆，还看了一本俄语书。",
+      "asrRu": "Сегодня я ходил в библиотеку и читал русскую книгу.",
+      "confirmedTranscript": "Сегодня я ходил в библиотеку и читал русскую книгу.",
+      "conversationContext": "陪练身份是俄语朋友，用户希望自然聊天。"
+    },
+    "expectations": {
+      "mustAskClarification": false,
+      "mustContainCyrillic": true,
+      "mustAskQuestion": true,
+      "maxReplySentences": 2,
+      "maxCorrections": 1
+    }
+  },
+  {
+    "id": "chinese-scaffold-01",
+    "mode": "daily",
+    "title": "中文求助后给支架并回到俄语",
+    "input": {
+      "asrZh": "我不知道在咖啡馆怎么说我想要一杯热茶。",
+      "asrRu": "Я не знаю, как сказать это в кафе.",
+      "confirmedTranscript": "",
+      "conversationContext": "用户用中文求助，下一步应给一个简单俄语句型。"
+    },
+    "expectations": {
+      "mustAskClarification": false,
+      "mustContainCyrillic": true,
+      "mustOfferScaffold": true,
+      "mustAskQuestion": true,
+      "maxReplySentences": 3,
+      "maxCorrections": 1
+    }
+  },
+  {
+    "id": "b2-guided-task-01",
+    "mode": "b2-guided",
+    "title": "B2 引导练习保留任务支架",
+    "input": {
+      "asrZh": "请练习说明为什么年轻人应该参加志愿活动。",
+      "asrRu": "Объясните, почему молодым людям стоит участвовать в волонтёрской работе.",
+      "confirmedTranscript": "",
+      "conversationContext": "这是 B2 引导练习，不是模拟考试；允许关键词支架。"
+    },
+    "expectations": {
+      "mustAskClarification": false,
+      "mustContainCyrillic": true,
+      "mustOfferScaffold": true,
+      "mustAskQuestion": true,
+      "maxReplySentences": 3,
+      "maxCorrections": 1
+    }
+  },
+  {
+    "id": "deferred-correction-01",
+    "mode": "daily",
+    "title": "纠错集中且不打断交流",
+    "input": {
+      "asrZh": "我说了一句俄语，可能把格用错了，但我想继续讲旅行。",
+      "asrRu": "Я интересуюсь путешествия.",
+      "confirmedTranscript": "Я интересуюсь путешествиями.",
+      "conversationContext": "用户希望继续对话，只接受一个高价值的简短纠错。"
+    },
+    "expectations": {
+      "mustAskClarification": false,
+      "mustContainCyrillic": true,
+      "mustAskQuestion": true,
+      "maxReplySentences": 2,
+      "maxCorrections": 1
+    }
+  }
+]
