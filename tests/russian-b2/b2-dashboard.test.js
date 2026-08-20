@@ -27,6 +27,15 @@ test('reader provides a unified B2 dashboard and module navigation', () => {
   assert.match(reader, /function openB2Module\(/);
 });
 
+test('B2 dashboard exposes a local tutor review package without automatic model calls', () => {
+  const reader = fs.readFileSync(path.join(root, 'reader.html'), 'utf8');
+  assert.match(reader, /function showTutorReview\(\)/);
+  assert.match(reader, /ReaderAnswerEvidence\.latestSubmissions\(records, 10\)/);
+  assert.match(reader, /function copyTutorReview\(openTutor\)/);
+  assert.match(reader, /http:\/\/localhost:3782/);
+  assert.doesNotMatch(reader, /fetch\(['"]http:\/\/127\.0\.0\.1:8001/);
+});
+
 test('B2 dashboard and module list use floating navigation instead of the dark toolbar', () => {
   const reader = fs.readFileSync(path.join(root, 'reader.html'), 'utf8');
   const dashboardStart = reader.indexOf('function renderB2Dashboard(book)');

@@ -1,7 +1,7 @@
 {
   "schema": "mystudyspace-content-v1",
   "version": "2026.07.27.1",
-  "generatedAt": "2026-08-08T08:20:20.694Z",
+  "generatedAt": "2026-08-20T10:09:35.699Z",
   "grammarAnalysisStatus": "complete",
   "grammarAnalysis": {
     "chapters": 5,
@@ -19,8 +19,8 @@
       "declaredChapters": 30,
       "chapterFiles": 30,
       "fileCount": 30,
-      "totalBytes": 802209,
-      "contentHash": "d3fcb0f51c68ad73919bf10885f3ead5d13dcf86945899bc1cfe861c95ca3ced"
+      "totalBytes": 1848490,
+      "contentHash": "210df2a320586e2db0fc16e911c2fe3fe392088a7fa46f31fee0558f6f2a6d4f"
     },
     {
       "id": "listening_speaking",
@@ -28,10 +28,10 @@
       "title": "В мире людей — 听力口语",
       "dir": "data/textbook/listening_speaking",
       "declaredChapters": 63,
-      "chapterFiles": 98,
-      "fileCount": 103,
-      "totalBytes": 1314344,
-      "contentHash": "aecfabda46e26535b550a57720830898e73eeb90ba2ec02512b244fb569162ca"
+      "chapterFiles": 136,
+      "fileCount": 185,
+      "totalBytes": 4542280,
+      "contentHash": "2ec096ee7b419220e390cec8602e86b79ba70b65e7c76b134c4683c3fa850c39"
     },
     {
       "id": "listening_speaking_mock",
@@ -52,8 +52,8 @@
       "declaredChapters": 19,
       "chapterFiles": 19,
       "fileCount": 38,
-      "totalBytes": 971235,
-      "contentHash": "0db3cd29f3d302eec7ca6c3c8285bd6efb617920cf8ba062873f4ca2e1bc8e0c"
+      "totalBytes": 991138,
+      "contentHash": "7c99be307f7115a79e44dcfa1120c8b1948818543df86f2489feef767154fc7e"
     },
     {
       "id": "zlatoust_grammar",
@@ -62,9 +62,9 @@
       "dir": "data/textbook/zlatoust_grammar",
       "declaredChapters": 5,
       "chapterFiles": 5,
-      "fileCount": 141,
-      "totalBytes": 6429343,
-      "contentHash": "cf5a9e37277376f0fea375ba831d6ce699b83b8606d8e8c0665613ddbc5a769d"
+      "fileCount": 142,
+      "totalBytes": 7117327,
+      "contentHash": "e1461da8c7faa4966d705dcf03429c4a2ed783d1ae59ef743511c732c067f2e7"
     },
     {
       "id": "russian_b2",
@@ -78,14 +78,14 @@
       "contentHash": "42e5619ecf7c74bdaac5566b0bdf49c368217efebaad7f8c797cf363cdc8bf8d"
     }
   ],
-  "dictionaryVersion": "sha256:f7129dd92da1755fc552ff69bfdbebe20278536238a8599b3f2e2f4a67b20a48",
-  "vocabularyVersion": "sha256:7af2acae4c62fdf74d4fb43937a51de72a419f3d82568c0907896919d7b63963",
+  "dictionaryVersion": "sha256:9650cda2cf685b68c9200a0312a90a70c62cd5d3ecade58d149ae6fa72f4879f",
+  "vocabularyVersion": "sha256:70925a2d93cb31475532f4035d19807da45c9a7c55ef4aa98a5ee12be741a365",
   "controlledContent": {
     "pathEncoding": "repository-relative-posix",
     "hashAlgorithm": "sha256",
     "filesHashInput": "sorted [path, bytes, sha256] tuples; generatedAt excluded",
-    "fileCount": 417,
-    "totalBytes": 88573546
+    "fileCount": 500,
+    "totalBytes": 89689401
   },
   "files": [
     {
@@ -95,8 +95,8 @@
     },
     {
       "path": "data/dictionary/corpus-morphology.json",
-      "bytes": 7584103,
-      "sha256": "34f7102c88a34cb7095e96ae41a1c93aca2660d72ec0e25b0d4c3e74f2c68742"
+      "bytes": 2860494,
+      "sha256": "0598335e2d10acf60a1ea5988dccd707b00ff8dc5f1f0a96416930095f74383f"
     },
     {
       "path": "data/dictionary/freedict-rus-zh.json",
@@ -110,8 +110,8 @@
     },
     {
       "path": "data/dictionary/manifest.json",
-      "bytes": 1852,
-      "sha256": "7ba912094f34f2de7aabb6ad5cf3d39069d961bf21686750bc0f1b930f9f750e"
+      "bytes": 2016,
+      "sha256": "feccd32fae5d73fe6f0d7c1791789925d43f1ce6e21062df45b8ca7637b38ad4"
     },
     {
       "path": "data/dictionary/markdown-glossary.json",
@@ -125,8 +125,8 @@
     },
     {
       "path": "data/dictionary/reviewed-function-entries.json",
-      "bytes": 2291,
-      "sha256": "a7deca33fd416027ba930c510b6607624e578aea04bd5e979544b16aa0d93cc0"
+      "bytes": 2544,
+      "sha256": "d0582d2e5aee94ec6a3c8d2d561410b010924a09387c7b3fa5ece1c5f99a36eb"
     },
     {
       "path": "data/dictionary/salad-vocab.json",
@@ -145,8 +145,8 @@
     },
     {
       "path": "data/external-vocab.json",
-      "bytes": 56888,
-      "sha256": "d10c6cb9a515576fab0102e276490b7c423e2b29b1fa8e4e94796fbe5b5e8b7e"
+      "bytes": 146178,
+      "sha256": "b62a3b06ca070fba858fa0c0e991fd3f32c0e6e5aa2a58f00decc6c846181a4e"
     },
     {
       "path": "data/lexeme_index.json",
@@ -185,178 +185,178 @@
     },
     {
       "path": "data/textbook/listening_speaking/ch0000.json",
-      "bytes": 12290,
-      "sha256": "9e20d636e77d43304396de2dac93900ccb1467b4e757cec7648bd23201619e80"
+      "bytes": 12688,
+      "sha256": "cdb4ae40ac7f3147bb1a19feb04da342e97bd957b95faedf8ee068acbd2c0b24"
     },
     {
       "path": "data/textbook/listening_speaking/ch0001.json",
-      "bytes": 12355,
-      "sha256": "3c13a9e6c170593e82705a55f05eda73ea8b0060f5e281f97c00bdd2900b8651"
+      "bytes": 12749,
+      "sha256": "3e9421ce6247d1ed876fa44be7a57da057df181c7a710dd0b5679906b1a905e2"
     },
     {
       "path": "data/textbook/listening_speaking/ch0002.json",
-      "bytes": 11692,
-      "sha256": "0e24ac4f416a694a2aa0140a2bd775a613e90134a04a2ffef217f447c18ae31f"
+      "bytes": 12084,
+      "sha256": "d27eab659ef0a4c5b99688e261e4963cdcba2707a6d973c8df7e8f5486b0b7d6"
     },
     {
       "path": "data/textbook/listening_speaking/ch0003.json",
-      "bytes": 11383,
-      "sha256": "1afd9980e8ff4715369f29149120e4d49e8d189f703a47e51df3ecdabb352888"
+      "bytes": 11733,
+      "sha256": "04a57c099d2b310e6b63c41de9d18fb0d9f331ff45e74cb24f02c6ea9c6f593e"
     },
     {
       "path": "data/textbook/listening_speaking/ch0004.json",
-      "bytes": 11961,
-      "sha256": "51dc0eb104beee8457beb5fbd73c857f32274406a48da43f03c5884eacfe7063"
+      "bytes": 12373,
+      "sha256": "0badb05acb13bd59aa2da0b4a3ff26c6e56c1d22f9bc840d8bdb59494c197132"
     },
     {
       "path": "data/textbook/listening_speaking/ch0005.json",
-      "bytes": 13681,
-      "sha256": "473f270c49f0751024cbece5e02f069ffbe1d5a93e78790dc68d92c3f25d43e4"
+      "bytes": 14004,
+      "sha256": "68ae591d8a9ecfbfe31929699047c8174ab6409502c559051b62d5b2ea10ece5"
     },
     {
       "path": "data/textbook/listening_speaking/ch0006.json",
-      "bytes": 12304,
-      "sha256": "6ce51fabc58851f7008a22700b170713727c0bebe683f4ad074852d78d880465"
+      "bytes": 12576,
+      "sha256": "d5ef1a8c96593440c5ea242709da410fd01486167a8d8accb43b7297805c2ea1"
     },
     {
       "path": "data/textbook/listening_speaking/ch0007.json",
-      "bytes": 12770,
-      "sha256": "b08c0b05b91693f14a8c90d9388c1072b7339892de6bdfcb1405dbd7a669a5c4"
+      "bytes": 13094,
+      "sha256": "d5360ef62210ea04a5cac814c6f47347b24222fc3ac7143eb681c4942d392fa5"
     },
     {
       "path": "data/textbook/listening_speaking/ch0008.json",
-      "bytes": 11769,
-      "sha256": "34abae1c0d026413b682cc91b814bce63c9b90f4ae3a38dac73160a026492664"
+      "bytes": 12072,
+      "sha256": "5adc9208723f7b99e3361cc783b04e2e8878bbed2829262161b09950a91c529c"
     },
     {
       "path": "data/textbook/listening_speaking/ch0009.json",
-      "bytes": 12529,
-      "sha256": "1f58d784068392865e793e2c73c1f4add1ee4302627b7c3229e94369769c4727"
+      "bytes": 12868,
+      "sha256": "d2f9e53eb64d7dd7fa17909648f811075482ca114e6b26e91fe141a4c6397218"
     },
     {
       "path": "data/textbook/listening_speaking/ch0010.json",
-      "bytes": 11490,
-      "sha256": "b4664293dcc8f978a805419e36f44282090c9c65954880532f764132ab19fa8d"
+      "bytes": 11824,
+      "sha256": "a7b8daa3b9b6d796134c513143e5a61c3b2923380cf84d30e08ed5fbcf9b8965"
     },
     {
       "path": "data/textbook/listening_speaking/ch0011.json",
-      "bytes": 13339,
-      "sha256": "a449f552015a3595b88ddb6db487845828dda274311b53639e330e170dfaf600"
+      "bytes": 13759,
+      "sha256": "fb94f28065d35a08f369a070bb9dc1088d97a3e5244d836f4ee0b94d27c4f298"
     },
     {
       "path": "data/textbook/listening_speaking/ch0012.json",
-      "bytes": 13560,
-      "sha256": "16dd0e5531f83335e436fa19efd640d3b6019a04920d81b50f3247e66f944ea7"
+      "bytes": 13943,
+      "sha256": "b53d4e2a2fb80171395cbf745a4a5f02c29c65f6cc27df05f47d419d45004c9a"
     },
     {
       "path": "data/textbook/listening_speaking/ch0013.json",
-      "bytes": 11918,
-      "sha256": "680327bbea778514042bd352d62f87f8511a54c7f74afe8bbc7057642db3909b"
+      "bytes": 12245,
+      "sha256": "2d0c4bf97e63d7864c50002bcdccfc0c0c895c23845eec17f0bd1bde3d78e866"
     },
     {
       "path": "data/textbook/listening_speaking/ch0014.json",
-      "bytes": 14582,
-      "sha256": "160a84c09d715535e56cae9140612fff8d1b885e3134315368d3a6fa41d7cb9f"
+      "bytes": 14964,
+      "sha256": "602baf499f684dfbc14d72c531b995a7fb37ee7cf32bc461a4b5a7c32747e5d2"
     },
     {
       "path": "data/textbook/listening_speaking/ch0015.json",
-      "bytes": 26734,
-      "sha256": "b6ebb5ca00291d925e21e085a47634138711e6c1d2b3650a006bd2c0751ec8f4"
+      "bytes": 27491,
+      "sha256": "f07ed76d82346b1b0bfe9fa1a0bc76fd85a08470d72d911de0f8f0da618f2dee"
     },
     {
       "path": "data/textbook/listening_speaking/ch0016.json",
-      "bytes": 24981,
-      "sha256": "900837916a109fa23c510d714775eef4c9c63e26ebe36c1b1ef330c506f77a8a"
+      "bytes": 25710,
+      "sha256": "5a4298d9cd9560366d17050e09a6f6342a01f9ee6ffec22a74b19235fd38db87"
     },
     {
       "path": "data/textbook/listening_speaking/ch0017.json",
-      "bytes": 22772,
-      "sha256": "d0b487fbe85d16f0df9d662d877cf9dd331a1b51f8221f34467ac5f70e95e3c8"
+      "bytes": 23451,
+      "sha256": "f6160c37406ac8b7572a7ec6fa2c9e2a53f33dc608709059fa64e29f71a329e2"
     },
     {
       "path": "data/textbook/listening_speaking/ch0018.json",
-      "bytes": 21432,
-      "sha256": "9de4b35ca4e25b59895aea74e54c53d13ba094eb4dc7b329d1e133cb227346eb"
+      "bytes": 22017,
+      "sha256": "ace1682e20250a20101940680b1177ef7acc1a87afea48592c803159e43c67b9"
     },
     {
       "path": "data/textbook/listening_speaking/ch0019.json",
-      "bytes": 24612,
-      "sha256": "f7b5139adec5c148980d30e07e7cf898544b0a8227546019bb0e9938bfa52f9e"
+      "bytes": 25375,
+      "sha256": "7972f3ea0e14d04b7c581c761ddb779f4cc85f072f22bf9309b43cfaceb94dc7"
     },
     {
       "path": "data/textbook/listening_speaking/ch0020.json",
-      "bytes": 23200,
-      "sha256": "70b8fc078cc42ff6c2c4c0825f0f699f8ac70ba4e55fdb88cacbba30bf9ce547"
+      "bytes": 23956,
+      "sha256": "b7022e5c3ab4d8345580307349fb973380d01747361e65be603fb11bd50052dc"
     },
     {
       "path": "data/textbook/listening_speaking/ch0021.json",
-      "bytes": 23342,
-      "sha256": "468d0f240b1ac00aa7896541cd46a73458a68733e804774570d36769ca3666ce"
+      "bytes": 24043,
+      "sha256": "8e8e89e143929c2bd6111eb25e0c335e9cfda12a12e84951d9d164196c262967"
     },
     {
       "path": "data/textbook/listening_speaking/ch0022.json",
-      "bytes": 28539,
-      "sha256": "04fa35ecba7e9971f41a165e4372c52b4fed7473f5ad32dc6b07404a1766cd40"
+      "bytes": 29484,
+      "sha256": "d7ca7f8e2bac365472847587a9ad62a164087f437dd17240434a4af23c8d26b0"
     },
     {
       "path": "data/textbook/listening_speaking/ch0023.json",
-      "bytes": 23976,
-      "sha256": "5cd06ec5e0c8f62cbffd9b43894dbe74d7f1a723dfdf56e09891b344945b32d1"
+      "bytes": 24787,
+      "sha256": "fd954227f9baae37e9bf485bfa68e38ee4c2b47978cc1ef7cb0688c799317dd2"
     },
     {
       "path": "data/textbook/listening_speaking/ch0024.json",
-      "bytes": 22097,
-      "sha256": "c48ac069eb81cef69e054e82314bfe43ca38e51068293620f0b3ec11fdc89e7a"
+      "bytes": 22772,
+      "sha256": "eec13e00b9af64e76810f448d3367ac73d7da99daab5f7ee9b8d3dbc32a4390e"
     },
     {
       "path": "data/textbook/listening_speaking/ch0025.json",
-      "bytes": 20489,
-      "sha256": "c37367d460f3e7fba7bcc8f1e8678413764fa9f7835f577e989347554c822149"
+      "bytes": 21057,
+      "sha256": "e3414d4c52ca985b8a7fc498b2cf82814b6c7903c5d950bc16f18a8f57fbafdb"
     },
     {
       "path": "data/textbook/listening_speaking/ch0026.json",
-      "bytes": 22097,
-      "sha256": "0366954fd1445d91ede829068adc918c43ec3c437f59f50292e00d73169d8598"
+      "bytes": 22707,
+      "sha256": "94e8776a2fea0e7e228ca09fb2cb0a301caf6093fc0edef67b15cfe3fe6f9d31"
     },
     {
       "path": "data/textbook/listening_speaking/ch0027.json",
-      "bytes": 23626,
-      "sha256": "99c021caef3edb5ede704d6ef896d4073b4e26693c90fb0e7b7159c42fa897aa"
+      "bytes": 24288,
+      "sha256": "bd15561ed4626292a62d229a5123f8f435231e2a2d387f12bb23ced0f5beae65"
     },
     {
       "path": "data/textbook/listening_speaking/ch0028.json",
-      "bytes": 23036,
-      "sha256": "2e009086545309e095282d81c93e5b30683ee3805409a37b3698b9fdabd516f2"
+      "bytes": 23692,
+      "sha256": "a0bdcd0af6e3d9aedd1328fef4bd1d9c2d4d5bd41e787f2ffa805946efa209d4"
     },
     {
       "path": "data/textbook/listening_speaking/ch0029.json",
-      "bytes": 25417,
-      "sha256": "0a49abb2b6e7b0871806c55a61e473828918fcc7064448327315adf4a5502d49"
+      "bytes": 26177,
+      "sha256": "a19ef4c92cd41028ee14390c6ce9ae9ac8840456cfc6dafd2285d7b216d56257"
     },
     {
       "path": "data/textbook/listening_speaking/ch0030.json",
-      "bytes": 21690,
-      "sha256": "0e7873c389a28b49ad172ce0f87db21599f8fb55031dd6d97fe0d983af6cc636"
+      "bytes": 22240,
+      "sha256": "432294ecebf47e5c1d5268ea362b2eb05b0d28fe1e914b666345d546ba4afae0"
     },
     {
       "path": "data/textbook/listening_speaking/ch0031.json",
-      "bytes": 20922,
-      "sha256": "e2b76bab89e9eb8d37d90b21a5b8984fa920ba42897bbf5f4dac3c0551baa905"
+      "bytes": 21457,
+      "sha256": "85638290c2bca9d345ab5f645243f7ed7248d28c1de0bf70b8090974ff7ca56c"
     },
     {
       "path": "data/textbook/listening_speaking/ch0032.json",
-      "bytes": 21022,
-      "sha256": "470e1819e06fe9b818513b05eadc698cdec71db7dd0ccb2cf97c247b3e71e80e"
+      "bytes": 21560,
+      "sha256": "8d75b49cd8aa7ca8cd3115d99d3776bb0a6c6afe853a7cd9a3ff72f4cc432b2b"
     },
     {
       "path": "data/textbook/listening_speaking/ch0033.json",
-      "bytes": 19761,
-      "sha256": "c72bfd211ddf7e39ffcb420f709abf0dadca9d5957465488bf5a4ce9db226ddf"
+      "bytes": 20239,
+      "sha256": "064ad4003305a13778891ffaa321d11f47096d9ccac520ce5f22b965f3078738"
     },
     {
       "path": "data/textbook/listening_speaking/ch0034.json",
-      "bytes": 19720,
-      "sha256": "afe926cb545133ba5fe14e7e96339c68b7ac05731da21193eb8cac7fb35d22c3"
+      "bytes": 20264,
+      "sha256": "60d0633f168ad0ccab50f2cd5ba4151511fa59a3e1dff59e28459cbe6406a587"
     },
     {
       "path": "data/textbook/listening_speaking/ch0035.json",
@@ -524,6 +524,416 @@
       "sha256": "561811b00be8a391130fd2c315fbf5b98e0d00baeaf550ba9814cd01ac0c619b"
     },
     {
+      "path": "data/textbook/listening_speaking/rebuild/audits/translation-candidates.json",
+      "bytes": 2176051,
+      "sha256": "35e592110597f3b568f48c632c8f0592e7b547a2602b77dccf9661b2e3ed35e6"
+    },
+    {
+      "path": "data/textbook/listening_speaking/rebuild/conflicts/ch0020.conflicts.json",
+      "bytes": 6649,
+      "sha256": "49437835924401cd632237d7c03cece486a5d799235d5b9b064b724d7f4d96ef"
+    },
+    {
+      "path": "data/textbook/listening_speaking/rebuild/conflicts/ch0021.conflicts.json",
+      "bytes": 3763,
+      "sha256": "8e19dd3a2dbc948864df5edf286d3e075cfbc51d2f490d01d2342918758ee491"
+    },
+    {
+      "path": "data/textbook/listening_speaking/rebuild/conflicts/ch0022.conflicts.json",
+      "bytes": 4215,
+      "sha256": "cda188fbd1f06efa64d63e395a7b076c294fad3b2d3c1f5be5abd08f147d4ac5"
+    },
+    {
+      "path": "data/textbook/listening_speaking/rebuild/conflicts/ch0023.conflicts.json",
+      "bytes": 2856,
+      "sha256": "82290ea0f2d327503dcfaa947dfdbf1bfd026571052721f332abdeea91da3263"
+    },
+    {
+      "path": "data/textbook/listening_speaking/rebuild/conflicts/ch0024.conflicts.json",
+      "bytes": 1732,
+      "sha256": "286d3e9541bb897a1324f1c011383e7c4efc82deeba11b342f6cdd067481eeb7"
+    },
+    {
+      "path": "data/textbook/listening_speaking/rebuild/manifest.json",
+      "bytes": 24532,
+      "sha256": "5dcfe5984f51fed54f02f62458ae9f9c9cb24bc40e5e0d438d6a8244c4ec38c5"
+    },
+    {
+      "path": "data/textbook/listening_speaking/rebuild/releases/2026-08-06T05-22-43-525Z/before/ch0000.json",
+      "bytes": 6478,
+      "sha256": "f3f3d4933516f919d88b4cd499e80709308568bf6b0fffefab7805d6f596aa6c"
+    },
+    {
+      "path": "data/textbook/listening_speaking/rebuild/releases/2026-08-06T05-22-43-525Z/before/ch0001.json",
+      "bytes": 5887,
+      "sha256": "c3368164903f0edb52894b35c865670c4e97e7ad6004ab606525645d6188d63b"
+    },
+    {
+      "path": "data/textbook/listening_speaking/rebuild/releases/2026-08-06T05-22-43-525Z/before/ch0002.json",
+      "bytes": 6156,
+      "sha256": "dd83c0073207771939c424fcc8044be6eb56be342d53614c453f397b45b27e63"
+    },
+    {
+      "path": "data/textbook/listening_speaking/rebuild/releases/2026-08-06T05-22-43-525Z/before/ch0003.json",
+      "bytes": 5253,
+      "sha256": "33533006a85db4b9dc6b93384f29835af4c355e7f902bcb0e6895a81947db0d5"
+    },
+    {
+      "path": "data/textbook/listening_speaking/rebuild/releases/2026-08-06T05-22-43-525Z/before/ch0004.json",
+      "bytes": 6769,
+      "sha256": "a597f0a073f03af284fa60b3a038c209a9e2633a23e2a2a914f2383b2d99eb6a"
+    },
+    {
+      "path": "data/textbook/listening_speaking/rebuild/releases/2026-08-06T05-22-43-525Z/before/ch0005.json",
+      "bytes": 6363,
+      "sha256": "c548ae8c556dd553fb18a24ebb183c01ac7eeea48abda0d22292fd10e4580601"
+    },
+    {
+      "path": "data/textbook/listening_speaking/rebuild/releases/2026-08-06T05-22-43-525Z/before/ch0006.json",
+      "bytes": 5199,
+      "sha256": "f4774332f7af2f6f08ce5ba7d44331b12e9955a1cababbbad545ca00d04acd3c"
+    },
+    {
+      "path": "data/textbook/listening_speaking/rebuild/releases/2026-08-06T05-22-43-525Z/before/ch0007.json",
+      "bytes": 6354,
+      "sha256": "c4cc27a94087c905af29e003e6da42cb74d032f30ab19f5239735ef1e3287583"
+    },
+    {
+      "path": "data/textbook/listening_speaking/rebuild/releases/2026-08-06T05-22-43-525Z/before/ch0008.json",
+      "bytes": 4018,
+      "sha256": "4b38450b398ecc9213076e93057ea41ee2301833abdf07656d2eeb901952f430"
+    },
+    {
+      "path": "data/textbook/listening_speaking/rebuild/releases/2026-08-06T05-22-43-525Z/before/ch0009.json",
+      "bytes": 5092,
+      "sha256": "81be1de2f42a33db828069b35ab40515a72f1fbe510a1a9e4922fe8a51f2d87a"
+    },
+    {
+      "path": "data/textbook/listening_speaking/rebuild/releases/2026-08-06T05-22-43-525Z/before/ch0010.json",
+      "bytes": 6922,
+      "sha256": "28630beb8ae2ba5aef9ff080ba3436ed445984d8156b41a2055c4bb53b47e35f"
+    },
+    {
+      "path": "data/textbook/listening_speaking/rebuild/releases/2026-08-06T05-22-43-525Z/before/ch0011.json",
+      "bytes": 6832,
+      "sha256": "2c40288ae6409dd0e4121a1eb05b6b54a203f5608d4d683da5c349a0173bf1d6"
+    },
+    {
+      "path": "data/textbook/listening_speaking/rebuild/releases/2026-08-06T05-22-43-525Z/before/ch0012.json",
+      "bytes": 6497,
+      "sha256": "59de0a571a615cfba035621bb0f956353e714fa128d015cbc32b1bddf72419a2"
+    },
+    {
+      "path": "data/textbook/listening_speaking/rebuild/releases/2026-08-06T05-22-43-525Z/before/ch0013.json",
+      "bytes": 6064,
+      "sha256": "8c3fd5f1aa5c90e1335ddfc7cc819e5a6e7d90d510eef864e126c2de0695c68c"
+    },
+    {
+      "path": "data/textbook/listening_speaking/rebuild/releases/2026-08-06T05-22-43-525Z/before/ch0014.json",
+      "bytes": 11553,
+      "sha256": "15b2fb136789ff51e237f2f2247666f8ae1ecc194ee4deb0dd8d2a51c7078a68"
+    },
+    {
+      "path": "data/textbook/listening_speaking/rebuild/releases/2026-08-06T05-22-43-525Z/before/ch0015.json",
+      "bytes": 23746,
+      "sha256": "66e9dda9da193f944d88fd7855b3bd676baf52921509feae73523a68d37b09f3"
+    },
+    {
+      "path": "data/textbook/listening_speaking/rebuild/releases/2026-08-06T05-22-43-525Z/before/ch0016.json",
+      "bytes": 17564,
+      "sha256": "fd05dd02c3d61a55a9d94c5eb651780ff81847426d66cc44dc3c223445588c89"
+    },
+    {
+      "path": "data/textbook/listening_speaking/rebuild/releases/2026-08-06T05-22-43-525Z/before/ch0017.json",
+      "bytes": 15082,
+      "sha256": "9242517b7a6c2e199e92b376bd1a9b13cbd300fb7d976aec7a1cd57a6a527895"
+    },
+    {
+      "path": "data/textbook/listening_speaking/rebuild/releases/2026-08-06T05-22-43-525Z/before/ch0018.json",
+      "bytes": 13128,
+      "sha256": "6dfc33287f630626ba8b995fc3ee1d85966b64ac16de33986d4d336726156dd7"
+    },
+    {
+      "path": "data/textbook/listening_speaking/rebuild/releases/2026-08-06T05-22-43-525Z/before/ch0019.json",
+      "bytes": 19721,
+      "sha256": "35605b9b77487b0264a796052dc57f5e4209ed710d56a43fa3d64e17e178af72"
+    },
+    {
+      "path": "data/textbook/listening_speaking/rebuild/releases/2026-08-06T05-22-43-525Z/before/ch0020.json",
+      "bytes": 25372,
+      "sha256": "7c4b38dc087c894dfab33ee48bbc6742422086ee7bc9268f4a1c5c7f855016f3"
+    },
+    {
+      "path": "data/textbook/listening_speaking/rebuild/releases/2026-08-06T05-22-43-525Z/before/ch0021.json",
+      "bytes": 17757,
+      "sha256": "eff6fd9fee2970b60bb4a8b63fe59275f515f18434ab19304ef0b23ec6a4a659"
+    },
+    {
+      "path": "data/textbook/listening_speaking/rebuild/releases/2026-08-06T05-22-43-525Z/before/ch0022.json",
+      "bytes": 24643,
+      "sha256": "7c17837e753fcda7b744dbfcd8d1732624190885a1c7c2bf745f40f63f33d07c"
+    },
+    {
+      "path": "data/textbook/listening_speaking/rebuild/releases/2026-08-06T05-22-43-525Z/before/ch0023.json",
+      "bytes": 16088,
+      "sha256": "9148b302f7784201d39ad85504559cdd2af9361f32b16122cdcbffef3d26eae7"
+    },
+    {
+      "path": "data/textbook/listening_speaking/rebuild/releases/2026-08-06T05-22-43-525Z/before/ch0024.json",
+      "bytes": 17643,
+      "sha256": "8a4e4e2fb64f433d97ceaa6dff0d372fec53a9e62f6949c6e7897738ea00a9f2"
+    },
+    {
+      "path": "data/textbook/listening_speaking/rebuild/releases/2026-08-06T05-22-43-525Z/before/ch0025.json",
+      "bytes": 12658,
+      "sha256": "6e139e0f4aec5dc2575fe018e6fd85377197bdede9a30abbc36548e6ebf8394b"
+    },
+    {
+      "path": "data/textbook/listening_speaking/rebuild/releases/2026-08-06T05-22-43-525Z/before/ch0026.json",
+      "bytes": 13659,
+      "sha256": "f55d070c2b31af91cb983764e96f5a408c2e1247234f16f352d3416b75ea3e94"
+    },
+    {
+      "path": "data/textbook/listening_speaking/rebuild/releases/2026-08-06T05-22-43-525Z/before/ch0027.json",
+      "bytes": 14719,
+      "sha256": "5764734e6ac182613f3c016c6530ab338cdcf7712a6fcf075beb8ac216638590"
+    },
+    {
+      "path": "data/textbook/listening_speaking/rebuild/releases/2026-08-06T05-22-43-525Z/before/ch0028.json",
+      "bytes": 17013,
+      "sha256": "2bebea2cd8e255e78c5f625ca542639be5678d27961fc6df334592bc07d42fd8"
+    },
+    {
+      "path": "data/textbook/listening_speaking/rebuild/releases/2026-08-06T05-22-43-525Z/before/ch0029.json",
+      "bytes": 16108,
+      "sha256": "47fe4e434ccd27e19afefbc091a70c55088cfc349d3c3bc69d178ec07a26a7a2"
+    },
+    {
+      "path": "data/textbook/listening_speaking/rebuild/releases/2026-08-06T05-22-43-525Z/before/ch0030.json",
+      "bytes": 13833,
+      "sha256": "217269bbe0a1f28c9b2e02b173356b1a115336b58cbcc68be1e5d881a1615b4e"
+    },
+    {
+      "path": "data/textbook/listening_speaking/rebuild/releases/2026-08-06T05-22-43-525Z/before/ch0031.json",
+      "bytes": 13285,
+      "sha256": "25d96e1409ff33ea1a5fae5038dc722c1788e9770dcae9b901fd1f4adeefae8c"
+    },
+    {
+      "path": "data/textbook/listening_speaking/rebuild/releases/2026-08-06T05-22-43-525Z/before/ch0032.json",
+      "bytes": 13811,
+      "sha256": "55765c763208c7bc1205d204f2e3174f42bd6479c54c8c0f28679f7c74b4dcca"
+    },
+    {
+      "path": "data/textbook/listening_speaking/rebuild/releases/2026-08-06T05-22-43-525Z/before/ch0033.json",
+      "bytes": 13526,
+      "sha256": "7b6c034f954598e9adcf904ef47ec2369a93cdfd3ff8e0a6fe571642468e0da8"
+    },
+    {
+      "path": "data/textbook/listening_speaking/rebuild/releases/2026-08-06T05-22-43-525Z/before/ch0034.json",
+      "bytes": 15038,
+      "sha256": "4762bd2587351ff7b6a509e3b2067eab58cfa0dd5fb67feff7968f7ffdaec0ce"
+    },
+    {
+      "path": "data/textbook/listening_speaking/rebuild/reports/machine-boundary-resolution.json",
+      "bytes": 1290,
+      "sha256": "27b3b9882f9f000544461ce2522e192f236d47157d4a4c17e395bac5160327ab"
+    },
+    {
+      "path": "data/textbook/listening_speaking/rebuild/reports/release-candidate.json",
+      "bytes": 3927,
+      "sha256": "a2ca88b381b4fd4581cedcf63b1544fac76d1a64b8e99e6d102d4635a53566fb"
+    },
+    {
+      "path": "data/textbook/listening_speaking/rebuild/translation-overrides/ch0018.json",
+      "bytes": 4496,
+      "sha256": "75e6058eb2f28cd802db52ca61d1ef9cebdab15b5801e0847c187ae98869698d"
+    },
+    {
+      "path": "data/textbook/listening_speaking/rebuild/translation-overrides/ch0020.json",
+      "bytes": 7524,
+      "sha256": "475ae4dcd8b1ec82e84b24996dc7d80609ef53d4f7fb2d6ea276edffdf70d4f5"
+    },
+    {
+      "path": "data/textbook/listening_speaking/rebuild/translation-overrides/ch0022.json",
+      "bytes": 7811,
+      "sha256": "9e6ee802d14d88c6e96ee4c6610b51a8679730efef1e4e7502673324392189fd"
+    },
+    {
+      "path": "data/textbook/listening_speaking/rebuild/units/ch0000.learning.json",
+      "bytes": 10109,
+      "sha256": "5217ba2f7d8eb3d5d63a4b7e2d38bc6491f2bfda6c76a971e7d4581604c15b4e"
+    },
+    {
+      "path": "data/textbook/listening_speaking/rebuild/units/ch0001.learning.json",
+      "bytes": 9639,
+      "sha256": "91fe85d2932d195cdd6ad3a62b87e5c147e3d4687e9a59ca71d864b437491b04"
+    },
+    {
+      "path": "data/textbook/listening_speaking/rebuild/units/ch0002.learning.json",
+      "bytes": 8878,
+      "sha256": "117f8516b55d1779e0f424010f47ff8b9ea569c7402a5e12ba53b48fd0fb41bf"
+    },
+    {
+      "path": "data/textbook/listening_speaking/rebuild/units/ch0003.learning.json",
+      "bytes": 8898,
+      "sha256": "a0ea4a855fc5f47b4f13a69a0c8542d91f0b38d565fe22313256bade538329a0"
+    },
+    {
+      "path": "data/textbook/listening_speaking/rebuild/units/ch0004.learning.json",
+      "bytes": 8924,
+      "sha256": "49ce56bc6c28d38d1e8bba88a7c606ad87540d75c02d120a7460ce39a5c0dbae"
+    },
+    {
+      "path": "data/textbook/listening_speaking/rebuild/units/ch0005.learning.json",
+      "bytes": 10895,
+      "sha256": "4e2f14e924bd2b83ba7c456a83482446885cc4e533413c936ffade11adab6024"
+    },
+    {
+      "path": "data/textbook/listening_speaking/rebuild/units/ch0006.learning.json",
+      "bytes": 10685,
+      "sha256": "04929baed905d85e0a1236a854fe5488ec49f9062d06b71d42a574313505c76a"
+    },
+    {
+      "path": "data/textbook/listening_speaking/rebuild/units/ch0007.learning.json",
+      "bytes": 9956,
+      "sha256": "4eee44996035a073123057ba5f9cb744b37803f5e35d85087df788470f8055d3"
+    },
+    {
+      "path": "data/textbook/listening_speaking/rebuild/units/ch0008.learning.json",
+      "bytes": 10299,
+      "sha256": "a2d95bc60b376dbf74010cab4ab4c123d54a7165045fc7bed160343a60ba14ec"
+    },
+    {
+      "path": "data/textbook/listening_speaking/rebuild/units/ch0009.learning.json",
+      "bytes": 11784,
+      "sha256": "0f42f7de2c8aa96c2c47ee7499c1d928ab8cbf16138b7fbe93b144cf51f0e8a8"
+    },
+    {
+      "path": "data/textbook/listening_speaking/rebuild/units/ch0010.learning.json",
+      "bytes": 9902,
+      "sha256": "3dbd583746d561f4101a515ed9a0979829dd4b6d96d138839b93bcb5202ce42e"
+    },
+    {
+      "path": "data/textbook/listening_speaking/rebuild/units/ch0011.learning.json",
+      "bytes": 12456,
+      "sha256": "b1133915278f8940e59fb104ea70bcfae18d527134ebe9f5a2be358f60d94c49"
+    },
+    {
+      "path": "data/textbook/listening_speaking/rebuild/units/ch0012.learning.json",
+      "bytes": 11216,
+      "sha256": "5bcaa6b9114757a869a3aefacada9ef7bea6790be35103ebda3e4f2f907b9295"
+    },
+    {
+      "path": "data/textbook/listening_speaking/rebuild/units/ch0013.learning.json",
+      "bytes": 10766,
+      "sha256": "8acd1cf28a6189c4f51f51f334b70e07caab14310e81da492636ab9fa998e535"
+    },
+    {
+      "path": "data/textbook/listening_speaking/rebuild/units/ch0014.learning.json",
+      "bytes": 11683,
+      "sha256": "7a05c74c6bc9da21c596faa8821b9cd0bea4fdb9bbef705b3fde98dda688dace"
+    },
+    {
+      "path": "data/textbook/listening_speaking/rebuild/units/ch0015.learning.json",
+      "bytes": 17950,
+      "sha256": "982fb29332db2ee74e9b4a24cf6e39759e831a334efa42d27110cb098681ca5b"
+    },
+    {
+      "path": "data/textbook/listening_speaking/rebuild/units/ch0016.learning.json",
+      "bytes": 21980,
+      "sha256": "154759f60b240b42af9cf8233c4f386e3d8b8c2b12a3870108c48bf8e799d3c1"
+    },
+    {
+      "path": "data/textbook/listening_speaking/rebuild/units/ch0017.learning.json",
+      "bytes": 16639,
+      "sha256": "49586f495fddc814cc0ef92dffe277e483e1df781e3034349e1328ae7b60a5aa"
+    },
+    {
+      "path": "data/textbook/listening_speaking/rebuild/units/ch0018.learning.json",
+      "bytes": 15139,
+      "sha256": "765683f6e058ce647b63b42bdbf920021aa62075d4757b2d9e8d332053931a62"
+    },
+    {
+      "path": "data/textbook/listening_speaking/rebuild/units/ch0019.learning.json",
+      "bytes": 21676,
+      "sha256": "2aa8141ab07ca29bbaf8919cc2424bbf0064c35a27d8d30bb89247b358f8ccde"
+    },
+    {
+      "path": "data/textbook/listening_speaking/rebuild/units/ch0020.learning.json",
+      "bytes": 19539,
+      "sha256": "72c88be4b91cdc23b316214bceef2360de90d72f43f72026effd092cd650d8e1"
+    },
+    {
+      "path": "data/textbook/listening_speaking/rebuild/units/ch0021.learning.json",
+      "bytes": 19522,
+      "sha256": "4eb3b934c4eea808d6bc1af4ee8141aa75bea1cd5c6c3e0f06e2a573d43ad2bd"
+    },
+    {
+      "path": "data/textbook/listening_speaking/rebuild/units/ch0022.learning.json",
+      "bytes": 25759,
+      "sha256": "50ba5024552751049e393e0bef23d8b6819b9cddf8108c923fa24cf4dc0e441c"
+    },
+    {
+      "path": "data/textbook/listening_speaking/rebuild/units/ch0023.learning.json",
+      "bytes": 17518,
+      "sha256": "8756df9adacb5675f7dc3fbb9a71502f8f6bdadfa8746bec6a429243425690c7"
+    },
+    {
+      "path": "data/textbook/listening_speaking/rebuild/units/ch0024.learning.json",
+      "bytes": 18108,
+      "sha256": "a3a3bfbe63fb29b06189af162dbe2fc4aab47af9d469fd49499e87a984081197"
+    },
+    {
+      "path": "data/textbook/listening_speaking/rebuild/units/ch0025.learning.json",
+      "bytes": 16480,
+      "sha256": "2dc50620c676464f63e35c13b8adc1dc65de75a3246d95c89bc95c88a32c9318"
+    },
+    {
+      "path": "data/textbook/listening_speaking/rebuild/units/ch0026.learning.json",
+      "bytes": 17966,
+      "sha256": "ad64cf2da8b72730c4e71831d6daeb21e8197fe5c14d76c40fdc721ed3a8ad8c"
+    },
+    {
+      "path": "data/textbook/listening_speaking/rebuild/units/ch0027.learning.json",
+      "bytes": 19047,
+      "sha256": "5515d0802626b2ee74d88bf85b5615a56a3e644c843810cec0bdc705728a02aa"
+    },
+    {
+      "path": "data/textbook/listening_speaking/rebuild/units/ch0028.learning.json",
+      "bytes": 22365,
+      "sha256": "9f2ea54fcf31e6b928c4209284b445b27f8e94b0abf01bb0e8ea0e16cd6a736c"
+    },
+    {
+      "path": "data/textbook/listening_speaking/rebuild/units/ch0029.learning.json",
+      "bytes": 20456,
+      "sha256": "b9a5e21c65ca4e2ed12e97dc4b5112ef523f163d3f22780520978b6f4c5d82dc"
+    },
+    {
+      "path": "data/textbook/listening_speaking/rebuild/units/ch0030.learning.json",
+      "bytes": 16327,
+      "sha256": "4edc17e39150e657248a4cdbb9ea2565478a1b0ea2986baf3a7c047505d52b32"
+    },
+    {
+      "path": "data/textbook/listening_speaking/rebuild/units/ch0031.learning.json",
+      "bytes": 18538,
+      "sha256": "7cf976841cae9b304cfc658261cfd366f8c7048fbe57187c10343e803d30d4a3"
+    },
+    {
+      "path": "data/textbook/listening_speaking/rebuild/units/ch0032.learning.json",
+      "bytes": 18619,
+      "sha256": "2b793dca27641f47a58747d976db24aba30d1e8c1ff74d2329cbfd67f207e2aa"
+    },
+    {
+      "path": "data/textbook/listening_speaking/rebuild/units/ch0033.learning.json",
+      "bytes": 17102,
+      "sha256": "2d54e62969fd992239c8af37ba94b17b42846023249d3de0b044dc5fe6bb79f3"
+    },
+    {
+      "path": "data/textbook/listening_speaking/rebuild/units/ch0034.learning.json",
+      "bytes": 17366,
+      "sha256": "ca32734dbfc96c242ded3a7d734199fcd3141f067e51a15bd96e5e1d9bfdbc5f"
+    },
+    {
       "path": "data/textbook/listening_speaking/timelines/ch0000.json",
       "bytes": 3339,
       "sha256": "be79a74fac124603b53cba99b0ba7b610cff90eeb0eb7958342735f33d287523"
@@ -600,8 +1010,8 @@
     },
     {
       "path": "data/textbook/listening_speaking/timelines/ch0015.json",
-      "bytes": 11378,
-      "sha256": "808ad14f233f1f30c465ff28c1bfb56044066e211c3bf585f5298562cbcde207"
+      "bytes": 11796,
+      "sha256": "a32b05a6be1c58a444b5eb0620c87280ffdc577be627700788f12feedee327c4"
     },
     {
       "path": "data/textbook/listening_speaking/timelines/ch0016.json",
@@ -705,153 +1115,153 @@
     },
     {
       "path": "data/textbook/reading_speaking/ch0000.json",
-      "bytes": 38031,
-      "sha256": "4b911dc45e6654fe12fa7087b492cb05d1a3f74d7a63d20e13dc8f475dbf120d"
+      "bytes": 68467,
+      "sha256": "2c46b929f4dc0128f27beed8aa0eab49b0291283fdf6514951e64f03190eed9d"
     },
     {
       "path": "data/textbook/reading_speaking/ch0001.json",
-      "bytes": 39842,
-      "sha256": "2a7bcbe7c463fe6bc3ded85624fe8c0827d92740dedb1d35bdfe0d902ebbd661"
+      "bytes": 71107,
+      "sha256": "cc6ef3872573bc4ffd9d62acd7af19da49976eecc644ecdfa54f999eaa0e26b3"
     },
     {
       "path": "data/textbook/reading_speaking/ch0002.json",
-      "bytes": 33836,
-      "sha256": "9072fcad67141a9f4b2483c85360caf98f48b356597a30e095e146ba94704b8e"
+      "bytes": 66311,
+      "sha256": "db549310f21941b5ac5a090cf1986f9ccd88c6a86b86377228a2b9a37008c560"
     },
     {
       "path": "data/textbook/reading_speaking/ch0003.json",
-      "bytes": 37415,
-      "sha256": "de28c185919042de9176b12fb501cc68d92b1486e09142e6d41f988bacbab717"
+      "bytes": 71107,
+      "sha256": "e098433aafaf49f35316162b29f9d3100b6999e8b7c8fb5f13fc30c5657e0cbf"
     },
     {
       "path": "data/textbook/reading_speaking/ch0004.json",
-      "bytes": 39037,
-      "sha256": "77fcef2f3da940e5a9b0b97ba5e06076dedbd09e7b88e7318ff8c01b1906ecc2"
+      "bytes": 79008,
+      "sha256": "94a15f061a91c237ed067e911aae845842c4265dbee3ee05dd55ed9d6ff26877"
     },
     {
       "path": "data/textbook/reading_speaking/ch0005.json",
-      "bytes": 35015,
-      "sha256": "1fe9d986ef4328102c53f1f7459f5c5d3d943c8b50ada7cbab999be58e5f23a8"
+      "bytes": 98670,
+      "sha256": "26e33491bc19d7e9c9bdced5663ab9d317cc936b3010af546ab00f2acd573dd4"
     },
     {
       "path": "data/textbook/reading_speaking/ch0006.json",
-      "bytes": 32261,
-      "sha256": "12e799f159529b53995626e58606a2b202a5588b5dec3f8ef05de047bed53857"
+      "bytes": 75282,
+      "sha256": "5106b84ed663a93b13cb3938921a3fd84c9670df0456f0298aaf144367e10514"
     },
     {
       "path": "data/textbook/reading_speaking/ch0007.json",
-      "bytes": 22780,
-      "sha256": "04fc9a56e9ea1998564d70180399ca2bb0487eabe1a9b4af084eab939b174959"
+      "bytes": 51398,
+      "sha256": "2d4256ad9cbdaf8c85b345ce664068767e539a3a13659a02a6972ca0ffb734af"
     },
     {
       "path": "data/textbook/reading_speaking/ch0008.json",
-      "bytes": 27307,
-      "sha256": "0d795d5f2aaca53afb40e93e3fe981b7c2bde0ca237a110013302c8e36b5d821"
+      "bytes": 45291,
+      "sha256": "f9b61bb2a49a1b3c4c5bc1e130a9af77fbb31980d8419715aca1dea72f9de70a"
     },
     {
       "path": "data/textbook/reading_speaking/ch0009.json",
-      "bytes": 22995,
-      "sha256": "aafd3079a022187b172cf7c30c28f54fa74a824ee8a1e0f028b113c7ace7bc0d"
+      "bytes": 47059,
+      "sha256": "f70ca032153b26313b3567b1d36a12304f2fadcd28477c0bb1c902febe145064"
     },
     {
       "path": "data/textbook/reading_speaking/ch0010.json",
-      "bytes": 32912,
-      "sha256": "7ccaa13092585605fad3ead9dd208686614dbc325eb468e21bb71b1039ffc010"
+      "bytes": 64654,
+      "sha256": "27114aa70ba9d24d5160f21312c5a706919c53e5b7a2d5295da84f351a37f7be"
     },
     {
       "path": "data/textbook/reading_speaking/ch0011.json",
-      "bytes": 6190,
-      "sha256": "480e070e6194e308e838f5b8fffb950b23411bc2f71a4f2ad3a9a59b592f44e5"
+      "bytes": 24773,
+      "sha256": "34c73b4fecd7aa63961e60c69a8333953167d0e9e52bb96ab955d5d411465032"
     },
     {
       "path": "data/textbook/reading_speaking/ch0012.json",
-      "bytes": 7818,
-      "sha256": "51718c93ba54119493e351831ee36979b94f24a6dadd8418f5e19edb5fb90c89"
+      "bytes": 43278,
+      "sha256": "150ad3099b5487f5924c5e0704880812fbcb4f4cdc066e1ac8244d9420ef8de0"
     },
     {
       "path": "data/textbook/reading_speaking/ch0013.json",
-      "bytes": 21512,
-      "sha256": "f83c6ed6b588bc22664341c9ba1ec60c6b5c633d87569f9cd2910459de5c6f9e"
+      "bytes": 40999,
+      "sha256": "cd17fdea1598b6471545c42ae112c664900acd5bf276d9cc4171a8a24b7e5f85"
     },
     {
       "path": "data/textbook/reading_speaking/ch0014.json",
-      "bytes": 32494,
-      "sha256": "b9ce56729b3d34ea877b35877894c4fafcb034c87f37c91dcde352de9ca3268b"
+      "bytes": 59462,
+      "sha256": "3c7bdf46897672670f3df3dd4104f8f6769860c6b2eed87f5f19f5237cfef5cb"
     },
     {
       "path": "data/textbook/reading_speaking/ch0015.json",
-      "bytes": 19400,
-      "sha256": "cb59f6114cc95c78a35758ebc711b69f1476aca2a17721eef1066483e8599168"
+      "bytes": 35597,
+      "sha256": "a42f1b9b204f5eb38f32a0eae95998235120986a632e53f518f09cca831f2bb0"
     },
     {
       "path": "data/textbook/reading_speaking/ch0016.json",
-      "bytes": 32148,
-      "sha256": "710427280a23b8a065c22d7d16fa63a28bc72ac5f6f881b94814b4520cc028bb"
+      "bytes": 73128,
+      "sha256": "584108626913c5e12ca36a26388e0a6d0f2209c4bf948d6f54e14a0edbe9e950"
     },
     {
       "path": "data/textbook/reading_speaking/ch0017.json",
-      "bytes": 1973,
-      "sha256": "f2c03e6f70e04a55620f4cb9d1eab9c33669f58eb3dd39fc2907353edfc18a4e"
+      "bytes": 30110,
+      "sha256": "92cd36b375ff10ccce86eb600a7b855d11bf8c2d92026f140968cddb87b7e214"
     },
     {
       "path": "data/textbook/reading_speaking/ch0018.json",
-      "bytes": 23553,
-      "sha256": "c8a8fcddad744798b24d03566fbdce314d30dd3839ff405094d5664b8e3130ac"
+      "bytes": 42885,
+      "sha256": "fbd393d512af53ceba3c064810f27603de2c611be9df64e8830aac2bcb7ed055"
     },
     {
       "path": "data/textbook/reading_speaking/ch0019.json",
-      "bytes": 2516,
-      "sha256": "512fe7e7c2a8231ac6277774f43d15ea7cc66f2523d0efddb4f0554b1d5a932a"
+      "bytes": 33454,
+      "sha256": "07a65eb6ca0548afcdfcb78f930594c390c56a8adcc00e0f74c2badbab16b5a8"
     },
     {
       "path": "data/textbook/reading_speaking/ch0020.json",
-      "bytes": 4478,
-      "sha256": "03d8f39f89523f7aa0acde59127049c7d4574f9be0d4bd05e2f41ada08db4b8f"
+      "bytes": 51995,
+      "sha256": "438c3f88c660100b7e36c039fa8a373beb0b12df059464f23567730ff70fdc14"
     },
     {
       "path": "data/textbook/reading_speaking/ch0021.json",
-      "bytes": 37558,
-      "sha256": "451979f810ea1cb3165cfeff2193683bff8a3e399992d83c300239e5ac430dbd"
+      "bytes": 86488,
+      "sha256": "a36d1ab97db6a44ca752c1911ae91edf0327682d50030cb5ced4b684ae1b29a3"
     },
     {
       "path": "data/textbook/reading_speaking/ch0022.json",
-      "bytes": 1555,
-      "sha256": "20b9cd441f39cbbc184cf7692fa8ab7705776efaf72ecfd218f0e387ff75200b"
+      "bytes": 46747,
+      "sha256": "c9b6f5d51670986de94fff0abbc731443007dcbe4f1415982c1d7532f1df889b"
     },
     {
       "path": "data/textbook/reading_speaking/ch0023.json",
-      "bytes": 42857,
-      "sha256": "7ff021cd87bf2f28794bcc876a8ba2937add902cf2234606715f002e486f2e3a"
+      "bytes": 89023,
+      "sha256": "87268b83b3c2be26717ec3859a1dda7794e26d947a25ba2df513c2e0bb6263e6"
     },
     {
       "path": "data/textbook/reading_speaking/ch0024.json",
-      "bytes": 31825,
-      "sha256": "abcde79c5f0e14cafe5e8b332eefb216bf89ce7985d09eb46de41c232e50076c"
+      "bytes": 72191,
+      "sha256": "73575d328eec778e1cf91b31df434609ffae17e84be174c7ab0f0459853d199f"
     },
     {
       "path": "data/textbook/reading_speaking/ch0025.json",
-      "bytes": 33084,
-      "sha256": "2ae6be5887928a430f7136b05f7af108b61b0a58cef3875d60c2b4b2c73ff998"
+      "bytes": 79576,
+      "sha256": "1932914a63ad102d3712988afcad25e9eb00e94622bfdbed9c91497ef0fe6062"
     },
     {
       "path": "data/textbook/reading_speaking/ch0026.json",
-      "bytes": 32990,
-      "sha256": "40e1d7a3ed2e057754459c1d59b731d3b17815171caee3739582ff033496b633"
+      "bytes": 77181,
+      "sha256": "f68fe6d8171116a6e73ea20dde0d5cfee74ae5cfe90b7c5ff622192bc08d028c"
     },
     {
       "path": "data/textbook/reading_speaking/ch0027.json",
-      "bytes": 37032,
-      "sha256": "c9f24200f9bdd256ca087ff20c6ce6a5bb7e44fffbf8f6624db8e3f14f468298"
+      "bytes": 61085,
+      "sha256": "f7ff175ab719fc53da945f08627dd3b6310b1ae0de930f1ea8cdb58023c369a2"
     },
     {
       "path": "data/textbook/reading_speaking/ch0028.json",
-      "bytes": 34455,
-      "sha256": "b810f1a2062a96cd85f3a9244074c44882c5053adaf423a7b5c59e74238666e8"
+      "bytes": 81985,
+      "sha256": "962db21dabb198f5f4db5820cf5f86fdc0c034e741448ddea0df715a8128e6c0"
     },
     {
       "path": "data/textbook/reading_speaking/ch0029.json",
-      "bytes": 37340,
-      "sha256": "5add7aae0ba83fb8b294b4d7de3a6937804109fa947577d110580e77e4f365b1"
+      "bytes": 80179,
+      "sha256": "4879f36d26b52f12b02685835b06c187dc9a8d6ea8673cc1ad0b1f5db59d8b60"
     },
     {
       "path": "data/textbook/russian_b2/book.json",
@@ -1275,198 +1685,198 @@
     },
     {
       "path": "data/textbook/writing_speaking/ch0000.json",
-      "bytes": 34149,
-      "sha256": "235dfc499d4f491250850dc2804104185d472a9108d314ab2d6d8cec26ffbf7a"
+      "bytes": 34864,
+      "sha256": "7bff4aa6e205e516e6d702d275bfa3a28eb38d414f386eef009e60664ca24811"
     },
     {
       "path": "data/textbook/writing_speaking/ch0001.json",
-      "bytes": 37826,
-      "sha256": "7b75f8355a3784864cd10971a3c0bf7c1077eda15edebe3753a564f283080c8d"
+      "bytes": 38590,
+      "sha256": "1a56b5069ca3a5ced0e6b367999cecb28cd7300b680692beed607a3c9b2a1aed"
     },
     {
       "path": "data/textbook/writing_speaking/ch0002.json",
-      "bytes": 29567,
-      "sha256": "743886fc0450798c296b39b9967673840463475802aaedc8208ea44633fe34ca"
+      "bytes": 30224,
+      "sha256": "907796614e9e8d03c4e3ae1ba02f42bc34ebba299e985f6af0e5a3feea9a5560"
     },
     {
       "path": "data/textbook/writing_speaking/ch0003.json",
-      "bytes": 39895,
-      "sha256": "272376cafc6669692d9840b92da95c82a672cfbf93451d3fdd4d38dc71c5981e"
+      "bytes": 40732,
+      "sha256": "cfe140668a6f5948e8ba567c8b8eea724a063a5e7e7eaeae28941a692c35682d"
     },
     {
       "path": "data/textbook/writing_speaking/ch0004.json",
-      "bytes": 35905,
-      "sha256": "216386751ae84dff0220881a082d0c16ab9deb09927ae3281633e7002afc2939"
+      "bytes": 36716,
+      "sha256": "80e76b13325adbf11b60b583f31d8eeb18a73423822988979f2cdf4bd31e206b"
     },
     {
       "path": "data/textbook/writing_speaking/ch0005.json",
-      "bytes": 40712,
-      "sha256": "501c7e0cdbea29a5bd334ca13bf708efc31d2ae878848fb18b9b70e27fe7f524"
+      "bytes": 41606,
+      "sha256": "69c6c7a9d3a0ccedab57e541f5429f5ef6e9bbda18eab474b58f475aefaaf21c"
     },
     {
       "path": "data/textbook/writing_speaking/ch0006.json",
-      "bytes": 41759,
-      "sha256": "6c1df1a7f967314ac7068e31fa1f412a2a531008d77fb28355acc9520c323b96"
+      "bytes": 42805,
+      "sha256": "915b358f8824f09a91326107d8bba22b55083f496f77be4f73b0837361c739eb"
     },
     {
       "path": "data/textbook/writing_speaking/ch0007.json",
-      "bytes": 33789,
-      "sha256": "0017246a801dbb33c163e79b5fdd8895036982beae3082c54e74fd837ec8d2db"
+      "bytes": 34492,
+      "sha256": "6eabf0a4ecc1e0e9d5d58c94ebfb77e9a337ad91744061fb8e6adc755bdd1c20"
     },
     {
       "path": "data/textbook/writing_speaking/ch0008.json",
-      "bytes": 46027,
-      "sha256": "64a30b528f627483af2179ad94c3c9ac3470b173bd4e8272712492b0adc1a184"
+      "bytes": 47095,
+      "sha256": "2d1aae3700add55619beb9d2fbfcc501c9c141be786f0b0c8d93bdc54fb3ec98"
     },
     {
       "path": "data/textbook/writing_speaking/ch0009.json",
-      "bytes": 51222,
-      "sha256": "0ea33336c64fdd11fc4326c0bcbb3ed9d3f4ad9f0df2336b71e690945de507b5"
+      "bytes": 52327,
+      "sha256": "daf9db477ccb1323732ee63cf9ee561b6acb168eda6e000dcc9b04f6e3b86cf0"
     },
     {
       "path": "data/textbook/writing_speaking/ch0010.json",
-      "bytes": 57332,
-      "sha256": "b6affbca680a7d2408fa153d4e735fe4251d0e1ee9406e104a41a24c0465250e"
+      "bytes": 58622,
+      "sha256": "68b3a318be933d437fb84c3947a05bef62ca93869269e2cbcfae802e5f669603"
     },
     {
       "path": "data/textbook/writing_speaking/ch0011.json",
-      "bytes": 42756,
-      "sha256": "de3ca56746571ec6efb8fc2df9854980e2bbd83df59eff2487cdf6834849c6ee"
+      "bytes": 43707,
+      "sha256": "ab0d670490aee7b88fc2af037ef4280049f033a19227c88a307950aefbf746d5"
     },
     {
       "path": "data/textbook/writing_speaking/ch0012.json",
-      "bytes": 44527,
-      "sha256": "06fb92244968bb07a5aa17d58c147bcbe1723edefe724255c86ab52b23b7ddad"
+      "bytes": 45505,
+      "sha256": "32beb1e09f024a31f71654e1301a7e254a1083d70e3d2521ce2d33d80273fc4d"
     },
     {
       "path": "data/textbook/writing_speaking/ch0013.json",
-      "bytes": 48296,
-      "sha256": "a217b9d0fb634879aa6e1897c599b823f8ac8bcb3a294af2512cd6991e70a40f"
+      "bytes": 49320,
+      "sha256": "95222852b41735269bd7da4443d6ca160b3bcfb903148c21b2c2d854df33ebfd"
     },
     {
       "path": "data/textbook/writing_speaking/ch0014.json",
-      "bytes": 24651,
-      "sha256": "898537a0f4a4334649a467ea098cfd1575618b2b98142717e32c248d305cf676"
+      "bytes": 25163,
+      "sha256": "c32ad2bcf363120473ef9d3aabbc8713b3c6a7ef38b21977e3d10422ad448b11"
     },
     {
       "path": "data/textbook/writing_speaking/ch0015.json",
-      "bytes": 57462,
-      "sha256": "94c4bdd082c7296c2300c6ab16b9a97fd36f49032aa79665ddc77e5860353235"
+      "bytes": 58685,
+      "sha256": "856874f1eec1ea716fb9397c41e68397ef7f0dfdd96e021a79968066a06920ce"
     },
     {
       "path": "data/textbook/writing_speaking/ch0016.json",
-      "bytes": 45994,
-      "sha256": "33c716468f69969877ac03c46cda0022035fdf069f7b64c921512c866ed32db9"
+      "bytes": 47013,
+      "sha256": "897db085e858fb71dcfbcb27337a75776aa456709bc8137f95b3262759bbc0a9"
     },
     {
       "path": "data/textbook/writing_speaking/ch0017.json",
-      "bytes": 53862,
-      "sha256": "0f08fb12585f231f706b42a85b95a78b680c98945fb686c22c144334d31b6cf4"
+      "bytes": 55033,
+      "sha256": "0bae92157571dcf1870b70f8ebb95f8549cd695de5330bed38793c0dbfb23ab4"
     },
     {
       "path": "data/textbook/writing_speaking/ch0018.json",
-      "bytes": 54721,
-      "sha256": "f88f1bb836fcc0ed47dfe84f929fb9f7d1a3780ca306c0128188c39ba8ffa798"
+      "bytes": 55906,
+      "sha256": "10de75ab9d59a59b48db00b11922bb18859ee0e90bff9ea3c376e3f6c870f3d4"
     },
     {
       "path": "data/textbook/writing_speaking/ws-t1.1_zh.json",
-      "bytes": 11530,
-      "sha256": "6028510dd78f997035896dea52611776b5bbd29e9fda6bae7207911f8c1ece1f"
+      "bytes": 11674,
+      "sha256": "4193d43094d856ad9a21e5f7fef9ad605afbd9d64787f4b5ee348d10f1d79819"
     },
     {
       "path": "data/textbook/writing_speaking/ws-t1.2_zh.json",
-      "bytes": 7923,
-      "sha256": "ebe7a7c86e4df970d54ba371e44894f37abe3aef95b22b0e58066c40f3a3912d"
+      "bytes": 8023,
+      "sha256": "228929888b054a039ce5bbd9b0ffb1093fbd65b051cd6424b457e963e826a117"
     },
     {
       "path": "data/textbook/writing_speaking/ws-t1.3_zh.json",
-      "bytes": 4774,
-      "sha256": "c36c589bec73bbad383fa72274318a4d9096fc1d7ba957dba4f80cfd69377964"
+      "bytes": 4860,
+      "sha256": "f38ad18d85edefb7a3651a0908607b4ef5052ed852fe9244fbbc4bdb00da5757"
     },
     {
       "path": "data/textbook/writing_speaking/ws-t1.4_zh.json",
-      "bytes": 9998,
-      "sha256": "d7e3a2c77f3fe57096da4d70c273518a63549791045e9016af7ef397d7d9d40a"
+      "bytes": 10090,
+      "sha256": "6f721426af8a354324e2e5afb6bf07777edcb759fa75e488526086789274aa1a"
     },
     {
       "path": "data/textbook/writing_speaking/ws-t2.1_zh.json",
-      "bytes": 8904,
-      "sha256": "973006f04496d63cd0f91de350202444a41dda6d6cd1ce8394f5d9bf5865dc7f"
+      "bytes": 9027,
+      "sha256": "2840f6ceeb78f38c1c6a8ba469b0ae4002bab460fe52d77e4bd9ab873efa40df"
     },
     {
       "path": "data/textbook/writing_speaking/ws-t2.2_zh.json",
-      "bytes": 6158,
-      "sha256": "46d5f6cff54ba641b905304a93b683bbaf50cd39bfa61fa5957bd47b9cfa48bb"
+      "bytes": 6237,
+      "sha256": "2fe63d325d5a94a73bdf0c30a8cb3bfbdde34ac3fed64e4b4ee7622791c8a38e"
     },
     {
       "path": "data/textbook/writing_speaking/ws-t2.3_zh.json",
-      "bytes": 8108,
-      "sha256": "4f274ab0f95d08dbcdbcb54dcfd366823b65c92c58f5b93085f3b18dfbcdba49"
+      "bytes": 8209,
+      "sha256": "461ca412a178ec423a18a89395f6a5700ece6d5759e370acf69a5251e858cdcb"
     },
     {
       "path": "data/textbook/writing_speaking/ws-t2.4_zh.json",
-      "bytes": 8516,
-      "sha256": "15d58daa4d1c207a04dcf558dca11989d3fe281a0f1fc31153d7c6f2818dc052"
+      "bytes": 8619,
+      "sha256": "30b58ef57c03e089189e3b47f2f6cc173910f2fc3db7fa5da59a794bf1b6d995"
     },
     {
       "path": "data/textbook/writing_speaking/ws-t3.1_zh.json",
-      "bytes": 11126,
-      "sha256": "f118ddae6fd0cb654c2ed6e961dfbe6ea9f2ec903ae84842e296f1f4229c1408"
+      "bytes": 11254,
+      "sha256": "1e1fc5a46dd2f6a9b9dad379280da40749103692c7b0ee2b689750c3b5f6218e"
     },
     {
       "path": "data/textbook/writing_speaking/ws-t3.2_zh.json",
-      "bytes": 9881,
-      "sha256": "231c6ed2f0e7ef09882ae2c3b0896823cc36bf8dc30f02955289423f161947fd"
+      "bytes": 10016,
+      "sha256": "bac5ef9a2247ae8c285e5897cb121a538e5cbd5c4c8f0f4cb1844bd13bbdba97"
     },
     {
       "path": "data/textbook/writing_speaking/ws-t3.3_zh.json",
-      "bytes": 4501,
-      "sha256": "79603d49b4afe49e84f6d0aa511d3ad7cde595b54c5d95a6e4724f150cd6ef52"
+      "bytes": 4572,
+      "sha256": "d33a449d077f10c8bca03cfbbb63d8e0266b19615693129396cf33d74a0d4038"
     },
     {
       "path": "data/textbook/writing_speaking/ws-t3.4_zh.json",
-      "bytes": 8430,
-      "sha256": "efc528d337e78762481b1ae072b7f148656ac1ec69da25d0cc46f452491c0cf4"
+      "bytes": 8527,
+      "sha256": "839c0e0044b884cd3f0f1626d1fc20b4ab87f771c672617cb5c52bb4b7f28a21"
     },
     {
       "path": "data/textbook/writing_speaking/ws-t3.5_zh.json",
-      "bytes": 8026,
-      "sha256": "fe4769ba7e7d283e9a38fe2454141eca6947fa335d8f2798e729f819cbb8d3c7"
+      "bytes": 8154,
+      "sha256": "252ec186d65cf3e9f103f41566ac48f7ca50d6887b8100f024eb164c69219d2f"
     },
     {
       "path": "data/textbook/writing_speaking/ws-t4.1_zh.json",
-      "bytes": 5333,
-      "sha256": "7d34f1403fcf947b6788c9292c23311b4ad05651493443b6590264fc811c132f"
+      "bytes": 5398,
+      "sha256": "f1498fb2f6e6712e5884f1058f2af44f8ac1c613410e1b753dddcd16d1a2dd41"
     },
     {
       "path": "data/textbook/writing_speaking/ws-t4.2_zh.json",
-      "bytes": 6715,
-      "sha256": "62bdbea896d0160ac11268523678d0e01d0c3c60876cc5eb5471dc8c944da4c3"
+      "bytes": 6798,
+      "sha256": "2418b3c5bcfba4f80f440bdc6a93c9279bb1847cd2055d77f53a108eee38018b"
     },
     {
       "path": "data/textbook/writing_speaking/ws-t4.3_zh.json",
-      "bytes": 8811,
-      "sha256": "922f04985c9a3347050dfd942fc12c2dc31de9f4a83bf0755717df66aeaef0c0"
+      "bytes": 8936,
+      "sha256": "42548a3553878af860485afa43341926ade6a6c375775b23f355d2ef488a9e45"
     },
     {
       "path": "data/textbook/writing_speaking/ws-t5.1_zh.json",
-      "bytes": 8548,
-      "sha256": "b401308ce8d040eb217dc21eb5c806f7fafeb7bc0a4ffd9ca89f2d8e24ca6ec1"
+      "bytes": 8653,
+      "sha256": "9792ecbbccf143f5806c79d8df2134308cca1dae157b0277c42c82cb4515e06e"
     },
     {
       "path": "data/textbook/writing_speaking/ws-t5.2_zh.json",
-      "bytes": 5844,
-      "sha256": "9b3d90dc754979ed5c4b2aee18ef68b8aff632295cb56eb177ad2b366ee74ff4"
+      "bytes": 5926,
+      "sha256": "9c053089c3409aea41483abbe158a0e2cf1bbf0d8bf22751b37d78a6873a371c"
     },
     {
       "path": "data/textbook/writing_speaking/ws-t5.3_zh.json",
-      "bytes": 7657,
-      "sha256": "25f7c2e5063fa532f35355145e7505d78a3a67cdf9c7539e424682574c373652"
+      "bytes": 7760,
+      "sha256": "ce90fb8efdb6c223def8cbce71aa3bdb0d36e323c7a5206948d7f27c1ef487d7"
     },
     {
       "path": "data/textbook/zlatoust_grammar/ch0000.json",
-      "bytes": 120406,
-      "sha256": "5b60f5f20f4e82f2b6836d966a989c576f4eb107f3fb109826d5fa7171f82a32"
+      "bytes": 120413,
+      "sha256": "f03b67eb23c169de2488e70062a63af93bd744358cd0c9f4947b4cc67ff910c2"
     },
     {
       "path": "data/textbook/zlatoust_grammar/ch0001.json",
@@ -1485,8 +1895,8 @@
     },
     {
       "path": "data/textbook/zlatoust_grammar/ch0004.json",
-      "bytes": 148639,
-      "sha256": "96c0f07e726095b63c828b88814a23d0a3f975fdf349c0af967fec888c8ed045"
+      "bytes": 146362,
+      "sha256": "53b6c9bd66c39832086fd2f654c1b96b12d35d9eb6343fab8a3d898ac6d19472"
     },
     {
       "path": "data/textbook/zlatoust_grammar/theory/coverage-map.json",
@@ -1495,8 +1905,8 @@
     },
     {
       "path": "data/textbook/zlatoust_grammar/theory/explanations/gl1/gl1-q001-q013.json",
-      "bytes": 39014,
-      "sha256": "2bc68451d5aa0b932cefb64278b300ae31c893d2c8c35586de3708221d5e9172"
+      "bytes": 39023,
+      "sha256": "0624dec030e1df85e03be2dac9a530da7efc012dd2a7745b2d5c51d7b362fb2e"
     },
     {
       "path": "data/textbook/zlatoust_grammar/theory/explanations/gl1/gl1-q014-q026.json",
@@ -1505,13 +1915,13 @@
     },
     {
       "path": "data/textbook/zlatoust_grammar/theory/explanations/gl1/gl1-q027-q039.json",
-      "bytes": 20216,
-      "sha256": "0af59b49a7afef911edaf958f2e35d14f5a3c90d35a383caafe79067107f10ec"
+      "bytes": 29142,
+      "sha256": "39bdbb2f3c3188325f283ff626e5a184c5dd4d807a8e34ca5bdf0f56e2e882a1"
     },
     {
       "path": "data/textbook/zlatoust_grammar/theory/explanations/gl1/gl1-q040-q052.json",
-      "bytes": 17829,
-      "sha256": "1bcaa8d477396bc98400529e5bb79b8157ee9317eb1ab2b400412f8a317b373f"
+      "bytes": 26005,
+      "sha256": "49f34107e8b79040f9bba78cda8d2b90ae820ec2df83de53d208fb5453f5fed5"
     },
     {
       "path": "data/textbook/zlatoust_grammar/theory/explanations/gl1/gl1-q053-q065.json",
@@ -1520,8 +1930,8 @@
     },
     {
       "path": "data/textbook/zlatoust_grammar/theory/explanations/gl1/gl1-q066-q078.json",
-      "bytes": 15486,
-      "sha256": "2f93ddf143dfcfb921971aaa982bea1941a5c6f9605a7a410038f5593c52aa87"
+      "bytes": 23651,
+      "sha256": "0da26b42071330c08479dd0cab93bb2be5aef6b999d7753a7421d75d0a6f66ed"
     },
     {
       "path": "data/textbook/zlatoust_grammar/theory/explanations/gl1/gl1-q079-q091.json",
@@ -1540,198 +1950,198 @@
     },
     {
       "path": "data/textbook/zlatoust_grammar/theory/explanations/gl2/gl2-q001-q013.json",
-      "bytes": 36455,
-      "sha256": "eccb4acf424e556a6b6f05a7a6108a98256741e8c41b76a49182485edd64f500"
+      "bytes": 38325,
+      "sha256": "556f9cad065052692aff7b4d602427ec719d159677d00ac809fff3ecaf252529"
     },
     {
       "path": "data/textbook/zlatoust_grammar/theory/explanations/gl2/gl2-q014-q026.json",
-      "bytes": 30665,
-      "sha256": "e1d9611ce4a983afa24e1cd879fdfd0eca3112e3df3a266c742d613c8ffb85c8"
+      "bytes": 35292,
+      "sha256": "e9d2274a28316fec91c3158ac674cd8f9fdebba67ebb6a5acd681d80917d0474"
     },
     {
       "path": "data/textbook/zlatoust_grammar/theory/explanations/gl2/gl2-q027-q039.json",
-      "bytes": 29197,
-      "sha256": "0c8e0527a5ee662f9545b90552eb8386b265c3b515f07e44995141022b51080a"
+      "bytes": 33906,
+      "sha256": "0037d3bacad236f8f823ebda07b810ec9a3642cba27ced8ea39920a90f8c5d11"
     },
     {
       "path": "data/textbook/zlatoust_grammar/theory/explanations/gl2/gl2-q040-q052.json",
-      "bytes": 30090,
-      "sha256": "01e1e5b98f05b7f51f78a8aa4e01b635d8b5f36745c9d413bfe0576a62f7ecc7"
+      "bytes": 33870,
+      "sha256": "2d8192f012001ab6e7c7b885371459e8eef11e537c501cf8ecfdbc5337c2bab7"
     },
     {
       "path": "data/textbook/zlatoust_grammar/theory/explanations/gl2/gl2-q053-q065.json",
-      "bytes": 29549,
-      "sha256": "013d4472d4c6a1bb7051a953da1e11cc97e5690ab7e113fe9926ef6e1eba5ac1"
+      "bytes": 33088,
+      "sha256": "0af6f6f13cec0a29cb45934b9daf206645f2f517bf70ca57b889a22f2dc9141a"
     },
     {
       "path": "data/textbook/zlatoust_grammar/theory/explanations/gl2/gl2-q066-q078.json",
-      "bytes": 31473,
-      "sha256": "e9405a0f93be1ddfbb37970b25093b6cba9006d0561d9bfc915273e33eb64ff8"
+      "bytes": 33821,
+      "sha256": "472bc7e566b33fd0d9644501c3ea4569b381e7d5597403181306eac749a12295"
     },
     {
       "path": "data/textbook/zlatoust_grammar/theory/explanations/gl2/gl2-q079-q091.json",
-      "bytes": 30654,
-      "sha256": "611dbf55143dccc0d6c0413ff4d58b36d69cc542a7c4b02e85e25e379f327915"
+      "bytes": 33212,
+      "sha256": "ddebd4ed4d4b8c98f6dda9b4c08cfb19d4c475fb8d57cef7b54c84d7d5abcab3"
     },
     {
       "path": "data/textbook/zlatoust_grammar/theory/explanations/gl2/gl2-q092-q104.json",
-      "bytes": 30666,
-      "sha256": "e601b903eb0fa8122d32e82ca6f95b87da6b5791bb6ebcc0daaeaf7a37e08a2a"
+      "bytes": 31076,
+      "sha256": "eed5c474b2228911599e88a766bfe698b1b56e69bc48d2cccb93d231bf312a70"
     },
     {
       "path": "data/textbook/zlatoust_grammar/theory/explanations/gl2/gl2-q105-q117.json",
-      "bytes": 30541,
-      "sha256": "3fb48851b53000471c47d44200e45c2465e575871bc4be192f791db7c6137b1f"
+      "bytes": 31864,
+      "sha256": "0cc7eb60640a6f06814b9f71ce09e6df34f894cf2603db0a711c541f6bf64b45"
     },
     {
       "path": "data/textbook/zlatoust_grammar/theory/explanations/gl2/gl2-q118-q130.json",
-      "bytes": 28150,
-      "sha256": "c6fe558cda0b9ac51e306bf14c49d73b368d089b1ac24b7187541b9a75a22ed0"
+      "bytes": 28998,
+      "sha256": "0c0e3de05b44a868f5e33867a81971b147d9389960e2c4c6895e5f76034b6b27"
     },
     {
       "path": "data/textbook/zlatoust_grammar/theory/explanations/gl2/gl2-q131-q143.json",
-      "bytes": 26790,
-      "sha256": "a488a3b0e501c2dee97277b20c9e22473271975b6b3be0389510a003357d1023"
+      "bytes": 29553,
+      "sha256": "dfaa00bdb771f187aa45f52f2eac856b991252d15d45ac517887e6cf0c1beeac"
     },
     {
       "path": "data/textbook/zlatoust_grammar/theory/explanations/gl2/gl2-q144-q150.json",
-      "bytes": 16552,
-      "sha256": "61fc398080b9eb731ce7b6d7c7fd9f91ce2718570153ccfccdac84b638ebf1f8"
+      "bytes": 18147,
+      "sha256": "29cf882197e5d938fca6f08d7c88ae44fa2981c646443136ff489a949a3db4d7"
     },
     {
       "path": "data/textbook/zlatoust_grammar/theory/explanations/gl3/gl3-q001-q013.json",
-      "bytes": 23162,
-      "sha256": "b1dfe152fe3eb613353fa249b366eef14676882b80b8e37b43af26bc0ca3cfc4"
+      "bytes": 31532,
+      "sha256": "9af11e79c1bc94a5ad6119415f4e01fa3af3dc382a7a78ac3f8f0b51dd604430"
     },
     {
       "path": "data/textbook/zlatoust_grammar/theory/explanations/gl3/gl3-q014-q026.json",
-      "bytes": 23236,
-      "sha256": "ebf6d4c5caf07e7d37b643caf703aed4de1992d64bf5083bfe02cd0d916510ca"
+      "bytes": 30069,
+      "sha256": "27df83f6e1385fbfb2375a4da3a00d33f70ad68fd28056c32027d68da9f790a1"
     },
     {
       "path": "data/textbook/zlatoust_grammar/theory/explanations/gl3/gl3-q027-q039.json",
-      "bytes": 30436,
-      "sha256": "b42a47831df99d6ccf86b5a8324290066cbb7321d68ad2dd5c5b294371c9bb0d"
+      "bytes": 32385,
+      "sha256": "d13806d8c1cb9294e3ec452aaccfc5f6e44ef3fe9c105f1a9fcc40edd8e83065"
     },
     {
       "path": "data/textbook/zlatoust_grammar/theory/explanations/gl3/gl3-q040-q052.json",
-      "bytes": 28812,
-      "sha256": "8de850e3d19294b781d1d2adf9a5f9145581c036db5173101c80a3e6fac8fe0d"
+      "bytes": 30161,
+      "sha256": "7b47769a842b52d5390f220938b2bc57477ac6eb03dc9bbbd28863cdd4dffc42"
     },
     {
       "path": "data/textbook/zlatoust_grammar/theory/explanations/gl3/gl3-q053-q065.json",
-      "bytes": 23466,
-      "sha256": "aa89bb2071c8e37e1508f5f07d6231981b6b5a79f2b8d9ba2ba93ff9aba9a976"
+      "bytes": 28537,
+      "sha256": "e33e83df8e88ce8c34daa2c6fd5ac933c32762ca639ab7972eb95dd126f76283"
     },
     {
       "path": "data/textbook/zlatoust_grammar/theory/explanations/gl3/gl3-q066-q078.json",
-      "bytes": 32502,
-      "sha256": "8957b0404a3fc72248ea20564d3c2898a0d0186dccc3e61191d56f47f7877c2a"
+      "bytes": 31092,
+      "sha256": "97091dfee26dcac1b72f0a1c5a8e796f00c86c6ad745033cecffce38e00270f4"
     },
     {
       "path": "data/textbook/zlatoust_grammar/theory/explanations/gl3/gl3-q079-q091.json",
-      "bytes": 29516,
-      "sha256": "cbaacc20ba1f62b570f3d7803ac73154bef86b08923884d3feee03270cb4be5e"
+      "bytes": 28573,
+      "sha256": "48324e5196f8bc04544029eaf7f37ed1f9c096859b3a7603f4cbddbc0f6874dc"
     },
     {
       "path": "data/textbook/zlatoust_grammar/theory/explanations/gl3/gl3-q092-q099.json",
-      "bytes": 17044,
-      "sha256": "796a28b94fa82fbfc85d0ea7925fda5c3f57b3312561debf855e5bf5f5506de0"
+      "bytes": 17856,
+      "sha256": "4e51da2450964912d23643fdd0a32dd4abc721ddd1822d7459af0fe148611d01"
     },
     {
       "path": "data/textbook/zlatoust_grammar/theory/explanations/gl4/gl4-q001-q013.json",
-      "bytes": 28449,
-      "sha256": "d026cd87784b3ab77114d3bb30ad3f4f48ea7e6d966206eac0e5d846f483cf00"
+      "bytes": 26509,
+      "sha256": "0ea95a1ba32c191ca966b2ebedcb7a38b23330f806c19994b94ce95948dd0b52"
     },
     {
       "path": "data/textbook/zlatoust_grammar/theory/explanations/gl4/gl4-q014-q026.json",
-      "bytes": 27568,
-      "sha256": "73f3ec0be9e1716858daab1e774a1e4743943ad4bedff5ebbd28044f3c52dc27"
+      "bytes": 25943,
+      "sha256": "a02354ca0e9974a5020b71546524f7cef9c6aeedf3a434927ef39485b04fbbd2"
     },
     {
       "path": "data/textbook/zlatoust_grammar/theory/explanations/gl4/gl4-q027-q039.json",
-      "bytes": 23405,
-      "sha256": "f4b7c3ff3d0dc7259a7174d89b4c7e31091dfb0cf010464625f8625ef25cb836"
+      "bytes": 27078,
+      "sha256": "d4c74e4c3b3994d15eedba9059fbc8b67e3d305053a0e666331e1ea5b82685bc"
     },
     {
       "path": "data/textbook/zlatoust_grammar/theory/explanations/gl4/gl4-q040-q052.json",
-      "bytes": 27198,
-      "sha256": "482e44941a3f1cda72f090eb5aa00312c4075e6829a8db90c62647d5eae7d0bf"
+      "bytes": 26405,
+      "sha256": "46ea36178a5b0d46f0ae8a75822901308917fe5f80c585d49998dd92f094b0b9"
     },
     {
       "path": "data/textbook/zlatoust_grammar/theory/explanations/gl4/gl4-q053-q065.json",
-      "bytes": 23913,
-      "sha256": "26c6b8e51dfa7eafcf1ae36c709bda3f67216732743dee0dc47a49c540f5b340"
+      "bytes": 26876,
+      "sha256": "0128d427965b4185984e1f81a229396e6c4de0d0f7a36ecdce315d253f97f4f1"
     },
     {
       "path": "data/textbook/zlatoust_grammar/theory/explanations/gl4/gl4-q066-q078.json",
-      "bytes": 23793,
-      "sha256": "a02e32fa119622dbf3f54220df148dadc65fc8cb30abda31e6ff211b7f6a340f"
+      "bytes": 26498,
+      "sha256": "270fa04c0d109741869123230358cea0bc71cb22880f061aa0e8315e2b4cded1"
     },
     {
       "path": "data/textbook/zlatoust_grammar/theory/explanations/gl4/gl4-q079-q091.json",
-      "bytes": 22324,
-      "sha256": "df7e8682b58ba0c8e014d49de79b3119612225a7ca9532d0d460f48c75ae13b0"
+      "bytes": 24995,
+      "sha256": "9e4c70c63ad2344286a043c95a37914d2fb1fa73a5e11f1bfbe223707dcc0db0"
     },
     {
       "path": "data/textbook/zlatoust_grammar/theory/explanations/gl4/gl4-q092-q102.json",
-      "bytes": 19641,
-      "sha256": "2c474d14ba0d649d1d521f2ee13b4a0c3fc08e877715e027a2bce3ee34b6782c"
+      "bytes": 22564,
+      "sha256": "5f838c9224d68bd514c188db11dbb485211257778906184d50cb65f045c39535"
     },
     {
       "path": "data/textbook/zlatoust_grammar/theory/explanations/gl5/gl5-q001-q013.json",
-      "bytes": 29864,
-      "sha256": "425ff0e6bc5faceed8bcbab4a7e2601c47f5b650ca033d6bbca48bc16427c5e4"
+      "bytes": 36139,
+      "sha256": "3d0aadf3793dac9d54d69c7d0ffcdbc90db804925833781fba7302dbbababd29"
     },
     {
       "path": "data/textbook/zlatoust_grammar/theory/explanations/gl5/gl5-q014-q026.json",
-      "bytes": 30327,
-      "sha256": "6918f4b0297afd6b5762b501c40463091923d5cb97ae64cc2a0308419c706584"
+      "bytes": 36367,
+      "sha256": "94964ad0c08f30de344c487d9701b37368b2e776d2b7dd16650fafd351fb0005"
     },
     {
       "path": "data/textbook/zlatoust_grammar/theory/explanations/gl5/gl5-q027-q039.json",
-      "bytes": 29550,
-      "sha256": "250171e8e40049f8e0a489970e907fa8450ae0f36b301999eb28415259cf7298"
+      "bytes": 28208,
+      "sha256": "05f31e5ba55ca92be86fa0dfda2821a6be283ef0b4a5e278a4127865e613ec3e"
     },
     {
       "path": "data/textbook/zlatoust_grammar/theory/explanations/gl5/gl5-q040-q052.json",
-      "bytes": 31849,
-      "sha256": "b45e3d7288bc058c6721dee9b6f2519d829811cb0b8dab529e81053ab75684bf"
+      "bytes": 30340,
+      "sha256": "848eea8cc325f0ea340cd68bc5e0ea137e66e807da00c020f434f1b7614949f0"
     },
     {
       "path": "data/textbook/zlatoust_grammar/theory/explanations/gl5/gl5-q053-q065.json",
-      "bytes": 29670,
-      "sha256": "f49f30505ffd9178847272241c14f02f35f27e03a28f3d330b1cd857db0905a9"
+      "bytes": 29620,
+      "sha256": "371ef3f187663c90fd80a78166c9810f46d3ede225db16deb117f4fc9be24371"
     },
     {
       "path": "data/textbook/zlatoust_grammar/theory/explanations/gl5/gl5-q066-q078.json",
-      "bytes": 25362,
-      "sha256": "65b98550561a5121f9b38e17dafe2f21fb4f969a0a7f1e6de4b80dae3398ced3"
+      "bytes": 28825,
+      "sha256": "7edb8fdb3cac32709234eba98a63ba413e86fcec817132fe7ddbb44f4582d2c7"
     },
     {
       "path": "data/textbook/zlatoust_grammar/theory/explanations/gl5/gl5-q079-q091.json",
-      "bytes": 25078,
-      "sha256": "8cd5939d505492fa6aa9686387d18907465a2a0b993f73fa31256fbc1dfb23cd"
+      "bytes": 28582,
+      "sha256": "885f446abeb026471bad235ef91f6c55cfc08f8ff7bb2421f12e754845bf58a8"
     },
     {
       "path": "data/textbook/zlatoust_grammar/theory/explanations/gl5/gl5-q092-q104.json",
-      "bytes": 25593,
-      "sha256": "a17dac90e244699bda67bd763c17cfe2bbe4fee4ccc6725a30440d7b50322aab"
+      "bytes": 28533,
+      "sha256": "75c4c2fb93bc881313f7d69b085fc3b80b6913040483e5e57e2c1276af14bee4"
     },
     {
       "path": "data/textbook/zlatoust_grammar/theory/explanations/gl5/gl5-q105-q117.json",
-      "bytes": 25697,
-      "sha256": "b6ab2e29c41ecacadd81b8d58c603bb93b30af3c93019db2d9673f1d8d794a1a"
+      "bytes": 25921,
+      "sha256": "2280fd52c8a5f0228fa610541808731b7b8642fb0d9bb6a89a88bb8e21cace90"
     },
     {
       "path": "data/textbook/zlatoust_grammar/theory/explanations/gl5/gl5-q118-q130.json",
-      "bytes": 33658,
-      "sha256": "5c6fe77d291082f84a2685c92abad7203e32bad6b07e22a97eaec92c55c9f7a2"
+      "bytes": 30888,
+      "sha256": "02d3f136d4b9522f0056cded00a234f01b881ed5cd5b875fdb936d405b009642"
     },
     {
       "path": "data/textbook/zlatoust_grammar/theory/explanations/gl5/gl5-q131-q139.json",
-      "bytes": 22838,
-      "sha256": "026433eff054557de41e5fefde4b91b90bce09cd32cc32380b4a1644d75ee5a7"
+      "bytes": 21204,
+      "sha256": "1fee10de2d76eabf9a7d6341f0ef9554717343e3f76f367d5693c6977d8ede52"
     },
     {
       "path": "data/textbook/zlatoust_grammar/theory/explanations/index.json",
@@ -1739,164 +2149,169 @@
       "sha256": "b8a7777d9fad1d678a670cefc00905a8864f5faf0cd6d8cfa4ae551326a7d7d4"
     },
     {
+      "path": "data/textbook/zlatoust_grammar/theory/knowledge-graph.json",
+      "bytes": 15001,
+      "sha256": "b3aa73c56621cc294b34ea9d9ddf21a4f11ec261790e94433edff9f3dc26cce6"
+    },
+    {
       "path": "data/textbook/zlatoust_grammar/theory/learning-pages/gl1/section-1.1.json",
-      "bytes": 37855,
-      "sha256": "a9a33b753ea15b26467152643013f10c3507d0bf15c8242610d3cd2e96f929a1"
+      "bytes": 60051,
+      "sha256": "a0712ce1514e9f8f437e5eb125c20114b0ec673f8f5e4279ecd7ed2081d58837"
     },
     {
       "path": "data/textbook/zlatoust_grammar/theory/learning-pages/gl1/section-1.2.json",
-      "bytes": 45457,
-      "sha256": "075e6fd4c082f32a4c303cf53143156af0fbfeaecef8fe34fdd5abe13c645d63"
+      "bytes": 61521,
+      "sha256": "398b17b177e05bb27229deea8cd8b1dd67f43699fb18ab78399b1ad595ed55ec"
     },
     {
       "path": "data/textbook/zlatoust_grammar/theory/learning-pages/gl1/section-1.3.json",
-      "bytes": 44358,
-      "sha256": "95238aaa99028090e59524d619af5ef5ba5ef89ad9f659bb0ea2f5755d37abcc"
+      "bytes": 58668,
+      "sha256": "a20553c76bd02d5ebda46a41287ce895022ff7c40452649b31735f5fdc4194e3"
     },
     {
       "path": "data/textbook/zlatoust_grammar/theory/learning-pages/gl1/section-1.4.1.json",
-      "bytes": 47251,
-      "sha256": "9bfdcfb3851f646e29f278a88043a47da3d993c9363de2b944cccb0a0389798b"
+      "bytes": 56434,
+      "sha256": "0021189357e1fd7a52d19b3e6bc0f07b2fd623fbc069d4107365b843852ce5e0"
     },
     {
       "path": "data/textbook/zlatoust_grammar/theory/learning-pages/gl1/section-1.4.2.json",
-      "bytes": 30891,
-      "sha256": "ad0afe275f4efbe29ac95c8d98c89800611e32b5f129d6c39c6c42dbf1ba5baf"
+      "bytes": 41700,
+      "sha256": "f357bb5a4de02db33055cf60b589b5031754a90c65764de173126e6fc436f1c0"
     },
     {
       "path": "data/textbook/zlatoust_grammar/theory/learning-pages/gl1/section-1.4.3.json",
-      "bytes": 31680,
-      "sha256": "95908d3cd2d436e5c4baca8981a9d599ddb07e033a6bab135b0594092f875853"
+      "bytes": 49286,
+      "sha256": "1a3e550bcabd7a858f1fee97e9a1f7d4286456e36bf77d126058f71af4c79446"
     },
     {
       "path": "data/textbook/zlatoust_grammar/theory/learning-pages/gl1/section-1.4.4.json",
-      "bytes": 29136,
-      "sha256": "e579e0e6969d087e647406b9709216cbd64764b7275d7420f985b010dc01eca6"
+      "bytes": 49781,
+      "sha256": "aedfc850d83299d52c02e156113e08d4e304eaa3a9d63400cf0b1590a91d8935"
     },
     {
       "path": "data/textbook/zlatoust_grammar/theory/learning-pages/gl1/section-1.4.5.json",
-      "bytes": 16962,
-      "sha256": "62c71e624957447f08fbd8c84b8eb5addf4c68a881dfa45de88202610ef32867"
+      "bytes": 27709,
+      "sha256": "d3c333c3107e9aac7dc5c0e5cbff98f9893b682090a0215b484a7c8b40374c9a"
     },
     {
       "path": "data/textbook/zlatoust_grammar/theory/learning-pages/gl1/section-1.4.6.json",
-      "bytes": 44326,
-      "sha256": "cbd5b99575dafe712db776469a6722d4f8fbb04da598eb4111419edde113ee38"
+      "bytes": 60534,
+      "sha256": "049867175a3bf6904cad441c8cd2f67705d5d870610bec500d3df315ebc81458"
     },
     {
       "path": "data/textbook/zlatoust_grammar/theory/learning-pages/gl1/section-1.4.7.json",
-      "bytes": 29939,
-      "sha256": "dd467bbfd95a8e55a7cf5b24a30ffe8cb298ec4a3e4f4a563556501a3fa09799"
+      "bytes": 46451,
+      "sha256": "ffb6900411539b6f02799e2a1b25a6f62ad0a7d6bd8612c26f75329122873d99"
     },
     {
       "path": "data/textbook/zlatoust_grammar/theory/learning-pages/gl1/section-1.4.8.json",
-      "bytes": 21458,
-      "sha256": "475d4a8d2030f19ecae1c4f86646778f66827c95183c22e7fc76f06dd7ad024f"
+      "bytes": 36615,
+      "sha256": "060785811f8da94e9c5d859485ebd29c3b3b605d43b6fdc9ecd00552435d3151"
     },
     {
       "path": "data/textbook/zlatoust_grammar/theory/learning-pages/gl1/section-1.5-review.json",
-      "bytes": 28676,
-      "sha256": "bdb9224b0ebe48d963534a40bb969ea93e1b98e492613763a1229c9cbd73a317"
+      "bytes": 48001,
+      "sha256": "83202062f4d3c277d6d270577f30b7b1cf3a5ef687f5a8c6de1a725d187cad53"
     },
     {
       "path": "data/textbook/zlatoust_grammar/theory/learning-pages/gl2/section-2.1.json",
-      "bytes": 36022,
-      "sha256": "085cf1b9cd3fc8eb7734a77434ac9f1dea2446e221b4945788a2dcd040bf569f"
+      "bytes": 59426,
+      "sha256": "526765871eb8d7028de9ea9d7b43d45c56aba58efe4455c3747e413885eb3f47"
     },
     {
       "path": "data/textbook/zlatoust_grammar/theory/learning-pages/gl2/section-2.2.json",
-      "bytes": 37138,
-      "sha256": "55447ba5dc117fbfc5462fbac53de057f1fb0f759f768405df00cadc20bbd3ce"
+      "bytes": 50170,
+      "sha256": "e3b3b3431c56330a9dca8ce42d65c8b4a34c219c1588bc848ab0667e142a8f16"
     },
     {
       "path": "data/textbook/zlatoust_grammar/theory/learning-pages/gl2/section-2.3.json",
-      "bytes": 30184,
-      "sha256": "60b5095dc09a76ffd97a348cbdb3038201a06b86bc9565748e6c681b98e731d3"
+      "bytes": 51862,
+      "sha256": "498a1da9de49452ef4885f8c099c96458c6b4f20d850f222d74c5f339c221684"
     },
     {
       "path": "data/textbook/zlatoust_grammar/theory/learning-pages/gl2/section-2.4.1.json",
-      "bytes": 26711,
-      "sha256": "e364f49a03ce2eacd4bb7ca07a96fd9bd4720c8fe70750a0d4e87c6d90bf743b"
+      "bytes": 48030,
+      "sha256": "a7cebd42e938c54e612ee521c33b45a6232721f554eddef73c84f958cb8f0374"
     },
     {
       "path": "data/textbook/zlatoust_grammar/theory/learning-pages/gl2/section-2.4.2.json",
-      "bytes": 30548,
-      "sha256": "eb980b78c68a4a442e61a22ab1e5370b2e74254785fc13723928078815ca8a52"
+      "bytes": 51582,
+      "sha256": "044b79c69315ed8cffd3e07f32b41ba4c65c8e3b4eb50025b99f519f15dc4d41"
     },
     {
       "path": "data/textbook/zlatoust_grammar/theory/learning-pages/gl2/section-2.4.json",
-      "bytes": 23044,
-      "sha256": "56461a6326933d3177ab2a24273f95eba8b467adacea653c5d7ce4e1cb4c6748"
+      "bytes": 47288,
+      "sha256": "c29d682d38e18e097674ad39a1565ed10af10c648a788401e32fc0bfa1686c57"
     },
     {
       "path": "data/textbook/zlatoust_grammar/theory/learning-pages/gl2/section-2.5.json",
-      "bytes": 21622,
-      "sha256": "cf137eeba905f3cf28f53263e61f8f53ec0ec251708f3ee858e4ab1e50035f37"
+      "bytes": 45282,
+      "sha256": "8f22757028e9b926f5fa80b90545c17b58af2485663528b62f2fd54b825e79ae"
     },
     {
       "path": "data/textbook/zlatoust_grammar/theory/learning-pages/gl2/section-2.6.json",
-      "bytes": 30869,
-      "sha256": "30dce2850f386c5bae4cef55ddac24bc6208d1a2d18ae58740ed9a60419bdbed"
+      "bytes": 49366,
+      "sha256": "f10c5c3362d5ee02c328b022f5ac88f4c103e7872d4392443a23d1ec9b130b2b"
     },
     {
       "path": "data/textbook/zlatoust_grammar/theory/learning-pages/gl2/section-2.7.json",
-      "bytes": 29468,
-      "sha256": "0848759fb9a953caff2501aa1fa340ad7055e13d51ca4f3c8dd30d62e9040f71"
+      "bytes": 50265,
+      "sha256": "7af0210fb45320fb60453556fd6da02b19ebb8777303b53f6bd6f832a3248c06"
     },
     {
       "path": "data/textbook/zlatoust_grammar/theory/learning-pages/gl2/section-2.8.json",
-      "bytes": 27554,
-      "sha256": "0cf15cc5c846fe32b52b0776e5870a8da942f90feefab832026a723c6be516b4"
+      "bytes": 48460,
+      "sha256": "7d43930c4aef185ead65dccb11d9028deb69d60a6523d0f6963b8f774847cf8d"
     },
     {
       "path": "data/textbook/zlatoust_grammar/theory/learning-pages/gl3/section-3.1.1.json",
-      "bytes": 32572,
-      "sha256": "5f0174346e97fdd733c1a3ccf767554804504631de93b32cb99daab9b5a3d4e4"
+      "bytes": 54137,
+      "sha256": "ee4ee537dd89811bdaedc5e8da0b7e5d8d684cb3abf4e74910b07f72ed9fcad4"
     },
     {
       "path": "data/textbook/zlatoust_grammar/theory/learning-pages/gl3/section-3.1.2.json",
-      "bytes": 31829,
-      "sha256": "86f56d81ffe73f3e590b5ed57d099befa6d35f861822d7196e7aa9408a380ee4"
+      "bytes": 53180,
+      "sha256": "549539cd174564c2134b1774aecd6dbe780b96c747ca28bc8c4b2d2eef6adcdf"
     },
     {
       "path": "data/textbook/zlatoust_grammar/theory/learning-pages/gl3/section-3.1.json",
-      "bytes": 35530,
-      "sha256": "7fbd2f36e1a5e691dee75879fe7e4d05457370f2fe67eacf60ef9a6bc200a191"
+      "bytes": 56510,
+      "sha256": "24ead85bf5d9071ad1249c7f856d19c2edcc14a5c4874f82281152d5ef3c9f91"
     },
     {
       "path": "data/textbook/zlatoust_grammar/theory/learning-pages/gl4/section-4.1.json",
-      "bytes": 34244,
-      "sha256": "8c6cd6bcf688793903280fa10e58b6a263af21fe6df32b66b72240b96342485c"
+      "bytes": 53643,
+      "sha256": "24af67e12e650d0f38f1223e81c4f87e3c5270cc72930b6458314ab05b40b261"
     },
     {
       "path": "data/textbook/zlatoust_grammar/theory/learning-pages/gl4/section-4.2.json",
-      "bytes": 33623,
-      "sha256": "93246b4656fa4362852b0b9e3750d6ebcced1df9ebc80d46c4cc6949db90bcea"
+      "bytes": 54224,
+      "sha256": "9c539b5eec254e9c3bdf2406bd1823623b637c706e01bf2df39edec86fda53fa"
     },
     {
       "path": "data/textbook/zlatoust_grammar/theory/learning-pages/gl4/section-4.3.json",
-      "bytes": 30531,
-      "sha256": "4c958ae8c427224d7199190a27c69b000cb965794c15365bfa113d058d60ab51"
+      "bytes": 51822,
+      "sha256": "0cee36568f6ac735ee34fdac69e49447933949caea780deaa13264a392929bbe"
     },
     {
       "path": "data/textbook/zlatoust_grammar/theory/learning-pages/gl4/section-4.4.json",
-      "bytes": 28609,
-      "sha256": "9580e0e208f6e1ed732079baf7dd96eaa0e11db87c213c0500d114238d532a09"
+      "bytes": 49387,
+      "sha256": "227a4dd48289aa6ba74e59b751c72cad0a6b705ed7b6a23b43dc6919f1bdaf18"
     },
     {
       "path": "data/textbook/zlatoust_grammar/theory/learning-pages/gl5/section-5.1.json",
-      "bytes": 41614,
-      "sha256": "f683f70c73bee86f08b7cf12aad8fe28017e6d1a3bc5971ffe5418b1e5fcdb2d"
+      "bytes": 49624,
+      "sha256": "65c6ada277bf217e12cf60ea4f4268c217e5d083bda2d2dd203a33a2e33b57aa"
     },
     {
       "path": "data/textbook/zlatoust_grammar/theory/learning-pages/gl5/section-5.2.json",
-      "bytes": 38476,
-      "sha256": "ded4a4f4992b5e8830a1f681f9142c6387e874d4c5d91d934c3f7f403d40062a"
+      "bytes": 47212,
+      "sha256": "874c23f20992dd992263322b9ad2405a6877a1e11d5a2c8e7ee39e97bc40187a"
     },
     {
       "path": "data/textbook/zlatoust_grammar/theory/learning-pages/gl5/section-5.lexical.json",
-      "bytes": 53196,
-      "sha256": "018e5894cbeace5abb9ac31a97c39008c1aad3c8386b2d6fd831d07b0a5cb752"
+      "bytes": 64718,
+      "sha256": "e4ae5fc95c00bc5c2d77380113908457b457634222451e7427f3c2725a168d53"
     },
     {
       "path": "data/textbook/zlatoust_grammar/theory/mappings/chapter-02-exercise-to-rules.json",
@@ -1960,8 +2375,8 @@
     },
     {
       "path": "data/textbook/zlatoust_grammar/theory/mappings/exercise-to-rules.json",
-      "bytes": 87226,
-      "sha256": "712daa30762db57a778360c2b10dbcaf31dd72c1a1c881d130d3de383f11c68f"
+      "bytes": 87360,
+      "sha256": "6655458f8d1aa6c6deeafe3148662295a3c3a7c918e87e22b6e973738815e984"
     },
     {
       "path": "data/textbook/zlatoust_grammar/theory/mappings/mapping-review.json",
@@ -1975,8 +2390,8 @@
     },
     {
       "path": "data/textbook/zlatoust_grammar/theory/quality-reports/chapter-01-data-repair.json",
-      "bytes": 101833,
-      "sha256": "24099444eb2b8f12d32858179d701abb51f1b9db59b5995821ba037b6d7237de"
+      "bytes": 101989,
+      "sha256": "2630fbe387baf7cacfcfe1159cc4fe99d5f173a29273c6ee4754bcace42004f8"
     },
     {
       "path": "data/textbook/zlatoust_grammar/theory/quality-reports/chapter-02-data-repair.json",
@@ -2000,8 +2415,8 @@
     },
     {
       "path": "data/textbook/zlatoust_grammar/theory/rule-units/gl1/section-1.1.json",
-      "bytes": 36009,
-      "sha256": "213d220be54108703689de8524aa8d3895294a48ead9ef271b5b5cf5ba5e005c"
+      "bytes": 36011,
+      "sha256": "ccc66edc596540ccd0959768364add3d170bef2a0f81bfd72007b7273c47d9ab"
     },
     {
       "path": "data/textbook/zlatoust_grammar/theory/rule-units/gl1/section-1.2.json",
@@ -2170,9 +2585,9 @@
     },
     {
       "path": "data/vocabulary.json",
-      "bytes": 13299721,
-      "sha256": "9eb9a876843468d36166c4bde6b4061749324eefdc69d9d28f86ab1180971f90"
+      "bytes": 14067374,
+      "sha256": "5111ae451a5835297bae12618bc03757e50a2105135a5b8bde1f7188c34dc4ca"
     }
   ],
-  "filesHash": "f9cc24373d85ad45cd74f2798dbb409f134d2ecba386c4054e56b3312df190dd"
+  "filesHash": "1a99aee8221073bba405fc267ea364a6368ffa84b731eebe4f55e977a7dd44a8"
 }

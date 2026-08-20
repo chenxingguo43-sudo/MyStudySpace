@@ -1,0 +1,626 @@
+{
+  "suiteId": "llm-capability-test-v1",
+  "version": 1,
+  "project": "白夜俄语",
+  "purpose": "在不绑定供应商前，比较候选 LLM 的理解、陪练策略、结构化输出、延迟、成本和可靠性。",
+  "status": "designed_not_run",
+  "architectureConstraint": "最终产品只有一个白夜俄语 Agent；不得引入嵌套 Agent 或第二生产 Agent。",
+  "evaluationRule": "所有候选使用相同 cases、提示词版本、参数、上下文和超时；先保存原始响应，再人工判定。",
+  "cases": [
+    {
+      "id": "llm-01",
+      "category": "normal_russian_conversation",
+      "title": "普通俄语日常回答",
+      "session": {
+        "mode": "daily",
+        "identity": "russian_friend",
+        "turnIndex": 1,
+        "userSpeakingRatio": 0.0
+      },
+      "conversation": [
+        {
+          "role": "assistant",
+          "text": "Привет! О чём поговорим сегодня?"
+        }
+      ],
+      "asr": {
+        "zh": {
+          "text": "我今天在家工作。",
+          "segments": []
+        },
+        "ru": {
+          "text": "Сегодня я работал дома.",
+          "segments": []
+        }
+      },
+      "userConfirmedTranscript": "Сегодня я работал дома.",
+      "memory": [],
+      "policy": {
+        "targetLanguage": "ru",
+        "maxRussianSentences": 2,
+        "mustAskQuestion": true
+      },
+      "expected": {
+        "intent": "用户说今天在家工作",
+        "shouldClarify": false,
+        "replyLanguage": "ru",
+        "maxReplySentences": 2,
+        "mustAskOneQuestion": true,
+        "scaffoldLevel": 0,
+        "mustNot": [
+          "长篇讲解语法",
+          "未经请求纠错",
+          "虚构用户工作内容"
+        ]
+      }
+    },
+    {
+      "id": "llm-02",
+      "category": "mixed_language",
+      "title": "中俄混合表达保持原意",
+      "session": {
+        "mode": "daily",
+        "identity": "russian_friend",
+        "turnIndex": 2,
+        "userSpeakingRatio": 0.65
+      },
+      "conversation": [
+        {
+          "role": "user",
+          "text": "Вчера я ходил в кино с друзьями, потом我们去吃了火锅。"
+        }
+      ],
+      "asr": {
+        "zh": {
+          "text": "昨天我和朋友去看电影，然后我们去吃了火锅。",
+          "segments": []
+        },
+        "ru": {
+          "text": "Вчера я ходил в кино с друзьями, потом мы пошли есть хого.",
+          "segments": []
+        }
+      },
+      "userConfirmedTranscript": "Вчера я ходил в кино с друзьями, потом我们去吃了火锅。",
+      "memory": [],
+      "policy": {
+        "targetLanguage": "ru",
+        "maxRussianSentences": 2,
+        "mustAskQuestion": true
+      },
+      "expected": {
+        "intent": "用户分享和朋友看电影并吃火锅",
+        "shouldClarify": false,
+        "replyLanguage": "ru",
+        "mustAskOneQuestion": true,
+        "mustMention": [
+          "电影或朋友或火锅中的一个相关点"
+        ],
+        "mustNot": [
+          "把用户的话整段翻译成中文",
+          "假设电影名称"
+        ]
+      }
+    },
+    {
+      "id": "llm-03",
+      "category": "chinese_director_instruction",
+      "title": "中文导演指令切换场景",
+      "session": {
+        "mode": "daily",
+        "identity": "russian_friend",
+        "turnIndex": 1,
+        "userSpeakingRatio": 0.0
+      },
+      "conversation": [],
+      "asr": {
+        "zh": {
+          "text": "我们模拟一下在咖啡馆点餐，你当服务员。",
+          "segments": []
+        },
+        "ru": {
+          "text": "Мы симулируем в кафе? Ты будешь официантом.",
+          "segments": []
+        }
+      },
+      "userConfirmedTranscript": "我们模拟一下在咖啡馆点餐，你当服务员。",
+      "memory": [],
+      "policy": {
+        "targetLanguage": "ru",
+        "maxRussianSentences": 2,
+        "mayUseChineseForSetup": true
+      },
+      "expected": {
+        "intent": "开始咖啡馆点餐角色扮演，Agent 扮演服务员",
+        "shouldClarify": false,
+        "replyLanguage": "ru",
+        "mayUseShortChineseConfirmation": true,
+        "mustStartRoleplay": true,
+        "mustAskOneQuestion": true,
+        "mustNot": [
+          "继续原话题",
+          "解释很长的角色设定",
+          "要求用户重新配置场景"
+        ]
+      }
+    },
+    {
+      "id": "llm-04",
+      "category": "dual_channel_conflict_resolvable",
+      "title": "双通道冲突但上下文可判断",
+      "session": {
+        "mode": "daily",
+        "identity": "russian_friend",
+        "turnIndex": 3,
+        "userSpeakingRatio": 0.58
+      },
+      "conversation": [
+        {
+          "role": "assistant",
+          "text": "Куда ты ездил в прошлом году?"
+        }
+      ],
+      "asr": {
+        "zh": {
+          "text": "我去年去了圣彼得堡。",
+          "segments": [
+            {
+              "start": 0.0,
+              "end": 2.0,
+              "text": "我去年去了圣彼得堡"
+            }
+          ]
+        },
+        "ru": {
+          "text": "Я ездил в Санкт-Петербург в прошлом году.",
+          "segments": [
+            {
+              "start": 0.0,
+              "end": 2.0,
+              "text": "Я ездил в Санкт-Петербург в прошлом году"
+            }
+          ]
+        }
+      },
+      "userConfirmedTranscript": null,
+      "memory": [],
+      "policy": {
+        "targetLanguage": "ru",
+        "maxRussianSentences": 2,
+        "mustAskQuestion": true,
+        "useBothAsrChannels": true
+      },
+      "expected": {
+        "intent": "用户去年去了圣彼得堡",
+        "shouldClarify": false,
+        "replyLanguage": "ru",
+        "mustTreatChannelsAsEquivalentMeaning": true,
+        "mustAskOneQuestion": true,
+        "mustNot": [
+          "说两路转写互相矛盾",
+          "要求用户确认明显一致的内容"
+        ]
+      }
+    },
+    {
+      "id": "llm-05",
+      "category": "dual_channel_conflict_ambiguous",
+      "title": "双通道冲突且关键地点不确定",
+      "session": {
+        "mode": "daily",
+        "identity": "russian_friend",
+        "turnIndex": 3,
+        "userSpeakingRatio": 0.55
+      },
+      "conversation": [
+        {
+          "role": "assistant",
+          "text": "Где ты был вчера вечером?"
+        }
+      ],
+      "asr": {
+        "zh": {
+          "text": "我昨天晚上在北京。",
+          "segments": [
+            {
+              "start": 0.0,
+              "end": 1.5,
+              "text": "我昨天晚上在北京"
+            }
+          ]
+        },
+        "ru": {
+          "text": "Вчера вечером я был в Перми.",
+          "segments": [
+            {
+              "start": 0.0,
+              "end": 1.5,
+              "text": "Вчера вечером я был в Перми"
+            }
+          ]
+        }
+      },
+      "userConfirmedTranscript": null,
+      "memory": [],
+      "policy": {
+        "targetLanguage": "ru",
+        "maxRussianSentences": 1,
+        "mustAskClarification": true,
+        "useBothAsrChannels": true
+      },
+      "expected": {
+        "intent": "无法确定用户所在地点",
+        "shouldClarify": true,
+        "clarificationLanguage": "zh_or_mixed",
+        "mustAskAbout": "北京还是彼尔姆",
+        "mustNot": [
+          "自行选择一个地点",
+          "同时回复两个地点并继续展开",
+          "假装听懂"
+        ]
+      }
+    },
+    {
+      "id": "llm-06",
+      "category": "short_answer_scaffold",
+      "title": "用户回答过短，先追问不立即给答案",
+      "session": {
+        "mode": "daily",
+        "identity": "patient_tutor",
+        "turnIndex": 2,
+        "userSpeakingRatio": 0.35
+      },
+      "conversation": [
+        {
+          "role": "assistant",
+          "text": "Что ты обычно делаешь по выходным?"
+        },
+        {
+          "role": "user",
+          "text": "Ничего."
+        }
+      ],
+      "asr": {
+        "zh": {
+          "text": "没什么。",
+          "segments": []
+        },
+        "ru": {
+          "text": "Ничего.",
+          "segments": []
+        }
+      },
+      "userConfirmedTranscript": "Ничего.",
+      "memory": [],
+      "policy": {
+        "targetLanguage": "ru",
+        "maxRussianSentences": 2,
+        "mustAskQuestion": true,
+        "scaffoldRule": "short_answer_first_followup"
+      },
+      "expected": {
+        "intent": "用户没有展开周末活动",
+        "shouldClarify": false,
+        "replyLanguage": "ru",
+        "scaffoldLevel": 1,
+        "mustAskOneQuestion": true,
+        "mustNot": [
+          "马上给完整范文",
+          "批评用户回答太短",
+          "连续询问多个问题"
+        ]
+      }
+    },
+    {
+      "id": "llm-07",
+      "category": "scaffold_escalation",
+      "title": "连续卡住后逐级提供支架",
+      "session": {
+        "mode": "daily",
+        "identity": "patient_tutor",
+        "turnIndex": 4,
+        "userSpeakingRatio": 0.22,
+        "scaffoldHistory": [
+          0,
+          1
+        ]
+      },
+      "conversation": [
+        {
+          "role": "assistant",
+          "text": "Расскажи, почему тебе нравится этот фильм?"
+        },
+        {
+          "role": "user",
+          "text": "Не знаю."
+        },
+        {
+          "role": "assistant",
+          "text": "Он был смешной или интересный?"
+        },
+        {
+          "role": "user",
+          "text": "Я не могу объяснить."
+        }
+      ],
+      "asr": {
+        "zh": {
+          "text": "我不知道。我没法解释。",
+          "segments": []
+        },
+        "ru": {
+          "text": "Не знаю. Я не могу объяснить.",
+          "segments": []
+        }
+      },
+      "userConfirmedTranscript": "Не знаю. Я не могу объяснить.",
+      "memory": [],
+      "policy": {
+        "targetLanguage": "ru",
+        "maxRussianSentences": 3,
+        "scaffoldRule": "escalate_after_two_blocks"
+      },
+      "expected": {
+        "intent": "用户无法表达喜欢电影的原因",
+        "shouldClarify": false,
+        "replyLanguage": "ru",
+        "scaffoldLevel": 2,
+        "mustInclude": [
+          "关键词或句型框架",
+          "允许用户选择/完成表达"
+        ],
+        "mustNot": [
+          "只重复开放问题",
+          "直接替用户发送完整答案"
+        ]
+      }
+    },
+    {
+      "id": "llm-08",
+      "category": "reply_length_control",
+      "title": "连续两轮 AI 过长后强制缩短",
+      "session": {
+        "mode": "daily",
+        "identity": "russian_friend",
+        "turnIndex": 5,
+        "userSpeakingRatio": 0.3,
+        "assistantRecentSentenceCounts": [
+          5,
+          4
+        ]
+      },
+      "conversation": [
+        {
+          "role": "assistant",
+          "text": "很长的上一轮回复……"
+        },
+        {
+          "role": "user",
+          "text": "Да, я понимаю."
+        }
+      ],
+      "asr": {
+        "zh": {
+          "text": "是的，我明白。",
+          "segments": []
+        },
+        "ru": {
+          "text": "Да, я понимаю.",
+          "segments": []
+        }
+      },
+      "userConfirmedTranscript": "Да, я понимаю.",
+      "memory": [],
+      "policy": {
+        "targetLanguage": "ru",
+        "maxRussianSentences": 1,
+        "mustAskQuestion": true,
+        "forceShortNextTurn": true
+      },
+      "expected": {
+        "intent": "用户表示理解",
+        "shouldClarify": false,
+        "replyLanguage": "ru",
+        "maxReplySentences": 1,
+        "mustAskOneQuestion": true,
+        "mustNot": [
+          "解释上一轮内容",
+          "超过两句俄语",
+          "提出多个问题"
+        ]
+      }
+    },
+    {
+      "id": "llm-09",
+      "category": "correction_without_interruption",
+      "title": "日常模式不立即纠错",
+      "session": {
+        "mode": "daily",
+        "identity": "russian_friend",
+        "turnIndex": 3,
+        "userSpeakingRatio": 0.7
+      },
+      "conversation": [
+        {
+          "role": "assistant",
+          "text": "Что ты делал утром?"
+        }
+      ],
+      "asr": {
+        "zh": {
+          "text": "早上我去了商店买面包。",
+          "segments": []
+        },
+        "ru": {
+          "text": "Утром я ходил в магазин купить хлеба.",
+          "segments": []
+        }
+      },
+      "userConfirmedTranscript": "Утром я ходил в магазин купить хлеба.",
+      "memory": [],
+      "policy": {
+        "targetLanguage": "ru",
+        "modeCorrection": "defer_to_review"
+      },
+      "expected": {
+        "intent": "用户早上去商店买面包",
+        "shouldClarify": false,
+        "replyLanguage": "ru",
+        "correction": null,
+        "mustContinueConversation": true,
+        "mustNot": [
+          "立刻讲语法课",
+          "逐词批改",
+          "让用户重说后才继续"
+        ]
+      }
+    },
+    {
+      "id": "llm-10",
+      "category": "memory_boundary",
+      "title": "记忆只作为相关背景，不强行引用",
+      "session": {
+        "mode": "daily",
+        "identity": "russian_friend",
+        "turnIndex": 2,
+        "userSpeakingRatio": 0.62
+      },
+      "conversation": [
+        {
+          "role": "assistant",
+          "text": "Как прошёл твой день?"
+        }
+      ],
+      "asr": {
+        "zh": {
+          "text": "今天工作有点累。",
+          "segments": []
+        },
+        "ru": {
+          "text": "Сегодня я немного устал после работы.",
+          "segments": []
+        }
+      },
+      "userConfirmedTranscript": "Сегодня я немного устал после работы.",
+      "memory": [
+        {
+          "content": "用户上个月计划学习摄影",
+          "confidence": 0.95,
+          "status": "active",
+          "lastMentioned": "2026-07-01"
+        }
+      ],
+      "policy": {
+        "targetLanguage": "ru",
+        "memoryRule": "use_only_if_relevant"
+      },
+      "expected": {
+        "intent": "用户今天工作后有些累",
+        "shouldClarify": false,
+        "replyLanguage": "ru",
+        "mustAcknowledgeCurrentTurn": true,
+        "mustNot": [
+          "突然谈摄影",
+          "把旧记忆当作本轮事实",
+          "编造用户今天的安排"
+        ]
+      }
+    },
+    {
+      "id": "llm-11",
+      "category": "memory_candidate",
+      "title": "区分临时事实与可写入记忆",
+      "session": {
+        "mode": "daily",
+        "identity": "russian_friend",
+        "turnIndex": 2,
+        "userSpeakingRatio": 0.6
+      },
+      "conversation": [
+        {
+          "role": "assistant",
+          "text": "Что тебе нравится делать в свободное время?"
+        }
+      ],
+      "asr": {
+        "zh": {
+          "text": "我最近开始喜欢做饭。",
+          "segments": []
+        },
+        "ru": {
+          "text": "В последнее время мне нравится готовить.",
+          "segments": []
+        }
+      },
+      "userConfirmedTranscript": "В последнее время мне нравится готовить.",
+      "memory": [],
+      "policy": {
+        "targetLanguage": "ru",
+        "memoryRule": "candidate_requires_confidence_and_source"
+      },
+      "expected": {
+        "intent": "用户最近喜欢做饭",
+        "shouldClarify": false,
+        "replyLanguage": "ru",
+        "memoryCandidateAllowed": true,
+        "memoryCandidateMustContain": [
+          "来源为本轮用户表达",
+          "置信度",
+          "可过期或待确认"
+        ],
+        "mustNot": [
+          "直接写成永久偏好",
+          "把一次表达标记为已掌握"
+        ]
+      }
+    },
+    {
+      "id": "llm-12",
+      "category": "output_contract",
+      "title": "结构化回复可供字幕/TTS/支架使用",
+      "session": {
+        "mode": "daily",
+        "identity": "russian_friend",
+        "turnIndex": 1,
+        "userSpeakingRatio": 0.0
+      },
+      "conversation": [],
+      "asr": {
+        "zh": {
+          "text": "我想聊电影。",
+          "segments": []
+        },
+        "ru": {
+          "text": "Я хочу поговорить о кино.",
+          "segments": []
+        }
+      },
+      "userConfirmedTranscript": "Я хочу поговорить о кино.",
+      "memory": [],
+      "policy": {
+        "targetLanguage": "ru",
+        "requireStructuredOutput": true
+      },
+      "expected": {
+        "mustBeValidJson": true,
+        "requiredFields": [
+          "understanding",
+          "reply",
+          "reply.text",
+          "reply.segments",
+          "learning",
+          "learning.keywords",
+          "learning.scaffoldLevel",
+          "control",
+          "control.needsClarification"
+        ],
+        "segmentsMustBeOrdered": true,
+        "segmentsMustBeTtsReady": true,
+        "mustNot": [
+          "Markdown 包裹 JSON",
+          "额外输出 schema 外的自然语言",
+          "把中文解释混入俄语 TTS 段落"
+        ]
+      }
+    }
+  ]
+}
