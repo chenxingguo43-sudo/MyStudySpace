@@ -1,0 +1,231 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://baiye-russian.local/schemas/llm-output-schema-v1.json",
+  "title": "白夜俄语 LLM Output V1",
+  "description": "单 Agent 口语陪练结构化输出。",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "understanding",
+    "reply",
+    "learning",
+    "control",
+    "memory"
+  ],
+  "properties": {
+    "understanding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "intent",
+        "confidence",
+        "languageMix",
+        "facts"
+      ],
+      "properties": {
+        "intent": {
+          "type": "string"
+        },
+        "confidence": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "languageMix": {
+          "type": "string",
+          "enum": [
+            "ru",
+            "zh",
+            "mixed",
+            "uncertain"
+          ]
+        },
+        "facts": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "reply": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "text",
+        "segments"
+      ],
+      "properties": {
+        "text": {
+          "type": "string"
+        },
+        "segments": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "text",
+              "language",
+              "order"
+            ],
+            "properties": {
+              "text": {
+                "type": "string",
+                "minLength": 1
+              },
+              "language": {
+                "type": "string",
+                "enum": [
+                  "ru",
+                  "zh"
+                ]
+              },
+              "order": {
+                "type": "integer",
+                "minimum": 0
+              }
+            }
+          }
+        }
+      }
+    },
+    "learning": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "keywords",
+        "scaffoldLevel",
+        "correction"
+      ],
+      "properties": {
+        "keywords": {
+          "type": "array",
+          "maxItems": 5,
+          "items": {
+            "type": "string"
+          }
+        },
+        "scaffoldLevel": {
+          "type": "integer",
+          "enum": [
+            0,
+            1,
+            2,
+            3
+          ]
+        },
+        "correction": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "original",
+                "suggested",
+                "explanation"
+              ],
+              "properties": {
+                "original": {
+                  "type": "string"
+                },
+                "suggested": {
+                  "type": "string"
+                },
+                "explanation": {
+                  "type": "string"
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    "control": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "needsClarification",
+        "clarificationTarget",
+        "endConversation"
+      ],
+      "properties": {
+        "needsClarification": {
+          "type": "boolean"
+        },
+        "clarificationTarget": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "string"
+            }
+          ]
+        },
+        "endConversation": {
+          "type": "boolean"
+        }
+      }
+    },
+    "memory": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "candidates"
+      ],
+      "properties": {
+        "candidates": {
+          "type": "array",
+          "maxItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "content",
+              "source",
+              "confidence",
+              "needsConfirmation",
+              "expiresAt"
+            ],
+            "properties": {
+              "content": {
+                "type": "string"
+              },
+              "source": {
+                "type": "string",
+                "enum": [
+                  "user_explicit_statement",
+                  "user_repeated_behavior"
+                ]
+              },
+              "confidence": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "needsConfirmation": {
+                "type": "boolean"
+              },
+              "expiresAt": {
+                "anyOf": [
+                  {
+                    "type": "null"
+                  },
+                  {
+                    "type": "string",
+                    "format": "date-time"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
