@@ -1,0 +1,206 @@
+{
+  "schemaVersion": 1,
+  "bookId": "zlatoust_grammar",
+  "title": "В мире людей - 语法词汇",
+  "relationTypes": [
+    "prerequisite",
+    "part-of",
+    "shared-concept",
+    "contrast",
+    "confusable"
+  ],
+  "chapters": [
+    { "id": "gl1", "label": "第一章：一致与动词体", "color": "1" },
+    { "id": "gl2", "label": "第二章：格支配与语义关系", "color": "2" },
+    { "id": "gl3", "label": "第三章：动名副词与主体", "color": "3" },
+    { "id": "gl4", "label": "第四章：复句关系", "color": "4" },
+    { "id": "gl5", "label": "第五章：会话构式与词汇", "color": "5" }
+  ],
+  "concepts": [
+    {
+      "id": "agreement-target",
+      "label": "一致关系的控制中心",
+      "summary": "先找究竟是哪个词、哪种句法成分在控制性、数或形式，再谈词尾。"
+    },
+    {
+      "id": "speaker-focus",
+      "label": "说话人的关注焦点",
+      "summary": "同一客观事件可以因为说话人关注经历、过程、边界或结果而选择不同表达。"
+    },
+    {
+      "id": "aspect-choice",
+      "label": "动词体选择",
+      "summary": "未完成体与完成体不是简单的没做完和做完，而是语境焦点、动作轮廓与交际任务的组合。"
+    },
+    {
+      "id": "negation-scope",
+      "label": "否定作用域",
+      "summary": "先判断否定的是行为、结果、能力、许可还是风险，不能只看到 не 或 нельзя 就机械选形式。"
+    },
+    {
+      "id": "infinitive-frame",
+      "label": "不定式句法框架",
+      "summary": "不定式的体和形式受上位动词、否定结构、情态意义与词汇支配共同限制。"
+    },
+    {
+      "id": "case-government",
+      "label": "格支配",
+      "summary": "动词、短尾形容词和介词会给对象分配格；先找支配词，再确定介词与格。"
+    },
+    {
+      "id": "attribute-relation",
+      "label": "非一致定语关系",
+      "summary": "先找中心名词，再判断后面的名词短语是不带介词、带介词还是不定式关系。"
+    },
+    {
+      "id": "semantic-role",
+      "label": "时间空间原因目的角色",
+      "summary": "同一个名词短语要先判断它在句中承担时间、空间、原因还是目的角色，再选结构。"
+    },
+    {
+      "id": "subject-control",
+      "label": "动作主体控制",
+      "summary": "动名副词能否使用取决于主动作与附加动作是否由同一个可恢复的行动者完成。"
+    },
+    {
+      "id": "clause-relation",
+      "label": "复句关系",
+      "summary": "先判断分句之间是并列、定语、时间、原因还是条件关系，再选择连接手段。"
+    },
+    {
+      "id": "timeline",
+      "label": "时间线",
+      "summary": "画出同时、先后、持续、截止和结果保留关系，能串联动词体、时间关系和时间从句。"
+    },
+    {
+      "id": "communicative-intent",
+      "label": "交际意图",
+      "summary": "命令、邀请、警告、情绪评价、已知与未知信息会改变句式和形式选择。"
+    },
+    {
+      "id": "lexical-collocation",
+      "label": "词汇搭配与配价",
+      "summary": "有些答案来自词汇本身的固定搭配和配价，不能只靠抽象语法规则推出。"
+    }
+  ],
+  "sectionRelations": [
+    { "from": "1.1", "to": "1.2", "type": "shared-concept", "reason": "两卡都要求先找一致关系的控制中心，再判断形式。" },
+    { "from": "1.2", "to": "1.3", "type": "shared-concept", "reason": "两卡都先辨句法任务，不能从表面词尾直接得出结论。" },
+    { "from": "1.3", "to": "2.2", "type": "prerequisite", "reason": "理解形容词全尾和短尾的句法区别，是学习短尾形容词对象支配的前提。" },
+    { "from": "1.4.1", "to": "1.4.2", "type": "contrast", "reason": "1.4.1 建立肯定语境中的体选择，1.4.2 检查否定后焦点如何变化。" },
+    { "from": "1.4.1", "to": "1.4.3", "type": "shared-concept", "reason": "两卡都围绕过程、结果、次数和边界解释动词体。" },
+    { "from": "1.4.3", "to": "1.4.4", "type": "contrast", "reason": "1.4.3 主要看语义轮廓，1.4.4 强调上位词的词汇限制。" },
+    { "from": "1.4.4", "to": "1.4.6", "type": "shared-concept", "reason": "两卡都要求先确认控制不定式的句法或词汇框架。" },
+    { "from": "1.4.5", "to": "1.4.6", "type": "confusable", "reason": "нельзя 和其他否定不定式都含否定，但禁止、不可能、许可和担忧的结构不同。" },
+    { "from": "1.4.7", "to": "1.4.8", "type": "contrast", "reason": "肯定命令与否定命令的交际意图和体选择不能互相套用。" },
+    { "from": "1.4.2", "to": "1.5-review", "type": "part-of", "reason": "否定中的体选择是综合复习需要调用的一条判断路线。" },
+    { "from": "1.4.3", "to": "1.5-review", "type": "part-of", "reason": "不定式中的过程、结果和次数判断进入综合复习。" },
+    { "from": "1.4.4", "to": "1.5-review", "type": "part-of", "reason": "词汇语义限制进入综合复习。" },
+    { "from": "1.4.5", "to": "1.5-review", "type": "part-of", "reason": "нельзя 的禁止与不可能分流进入综合复习。" },
+    { "from": "1.4.6", "to": "1.5-review", "type": "part-of", "reason": "否定不定式的句法框架进入综合复习。" },
+    { "from": "1.4.7", "to": "1.5-review", "type": "part-of", "reason": "肯定命令式的交际意图进入综合复习。" },
+    { "from": "1.4.8", "to": "1.5-review", "type": "part-of", "reason": "否定命令式的禁止、警告和反事实进入综合复习。" },
+    { "from": "2.1", "to": "2.2", "type": "contrast", "reason": "两卡都讲对象支配，但支配中心分别是动词和短尾形容词。" },
+    { "from": "2.1", "to": "2.3", "type": "confusable", "reason": "第五格既可能由支配产生，也可能表达方式或伴随，需要分清关系。" },
+    { "from": "2.4", "to": "2.4.1", "type": "part-of", "reason": "2.4.1 展开总览中的无介词非一致定语分支。" },
+    { "from": "2.4", "to": "2.4.2", "type": "part-of", "reason": "2.4.2 展开总览中的有介词和不定式定语分支。" },
+    { "from": "2.4.1", "to": "2.4.2", "type": "contrast", "reason": "两卡都修饰中心名词，但一个主要处理无介词关系，另一个处理有介词与不定式关系。" },
+    { "from": "2.5", "to": "2.6", "type": "shared-concept", "reason": "时间和空间表达都必须先问名词短语在事件中承担什么角色。" },
+    { "from": "2.7", "to": "2.8", "type": "confusable", "reason": "原因说明动作为什么发生，目的说明动作指向什么目标，中文都可能出现“为”。" },
+    { "from": "3.1", "to": "3.1.1", "type": "part-of", "reason": "3.1.1 展开同一主体时允许使用动名副词的条件。" },
+    { "from": "3.1", "to": "3.1.2", "type": "part-of", "reason": "3.1.2 展开主体分离、无主和被动时禁止使用的条件。" },
+    { "from": "3.1.1", "to": "3.1.2", "type": "contrast", "reason": "一张建立允许条件，另一张建立禁止边界。" },
+    { "from": "4.1", "to": "4.2", "type": "contrast", "reason": "4.1 连接并列分句，4.2 用关系词把定语从句依附到中心词。" },
+    { "from": "4.3", "to": "4.4", "type": "contrast", "reason": "时间从句按时间线组织，раз 从句主要按既定事实、原因或条件路线组织。" },
+    { "from": "5.1", "to": "5.2", "type": "shared-concept", "reason": "两卡都需要先判断说话人的交际意图和信息状态。" },
+    { "from": "5.lexical", "to": "2.1", "type": "shared-concept", "reason": "词汇搭配经常决定动词配价和格支配。" },
+    { "from": "5.lexical", "to": "4.2", "type": "shared-concept", "reason": "词汇搭配帮助区分关系词在真实复句中的自然使用。" },
+    { "from": "1.4.1", "to": "2.5", "type": "shared-concept", "reason": "动词体和时间关系都需要判断动作在时间中的展开与边界。" },
+    { "from": "2.5", "to": "4.3", "type": "prerequisite", "reason": "先掌握时间角色和时间线，再处理 когда、пока、пока не 的分句关系更稳。" }
+  ],
+  "conceptRelations": [
+    { "sectionId": "1.1", "conceptId": "agreement-target", "reason": "定语、职称和谓语分别受不同控制中心影响。" },
+    { "sectionId": "1.2", "conceptId": "agreement-target", "reason": "数量中心和语序等条件控制谓语单复数。" },
+    { "sectionId": "1.3", "conceptId": "agreement-target", "reason": "先区分定语与谓语任务，再选择全尾或短尾。" },
+    { "sectionId": "1.4.1", "conceptId": "speaker-focus", "reason": "一般事实、过程、次数、事件顺序和结果保留来自不同关注焦点。" },
+    { "sectionId": "5.1", "conceptId": "speaker-focus", "reason": "会话构式的选择依赖说话人的评价和态度。" },
+    { "sectionId": "5.2", "conceptId": "speaker-focus", "reason": "不定代词选择依赖说话人对对象是否知情以及提问意图。" },
+    { "sectionId": "1.4.1", "conceptId": "aspect-choice", "reason": "本卡建立过去与将来时动词体的核心判断轴。" },
+    { "sectionId": "1.4.2", "conceptId": "aspect-choice", "reason": "否定语境重新分配行为与结果焦点。" },
+    { "sectionId": "1.4.3", "conceptId": "aspect-choice", "reason": "不定式中区分过程、结果、重复与单次。" },
+    { "sectionId": "1.4.4", "conceptId": "aspect-choice", "reason": "词汇支配会限制不定式的体。" },
+    { "sectionId": "1.4.5", "conceptId": "aspect-choice", "reason": "нельзя 的禁止与客观不可能对应不同体选择。" },
+    { "sectionId": "1.4.6", "conceptId": "aspect-choice", "reason": "否定不定式按句法框架和意义选体。" },
+    { "sectionId": "1.4.7", "conceptId": "aspect-choice", "reason": "肯定命令式按反复、任务、互动和邀请选体。" },
+    { "sectionId": "1.4.8", "conceptId": "aspect-choice", "reason": "否定命令式区分劝阻、危险警告和反事实。" },
+    { "sectionId": "1.5-review", "conceptId": "aspect-choice", "reason": "综合调用所有动词体判断路线。" },
+    { "sectionId": "1.4.2", "conceptId": "negation-scope", "reason": "先判断否定事实还是否定具体结果。" },
+    { "sectionId": "1.4.5", "conceptId": "negation-scope", "reason": "区分规则禁止与客观不可能。" },
+    { "sectionId": "1.4.6", "conceptId": "negation-scope", "reason": "区分从属否定、独立不可能、许可与担忧。" },
+    { "sectionId": "1.4.8", "conceptId": "negation-scope", "reason": "否定命令式区分活动劝阻与具体危险。" },
+    { "sectionId": "1.4.3", "conceptId": "infinitive-frame", "reason": "不定式的动作轮廓影响体选择。" },
+    { "sectionId": "1.4.4", "conceptId": "infinitive-frame", "reason": "阶段动词和态度词等上位词限制体。" },
+    { "sectionId": "1.4.6", "conceptId": "infinitive-frame", "reason": "否定结构决定不定式的句法解释。" },
+    { "sectionId": "2.1", "conceptId": "case-government", "reason": "动词支配对象的介词和格。" },
+    { "sectionId": "2.2", "conceptId": "case-government", "reason": "短尾形容词支配对象的介词和格。" },
+    { "sectionId": "2.3", "conceptId": "case-government", "reason": "第五格的方式、伴随和支配关系需要分流。" },
+    { "sectionId": "2.4", "conceptId": "attribute-relation", "reason": "提供非一致定语的总分流入口。" },
+    { "sectionId": "2.4.1", "conceptId": "attribute-relation", "reason": "处理无介词第二格和第五格定语。" },
+    { "sectionId": "2.4.2", "conceptId": "attribute-relation", "reason": "处理有介词和不定式定语。" },
+    { "sectionId": "2.5", "conceptId": "semantic-role", "reason": "判断时间在事件中承担的角色。" },
+    { "sectionId": "2.6", "conceptId": "semantic-role", "reason": "判断静态位置、终点和来源。" },
+    { "sectionId": "2.7", "conceptId": "semantic-role", "reason": "判断原因性质、结果方向和主被动关系。" },
+    { "sectionId": "2.8", "conceptId": "semantic-role", "reason": "区分行动目的、物品用途、原因与方向。" },
+    { "sectionId": "3.1", "conceptId": "subject-control", "reason": "建立主动作与附加动作同主体的总判断。" },
+    { "sectionId": "3.1.1", "conceptId": "subject-control", "reason": "展开允许使用的同主体条件。" },
+    { "sectionId": "3.1.2", "conceptId": "subject-control", "reason": "展开主体分离、无主和被动禁用边界。" },
+    { "sectionId": "4.1", "conceptId": "clause-relation", "reason": "判断并列分句之间的连接、对比和分配关系。" },
+    { "sectionId": "4.2", "conceptId": "clause-relation", "reason": "判断定语从句的比较、定指和所属任务。" },
+    { "sectionId": "4.3", "conceptId": "clause-relation", "reason": "判断时间从句中的同时、先后与截止。" },
+    { "sectionId": "4.4", "conceptId": "clause-relation", "reason": "判断 раз 从句的既定事实、原因和条件路线。" },
+    { "sectionId": "1.4.1", "conceptId": "timeline", "reason": "动词体的过程、先后与结果保留需要时间线。" },
+    { "sectionId": "2.5", "conceptId": "timeline", "reason": "持续、预定和完成时间必须放到事件线上判断。" },
+    { "sectionId": "4.3", "conceptId": "timeline", "reason": "когда、пока、пока не 的体组合由时间关系决定。" },
+    { "sectionId": "1.4.7", "conceptId": "communicative-intent", "reason": "反复要求、单次任务、互动提示和邀请祝愿不同。" },
+    { "sectionId": "1.4.8", "conceptId": "communicative-intent", "reason": "劝阻、危险警告和反事实的意图不同。" },
+    { "sectionId": "5.1", "conceptId": "communicative-intent", "reason": "会话构式直接编码选择、接受和情绪评价。" },
+    { "sectionId": "5.2", "conceptId": "communicative-intent", "reason": "不定代词反映说话人的知情状态和提问方式。" },
+    { "sectionId": "1.4.4", "conceptId": "lexical-collocation", "reason": "上位词与不定式体存在词汇限制。" },
+    { "sectionId": "2.1", "conceptId": "lexical-collocation", "reason": "动词搭配决定对象格和介词。" },
+    { "sectionId": "5.lexical", "conceptId": "lexical-collocation", "reason": "词汇专题直接训练对象搭配、语体和术语组合。" }
+  ],
+  "learningOrder": [
+    "1.1",
+    "1.2",
+    "1.3",
+    "1.4.1",
+    "1.4.2",
+    "1.4.3",
+    "1.4.4",
+    "1.4.5",
+    "1.4.6",
+    "1.4.7",
+    "1.4.8",
+    "1.5-review",
+    "2.1",
+    "2.2",
+    "2.3",
+    "2.4",
+    "2.4.1",
+    "2.4.2",
+    "2.5",
+    "2.6",
+    "2.7",
+    "2.8",
+    "3.1",
+    "3.1.1",
+    "3.1.2",
+    "4.1",
+    "4.2",
+    "4.3",
+    "4.4",
+    "5.1",
+    "5.2",
+    "5.lexical"
+  ]
+}
