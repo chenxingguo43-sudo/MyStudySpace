@@ -112,6 +112,21 @@ test('brush: undo restores card, retry queue, counters and known state', () => {
   assert.equal(session.stats().queued, 0);
 });
 
+test('brush: JSON snapshot resumes the current card and completed count after reload', () => {
+  const original = new BrushSession(['one', 'two', 'three']);
+  assert.equal(original.next(), 'one');
+  original.rate('one', 'known');
+  assert.equal(original.next(), 'two');
+
+  const stored = JSON.parse(JSON.stringify(original.snapshot()));
+  const restored = new BrushSession(['one', 'two', 'three']);
+  assert.equal(restored.restore(stored), true);
+  assert.equal(restored.currentId, 'two');
+  assert.equal(restored.stats().known, 1);
+  assert.equal(restored.stats().seen, 2);
+  assert.equal(restored.next(), 'two');
+});
+
 test('review: prior failure keeps the word in relearning instead of expanding its interval', () => {
   const session = new ReviewSession(['one', 'two', 'three']);
   assert.equal(session.next(), 'one');

@@ -77,6 +77,33 @@ test('recordEvent stores a live exact activity event', async () => {
   assert.equal(record.attemptCount, 1);
 });
 
+test('answer evidence is preserved as structured activity content', async () => {
+  const store = Activity.createStore({ adapter: createMemoryAdapter() });
+  const record = await store.recordEvent({
+    module: 'b2', action: 'submit', attemptCount: 1, completedCount: 1,
+    content: {
+      itemIds: ['b2:zlatoust:GL1-Q009'],
+      submissions: [{
+        questionId: 'GL1-Q009', prompt: 'Question', selectedAnswer: 'Б', correctAnswer: 'А',
+        result: 'wrong', ruleIds: ['rule-1', 'rule-1'], ruleEvidence: 'Verified mapping',
+        options: [{ key: 'А', text: 'one' }, { key: 'Б', text: 'two' }]
+      }]
+    }
+  });
+  assert.equal(record.content.submissions.length, 1);
+  assert.equal(record.content.submissions[0].selectedAnswer, 'Б');
+  assert.equal(record.content.submissions[0].correctAnswer, 'А');
+  assert.deepEqual(record.content.submissions[0].ruleIds, ['rule-1']);
+});
+
+test('queryAll returns active records newest first for tutor review', async () => {
+  const store = Activity.createStore({ adapter: createMemoryAdapter() });
+  await store.recordEvent({ id: 'old', module: 'b2', action: 'submit', startedAt: '2026-08-12T01:00:00Z' });
+  await store.recordEvent({ id: 'new', module: 'b2', action: 'submit', startedAt: '2026-08-12T02:00:00Z' });
+  await store.retract('old', 'test');
+  assert.deepEqual((await store.queryAll()).map(record => record.id), ['new']);
+});
+
 function createMemoryAdapter() {
   const records = new Map();
   return {

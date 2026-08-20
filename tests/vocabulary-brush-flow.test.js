@@ -93,4 +93,21 @@ assert(
   'brush mode should not advertise fuzzy return-queue behavior'
 );
 
+assert(
+  html.includes("var BRUSH_SESSION_KEY = 'vocabulary-brush-session-v1';"),
+  'brush mode should reserve a localStorage key for the active session'
+);
+
+assert(
+  html.includes('function persistBrushSession()') &&
+    html.includes('function resumePersistedBrushSession()') &&
+    html.includes('restorePersistedBrushSession(ids)'),
+  'brush mode should save and resume the active queue across reloads'
+);
+
+assert(
+  brushRender.includes('persistBrushSession();'),
+  'brush mode should checkpoint after rendering the current card'
+);
+
 console.log('vocabulary brush flow assertions passed');
