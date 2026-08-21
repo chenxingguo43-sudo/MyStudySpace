@@ -14,7 +14,7 @@
   const RECORDING_STORE = 'attempts';
   const EXACT_KEYS = Object.freeze([
     'rr_world_people_resume_v1', 'rr_b2_progress_v1', 'rr_b2_quiz_settings_v1',
-    'russian_b2_study_card_progress_v1', 'rr_zlatoust_learning_v1', 'rr_b2_reading_progress_v1',
+    'russian_b2_study_card_progress_v1', 'rr_knowledge_card_resume_v1', 'rr_zlatoust_learning_v1', 'rr_b2_reading_progress_v1',
     'russian_b2_writing_drafts_v1', 'rr_ws_drafts_v1', 'russian_b2_writing_versions_v1',
     'russian_b2_writing_model_unlocks_v1', 'russian_b2_writing_completed_v1',
     'russian_b2_speaking_notes_v1', 'russian_b2_speaking_completed_v1',

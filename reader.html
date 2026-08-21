@@ -443,6 +443,7 @@ body {
 .b2-module-card .b2-module-progress::after { content: ''; position: absolute; inset: 0 auto 0 0; width: var(--progress); border-radius: inherit; background: var(--accent); }
 .manual-completion { margin-top: 12px; border-color: var(--accent-border); color: var(--accent); }
 @media (max-width: 540px) { .b2-continue-card { grid-template-columns: 1fr; } .b2-continue-card button { grid-column: 1; grid-row: auto; margin-top: 8px; } }
+@media (max-width: 540px) { .b2-knowledge-resume-card { grid-template-columns: 1fr; } .b2-knowledge-resume-card button { grid-column: 1; grid-row: auto; margin-top: 6px; } }
 .book-kind { color: var(--accent); font-size: 0.7em; margin-right: 6px; font-weight: 600; letter-spacing: 0.04em; }
 .b2-quiz-item { margin: 0 0 18px; padding: 20px; border: 1px solid var(--border); border-radius: 12px; background: var(--surface); }
 .reading-practice-question .b2-options { margin-top: 12px; }
@@ -1226,6 +1227,15 @@ body.theme-warm .listening-entry-zh, body.theme-warm .listening-section-count { 
 .b2-knowledge-card small { color: var(--text-secondary); line-height: 1.5; margin-top: 3px; }
 .b2-knowledge-study-card { border-color: var(--accent); box-shadow: 0 4px 14px var(--accent-dim); }
 .b2-knowledge-card em { display: block; margin-top: 8px; color: var(--accent); font-size: 12px; font-style: normal; font-weight: 600; }
+.b2-knowledge-resume-card { margin: 0 0 14px; padding: 14px 16px; border: 1px solid var(--accent-border); border-radius: 12px; background: var(--accent-dim); display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 14px; align-items: center; }
+.b2-knowledge-resume-card p, .b2-knowledge-resume-card h3, .b2-knowledge-resume-card small { grid-column: 1; margin: 0; }
+.b2-knowledge-resume-card p { color: var(--accent); font-size: 12px; font-weight: 700; }
+.b2-knowledge-resume-card h3 { font-size: 16px; }
+.b2-knowledge-resume-card small { color: var(--text-secondary); line-height: 1.5; }
+.b2-knowledge-resume-card button { grid-column: 2; grid-row: 1 / 4; padding: 8px 12px; border: 1px solid var(--accent-border); border-radius: 9px; background: var(--surface-solid); color: var(--accent); cursor: pointer; font: inherit; font-weight: 700; }
+.b2-knowledge-position { display: flex; justify-content: flex-end; margin-top: 10px; }
+.b2-knowledge-position button { padding: 7px 10px; border: 1px solid var(--accent-border); border-radius: 8px; background: transparent; color: var(--accent); cursor: pointer; font: inherit; font-size: 12px; }
+.b2-knowledge-position button:hover, .b2-knowledge-resume-card button:hover { background: var(--accent-dim); }
 .b2-knowledge-exercise-nav { margin-top: 16px; }
 .b2-study-card { max-width: 860px; }
 .b2-study-quick { border: 1px solid var(--accent-border); background: var(--accent-dim); }
@@ -1985,6 +1995,9 @@ var readTimer = 0, timerInterval = null;
 var savedWords = []; // 当前书的已保存单词 (小写)
 var savedWordsData = []; // 完整词汇数据 [{word, meaning, source}]
 var bookmarks = {}; // {bookId: {chIdx: [paraIdx, ...]}}
+var KNOWLEDGE_RESUME_KEY = 'rr_knowledge_card_resume_v1';
+var knowledgeCardContext = null;
+var knowledgeCardScrollTimer = 0;
 var _sessionSavedWords = []; // 当前章节保存的生词（用于完成时统计）
 var _sessionLookedUp = []; // 当前章节查过的所有词（用于完成时统计，去重）
 var _syncFailQueue = []; // 服务器同步失败的词汇队列
@@ -2025,6 +2038,122 @@ try { bookmarks = JSON.parse(localStorage.getItem('rr_bookmarks_' + NOVEL_ID)) |
 function saveState() { try { localStorage.setItem('rr_state_' + NOVEL_ID, JSON.stringify(state)); } catch(e) {} }
 function saveStats() { try { localStorage.setItem('rr_stats_' + NOVEL_ID, JSON.stringify(readStats)); } catch(e) {} }
 function saveBookmarks() { try { localStorage.setItem('rr_bookmarks_' + NOVEL_ID, JSON.stringify(bookmarks)); } catch(e) {} }
+function loadKnowledgeCardResume() {
+  try {
+    var value = JSON.parse(localStorage.getItem(KNOWLEDGE_RESUME_KEY) || 'null');
+    return value && typeof value === 'object' && value.cardKey && value.pointId ? value : null;
+  } catch (e) { return null; }
+}
+function saveKnowledgeCardResume(record) {
+  if (!record || !record.cardKey || !record.pointId) return;
+  try { localStorage.setItem(KNOWLEDGE_RESUME_KEY, JSON.stringify(record)); } catch (e) {}
+}
+function knowledgeCardKey(bookId, moduleId, partId, pointId) {
+  return [bookId || '', moduleId || '', partId || '', pointId || ''].join(':');
+}
+function knowledgeCardResumeLabel(record) {
+  if (!record) return '';
+  var title = record.title || '上次的知识点';
+  var section = record.sectionLabel || '卡片顶部';
+  return title + ' · ' + section;
+}
+function getKnowledgeCardSectionLabel(node) {
+  if (!node) return '';
+  return node.getAttribute('data-knowledge-resume-label') || (node.querySelector('h2') && node.querySelector('h2').textContent.trim()) || '卡片内容';
+}
+function getKnowledgeCardVisibleSection() {
+  var nodes = document.querySelectorAll('[data-knowledge-resume-section]');
+  if (!nodes.length) return null;
+  var focusLine = Math.min(220, Math.max(100, window.innerHeight * 0.3));
+  var active = nodes[0];
+  for (var i = 0; i < nodes.length; i++) {
+    if (nodes[i].getBoundingClientRect().top > focusLine) break;
+    active = nodes[i];
+  }
+  return { id: active.getAttribute('data-knowledge-resume-section') || active.id || 'top', label: getKnowledgeCardSectionLabel(active) };
+}
+function saveKnowledgeCardPosition(section, silent) {
+  if (!knowledgeCardContext) return false;
+  var visible = section || getKnowledgeCardVisibleSection();
+  if (!visible) return false;
+  var previous = loadKnowledgeCardResume();
+  var record = Object.assign({}, knowledgeCardContext, {
+    sectionId: visible.id,
+    sectionLabel: visible.label,
+    updatedAt: new Date().toISOString()
+  });
+  if (previous && previous.cardKey === record.cardKey && previous.sectionId === record.sectionId && !silent) return false;
+  saveKnowledgeCardResume(record);
+  return true;
+}
+function rememberKnowledgeCardPosition() {
+  if (saveKnowledgeCardPosition(null, true)) toast('已记住这里');
+}
+function onKnowledgeCardScroll() {
+  if (!knowledgeCardContext || knowledgeCardScrollTimer) return;
+  knowledgeCardScrollTimer = setTimeout(function() {
+    knowledgeCardScrollTimer = 0;
+    saveKnowledgeCardPosition();
+  }, 180);
+}
+function beginKnowledgeCardTracking(context, resumeRecord) {
+  knowledgeCardContext = context;
+  setTimeout(function() {
+    saveKnowledgeCardPosition({ id: 'top', label: '卡片顶部' }, true);
+    if (resumeRecord && resumeRecord.sectionId && resumeRecord.sectionId !== 'top') {
+      var target = null, nodes = document.querySelectorAll('[data-knowledge-resume-section]');
+      for (var i = 0; i < nodes.length; i++) {
+        if (nodes[i].getAttribute('data-knowledge-resume-section') === resumeRecord.sectionId) { target = nodes[i]; break; }
+      }
+      if (target) {
+        target.scrollIntoView({ behavior: 'auto', block: 'start' });
+        saveKnowledgeCardPosition({ id: resumeRecord.sectionId, label: resumeRecord.sectionLabel || getKnowledgeCardSectionLabel(target) }, true);
+      }
+    }
+  }, 0);
+}
+function renderKnowledgeCardResume() {
+  var record = loadKnowledgeCardResume();
+  if (!record) return '';
+  return '<section class="b2-knowledge-resume-card"><p>继续上次知识点</p><h3>' + escapeHtml(record.title || '上次的知识点') + '</h3><small>上次读到：' + escapeHtml(record.sectionLabel || '卡片顶部') + '</small><button type="button" onclick="continueKnowledgeCard()">继续阅读</button></section>';
+}
+function continueKnowledgeCard() {
+  var record = loadKnowledgeCardResume();
+  if (!record) { toast('还没有知识点阅读记录'); return; }
+  openKnowledgeCardResume(record);
+}
+function openKnowledgeCardResume(record) {
+  if (!record || !record.bookId || !record.pointId) return;
+  if (record.bookId === 'russian_b2') {
+    var rootBook = getBookById('russian_b2');
+    var moduleId = record.moduleId || 'grammar';
+    function openWithManifest(manifest) {
+      b2BookManifest = manifest;
+      var module = (manifest.modules || []).find(function(item) { return item.id === moduleId; });
+      if (!module || module.status !== 'available') { toast('上次知识点所在模块暂时不可用'); return; }
+      curBook = Object.assign({}, rootBook, module, { id: 'russian_b2', moduleId: module.id, isB2Module: true, kind: 'textbook', direction: 'ru→cn' });
+      var indexRequest = module.id === 'grammar' ? Promise.resolve(null) : fetchJson('data/textbook/' + module.dir + '/index.json', null);
+      indexRequest.then(function(index) {
+        curBook.chapters = index && (index.chapters || module.chapters) || module.chapters || 0;
+        curBook.chapterTitles = index && (index.chapterTitles || module.chapterTitles) || module.chapterTitles || [];
+        curCh = typeof record.chapter === 'number' ? record.chapter : 0;
+        showStudyCard(record.partId, record.pointId, record);
+      }).catch(function() { showStudyCard(record.partId, record.pointId, record); });
+    }
+    if (b2BookManifest) openWithManifest(b2BookManifest);
+    else fetchJson('data/textbook/russian_b2/book.json', null).then(openWithManifest).catch(function() { toast('B2 教材目录加载失败'); });
+    return;
+  }
+  var targetBook = getBookById(record.bookId);
+  if (!targetBook || typeof record.chapter !== 'number') { toast('上次知识点已找不到，可能教材已移除'); return; }
+  curBook = targetBook;
+  curCh = record.chapter;
+  fetchChapter(targetBook.id, record.chapter).then(function(chapter) {
+    currentQuizData = chapter;
+    showStudyCard(record.partId || chapter.id, record.pointId, record);
+  }).catch(function() { toast('上次知识点暂时无法加载'); });
+}
+window.addEventListener('scroll', onKnowledgeCardScroll, { passive: true });
 var WORLD_PEOPLE_RESUME_KEY = 'rr_world_people_resume_v1';
 function getWorldPeopleResumeRecords() {
   try { return JSON.parse(localStorage.getItem(WORLD_PEOPLE_RESUME_KEY) || '{}') || {}; } catch (e) { return {}; }
@@ -2079,6 +2208,7 @@ function getActiveB2QuestionId(restoreState) {
 }
 function saveLastRead() {
   var restoreState = arguments[0];
+  if (knowledgeCardContext) saveKnowledgeCardPosition();
   try {
     if (curBook && curCh >= 0) {
       var activeQuestionId = curBook.isB2Module ? getActiveB2QuestionId(restoreState) : (isWorldPeopleBook(curBook) ? getActiveWorldQuestionId(restoreState) : '');
@@ -3496,7 +3626,7 @@ function renderStudyCheck(check, index) {
 function renderStudyChecks(card) {
   studyCardCheckRegistry[card.id] = card;
   var mastery = getStudyCardMastery(card.id);
-  return '<section class="b2-study-section" id="study-checks"><h2>综合自测</h2><p class="b2-study-status">最近自测 ' + mastery.lastScore + '/' + (card.checks || []).length + ' · 最高 ' + mastery.bestScore + '/' + (card.checks || []).length + ' · 已练习 ' + mastery.attempts + ' 次 · ' + formatStudyCardDate(mastery.lastStudiedAt) + '</p>' + (card.checks || []).map(function(check, index) { return renderStudyCheck(Object.assign({ _cardId: card.id }, check), index); }).join('') + '<button class="b2-finish" type="button" onclick="resetStudyCardChecks(\'' + escapeHtml(card.id) + '\')">再做本卡自测</button></section>';
+  return '<section class="b2-study-section" id="study-checks" data-knowledge-resume-section="study-checks" data-knowledge-resume-label="综合自测"><h2>综合自测</h2><p class="b2-study-status">最近自测 ' + mastery.lastScore + '/' + (card.checks || []).length + ' · 最高 ' + mastery.bestScore + '/' + (card.checks || []).length + ' · 已练习 ' + mastery.attempts + ' 次 · ' + formatStudyCardDate(mastery.lastStudiedAt) + '</p>' + (card.checks || []).map(function(check, index) { return renderStudyCheck(Object.assign({ _cardId: card.id }, check), index); }).join('') + '<button class="b2-finish" type="button" onclick="resetStudyCardChecks(\'' + escapeHtml(card.id) + '\')">再做本卡自测</button></section>';
 }
 function answerStudyCheck(cardId, checkId, selectedValue) {
   var card = studyCardCheckRegistry[cardId], check = card && (card.checks || []).concat((card.lessons || []).flatMap(function(lesson) { return lesson.instantChecks || []; })).find(function(item) { return item.id === checkId; });
@@ -3553,7 +3683,7 @@ function renderStudyAnchorNav(card) {
 }
 function renderStudyQuickLayer(card) {
   var quick = card.quickReference || {}, structures = quick.structures || [];
-  return '<section class="b2-study-section b2-study-quick" id="study-quick"><h2>3 分钟速查</h2>' +
+  return '<section class="b2-study-section b2-study-quick" id="study-quick" data-knowledge-resume-section="study-quick" data-knowledge-resume-label="3 分钟速查"><h2>3 分钟速查</h2>' +
     '<p>' + escapeHtml(card.overview || '') + '</p>' +
     '<h3>先问自己</h3><ul>' + (quick.semanticQuestions || card.decisionSteps || []).map(function(item) { return '<li>' + escapeHtml(item) + '</li>'; }).join('') + '</ul>' +
     '<div class="b2-study-rule-grid">' + structures.map(function(item) {
@@ -3576,7 +3706,7 @@ function renderStudyLesson(lesson, index) {
     return '<article class="b2-study-example"><p class="ru">' + renderRuText(item.ru || '', context) + '</p><p class="zh">' + escapeHtml(item.zh || '') + '</p>' + renderStudySourceDisclosure(item.source) + '</article>';
   }).join('');
   var checks = (lesson.instantChecks || []).map(function(check, checkIndex) { return renderStudyCheck(Object.assign({ _cardId: lesson.cardId || '' }, check), checkIndex); }).join('');
-  return '<section class="b2-study-lesson' + related + '" id="study-lesson-' + escapeHtml(lesson.id) + '"><h2>' + escapeHtml((index + 1) + '. ' + lesson.title) + '</h2>' +
+  return '<section class="b2-study-lesson' + related + '" id="study-lesson-' + escapeHtml(lesson.id) + '" data-knowledge-resume-section="study-lesson-' + escapeHtml(lesson.id) + '" data-knowledge-resume-label="' + escapeHtml((index + 1) + '. ' + lesson.title) + '"><h2>' + escapeHtml((index + 1) + '. ' + lesson.title) + '</h2>' +
     '<p>' + escapeHtml(lesson.meaning || '') + '</p><h3>使用条件</h3><ul class="b2-study-conditions">' + (lesson.conditions || []).map(function(item) { return '<li>' + escapeHtml(item) + '</li>'; }).join('') + '</ul>' +
     '<h3>结构公式</h3><p><strong>' + renderRuText(lesson.structure || '', lookupContext('grammar', lesson.cardId, 'study-structure', lesson.structure || '')) + '</strong></p><h3>就地格变化</h3>' + renderStudyCaseChanges(lesson.caseChanges, lesson.cardId) +
     '<h3>例句</h3>' + examples + '<h3>易错边界</h3><ul class="b2-study-boundaries">' + (lesson.boundaries || []).map(function(item) { return '<li>' + escapeHtml(item) + '</li>'; }).join('') + '</ul>' + checks + '</section>';
@@ -3587,19 +3717,31 @@ function renderStudyLessons(card) {
 }
 function renderStudyComparisons(comparisons, cardId) {
   if (!comparisons || !comparisons.length) return '';
-  return '<section class="b2-study-section"><h2>易混对比</h2>' + comparisons.map(function(item) {
+  return '<section class="b2-study-section" data-knowledge-resume-section="study-comparisons" data-knowledge-resume-label="易混对比"><h2>易混对比</h2>' + comparisons.map(function(item) {
     return '<article class="b2-study-comparison"><strong>' + renderRuText(item.left, lookupContextWithSentence('grammar', cardId, 'study-comparison', item.left)) + '</strong> / <strong>' + renderRuText(item.right, lookupContextWithSentence('grammar', cardId, 'study-comparison', item.right)) + '</strong><p>' + escapeHtml(item.note) + '</p>' + renderStudySource(item.source) + '</article>';
   }).join('') + '</section>';
 }
 function renderStudyExamples(examples, cardId) {
   if (!examples || !examples.length) return '';
-  return '<section class="b2-study-section"><h2>语法书例句</h2>' + examples.map(function(item) {
+  return '<section class="b2-study-section" data-knowledge-resume-section="study-examples" data-knowledge-resume-label="语法书例句"><h2>语法书例句</h2>' + examples.map(function(item) {
     return '<article class="b2-study-example"><p class="ru">' + renderRuText(item.ru, lookupContextWithSentence('grammar', cardId, 'study-example', item.ru, item.zh, item.source && item.source.pages || [])) + '</p><p class="zh">' + escapeHtml(item.zh) + '</p>' + renderStudySource(item.source) + '</article>';
   }).join('') + '</section>';
 }
 function renderStudyPitfalls(pitfalls) {
   if (!pitfalls || !pitfalls.length) return '';
-  return '<section class="b2-study-section"><h2>高频误区</h2><ul>' + pitfalls.map(function(item) { return '<li>' + escapeHtml(item) + '</li>'; }).join('') + '</ul></section>';
+  return '<section class="b2-study-section" data-knowledge-resume-section="study-pitfalls" data-knowledge-resume-label="高频误区"><h2>高频误区</h2><ul>' + pitfalls.map(function(item) { return '<li>' + escapeHtml(item) + '</li>'; }).join('') + '</ul></section>';
+}
+function buildKnowledgeCardContext(partId, pointId, title, chapterTitle) {
+  return {
+    cardKey: knowledgeCardKey(curBook && curBook.id, curBook && curBook.moduleId, partId, pointId),
+    bookId: curBook && curBook.id || '',
+    moduleId: curBook && curBook.moduleId || '',
+    chapter: curCh,
+    partId: partId || '',
+    pointId: pointId || '',
+    title: title || '知识点',
+    chapterTitle: chapterTitle || ''
+  };
 }
 function renderStudyCard(card, point) {
   var progress = getStudyCardProgress(card.partId, card.exerciseIds);
@@ -3608,22 +3750,23 @@ function renderStudyCard(card, point) {
     return '<article class="b2-study-rule"><strong>' + renderRuText(rule.structure, lookupContext('grammar', card.id, 'study-structure', rule.structure, '', rule.source && rule.source.pages || [])) + '</strong><p>' + escapeHtml(rule.meaning) + '</p>' + renderStudySource(rule.source) + '</article>';
   }).join('');
   var richBody = card.lessons ? renderStudyQuickLayer(card) + renderStudyAnchorNav(card) + renderStudyLessons(card) :
-    '<section class="b2-study-section"><h2>这一组题考什么</h2><p>' + escapeHtml(card.overview) + '</p></section>' +
-    '<section class="b2-study-section"><h2>做题判断顺序</h2><ol>' + card.decisionSteps.map(function(step) { return '<li>' + escapeHtml(step) + '</li>'; }).join('') + '</ol></section>' +
-    '<section class="b2-study-section"><h2>核心规则</h2><div class="b2-study-rule-grid">' + rules + '</div></section>';
+    '<section class="b2-study-section" data-knowledge-resume-section="study-overview" data-knowledge-resume-label="这一组题考什么"><h2>这一组题考什么</h2><p>' + escapeHtml(card.overview) + '</p></section>' +
+    '<section class="b2-study-section" data-knowledge-resume-section="study-order" data-knowledge-resume-label="做题判断顺序"><h2>做题判断顺序</h2><ol>' + card.decisionSteps.map(function(step) { return '<li>' + escapeHtml(step) + '</li>'; }).join('') + '</ol></section>' +
+    '<section class="b2-study-section" data-knowledge-resume-section="study-rules" data-knowledge-resume-label="核心规则"><h2>核心规则</h2><div class="b2-study-rule-grid">' + rules + '</div></section>';
   return '<div class="main-container b2-study-card reader-workbench reader-workbench--knowledge">' +
-    '<header class="b2-quiz-header"><h1>' + escapeHtml(card.title) + '</h1><p>对应练习：' + escapeHtml(formatQuestionRange(card.exerciseIds)) + '</p><div class="b2-study-status">已答 ' + progress.answered + ' · 历史错 ' + progress.everWrong + ' · 待掌握 ' + progress.pending + '</div></header>' +
+    '<header class="b2-quiz-header"><h1>' + escapeHtml(card.title) + '</h1><p>对应练习：' + escapeHtml(formatQuestionRange(card.exerciseIds)) + '</p><div class="b2-study-status">已答 ' + progress.answered + ' · 历史错 ' + progress.everWrong + ' · 待掌握 ' + progress.pending + '</div><div class="b2-knowledge-position"><button type="button" onclick="rememberKnowledgeCardPosition()">记住这里</button></div></header>' +
     richBody +
     (card.lessons ? renderStudyChecks(card) : '') + renderStudyComparisons(card.comparisons, card.id) + renderStudyExamples(card.examples, card.id) + renderStudyPitfalls(card.pitfalls) +
     '<section class="b2-study-actions"><button class="b2-finish" onclick="openStudyCardPractice(\'' + card.partId + '\',' + quizIds + ',false)">做本知识点全部题目</button><button class="b2-finish" onclick="openStudyCardPractice(\'' + card.partId + '\',' + quizIds + ',true)">只重做本点错题</button><button class="b2-finish" onclick="showWrongAnswerBook(\'' + card.partId + '\',\'' + escapeHtml(point.title) + '\')">查看错题本</button></section></div>';
 }
 function showStudyCard(partId, pointId) {
+  var resumeRecord = arguments[2] || null;
   curView = 'study-card'; stopTimer(); syncReaderShellState();
   var app = document.getElementById('app');
   if (curBook && !curBook.isB2Module) {
     var integratedSectionId = getZlatoustIntegratedSectionForKnowledgePoint(partId, pointId);
     if (integratedSectionId) {
-      showZlatoustRuleUnit(integratedSectionId);
+      showZlatoustRuleUnit(integratedSectionId, undefined, resumeRecord || buildKnowledgeCardContext(partId, pointId, '知识点', currentQuizData && currentQuizData.title));
       return;
     }
     var chapter = currentQuizData;
@@ -3635,6 +3778,7 @@ function showStudyCard(partId, pointId) {
     }
     app.innerHTML = b2FloatingNavigation({ backAction: 'goChapter(' + curCh + ')', backTitle: '返回练习' }) + renderTextbookKnowledgeCard(chapter, point);
     window.scrollTo(0, 0); applyTheme();
+    beginKnowledgeCardTracking(resumeRecord || buildKnowledgeCardContext(partId, pointId, point.title, chapter.title), resumeRecord);
     return;
   }
   app.innerHTML = b2FloatingNavigation({ backAction: 'showChapters(\'russian_b2\')', backTitle: '目录' }) + '<div class="main-container"><div class="loading"><div class="spinner"></div><div>加载知识点卡...</div></div></div>';
@@ -3645,6 +3789,7 @@ function showStudyCard(partId, pointId) {
     if (!point || card.partId !== partId || card.knowledgePointId !== pointId) throw new Error('study card mismatch');
     app.innerHTML = b2FloatingNavigation({ backAction: 'goChapter(' + index + ')', backTitle: '返回练习' }) + renderStudyCard(card, point);
     window.scrollTo(0, 0); applyTheme();
+    beginKnowledgeCardTracking(resumeRecord || buildKnowledgeCardContext(partId, pointId, card.title, chapter.title), resumeRecord);
   }).catch(function() {
     app.innerHTML = b2FloatingNavigation({ backAction: 'showChapters(\'russian_b2\')', backTitle: '目录' }) + '<div class="main-container"><div class="loading">❌ 知识点卡加载失败</div></div>';
   });
@@ -4015,7 +4160,7 @@ function loadZlatoustLearningPage(sectionId) {
       .then(function(page) { zlatoustTheoryState.learningPages[sectionId] = page; return page; });
   });
 }
-function showZlatoustRuleUnit(sectionId, ruleId) {
+function showZlatoustRuleUnit(sectionId, ruleId, resumeRecord) {
   if (!isZlatoustGrammarBook(curBook)) return;
   if (curView !== 'zlatoust-rule') zlatoustRouteReturn = { chapterIndex: curCh, scroll: window.scrollY };
   var app = document.getElementById('app');
@@ -4039,6 +4184,8 @@ function showZlatoustRuleUnit(sectionId, ruleId) {
     });
     app.innerHTML = b2FloatingNavigation({ backAction: 'returnToZlatoustRoute()', backTitle: '返回知识点卡片', menuAction: 'showBreadcrumb()' }) + (learningPage ? renderZlatoustLearningPage(learningPage, unit, chapterIndex) : renderZlatoustRuleUnit(unit, chapterIndex));
     window.scrollTo(0, 0); applyTheme(); applyStressMarks();
+    var context = resumeRecord || buildKnowledgeCardContext(sectionId, sectionId, unit.titleZh || unit.sectionId || '知识点', '语法词汇');
+    beginKnowledgeCardTracking(context, resumeRecord);
     if (learningPage) initZlatoustLearningPageObserver();
     if (ruleId) setTimeout(function() {
       var target = document.getElementById('zlatoust-rule-' + ruleId);
@@ -4556,7 +4703,7 @@ function hasZlatoustTeachingLayout(page, stage) {
 }
 function renderZlatoustLegacyLearningStage(page, stage) {
   var external = stage.externalNote;
-  return '<section class="zlatoust-stage" id="' + escapeHtml(stage.id) + '"><p class="zlatoust-stage-number">阶段 ' + stage.number + ' / ' + page.stages.length + '</p><h2>' + escapeHtml(stage.title) + '</h2><p class="zlatoust-stage-question">' + escapeHtml(stage.question || '') + '</p>' +
+  return '<section class="zlatoust-stage" id="' + escapeHtml(stage.id) + '" data-knowledge-resume-section="' + escapeHtml(stage.id) + '" data-knowledge-resume-label="阶段 ' + escapeHtml(stage.number + '. ' + stage.title) + '"><p class="zlatoust-stage-number">阶段 ' + stage.number + ' / ' + page.stages.length + '</p><h2>' + escapeHtml(stage.title) + '</h2><p class="zlatoust-stage-question">' + escapeHtml(stage.question || '') + '</p>' +
     '<div class="zlatoust-context-entry"><p class="ru">' + renderRuText((stage.entry && stage.entry.ru) || '', lookupContextWithSentence('grammar', stage.id + '-entry', 'learning-example', (stage.entry && stage.entry.ru) || '', '', [])) + '</p><p>' + escapeHtml((stage.entry && stage.entry.prompt) || '') + '</p></div>' +
     '<section class="zlatoust-teacher-copy"><h3>老师拆解</h3>' + (stage.teacherExplanation || []).map(function(paragraph) { return '<p>' + escapeHtml(paragraph) + '</p>'; }).join('') + '</section>' +
     renderZlatoustStageSourceRule(stage.sourceRule) + renderZlatoustStageSourceEvidence(stage.sourceEvidence) + renderZlatoustStageExamples(stage) + renderZlatoustStageContrasts(stage) +
@@ -4569,7 +4716,7 @@ function renderZlatoustLearningStage(page, stage) {
   if (!hasZlatoustTeachingLayout(page, stage)) return renderZlatoustLegacyLearningStage(page, stage);
   var external = stage.externalNote, explanation = stage.teacherExplanation || [];
   var teacherCopy = explanation.map(function(paragraph) { return '<p>' + escapeHtml(paragraph) + '</p>'; }).join('');
-  return '<section class="zlatoust-stage zlatoust-stage--teaching" id="' + escapeHtml(stage.id) + '"><p class="zlatoust-stage-number">阶段 ' + stage.number + ' / ' + page.stages.length + '</p><h2>' + escapeHtml(stage.title) + '</h2><p class="zlatoust-stage-question">' + escapeHtml(stage.question || '') + '</p>' +
+  return '<section class="zlatoust-stage zlatoust-stage--teaching" id="' + escapeHtml(stage.id) + '" data-knowledge-resume-section="' + escapeHtml(stage.id) + '" data-knowledge-resume-label="阶段 ' + escapeHtml(stage.number + '. ' + stage.title) + '"><p class="zlatoust-stage-number">阶段 ' + stage.number + ' / ' + page.stages.length + '</p><h2>' + escapeHtml(stage.title) + '</h2><p class="zlatoust-stage-question">' + escapeHtml(stage.question || '') + '</p>' +
     '<section class="zlatoust-teaching-example"><h3>先看例子</h3><p class="ru">' + renderRuText(stage.entry.ru, lookupContextWithSentence('grammar', stage.id + '-entry', 'learning-example', stage.entry.ru, '', [])) + '</p><p>' + escapeHtml(stage.entry.prompt) + '</p></section>' +
     '<section class="zlatoust-teacher-copy"><h3>老师详细讲解</h3>' + teacherCopy + '</section>' +
     renderZlatoustStageExamples(stage, false) + renderZlatoustStageContrasts(stage) + renderZlatoustStageSignals(stage) +
@@ -4584,12 +4731,12 @@ function renderZlatoustSummaryTable(page) {
   var headers = page.summaryTableHeaders || {};
   var rows = (page.summaryTable || []).map(function(row) { return '<tr><td>' + escapeHtml(row.question) + '</td><td>' + escapeHtml(row.imperfective) + '</td><td>' + escapeHtml(row.perfective) + '</td><td>' + escapeHtml(row.boundary) + '</td></tr>'; }).join('');
   var intro = page.summaryIntro ? '<p>' + escapeHtml(page.summaryIntro) + '</p>' : '';
-  return '<section class="zlatoust-summary-table" id="zlatoust-summary"><h2>' + page.stages.length + ' 组判断总表</h2>' + intro + '<div class="zlatoust-table-wrap"><table class="zlatoust-table"><thead><tr><th>' + escapeHtml(headers.question || '先问什么') + '</th><th>' + escapeHtml(headers.imperfective || '未完成体视角') + '</th><th>' + escapeHtml(headers.perfective || '完成体视角') + '</th><th>' + escapeHtml(headers.boundary || '必须防止的误判') + '</th></tr></thead><tbody>' + rows + '</tbody></table></div></section>';
+  return '<section class="zlatoust-summary-table" id="zlatoust-summary" data-knowledge-resume-section="zlatoust-summary" data-knowledge-resume-label="判断总表"><h2>' + page.stages.length + ' 组判断总表</h2>' + intro + '<div class="zlatoust-table-wrap"><table class="zlatoust-table"><thead><tr><th>' + escapeHtml(headers.question || '先问什么') + '</th><th>' + escapeHtml(headers.imperfective || '未完成体视角') + '</th><th>' + escapeHtml(headers.perfective || '完成体视角') + '</th><th>' + escapeHtml(headers.boundary || '必须防止的误判') + '</th></tr></thead><tbody>' + rows + '</tbody></table></div></section>';
 }
 function renderZlatoustTransferTasks(sectionId, tasks) {
   if (!tasks || !tasks.length) return '';
   var record = zlatoustLearningPageRecord(sectionId), answers = record.transfer || {};
-  return '<section class="zlatoust-transfer" id="zlatoust-final"><h2>跨阶段综合迁移</h2><p>这里要处理新语境。完成四项任务后，系统才会把本节标为“已掌握”。</p>' + tasks.map(function(task) {
+  return '<section class="zlatoust-transfer" id="zlatoust-final" data-knowledge-resume-section="zlatoust-transfer" data-knowledge-resume-label="跨阶段综合迁移"><h2>跨阶段综合迁移</h2><p>这里要处理新语境。完成四项任务后，系统才会把本节标为“已掌握”。</p>' + tasks.map(function(task) {
     var saved = answers[task.id] || {};
     var promptContext = lookupContextWithSentence('grammar', task.id + '-prompt', 'learning-transfer', task.prompt || '', task.promptZh || '', []);
     var promptHtml = '<p>' + zlatoustInteractiveText(task.prompt || '', promptContext) + '</p>' + (task.promptZh ? '<p class="zlatoust-learning-check-translation">' + escapeHtml(task.promptZh) + '</p>' : '');
@@ -4639,12 +4786,12 @@ function renderZlatoustLearningPage(page, unit, chapterIndex) {
   var kicker = isSupplementary ? '第 ' + chapterNumber + ' 章 · 教辅综合页（不计入原书 32 个理论小节）' : '第 ' + chapterNumber + ' 章 · 知识点 ' + escapeHtml(page.sectionId);
   var summaryBeforeStages = page.summaryPlacement === 'before-stages' ? renderZlatoustSummaryTable(page) : '';
   var summaryAfterStages = page.summaryPlacement === 'before-stages' ? '' : renderZlatoustSummaryTable(page);
-  return '<main class="main-container zlatoust-learning-page reader-workbench reader-workbench--knowledge"><div class="zlatoust-learning-topbar"><button type="button" class="zlatoust-back-link" onclick="returnToZlatoustRoute()">返回知识点卡片</button><span class="zlatoust-progress-summary" data-zlatoust-progress>' + escapeHtml(renderZlatoustLearningProgressText(page.sectionId)) + '</span></div>' +
+  return '<main class="main-container zlatoust-learning-page reader-workbench reader-workbench--knowledge"><div class="zlatoust-learning-topbar"><button type="button" class="zlatoust-back-link" onclick="returnToZlatoustRoute()">返回知识点卡片</button><span class="zlatoust-progress-summary" data-zlatoust-progress>' + escapeHtml(renderZlatoustLearningProgressText(page.sectionId)) + '</span><button type="button" class="zlatoust-back-link" onclick="rememberKnowledgeCardPosition()">记住这里</button></div>' +
     '<header class="zlatoust-learning-hero"><p class="zlatoust-learning-kicker">' + kicker + '</p><h1>' + escapeHtml(page.titleZh) + '</h1><p class="zlatoust-learning-title-ru">' + escapeHtml(page.titleRu) + '</p><p class="zlatoust-learning-problem">' + escapeHtml(page.problem) + '</p><div class="zlatoust-learning-meta"><span>核心首学 ' + escapeHtml(typeof page.estimatedMinutes === 'object' ? page.estimatedMinutes.core : ('约 ' + page.estimatedMinutes + ' 分钟')) + '</span><span>' + page.stages.length + ' 个连续阶段</span><span>' + exerciseCount + ' 道原书题</span><span>' + escapeHtml(zlatoustSourcePages(unit && unit.source)) + '</span><span>来源状态 待复核</span></div></header>' +
     renderZlatoustLearningRoute(page) + renderZlatoustLearningMindMap(page) + '<div class="zlatoust-learning-layout">' + renderZlatoustLearningToc(page, false) + '<article class="zlatoust-learning-content">' + renderZlatoustLearningToc(page, true) +
     '<section class="zlatoust-objectives"><h2>学完以后你要能做到</h2><p>' + escapeHtml(page.scopeNote || '') + '</p><ul>' + (page.objectives || []).map(function(item) { return '<li>' + escapeHtml(item) + '</li>'; }).join('') + '</ul></section>' + renderZlatoustDiagnostic(page.diagnostic) + summaryBeforeStages +
     (page.stages || []).map(function(stage) { return renderZlatoustLearningStage(page, stage); }).join('') + summaryAfterStages +
-    '<section class="zlatoust-final-check"><h2>判断顺序热身</h2>' + renderZlatoustLearningCheck(page.sectionId, '', page.finalCheck, true) + '</section>' + renderZlatoustTransferTasks(page.sectionId, page.transferTasks) +
+    '<section class="zlatoust-final-check" data-knowledge-resume-section="zlatoust-final" data-knowledge-resume-label="综合判断"><h2>判断顺序热身</h2>' + renderZlatoustLearningCheck(page.sectionId, '', page.finalCheck, true) + '</section>' + renderZlatoustTransferTasks(page.sectionId, page.transferTasks) +
     renderZlatoustLearningResult(page.sectionId) + renderZlatoustLearningSources(page) +
     '<nav class="zlatoust-learning-footer" aria-label="知识点前后导航">' + (previous ? '<button type="button" class="zlatoust-back-link" onclick="showZlatoustRuleUnit(\'' + zlatoustEscapeForOnclick(previous.id) + '\')">上一个：' + escapeHtml(previous.id) + '</button>' : '<span></span>') +
     '<button type="button" class="zlatoust-back-link" onclick="returnToZlatoustRoute()">返回知识点卡片</button>' + (next ? '<button type="button" class="zlatoust-back-link" onclick="showZlatoustRuleUnit(\'' + zlatoustEscapeForOnclick(next.id) + '\')">下一个：' + escapeHtml(next.id) + '</button>' : '<span></span>') + '</nav></article></div></main>';
@@ -4722,8 +4869,8 @@ function renderZlatoustRuleUnit(unit, chapterIndex) {
   var sourceContent = sourceRules.map(function(item) { return renderZlatoustRuleItem(item); }).join('') + tables.map(renderZlatoustTable).join('') + examples.map(function(item) { return renderZlatoustRuleItem(item); }).join('');
   var semanticItems = zlatoustList(unit.semanticAnalysis);
   var risks = zlatoustList(unit.riskRecord).concat(zlatoustList(unit.knownRisks));
-  return '<main class="main-container zlatoust-rule-page reader-workbench reader-workbench--knowledge"><button type="button" class="zlatoust-back-link" onclick="goChapter(' + chapterIndex + ')">返回本章练习</button>' +
-    '<header class="zlatoust-rule-header"><span class="zlatoust-badge ' + escapeHtml(unit.reviewStatus || 'needs-review') + '">' + escapeHtml(getZlatoustStatusLabel(unit.reviewStatus)) + '</span><h1>' + escapeHtml(unit.sectionId || '') + ' · ' + escapeHtml(unit.titleZh || '原书规则') + '</h1><p class="zlatoust-rule-ru">' + escapeHtml(unit.titleRu || '') + '</p><div class="zlatoust-rule-meta"><span>' + escapeHtml(zlatoustSourcePages(source) || '页码待复核') + '</span><span>来源：' + escapeHtml(source.cleanedSource || source.file || '原书清洗层') + '</span></div></header>' +
+  return '<main class="main-container zlatoust-rule-page reader-workbench reader-workbench--knowledge" data-knowledge-resume-section="zlatoust-rule" data-knowledge-resume-label="原书规则"><button type="button" class="zlatoust-back-link" onclick="goChapter(' + chapterIndex + ')">返回本章练习</button>' +
+    '<header class="zlatoust-rule-header"><span class="zlatoust-badge ' + escapeHtml(unit.reviewStatus || 'needs-review') + '">' + escapeHtml(getZlatoustStatusLabel(unit.reviewStatus)) + '</span><h1>' + escapeHtml(unit.sectionId || '') + ' · ' + escapeHtml(unit.titleZh || '原书规则') + '</h1><p class="zlatoust-rule-ru">' + escapeHtml(unit.titleRu || '') + '</p><div class="zlatoust-rule-meta"><span>' + escapeHtml(zlatoustSourcePages(source) || '页码待复核') + '</span><span>来源：' + escapeHtml(source.cleanedSource || source.file || '原书清洗层') + '</span></div><div class="b2-knowledge-position"><button type="button" onclick="rememberKnowledgeCardPosition()">记住这里</button></div></header>' +
     renderZlatoustLearningPath(unit) +
     (semanticItems.length ? '<details><summary>语义说明与判断依据</summary><div class="zlatoust-rule-body">' + semanticItems.map(function(item) { return renderZlatoustRuleItem(item); }).join('') + '</div></details>' : '') +
     '<details><summary>原书规则、表格与例句（证据层）</summary><div class="zlatoust-rule-body">' + (sourceContent || '<p>本小节没有可独立展示的原书条目。</p>') + '</div></details>' +
@@ -4756,12 +4903,12 @@ function renderTextbookKnowledgeCard(chapter, point) {
   }).join('') : '<p class="b2-study-empty">本知识点暂未配置独立例题，请直接进入练习。</p>';
   var status = point.sourceStatus || '原书规则已整理';
   return '<div class="main-container b2-study-card reader-workbench reader-workbench--knowledge">' +
-    '<header class="b2-quiz-header"><h1>' + escapeHtml(point.title || '知识点') + '</h1><div class="b2-study-meta"><span>' + escapeHtml(chapter.title || '') + '</span><span>练习 ' + escapeHtml(formatQuestionRange(point.exerciseIds || [])) + '</span><span>' + escapeHtml(formatSourcePages(sourcePages)) + '</span></div></header>' +
-    '<section class="b2-study-section"><h2>核心规则</h2><p>' + escapeHtml(point.rule || '原书未提供规则摘要。') + '</p></section>' +
-    '<section class="b2-study-section"><h2>结构与题型</h2><p>' + escapeHtml(structure) + '</p></section>' +
-    '<section class="b2-study-section"><h2>典型例句</h2>' + exampleHtml + '</section>' +
-    '<section class="b2-study-section"><h2>易错对比</h2><p>' + escapeHtml(point.pitfalls || '结合对应题目进行辨析。') + '</p></section>' +
-    '<section class="b2-study-section"><h2>来源与核对状态</h2><p>' + escapeHtml(status) + ' · 原书理论页：' + escapeHtml(formatSourcePages(sourcePages)) + '</p></section>' +
+    '<header class="b2-quiz-header"><h1>' + escapeHtml(point.title || '知识点') + '</h1><div class="b2-study-meta"><span>' + escapeHtml(chapter.title || '') + '</span><span>练习 ' + escapeHtml(formatQuestionRange(point.exerciseIds || [])) + '</span><span>' + escapeHtml(formatSourcePages(sourcePages)) + '</span></div><div class="b2-knowledge-position"><button type="button" onclick="rememberKnowledgeCardPosition()">记住这里</button></div></header>' +
+    '<section class="b2-study-section" data-knowledge-resume-section="textbook-rule" data-knowledge-resume-label="核心规则"><h2>核心规则</h2><p>' + escapeHtml(point.rule || '原书未提供规则摘要。') + '</p></section>' +
+    '<section class="b2-study-section" data-knowledge-resume-section="textbook-structure" data-knowledge-resume-label="结构与题型"><h2>结构与题型</h2><p>' + escapeHtml(structure) + '</p></section>' +
+    '<section class="b2-study-section" data-knowledge-resume-section="textbook-examples" data-knowledge-resume-label="典型例句"><h2>典型例句</h2>' + exampleHtml + '</section>' +
+    '<section class="b2-study-section" data-knowledge-resume-section="textbook-pitfalls" data-knowledge-resume-label="易错对比"><h2>易错对比</h2><p>' + escapeHtml(point.pitfalls || '结合对应题目进行辨析。') + '</p></section>' +
+    '<section class="b2-study-section" data-knowledge-resume-section="textbook-source" data-knowledge-resume-label="来源与核对状态"><h2>来源与核对状态</h2><p>' + escapeHtml(status) + ' · 原书理论页：' + escapeHtml(formatSourcePages(sourcePages)) + '</p></section>' +
     '<section class="b2-study-actions"><button class="b2-finish" onclick="openStudyCardPractice(\'' + escapeHtml(chapter.id) + '\',' + exerciseIds + ',false)">做本知识点全部题目</button><button class="b2-finish" onclick="goChapter(' + curCh + ')">返回当前章节</button><button class="b2-finish" onclick="showWorldPeopleDashboard()">返回语法词汇仪表盘</button></section></div>';
 }
 function openStudyCardPractice(partId, exerciseIds, wrongOnly) {
@@ -5252,7 +5399,7 @@ function renderKnowledgePointNav(points, partId) {
       exerciseNav += '<button class="b2-knowledge-card" onclick="restartQuiz(\'knowledge\',' + escapeHtml(JSON.stringify(point.exerciseIds)).replace(/"/g, '&quot;') + ')"><strong>' + escapeHtml(point.title) + '</strong><span>对应练习导航 · ' + range + '</span><small>' + escapeHtml(point.rule) + '</small><em>去练习 →</em></button>';
     }
   });
-  var html = '<section class="b2-knowledge-nav">';
+  var html = '<section class="b2-knowledge-nav">' + renderKnowledgeCardResume();
   if (studyCards) html += '<h2>知识点学习卡</h2><p>系统整理的独立学习内容；点击后打开完整卡片。</p><div class="b2-knowledge-grid">' + studyCards + '</div>';
   if (exerciseNav) html += '<div class="b2-knowledge-exercise-nav"><h2>对应练习导航</h2><p>这些知识点暂未制作独立学习卡，点击后进入对应练习。</p><div class="b2-knowledge-grid">' + exerciseNav + '</div></div>';
   return html + '</section>';

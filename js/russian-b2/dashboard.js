@@ -7,6 +7,7 @@
   const ARCHIVE_KEYS = [
     'rr_b2_progress_v1',
     'russian_b2_study_card_progress_v1',
+    'rr_knowledge_card_resume_v1',
     'rr_b2_reading_progress_v1',
     'russian_b2_writing_drafts_v1',
     'russian_b2_speaking_notes_v1',
