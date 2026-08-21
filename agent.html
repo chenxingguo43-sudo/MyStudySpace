@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-title" content="白夜俄语">
+  <meta name="theme-color" content="#071321">
+  <link rel="apple-touch-icon" sizes="1024x1024" href="assets/icons/white-night-tutor-desktop.png">
+  <link rel="icon" type="image/png" sizes="1024x1024" href="assets/icons/white-night-tutor-desktop.png">
+  <link rel="icon" href="assets/icons/white-night-tutor-desktop.ico" sizes="any">
+  <link rel="manifest" href="manifest.webmanifest">
+  <title>复盘 · 白夜俄语</title>
+  <link rel="stylesheet" href="css/app-shell.css">
+  <style>
+    :root { color-scheme: dark; background: #071321; color: #f0f3f7; font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    body { margin: 0; min-height: 100dvh; background: #071321; }
+    .review-page { width: min(100% - 36px, 980px); margin: 0 auto; padding: 36px 0 calc(44px + var(--app-shell-nav-height) + env(safe-area-inset-bottom, 0px)); }
+    .review-kicker { margin: 0 0 12px; color: #93baf0; font-size: 13px; letter-spacing: .12em; text-transform: uppercase; }
+    h1 { margin: 0; font-size: clamp(32px, 7vw, 54px); font-weight: 500; letter-spacing: .01em; }
+    .review-lede { max-width: 650px; margin: 14px 0 30px; color: rgba(229, 236, 246, .72); line-height: 1.7; }
+    .review-grid { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(260px, .75fr); gap: 20px; }
+    .review-panel { border: 1px solid rgba(164, 194, 232, .18); border-radius: 14px; background: rgba(16, 34, 55, .72); padding: 22px; }
+    .review-panel h2 { margin: 0 0 16px; font-size: 18px; font-weight: 600; }
+    .review-meta { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 0 0 18px; }
+    .review-stat { padding: 12px; border: 1px solid rgba(164, 194, 232, .14); border-radius: 9px; background: rgba(6, 20, 35, .5); }
+    .review-stat strong, .review-stat span { display: block; }
+    .review-stat strong { font-size: 22px; font-weight: 500; }
+    .review-stat span { margin-top: 4px; color: rgba(229, 236, 246, .62); font-size: 12px; }
+    .review-evidence, .review-item { padding: 16px 0; border-top: 1px solid rgba(164, 194, 232, .13); }
+    .review-evidence__label { margin: 0 0 8px; color: #93baf0; font-size: 12px; }
+    blockquote { margin: 0 0 8px; color: #f4f5f7; font-family: Georgia, "Times New Roman", serif; font-size: 22px; line-height: 1.4; }
+    small, .review-muted { color: rgba(229, 236, 246, .57); font-size: 12px; line-height: 1.5; }
+    .review-item h3 { margin: 0 0 8px; font-size: 17px; font-weight: 600; }
+    .review-item p { margin: 6px 0; line-height: 1.55; }
+    .review-item__improved { color: #dce9ff; }
+    .review-item__explanation { color: rgba(229, 236, 246, .67); font-size: 14px; }
+    .review-item__state { display: inline-block; margin-top: 6px; color: #9fc5ff; font-size: 12px; }
+    .review-item__actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 13px; }
+    .review-item__actions button, .review-action { min-height: 36px; padding: 0 13px; border: 1px solid rgba(164, 194, 232, .3); border-radius: 7px; color: #e9f1ff; background: rgba(79, 125, 190, .2); cursor: pointer; }
+    .review-item__actions button:disabled { opacity: .5; cursor: default; }
+    .review-empty { max-width: 680px; margin: 48px auto; padding: 28px; border-left: 2px solid #8bb4ed; background: rgba(16, 34, 55, .62); }
+    .review-empty h2 { margin: 0 0 10px; font-size: 24px; font-weight: 500; }
+    .review-empty p { margin: 0 0 20px; color: rgba(229, 236, 246, .72); line-height: 1.7; }
+    .review-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+    .review-action { display: inline-flex; align-items: center; text-decoration: none; }
+    .review-source { margin-top: 18px; color: rgba(229, 236, 246, .58); font-size: 12px; line-height: 1.6; word-break: break-word; }
+    .agent-review { margin-top: 24px; padding-top: 20px; border-top: 1px solid rgba(164, 194, 232, .15); }
+    .agent-review h3 { margin: 18px 0 8px; font-size: 15px; font-weight: 600; }
+    .agent-review ul { margin: 0; padding-left: 20px; color: rgba(229, 236, 246, .78); line-height: 1.65; }
+    .agent-review__status { margin: 0 0 12px; color: #9fc5ff; font-size: 12px; }
+    .agent-review__next { margin: 0; padding: 13px; border-left: 2px solid #8bb4ed; color: #e9f1ff; line-height: 1.55; }
+    .agent-review__notice { margin: 0 0 14px; padding: 12px; border-left: 2px solid #d7a96f; color: #f0d9b6; background: rgba(95, 61, 31, .2); line-height: 1.55; }
+    @media (max-width: 720px) { .review-page { width: min(100% - 28px, 980px); padding-top: 28px; } .review-grid { grid-template-columns: 1fr; } .review-meta { grid-template-columns: repeat(3, minmax(0, 1fr)); } .review-panel { padding: 17px; } blockquote { font-size: 19px; } }
+  </style>
+</head>
+<body>
+  <main class="review-page" aria-labelledby="reviewTitle">
+    <p class="review-kicker">白夜俄语 · Agent</p>
+    <h1 id="reviewTitle">复盘</h1>
+    <p class="review-lede">这里读取你已经完成的学习证据。事实会回到原始回合，推断会标记为待确认；在没有证据时，页面不会替你编造结论。</p>
+    <section id="reviewEmpty" class="review-empty" aria-live="polite">
+      <h2 id="reviewEmptyTitle">还没有可复盘的口语证据</h2>
+      <p id="reviewEmptyText">先完成一次口语练习，并确认至少一条表达。确认后的文本会留在本机，之后才能在这里查看来源。</p>
+      <div class="review-actions"><a class="review-action" href="speaking.html">去练口语</a><a class="review-action" href="app-home.html">回到总仪表盘</a></div>
+    </section>
+    <section id="reviewContent" class="review-grid" hidden>
+      <div class="review-panel"><h2>本次证据</h2><div id="reviewTurns"></div><section id="agentReviewPanel" class="agent-review" hidden><h2>白夜 Agent 复盘</h2><p id="agentReviewStatus" class="agent-review__status">等待复盘</p><p id="agentProviderNotice" class="agent-review__notice" hidden></p><p id="agentEvidenceNotice" class="agent-review__notice" hidden></p><p id="agentMemoryNotice" class="agent-review__notice" hidden></p><h3>事实</h3><ul id="agentFacts"></ul><h3>待确认判断</h3><ul id="agentInferences"></ul><h3>下一步练习</h3><p id="agentNextPractice" class="agent-review__next"></p><h3>表达建议</h3><div id="agentReviewItems"></div><h3>记忆提案</h3><div id="agentMemoryProposals"></div><h3>资料依据</h3><ul id="agentSkills"></ul><p class="review-source">表达建议只影响本轮复盘；记忆提案只有你确认后，才可进入可撤销学习画像。</p></section></div>
+      <aside class="review-panel"><h2>会话档案</h2><div class="review-meta"><div class="review-stat"><strong id="reviewTurnCount">0</strong><span>回合</span></div><div class="review-stat"><strong id="reviewConfirmedCount">0</strong><span>确认表达</span></div><div class="review-stat"><strong id="reviewSessionStatus">-</strong><span>证据状态</span></div></div><p class="review-source">会话 ID：<span id="reviewSessionId"></span><br>最近更新：<span id="reviewSessionDate"></span></p><h2>已保存学习项</h2><div id="reviewItems"></div><p class="review-source">学习项来自本机已保存的口语回合。当前按钮只记录本次复盘决定，不会自动写入长期画像。</p><a class="review-action" href="speaking.html">回到口语</a></aside>
+    </section>
+  </main>
+  <script src="js/speaking/recording-store.js"></script>
+  <script src="js/agent/review-contract.js"></script>
+  <script src="js/agent/speaking-evidence.js"></script>
+  <script src="js/agent/skill-registry.js"></script>
+  <script src="js/agent/skill-router.js"></script>
+  <script src="js/agent/mock-review-provider.js"></script>
+  <script src="js/agent/agent-client.js"></script>
+  <script src="js/agent/review-decision-store.js"></script>
+  <script src="js/agent/review-page.js"></script>
+  <script src="js/app-shell.js"></script>
+  <script>AppShell.mount({ current: 'review' });</script>
+</body>
+</html>

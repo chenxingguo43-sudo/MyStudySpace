@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-title" content="白夜俄语">
+  <meta name="theme-color" content="#071321">
+  <link rel="apple-touch-icon" sizes="1024x1024" href="assets/icons/white-night-tutor-desktop.png">
+  <link rel="icon" type="image/png" sizes="1024x1024" href="assets/icons/white-night-tutor-desktop.png">
+  <link rel="icon" href="assets/icons/white-night-tutor-desktop.ico" sizes="any">
+  <link rel="manifest" href="manifest.webmanifest">
+  <title>白夜俄语 · 口语</title>
+  <link rel="stylesheet" href="css/app-shell.css">
+  <style>
+    :root { color-scheme: dark; --bg:#04111f; --panel:#0a1c30; --soft:#102642; --text:#edf2fa; --muted:rgba(224,233,245,.68); --dim:rgba(224,233,245,.48); --line:rgba(190,215,246,.16); --accent:#c5dcff; --accent-ink:#09213d; --danger:#ffd0d0; --safe:env(safe-area-inset-bottom,0px); font-family:"Segoe UI","PingFang SC","Microsoft YaHei",system-ui,sans-serif; }
+    * { box-sizing:border-box; }
+    html,body { min-width:320px; min-height:100%; margin:0; background:var(--bg); color:var(--text); letter-spacing:0; }
+    body { min-height:100dvh; padding-bottom:calc(86px + var(--safe)); }
+    button,input,textarea,select { font:inherit; letter-spacing:0; }
+    button { cursor:pointer; color:inherit; }
+    button:disabled { cursor:wait; opacity:.55; }
+    .speaking-shell { width:min(100%,720px); min-height:100dvh; margin:0 auto; background:linear-gradient(160deg,#071827,#04111f 55%,#020914); }
+    .speaking-header { display:flex; min-height:76px; padding:max(16px,env(safe-area-inset-top)) 18px 12px; align-items:flex-end; justify-content:space-between; gap:14px; border-bottom:1px solid var(--line); }
+    .speaking-header h1 { margin:0; font:500 30px/1.1 Georgia,"Noto Serif",serif; }
+    .speaking-header p { margin:5px 0 0; color:var(--dim); font-size:12px; }
+    .header-action { min-height:40px; padding:0 12px; border:1px solid var(--line); border-radius:7px; background:rgba(255,255,255,.04); }
+    .screen { display:none; min-height:calc(100dvh - 76px); }
+    .screen.active { display:block; }
+    .page { width:min(100%,620px); margin:0 auto; padding:22px 18px 34px; }
+    .intro { padding:18px 0 28px; border-bottom:1px solid var(--line); }
+    .intro h2 { max-width:12ch; margin:0 0 10px; font:500 clamp(31px,8vw,44px)/1.08 Georgia,"Noto Serif",serif; }
+    .intro p { max-width:38ch; margin:0 0 22px; color:var(--muted); font-size:14px; line-height:1.65; }
+    .primary { display:flex; width:100%; min-height:54px; padding:0 16px; border:1px solid rgba(197,220,255,.45); border-radius:8px; align-items:center; justify-content:space-between; color:var(--accent-ink); background:var(--accent); font-weight:650; }
+    .section { padding:24px 0; border-bottom:1px solid var(--line); }
+    .section-title { display:flex; margin-bottom:13px; align-items:baseline; justify-content:space-between; gap:12px; }
+    .section-title h3 { margin:0; font-size:15px; }
+    .section-title span { color:var(--dim); font-size:11px; }
+    .task-link { display:grid; width:100%; padding:0; grid-template-columns:52px minmax(0,1fr) auto; gap:13px; align-items:center; border:0; color:inherit; background:transparent; text-align:left; }
+    .cover { width:52px; aspect-ratio:3/4; border:1px solid rgba(231,223,207,.25); border-radius:4px; background:linear-gradient(180deg,rgba(4,17,31,.15),rgba(4,17,31,.85)),#294766; }
+    .task-link strong { display:block; margin-bottom:5px; font:500 17px Georgia,"Noto Serif",serif; }
+    .task-link span { color:var(--muted); font-size:12px; line-height:1.5; }
+    .arrow { color:var(--accent); font-size:24px; }
+    .saved-list { display:grid; gap:8px; }
+    .saved-item { display:flex; min-height:48px; padding:9px 0; align-items:center; justify-content:space-between; gap:12px; border-top:1px solid rgba(190,215,246,.09); }
+    .saved-item:first-child { border-top:0; }
+    .saved-item strong { display:block; font-size:13px; }
+    .saved-item small { color:var(--dim); font-size:11px; }
+    .chat { min-height:calc(100dvh - 76px); }
+    .chat-top { display:flex; min-height:62px; padding:10px 18px; align-items:center; justify-content:space-between; border-bottom:1px solid var(--line); }
+    .chat-top h2 { margin:0; font:500 18px Georgia,"Noto Serif",serif; }
+    .chat-top span { color:var(--dim); font-size:11px; }
+    .messages { min-height:270px; padding:22px 18px 8px; }
+    .message { display:flex; margin:0 0 20px; flex-direction:column; align-items:flex-start; }
+    .message.user { align-items:flex-end; }
+    .message-role { margin:0 3px 6px; color:var(--dim); font-size:10px; }
+    .bubble { max-width:min(84%,460px); padding:12px 14px; border:1px solid var(--line); border-radius:14px 14px 14px 5px; background:var(--panel); font:18px/1.5 Georgia,"Noto Serif",serif; white-space:pre-wrap; }
+    .message.user .bubble { border-radius:14px 14px 5px 14px; background:rgba(94,137,191,.24); }
+    .translation { max-width:min(84%,460px); margin:7px 3px 0; color:var(--muted); font-size:12px; line-height:1.55; }
+    .transcript-card,.reply-card { margin:10px 18px 18px; padding:15px; border:1px solid var(--line); border-radius:9px; background:rgba(16,38,66,.58); }
+    .card-title { margin:0 0 12px; color:var(--muted); font-size:12px; }
+    .channel { margin:8px 0; padding:9px 10px; border-left:2px solid rgba(197,220,255,.5); background:rgba(0,0,0,.14); font-size:13px; line-height:1.55; }
+    .channel b { display:block; margin-bottom:3px; color:var(--accent); font-size:11px; font-weight:500; }
+    .confirm-label { display:block; margin-top:13px; color:var(--muted); font-size:12px; }
+    .confirm-input { width:100%; min-height:76px; margin-top:6px; padding:10px; resize:vertical; border:1px solid var(--line); border-radius:7px; color:var(--text); background:rgba(0,0,0,.2); line-height:1.55; }
+    .card-actions { display:flex; flex-wrap:wrap; margin-top:10px; gap:8px; }
+    .secondary { min-height:42px; padding:0 13px; border:1px solid var(--line); border-radius:7px; background:rgba(255,255,255,.04); }
+    .secondary.primary-like { color:var(--accent); border-color:rgba(197,220,255,.35); background:rgba(166,201,255,.1); }
+    .error { color:var(--danger); }
+    .composer { position:sticky; bottom:0; z-index:3; display:grid; padding:10px 14px calc(12px + var(--safe)); grid-template-columns:52px minmax(0,1fr) 44px; gap:8px; border-top:1px solid var(--line); background:rgba(4,17,31,.96); backdrop-filter:blur(15px); }
+    .hold { min-height:48px; padding:0 8px; border:1px solid var(--line); border-radius:8px; background:rgba(16,38,66,.65); font-size:12px; touch-action:none; user-select:none; }
+    .text-input { width:100%; min-height:48px; max-height:112px; padding:11px 12px; resize:none; border:1px solid var(--line); border-radius:8px; color:var(--text); background:rgba(16,38,66,.65); }
+    .send { width:44px; height:44px; margin-top:2px; border:0; border-radius:50%; color:var(--accent-ink); background:var(--accent); }
+    .recording-overlay { position:fixed; z-index:20; inset:0; display:none; background:rgba(1,6,13,.86); backdrop-filter:blur(6px); }
+    .recording-overlay.active { display:block; }
+    .recording-status { position:absolute; top:34%; right:20px; left:20px; text-align:center; }
+    .recording-status strong { display:block; margin-bottom:10px; font:500 25px Georgia,"Noto Serif",serif; }
+    .recording-status span { color:var(--muted); font-size:13px; }
+    .recording-zones { position:absolute; right:18px; bottom:26px; left:18px; display:grid; grid-template-columns:1fr 1.15fr 1fr; gap:8px; padding-bottom:var(--safe); }
+    .zone { min-height:76px; border:1px solid var(--line); border-radius:8px; background:rgba(255,255,255,.04); color:var(--muted); }
+    .zone.active { color:var(--accent); border-color:rgba(197,220,255,.5); background:rgba(92,139,200,.2); }
+    .zone.cancel.active { color:var(--danger); border-color:rgba(239,154,154,.5); }
+    .speaking-nav { position:fixed; z-index:10; right:10px; bottom:calc(10px + var(--safe)); left:10px; display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); min-height:64px; padding:6px; border:1px solid var(--line); border-radius:20px; background:rgba(7,24,39,.94); box-shadow:0 -12px 32px rgba(0,7,18,.28); }
+    .speaking-nav a { display:flex; min-width:0; min-height:50px; align-items:center; justify-content:center; flex-direction:column; gap:3px; border-radius:14px; color:var(--dim); text-decoration:none; font-size:10px; }
+    .speaking-nav a.active { color:var(--accent); background:rgba(166,201,255,.1); }
+    .speaking-nav b { font-size:19px; font-weight:400; }
+    .toast { position:fixed; z-index:30; right:18px; bottom:calc(94px + var(--safe)); left:18px; display:none; max-width:430px; min-height:44px; margin:auto; padding:11px 13px; border:1px solid var(--line); border-radius:7px; align-items:center; justify-content:center; background:rgba(10,28,48,.98); font-size:12px; text-align:center; }
+    .toast.show { display:flex; }
+    @media (min-width:701px) { .speaking-nav { width:min(700px,calc(100% - 20px)); margin:auto; } }
+    @media (max-width:370px) { .page,.messages { padding-right:14px; padding-left:14px; } .composer { grid-template-columns:48px minmax(0,1fr) 42px; padding-right:10px; padding-left:10px; } .hold { font-size:11px; } }
+    html.app-shell-enabled .speaking-nav { display:none; }
+  </style>
+</head>
+<body>
+  <div class="speaking-shell">
+    <section class="screen active" id="homeScreen" aria-label="口语首页">
+      <header class="speaking-header"><div><h1>口语</h1><p>每天十分钟，先把俄语说出来</p></div><button class="header-action" id="openChat" type="button">开始对话</button></header>
+      <main class="page">
+        <section class="intro"><h2>从一句简单的话开始</h2><p>先说出来，再一起整理。录音会先保存在这台设备上，网络不可用时也不会丢失。</p><button class="primary" id="startDaily" type="button"><strong>开始日常对话</strong><span>→</span></button></section>
+        <section class="section"><div class="section-title"><h3>B2 口语</h3><span>引导练习</span></div><a class="task-link" href="reader.html?book=russian_b2&amp;ch=0"><span class="cover" aria-hidden="true"></span><span><strong lang="ru">В мире людей</strong><span>从 Reader 的原书任务开始练习，不复制任务进度。</span></span><b class="arrow" aria-hidden="true">›</b></a></section>
+        <section class="section"><div class="section-title"><h3>本机录音</h3><span id="recordCount">读取中</span></div><div class="saved-list" id="savedList"><p class="saved-item"><small>还没有口语录音。</small></p></div><div class="card-actions"><button class="secondary" id="exportEvidence" type="button">导出口语证据</button><input id="importEvidenceFile" type="file" accept="application/json" hidden><button class="secondary" id="importEvidence" type="button">导入口语证据</button><a class="secondary" id="openReview" href="agent.html" hidden>交给白夜 Agent 复盘</a></div></section>
+      </main>
+    </section>
+    <section class="screen chat" id="chatScreen" aria-label="日常对话">
+      <div class="chat-top"><button class="header-action" id="backHome" type="button">返回</button><div><h2>俄语朋友</h2><span id="chatState">准备好了</span></div><select class="header-action" id="voiceSelect" aria-label="语音声音"><option value="aidar">Aidar</option><option value="baya">Baya</option><option value="kseniya">Kseniya</option><option value="eugene">Eugene</option><option value="xenia">Xenia</option></select></div>
+      <div class="messages" id="messages"><article class="message"><p class="message-role">俄语朋友</p><div class="bubble" lang="ru">Как прошёл твой день? Расскажи об одном событии.</div><p class="translation">你今天过得怎么样？说一件发生的事吧。</p></article></div>
+      <section class="transcript-card" id="transcriptCard" hidden><p class="card-title">双通道原始转写</p><div class="channel"><b>中文通道</b><span id="zhRaw">（等待转写）</span></div><div class="channel"><b>俄语通道</b><span id="ruRaw">（等待转写）</span></div><label class="confirm-label" for="confirmedText">确认文本（可以修改）</label><textarea class="confirm-input" id="confirmedText" placeholder="转写完成后在这里确认或修改"></textarea><div class="card-actions"><button class="secondary primary-like" id="confirmTranscript" type="button">确认并获取回复</button><button class="secondary" id="retryAsr" type="button" hidden>重试转写</button><button class="secondary" id="keepDraft" type="button">只保留草稿</button></div></section>
+      <section class="reply-card" id="replyCard" hidden><p class="card-title">白夜俄语回复</p><div class="bubble" id="replyText" lang="ru"></div><p class="translation" id="replyTranslation" hidden></p><div class="card-actions"><button class="secondary" id="replayReply" type="button">重播语音</button><button class="secondary" id="retryReply" type="button" hidden>重试回复</button></div></section>
+      <div class="composer"><button class="hold" id="holdToSpeak" type="button">按住说话</button><textarea class="text-input" id="textDraft" rows="1" placeholder="也可以先输入文字"></textarea><button class="send" id="sendText" type="button" aria-label="发送文字">↑</button></div>
+    </section>
+  </div>
+  <div class="recording-overlay" id="recordingOverlay" aria-hidden="true"><div class="recording-status"><strong id="recordingLabel">正在录音</strong><span id="recordingTime">00:00</span><p id="recordingHint">向上滑到左侧取消，向上滑到右侧转成文字</p></div><div class="recording-zones"><button class="zone cancel" data-zone="cancel" type="button">取消</button><button class="zone active" data-zone="send" type="button">松开发送</button><button class="zone" data-zone="transcribe" type="button">转成文字</button></div></div>
+  <nav class="speaking-nav" aria-label="白夜俄语导航"><a href="app-home.html"><b>⌂</b><span>首页</span></a><a href="reader.html"><b>▱</b><span>Reader</span></a><a href="vocabulary.html"><b>☷</b><span>Vocabulary</span></a><a class="active" aria-current="page" href="speaking.html"><b>♬</b><span>口语</span></a><a href="profile.html"><b>◯</b><span>我的</span></a></nav>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="js/speaking/recording-store.js"></script>
+  <script src="js/speaking/media-recorder-adapter.js"></script>
+  <script src="js/speaking/recording-session.js"></script>
+  <script src="js/speaking/mvp-client.js"></script>
+  <script src="js/speaking/evidence-archive.js"></script>
+  <script src="js/app-shell.js"></script>
+  <script>
+    (function() {
+      'use strict';
+      var store = WhiteNightSpeakingRecordingStore.createRecordingStore();
+      var adapter = WhiteNightMediaRecorderAdapter.createMediaRecorderAdapter();
+      var session = WhiteNightRecordingSession.createRecordingSession({ adapter: adapter, store: store, onChange: onSessionChange });
+      var home = document.getElementById('homeScreen'), chat = document.getElementById('chatScreen'), overlay = document.getElementById('recordingOverlay');
+      var messages = document.getElementById('messages'), transcriptCard = document.getElementById('transcriptCard'), replyCard = document.getElementById('replyCard');
+      var toast = document.getElementById('toast'), recording = null, timer = 0, recordingStarted = 0, pendingRecord = null, pendingAsr = null, replyAudio = null, conversation = [];
+      var evidenceSession = null, pendingTurn = null, activeTurnToken = 0, evidenceRestored = false, evidenceSessionKey = 'white_night_speaking_active_session';
+      function showToast(message) { toast.textContent = message; toast.classList.add('show'); clearTimeout(showToast.timer); showToast.timer = setTimeout(function() { toast.classList.remove('show'); }, 3600); }
+      function showScreen(name) { home.classList.toggle('active', name === 'home'); chat.classList.toggle('active', name === 'chat'); if (name === 'chat') refreshRecordings(); }
+      function setChatState(message, error) { document.getElementById('chatState').textContent = message; document.getElementById('chatState').classList.toggle('error', !!error); }
+      function onSessionChange(state) { if (state.phase === 'preparing' || state.phase === 'starting') setChatState('正在准备麦克风'); if (state.phase === 'recording') setChatState('正在录音'); if (state.phase === 'stopping') setChatState('正在保存录音'); if (state.phase === 'failed') setChatState(state.error && state.error.message || '录音失败', true); }
+      function formatTime(ms) { var seconds = Math.max(0, Math.round(Number(ms || 0) / 1000)); return String(Math.floor(seconds / 60)).padStart(2, '0') + ':' + String(seconds % 60).padStart(2, '0'); }
+      function errorText(error) { return error && error.message ? error.message : '口语服务暂时不可用'; }
+      function addMessage(role, text, translation, isUser) { var article = document.createElement('article'); article.className = 'message' + (isUser ? ' user' : ''); var roleEl = document.createElement('p'); roleEl.className = 'message-role'; roleEl.textContent = role; var bubble = document.createElement('div'); bubble.className = 'bubble'; bubble.lang = isUser ? 'ru' : 'ru'; bubble.textContent = text; article.append(roleEl, bubble); if (translation) { var t = document.createElement('p'); t.className = 'translation'; t.textContent = translation; article.appendChild(t); } messages.appendChild(article); article.scrollIntoView({ block: 'end', behavior: 'smooth' }); }
+      function renderTranscript(asr) { document.getElementById('zhRaw').textContent = asr.zh && asr.zh.text || '（空）'; document.getElementById('ruRaw').textContent = asr.ru && asr.ru.text || '（空）'; document.getElementById('confirmedText').value = (asr.ru && asr.ru.text || asr.zh && asr.zh.text || '').trim(); transcriptCard.hidden = false; transcriptCard.scrollIntoView({ block: 'nearest', behavior: 'smooth' }); }
+      function updateRecord(record, changes) { if (store.update) return store.update(record.id, changes); return store.save(Object.assign({}, record, changes)); }
+      async function processRecording(record) { pendingRecord = record; setChatState('正在双通道转写'); showToast('录音已先保存到本机，正在请求转写'); try { pendingAsr = await WhiteNightSpeakingMvpClient.requestAsr(record.blob); await updateRecord(record, { rawTranscriptZh: pendingAsr.zh && pendingAsr.zh.text || '', rawTranscriptRu: pendingAsr.ru && pendingAsr.ru.text || '', transcriptStatus: 'ready' }); renderTranscript(pendingAsr); setChatState('等待确认文本'); } catch (error) { await updateRecord(record, { transcriptStatus: 'failed', transcriptError: errorText(error) }).catch(function() {}); transcriptCard.hidden = false; document.getElementById('zhRaw').textContent = '转写失败：' + errorText(error); document.getElementById('ruRaw').textContent = '转写失败：请直接修改确认文本'; document.getElementById('confirmedText').value = ''; setChatState('录音已保存，可手动输入文字', true); showToast('转写失败，但录音没有丢失'); } finally { refreshRecordings(); } }
+      async function confirmTranscript() { if (!pendingRecord) return; var text = document.getElementById('confirmedText').value.trim(); if (!text) { showToast('请先确认或输入你想表达的内容'); return; } var record = pendingRecord; await updateRecord(record, { confirmedTranscript: text, transcriptStatus: 'confirmed' }); addMessage('你 · 已确认文本', text, '', true); setChatState('正在生成回复'); document.getElementById('confirmTranscript').disabled = true; try { var result = await WhiteNightSpeakingMvpClient.requestReply({ session: { mode: 'daily', sessionId: record.sessionId, taskId: null }, conversation: conversation, asr: pendingAsr || { zh: { text: '' }, ru: { text: '' } }, userConfirmedTranscript: text, memory: [], policy: { targetLanguage: 'ru', maxRussianSentences: 2, mustAskQuestion: true } }); var response = result.response || {}; var reply = response.reply || {}; var segments = reply.segments || []; var ru = segments.filter(function(item) { return item.language === 'ru'; }).map(function(item) { return item.text; }).join(' ') || reply.text || 'Спасибо, продолжай, пожалуйста.'; var zh = segments.filter(function(item) { return item.language === 'zh'; }).map(function(item) { return item.text; }).join(' '); conversation.push({ role: 'user', content: text }); conversation.push({ role: 'assistant', content: ru }); document.getElementById('replyText').textContent = ru; document.getElementById('replyTranslation').textContent = zh; document.getElementById('replyTranslation').hidden = !zh; replyCard.hidden = false; addMessage('俄语朋友', ru, zh, false); await updateRecord(record, { replyTextRu: ru, replySegments: segments, ttsState: 'pending' }); setChatState('回复已生成'); try { var blob = await WhiteNightSpeakingMvpClient.synthesizeRussian(ru, document.getElementById('voiceSelect').value); replyAudio = new Audio(URL.createObjectURL(blob)); replyAudio.onended = function() { setChatState('准备好了'); }; await replyAudio.play(); await updateRecord(record, { ttsState: 'played' }); } catch (ttsError) { try { await WhiteNightSpeakingMvpClient.speakRussianInBrowser(ru); await updateRecord(record, { ttsState: 'browser_fallback', ttsError: errorText(ttsError) }); setChatState('已用浏览器俄语语音播放'); } catch (browserError) { await updateRecord(record, { ttsState: 'failed', ttsError: errorText(ttsError) }); setChatState('文字回复已保留，语音暂不可用', true); showToast('文字回复已保留，TTS 暂时不可用'); } } } catch (error) { await updateRecord(record, { replyState: 'failed', replyError: errorText(error) }).catch(function() {}); setChatState('录音与确认文本已保存，回复暂不可用', true); showToast('AI 回复失败，录音和文字仍已保存'); } finally { document.getElementById('confirmTranscript').disabled = false; refreshRecordings(); } }
+      function refreshRecordings() { return store.list({ limit: 50 }).then(function(records) { var daily = records.filter(function(record) { return record.context === 'daily'; }); document.getElementById('recordCount').textContent = daily.length ? daily.length + ' 条记录' : '暂无记录'; var list = document.getElementById('savedList'); list.innerHTML = ''; if (!daily.length) { list.innerHTML = '<p class="saved-item"><small>还没有口语录音。</small></p>'; return; } daily.slice(0, 5).forEach(function(record) { var row = document.createElement('div'); row.className = 'saved-item'; var title = record.transcriptStatus === 'confirmed' ? '已确认文本' : record.transcriptStatus === 'failed' ? '等待重试' : record.disposition === 'transcription_pending' ? '文字草稿' : '已保存录音'; var date = new Date(record.createdAt); row.innerHTML = '<span><strong>' + title + '</strong><small>' + (isNaN(date.getTime()) ? record.createdAt : date.toLocaleString()) + ' · ' + formatTime(record.durationMs) + '</small></span><button class="secondary" type="button">回听</button>'; row.querySelector('button').addEventListener('click', function() { var audio = new Audio(URL.createObjectURL(record.blob)); audio.play().catch(function() { showToast('浏览器阻止了播放，请再次点击'); }); }); list.appendChild(row); }); }).catch(function() { document.getElementById('recordCount').textContent = '本地录音库不可用'; }); }
+      function updateZone(event) { if (!recording || recording.keyboard) return; var dx = event.clientX - recording.x, dy = event.clientY - recording.y, zone = 'send'; if (dy < -58 && dx < -36) zone = 'cancel'; if (dy < -58 && dx > 36) zone = 'transcribe'; recording.zone = zone; session.setZone(zone); document.querySelectorAll('.zone').forEach(function(item) { item.classList.toggle('active', item.dataset.zone === zone); }); document.getElementById('recordingLabel').textContent = zone === 'cancel' ? '松开取消' : zone === 'transcribe' ? '松开转成文字' : '正在录音'; }
+      async function startRecording(event) { if (recording) return; showScreen('chat'); recording = { x: event ? event.clientX : innerWidth / 2, y: event ? event.clientY : innerHeight - 80, zone: 'send', finishRequested: null }; try { await ensureEvidenceSession(); await session.start({ context: 'daily', sessionId: evidenceSession.id }); if (!recording) { await session.cancel(); return; } overlay.classList.add('active'); overlay.setAttribute('aria-hidden', 'false'); recordingStarted = Date.now(); document.getElementById('recordingTime').textContent = '00:00'; timer = setInterval(function() { document.getElementById('recordingTime').textContent = formatTime(Date.now() - recordingStarted); }, 100); if (recording.finishRequested) finishRecording(recording.finishRequested); } catch (error) { recording = null; showToast(errorText(error)); } }
+      async function finishRecording(zone) { if (!recording) return; if (['preparing', 'starting'].indexOf(session.getState().phase) >= 0) { recording.finishRequested = zone || recording.zone; return; } var current = recording; recording = null; clearInterval(timer); overlay.classList.remove('active'); overlay.setAttribute('aria-hidden', 'true'); try { var record = await session.finish(zone || current.zone); if (!record) { setChatState('准备好了'); showToast('录音已取消，没有保存'); return; } setChatState('录音已保存'); await processRecording(record); } catch (error) { showToast(errorText(error)); } }
+      function evidenceId(prefix) { if (window.crypto && typeof window.crypto.randomUUID === 'function') return prefix + '-' + window.crypto.randomUUID(); return prefix + '-' + Date.now() + '-' + Math.random().toString(16).slice(2); }
+      function evidenceNow() { return new Date().toISOString(); }
+      async function saveEvidenceSession(changes) { if (!evidenceSession || !store.saveSession) return; evidenceSession = Object.assign({}, evidenceSession, changes || {}, { updatedAt: evidenceNow() }); await store.saveSession(evidenceSession); }
+      async function ensureEvidenceSession() {
+        if (evidenceSession) return evidenceSession;
+        var storedId = null;
+        try { storedId = localStorage.getItem(evidenceSessionKey); } catch (error) {}
+        if (storedId && store.getSession) evidenceSession = await store.getSession(storedId);
+        if (evidenceSession && !evidenceSession.createdAt) { evidenceSession.createdAt = evidenceSession.startedAt || evidenceNow(); if (store.saveSession) await store.saveSession(evidenceSession); }
+        if (!evidenceSession) {
+          evidenceSession = { id: evidenceId('session'), entityType: 'ConversationSession', mode: 'daily', taskId: null, status: 'active', createdAt: evidenceNow(), startedAt: evidenceNow(), updatedAt: evidenceNow(), turnCount: 0, recordingCount: 0, userSpeakingMs: 0 };
+          if (store.saveSession) await store.saveSession(evidenceSession);
+          try { localStorage.setItem(evidenceSessionKey, evidenceSession.id); } catch (error) {}
+        }
+        return evidenceSession;
+      }
+      function turnIdFor(record) { return 'turn-' + record.id; }
+      async function saveTurn(turn) { if (!store.saveTurn) return turn; return store.saveTurn(turn); }
+      async function saveReviewItems(sourceTurnId, response) {
+        if (!store.saveReview) return;
+        var learning = response && response.learning || {};
+        var items = learning.reviewItems || learning.items || learning.corrections || [];
+        if (!Array.isArray(items)) items = [];
+        for (var i = 0; i < items.length; i++) {
+          var item = items[i] || {};
+          await store.saveReview({ id: sourceTurnId + '-review-' + i, entityType: 'ReviewItem', sessionId: evidenceSession.id, sourceTurnId: sourceTurnId, originalExpression: item.originalExpression || item.original || '', improvedExpression: item.improvedExpression || item.improved || '', explanationZh: item.explanationZh || item.explanation || '', evidenceRef: { turnId: sourceTurnId }, status: 'suggested', createdAt: evidenceNow() });
+        }
+      }
+      async function restoreEvidenceSession() {
+        if (!store.listTurns) return;
+        await ensureEvidenceSession();
+        var turns = await store.listTurns({ sessionId: evidenceSession.id, limit: 100 });
+        turns.sort(function(a, b) { return String(a.createdAt).localeCompare(String(b.createdAt)); });
+        conversation = [];
+        var assistantSources = {};
+        turns.forEach(function(item) { if (item.role === 'assistant' && item.sourceTurnId) assistantSources[item.sourceTurnId] = true; });
+        for (var i = 0; i < turns.length; i++) {
+          var turn = turns[i];
+          if (turn.role === 'user' && turn.confirmedTranscript) {
+            conversation.push({ role: 'user', content: turn.confirmedTranscript });
+            addMessage('你 · 已确认文本', turn.confirmedTranscript, '', true);
+            if (turn.recognitionState !== 'complete' || !assistantSources[turn.id]) { pendingTurn = turn; pendingRecord = turn.recordingId ? await store.get(turn.recordingId) : null; pendingAsr = turn.rawTranscriptRu ? { zh: { text: turn.rawTranscriptZh || '' }, ru: { text: turn.rawTranscriptRu || '' } } : null; }
+          }
+          if (turn.role === 'assistant' && turn.replyTextRu) {
+            conversation.push({ role: 'assistant', content: turn.replyTextRu });
+            addMessage('俄语朋友', turn.replyTextRu, turn.replyTextZh || '', false);
+          }
+        }
+        if (pendingTurn && pendingRecord) { renderTranscript(pendingAsr || { zh: { text: pendingTurn.rawTranscriptZh || '' }, ru: { text: pendingTurn.rawTranscriptRu || '' } }); document.getElementById('confirmedText').value = pendingTurn.confirmedTranscript || ''; if (pendingTurn.confirmedTranscript) document.getElementById('retryReply').hidden = false; }
+      }
+      async function processRecording(record) {
+        await ensureEvidenceSession();
+        pendingRecord = record;
+        var token = ++activeTurnToken;
+        var id = turnIdFor(record);
+        pendingTurn = store.getTurn ? await store.getTurn(id) : null;
+        var isNewTurn = !pendingTurn;
+        if (!pendingTurn) pendingTurn = { id: id, entityType: 'ConversationTurn', role: 'user', sessionId: evidenceSession.id, recordingId: record.id, audioRef: { recordingId: record.id }, taskId: null, rawTranscriptZh: '', rawTranscriptRu: '', confirmedTranscript: null, recognitionState: 'pending', createdAt: record.createdAt || evidenceNow() };
+        else pendingTurn = Object.assign({}, pendingTurn, { sessionId: evidenceSession.id, recordingId: record.id, audioRef: { recordingId: record.id }, recognitionState: 'pending', updatedAt: evidenceNow() });
+        await saveTurn(pendingTurn); await saveEvidenceSession({ status: 'active', lastActivityAt: evidenceNow(), turnCount: Math.max(Number(evidenceSession.turnCount || 0), 1), recordingCount: Number(evidenceSession.recordingCount || 0) + (isNewTurn ? 1 : 0), userSpeakingMs: Number(evidenceSession.userSpeakingMs || 0) + (isNewTurn ? Number(record.durationMs || 0) : 0) });
+        setChatState('正在双通道转写'); showToast('录音已先保存到本机，正在请求转写');
+        try {
+          var asr = await WhiteNightSpeakingMvpClient.requestAsr(record.blob);
+          if (token !== activeTurnToken || !pendingTurn || pendingTurn.id !== id || evidenceSession.id !== pendingTurn.sessionId) return;
+          pendingAsr = asr; pendingTurn = Object.assign({}, pendingTurn, { rawTranscriptZh: asr.zh && asr.zh.text || '', rawTranscriptRu: asr.ru && asr.ru.text || '', recognitionState: 'ready', recognitionError: null, updatedAt: evidenceNow() }); await saveTurn(pendingTurn); await updateRecord(record, { rawTranscriptZh: pendingTurn.rawTranscriptZh, rawTranscriptRu: pendingTurn.rawTranscriptRu, transcriptStatus: 'ready' }); renderTranscript(asr); setChatState('等待确认文本');
+        } catch (error) {
+          pendingTurn = Object.assign({}, pendingTurn, { recognitionState: 'failed', recognitionError: errorText(error), updatedAt: evidenceNow() }); await saveTurn(pendingTurn); await updateRecord(record, { transcriptStatus: 'failed', transcriptError: errorText(error) }).catch(function() {}); transcriptCard.hidden = false; document.getElementById('retryAsr').hidden = false; document.getElementById('zhRaw').textContent = '转写失败：' + errorText(error); document.getElementById('ruRaw').textContent = '转写失败：请直接修改确认文本'; document.getElementById('confirmedText').value = ''; setChatState('录音已保存，可重试或手动输入文字', true); showToast('转写失败，但录音和回合记录没有丢失');
+        } finally { refreshRecordings(); }
+      }
+      async function playReplyForTurn(assistantTurn, sourceTurn) {
+        if (!assistantTurn || !assistantTurn.replyTextRu) return;
+        try { var blob = await WhiteNightSpeakingMvpClient.synthesizeRussian(assistantTurn.replyTextRu, document.getElementById('voiceSelect').value); replyAudio = new Audio(URL.createObjectURL(blob)); replyAudio.onended = function() { setChatState('准备好了'); }; await replyAudio.play(); await store.saveTurn(Object.assign({}, assistantTurn, { ttsState: 'played', updatedAt: evidenceNow() })); }
+        catch (ttsError) { try { await WhiteNightSpeakingMvpClient.speakRussianInBrowser(assistantTurn.replyTextRu); await store.saveTurn(Object.assign({}, assistantTurn, { ttsState: 'browser_fallback', ttsError: errorText(ttsError), updatedAt: evidenceNow() })); setChatState('已用浏览器俄语语音播放'); } catch (browserError) { await store.saveTurn(Object.assign({}, assistantTurn, { ttsState: 'failed', ttsError: errorText(ttsError), updatedAt: evidenceNow() })); setChatState('文字回复已保留，语音暂不可用', true); showToast('文字回复已保留，语音暂时不可用'); } }
+      }
+      async function confirmTranscript() {
+        if (!pendingTurn || !pendingRecord) return;
+        var text = document.getElementById('confirmedText').value.trim(); if (!text) { showToast('请先确认或输入你想表达的内容'); return; }
+        var token = ++activeTurnToken; var sourceTurn = Object.assign({}, pendingTurn, { confirmedTranscript: text, recognitionState: 'complete', updatedAt: evidenceNow() }); pendingTurn = sourceTurn; await saveTurn(sourceTurn); await updateRecord(pendingRecord, { confirmedTranscript: text, transcriptStatus: 'confirmed' }); updateReviewLink();
+        if (!sourceTurn.userMessageRendered) { addMessage('你 · 已确认文本', text, '', true); sourceTurn.userMessageRendered = true; await saveTurn(sourceTurn); }
+        setChatState('正在生成回复'); document.getElementById('confirmTranscript').disabled = true; document.getElementById('retryReply').hidden = true;
+        try {
+          var result = await WhiteNightSpeakingMvpClient.requestReply({ session: { mode: 'daily', sessionId: evidenceSession.id, taskId: sourceTurn.taskId }, conversation: conversation, asr: pendingAsr || { zh: { text: sourceTurn.rawTranscriptZh || '' }, ru: { text: sourceTurn.rawTranscriptRu || '' } }, userConfirmedTranscript: text, memory: [], policy: { targetLanguage: 'ru', maxRussianSentences: 2, mustAskQuestion: true } });
+          if (token !== activeTurnToken || !pendingTurn || pendingTurn.id !== sourceTurn.id) return;
+          var response = result.response || {}, reply = response.reply || {}, segments = reply.segments || [], ru = segments.filter(function(item) { return item.language === 'ru'; }).map(function(item) { return item.text; }).join(' ') || reply.text || 'Спасибо, продолжай, пожалуйста.'; var zh = segments.filter(function(item) { return item.language === 'zh'; }).map(function(item) { return item.text; }).join(' ');
+          var assistantTurn = { id: sourceTurn.id + '-assistant', entityType: 'ConversationTurn', role: 'assistant', sessionId: evidenceSession.id, sourceTurnId: sourceTurn.id, replyTextRu: ru, replyTextZh: zh, replySegments: segments, ttsState: 'pending', createdAt: evidenceNow(), updatedAt: evidenceNow() }; await saveTurn(assistantTurn); await saveReviewItems(sourceTurn.id, response); if (!conversation.some(function(item) { return item.role === 'user' && item.content === text; })) conversation.push({ role: 'user', content: text }); conversation.push({ role: 'assistant', content: ru }); document.getElementById('replyText').textContent = ru; document.getElementById('replyTranslation').textContent = zh; document.getElementById('replyTranslation').hidden = !zh; replyCard.hidden = false; document.getElementById('retryReply').hidden = true; addMessage('俄语朋友', ru, zh, false); await saveEvidenceSession({ lastActivityAt: evidenceNow(), turnCount: Number(evidenceSession.turnCount || 0) + 1 }); setChatState('回复已生成'); await playReplyForTurn(assistantTurn, sourceTurn);
+        } catch (error) { await saveTurn(Object.assign({}, sourceTurn, { replyState: 'failed', replyError: errorText(error), updatedAt: evidenceNow() })); document.getElementById('retryReply').hidden = false; setChatState('录音与确认文本已保存，可重试回复', true); showToast('AI 回复失败，录音和文字仍已保存'); }
+        finally { document.getElementById('confirmTranscript').disabled = false; refreshRecordings(); }
+      }
+      async function updateReviewLink() { var link = document.getElementById('openReview'); if (!link || !evidenceSession || !store.listTurns) return; try { var turns = await store.listTurns({ sessionId: evidenceSession.id, limit: 100 }); var usable = turns.some(function(item) { return item && item.role === 'user' && String(item.confirmedTranscript || '').trim(); }); link.href = 'agent.html?sessionId=' + encodeURIComponent(evidenceSession.id); link.hidden = !usable; } catch (_error) { link.hidden = true; } }
+      async function showScreen(name) { home.classList.toggle('active', name === 'home'); chat.classList.toggle('active', name === 'chat'); if (name === 'chat') { await ensureEvidenceSession(); if (!evidenceRestored) { await restoreEvidenceSession(); evidenceRestored = true; } await updateReviewLink(); refreshRecordings(); } }
+      document.getElementById('startDaily').addEventListener('click', function() { showScreen('chat'); }); document.getElementById('openChat').addEventListener('click', function() { showScreen('chat'); }); document.getElementById('backHome').addEventListener('click', function() { if (recording) finishRecording('cancel'); showScreen('home'); });
+      document.getElementById('holdToSpeak').addEventListener('pointerdown', function(event) { event.preventDefault(); startRecording(event); }); window.addEventListener('pointermove', updateZone); window.addEventListener('pointerup', function() { if (recording) finishRecording(); }); window.addEventListener('pointercancel', function() { if (recording) finishRecording('cancel'); });
+      document.querySelectorAll('.zone').forEach(function(zone) { zone.addEventListener('pointerdown', function(event) { event.preventDefault(); if (recording) finishRecording(zone.dataset.zone); }); });
+      document.getElementById('confirmTranscript').addEventListener('click', confirmTranscript); document.getElementById('keepDraft').addEventListener('click', function() { if (!pendingRecord) return; showToast('已保留录音和文字草稿'); setChatState('草稿已保存'); }); document.getElementById('replayReply').addEventListener('click', function() { if (replyAudio) replyAudio.play().catch(function() {}); else showToast('当前没有可重播的语音'); });
+      document.getElementById('retryAsr').addEventListener('click', function() { if (pendingRecord) processRecording(pendingRecord); }); document.getElementById('retryReply').addEventListener('click', function() { if (pendingTurn && pendingTurn.confirmedTranscript) confirmTranscript(); });
+      document.getElementById('exportEvidence').addEventListener('click', async function() { try { await ensureEvidenceSession(); var archive = await WhiteNightSpeakingEvidenceArchive.create(store, evidenceSession.id); var blob = new Blob([JSON.stringify(archive, null, 2)], { type: 'application/json' }); var url = URL.createObjectURL(blob); var link = document.createElement('a'); link.href = url; link.download = 'white-night-speaking-evidence-' + evidenceSession.id + '.json'; link.click(); URL.revokeObjectURL(url); showToast('口语证据已导出；Reader 和 Vocabulary 数据未包含在内'); } catch (error) { showToast('导出失败：' + errorText(error)); } });
+      document.getElementById('importEvidence').addEventListener('click', function() { document.getElementById('importEvidenceFile').click(); }); document.getElementById('importEvidenceFile').addEventListener('change', async function(event) { var file = event.target.files && event.target.files[0]; if (!file) return; try { var archive = JSON.parse(await file.text()); var result = await WhiteNightSpeakingEvidenceArchive.importArchive(store, archive, { mode: 'merge' }); evidenceRestored = false; await restoreEvidenceSession(); evidenceRestored = true; showToast('已合并 ' + result.imported + ' 条口语证据；录音文件仍按本机引用处理'); } catch (error) { showToast('导入失败：' + errorText(error)); } finally { event.target.value = ''; } });
+      document.getElementById('sendText').addEventListener('click', function() { var text = document.getElementById('textDraft').value.trim(); if (!text) return; document.getElementById('textDraft').value = ''; addMessage('你 · 文字', text, '', true); setChatState('文字已显示，可继续录音'); });
+      document.getElementById('textDraft').addEventListener('keydown', function(event) { if (event.key === 'Enter' && !event.shiftKey) { event.preventDefault(); document.getElementById('sendText').click(); } });
+      refreshRecordings(); AppShell.mount({ current: 'speaking' }); window.addEventListener('beforeunload', function() { clearInterval(timer); if (replyAudio) replyAudio.pause(); store.close(); adapter.dispose(); });
+    })();
+  </script>
+</body>
+</html>
