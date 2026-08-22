@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-palette="US-00" data-palette-effect="none">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YCS Knowledge OS · 阅读管理</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app">
+    <!-- Sidebar -->
+    <aside class="sidebar glass dg-panel">
+      <div class="brand">
+        <b>YCS Knowledge OS</b>
+        <small>知识工作流操作系统</small>
+      </div>
+      <nav class="nav">
+        <button class="active">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+          阅读驾驶舱
+        </button>
+        <button>
+          <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          未读文件索引
+        </button>
+        <button>
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          今日阅读队列
+        </button>
+        <button>
+          <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          在读管理
+        </button>
+        <button>
+          <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10H12V2z"/><path d="M12 2a10 10 0 0 1 10 10"/><path d="M12 12l7-7"/></svg>
+          吸收与沉淀
+        </button>
+        <button>
+          <svg viewBox="0 0 24 24"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
+          智能分析
+        </button>
+        <button>
+          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          扫描记录
+        </button>
+        <button>
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><line x1="4.93" y1="4.93" x2="9.17" y2="9.17"/><line x1="14.83" y1="14.83" x2="19.07" y2="19.07"/><line x1="14.83" y1="9.17" x2="19.07" y2="4.93"/><line x1="14.83" y1="9.17" x2="18.36" y2="5.64"/><line x1="4.93" y1="19.07" x2="9.17" y2="14.83"/></svg>
+          知识图谱
+        </button>
+        <button>
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+          设置中心
+        </button>
+      </nav>
+      <div class="workspace">
+        <div>我的知识库</div>
+        <div style="margin-top:6px; font-size:10px;">02 工作与学习 / 03 领域</div>
+        <div style="margin-top:4px; font-size:10px; opacity:.7;">Local Demo · No network</div>
+        <div class="user">
+          <div class="user-avatar">大</div>
+          <div class="user-info">
+            <b>大 Y</b>
+            <span>知识库管理员</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <main class="main">
+      <!-- Topbar -->
+      <header class="topbar">
+        <div class="title">
+          <h1>阅读管理</h1>
+          <p>未读积压 · 阅读推进 · 知识沉淀</p>
+        </div>
+        <label class="search">
+          <input type="text" placeholder="搜索笔记、目录或标签...">
+          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </label>
+        <div class="actions">
+          <button class="icon-btn" aria-label="字体">
+            <svg viewBox="0 0 24 24"><text x="5" y="18" font-size="14" font-weight="600" fill="currentColor">Aa</text></svg>
+          </button>
+          <button class="icon-btn" aria-label="图表">
+            <svg viewBox="0 0 24 24"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
+          </button>
+          <button class="icon-btn" aria-label="布局">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+          </button>
+          <button class="btn-primary">
+            <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            立即扫描
+          </button>
+        </div>
+      </header>
+
+      <!-- Metrics / Fluid glass cards -->
+      <section class="metrics" id="fluidGlassGrid" aria-label="统计卡片"></section>
+
+      <!-- Board -->
+      <section class="board">
+        <!-- Queue -->
+        <article class="queue glass dg-panel scroll-y">
+          <div class="queue-head">
+            <b>阅读队列</b>
+            <span>演示数据</span>
+          </div>
+          <div class="queue-tabs">
+            <button class="active">全部笔记</button>
+            <button>我负责的</button>
+            <button>我参与的</button>
+          </div>
+          <div class="queue-group">
+            <h4>今日新增 3</h4>
+            <div class="queue-row">
+              <div class="queue-row-main">
+                <span class="queue-row-title">AI 时代的信息焦虑</span>
+                <span class="queue-row-meta"><span class="badge badge-unread">未读</span><span>今天 10:00</span></span>
+              </div>
+            </div>
+            <div class="queue-row">
+              <div class="queue-row-main">
+                <span class="queue-row-title">Obsidian 阅读工作流</span>
+                <span class="queue-row-meta"><span class="badge badge-unread">未读</span><span>今天 14:00</span></span>
+              </div>
+            </div>
+            <div class="queue-row">
+              <div class="queue-row-main">
+                <span class="queue-row-title">知识颗粒的闭环设计</span>
+                <span class="queue-row-meta"><span class="badge badge-reading">在读</span><span>昨天 09:30</span></span>
+              </div>
+            </div>
+          </div>
+          <div class="queue-group">
+            <h4>长期积压 4</h4>
+            <div class="queue-row">
+              <div class="queue-row-main">
+                <span class="queue-row-title">Agent Memory 架构</span>
+                <span class="queue-row-meta"><span class="badge badge-unread">未读</span><span>已积压 92 天</span></span>
+              </div>
+            </div>
+            <div class="queue-row">
+              <div class="queue-row-main">
+                <span class="queue-row-title">本地优先知识库方案</span>
+                <span class="queue-row-meta"><span class="badge badge-reading">在读</span><span>已积压 38 天</span></span>
+              </div>
+            </div>
+          </div>
+          <div class="queue-group">
+            <h4>待沉淀 5</h4>
+            <div class="queue-row">
+              <div class="queue-row-main">
+                <span class="queue-row-title">论文笔记整理模板</span>
+                <span class="queue-row-meta"><span class="badge badge-read">已读</span><span>待处理</span></span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 3D Orbit -->
+        <article class="orbit-wrap glass dg-panel">
+          <div class="orbit-header">
+            <b>3D 阅读空间</b>
+            <span class="sub">US-00 · teal-green</span>
+          </div>
+          <div class="orbit-controls">
+            <button class="active">3D 堆栈</button>
+            <button>3D 环形</button>
+            <button id="autoBtn">Ⅱ 暂停巡航</button>
+            <button id="resetViewBtn">复位</button>
+            <button>卡片设置</button>
+            <button>筛选</button>
+          </div>
+          <div class="folder-stage auto-cruising" id="folderStage" aria-label="3D 卡片环绕">
+            <div class="stack-ambient" aria-hidden="true"></div>
+            <div class="stack-progress" id="stackProgress">
+              <div class="progress-name" id="focusFolderName" contenteditable="true" spellcheck="false">阅读管理</div>
+              <div class="progress-count" id="focusFolderCount" contenteditable="true" spellcheck="false">826 篇笔记</div>
+              <div class="progress-value"><span id="focusFolderPercent" contenteditable="true" spellcheck="false">56</span><span class="progress-unit">%</span></div>
+              <div class="progress-label" id="focusFolderLabel" contenteditable="true" spellcheck="false">当前吸收进度</div>
+              <div class="progress-bar"><i id="focusProgressBar" style="width:56%"></i></div>
+            </div>
+            <div class="stack-live-badge"><i></i><span>3D 环形 · 自动巡航</span></div>
+            <div class="folder-deck" id="folderDeck"></div>
+            <div class="folder-caption"><span class="mode-dot"></span><span>按住拖动旋转 · 点击卡片自动居中 · 滚轮缩放</span><b id="activeFolderName">阅读管理</b></div>
+          </div>
+        </article>
+      </section>
+
+      <!-- Timeline -->
+      <section class="timeline glass dg-panel">
+        <span class="timeline-label">阅读时间轴</span>
+        <div class="timeline-dates">
+          <span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span><span class="active">22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span><span>29</span><span>30</span><span>1</span><span>2</span>
+        </div>
+        <span class="timeline-month">2026年7月</span>
+        <div class="timeline-actions">
+          <button>编辑模式</button>
+          <button>保存视图</button>
+          <button>导出 HTML</button>
+          <button>全屏</button>
+        </div>
+      </section>
+    </main>
+
+    <!-- Right panel -->
+    <aside class="right glass dg-panel scroll-y">
+      <div class="right-header">
+        <h2>智能详情</h2>
+        <button class="icon-btn" aria-label="更多">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="12" cy="19" r="1.5"/></svg>
+        </button>
+      </div>
+
+      <div class="folder-id">FOLDER · 03 · 142</div>
+
+      <div class="right-section">
+        <h3 class="dg-data-accent">领域知识积压</h3>
+        <p style="margin:0; font-size:12px; color:var(--text-secondary); line-height:1.6;">AI、Obsidian、自动化等长期知识主题的未读库存。</p>
+      </div>
+
+      <div class="right-section">
+        <div class="detail-row"><span>负责人</span><span>BY 大 Y</span></div>
+        <div class="detail-row"><span>所属目录</span><span>03 领域知识</span></div>
+        <div class="detail-row"><span>首次发现</span><span>2026-07-28 18:55</span></div>
+        <div class="detail-row"><span>当前状态</span><span><i class="status-dot"></i>未读</span></div>
+        <div class="detail-row"><span>优先级</span><span style="color:var(--accent-primary);">高</span></div>
+      </div>
+
+      <div class="right-section">
+        <h3>标签</h3>
+        <div class="tag-row">
+          <span class="tag">阅读</span>
+          <span class="tag">知识管理</span>
+          <span class="tag">自动化</span>
+          <span class="tag">+</span>
+        </div>
+      </div>
+
+      <div class="right-section">
+        <h3>AI 助手建议</h3>
+        <ul class="ai-list">
+          <li>优先完成已读超过 7 天的笔记</li>
+          <li>将已读内容提炼为摘要或 Wiki 条目</li>
+          <li>查看建议详情</li>
+        </ul>
+      </div>
+
+      <div class="right-actions">
+        <button>编辑笔记</button>
+        <button>标为已读</button>
+      </div>
+    </aside>
+  </div>
+
+  <script src="palette-engine.js"></script>
+  <script src="app.js"></script>
+  <script src="fluid-glass-engine.js"></script>
+  <script src="orbit-engine.js"></script>
+</body>
+</html>
