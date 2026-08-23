@@ -11,7 +11,6 @@
     <link rel="manifest" href="manifest.webmanifest">
     <title>背单词 | 俄语学习舱</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans:wght@600;700&family=Noto+Serif:ital,wght@0,400;0,600;0,700;1,400&family=Noto+Serif+SC:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/app-shell.css">
     <style>
         :root {
             color-scheme: dark;
@@ -1524,15 +1523,14 @@
         /* Brush mode mirrors the focused, full-card flow from the mobile reference. */
         .is-brush-mode .slim-bar {
             display: grid;
-            grid-template-columns: 48px minmax(0, 1fr) auto 48px;
+            grid-template-columns: 48px auto minmax(0, 1fr) auto 48px;
             column-gap: 8px;
         }
-        .is-brush-mode .slim-page-switcher,
         .is-brush-mode .slim-mode-quick,
         .is-brush-mode .slim-progress { display: none; }
         .is-brush-mode .slim-mode-label {
             display: inline-flex;
-            grid-column: 2;
+            grid-column: 3;
             justify-self: center;
             padding: 0;
             font-size: 18px;
@@ -1540,12 +1538,12 @@
         }
         .is-brush-mode .slim-stats {
             display: inline-flex;
-            grid-column: 3;
+            grid-column: 4;
             margin: 0;
             padding: 0;
             font-size: 14px;
         }
-        .is-brush-mode .slim-icon-btn { grid-column: 4; }
+        .is-brush-mode .slim-icon-btn { grid-column: 5; }
 
         .brush-card-kind,
         .brush-card-favorite {
@@ -1681,7 +1679,7 @@
             .card-face { padding: 32px 20px; border-radius: 26px; }
             .flashcard::before { inset: -8px 10px 8px; border-radius: 26px; }
             .card-word { font-size: clamp(31px, 10vw, 46px); }
-            .is-brush-mode .slim-bar { grid-template-columns: 44px minmax(0, 1fr) auto 44px; }
+            .is-brush-mode .slim-bar { grid-template-columns: 44px auto minmax(0, 1fr) auto 44px; }
             .is-brush-mode .slim-mode-label { font-size: 17px; }
             .is-brush-mode .slim-stats { font-size: 13px; }
             .brush-card-kind { top: 22px; left: 22px; height: 36px; min-width: 36px; }
@@ -1762,8 +1760,8 @@
                     title="展开控件面板 (M)" aria-label="展开控件面板" aria-controls="controlPanel"
                     aria-expanded="false">☰</button>
             <nav class="slim-page-switcher" aria-label="学习应用切换">
-                <button type="button" onclick="openReader()">阅读器</button>
-                <button type="button" class="is-active" aria-current="page">生词本</button>
+                <button type="button" onclick="openReader()">Reader</button>
+                <button type="button" class="is-active" aria-current="page">背单词</button>
             </nav>
             <span class="slim-mode-label" id="slimModeLabel">🚀 刷词模式</span>
             <span class="slim-stats" id="slimStats">0/0</span>
@@ -5570,7 +5568,5 @@
     loadVocabulary();
     checkBackupReminder();
     </script>
-    <script src="js/app-shell.js"></script>
-    <script>AppShell.mount({ current: 'vocabulary' });</script>
 </body>
 </html>

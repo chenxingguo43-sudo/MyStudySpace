@@ -11,7 +11,6 @@
 <link rel="manifest" href="manifest.webmanifest">
 <title>Reader | 白夜俄语</title>
 <link rel="stylesheet" href="css/reader-listening-workbench.css?v=20260726-5">
-<link rel="stylesheet" href="css/app-shell.css">
 <style>
 /* ─── 主题变量 ─── */
 :root {
@@ -2408,7 +2407,7 @@ function b2FloatingNavigation(options) {
   }
   var shellTitle = options.title || (curView === 'reading' && curBook && curBook.title) || '';
   var title = shellTitle ? '<span class="reader-shell-title" aria-live="polite">' + escapeHtml(shellTitle) + '</span>' : '';
-  return '<nav class="reader-page-switcher reader-shell-nav" aria-label="学习应用切换"><button type="button" class="is-active" aria-current="page">阅读器</button><button type="button" onclick="openVocabulary()">生词本</button></nav>' +
+  return '<nav class="reader-page-switcher reader-shell-nav" aria-label="学习应用切换"><button type="button" class="is-active" aria-current="page">Reader</button><button type="button" onclick="openVocabulary()">背单词</button></nav>' +
     '<nav class="fab-group-top b2-floating-navigation reader-shell-tools" aria-label="学习页面导航">' + title + buttons.join('') + '</nav>';
 }
 
@@ -10001,60 +10000,8 @@ function updateReadingSpeakingQuestionDOM(exId) {
 <script src="js/reader-navigation.js"></script>
 <script src="js/study-activity-store.js?v=20260807-1"></script>
 <script src="js/study-activity-session.js?v=20260807-1"></script>
-<script src="js/app-shell.js"></script>
 <link rel="stylesheet" href="css/reader-shell.css" media="not all" data-reader-android-style>
 <link rel="stylesheet" href="css/reader-workbench.css" media="not all" data-reader-android-style>
-<style>
-@media (max-width:700px) {
-  html.app-shell-enabled #detailPanel {
-    bottom:calc(var(--app-shell-nav-height) + var(--app-shell-safe-bottom)) !important;
-    max-height:calc(88dvh - var(--app-shell-nav-height) - var(--app-shell-safe-bottom)) !important;
-  }
-  html.app-shell-enabled[data-reader-view="reading"] #detailPanel,
-  html.app-shell-enabled[data-reader-view="practice"] #detailPanel {
-    bottom:var(--app-shell-safe-bottom) !important;
-    max-height:calc(92dvh - var(--app-shell-safe-bottom)) !important;
-  }
-}
-</style>
-<script>
-function closeReaderTemporaryLayer() {
-  var breadcrumb = document.getElementById('breadcrumbOverlay');
-  if (breadcrumb) { closeBreadcrumb(); return true; }
-  var detail = document.getElementById('detailPanel');
-  if (detail && detail.getAttribute('data-dictionary-state') !== 'closed') { dictionaryController.close(); return true; }
-  var dialog = document.querySelector('dialog[open]');
-  if (dialog) { dialog.close(); return true; }
-  var modal = document.querySelector('.modal-overlay.visible');
-  if (modal) { modal.classList.remove('visible'); return true; }
-  var search = document.getElementById('searchBar');
-  if (search && search.classList.contains('visible')) { closeSearch(); return true; }
-  return false;
-}
-function prepareReaderBackNavigation() {
-  var unfinishedDictation = Array.from(document.querySelectorAll('.lw-dictation textarea')).some(function(input) { return input.value.trim(); });
-  if (unfinishedDictation) { toast('当前听写内容尚未提交，请先检查或清空后再返回'); return false; }
-  document.querySelectorAll('[data-open-response]').forEach(function(input) { saveOpenResponseDraft(input.getAttribute('data-open-response'), input.value); });
-  document.querySelectorAll('[data-zlatoust-transfer-text]').forEach(function(input) {
-    saveZlatoustTransferText(input.getAttribute('data-zlatoust-transfer-section'), input.getAttribute('data-zlatoust-transfer-text'));
-  });
-  if (document.activeElement && typeof document.activeElement.blur === 'function') document.activeElement.blur();
-  saveLastRead();
-  return true;
-}
-window.appShellHandleBack = function() {
-  return ReaderNavigation.handleBack({
-    curView: curView,
-    curBook: curBook,
-    isWorldPeopleBook: isWorldPeopleBook,
-    closeTemporaryLayer: closeReaderTemporaryLayer,
-    prepareToLeave: prepareReaderBackNavigation,
-    showChapters: showChapters,
-    showB2Dashboard: showB2Dashboard,
-    showWorldPeopleDashboard: showWorldPeopleDashboard,
-    showShelf: showShelf
-  });
-};
 window.ReaderActivityTracker = StudyActivitySession.mount({
   store: StudyActivityStore,
   document: document,
@@ -10079,14 +10026,6 @@ window.syncReaderActivityContext = function() {
   });
 };
 window.syncReaderActivityContext();
-</script>
-<script>
-var readerAppShellMount = AppShell.mount({ current: 'reader' });
-if (readerAppShellMount.mounted) {
-  document.querySelectorAll('[data-reader-android-style]').forEach(function(link) {
-    link.media = 'all';
-  });
-}
 </script>
 </body>
 </html>

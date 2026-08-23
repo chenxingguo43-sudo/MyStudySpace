@@ -10,12 +10,11 @@
   <link rel="icon" href="assets/icons/white-night-tutor-desktop.ico" sizes="any">
   <link rel="manifest" href="manifest.webmanifest">
   <title>白夜俄语 · 口语</title>
-  <link rel="stylesheet" href="css/app-shell.css">
   <style>
     :root { color-scheme: dark; --bg:#04111f; --panel:#0a1c30; --soft:#102642; --text:#edf2fa; --muted:rgba(224,233,245,.68); --dim:rgba(224,233,245,.48); --line:rgba(190,215,246,.16); --accent:#c5dcff; --accent-ink:#09213d; --danger:#ffd0d0; --safe:env(safe-area-inset-bottom,0px); font-family:"Segoe UI","PingFang SC","Microsoft YaHei",system-ui,sans-serif; }
     * { box-sizing:border-box; }
     html,body { min-width:320px; min-height:100%; margin:0; background:var(--bg); color:var(--text); letter-spacing:0; }
-    body { min-height:100dvh; padding-bottom:calc(86px + var(--safe)); }
+    body { min-height:100dvh; padding-bottom:var(--safe); }
     button,input,textarea,select { font:inherit; letter-spacing:0; }
     button { cursor:pointer; color:inherit; }
     button:disabled { cursor:wait; opacity:.55; }
@@ -79,15 +78,10 @@
     .zone { min-height:76px; border:1px solid var(--line); border-radius:8px; background:rgba(255,255,255,.04); color:var(--muted); }
     .zone.active { color:var(--accent); border-color:rgba(197,220,255,.5); background:rgba(92,139,200,.2); }
     .zone.cancel.active { color:var(--danger); border-color:rgba(239,154,154,.5); }
-    .speaking-nav { position:fixed; z-index:10; right:10px; bottom:calc(10px + var(--safe)); left:10px; display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); min-height:64px; padding:6px; border:1px solid var(--line); border-radius:20px; background:rgba(7,24,39,.94); box-shadow:0 -12px 32px rgba(0,7,18,.28); }
-    .speaking-nav a { display:flex; min-width:0; min-height:50px; align-items:center; justify-content:center; flex-direction:column; gap:3px; border-radius:14px; color:var(--dim); text-decoration:none; font-size:10px; }
-    .speaking-nav a.active { color:var(--accent); background:rgba(166,201,255,.1); }
-    .speaking-nav b { font-size:19px; font-weight:400; }
     .toast { position:fixed; z-index:30; right:18px; bottom:calc(94px + var(--safe)); left:18px; display:none; max-width:430px; min-height:44px; margin:auto; padding:11px 13px; border:1px solid var(--line); border-radius:7px; align-items:center; justify-content:center; background:rgba(10,28,48,.98); font-size:12px; text-align:center; }
     .toast.show { display:flex; }
     @media (min-width:701px) { .speaking-nav { width:min(700px,calc(100% - 20px)); margin:auto; } }
     @media (max-width:370px) { .page,.messages { padding-right:14px; padding-left:14px; } .composer { grid-template-columns:48px minmax(0,1fr) 42px; padding-right:10px; padding-left:10px; } .hold { font-size:11px; } }
-    html.app-shell-enabled .speaking-nav { display:none; }
   </style>
 </head>
 <body>
@@ -109,14 +103,12 @@
     </section>
   </div>
   <div class="recording-overlay" id="recordingOverlay" aria-hidden="true"><div class="recording-status"><strong id="recordingLabel">正在录音</strong><span id="recordingTime">00:00</span><p id="recordingHint">向上滑到左侧取消，向上滑到右侧转成文字</p></div><div class="recording-zones"><button class="zone cancel" data-zone="cancel" type="button">取消</button><button class="zone active" data-zone="send" type="button">松开发送</button><button class="zone" data-zone="transcribe" type="button">转成文字</button></div></div>
-  <nav class="speaking-nav" aria-label="白夜俄语导航"><a href="app-home.html"><b>⌂</b><span>首页</span></a><a href="reader.html"><b>▱</b><span>Reader</span></a><a href="vocabulary.html"><b>☷</b><span>Vocabulary</span></a><a class="active" aria-current="page" href="speaking.html"><b>♬</b><span>口语</span></a><a href="profile.html"><b>◯</b><span>我的</span></a></nav>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
   <script src="js/speaking/recording-store.js"></script>
   <script src="js/speaking/media-recorder-adapter.js"></script>
   <script src="js/speaking/recording-session.js"></script>
   <script src="js/speaking/mvp-client.js"></script>
   <script src="js/speaking/evidence-archive.js"></script>
-  <script src="js/app-shell.js"></script>
   <script>
     (function() {
       'use strict';
@@ -241,7 +233,7 @@
       document.getElementById('importEvidence').addEventListener('click', function() { document.getElementById('importEvidenceFile').click(); }); document.getElementById('importEvidenceFile').addEventListener('change', async function(event) { var file = event.target.files && event.target.files[0]; if (!file) return; try { var archive = JSON.parse(await file.text()); var result = await WhiteNightSpeakingEvidenceArchive.importArchive(store, archive, { mode: 'merge' }); evidenceRestored = false; await restoreEvidenceSession(); evidenceRestored = true; showToast('已合并 ' + result.imported + ' 条口语证据；录音文件仍按本机引用处理'); } catch (error) { showToast('导入失败：' + errorText(error)); } finally { event.target.value = ''; } });
       document.getElementById('sendText').addEventListener('click', function() { var text = document.getElementById('textDraft').value.trim(); if (!text) return; document.getElementById('textDraft').value = ''; addMessage('你 · 文字', text, '', true); setChatState('文字已显示，可继续录音'); });
       document.getElementById('textDraft').addEventListener('keydown', function(event) { if (event.key === 'Enter' && !event.shiftKey) { event.preventDefault(); document.getElementById('sendText').click(); } });
-      refreshRecordings(); AppShell.mount({ current: 'speaking' }); window.addEventListener('beforeunload', function() { clearInterval(timer); if (replyAudio) replyAudio.pause(); store.close(); adapter.dispose(); });
+      refreshRecordings(); window.addEventListener('beforeunload', function() { clearInterval(timer); if (replyAudio) replyAudio.pause(); store.close(); adapter.dispose(); });
     })();
   </script>
 </body>
