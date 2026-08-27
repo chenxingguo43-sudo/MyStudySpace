@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>正在进入 Reader</title>
+  <script>
+    (function () {
+      var marker = '/MyStudySpace/';
+      var index = location.pathname.indexOf(marker);
+      var root = index >= 0 ? location.pathname.slice(0, index + marker.length) : '/MyStudySpace/';
+      location.replace(root + 'reader.html');
+    })();
+  </script>
+</head>
+<body>
+  <p><a href="/MyStudySpace/reader.html">进入白夜俄语 Reader</a></p>
+</body>
+</html>
