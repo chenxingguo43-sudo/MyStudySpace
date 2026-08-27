@@ -1881,7 +1881,7 @@
     <script>
     // ─── 状态 ─────────────────────────────────────────────────────
     var allWords = [];           // 全部词条
-    var appRuntime = AppRuntime.createAppRuntime({ storage: localStorage });
+    var appRuntime = ReaderRuntime.createReaderRuntime({ storage: localStorage });
     var learningEventStore = BelyeNochiLearningEventStore.createLearningEventStore({});
     var learningProjectionClient = BelyeNochiLearningProjectionClient.createProjectionClient({ store: learningEventStore });
     var fsrsProjectionRecordsByUnit = {};
@@ -2142,7 +2142,7 @@
                     return String(value || '').normalize('NFD').replace(/[\u0300\u0301]/g, '').normalize('NFC').replace(/ё/g, 'е').toLowerCase().replace(/[^а-я-]/g, '');
                 }
                 Object.keys(records).forEach(function(id) {
-                    if (appRuntime.isAndroid() && records[id] && records[id].source === 'novel') return;
+                    if (false && records[id] && records[id].source === 'novel') return;
                     var record = records[id] || {};
                     var canonical = record.canonicalKey || record.lemma || record.word || id;
                     var normalizedCanonical = normalizeSavedIdentity(canonical);
@@ -5570,4 +5570,5 @@
     </script>
 </body>
 </html>
+
 

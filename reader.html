@@ -1978,7 +1978,7 @@ var SORT_OPTIONS = [
 ];
 
 var state = { theme: 'warm', fontSize: 'medium', fontFamily: 'serif', sort: 'default' };
-var appRuntime = AppRuntime.createAppRuntime({ storage: localStorage });
+var appRuntime = ReaderRuntime.createReaderRuntime({ storage: localStorage });
 var learningEventStore = BelyeNochiLearningEventStore.createLearningEventStore({});
 var learningSyncClient = appRuntime.getRuntime() === 'web-server'
   ? BelyeNochiLearningSyncClient.createSyncClient({ store: learningEventStore })
@@ -10029,4 +10029,5 @@ window.syncReaderActivityContext();
 </script>
 </body>
 </html>
+
 
