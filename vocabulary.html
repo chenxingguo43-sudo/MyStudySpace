@@ -4,11 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="theme-color" content="#c5f5ec">
-    <meta name="apple-mobile-web-app-title" content="白夜俄语">
-    <link rel="apple-touch-icon" sizes="1024x1024" href="assets/icons/white-night-tutor-desktop.png">
-    <link rel="icon" type="image/png" sizes="1024x1024" href="assets/icons/white-night-tutor-desktop.png">
-    <link rel="icon" href="assets/icons/white-night-tutor-desktop.ico" sizes="any">
-    <link rel="manifest" href="manifest.webmanifest">
     <title>背单词 | 俄语学习舱</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans:wght@600;700&family=Noto+Serif:ital,wght@0,400;0,600;0,700;1,400&family=Noto+Serif+SC:wght@400;600&display=swap" rel="stylesheet">
     <style>
@@ -113,19 +108,6 @@
         .slim-icon-btn:focus-visible {
             outline-offset: -3px;
         }
-        .slim-page-switcher {
-            display: inline-flex; align-items: center; gap: 2px; flex-shrink: 0;
-            margin-left: 2px; padding: 3px; border-radius: 8px;
-            background: rgba(255,255,255,0.06);
-        }
-        .slim-page-switcher button {
-            min-height: 34px; border: 0; border-radius: 7px; padding: 0 10px;
-            background: transparent; color: rgba(255,255,255,0.55); cursor: pointer;
-            font: inherit; font-size: 12px; white-space: nowrap;
-        }
-        .slim-page-switcher button:hover { color: rgba(255,255,255,0.9); background: rgba(255,255,255,0.08); }
-        .slim-page-switcher button.is-active { color: #c7d2fe; background: rgba(79,70,229,0.34); font-weight: 700; }
-        .slim-page-switcher button:focus-visible { outline: 3px solid #a5b4fc; outline-offset: 2px; }
         .slim-mode-label {
             font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.7);
             white-space: nowrap; flex-shrink: 0; padding: 0 4px 0 2px;
@@ -267,7 +249,6 @@
         .modal-box {
             background: #0f172a; border: 1px solid rgba(255,255,255,0.1);
             border-radius: 16px; padding: 24px; width: 360px; max-width: 90vw;
-            max-height: calc(100dvh - 32px); overflow-y: auto;
         }
         .modal-title { font-size: 16px; font-weight: 700; margin-bottom: 16px; }
         .modal-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
@@ -321,14 +302,6 @@
         }
         .modal-btn-primary { background: #4F46E5; color: #fff; }
         .modal-btn-secondary { background: rgba(255,255,255,0.08); color: #e2e8f0; }
-        .scheduling-status { display: grid; gap: 7px; margin-bottom: 10px; }
-        .scheduling-state { font-size: 13px; font-weight: 700; color: inherit; opacity: 0.82; }
-        .scheduling-meta { font-size: 11px; color: inherit; opacity: 0.56; line-height: 1.45; }
-        .scheduling-check { display: flex; gap: 7px; align-items: flex-start; font-size: 12px; color: inherit; opacity: 0.68; line-height: 1.4; }
-        .scheduling-check::before { content: '○'; color: #94a3b8; flex: 0 0 auto; }
-        .scheduling-check.ok::before { content: '✓'; color: #4ade80; }
-        .scheduling-actions { display: flex; gap: 8px; flex-wrap: wrap; }
-        .scheduling-actions .modal-btn { flex: 1 1 140px; min-height: 36px; }
 
         /* ─── 问题卡片列表 ─── */
         .problem-list { margin-top: 16px; }
@@ -884,15 +857,6 @@
                 margin: 0;
                 font-size: 17px;
             }
-            .slim-page-switcher {
-                margin: 0 auto;
-                padding: 4px;
-            }
-            .slim-page-switcher button {
-                min-height: 44px;
-                padding-inline: 12px;
-                font-size: 13px;
-            }
             .control-panel {
                 position: fixed;
                 top: calc(72px + env(safe-area-inset-top));
@@ -1289,7 +1253,6 @@
         /* ─── 响应式 ─── */
         @media (max-width: 480px) {
             .slim-mode-label, .slim-stats, .slim-progress, .slim-mode-quick { display: none; }
-            .slim-page-switcher { margin: 0 auto; }
             .card-word { font-size: 26px; }
             .card-meaning { font-size: 17px; }
             .done-card { padding: 28px 16px; }
@@ -1398,13 +1361,6 @@
         }
         .slim-hamburger, .slim-icon-btn { color: #1d2b2a; }
         .slim-hamburger:hover, .slim-icon-btn:hover { background: rgba(8, 201, 169, 0.10); color: #087f70; }
-        .slim-page-switcher { background: transparent; margin: 0 auto; padding: 0; }
-        .slim-page-switcher button { min-height: 44px; padding: 0 14px; color: rgba(29,43,42,0.55); font-size: 14px; }
-        .slim-page-switcher button.is-active { color: #183836; background: transparent; position: relative; }
-        .slim-page-switcher button.is-active::after {
-            content: ''; position: absolute; left: 14px; right: 14px; bottom: 5px; height: 5px;
-            border-radius: 99px; background: var(--accent);
-        }
         .slim-mode-label { color: #1b3b38; font-size: 15px; font-weight: 700; }
         .slim-mode-quick button { color: rgba(29,43,42,0.42); }
         .slim-mode-quick button.active { background: rgba(8,201,169,0.12); color: #008e7c; }
@@ -1523,14 +1479,14 @@
         /* Brush mode mirrors the focused, full-card flow from the mobile reference. */
         .is-brush-mode .slim-bar {
             display: grid;
-            grid-template-columns: 48px auto minmax(0, 1fr) auto 48px;
+            grid-template-columns: 48px minmax(0, 1fr) auto 48px;
             column-gap: 8px;
         }
         .is-brush-mode .slim-mode-quick,
         .is-brush-mode .slim-progress { display: none; }
         .is-brush-mode .slim-mode-label {
             display: inline-flex;
-            grid-column: 3;
+            grid-column: 2;
             justify-self: center;
             padding: 0;
             font-size: 18px;
@@ -1538,12 +1494,12 @@
         }
         .is-brush-mode .slim-stats {
             display: inline-flex;
-            grid-column: 4;
+            grid-column: 3;
             margin: 0;
             padding: 0;
             font-size: 14px;
         }
-        .is-brush-mode .slim-icon-btn { grid-column: 5; }
+        .is-brush-mode .slim-icon-btn { grid-column: 4; }
 
         .brush-card-kind,
         .brush-card-favorite {
@@ -1679,7 +1635,7 @@
             .card-face { padding: 32px 20px; border-radius: 26px; }
             .flashcard::before { inset: -8px 10px 8px; border-radius: 26px; }
             .card-word { font-size: clamp(31px, 10vw, 46px); }
-            .is-brush-mode .slim-bar { grid-template-columns: 44px auto minmax(0, 1fr) auto 44px; }
+            .is-brush-mode .slim-bar { grid-template-columns: 44px minmax(0, 1fr) auto 44px; }
             .is-brush-mode .slim-mode-label { font-size: 17px; }
             .is-brush-mode .slim-stats { font-size: 13px; }
             .brush-card-kind { top: 22px; left: 22px; height: 36px; min-width: 36px; }
@@ -1759,10 +1715,6 @@
             <button class="slim-hamburger" id="slimHamburger" onclick="toggleControlPanel()"
                     title="展开控件面板 (M)" aria-label="展开控件面板" aria-controls="controlPanel"
                     aria-expanded="false">☰</button>
-            <nav class="slim-page-switcher" aria-label="学习应用切换">
-                <button type="button" onclick="openReader()">Reader</button>
-                <button type="button" class="is-active" aria-current="page">背单词</button>
-            </nav>
             <span class="slim-mode-label" id="slimModeLabel">🚀 刷词模式</span>
             <span class="slim-stats" id="slimStats">0/0</span>
             <div class="slim-progress">
@@ -1868,45 +1820,11 @@
 
     <script src="js/vocabulary-session-scheduler.js?v=20260726-1"></script>
     <script src="js/russian-dictionary/review.js?v=20260723-1"></script>
-    <script src="js/app-runtime.js"></script>
-    <script src="node_modules/ts-fsrs/dist/index.umd.js"></script>
-    <script src="js/learning-event-schema.js"></script>
-    <script src="js/learning-event-store.js"></script>
-    <script src="js/vocabulary-fsrs-projection.js"></script>
-    <script src="js/vocabulary-fsrs-transition.js"></script>
-    <script src="js/vocabulary-scheduling-control.js"></script>
-    <script src="js/learning-projection-client.js"></script>
-    <script src="js/learning-sync-client.js"></script>
-    <script src="js/vocabulary-learning-events.js"></script>
+    <script src="js/reader-runtime.js"></script>
     <script>
     // ─── 状态 ─────────────────────────────────────────────────────
     var allWords = [];           // 全部词条
-    var appRuntime = AppRuntime.createAppRuntime({ storage: localStorage });
-    var learningEventStore = BelyeNochiLearningEventStore.createLearningEventStore({});
-    var learningProjectionClient = BelyeNochiLearningProjectionClient.createProjectionClient({ store: learningEventStore });
-    var fsrsProjectionRecordsByUnit = {};
-    var vocabularySchedulingControl = null;
-    var learningSyncClient = appRuntime.getRuntime() === 'web-server'
-        ? BelyeNochiLearningSyncClient.createSyncClient({
-            store: learningEventStore,
-            projectionClient: learningProjectionClient
-        })
-        : null;
-    var vocabularyLearningEvents = BelyeNochiVocabularyLearningEvents.createRecorder({
-        store: learningEventStore,
-        syncClient: learningSyncClient,
-        projectionClient: learningProjectionClient
-    });
-    var learningProjectionReady = appRuntime.getRuntime() === 'web-server'
-        ? learningProjectionClient.compareServer()
-        : learningProjectionClient.rebuild();
-    learningProjectionReady.then(function(result) {
-        cacheFsrsProjectionRecords(result.records || []);
-        window.__belyeNochiFsrsComparison = result.checkpoint && result.checkpoint.comparison || null;
-    }).catch(function() {
-        window.__belyeNochiFsrsComparison = { status: 'projection_failed', matched: null };
-    });
-    if (learningSyncClient) learningSyncClient.start();
+    var readerRuntime = ReaderRuntime.createReaderRuntime({ storage: localStorage });
     var filtered = [];           // 筛选后的词条
     var deck = [];               // 本轮主卡组
     var sessionDeckTotal = 0;    // 本轮唯一词条数，不随回炉次数变化
@@ -1926,7 +1844,6 @@
     var REVIEW_KEY = 'vocabulary-review-records';
     var EXTRAS_KEY = 'vocabulary-extras';
     var SETTINGS_KEY = 'vocabulary-settings';
-    var BRUSH_SESSION_KEY = 'vocabulary-brush-session-v1';
     var VOCAB_CUSTOM_BG_KEY = 'vocabulary-custom-bgs-v1';
     var LEGACY_POMODORO_CUSTOM_BG_KEY = 'pomodoro-custom-bgs';
     var VOCAB_BG_OPTIONS = [
@@ -1961,16 +1878,6 @@
     var brushDecision = null;
     var _brushKnownHoldTimer = null;
     var _brushKnownHoldTriggered = false;
-    var _brushRestorePending = true;
-    var _learningEventWritePending = false;
-    var _normalCardShownAt = 0;
-
-    window.addEventListener('online', function() {
-        if (learningSyncClient) learningSyncClient.kick();
-    });
-    document.addEventListener('visibilitychange', function() {
-        if (!document.hidden && learningSyncClient) learningSyncClient.kick();
-    });
 
     // ─── 撤销栈（仅保留上一步）──────────────────────────────────
     var _undoSnapshot = null;
@@ -2112,7 +2019,7 @@
                 if (!r.ok) throw new Error('词库加载失败 (' + r.status + ')');
                 return r.json();
             }),
-            appRuntime.loadVocabularyExtras()
+            readerRuntime.loadVocabularyExtras()
         ])
             .then(function(results) {
                 var data = Array.isArray(results[0]) ? results[0] : [];
@@ -2142,7 +2049,6 @@
                     return String(value || '').normalize('NFD').replace(/[\u0300\u0301]/g, '').normalize('NFC').replace(/ё/g, 'е').toLowerCase().replace(/[^а-я-]/g, '');
                 }
                 Object.keys(records).forEach(function(id) {
-                    if (appRuntime.isAndroid() && records[id] && records[id].source === 'novel') return;
                     var record = records[id] || {};
                     var canonical = record.canonicalKey || record.lemma || record.word || id;
                     var normalizedCanonical = normalizeSavedIdentity(canonical);
@@ -2156,8 +2062,7 @@
                         forms: record.forms || [],
                         origins: record.origins || (record.source ? [record.source] : []),
                         collection: record.collection || 'saved',
-                        contexts: record.contexts || record.sources || [],
-                        learningIdentity: record.learningIdentity || null
+                        contexts: record.contexts || record.sources || []
                     };
                     if (existingIndex >= 0) {
                         data[existingIndex] = Object.assign({}, data[existingIndex], savedFields, {
@@ -2182,10 +2087,8 @@
                 if (document.querySelector('#filterSource option[value="' + preferredSource + '"]')) {
                     document.getElementById('filterSource').value = preferredSource;
                 }
-                if (!resumePersistedBrushSession()) {
-                    updateBrushStudyControls();
-                    applyFilters();
-                }
+                updateBrushStudyControls();
+                applyFilters();
             })
             .catch(function(err) {
                 document.getElementById('cardArea').innerHTML =
@@ -2219,74 +2122,6 @@
             var records = JSON.parse(localStorage.getItem(REVIEW_KEY)) || {};
             return records && typeof records === 'object' && !Array.isArray(records) ? records : {};
         } catch(e) { return {}; }
-    }
-
-    var legacyTransitionPlan = BelyeNochiVocabularyFsrsTransition.ensurePlan(localStorage, getRecords(), {
-        asOfDate: BelyeNochiVocabularyFsrsProjection.localDateKey(new Date(), BelyeNochiVocabularyFsrsProjection.TIME_ZONE),
-        createdAt: new Date().toISOString()
-    });
-    var vocabularySchedulingChannel = BelyeNochiVocabularyFsrsTransition.channel(localStorage);
-    window.__belyeNochiVocabularySchedulingChannel = vocabularySchedulingChannel;
-    window.__belyeNochiLegacyTransitionPlan = legacyTransitionPlan;
-    if (appRuntime.getRuntime() === 'web-server') {
-        fetch('/api/learning-migrations/vocabulary-legacy-snapshot', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(legacyTransitionPlan)
-        }).then(function(response) {
-            if (!response.ok) throw new Error('legacy snapshot upload failed');
-            return response.json();
-        }).then(function(result) {
-            window.__belyeNochiLegacySnapshot = result;
-        }).catch(function() {
-            window.__belyeNochiLegacySnapshot = { ok: false, pending: true };
-        });
-    }
-    if (appRuntime.getRuntime() === 'web-server') {
-        vocabularySchedulingControl = BelyeNochiVocabularySchedulingControl.createControl({
-            storage: localStorage,
-            eventStore: learningEventStore,
-            syncClient: learningSyncClient,
-            projectionClient: learningProjectionClient,
-            getLegacySnapshot: function() { return window.__belyeNochiLegacySnapshot || null; },
-            confirmEnable: function() {
-                return window.confirm('确认启用 FSRS 复习调度？旧进度会继续保留，随时可以切回。');
-            },
-            onChannelChange: function(channel) {
-                vocabularySchedulingChannel = channel;
-                window.__belyeNochiVocabularySchedulingChannel = channel;
-                if (allWords.length) applyFilters();
-            }
-        });
-        window.__belyeNochiVocabularySchedulingControl = vocabularySchedulingControl;
-    }
-
-    function cacheFsrsProjectionRecords(records) {
-        fsrsProjectionRecordsByUnit = {};
-        (records || []).forEach(function(record) {
-            if (record && record.reviewUnitId) fsrsProjectionRecordsByUnit[record.reviewUnitId] = record;
-        });
-    }
-
-    function getFsrsProjectionForWord(word, legacyRecord) {
-        var identity = legacyRecord && legacyRecord.learningIdentity || word && word.learningIdentity;
-        return identity && identity.reviewUnitId ? fsrsProjectionRecordsByUnit[identity.reviewUnitId] || null : null;
-    }
-
-    function getActiveRecord(word) {
-        if (!word) return null;
-        var legacyRecord = getRecords()[word.id] || null;
-        return BelyeNochiVocabularyFsrsTransition.activeRecord(
-            legacyTransitionPlan,
-            word.id,
-            legacyRecord,
-            getFsrsProjectionForWord(word, legacyRecord),
-            vocabularySchedulingChannel
-        );
-    }
-
-    function getActiveRecordById(wordId) {
-        return getActiveRecord(allWords.find(function(word) { return word.id === wordId; }) || { id: wordId });
     }
 
     function showInlineNotice(message, tone) {
@@ -2339,98 +2174,6 @@
         return safeSetJson(SETTINGS_KEY, s && typeof s === 'object' ? s : {}, '设置保存');
     }
 
-    function getPersistedBrushSession() {
-        try {
-            var value = JSON.parse(localStorage.getItem(BRUSH_SESSION_KEY) || 'null');
-            return value && value.version === 1 && Array.isArray(value.ids) && value.state ? value : null;
-        } catch (e) {
-            return null;
-        }
-    }
-
-    function clearPersistedBrushSession() {
-        try { localStorage.removeItem(BRUSH_SESSION_KEY); } catch (e) {}
-    }
-
-    function getBrushFilterState() {
-        function valueOf(id) {
-            var el = document.getElementById(id);
-            return el ? el.value : '';
-        }
-        return {
-            source: valueOf('filterSource'),
-            type: valueOf('filterType'),
-            chapter: valueOf('filterChapter'),
-            search: valueOf('filterSearch')
-        };
-    }
-
-    function persistBrushSession() {
-        if (!brushSession || brushSession.done()) {
-            clearPersistedBrushSession();
-            return;
-        }
-        safeSetJson(BRUSH_SESSION_KEY, {
-            version: 1,
-            savedAt: new Date().toISOString(),
-            ids: brushSession.ids.slice(),
-            studyMode: brushStudyMode,
-            sessionKind: brushSessionKind,
-            filters: getBrushFilterState(),
-            state: brushSession.snapshot()
-        }, '刷词进度保存');
-    }
-
-    function restoreBrushFilterState(filters) {
-        filters = filters && typeof filters === 'object' ? filters : {};
-        [['filterSource', filters.source], ['filterType', filters.type], ['filterChapter', filters.chapter]].forEach(function(item) {
-            var el = document.getElementById(item[0]);
-            if (el && item[1] && el.querySelector('option[value="' + CSS.escape(item[1]) + '"]')) el.value = item[1];
-        });
-        var search = document.getElementById('filterSearch');
-        if (search) search.value = filters.search || '';
-    }
-
-    function restorePersistedBrushSession(ids) {
-        var saved = getPersistedBrushSession();
-        if (!saved || saved.studyMode !== brushStudyMode || saved.sessionKind !== brushSessionKind || saved.ids.length !== ids.length) return false;
-        for (var i = 0; i < ids.length; i++) {
-            if (saved.ids[i] !== ids[i]) return false;
-        }
-        if (!brushSession.restore(saved.state)) return false;
-        var currentId = brushSession.currentId;
-        _currentWord = currentId ? allWords.find(function(word) { return word.id === currentId; }) || null : null;
-        if (currentId && !_currentWord) return false;
-        _currentSessionCard = _currentWord ? { id: currentId, failCount: 0, fuzzyCount: 0, goodStreak: 0 } : null;
-        brushAnswerVisible = false;
-        brushPendingKnown = false;
-        brushDecision = null;
-        brushAudioReplayCount = 0;
-        brushShownAt = Date.now();
-        flipped = false;
-        return true;
-    }
-
-    function resumePersistedBrushSession() {
-        var saved = getPersistedBrushSession();
-        if (!saved) return false;
-        var wordsById = {};
-        allWords.forEach(function(word) { wordsById[word.id] = word; });
-        var restoredWords = saved.ids.map(function(id) { return wordsById[id]; });
-        if (!restoredWords.length || restoredWords.some(function(word) { return !word; })) {
-            clearPersistedBrushSession();
-            return false;
-        }
-        brushStudyMode = ['visual', 'audio', 'output'].indexOf(saved.studyMode) >= 0 ? saved.studyMode : brushStudyMode;
-        brushSessionKind = saved.sessionKind === 'reinforcement' ? 'reinforcement' : 'scan';
-        currentMode = 'brush';
-        filtered = restoredWords;
-        restoreBrushFilterState(saved.filters);
-        updateBrushStudyControls();
-        initBrushDeck(true);
-        return true;
-    }
-
     function getReinforcementLimit() {
         return Math.max(50, Math.min(200, Number(getSettings().reinforcementLimit || 100)));
     }
@@ -2460,31 +2203,23 @@
         return mode === 'visual' ? getLegacyVisualProfile(record) : null;
     }
 
-    function describeBrushSkillAttempt(known) {
-        var elapsed = brushDecision && brushDecision.responseMs || Math.max(0, Date.now() - brushShownAt);
-        var replayed = brushStudyMode === 'audio' && brushAudioReplayCount > 0;
-        var fuzzy = known && (replayed || brushDecision && brushDecision.quality === 'fuzzy' || elapsed > 4000);
-        return {
-            elapsed: elapsed,
-            replayed: replayed,
-            outcome: known ? (fuzzy ? 'fuzzy' : 'known') : 'unknown'
-        };
-    }
-
-    function recordBrushSkillAttempt(wordId, attempt, learningIdentity) {
+    function recordBrushSkillAttempt(wordId, known) {
         var records = getRecords();
         var record = records[wordId] && typeof records[wordId] === 'object' ? records[wordId] : {};
         var profiles = record.skillProfiles && typeof record.skillProfiles === 'object' ? record.skillProfiles : {};
         var previous = getSkillProfile(record, brushStudyMode);
-        profiles[brushStudyMode] = VocabularySessionScheduler.recordSkillAttempt(previous, attempt.outcome, {
-            today: getTodayKey(), reviewedAt: new Date().toISOString(), responseMs: attempt.elapsed, replayed: attempt.replayed
+        var elapsed = brushDecision && brushDecision.responseMs || Math.max(0, Date.now() - brushShownAt);
+        var replayed = brushStudyMode === 'audio' && brushAudioReplayCount > 0;
+        var fuzzy = known && (replayed || brushDecision && brushDecision.quality === 'fuzzy' || elapsed > 4000);
+        var outcome = known ? (fuzzy ? 'fuzzy' : 'known') : 'unknown';
+        profiles[brushStudyMode] = VocabularySessionScheduler.recordSkillAttempt(previous, outcome, {
+            today: getTodayKey(), reviewedAt: new Date().toISOString(), responseMs: elapsed, replayed: replayed
         });
         record.skillProfiles = profiles;
         record.lastLearningMode = brushStudyMode;
-        if (learningIdentity) record.learningIdentity = learningIdentity;
         records[wordId] = record;
         saveRecords(records);
-        return attempt.outcome;
+        return outcome;
     }
 
     function isPriorityBrushWord(word, record, extras) {
@@ -2566,7 +2301,7 @@
         localStorage.setItem(VOCAB_CUSTOM_BG_KEY, JSON.stringify(items));
     }
 
-    function openReader() { appRuntime.navigate('reader.html'); }
+    function openReader() { readerRuntime.navigate('reader.html'); }
 
     function getCurrentVocabBackground() {
         return getSettings().background || 'default';
@@ -2720,49 +2455,8 @@
             today: getTodayKey()
         }, options || {}));
         rec.count = (records[wordId] && records[wordId].count || 0) + 1;
-        if (options && options.learningIdentity) rec.learningIdentity = options.learningIdentity;
         records[wordId] = rec;
         return saveRecords(records);
-    }
-
-    async function recordVocabularyShadowReview(word, rawResult, options) {
-        try {
-            var result = await vocabularyLearningEvents.recordReview({
-                word: word,
-                rawResult: rawResult,
-                mode: options.mode || 'visual',
-                sessionKind: options.sessionKind || '',
-                responseMs: options.responseMs || 0,
-                answerRevealedBeforeResponse: !!options.answerRevealedBeforeResponse,
-                hintType: options.hintType || '',
-                isNew: !!options.isNew,
-                addMethod: 'vocabulary_first_review',
-                learningIdentity: word.learningIdentity || null
-            });
-            if (vocabularySchedulingChannel === BelyeNochiVocabularyFsrsTransition.FSRS_CHANNEL) {
-                var rebuilt = await learningProjectionClient.rebuild();
-                cacheFsrsProjectionRecords(rebuilt.records || []);
-            }
-            return result;
-        } catch (error) {
-            showInlineNotice('本次学习记录没有保存，请重试。旧进度尚未改变。');
-            return null;
-        }
-    }
-
-    async function recordVocabularyShadowUndo(events) {
-        if (!events || !events.length) return true;
-        try {
-            await vocabularyLearningEvents.recordUndo({ events: events, reason: 'vocabulary_rating_undone' });
-            if (vocabularySchedulingChannel === BelyeNochiVocabularyFsrsTransition.FSRS_CHANNEL) {
-                var rebuilt = await learningProjectionClient.rebuild();
-                cacheFsrsProjectionRecords(rebuilt.records || []);
-            }
-            return true;
-        } catch (error) {
-            showInlineNotice('撤销记录没有保存，请再次点击撤销。');
-            return false;
-        }
     }
 
     // ─── 当日学习队列管理 ────────────────────────────────────────
@@ -2846,13 +2540,14 @@
     }
 
     function getWordMastery(word) {
-        var record = getActiveRecord(word);
-        if (record) return record.mastery;
+        var records = getRecords();
+        if (records[word.id]) return records[word.id].mastery;
         return word.mastery || 1;
     }
 
     function isDue(word) {
-        var rec = getActiveRecord(word);
+        var records = getRecords();
+        var rec = records[word.id];
         if (!rec || !rec.nextReview) return true; // 从未复习过的卡片也算待复习
         return String(rec.nextReview).slice(0, 10) <= getTodayKey();
     }
@@ -3245,13 +2940,6 @@
             '    </div>' +
             '  </div>' +
             '  <div class="modal-section">' +
-            '    <div class="modal-section-title">复习调度</div>' +
-            '    <div class="scheduling-status" id="schedulingStatus"><div class="scheduling-state">正在检查...</div></div>' +
-            '    <div class="scheduling-actions">' +
-            '      <button class="modal-btn modal-btn-secondary" id="schedulingAction" onclick="handleSchedulingAction()">检查切换条件</button>' +
-            '    </div>' +
-            '  </div>' +
-            '  <div class="modal-section">' +
             '    <div class="modal-section-title">🔊 发音设置</div>' +
             '    <div class="modal-row">' +
             '      <span class="modal-label">自动播放</span>' +
@@ -3297,91 +2985,6 @@
             '</div>';
         document.body.appendChild(overlay);
         renderVocabBgPicker();
-        refreshSchedulingStatus();
-    }
-
-    var latestSchedulingReadiness = null;
-
-    function renderSchedulingStatus(result) {
-        var status = document.getElementById('schedulingStatus');
-        var action = document.getElementById('schedulingAction');
-        if (!status || !action) return;
-        latestSchedulingReadiness = result;
-        window.__belyeNochiSchedulingReadiness = result;
-        var isFsrs = result.channel === BelyeNochiVocabularyFsrsTransition.FSRS_CHANNEL;
-        var serverStatus = result.service || {};
-        var browserStats = result.stats || {};
-        var latestBackup = serverStatus.latestBackup;
-        var backupDate = latestBackup && latestBackup.verifiedAt ? String(latestBackup.verifiedAt).slice(0, 10) : '暂无';
-        var recoveryText = serverStatus.recovery && serverStatus.recovery.performed ? '本次已自动恢复' : '本次未触发恢复';
-        status.innerHTML = '<div class="scheduling-state">当前：' + (isFsrs ? 'FSRS 调度' : '旧调度') + '</div>' +
-            '<div class="scheduling-meta">数据库 ' + Number(serverStatus.eventCount || 0) + ' 条 · 待同步 ' + Number(browserStats.pending || 0) + ' 条 · 最近备份 ' + esc(backupDate) + ' · ' + recoveryText + '</div>' +
-            (result.checks || []).map(function(item) {
-                return '<div class="scheduling-check ' + (item.ok ? 'ok' : '') + '">' + esc(item.message) + '</div>';
-            }).join('');
-        var backupCheck = (result.checks || []).find(function(item) { return item.id === 'backupRestore'; });
-        var comparisonCheck = (result.checks || []).find(function(item) { return item.id === 'comparison'; });
-        var needsLedgerRecovery = comparisonCheck && !comparisonCheck.ok && result.service
-            && Number(result.service.eventCount || 0) > Number(result.stats && result.stats.events || 0);
-        action.disabled = false;
-        action.className = 'modal-btn ' + (result.ready && !isFsrs ? 'modal-btn-primary' : 'modal-btn-secondary');
-        action.textContent = isFsrs ? '切回旧调度'
-            : result.ready ? '启用 FSRS'
-                : needsLedgerRecovery ? '恢复浏览器记录'
-                    : backupCheck && !backupCheck.ok ? '完成安全备份' : '重新检查';
-        if (result.autoRolledBack) showInlineNotice('安全检查未通过，已自动切回旧调度。');
-    }
-
-    async function refreshSchedulingStatus() {
-        var status = document.getElementById('schedulingStatus');
-        var action = document.getElementById('schedulingAction');
-        if (!vocabularySchedulingControl) {
-            if (status) status.innerHTML = '<div class="scheduling-state">当前环境不支持数据库切换</div>';
-            if (action) action.disabled = true;
-            return null;
-        }
-        if (action) { action.disabled = true; action.textContent = '检查中...'; }
-        try {
-            var result = await vocabularySchedulingControl.status({ refresh: true });
-            renderSchedulingStatus(result);
-            return result;
-        } catch (error) {
-            if (status) status.innerHTML = '<div class="scheduling-state">本机数据库暂时不可用</div>';
-            if (action) { action.disabled = false; action.textContent = '重新检查'; }
-            return null;
-        }
-    }
-
-    async function handleSchedulingAction() {
-        if (!vocabularySchedulingControl) return;
-        var action = document.getElementById('schedulingAction');
-        if (action) { action.disabled = true; action.textContent = '处理中...'; }
-        try {
-            if (vocabularySchedulingControl.selectedChannel() === BelyeNochiVocabularyFsrsTransition.FSRS_CHANNEL) {
-                vocabularySchedulingControl.disable('manual');
-                showInlineNotice('已切回旧调度，原学习进度保持不变。', 'success');
-            } else {
-                var current = latestSchedulingReadiness || await refreshSchedulingStatus();
-                var backupCheck = current && (current.checks || []).find(function(item) { return item.id === 'backupRestore'; });
-                var comparisonCheck = current && (current.checks || []).find(function(item) { return item.id === 'comparison'; });
-                var needsLedgerRecovery = comparisonCheck && !comparisonCheck.ok && current.service
-                    && Number(current.service.eventCount || 0) > Number(current.stats && current.stats.events || 0);
-                if (current && current.ready) {
-                    var enabled = await vocabularySchedulingControl.enable();
-                    if (enabled.ok) showInlineNotice('FSRS 调度已启用，旧进度仍然保留。', 'success');
-                } else if (needsLedgerRecovery) {
-                    var recovered = await vocabularySchedulingControl.restoreBrowserLedger();
-                    showInlineNotice('已恢复 ' + recovered.restoredEventCount + ' 条浏览器学习记录。', 'success');
-                } else if (backupCheck && !backupCheck.ok) {
-                    await vocabularySchedulingControl.prepareBackup();
-                    showInlineNotice('安全备份和恢复验证已完成。', 'success');
-                }
-            }
-            await refreshSchedulingStatus();
-        } catch (error) {
-            showInlineNotice(error && error.code === 'SWITCH_NOT_READY' ? '切换条件尚未全部满足。' : '操作未完成，请重新检查。');
-            await refreshSchedulingStatus();
-        }
     }
 
     function saveSettingsFromModal() {
@@ -3567,10 +3170,11 @@
         var todayCount = getNewCardsToday();
 
         // 分离：到期复习卡 vs 新卡
+        var records = getRecords();
         var dueCards = [];
         var newCards = [];
         filtered.forEach(function(w) {
-            var rec = getActiveRecord(w);
+            var rec = records[w.id];
             if (rec && rec.nextReview && new Date(rec.nextReview) <= new Date()) {
                 dueCards.push(w); // 到期复习
             } else if (!rec) {
@@ -3648,23 +3252,15 @@
             normalRetryDelays: [12, 24],
             maxFailures: 3
         });
-        var restored = false;
-        if (_brushRestorePending) {
-            _brushRestorePending = false;
-            restored = restorePersistedBrushSession(ids);
-        }
         brushAnswerVisible = false;
         brushPendingKnown = false;
-        brushShownAt = restored ? Date.now() : 0;
+        brushShownAt = 0;
         brushAudioReplayCount = 0;
         brushDecision = null;
         flipped = false;
-        if (!restored) {
-            _currentSessionCard = null;
-            _currentWord = null;
-        }
+        _currentSessionCard = null;
         _undoSnapshot = null;
-        renderBrushCard(restored);
+        renderBrushCard();
     }
 
     function getNextBrushCard() {
@@ -3921,8 +3517,8 @@
 
         _currentSessionCard = sc;
         _currentWord = w;
-        if (!keepCurrent) _normalCardShownAt = Date.now();
-        var rec = getActiveRecord(w);
+        var records = getRecords();
+        var rec = records[w.id];
         var m = getWordMastery(w);
         var typeLabel = w.type ? w.type : '';
         var chapterLabel = w.chapter || w.theme || '';
@@ -3936,12 +3532,9 @@
           var novelSrc = (rec && rec.sourceBook) ? rec.sourceBook : (w.extra ? w.extra.replace('来源: ', '') : '小说');
           metaTags += '<span class="tag">📖 ' + esc(novelSrc) + '</span>'; tagCount++;
         }
-        if (rec && rec.transitionStatus === 'legacy_pending_calibration') {
-            metaTags += '<span class="tag">待校准</span>';
-        }
 
         // 掌握度星星
-        var rec2 = getActiveRecord(w);
+        var rec2 = getRecords()[w.id];
         var mLevel = rec2 ? (rec2.mastery || 0) : 0;
         var stars = '';
         for (var si = 0; si < 5; si++) {
@@ -4048,7 +3641,8 @@
         var isFav = extras.fav.indexOf(w.id) >= 0;
 
         // 下次复习信息
-        var rec = getActiveRecord(w);
+        var records = getRecords();
+        var rec = records[w.id];
         var dueInfo = '';
         if (rec && rec.nextReview) {
             var nextDate = new Date(rec.nextReview);
@@ -4105,7 +3699,8 @@
                         wordLen > 30 ? 'font-size:24px;' : '';
 
         // 掌握度计算
-        var rec = getActiveRecord(w);
+        var records = getRecords();
+        var rec = records[w.id];
         var mastery = rec ? (rec.mastery || 0) : 0;
         var masteryPct = Math.min(100, mastery * 20); // 0-5 → 0-100%
         var masteryColor = mastery >= 4 ? '#4ade80' : mastery >= 2 ? '#facc15' : mastery >= 1 ? '#fb923c' : 'rgba(255,255,255,0.15)';
@@ -4204,8 +3799,7 @@
         var tomorrowKey = VocabularySessionScheduler.getLocalDateKey(tomorrow);
         var tomorrowDue = 0;
         for (var rid in records) {
-            var tomorrowRecord = getActiveRecordById(rid);
-            if (tomorrowRecord && tomorrowRecord.nextReview && tomorrowRecord.nextReview.slice(0, 10) === tomorrowKey) tomorrowDue++;
+            if (records[rid].nextReview && records[rid].nextReview.slice(0, 10) === tomorrowKey) tomorrowDue++;
         }
 
         // 今日统计
@@ -4337,12 +3931,12 @@
         }
     }
 
-    async function rate(score) {
+    function rate(score) {
         if (currentMode === 'brush') {
-            await rateBrush(score);
+            rateBrush(score);
             return;
         }
-        if (!_currentSessionCard || _learningEventWritePending) return;
+        if (!_currentSessionCard) return;
         var sc = _currentSessionCard;
         var w = allWords.find(function(x) { return x.id === sc.id; });
         if (!w) return;
@@ -4364,26 +3958,6 @@
             delayedQueue: JSON.parse(JSON.stringify(delayedQueue)),
             flipped: true
         };
-
-        _learningEventWritePending = true;
-        var shadowResult;
-        try {
-            shadowResult = await recordVocabularyShadowReview(w, score < 3 ? 'unknown' : (score < 5 ? 'fuzzy' : 'known'), {
-                mode: 'visual',
-                sessionKind: currentMode,
-                responseMs: Math.max(0, Date.now() - _normalCardShownAt),
-                answerRevealedBeforeResponse: true,
-                isNew: isNew
-            });
-        } finally {
-            _learningEventWritePending = false;
-        }
-        if (!shadowResult) {
-            _undoSnapshot = null;
-            return;
-        }
-        _undoSnapshot.learningEvents = shadowResult.events || [];
-        var learningIdentity = shadowResult.identity || null;
 
         // ─── 当日学习队列逻辑 ─────────────────────────
         if (score < 3) {
@@ -4434,10 +4008,10 @@
         // - 评分改善（不认识→模糊）：写入改善后的评分
         // - leech：不写入（避免反复惩罚 easeFactor）
         if (score < 5 && !sc.skippedAsLeech) {
-            saveRecord(w.id, score, { learningIdentity: learningIdentity });
+            saveRecord(w.id, score);
             if (isNew) incNewCardsToday();
         } else if (sc.passed && !sc.skippedAsLeech) {
-            saveRecord(w.id, score, { hadFailure: sc.failCount > 0 || sc.fuzzyCount > 0, learningIdentity: learningIdentity });
+            saveRecord(w.id, score, { hadFailure: sc.failCount > 0 || sc.fuzzyCount > 0 });
             if (isNew) incNewCardsToday();
         }
 
@@ -4458,18 +4032,10 @@
     var _currentWord = null;
 
     // ─── 撤销上一次评分 ─────────────────────────────────────────
-    async function undoLastRate() {
-        if (currentMode === 'brush') { await undoBrushRate(); return; }
-        if (!_undoSnapshot || _learningEventWritePending) return;
+    function undoLastRate() {
+        if (currentMode === 'brush') { undoBrushRate(); return; }
+        if (!_undoSnapshot) return;
         var snap = _undoSnapshot;
-        _learningEventWritePending = true;
-        var corrected;
-        try {
-            corrected = await recordVocabularyShadowUndo(snap.learningEvents);
-        } finally {
-            _learningEventWritePending = false;
-        }
-        if (!corrected) return;
         _undoSnapshot = null;
 
         // 恢复 sessionCard 状态
@@ -4521,17 +4087,9 @@
     }
 
     // ─── 🚀 刷词模式：撤销 ──────────────────────────────
-    async function undoBrushRate() {
-        if (!_undoSnapshot || _learningEventWritePending) return;
+    function undoBrushRate() {
+        if (!_undoSnapshot) return;
         var snap = _undoSnapshot;
-        _learningEventWritePending = true;
-        var corrected;
-        try {
-            corrected = await recordVocabularyShadowUndo(snap.learningEvents);
-        } finally {
-            _learningEventWritePending = false;
-        }
-        if (!corrected) return;
         _undoSnapshot = null;
         if (!brushSession || !brushSession.restore(snap.sessionState)) return;
         var records = getRecords();
@@ -4641,8 +4199,8 @@
         renderBrushCard();
     }
 
-    async function rateBrush(score) {
-        if (!_currentSessionCard || !brushSession || _learningEventWritePending) return;
+    function rateBrush(score) {
+        if (!_currentSessionCard || !brushSession) return;
         var w = allWords.find(function(x) { return x.id === _currentSessionCard.id; });
         if (!w) return;
         // No brush rating is permitted from the front of the card.
@@ -4661,41 +4219,19 @@
             pendingKnown: brushPendingKnown,
             flipped: flipped
         };
-        var answerWasRevealedBeforeResponse = !brushDecision;
-        var brushAttempt = describeBrushSkillAttempt(score >= 3);
-        _learningEventWritePending = true;
-        var shadowResult;
-        try {
-            shadowResult = await recordVocabularyShadowReview(w, brushAttempt.outcome, {
-                mode: brushStudyMode,
-                sessionKind: brushSessionKind,
-                responseMs: brushAttempt.elapsed,
-                answerRevealedBeforeResponse: answerWasRevealedBeforeResponse,
-                hintType: brushAttempt.replayed ? 'audio_replay' : '',
-                isNew: isNew
-            });
-        } finally {
-            _learningEventWritePending = false;
-        }
-        if (!shadowResult) {
-            _undoSnapshot = null;
-            return;
-        }
-        _undoSnapshot.learningEvents = shadowResult.events || [];
-        var learningIdentity = shadowResult.identity || null;
-        var skillOutcome = recordBrushSkillAttempt(w.id, brushAttempt, learningIdentity);
+        var skillOutcome = recordBrushSkillAttempt(w.id, score >= 3);
         var shouldRetry = score < 3 || skillOutcome === 'fuzzy';
         var outcome = brushSession.rate(w.id, shouldRetry ? 'unknown' : 'known');
         if (outcome.ignored) return;
         var orig = allWords.find(function(x) { return x.id === w.id; });
         if (outcome.graduated) {
             // A brush card gets one long-term update only when the learner confirms it.
-            saveRecord(w.id, 5, { hadFailure: outcome.retried, learningIdentity: learningIdentity });
+            saveRecord(w.id, 5, { hadFailure: outcome.retried });
             if (isNew) incNewCardsToday();
             if (orig) orig.mastery = 5;
             _showBrushToast(outcome.retried ? '✓ 回炉后确认认识！' : '✓ 确认认识！');
         } else if (outcome.deferred) {
-            saveRecord(w.id, 1, { hadFailure: true, learningIdentity: learningIdentity });
+            saveRecord(w.id, 1, { hadFailure: true });
             _showBrushToast('已加入明日巩固');
         } else {
             var retryGap = Math.max(0, Number(outcome.retryAfterSeen || 0) - Number(brushSession.seenCount || 0));
@@ -4747,7 +4283,8 @@
         var sc = _currentSessionCard;
         _currentWord = w;
 
-        var rec = getActiveRecord(w);
+        var records = getRecords();
+        var rec = records[w.id];
         var mastery = rec ? (rec.mastery || 0) : 0;
         var masteryPct = Math.min(100, mastery * 20);
         var masteryColor = mastery >= 4 ? '#4ade80' : mastery >= 2 ? '#facc15' : mastery >= 1 ? '#fb923c' : 'rgba(255,255,255,0.15)';
@@ -4777,7 +4314,6 @@
         var metaTags = '<span class="tag tag-type">' + esc(typeLabel) + '</span>';
         if (chapterTag) metaTags += chapterTag;
         if (w.theme) metaTags += '<span class="tag tag-theme">' + esc(w.theme) + '</span>';
-        if (rec && rec.transitionStatus === 'legacy_pending_calibration') metaTags += '<span class="tag">待校准</span>';
 
         // Build back content (same as normal)
         var backContent = '<div class="card-word-back">' + esc(w.word) + '</div>';
@@ -4958,7 +4494,6 @@
                 if (act) act.style.display = flipped ? 'flex' : 'none';
             }, 300);
         });
-        persistBrushSession();
     }
 
     // ─── 🚀 刷词模式：统计栏 ──────────────────────────────
@@ -4984,7 +4519,6 @@
     }
 
     function renderBrushEmptyState() {
-        clearPersistedBrushSession();
         var area = document.getElementById('cardArea');
         var isReinforcement = brushSessionKind === 'reinforcement';
         area.innerHTML =
@@ -5010,7 +4544,6 @@
             renderBrushEmptyState();
             return;
         }
-        clearPersistedBrushSession();
         var area = document.getElementById('cardArea');
         var pct = stats.total > 0 ? Math.round(stats.known / stats.total * 100) : 0;
         var onePassPct = stats.total > 0 ? Math.round(stats.onePass / stats.total * 100) : 0;
@@ -5351,11 +4884,10 @@
         }
         var mastered = 0, due = 0;
         for (var id in records) {
-            var activeRecord = getActiveRecordById(id);
-            if (activeRecord && activeRecord.mastery >= 5) mastered++;
-            if (!activeRecord || !activeRecord.nextReview || new Date(activeRecord.nextReview) <= new Date()) due++;
+            if (records[id].mastery >= 5) mastered++;
+            if (!records[id].nextReview || new Date(records[id].nextReview) <= new Date()) due++;
         }
-        appRuntime.syncStudyStats({ date: todayKey, reviewed: reviewed, mastered: mastered, due: due, streak: streak }).catch(function() {});
+        readerRuntime.syncStudyStats({ date: todayKey, reviewed: reviewed, mastered: mastered, due: due, streak: streak }).catch(function() {});
     }
 
     window.addEventListener('beforeunload', _doSync);
@@ -5560,7 +5092,7 @@
         }
         var url = 'reader.html?book=' + encodeURIComponent(rec.sourceBook) +
                   '&ch=' + (rec.sourceChapter != null ? rec.sourceChapter : 0);
-        appRuntime.navigate(url);
+        readerRuntime.navigate(url);
     }
 
     // ─── 启动 ──────────────────────────────────────────────────────

@@ -6,7 +6,7 @@ const path = require('node:path');
 const test = require('node:test');
 
 const root = path.resolve(__dirname, '..');
-const manifestPath = path.join(root, 'data', 'app-content-manifest.json');
+const manifestPath = path.join(root, 'data', 'reader-content-manifest.json');
 const {
   CONTENT_VERSION,
   buildContentManifest,
@@ -15,7 +15,7 @@ const {
   stableManifest,
   walkJsonFiles,
   writeContentManifest
-} = require('../scripts/build-v1-content-manifest');
+} = require('../scripts/build-reader-content-manifest');
 
 function sha256(content) {
   return crypto.createHash('sha256').update(content).digest('hex');
@@ -34,12 +34,12 @@ function textbookSnapshot() {
   });
 }
 
-test('checked-in V1 content manifest matches the current controlled content', () => {
+test('checked-in Reader content manifest matches the current controlled content', () => {
   const actual = checkContentManifest({ root, outputPath: manifestPath });
   const expected = buildContentManifest({ root, generatedAt: actual.generatedAt });
 
   assert.deepEqual(stableManifest(actual), stableManifest(expected));
-  assert.equal(actual.schema, 'mystudyspace-content-v1');
+  assert.equal(actual.schema, 'mystudyspace-reader-content-v1');
   assert.equal(actual.version, CONTENT_VERSION);
   assert.equal(actual.grammarAnalysisStatus, 'complete');
   assert.deepEqual(actual.grammarAnalysis, {
@@ -97,7 +97,6 @@ test('manifest controls every critical offline content family', () => {
     'data/source_labels.json',
     'data/morphology-map.json',
     'data/external-vocab.json',
-    'data/audio-manifest.json',
     'data/dictionary/manifest.json',
     'data/dictionary/freedict-rus-zh.json',
     'data/dictionary/openrussian-en.json'
@@ -121,7 +120,7 @@ test('filesHash is deterministic and does not include generatedAt', () => {
 test('writing the manifest does not rewrite any textbook JSON', () => {
   const before = textbookSnapshot();
   const temporaryDirectory = fs.mkdtempSync(path.join(os.tmpdir(), 'mystudyspace-content-manifest-'));
-  const outputPath = path.join(temporaryDirectory, 'app-content-manifest.json');
+  const outputPath = path.join(temporaryDirectory, 'reader-content-manifest.json');
 
   try {
     writeContentManifest({

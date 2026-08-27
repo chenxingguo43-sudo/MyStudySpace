@@ -351,7 +351,7 @@ test('reader prefers an available Chinese definition over English and Russian fa
 test('reader saves a resolved surface form under its canonical lemma', () => {
   assert.match(reader, /var _lastDictionaryResolution = null/);
   assert.match(reader, /canonicalLemma = resolution && resolution\.entry \? resolution\.lemma/);
-  assert.match(reader, /appRuntime\.saveVocabulary\(canonicalKey, saved\)/);
+  assert.match(reader, /readerRuntime\.saveVocabulary\(canonicalKey, saved\)/);
   assert.match(reader, /origin: 'reader'/);
   assert.match(reader, /origins: saveOrigins/);
   assert.match(reader, /collection: 'saved'/);
@@ -367,8 +367,8 @@ test('vocabulary saved mode filters explicit saved records instead of dictionary
 
 test('true misses expose only an explicit source-labelled online fallback', () => {
   assert.match(reader, /function onlineDictionaryLookup\(\)/);
-  assert.match(reader, /appRuntime\.canUseOnlineDictionary\(\)/);
-  assert.match(reader, /appRuntime\.lookupDictionary\(term/);
+  assert.match(reader, /readerRuntime\.canUseOnlineDictionary\(\)/);
+  assert.match(reader, /readerRuntime\.lookupDictionary\(term/);
   assert.match(reader, /dictionaryStorage\.saveProvisional/);
   assert.match(reader, /俄文释义（未翻译）/);
   assert.match(reader, /一键联网查询/);

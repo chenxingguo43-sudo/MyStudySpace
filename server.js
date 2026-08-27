@@ -2,32 +2,16 @@ const http = require('http');
 const fs = require('fs');
 const path = require('path');
 const { createRussianDictionaryLookup } = require('./server/russian-dictionary');
-const { createLearningStore } = require('./server/learning-store');
-const { createLearningEventApi } = require('./server/learning-event-api');
-const { createReaderAiStore } = require('./server/reader-ai-store');
-const { createReaderAiApi } = require('./server/reader-ai-api');
-const { createReaderAiConfig } = require('./server/reader-ai-config');
-const { createReaderAiConfigApi } = require('./server/reader-ai-config-api');
-const { createReaderAiRoutingProvider } = require('./server/reader-ai-routing-provider');
 
 const PORT = Number(process.env.PORT) || 3000;
 const lookupRussianDictionary = createRussianDictionaryLookup({});
-const learningStore = createLearningStore({});
-const handleLearningEventApi = createLearningEventApi({ store: learningStore });
-const readerAiStore = createReaderAiStore({ databasePath: learningStore.databasePath });
-const readerAiConfig = createReaderAiConfig({ dataDirectory: path.dirname(learningStore.databasePath) });
-const readerAiProvider = createReaderAiRoutingProvider({ config: readerAiConfig });
-const handleReaderAiConfigApi = createReaderAiConfigApi({ config: readerAiConfig });
-const handleReaderAiApi = createReaderAiApi({ store: readerAiStore, provider: readerAiProvider });
 
 const mimeTypes = {
     '.html': 'text/html; charset=utf-8',
-    '.js': 'text/javascript',
-    '.css': 'text/css',
-    '.json': 'application/json',
-    '.webmanifest': 'application/manifest+json',
+    '.js': 'text/javascript; charset=utf-8',
+    '.css': 'text/css; charset=utf-8',
+    '.json': 'application/json; charset=utf-8',
     '.png': 'image/png',
-    '.ico': 'image/x-icon',
     '.jpg': 'image/jpeg',
     '.gif': 'image/gif',
     '.svg': 'image/svg+xml',
@@ -67,10 +51,6 @@ const server = http.createServer((req, res) => {
     }
     urlPath = resolvedPath.substring(__dirname.length).replace(/\\/g, '/');
     if (!urlPath.startsWith('/')) urlPath = '/' + urlPath;
-
-    if (handleLearningEventApi(req, res, urlPath)) return;
-    if (handleReaderAiConfigApi(req, res, urlPath)) return;
-    if (handleReaderAiApi(req, res, urlPath)) return;
 
     // ─── API: GET /api/dictionary/lookup ─────────────────────────
     if (req.method === 'GET' && urlPath === '/api/dictionary/lookup') {

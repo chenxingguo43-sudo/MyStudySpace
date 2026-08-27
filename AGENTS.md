@@ -2,219 +2,154 @@
 
 本文件是 AI 进入 `D:\MyStudySpace` 后的首要项目说明。
 
-## 当前唯一主项目：白夜俄语网页版
+## 当前唯一主项目：白夜俄语 Reader
 
-当前产品是 **БЕЛЫЕ НОЧИ / 白夜俄语**。默认开发目标已经从 Android APK 改为现有网页版，不再默认继续 Android 打包路线。
+本工作区当前的默认目标是完成 **БЕЛЫЕ НОЧИ / 白夜俄语 Reader**。除非用户明确指定其他任务，否则所有分析、实现、测试和文档工作都应围绕纯网页版 Reader 展开。
+
+旧番茄钟、旧俄语知识库、学习舱 iframe 调度中心和早期 UI 优化任务均为历史项目，不再是默认工作范围。不要因为这些文件仍位于仓库根目录就优先维护或重构它们。
+
+## 当前开发状态：仅保留网页版 Reader
+
+Capacitor Android APP、APP 首页、四入口底部导航和“我的”页面已退出项目范围，不得恢复到 GitHub 生产入口。
+
+当前默认工作方向是继续完善 Reader 刷题和阅读，包括内部生词复习、学习数据、词典、听力、语法和网页交互体验。`vocabulary.html` 只作为 Reader 内部学习工具保留，不作为顶级导航入口。
+
+除非用户以后明确提出新需求，不添加 Capacitor、Gradle、APK、Android Studio、移动端原生壳、APP 首页、个人页或四入口导航。
+
+## 产品基线
+
+当前产品基线是现有 HTML/CSS/JS 网页版私人俄语学习应用：
 
 - 品牌：`БЕЛЫЕ НОЧИ / 白夜俄语`
-- 当前技术：现有 HTML、CSS、JavaScript 网页应用
-- 当前入口：首页、Reader、Vocabulary、我的
-- 当前运行方式：通过 `server.js` 在浏览器中使用
-- 当前优先方向：先把网页版口语学习体验做成可实际使用的功能
-- 未来方向：网页版加正式后端，但服务器、数据库、鉴权、部署方式和域名均尚未确定
+- 当前技术路线：现有 HTML/CSS/JS 网页前端；`server.js` 仅作为当前本地开发服务
+- GitHub 根入口：直接进入 `reader.html`
+- 顶级导航：无；Reader 自己提供目录、返回、主题、字号、题目和词典工具
+- 当前优先级：保证网页版学习流程、内容质量、本地数据和交互体验稳定
+- 正式后端尚未建设；服务器就绪后再根据用户确认的方案设计 API、数据库、鉴权、同步与部署
+- 后端接入时必须设计现有浏览器本地学习数据的兼容、迁移和合并策略，不得导致学习进度丢失
+- 在后端正式落地前，不把临时 API、云账户、在线 AI 或实时语音服务当作默认依赖
 
-Reader 和 Vocabulary 是现有生产功能。不要为了新增口语或未来后端而重写它们，也不要建立第二套互不兼容的学习进度。
+AI 口语陪练仍是独立范围。只有用户明确要求，或任务明确引用对应 PRD 时，才进入该范围。
 
-旧番茄钟、旧俄语知识库、学习舱 iframe 调度中心和早期 UI 优化任务均为历史项目，不是默认工作范围。
+## 首要资料与权威顺序
 
-## 当前决定：Android 暂停并封存
+处理白夜俄语 APP 时，按以下顺序确定事实：
 
-Android 方向是一次快速落地尝试。现阶段继续打包、适配和维护的成本已经超过收益，而且正式后端尚未准备好，因此用户决定暂时停止 Android App 开发。
+1. 用户当前指令
+2. 本文件 `AGENTS.md`
+3. 当前任务对应的 PRD、实施文档或验收记录
+4. 实际网页代码、测试、数据契约和内容清单
 
-“封存”表示保留现有成果，停止默认推进，并不表示删除或回退：
+不要默认先读旧的番茄钟或旧俄语知识库文档。
 
-- 保留现有 Capacitor 相关代码、Android 设计文档、统一学习档案和文件适配器。
-- 不删除 `app-dist/`、Android 历史资料、APK 方案或已经完成的测试。
-- 不主动继续 Phase 5 Task 5.4 或后续 Android 阶段。
-- 不主动运行 Capacitor、Gradle、Android Studio、APK 构建、签名、设备安装或 Android 同步。
-- 普通 Web、Reader、Vocabulary 或口语任务不以 APK 构建成功作为完成条件。
-- 只有用户以后明确说“恢复 Android 开发”时，才重新审计现状并继续。
+### 按任务读取的资料
 
-封存时的本地实现状态：
+- Reader 写作工作台：`docs/READER_WRITING_WORKBENCH_IMPLEMENTATION.md`
+- 听力精听重建：`tasks/prd-listening-intensive-rebuild.md`
+- Reader / Vocabulary 双页：`tasks/prd-reader-vocabulary-dual-page.md`
 
-- Android V1 Phase 4 已存在于当前工作树。
-- Phase 5 Task 5.1：统一 localStorage 学习档案，已实现。
-- Phase 5 Task 5.2：IndexedDB 录音档案，已实现。
-- Phase 5 Task 5.3：Web/Android 文件导入、导出与分享适配，已实现。
-- Phase 5 Task 5.4：浏览器到 Android 的真机迁移验收，未实施，现已暂停。
+任务文档只在对应任务中生效。不要把某个局部 PRD 自动提升为整个 APP 的永久范围。
 
-不要因为前三项已经实现，就宣称 Android 迁移或整个 Android V1 已验收完成。
+## 当前架构
 
-## 当前优先级：网页版口语
+### 源页面
 
-近期工作先围绕网页版口语学习展开。仓库和交接包中已经存在口语交互原型、产品设计、录音基础模块和测试，应先审计、合并和复用这些成果，不要从零重做。
+| 文件 | 作用 |
+|---|---|
+| `reader.html` | Reader 主应用，承载教材阅读、语法、听力、写作与口语任务 |
+| `vocabulary.html` | Reader 内部的复习、生词本与词汇学习工具 |
+| `js/reader-runtime.js` | GitHub Pages / 本地服务运行适配层 |
+| `data/reader-content-manifest.json` | Reader 内容清单 |
 
-当前口语方向遵循以下原则：
+页面之间采用直接导航，不使用旧 `index.html` iframe 调度中心。
 
-- 第一阶段先做浏览器中可实际使用的口语练习，不依赖正式后端。
-- 优先复用浏览器 `MediaRecorder`、IndexedDB 和现有 Reader 任务数据。
-- 没有后端时，录音、提纲、练习记录和设置继续保存在本机。
-- 网页口语必须在离线或外部服务不可用时仍能完成基础练习和保存。
-- AI 讲解、语音识别、模型评分、实时对话和云同步不是默认前置条件。
-- 不把 API Key 写进网页、localStorage、IndexedDB、导出档案、Git 或日志。
-- 不自动增加第五个底部导航入口；先根据当前口语任务和已确认原型决定入口位置。
-- 开始具体实现前，先确认本轮最小目标和验收标准，避免一次建设完整 AI 平台。
+### 当前 Web 入口
 
-与网页版口语有关的交接资料包括：
+- 开发目录中的 `index.html` 当前仍跳转到 `reader.html`。
+- 当前默认运行方式是通过 `server.js` 打开网页版页面并直接导航。
 
-- `docs/white-night-app/SPEAKING_V2_PRD.md`
-- `docs/white-night-app/SPEAKING_UI_PROTOTYPE.md`
-- `docs/visual-prototypes/white-night-speaking-v2.html`
-- `docs/superpowers/plans/2026-08-08-speaking-v2-phase0-phase1.md`
-- `docs/superpowers/acceptance/2026-08-08-speaking-v2-phase0a-web.md`
-- `js/speaking/`
-- 对应的 `tests/speaking-*.test.js`
+### 内容真相来源
 
-这些文件可能仍位于增量交接包、尚未合并到当前仓库。使用前先检查文件是否存在；缺失时从交接包选择性合并，不覆盖当前项目的 `AGENTS.md` 或其他较新文件。
-
-## 未来后端方向
-
-未来计划以“网页 + 后端”为主，但目前只确定方向，没有确定技术方案。
-
-在用户购买服务器并确认需求之前：
-
-- 不擅自选择云厂商、服务器配置、域名、数据库、后端语言或部署平台。
-- 不提前把临时 Node 接口当作正式后端。
-- 不让网页核心学习功能依赖尚不存在的在线服务。
-- 不引入账号、支付、多用户、云同步或复杂鉴权，除非用户明确启动对应项目。
-- 设计任何后端时，必须兼容并迁移现有浏览器学习数据，不能让 Reader、Vocabulary、写作、口语和录音进度丢失。
-
-`server.js` 当前只是本地开发服务器，不代表未来正式后端架构。
-
-## DeepTutor 与外部 AI
-
-Reader–DeepTutor 集成属于可选的本地网页版实验，不是白夜俄语正常运行的必要条件。
-
-- DeepTutor 未安装、未启动或不可用时，Reader 和口语基础练习必须继续工作。
-- 未经用户明确要求，不安装或启动 DeepTutor，不接入模型供应商。
-- OpenAI、Anthropic、DeepSeek 等 API Key 只能放在对应服务的安全设置中。
-- 不把 DeepTutor 的内部接口当作稳定的正式后端契约。
-- 未来若继续该实验，以交接文档为准，并保持 Reader 是客观学习记录的权威来源。
-
-相关文档：`docs/white-night-app/READER_DEEPTUTOR_INTEGRATION_HANDOFF.md`。
-
-## 权威资料顺序
-
-发生冲突时按以下顺序判断：
-
-1. 用户当前指令。
-2. 本文件 `AGENTS.md`。
-3. 当前任务对应的 PRD、交接文档、实施计划或验收记录。
-4. 实际网页代码、测试和数据契约。
-5. Android 历史设计与计划，仅在用户明确恢复 Android 时生效。
-
-Android 历史资料包括：
-
-- `docs/superpowers/specs/2026-07-27-v1-android-packaging-design.md`
-- `docs/superpowers/plans/2026-07-27-v1-android-packaging.md`
-
-这些文档现在是封存资料，不能再自动决定当前开发顺序。
-
-## 当前网页结构
-
-重要文件包括：
-
-- `app-home.html`：白夜俄语首页。
-- `reader.html`：Reader 主应用，包含阅读、语法、听力、写作和现有口语任务。
-- `vocabulary.html`：Vocabulary 学习与复习。
-- `profile.html`：“我的”、本地资料和学习档案。
-- `js/app-shell.js`：四入口共享页面壳。
-- `js/app-runtime.js`：不同运行环境的适配层。
-- `js/app-archive.js`：统一学习档案。
-- `js/app-file-transfer.js`：浏览器与封存 Android 路线共用的文件适配。
-- `js/app-profile.js`：本地资料和每日打卡。
-- `js/app-profile-page.js`：“我的”页面交互。
-
-页面采用直接导航，不恢复旧 `index.html` iframe 调度中心。
-
-`app-dist/` 是历史 Android 生成物。普通网页任务不要手工编辑、重建或同步它。
-
-## 数据原则
-
-- Reader、Vocabulary、写作、听力、口语和考试继续复用现有学习数据。
-- 不创建第二套首页进度或口语进度来复制同一事实。
-- localStorage 与 IndexedDB 的真实键和数据库以代码为准。
-- 导入学习档案前必须完整校验；默认合并；失败时回滚。
-- 不导出缓存、密钥、临时同步队列或无关 origin 数据。
-- 未来后端必须提供现有本地数据的迁移与合并方案。
+- `data/reader-content-manifest.json` — Reader 核心内容文件清单
+- `scripts/build-reader-content-manifest.js` — 内容清单生成与校验
+- `tests/reader-content-manifest.test.js` — 内容清单边界测试
 
 ## 常用命令
 
-在 `D:\MyStudySpace` 中运行：
+PowerShell 工作目录：`D:\MyStudySpace`
 
 ```powershell
+node server.js
 npm start
+npm run test:russian-b2
 npm run verify:russian-b2
-npm run verify:russian-dictionary
 ```
 
-按改动范围运行对应的 `node --test ...` 测试。
+- 本地开发服务器：`http://localhost:3000`
+- `npm test` 仍是占位命令，会失败；不要把它当成项目验收命令。
+- 修改范围较小时运行对应测试；涉及网页版共享运行层或内容契约时运行相应 Web/Reader/Vocabulary 验证。
 
-- `npm test` 是占位命令，会故意失败，不能用作验收依据。
-- `npm run build:v1-app` 和 `npm run verify:v1-app` 属于封存 Android 链路，普通网页任务不主动运行。
-- Reader 修改需要运行 Reader/B2 对应测试。
-- Vocabulary 修改需要运行 Vocabulary/词典对应测试。
-- 口语修改需要运行对应的 `tests/speaking-*.test.js` 和受影响的 Reader 测试。
-- 视觉修改必须在桌面和移动浏览器中实际检查。
+## 工作原则
 
-## 工作方式
+### 先确认当前任务边界
 
-- 开始修改前查看 `git status --short`，当前工作树可能包含大量未提交成果。
-- 搜索真实函数、存储键、测试和任务文档后再编辑，不根据旧计划猜测。
-- 先完成最小可用版本，再逐步增加 AI、后端或高级功能。
-- 不为了“像 App”而引入复杂框架或重写现有网页。
-- `reader.html` 很大，修改前按函数名、元素 ID 或存储键精确定位。
-- 内容生成脚本可能批量重写教材 JSON，普通功能任务不要随意运行。
+- 开始修改前先查看 `git status --short`，工作区可能包含用户尚未提交的大量改动。
+- 搜索相关函数、测试、数据契约和任务文档后再编辑；不要根据旧架构猜测。
+- 不覆盖、不回退、不整理与当前任务无关的用户改动。
+- `reader.html` 体积很大，CSS/JS 多为内联；先按函数名、ID 或数据字段精确搜索。
+- 内容生成脚本可能批量重写 JSON。除非任务明确要求，不要随意运行会改写教材数据的命令。
 
-## 工作树安全
+### 修改后的验证
 
-- 保留所有现有修改和未跟踪文件。
-- 不清理、重置、checkout、覆盖或删除无关文件。
-- 不假设 `origin/main` 包含全部本地成果。
-- 不为依赖当前未提交文件的任务创建新 worktree。
-- 不自动 stage、commit 或 push。
-- 修改已有变更文件前，先读当前 diff 并在现状上继续。
+- 源页面修改：验证桌面和移动端布局、直接导航、返回路径与底部安全区。
+- Reader 修改：运行相应 `tests/russian-b2/`、Reader 或工作台测试。
+- Vocabulary 修改：运行对应 Vocabulary、词典和双页测试。
+- 运行适配层或根入口修改：运行对应网页测试，并在浏览器中验证直接导航和数据兼容性。
+- 视觉修改应使用浏览器在桌面和移动视口进行实际检查，不只依赖静态代码判断。
 
 ## Legacy 边界
 
-以下内容默认是历史或独立项目：
+以下文件和功能仍可保留，但默认视为历史项目：
 
-- `index.html`
 - `pomodoro.html`
 - `study-stats.html`
 - `俄语知识库.html`
 - `b2-exam.html`
-- 旧 Pomodoro 素材和统计数据
-- 旧 iframe `OPEN_RUSSIAN` / `CLOSE_RUSSIAN` 架构
-- Obsidian 转换和历史 B2 素材工作流
+- `convert.js`
+- `index.html.bak`
+- `pomodoro-*.html` 与旧番茄钟截图
+- `immersion-study-space/`
+- 旧 `OPEN_RUSSIAN` / `CLOSE_RUSSIAN` iframe 通信架构
+- `docs/UI_OPTIMIZATION_PLAN.md` 中针对旧学习舱的任务
 
-除非用户明确要求，不删除、不重构，也不把它们恢复为白夜俄语网页入口。
+除非用户明确要求修复或迁移 legacy 功能，否则：
 
-`俄语笔记库/` 是独立 Obsidian 学习资料库，不是白夜俄语运行代码。只有任务明确涉及 Obsidian 时才进入。
+- 不读取它们作为当前架构依据；
+- 不把它们加入 `app-dist/`；
+- 不因白夜俄语 APP 的改动而顺手重构它们；
+- 不恢复旧番茄钟调度中心作为 APP 入口。
 
-## 安全
+`俄语笔记库/` 是独立的 Obsidian 学习资料库，不是白夜俄语 APP 的运行时主代码。只有任务明确涉及 Obsidian、摄入或笔记维护时才进入该目录。
 
-- 永远不要读取、打印、修改、暂存或提交 `cloudsync-config.js`，其中含真实凭据。
-- 不输出 `package.json` 中可能存在的认证仓库 URL 或 Token。
-- 不把 API Key、Token、密码写入 HTML、JavaScript、localStorage、IndexedDB、导出档案、Git、日志或构建产物。
-- 不提交 DeepTutor workspace、`.env`、日志、`tmp/`、个人学习数据、OCR 中间文件或 Android 签名材料。
-- 保存到用户桌面时使用 `E:\Desktop`。
-- 提交相关操作前必须检查 `git status --short`，但未经用户明确要求不创建提交或推送。
+## 安全与 Git
 
-## 当前完成标准
+- Windows 桌面已重定向到 `E:\Desktop`。用户要求保存到桌面时必须使用该路径。
+- 当前主分支为 `main`。不要自动 push，等待用户确认。
+- 不自动创建提交；只有用户明确要求时才 stage 或 commit。
+- `cloudsync-config.js` 含真实 GitHub 凭据，不得提交、复制到构建产物或输出其内容。
+- `package.json` 的 `repository.url` 必须保持无认证形式：`git+https://github.com/chenxingguo43-sudo/MyStudySpace.git`。
+- 签名 keystore、密码、API Key、Token、`.env`、OCR 中间文件、测试日志和 `tmp/` 不得进入任何 Web 部署产物、后端镜像或未来可能恢复的 APK。
+- 构建前后都要检查 `git status --short`，防止生成物或敏感文件被误纳入提交范围。
+- 不使用破坏性 Git 命令回退用户改动，不自动删除未跟踪文件。
 
-一个网页版口语或白夜俄语网页任务只有在以下条件满足后才算完成：
+## 完成标准
 
-1. 本轮目标和验收标准已经明确。
-2. 基础学习流程不依赖尚不存在的后端。
-3. 没有破坏 Reader、Vocabulary 和已有本地学习数据。
-4. 相关自动化测试通过。
-5. 受影响的桌面与移动浏览器界面完成实际验证。
-6. 外部服务不可用时仍能完成约定的本地功能。
-7. 未覆盖用户现有修改，未自动提交或推送。
+一个当前白夜俄语网页版任务只有在以下条件满足后才算完成：
 
-Android 构建、APK、真机迁移和商店发布不再是普通网页任务的完成条件。
-
-## 更新本文件
-
-只有用户明确改变产品方向、恢复 Android、启动正式后端或确认新的主要阶段时，才更新相应章节。不要根据旧聊天摘要或封存计划把 Android 自动恢复为默认目标。
+1. 实现符合当前产品设计和具体任务文档；
+2. 没有把 legacy 功能重新带回生产入口；
+3. 相关自动化测试通过；
+4. 受影响的桌面与移动浏览器界面完成实际验证；
+5. 本地数据兼容性、敏感信息和未来后端迁移风险按改动范围完成检查；
+6. 未恢复 APP 首页、四入口导航或 Android 构建链；
+7. 未覆盖用户现有改动，未自动 push。

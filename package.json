@@ -10,17 +10,16 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "test:russian-b2": "node --test tests/russian-b2/*.test.js",
+    "test:speaking-v2": "node --test tests/speaking-*.test.js",
     "start": "node server.js",
     "build:vocab": "node build-vocabulary.js",
     "build:russian-b2-study-cards": "node scripts/russian-b2/build-study-cards.js",
+    "build:reader-content": "node scripts/build-reader-content-manifest.js",
     "build:russian-dictionary": "node scripts/russian-dictionary/build-corpus-morphology.js && node scripts/russian-dictionary/build-freedict.js && node scripts/russian-dictionary/build-openrussian.js && node scripts/russian-dictionary/build-markdown-glossary.js && node scripts/russian-dictionary/audit-coverage.js && node scripts/russian-dictionary/build-wiktionary-supplement.js",
-    "build:v1-app": "node scripts/build-v1-app.js",
     "audit:russian-dictionary": "node scripts/russian-dictionary/audit-coverage.js",
     "verify:russian-dictionary": "node scripts/russian-dictionary/audit-coverage.js --check && node --test tests/russian-b2/dictionary-*.test.js",
     "verify:russian-b2": "node scripts/russian-b2/build-full-book.js --check && npm run test:russian-b2",
-    "verify:llm-speaking": "node --test tests/speaking-llm-benchmark.test.js tests/reader-ai-provider.test.js && node scripts/run-speaking-llm-benchmark.js --offline",
-    "verify:speaking-v2": "node --test tests/speaking-*.test.js",
-    "verify:v1-app": "node --test tests/app-runtime.test.js tests/v1-app-build.test.js tests/app-shell.test.js tests/app-home.test.js tests/app-profile.test.js"
+    "verify:speaking-v2": "npm run test:speaking-v2"
   },
   "repository": {
     "type": "git",
@@ -35,15 +34,10 @@
   },
   "homepage": "https://github.com/chenxingguo43-sudo/MyStudySpace#readme",
   "dependencies": {
-    "@capacitor/core": "8.5.0",
-    "@capacitor/filesystem": "8.1.2",
-    "@capacitor/share": "8.0.1",
-    "@capawesome/capacitor-file-picker": "8.0.4",
     "@playwright/test": "^1.61.1",
     "cheerio": "^1.2.0",
     "opencc-js": "^1.4.1",
     "playwright-core": "^1.61.1",
-    "sql.js": "^1.14.1",
-    "ts-fsrs": "5.4.1"
+    "sql.js": "^1.14.1"
   }
 }

@@ -3,60 +3,34 @@ const test = require('node:test');
 const assert = require('node:assert/strict');
 
 const reader = fs.readFileSync('reader.html', 'utf8');
-const appRuntime = fs.readFileSync('js/app-runtime.js', 'utf8');
-const readerShell = fs.readFileSync('css/reader-shell.css', 'utf8');
-const readerWorkbench = fs.readFileSync('css/reader-workbench.css', 'utf8');
-const v1Assets = JSON.parse(fs.readFileSync('config/v1-app-assets.json', 'utf8'));
+const readerRuntime = fs.readFileSync('js/reader-runtime.js', 'utf8');
 const dictionaryRuntime = fs.readFileSync('js/russian-dictionary/runtime.js', 'utf8');
 
-test('reader theme changes preserve app shell state and expose view metadata', () => {
+test('reader theme changes preserve Reader state and expose view metadata', () => {
   assert.doesNotMatch(reader, /document\.body\.className\s*=/);
   assert.match(reader, /body\.classList\.add\('theme-' \+ state\.theme/);
   assert.match(reader, /function syncReaderShellState\(\)/);
-  assert.match(reader, /root\.dataset\.appTheme\s*=\s*'white-night'/);
+  assert.match(reader, /root\.dataset\.readerTheme\s*=\s*'white-night'/);
   assert.match(reader, /root\.dataset\.readingTheme\s*=\s*state\.theme/);
   assert.match(reader, /readerLayout\.classList\.contains\('rs-practice-mode'\)/);
   assert.match(reader, /root\.dataset\.readerView\s*=\s*resolveReaderShellView\(\)/);
   assert.match(reader, /curView = 'chapters'; curCh = -1; stopTimer\(\); syncReaderShellState\(\)/);
 });
 
-test('reader shell derives colors from the active body theme and keeps reading tools compact', () => {
-  assert.match(readerShell, /body\s*\{[^}]*--reader-shell-surface:/s);
-  assert.doesNotMatch(readerShell, /:root\s*\{[^}]*--reader-shell-surface:/s);
-  assert.match(readerWorkbench, /body\s*\{[^}]*--reader-workbench-soft:/s);
-  assert.doesNotMatch(readerWorkbench, /:root\s*\{[^}]*--reader-workbench-soft:/s);
-  assert.match(readerShell, /data-reader-view="reading"[^}]*\.reader-shell-tools[\s\S]*?left:\s*auto[\s\S]*?background:\s*transparent/);
-  assert.match(readerShell, /data-reader-view="reading"[^}]*\.reader-shell-title[\s\S]*?display:\s*none/);
-});
-
-test('reader keeps the Phase D visual shell Android-only while preserving shared dictionary states', () => {
-  assert.match(reader, /css\/reader-shell\.css" media="not all" data-reader-android-style/);
-  assert.match(reader, /var readerAppShellMount = AppShell\.mount\(\{ current: 'reader' \}\)/);
-  assert.match(reader, /if \(readerAppShellMount\.mounted\)[\s\S]*?link\.media = 'all'/);
-  assert.match(reader, /\.reader-shell-title\s*\{\s*display:\s*none;/);
-  assert.match(readerShell, /\.reader-shell-title\s*\{[\s\S]*?display:\s*block;/);
+test('reader keeps its own navigation and shared dictionary states without an APP shell', () => {
+  assert.doesNotMatch(reader, /AppShell|app-shell|app-runtime|app-home|profile\.html|data-reader-android-style/);
+  assert.match(reader, /Reader 工具/);
   assert.match(reader, /reader-shelf-view/);
   assert.match(reader, /reader-chapters-view/);
   assert.match(reader, /reader-reading-layout/);
   assert.match(reader, /reader-reading-header/);
-  assert.match(readerShell, /data-reader-view="reading"/);
-  assert.match(readerShell, /data-reader-view="practice"/);
-  assert.match(readerShell, /#detailPanel/);
   assert.match(reader, /data-dictionary-state="closed"/);
   assert.match(reader, /setPanelState\('closed'\)/);
   assert.match(dictionaryRuntime, /setPanelState\('half'\)/);
   assert.match(dictionaryRuntime, /\['closed', 'half', 'full'\]/);
-  assert.match(reader, /app-shell-enabled\[data-reader-view="reading"\] #detailPanel/);
 });
 
-test('reader shell keeps reduced motion and reduced transparency fallbacks', () => {
-  assert.match(readerShell, /prefers-reduced-motion: reduce/);
-  assert.match(readerShell, /prefers-reduced-transparency: reduce/);
-});
-
-test('Phase E workbench visuals ship in the V1 package without changing the normal Web Reader', () => {
-  assert.match(reader, /css\/reader-workbench\.css" media="not all" data-reader-android-style/);
-  assert.ok(v1Assets.styles.includes('css/reader-workbench.css'));
+test('Reader retains every study workbench after APP removal', () => {
   assert.match(reader, /reader-workbench-index/);
   assert.match(reader, /reader-workbench--quiz/);
   assert.match(reader, /reader-workbench--reading-practice/);
@@ -71,13 +45,7 @@ test('Phase E workbench visuals ship in the V1 package without changing the norm
   assert.match(reader, /reader-workbench--archive/);
 });
 
-test('Phase E workbenches keep accessibility fallbacks and functional boundaries', () => {
-  assert.match(readerWorkbench, /prefers-reduced-motion: reduce/);
-  assert.match(readerWorkbench, /prefers-reduced-transparency: reduce/);
-  assert.match(readerWorkbench, /reader-workbench--listening/);
-  assert.match(readerWorkbench, /reader-workbench--writing-speaking/);
-  assert.match(readerWorkbench, /reader-workbench-layout\.rs-practice-mode \.rs-practice-panel/);
-  assert.match(readerWorkbench, /order: -1/);
+test('Reader workbenches keep functional boundaries', () => {
   assert.match(reader, /function renderB2Dashboard[\s\S]*?completePrompt[\s\S]*?classList\.remove\('visible'\)/);
 
   const listeningStart = reader.indexOf('function renderListeningPractice(data, scrollPosition)');
@@ -411,9 +379,9 @@ test('unified B2 modules use module-scoped chapter cache keys', () => {
   assert.match(chapterBody[1], /cachePut\(cacheBookId, idx, data\)/);
   const fetchBody = reader.match(/function fetchChapter\(bookId, idx\) \{([\s\S]*?)\n\}/);
   assert.ok(fetchBody);
-  assert.match(fetchBody[1], /appRuntime\.loadChapter\(book, idx\)/);
-  assert.match(appRuntime, /book\.isB2Module/);
-  assert.match(appRuntime, /const staticUrl = `\$\{dataRoot\}\/\$\{directory\}/);
+  assert.match(fetchBody[1], /readerRuntime\.loadChapter\(book, idx\)/);
+  assert.match(readerRuntime, /book\.isB2Module/);
+  assert.match(readerRuntime, /const staticUrl = `\$\{dataRoot\}\/\$\{directory\}/);
 });
 
 test('last-read state preserves and restores the B2 module route', () => {

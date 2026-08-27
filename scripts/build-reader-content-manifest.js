@@ -3,11 +3,10 @@ const fs = require('node:fs');
 const path = require('node:path');
 
 const REPOSITORY_ROOT = path.resolve(__dirname, '..');
-const DEFAULT_OUTPUT = path.join(REPOSITORY_ROOT, 'data', 'app-content-manifest.json');
+const DEFAULT_OUTPUT = path.join(REPOSITORY_ROOT, 'data', 'reader-content-manifest.json');
 const CONTENT_VERSION = '2026.07.27.1';
 
 const ROOT_CONTENT_FILES = [
-  'data/audio-manifest.json',
   'data/external-vocab.json',
   'data/lexeme_index.json',
   'data/morphology-map.json',
@@ -31,7 +30,7 @@ const DICTIONARY_CONTENT_FILES = [
   'data/dictionary/wiktionary-ru.json'
 ];
 
-const EXCLUDED_DIRECTORY_NAMES = new Set(['media', '_automation']);
+const EXCLUDED_DIRECTORY_NAMES = new Set(['media', '_automation', 'rebuild']);
 
 function normalizePath(filePath) {
   return filePath.split(path.sep).join('/');
@@ -208,7 +207,7 @@ function buildContentManifest({ root = REPOSITORY_ROOT, generatedAt = new Date()
   const grammarAnalysis = validateGrammarAnalysis(root);
 
   return {
-    schema: 'mystudyspace-content-v1',
+    schema: 'mystudyspace-reader-content-v1',
     version: CONTENT_VERSION,
     generatedAt,
     grammarAnalysisStatus: 'complete',
@@ -245,7 +244,7 @@ function checkContentManifest({ root = REPOSITORY_ROOT, outputPath = DEFAULT_OUT
   const actual = readJson(outputPath);
   const expected = buildContentManifest({ root, generatedAt: actual.generatedAt });
   if (JSON.stringify(stableManifest(actual)) !== JSON.stringify(stableManifest(expected))) {
-    throw new Error('Content manifest is stale; run node scripts/build-v1-content-manifest.js');
+    throw new Error('Content manifest is stale; run node scripts/build-reader-content-manifest.js');
   }
   return actual;
 }
@@ -255,7 +254,7 @@ if (require.main === module) {
   const manifest = checkOnly ? checkContentManifest() : writeContentManifest();
   const action = checkOnly ? 'verified' : 'written';
   console.log(
-    `V1 content manifest ${action}: ${manifest.controlledContent.fileCount} files, ` +
+    `Reader content manifest ${action}: ${manifest.controlledContent.fileCount} files, ` +
     `${manifest.controlledContent.totalBytes} bytes, ${manifest.filesHash}`
   );
 }

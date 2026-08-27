@@ -7,7 +7,7 @@ const ROOT = path.resolve(__dirname, '..', '..');
 const OUTPUT_DIR = path.join(ROOT, 'data', 'dictionary');
 const OUTPUT_PATH = path.join(OUTPUT_DIR, 'corpus-morphology.json');
 const MANIFEST_PATH = path.join(OUTPUT_DIR, 'manifest.json');
-const CONTENT_MANIFEST_PATH = path.join(ROOT, 'data', 'app-content-manifest.json');
+const CONTENT_MANIFEST_PATH = path.join(ROOT, 'data', 'reader-content-manifest.json');
 
 function normalizeRussian(value) {
   return String(value || '').normalize('NFD').replace(/[\u0300\u0301]/g, '').normalize('NFC').replace(/ё/g, 'е').replace(/Ё/g, 'е').toLowerCase();
@@ -136,7 +136,7 @@ function buildCorpusMorphology(options = {}) {
       engine: 'pymorphy3',
       sourceFiles: files.length,
       sourceFingerprint: sourceFingerprint(files),
-      sourceScope: 'data/app-content-manifest.json production JSON',
+      sourceScope: 'data/reader-content-manifest.json production JSON',
       formCount: Object.keys(result).length,
       output: path.relative(ROOT, OUTPUT_PATH).replace(/\\/g, '/'),
       sha256: sha256(OUTPUT_PATH)
