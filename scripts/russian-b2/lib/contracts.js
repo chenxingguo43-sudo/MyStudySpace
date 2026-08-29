@@ -19,7 +19,8 @@ function validateExercise(exercise) {
   if (exercise.answer !== exercise.sourceAnswer) errors.push(`${exercise.id}: answer must equal sourceAnswer`);
   if (!exercise.sourceEvidence) errors.push(`${exercise.id}: sourceEvidence is required`);
   if (!exercise.sourceExplanation) errors.push(`${exercise.id}: sourceExplanation is required`);
-  if (!String(exercise.referenceExplanation || '').includes('参考解析（AI，待复核）')) errors.push(`${exercise.id}: referenceExplanation needs 参考解析（AI，待复核） label`);
+  // referenceExplanation（AI 占位讲解）已于 2026-08 阶段二整体退役：发布数据必须没有该字段；
+  // 俄语资料库源单元仍带此字段属历史遗留，由构建管线剥除后再校验，源库本身不动。
   if (!Array.isArray(exercise.questionPages) || !exercise.questionPages.length) errors.push(`${exercise.id}: questionPages is required`);
   if (!Array.isArray(exercise.answerPages) || !exercise.answerPages.length) errors.push(`${exercise.id}: answerPages is required`);
   if (!['verified', 'needs_review'].includes(exercise.reviewStatus)) errors.push(`${exercise.id}: invalid reviewStatus`);

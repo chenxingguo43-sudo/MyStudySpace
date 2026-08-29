@@ -169,7 +169,7 @@ test('normalizes verified chapter ids and rejects source-indexed chapters with n
   assert.equal(chapterInventory({ id: 'source-only', instructions: 'not interactive' }), null);
 });
 
-test('real source-indexed exam gaps make exam progress unavailable instead of inventing completion', () => {
+test('fully imported exam chapters keep exam progress available and countable', () => {
   const book = readJson(path.join('data', 'textbook', 'russian_b2', 'book.json'));
   const exam = book.modules.find(module => module.id === 'exam');
   const index = readJson(path.join('data', 'textbook', exam.dir, 'index.json'));
@@ -178,9 +178,12 @@ test('real source-indexed exam gaps make exam progress unavailable instead of in
   ));
   const result = buildDashboardProgress({ manifest: { modules: [exam] }, inventories: { exam: inventory }, records: {} });
 
-  assert.equal(inventory.filter(item => item === null).length, 3);
-  assert.equal(result.modules.exam.progressAvailable, false);
+  // 六个章节都能生成合法清单：考试说明与会话材料为只读清单，四个分测验带题目/任务
+  assert.equal(inventory.filter(item => item === null).length, 0);
+  assert.equal(inventory.filter(item => item && item.readOnly).length, 2);
+  assert.equal(result.modules.exam.progressAvailable, true);
   assert.equal(result.modules.exam.completed, 0);
+  assert.equal(result.modules.exam.total, index.chapters);
 });
 
 test('grammar chapter paths come from the manifest while indexed modules require their index count', () => {

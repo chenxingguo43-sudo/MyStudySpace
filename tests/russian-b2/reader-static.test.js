@@ -450,7 +450,9 @@ test('reader gives source-indexed exam chapters a distinct, non-fabricated exam 
 test('reader gives source-verified exam questions their own answer and progress flow', () => {
   assert.match(reader, /EXAM_PROGRESS_KEY/);
   assert.match(reader, /russian_b2_exam_progress_v1/);
-  assert.match(reader, /function answerExamQuestion\(questionId, selected\)/);
+  assert.match(reader, /function answerExamQuestion\(questionId, selected, evt\)/);
+  // 两段式作答：第一次点击选中待确认，再次点击同一选项才提交
+  assert.match(reader, /if \(record\.selected !== selected\) \{[\s\S]*?rerenderExamPracticePreservingScroll\(\);[\s\S]*?return;/);
   assert.match(reader, /function toggleExamAnswer\(questionId\)/);
   assert.match(reader, /source-verified/);
   assert.match(reader, /data\.questions/);
@@ -573,9 +575,11 @@ test('reading-speaking explanations can locate and distinctly highlight source s
   assert.match(reader, /rs-source-locate/);
   assert.match(reader, /width: auto/);
   assert.doesNotMatch(reader, /rs-source-locate-hint/);
+  assert.match(reader, /contextEvidence/);
+  assert.match(reader, /rs-source-context-word-highlight/);
   assert.match(reader, /rs-source-word-highlight/);
   assert.match(reader, /background: #fde68a !important/);
-  assert.match(reader, /sourceAnchor\.paragraphIndex/);
+  assert.match(reader, /anchor\.paragraphIndex/);
   assert.match(reader, /scrollIntoView\(\{ behavior: 'smooth', block: 'center' \}\)/);
 });
 

@@ -26,7 +26,6 @@ function makeExercise(id, answer) {
     sourceAnswer: answer,
     sourceEvidence: 'PDF-025',
     sourceExplanation: '原书解析：测试规则；译文：测试译文。',
-    referenceExplanation: '参考解析（AI，待复核）：测试。',
     pitfalls: ['测试干扰项'],
     questionPages: [18],
     answerPages: [25],
@@ -119,18 +118,18 @@ test('accepts the complete Q001–Q010 pilot answer vector', () => {
   assert.doesNotThrow(() => assertPilotAnswerVector(chapter));
 });
 
-test('rejects answer/sourceAnswer mismatches, missing source explanation, and missing AI label', () => {
+test('rejects answer/sourceAnswer mismatches and missing source explanation; AI placeholder field is tolerated for legacy sources', () => {
   const exercise = makeExercise('Q001', 'В');
   exercise.sourceAnswer = 'Б';
   exercise.sourceExplanation = '';
-  exercise.referenceExplanation = '没有来源标签的解释';
+  exercise.referenceExplanation = '历史遗留字段';
   const errors = validateChapter({
     index: 0, title: 'x', module: '语法词汇', format: 'quiz-first',
     sourcePages: { questions: [18], rules: [24], answers: [25] }, exercises: [exercise]
   });
   assert.match(errors.join('\n'), /sourceAnswer/);
   assert.match(errors.join('\n'), /sourceExplanation/);
-  assert.match(errors.join('\n'), /参考解析（AI，待复核）/);
+  assert.doesNotMatch(errors.join('\n'), /referenceExplanation/);
 });
 
 test('P1 Q001 answer label matches the original explained form', () => {

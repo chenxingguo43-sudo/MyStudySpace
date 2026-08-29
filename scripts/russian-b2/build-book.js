@@ -14,7 +14,11 @@ function pages(values) { return (values || []).map(page => 'PDF-' + String(page)
 function buildMarkdown(unit) {
   const allPages = [...new Set([...(unit.sourcePages.questions || []), ...(unit.sourcePages.rules || []), ...(unit.sourcePages.answers || [])])].sort((a, b) => a - b);
   const lines = ['---', 'title: ' + unit.title, 'book: 俄语 B2 全模块', 'module: ' + unit.module, 'unit_id: ' + unit.id, 'source_pages: [' + allPages.join(', ') + ']', 'generated: true', '---', '', '# ' + unit.title, ''];
-  unit.exercises.forEach(exercise => lines.push('## ' + exercise.id + '（原书题 ' + exercise.printedNumber + '）', '', exercise.question, '', ...exercise.options.map(option => '- ' + option.key + '. ' + option.text), '', '> [!success]- 答案与解析', '> **原书答案（已核对）：** ' + exercise.sourceAnswer, '>', '> **原书解析（已核对）：** ' + exercise.sourceExplanation, '>', '> **' + exercise.referenceExplanation.split('：')[0] + '：** ' + exercise.referenceExplanation.split('：').slice(1).join('：'), '>', '> **易错点：** ' + exercise.pitfalls.join('；'), '>', '> **原书页：** ' + pages(exercise.questionPages) + '；' + pages(exercise.answerPages), ''));
+  unit.exercises.forEach(exercise => {
+    lines.push('## ' + exercise.id + '（原书题 ' + exercise.printedNumber + '）', '', exercise.question, '', ...exercise.options.map(option => '- ' + option.key + '. ' + option.text), '', '> [!success]- 答案与解析', '> **原书答案（已核对）：** ' + exercise.sourceAnswer, '>', '> **原书解析（已核对）：** ' + exercise.sourceExplanation, '>');
+    if (exercise.referenceExplanation) lines.push('> **' + exercise.referenceExplanation.split('：')[0] + '：** ' + exercise.referenceExplanation.split('：').slice(1).join('：'), '>');
+    lines.push('> **易错点：** ' + (exercise.pitfalls || []).join('；'), '>', '> **原书页：** ' + pages(exercise.questionPages) + '；' + pages(exercise.answerPages), '');
+  });
   return lines.join('\n');
 }
 function buildBook({ root }) {
@@ -26,6 +30,8 @@ function buildBook({ root }) {
   if (manifestErrors.length) throw new Error(manifestErrors.join('\n'));
   const readerPaths = [], markdownPaths = [], entries = [];
   units.forEach(unit => {
+    // referenceExplanation（AI 占位讲解）已退役：源库历史字段进入发布数据前剥除，源库本身不动
+    unit.exercises.forEach(exercise => { delete exercise.referenceExplanation; });
     const errors = validateUnit(unit); if (errors.length) throw new Error(errors.join('\n'));
     const readerPath = path.join(root, 'data', 'textbook', 'russian_b2', 'ch' + String(unit.chapterIndex).padStart(4, '0') + '.json');
     const markdownPath = path.join(root, ...VAULT, '学习单元', '语法词汇', unit.id + '.md');

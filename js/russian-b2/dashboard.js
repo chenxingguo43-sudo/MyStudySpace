@@ -23,6 +23,11 @@
   }
   function chapterInventory(data) {
     const chapter = safeObject(data);
+    // 纯阅读章节（真题考试说明、会话材料）：无题目也无任务，标记只读清单供进度模型识别
+    if (chapter.readOnly === true && typeof chapter.id === 'string' && chapter.id.trim()
+      && !Array.isArray(chapter.questions) && !Array.isArray(chapter.exercises) && !Array.isArray(chapter.tasks)) {
+      return { id: chapter.id, questionIds: [], taskIds: [], readOnly: true };
+    }
     const questionItems = Array.isArray(chapter.exercises) ? chapter.exercises : Array.isArray(chapter.questions) ? chapter.questions : [];
     const taskItems = Array.isArray(chapter.tasks) ? chapter.tasks : chapter.task && typeof chapter.task === 'object' ? [chapter.task] : [];
     const questionIds = questionItems.map(item => safeObject(item).id).filter(id => typeof id === 'string' && id.trim());
@@ -88,6 +93,8 @@
   }
   function hasMalformedChapterInventory(moduleId, inventory) {
     return inventory.some(item => {
+      // 只读章节（真题考试说明、会话材料页）：清单合法，视为正常章节
+      if (item && typeof item === 'object' && !Array.isArray(item) && item.readOnly === true) return false;
       if (!item || typeof item !== 'object' || Array.isArray(item)) return true;
       if (typeof item.id !== 'string' || !item.id.trim()) return true;
       const hasInvalidDeclaredIds = ['questionIds', 'taskIds'].some(key =>
@@ -146,8 +153,11 @@
   function examModule(inventory, objectiveRecords, manualRecords) {
     const objectives = safeObject(objectiveRecords), manuals = safeObject(manualRecords);
     const complete = chapter => {
+      // 只读章节（考试说明、会话材料）无题可答，不计入完成统计
+      if (chapter.readOnly === true) return false;
       const questions = Array.isArray(chapter.questionIds) ? chapter.questionIds : [];
       const tasks = Array.isArray(chapter.taskIds) ? chapter.taskIds : [];
+      if (!questions.length && !tasks.length) return false;
       return questions.every(id => safeObject(objectives[id]).answered === true) &&
         tasks.every(id => {
           const record = safeObject(manuals[chapter.id + ':' + id]);

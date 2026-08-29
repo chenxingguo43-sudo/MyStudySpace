@@ -822,6 +822,47 @@ body {
 .b2-result.is-correct { color: var(--success); }.b2-result.is-wrong { color: var(--warning); }
 .b2-explanation { margin-top: 12px; padding: 16px; border-left: 3px solid var(--accent); background: var(--glass); }
 .b2-explanation p { margin: 0 0 10px; }.b2-explanation p:last-child { margin-bottom: 0; }
+/* B2 真题模拟：考试说明页 / 分部标题 / 中文题干 / 听力音频 / 会话材料 */
+.exam-prompt-zh { display: block; margin-top: 4px; color: var(--text-secondary); font-size: 14px; }
+.exam-part-heading { margin: 26px 0 10px; padding: 14px 16px; border: 1px solid var(--border); border-radius: 10px; background: var(--surface-solid); }
+.exam-part-heading h2 { margin: 0 0 6px; font-size: 17px; }
+.exam-part-heading:first-child { margin-top: 0; }
+.exam-part-instruction-ru { margin: 4px 0; color: var(--text); font-family: Georgia, 'Times New Roman', serif; font-size: 15px; line-height: 1.6; }
+.exam-part-instruction-zh { margin: 4px 0; color: var(--text-secondary); font-size: 14px; line-height: 1.65; }
+.exam-part-answers { margin: 8px 0 0; color: var(--text-secondary); font-size: 13px; }
+.exam-audio-player { margin-bottom: 16px; padding: 14px 16px; border: 1px solid var(--border); border-radius: 10px; background: var(--surface-solid); }
+.exam-audio-player h2 { margin: 0 0 8px; font-size: 16px; }
+.exam-audio-piece { margin: 12px 0; }
+.exam-audio-piece h3 { margin: 0 0 6px; font-size: 14px; color: var(--text-secondary); }
+.exam-audio-piece audio { width: 100%; }
+.exam-audio-captions { margin: 6px 0 0; }
+.exam-transcript { margin-top: 10px; padding: 12px; border: 1px dashed var(--border); border-radius: 8px; }
+.exam-transcript-row { margin: 6px 0; line-height: 1.7; font-family: Georgia, 'Times New Roman', serif; }
+.exam-transcript-speaker { display: inline-block; min-width: 96px; margin-right: 8px; color: var(--text-secondary); font-size: 13px; font-family: var(--sans, inherit); }
+.exam-table { width: 100%; border-collapse: collapse; margin-top: 8px; }
+.exam-table th, .exam-table td { padding: 8px 10px; border: 1px solid var(--border); text-align: left; font-size: 14px; line-height: 1.5; }
+.exam-table th { background: var(--glass); color: var(--text-secondary); font-weight: 600; }
+.exam-intro-lead p { line-height: 1.8; }
+.exam-intro-note { margin-top: 8px; color: var(--text-secondary); font-size: 14px; }
+.exam-schedule { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.exam-schedule h3 { margin: 0 0 6px; font-size: 14px; color: var(--text-secondary); }
+.exam-schedule ul { margin: 0; padding-left: 18px; line-height: 1.9; font-size: 14px; }
+.exam-speaking-section { margin: 20px 0; }
+.exam-speaking-section h2 { margin: 0 0 6px; }
+.exam-speaking-task { margin: 14px 0; padding: 14px 16px; border: 1px solid var(--border); border-radius: 10px; background: var(--surface-solid); }
+.exam-speaking-task h3 { margin: 0 0 8px; font-size: 15px; }
+.exam-material-line { margin: 4px 0; font-family: Georgia, 'Times New Roman', serif; line-height: 1.7; }
+.exam-materials { margin: 10px 0; padding: 10px 12px; border: 1px dashed var(--border); border-radius: 8px; }
+.exam-reference { margin-top: 10px; }
+.exam-reference summary { cursor: pointer; color: var(--accent); font-size: 14px; }
+.exam-dialog-line { margin: 6px 0; line-height: 1.7; font-family: Georgia, 'Times New Roman', serif; }
+.exam-dialog-examiner { color: var(--text); }
+.exam-dialog-student { color: var(--accent); }
+.exam-dialog-note { margin: 8px 0 0; color: var(--text-secondary); font-size: 13px; line-height: 1.7; }
+@media (max-width: 640px) {
+  .exam-schedule { grid-template-columns: 1fr; }
+  .exam-table th, .exam-table td { padding: 6px 7px; font-size: 13px; }
+}
 .zlatoust-answer-explanation { display: grid; gap: 14px; }
 .zlatoust-answer-explanation > section, .zlatoust-answer-explanation > aside { min-width: 0; padding: 13px; border: 1px solid var(--border); border-radius: 10px; background: var(--surface-solid); }
 .zlatoust-answer-explanation h4 { margin: 0 0 8px; font-size: 14px; }
@@ -1019,6 +1060,11 @@ body.theme-warm .listening-entry-zh, body.theme-warm .listening-section-count { 
 [data-theme="dark"] .rs-explanation-block--breakdown h4 { color: #c4b5fd; }
 [data-theme="dark"] .rs-explanation-block--check h4 { color: #fda4af; }
 .para-block.rs-source-paragraph-highlight { border-color: rgba(245,158,11,0.52); box-shadow: 0 0 0 2px rgba(245,158,11,0.12); }
+.para-block.rs-source-context-highlight { background: rgba(253,230,138,0.16); border-color: rgba(245,158,11,0.34); box-shadow: 0 0 0 1px rgba(245,158,11,0.10); }
+.ru-word.rs-source-context-word-highlight {
+  background: rgba(253,230,138,0.42) !important; color: inherit !important;
+  border-radius: 2px;
+}
 .ru-word.rs-source-word-highlight,
 .ru-word.rs-source-word-highlight:hover,
 .ru-word.rs-source-word-highlight:active {
@@ -5790,7 +5836,6 @@ function renderQuizExplanation(exercise) {
   var answerPages = getZlatoustPageList(exercise.answerPages);
   var parts = ['<p><strong>原书答案（已核对）</strong><br>' + escapeHtml(exercise.sourceAnswer || exercise.answer || '') + '</p>'];
   if (exercise.sourceExplanation) parts.push('<p><strong>原书解析（已核对）</strong><br>' + renderRuText(exercise.sourceExplanation, lookupContext('grammar', exercise.id, 'quiz-explanation', exercise.sourceExplanation, '', exercise.answerPages || [])) + '</p>');
-  if (exercise.referenceExplanation) parts.push('<p><strong>参考解析</strong><br>' + renderRuText(exercise.referenceExplanation, lookupContext('grammar', exercise.id, 'quiz-explanation', exercise.referenceExplanation, '', exercise.answerPages || [])) + '</p>');
   if (exercise.pitfalls && exercise.pitfalls.length) parts.push('<p><strong>易错点</strong><br>' + escapeHtml(exercise.pitfalls.join('；')) + '</p>');
   if (questionPages || answerPages) parts.push('<p><strong>原书页</strong><br>' + escapeHtml([questionPages, answerPages].filter(Boolean).join('；')) + '</p>');
   parts.push(renderExerciseAiAction(exercise.id, 'exercise'));
@@ -7128,12 +7173,21 @@ function unlockExamLookup(attemptId) {
   dictionaryController.setExamPolicy({ mode: 'exam', lookupUnlocked: true });
   rerenderExamPracticePreservingScroll();
 }
-function answerExamQuestion(questionId, selected) {
+function answerExamQuestion(questionId, selected, evt) {
+  // 点到了俄语单词 → 交给词典，不做答题操作（与语法刷题 submitQuizOption 同一套约定）
+  if (evt && evt.target && evt.target.closest && evt.target.closest('.ru-word')) return;
   var progress = getExamProgress(), record = progress[questionId] || { selected: '', answered: false, answerOpen: false };
   if (record.answered) return;
+  if (record.selected !== selected) {
+    // 第一次点击 → 选中待确认，可换选
+    record.selected = selected;
+    progress[questionId] = record; saveExamProgress(progress); rerenderExamPracticePreservingScroll();
+    return;
+  }
+  // 第二次点击同一选项 → 确认提交
   var question = currentExamData && (currentExamData.questions || []).find(function(item) { return item.id === questionId; });
   var wrong = question ? selected !== question.answer : false;
-  record.selected = selected; record.answered = true; record.answeredAt = new Date().toISOString();
+  record.answered = true; record.answeredAt = new Date().toISOString();
   record.everWrong = record.everWrong || wrong;
   record.lastResult = wrong ? 'wrong' : 'correct';
   progress[questionId] = record; saveExamProgress(progress); rerenderExamPracticePreservingScroll();
@@ -7157,34 +7211,110 @@ function saveExamWritingDraft(taskId, value) {
 }
 function renderExamLookupOption(question, option, record, lookupUnlocked) {
   var selected = record.selected === option.label;
-  var state = record.answered ? (option.label === question.answer ? ' correct' : selected ? ' wrong' : '') : (selected ? ' pending' : '');
+  var pending = selected && !record.answered;
+  var state = record.answered ? (option.label === question.answer ? ' correct' : selected ? ' wrong' : '') : (pending ? ' pending' : '');
   var pages = question.answerSource && question.answerSource.pdfPages || [];
   var context = lookupUnlocked ? lookupContext('exam', question.id, 'exam-option', option.text, '', pages) : '';
   var optionHtml = lookupUnlocked ? renderRuText(option.text, context) : escapeHtml(option.text);
-  return '<div class="b2-option-row' + state + '" onclick="answerExamQuestion(\'' + escapeHtml(question.id) + '\',\'' + escapeHtml(option.label) + '\',event)" role="radio" aria-checked="' + (selected ? 'true' : 'false') + '" aria-label="选择 ' + escapeHtml(option.label) + '">' +
+  return '<div class="b2-option-row' + state + '" onclick="answerExamQuestion(\'' + escapeHtml(question.id) + '\',\'' + escapeHtml(option.label) + '\',event)" role="radio" aria-checked="' + (selected ? 'true' : 'false') + '" aria-label="' + (pending ? '再次点击确认选择 ' + escapeHtml(option.label) : '选择 ' + escapeHtml(option.label)) + '">' +
     '<span class="b2-option-radio">' + escapeHtml(option.label) + '.</span>' +
-    '<span class="b2-option-text">' + optionHtml + '</span></div>';
+    '<span class="b2-option-text">' + optionHtml + (pending ? ' <small style="color:var(--accent);font-weight:600">（再点确认）</small>' : '') + '</span></div>';
 }
-function renderExamQuestion(question) {
+function renderExamQuestion(question, previousPart, data) {
   var record = getExamRecord(question.id), selected = record.selected;
   var attempt = getExamAttempt(currentExamData && currentExamData.id || '');
   var options = question.options.map(function(option) {
     return renderExamLookupOption(question, option, record, attempt.lookupAssisted);
   }).join('');
   var result = record.answered ? '<p class="b2-quiz-result ' + (selected === question.answer ? 'correct' : 'wrong') + '">' + (selected === question.answer ? '回答正确' : '回答错误') + '</p>' : '';
-  var pages = (question.answerSource && question.answerSource.pdfPages || []).map(function(page) { return 'PDF-' + String(page).padStart(3, '0'); }).join('、');
-  var answer = record.answerOpen ? '<div class="b2-explanation"><strong>原书答案（已核对）：' + escapeHtml(question.answer) + '</strong><small class="reading-answer-source">原书参考答案与依据：' + escapeHtml(pages) + '</small></div>' : '';
-  var toggle = record.answered ? '<button class="tb-btn" onclick="toggleExamAnswer(\'' + escapeHtml(question.id) + '\')">' + (record.answerOpen ? '收起答案' : '查看答案') + '</button>' : '';
-  var prompt = attempt.lookupAssisted
-    ? renderRuText(question.prompt, lookupContext('exam', question.id, 'exam-prompt', question.prompt, '', question.answerSource && question.answerSource.pdfPages || []))
+  var pages = (question.answerSource && question.answerSource.pdfPages || question.answerSource && question.answerSource.pdfPage && [question.answerSource.pdfPage] || []).map(function(page) { return 'PDF-' + String(page).padStart(3, '0'); }).join('、');
+  var explanation = record.answerOpen && question.sourceExplanation ? '<div class="b2-explanation"><strong>原书解析：</strong>' + escapeHtml(question.sourceExplanation) + '</div>' : '';
+  var answer = record.answerOpen ? '<div class="b2-explanation"><strong>原书答案（已核对）：' + escapeHtml(question.answer) + '</strong><small class="reading-answer-source">原书题面与解析：' + escapeHtml(pages) + '</small></div>' : '';
+  var toggle = record.answered ? '<button class="tb-btn" onclick="toggleExamAnswer(\'' + escapeHtml(question.id) + '\')">' + (record.answerOpen ? '收起答案' : '查看答案与解析') + '</button>' : '';
+  var promptHtml = attempt.lookupAssisted
+    ? renderRuText(question.prompt, lookupContext('exam', question.id, 'exam-prompt', question.prompt, question.promptZh || '', question.answerSource && question.answerSource.pdfPages || []))
     : escapeHtml(question.prompt);
-  return '<article class="reading-practice-question" data-question-id="' + escapeHtml(question.id) + '"><p><b>' + escapeHtml(String(question.printedNumber)) + '.</b> ' + prompt + '</p><div class="b2-options">' + options + '</div>' + result + toggle + answer + '</article>';
+  var promptZh = question.promptZh ? '<span class="exam-prompt-zh">' + escapeHtml(question.promptZh) + '</span>' : '';
+  var partHeading = '';
+  if (data && Array.isArray(data.parts) && question.part && question.part !== previousPart) {
+    var partMeta = data.parts.find(function(item) { return item.part === question.part; });
+    if (partMeta) {
+      partHeading = '<header class="exam-part-heading"><h2>' + escapeHtml(partMeta.title || '') + '</h2>' +
+        (partMeta.instructionRu ? '<p class="exam-part-instruction-ru">' + escapeHtml(partMeta.instructionRu) + '</p>' : '') +
+        (partMeta.instructionZh ? '<p class="exam-part-instruction-zh">' + escapeHtml(partMeta.instructionZh) + '</p>' : '') +
+        (partMeta.answers ? '<p class="exam-part-answers">原书参考答案：' + escapeHtml(partMeta.answers) + '</p>' : '') + '</header>';
+    }
+  }
+  return partHeading + '<article class="reading-practice-question"><p><b>' + escapeHtml(String(question.printedNumber)) + '.</b> ' + promptHtml + promptZh + '</p><div class="b2-options">' + options + '</div>' + result + toggle + answer + explanation + '</article>';
 }
 function renderExamWritingTask(task) {
   var draft = (getExamWritingDrafts()[task.id] || {}).value || '';
   var pages = (task.source && task.source.pdfPages || []).map(function(page) { return 'PDF-' + String(page).padStart(3, '0'); }).join('、');
   var material = task.materialsNote ? '<p class="writing-status">材料提示：' + escapeHtml(task.materialsNote) + '</p>' : '';
   return '<section class="writing-workbench"><h2>任务 ' + escapeHtml(String(task.printedNumber)) + ' · ' + escapeHtml(task.genre) + '</h2>' + renderManualCompletionButton(EXAM_COMPLETED_KEY, currentExamData.id + ':' + task.id) + '<p>' + escapeHtml(task.prompt) + '</p>' + material + '<p class="writing-status">建议长度：' + escapeHtml(task.wordTarget) + ' 词 · ' + escapeHtml(pages) + '</p><textarea class="writing-draft" placeholder="在这里完成俄语真题写作…" oninput="saveExamWritingDraft(\'' + escapeHtml(task.id) + '\', this.value)">' + escapeHtml(draft) + '</textarea><p id="exam-writing-status-' + escapeHtml(task.id) + '" class="writing-status">本地自动保存 · ' + countWritingWords(draft) + ' 词</p></section>';
+}
+function renderExamAudioPlayer(data) {
+  var audio = data.audio || {};
+  if (!audio.pieces || !audio.pieces.length) return '';
+  var base = 'data/textbook/russian_b2/';
+  var notice = audio.provenance === 'reconstructed-tts' ? '<p class="reading-answer-source">' + escapeHtml(audio.noteZh || '重建音频，不等同于原始配套录音') + '</p>' : '';
+  var players = audio.pieces.map(function(piece, index) {
+    var src = base + piece.file;
+    return '<section class="exam-audio-piece"><h3>' + escapeHtml(piece.label || '') + '</h3>' +
+      '<audio controls preload="none" src="' + escapeHtml(src) + '"></audio>' +
+      (piece.captions ? '<p class="exam-audio-captions"><button type="button" class="tb-btn" onclick="toggleExamTranscript(' + index + ')">显示录音文字稿</button></p><div class="exam-transcript" id="examTranscript-' + index + '" hidden>' +
+        (data.transcriptSegments || []).filter(function(segment) { return segment.pieceId === piece.id; }).map(function(segment) {
+          return '<p class="exam-transcript-row"><span class="exam-transcript-speaker">' + escapeHtml(segment.displayLabel || segment.speaker || '') + '</span>' + renderRuText(segment.text, lookupContext('exam', data.id + '-' + piece.id, 'exam-transcript', segment.text, '', data.sourcePages || [])) + '</p>';
+        }).join('') + '</div>' : '') + '</section>';
+  }).join('');
+  return '<section class="exam-audio-player"><h2>录音材料</h2>' + notice + players + '</section>';
+}
+function toggleExamTranscript(index) {
+  var panel = document.getElementById('examTranscript-' + index);
+  if (!panel) return;
+  panel.hidden = !panel.hidden;
+  var button = panel.previousElementSibling && panel.previousElementSibling.querySelector('button');
+  if (button) button.textContent = panel.hidden ? '显示录音文字稿' : '收起录音文字稿';
+}
+function renderExamIntro(data) {
+  var intro = data.intro || {};
+  var levels = (intro.levels || []).map(function(level) {
+    return '<tr><td>' + escapeHtml(level.level || '') + '</td><td>' + escapeHtml(level.title || '') + '</td><td>' + escapeHtml(level.goalZh || '') + '</td></tr>';
+  }).join('');
+  var subjects = (intro.subjects || []).map(function(subject) {
+    return '<tr><td>' + escapeHtml(subject.subjectZh || '') + '</td><td>' + escapeHtml(String(subject.questions || '')) + '</td><td>' + escapeHtml(String(subject.maxScore || '')) + '</td><td>' + escapeHtml(String(subject.passingScore || '')) + '</td><td>' + escapeHtml(subject.passingNoteZh || '') + '</td></tr>';
+  }).join('');
+  var dayRows = function(rows) {
+    return (rows || []).map(function(item) { return '<li>' + escapeHtml(item.subjectZh || '') + ' · ' + escapeHtml(String(item.minutes || '')) + ' 分钟</li>'; }).join('');
+  };
+  return '<section class="exam-intro-lead"><p>' + escapeHtml(intro.leadZh || '') + '</p></section>' +
+    '<section><h2>考试等级</h2><table class="exam-table"><thead><tr><th>等级</th><th>名称</th><th>目标</th></tr></thead><tbody>' + levels + '</tbody></table></section>' +
+    '<section><h2>科目与分值（满分 660）</h2><table class="exam-table"><thead><tr><th>科目</th><th>题数</th><th>满分</th><th>合格分</th><th>说明</th></tr></thead><tbody>' + subjects + '</tbody></table><p class="exam-intro-note">' + escapeHtml(intro.totalZh || '') + '</p></section>' +
+    '<section><h2>考试时间安排</h2><div class="exam-schedule"><div><h3>第一天</h3><ul>' + dayRows(intro.schedule && intro.schedule.dayOne) + '</ul></div><div><h3>第二天</h3><ul>' + dayRows(intro.schedule && intro.schedule.dayTwo) + '</ul></div></div></section>' +
+    '<section><h2>合格与补考</h2><p>' + escapeHtml(intro.passingRuleZh || '') + '</p><p>' + escapeHtml(intro.retakeRuleZh || '') + '</p></section>' +
+    '<section class="source-warning"><strong>内容来源</strong><p>以上规则整理自《俄罗斯对外俄语等级考试真题与解析（B2级）》前言，原文见 PDF-' + escapeHtml((data.sourcePages || []).map(function(page) { return String(page).padStart(3, '0'); }).join('、')) + '。</p></section>';
+}
+function renderExamMaterials(data) {
+  var overview = (data.overviewZh ? '<section class="source-warning"><strong>考场指令</strong><p>' + escapeHtml(data.overviewZh) + '</p></section>' : '') +
+    (data.overviewRu ? '<p class="exam-part-instruction-ru">' + escapeHtml(data.overviewRu) + '</p>' : '');
+  var sections = (data.sections || []).map(function(section) {
+    var tasks = (section.tasks || []).map(function(task) {
+      var materials = (task.materialsRu || []).map(function(line) { return '<p class="exam-material-line">' + renderRuText(line, lookupContext('exam', data.id + '-' + task.id, 'exam-material', line, '', data.sourcePages || [])) + '</p>'; }).join('');
+      var dialog = (task.referenceAnswer || []).map(function(line) {
+        if (line.role === 'note') return '<p class="exam-dialog-note">' + escapeHtml(line.text) + '</p>';
+        var cls = line.role === 'student' ? ' exam-dialog-student' : line.role === 'examiner' ? ' exam-dialog-examiner' : '';
+        return '<p class="exam-dialog-line' + cls + '">' + renderRuText(line.text, lookupContext('exam', data.id + '-' + task.id, 'exam-dialog', line.text, '', data.sourcePages || [])) + '</p>';
+      }).join('');
+      return '<section class="exam-speaking-task"><h3>' + escapeHtml(task.title || '') + '</h3>' +
+        '<p class="exam-part-instruction-ru">' + escapeHtml(task.instructionRu || '') + '</p>' +
+        '<p class="exam-part-instruction-zh">' + escapeHtml(task.instructionZh || '') + '</p>' +
+        (materials ? '<div class="exam-materials">' + materials + '</div>' : '') +
+        '<details class="exam-reference"><summary>查看参考答案</summary>' + dialog + (task.answerNoteZh ? '<p class="exam-dialog-note">' + escapeHtml(task.answerNoteZh) + '</p>' : '') +
+        '<small class="reading-answer-source">原书参考答案：PDF-' + escapeHtml(String(section.answerPdfPage || '').padStart(3, '0')) + '</small></details></section>';
+    }).join('');
+    return '<section class="exam-speaking-section"><h2>' + escapeHtml(section.title || '') + '</h2><p class="exam-part-instruction-zh">' + escapeHtml(section.partInstructionZh || '') + '</p>' + tasks + '</section>';
+  }).join('');
+  return overview + sections;
 }
 function renderExamPracticeChapter(data, scrollPosition) {
   currentExamData = data;
@@ -7193,19 +7323,42 @@ function renderExamPracticeChapter(data, scrollPosition) {
   var pages = (data.sourcePages || []).map(function(page) { return 'PDF-' + String(page).padStart(3, '0'); }).join('–');
   var hasVerifiedQuestions = data.importStatus === 'source-verified' && Array.isArray(data.questions) && data.questions.length > 0;
   var hasVerifiedWriting = data.importStatus === 'source-verified' && Array.isArray(data.tasks) && data.tasks.length > 0;
-  var sourceState = hasVerifiedQuestions
+  var hasIntro = data.importStatus === 'source-verified' && data.introMode && data.intro;
+  var hasMaterials = data.importStatus === 'source-verified' && data.materialsMode && Array.isArray(data.sections) && data.sections.length > 0;
+  var sourceState = hasIntro
+    ? '<section class="source-warning"><strong>考试说明已核验</strong><p>等级、分值、时间、合格线与补考规则均整理自原书前言。</p></section>'
+    : hasMaterials
+    ? '<section class="source-warning"><strong>会话材料已核验</strong><p>考场指令、任务与参考答案均整理自原书真题；本页为阅读材料，不记模拟成绩。</p></section>'
+    : hasVerifiedQuestions
     ? '<section class="source-warning"><strong>题面与答案已核验</strong><p>本分测验的题干、选项和原书答案均已逐页核对；答案默认隐藏，作答后可手动查看。</p></section>'
     : hasVerifiedWriting
     ? '<section class="source-warning"><strong>写作任务已核验</strong><p>原卷任务、字数、体裁和页码均已核对；草稿只保存在当前浏览器。</p></section>'
     : data.importStatus === 'source-indexed'
     ? '<section class="source-warning"><strong>原卷内容正在逐项核对导入</strong><p>本页已绑定原书范围、时长和题量；题干、选项与答案尚未逐项核验前，不显示未经核对的 OCR 内容。</p></section>'
     : '<section class="source-warning"><strong>真题来源状态未知</strong><p>此单元暂不可开始模拟。</p></section>';
-  var lookupState = attempt.lookupAssisted
+  var lookupState = hasIntro || hasMaterials ? '' : (attempt.lookupAssisted
     ? '<section class="source-warning"><strong>使用查词辅助</strong><p>本次已解锁查词，因此只作为辅助练习，不计入正式模拟趋势。</p></section>'
-    : '<section><button class="tb-btn" type="button" onclick="unlockExamLookup(\'' + escapeHtml(data.id) + '\')">解锁查词辅助</button><p class="writing-status">考试模式默认关闭查词；主动解锁后本次成绩不计入正式模拟趋势。</p></section>';
-  var details = '<section><h2>本分测验</h2><p>时长：' + escapeHtml(String(data.durationMinutes || '')) + ' 分钟</p><p>原卷题量：' + escapeHtml(String(data.questionCount || '')) + ' 题</p><p class="reading-answer-source">原书页：' + escapeHtml(pages) + '</p></section>' + lookupState;
-  var body = hasVerifiedQuestions ? '<section><h2>原卷练习</h2>' + data.questions.map(renderExamQuestion).join('') + '</section>' : hasVerifiedWriting ? '<section><h2>原卷写作</h2>' + data.tasks.map(renderExamWritingTask).join('') + '</section>' : '<section><h2>完整模拟</h2><p>完整计时与分模块练习会在题干、选项、原书答案和说明逐项核验后开放。</p></section>';
-  document.getElementById('app').innerHTML = b2FloatingNavigation({ backAction: 'showB2Dashboard()', backTitle: '仪表盘', menuAction: 'showBreadcrumb()' }) + '<main class="main-container speaking-practice reader-workbench reader-workbench--exam"><header class="chapter-header"><h1>' + escapeHtml(data.title || '') + '</h1><p class="reading-answer-source">B2 原书真题 · ' + (hasVerifiedQuestions ? '题面与答案已核验' : '来源已索引') + '</p></header>' + sourceState + details + body + '</main>';
+    : '<section><button class="tb-btn" type="button" onclick="unlockExamLookup(\'' + escapeHtml(data.id) + '\')">解锁查词辅助</button><p class="writing-status">考试模式默认关闭查词；主动解锁后本次成绩不计入正式模拟趋势。</p></section>');
+  var details = hasIntro ? '' : '<section><h2>本分测验</h2><p>时长：' + escapeHtml(String(data.durationMinutes || '')) + ' 分钟</p><p>原卷题量：' + escapeHtml(String(data.questionCount || '')) + ' 题</p><p class="reading-answer-source">原书页：' + escapeHtml(pages) + '</p></section>' + lookupState;
+  var examInstructionsState = data.examInstructions
+    ? '<section class="source-warning"><strong>考场指令</strong><p>' + escapeHtml(data.examInstructions.overviewZh || data.examInstructions.durationZh || '') + '</p><p>' + escapeHtml(data.examInstructions.answerCardZh || '') + '</p></section>'
+    : '';
+  var previousPart = 0;
+  var body = hasIntro
+    ? '<section><h2>原书考试说明</h2>' + renderExamIntro(data) + '</section>'
+    : hasMaterials
+    ? '<section><h2>原卷会话材料</h2>' + renderExamMaterials(data) + '</section>'
+    : hasVerifiedQuestions
+    ? '<section><h2>原卷练习</h2>' + (data.audio ? renderExamAudioPlayer(data) : '') + examInstructionsState + data.questions.map(function(question) {
+        var html = renderExamQuestion(question, previousPart, data);
+        previousPart = question.part || previousPart;
+        return html;
+      }).join('') + '</section>'
+    : hasVerifiedWriting
+    ? '<section><h2>原卷写作</h2>' + data.tasks.map(renderExamWritingTask).join('') + '</section>'
+    : '<section><h2>完整模拟</h2><p>完整计时与分模块练习会在题干、选项、原书答案和说明逐项核验后开放。</p></section>';
+  var statusLabel = hasIntro ? '考试说明已核验' : hasMaterials ? '材料已核验' : hasVerifiedQuestions ? '题面与答案已核验' : '来源已索引';
+  document.getElementById('app').innerHTML = b2FloatingNavigation({ backAction: 'showB2Dashboard()', backTitle: '仪表盘', menuAction: 'showBreadcrumb()' }) + '<main class="main-container speaking-practice reader-workbench reader-workbench--exam"><header class="chapter-header"><h1>' + escapeHtml(data.title || '') + '</h1><p class="reading-answer-source">B2 原书真题 · ' + escapeHtml(statusLabel) + '</p></header>' + sourceState + details + body + '</main>';
   window.scrollTo(0, typeof scrollPosition === 'number' ? scrollPosition : 0); applyTheme(); saveLastRead(arguments[2]);
   if (pendingExamJumpQuestionId) {
     var examJumpId = pendingExamJumpQuestionId;
@@ -10266,15 +10419,28 @@ function locateReadingSpeakingSource(exId, evt) {
   if (evt) { evt.preventDefault(); evt.stopPropagation(); }
   var exercise = _currentRSExercises.find(function(item) { return item._exId === exId; });
   var anchors = exercise && exercise.evidenceAnchors && exercise.evidenceAnchors.length
-    ? exercise.evidenceAnchors
-    : (exercise && exercise.sourceAnchor && exercise.sourceAnchor.quote ? [exercise.sourceAnchor] : []);
+    ? exercise.evidenceAnchors.map(function(anchor) { return Object.assign({}, anchor, { highlightLevel: anchor.highlightLevel || 'core' }); })
+    : (exercise && exercise.sourceAnchor && exercise.sourceAnchor.quote ? [Object.assign({}, exercise.sourceAnchor, { highlightLevel: 'core' })] : []);
+  var contextEvidence = exercise && exercise.answerAnalysis && exercise.answerAnalysis.contextEvidence;
+  if (contextEvidence && contextEvidence.quote) {
+    anchors.unshift({
+      paragraphIndex: contextEvidence.paragraphIndex,
+      quote: contextEvidence.quote,
+      role: contextEvidence.role || '完整证据链',
+      highlightLevel: 'context'
+    });
+  }
   if (!anchors.length) { toast('这道题暂时没有可定位的原文句子'); return; }
   var locatorStatus = getReadingSpeakingLocatorStatus(exId, exercise.answerAnalysis && exercise.answerAnalysis.locatorStatus);
 
   var oldWords = document.querySelectorAll('.rs-source-word-highlight');
   for (var i = 0; i < oldWords.length; i++) oldWords[i].classList.remove('rs-source-word-highlight');
+  var oldContextWords = document.querySelectorAll('.rs-source-context-word-highlight');
+  for (var cw = 0; cw < oldContextWords.length; cw++) oldContextWords[cw].classList.remove('rs-source-context-word-highlight');
   var oldParas = document.querySelectorAll('.rs-source-paragraph-highlight');
   for (var p = 0; p < oldParas.length; p++) oldParas[p].classList.remove('rs-source-paragraph-highlight');
+  var oldContextParas = document.querySelectorAll('.rs-source-context-highlight');
+  for (var cp = 0; cp < oldContextParas.length; cp++) oldContextParas[cp].classList.remove('rs-source-context-highlight');
 
   var firstTarget = null, missing = 0;
   anchors.forEach(function(anchor) {
@@ -10303,9 +10469,14 @@ function locateReadingSpeakingSource(exId, evt) {
       }
       if (matches) { matchStart = start; break; }
     }
-    paragraph.closest('.para-block').classList.add('rs-source-paragraph-highlight');
+    var paragraphBlock = paragraph.closest('.para-block');
+    paragraphBlock.classList.add('rs-source-paragraph-highlight');
+    if (anchor.highlightLevel === 'context') paragraphBlock.classList.add('rs-source-context-highlight');
     if (matchStart >= 0) {
-      for (var w = matchStart; w < matchStart + anchorTokens.length; w++) wordElements[w].classList.add('rs-source-word-highlight');
+      for (var w = matchStart; w < matchStart + anchorTokens.length; w++) {
+        if (anchor.highlightLevel === 'context') wordElements[w].classList.add('rs-source-context-word-highlight');
+        else wordElements[w].classList.add('rs-source-word-highlight');
+      }
       if (!firstTarget) firstTarget = wordElements[matchStart];
     } else {
       missing++;
