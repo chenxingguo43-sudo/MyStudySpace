@@ -1568,6 +1568,16 @@ body.theme-warm .listening-entry-zh, body.theme-warm .listening-section-count { 
 .zlatoust-source-badge.learning-note, .zlatoust-source-badge.external-note { color: #7c3aed; background: rgba(139,92,246,.14); }
 .zlatoust-source-badge.exercise-example { color: #b45309; background: rgba(245,158,11,.14); }
 .zlatoust-weak-panel { margin: 16px 0 0; padding: 13px; border: 1px solid rgba(245,158,11,.35); border-radius: 12px; background: rgba(245,158,11,.07); }
+/* B2 薄弱知识点面板：与 A 同构的琥珀色提示面板 */
+.b2-weak-panel { margin: 16px 0 0; padding: 13px; border: 1px solid rgba(245,158,11,.35); border-radius: 12px; background: rgba(245,158,11,.07); }
+.b2-weak-panel h3 { margin: 0 0 4px; font-size: 15px; }
+.b2-weak-panel p { margin: 0; color: var(--text-secondary); font-size: 12px; line-height: 1.5; }
+.b2-weak-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+.b2-weak-list button { display: flex; flex-direction: column; align-items: flex-start; gap: 2px; border: 1px solid var(--accent-border); border-radius: 9px; padding: 8px 10px; color: var(--text); background: var(--surface-solid); cursor: pointer; font: inherit; text-align: left; }
+.b2-weak-list button:hover { border-color: var(--accent); background: var(--accent-dim); }
+.b2-weak-list button strong { font-size: 13px; }
+.b2-weak-list button span { color: var(--text-secondary); font-size: 12px; }
+.b2-weak-list button em { color: var(--accent); font-size: 12px; font-style: normal; }
 .zlatoust-weak-panel h3 { margin: 0 0 7px; font-size: 15px; }
 .zlatoust-weak-list, .zlatoust-exercise-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
 .zlatoust-weak-list button, .zlatoust-exercise-list button, .zlatoust-practice-link, .zlatoust-back-link { border: 1px solid var(--accent-border); border-radius: 9px; padding: 7px 10px; color: var(--text); background: var(--surface-solid); }
@@ -2281,7 +2291,7 @@ function getWorldPeopleResumeState(bookId) {
 }
 function getActiveWorldQuestionId(restoreState) {
   if (restoreState && typeof restoreState.activeQuestionId === 'string') return restoreState.activeQuestionId;
-  if (isZlatoustGrammarBook(curBook) && zlatoustQuizJumpTargetId) return zlatoustQuizJumpTargetId;
+  if (isB2VirtualQuizBook() && zlatoustQuizJumpTargetId) return zlatoustQuizJumpTargetId;
   var items = document.querySelectorAll('[data-question-id]');
   if (items.length) {
     var focusLine = Math.min(180, Math.max(60, window.innerHeight * 0.25));
@@ -2292,7 +2302,7 @@ function getActiveWorldQuestionId(restoreState) {
     }
     return active.getAttribute('data-question-id') || '';
   }
-  if (isZlatoustGrammarBook(curBook) && zlatoustQuizVirtualState) {
+  if (isB2VirtualQuizBook() && zlatoustQuizVirtualState) {
     var virtualAnchor = getZlatoustVirtualAnchor(zlatoustQuizVirtualState);
     var virtualExercise = zlatoustQuizVirtualState.exercises[virtualAnchor.index];
     if (virtualExercise) return virtualExercise.id;
@@ -4246,6 +4256,10 @@ function getZlatoustIntegratedSectionForKnowledgePoint(partId, pointId) {
 }
 var zlatoustRouteReturn = null;
 function isZlatoustGrammarBook(book) { return !!book && book.id === 'zlatoust_grammar'; }
+/* 虚拟滚动连续练习的适用范围：A 语法书 + B2 语法模块（步骤 9） */
+function isB2VirtualQuizBook() {
+  return !!curBook && (curBook.id === 'zlatoust_grammar' || (curBook.isB2Module && curBook.moduleId === 'grammar'));
+}
 function getZlatoustChapterId(chapterIndex) { return 'gl' + (Number(chapterIndex) + 1); }
 function getZlatoustChapterIndex(chapterId) {
   var match = /^gl(\d+)$/.exec(chapterId || '');
@@ -5495,9 +5509,22 @@ function getWrongAnswerItems() {
   RussianB2ReadingReview.getReviewItems(getReadingProgress()).forEach(function(record) {
     items.push({ moduleId: 'reading', partId: 'reading', exerciseId: record.questionId, chapterIndex: record.chapterIndex, status: record.status, lastAnsweredAt: record.lastAnsweredAt || '' });
   });
-  return items.sort(function(a, b) { return b.lastAnsweredAt.localeCompare(a.lastAnsweredAt); });
+  // 决策 5：真题错题纳入（需错题本的真题索引已建立；记录带 everWrong 才计入）
+  if (wrongAnswerExamMeta && Object.keys(wrongAnswerExamMeta).length) {
+    var examProgress = getExamProgress();
+    Object.keys(examProgress).forEach(function(questionId) {
+      var record = examProgress[questionId];
+      var meta = wrongAnswerExamMeta[questionId];
+      if (record && record.answered && record.everWrong && meta) {
+        items.push({ moduleId: 'exam', partId: 'exam', exerciseId: questionId, chapterIndex: meta.chapterIndex, status: record.lastResult === 'wrong' ? 'pending' : 'mastered', lastAnsweredAt: record.answeredAt || '' });
+      }
+    });
+  }
+  return items.sort(function(a, b) { return (b.lastAnsweredAt || '').localeCompare(a.lastAnsweredAt || ''); });
 }
 var wrongAnswerBookMeta = null;
+var wrongAnswerExamMeta = {};
+var pendingExamJumpQuestionId = '';
 function showWrongAnswerBook(partFilter, pointFilter) {
   saveLastRead();
   curView = 'wrong-book'; stopTimer(); syncReaderShellState();
@@ -5508,26 +5535,44 @@ function showWrongAnswerBook(partFilter, pointFilter) {
   if (!wrongAnswerBookMeta) {
     document.getElementById('app').innerHTML = b2FloatingNavigation({ backAction: back, backTitle: backTitle }) + '<div class="main-container"><div class="loading"><div class="spinner"></div><div>加载错题本...</div></div></div>';
     var book = getBookById('russian_b2');
-    Promise.all(book.unitIds.map(function(id, index) { return fetchChapter(book.id, index); })).then(function(parts) {
+    var loadExamMeta = Promise.resolve(null);
+    var examModule = b2BookManifest && (b2BookManifest.modules || []).find(function(item) { return item.id === 'exam'; });
+    if (examModule) {
+      loadExamMeta = fetchJson('data/textbook/' + examModule.dir + '/index.json', null).then(function(examIndex) {
+        var paths = window.RussianB2Dashboard.getDashboardChapterPaths(examModule, examIndex) || [];
+        return Promise.all(paths.map(function(path) { return fetchJson(path, null).catch(function() { return null; }); })).then(function(chapters) {
+          var meta = {};
+          chapters.forEach(function(chapter, chapterIndex) {
+            if (!chapter) return;
+            (chapter.questions || []).forEach(function(question) { if (question && question.id) meta[question.id] = { chapterIndex: chapterIndex, title: chapter.title || '' }; });
+          });
+          return meta;
+        });
+      }).catch(function() { return {}; });
+    }
+    Promise.all([Promise.all(book.unitIds.map(function(id, index) { return fetchChapter(book.id, index); })), loadExamMeta]).then(function(results) {
       wrongAnswerBookMeta = {};
-      parts.forEach(function(part) { (part.knowledgePoints || []).forEach(function(point) { point.exerciseIds.forEach(function(exerciseId) { wrongAnswerBookMeta[exerciseId] = { title: point.title, partId: part.id }; }); }); });
+      results[0].forEach(function(part) { (part.knowledgePoints || []).forEach(function(point) { point.exerciseIds.forEach(function(exerciseId) { wrongAnswerBookMeta[exerciseId] = { title: point.title, partId: part.id }; }); }); });
+      wrongAnswerExamMeta = results[1] || {};
       showWrongAnswerBook(partFilter, pointFilter);
     }).catch(function() { document.querySelector('.main-container').innerHTML = '<div class="loading">❌ 错题本加载失败</div>'; });
     return;
   }
   var items = getWrongAnswerItems(), pending = items.filter(function(item) { return item.status === 'pending'; }), mastered = items.filter(function(item) { return item.status === 'mastered'; });
-  items.forEach(function(item) { item.knowledge = wrongAnswerBookMeta[item.exerciseId] || { title: '未分类', partId: item.partId }; });
+  items.forEach(function(item) { item.knowledge = wrongAnswerBookMeta[item.exerciseId] || { title: item.moduleId === 'exam' ? (wrongAnswerExamMeta[item.exerciseId] || {}).title || '真题' : '未分类', partId: item.partId }; });
   var filtered = pending.concat(mastered).filter(function(item) { return (!partFilter || item.partId === partFilter) && (!pointFilter || item.knowledge.title === pointFilter); });
-  var select = '<select class="sort-select" onchange="showWrongAnswerBook(this.value)"><option value="">全部部分</option>' + ['p1','p2','p3','p4','p5','p6'].map(function(part) { return '<option value="' + part + '"' + (part === partFilter ? ' selected' : '') + '>' + part.toUpperCase() + '</option>'; }).join('') + '</select>';
+  var select = '<select class="sort-select" onchange="showWrongAnswerBook(this.value)"><option value="">全部部分</option>' + ['p1','p2','p3','p4','p5','p6'].map(function(part) { return '<option value="' + part + '"' + (part === partFilter ? ' selected' : '') + '>' + part.toUpperCase() + '</option>'; }).join('') + '<option value="reading"' + (partFilter === 'reading' ? ' selected' : '') + '>阅读</option><option value="exam"' + (partFilter === 'exam' ? ' selected' : '') + '>真题</option></select>';
   var points = [...new Set(items.map(function(item) { return item.knowledge.title; }))];
   var pointSelect = '<select class="sort-select" onchange="showWrongAnswerBook(\'' + (partFilter || '') + '\',this.value)"><option value="">全部知识点</option>' + points.map(function(point) { return '<option value="' + escapeHtml(point) + '"' + (point === pointFilter ? ' selected' : '') + '>' + escapeHtml(point) + '</option>'; }).join('') + '</select>';
   var rows = filtered.map(function(item) {
     var reading = item.moduleId === 'reading';
-    var label = reading ? '阅读 · 第 ' + (Number(item.chapterIndex) + 1) + ' 篇' : item.partId.toUpperCase() + ' · ' + escapeHtml(item.knowledge.title);
-    var open = reading ? 'openReadingWrongAnswerItem(' + Number(item.chapterIndex) + ',\'' + item.exerciseId + '\')' : 'openWrongAnswerItem(\'' + item.partId + '\',\'' + item.exerciseId + '\')';
+    var exam = item.moduleId === 'exam';
+    var examMetaItem = exam ? (wrongAnswerExamMeta[item.exerciseId] || {}) : {};
+    var label = reading ? '阅读 · 第 ' + (Number(item.chapterIndex) + 1) + ' 篇' : exam ? '真题 · ' + (examMetaItem.title || '未命名分测验') : item.partId.toUpperCase() + ' · ' + escapeHtml(item.knowledge.title);
+    var open = reading ? 'openReadingWrongAnswerItem(' + Number(item.chapterIndex) + ',\'' + item.exerciseId + '\')' : exam ? 'openExamWrongAnswerItem(' + Number(item.chapterIndex) + ',\'' + item.exerciseId + '\')' : 'openWrongAnswerItem(\'' + item.partId + '\',\'' + item.exerciseId + '\')';
     return '<button class="b2-finish" onclick="' + open + '">' + (item.status === 'pending' ? '待掌握 · ' : '已掌握 · ') + label + ' · ' + item.exerciseId + '</button>';
   }).join('');
-  document.getElementById('app').innerHTML = b2FloatingNavigation({ backAction: back, backTitle: backTitle }) + '<main class="main-container reader-workbench reader-workbench--review"><div class="b2-quiz-header"><h1>错题复习</h1><p>待掌握 ' + pending.length + ' 题 · 已掌握 ' + mastered.length + ' 题</p>' + select + pointSelect + '</div>' + (rows || '<div class="loading">这个筛选下还没有错题。</div>') + '</main>';
+  document.getElementById('app').innerHTML = b2FloatingNavigation({ backAction: back, backTitle: backTitle }) + '<main class="main-container reader-workbench reader-workbench--review"><div class="b2-quiz-header"><h1>错题复习</h1><p>仅含俄语 B2 的客观题错题：语法 P1–P6、阅读、真题模拟。待掌握 ' + pending.length + ' 题 · 已掌握 ' + mastered.length + ' 题</p>' + select + pointSelect + '</div>' + (rows || '<div class="loading">这个筛选下还没有错题。</div>') + '</main>';
 }
 function openWrongAnswerItem(partId, exerciseId) {
   var book = getBookById('russian_b2'), index = book.unitIds.indexOf(partId);
@@ -5535,6 +5580,17 @@ function openWrongAnswerItem(partId, exerciseId) {
   _wrongAnswerQuizReturn = { back: _wrongAnswerBookReturn };
   pendingQuizJumpId = exerciseId;
   goChapter(index);
+}
+/* 决策 5：真题错题的打开动作——定位到对应分测验并滚动到该题 */
+function openExamWrongAnswerItem(chapterIndex, questionId) {
+  var manifest = b2BookManifest;
+  var module = manifest && (manifest.modules || []).find(function(item) { return item.id === 'exam'; });
+  if (!module || module.status !== 'available') { toast('真题模块暂不可用'); return; }
+  var rootBook = getBookById('russian_b2');
+  curBook = Object.assign({}, rootBook, module, { id: 'russian_b2', moduleId: 'exam', isB2Module: true, kind: 'textbook', direction: 'ru→cn' });
+  _wrongAnswerQuizReturn = { back: _wrongAnswerBookReturn };
+  pendingExamJumpQuestionId = questionId;
+  goChapter(chapterIndex);
 }
 function isB2ChapterComplete(bookId, chapterIndex) {
   var book = getBookById(bookId), unitId = book && book.unitIds && book.unitIds[chapterIndex];
@@ -6017,7 +6073,7 @@ function renderKnowledgePointNav(points, partId) {
 }
 function jumpToQuizExercise(exerciseId) {
   var target = document.querySelector('[data-question-id="' + exerciseId + '"]');
-  if (!target && isZlatoustGrammarBook(curBook)) {
+  if (!target && isB2VirtualQuizBook()) {
     if (ensureZlatoustVirtualExercise(exerciseId, 'smooth')) return;
     var exerciseIndex = currentQuizExercises.findIndex(function(exercise) { return exercise.id === exerciseId; });
     if (exerciseIndex >= 0) {
@@ -6229,6 +6285,26 @@ function ensureZlatoustVirtualExercise(exerciseId, behavior) {
   });
   return true;
 }
+/* B2 薄弱知识点面板（对齐 A 的 zlatoust-weak-panel）：按本部分历史错题聚合到知识点，点击直达该点练习 */
+function renderB2WeakKnowledgePanel(data) {
+  var points = data.knowledgePoints || [];
+  if (!points.length) return '';
+  var records = getB2Progress()[getQuizUnitKey()] || {};
+  var rows = points.map(function(point) {
+    var wrong = 0, pending = 0;
+    (point.exerciseIds || []).forEach(function(exerciseId) {
+      var record = records[exerciseId];
+      if (record && record.everWrong) { wrong++; if (record.lastResult === 'wrong') pending++; }
+    });
+    return { title: point.title, exerciseIds: point.exerciseIds || [], wrong: wrong, pending: pending };
+  }).filter(function(row) { return row.wrong > 0; })
+    .sort(function(a, b) { return b.pending - a.pending || b.wrong - a.wrong; });
+  if (!rows.length) return '';
+  var items = rows.map(function(row) {
+    return '<button type="button" onclick="restartQuiz(\'knowledge\',' + escapeHtml(JSON.stringify(row.exerciseIds)).replace(/"/g, '&quot;') + ')"><strong>' + escapeHtml(row.title) + '</strong><span>错 ' + row.wrong + ' 题' + (row.pending ? ' · 待掌握 ' + row.pending : ' · 已纠正') + '</span><em>去练 →</em></button>';
+  }).join('');
+  return '<aside class="b2-weak-panel"><h3>从错题定位薄弱知识点</h3><p>按本部分历史错题聚合；优先显示尚未掌握的知识点。</p><div class="b2-weak-list">' + items + '</div></aside>';
+}
 function renderQuizChapter(data, scrollPosition) {
   var explicitQuizRestoreState = arguments[2];
   if (curBook && !curBook.isB2Module) data = Object.assign({}, data, { knowledgePoints: getTextbookKnowledgePoints(data) });
@@ -6250,7 +6326,7 @@ function renderQuizChapter(data, scrollPosition) {
   currentQuizExercises = data.exercises || [];
   var visibleQuizExercises = currentQuizExercises;
   var initialZlatoustVirtualExerciseId = '';
-  if (isZlatoustGrammarBook(curBook)) {
+  if (isB2VirtualQuizBook()) {
     initialZlatoustVirtualExerciseId = pendingQuizJumpId || (explicitQuizRestoreState && explicitQuizRestoreState.activeQuestionId) || zlatoustQuizJumpTargetId || (currentQuizExercises[0] && currentQuizExercises[0].id) || '';
   }
   var isB2Quiz = !!(curBook && curBook.isB2Module);
@@ -6266,8 +6342,8 @@ function renderQuizChapter(data, scrollPosition) {
   var html = b2FloatingNavigation({ backAction: quizBackAction, backTitle: quizBackTitle, menuAction: 'showBreadcrumb()' }) + '<main class="main-container b2-quiz-page reader-workbench reader-workbench--quiz"><div class="b2-quiz-header">' +
     '<h1>' + escapeHtml(data.title || '') + '</h1>' +
     '<p>先独立作答；确认后只显示对错。答案与解析需要你手动展开。</p>' + (isB2Quiz ? '<button class="tb-btn" onclick="showWrongAnswerBook(\'' + data.id + '\')">本部分错题 ' + partWrongCount + ' 题</button>' : '') +
-    wrongAnswerBack + '</div>' + renderKnowledgePointNav(data.knowledgePoints, data.id) + renderZlatoustTheoryNav();
-  if (isZlatoustGrammarBook(curBook)) {
+    wrongAnswerBack + '</div>' + renderKnowledgePointNav(data.knowledgePoints, data.id) + renderZlatoustTheoryNav() + (isB2Quiz ? renderB2WeakKnowledgePanel(data) : '');
+  if (isB2VirtualQuizBook()) {
     html += '<section class="zlatoust-virtual-quiz" id="zlatoustVirtualQuiz" aria-label="连续练习题"><div class="zlatoust-virtual-spacer" data-zlatoust-virtual-spacer="top" aria-hidden="true"></div><div data-zlatoust-virtual-items></div><div class="zlatoust-virtual-spacer" data-zlatoust-virtual-spacer="bottom" aria-hidden="true"></div></section>';
   } else {
     for (var i = 0; i < visibleQuizExercises.length; i++) {
@@ -6283,19 +6359,19 @@ function renderQuizChapter(data, scrollPosition) {
     (curCh < curBook.chapters - 1 ? '<button class="fab-nav" onclick="goChapter(' + (curCh + 1) + ')">下一章 →</button>' : '<span class="fab-nav disabled">下一章 →</span>') +
     '</div></main>';
   document.getElementById('app').innerHTML = html;
-  if (isZlatoustGrammarBook(curBook)) initializeZlatoustVirtualQuiz(currentQuizExercises, contextGroupByExercise, initialZlatoustVirtualExerciseId);
+  if (isB2VirtualQuizBook()) initializeZlatoustVirtualQuiz(currentQuizExercises, contextGroupByExercise, initialZlatoustVirtualExerciseId);
   var quizRestoreState = explicitQuizRestoreState;
-  if (!quizRestoreState && isZlatoustGrammarBook(curBook) && currentQuizExercises.length) {
+  if (!quizRestoreState && isB2VirtualQuizBook() && currentQuizExercises.length) {
     quizRestoreState = { activeQuestionId: initialZlatoustVirtualExerciseId || currentQuizExercises[0].id, scroll: 0 };
   }
   window.scrollTo(0, typeof scrollPosition === 'number' ? scrollPosition : 0);
-  if (isZlatoustGrammarBook(curBook)) scheduleZlatoustVirtualWindow();
+  if (isB2VirtualQuizBook()) scheduleZlatoustVirtualWindow();
   applyTheme(); applyStressMarks(); saveLastRead(quizRestoreState);
   if (pendingQuizJumpId) {
     var pendingJump = pendingQuizJumpId;
     pendingQuizJumpId = '';
     restorePendingQuizQuestion(pendingJump, arguments[2]);
-  } else if (isZlatoustGrammarBook(curBook) && explicitQuizRestoreState && explicitQuizRestoreState.activeQuestionId) {
+  } else if (isB2VirtualQuizBook() && explicitQuizRestoreState && explicitQuizRestoreState.activeQuestionId) {
     restorePendingQuizQuestion(explicitQuizRestoreState.activeQuestionId, explicitQuizRestoreState);
   }
   if (pendingQuizPractice && pendingQuizPractice.partId === data.id) {
@@ -7055,9 +7131,12 @@ function unlockExamLookup(attemptId) {
 function answerExamQuestion(questionId, selected) {
   var progress = getExamProgress(), record = progress[questionId] || { selected: '', answered: false, answerOpen: false };
   if (record.answered) return;
-  record.selected = selected; record.answered = true; record.answeredAt = new Date().toISOString();
-  progress[questionId] = record; saveExamProgress(progress); rerenderExamPracticePreservingScroll();
   var question = currentExamData && (currentExamData.questions || []).find(function(item) { return item.id === questionId; });
+  var wrong = question ? selected !== question.answer : false;
+  record.selected = selected; record.answered = true; record.answeredAt = new Date().toISOString();
+  record.everWrong = record.everWrong || wrong;
+  record.lastResult = wrong ? 'wrong' : 'correct';
+  progress[questionId] = record; saveExamProgress(progress); rerenderExamPracticePreservingScroll();
   recordB2Submission('exam', currentExamData && currentExamData.id || 'exam', [questionId], question ? [{
     questionId: question.id, printedNumber: question.printedNumber, prompt: question.prompt,
     options: question.options, selected: selected, answer: question.answer,
@@ -7078,13 +7157,13 @@ function saveExamWritingDraft(taskId, value) {
 }
 function renderExamLookupOption(question, option, record, lookupUnlocked) {
   var selected = record.selected === option.label;
-  var state = record.answered ? (option.label === question.answer ? ' correct' : selected ? ' wrong' : '') : '';
-  if (!lookupUnlocked) {
-    return '<button class="b2-option' + state + '" onclick="answerExamQuestion(\'' + escapeHtml(question.id) + '\',\'' + escapeHtml(option.label) + '\')"' + (record.answered ? ' disabled' : '') + '><b>' + escapeHtml(option.label) + '.</b> ' + escapeHtml(option.text) + '</button>';
-  }
+  var state = record.answered ? (option.label === question.answer ? ' correct' : selected ? ' wrong' : '') : (selected ? ' pending' : '');
   var pages = question.answerSource && question.answerSource.pdfPages || [];
-  var context = lookupContext('exam', question.id, 'exam-option', option.text, '', pages);
-  return '<div class="b2-option-row' + state + '"><button type="button" class="b2-option-radio" role="radio" aria-checked="' + (selected ? 'true' : 'false') + '" aria-label="选择 ' + escapeHtml(option.label) + '" onclick="answerExamQuestion(\'' + escapeHtml(question.id) + '\',\'' + escapeHtml(option.label) + '\')"' + (record.answered ? ' disabled' : '') + '>' + escapeHtml(option.label) + '.</button><span class="b2-option-text">' + renderRuText(option.text, context) + '</span></div>';
+  var context = lookupUnlocked ? lookupContext('exam', question.id, 'exam-option', option.text, '', pages) : '';
+  var optionHtml = lookupUnlocked ? renderRuText(option.text, context) : escapeHtml(option.text);
+  return '<div class="b2-option-row' + state + '" onclick="answerExamQuestion(\'' + escapeHtml(question.id) + '\',\'' + escapeHtml(option.label) + '\',event)" role="radio" aria-checked="' + (selected ? 'true' : 'false') + '" aria-label="选择 ' + escapeHtml(option.label) + '">' +
+    '<span class="b2-option-radio">' + escapeHtml(option.label) + '.</span>' +
+    '<span class="b2-option-text">' + optionHtml + '</span></div>';
 }
 function renderExamQuestion(question) {
   var record = getExamRecord(question.id), selected = record.selected;
@@ -7099,7 +7178,7 @@ function renderExamQuestion(question) {
   var prompt = attempt.lookupAssisted
     ? renderRuText(question.prompt, lookupContext('exam', question.id, 'exam-prompt', question.prompt, '', question.answerSource && question.answerSource.pdfPages || []))
     : escapeHtml(question.prompt);
-  return '<article class="reading-practice-question"><p><b>' + escapeHtml(String(question.printedNumber)) + '.</b> ' + prompt + '</p><div class="b2-options">' + options + '</div>' + result + toggle + answer + '</article>';
+  return '<article class="reading-practice-question" data-question-id="' + escapeHtml(question.id) + '"><p><b>' + escapeHtml(String(question.printedNumber)) + '.</b> ' + prompt + '</p><div class="b2-options">' + options + '</div>' + result + toggle + answer + '</article>';
 }
 function renderExamWritingTask(task) {
   var draft = (getExamWritingDrafts()[task.id] || {}).value || '';
@@ -7128,6 +7207,19 @@ function renderExamPracticeChapter(data, scrollPosition) {
   var body = hasVerifiedQuestions ? '<section><h2>原卷练习</h2>' + data.questions.map(renderExamQuestion).join('') + '</section>' : hasVerifiedWriting ? '<section><h2>原卷写作</h2>' + data.tasks.map(renderExamWritingTask).join('') + '</section>' : '<section><h2>完整模拟</h2><p>完整计时与分模块练习会在题干、选项、原书答案和说明逐项核验后开放。</p></section>';
   document.getElementById('app').innerHTML = b2FloatingNavigation({ backAction: 'showB2Dashboard()', backTitle: '仪表盘', menuAction: 'showBreadcrumb()' }) + '<main class="main-container speaking-practice reader-workbench reader-workbench--exam"><header class="chapter-header"><h1>' + escapeHtml(data.title || '') + '</h1><p class="reading-answer-source">B2 原书真题 · ' + (hasVerifiedQuestions ? '题面与答案已核验' : '来源已索引') + '</p></header>' + sourceState + details + body + '</main>';
   window.scrollTo(0, typeof scrollPosition === 'number' ? scrollPosition : 0); applyTheme(); saveLastRead(arguments[2]);
+  if (pendingExamJumpQuestionId) {
+    var examJumpId = pendingExamJumpQuestionId;
+    pendingExamJumpQuestionId = '';
+    [80, 320].forEach(function(delay) {
+      setTimeout(function() {
+        var target = document.querySelector('article.reading-practice-question[data-question-id="' + examJumpId + '"]');
+        if (!target) return;
+        target.scrollIntoView({ behavior: delay === 80 ? 'smooth' : 'auto', block: 'start' });
+        target.classList.add('b2-quiz-target');
+        setTimeout(function() { target.classList.remove('b2-quiz-target'); }, 1600);
+      }, delay);
+    });
+  }
 }
 function renderReadingLookupOption(question, option, record) {
   var selected = record.selected === option.label;

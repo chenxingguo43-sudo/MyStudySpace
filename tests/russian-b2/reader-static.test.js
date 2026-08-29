@@ -197,7 +197,10 @@ test('Zlatoust quiz chapters use a bounded virtual window without changing B2 mo
   assert.match(reader, /isWorldPeopleBook\(curBook\) && activeQuestionId\) record\.activeQuestionId = activeQuestionId/);
   const renderBody = reader.match(/function renderQuizChapter\(data, scrollPosition\) \{([\s\S]*?)\n\}/);
   assert.ok(renderBody);
-  assert.match(renderBody[1], /isZlatoustGrammarBook\(curBook\)\) initializeZlatoustVirtualQuiz/);
+  assert.match(renderBody[1], /isB2VirtualQuizBook\(\)\) initializeZlatoustVirtualQuiz/);
+  // 虚拟窗口覆盖 A 语法书与 B2 语法模块（isB2VirtualQuizBook）；其余 B2 模块渲染路径不变
+  assert.match(reader, /function isB2VirtualQuizBook\(\) \{[\s\S]*?curBook\.isB2Module && curBook\.moduleId === 'grammar'/);
+  assert.match(renderBody[1], /isB2Quiz \? renderB2WeakKnowledgePanel\(data\)/);
   assert.doesNotMatch(renderBody[1], /zlatoust-quiz-pager/);
 });
 
@@ -244,6 +247,11 @@ test('quiz supports two-click answers (select then confirm) and retry history', 
 test('reader provides a B2 wrong-answer book', () => {
   assert.match(reader, /function getWrongAnswerItems\(\)/);
   assert.match(reader, /function showWrongAnswerBook\(partFilter, pointFilter\)/);
+  // 决策 5：错题本补收 B2 真题错题并标注范围（仅含俄语 B2）
+  assert.match(reader, /var wrongAnswerExamMeta = \{\}/);
+  assert.match(reader, /function openExamWrongAnswerItem\(chapterIndex, questionId\)/);
+  assert.match(reader, /仅含俄语 B2 的客观题错题：语法 P1–P6、阅读、真题模拟/);
+  assert.match(reader, /<option value="exam"/);
   assert.match(reader, /function openWrongAnswerItem\(partId, exerciseId\)/);
   assert.match(reader, /var pendingQuizJumpId = '';/);
   assert.match(reader, /pendingQuizJumpId = exerciseId;/);
