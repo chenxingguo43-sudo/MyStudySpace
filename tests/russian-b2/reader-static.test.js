@@ -321,13 +321,22 @@ test('mock exams separate answer controls from lookup after an assisted unlock',
   assert.match(reader, /lookupAssisted !== true/);
 });
 
-test('reading interactions preserve scroll position and display source pages', () => {
+test('reading interactions update the answered question in place and display source pages', () => {
   assert.match(reader, /function rerenderReadingPracticePreservingScroll\(\)/);
+  assert.match(reader, /function updateReadingQuestionDOM\(questionId\)/);
+  assert.match(reader, /class="reading-practice-question" data-question-id/);
   const answerBody = reader.match(/function answerReadingQuestion\(questionId,\s*selected,\s*evt[\s\S]*?\) \{([\s\S]*?)\n\}/);
   const revealBody = reader.match(/function toggleReadingAnswer\(questionId\) \{([\s\S]*?)\n\}/);
-  assert.ok(answerBody && revealBody);
-  assert.match(answerBody[1], /rerenderReadingPracticePreservingScroll\(\)/);
-  assert.match(revealBody[1], /rerenderReadingPracticePreservingScroll\(\)/);
+  const categoryBody = reader.match(/function setReadingErrorCategory\(questionId, category\) \{([\s\S]*?)\n\}/);
+  assert.ok(answerBody && revealBody && categoryBody);
+  assert.match(answerBody[1], /updateReadingQuestionDOM\(questionId\)/);
+  assert.match(revealBody[1], /updateReadingQuestionDOM\(questionId\)/);
+  assert.match(categoryBody[1], /updateReadingQuestionDOM\(questionId\)/);
+  const updateBody = reader.match(/function updateReadingQuestionDOM\(questionId\) \{([\s\S]*?)\n\}/);
+  assert.ok(updateBody);
+  // 局部更新兜底仍走整页渲染（保留滚动），且复用单题渲染函数
+  assert.match(updateBody[1], /rerenderReadingPracticePreservingScroll\(\)/);
+  assert.match(updateBody[1], /renderReadingPracticeQuestion\(question\)/);
   assert.match(reader, /data\.sourcePages/);
   assert.match(reader, /原书原文页/);
 });
@@ -339,9 +348,12 @@ test('textbook chapter titles come from metadata beyond quiz-first chapters', ()
 
 test('reader provides a locally persisted writing workbench without browser-held credentials', () => {
   assert.match(reader, /function renderWritingWorkbench\(data(?:, scrollPosition)?\)/);
-  assert.match(reader, /function saveWritingDraft\(taskId, value\)/);
+  // 决策 4：纸笔模式——输入框入口已移除，草稿数据键原样保留（封存）
   assert.match(reader, /russian_b2_writing_drafts_v1/);
-  assert.match(reader, /function copyWritingFeedbackPrompt\(taskId\)/);
+  const workbenchStart = reader.indexOf('function renderWritingWorkbench(data, scrollPosition)');
+  const workbench = reader.slice(workbenchStart, reader.indexOf('\nfunction ', workbenchStart + 10));
+  assert.match(workbench, /页面不提供作文输入框，也不启动考试计时/);
+  assert.doesNotMatch(workbench, /textarea|saveWritingDraft\(|保存当前版本/);
   assert.match(reader, /writing-workbench/);
   assert.doesNotMatch(reader, /OPENAI_API_KEY/);
 });
@@ -356,12 +368,14 @@ test('writing workbench reproduces structured source materials before learning s
   assert.match(reader, /评分自查/);
 });
 
-test('writing workbench keeps immutable draft versions and records model unlocks', () => {
+test('writing workbench seals legacy draft data and records model unlocks', () => {
+  // 决策 4：版本界面已移除，但存储键与历史数据原样保留（备份契约耦合）
   assert.match(reader, /russian_b2_writing_versions_v1/);
-  assert.match(reader, /function saveWritingVersion/);
-  assert.match(reader, /function restoreWritingVersion/);
-  assert.match(reader, /保存当前版本/);
   assert.match(reader, /function recordWritingModelUnlock/);
+  const workbenchStart = reader.indexOf('function renderWritingWorkbench(data, scrollPosition)');
+  const workbench = reader.slice(workbenchStart, reader.indexOf('\nfunction ', workbenchStart + 10));
+  assert.doesNotMatch(workbench, /保存当前版本|restoreWritingVersion|renderWritingVersions/);
+  assert.match(workbench, /ws-animated-collapse/);
 });
 
 test('writing workbench omits unavailable time limits instead of showing dash-minute badges', () => {
@@ -782,14 +796,13 @@ test('reader dispatches writing-speaking chapters to their own render function',
 
 test('writing-speaking render includes sections for reading, writing, speaking, and study support', () => {
   assert.match(reader, /function renderWritingSpeakingChapter\(data, scrollPosition, restoreState\)/);
-  assert.match(reader, /📖 阅读材料/);
-  assert.match(reader, /📝 词汇准备/);
+  assert.match(reader, /📖 输入材料 \/ 原文/);
+  assert.match(reader, /📝 待学词汇与改写准备/);
   assert.match(reader, /✍️ 写作任务/);
   assert.match(reader, /🗣 口语任务/);
-  assert.match(reader, /💬 可复用表达/);
-  assert.match(reader, /📐 输出框架/);
-  assert.match(reader, /⚠ 评分风险/);
-  assert.match(reader, /💡 口语追问/);
+  assert.match(reader, /结构与表达工具板/);
+  assert.match(reader, /输出框架/);
+  assert.match(reader, /可调用的口语表达/);
 });
 
 test('writing-speaking records paper-writing stages without rendering an online composition field', () => {
@@ -858,7 +871,7 @@ test('writing-speaking vocabulary exposes its retained examples and project-dict
 });
 
 test('writing-speaking integrates recording buttons through existing MediaRecorder flow', () => {
-  assert.match(reader, /🎤 录音练习/);
+  assert.match(reader, /录音练习/);
   assert.match(reader, /window\._wsSpeakTaskId/);
   assert.match(reader, /ws-start-rec-/);
   assert.match(reader, /ws-stop-rec-/);
