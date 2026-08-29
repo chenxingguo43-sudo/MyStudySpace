@@ -2,6 +2,7 @@
 node_modules/
 *.py
 !scripts/*.py
+!scripts/**/*.py
 *.bat
 gist_id.txt
 _check.js
@@ -16,6 +17,12 @@ data/audio/
 data/audio-manifest.json
 data/novel/
 .codex/
+.reader-pipeline/
+
+# Local Claude Code junctions; canonical Reader Skills live in .agents or the user Skill store.
+/.claude/skills/reader-textbook-production/
+/.claude/skills/reader-question-explainer/
+/.claude/skills/reader-knowledge-teacher/
 node_modules
 _zlatoust_pages/
 _zlatoust_transcriptions/*.txt

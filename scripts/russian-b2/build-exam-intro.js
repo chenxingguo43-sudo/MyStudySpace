@@ -1,0 +1,65 @@
+/* 组装真题模拟第一课"考试说明"：来自原书前言（新扫描 full.md 行 1-56，原书 PDF 1-3）。
+ * 纯阅读页：等级说明、科目分值、两天时间表、合格线、补考规则。 */
+const fs = require('node:fs');
+const path = require('node:path');
+
+const ROOT = path.resolve(__dirname, '..', '..');
+const EXAM_DIR = path.join(ROOT, 'data', 'textbook', 'russian_b2', 'modules', 'exam');
+
+function buildExamIntroChapter() {
+  return {
+    id: 'exam-intro',
+    title: '考试说明',
+    durationMinutes: 0,
+    questionCount: 0,
+    sourcePages: [1, 3],
+    reviewStatus: 'source-verified',
+    sourceMarkdown: '新扫描 full.md 前言（原书 PDF 1–3）',
+    importStatus: 'source-verified',
+    format: 'exam-practice',
+    introMode: true,
+    readOnly: true,
+    intro: {
+      leadZh: '俄罗斯联邦对外俄语等级考试（Тест по русскому языку как иностранному）相当于雅思、托福、汉语水平考试一类国家级标准化考试。我国的大学本科毕业生想在俄罗斯高校攻读硕士学位，必须通过 B2 级考试。等级证书在全俄罗斯认可，有效期两年。',
+      levels: [
+        { level: 'A1 / A2', title: '基础级', goalZh: '从零起点开始学习俄语，要求具备初步的语言能力。' },
+        { level: 'B1', title: '一级', goalZh: '通过该等级测试，有资格进入俄罗斯高等学校学习。' },
+        { level: 'B2', title: '二级（本科目标准）', goalZh: '通过该等级测试，可以直接进入俄罗斯高校攻读语文系以外的硕士学位。' },
+        { level: 'C1', title: '三级', goalZh: '通过该等级测试，可以直接进入俄罗斯高校攻读语文系硕士学位。' },
+        { level: 'C2', title: '四级', goalZh: '通过该等级测试，在俄罗斯高校就读的学生有资格获得语文系硕士或副博士学位证书。' }
+      ],
+      subjects: [
+        { subjectZh: '语法和词汇（Грамматика. Лексика）', questions: 150, maxScore: 150, passingScore: 99, passingNoteZh: '每题 1 分，答对 ≥99 题' },
+        { subjectZh: '阅读（Чтение）', questions: 25, maxScore: 150, passingScore: 99, passingNoteZh: '每题 6 分，答对 ≥17 题' },
+        { subjectZh: '听力（Аудирование）', questions: 25, maxScore: 150, passingScore: 99, passingNoteZh: '每题 6 分，答对 ≥17 题' },
+        { subjectZh: '写作（Письмо）', questions: 3, maxScore: 65, passingScore: 43, passingNoteZh: '主观题' },
+        { subjectZh: '会话（Говорение）', questions: 15, maxScore: 145, passingScore: 96, passingNoteZh: '主观题' }
+      ],
+      totalZh: '五个科目满分合计 660 分，考试总时长 285 分钟，分两天进行。',
+      schedule: {
+        dayOne: [
+          { subjectZh: '阅读（Чтение）', minutes: 60 },
+          { subjectZh: '语法和词汇（Грамматика. Лексика）', minutes: 90 },
+          { subjectZh: '写作（Письмо）', minutes: 55 }
+        ],
+        dayTwo: [
+          { subjectZh: '听力（Аудирование）', minutes: 35 },
+          { subjectZh: '会话（Говорение）', minutes: 45 }
+        ]
+      },
+      passingRuleZh: '五个考试科目均达到满分的 66% 即为合格。如果四个科目达到 66%、另一个科目达到满分的 60%，也视为合格。考试后一周之内可知分数。',
+      retakeRuleZh: '如果只有一个科目未通过（且低于该科总分的 60%），可只补考该科目；两个及以上科目未通过（均低于 66%），则所有科目都要重考。两种情况都需重新缴纳考试费用。'
+    }
+  };
+}
+
+function main() {
+  const chapter = buildExamIntroChapter();
+  const target = path.join(EXAM_DIR, 'exam-intro.json');
+  fs.writeFileSync(target, `${JSON.stringify(chapter, null, 2)}\n`, 'utf8');
+  process.stdout.write(`Wrote exam intro to ${path.relative(ROOT, target)}\n`);
+}
+
+if (require.main === module) main();
+
+module.exports = { buildExamIntroChapter };
