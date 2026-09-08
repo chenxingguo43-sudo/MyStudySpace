@@ -5,12 +5,17 @@ const assert = require('node:assert/strict');
 const reader = fs.readFileSync('reader.html', 'utf8');
 const readerRuntime = fs.readFileSync('js/reader-runtime.js', 'utf8');
 const dictionaryRuntime = fs.readFileSync('js/russian-dictionary/runtime.js', 'utf8');
+function sliceFunction(source, startName, endName) {
+  const start = source.indexOf(`function ${startName}`);
+  const end = source.indexOf(`function ${endName}`, start + 1);
+  return source.slice(start, end >= 0 ? end : source.length);
+}
 
 test('reader theme changes preserve Reader state and expose view metadata', () => {
   assert.doesNotMatch(reader, /document\.body\.className\s*=/);
   assert.match(reader, /body\.classList\.add\('theme-' \+ state\.theme/);
   assert.match(reader, /function syncReaderShellState\(\)/);
-  assert.match(reader, /root\.dataset\.readerTheme\s*=\s*'white-night'/);
+  assert.match(reader, /root\.dataset\.appTheme\s*=\s*'white-night'/);
   assert.match(reader, /root\.dataset\.readingTheme\s*=\s*state\.theme/);
   assert.match(reader, /readerLayout\.classList\.contains\('rs-practice-mode'\)/);
   assert.match(reader, /root\.dataset\.readerView\s*=\s*resolveReaderShellView\(\)/);
@@ -18,8 +23,9 @@ test('reader theme changes preserve Reader state and expose view metadata', () =
 });
 
 test('reader keeps its own navigation and shared dictionary states without an APP shell', () => {
-  assert.doesNotMatch(reader, /AppShell|app-shell|app-runtime|app-home|profile\.html|data-reader-android-style/);
-  assert.match(reader, /Reader 工具/);
+  assert.doesNotMatch(reader, /AppShell|app-shell|app-runtime|app-home|profile\.html/);
+  assert.match(reader, /reader-page-switcher/);
+  assert.match(reader, /背单词/);
   assert.match(reader, /reader-shelf-view/);
   assert.match(reader, /reader-chapters-view/);
   assert.match(reader, /reader-reading-layout/);
@@ -63,9 +69,10 @@ test('Reader workbenches keep functional boundaries', () => {
 });
 
 test('reader resolves textbook paths from metadata instead of a B2-specific branch', () => {
-  assert.match(reader, /function getBookDataDir\(bookId\)/);
-  assert.doesNotMatch(reader, /bookId === 'russian_b2'/);
-  assert.match(reader, /data\/textbook/);
+  const body = sliceFunction(reader, 'getBookDataDir(bookId)', 'isQuizFirstBook(book)');
+  assert.match(body, /getBookById\(bookId\)/);
+  assert.match(body, /book\.kind\s*===\s*'textbook'/);
+  assert.match(body, /data\/textbook/);
 });
 
 test('reader loads the native listening workbench with captions and provenance', () => {
@@ -320,7 +327,8 @@ test('reader gives reading practice its own answer-reveal flow', () => {
   assert.match(reader, /reading-practice/);
   const answerBody = reader.match(/function answerReadingQuestion\(questionId,\s*selected,\s*evt[\s\S]*?\) \{([\s\S]*?)\n\}/);
   assert.ok(answerBody);
-  assert.doesNotMatch(answerBody[1], /toggleReadingAnswer\(/);
+  assert.match(answerBody[1], /record\.selected !== selected/);
+  assert.match(answerBody[1], /RussianB2ReadingReview\.recordAttempt/);
 });
 
 test('mock exams separate answer controls from lookup after an assisted unlock', () => {
@@ -338,6 +346,7 @@ test('reading interactions update the answered question in place and display sou
   const categoryBody = reader.match(/function setReadingErrorCategory\(questionId, category\) \{([\s\S]*?)\n\}/);
   assert.ok(answerBody && revealBody && categoryBody);
   assert.match(answerBody[1], /updateReadingQuestionDOM\(questionId\)/);
+  assert.match(answerBody[1], /第二次点击同一选项|record\.selected !== selected/);
   assert.match(revealBody[1], /updateReadingQuestionDOM\(questionId\)/);
   assert.match(categoryBody[1], /updateReadingQuestionDOM\(questionId\)/);
   const updateBody = reader.match(/function updateReadingQuestionDOM\(questionId\) \{([\s\S]*?)\n\}/);
@@ -401,7 +410,7 @@ test('unified B2 modules use module-scoped chapter cache keys', () => {
   assert.match(chapterBody[1], /cachePut\(cacheBookId, idx, data\)/);
   const fetchBody = reader.match(/function fetchChapter\(bookId, idx\) \{([\s\S]*?)\n\}/);
   assert.ok(fetchBody);
-  assert.match(fetchBody[1], /readerRuntime\.loadChapter\(book, idx\)/);
+  assert.match(fetchBody[1], /appRuntime\.loadChapter\(book, idx\)/);
   assert.match(readerRuntime, /book\.isB2Module/);
   assert.match(readerRuntime, /const staticUrl = `\$\{dataRoot\}\/\$\{directory\}/);
 });
@@ -592,19 +601,29 @@ test('Zlatoust 1.4.1 uses a separate integrated learning page without duplicatin
   assert.match(reader, /ZLATOUST_LEARNING_PROGRESS_KEY = 'rr_zlatoust_learning_v1'/);
   assert.match(reader, /learning-pages\/.*section-/);
   assert.match(reader, /function renderZlatoustLearningPage\(page, unit, chapterIndex\)/);
-  assert.match(reader, /function renderZlatoustLearningStage\(page, stage\)/);
   assert.match(reader, /renderQuizItem\(exercise, getQuizRecord\(exercise\.id\)\)/);
   assert.match(reader, /function returnToZlatoustRoute\(\)/);
   assert.match(reader, /goChapter\(target\.chapterIndex, \{ scroll: target\.scroll \|\| 0 \}\)/);
   assert.match(reader, /ZLATOUST_KNOWLEDGE_POINT_SECTIONS = \{[\s\S]*?'gl1:gl1-4-1': '1\.4\.1'/);
-  assert.match(reader, /function renderZlatoustLearningRoute\(page\)/);
   assert.match(reader, /function renderZlatoustTransferTasks\(sectionId, tasks\)/);
-  assert.match(reader, /zlatoust-time-gate/);
-  assert.match(reader, /四条防误解提醒/);
-  assert.match(reader, /data-zlatoust-learning-route/);
-  assert.match(reader, /function getZlatoustLearningStageState\(sectionId, stage, finalStage\)/);
-  assert.match(reader, /function toggleZlatoustStageReview\(sectionId, stageId, checked\)/);
-  assert.match(reader, /zlatoust-unit-map-root/);
+  assert.match(reader, /function renderZlatoustLearningMindMap\(page\)/);
+  const mindMapBody = sliceFunction(reader, 'renderZlatoustLearningMindMap(page)', 'renderZlatoustLearningToc(page, mobile)');
+  assert.match(mindMapBody, /page\.mindMapMode/);
+  assert.match(mindMapBody, /Array\.isArray\(page\.mindMap\)/);
+  assert.match(mindMapBody, /ReaderMindMap\.renderRetrievalMap/);
+  assert.match(mindMapBody, /page\.mindMapRootLines/);
+  assert.doesNotMatch(reader, /page\.conceptMap/);
+  assert.doesNotMatch(reader, /page\.timeGate/);
+  assert.doesNotMatch(reader, /page\.entryGate/);
+  assert.doesNotMatch(reader, /page\.decisionAxes/);
+  assert.doesNotMatch(reader, /page\.decisionTree/);
+  assert.doesNotMatch(reader, /zlatoust-concept-map/);
+  assert.doesNotMatch(reader, /zlatoust-unit-route|zlatoust-stage-review|renderZlatoustLearningRoute|renderZlatoustLegacyLearningStage|renderZlatoustLearningStage/);
+  assert.doesNotMatch(reader, /mindMapWalkthrough|zlatoust-retrieval-example|mm-part-|mm-trap/);
+  assert.doesNotMatch(reader, /zlatoust-unit-map-root/);
+  assert.doesNotMatch(reader, /zlatoust-unit-map-list/);
+  assert.doesNotMatch(reader, /zlatoust-tree-/);
+  assert.doesNotMatch(reader, /zlatoust-map-/);
   assert.doesNotMatch(reader, /function renderZlatoustChapterMindMap\(/);
   assert.match(reader, /function renderZlatoustExternalReference\(source, fallbackConclusion\)/);
   assert.match(reader, /来源核验（可选，不影响学习）/);
@@ -633,16 +652,16 @@ test('Zlatoust quiz explanations load rule-unit option analysis and retain prove
 });
 
 test('Zlatoust quiz keeps source provenance clear and ignores empty option placeholders', () => {
-  const referenceBody = reader.match(/function renderZlatoustExerciseReference\(exercise\) \{([\s\S]*?)\n\}/);
-  const explanationBody = reader.match(/function getZlatoustStaticExplanation\(exercise, state, answerKey\) \{([\s\S]*?)\n\}/);
-  const quizBody = reader.match(/function renderQuizItem\(exercise, record\) \{([\s\S]*?)\n\}/);
-  const promptBody = reader.match(/function buildReaderExerciseAiPrompt\(exercise, record, title\) \{([\s\S]*?)\n\}/);
+  const referenceBody = sliceFunction(reader, 'renderZlatoustExerciseReference(exercise)', 'loadZlatoustRuleUnit(sectionId)');
+  const explanationBody = sliceFunction(reader, 'getZlatoustStaticExplanation(exercise, state, answerKey)', 'renderZlatoustStaticRuleLinks(explanation, state)');
+  const quizBody = sliceFunction(reader, 'renderQuizItem(exercise, record)', 'formatQuestionRange(exerciseIds)');
+  const promptBody = sliceFunction(reader, 'buildReaderExerciseAiPrompt(exercise, record, title, evidence)', 'copyReaderAiPrompt(kind, payload, successMessage)');
   assert.ok(referenceBody && explanationBody && quizBody && promptBody);
-  assert.match(referenceBody[1], /原书未提供逐题解析/);
-  assert.match(referenceBody[1], /不是教材原文/);
-  assert.match(explanationBody[1], /String\(option\.text \|\| ''\)\.trim\(\)/);
-  assert.match(quizBody[1], /String\(exercise\.options\[i\]\.text \|\| ''\)\.trim\(\)/);
-  assert.match(promptBody[1], /filter\(function\(option\)/);
+  assert.match(referenceBody, /原书未提供逐题解析/);
+  assert.match(referenceBody, /不是教材原文/);
+  assert.match(explanationBody, /String\(option\.text \|\| ''\)\.trim\(\)/);
+  assert.match(quizBody, /String\(exercise\.options\[i\]\.text \|\| ''\)\.trim\(\)/);
+  assert.match(promptBody, /filter\(function\(option\)/);
 });
 
 test('reader keeps appended film listening exercises separate from exam and intensive timelines', () => {
@@ -708,7 +727,9 @@ test('Zlatoust 2.5 loads its five-stage time-relation decision learning page', (
 
 test('Zlatoust 2.6 loads its five-stage spatial-question learning page', () => {
   assert.match(reader, /'2\.6': \{ stageCount: 5, exerciseCount: 17 \}/);
-  assert.match(reader, /page\.timeGate \|\| page\.entryGate/);
+  const page = JSON.parse(fs.readFileSync(require('node:path').join(__dirname, '..', '..', 'data', 'textbook', 'zlatoust_grammar', 'theory', 'learning-pages', 'gl2', 'section-2.6.json'), 'utf8'));
+  assert.equal(page.mindMapMode, 'retrieval');
+  assert.equal(page.mindMap.length, page.stages.length);
 });
 
 test('Zlatoust 2.7 loads its five-stage causal-nature learning page', () => {
@@ -739,7 +760,9 @@ test('Zlatoust Chapter 5 routes all remaining theory cards to source-traceable l
   for (const file of ['section-5.1.json', 'section-5.2.json', 'section-5.lexical.json']) {
     const page = JSON.parse(fs.readFileSync(require('node:path').join(root, file), 'utf8'));
     assert.equal(page.reviewStatus, 'needs-review');
-    assert.ok(page.entryGate && page.decisionAxes.length === page.stages.length);
+    assert.equal(page.mindMapMode, 'retrieval');
+    assert.ok(Array.isArray(page.mindMap) && page.mindMap.length === page.stages.length);
+    assert.ok(page.mindMap.every(node => node.recognize && node.rule && node.example && node.trap));
     assert.ok(page.stages.every(stage => stage.checks.length >= 2 && stage.sourceExamples.length >= 2));
   }
 });
@@ -762,13 +785,18 @@ test('Zlatoust 1.4.2 is configured as its own negation learning page', () => {
 test('Zlatoust 1.4.3 is configured with two independent infinitive decision axes', () => {
   assert.match(reader, /'1\.4\.3': \{ stageCount: 4, exerciseCount: 6 \}/);
   assert.match(reader, /'gl1:gl1-4-3': '1\.4\.3'/);
-  assert.match(reader, /zlatoust-unit-map-axes-2/);
+  const page = JSON.parse(fs.readFileSync(require('node:path').join(__dirname, '..', '..', 'data', 'textbook', 'zlatoust_grammar', 'theory', 'learning-pages', 'gl1', 'section-1.4.3.json'), 'utf8'));
+  assert.equal(page.mindMapMode, 'retrieval');
+  assert.equal(page.mindMap.length, page.stages.length);
 });
 
 test('Zlatoust 1.4.4 has an independent lexical-constraint learning card', () => {
   assert.match(reader, /'1\.4\.4': \{ stageCount: 4, exerciseCount: 13 \}/);
   assert.match(reader, /'gl1:gl1-4-4-lexical': '1\.4\.4'/);
-  assert.match(reader, /page\.mindMapIntro \|\| '这张图只表示概念关系/);
+  const page = JSON.parse(fs.readFileSync(require('node:path').join(__dirname, '..', '..', 'data', 'textbook', 'zlatoust_grammar', 'theory', 'learning-pages', 'gl1', 'section-1.4.4.json'), 'utf8'));
+  assert.equal(page.mindMapMode, 'retrieval');
+  assert.ok(Array.isArray(page.mindMap) && page.mindMap.length === page.stages.length);
+  assert.ok(page.stages.length === 4);
 });
 
 test('Zlatoust 1.4.5 has an independent нельзя learning card', () => {

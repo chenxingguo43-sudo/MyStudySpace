@@ -1021,44 +1021,4 @@
         }
       ]
     }
-  ],
-  "mindMapWalkthrough": {
-    "title": "一句话串起全节",
-    "ru": "урок химии, литр молока и нос картошкой",
-    "parts": [
-      {
-        "id": "stage-sphere",
-        "text": "урок химии",
-        "explanation": "属格，领域"
-      },
-      {
-        "id": "stage-whole",
-        "text": "литр молока",
-        "explanation": "属格，数量"
-      },
-      {
-        "id": "stage-comparison",
-        "text": "нос картошкой",
-        "explanation": "第五格，比较"
-      }
-    ],
-    "decisionWalkthrough": [
-      {
-        "blank": "химии",
-        "step1": "无介词，中心名词 урок",
-        "step2": "属格表领域",
-        "step3": "二格 химии"
-      },
-      {
-        "blank": "картошкой",
-        "step1": "无介词，中心名词 нос",
-        "step2": "第五格表比较",
-        "step3": "五格 картошкой"
-      }
-    ],
-    "trap": {
-      "wrong": "两个相邻名词都表示「谁的」",
-      "correct": "无介词属格有多种关系，第五格表比较，不能都译成「的」"
-    }
-  }
-}
+  ]}

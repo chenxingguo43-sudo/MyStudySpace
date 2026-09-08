@@ -5,6 +5,7 @@ const { validateChapter, validateStudyNavigation, getStudyPointExerciseIds } = r
 const VAULT = ['俄语资料库', '俄语B2·原书复刻与学习版'];
 const DATA = [...VAULT, '规范数据', '语法词汇'];
 const STUDY_CARD_INDEX = [...VAULT, '规范数据', '语法书映射', 'index.json'];
+const READER_ONLY_EXERCISE_FIELDS = ['answerAnalysis', 'answerNotice', 'sourceCorrections'];
 
 function readJson(filePath) { return JSON.parse(fs.readFileSync(filePath, 'utf8')); }
 function writeJson(filePath, value) {
@@ -41,6 +42,24 @@ function buildPart(part, units, byExercise, studyCardIds) {
     exercises: selected.flatMap(unit => unit.exercises).sort((left, right) => left.printedNumber - right.printedNumber)
   };
 }
+function preserveReaderExerciseFields(root, part) {
+  const readerPath = path.join(root, 'data', 'textbook', 'russian_b2', 'ch' + String(part.index).padStart(4, '0') + '.json');
+  if (!fs.existsSync(readerPath)) return part;
+  const current = readJson(readerPath);
+  const currentById = new Map((current.exercises || []).map(exercise => [exercise.id, exercise]));
+  return {
+    ...part,
+    exercises: part.exercises.map(exercise => {
+      const previous = currentById.get(exercise.id);
+      if (!previous) return exercise;
+      const preserved = READER_ONLY_EXERCISE_FIELDS.reduce((result, field) => {
+        if (Object.prototype.hasOwnProperty.call(previous, field)) result[field] = previous[field];
+        return result;
+      }, {});
+      return Object.keys(preserved).length ? { ...exercise, ...preserved } : exercise;
+    })
+  };
+}
 function loadPublished(root) {
   const base = path.join(root, ...DATA);
   const manifest = readJson(path.join(base, 'index.json'));
@@ -58,7 +77,8 @@ function buildSixPartBook({ root, write = true }) {
   const navigationErrors = validateStudyNavigation({ navigation, units });
   if (navigationErrors.length) throw new Error(navigationErrors.join('\n'));
   const byExercise = new Map(units.flatMap(unit => unit.exercises.map(exercise => [exercise.id, { exercise, unit }])));
-  const parts = navigation.parts.map(part => buildPart(part, units, byExercise, studyCardIds));
+  const baseParts = navigation.parts.map(part => buildPart(part, units, byExercise, studyCardIds));
+  const parts = write ? baseParts.map(part => preserveReaderExerciseFields(root, part)) : baseParts;
   const chapterErrors = parts.flatMap(part => validateChapter(part).map(error => `${part.id}: ${error}`));
   if (chapterErrors.length) throw new Error(chapterErrors.join('\n'));
   if (!write) return { parts, readerPaths: [], indexPath: path.join(root, 'data', 'textbook', 'index.json') };

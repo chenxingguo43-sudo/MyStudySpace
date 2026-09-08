@@ -1,0 +1,20 @@
+{
+  "schema": "reader-production-config-v1",
+  "defaultPreset": "low-cost",
+  "presets": {
+    "low-cost": {
+      "batchSize": 2,
+      "generatorAttempts": 2,
+      "escalationAttempts": 1,
+      "generator": {
+        "command": ["your-low-cost-adapter", "generate"]
+      },
+      "reviewer": {
+        "command": ["your-independent-review-adapter", "review"]
+      },
+      "escalation": {
+        "command": ["your-strong-model-adapter", "generate"]
+      }
+    }
+  }
+}

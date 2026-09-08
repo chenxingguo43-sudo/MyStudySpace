@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "bookId": "russian-b2-reading",
+  "title": "俄罗斯 B2 阅读选择题",
+  "adapter": "b2-reading",
+  "sourceDir": "data/textbook/russian_b2/modules/reading",
+  "stateDir": ".reader-pipeline/russian-b2-reading",
+  "chapterPattern": "^ch\\d{4}\\.json$",
+  "requiredSkill": "reader-question-explainer",
+  "outputField": "answerAnalysis",
+  "acceptedPresentationMode": "two-layer",
+  "leaseMinutes": 30,
+  "defaultBatchSize": 4,
+  "maxBatchSize": 4,
+  "maxAttempts": 3,
+  "maxConcurrency": 1,
+  "tests": [
+    "node --test tests/reader-book-pipeline.test.js tests/russian-b2/reading.test.js",
+    "npx playwright test tests/reader-b2-reading-pilot.spec.js --workers=1"
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "schema": "reader-production-config-v1",
+  "defaultPreset": "codex-luna-sol-batch8",
+  "presets": {
+    "codex-luna-sol-batch8": {
+      "batchSize": 8,
+      "generatorAttempts": 1,
+      "reviewerAttempts": 1,
+      "escalationAttempts": 0,
+      "escalateTransportFailures": false,
+      "pipelineOverlap": true,
+      "transportMode": "compact-grammar-v1",
+      "qualityReferenceFile": "data/textbook/zlatoust_grammar/theory/explanations/gl1/gl1-q001-q013.json",
+      "qualityReferenceTaskId": "GL1-Q008",
+      "generator": { "command": ["node", "scripts/reader-codex-adapter.js", "--model", "gpt-5.6-luna", "--effort", "medium", "--timeout-ms", "900000"] },
+      "reviewer": { "command": ["node", "scripts/reader-codex-adapter.js", "--model", "gpt-5.6-sol", "--effort", "high", "--timeout-ms", "900000"] },
+      "escalation": { "command": ["node", "scripts/reader-codex-adapter.js", "--model", "gpt-5.6-sol", "--effort", "xhigh", "--timeout-ms", "900000"] }
+    },
+    "codex-terra-sol": {
+      "batchSize": 4,
+      "generatorAttempts": 2,
+      "reviewerAttempts": 2,
+      "escalationAttempts": 1,
+      "escalateTransportFailures": false,
+      "generator": { "command": ["node", "scripts/reader-codex-adapter.js", "--model", "gpt-5.6-terra", "--effort", "medium", "--timeout-ms", "900000"] },
+      "reviewer": { "command": ["node", "scripts/reader-codex-adapter.js", "--model", "gpt-5.6-sol", "--effort", "high", "--timeout-ms", "900000"] },
+      "escalation": { "command": ["node", "scripts/reader-codex-adapter.js", "--model", "gpt-5.6-sol", "--effort", "xhigh", "--timeout-ms", "900000"] }
+    },
+    "codex-luna-sol-single": {
+      "batchSize": 1,
+      "generatorAttempts": 1,
+      "reviewerAttempts": 1,
+      "escalationAttempts": 0,
+      "escalateTransportFailures": false,
+      "pipelineOverlap": false,
+      "transportMode": "compact-grammar-v1",
+      "qualityReferenceFile": "data/textbook/zlatoust_grammar/theory/explanations/gl1/gl1-q001-q013.json",
+      "qualityReferenceTaskId": "GL1-Q008",
+      "generator": { "command": ["node", "scripts/reader-codex-adapter.js", "--model", "gpt-5.6-luna", "--effort", "medium", "--timeout-ms", "900000"] },
+      "reviewer": { "command": ["node", "scripts/reader-codex-adapter.js", "--model", "gpt-5.6-sol", "--effort", "high", "--timeout-ms", "900000"] },
+      "escalation": { "command": ["node", "scripts/reader-codex-adapter.js", "--model", "gpt-5.6-sol", "--effort", "xhigh", "--timeout-ms", "900000"] }
+    },
+    "codex-luna-sol-b2-grammar": {
+      "batchSize": 2,
+      "parallelBatches": 2,
+      "dynamicParallel": true,
+      "minParallelBatches": 2,
+      "maxParallelBatches": 4,
+      "maxZeroAcceptedBatches": 2,
+      "generatorAttempts": 2,
+      "reviewerAttempts": 1,
+      "escalationAttempts": 1,
+      "escalateTransportFailures": false,
+      "pipelineOverlap": false,
+      "generator": { "command": ["node", "scripts/reader-codex-adapter.js", "--model", "gpt-5.6-luna", "--effort", "medium", "--timeout-ms", "900000"] },
+      "reviewer": { "command": ["node", "scripts/reader-codex-adapter.js", "--model", "gpt-5.6-sol", "--effort", "high", "--timeout-ms", "900000"] },
+      "escalation": { "command": ["node", "scripts/reader-codex-adapter.js", "--model", "gpt-5.6-sol", "--effort", "xhigh", "--timeout-ms", "900000"] }
+    }
+  }
+}

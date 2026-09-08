@@ -469,7 +469,6 @@ function renderCardNote(card, graph, cards, conceptsById) {
     '',
     card.decisionFlow ? '## 判断流程\n\n' + renderStructured(card.decisionFlow) : '',
     '',
-    card.mindMapWalkthrough ? '## 全卡串讲\n\n' + renderStructured(card.mindMapWalkthrough) : '',
     '',
     '---',
     '',

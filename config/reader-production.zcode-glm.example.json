@@ -1,0 +1,16 @@
+{
+  "schema": "reader-production-config-v1",
+  "defaultPreset": "zcode-glm-flash",
+  "presets": {
+    "zcode-glm-flash": {
+      "batchSize": 2,
+      "generatorAttempts": 2,
+      "reviewerAttempts": 2,
+      "escalationAttempts": 1,
+      "escalateTransportFailures": false,
+      "generator": { "command": ["node", "scripts/reader-zcode-adapter.js", "--model", "glm-5.3-flash", "--provider", "builtin:zai-start-plan"] },
+      "reviewer": { "command": ["node", "scripts/reader-zcode-adapter.js", "--model", "glm-5.3-flash", "--provider", "builtin:zai-start-plan"] },
+      "escalation": { "command": ["node", "scripts/reader-claude-adapter.js", "--model", "opus", "--effort", "max"] }
+    }
+  }
+}

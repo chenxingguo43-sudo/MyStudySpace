@@ -1,0 +1,19 @@
+{
+  "schema": "reader-production-config-v1",
+  "defaultPreset": "b2-v2-pilot",
+  "presets": {
+    "b2-v2-pilot": {
+      "batchSize": 1,
+      "parallelBatches": 1,
+      "generatorAttempts": 1,
+      "reviewerAttempts": 1,
+      "escalationAttempts": 0,
+      "escalateTransportFailures": false,
+      "transportMode": "compact-grammar-v1",
+      "qualityReferenceFile": "俄语资料库/俄语B2·原书复刻与学习版/规范数据/语法书映射/cards/p3-active-participles.json",
+      "generator": { "command": ["node", "scripts/reader-codex-adapter.js", "--model", "gpt-5.6-terra", "--effort", "medium", "--timeout-ms", "900000"] },
+      "reviewer": { "command": ["node", "scripts/reader-codex-adapter.js", "--model", "gpt-5.6-sol", "--effort", "high", "--timeout-ms", "900000"] },
+      "escalation": { "command": ["node", "scripts/reader-codex-adapter.js", "--model", "gpt-5.6-sol", "--effort", "xhigh", "--timeout-ms", "900000"] }
+    }
+  }
+}

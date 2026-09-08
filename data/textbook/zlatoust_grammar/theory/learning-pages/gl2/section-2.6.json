@@ -1075,44 +1075,4 @@
         }
       ]
     }
-  ],
-  "mindMapWalkthrough": {
-    "title": "一句话串起全节",
-    "ru": "Он в театре, подошёл к брату и вышел из-за дома.",
-    "parts": [
-      {
-        "id": "stage-gate",
-        "text": "в театре",
-        "explanation": "静态，в+六格"
-      },
-      {
-        "id": "stage-pairs",
-        "text": "к брату",
-        "explanation": "人名词终点，к+三格"
-      },
-      {
-        "id": "stage-person",
-        "text": "из-за дома",
-        "explanation": "从后方出来，из-за+二格"
-      }
-    ],
-    "decisionWalkthrough": [
-      {
-        "blank": "в театре",
-        "step1": "在哪里？静态",
-        "step2": "театр 用 в",
-        "step3": "в+六格"
-      },
-      {
-        "blank": "к брату",
-        "step1": "去哪里？人名词",
-        "step2": "去某人处用 к",
-        "step3": "к+三格"
-      }
-    ],
-    "trap": {
-      "wrong": "同一个地点只用一个格",
-      "correct": "先分静态/终点/来源三个角色，再选介词和格"
-    }
-  }
-}
+  ]}

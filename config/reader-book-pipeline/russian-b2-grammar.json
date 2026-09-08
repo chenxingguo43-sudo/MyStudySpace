@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "bookId": "russian-b2-grammar",
+  "title": "俄罗斯 B2 全模块语法",
+  "adapter": "grammar",
+  "grammarTeachingMode": "content-v1",
+  "sourceDir": "data/textbook/russian_b2",
+  "stateDir": ".reader-pipeline/russian-b2-grammar",
+  "chapterPattern": "^ch\\d{4}\\.json$",
+  "requiredSkill": "reader-question-explainer",
+  "outputField": "answerAnalysis",
+  "acceptedPresentationMode": "two-layer",
+  "knowledgeCards": true,
+  "cardIndexFile": "俄语资料库/俄语B2·原书复刻与学习版/规范数据/语法书映射/index.json",
+  "cardDirectory": "俄语资料库/俄语B2·原书复刻与学习版/规范数据/语法书映射",
+  "leaseMinutes": 45,
+  "defaultBatchSize": 8,
+  "maxBatchSize": 8,
+  "maxAttempts": 3,
+  "maxConcurrency": 1,
+  "tests": [
+    "node --test tests/reader-b2-grammar-pipeline.test.js tests/russian-b2/study-cards.test.js"
+  ]
+}

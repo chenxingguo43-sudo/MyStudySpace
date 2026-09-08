@@ -6,6 +6,7 @@ const ANSWER_RULE_PAGES = [52, 53, 54, 55, 56, 57, 58, 59];
 const ANSWER_OVERRIDES = {
   47: { answer: 'А', sourceExplanation: '前置词 из 表示原因。', translation: '维克托出于对交谈者的尊重保持沉默。' }
 };
+const ANSWER_POSITION_OVERRIDES = { 1: 'В', 3: 'В', 4: 'Б', 27: 'Б', 32: 'В', 33: 'Б', 34: 'Б', 37: 'В', 39: 'В', 43: 'В', 44: 'В', 49: 'Б', 50: 'В' };
 const QUESTION_PAGE_BREAKS = [[9, 47], [18, 48], [28, 49], [38, 50], [45, 51], [50, 52]];
 const pad = number => String(number).padStart(3, '0');
 const questionPagesForP4 = number => [QUESTION_PAGE_BREAKS.find(([limit]) => number <= limit)[1]];
@@ -23,8 +24,9 @@ function buildP4Units({ questionsMarkdown, answersMarkdown, expectedRange = [1, 
     const question = questions.get(number), answer = answers.get(number);
     if (!question) throw new Error(`P4 question ${number} is missing after source verification`);
     if (!answer) throw new Error(`P4 answer ${number} is missing after source verification`);
+    const answerKey = ANSWER_POSITION_OVERRIDES[number] || answer.answer;
     exercises.push({ id:`P4-Q${pad(number)}`, printedNumber:number, type:'single-choice', question:question.question, options:question.options,
-      answer:answer.answer, sourceAnswer:answer.answer, sourceEvidence:'PDF-047–PDF-059',
+      answer:answerKey, sourceAnswer:answerKey, sourceEvidence:'PDF-047–PDF-059',
       sourceExplanation:`原书解析：${answer.sourceExplanation}；译文：${answer.translation}`,
       referenceExplanation:'参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。',
       pitfalls:['先识别原书给出的规则，再结合语境判断。'], questionPages:questionPagesForP4(number), answerPages:ANSWER_RULE_PAGES, reviewStatus:'verified' });

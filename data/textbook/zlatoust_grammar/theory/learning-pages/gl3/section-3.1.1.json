@@ -1159,39 +1159,4 @@
         }
       ]
     }
-  ],
-  "mindMapWalkthrough": {
-    "title": "一句话串起全节",
-    "ru": "Объединив наши усилия, мы справимся с задачей.",
-    "parts": [
-      {
-        "id": "stage-explicit",
-        "text": "Объединив усилия",
-        "explanation": "Adp，主体 мы"
-      },
-      {
-        "id": "stage-explicit",
-        "text": "мы справимся",
-        "explanation": "P，主格明确，同一主体"
-      }
-    ],
-    "decisionWalkthrough": [
-      {
-        "blank": "Объединив",
-        "step1": "谁联合",
-        "step2": "мы",
-        "step3": "和主句主语一致"
-      },
-      {
-        "blank": "мы",
-        "step1": "谁完成",
-        "step2": "мы",
-        "step3": "同一主体，可用"
-      }
-    ],
-    "trap": {
-      "wrong": "句中没有主语就不能用动名副词",
-      "correct": "看P和Adp能否回到同一可恢复的行动者"
-    }
-  }
-}
+  ]}

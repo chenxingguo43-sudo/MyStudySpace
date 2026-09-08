@@ -50,6 +50,11 @@ test('listening workbench rejects repeated tail timestamps', () => {
   assert.deepEqual(segments, []);
 });
 
+test('caption cues only enable sentence controls when they match transcript rows', () => {
+  assert.equal(Workbench.captionsMatchTranscriptRows({ transcriptSegments: [{ text: 'one' }, { text: 'two' }] }, [{}, {}]), true);
+  assert.equal(Workbench.captionsMatchTranscriptRows({ transcriptSegments: [{ text: 'one' }] }, [{}, {}]), false);
+});
+
 test('listening workbench preserves untimed rows inside a partial timeline', () => {
   const segments = Workbench.normalizeDataSegments([
     { startTime: 0, endTime: 0, timingStatus: 'unmatched', text: 'Нет точного времени.' },

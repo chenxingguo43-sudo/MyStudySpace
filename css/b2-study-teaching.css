@@ -1,0 +1,252 @@
+.b2-teaching {
+  --narrative-accent: var(--accent);
+  max-width: 1280px;
+  padding-top: 64px;
+  padding-bottom: max(96px, env(safe-area-inset-bottom));
+}
+
+.b2-teaching > .zlatoust-narrative-section,
+.b2-teaching > .b2-study-outline,
+.b2-teaching > .zlatoust-narrative-errors,
+.b2-teaching > .zlatoust-stage-evidence,
+.b2-teaching > .zlatoust-transfer,
+.b2-teaching > .zlatoust-learning-footer {
+  width: min(var(--zlatoust-reading-width), 100%);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.b2-teaching .zlatoust-learning-hero h1 {
+  font-size: 38px;
+  letter-spacing: 0;
+}
+
+.b2-teaching .zlatoust-learning-problem {
+  max-width: 66ch;
+}
+
+.b2-teaching-return {
+  margin-top: 18px;
+}
+
+.b2-teaching-return[hidden],
+.b2-teaching-retry[hidden],
+.b2-teaching-feedback[hidden],
+.b2-teaching-retry-feedback[hidden],
+.b2-teaching-transfer-feedback[hidden] {
+  display: none;
+}
+
+.b2-teaching-quick > small {
+  display: block;
+  margin: 14px 0 24px;
+  color: var(--text-secondary);
+  font-size: 12px;
+}
+
+.b2-teaching-quick .zlatoust-objectives {
+  margin: 22px 0 0;
+  padding: 24px 0 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 0;
+}
+
+.b2-teaching-quick .zlatoust-objectives h3 {
+  margin: 0 0 11px;
+  font-size: 18px;
+}
+
+.b2-teaching .b2-study-outline {
+  position: static;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0 18px;
+  margin-top: 28px;
+  margin-bottom: 4px;
+  padding: 16px 0;
+  border-top: 2px solid var(--accent);
+  border-bottom: 1px solid var(--border);
+}
+
+.b2-teaching .b2-study-outline a {
+  min-width: 0;
+  padding: 9px 2px;
+  color: var(--text-secondary);
+  font-size: 12px;
+  line-height: 1.5;
+  text-decoration: none;
+  border-top: 1px solid var(--border);
+  overflow-wrap: anywhere;
+}
+
+.b2-teaching .b2-study-outline a:hover,
+.b2-teaching .b2-study-outline a:focus-visible {
+  color: var(--accent);
+}
+
+.b2-teaching-map {
+  max-width: 1180px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.b2-teaching-map,
+.b2-teaching-check {
+  scroll-margin-top: 68px;
+}
+
+.b2-teaching-map .zlatoust-mindmap-wrap {
+  margin-top: 18px;
+}
+
+.b2-teaching-section:focus {
+  outline: none;
+}
+
+.b2-teaching-section:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 5px;
+}
+
+.b2-teaching .b2-teaching-lede {
+  margin-bottom: 22px;
+}
+
+.b2-teaching .zlatoust-narrative-example {
+  border-radius: 0;
+}
+
+.b2-teaching .zlatoust-narrative-example .zlatoust-narrative-explanation {
+  margin-top: 13px;
+  padding-top: 12px;
+  color: var(--text);
+  border-top: 1px solid var(--border);
+}
+
+.b2-teaching-answer {
+  margin: -10px 0 22px;
+  border-bottom: 1px solid var(--border);
+}
+
+.b2-teaching-answer summary {
+  padding: 12px 2px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.b2-teaching-contrast .zlatoust-contrast-side .ru {
+  margin: 0;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+.b2-teaching-contrast .zlatoust-contrast-side .zh {
+  margin: 7px 0 0;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.b2-teaching-contrast-reason {
+  margin: 0;
+  padding: 13px 14px;
+  line-height: 1.7;
+  border-top: 1px solid var(--border);
+}
+
+.b2-teaching .zlatoust-narrative-inline-check > .zlatoust-learning-check {
+  margin-bottom: 0;
+  background: var(--surface-solid);
+}
+
+.b2-teaching .zlatoust-learning-check-option {
+  min-height: 44px;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.b2-teaching .zlatoust-learning-check-option > strong {
+  flex: 0 0 22px;
+  color: var(--accent);
+}
+
+.b2-teaching .zlatoust-learning-feedback {
+  margin-bottom: 0;
+}
+
+.b2-teaching .zlatoust-learning-feedback p {
+  margin: 6px 0;
+}
+
+.b2-teaching-formal .zlatoust-original-practice {
+  padding: 0 14px 14px;
+}
+
+.b2-teaching-formal .b2-quiz-item {
+  margin: 12px 0;
+}
+
+.b2-teaching-details-body {
+  padding: 0 4px 14px;
+}
+
+.b2-teaching .zlatoust-stage-evidence blockquote {
+  margin: 14px 0;
+  padding: 12px 15px;
+  border-left: 3px solid #0ea5e9;
+  background: rgba(14, 165, 233, .06);
+}
+
+.b2-teaching .zlatoust-stage-evidence blockquote p {
+  margin: 0;
+  font-family: Georgia, 'Times New Roman', serif;
+  line-height: 1.7;
+}
+
+.b2-teaching .zlatoust-learning-footer {
+  grid-template-columns: 1fr auto 1fr;
+}
+
+.b2-teaching .zlatoust-learning-footer button:nth-child(2) {
+  justify-self: center;
+}
+
+.b2-teaching-links {
+  margin: 18px 0;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+}
+
+.b2-teaching-links button,
+.b2-teaching-return button {
+  min-height: 42px;
+  padding: 9px 13px;
+  white-space: normal;
+}
+
+.b2-teaching-notice {
+  color: var(--text-secondary);
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+@media (max-width: 600px) {
+  .b2-teaching .zlatoust-learning-hero h1 {
+    font-size: 28px;
+  }
+
+  .b2-teaching .b2-study-outline {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .b2-teaching .zlatoust-learning-footer {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .b2-teaching .zlatoust-learning-footer button,
+  .b2-teaching .zlatoust-learning-footer button:nth-child(2) {
+    width: 100%;
+    justify-self: stretch;
+  }
+}

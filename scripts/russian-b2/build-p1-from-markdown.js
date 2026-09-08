@@ -3,8 +3,16 @@ const path = require('node:path');
 const { extractQuestionDrafts, extractAnswerDrafts } = require('./audit-markdown-source');
 
 const ANSWER_RULE_PAGES = [10, 11, 12, 13, 14, 15, 16, 17, 18];
+const ANSWER_OVERRIDES = { 9: 'В', 56: 'Б' };
 
 const QUESTION_OVERRIDES = {
+  52: {
+    question: 'Саша, ты можешь не ..., твоя помощь нам не понадобится.',
+    options: [
+      { key: 'А', text: 'приходить' },
+      { key: 'Б', text: 'прийти' }
+    ]
+  },
   42: {
     question: 'Не ... меня, пожалуйста, я стесняюсь.',
     options: [
@@ -50,14 +58,16 @@ function buildP1Units({ questionsMarkdown, answersMarkdown, expectedRange = [1, 
     const answer = answers.get(printedNumber);
     if (!question) throw new Error(`P1 question ${printedNumber} is missing after source repair`);
     if (!answer) throw new Error(`P1 answer ${printedNumber} is missing after source repair`);
+    let answerKey = ANSWER_OVERRIDES[printedNumber] || answer.answer;
+    if (!ANSWER_OVERRIDES[printedNumber] && question.options.length === 2 && answerKey === 'В') answerKey = 'Б';
     exercises.push({
       id: `P1-Q${pad(printedNumber)}`,
       printedNumber,
       type: 'single-choice',
       question: question.question,
       options: question.options,
-      answer: answer.answer,
-      sourceAnswer: answer.answer,
+      answer: answerKey,
+      sourceAnswer: answerKey,
       sourceEvidence: 'PDF-006–PDF-018',
       sourceExplanation: `原书解析：${answer.sourceExplanation}；译文：${answer.translation}`,
       referenceExplanation: '参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。',

@@ -4,6 +4,9 @@ const fs = require('node:fs');
 
 const cardPath = 'data/textbook/zlatoust_grammar/theory/learning-pages/gl1/section-1.1.json';
 const aspectCardPath = 'data/textbook/zlatoust_grammar/theory/learning-pages/gl1/section-1.4.1.json';
+const cannotCardPath = 'data/textbook/zlatoust_grammar/theory/learning-pages/gl1/section-1.4.5.json';
+const negativeInfinitiveCardPath = 'data/textbook/zlatoust_grammar/theory/learning-pages/gl1/section-1.4.6.json';
+const forbiddenGerundCardPath = 'data/textbook/zlatoust_grammar/theory/learning-pages/gl3/section-3.1.2.json';
 
 function loadCard() {
   return JSON.parse(fs.readFileSync(cardPath, 'utf8'));
@@ -34,7 +37,19 @@ function loadAspectFactStage() {
   return card.stages.find((stage) => stage.id === 'stage-fact');
 }
 
-test('GL1 section 1.1 keeps its original tree map with four clickable teaching branches', () => {
+function loadForbiddenGerundCard() {
+  return JSON.parse(fs.readFileSync(forbiddenGerundCardPath, 'utf8'));
+}
+
+function loadCannotCard() {
+  return JSON.parse(fs.readFileSync(cannotCardPath, 'utf8'));
+}
+
+function loadNegativeInfinitiveCard() {
+  return JSON.parse(fs.readFileSync(negativeInfinitiveCardPath, 'utf8'));
+}
+
+test('GL1 section 1.1 defines four complete branches for the shared retrieval map', () => {
   const card = loadCard();
   assert.equal(card.teachingLayoutVersion, 2);
   assert.equal(card.mindMapMode, 'retrieval');
@@ -227,4 +242,273 @@ test('GL1 section 1.1 stage 4 separates predicates and short forms from professi
   assert.match(stage.checks[0].feedback.misconception, /воспитал/);
   assert.doesNotMatch(stage.checks[0].feedback.misconception, /воспитали/);
   assert.doesNotMatch(teachingText, /永远|全部判定|绝对错误|一律错误/);
+});
+
+test('GL3 section 3.1.2 starts with the two-actor check before formal terminology', () => {
+  const card = loadForbiddenGerundCard();
+  assert.match(card.titleZh, /先看两件事是谁做的/);
+  assert.match(card.problem, /谁做前面的动作.*谁做主句里的动作/s);
+  assert.doesNotMatch(card.problem, /\bP\b|\bAdp\b|逻辑主体|行动责任/);
+  assert.match(card.scopeNote, /副动词.*деепричастие.*动名副词/s);
+  assert.equal(card.entryGate.title, '先填两行：两件事是不是同一个人或东西做的');
+  assert.deepEqual(card.summaryTableHeaders, {
+    question: '先检查什么',
+    imperfective: '具体怎么问',
+    perfective: '什么时候不能压缩',
+    boundary: '最容易错在哪里'
+  });
+  assert.equal(card.teachingNarrativeVersion, 1);
+  const opening = card.teachingNarrative.sections[0];
+  assert.equal(opening.id, 'lesson-start');
+  assert.match(card.teachingNarrative.quickAnswer, /同一个人或东西做的.*才可能/s);
+  assert.deepEqual(opening.blocks.find(block => block.type === 'worksheet').prompts, [
+    '谁做前面的动作？',
+    '谁做主句里的动作？'
+  ]);
+});
+
+test('GL1 section 1.4.5 keeps its accepted narrative and exercise contracts as the production version', () => {
+  const card = loadCannotCard();
+  assert.equal(card.teachingNarrativeVersion, 1);
+  assert.deepEqual(card.stages.map(stage => stage.id), ['stage-prohibition', 'stage-impossibility']);
+  assert.deepEqual(card.stages.flatMap(stage => stage.checks.map(check => check.id)), [
+    'prohibition-check-1',
+    'prohibition-check-2',
+    'impossibility-check-1',
+    'impossibility-check-2'
+  ]);
+  assert.deepEqual(card.stages.flatMap(stage => stage.exerciseIds), [
+    'GL1-Q072',
+    'GL1-Q096',
+    'GL1-Q073',
+    'GL1-Q097'
+  ]);
+  assert.deepEqual(card.mindMap.map(node => node.id), ['stage-prohibition', 'stage-impossibility']);
+  assert.equal(card.reviewStatus, 'needs-review');
+});
+
+test('GL1 section 1.4.5 production narrative teaches the source of restriction before aspect labels', () => {
+  const card = loadCannotCard();
+  const preview = card.teachingNarrative;
+  assert.equal(card.teachingNarrativeVersion, 1);
+  assert.match(preview.quickAnswer, /谁或什么在阻止.*规则.*未完成体.*故障.*完成体/s);
+  assert.deepEqual(preview.mindMapTargets, {
+    'stage-prohibition': 'lesson-cannot-prohibition',
+    'stage-impossibility': 'lesson-cannot-impossibility'
+  });
+  assert.deepEqual(preview.sections.map(section => section.id), [
+    'lesson-cannot-start',
+    'lesson-cannot-meaning',
+    'lesson-cannot-prohibition',
+    'lesson-cannot-impossibility',
+    'lesson-cannot-procedure'
+  ]);
+  const openingText = JSON.stringify(preview.sections[0]);
+  assert.match(openingText, /宿舍规定.*未完成体/s);
+  assert.match(openingText, /灯泡烧了.*完成体/s);
+  assert.match(openingText, /原书例句：有人在立规矩/);
+  assert.match(openingText, /原书例句：现实条件让结果做不到/);
+});
+
+test('GL1 section 1.4.5 production narrative interleaves the original contrasts, checks, and misconceptions', () => {
+  const card = loadCannotCard();
+  const preview = card.teachingNarrative;
+  const expected = [
+    ['lesson-cannot-prohibition', 'stage-prohibition', 'prohibition-check-1'],
+    ['lesson-cannot-impossibility', 'stage-impossibility', 'impossibility-check-1']
+  ];
+  for (const [sectionId, stageId, checkId] of expected) {
+    const blocks = preview.sections.find(section => section.id === sectionId).blocks;
+    const contrastIndex = blocks.findIndex(block => block.type === 'stageContrast' && block.stageId === stageId);
+    const checkIndex = blocks.findIndex(block => block.type === 'stageCheck' && block.checkId === checkId);
+    const errorsIndex = blocks.findIndex(block => block.type === 'stageErrors' && block.stageId === stageId);
+    assert.ok(contrastIndex > 0 && contrastIndex < checkIndex && checkIndex < errorsIndex);
+  }
+  const procedure = JSON.stringify(preview.sections.find(section => section.id === 'lesson-cannot-procedure'));
+  assert.match(procedure, /找来源、说含义、再选体/);
+  assert.match(procedure, /信号词不是答案/);
+  assert.match(procedure, /"sourceType":"learning-note"/);
+});
+
+test('GL1 section 1.4.6 keeps its accepted five-stage card and formal-practice contract', () => {
+  const card = loadNegativeInfinitiveCard();
+  assert.equal(card.teachingNarrativeVersion, 1);
+  assert.deepEqual(card.stages.map(stage => stage.id), [
+    'stage-dependent',
+    'stage-independent-impossibility',
+    'stage-independent-suggestion',
+    'stage-moch',
+    'stage-advice'
+  ]);
+  assert.equal(card.stages.flatMap(stage => stage.checks).length, 10);
+  assert.equal(new Set(card.stages.flatMap(stage => stage.exerciseIds)).size, 18);
+  assert.equal(card.reviewStatus, 'needs-review');
+  assert.ok(card.riskRecord.some(item => /GL1-Q078.*待复核/.test(item)));
+  assert.ok(card.riskRecord.some(item => /GL1-Q076.*source-exercise-only/.test(item)));
+});
+
+test('GL1 section 1.4.6 production narrative starts with sentence structure instead of a negation shortcut', () => {
+  const card = loadNegativeInfinitiveCard();
+  const preview = card.teachingNarrative;
+  assert.equal(card.teachingNarrativeVersion, 1);
+  assert.match(preview.quickAnswer, /先找.*句子骨架.*意思确定后.*选体/s);
+  assert.doesNotMatch(preview.quickAnswer, /看到 не 一律/);
+  assert.deepEqual(preview.sections.map(section => section.id), [
+    'lesson-negative-start',
+    'lesson-negative-frame',
+    'lesson-negative-dependent',
+    'lesson-negative-impossibility',
+    'lesson-negative-suggestion',
+    'lesson-negative-moch',
+    'lesson-negative-advice',
+    'lesson-negative-procedure'
+  ]);
+  const opening = JSON.stringify(preview.sections[0]);
+  assert.match(opening, /решили.*не брать.*从属否定.*未完成体/s);
+  assert.match(opening, /Мне не поднять.*箱子太重.*完成体/s);
+  assert.match(opening, /原书例句：有人作出“不做”的决定/);
+  assert.match(opening, /原书例句：没有人决定，是真的做不到/);
+});
+
+test('GL1 section 1.4.6 production narrative links all five mind-map branches into plain-language lessons', () => {
+  const card = loadNegativeInfinitiveCard();
+  const preview = card.teachingNarrative;
+  assert.deepEqual(preview.mindMapTargets, {
+    'stage-dependent': 'lesson-negative-dependent',
+    'stage-independent-impossibility': 'lesson-negative-impossibility',
+    'stage-independent-suggestion': 'lesson-negative-suggestion',
+    'stage-moch': 'lesson-negative-moch',
+    'stage-advice': 'lesson-negative-advice'
+  });
+  const narrativeTargets = new Set(preview.sections.map(section => section.id));
+  assert.ok(Object.values(preview.mindMapTargets).every(target => narrativeTargets.has(target)));
+  const frame = JSON.stringify(preview.sections.find(section => section.id === 'lesson-negative-frame'));
+  assert.match(frame, /“有限动词”只是那个已经变过形、可以自己作谓语的词/);
+  assert.match(frame, /没有支配词，不等于直接选完成体/);
+});
+
+test('GL1 section 1.4.6 production narrative interleaves one original check per branch and leaves five for review', () => {
+  const card = loadNegativeInfinitiveCard();
+  const preview = card.teachingNarrative;
+  const expected = [
+    ['lesson-negative-dependent', 'stage-dependent', 'dependent-check-1'],
+    ['lesson-negative-impossibility', 'stage-independent-impossibility', 'impossibility-check-1'],
+    ['lesson-negative-suggestion', 'stage-independent-suggestion', 'suggestion-check-1'],
+    ['lesson-negative-moch', 'stage-moch', 'moch-check-1'],
+    ['lesson-negative-advice', 'stage-advice', 'advice-check-1']
+  ];
+  const inlineIds = [];
+  for (const [sectionId, stageId, checkId] of expected) {
+    const blocks = preview.sections.find(section => section.id === sectionId).blocks;
+    const contrastIndex = blocks.findIndex(block => block.type === 'stageContrast' && block.stageId === stageId);
+    const checkIndex = blocks.findIndex(block => block.type === 'stageCheck' && block.checkId === checkId);
+    const errorsIndex = blocks.findIndex(block => block.type === 'stageErrors' && block.stageId === stageId);
+    assert.ok(contrastIndex > 0 && contrastIndex < checkIndex && checkIndex < errorsIndex);
+    inlineIds.push(checkId);
+  }
+  const allIds = card.stages.flatMap(stage => stage.checks.map(check => check.id));
+  assert.equal(allIds.filter(id => !inlineIds.includes(id)).length, 5);
+});
+
+test('GL1 section 1.4.6 production narrative keeps permission, failure risk, and source boundaries separate', () => {
+  const card = loadNegativeInfinitiveCard();
+  const preview = card.teachingNarrative;
+  const moch = JSON.stringify(preview.sections.find(section => section.id === 'lesson-negative-moch'));
+  const procedure = JSON.stringify(preview.sections.find(section => section.id === 'lesson-negative-procedure'));
+  assert.match(moch, /можешь не убирать.*许可或无需.*未完成体/s);
+  assert.match(moch, /может завтра не прийти/);
+  assert.match(moch, /担心结果无法实现/);
+  assert.match(moch, /完成体 прийти/);
+  assert.match(moch, /“不用做也可以”.*未完成体.*“想完成但可能完不成”.*完成体/s);
+  assert.match(procedure, /GL1-Q076.*不属于原书本节已明示的五条规则/s);
+  assert.match(procedure, /GL1-Q078.*保留待复核/s);
+  assert.match(procedure, /"sourceType":"learning-note"/);
+});
+
+test('GL3 section 3.1.2 shows a valid compression before the invalid two-actor example', () => {
+  const card = loadForbiddenGerundCard();
+  const stage = card.stages.find(item => item.id === 'stage-two-subjects');
+  const teaching = stage.teacherExplanation.join('\n');
+  assert.match(stage.entry.ru, /Пообещав помочь нам, брат/);
+  assert.match(teaching, /Если брат пообещал.*Пообещав помочь нам, брат/s);
+  assert.match(teaching, /человечество.*источник.*两个答案不同/s);
+  assert.match(teaching, /因果关系.*不能.*同一个做事者/s);
+  assert.match(stage.question, /谁做前面的动作.*谁做主句里的动作/s);
+  assert.doesNotMatch(stage.question, /附加动作|逻辑主体|\bAdp\b/);
+  const blocks = card.teachingNarrative.sections.find(section => section.id === 'lesson-compression').blocks;
+  const narrativeText = JSON.stringify(blocks);
+  assert.ok(narrativeText.indexOf('Если брат пообещал помочь нам') < narrativeText.indexOf('Пообещав помочь нам, брат'));
+  assert.ok(narrativeText.indexOf('Пообещав помочь нам, брат') < narrativeText.indexOf('Если человечество овладеет'));
+  assert.ok(narrativeText.indexOf('Если человечество овладеет') < narrativeText.indexOf('Обладев солнечной энергией'));
+  assert.match(narrativeText, /这里还没有副动词/);
+});
+
+test('GL3 section 3.1.2 explains state and passive failures through concrete actors', () => {
+  const card = loadForbiddenGerundCard();
+  const impersonal = card.stages.find(item => item.id === 'stage-impersonal');
+  const passive = card.stages.find(item => item.id === 'stage-passive');
+  assert.match(impersonal.entry.ru, /Когда я сидел на палубе, смеркалось/);
+  assert.match(impersonal.teacherExplanation.join('\n'), /谁坐在甲板上.*谁让天色变黑.*没有答案/s);
+  assert.match(impersonal.teacherExplanation.join('\n'), /Идя на экзамен.*同一个人/s);
+  assert.match(passive.teacherExplanation.join('\n'), /Библиотекарь выдал книги.*Книги выданы библиотекарем/s);
+  assert.match(passive.teacherExplanation.join('\n'), /任务合力.*挂错/s);
+  const stateText = JSON.stringify(card.teachingNarrative.sections.find(section => section.id === 'lesson-state'));
+  const passiveText = JSON.stringify(card.teachingNarrative.sections.find(section => section.id === 'lesson-passive'));
+  assert.ok(stateText.indexOf('Когда я сидел на палубе, смеркалось') < stateText.indexOf('Смеркалось, сидя на палубе'));
+  assert.match(stateText, /谁让天色变黑.*没有答案/s);
+  assert.match(stateText, /Идя на экзамен.*参加考试的人/s);
+  assert.ok(passiveText.indexOf('Библиотекарь выдал книги') < passiveText.indexOf('Книги выданы библиотекарем'));
+  assert.ok(passiveText.indexOf('Закончив обсуждение, комиссия приняла решение') < passiveText.indexOf('Закончив обсуждение, решение было принято комиссией'));
+});
+
+test('GL3 section 3.1.2 interleaves each explanation with its original contrast and check', () => {
+  const card = loadForbiddenGerundCard();
+  const expected = [
+    ['lesson-compression', 'stage-two-subjects', 'forbidden-two-subjects-1'],
+    ['lesson-state', 'stage-impersonal', 'forbidden-impersonal-1'],
+    ['lesson-passive', 'stage-passive', 'forbidden-passive-1'],
+    ['lesson-procedure', 'stage-rewrite', 'forbidden-rewrite-1']
+  ];
+  const inlineIds = [];
+  for (const [sectionId, stageId, checkId] of expected) {
+    const blocks = card.teachingNarrative.sections.find(section => section.id === sectionId).blocks;
+    const contrastIndex = blocks.findIndex(block => block.type === 'stageContrast' && block.stageId === stageId);
+    const checkIndex = blocks.findIndex(block => block.type === 'stageCheck' && block.checkId === checkId);
+    const errorsIndex = blocks.findIndex(block => block.type === 'stageErrors' && block.stageId === stageId);
+    assert.ok(contrastIndex > 0, `${sectionId} needs teaching before its contrast`);
+    assert.ok(contrastIndex < checkIndex && checkIndex < errorsIndex, `${sectionId} must flow contrast -> check -> misconception`);
+    inlineIds.push(checkId);
+  }
+  assert.deepEqual(inlineIds.sort(), card.stages.filter(stage => stage.id !== 'stage-review').flatMap(stage => stage.checks.map(check => check.id)).sort());
+});
+
+test('GL3 section 3.1.2 preserves its retrieval mind map and links every branch into the narrative', () => {
+  const card = loadForbiddenGerundCard();
+  assert.equal(card.mindMapMode, 'retrieval');
+  assert.equal(card.teachingNarrative.mindMapPlacement, 'after-first-section');
+  assert.deepEqual(card.mindMap.map(node => [node.id, node.narrativeTargetId]), [
+    ['stage-two-subjects', 'lesson-compression'],
+    ['stage-impersonal', 'lesson-state'],
+    ['stage-passive', 'lesson-passive'],
+    ['stage-rewrite', 'lesson-procedure'],
+    ['stage-review', 'zlatoust-evidence']
+  ]);
+  const narrativeTargets = new Set(card.teachingNarrative.sections.map(section => section.id));
+  narrativeTargets.add('zlatoust-evidence');
+  assert.ok(card.mindMap.every(node => narrativeTargets.has(node.narrativeTargetId)));
+});
+
+test('GL3 section 3.1.2 preserves its source and formal-practice risk boundary', () => {
+  const card = loadForbiddenGerundCard();
+  assert.equal(card.reviewStatus, 'needs-review');
+  assert.ok(card.stages.every(stage => stage.exerciseIds.length === 0));
+  assert.match(card.stages.find(stage => stage.id === 'stage-passive').sourceRule.ru, /не употребляется в пассивных конструкциях/);
+  assert.match(card.stages.find(stage => stage.id === 'stage-review').sourceEvidence.ru, /строится двадцать два новых города, обеспечивая/);
+  assert.ok(card.riskRecord.some(item => /GL3-Q039.*不进入正式练习/.test(item)));
+  assert.deepEqual(card.transferTasks.map(task => task.id), [
+    'forbidden-transfer-context',
+    'forbidden-transfer-rewrite',
+    'forbidden-transfer-explain',
+    'forbidden-transfer-boundary'
+  ]);
 });

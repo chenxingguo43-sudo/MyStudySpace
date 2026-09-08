@@ -16,6 +16,296 @@
     "能解释为什么完成体在本节不是命令，而是一次结果无法实现。",
     "能在原书题中找到决定意义的规则语境或客观障碍。"
   ],
+  "teachingNarrativeVersion": 1,
+  "teachingNarrative": {
+    "mindMapPlacement": "after-first-section",
+    "mindMapTargets": {
+      "stage-prohibition": "lesson-cannot-prohibition",
+      "stage-impossibility": "lesson-cannot-impossibility"
+    },
+    "quickAnswer": "先别急着看动词体，先问“是谁或什么在阻止”。规则不许做一类行为，用未完成体；故障或条件让一次结果做不到，用完成体。",
+    "decisionHeaders": {
+      "situation": "“不能”来自哪里",
+      "result": "怎么选"
+    },
+    "decisionRows": [
+      {
+        "situation": "规定、纪律、场所规则不许做",
+        "result": "禁止一类行为 → 未完成体"
+      },
+      {
+        "situation": "故障、事实或条件让这一次做不成",
+        "result": "客观不可能 → 完成体"
+      }
+    ],
+    "sections": [
+      {
+        "id": "lesson-cannot-start",
+        "tocLabel": "30 秒先弄懂",
+        "title": "先问：是谁不让做，还是条件让它做不到",
+        "lede": "中文都可以说“不能”，但俄语要先分清这个“不能”是禁令，还是现实条件造成的失败。",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "看到 нельзя，不要马上猜未完成体或完成体。先把句子读完，找出阻止动作的来源。"
+          },
+          {
+            "type": "example",
+            "sourceType": "source-example",
+            "label": "原书例句：有人在立规矩",
+            "ru": "После одиннадцати часов вечера в общежитии нельзя шуметь.",
+            "zh": "晚上十一点以后宿舍里不准喧哗。",
+            "actors": [
+              {
+                "question": "是谁不让人喧哗？",
+                "answer": "宿舍规定"
+              },
+              {
+                "question": "被禁止的是什么？",
+                "answer": "喧哗这类行为"
+              }
+            ],
+            "explanation": "这里不是“想吵却吵不出来”，而是规则不允许这样做，所以用未完成体 шуметь。"
+          },
+          {
+            "type": "example",
+            "sourceType": "source-example",
+            "label": "原书例句：现实条件让结果做不到",
+            "ru": "Свет нельзя включить, лампочка перегорела.",
+            "zh": "灯开不了，灯泡烧了。",
+            "actors": [
+              {
+                "question": "是谁禁止开灯？",
+                "answer": "没有人禁止"
+              },
+              {
+                "question": "什么让灯开不了？",
+                "answer": "灯泡烧了"
+              }
+            ],
+            "explanation": "问题是这一次“把灯打开”的结果无法实现，所以用完成体 включить。"
+          },
+          {
+            "type": "rule",
+            "label": "真正要判断的不是“能不能”",
+            "text": "要判断的是：这是“不许做”，还是“做不到”。"
+          }
+        ]
+      },
+      {
+        "id": "lesson-cannot-meaning",
+        "tocLabel": "两个“不能”差在哪",
+        "title": "同一个“不能”，其实在回答两个不同问题",
+        "lede": "禁止在回答“允不允许做”；客观不可能在回答“这一次能不能成功”。",
+        "blocks": [
+          {
+            "type": "example",
+            "sourceType": "learning-note",
+            "label": "学习辅助：只改变阻止来源",
+            "ru": "В лаборатории нельзя открывать окно: идёт опыт.",
+            "zh": "实验室里不准开窗：正在进行实验。",
+            "actors": [
+              {
+                "question": "窗本身打不开吗？",
+                "answer": "不是，实验规则不许开"
+              },
+              {
+                "question": "句子限制什么？",
+                "answer": "开窗这种行为"
+              }
+            ],
+            "explanation": "规定针对的是行为本身，所以用未完成体 открывать。"
+          },
+          {
+            "type": "example",
+            "sourceType": "learning-note",
+            "label": "学习辅助：换成客观故障",
+            "ru": "Окно нельзя открыть: ручка сломана.",
+            "zh": "这扇窗打不开：把手坏了。",
+            "actors": [
+              {
+                "question": "有人规定不许开吗？",
+                "answer": "没有"
+              },
+              {
+                "question": "哪个结果做不到？",
+                "answer": "把这扇窗打开"
+              }
+            ],
+            "explanation": "故障阻断了这一次打开的结果，所以用完成体 открыть。"
+          },
+          {
+            "type": "callout",
+            "title": "为什么不能只看中文翻译",
+            "text": "“不准开”和“打不开”都可能被笼统翻成“不能开”。真正可靠的是看语境里谁或什么在阻止。"
+          }
+        ]
+      },
+      {
+        "id": "lesson-cannot-prohibition",
+        "tocLabel": "禁止为什么用未完成体",
+        "title": "有人在立规矩：禁止的是一类行为",
+        "lede": "场所规定、纪律、制度或明确禁令告诉你“这种事不要做”，这条分支用未完成体。",
+        "blocks": [
+          {
+            "type": "example",
+            "sourceType": "source-example",
+            "label": "原书例句",
+            "ru": "Здесь нельзя переходить дорогу.",
+            "zh": "这里禁止过马路。",
+            "actors": [
+              {
+                "question": "是谁在阻止？",
+                "answer": "这里的交通规则"
+              },
+              {
+                "question": "是在说某一次没过去吗？",
+                "answer": "不是，是不许这样做"
+              }
+            ],
+            "explanation": "规则把“在这里过马路”这类行为整体列为不允许，因此用未完成体 переходить。"
+          },
+          {
+            "type": "paragraph",
+            "text": "这里选择未完成体，不是因为动作一定会重复，也不是因为动作没有结果；而是说话人把注意力放在“这种行为能不能做”上。"
+          },
+          {
+            "type": "stageContrast",
+            "stageId": "stage-prohibition",
+            "title": "只把规则换成故障"
+          },
+          {
+            "type": "stageCheck",
+            "stageId": "stage-prohibition",
+            "checkId": "prohibition-check-1",
+            "title": "马上判断：实验室为什么不能开窗",
+            "lede": "先指出是谁在阻止，再选择体。"
+          },
+          {
+            "type": "stageErrors",
+            "stageId": "stage-prohibition",
+            "limit": 2,
+            "title": "容易误判：看到 нельзя 就统一选未完成体吗？"
+          }
+        ]
+      },
+      {
+        "id": "lesson-cannot-impossibility",
+        "tocLabel": "做不到为什么用完成体",
+        "title": "没人下禁令：一次结果被现实条件卡住了",
+        "lede": "故障、事实或客观条件让本来想完成的一件事无法成功，这条分支用完成体。",
+        "blocks": [
+          {
+            "type": "example",
+            "sourceType": "source-example",
+            "label": "原书例句",
+            "ru": "С ним сейчас нельзя связаться, телефон не работает.",
+            "zh": "现在联系不上他，电话坏了。",
+            "actors": [
+              {
+                "question": "有人禁止联系他吗？",
+                "answer": "没有"
+              },
+              {
+                "question": "什么结果没法实现？",
+                "answer": "这一次联系上他"
+              },
+              {
+                "question": "什么卡住了结果？",
+                "answer": "电话不工作"
+              }
+            ],
+            "explanation": "电话故障让“联系上”这个结果无法实现，所以用完成体 связаться。"
+          },
+          {
+            "type": "paragraph",
+            "text": "完成体在这里不是表示“已经做完”。它表示动作被看成一次有终点的任务，而现在恰好无法到达那个终点。"
+          },
+          {
+            "type": "stageContrast",
+            "stageId": "stage-impossibility",
+            "title": "只把故障换成场所规定"
+          },
+          {
+            "type": "stageCheck",
+            "stageId": "stage-impossibility",
+            "checkId": "impossibility-check-1",
+            "title": "马上判断：汽车为什么发动不了",
+            "lede": "不要只看 нельзя，找到破坏结果的具体条件。"
+          },
+          {
+            "type": "stageErrors",
+            "stageId": "stage-impossibility",
+            "limit": 2,
+            "title": "容易误判：完成体是不是表示动作完成了？"
+          }
+        ]
+      },
+      {
+        "id": "lesson-cannot-procedure",
+        "tocLabel": "做题时怎么判断",
+        "title": "做题时只走三步：找来源、说含义、再选体",
+        "lede": "不要从词尾开始猜。先用中文把“不能”的真正原因说清楚，体的选择会跟着出来。",
+        "blocks": [
+          {
+            "type": "steps",
+            "items": [
+              {
+                "title": "第一步：把句子读完",
+                "text": "尤其看冒号、破折号或后半句，它们常常说明规则或故障。"
+              },
+              {
+                "title": "第二步：问谁在阻止",
+                "text": "是规定、纪律或场所不允许，还是故障、事实、条件让它做不到？"
+              },
+              {
+                "title": "第三步：用一句话作答",
+                "text": "“这是禁止一类行为，所以用未完成体”；或“这是一次结果做不到，所以用完成体”。"
+              }
+            ]
+          },
+          {
+            "type": "worksheet",
+            "title": "每道题先填这三行",
+            "prompts": [
+              "阻止来源是什么？",
+              "这是不许做，还是做不到？",
+              "因此选择哪个体？"
+            ],
+            "note": "时间词和场所词只能帮你找语境，不能代替这三步。"
+          },
+          {
+            "type": "example",
+            "sourceType": "learning-note",
+            "label": "新语境迁移",
+            "ru": "Документ нельзя сфотографировать: файл повреждён.",
+            "zh": "这个文件没法拍下来：文件已经损坏。",
+            "actors": [
+              {
+                "question": "是谁禁止拍摄？",
+                "answer": "没有禁令"
+              },
+              {
+                "question": "什么阻断了结果？",
+                "answer": "文件损坏"
+              },
+              {
+                "question": "选择什么？",
+                "answer": "完成体 сфотографировать"
+              }
+            ],
+            "explanation": "换了词汇，判断方法没有变：先找阻止来源，再判断是不许做还是做不到。"
+          },
+          {
+            "type": "callout",
+            "tone": "warning",
+            "title": "信号词不是答案",
+            "text": "сейчас、地点和时间都只是线索。真正决定体的是语境表达了禁令，还是客观不可能。"
+          }
+        ]
+      }
+    ]
+  },
   "mindMapIntro": "нельзя 不自动等于禁止。先问是谁或什么使动作不能发生：如果是规则、规定、纪律在限制一类行为，用未完成体；如果是故障、事实或客观条件使某一次结果完成不了，用完成体。两条路的区别在于禁止的是行为类型，还是阻断的是一次结果。",
   "mindMap": [
     {
@@ -562,39 +852,4 @@
         }
       ]
     }
-  ],
-  "mindMapWalkthrough": {
-    "title": "一句话串起全节",
-    "ru": "В общежитии нельзя шуметь, но свет нельзя включить — лампочка перегорела.",
-    "parts": [
-      {
-        "id": "stage-prohibition",
-        "text": "нельзя шуметь",
-        "explanation": "宿舍规定禁止，未完成体"
-      },
-      {
-        "id": "stage-impossibility",
-        "text": "нельзя включить свет",
-        "explanation": "灯泡烧了客观不可能，完成体"
-      }
-    ],
-    "decisionWalkthrough": [
-      {
-        "blank": "шуметь",
-        "step1": "阻止来源是什么",
-        "step2": "宿舍规定，限制一类行为",
-        "step3": "未完成体"
-      },
-      {
-        "blank": "включить",
-        "step1": "阻止来源是什么",
-        "step2": "灯泡烧了，阻断一次结果",
-        "step3": "完成体"
-      }
-    ],
-    "trap": {
-      "wrong": "нельзя 后面统一用未完成体",
-      "correct": "禁止一类行为用未完成体，客观不可能一次结果用完成体"
-    }
-  }
-}
+  ]}

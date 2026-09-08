@@ -123,6 +123,10 @@
       segments: normalized
     };
   }
+  function captionsMatchTranscriptRows(data, cues) {
+    var source = Array.isArray(data && data.transcriptSegments) ? data.transcriptSegments : [];
+    return source.length > 0 && source.length === cues.length;
+  }
   function clearBoundaryTimer() {
     if (boundaryTimer) clearTimeout(boundaryTimer);
     boundaryTimer = null;
@@ -142,6 +146,7 @@
     var mediaMismatch = media.status === 'source-mismatch';
     var sourceTimeline = getDataTimelineState(current && current.data);
     var timelineNeedsVerification = sourceTimeline.hasTimed && !sourceTimeline.complete;
+    var captionTimelineRejected = Boolean(current && current.captionTimelineRejected);
     var workbench = document.querySelector('.lw-workbench');
     if (workbench) workbench.dataset.timelineReady = timelineReady ? 'true' : 'false';
     all('.lw-transcript-row').forEach(function (row, index) {
@@ -159,9 +164,11 @@
     var controls = ['lwPrevSentence', 'lwNextSentence', 'lwLoopSentence', 'lwABLoop', 'lwABLoopControl'];
     controls.forEach(function (id) { var node = byId(id); if (node) node.disabled = !timelineReady; });
     var position = byId('lwSentencePosition');
-    if (position && !timelineReady) position.textContent = mediaMismatch ? '等待正确音频' : timelineNeedsVerification ? '逐句时间轴待核验' : '仅支持整段播放';
+    if (position && !timelineReady) position.textContent = mediaMismatch ? '等待正确音频' : (timelineNeedsVerification || captionTimelineRejected) ? '逐句时间轴待核验' : '仅支持整段播放';
     var transcriptHint = byId('lwTranscriptHint');
-    if (transcriptHint) transcriptHint.textContent = timelineNeedsVerification
+    if (transcriptHint) transcriptHint.textContent = captionTimelineRejected
+      ? '字幕与原文分段不一致；保留整段播放和双语原文，避免错误跳转。'
+      : timelineNeedsVerification
       ? '原文与整段媒体已保留；逐句时间轴尚未完整核验，因此不提供跳转、循环或听写。'
       : timelinePartial
       ? '可靠句子可点击跳播；显示“--:--”的句子保留原文，但暂不提供跳转'
@@ -170,7 +177,9 @@
       : mediaMismatch
       ? '教材原文已保留；正确配套音频重新绑定前不提供播放与时间轴'
       : '当前材料暂无逐句时间轴，可边听整段音频边阅读文字稿';
-    timelineStatus(timelineNeedsVerification
+    timelineStatus(captionTimelineRejected
+      ? '字幕与原文分段不一致，已切换为整段播放，避免错误跳转。'
+      : timelineNeedsVerification
       ? '逐句时间轴尚未完整核验，已切换为整段播放，避免错误跳转。'
       : timelinePartial
       ? '部分句子已建立可靠时间轴，未匹配句子不会错误跳转。'
@@ -310,11 +319,13 @@
       return response.text();
     }).then(function (text) {
       var cues = normalizeTimeline(parseVtt(text));
-      segments = cues.length ? cues : fallback;
+      current.captionTimelineRejected = cues.length > 0 && !captionsMatchTranscriptRows(data, cues);
+      segments = cues.length && !current.captionTimelineRejected ? cues : fallback;
       updateTimelineRows();
       if (segments.length) setActive(findTimedIndex(-1, 1));
       return segments;
     }).catch(function () {
+      current.captionTimelineRejected = false;
       segments = fallback;
       updateTimelineRows();
       if (segments.length) setActive(findTimedIndex(-1, 1));
@@ -470,6 +481,7 @@
     parseVtt: parseVtt,
     normalizeDataSegments: normalizeDataSegments,
     getDataTimelineState: getDataTimelineState,
+    captionsMatchTranscriptRows: captionsMatchTranscriptRows,
     togglePlay: togglePlay,
     seek: seek,
     selectSegment: selectSegment,

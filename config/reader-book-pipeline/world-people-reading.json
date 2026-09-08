@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "bookId": "world-people-reading",
+  "title": "В мире людей — 阅读口语",
+  "adapter": "reading-speaking",
+  "sourceDir": "data/textbook/reading_speaking",
+  "stateDir": ".reader-pipeline/world-people-reading",
+  "chapterPattern": "^ch\\d{4}\\.json$",
+  "requiredSkill": "reader-question-explainer",
+  "outputField": "answerAnalysis",
+  "acceptedPresentationMode": "two-layer",
+  "leaseMinutes": 30,
+  "defaultBatchSize": 4,
+  "maxBatchSize": 8,
+  "maxAttempts": 3,
+  "maxConcurrency": 4,
+  "tests": [
+    "node --test tests/reading-speaking-two-layer-pilot.test.js",
+    "node --test tests/russian-b2/reading-speaking-explanations.test.js"
+  ]
+}

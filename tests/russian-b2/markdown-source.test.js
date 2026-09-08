@@ -40,6 +40,12 @@ test('markdown source extractor reads answer, explanation, and translation draft
   ]);
 });
 
+test('markdown source extractor treats OCR Latin B as Cyrillic В', () => {
+  const drafts = extractAnswerDrafts('1. 答案: B。解析: 规则说明。译文: 中文翻译。\n2. 答案: Б。解析: 第二条。译文: 第二个翻译。');
+  assert.equal(drafts[0].answer, 'В');
+  assert.equal(drafts[1].answer, 'Б');
+});
+
 test('markdown source extractor normalizes OCR Greek gamma to the original Г option key', () => {
   const drafts = extractAnswerDrafts('2. 答案: Γ。解析: 规则。译文: 译文。');
   assert.equal(drafts[0].answer, 'Г');

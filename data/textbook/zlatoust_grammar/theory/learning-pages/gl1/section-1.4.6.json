@@ -17,6 +17,494 @@
     "能解释为什么同样的 не + 不定式不能仅靠“否定”或“一次动作”选体。",
     "能在原书正式题中指出决定体选择的句法关系或语义条件，并识别待复核的边界项。"
   ],
+  "teachingNarrativeVersion": 1,
+  "teachingNarrative": {
+    "mindMapPlacement": "after-first-section",
+    "mindMapTargets": {
+      "stage-dependent": "lesson-negative-dependent",
+      "stage-independent-impossibility": "lesson-negative-impossibility",
+      "stage-independent-suggestion": "lesson-negative-suggestion",
+      "stage-moch": "lesson-negative-moch",
+      "stage-advice": "lesson-negative-advice"
+    },
+    "quickAnswer": "看到 не + 不定式，先别选体。先找它跟着哪种句子骨架：有人决定或建议“不做”、独立说“做不到”、用 не ... ли 提议“要不要做”，还是 мочь + не、не стоит 这一类固定框架。骨架和意思确定后，才能选体。",
+    "decisionHeaders": {
+      "situation": "句子实际在说什么",
+      "result": "原书这一分支怎么选"
+    },
+    "decisionRows": [
+      {
+        "situation": "某人决定、建议或请求不做某事",
+        "result": "从属否定 → 未完成体"
+      },
+      {
+        "situation": "没有支配动词，客观条件让一次结果做不到",
+        "result": "独立不可能 → 完成体"
+      },
+      {
+        "situation": "не + 不定式 + ли? 表示“要不要做”",
+        "result": "口语提议 → 完成体"
+      },
+      {
+        "situation": "можно / можешь / может + не",
+        "result": "可以不做 → 未完成体；可能做不成 → 完成体"
+      },
+      {
+        "situation": "не стоит / не нужно / не обязан 等劝人别做或无需做",
+        "result": "建议、不合宜或无需 → 未完成体"
+      }
+    ],
+    "sections": [
+      {
+        "id": "lesson-negative-start",
+        "tocLabel": "30 秒先弄懂",
+        "title": "先看 не + 不定式装进了哪种句子里",
+        "lede": "не 只告诉你动作被否定了，却没有告诉你为什么否定。真正决定体的是整句话在表达什么。",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "同样都带 не，下面两句一个是“决定不做”，另一个是“想做也做不到”。先把这层意思看出来，再谈未完成体和完成体。"
+          },
+          {
+            "type": "example",
+            "sourceType": "source-example",
+            "label": "原书例句：有人作出“不做”的决定",
+            "ru": "Мы решили не брать слишком много вещей в командировку.",
+            "zh": "我们决定出差时不带太多东西。",
+            "actors": [
+              {
+                "question": "句中哪个词已经能当谓语？",
+                "answer": "решили（决定了）"
+              },
+              {
+                "question": "决定什么？",
+                "answer": "не брать（不带）"
+              }
+            ],
+            "explanation": "не брать 跟在 решили 后面，补充“决定的内容”。原书把这种从属否定不定式列在未完成体一栏。"
+          },
+          {
+            "type": "example",
+            "sourceType": "source-example",
+            "label": "原书例句：没有人决定，是真的做不到",
+            "ru": "Мне не поднять этот чемодан, он слишком тяжёлый.",
+            "zh": "我抬不动这个箱子，它太重了。",
+            "actors": [
+              {
+                "question": "有“决定、建议、请求”一类谓语吗？",
+                "answer": "没有"
+              },
+              {
+                "question": "什么让结果做不到？",
+                "answer": "箱子太重"
+              }
+            ],
+            "explanation": "не поднять 自己承担“无法抬起来”的核心意思，被阻断的是一次“抬起来”的结果，因此原书用完成体。"
+          },
+          {
+            "type": "rule",
+            "label": "先记判断顺序",
+            "text": "第一步不是看 не，也不是看动作发生几次；第一步是确认句子骨架和它真正表达的意思。"
+          }
+        ]
+      },
+      {
+        "id": "lesson-negative-frame",
+        "tocLabel": "先看句子骨架",
+        "title": "先找“管着不定式的词”，找不到再继续分流",
+        "lede": "решили、советуют、просим 这类已经变过人称或时态、可以自己作谓语的动词，会带出后面的不定式。语法上把后者叫从属不定式。",
+        "blocks": [
+          {
+            "type": "example",
+            "sourceType": "learning-note",
+            "label": "学习辅助：把两句拆开看",
+            "ru": "Психологи советуют не обращать внимания. / Мне не понять его.",
+            "zh": "心理学家建议不要在意。/ 我无法理解他。",
+            "actors": [
+              {
+                "question": "第一句是谁在“管着”不定式？",
+                "answer": "советуют（建议）"
+              },
+              {
+                "question": "第二句有这样的词吗？",
+                "answer": "没有，не понять 独立表达“无法理解”"
+              }
+            ],
+            "explanation": "先做这个骨架判断，可以避免仅凭“都带 не”把两句塞进同一条规则。"
+          },
+          {
+            "type": "worksheet",
+            "title": "每次先填第一行",
+            "prompts": [
+              "哪个词带出了后面的不定式？",
+              "如果没有，整句是在说做不到、提议，还是另一种固定框架？"
+            ],
+            "note": "“有限动词”只是那个已经变过形、可以自己作谓语的词；做题时直接把具体词圈出来即可。"
+          },
+          {
+            "type": "callout",
+            "tone": "warning",
+            "title": "没有支配词，不等于直接选完成体",
+            "text": "还要继续判断它是独立不可能、не ... ли 提议、мочь + не，还是 не стоит 等建议结构。"
+          }
+        ]
+      },
+      {
+        "id": "lesson-negative-dependent",
+        "tocLabel": "有人决定或建议不做",
+        "title": "有人决定、建议或请求“不做”：先走从属分支",
+        "lede": "当 не + 不定式回答“决定什么、建议什么、请求什么”时，它依附于前面的谓语。原书把这个框架列在未完成体一栏。",
+        "blocks": [
+          {
+            "type": "example",
+            "sourceType": "source-example",
+            "label": "原书例句",
+            "ru": "Психологи советуют не обращать внимания на обидные слова.",
+            "zh": "心理学家建议不要在意伤人的话。",
+            "actors": [
+              {
+                "question": "哪个词带出后面的动作？",
+                "answer": "советуют（建议）"
+              },
+              {
+                "question": "建议的内容是什么？",
+                "answer": "не обращать внимания（不要在意）"
+              },
+              {
+                "question": "所以走哪一支？",
+                "answer": "从属否定，未完成体"
+              }
+            ],
+            "explanation": "这里不是“无法在意”，而是建议避免“在意伤人话语”这类行为，所以用未完成体 обращать。"
+          },
+          {
+            "type": "paragraph",
+            "text": "前面的决定或建议即使是完成体，也不能替后面的不定式选体。решили 是完成体，不代表 не брать 也要变成完成体。"
+          },
+          {
+            "type": "stageContrast",
+            "stageId": "stage-dependent",
+            "title": "只改变有没有支配不定式的词"
+          },
+          {
+            "type": "stageCheck",
+            "stageId": "stage-dependent",
+            "checkId": "dependent-check-1",
+            "title": "马上判断：советуют 后面为什么选未完成体",
+            "lede": "先圈出带出不定式的词，再选择。"
+          },
+          {
+            "type": "stageErrors",
+            "stageId": "stage-dependent",
+            "limit": 2,
+            "title": "容易误判：前面是完成体，后面也要跟着变吗？"
+          }
+        ]
+      },
+      {
+        "id": "lesson-negative-impossibility",
+        "tocLabel": "独立说“做不到”",
+        "title": "没有支配词，而且现实条件让一次结果做不到",
+        "lede": "这时不定式不是谁“决定或建议”的内容，而是独立承担“无法完成”的意思。原书在这个分支使用完成体。",
+        "blocks": [
+          {
+            "type": "example",
+            "sourceType": "source-example",
+            "label": "原书例句",
+            "ru": "Мне не поднять этот чемодан, он слишком тяжёлый.",
+            "zh": "我抬不动这个箱子，它太重了。",
+            "actors": [
+              {
+                "question": "有词带出 поднять 吗？",
+                "answer": "没有"
+              },
+              {
+                "question": "句子是在劝我别抬吗？",
+                "answer": "不是，是箱子太重，抬不起来"
+              },
+              {
+                "question": "被阻断的结果是什么？",
+                "answer": "把箱子抬起来"
+              }
+            ],
+            "explanation": "条件让一次有终点的结果无法实现，所以用完成体 поднять。"
+          },
+          {
+            "type": "callout",
+            "title": "三格只是常见外形，不是自动答案",
+            "text": "мне、ему 常帮助你认出“对某人来说做不到”，但最终仍要确认句子确实表达客观不可能。"
+          },
+          {
+            "type": "stageContrast",
+            "stageId": "stage-independent-impossibility",
+            "title": "只改变句子是在报告做不到，还是决定不做"
+          },
+          {
+            "type": "stageCheck",
+            "stageId": "stage-independent-impossibility",
+            "checkId": "impossibility-check-1",
+            "title": "马上判断：大雪堵路时为什么用完成体",
+            "lede": "找到阻断通行结果的客观条件。"
+          },
+          {
+            "type": "stageErrors",
+            "stageId": "stage-independent-impossibility",
+            "limit": 2,
+            "title": "容易误判：所有“没做”都是决定不做吗？"
+          }
+        ]
+      },
+      {
+        "id": "lesson-negative-suggestion",
+        "tocLabel": "не ... ли 是提议",
+        "title": "не ... ли? 不是“别做”，而是“要不要做”",
+        "lede": "这个口语疑问句表面有 не，实际交际功能却是提出一次行动。原书在这条分支使用完成体。",
+        "blocks": [
+          {
+            "type": "example",
+            "sourceType": "source-example",
+            "label": "原书例句",
+            "ru": "Не купить ли детям новые игрушки?",
+            "zh": "要不要给孩子买些新玩具？",
+            "actors": [
+              {
+                "question": "说话人在阻止购买吗？",
+                "answer": "不是"
+              },
+              {
+                "question": "他实际在做什么？",
+                "answer": "提议这次买一些玩具"
+              },
+              {
+                "question": "哪个小词暴露了提议框架？",
+                "answer": "ли"
+              }
+            ],
+            "explanation": "句子把购买看成一次具体提议，因此用完成体 купить。"
+          },
+          {
+            "type": "paragraph",
+            "text": "翻译时先把整句换成“要不要……？”如果意思成立，就不要再把 не 单独理解成禁止。"
+          },
+          {
+            "type": "stageContrast",
+            "stageId": "stage-independent-suggestion",
+            "title": "只改变是在提议做，还是命令别做"
+          },
+          {
+            "type": "stageCheck",
+            "stageId": "stage-independent-suggestion",
+            "checkId": "suggestion-check-1",
+            "title": "马上判断：要不要吃个冰淇淋",
+            "lede": "先把句子翻成自然中文，再看它是不是一次提议。"
+          },
+          {
+            "type": "stageErrors",
+            "stageId": "stage-independent-suggestion",
+            "limit": 2,
+            "title": "容易误判：句首有 не 就一定是否定吗？"
+          }
+        ]
+      },
+      {
+        "id": "lesson-negative-moch",
+        "tocLabel": "мочь + не 的两种意思",
+        "title": "мочь + не 要分清：可以不做，还是可能做不成",
+        "lede": "这组最容易被中文“可能不……”混淆。先问说话人是在免除一个活动，还是担心一个结果无法实现。",
+        "blocks": [
+          {
+            "type": "example",
+            "sourceType": "source-example",
+            "label": "原书例句：许可或无需",
+            "ru": "Завтра можешь не убирать в комнате, ещё чисто.",
+            "zh": "明天你可以不打扫房间，还很干净。",
+            "actors": [
+              {
+                "question": "打扫是做不到吗？",
+                "answer": "不是，房间干净，所以可以不做"
+              },
+              {
+                "question": "句子免除了什么？",
+                "answer": "打扫这一活动"
+              }
+            ],
+            "explanation": "这是许可或无需，不是失败风险，所以原书用未完成体 убирать。"
+          },
+          {
+            "type": "example",
+            "sourceType": "source-example",
+            "label": "原书例句：担心结果无法实现",
+            "ru": "Он сейчас болеет и может завтра не прийти.",
+            "zh": "他现在病着，明天可能来不了。",
+            "actors": [
+              {
+                "question": "有人允许他不来吗？",
+                "answer": "句子没有给许可"
+              },
+              {
+                "question": "说话人担心什么？",
+                "answer": "明天到场这个结果可能无法实现"
+              }
+            ],
+            "explanation": "这是对一次结果未实现的担心，所以原书用完成体 прийти。"
+          },
+          {
+            "type": "rule",
+            "label": "一句话区分",
+            "text": "“不用做也可以”走未完成体；“想完成但可能完不成”走完成体。"
+          },
+          {
+            "type": "stageContrast",
+            "stageId": "stage-moch",
+            "title": "保持 мочь + не 不变，只改变说话人的意思"
+          },
+          {
+            "type": "stageCheck",
+            "stageId": "stage-moch",
+            "checkId": "moch-check-1",
+            "title": "马上判断：房间还亮时可以不做什么",
+            "lede": "先判断这是许可，还是对结果的担心。"
+          },
+          {
+            "type": "stageErrors",
+            "stageId": "stage-moch",
+            "limit": 2,
+            "title": "容易误判：может не 后面能固定一种体吗？"
+          }
+        ]
+      },
+      {
+        "id": "lesson-negative-advice",
+        "tocLabel": "建议别做或无需做",
+        "title": "не стоит、не нужно、не обязан：说话人在劝、评或免除",
+        "lede": "这些结构不是报告动作做不到，而是在表达不建议、不合宜、不需要或没有义务做某类活动。原书把它们列在未完成体一栏。",
+        "blocks": [
+          {
+            "type": "example",
+            "sourceType": "source-example",
+            "label": "原书例句：不建议",
+            "ru": "Не стоит ребёнку долго смотреть телевизор, ему это вредно.",
+            "zh": "孩子不宜长时间看电视，这对他有害。",
+            "actors": [
+              {
+                "question": "孩子是想看却看不了吗？",
+                "answer": "不是"
+              },
+              {
+                "question": "句子在做什么？",
+                "answer": "劝孩子别长时间进行看电视这一活动"
+              }
+            ],
+            "explanation": "这是建议避免一类活动，所以原书用未完成体 смотреть。"
+          },
+          {
+            "type": "example",
+            "sourceType": "source-example",
+            "label": "原书例句：没有义务",
+            "ru": "Вы не обязаны вставать в воскресенье слишком рано.",
+            "zh": "你们不必在星期天起得太早。",
+            "actors": [
+              {
+                "question": "星期天早起是做不到吗？",
+                "answer": "不是"
+              },
+              {
+                "question": "句子免除了什么？",
+                "answer": "早起这项义务"
+              }
+            ],
+            "explanation": "这里是没有义务进行这类活动，使用未完成体 вставать。"
+          },
+          {
+            "type": "stageContrast",
+            "stageId": "stage-advice",
+            "title": "只改变是在劝别做，还是客观做不到"
+          },
+          {
+            "type": "stageCheck",
+            "stageId": "stage-advice",
+            "checkId": "advice-check-1",
+            "title": "马上判断：不建议停止研究",
+            "lede": "不要被“停止”自带的终点迷惑，先看整句是在提出建议。"
+          },
+          {
+            "type": "stageErrors",
+            "stageId": "stage-advice",
+            "limit": 2,
+            "title": "容易误判：动作有终点就一定用完成体吗？"
+          }
+        ]
+      },
+      {
+        "id": "lesson-negative-procedure",
+        "tocLabel": "做题时走四步",
+        "title": "做题时走四步，不要从 не 直接跳到答案",
+        "lede": "这节不是背五条孤立口诀，而是先分句子骨架，再判断交际意义。",
+        "blocks": [
+          {
+            "type": "steps",
+            "items": [
+              {
+                "title": "第一步：排除相邻知识点",
+                "text": "如果是 нельзя + 不定式，回 1.4.5；如果是否定命令式，回 1.4.8。"
+              },
+              {
+                "title": "第二步：圈出管着不定式的词",
+                "text": "有 решили、советуют、просим 等，就先走从属否定分支。"
+              },
+              {
+                "title": "第三步：没有普通支配词就认框架",
+                "text": "是独立做不到、не ... ли 提议、мочь + не，还是 не стоит / не нужно 等建议结构？"
+              },
+              {
+                "title": "第四步：说出意思再选体",
+                "text": "用“决定不做、做不到、要不要做、可以不做、可能做不成、建议别做”中的一句解释答案。"
+              }
+            ]
+          },
+          {
+            "type": "worksheet",
+            "title": "作答前填这四行",
+            "prompts": [
+              "这是不是 1.4.5 的 нельзя 或 1.4.8 的否定命令？",
+              "哪个词管着不定式？",
+              "整句属于哪个框架？",
+              "它实际表示哪一种意思？"
+            ],
+            "note": "直到最后一行能够说清楚，才选择未完成体或完成体。"
+          },
+          {
+            "type": "example",
+            "sourceType": "learning-note",
+            "label": "学习辅助：新语境迁移",
+            "ru": "Ты можешь не готовить ужин: мы уже поели. / Он болеет и может не приготовить ужин вовремя.",
+            "zh": "你可以不做晚饭：我们已经吃过了。/ 他病了，可能没法按时把晚饭做好。",
+            "actors": [
+              {
+                "question": "第一句是什么框架和意思？",
+                "answer": "мочь + не，许可不做活动"
+              },
+              {
+                "question": "第二句是什么框架和意思？",
+                "answer": "мочь + не，担心一次结果做不成"
+              },
+              {
+                "question": "因此怎么选？",
+                "answer": "готовить 未完成体；приготовить 完成体"
+              }
+            ],
+            "explanation": "外形几乎相同，真正改变答案的是“无需做”和“可能做不成”的意义差别。"
+          },
+          {
+            "type": "callout",
+            "tone": "warning",
+            "title": "两道边界题暂时不要扩大成新规则",
+            "text": "GL1-Q076 的标牌式 Не беспокоить 不属于原书本节已明示的五条规则；GL1-Q078 与简化归纳存在冲突，继续保留待复核。"
+          }
+        ]
+      }
+    ]
+  },
   "mindMapIntro": "не 不是自动选体的按钮。先看不定式是否依附于有限动词（решил не брать）；若是独立结构，再看是客观不可能（мне не поднять）、口语疑问提议（не купить ли），还是 мочь+не（можешь не убирать / может не прийти）、не стоит 等建议结构。每个框架有自己的体规则，不能混。",
   "mindMap": [
     {
@@ -1210,39 +1698,4 @@
         }
       ]
     }
-  ],
-  "mindMapWalkthrough": {
-    "title": "一句话串起全节",
-    "ru": "Мы решили не брать лишнего, но мне не поднять этот чемодан.",
-    "parts": [
-      {
-        "id": "stage-dependent",
-        "text": "решили не брать",
-        "explanation": "从属否定，未完成体"
-      },
-      {
-        "id": "stage-independent-impossibility",
-        "text": "мне не поднять",
-        "explanation": "独立不可能，完成体"
-      }
-    ],
-    "decisionWalkthrough": [
-      {
-        "blank": "не брать",
-        "step1": "有没有支配动词",
-        "step2": "有，решили",
-        "step3": "从属否定，未完成体"
-      },
-      {
-        "blank": "не поднять",
-        "step1": "有没有支配动词",
-        "step2": "没有，有三格 мне 和太重",
-        "step3": "独立不可能，完成体"
-      }
-    ],
-    "trap": {
-      "wrong": "не 后面统一用一种体",
-      "correct": "句法框架决定体：从属未完成体、独立不可能完成体、提议完成体、建议未完成体"
-    }
-  }
-}
+  ]}

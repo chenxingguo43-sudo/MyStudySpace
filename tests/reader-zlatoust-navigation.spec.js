@@ -30,6 +30,34 @@ test('Zlatoust knowledge card returns to its own exercise directory', async ({ p
   await expect(page.locator('.chapter-grid .ch-item')).toHaveCount(5);
 });
 
+for (const width of [1280, 390]) {
+  test(`Zlatoust 1.1 uses the shared retrieval mind map at ${width}px`, async ({ page }) => {
+    await page.setViewportSize({ width, height: 844 });
+    await page.goto('http://127.0.0.1:3000/reader.html');
+    await page.locator('.world-shelf-card', { hasText: 'В мире людей' }).getByRole('button', { name: '打开总仪表盘' }).click();
+    await page.locator('.world-module-card', { hasText: 'В мире людей — 语法词汇' }).click();
+    await page.locator('.chapter-grid .ch-item').nth(0).click();
+    await page.locator('.b2-knowledge-study-card', { hasText: '§1.1' }).click();
+
+    const map = page.locator('.zlatoust-unit-map-retrieval');
+    await expect(map.locator('.reader-mind-map-svg')).toBeVisible();
+    await expect(map.locator('.reader-mind-map-curve')).toHaveCount(4);
+    await expect(map.locator('.reader-mind-map-link')).toHaveCount(4);
+    await expect(map.locator('text').filter({ hasText: /^识别要点$/ })).toHaveCount(4);
+    await expect(map.locator('text').filter({ hasText: /^核心规则$/ })).toHaveCount(4);
+    await expect(map.locator('text').filter({ hasText: /^例句$/ })).toHaveCount(4);
+    await expect(map.locator('text').filter({ hasText: /^易错陷阱$/ })).toHaveCount(4);
+    await map.screenshot({ path: `test-results/zlatoust-1.1-shared-map-${width}.png` });
+
+    const firstBranch = map.locator('[data-zlatoust-mind-map-target]').first();
+    const targetId = await firstBranch.getAttribute('data-zlatoust-mind-map-target');
+    await firstBranch.click();
+    await expect.poll(() => page.locator(`#${targetId}`).evaluate(node => node.getBoundingClientRect().top)).toBeLessThan(180);
+    expect(await page.evaluate(() => JSON.parse(localStorage.getItem('rr_zlatoust_learning_v1')).units['1.1'].lastStage)).toBe(targetId);
+    expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(width);
+  });
+}
+
 test('Zlatoust continue learning preserves the visible exercise after returning to the directory', async ({ page }) => {
   await page.goto('http://127.0.0.1:3000/reader.html');
   await page.locator('button[onclick="showWorldPeopleDashboard()"]').click();
@@ -89,28 +117,25 @@ test('Zlatoust 1.4.1 opens as a five-stage integrated learning page', async ({ p
   await aspectCard.click();
   expect(await page.evaluate(() => window.zlatoustTheoryState.lastRuleLoadError || '')).toBe('');
   await expect(page.locator('.zlatoust-learning-page')).toHaveCount(1);
-  await expect(page.locator('.zlatoust-unit-route')).toHaveCount(1);
-  await expect(page.locator('.zlatoust-unit-route-step')).toHaveCount(5);
-  const secondReview = page.locator('.zlatoust-stage-review input').nth(1);
-  await secondReview.check();
-  await expect(page.locator('.zlatoust-unit-route-step').nth(1)).toHaveAttribute('data-stage-status', 'weak');
-  await page.locator('.zlatoust-stage-review input').nth(1).uncheck();
-  await expect(page.locator('.zlatoust-unit-route-step').nth(1)).toHaveAttribute('data-stage-status', 'unstarted');
-  await expect(page.locator('.zlatoust-stage')).toHaveCount(5);
-  await expect(page.locator('.zlatoust-unit-map-root')).toHaveCount(1);
-  await expect(page.locator('.zlatoust-time-gate')).toHaveCount(1);
-  await expect(page.locator('.zlatoust-unit-map-list button')).toHaveCount(5);
-  await expect(page.locator('.zlatoust-axis-warnings li')).toHaveCount(4);
-  const externalGuide = page.locator('.zlatoust-diagnostic .zlatoust-external-guide');
-  await expect(externalGuide).toContainText('中文结论');
-  await expect(externalGuide).toContainText('对本知识点有什么帮助');
-  await expect(externalGuide).toContainText('适用边界');
-  await expect(externalGuide.locator('summary')).toHaveText('来源核验（可选，不影响学习）');
+  await expect(page.locator('.zlatoust-narrative')).toHaveCount(1);
+  await expect(page.locator('.zlatoust-narrative-section')).toHaveCount(6);
+  await expect(page.locator('.zlatoust-stage-review, .zlatoust-unit-route')).toHaveCount(0);
+  const map = page.locator('.zlatoust-unit-map-retrieval');
+  await expect(map).toHaveCount(1);
+  await expect(map.locator('.reader-mind-map-svg')).toBeVisible();
+  await expect(map.locator('.reader-mind-map-curve')).toHaveCount(5);
+  await expect(map.locator('.reader-mind-map-link')).toHaveCount(5);
+  await expect(map.locator('text').filter({ hasText: /^识别要点$/ })).toHaveCount(5);
+  await expect(map.locator('text').filter({ hasText: /^核心规则$/ })).toHaveCount(5);
+  await expect(map.locator('text').filter({ hasText: /^例句$/ })).toHaveCount(5);
+  await expect(map.locator('text').filter({ hasText: /^易错陷阱$/ })).toHaveCount(5);
+  await expect(page.locator('.zlatoust-narrative-evidence')).toHaveCount(1);
+  await expect(page.locator('.zlatoust-narrative-evidence summary')).toContainText('原书规则');
   await expect(page.getByText('Yale Advanced Russian', { exact: false })).toHaveCount(0);
   await expect(page.locator('.zlatoust-stage-practice .b2-quiz-item')).toHaveCount(13);
   await expect(page.locator('.zlatoust-transfer-task')).toHaveCount(4);
   await expect(page.locator('.zlatoust-stage-source-rule')).toHaveCount(5);
-  await expect(page.getByText('信号词的有效条件与失效边界')).toHaveCount(5);
+  await expect(page.locator('.zlatoust-narrative-evidence')).toContainText('结果保留');
 });
 
 test('Zlatoust 1.4.1 shares official answers and keeps formative checks separate', async ({ page }) => {
@@ -126,7 +151,7 @@ test('Zlatoust 1.4.1 shares official answers and keeps formative checks separate
   await expect(firstCheck).toContainText('回看规则');
   await expect(firstCheck).toContainText('最小对比');
 
-  await page.locator('#stage-fact .zlatoust-stage-practice summary').click();
+  await page.locator('.zlatoust-stage-practice summary').click();
   const official = page.locator('[data-question-id="GL1-Q089"]');
   const correct = official.getByRole('radio', { name: '选择 В' });
   await correct.click();
@@ -151,7 +176,7 @@ test('Zlatoust 1.5 is a supplementary cross-section review without a second offi
 
   await expect(page.locator('.zlatoust-learning-page')).toHaveCount(1);
   await expect(page.getByText('教辅综合页（不计入原书 32 个理论小节）')).toHaveCount(1);
-  await expect(page.locator('.zlatoust-unit-route-step')).toHaveCount(4);
+  await expect(page.locator('.zlatoust-narrative-section')).toHaveCount(5);
   await expect(page.locator('.zlatoust-stage-practice .b2-quiz-item')).toHaveCount(19);
 
   const formative = page.locator('[data-zlatoust-check="review-past-1"]');
@@ -160,7 +185,7 @@ test('Zlatoust 1.5 is a supplementary cross-section review without a second offi
   await formative.locator('.zlatoust-retry .zlatoust-learning-check-option').nth(1).click();
   await expect(formative.locator('.zlatoust-retry')).toContainText('这次判断正确');
 
-  await page.locator('#stage-past-future .zlatoust-stage-practice summary').click();
+  await page.locator('.zlatoust-stage-practice summary').click();
   const official = page.locator('[data-question-id="GL1-Q089"]');
   const correct = official.getByRole('radio').nth(0);
   await correct.click();
@@ -183,8 +208,7 @@ test('Zlatoust 2.1 uses one official record store and keeps object-government pr
 
   await expect(page.locator('.zlatoust-learning-page')).toHaveCount(1);
   await expect(page.getByText('第 2 章 · 知识点 2.1')).toHaveCount(1);
-  await expect(page.locator('.zlatoust-unit-route-step')).toHaveCount(5);
-  await expect(page.locator('.zlatoust-stage')).toHaveCount(5);
+  await expect(page.locator('.zlatoust-narrative-section')).toHaveCount(6);
   await expect(page.locator('.zlatoust-stage-practice .b2-quiz-item')).toHaveCount(22);
 
   const formative = page.locator('[data-zlatoust-check="gov-gen-1"]');
@@ -195,7 +219,7 @@ test('Zlatoust 2.1 uses one official record store and keeps object-government pr
   await formative.locator('.zlatoust-retry .zlatoust-learning-check-option').nth(1).click();
   await expect(formative.locator('.zlatoust-retry')).toContainText('这次判断正确');
 
-  await page.locator('#stage-instrumental .zlatoust-stage-practice summary').click();
+  await page.locator('.zlatoust-stage-practice summary').click();
   const official = page.locator('[data-question-id="GL2-Q001"]');
   await expect(official).toHaveCount(1);
   const correct = official.getByRole('radio').first();
@@ -220,7 +244,7 @@ test('Zlatoust 2.2 opens from its chapter card and keeps source-only practice se
 
   await expect(page.locator('.zlatoust-learning-page')).toHaveCount(1);
   await expect(page.getByText('第 2 章 · 知识点 2.2')).toHaveCount(1);
-  await expect(page.locator('.zlatoust-unit-route-step')).toHaveCount(5);
+  await expect(page.locator('.zlatoust-narrative-section')).toHaveCount(6);
   await expect(page.locator('.zlatoust-stage-practice .b2-quiz-item')).toHaveCount(11);
   const formative = page.locator('[data-zlatoust-check="adj-frame-1"]');
   await formative.locator('.zlatoust-learning-check-option').nth(1).click();
@@ -228,7 +252,7 @@ test('Zlatoust 2.2 opens from its chapter card and keeps source-only practice se
   await formative.locator('.zlatoust-retry .zlatoust-learning-check-option').first().click();
   await expect(formative.locator('.zlatoust-retry')).toContainText('这次判断正确');
   await expect(page.locator('[data-question-id="GL2-Q028"]')).toHaveCount(0);
-  await page.locator('#stage-frames .zlatoust-stage-practice summary').click();
+  await page.locator('.zlatoust-stage-practice summary').click();
   const official = page.locator('[data-question-id="GL2-Q024"]');
   await official.getByRole('radio').nth(3).click();
   await official.getByRole('radio').nth(3).click();
@@ -250,7 +274,7 @@ test('Zlatoust 2.2 remains operable at a 390px mobile viewport', async ({ browse
     await page.locator('.world-module-card', { hasText: '语法词汇' }).click();
     await page.locator('.chapter-grid .ch-item').nth(1).click();
     await page.locator('.zlatoust-section-card', { hasText: '2.2' }).click();
-    const metrics = await page.evaluate(() => ({ width: innerWidth, scrollWidth: document.documentElement.scrollWidth, labels: [...document.querySelectorAll('.zlatoust-stage-review input')].map(i => i.getAttribute('aria-label')) }));
+    const metrics = await page.evaluate(() => ({ width: innerWidth, scrollWidth: document.documentElement.scrollWidth, labels: [...document.querySelectorAll('.zlatoust-unit-map-retrieval [data-zlatoust-mind-map-target]')].map(i => i.getAttribute('data-zlatoust-mind-map-target')) }));
     expect(metrics.scrollWidth).toBeLessThanOrEqual(metrics.width);
     expect(new Set(metrics.labels).size).toBe(5);
   } finally { await context.close(); }
@@ -265,7 +289,7 @@ test('Zlatoust 2.3 opens from its chapter card, separates review/source-only ite
 
   await expect(page.locator('.zlatoust-learning-page')).toHaveCount(1);
   await expect(page.getByText('第 2 章 · 知识点 2.3')).toHaveCount(1);
-  await expect(page.locator('.zlatoust-unit-route-step')).toHaveCount(5);
+  await expect(page.locator('.zlatoust-narrative-section')).toHaveCount(6);
   await expect(page.locator('.zlatoust-stage-practice .b2-quiz-item')).toHaveCount(12);
   const formative = page.locator('[data-zlatoust-check="inst-quality-1"]');
   await formative.locator('.zlatoust-learning-check-option').nth(1).click();
@@ -274,7 +298,7 @@ test('Zlatoust 2.3 opens from its chapter card, separates review/source-only ite
   await expect(formative.locator('.zlatoust-retry')).toContainText('这次判断正确');
   await expect(page.locator('[data-question-id="GL2-Q036"]')).toHaveCount(0);
   await expect(page.locator('[data-question-id="GL2-Q039"]')).toHaveCount(0);
-  await page.locator('#stage-quality .zlatoust-stage-practice summary').click();
+  await page.locator('.zlatoust-stage-practice summary').click();
   const official = page.locator('[data-question-id="GL2-Q041"]');
   await official.getByRole('radio').nth(2).click();
   await official.getByRole('radio').nth(2).click();
@@ -300,7 +324,7 @@ test('Zlatoust 2.3 remains operable at a 390px mobile viewport', async ({ browse
       width: innerWidth,
       scrollWidth: document.documentElement.scrollWidth,
       controls: [...document.querySelectorAll('.zlatoust-unit-map button')].map(button => { const box = button.getBoundingClientRect(); return { left: box.left, right: box.right }; }),
-      labels: [...document.querySelectorAll('.zlatoust-stage-review input')].map(input => input.getAttribute('aria-label'))
+      labels: [...document.querySelectorAll('.zlatoust-unit-map-retrieval [data-zlatoust-mind-map-target]')].map(input => input.getAttribute('data-zlatoust-mind-map-target'))
     }));
     expect(metrics.scrollWidth).toBeLessThanOrEqual(metrics.width);
     expect(metrics.controls.every(box => box.left >= 0 && box.right <= metrics.width)).toBe(true);
@@ -317,14 +341,14 @@ test('Zlatoust 2.4.1 opens from its chapter card and keeps bare-attribute practi
 
   await expect(page.locator('.zlatoust-learning-page')).toHaveCount(1);
   await expect(page.getByText('第 2 章 · 知识点 2.4.1')).toHaveCount(1);
-  await expect(page.locator('.zlatoust-unit-route-step')).toHaveCount(5);
+  await expect(page.locator('.zlatoust-narrative-section')).toHaveCount(6);
   await expect(page.locator('.zlatoust-stage-practice .b2-quiz-item')).toHaveCount(7);
   const formative = page.locator('[data-zlatoust-check="attr-whole-1"]');
   await formative.locator('.zlatoust-learning-check-option').nth(1).click();
   await expect(formative).toContainText('这次误判在这里');
   await formative.locator('.zlatoust-retry .zlatoust-learning-check-option').first().click();
   await expect(formative.locator('.zlatoust-retry')).toContainText('这次判断正确');
-  await page.locator('#stage-whole .zlatoust-stage-practice summary').click();
+  await page.locator('.zlatoust-stage-practice summary').click();
   const official = page.locator('[data-question-id="GL2-Q065"]');
   await official.getByRole('radio').nth(2).click();
   await official.getByRole('radio').nth(2).click();
@@ -350,7 +374,7 @@ test('Zlatoust 2.4.1 remains operable at a 390px mobile viewport', async ({ brow
       width: innerWidth,
       scrollWidth: document.documentElement.scrollWidth,
       controls: [...document.querySelectorAll('.zlatoust-unit-map button')].map(button => { const box = button.getBoundingClientRect(); return { left: box.left, right: box.right }; }),
-      labels: [...document.querySelectorAll('.zlatoust-stage-review input')].map(input => input.getAttribute('aria-label'))
+      labels: [...document.querySelectorAll('.zlatoust-unit-map-retrieval [data-zlatoust-mind-map-target]')].map(input => input.getAttribute('data-zlatoust-mind-map-target'))
     }));
     expect(metrics.scrollWidth).toBeLessThanOrEqual(metrics.width);
     expect(metrics.controls.every(box => box.left >= 0 && box.right <= metrics.width)).toBe(true);
@@ -373,7 +397,7 @@ test('Zlatoust 2.4.2 opens from its chapter card and excludes its needs-review f
   await formative.locator('.zlatoust-retry .zlatoust-learning-check-option').first().click();
   await expect(formative.locator('.zlatoust-retry')).toContainText('这次判断正确');
   await expect(page.locator('[data-question-id="GL2-Q062"]')).toHaveCount(0);
-  await page.locator('#stage-material .zlatoust-stage-practice summary').click();
+  await page.locator('.zlatoust-stage-practice summary').click();
   const official = page.locator('[data-question-id="GL2-Q050"]');
   await official.getByRole('radio').nth(3).click();
   await official.getByRole('radio').nth(3).click();
@@ -392,7 +416,8 @@ test('Zlatoust 2.4.2 remains operable at a 390px mobile viewport', async ({ brow
     await page.locator('.world-module-card', { hasText: '语法词汇' }).click();
     await page.locator('.chapter-grid .ch-item').nth(1).click();
     await page.locator('.zlatoust-section-card', { hasText: '2.4.2' }).click();
-    const metrics = await page.evaluate(() => ({ width: innerWidth, scrollWidth: document.documentElement.scrollWidth, labels: [...document.querySelectorAll('.zlatoust-stage-review input')].map(input => input.getAttribute('aria-label')) }));
+    await expect(page.locator('.zlatoust-unit-map-retrieval [data-zlatoust-mind-map-target]')).toHaveCount(5);
+    const metrics = await page.evaluate(() => ({ width: innerWidth, scrollWidth: document.documentElement.scrollWidth, labels: [...document.querySelectorAll('.zlatoust-unit-map-retrieval [data-zlatoust-mind-map-target]')].map(input => input.getAttribute('data-zlatoust-mind-map-target')) }));
     expect(metrics.scrollWidth).toBeLessThanOrEqual(metrics.width);
     expect(new Set(metrics.labels).size).toBe(5);
   } finally { await context.close(); }
@@ -406,7 +431,7 @@ test('Zlatoust 2.4 opens its relationship-routing overview and preserves source 
   await page.locator('.zlatoust-section-card', { hasText: '2.4' }).first().click();
   await expect(page.locator('.zlatoust-learning-page')).toHaveCount(1);
   await expect(page.getByText('第 2 章 · 知识点 2.4')).toHaveCount(1);
-  await expect(page.locator('.zlatoust-unit-route-step')).toHaveCount(5);
+  await expect(page.locator('.zlatoust-narrative-section')).toHaveCount(6);
   await expect(page.locator('.zlatoust-stage-practice .b2-quiz-item')).toHaveCount(21);
   const formative = page.locator('[data-zlatoust-check="overview-bare-1"]');
   await formative.locator('.zlatoust-learning-check-option').nth(1).click();
@@ -414,7 +439,7 @@ test('Zlatoust 2.4 opens its relationship-routing overview and preserves source 
   await formative.locator('.zlatoust-retry .zlatoust-learning-check-option').first().click();
   await expect(formative.locator('.zlatoust-retry')).toContainText('这次判断正确');
   await expect(page.locator('[data-question-id="GL2-Q062"]')).toHaveCount(0);
-  await page.locator('#stage-bare .zlatoust-stage-practice summary').click();
+  await page.locator('.zlatoust-stage-practice summary').click();
   const official = page.locator('[data-question-id="GL2-Q065"]');
   await official.getByRole('radio').nth(2).click();
   await official.getByRole('radio').nth(2).click();
@@ -433,7 +458,7 @@ test('Zlatoust 2.4 remains operable at a 390px mobile viewport', async ({ browse
     await page.locator('.world-module-card', { hasText: '语法词汇' }).click();
     await page.locator('.chapter-grid .ch-item').nth(1).click();
     await page.locator('.zlatoust-section-card', { hasText: '2.4' }).first().click();
-    const metrics = await page.evaluate(() => ({ width: innerWidth, scrollWidth: document.documentElement.scrollWidth, labels: [...document.querySelectorAll('.zlatoust-stage-review input')].map(input => input.getAttribute('aria-label')) }));
+    const metrics = await page.evaluate(() => ({ width: innerWidth, scrollWidth: document.documentElement.scrollWidth, labels: [...document.querySelectorAll('.zlatoust-unit-map-retrieval [data-zlatoust-mind-map-target]')].map(input => input.getAttribute('data-zlatoust-mind-map-target')) }));
     expect(metrics.scrollWidth).toBeLessThanOrEqual(metrics.width);
     expect(new Set(metrics.labels).size).toBe(5);
   } finally { await context.close(); }
@@ -447,7 +472,7 @@ test('Zlatoust 2.5 opens its time-relation teaching page and keeps excluded form
   await page.locator('.zlatoust-section-card', { hasText: '2.5' }).click();
   await expect(page.locator('.zlatoust-learning-page')).toHaveCount(1);
   await expect(page.getByText('第 2 章 · 知识点 2.5')).toHaveCount(1);
-  await expect(page.locator('.zlatoust-unit-route-step')).toHaveCount(5);
+  await expect(page.locator('.zlatoust-narrative-section')).toHaveCount(6);
   await expect(page.locator('.zlatoust-stage-practice .b2-quiz-item')).toHaveCount(24);
   const formative = page.locator('[data-zlatoust-check="time-duration-1"]');
   await formative.locator('.zlatoust-learning-check-option').nth(1).click();
@@ -457,7 +482,7 @@ test('Zlatoust 2.5 opens its time-relation teaching page and keeps excluded form
   await expect(page.locator('[data-question-id="GL2-Q070"]')).toHaveCount(0);
   await expect(page.locator('[data-question-id="GL2-Q089"]')).toHaveCount(0);
   await expect(page.locator('[data-question-id="GL2-Q137"]')).toHaveCount(0);
-  await page.locator('#stage-duration .zlatoust-stage-practice summary').click();
+  await page.locator('.zlatoust-stage-practice summary').click();
   const official = page.locator('[data-question-id="GL2-Q075"]');
   await official.getByRole('radio').first().click();
   await official.getByRole('radio').first().click();
@@ -483,7 +508,7 @@ test('Zlatoust 2.5 remains operable at a 390px mobile viewport', async ({ browse
       width: innerWidth,
       scrollWidth: document.documentElement.scrollWidth,
       controls: [...document.querySelectorAll('.zlatoust-unit-map button')].map(button => { const box = button.getBoundingClientRect(); return { left: box.left, right: box.right }; }),
-      labels: [...document.querySelectorAll('.zlatoust-stage-review input')].map(input => input.getAttribute('aria-label'))
+      labels: [...document.querySelectorAll('.zlatoust-unit-map-retrieval [data-zlatoust-mind-map-target]')].map(input => input.getAttribute('data-zlatoust-mind-map-target'))
     }));
     expect(metrics.scrollWidth).toBeLessThanOrEqual(metrics.width);
     expect(metrics.controls.every(box => box.left >= 0 && box.right <= metrics.width)).toBe(true);
@@ -499,7 +524,7 @@ test('Zlatoust 2.6 opens its spatial-question page and keeps source-only depth p
   await page.locator('.zlatoust-section-card', { hasText: '2.6' }).click();
   await expect(page.locator('.zlatoust-learning-page')).toHaveCount(1);
   await expect(page.getByText('第 2 章 · 知识点 2.6')).toHaveCount(1);
-  await expect(page.locator('.zlatoust-unit-route-step')).toHaveCount(5);
+  await expect(page.locator('.zlatoust-narrative-section')).toHaveCount(6);
   await expect(page.locator('.zlatoust-stage-practice .b2-quiz-item')).toHaveCount(17);
   const formative = page.locator('[data-zlatoust-check="space-gate-1"]');
   await formative.locator('.zlatoust-learning-check-option').nth(1).click();
@@ -507,7 +532,7 @@ test('Zlatoust 2.6 opens its spatial-question page and keeps source-only depth p
   await formative.locator('.zlatoust-retry .zlatoust-learning-check-option').first().click();
   await expect(formative.locator('.zlatoust-retry')).toContainText('这次判断正确');
   await expect(page.locator('[data-question-id="GL2-Q099"]')).toHaveCount(0);
-  await page.locator('#stage-shape .zlatoust-stage-practice summary').click();
+  await page.locator('.zlatoust-stage-practice summary').click();
   const official = page.locator('[data-question-id="GL2-Q094"]');
   await official.getByRole('radio').first().click();
   await official.getByRole('radio').first().click();
@@ -529,11 +554,12 @@ test('Zlatoust 2.6 remains operable at a 390px mobile viewport', async ({ browse
     await page.locator('.world-module-card', { hasText: '语法词汇' }).click();
     await page.locator('.chapter-grid .ch-item').nth(1).click();
     await page.locator('.zlatoust-section-card', { hasText: '2.6' }).click();
+    await expect(page.locator('.zlatoust-unit-map-retrieval [data-zlatoust-mind-map-target]')).toHaveCount(5);
     const metrics = await page.evaluate(() => ({
       width: innerWidth,
       scrollWidth: document.documentElement.scrollWidth,
       controls: [...document.querySelectorAll('.zlatoust-unit-map button')].map(button => { const box = button.getBoundingClientRect(); return { left: box.left, right: box.right }; }),
-      labels: [...document.querySelectorAll('.zlatoust-stage-review input')].map(input => input.getAttribute('aria-label'))
+      labels: [...document.querySelectorAll('.zlatoust-unit-map-retrieval [data-zlatoust-mind-map-target]')].map(input => input.getAttribute('data-zlatoust-mind-map-target'))
     }));
     expect(metrics.scrollWidth).toBeLessThanOrEqual(metrics.width);
     expect(metrics.controls.every(box => box.left >= 0 && box.right <= metrics.width)).toBe(true);
@@ -549,14 +575,14 @@ test('Zlatoust 2.7 opens its causal-nature page and preserves formal progress', 
   await page.locator('.zlatoust-section-card', { hasText: '2.7' }).click();
   await expect(page.locator('.zlatoust-learning-page')).toHaveCount(1);
   await expect(page.getByText('第 2 章 · 知识点 2.7')).toHaveCount(1);
-  await expect(page.locator('.zlatoust-unit-route-step')).toHaveCount(5);
+  await expect(page.locator('.zlatoust-narrative-section')).toHaveCount(6);
   await expect(page.locator('.zlatoust-stage-practice .b2-quiz-item')).toHaveCount(15);
   const formative = page.locator('[data-zlatoust-check="cause-valence-1"]');
   await formative.locator('.zlatoust-learning-check-option').nth(1).click();
   await expect(formative).toContainText('这次误判在这里');
   await formative.locator('.zlatoust-retry .zlatoust-learning-check-option').first().click();
   await expect(formative.locator('.zlatoust-retry')).toContainText('这次判断正确');
-  await page.locator('#stage-valence .zlatoust-stage-practice summary').click();
+  await page.locator('.zlatoust-stage-practice summary').click();
   const official = page.locator('[data-question-id="GL2-Q112"]');
   await official.getByRole('radio').first().click();
   await official.getByRole('radio').first().click();
@@ -576,7 +602,7 @@ test('Zlatoust 2.7 remains operable at a 390px mobile viewport', async ({ browse
     await page.locator('.chapter-grid .ch-item').nth(1).click();
     await page.locator('.zlatoust-section-card', { hasText: '2.7' }).click();
     await expect(page.locator('.zlatoust-learning-page')).toHaveCount(1);
-    const metrics = await page.evaluate(() => ({ width: innerWidth, scrollWidth: document.documentElement.scrollWidth, controls: [...document.querySelectorAll('.zlatoust-unit-map button')].map(button => { const box = button.getBoundingClientRect(); return { left: box.left, right: box.right }; }), labels: [...document.querySelectorAll('.zlatoust-stage-review input')].map(input => input.getAttribute('aria-label')) }));
+    const metrics = await page.evaluate(() => ({ width: innerWidth, scrollWidth: document.documentElement.scrollWidth, controls: [...document.querySelectorAll('.zlatoust-unit-map button')].map(button => { const box = button.getBoundingClientRect(); return { left: box.left, right: box.right }; }), labels: [...document.querySelectorAll('.zlatoust-unit-map-retrieval [data-zlatoust-mind-map-target]')].map(input => input.getAttribute('data-zlatoust-mind-map-target')) }));
     expect(metrics.scrollWidth).toBeLessThanOrEqual(metrics.width);
     expect(metrics.controls.every(box => box.left >= 0 && box.right <= metrics.width)).toBe(true);
     expect(new Set(metrics.labels).size).toBe(5);
@@ -591,7 +617,7 @@ test('Zlatoust 2.8 opens its purpose-and-evidence page and excludes needs-review
   await page.locator('.zlatoust-section-card', { hasText: '2.8' }).click();
   await expect(page.locator('.zlatoust-learning-page')).toHaveCount(1);
   await expect(page.getByText('第 2 章 · 知识点 2.8')).toHaveCount(1);
-  await expect(page.locator('.zlatoust-unit-route-step')).toHaveCount(5);
+  await expect(page.locator('.zlatoust-narrative-section')).toHaveCount(6);
   await expect(page.locator('.zlatoust-stage-practice .b2-quiz-item')).toHaveCount(4);
   const formative = page.locator('[data-zlatoust-check="goal-dlya-1"]');
   await formative.locator('.zlatoust-learning-check-option').nth(1).click();
@@ -600,7 +626,7 @@ test('Zlatoust 2.8 opens its purpose-and-evidence page and excludes needs-review
   await expect(formative.locator('.zlatoust-retry')).toContainText('这次判断正确');
   await expect(page.locator('[data-question-id="GL2-Q124"]')).toHaveCount(0);
   await expect(page.locator('[data-question-id="GL2-Q136"]')).toHaveCount(0);
-  await page.locator('#stage-dlya .zlatoust-stage-practice summary').click();
+  await page.locator('.zlatoust-stage-practice summary').click();
   const official = page.locator('[data-question-id="GL2-Q123"]');
   await official.getByRole('radio').first().click();
   await official.getByRole('radio').first().click();
@@ -619,7 +645,8 @@ test('Zlatoust 2.8 remains operable at a 390px mobile viewport', async ({ browse
     await page.locator('.world-module-card', { hasText: '语法词汇' }).click();
     await page.locator('.chapter-grid .ch-item').nth(1).click();
     await page.locator('.zlatoust-section-card', { hasText: '2.8' }).click();
-    const metrics = await page.evaluate(() => ({ width: innerWidth, scrollWidth: document.documentElement.scrollWidth, controls: [...document.querySelectorAll('.zlatoust-unit-map button')].map(button => { const box = button.getBoundingClientRect(); return { left: box.left, right: box.right }; }), labels: [...document.querySelectorAll('.zlatoust-stage-review input')].map(input => input.getAttribute('aria-label')) }));
+    await expect(page.locator('.zlatoust-unit-map-retrieval [data-zlatoust-mind-map-target]')).toHaveCount(5);
+    const metrics = await page.evaluate(() => ({ width: innerWidth, scrollWidth: document.documentElement.scrollWidth, controls: [...document.querySelectorAll('.zlatoust-unit-map button')].map(button => { const box = button.getBoundingClientRect(); return { left: box.left, right: box.right }; }), labels: [...document.querySelectorAll('.zlatoust-unit-map-retrieval [data-zlatoust-mind-map-target]')].map(input => input.getAttribute('data-zlatoust-mind-map-target')) }));
     expect(metrics.scrollWidth).toBeLessThanOrEqual(metrics.width);
     expect(metrics.controls.every(box => box.left >= 0 && box.right <= metrics.width)).toBe(true);
     expect(new Set(metrics.labels).size).toBe(5);
@@ -634,8 +661,7 @@ test('Zlatoust 3.1 opens its gerund subject-routing page and keeps Q039 outside 
   await page.locator('.zlatoust-section-card', { hasText: '3.1' }).first().click();
 
   await expect(page.locator('.zlatoust-learning-page')).toHaveCount(1);
-  await expect(page.locator('.zlatoust-unit-route-step')).toHaveCount(5);
-  await expect(page.locator('.zlatoust-stage')).toHaveCount(5);
+  await expect(page.locator('.zlatoust-narrative-section')).toHaveCount(6);
   await expect(page.locator('.zlatoust-stage-practice .b2-quiz-item')).toHaveCount(35);
   await expect(page.locator('[data-question-id="GL3-Q039"]')).toHaveCount(0);
 
@@ -646,7 +672,7 @@ test('Zlatoust 3.1 opens its gerund subject-routing page and keeps Q039 outside 
   await formative.locator('.zlatoust-retry .zlatoust-learning-check-option').first().click();
   await expect(formative.locator('.zlatoust-retry')).toContainText('这次判断正确');
 
-  await page.locator('#stage-personal .zlatoust-stage-practice summary').click();
+  await page.locator('.zlatoust-stage-practice summary').click();
   const official = page.locator('[data-question-id="GL3-Q040"]');
   await official.getByRole('radio').nth(1).click();
   await official.getByRole('radio').nth(1).click();
@@ -677,7 +703,7 @@ test('Zlatoust 3.1 remains operable at a 390px mobile viewport', async ({ browse
         const box = button.getBoundingClientRect();
         return { left: box.left, right: box.right };
       }),
-      labels: [...document.querySelectorAll('.zlatoust-stage-review input')].map(input => input.getAttribute('aria-label'))
+      labels: [...document.querySelectorAll('.zlatoust-unit-map-retrieval [data-zlatoust-mind-map-target]')].map(input => input.getAttribute('data-zlatoust-mind-map-target'))
     }));
     expect(metrics.scrollWidth).toBeLessThanOrEqual(metrics.width);
     expect(metrics.controls.every(box => box.left >= 0 && box.right <= metrics.width)).toBe(true);
@@ -693,7 +719,7 @@ test('Zlatoust 3.1.1 opens its allowed-gerund page and reuses mapped official pr
   await page.locator('.zlatoust-section-card', { hasText: '3.1.1' }).click();
 
   await expect(page.locator('.zlatoust-learning-page')).toHaveCount(1);
-  await expect(page.locator('.zlatoust-unit-route-step')).toHaveCount(5);
+  await expect(page.locator('.zlatoust-narrative-section')).toHaveCount(6);
   await expect(page.locator('.zlatoust-stage-practice .b2-quiz-item')).toHaveCount(35);
   await expect(page.locator('[data-question-id="GL3-Q039"]')).toHaveCount(0);
   const formative = page.locator('[data-zlatoust-check="allowed-explicit-1"]');
@@ -702,7 +728,7 @@ test('Zlatoust 3.1.1 opens its allowed-gerund page and reuses mapped official pr
   await formative.locator('.zlatoust-retry .zlatoust-learning-check-option').first().click();
   await expect(formative.locator('.zlatoust-retry')).toContainText('这次判断正确');
 
-  await page.locator('#stage-explicit .zlatoust-stage-practice summary').click();
+  await page.locator('.zlatoust-stage-practice summary').click();
   const official = page.locator('[data-question-id="GL3-Q040"]');
   await official.getByRole('radio').nth(1).click();
   await official.getByRole('radio').nth(1).click();
@@ -723,8 +749,9 @@ test('Zlatoust 3.1.2 keeps its prohibition page formative-only and exposes Q039 
   await page.locator('.zlatoust-section-card', { hasText: '3.1.2' }).click();
 
   await expect(page.locator('.zlatoust-learning-page')).toHaveCount(1);
-  await expect(page.locator('.zlatoust-unit-route-step')).toHaveCount(5);
+  await expect(page.locator('.zlatoust-narrative-section')).toHaveCount(6);
   await expect(page.locator('.zlatoust-stage-practice .b2-quiz-item')).toHaveCount(0);
+  await page.locator('.zlatoust-narrative-evidence summary').click();
   await expect(page.getByText('GL3-Q039').first()).toBeVisible();
   await expect(page.locator('.zlatoust-learning-hero')).toContainText('来源状态 待复核');
   const formative = page.locator('[data-zlatoust-check="forbidden-two-subjects-1"]');
@@ -754,7 +781,7 @@ test('Zlatoust 3.1.1 remains operable at a 390px mobile viewport', async ({ brow
         const box = button.getBoundingClientRect();
         return { left: box.left, right: box.right };
       }),
-      labels: [...document.querySelectorAll('.zlatoust-stage-review input')].map(input => input.getAttribute('aria-label'))
+      labels: [...document.querySelectorAll('.zlatoust-unit-map-retrieval [data-zlatoust-mind-map-target]')].map(input => input.getAttribute('data-zlatoust-mind-map-target'))
     }));
     expect(metrics.scrollWidth).toBeLessThanOrEqual(metrics.width);
     expect(metrics.controls.every(box => box.left >= 0 && box.right <= metrics.width)).toBe(true);
@@ -779,7 +806,7 @@ test('Zlatoust 3.1.2 remains operable at a 390px mobile viewport', async ({ brow
         const box = button.getBoundingClientRect();
         return { left: box.left, right: box.right };
       }),
-      labels: [...document.querySelectorAll('.zlatoust-stage-review input')].map(input => input.getAttribute('aria-label'))
+      labels: [...document.querySelectorAll('.zlatoust-unit-map-retrieval [data-zlatoust-mind-map-target]')].map(input => input.getAttribute('data-zlatoust-mind-map-target'))
     }));
     expect(metrics.scrollWidth).toBeLessThanOrEqual(metrics.width);
     expect(metrics.controls.every(box => box.left >= 0 && box.right <= metrics.width)).toBe(true);
@@ -795,10 +822,13 @@ test('Zlatoust 4.1 opens its clause-relation page and isolates formative storage
   await page.locator('.zlatoust-section-card', { hasText: '4.1' }).click();
 
   await expect(page.locator('.zlatoust-learning-page')).toHaveCount(1);
-  await expect(page.locator('.zlatoust-unit-route-step')).toHaveCount(5);
-  await expect(page.locator('.zlatoust-stage')).toHaveCount(5);
+  await expect(page.locator('.zlatoust-narrative-section')).toHaveCount(6);
   await expect(page.locator('.zlatoust-stage-practice .b2-quiz-item')).toHaveCount(24);
-  await expect(page.locator('.zlatoust-unit-map-axes .zlatoust-time-gate')).toHaveCount(1);
+  const map = page.locator('.zlatoust-unit-map-retrieval');
+  await expect(map).toHaveCount(1);
+  await expect(map.locator('.reader-mind-map-svg')).toBeVisible();
+  await expect(map.locator('.reader-mind-map-curve')).toHaveCount(5);
+  await expect(map.locator('.reader-mind-map-link')).toHaveCount(5);
 
   const formative = page.locator('[data-zlatoust-check="conjunction-link-1"]');
   await formative.locator('.zlatoust-learning-check-option').nth(1).click();
@@ -806,7 +836,7 @@ test('Zlatoust 4.1 opens its clause-relation page and isolates formative storage
   await formative.locator('.zlatoust-retry .zlatoust-learning-check-option').first().click();
   await expect(formative.locator('.zlatoust-retry')).toContainText('这次判断正确');
 
-  await page.locator('#stage-link .zlatoust-stage-practice summary').click();
+  await page.locator('.zlatoust-stage-practice summary').click();
   const official = page.locator('[data-question-id="GL4-Q001"]');
   await official.getByRole('radio').first().click();
   await official.getByRole('radio').first().click();
@@ -837,7 +867,7 @@ test('Zlatoust 4.1 remains operable at a 390px mobile viewport', async ({ browse
         const box = button.getBoundingClientRect();
         return { left: box.left, right: box.right };
       }),
-      labels: [...document.querySelectorAll('.zlatoust-stage-review input')].map(input => input.getAttribute('aria-label'))
+      labels: [...document.querySelectorAll('.zlatoust-unit-map-retrieval [data-zlatoust-mind-map-target]')].map(input => input.getAttribute('data-zlatoust-mind-map-target'))
     }));
     expect(metrics.scrollWidth).toBeLessThanOrEqual(metrics.width);
     expect(metrics.controls.every(box => box.left >= 0 && box.right <= metrics.width)).toBe(true);
@@ -853,7 +883,7 @@ test('Zlatoust 4.2 opens its relative-word page and keeps formal progress separa
   await page.locator('.zlatoust-section-card', { hasText: '4.2' }).click();
 
   await expect(page.locator('.zlatoust-learning-page')).toHaveCount(1);
-  await expect(page.locator('.zlatoust-stage')).toHaveCount(5);
+  await expect(page.locator('.zlatoust-narrative-section')).toHaveCount(6);
   await expect(page.locator('.zlatoust-stage-practice .b2-quiz-item')).toHaveCount(13);
   const formative = page.locator('[data-zlatoust-check="relative-route-1"]');
   await formative.locator('.zlatoust-learning-check-option').nth(1).click();
@@ -861,7 +891,7 @@ test('Zlatoust 4.2 opens its relative-word page and keeps formal progress separa
   await formative.locator('.zlatoust-retry .zlatoust-learning-check-option').first().click();
   await expect(formative.locator('.zlatoust-retry')).toContainText('这次判断正确');
 
-  await page.locator('#stage-route .zlatoust-stage-practice summary').click();
+  await page.locator('.zlatoust-stage-practice summary').click();
   const official = page.locator('[data-question-id="GL4-Q038"]');
   await official.getByRole('radio').first().click();
   await official.getByRole('radio').first().click();
@@ -885,7 +915,7 @@ test('Zlatoust 4.2 remains operable at a 390px mobile viewport', async ({ browse
     await page.locator('.chapter-grid .ch-item').nth(3).click();
     await page.locator('.zlatoust-section-card', { hasText: '4.2' }).click();
     await expect(page.locator('.zlatoust-learning-page')).toHaveCount(1);
-    const metrics = await page.evaluate(() => ({ width: innerWidth, scrollWidth: document.documentElement.scrollWidth, controls: [...document.querySelectorAll('.zlatoust-unit-map button')].map(button => { const box = button.getBoundingClientRect(); return { left: box.left, right: box.right }; }), labels: [...document.querySelectorAll('.zlatoust-stage-review input')].map(input => input.getAttribute('aria-label')) }));
+    const metrics = await page.evaluate(() => ({ width: innerWidth, scrollWidth: document.documentElement.scrollWidth, controls: [...document.querySelectorAll('.zlatoust-unit-map button')].map(button => { const box = button.getBoundingClientRect(); return { left: box.left, right: box.right }; }), labels: [...document.querySelectorAll('.zlatoust-unit-map-retrieval [data-zlatoust-mind-map-target]')].map(input => input.getAttribute('data-zlatoust-mind-map-target')) }));
     expect(metrics.scrollWidth).toBeLessThanOrEqual(metrics.width);
     expect(metrics.controls.every(box => box.left >= 0 && box.right <= metrics.width)).toBe(true);
     expect(new Set(metrics.labels).size).toBe(5);
@@ -930,7 +960,7 @@ test('Zlatoust 4.4 remains operable at a 390px mobile viewport', async ({ browse
     await page.locator('.chapter-grid .ch-item').nth(3).click();
     await page.locator('.zlatoust-section-card', { hasText: '4.4' }).click();
     await expect(page.locator('.zlatoust-learning-page')).toHaveCount(1);
-    const metrics = await page.evaluate(() => ({ width: innerWidth, scrollWidth: document.documentElement.scrollWidth, controls: [...document.querySelectorAll('.zlatoust-unit-map button')].map(button => { const box = button.getBoundingClientRect(); return { left: box.left, right: box.right }; }), labels: [...document.querySelectorAll('.zlatoust-stage-review input')].map(input => input.getAttribute('aria-label')) }));
+    const metrics = await page.evaluate(() => ({ width: innerWidth, scrollWidth: document.documentElement.scrollWidth, controls: [...document.querySelectorAll('.zlatoust-unit-map button')].map(button => { const box = button.getBoundingClientRect(); return { left: box.left, right: box.right }; }), labels: [...document.querySelectorAll('.zlatoust-unit-map-retrieval [data-zlatoust-mind-map-target]')].map(input => input.getAttribute('data-zlatoust-mind-map-target')) }));
     expect(metrics.scrollWidth).toBeLessThanOrEqual(metrics.width);
     expect(metrics.controls.every(box => box.left >= 0 && box.right <= metrics.width)).toBe(true);
     expect(new Set(metrics.labels).size).toBe(5);
@@ -948,6 +978,7 @@ test('Zlatoust 1.3 and 1.5 learning pages remain operable at a 390px mobile view
 
     await page.locator('button[onclick*="gl1-3"]').click();
     await expect(page.locator('.zlatoust-learning-page')).toHaveCount(1);
+    await expect(page.locator('.zlatoust-unit-map-retrieval [data-zlatoust-mind-map-target]')).toHaveCount(5);
     const adjectiveMetrics = await page.evaluate(() => ({
       width: window.innerWidth,
       scrollWidth: document.documentElement.scrollWidth,
@@ -955,7 +986,7 @@ test('Zlatoust 1.3 and 1.5 learning pages remain operable at a 390px mobile view
         const box = button.getBoundingClientRect();
         return { left: box.left, right: box.right };
       }),
-      labels: [...document.querySelectorAll('.zlatoust-stage-review input')].map(input => input.getAttribute('aria-label'))
+      labels: [...document.querySelectorAll('.zlatoust-unit-map-retrieval [data-zlatoust-mind-map-target]')].map(input => input.getAttribute('data-zlatoust-mind-map-target'))
     }));
     expect(adjectiveMetrics.scrollWidth).toBeLessThanOrEqual(adjectiveMetrics.width);
     expect(adjectiveMetrics.controls.every(box => box.left >= 0 && box.right <= adjectiveMetrics.width)).toBe(true);
@@ -963,6 +994,7 @@ test('Zlatoust 1.3 and 1.5 learning pages remain operable at a 390px mobile view
 
     await page.getByRole('button', { name: '返回知识点卡片' }).first().click();
     await page.locator('button[onclick*="gl1-5"]').click();
+    await expect(page.locator('.zlatoust-unit-map-retrieval [data-zlatoust-mind-map-target]')).toHaveCount(4);
     const reviewMetrics = await page.evaluate(() => ({
       width: window.innerWidth,
       scrollWidth: document.documentElement.scrollWidth,
@@ -970,7 +1002,7 @@ test('Zlatoust 1.3 and 1.5 learning pages remain operable at a 390px mobile view
         const box = button.getBoundingClientRect();
         return { left: box.left, right: box.right };
       }),
-      labels: [...document.querySelectorAll('.zlatoust-stage-review input')].map(input => input.getAttribute('aria-label'))
+      labels: [...document.querySelectorAll('.zlatoust-unit-map-retrieval [data-zlatoust-mind-map-target]')].map(input => input.getAttribute('data-zlatoust-mind-map-target'))
     }));
     expect(reviewMetrics.scrollWidth).toBeLessThanOrEqual(reviewMetrics.width);
     expect(reviewMetrics.controls.every(box => box.left >= 0 && box.right <= reviewMetrics.width)).toBe(true);
@@ -997,7 +1029,7 @@ test('Zlatoust 2.1 remains operable at a 390px mobile viewport', async ({ browse
         const box = button.getBoundingClientRect();
         return { left: box.left, right: box.right };
       }),
-      labels: [...document.querySelectorAll('.zlatoust-stage-review input')].map(input => input.getAttribute('aria-label'))
+      labels: [...document.querySelectorAll('.zlatoust-unit-map-retrieval [data-zlatoust-mind-map-target]')].map(input => input.getAttribute('data-zlatoust-mind-map-target'))
     }));
     expect(metrics.scrollWidth).toBeLessThanOrEqual(metrics.width);
     expect(metrics.controls.every(box => box.left >= 0 && box.right <= metrics.width)).toBe(true);
@@ -1016,14 +1048,14 @@ test('Zlatoust learning cards show semantic reasoning across later chapters', as
   await chapters.nth(3).click();
   await page.locator('.zlatoust-section-card', { hasText: '4.3' }).click();
   await expect(page.getByRole('region', { name: '本知识点思维导图' })).toHaveCount(1);
-  await expect(page.getByText('时间线闸门', { exact: false })).toHaveCount(1);
+  await expect(page.locator('.zlatoust-unit-map-retrieval')).toContainText('先画时间线');
 
   await page.getByRole('button', { name: '返回知识点卡片', exact: true }).first().click();
   await page.getByRole('button', { name: '目录', exact: true }).click();
   await page.locator('.chapter-grid .ch-item').nth(4).click();
   await page.locator('.zlatoust-section-card', { hasText: '5.2' }).click();
   await expect(page.getByRole('region', { name: '本知识点思维导图' })).toHaveCount(1);
-  await expect(page.getByText('不同的信息立场', { exact: false })).toHaveCount(1);
+  await expect(page.locator('.zlatoust-unit-map-retrieval')).toContainText('先问信息方');
 });
 
 test('Zlatoust Chapter 5 keeps formal practice isolated while formative checks retry in place', async ({ page }) => {
@@ -1033,7 +1065,7 @@ test('Zlatoust Chapter 5 keeps formal practice isolated while formative checks r
   await page.locator('.chapter-grid .ch-item').nth(4).click();
 
   await page.locator('.zlatoust-section-card', { hasText: '5.1' }).click();
-  await expect(page.locator('.zlatoust-stage')).toHaveCount(4);
+  await expect(page.locator('.zlatoust-narrative-section')).toHaveCount(5);
   await expect(page.locator('.zlatoust-stage-practice .b2-quiz-item')).toHaveCount(22);
   const formative = page.locator('[data-zlatoust-check="style-recurrence-1"]');
   await formative.locator('.zlatoust-learning-check-option').nth(1).click();
@@ -1043,13 +1075,13 @@ test('Zlatoust Chapter 5 keeps formal practice isolated while formative checks r
 
   await page.getByRole('button', { name: '返回知识点卡片', exact: true }).first().click();
   await page.locator('.zlatoust-section-card', { hasText: '5.2' }).click();
-  await expect(page.locator('.zlatoust-stage')).toHaveCount(4);
+  await expect(page.locator('.zlatoust-narrative-section')).toHaveCount(5);
   await expect(page.locator('.zlatoust-stage-practice .b2-quiz-item')).toHaveCount(23);
-  await expect(page.getByText('不同的信息立场', { exact: false })).toHaveCount(1);
+  await expect(page.locator('.zlatoust-unit-map-retrieval')).toContainText('先问信息方');
 
   await page.getByRole('button', { name: '返回知识点卡片', exact: true }).first().click();
   await page.getByRole('button', { name: '5.lexical' }).first().click();
-  await expect(page.locator('.zlatoust-stage')).toHaveCount(5);
+  await expect(page.locator('.zlatoust-narrative-section')).toHaveCount(6);
   await expect(page.locator('.zlatoust-stage-practice .b2-quiz-item')).toHaveCount(30);
   const stored = await page.evaluate(() => JSON.parse(localStorage.getItem('rr_zlatoust_learning_v1')).units['5.1']);
   expect(stored.checks['style-recurrence-1'].everWrong).toBe(true);
@@ -1077,7 +1109,7 @@ test('Zlatoust Chapter 5 learning maps remain operable at a 390px mobile viewpor
           const box = button.getBoundingClientRect();
           return { left: box.left, right: box.right };
         }),
-        labels: [...document.querySelectorAll('.zlatoust-stage-review input')].map(input => input.getAttribute('aria-label'))
+        labels: [...document.querySelectorAll('.zlatoust-unit-map-retrieval [data-zlatoust-mind-map-target]')].map(input => input.getAttribute('data-zlatoust-mind-map-target'))
       }));
       expect(metrics.scrollWidth).toBeLessThanOrEqual(metrics.width);
       expect(metrics.controls.every(box => box.left >= 0 && box.right <= metrics.width)).toBe(true);

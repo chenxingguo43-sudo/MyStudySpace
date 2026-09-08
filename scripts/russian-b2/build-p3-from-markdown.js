@@ -3,9 +3,10 @@ const path = require('node:path');
 const { extractQuestionDrafts, extractAnswerDrafts } = require('./audit-markdown-source');
 
 const ANSWER_RULE_PAGES = [41, 42, 43, 44, 45, 46, 47];
+const ANSWER_OVERRIDES = { 25: 'Б', 34: 'Б', 42: 'Б', 47: 'Б' };
 const QUESTION_OVERRIDES = {
   48: {
-    question: '..., много часов занималась в библиотеке.',
+    question: '..., много часов занимаясь в библиотеке.',
     options: [
       { key: 'А', text: 'Студенты готовятся к экзамену' },
       { key: 'Б', text: 'Пора готовиться к экзамену' },
@@ -44,14 +45,15 @@ function buildP3Units({ questionsMarkdown, answersMarkdown, expectedRange = [1, 
     const answer = answers.get(printedNumber);
     if (!question) throw new Error(`P3 question ${printedNumber} is missing after source repair`);
     if (!answer) throw new Error(`P3 answer ${printedNumber} is missing after source repair`);
+    const answerKey = ANSWER_OVERRIDES[printedNumber] || answer.answer;
     exercises.push({
       id: `P3-Q${pad(printedNumber)}`,
       printedNumber,
       type: 'single-choice',
       question: question.question,
       options: question.options,
-      answer: answer.answer,
-      sourceAnswer: answer.answer,
+      answer: answerKey,
+      sourceAnswer: answerKey,
       sourceEvidence: 'PDF-036–PDF-047',
       sourceExplanation: `原书解析：${answer.sourceExplanation}；译文：${answer.translation}`,
       referenceExplanation: '参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。',

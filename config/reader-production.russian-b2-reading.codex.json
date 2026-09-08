@@ -1,0 +1,22 @@
+{
+  "schema": "reader-production-config-v1",
+  "defaultPreset": "codex-b2-reading",
+  "presets": {
+    "codex-b2-reading": {
+      "batchSize": 4,
+      "generatorAttempts": 2,
+      "reviewerAttempts": 2,
+      "escalationAttempts": 1,
+      "escalateTransportFailures": false,
+      "generator": {
+        "command": ["node", "scripts/reader-codex-adapter.js", "--model", "gpt-5.6-terra", "--effort", "medium", "--timeout-ms", "900000"]
+      },
+      "reviewer": {
+        "command": ["node", "scripts/reader-codex-adapter.js", "--model", "gpt-5.6-sol", "--effort", "high", "--timeout-ms", "900000"]
+      },
+      "escalation": {
+        "command": ["node", "scripts/reader-codex-adapter.js", "--model", "gpt-5.6-sol", "--effort", "xhigh", "--timeout-ms", "900000"]
+      }
+    }
+  }
+}

@@ -19,6 +19,9 @@ data/novel/
 .codex/
 .reader-pipeline/
 
+# Local GitHub sync credentials; never commit this file.
+/cloudsync-config.js
+
 # Local Claude Code junctions; canonical Reader Skills live in .agents or the user Skill store.
 /.claude/skills/reader-textbook-production/
 /.claude/skills/reader-question-explainer/

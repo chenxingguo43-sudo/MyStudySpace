@@ -4,7 +4,7 @@
 # 用法: powershell -File scripts/start-chrome-debug.ps1
 
 $ChromePath = "C:\Program Files\Google\Chrome\Application\chrome.exe"
-$UserDataDir = "$env:LOCALAPPDATA\chrome-agentchat-profile"
+$UserDataDir = "$env:USERPROFILE\.chrome-debug-profile"
 $DebugPort = 9222
 
 # 不杀 Chrome — 独立 Profile 可以和日常 Chrome 同时运行

@@ -24,7 +24,9 @@ function auditMarkdownSource({ questions, answers }) {
 }
 
 function normalizeOptionKey(key) {
-  return ({ A: 'А', B: 'Б', C: 'В', D: 'Г', Γ: 'Г', '\\Gamma': 'Г' })[key] || key;
+  // MinerU commonly reads Cyrillic В as Latin B. Cyrillic Б is normally
+  // preserved as Б, so Latin B must not be mapped to Б here.
+  return ({ A: 'А', B: 'В', C: 'В', D: 'Г', Γ: 'Г', '\\Gamma': 'Г' })[key] || key;
 }
 
 function cleanDraftText(text) {

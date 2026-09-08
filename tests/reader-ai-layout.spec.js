@@ -83,6 +83,80 @@ test('reading evidence analysis is readable on desktop and phone widths', async 
   }
 });
 
+test('two-layer reading pilot keeps the reason visible and details collapsed', async ({ page }) => {
+  for (const viewport of [{ width: 1280, height: 800 }, { width: 390, height: 844 }]) {
+    await page.setViewportSize(viewport);
+    await page.goto(readerBaseUrl + '/reader.html');
+    await page.waitForFunction(() => typeof renderReadingStructuredExplanation === 'function');
+    await page.evaluate(async () => {
+      const chapter = await fetch('/data/textbook/reading_speaking/ch0000.json').then(response => response.json());
+      const answer = chapter.exercises[0].answerAnalysis;
+      document.body.innerHTML = '<main style="max-width:760px;margin:0 auto;padding:16px">' +
+        renderReadingStructuredExplanation(answer, 'rs-pilot-q1') + '</main>';
+    });
+
+    await expect(page.locator('.rs-analysis-quick')).toContainText('любители старины');
+    await expect(page.locator('.rs-analysis-quick')).toContainText('поклонников старины');
+    await expect(page.locator('.rs-analysis-expanded')).not.toHaveAttribute('open', '');
+    await expect(page.locator('.rs-analysis-expanded-content')).not.toBeVisible();
+    await page.locator('.rs-analysis-expanded > summary').click();
+    await expect(page.locator('.rs-analysis-expanded-content')).toBeVisible();
+    await expect(page.locator('.rs-analysis-expanded-content')).toContainText('科学史专家');
+    await expect(page.locator('.rs-analysis-expanded-content')).toContainText('艺术爱好者');
+    expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(viewport.width);
+  }
+});
+
+test('two-layer grammar pilot keeps the sentence logic visible and boundary collapsed', async ({ page }) => {
+  for (const viewport of [{ width: 1280, height: 800 }, { width: 390, height: 844 }]) {
+    await page.setViewportSize(viewport);
+    await page.goto(readerBaseUrl + '/reader.html');
+    await page.waitForFunction(() => typeof renderZlatoustStaticExplanation === 'function');
+    await page.evaluate(async () => {
+      const [chapter, explanationDocument, mappings] = await Promise.all([
+        fetch('/data/textbook/zlatoust_grammar/ch0000.json').then(response => response.json()),
+        fetch('/data/textbook/zlatoust_grammar/theory/explanations/gl1/gl1-q001-q013.json').then(response => response.json()),
+        fetch('/data/textbook/zlatoust_grammar/theory/mappings/exercise-to-rules.json').then(response => response.json())
+      ]);
+      const exercise = chapter.exercises.find(item => item.id === 'GL1-Q008');
+      const explanation = explanationDocument.explanations.find(item => item.exerciseId === 'GL1-Q008');
+      const mapping = mappings.exercises['GL1-Q008'];
+      const state = {
+        staticExplanationAuthorLabels: { 'GL1-Q008': explanationDocument.authorLabel },
+        exerciseToRules: mappings
+      };
+      curBook = { id: 'zlatoust_grammar' };
+      currentQuizData = { id: 'gl1' };
+      const pilotRecord = getQuizRecord('GL1-Q008');
+      pilotRecord.analysisExpanded = false;
+      saveQuizRecord('GL1-Q008', pilotRecord);
+      window.__grammarPilot = { exercise, explanation, mapping, state };
+      document.body.innerHTML = '<main style="max-width:760px;margin:0 auto;padding:16px">' +
+        renderZlatoustStaticExplanation(exercise, explanation, state, exercise.answer, exercise.options.find(item => item.key === exercise.answer), mapping) + '</main>';
+    });
+
+    await expect(page.locator('.zlatoust-two-layer-answer')).toContainText('воспитал');
+    await expect(page.locator('.zlatoust-two-layer-answer')).toContainText('她培养了');
+    await expect(page.locator('.zlatoust-two-layer-skeleton')).toContainText('Татьяна Тарасова воспитала');
+    await expect(page.locator('.zlatoust-analysis-expanded')).not.toHaveAttribute('open', '');
+    await expect(page.locator('.zlatoust-analysis-expanded .rs-analysis-expanded-content')).not.toBeVisible();
+    await page.locator('.zlatoust-analysis-expanded > summary').click();
+    await expect(page.locator('.zlatoust-analysis-expanded .rs-analysis-expanded-content')).toBeVisible();
+    await expect(page.locator('.zlatoust-analysis-expanded')).toContainText('为什么 А：воспитал 不对');
+    await expect(page.locator('.zlatoust-analysis-expanded')).toContainText('известный тренер');
+    await expect(page.locator('.zlatoust-two-layer-source')).toContainText('印刷页 91');
+    await page.evaluate(() => {
+      const { exercise, explanation, state, mapping } = window.__grammarPilot;
+      document.querySelector('main').innerHTML = renderZlatoustStaticExplanation(
+        exercise, explanation, state, exercise.answer,
+        exercise.options.find(item => item.key === exercise.answer), mapping
+      );
+    });
+    await expect(page.locator('.zlatoust-analysis-expanded')).toHaveAttribute('open', '');
+    expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(viewport.width);
+  }
+});
+
 test('reading source locator highlights every reviewed evidence fragment', async ({ page }) => {
   await page.setViewportSize({ width: 1280, height: 800 });
   await page.goto(readerBaseUrl + '/reader.html');
@@ -103,4 +177,31 @@ test('reading source locator highlights every reviewed evidence fragment', async
 
   await expect(page.locator('.rs-source-word-highlight')).toHaveCount(expectedHighlightCount);
   await expect(page.locator('.rs-source-paragraph-highlight')).toHaveCount(1);
+});
+
+test('reading source locator separates context and core evidence highlights', async ({ page }) => {
+  await page.setViewportSize({ width: 1280, height: 800 });
+  await page.goto(readerBaseUrl + '/reader.html');
+  await page.waitForFunction(() => typeof locateReadingSpeakingSource === 'function');
+
+  const counts = await page.evaluate(async () => {
+    const chapter = await fetch('/data/textbook/reading_speaking/ch0001.json').then(response => response.json());
+    const exercise = { ...chapter.exercises[3], _exId: 'layout-context-q4' };
+    _currentRSExercises = [exercise];
+    document.body.innerHTML = '<div class="para-block"><p class="rs-source-paragraph" id="rs-source-p-5">' +
+      renderRuText(chapter.original[5]) + '</p></div>';
+    document.body.insertAdjacentHTML('beforeend', '<div id="toast"></div>');
+    locateReadingSpeakingSource('layout-context-q4');
+    return {
+      context: document.querySelectorAll('.rs-source-context-word-highlight').length,
+      core: document.querySelectorAll('.rs-source-word-highlight').length,
+      paragraph: document.querySelectorAll('.rs-source-paragraph-highlight').length,
+      contextParagraph: document.querySelectorAll('.rs-source-context-highlight').length
+    };
+  });
+
+  expect(counts.context).toBeGreaterThan(counts.core);
+  expect(counts.core).toBeGreaterThan(0);
+  expect(counts.paragraph).toBe(1);
+  expect(counts.contextParagraph).toBe(1);
 });

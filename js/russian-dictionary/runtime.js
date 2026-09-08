@@ -57,6 +57,7 @@
     let activeWordElement = null;
     let drawerGesture = null;
     let pendingSelection = null;
+    let sheetLockReleaseTimer = null;
 
     function getPanel() {
       const existing = typeof root.querySelector === 'function' ? root.querySelector('#detailPanel') : null;
@@ -83,13 +84,35 @@
       }
     }
 
+    function clearSheetLockReleaseTimer() {
+      if (sheetLockReleaseTimer === null) return;
+      clearTimeout(sheetLockReleaseTimer);
+      sheetLockReleaseTimer = null;
+    }
+
+    function releaseSheetLockAfterExit() {
+      clearSheetLockReleaseTimer();
+      const release = () => {
+        sheetLockReleaseTimer = null;
+        if (getPanelState() !== 'closed') return;
+      if (root.documentElement && root.documentElement.classList && typeof root.documentElement.classList.remove === 'function') {
+        root.documentElement.classList.remove('dictionary-sheet-open');
+      }
+      };
+      sheetLockReleaseTimer = setTimeout(release, 180);
+    }
+
     function setPanelState(state) {
       clearDrawerGesture();
       const next = ['closed', 'half', 'full'].includes(state) ? state : 'closed';
       const panel = getPanel();
       if (panel && panel.setAttribute) panel.setAttribute('data-dictionary-state', next);
       if (root.documentElement && root.documentElement.classList) {
-        root.documentElement.classList.toggle('dictionary-sheet-open', next !== 'closed');
+        if (next === 'closed') releaseSheetLockAfterExit();
+        else {
+          clearSheetLockReleaseTimer();
+          if (typeof root.documentElement.classList.add === 'function') root.documentElement.classList.add('dictionary-sheet-open');
+        }
       }
       return next;
     }
@@ -387,6 +410,7 @@
 
     function destroy() {
       clearDrawerGesture();
+      clearSheetLockReleaseTimer();
       if (!initialized) return;
       root.removeEventListener('click', onClick);
       root.removeEventListener('touchstart', onTouchStart, { passive: true });

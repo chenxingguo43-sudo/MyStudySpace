@@ -1102,28 +1102,4 @@
         }
       ]
     }
-  ],
-  "mindMapWalkthrough": {
-    "title": "一句话串起全节",
-    "ru": "Где там пятёрки! Одни двойки!",
-    "parts": [
-      {
-        "id": "stage-emphatic-choice",
-        "text": "Где там пятёрки!",
-        "explanation": "情绪化否定"
-      }
-    ],
-    "decisionWalkthrough": [
-      {
-        "blank": "Где там",
-        "step1": "说话人意图",
-        "step2": "情绪化否认对方说法",
-        "step3": "Где там! 构式"
-      }
-    ],
-    "trap": {
-      "wrong": "按字面翻译构式",
-      "correct": "先辨说话人意图，再识别构式的语义功能"
-    }
-  }
-}
+  ]}

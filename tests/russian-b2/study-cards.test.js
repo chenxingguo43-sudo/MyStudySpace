@@ -7,10 +7,10 @@ const { buildStudyCards, loadStudyCardIndex, validateStudyCard, resolveGrammarRo
 
 const root = path.resolve(__dirname, '..', '..');
 
-test('study-card index reserves all 32 stable knowledge-point cards', () => {
+test('study-card index reserves all 34 stable knowledge-point cards', () => {
   const index = loadStudyCardIndex(root);
-  assert.equal(index.cards.length, 32);
-  assert.equal(new Set(index.cards.map(card => card.id)).size, 32);
+  assert.equal(index.cards.length, 34);
+  assert.equal(new Set(index.cards.map(card => card.id)).size, 34);
   assert.deepEqual(index.cards.find(card => card.knowledgePointId === 'p2-time-cause'), {
     id: 'p2-time-cause',
     partId: 'p2',
@@ -72,7 +72,7 @@ test('P3 and P4 publish every planned rich study card', () => {
 test('P5 and P6 publish every planned rich study card', () => {
   const expected = {
     p5: ['p5-derivation', 'p5-indefinite-pronouns', 'p5-prefix-verbs-1', 'p5-prefix-verbs-2', 'p5-impersonal-dative', 'p5-modal-infinitive'],
-    p6: ['p6-predicate-case', 'p6-journalistic-collocations']
+    p6: ['p6-predicate-case', 'p6-journalistic-collocations', 'p6-context-texts', 'p6-official-documents']
   };
   const cards = buildStudyCards({ root, write: false }).cards;
   Object.entries(expected).forEach(([partId, ids]) => {

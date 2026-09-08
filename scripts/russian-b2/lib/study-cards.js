@@ -93,6 +93,55 @@ function validateRichSection(card, section, grammarText) {
   (section && section.sources || []).forEach(source => errors.push(...validateSource(card, source, grammarText)));
   return errors;
 }
+
+function validateTeachingNarrativeV2(card) {
+  const narrative = card && card.teachingNarrative;
+  const errors = [];
+  if (!narrative || typeof narrative !== 'object' || Array.isArray(narrative)) {
+    return [`${card?.id || 'study-card'}: teachingNarrative v2 is required`];
+  }
+  if (narrative.version !== 2) errors.push(`${card.id}: teachingNarrative.version must be 2`);
+  if (narrative.progressKey !== 'teachingV2') errors.push(`${card.id}: teachingNarrative.progressKey must be teachingV2`);
+  if (!['accepted', 'accepted-pilot'].includes(narrative.status)) errors.push(`${card.id}: teachingNarrative.status must be accepted`);
+  ['label', 'intro'].forEach(field => {
+    if (!String(narrative[field] || '').trim()) errors.push(`${card.id}: teachingNarrative.${field} is required`);
+  });
+  if (narrative.version === 2 && !String(narrative.heroProblem || narrative.objectives?.[0] || '').trim()) errors.push(`${card.id}: teachingNarrative.heroProblem is required`);
+  if (narrative.version === 2 && !String(narrative.decisionTitle || '').trim() && narrative.status !== 'accepted-pilot') errors.push(`${card.id}: teachingNarrative.decisionTitle is required`);
+  if (narrative.version === 2 && !String(narrative.decisionCriterion || '').trim() && narrative.status !== 'accepted-pilot') errors.push(`${card.id}: teachingNarrative.decisionCriterion is required`);
+  ['objectives', 'decisionSteps', 'mindMap', 'sections', 'transferTasks', 'mappings', 'pitfalls', 'sources'].forEach(field => {
+    if (!Array.isArray(narrative[field]) || !narrative[field].length) errors.push(`${card.id}: teachingNarrative.${field} is required`);
+  });
+  const sections = Array.isArray(narrative.sections) ? narrative.sections : [];
+  if (sections.length < 4) errors.push(`${card.id}: teachingNarrative requires at least four concept sections`);
+  const sectionIds = new Set();
+  sections.forEach(section => {
+    if (!section || !section.id || sectionIds.has(section.id)) errors.push(`${card.id}: teachingNarrative section ids must be unique`);
+    if (section?.id) sectionIds.add(section.id);
+    ['id', 'title', 'lede', 'paragraphs', 'examples', 'check'].forEach(field => {
+      const value = section?.[field];
+      const empty = Array.isArray(value) ? !value.length : (value && typeof value === 'object' ? !Object.keys(value).length : !String(value || '').trim());
+      if (empty) errors.push(`${card.id}: teachingNarrative section ${section?.id || 'unknown'} requires ${field}`);
+    });
+    if (section && section.exerciseIds !== undefined && (!Array.isArray(section.exerciseIds))) errors.push(`${card.id}: teachingNarrative section ${section.id} exerciseIds must be an array`);
+    if (section?.check && (!section.check.feedback || !section.check.retry)) errors.push(`${card.id}: teachingNarrative section ${section.id} requires feedback and retry`);
+    if (section?.examples && !section.examples.some(example => example?.ru && example?.zh)) errors.push(`${card.id}: teachingNarrative section ${section.id} requires a bilingual example`);
+  });
+  const exerciseIds = new Set(card.exerciseIds || []);
+  const mappings = Array.isArray(narrative.mappings) ? narrative.mappings : [];
+  const mapped = new Set();
+  mappings.forEach(mapping => {
+    if (!mapping?.exerciseId || !exerciseIds.has(mapping.exerciseId)) errors.push(`${card.id}: mapping references an unknown exercise`);
+    if (!mapping?.sectionId || !sectionIds.has(mapping.sectionId)) errors.push(`${card.id}: mapping references an unknown section`);
+    if (mapping?.exerciseId && mapped.has(mapping.exerciseId)) errors.push(`${card.id}: each exercise must have one primary mapping`);
+    if (mapping?.exerciseId) mapped.add(mapping.exerciseId);
+  });
+  exerciseIds.forEach(id => { if (!mapped.has(id)) errors.push(`${card.id}: exercise ${id} is missing a primary mapping`); });
+  if (!narrative.neighboringScope || !String(narrative.neighboringScope.covered || '').trim() || !Array.isArray(narrative.neighboringScope.handOff) || !narrative.neighboringScope.handOff.length) {
+    errors.push(`${card.id}: teachingNarrative.neighboringScope must declare covered scope and handoff`);
+  }
+  return errors;
+}
 function validateStudyCard({ card, chapter, grammarText }) {
   const errors = [];
   const point = (chapter.knowledgePoints || []).find(item => item.id === card.knowledgePointId);
@@ -117,6 +166,7 @@ function validateStudyCard({ card, chapter, grammarText }) {
     (card.relatedExtensions || []).forEach(section => errors.push(...validateRichSection(card, section, grammarText)));
     (card.checks || []).forEach(check => errors.push(...validateCheck(card, check)));
   }
+  if (card.teachingNarrative) errors.push(...validateTeachingNarrativeV2(card));
   return errors;
 }
 function buildStudyCards({ root, write = true }) {
@@ -143,4 +193,4 @@ function buildStudyCards({ root, write = true }) {
   return { cards, outputPaths: write ? outputPaths : [], indexPath };
 }
 
-module.exports = { buildStudyCards, loadStudyCardIndex, validateStudyCard, validateRichSection, validateCheck, resolveGrammarRoot };
+module.exports = { buildStudyCards, loadStudyCardIndex, validateStudyCard, validateRichSection, validateCheck, validateTeachingNarrativeV2, resolveGrammarRoot };

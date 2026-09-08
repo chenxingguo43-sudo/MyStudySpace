@@ -7,12 +7,12 @@ const SOURCE_PAGES = [
   [83, 84], [84, 85, 86], [86, 87], [88, 89], [90, 91, 92]
 ];
 const ANSWER_KEY = [
-  'В', 'В', 'В', 'В', 'В', 'А', 'А', 'В', 'В', 'В',
-  'В', 'В', 'В', 'А', 'А', 'В', 'В', 'В', 'А', 'В',
-  'А', 'В', 'А', 'В', 'В', 'В', 'В', 'В', 'В', 'А',
-  'А', 'А', 'В', 'А', 'В', 'А', 'В', 'В', 'В', 'В',
-  'В', 'А', 'В', 'В', 'В', 'В', 'В', 'В', 'А', 'В',
-  'В', 'В', 'В', 'А', 'А', 'В', 'А', 'В', 'В', 'В'
+  'Б', 'В', 'В', 'В', 'В', 'А', 'А', 'В', 'В', 'В',
+  'В', 'Б', 'В', 'А', 'А', 'Б', 'В', 'Б', 'А', 'В',
+  'А', 'Б', 'А', 'В', 'Б', 'В', 'Б', 'Б', 'В', 'А',
+  'А', 'А', 'Б', 'А', 'Б', 'А', 'В', 'Б', 'В', 'В',
+  'Б', 'А', 'В', 'В', 'В', 'В', 'Б', 'Б', 'А', 'В',
+  'В', 'В', 'В', 'А', 'А', 'Б', 'А', 'В', 'В', 'В'
 ];
 
 function normalizeOptionLabel(label) {
@@ -116,7 +116,7 @@ function publishReadingBook({ markdown, outputDir, supportById = {} }) {
   return { ...book, paths };
 }
 
-function buildReadingReaderModule({ markdown, supportById = {} }) {
+function buildReadingReaderModule({ markdown, supportById = {}, questionAnalysisById = {} }) {
   const book = buildReadingBook({ markdown, supportById });
   const chapters = book.units.map(unit => ({
     id: unit.id,
@@ -137,7 +137,8 @@ function buildReadingReaderModule({ markdown, supportById = {} }) {
       prompt: question.prompt,
       options: question.options,
       answer: question.answer,
-      answerSource: question.answerSource
+      answerSource: question.answerSource,
+      ...(questionAnalysisById[`${unit.id}-q${String(question.printedNumber).padStart(2, '0')}`] || {})
     }))
   }));
   return {
@@ -158,8 +159,28 @@ function buildReadingReaderModule({ markdown, supportById = {} }) {
   };
 }
 
-function publishReadingReaderModule({ markdown, outputDir, supportById = {} }) {
-  const module = buildReadingReaderModule({ markdown, supportById });
+function loadExistingReadingQuestionAnalyses(outputDir) {
+  const result = {};
+  if (!outputDir || !fs.existsSync(outputDir)) return result;
+  for (const file of fs.readdirSync(outputDir).filter(name => /^ch\d{4}\.json$/.test(name))) {
+    try {
+      const chapter = JSON.parse(fs.readFileSync(path.join(outputDir, file), 'utf8'));
+      for (const question of chapter.questions || []) {
+        const fields = {};
+        if (question.answerAnalysis) fields.answerAnalysis = question.answerAnalysis;
+        if (question.answerNotice) fields.answerNotice = question.answerNotice;
+        if (Object.keys(fields).length) result[question.id] = fields;
+      }
+    } catch (_) {
+      // Ignore an incomplete previous chapter; the normal publisher will rewrite it.
+    }
+  }
+  return result;
+}
+
+function publishReadingReaderModule({ markdown, outputDir, supportById = {}, questionAnalysisById = {} }) {
+  const preserved = loadExistingReadingQuestionAnalyses(outputDir);
+  const module = buildReadingReaderModule({ markdown, supportById, questionAnalysisById: { ...preserved, ...questionAnalysisById } });
   fs.mkdirSync(outputDir, { recursive: true });
   const paths = [];
   const write = (fileName, value) => {
@@ -214,7 +235,7 @@ function loadReadingSupport(root) {
   return supportById;
 }
 
-module.exports = { buildReadingUnits, buildReadingBook, publishReadingBook, buildReadingReaderModule, publishReadingReaderModule, resolveReadingSourcePath, loadReadingSupport };
+module.exports = { buildReadingUnits, buildReadingBook, publishReadingBook, buildReadingReaderModule, publishReadingReaderModule, resolveReadingSourcePath, loadReadingSupport, loadExistingReadingQuestionAnalyses };
 
 if (require.main === module) {
   const root = path.resolve(__dirname, '..', '..');

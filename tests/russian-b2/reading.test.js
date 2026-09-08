@@ -22,12 +22,12 @@ test('reading builder preserves sixty questions and the original answer-key sequ
   const questions = result.units.flatMap(unit => unit.questions);
   assert.deepEqual(questions.map(question => question.printedNumber), Array.from({ length: 60 }, (_, index) => index + 1));
   assert.deepEqual(questions.map(question => question.answer), [
-    'В', 'В', 'В', 'В', 'В', 'А', 'А', 'В', 'В', 'В',
-    'В', 'В', 'В', 'А', 'А', 'В', 'В', 'В', 'А', 'В',
-    'А', 'В', 'А', 'В', 'В', 'В', 'В', 'В', 'В', 'А',
-    'А', 'А', 'В', 'А', 'В', 'А', 'В', 'В', 'В', 'В',
-    'В', 'А', 'В', 'В', 'В', 'В', 'В', 'В', 'А', 'В',
-    'В', 'В', 'В', 'А', 'А', 'В', 'А', 'В', 'В', 'В'
+    'Б', 'В', 'В', 'В', 'В', 'А', 'А', 'В', 'В', 'В',
+    'В', 'Б', 'В', 'А', 'А', 'Б', 'В', 'Б', 'А', 'В',
+    'А', 'Б', 'А', 'В', 'Б', 'В', 'Б', 'Б', 'В', 'А',
+    'А', 'А', 'Б', 'А', 'Б', 'А', 'В', 'Б', 'В', 'В',
+    'Б', 'А', 'В', 'В', 'В', 'В', 'Б', 'Б', 'А', 'В',
+    'В', 'В', 'В', 'А', 'А', 'Б', 'А', 'В', 'В', 'В'
   ]);
   assert.deepEqual(questions.filter(question => question.options.length !== 3).map(question => ({
     printedNumber: question.printedNumber,
@@ -167,6 +167,17 @@ test('reading publisher creates reader chapters with a source-labelled answer ke
   assert.equal(firstChapter.questions[0].answerSource.pdfPage, 93);
   const moduleIndex = JSON.parse(fs.readFileSync(path.join(outputDir, 'index.json'), 'utf8'));
   assert.equal(moduleIndex.chapters, 10);
+});
+
+test('reading publisher preserves accepted pilot analyses already present in Reader chapters', () => {
+  const source = fs.readFileSync(path.join('D:', 'MyStudySpace', '俄语资料库', '俄语B2 全模块 Markdown版', '章节', '02-阅读.md'), 'utf8');
+  const outputDir = fs.mkdtempSync(path.join(os.tmpdir(), 'b2-reading-preserve-'));
+  const currentChapter = path.join('data', 'textbook', 'russian_b2', 'modules', 'reading', 'ch0000.json');
+  fs.copyFileSync(currentChapter, path.join(outputDir, 'ch0000.json'));
+  const result = publishReadingReaderModule({ markdown: source, outputDir });
+  assert.equal(result.chapters[0].questions[1].answerAnalysis.presentation.mode, 'two-layer');
+  assert.equal(result.chapters[0].questions[2].answerAnalysis.locatorStatus, 'exact');
+  assert.equal(result.chapters[0].questions[0].answer, 'Б');
 });
 
 test('reading CLI resolves the canonical source outside an isolated worktree', () => {

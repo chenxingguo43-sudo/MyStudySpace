@@ -1012,44 +1012,4 @@
         }
       ]
     }
-  ],
-  "mindMapWalkthrough": {
-    "title": "一句话串起全节",
-    "ru": "Каждую неделю он готовил работу за две недели и уехал на месяц.",
-    "parts": [
-      {
-        "id": "stage-frequency",
-        "text": "Каждую неделю",
-        "explanation": "规律重复"
-      },
-      {
-        "id": "stage-duration",
-        "text": "за две недели",
-        "explanation": "完成耗时"
-      },
-      {
-        "id": "stage-duration",
-        "text": "на месяц",
-        "explanation": "预定期限"
-      }
-    ],
-    "decisionWalkthrough": [
-      {
-        "blank": "Каждую неделю",
-        "step1": "时间角色：每个星期都",
-        "step2": "规律重复",
-        "step3": "каждую+四格"
-      },
-      {
-        "blank": "за две недели",
-        "step1": "时间角色：花了多久做完",
-        "step2": "完成耗时",
-        "step3": "за+四格"
-      }
-    ],
-    "trap": {
-      "wrong": "时间单位决定介词",
-      "correct": "先问时间扮演什么角色，再选结构"
-    }
-  }
-}
+  ]}
