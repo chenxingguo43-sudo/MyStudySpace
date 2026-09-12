@@ -52,6 +52,42 @@ test('B2 dashboard and module list use floating navigation instead of the dark t
   assert.doesNotMatch(moduleList, /toolbar\(/);
 });
 
+test('B2 module exercises return to the module directory before the book dashboard', () => {
+  const reader = fs.readFileSync(path.join(root, 'reader.html'), 'utf8');
+  const chapterStart = reader.indexOf('function goChapter(idx, restoreState)');
+  const chapterEnd = reader.indexOf('var B2_PROGRESS_KEY', chapterStart);
+  const quizStart = reader.indexOf('function renderQuizChapter(data, scrollPosition)');
+  const quizEnd = reader.indexOf('var READING_PROGRESS_KEY', quizStart);
+  const chapter = reader.slice(chapterStart, chapterEnd);
+  const quiz = reader.slice(quizStart, quizEnd);
+
+  assert.ok(chapter.includes("backAction: 'showChapters(\\'russian_b2\\')'"));
+  assert.ok(quiz.includes("var quizBackAction = isB2Quiz ? 'showChapters(\\'russian_b2\\')'"));
+  assert.ok(quiz.includes("var quizBackTitle = '目录'"));
+});
+
+test('B2 module workbenches return to the module directory', () => {
+  const reader = fs.readFileSync(path.join(root, 'reader.html'), 'utf8');
+  const ranges = [
+    ['function renderWritingWorkbench(', 'var SPEAKING_DRAFTS_KEY'],
+    ['function renderSpeakingPractice(', 'var LISTENING_PROGRESS_KEY'],
+    ['function renderExamPracticeChapter(', 'function renderReadingPracticeQuestion('],
+    ['function renderReadingPracticeChapter(', 'function refreshQuizQuestion(']
+  ];
+  ranges.forEach(([startMarker, endMarker]) => {
+    const start = reader.indexOf(startMarker);
+    const end = reader.indexOf(endMarker, start);
+    assert.ok(start >= 0 && end > start, `missing function slice: ${startMarker}`);
+    const source = reader.slice(start, end);
+    assert.ok(source.includes("backAction: 'showChapters(\\'russian_b2\\')'"));
+    assert.ok(source.includes("backTitle: '目录'"));
+  });
+  const listeningStart = reader.indexOf('function renderListeningPractice(');
+  const listeningEnd = reader.indexOf('function getExamProgress()', listeningStart);
+  const listening = reader.slice(listeningStart, listeningEnd);
+  assert.ok(listening.includes("curBook && curBook.isB2Module ? 'showChapters(\\'russian_b2\\')'"));
+});
+
 test('B2 dashboard renders progress from the pure dashboard aggregator and keeps review non-percentual', () => {
   const reader = fs.readFileSync(path.join(root, 'reader.html'), 'utf8');
   const start = reader.indexOf('function renderB2Dashboard(book)');

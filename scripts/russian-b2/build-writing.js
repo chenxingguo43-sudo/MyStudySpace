@@ -46,6 +46,9 @@ function toReaderChapter(unit) {
     materials: unit.materials || [],
     formatGuide: unit.format,
     model: unit.model,
+    lesson: unit.lesson || null,
+    additionalModels: unit.additionalModels || [],
+    examPractice: unit.examPractice || null,
     studySupport: unit.studySupport,
     rubric: unit.rubric || [],
     ai: { mode: 'server-or-copy-prompt', rubric: unit.rubric || [] }

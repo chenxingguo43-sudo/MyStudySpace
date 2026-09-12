@@ -38,6 +38,13 @@ test('recommendation task reproduces book pages 90-92 with complete materials an
   assert.ok(recommendation.rubric?.length > 0);
   assert.ok(recommendation.model?.source?.pdfPages?.includes(96));
   assert.ok((recommendation.model?.text || '').length > 400);
+  assert.ok(recommendation.task.translation.length > 100);
+  assert.equal(recommendation.materials.filter(material => material.translation).length, recommendation.materials.length);
+  assert.ok(recommendation.materials.some(material => Array.isArray(material.layout?.groups) && material.layout.groups.length === 2));
+  assert.ok(recommendation.materials.some(material => Array.isArray(material.guidedLines) && material.guidedLines.length >= 4));
+  assert.ok(recommendation.lesson.paperWorksheet.fields.length >= 6);
+  assert.ok(recommendation.lesson.modelAnalysis.length >= 4);
+  assert.ok(recommendation.examPractice.modelTranslation.length > 100);
 });
 
 test('all thirteen writing genres publish a complete source-backed learning contract', () => {

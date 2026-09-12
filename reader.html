@@ -10,7 +10,7 @@
 <link rel="icon" href="assets/icons/white-night-tutor-desktop.ico" sizes="any">
 <link rel="manifest" href="manifest.webmanifest">
 <title>Reader | 白夜俄语</title>
-<link rel="stylesheet" href="css/reader-listening-workbench.css?v=20260726-5">
+<link rel="stylesheet" href="css/reader-listening-workbench.css?v=20260908-6">
 <style>
 /* ─── 主题变量 ─── */
 :root {
@@ -482,14 +482,68 @@ body {
 .writing-draft:focus { outline: 2px solid var(--accent-border); border-color: var(--accent); }
 .writing-status { color: var(--text-dim); font-size: 13px; margin-top: 8px; }
 .writing-source-task { border-left: 4px solid var(--accent) !important; }
-.writing-materials-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.writing-materials-grid { display: grid; grid-template-columns: 1fr; gap: 18px; }
 .writing-material-card { margin: 0 !important; padding: 16px !important; background: var(--glass) !important; }
 .writing-material-card h3 { margin-bottom: 8px; }
+.writing-original-label { margin-bottom: 10px; color: var(--text-dim); font-size: 11px; letter-spacing: .04em; text-transform: uppercase; }
+.writing-ad-layout { margin: 0 0 18px; padding: 18px 22px; border: 1px solid var(--glass-border); background: var(--surface-solid); font-family: 'Crimson Pro', 'Noto Serif', serif; }
+.writing-ad-layout h3 { margin: 0 0 5px; font-size: 1.25em; }
+.writing-ad-subtitle { margin: 0 0 14px; color: var(--text-secondary); }
+.writing-ad-group { margin: 14px 0; }
+.writing-ad-group h4 { margin: 0 0 5px; font-size: 1em; }
+.writing-ad-group ul { margin: 0; padding-left: 22px; }
+.writing-ad-group li { margin: 5px 0; }
+.writing-ad-line { margin: 7px 0; }
+.writing-material-source-heading { margin-top: 18px; color: var(--text-secondary); font-size: 13px; }
+.writing-model-section { scroll-margin-top: 92px; }
+.writing-model-inline { margin-top: 14px; padding: 16px; border: 1px solid var(--glass-border); background: var(--surface-solid); }
+.writing-model-inline h3, .writing-model-inline h4 { margin-top: 0; }
 .writing-facts { margin-top: 10px; color: var(--text-secondary); font-size: 14px; }
 .writing-metadata { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
 .writing-metadata span { padding: 4px 9px; border-radius: 999px; background: var(--accent-dim); color: var(--accent); font-size: 12px; }
 .writing-support-box { border-left: 3px solid var(--warning) !important; }
+.writing-lesson-plan { border-left: 4px solid var(--accent) !important; }
+.writing-lesson-steps { padding-left: 22px; }
+.writing-lesson-steps li { margin: 14px 0; }
+.writing-lesson-steps p { margin: 6px 0 0; }
+.writing-paper-task { color: var(--accent); font-size: 14px; }
+.writing-pattern-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.writing-pattern-card { margin: 0 !important; padding: 14px !important; border: 1px solid var(--glass-border); border-radius: 8px; background: var(--glass); }
+.writing-pattern-card h4 { margin: 0 0 8px; }
+.writing-pattern-card p { margin: 5px 0; }
+.writing-template { white-space: pre-wrap; padding: 16px; border: 1px dashed var(--accent-border); background: var(--surface-solid); color: var(--text); font: 16px/1.8 'Crimson Pro', 'Noto Serif', serif; overflow-x: auto; }
+.writing-original-example { margin: 14px 0; padding: 14px; border: 1px solid var(--glass-border); border-radius: 8px; background: var(--glass); }
+.writing-original-example h3, .writing-original-example h4 { margin-top: 0; }
+.writing-transfer { border-left: 4px solid var(--warning) !important; }
+.writing-translation { margin: 12px 0 0; padding: 10px 12px; border-left: 3px solid var(--accent-border); background: var(--surface-solid); }
+.writing-translation summary { color: var(--accent); cursor: pointer; font-size: 13px; }
+.writing-translation p { margin: 8px 0 0; color: var(--text-secondary); line-height: 1.75; }
+.writing-facts-label { margin-bottom: 4px; color: var(--accent); font-weight: 600; list-style: none; }
+.writing-guided-material { margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--border); }
+.writing-guided-lines { display: grid; gap: 10px; margin: 12px 0 14px; }
+.writing-guided-line { padding: 12px; border: 1px solid var(--border); border-left: 4px solid var(--border); border-radius: 8px; background: var(--surface-solid); }
+.writing-guided-line.is-marked { border-left-color: #d89b00; background: rgba(255, 211, 77, .12); }
+.writing-guided-line-head { display: grid; grid-template-columns: 26px minmax(0, 1fr) auto; gap: 8px; align-items: start; }
+.writing-guided-line-head p { margin: 2px 0 0; }
+.writing-line-number { color: var(--text-dim); font-size: 13px; }
+.writing-mark-button { border: 1px solid var(--border); border-radius: 6px; padding: 5px 8px; background: transparent; color: var(--text-secondary); cursor: pointer; font: inherit; font-size: 12px; }
+.writing-guided-line.is-marked .writing-mark-button { border-color: #d89b00; color: #9a6900; background: rgba(255, 211, 77, .18); }
+.writing-guided-line-meta { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0 0 34px; color: var(--text-secondary); font-size: 12px; }
+.writing-guided-line-meta span:first-child { color: var(--accent); font-weight: 600; }
+.writing-hint { margin: 8px 0 0 34px; }
+.writing-hint summary { color: var(--accent); cursor: pointer; font-size: 13px; }
+.writing-selection-result { margin-top: 14px; padding: 12px; border-left: 3px solid #d89b00; background: rgba(255, 211, 77, .1); }
+.writing-selection-result li { margin: 10px 0; }
+@media (max-width: 560px) { .writing-guided-line-head { grid-template-columns: 22px minmax(0, 1fr); } .writing-mark-button { grid-column: 2; justify-self: start; } .writing-guided-line-meta, .writing-hint { margin-left: 30px; } }
+.writing-workbench { max-width: 1240px !important; padding-left: 28px !important; padding-right: 28px !important; }
+.writing-stage-nav { position: sticky; top: 8px; z-index: 4; display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0 22px; padding: 10px; border: 1px solid var(--border); border-radius: 10px; background: var(--surface-solid); opacity: .97; }
+.writing-stage-nav button { flex: 1 1 120px; min-height: 38px; padding: 7px 10px; border: 1px solid var(--border); border-radius: 7px; background: transparent; color: var(--text-secondary); cursor: pointer; font: inherit; font-size: 13px; text-align: left; }
+.writing-stage-nav button:hover, .writing-stage-nav button.is-active { border-color: var(--accent-border); background: var(--accent-dim); color: var(--accent); }
+.writing-current-stage { margin: 0 0 18px; padding: 10px 14px; border-left: 3px solid var(--accent); color: var(--accent); font-size: 14px; }
+.writing-lesson-plan, .writing-source-task, .writing-transfer { scroll-margin-top: 92px; }
+@media (max-width: 760px) { .writing-workbench { padding-left: 14px !important; padding-right: 14px !important; } .writing-stage-nav { position: static; } .writing-stage-nav button { flex-basis: calc(50% - 8px); } }
 @media (max-width: 720px) { .writing-materials-grid { grid-template-columns: 1fr; } }
+@media (max-width: 720px) { .writing-pattern-grid { grid-template-columns: 1fr; } }
 .speaking-practice { margin-top: 20px; }
 .speaking-practice section, .speaking-practice details { margin: 18px 0; padding: 18px; border: 1px solid var(--border); border-radius: 12px; background: var(--surface); }
 .speaking-practice .source-warning { border-left: 3px solid var(--warning); color: var(--text-secondary); }
@@ -1964,7 +2018,7 @@ body.theme-warm .listening-entry-zh, body.theme-warm .listening-section-count { 
 <link rel="stylesheet" href="css/b2-study-teaching.css?v=20260906-4">
 <script src="js/russian-b2/listening-session.js?v=20260726-1"></script>
 <script src="js/russian-b2/listening-quality.js?v=20260726-1"></script>
-<script src="js/russian-b2/listening-workbench.js?v=20260726-6"></script>
+<script src="js/russian-b2/listening-workbench.js?v=20260908-7"></script>
 <script src="js/russian-b2/writing-session.js?v=20260806-1"></script>
 <script src="js/reader-answer-evidence.js?v=20260812-1"></script>
 <script src="js/reader-ai-client.js?v=20260817-1"></script>
@@ -3737,7 +3791,7 @@ function goChapter(idx, restoreState) {
   var app = document.getElementById('app');
   var chapterNavigation;
   if (curBook && curBook.isB2Module) {
-    chapterNavigation = b2FloatingNavigation({ backAction: 'showB2Dashboard()', backTitle: '仪表盘', menuAction: 'showBreadcrumb()' });
+    chapterNavigation = b2FloatingNavigation({ backAction: 'showChapters(\'russian_b2\')', backTitle: '目录', menuAction: 'showBreadcrumb()' });
   } else if (curBook && curBook.id === 'reading_speaking') {
     chapterNavigation = b2FloatingNavigation({ backAction: 'showChapters(\'reading_speaking\')', backTitle: '目录', menuAction: 'showBreadcrumb()' });
   } else if (isQuizFirstBook(curBook)) {
@@ -5986,8 +6040,8 @@ function renderQuizChapter(data, scrollPosition) {
   if (_wrongAnswerQuizReturn) {
     wrongAnswerBack = '<a class="b2-wrong-back" onclick="' + _wrongAnswerQuizReturn.back + '" style="display:block;margin-bottom:10px;color:var(--accent);cursor:pointer;font-size:14px;font-weight:600">← 返回错题本</a>';
   }
-  var quizBackAction = isB2Quiz ? 'showB2Dashboard()' : 'showChapters(\'' + escapeHtml(curBook.id) + '\')';
-  var quizBackTitle = isB2Quiz ? '仪表盘' : '目录';
+  var quizBackAction = isB2Quiz ? 'showChapters(\'russian_b2\')' : 'showChapters(\'' + escapeHtml(curBook.id) + '\')';
+  var quizBackTitle = '目录';
   var contextGroupByExercise = renderQuizContextGroups(data.contextGroups || []);
   var html = b2FloatingNavigation({ backAction: quizBackAction, backTitle: quizBackTitle, menuAction: 'showBreadcrumb()' }) + '<main class="main-container b2-quiz-page reader-workbench reader-workbench--quiz"><div class="b2-quiz-header">' +
     '<h1>' + escapeHtml(data.title || '') + '</h1>' +
@@ -6217,7 +6271,35 @@ function renderWritingMaterial(material, taskId, index) {
   var context = lookupContext('writing', taskId + '-material-' + (index + 1), 'writing-material', text, '', pages);
   var facts = (material.facts || []).map(function(fact) { return '<li>' + escapeHtml(fact) + '</li>'; }).join('');
   var pageLabel = pages.length ? 'PDF-' + pages.map(function(page) { return String(page).padStart(3, '0'); }).join('、PDF-') : '';
-  return '<article class="writing-material-card"><h3>' + escapeHtml(material.heading || ('材料 ' + (index + 1))) + '</h3><p class="ru-text">' + renderRuText(text, context) + '</p>' + (facts ? '<ul class="writing-facts">' + facts + '</ul>' : '') + (pageLabel ? '<small class="reading-answer-source">原书：' + escapeHtml(pageLabel) + '</small>' : '') + '</article>';
+  var translation = material.translation ? '<details class="writing-translation" open><summary>完整中文翻译</summary><p>' + escapeHtml(material.translation).replace(/\n/g, '<br>') + '</p></details>' : '';
+  var guided = (material.guidedLines || []).map(function(line, lineIndex) {
+    return '<article class="writing-guided-line" data-line-index="' + lineIndex + '"><div class="writing-guided-line-head"><span class="writing-line-number">' + (lineIndex + 1) + '</span><p class="ru-text">' + escapeHtml(line.ru) + '</p><button type="button" class="writing-mark-button" onclick="toggleWritingLine(this)">标为重点</button></div><details class="writing-translation"><summary>看这行的完整翻译</summary><p>' + escapeHtml(line.translation) + '</p></details><div class="writing-guided-line-meta"><span>' + escapeHtml(line.category) + '</span><span>' + escapeHtml(line.purpose) + '</span></div><details class="writing-hint"><summary>提示：我不会时看这里</summary><p>' + escapeHtml(line.hint) + '</p><p class="ru-text">' + escapeHtml(line.pattern) + '</p></details></article>';
+  }).join('');
+  var layout = material.layout || {};
+  var layoutHtml = layout.title ? '<div class="writing-ad-layout"><h3>' + escapeHtml(layout.title) + '</h3>' + (layout.subtitle ? '<p class="writing-ad-subtitle">' + escapeHtml(layout.subtitle) + '</p>' : '') + (layout.groups || []).map(function(group) { return '<section class="writing-ad-group"><h4>' + escapeHtml(group.title) + '</h4><ul>' + (group.lines || []).map(function(line) { return '<li>' + escapeHtml(line) + '</li>'; }).join('') + '</ul></section>'; }).join('') + (layout.lines || []).map(function(line) { return '<p class="writing-ad-line">' + escapeHtml(line) + '</p>'; }).join('') + '</div>' : '';
+  var guidedSection = guided ? '<div class="writing-guided-material"><h4>逐行带练：先自己找，再看提示</h4><p>请先在纸上圈出你认识的词。看不懂时打开翻译或提示；觉得这一行值得写进信里，就点“标为重点”。</p><div class="writing-guided-lines">' + guided + '</div><button type="button" class="tb-btn" onclick="buildWritingPaperSelection(this)">把我标出的重点整理成纸上提纲</button><div class="writing-selection-result" hidden></div></div>' : '';
+  return '<article class="writing-material-card"><div class="writing-original-label">原书广告版式</div>' + layoutHtml + '<h3 class="writing-material-source-heading">完整原文</h3><p class="ru-text">' + renderRuText(text, context) + '</p>' + translation + guidedSection + (facts ? '<ul class="writing-facts"><li class="writing-facts-label">信息分类</li>' + facts + '</ul>' : '') + (pageLabel ? '<small class="reading-answer-source">原书：' + escapeHtml(pageLabel) + '</small>' : '') + '</article>';
+}
+function toggleWritingLine(button) {
+  var line = button && button.closest('.writing-guided-line');
+  if (!line) return;
+  line.classList.toggle('is-marked');
+  button.textContent = line.classList.contains('is-marked') ? '已标重点 · 取消' : '标为重点';
+}
+function buildWritingPaperSelection(button) {
+  var box = button && button.closest('.writing-guided-material');
+  if (!box) return;
+  var selected = Array.prototype.slice.call(box.querySelectorAll('.writing-guided-line.is-marked'));
+  var result = box.querySelector('.writing-selection-result');
+  if (!result) return;
+  result.hidden = false;
+  result.innerHTML = selected.length ? '<strong>纸上提纲：把这些内容写下来</strong><ol>' + selected.map(function(line) { var ru = line.querySelector('.ru-text'); var category = line.querySelector('.writing-guided-line-meta span'); return '<li><span>' + escapeHtml(category ? category.textContent : '重点') + '</span><br><span class="ru-text">' + escapeHtml(ru ? ru.textContent : '') + '</span><br><span>中文记录：__________________</span></li>'; }).join('') + '</ol><p class="writing-paper-task">下一步：从这些重点中挑 2—4 条，说明它们为什么对你的朋友有用。</p>' : '<p>你还没有标重点。先点击上面的“标为重点”，再整理提纲。</p>';
+}
+function writingJumpStage(id, button) {
+  var target = document.getElementById(id);
+  if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  var nav = button && button.parentElement;
+  if (nav) Array.prototype.forEach.call(nav.querySelectorAll('button'), function(item) { item.classList.toggle('is-active', item === button); });
 }
 function renderWritingWorkbench(data, scrollPosition) {
   currentWritingData = data;
@@ -6225,19 +6307,46 @@ function renderWritingWorkbench(data, scrollPosition) {
   var blocks = (data.formatGuide.requiredBlocks || []).map(function(block, index) { return '<li>' + renderRuText(block, lookupContext('writing', data.id + '-format-' + (index + 1), 'writing-material', block, '', data.sourcePages || [])) + '</li>'; }).join('');
   var notes = (data.formatGuide.notes || []).map(function(note, index) { return '<li>' + renderRuText(note, lookupContext('writing', data.id + '-note-' + (index + 1), 'writing-material', note, '', data.sourcePages || [])) + '</li>'; }).join('');
   var support = data.studySupport || {};
+  var lesson = data.lesson || {};
   var outline = (support.outline || []).map(function(item, index) { return '<li>' + renderRuText(item, lookupContext('writing', data.id + '-outline-' + (index + 1), 'writing-support', item, '', data.sourcePages || [])) + '</li>'; }).join('');
   var patterns = (support.usefulPatterns || []).map(function(item, index) { return '<li>' + renderRuText(item, lookupContext('writing', data.id + '-pattern-' + (index + 1), 'writing-support', item, '', data.sourcePages || [])) + '</li>'; }).join('');
   var materials = (data.materials || []).map(function(material, index) { return renderWritingMaterial(material, data.id, index); }).join('');
   var rubric = (data.rubric || []).map(function(item) { return '<li>' + escapeHtml(item) + '</li>'; }).join('');
+  var lessonSteps = (lesson.steps || []).map(function(step) { return '<li><strong>' + escapeHtml(step.title || '') + '</strong><p>' + escapeHtml(step.instruction || '') + '</p>' + (step.paperTask ? '<p class="writing-paper-task">纸上完成：' + escapeHtml(step.paperTask) + '</p>' : '') + '</li>'; }).join('');
+  var sentencePractice = (lesson.sentencePractice || []).map(function(item) { return '<article class="writing-pattern-card"><h4>' + escapeHtml(item.prompt || '') + '</h4><p class="ru-text">' + escapeHtml(item.pattern || '') + '</p><p>' + escapeHtml(item.hint || '') + '</p></article>'; }).join('');
+  var template = lesson.template || {};
+  var templateNotes = (template.notes || []).map(function(note) { return '<li>' + escapeHtml(note) + '</li>'; }).join('');
+  var transfer = lesson.transferTask || {};
+  var examPractice = data.examPractice || {};
+  var additionalModels = (data.additionalModels || []).map(function(item, index) {
+    var material = item.materialRu ? '<section class="writing-original-example"><h4>原书广告材料</h4><p class="ru-text">' + escapeHtml(item.materialRu).replace(/\n/g, '<br>') + '</p>' + (item.materialTranslation ? '<details class="writing-translation" open><summary>广告完整中文翻译</summary><p>' + escapeHtml(item.materialTranslation).replace(/\n/g, '<br>') + '</p></details>' : '') + '</section>' : '';
+    var task = item.taskRu ? '<p class="ru-text">' + escapeHtml(item.taskRu) + '</p>' + (item.taskTranslation ? '<details class="writing-translation" open><summary>题目完整中文翻译</summary><p>' + escapeHtml(item.taskTranslation).replace(/\n/g, '<br>') + '</p></details>' : '') : '';
+    var modelText = item.text ? '<div class="writing-model-inline"><h4>原书范文</h4><p class="ru-text">' + escapeHtml(item.text).replace(/\n/g, '<br>') + '</p>' + (item.translation ? '<details class="writing-translation" open><summary>范文完整中文翻译</summary><p>' + escapeHtml(item.translation).replace(/\n/g, '<br>') + '</p></details>' : '') + '</div>' : '';
+    return '<article class="writing-original-example"><h3>' + escapeHtml(item.title || ('原书例文 ' + (index + 1))) + '</h3>' + task + material + modelText + '</article>';
+  }).join('');
   var model = renderRuText(data.model.text || '', lookupContext('writing', data.id, 'writing-model', data.model.text || '', '', data.model.source && data.model.source.pages || data.sourcePages || [])).replace(/\n/g, '<br>');
   var instructionsRu = data.task.instructionsRu || '';
   var taskPrompt = instructionsRu ? renderRuText(instructionsRu, lookupContext('writing', data.id + '-instructions', 'writing-material', instructionsRu, data.task.prompt || '', data.sourcePages || [])) : renderRuText(data.task.prompt, lookupContext('writing', data.id, 'writing-material', data.task.prompt, '', data.sourcePages || []));
+  var taskTranslation = data.task.translation ? '<details class="writing-translation" open><summary>题目完整中文翻译</summary><p>' + escapeHtml(data.task.translation).replace(/\n/g, '<br>') + '</p></details>' : '';
+  var modelTranslation = data.model.translation ? '<details class="writing-translation" open><summary>范文完整中文翻译</summary><p>' + escapeHtml(data.model.translation).replace(/\n/g, '<br>') + '</p></details>' : '';
   var source = data.source || {};
   var printedPages = (source.printedPages || []).join('、');
   var metadata = renderWritingMetadata(data.task || {});
-  var sourceMaterialSection = materials ? '<section><h2>第 2 步 · 核对原书材料</h2><p class="writing-status">以下广告按原书逐项整理；点击俄语单词可查词。</p><div class="writing-materials-grid">' + materials + '</div></section>' : '';
+  var sourceMaterialSection = materials ? '<section id="writing-stage-material"><h2>第 2 步 · 看懂题目材料</h2><p class="writing-status">先看广告，再按下面步骤在纸上提取信息。</p><div class="writing-materials-grid">' + materials + '</div></section>' : '';
   var supportSection = (outline || patterns) ? '<section class="writing-support-box"><h2>学习辅助（非原书内容）</h2>' + (outline ? '<h3>起草顺序</h3><ol>' + outline + '</ol>' : '') + (patterns ? '<h3>可复用表达</h3><ul>' + patterns + '</ul>' : '') + '</section>' : '';
-  document.getElementById('app').innerHTML = b2FloatingNavigation({ backAction: 'showB2Dashboard()', backTitle: '仪表盘', menuAction: 'showBreadcrumb()' }) + '<main class="main-container writing-workbench reader-workbench reader-workbench--writing"><header class="chapter-header"><h1>' + escapeHtml(data.title || '') + '</h1><p>纸笔模式 · 原书印刷页：' + escapeHtml(printedPages || '—') + ' · PDF：' + escapeHtml(sourcePages) + '</p>' + renderManualCompletionButton(WRITING_COMPLETED_KEY, data.id) + '</header><section class="writing-source-task"><h2>第 1 步 · 读懂原书任务</h2><p class="ru-text">' + taskPrompt + '</p>' + (instructionsRu && data.task.prompt ? '<p class="question-translation">' + escapeHtml(data.task.prompt) + '</p>' : '') + metadata + '</section>' + sourceMaterialSection + '<section><h2>第 3 步 · 在纸上形成内容</h2><p>请在纸上写下关键词、立场和段落提纲，再按下面的格式与内容清单逐项自查。页面不提供作文输入框，也不启动考试计时。</p></section><section><h2>格式与内容清单</h2><ol>' + blocks + '</ol>' + (notes ? '<ul class="writing-status">' + notes + '</ul>' : '') + '</section>' + (rubric ? '<section><h2>评分自查</h2><ul>' + rubric + '</ul></section>' : '') + '<details class="ws-animated-collapse" ontoggle="recordWritingModelUnlock(\'' + escapeHtml(data.id) + '\', this.open)"><summary>原书范文（完成后查看）</summary><p class="ru-text">' + model + '</p><small class="reading-answer-source">' + escapeHtml(data.model.source.label || 'B2 原书范文') + '</small></details>' + supportSection + '</main>';
+  var lessonSection = lesson.objective ? '<section class="writing-lesson-plan"><h2>本课要学会什么</h2><p>' + escapeHtml(lesson.objective) + '</p>' + (lessonSteps ? '<h3>做题步骤</h3><ol class="writing-lesson-steps">' + lessonSteps + '</ol>' : '') + (sentencePractice ? '<h3>半成品句型练习</h3><div class="writing-pattern-grid">' + sentencePractice + '</div>' : '') + (template.textRu ? '<h3>' + escapeHtml(template.title || '完整写作骨架') + '</h3><p>先看每段要完成什么，再在纸上把空格替换成自己的内容。</p><pre class="writing-template">' + escapeHtml(template.textRu) + '</pre>' + (templateNotes ? '<ul class="writing-status">' + templateNotes + '</ul>' : '') : '') + '</section>' : '';
+  var transferSection = transfer.prompt ? '<section class="writing-transfer"><h2>' + escapeHtml(transfer.title || '变化题') + '</h2><p>' + escapeHtml(transfer.prompt) + '</p><ul>' + (transfer.checkpoints || []).map(function(item) { return '<li>' + escapeHtml(item) + '</li>'; }).join('') + '</ul></section>' : '';
+  var worksheet = lesson.paperWorksheet || {};
+  var worksheetSection = worksheet.fields ? '<section class="writing-paper-work"><h2>' + escapeHtml(worksheet.title || '纸上工作单') + '</h2><p>' + escapeHtml(worksheet.draftInstructions || '') + '</p><div class="writing-paper-grid">' + worksheet.fields.map(function(field) { return '<div><span>' + escapeHtml(field) + '</span><i></i></div>'; }).join('') + '</div></section>' : '';
+  var analysisSection = (lesson.modelAnalysis || []).map(function(item) { return '<details class="writing-analysis-card"><summary>' + escapeHtml(item.label || '') + ' · ' + escapeHtml(item.quote || '') + '</summary><p>' + escapeHtml(item.function || '') + '</p><p class="writing-paper-task">纸上想一想：' + escapeHtml(item.question || '') + '</p></details>'; }).join('');
+  var reviewSection = (lesson.selfReview || []).map(function(item) { return '<li><label><input type="checkbox"> ' + escapeHtml(item.check || '') + '</label><p>发现问题后：' + escapeHtml(item.repair || '') + '</p></li>'; }).join('');
+  var examSection = examPractice.model ? '<section class="writing-exam-practice"><h2>' + escapeHtml(examPractice.title || '真题独立完成') + '</h2><p class="ru-text">' + escapeHtml(examPractice.taskRu || '') + '</p>' + (examPractice.taskTranslation ? '<details class="writing-translation" open><summary>真题完整中文翻译</summary><p>' + escapeHtml(examPractice.taskTranslation) + '</p></details>' : '') + '<p>' + escapeHtml(examPractice.paperTask || '') + '</p><div class="writing-model-inline"><h3>真题参考范文</h3><p class="ru-text">' + escapeHtml(examPractice.model).replace(/\n/g, '<br>') + '</p>' + (examPractice.modelTranslation ? '<details class="writing-translation" open><summary>范文完整中文翻译</summary><p>' + escapeHtml(examPractice.modelTranslation).replace(/\n/g, '<br>') + '</p></details>' : '') + '</div></section>' : '';
+  var stageNav = '<nav class="writing-stage-nav"><button class="is-active" onclick="writingJumpStage(\'writing-stage-task\',this)">1 读懂题目</button><button onclick="writingJumpStage(\'writing-stage-material\',this)">2 看材料</button><button onclick="writingJumpStage(\'writing-stage-lesson\',this)">3 学做法</button><button onclick="writingJumpStage(\'writing-stage-paper\',this)">4 纸上形成</button><button onclick="writingJumpStage(\'writing-stage-model\',this)">5 看范文与修改</button><button onclick="writingJumpStage(\'writing-stage-transfer\',this)">6 变化题</button></nav><p class="writing-current-stage">当前阶段：先读懂任务，再看广告材料。上方阶段可以随时跳转。</p>';
+  lessonSection = lessonSection.replace('<section class="writing-lesson-plan">', '<section id="writing-stage-lesson" class="writing-lesson-plan">');
+  transferSection = transferSection.replace('<section class="writing-transfer">', '<section id="writing-stage-transfer" class="writing-transfer">');
+  var modelSection = '<section id="writing-stage-model" class="writing-model-section ws-animated-collapse"><h2>第 5 步 · 原书范文与逐段讲解</h2><p class="writing-status">先完成纸上初稿，再用这篇范文检查自己是否完成了同样的任务。</p><p class="ru-text">' + model + '</p>' + modelTranslation + '<small class="reading-answer-source">' + escapeHtml(data.model.source.label || 'B2 原书范文') + '</small>' + (analysisSection ? '<div class="writing-analysis-list">' + analysisSection + '</div>' : '') + '</section>';
+  var writingHtml = b2FloatingNavigation({ backAction: 'showChapters(\'russian_b2\')', backTitle: '目录', menuAction: 'showBreadcrumb()' }) + '<main class="main-container writing-workbench reader-workbench reader-workbench--writing"><header class="chapter-header"><h1>' + escapeHtml(data.title || '') + '</h1><p>纸笔模式 · 原书印刷页：' + escapeHtml(printedPages || '—') + ' · PDF：' + escapeHtml(sourcePages) + '</p>' + renderManualCompletionButton(WRITING_COMPLETED_KEY, data.id) + '</header>' + stageNav + '<section id="writing-stage-task" class="writing-source-task"><h2>第 1 步 · 读懂这道题</h2><p class="ru-text">' + taskPrompt + '</p>' + taskTranslation + metadata + '</section>' + sourceMaterialSection + lessonSection + '<section id="writing-stage-paper"><h2>第 4 步 · 在纸上形成内容</h2><p>把前面标出的重点和老师示范的方法整理成自己的纸上提纲，再开始初稿。这里不重新讲方法。页面不提供作文输入框，也不启动考试计时。</p></section>' + worksheetSection + '<section><h2>格式与内容清单</h2><ol>' + blocks + '</ol>' + (notes ? '<ul class="writing-status">' + notes + '</ul>' : '') + '</section>' + (rubric ? '<section><h2>评分自查</h2><ul>' + rubric + '</ul></section>' : '') + modelSection + (additionalModels ? '<section><h2>第二轮：烹饪课程半独立练习</h2>' + additionalModels + '</section>' : '') + (reviewSection ? '<section><h2>回到纸上修改：发现问题后怎么改</h2><ul class="writing-review-list">' + reviewSection + '</ul></section>' : '') + examSection + transferSection + supportSection + '</main>';
+  document.getElementById('app').innerHTML = writingHtml;
   window.scrollTo(0, typeof scrollPosition === 'number' ? scrollPosition : 0); applyTheme(); saveLastRead(arguments[2]); initCollapseAnimations();
 }
 var SPEAKING_DRAFTS_KEY = 'russian_b2_speaking_notes_v1';
@@ -6312,7 +6421,7 @@ function renderSpeakingPractice(data, scrollPosition) {
   var warning = data.media && data.media.provenance === 'missing-original-media' ? '<section class="source-warning"><strong>原始媒体缺失</strong><p>' + escapeHtml(data.media.note || '教材原始媒体未保存；这里只提供可追溯的文字资料。') + '</p></section>' : '';
   var speakingTask = renderRuText(data.task.prompt, lookupContext('speaking', data.id, 'speaking-reference', data.task.prompt, '', data.sourcePages || []));
   var sourceAnswer = renderRuText(data.sourceAnswer.text || '', lookupContext('speaking', data.id, 'speaking-reference', data.sourceAnswer.text || '', '', data.sourceAnswer.source && data.sourceAnswer.source.pages || data.sourcePages || []));
-  document.getElementById('app').innerHTML = b2FloatingNavigation({ backAction: 'showB2Dashboard()', backTitle: '仪表盘', menuAction: 'showBreadcrumb()' }) + '<main class="main-container speaking-practice reader-workbench reader-workbench--speaking"><header class="chapter-header"><h1>' + escapeHtml(data.title || '') + '</h1><p class="reading-answer-source">原书页：' + escapeHtml(sourcePages) + '</p>' + renderManualCompletionButton(SPEAKING_COMPLETED_KEY, data.id) + '</header><section><h2>原书任务</h2><p>' + speakingTask + '</p></section>' + warning + '<section><h2>渐进练习</h2><ol class="speaking-steps">' + steps + '</ol></section><section><h2>你的提纲 / 转写</h2><textarea class="speaking-transcript" placeholder="先列关键词，再写下你准备说的内容…" oninput="saveSpeakingNote(\'' + escapeHtml(data.id) + '\', this.value)">' + escapeHtml(note) + '</textarea><p id="speaking-note-status" class="speaking-recording-status">本地自动保存</p></section><section><h2>录音与回听</h2><p class="speaking-recording-status">录音只存到这台设备的浏览器 IndexedDB，不会上传。</p><div class="speaking-recording-controls"><button id="start-speaking-recording" class="tb-btn" onclick="startSpeakingRecording()">开始录音</button><button id="stop-speaking-recording" class="tb-btn" onclick="stopSpeakingRecording()" disabled>结束录音</button><span id="speaking-recording-status" class="speaking-recording-status">尚未录音</span></div><audio id="speaking-playback" class="speaking-playback" controls hidden></audio></section><details><summary>原书参考回答（已核对）</summary><p class="ru-text">' + sourceAnswer + '</p><small class="reading-answer-source">' + escapeHtml(data.sourceAnswer.source.label || 'B2 原书参考回答') + '</small></details><details><summary>学习辅助：自查清单</summary><ul>' + checklist + '</ul></details></main>';
+  document.getElementById('app').innerHTML = b2FloatingNavigation({ backAction: 'showChapters(\'russian_b2\')', backTitle: '目录', menuAction: 'showBreadcrumb()' }) + '<main class="main-container speaking-practice reader-workbench reader-workbench--speaking"><header class="chapter-header"><h1>' + escapeHtml(data.title || '') + '</h1><p class="reading-answer-source">原书页：' + escapeHtml(sourcePages) + '</p>' + renderManualCompletionButton(SPEAKING_COMPLETED_KEY, data.id) + '</header><section><h2>原书任务</h2><p>' + speakingTask + '</p></section>' + warning + '<section><h2>渐进练习</h2><ol class="speaking-steps">' + steps + '</ol></section><section><h2>你的提纲 / 转写</h2><textarea class="speaking-transcript" placeholder="先列关键词，再写下你准备说的内容…" oninput="saveSpeakingNote(\'' + escapeHtml(data.id) + '\', this.value)">' + escapeHtml(note) + '</textarea><p id="speaking-note-status" class="speaking-recording-status">本地自动保存</p></section><section><h2>录音与回听</h2><p class="speaking-recording-status">录音只存到这台设备的浏览器 IndexedDB，不会上传。</p><div class="speaking-recording-controls"><button id="start-speaking-recording" class="tb-btn" onclick="startSpeakingRecording()">开始录音</button><button id="stop-speaking-recording" class="tb-btn" onclick="stopSpeakingRecording()" disabled>结束录音</button><span id="speaking-recording-status" class="speaking-recording-status">尚未录音</span></div><audio id="speaking-playback" class="speaking-playback" controls hidden></audio></section><details><summary>原书参考回答（已核对）</summary><p class="ru-text">' + sourceAnswer + '</p><small class="reading-answer-source">' + escapeHtml(data.sourceAnswer.source.label || 'B2 原书参考回答') + '</small></details><details><summary>学习辅助：自查清单</summary><ul>' + checklist + '</ul></details></main>';
   var speakingCompletePrompt = document.getElementById('completePrompt');
   if (speakingCompletePrompt) speakingCompletePrompt.classList.remove('visible');
   if (window.WhiteNightReaderSpeaking) window.WhiteNightReaderSpeaking.mount(data.id);
@@ -6701,14 +6810,15 @@ function renderListeningReview(data) {
   }).join('');
   if (!attempt) return '<div class="lw-content"><section class="lw-empty"><p>这组材料还没有完整提交记录。</p><button class="lw-submit" type="button" onclick="setListeningViewMode(\'exam\')">开始作答</button></section><section class="lw-review-list"><div class="lw-section-heading"><h2>本章难句</h2><p>仅显示当前章节</p></div>' + (difficultRows || '<div class="lw-empty">本章还没有难句标记。</div>') + '</section></div>';
   var questions = {}; (data.questions || []).forEach(function(question) { questions[question.id] = question; });
-  var reviewRows = (attempt.answers || []).filter(function(answer) { return answer.result !== 'correct'; }).map(function(answer) {
+  var reviewRows = (attempt.answers || []).map(function(answer) {
     var question = questions[answer.questionId] || {}, evidence = question.evidence || {};
-    return '<article class="lw-review-item"><h3>第 ' + escapeHtml(String(question.printedNumber || answer.index)) + ' 题 · ' + (answer.result === 'unanswered' ? '未作答' : '回答错误') + '</h3>' +
+    var resultLabel = answer.result === 'correct' ? '回答正确' : answer.result === 'unanswered' ? '未作答' : '回答错误';
+    return '<article class="lw-review-item"><h3>第 ' + escapeHtml(String(question.printedNumber || answer.index)) + ' 题 · ' + resultLabel + '</h3>' +
       renderListeningReviewOptions(question, answer) +
       (evidence.quote ? '<section class="lw-review-evidence"><p class="lw-review-kicker">听力依据</p><p class="ru-text">' + renderRuText(evidence.quote, lookupContextWithSentence('listening', question.id + '-review-evidence', 'listening-transcript', evidence.quote, evidence.translation || '', evidence.pages || [])) + '</p>' + (evidence.translation ? '<p class="lw-review-evidence-translation">中文：' + escapeHtml(evidence.translation) + '</p>' : '') + (evidence.reasoning ? '<section class="lw-review-explanation"><p class="lw-review-kicker">为什么选这个</p><p>' + escapeHtml(evidence.reasoning) + '</p></section>' : '') + '<button class="lw-secondary-action" type="button" onclick="openListeningEvidence(\'' + escapeHtml(answer.questionId) + '\')">查看原文中的这段依据</button></section>' : '') + '</article>';
   }).join('');
   return '<div class="lw-content"><section class="lw-review-summary"><div class="lw-review-stat"><strong>' + attempt.accuracy + '%</strong><span>正确率</span></div><div class="lw-review-stat"><strong>' + attempt.correct + '</strong><span>正确</span></div><div class="lw-review-stat"><strong>' + attempt.wrong + '</strong><span>错误</span></div><div class="lw-review-stat"><strong>' + attempt.unanswered + '</strong><span>未答</span></div></section>' +
-    '<section class="lw-review-list"><div class="lw-section-heading"><h2>本次复盘</h2><p>' + escapeHtml(new Date(attempt.submittedAt).toLocaleString('zh-CN')) + '</p></div>' + (reviewRows || '<div class="lw-empty">本组全部答对。</div>') + '</section>' +
+    '<section class="lw-review-list"><div class="lw-section-heading"><h2>本次复盘</h2><p>' + escapeHtml(new Date(attempt.submittedAt).toLocaleString('zh-CN')) + '</p></div>' + (reviewRows || '<div class="lw-empty">本次没有可复盘的题目。</div>') + '</section>' +
     '<section class="lw-review-list"><div class="lw-section-heading"><h2>本章难句</h2><p>仅显示当前章节</p></div>' + (difficultRows || '<div class="lw-empty">本章还没有难句标记。</div>') + '</section><button class="lw-submit" type="button" onclick="restartListeningAttempt()">再练一次</button></div>';
 }
 function renderListeningQualityReview() {
@@ -6750,8 +6860,8 @@ function renderListeningPractice(data, scrollPosition) {
     ? '<section class="lw-media-warning"><strong>尚未找到正确配套媒体</strong><p>旧导入音轨属于另一套教材，不能用于本单元考试或精听。题目与教材原文保留，等待正确配套音频重新绑定。</p></section>'
     : '<p class="reading-answer-source">来源：' + escapeHtml(media.provenance || '来源待核对') + (media.provenance === 'reconstructed-tts' ? ' · 重建音频，不等同于原始配套录音' : '') + '</p>';
   var modeBody = listeningViewMode === 'intensive' ? renderListeningIntensive(data) : listeningViewMode === 'media-exercise' ? renderListeningMediaExercise(data) : listeningViewMode === 'review' ? renderListeningReview(data) : listeningViewMode === 'quality-review' ? renderListeningQualityReview() : renderListeningExam(data);
-  var listeningBackAction = isWorldPeopleBook(curBook) ? 'showChapters(\'' + escapeHtml(curBook.id) + '\')' : 'showB2Dashboard()';
-  var listeningBackTitle = isWorldPeopleBook(curBook) ? '目录' : '仪表盘';
+  var listeningBackAction = isWorldPeopleBook(curBook) ? 'showChapters(\'' + escapeHtml(curBook.id) + '\')' : (curBook && curBook.isB2Module ? 'showChapters(\'russian_b2\')' : 'showB2Dashboard()');
+  var listeningBackTitle = isWorldPeopleBook(curBook) || (curBook && curBook.isB2Module) ? '目录' : '仪表盘';
   document.getElementById('app').innerHTML = b2FloatingNavigation({ backAction: listeningBackAction, backTitle: listeningBackTitle, menuAction: 'showBreadcrumb()' }) +
     '<main class="lw-workbench reader-workbench reader-workbench--listening" data-mode="' + listeningViewMode + '" data-timeline-ready="loading">' + renderListeningTopbar(data, sourcePages) + renderListeningPlayer(data, mediaBase) +
     mediaNotice + modeBody + '</main>';
@@ -6988,7 +7098,7 @@ function renderExamPracticeChapter(data, scrollPosition) {
     ? '<section><h2>原卷写作</h2>' + data.tasks.map(renderExamWritingTask).join('') + '</section>'
     : '<section><h2>完整模拟</h2><p>完整计时与分模块练习会在题干、选项、原书答案和说明逐项核验后开放。</p></section>';
   var statusLabel = hasIntro ? '考试说明已核验' : hasMaterials ? '材料已核验' : hasVerifiedQuestions ? '题面与答案已核验' : '来源已索引';
-  document.getElementById('app').innerHTML = b2FloatingNavigation({ backAction: 'showB2Dashboard()', backTitle: '仪表盘', menuAction: 'showBreadcrumb()' }) + '<main class="main-container speaking-practice reader-workbench reader-workbench--exam"><header class="chapter-header"><h1>' + escapeHtml(data.title || '') + '</h1><p class="reading-answer-source">B2 原书真题 · ' + escapeHtml(statusLabel) + '</p></header>' + sourceState + details + body + '</main>';
+  document.getElementById('app').innerHTML = b2FloatingNavigation({ backAction: 'showChapters(\'russian_b2\')', backTitle: '目录', menuAction: 'showBreadcrumb()' }) + '<main class="main-container speaking-practice reader-workbench reader-workbench--exam"><header class="chapter-header"><h1>' + escapeHtml(data.title || '') + '</h1><p class="reading-answer-source">B2 原书真题 · ' + escapeHtml(statusLabel) + '</p></header>' + sourceState + details + body + '</main>';
   window.scrollTo(0, typeof scrollPosition === 'number' ? scrollPosition : 0); applyTheme(); saveLastRead(arguments[2]);
   if (pendingExamJumpQuestionId) {
     var examJumpId = pendingExamJumpQuestionId;
@@ -7214,7 +7324,7 @@ function renderReadingPracticeChapter(data, scrollPosition) {
   var practicePanel = '<aside class="rs-practice-panel" id="b2ReadingPracticePanel" aria-label="练习题">' +
     '<header class="rs-practice-panel-header"><p class="rs-practice-panel-kicker">练习模式</p><h2>边读边答</h2><p>题目固定在这里，点原文词语仍可随时查义。</p></header>' +
     renderB2ReadingPracticeProgress() + questions + renderB2ReadingChapterCompletionAction() + '</aside>';
-  document.getElementById('app').innerHTML = b2FloatingNavigation({ backAction: 'showB2Dashboard()', backTitle: '仪表盘', menuAction: 'showBreadcrumb()' }) +
+  document.getElementById('app').innerHTML = b2FloatingNavigation({ backAction: 'showChapters(\'russian_b2\')', backTitle: '目录', menuAction: 'showBreadcrumb()' }) +
     '<main class="main-container reader-workbench reader-workbench--reading-practice" style="padding-bottom:20px"><header class="chapter-header"><h1>' + escapeHtml(data.title || '') + '</h1><p>' + supportState + '</p><p class="reading-answer-source">原书原文页：' + escapeHtml(sourcePages) + '</p>' + modeSwitch + '</header></main>' +
     '<div class="peek-counter">👁 查看原文: <span id="peekCnt">0</span> / <span id="totalParas">' + (data.original || []).length + '</span> 段</div>' +
     '<div class="reader-layout reader-reading-layout reader-workbench-layout ' + (layoutMode === 'reading' ? 'rs-reading-mode' : 'rs-practice-mode') + '" id="readerLayout">' +
