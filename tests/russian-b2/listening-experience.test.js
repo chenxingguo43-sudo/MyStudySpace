@@ -24,7 +24,7 @@ test('B2 listening source provides Chinese support for every transcript segment 
   }
 });
 
-test('listening review expands each missed question into a complete answer comparison', () => {
+test('listening review expands every submitted question into a complete answer comparison', () => {
   const helper = reader.slice(reader.indexOf('function renderListeningReviewOptions'), reader.indexOf('function renderListeningReview(data)'));
   const review = listeningRenderer('renderListeningReview(data)', 'renderListeningQualityReview()');
   assert.match(helper, /function renderListeningReviewOptions\(question, answer\)/);
@@ -35,6 +35,9 @@ test('listening review expands each missed question into a complete answer compa
   assert.match(review, /evidence\.translation/);
   assert.match(review, /evidence\.reasoning/);
   assert.match(review, /为什么选这个/);
+  assert.match(review, /attempt\.answers \|\| \[\]/);
+  assert.doesNotMatch(review, /filter\(function\(answer\) \{ return answer\.result !== 'correct'; \}\)/);
+  assert.doesNotMatch(review, /本组全部答对/);
 });
 
 test('closing the mobile dictionary keeps the sheet lock until its exit transition finishes', () => {

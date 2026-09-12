@@ -23,6 +23,13 @@ test('listening workbench parses normal VTT spacing around the cue arrow', () =>
   assert.deepEqual(cues, [{ start: 0, end: 1.608, text: 'Привет!' }]);
 });
 
+test('caption cues default to the active media item so playback can find later sentences', () => {
+  const cues = Workbench.normalizeTimeline(Workbench.parseVtt('WEBVTT\n\n1\n00:00:00.000 --> 00:00:01.608\nПервая фраза.\n\n2\n00:00:01.608 --> 00:00:03.360\nВторая фраза.'));
+
+  assert.equal(cues[0].playlistIndex, 0);
+  assert.equal(cues[1].playlistIndex, 0);
+});
+
 test('listening workbench keeps unknown media durations readable', () => {
   assert.equal(Workbench.formatTime(Infinity), '00:00');
   assert.equal(Workbench.formatTime(Number.NaN), '00:00');
@@ -112,8 +119,25 @@ test('media exercise playback can seek to its audited starting point without a t
   assert.match(workbenchSource, /audio\.currentTime = Math\.min\(initialTime/);
 });
 
-test('playback highlighting never scrolls the reading page', () => {
-  assert.match(workbenchSource, /setActive\(nextActive, \{ scroll: false \}\)/);
+test('playback follows the active sentence inside the transcript without moving the reading page', () => {
+  assert.match(workbenchSource, /function scrollTranscriptToActiveRow\(index\)/);
+  assert.match(workbenchSource, /var transcript = document\.querySelector\('\.lw-transcript'\)/);
+  assert.match(workbenchSource, /transcript\.scrollTo\(\{ top: targetTop, behavior: 'smooth' \}\)/);
+  assert.match(workbenchSource, /setActive\(nextActive, \{ scroll: true \}\)/);
   assert.match(workbenchSource, /selectSegment\(nextIndex, true, 0, false\)/);
   assert.match(workbenchSource, /selectSegment\(index, true, settings\.abBeforeSeconds, false\)/);
+});
+
+test('transcript scroll target keeps the active row inside a safe viewport', () => {
+  const target = Workbench.getTranscriptScrollTarget;
+  assert.equal(typeof target, 'function');
+  assert.equal(target({ clientHeight: 300, scrollHeight: 1200, scrollTop: 240 }, { top: 72, bottom: 126 }, 24), 189);
+  assert.equal(target({ clientHeight: 300, scrollHeight: 1200, scrollTop: 240 }, { top: 8, bottom: 62 }, 24), 125);
+  assert.equal(target({ clientHeight: 300, scrollHeight: 1200, scrollTop: 240 }, { top: 262, bottom: 326 }, 24), 384);
+  assert.equal(target({ clientHeight: 300, scrollHeight: 420, scrollTop: 200 }, { top: 262, bottom: 326 }, 24), 120);
+});
+
+test('mobile listening keeps the transcript as a scrollable playback surface', () => {
+  assert.match(workbenchCss, /@media \(max-width: 980px\) \{[\s\S]*?\.lw-transcript \{ max-height: min\(52dvh, 560px\); \}/);
+  assert.match(workbenchCss, /@media \(max-width: 700px\) \{[\s\S]*?\.lw-transcript \{ max-height: min\(43dvh, 560px\); \}/);
 });

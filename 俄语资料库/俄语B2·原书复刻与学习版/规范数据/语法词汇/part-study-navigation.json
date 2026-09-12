@@ -269,8 +269,8 @@
         "p3-q041-q050"
       ],
       "knowledgePoints": [
-        {
-          "id": "p3-active-participles",
+    {
+      "id": "p3-active-participles",
           "title": "主动形动词的一致",
           "questionRanges": [
             [
@@ -280,14 +280,31 @@
           ],
           "rule": "主动形动词与所修饰名词保持性、数、格一致。",
           "pitfalls": "先找被修饰名词，再确定形动词词尾。",
-          "sourcePages": [
-            41,
-            42,
-            43
-          ]
-        },
-        {
-          "id": "p3-passive-participles",
+      "sourcePages": [
+        41,
+        42,
+        43
+      ],
+      "teachingMapping": [
+        {"exerciseId":"P3-Q001","sectionId":"head-before-ending","also":["active-relation"],"reason":"продолжающего 先修饰第二格 художника，再谈词尾。","title":"先找中心名词，再让词尾跟它走"},
+        {"exerciseId":"P3-Q002","sectionId":"active-relation","also":["head-before-ending"],"reason":"изображающего 通过实际关系说明肖像描绘政治活动家。","title":"先确认：被说明的名词是自己做动作的人或事物"},
+        {"exerciseId":"P3-Q003","sectionId":"present-characteristic","also":["head-before-ending"],"reason":"открывающийся 描述景色当前呈现的特征，词尾跟 вид。","title":"现在时形动词：当前、经常或固有的特征"},
+        {"exerciseId":"P3-Q004","sectionId":"present-characteristic","also":["active-relation"],"reason":"药物自身具有增强免疫力的当前作用。","title":"现在时形动词：当前、经常或固有的特征"},
+        {"exerciseId":"P3-Q005","sectionId":"present-characteristic","also":["active-relation"],"reason":"излагающееся 说明规则正在被阐述；不把 -ся 单独当成答案。","title":"现在时形动词：当前、经常或固有的特征"},
+        {"exerciseId":"P3-Q006","sectionId":"present-characteristic","also":["relative-clause"],"reason":"поднимающаяся 可还原为 которая поднимается，说明钟楼当前耸立的特征。","title":"现在时形动词：当前、经常或固有的特征"},
+        {"exerciseId":"P3-Q007","sectionId":"present-characteristic","also":["head-before-ending"],"reason":"公司是生产仪器的动作发出者，表示持续经营特征。","title":"现在时形动词：当前、经常或固有的特征"},
+        {"exerciseId":"P3-Q008","sectionId":"past-experience","also":["head-before-ending"],"reason":"一生投入教育被教材理解为此前形成的经历，形动词跟第二格 человека。","title":"过去时形动词：此前经历或已经完成的行为"},
+        {"exerciseId":"P3-Q009","sectionId":"past-experience","also":["head-before-ending"],"reason":"先锁定被谈话的学生，再表达他此前没有完成作业。","title":"过去时形动词：此前经历或已经完成的行为"},
+        {"exerciseId":"P3-Q010","sectionId":"past-experience","also":["head-before-ending"],"reason":"国家已经决定发展工业是过去完成的主动行为，形动词随第六格 стране。","title":"过去时形动词：此前经历或已经完成的行为"},
+        {"exerciseId":"P3-Q011","sectionId":"past-experience","also":["present-characteristic"],"reason":"教材把项目规定新区建设读为完成的规划；另一个当前规划语境需保留。","notice":"教材答案 А；предусматривающий 在另一语境可能成立，不能写成绝对错误。","title":"过去时形动词：此前经历或已经完成的行为"},
+        {"exerciseId":"P3-Q012","sectionId":"agreement-beyond-nominative","also":["relative-clause"],"reason":"внесшими 修饰工具格复数 читателями，是非主格一致与从句压缩。","title":"中心名词不在主格，形动词仍然跟它一致"},
+        {"exerciseId":"P3-Q013","sectionId":"agreement-beyond-nominative","also":["relative-clause"],"reason":"заложившей 修饰第二格 грамматики，不能被近处名词干扰。","title":"中心名词不在主格，形动词仍然跟它一致"},
+        {"exerciseId":"P3-Q014","sectionId":"relative-clause","also":["past-experience"],"reason":"прошедший 与 который прошёл 保留电影节已经举办完的意义。","title":"与 который 从句互换时，保留谁做和何时做"},
+        {"exerciseId":"P3-Q015","sectionId":"relative-clause","also":["past-experience"],"reason":"вошедшему 与 который вошёл 保留年轻人已进入房间的先后。","title":"与 который 从句互换时，保留谁做和何时做"}
+      ]
+    },
+    {
+      "id": "p3-passive-participles",
           "title": "被动形动词的一致",
           "questionRanges": [
             [
@@ -297,13 +314,23 @@
           ],
           "rule": "被动形动词也须与中心名词保持性、数、格一致。",
           "pitfalls": "不要把完成体/未完成体词形与格变化混为一谈。",
-          "sourcePages": [
-            43,
-            44
-          ]
-        },
-        {
-          "id": "p3-gerund-meanings",
+      "sourcePages": [
+        43,
+        44
+      ],
+      "teachingMapping": [
+        {"exerciseId":"P3-Q016","sectionId":"current-or-regular-receiver","also":["agent-and-recipient"],"reason":"研讨会承受教研室组织这一通常或当前的动作。","title":"正在或通常被怎样处理：看的是过程或常态"},
+        {"exerciseId":"P3-Q017","sectionId":"agent-and-recipient","also":["current-or-regular-receiver"],"reason":"方法是 народная медицина 应用的对象；工具格标出执行者。","title":"先分开：谁做动作，谁承受动作"},
+        {"exerciseId":"P3-Q018","sectionId":"completed-result","also":["head-before-ending"],"reason":"建筑是已完成建造的对象，построенное 表示结果。","title":"已经完成的动作留下结果：先认承受者，再看结果"},
+        {"exerciseId":"P3-Q019","sectionId":"completed-result","also":["head-before-ending"],"reason":"柱子是按设计建成的对象，созданная 跟阴性主格一致。","title":"已经完成的动作留下结果：先认承受者，再看结果"},
+        {"exerciseId":"P3-Q020","sectionId":"relative-clause-result","also":["completed-result"],"reason":"установленным 压缩“有人已在条例中确立规则”的完成被动关系。","title":"把关系从句压成“已经被怎样处理”的特征"},
+        {"exerciseId":"P3-Q021","sectionId":"relative-clause-result","also":["completed-result"],"reason":"委员会是按区域原则被组建的对象，执行者可省略。","title":"把关系从句压成“已经被怎样处理”的特征"},
+        {"exerciseId":"P3-Q022","sectionId":"option-limit-preserve-relation","also":["completed-result"],"reason":"题目考已结束的实验，但主动反身原句和选项中的被动形动词并不严格同构。","notice":"保留教材答案 А；不从此题推出 закончились 可机械改为 законченные。","title":"原句和选项不能严格等价时，不把应试答案升级成通用规则"},
+        {"exerciseId":"P3-Q023","sectionId":"head-before-ending","also":["completed-result"],"reason":"手套是昨天被买的对象，купленные 随复数第四格 перчатки。","title":"中心名词不在主格，形动词也仍然跟它一致"}
+      ]
+    },
+    {
+      "id": "p3-gerund-meanings",
           "title": "副动词的时间、条件、原因与让步",
           "questionRanges": [
             [
@@ -313,12 +340,35 @@
           ],
           "rule": "按上下文判断副动词与主句之间的时间、条件、原因或让步关系。",
           "pitfalls": "副动词不能只译为“……着”；必须还原其逻辑关系。",
-          "sourcePages": [
-            44,
-            45,
-            46
-          ]
-        },
+      "sourcePages": [
+        44,
+        45,
+        46
+      ],
+      "teachingMapping": [
+        {"exerciseId":"P3-Q024","sectionId":"context-before-form","also":["simultaneous-or-manner"],"reason":"先识别题面词尾风险，再理解教材意图是“改善血液循环”与有益作用相伴。","notice":"现有题面 кровообращения 与选项搭配仍待原 PDF 复核；不把修订读法当作无争议原文。","title":"体给方向，语境才决定关系"},
+        {"exerciseId":"P3-Q025","sectionId":"simultaneous-or-manner","also":["time-clause-rewrite"],"reason":"开始做题属于主句建议所涉及的同一时间阶段。","title":"同时发生，或带着某种方式发生"},
+        {"exerciseId":"P3-Q026","sectionId":"completed-before-main","also":["time-clause-rewrite"],"reason":"先进房间、后问好，完成体副动词在此表达清楚的先后。","title":"先完成一个动作，再发生主句动作"},
+        {"exerciseId":"P3-Q027","sectionId":"completed-before-main","also":["time-clause-rewrite"],"reason":"教材按游历完成后才获得认识的读法安排 Побывав。","title":"先完成一个动作，再发生主句动作"},
+        {"exerciseId":"P3-Q028","sectionId":"completed-before-main","also":["time-clause-rewrite"],"reason":"站起完成在前，离开教室在后。","title":"先完成一个动作，再发生主句动作"},
+        {"exerciseId":"P3-Q029","sectionId":"completed-before-main","also":["time-clause-rewrite"],"reason":"大学毕业在前、考入大学在后；不把先后自动扩大为原因。","title":"先完成一个动作，再发生主句动作"},
+        {"exerciseId":"P3-Q030","sectionId":"simultaneous-or-manner","also":["context-before-form"],"reason":"смеясь 描述讲述时的伴随方式，不是先笑完再讲。","title":"同时发生，或带着某种方式发生"},
+        {"exerciseId":"P3-Q031","sectionId":"time-clause-rewrite","also":["completed-before-main"],"reason":"离境是将来过程中的时间点，展开时必须保留提醒语境。","title":"换成时间从句时，别丢掉原来的时间场景"},
+        {"exerciseId":"P3-Q032","sectionId":"time-clause-rewrite","also":["simultaneous-or-manner"],"reason":"每次到陌生城市的重复关系，用 когда 展开最清楚。","title":"换成时间从句时，别丢掉原来的时间场景"},
+        {"exerciseId":"P3-Q033","sectionId":"simultaneous-or-manner","also":["time-clause-rewrite"],"reason":"打电话与在房间走动同时发生。","title":"同时发生，或带着某种方式发生"},
+        {"exerciseId":"P3-Q034","sectionId":"simultaneous-or-manner","also":["time-clause-rewrite"],"reason":"城市扩建的过程与变美同步发展。","title":"同时发生，或带着某种方式发生"},
+        {"exerciseId":"P3-Q035","sectionId":"completed-before-main","also":["time-clause-rewrite"],"reason":"大学毕业结束后，彼得返回家乡。","title":"先完成一个动作，再发生主句动作"},
+        {"exerciseId":"P3-Q036","sectionId":"completed-before-main","also":["time-clause-rewrite"],"reason":"文章发表完成后，才收到稿费。","title":"先完成一个动作，再发生主句动作"},
+        {"exerciseId":"P3-Q037","sectionId":"completed-before-main","also":["time-clause-rewrite"],"reason":"问题解决完成后，才要求给工作单位打电话。","title":"先完成一个动作，再发生主句动作"},
+        {"exerciseId":"P3-Q038","sectionId":"completed-before-main","also":["time-clause-rewrite"],"reason":"从散步回来完成后，孩子们集合。","title":"先完成一个动作，再发生主句动作"},
+        {"exerciseId":"P3-Q039","sectionId":"condition","also":["completed-before-main"],"reason":"稍作休息是“能够回到工作”的前提，可展开为 если。","title":"前一件事是后一件事的前提时，读成“如果”"},
+        {"exerciseId":"P3-Q040","sectionId":"condition","also":["completed-before-main"],"reason":"邀请客人使准备晚饭成为必要的后续提醒，不只是两件事先后。","title":"前一件事是后一件事的前提时，读成“如果”"},
+        {"exerciseId":"P3-Q041","sectionId":"cause","also":["completed-before-main"],"reason":"掌握法语解释了去法国工作的原因，可展开为 поскольку。","title":"前一件事解释主句为什么发生时，读成“因为”"},
+        {"exerciseId":"P3-Q042","sectionId":"cause","also":["completed-before-main"],"reason":"在森林迷路解释孩子们很晚到家的原因。","title":"前一件事解释主句为什么发生时，读成“因为”"},
+        {"exerciseId":"P3-Q043","sectionId":"cause","also":["context-before-form"],"reason":"想看卫城是购买旅游券的动机，不是购买后才发生的动作。","title":"前一件事解释主句为什么发生时，读成“因为”"},
+        {"exerciseId":"P3-Q044","sectionId":"concession","also":["completed-before-main"],"reason":"早到本来预期能有好座位，всё равно 表明结果反预期，应展开为 хотя。","title":"有了这个条件，本来应当怎样，结果却相反"}
+      ]
+    },
         {
           "id": "p3-gerund-subject",
           "title": "副动词的主体一致",
@@ -333,6 +383,70 @@
           "sourcePages": [
             46,
             47
+          ],
+          "teachingMapping": [
+            {
+              "exerciseId": "P3-Q045",
+              "sectionId": "relative-time",
+              "also": [
+                "shared-actor"
+              ],
+              "reason": "先确认睡眠承担两个动作，再单独判断一般事实与特定将来的时间表达。",
+              "notice": "教材答案 А；将来语境下 Б 也可能成立。",
+              "title": "主体一致和动作时间是两道不同检查"
+            },
+            {
+              "exerciseId": "P3-Q046",
+              "sectionId": "passive-recipient",
+              "also": [
+                "shared-actor",
+                "rewrite-preserve-meaning"
+              ],
+              "reason": "先辨认谁准备旅行、谁买东西，再结合教材采用的购物语境判断。",
+              "notice": "按教材购买旅行用品的解释采用 В；主体一致本身不能排除 Б。",
+              "title": "被动句里的对象可能只是承受动作"
+            },
+            {
+              "exerciseId": "P3-Q047",
+              "sectionId": "implicit-person",
+              "also": [
+                "shared-actor"
+              ],
+              "reason": "从 не забудь 找回省略的 ты，再结合礼貌请求理解整句。",
+              "title": "没有写“我／你”，仍然可能找得到人"
+            },
+            {
+              "exerciseId": "P3-Q048",
+              "sectionId": "position",
+              "also": [
+                "shared-actor",
+                "relative-time"
+              ],
+              "reason": "副动词在句末仍借用主句的 студенты；再结合整句意思判断。",
+              "notice": "词形已按教材文字版改为 занимаясь；原 PDF 页面尚未复核。",
+              "title": "副动词在前或在后，不会换做事者"
+            },
+            {
+              "exerciseId": "P3-Q049",
+              "sectionId": "shared-actor",
+              "also": [
+                "mentioned-is-not-actor",
+                "rewrite-preserve-meaning"
+              ],
+              "reason": "写信与去邮局都由 он 完成；其他只是时间有关但做事者接不上。",
+              "title": "副动词为什么必须借用同一个做事者"
+            },
+            {
+              "exerciseId": "P3-Q050",
+              "sectionId": "recoverable-impersonal",
+              "also": [
+                "mentioned-is-not-actor",
+                "relative-time"
+              ],
+              "reason": "区分我承担找工作与别人给我提供工作。",
+              "notice": "教材答案 А；另一时间理解下 В 也可能成立。",
+              "title": "“需要做、可以做”为什么有时能接"
+            }
           ]
         }
       ]

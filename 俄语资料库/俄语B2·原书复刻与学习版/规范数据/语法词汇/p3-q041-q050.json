@@ -188,8 +188,8 @@
           "text": "Если мы пришли на концерт заранее"
         }
       ],
-      "answer": "Б",
-      "sourceAnswer": "Б",
+      "answer": "В",
+      "sourceAnswer": "В",
       "sourceEvidence": "PDF-036–PDF-047",
       "sourceExplanation": "原书解析：副动词表示让步意义。；译文：尽管我们到演唱会的时间比较早, 但还是没能占到好的座位。",
       "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
@@ -278,8 +278,8 @@
           "text": "весна прошла спокойно"
         }
       ],
-      "answer": "Б",
-      "sourceAnswer": "Б",
+      "answer": "В",
+      "sourceAnswer": "В",
       "sourceEvidence": "PDF-036–PDF-047",
       "sourceExplanation": "原书解析：собираясь 的主体是 я。；译文：因为打算夏天去旅行, 春天我就买了所有必",
       "referenceExplanation": "参考解析（AI，待复核）：先依据原书给出的语法规则，再结合句子语境判断。",
@@ -349,7 +349,7 @@
       "id": "P3-Q048",
       "printedNumber": 48,
       "type": "single-choice",
-      "question": "..., много часов занималась в библиотеке.",
+      "question": "..., много часов занимаясь в библиотеке.",
       "options": [
         {
           "key": "А",
@@ -388,7 +388,18 @@
         46,
         47
       ],
-      "reviewStatus": "verified"
+      "reviewStatus": "verified",
+      "sourceCorrections": [
+        {
+          "date": "2026-09-06",
+          "field": "question",
+          "previous": "..., много часов занималась в библиотеке.",
+          "current": "..., много часов занимаясь в библиотеке.",
+          "basis": "B2 教材文字版 01-语法和词汇.md 第 1854 行与原解析均使用 занимаясь；已同步修正生成来源。",
+          "status": "transcription-aligned",
+          "limitation": "尚未核对原 PDF 页面；原题编号、选项和标准答案未改。"
+        }
+      ]
     },
     {
       "id": "P3-Q049",

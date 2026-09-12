@@ -1335,10 +1335,20 @@
         46,
         47
       ],
-      "answer": "Б",
+      "answer": "В",
       "sourceExplanation": "собираясь 的主体是 я。",
       "translation": "因为打算夏天去旅行, 春天我就买了所有必",
-      "status": "verified"
+      "status": "verified",
+      "corrections": [
+        {
+          "date": "2026-09-06",
+          "field": "answer",
+          "previous": "Б",
+          "current": "В",
+          "basis": "与现行题目选项、教材文字版购物解释及现有答案完整性检查对齐。",
+          "status": "transcription-aligned"
+        }
+      ]
     },
     {
       "exerciseId": "P3-Q047",

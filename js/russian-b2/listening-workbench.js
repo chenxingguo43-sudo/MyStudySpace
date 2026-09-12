@@ -62,16 +62,21 @@
   }
   function normalizeTimeline(list) {
     if (!list.length) return [];
-    var valid = list.every(function (segment, index) {
+    var normalized = list.map(function (segment) {
+      return Object.assign({}, segment, {
+        playlistIndex: Number.isFinite(Number(segment.playlistIndex)) ? Number(segment.playlistIndex) : 0
+      });
+    });
+    var valid = normalized.every(function (segment, index) {
       if (!Number.isFinite(segment.start) || !Number.isFinite(segment.end) || segment.end <= segment.start) return false;
       if (!index) return true;
-      var previous = list[index - 1];
+      var previous = normalized[index - 1];
       if (segment.start < previous.start) return false;
       return segment.start >= previous.end - 0.25;
     });
-    var distinctStarts = new Set(list.map(function (segment) { return segment.start.toFixed(2); })).size;
-    if (!valid || (list.length > 2 && distinctStarts < Math.ceil(list.length * 0.6))) return [];
-    return list;
+    var distinctStarts = new Set(normalized.map(function (segment) { return segment.start.toFixed(2); })).size;
+    if (!valid || (normalized.length > 2 && distinctStarts < Math.ceil(normalized.length * 0.6))) return [];
+    return normalized;
   }
   function normalizeDataSegments(value) {
     var list = (Array.isArray(value) ? value : []).map(function (segment, index) {
@@ -201,10 +206,47 @@
     });
     var label = byId('lwSentencePosition');
     if (label) label.textContent = '第 ' + (index + 1) + ' / ' + segments.length + ' 句';
-    if (options.scroll) {
-      var target = document.querySelector('.lw-transcript-row[data-segment-index="' + index + '"]');
-      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }
+    if (options.scroll) scrollTranscriptToActiveRow(index);
+  }
+  function getTranscriptScrollTarget(viewport, row, safeMargin) {
+    viewport = viewport || {};
+    row = row || {};
+    var clientHeight = Number(viewport.clientHeight);
+    var scrollHeight = Number(viewport.scrollHeight);
+    var scrollTop = Number(viewport.scrollTop);
+    var rowTop = Number(row.top);
+    var rowBottom = Number(row.bottom);
+    var margin = Number(safeMargin);
+    if (!Number.isFinite(clientHeight) || !Number.isFinite(scrollHeight) || !Number.isFinite(scrollTop) || !Number.isFinite(rowTop) || !Number.isFinite(rowBottom)) return null;
+    margin = Number.isFinite(margin) ? Math.max(0, Math.min(margin, clientHeight / 2)) : 24;
+    var safeTop = margin;
+    var safeBottom = Math.max(safeTop, clientHeight - margin);
+    // Keep the active sentence near the viewport center. The scroll limits below
+    // naturally relax centering for the first and last sentences.
+    var rowCenter = (rowTop + rowBottom) / 2;
+    var targetTop = scrollTop + rowCenter - clientHeight / 2;
+    var maxScroll = Math.max(0, scrollHeight - clientHeight);
+    var minVisibleScroll = scrollTop + rowBottom - safeBottom;
+    var maxVisibleScroll = scrollTop + rowTop - safeTop;
+    targetTop = Math.max(minVisibleScroll, Math.min(maxVisibleScroll, targetTop));
+    return Math.max(0, Math.min(maxScroll, targetTop));
+  }
+  function scrollTranscriptToActiveRow(index) {
+    var transcript = document.querySelector('.lw-transcript');
+    var row = document.querySelector('.lw-transcript-row[data-segment-index="' + index + '"]');
+    if (!transcript || !row) return;
+    var transcriptRect = transcript.getBoundingClientRect();
+    var rowRect = row.getBoundingClientRect();
+    var targetTop = getTranscriptScrollTarget({
+      clientHeight: transcript.clientHeight,
+      scrollHeight: transcript.scrollHeight,
+      scrollTop: transcript.scrollTop
+    }, {
+      top: rowRect.top - transcriptRect.top,
+      bottom: rowRect.bottom - transcriptRect.top
+    }, 24);
+    if (targetTop === null || Math.abs(targetTop - transcript.scrollTop) < 1) return;
+    transcript.scrollTo({ top: targetTop, behavior: 'smooth' });
   }
   function activeByTime(time) {
     if (!segments.length) return -1;
@@ -275,8 +317,8 @@
     if (!audio) return;
     updatePlayerReadout();
     var nextActive = activeByTime(audio.currentTime);
-    // Keep the learner's reading position stable while playback advances.
-    if (nextActive >= 0 && nextActive !== activeIndex) setActive(nextActive, { scroll: false });
+    // Follow playback inside the transcript without moving the reading page itself.
+    if (nextActive >= 0 && nextActive !== activeIndex) setActive(nextActive, { scroll: true });
     var abSegment = segments[abLoopIndex];
     if (abLoopIndex >= 0 && abSegment && abSegment.playlistIndex === playlistIndex) {
       if (activeIndex !== abLoopIndex) setActive(abLoopIndex, { scroll: false });
@@ -479,9 +521,11 @@
     saveSettings: saveSettings,
     formatTime: formatTime,
     parseVtt: parseVtt,
+    normalizeTimeline: normalizeTimeline,
     normalizeDataSegments: normalizeDataSegments,
     getDataTimelineState: getDataTimelineState,
     captionsMatchTranscriptRows: captionsMatchTranscriptRows,
+    getTranscriptScrollTarget: getTranscriptScrollTarget,
     togglePlay: togglePlay,
     seek: seek,
     selectSegment: selectSegment,
