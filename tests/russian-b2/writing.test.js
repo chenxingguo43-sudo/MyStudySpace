@@ -72,8 +72,9 @@ test('writing module labels model texts as source material and keeps generated a
   assert.doesNotMatch(complaint.studySupport.label, /原书/);
 });
 
-test('writing publisher creates stable reader chapters without browser-held AI credentials', () => {
-  const outputDir = path.join(root, 'data', 'textbook', 'russian_b2', 'modules', 'writing');
+test('writing publisher creates stable reader chapters without browser-held AI credentials', (t) => {
+  const outputDir = fs.mkdtempSync(path.join(require('node:os').tmpdir(), 'b2-writing-test-'));
+  t.after(() => fs.rmSync(outputDir, { recursive: true, force: true }));
   const result = publishWritingReaderModule({ root, outputDir });
   assert.equal(result.index.chapters, 13);
   const first = JSON.parse(fs.readFileSync(path.join(outputDir, 'ch0000.json'), 'utf8'));

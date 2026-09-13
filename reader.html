@@ -477,6 +477,16 @@ body {
 .reading-practice-question .b2-options { margin-top: 12px; }
 .reading-answer-source { display: block; margin-top: 10px; color: var(--text-dim); font-size: 12px; }
 .writing-workbench { margin-top: 20px; }
+.writing-workbench { font-size: 16px; line-height: 1.75; }
+.writing-workbench p, .writing-workbench li,
+.writing-workbench .ru-text, .writing-workbench .cn-text,
+.writing-workbench .writing-letter-text, .writing-workbench .writing-template,
+.writing-workbench .writing-ad-layout { font-family: 'Segoe UI', 'Noto Sans', 'Noto Sans SC', sans-serif; font-size: 16px !important; line-height: 1.75; }
+.writing-workbench .writing-letter-text,
+.writing-workbench .writing-template,
+.writing-workbench .writing-ad-layout { font-size: 16px !important; }
+.writing-workbench .writing-status { font-size: 13px !important; line-height: 1.6; }
+.writing-workbench .reading-answer-source { font-size: 12px !important; }
 .writing-workbench section { margin: 18px 0; padding: 18px; border: 1px solid var(--border); border-radius: 12px; background: var(--surface); }
 .writing-draft { width: 100%; min-height: 260px; padding: 14px; border: 1px solid var(--glass-border); border-radius: 10px; background: var(--surface-solid); color: var(--text); font: 16px/1.7 'Crimson Pro', 'Noto Serif', serif; resize: vertical; }
 .writing-draft:focus { outline: 2px solid var(--accent-border); border-color: var(--accent); }
@@ -486,7 +496,7 @@ body {
 .writing-material-card { margin: 0 !important; padding: 16px !important; background: var(--glass) !important; }
 .writing-material-card h3 { margin-bottom: 8px; }
 .writing-original-label { margin-bottom: 10px; color: var(--text-dim); font-size: 11px; letter-spacing: .04em; text-transform: uppercase; }
-.writing-ad-layout { margin: 0 0 18px; padding: 18px 22px; border: 1px solid var(--glass-border); background: var(--surface-solid); font-family: 'Crimson Pro', 'Noto Serif', serif; }
+.writing-ad-layout { margin: 0 0 18px; padding: 18px 22px; border: 1px solid var(--glass-border); background: var(--surface-solid); font-family: 'Crimson Pro', 'Noto Serif', serif; font-size: 16px; line-height: 1.75; }
 .writing-ad-layout h3 { margin: 0 0 5px; font-size: 1.25em; }
 .writing-ad-subtitle { margin: 0 0 14px; color: var(--text-secondary); }
 .writing-ad-group { margin: 14px 0; }
@@ -498,6 +508,10 @@ body {
 .writing-model-section { scroll-margin-top: 92px; }
 .writing-model-inline { margin-top: 14px; padding: 16px; border: 1px solid var(--glass-border); background: var(--surface-solid); }
 .writing-model-inline h3, .writing-model-inline h4 { margin-top: 0; }
+.writing-letter-text { margin: 0; font-family: 'Crimson Pro', 'Noto Serif', serif; font-size: 16px; line-height: 1.8; }
+.writing-letter-paragraph { margin: 0 0 10px; }
+.writing-letter-line { display: block; text-indent: 2em; }
+.writing-letter-paragraph:last-child { margin-bottom: 0; }
 .writing-facts { margin-top: 10px; color: var(--text-secondary); font-size: 14px; }
 .writing-metadata { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
 .writing-metadata span { padding: 4px 9px; border-radius: 999px; background: var(--accent-dim); color: var(--accent); font-size: 12px; }
@@ -514,6 +528,119 @@ body {
 .writing-template { white-space: pre-wrap; padding: 16px; border: 1px dashed var(--accent-border); background: var(--surface-solid); color: var(--text); font: 16px/1.8 'Crimson Pro', 'Noto Serif', serif; overflow-x: auto; }
 .writing-original-example { margin: 14px 0; padding: 14px; border: 1px solid var(--glass-border); border-radius: 8px; background: var(--glass); }
 .writing-original-example h3, .writing-original-example h4 { margin-top: 0; }
+.writing-genre-library { margin-top: 18px; padding-top: 10px; border-top: 1px solid var(--border); }
+.writing-genre-card { background: var(--surface-solid); }
+.writing-source-excerpt { white-space: pre-wrap; margin: 10px 0 0; padding: 12px; border-left: 3px solid var(--accent); line-height: 1.75; font-size: 16px; overflow-x: auto; }
+.application-workbench-shell { display: grid; grid-template-columns: 230px minmax(0, 1fr); gap: 18px; align-items: start; }
+.application-workbench .writing-stage-nav { position: static; }
+.application-genre-nav { position: sticky; top: 72px; display: grid; gap: 6px; padding: 12px; border: 1px solid var(--border); border-radius: 10px; background: var(--surface-solid); }
+.application-genre-nav button { width: 100%; padding: 9px 10px; border: 1px solid transparent; border-radius: 7px; background: transparent; color: var(--text-secondary); cursor: pointer; font: inherit; text-align: left; }
+.application-genre-nav button:hover, .application-genre-nav button.is-active { border-color: var(--accent-border); background: var(--accent-dim); color: var(--accent); }
+.application-genre-detail { min-width: 0; }
+.application-document { padding: 34px 38px; border: 1px solid var(--glass-border); background: var(--surface-solid); color: var(--text); font: 16px/1.8 'Crimson Pro', 'Noto Serif', Georgia, serif; }
+.application-document pre { margin: 0; white-space: pre-wrap; overflow-wrap: anywhere; font: inherit; }
+.application-document .application-doc-line { display: block; min-height: 1.8em; }
+.application-document .application-doc-address { margin-left: auto; width: 100%; text-align: right; }
+.application-document .application-doc-title { margin: 24px 0 22px; text-align: center; font-weight: 700; }
+.application-document .application-doc-body { margin-top: 4px; }
+.application-document .application-doc-body .application-doc-line { text-indent: 2em; }
+.application-document .application-doc-footer { display: block; margin-top: 0; margin-left: 2em; }
+.application-document .application-doc-date, .application-document .application-doc-signature { display: block; text-align: left; margin: 0; }
+.writing-source-note { margin-top: 10px; padding: 10px 12px; border-left: 3px solid var(--warning); color: var(--text-secondary); font-size: 13px; line-height: 1.6; }
+.application-doc-line { display: block; min-height: 1.8em; }
+.application-document--application pre { padding-top: 4px; }
+.application-document-content { margin: 0; font: inherit; }
+.application-document-content .application-doc-line { white-space: pre-wrap; overflow-wrap: anywhere; }
+.application-document--invitation .application-doc-title,
+.application-document--autobiography .application-doc-title,
+.application-document--receipt .application-doc-title,
+.application-document--explanatory .application-doc-title { text-align: center; font-weight: 700; }
+.application-document--invitation .application-doc-line:not(.application-doc-title),
+.application-document--letter .application-doc-line,
+.application-document--congratulation .application-doc-line,
+.application-document--complaint .application-doc-line,
+.application-document--explanatory .application-doc-line { text-indent: 0; }
+.application-document--invitation .application-doc-line:nth-child(2),
+.application-document--invitation .application-doc-line:nth-child(3) { text-indent: 2em; }
+.application-document--invitation .application-doc-line:nth-last-child(2),
+.application-document--invitation .application-doc-line:last-child { text-indent: 2em; }
+.application-document--invitation .application-doc-line:first-child { margin-bottom: 1.8em; }
+.application-document--invitation .application-doc-line:nth-child(4) { margin-top: 1.8em; }
+.application-document--template .application-doc-title { margin: 0 0 1.8em; }
+.application-document--template .application-doc-line { min-height: 1.8em; }
+.application-document--template.application-document--invitation .application-doc-line:nth-child(3),
+.application-document--template.application-document--invitation .application-doc-line:nth-child(4) { text-indent: 2em; }
+.application-document--template.application-document--invitation .application-doc-line:nth-last-child(2),
+.application-document--template.application-document--invitation .application-doc-line:last-child { text-indent: 2em; }
+.application-document--template.application-document--invitation .application-doc-line:first-child { margin-bottom: 1.8em; }
+.application-document--template.application-document--invitation .application-doc-line:nth-child(6) { margin-top: 1.8em; }
+.application-document--autobiography .application-doc-line:not(.application-doc-title),
+.application-document--complaint .application-doc-line:not(.application-doc-title) { text-indent: 2em; }
+.application-document--autobiography .application-doc-signature,
+.application-document--autobiography .application-doc-date,
+.application-document--receipt .application-doc-date,
+.application-document--certificate .application-doc-date,
+.application-document--letter .application-doc-date,
+.application-document--congratulation .application-doc-date,
+.application-document--complaint .application-doc-signature,
+.application-document--complaint .application-doc-date,
+.application-document--explanatory .application-doc-signature,
+.application-document--explanatory .application-doc-date { margin-left: 2em; text-indent: 0; }
+.application-document--receipt .application-doc-signature,
+.application-document--receipt .application-doc-date,
+.application-document--announcement .application-doc-signature,
+.application-document--announcement .application-doc-date,
+.application-document--certificate .application-doc-signature { margin-left: 2em; text-indent: 0; }
+.application-document--certificate .application-doc-stamp { margin-left: 2em; text-indent: 0; }
+.application-document--letter .application-doc-signature,
+.application-document--letter .application-doc-date,
+.application-document--congratulation .application-doc-signature,
+.application-document--congratulation .application-doc-date { margin-left: 2em; text-indent: 0; }
+.application-document--congratulation .application-doc-salutation { margin-bottom: 1.8em; }
+.application-document--congratulation .application-doc-signature { margin-top: 1.8em; }
+.application-document--template.application-document--congratulation .application-doc-salutation { margin-bottom: 1.8em; }
+.application-document--template.application-document--congratulation .application-doc-signature { margin-top: 1.8em; }
+.application-document--letter .application-doc-salutation { margin-bottom: 1.8em; text-indent: 0; }
+.application-document--letter .application-doc-signature { margin-top: 1.8em; }
+.application-document--letter .application-doc-date { margin-left: 2em; }
+.application-document--template.application-document--letter .application-doc-salutation { margin-bottom: 1.8em; }
+.application-document--template.application-document--letter .application-doc-signature { margin-top: 1.8em; }
+.application-document--autobiography .application-doc-signature,
+.application-document--autobiography .application-doc-date,
+.application-document--complaint .application-doc-signature,
+.application-document--complaint .application-doc-date { text-indent: 0 !important; }
+.application-document--complaint .application-doc-address { margin-left: auto; width: 100%; text-align: right; text-indent: 0 !important; }
+.application-document--complaint .application-doc-title { margin: 1.8em 0; text-align: center; font-weight: 700; }
+.application-document--complaint .application-doc-body .application-doc-line { text-indent: 2em; }
+.application-document--complaint .application-doc-footer { margin-top: 1.8em; margin-left: 0; }
+.application-document--explanatory .application-doc-address { margin-left: auto; width: 100%; text-align: right; text-indent: 0 !important; }
+.application-document--explanatory .application-doc-title { margin: 1.8em 0; text-align: center; font-weight: 700; }
+.application-document--explanatory .application-doc-body .application-doc-line { text-indent: 2em; }
+.application-document--explanatory .application-doc-footer { margin-top: 1.8em; margin-left: 2em; }
+.application-document--autobiography .application-doc-signature { margin-left: auto; width: max-content; text-align: right; }
+.application-document--autobiography .application-doc-date { margin-left: 0; width: max-content; text-align: left; }
+.application-document--autobiography .application-doc-footer { display: grid; grid-template-columns: 1fr 1fr; align-items: end; margin-left: 0; margin-top: 1.8em; }
+.application-document--autobiography .application-doc-footer .application-doc-date { grid-column: 1; grid-row: 1; }
+.application-document--autobiography .application-doc-footer .application-doc-signature { grid-column: 2; grid-row: 1; }
+.application-document--receipt .application-doc-footer { display: grid; grid-template-columns: 1fr 1fr; align-items: end; margin-left: 0; margin-top: 1.8em; }
+.application-document--receipt .application-doc-footer .application-doc-date { grid-column: 1; grid-row: 1; margin-left: 0; }
+.application-document--receipt .application-doc-footer .application-doc-signature { grid-column: 2; grid-row: 1; margin-left: auto; }
+.application-document--announcement .application-doc-footer { display: grid; grid-template-columns: 1fr 1fr; align-items: end; margin-left: 0; margin-top: 1.8em; }
+.application-document--announcement .application-doc-footer .application-doc-date { grid-column: 1; grid-row: 1; margin-left: 0; }
+.application-document--announcement .application-doc-footer .application-doc-signature { grid-column: 2; grid-row: 1; margin-left: auto; }
+.application-document--autobiography .application-doc-date,
+.application-document--receipt .application-doc-date,
+.application-document--certificate .application-doc-date { margin-top: 0; }
+.application-document--business-card .application-doc-line { text-indent: 0; }
+.application-document--letter .application-doc-salutation, .application-document--congratulation .application-doc-salutation { margin-bottom: 18px; }
+.application-document--congratulation .application-doc-salutation { text-align: center; }
+.application-document--certificate .application-doc-header { max-width: 55%; }
+.application-document--certificate .application-doc-title, .application-document--announcement .application-doc-title { text-align: center; margin: 18px 0; }
+.application-document--business-card { max-width: 560px; min-height: 260px; display: grid; align-content: center; gap: 7px; }
+.application-document--business-card .application-doc-name { font-size: 1.25em; font-weight: 700; }
+.application-document--business-card .application-doc-role { color: var(--accent); }
+.application-mobile-picker { display: none; }
+@media (max-width: 760px) { .application-workbench-shell { display: block; } .application-genre-nav { display: none; } .application-mobile-picker { display: block; width: 100%; margin-bottom: 14px; padding: 10px; border: 1px solid var(--border); border-radius: 8px; background: var(--surface-solid); color: var(--text); font: inherit; } .application-document { padding: 18px 16px; } .application-document .application-doc-address { width: 100%; } }
 .writing-transfer { border-left: 4px solid var(--warning) !important; }
 .writing-translation { margin: 12px 0 0; padding: 10px 12px; border-left: 3px solid var(--accent-border); background: var(--surface-solid); }
 .writing-translation summary { color: var(--accent); cursor: pointer; font-size: 13px; }
@@ -536,11 +663,11 @@ body {
 .writing-selection-result li { margin: 10px 0; }
 @media (max-width: 560px) { .writing-guided-line-head { grid-template-columns: 22px minmax(0, 1fr); } .writing-mark-button { grid-column: 2; justify-self: start; } .writing-guided-line-meta, .writing-hint { margin-left: 30px; } }
 .writing-workbench { max-width: 1240px !important; padding-left: 28px !important; padding-right: 28px !important; }
-.writing-stage-nav { position: sticky; top: 8px; z-index: 4; display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0 22px; padding: 10px; border: 1px solid var(--border); border-radius: 10px; background: var(--surface-solid); opacity: .97; }
+.writing-stage-nav { position: sticky; top: 64px; z-index: 100; display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0 22px; padding: 10px; border: 1px solid var(--border); border-radius: 10px; background: var(--surface-solid); opacity: 1; box-shadow: 0 8px 18px rgba(35, 30, 20, .12); }
 .writing-stage-nav button { flex: 1 1 120px; min-height: 38px; padding: 7px 10px; border: 1px solid var(--border); border-radius: 7px; background: transparent; color: var(--text-secondary); cursor: pointer; font: inherit; font-size: 13px; text-align: left; }
 .writing-stage-nav button:hover, .writing-stage-nav button.is-active { border-color: var(--accent-border); background: var(--accent-dim); color: var(--accent); }
 .writing-current-stage { margin: 0 0 18px; padding: 10px 14px; border-left: 3px solid var(--accent); color: var(--accent); font-size: 14px; }
-.writing-lesson-plan, .writing-source-task, .writing-transfer { scroll-margin-top: 92px; }
+.writing-lesson-plan, .writing-source-task, .writing-transfer { scroll-margin-top: 154px; }
 @media (max-width: 760px) { .writing-workbench { padding-left: 14px !important; padding-right: 14px !important; } .writing-stage-nav { position: static; } .writing-stage-nav button { flex-basis: calc(50% - 8px); } }
 @media (max-width: 720px) { .writing-materials-grid { grid-template-columns: 1fr; } }
 @media (max-width: 720px) { .writing-pattern-grid { grid-template-columns: 1fr; } }
@@ -2106,6 +2233,22 @@ var morphologyReady = false;       // 就绪标志
 var _urlParams = new URLSearchParams(window.location.search);
 var _jumpBook = _urlParams.get('book');
 var _jumpCh = _urlParams.get('ch');
+var _jumpParagraph = _urlParams.get('paragraph');
+var _jumpModule = _urlParams.get('module');
+
+function applyReaderSourceJump() {
+  if (_jumpParagraph == null || _jumpParagraph === '') return;
+  var paragraphIndex = parseInt(_jumpParagraph, 10);
+  _jumpParagraph = null;
+  if (!Number.isFinite(paragraphIndex) || paragraphIndex < 0) return;
+  setTimeout(function() {
+    var target = document.querySelector('.para-block[data-idx="' + paragraphIndex + '"]') || document.getElementById('rs-source-p-' + paragraphIndex);
+    if (!target) return;
+    target.classList.add('reader-source-jump-highlight');
+    target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    setTimeout(function() { target.classList.remove('reader-source-jump-highlight'); }, 2600);
+  }, 80);
+}
 
 // 加载持久化
 try { var s = JSON.parse(localStorage.getItem('rr_state_' + NOVEL_ID)); if (s) { Object.assign(state, s); } } catch(e) {}
@@ -2496,6 +2639,7 @@ function b2FloatingNavigation(options) {
 var worldBreadcrumbOpen = { world: true, modules: {}, groups: {} };
 var worldBreadcrumbNeedsAutoExpand = true;
 var shelfBreadcrumbOpen = { materials: true, reading: true, b2: false };
+var b2BreadcrumbOpen = { modules: {}, groups: {} };
 function getWorldBreadcrumbGroups(book) {
   var groups = getWorldDirectoryGroups(book);
   if (groups.length) return groups;
@@ -2636,7 +2780,15 @@ function renderShelfBreadcrumbTree() {
       html += '<div class="breadcrumb-tree-row' + (b2Active ? ' is-current' : '') + '" style="--tree-level:2"><button type="button" class="breadcrumb-tree-toggle" onclick="toggleB2BreadcrumbBook()" aria-label="' + (b2Open ? '收起' : '展开') + '俄语 B2 全模块">' + (b2Open ? '▾' : '▸') + '</button><button type="button" class="breadcrumb-tree-label" onclick="closeBreadcrumb();showB2Dashboard()">俄语 B2 全模块<span class="breadcrumb-tree-detail">7 个模块</span></button></div>';
       if (b2Open && b2BookManifest) {
         (b2BookManifest.modules || []).forEach(function(module) {
-          html += '<div class="breadcrumb-tree-row breadcrumb-tree-leaf" style="--tree-level:3"><button type="button" class="breadcrumb-tree-label" onclick="openB2BreadcrumbModule(\'' + escapeHtml(module.id) + '\')">' + escapeHtml(module.title) + '<span class="breadcrumb-tree-detail">' + escapeHtml(module.id === 'review' ? '统一错题与复习' : (module.chapters || 0) + ' 个学习单元') + '</span></button></div>';
+          var moduleOpen = !!b2BreadcrumbOpen.modules[module.id];
+          html += '<div class="breadcrumb-tree-row" style="--tree-level:3"><button type="button" class="breadcrumb-tree-toggle" onclick="toggleB2BreadcrumbModule(\'' + escapeHtml(module.id) + '\')">' + (moduleOpen ? '▾' : '▸') + '</button><button type="button" class="breadcrumb-tree-label" onclick="openB2BreadcrumbModule(\'' + escapeHtml(module.id) + '\')">' + escapeHtml(module.title) + '</button></div>';
+          if (moduleOpen && module.id !== 'review') {
+            getB2DirectoryGroups(module.id, module.chapters || 0).forEach(function(group, groupIndex) {
+              var key = module.id + ':' + groupIndex, groupOpen = !!b2BreadcrumbOpen.groups[key];
+              html += '<div class="breadcrumb-tree-row" style="--tree-level:4"><button type="button" class="breadcrumb-tree-toggle" onclick="toggleB2BreadcrumbGroup(\'' + escapeHtml(module.id) + '\',' + groupIndex + ')">' + (groupOpen ? '▾' : '▸') + '</button><span class="breadcrumb-tree-label">' + escapeHtml(group.label) + '</span></div>';
+              if (groupOpen) for (var offset = 0; offset < group.count; offset++) html += '<div class="breadcrumb-tree-row breadcrumb-tree-leaf" style="--tree-level:5"><button type="button" class="breadcrumb-tree-label" onclick="openB2BreadcrumbChapter(\'' + escapeHtml(module.id) + '\',' + (group.start + offset) + ')">第 ' + (group.start + offset + 1) + ' 单元</button></div>';
+            });
+          }
         });
       } else if (b2Open) html += '<div class="breadcrumb-tree-row breadcrumb-tree-leaf" style="--tree-level:3"><span class="breadcrumb-tree-label">正在载入模块目录…</span></div>';
     }
@@ -3058,6 +3210,9 @@ function getBookDataDir(bookId) {
 function isQuizFirstBook(book) {
   return !!book && book.kind === 'textbook' && book.format === 'quiz-first';
 }
+function getReaderDirectoryBackAction(defaultAction) {
+  return curBook && curBook.trialPackage ? 'showTrialDashboard(\'' + escapeHtml(curBook.id) + '\')' : defaultAction;
+}
 function fetchChapter(bookId, idx) {
   var book = curBook && curBook.id === bookId && curBook.isB2Module ? curBook : getBookById(bookId);
   return appRuntime.loadChapter(book, idx);
@@ -3109,6 +3264,7 @@ function continueShelfLearning() {
   restoreLastRead(record);
 }
 function renderShelfBookCard(b) {
+  if (b.trialPackage) return renderTrialShelfCard(b);
   var done = getBookProgress(b.id), pct = b.chapters > 0 ? Math.round(done / b.chapters * 100) : 0;
   return '<article class="book-card" onclick="showChapters(\'' + escapeHtml(b.id) + '\')">' +
     '<h3>' + (b.kind === 'textbook' ? '<span class="book-kind">教材</span>' : '') + escapeHtml(b.title) + '</h3>' +
@@ -3242,7 +3398,8 @@ function showChapters(bookId, preserveScroll) {
   var prompt = document.getElementById('completePrompt'); if (prompt) prompt.classList.remove('visible');
   document.getElementById('searchBar').classList.remove('visible');
   if (curBook && curBook.id === bookId && curBook.isB2Module) {
-    renderB2ModuleChapters();
+    if (_urlParams.get('module') === moduleId && _jumpCh != null) goChapter(Math.max(0, parseInt(_jumpCh, 10) || 0));
+    else renderB2ModuleChapters();
     return;
   }
   for (var i = 0; i < booksData.length; i++) {
@@ -3302,7 +3459,7 @@ function showChapters(bookId, preserveScroll) {
   }
 }
 function getChapterCacheBookId(book) {
-  return book && book.isB2Module ? book.id + ':' + book.moduleId : (book && book.id || '');
+  return book && book.isB2Module ? book.id + ':' + book.moduleId + (book.moduleId === 'writing' ? ':v2' : '') : (book && book.id || '');
 }
 
 function getB2ModuleDescription(module) {
@@ -3352,15 +3509,27 @@ function loadB2DashboardInventories(manifest) {
 /* B2 模块卡的上次学习位置（对齐 getWorldModuleResume / getWorldResumeLocation）：
    每个模块各存各的（rr_b2_module_resume_v1），全局 rr_lastread 作为旧数据兜底 */
 var B2_MODULE_RESUME_KEY = 'rr_b2_module_resume_v1';
+var B2_WRITING_CURATED_INDEXES = [0, 1, 12];
+function isCuratedWritingChapter(index) {
+  return B2_WRITING_CURATED_INDEXES.indexOf(index) !== -1;
+}
+function normalizeB2ModuleResume(moduleId, record) {
+  if (!record || typeof record.chapter !== 'number') return null;
+  return moduleId === 'writing' && !isCuratedWritingChapter(record.chapter) ? null : record;
+}
 function getB2ModuleResumeRecords() {
   return parseStoredObject(B2_MODULE_RESUME_KEY);
 }
 function getB2ModuleResume(moduleId) {
   var records = getB2ModuleResumeRecords();
   var record = records && records[moduleId];
-  if (record && typeof record.chapter === 'number') return record;
+  if (record && typeof record.chapter === 'number') {
+    if (moduleId !== 'writing' || isCuratedWritingChapter(record.chapter)) return record;
+  }
   var globalRecord = parseStoredObject('rr_lastread_' + NOVEL_ID);
-  if (globalRecord && globalRecord.bookId === 'russian_b2' && globalRecord.moduleId === moduleId && typeof globalRecord.chapter === 'number') return globalRecord;
+  if (globalRecord && globalRecord.bookId === 'russian_b2' && globalRecord.moduleId === moduleId && typeof globalRecord.chapter === 'number') {
+    if (moduleId !== 'writing' || isCuratedWritingChapter(globalRecord.chapter)) return globalRecord;
+  }
   return null;
 }
 function getB2ResumeLocation(moduleId, record) {
@@ -3402,6 +3571,7 @@ function ensureB2DerivedResume(moduleId, module, index) {
 }
 function continueB2ModuleLearning(moduleId) {
   var record = getB2ModuleResume(moduleId) || deriveB2ModuleResume(moduleId, null);
+  if (moduleId === 'writing' && record && !isCuratedWritingChapter(record.chapter)) record = null;
   if (!record) { toast('这个模块还没有学习记录'); return; }
   restoreLastRead(record);
 }
@@ -3544,6 +3714,9 @@ function renderB2Dashboard(book) {
   var continueCard = '';
   if (model.continueLearning) {
     var continuation = model.continueLearning;
+    if (continuation.moduleId === 'writing' && !isCuratedWritingChapter(continuation.chapter)) continuation = null;
+  }
+  if (continuation) {
     var continueModule = (book.modules || []).find(function(module) { return module.id === continuation.moduleId; }) || {};
     var continueLocation = continuation.activeQuestionId || ('第 ' + (continuation.chapter + 1) + ' 单元');
     var savedAt = new Date(continuation.updatedAt).toLocaleString('zh-CN');
@@ -3552,6 +3725,16 @@ function renderB2Dashboard(book) {
   }
   var cards = (book.modules || []).map(function(module) {
     var progress = Object.values(model.modules || {}).find(function(item) { return item.moduleId === module.id; }) || {};
+    var writingCuratedProgress = null;
+    if (module.id === 'writing') {
+      var writingIndexes = [0, 1, 12];
+      var writingCompleted = writingIndexes.filter(function(index) {
+        var stats = readStats['russian_b2:writing'] || {};
+        return !!(stats[index] && stats[index].completed);
+      }).length;
+      writingCuratedProgress = { completed: writingCompleted, total: 3, percent: Math.round(writingCompleted / 3 * 100) };
+      progress = Object.assign({}, progress, writingCuratedProgress);
+    }
     var status = '';
     var hasProgress = progress.progressAvailable !== false && (progress.completed > 0 || progress.lastActivityAt);
     var progressBar = hasProgress ? '<div class="progress-bar"><div class="progress-fill" style="width:' + progress.percent + '%"></div></div>' : '';
@@ -3561,14 +3744,14 @@ function renderB2Dashboard(book) {
       status = '已完成 ' + progress.completed + ' / ' + progress.total;
     } else status = '尚未开始';
     var isReview = module.id === 'review';
-    var resumeTarget = isReview ? null : (getB2ModuleResume(module.id) || deriveB2ModuleResume(module.id, inventories));
+    var resumeTarget = isReview ? null : normalizeB2ModuleResume(module.id, getB2ModuleResume(module.id) || deriveB2ModuleResume(module.id, inventories));
     var openAction = isReview
       ? '<button type="button" class="b2-finish" onclick="event.stopPropagation();showWrongAnswerBook()">打开错题本</button>'
       : '<button type="button" class="b2-finish" onclick="event.stopPropagation();openB2Module(\'' + escapeHtml(module.id) + '\')">打开目录</button>';
     var continueAction = resumeTarget ? '<button type="button" class="world-module-continue" onclick="event.stopPropagation();continueB2ModuleLearning(\'' + escapeHtml(module.id) + '\')">继续 ↗</button>' : '';
     return '<article class="b2-module-card" role="button" tabindex="0" aria-label="' + escapeHtml(module.title) + '" onclick="openB2Module(\'' + escapeHtml(module.id) + '\')">' +
       '<span class="book-kind">学习模块</span><h2>' + escapeHtml(module.title) + '</h2>' +
-      '<small>' + escapeHtml(getB2ModuleDescription(module)) + '</small>' + progressBar +
+    '<small>' + escapeHtml(module.id === 'writing' ? '推荐信、应用文、介绍信三类写作模板' : getB2ModuleDescription(module)) + '</small>' + progressBar +
       '<span class="b2-status">' + escapeHtml(status) + '</span>' +
       '<div class="world-module-resume"><strong>上次学习：</strong>' + escapeHtml(getB2ResumeLocation(module.id, resumeTarget)) + '</div>' +
       '<div class="world-module-actions">' + openAction + continueAction + '</div></article>';
@@ -3651,7 +3834,7 @@ function continueB2Learning() {
 /* B2 模块目录的继续卡：按模块分库记录，本模块有上次位置即显示（对齐 renderWorldDirectoryResume） */
 function renderB2DirectoryResume() {
   if (!curBook || !curBook.isB2Module) return '';
-  var record = getB2ModuleResume(curBook.moduleId) || deriveB2ModuleResume(curBook.moduleId, null);
+  var record = normalizeB2ModuleResume(curBook.moduleId, getB2ModuleResume(curBook.moduleId) || deriveB2ModuleResume(curBook.moduleId, null));
   if (!record) return '';
   var savedAt = record.updatedAt ? new Date(record.updatedAt).toLocaleString('zh-CN') : '';
   var chapterTitle = record.chapterTitle || (curBook.chapterTitles && curBook.chapterTitles[record.chapter]) || ('第 ' + (record.chapter + 1) + ' 单元');
@@ -3697,6 +3880,20 @@ function renderB2ModuleChapters() {
   if (!curBook || !curBook.isB2Module) return;
   curView = 'chapters'; syncReaderShellState();
   curCh = -1;
+  if (curBook.moduleId === 'writing') {
+    var writingIndexes = B2_WRITING_CURATED_INDEXES;
+    var writingDone = writingIndexes.filter(function(index) { return isB2DirectoryChapterDone(curBook.moduleId, index); }).length;
+    var writingHtml = b2FloatingNavigation({ backAction: 'showB2Dashboard()', backTitle: '仪表盘', menuAction: 'showBreadcrumb()' }) +
+      '<main class="main-container b2-chapter-directory"><div class="chapter-list-header"><h2>' + escapeHtml(curBook.title) + '</h2><div class="ch-meta">3 个写作任务 · 已完成 ' + writingDone + ' 个</div></div>' + renderB2DirectoryResume() +
+      '<div class="chapter-grid b2-chapter-grid writing-curated-grid">' + writingIndexes.map(function(index) {
+        var isDone = isB2DirectoryChapterDone(curBook.moduleId, index);
+        var title = curBook.chapterTitles && curBook.chapterTitles[index] || '第 ' + (index + 1) + ' 个写作任务';
+        return '<div class="ch-item b2-chapter-item' + (isDone ? ' done' : '') + '" onclick="goChapter(' + index + ')" title="' + escapeHtml(title) + '"><span class="ch-num">' + (isDone ? '✓' : (writingIndexes.indexOf(index) + 1)) + '</span><span class="ch-title">' + escapeHtml(title) + '</span></div>';
+      }).join('') + '</div></main>';
+    document.getElementById('app').innerHTML = writingHtml;
+    window.scrollTo(0, 0);
+    return;
+  }
   var done = 0;
   for (var di = 0; di < curBook.chapters; di++) { if (isB2DirectoryChapterDone(curBook.moduleId, di)) done++; }
   var html = b2FloatingNavigation({ backAction: 'showB2Dashboard()', backTitle: '仪表盘', menuAction: 'showBreadcrumb()' }) +
@@ -3897,7 +4094,8 @@ function fetchStudyCard(pointId) {
     return response.json();
   });
 }
-function lookupContext(moduleId, taskId, regionType, sentenceRu, sentenceZh, sourcePages) {
+function lookupContext(moduleId, taskId, regionType, sentenceRu, sentenceZh, sourcePages, locationMeta) {
+  locationMeta = locationMeta || {};
   return {
     bookId: curBook && curBook.id || '',
     moduleId: moduleId || '',
@@ -3906,11 +4104,15 @@ function lookupContext(moduleId, taskId, regionType, sentenceRu, sentenceZh, sou
     sentenceRu: '', // DOM fallback 实时获取，不塞进 data 属性
     sentenceZh: '',
     sourceLabel: 'B2 原书',
-    sourcePages: Array.isArray(sourcePages) ? sourcePages : []
+    sourcePages: Array.isArray(sourcePages) ? sourcePages : [],
+    articleTitle: curBook && (curBook.title || curBook.name) || '',
+    chapterIndex: typeof curCh === 'number' ? curCh : null,
+    paragraphIndex: Number.isFinite(Number(locationMeta.paragraphIndex)) ? Number(locationMeta.paragraphIndex) : null,
+    charOffset: Number.isFinite(Number(locationMeta.charOffset)) ? Number(locationMeta.charOffset) : null
   };
 }
-function lookupContextWithSentence(moduleId, taskId, regionType, sentenceRu, sentenceZh, sourcePages) {
-  var context = lookupContext(moduleId, taskId, regionType, sentenceRu, sentenceZh, sourcePages);
+function lookupContextWithSentence(moduleId, taskId, regionType, sentenceRu, sentenceZh, sourcePages, locationMeta) {
+  var context = lookupContext(moduleId, taskId, regionType, sentenceRu, sentenceZh, sourcePages, locationMeta);
   context.sentenceRu = String(sentenceRu || '');
   context.sentenceZh = String(sentenceZh || '');
   return context;
@@ -6040,7 +6242,7 @@ function renderQuizChapter(data, scrollPosition) {
   if (_wrongAnswerQuizReturn) {
     wrongAnswerBack = '<a class="b2-wrong-back" onclick="' + _wrongAnswerQuizReturn.back + '" style="display:block;margin-bottom:10px;color:var(--accent);cursor:pointer;font-size:14px;font-weight:600">← 返回错题本</a>';
   }
-  var quizBackAction = isB2Quiz ? 'showChapters(\'russian_b2\')' : 'showChapters(\'' + escapeHtml(curBook.id) + '\')';
+  var quizBackAction = isB2Quiz ? 'showChapters(\'russian_b2\')' : getReaderDirectoryBackAction('showChapters(\'' + escapeHtml(curBook.id) + '\')');
   var quizBackTitle = '目录';
   var contextGroupByExercise = renderQuizContextGroups(data.contextGroups || []);
   var html = b2FloatingNavigation({ backAction: quizBackAction, backTitle: quizBackTitle, menuAction: 'showBreadcrumb()' }) + '<main class="main-container b2-quiz-page reader-workbench reader-workbench--quiz"><div class="b2-quiz-header">' +
@@ -6301,7 +6503,235 @@ function writingJumpStage(id, button) {
   var nav = button && button.parentElement;
   if (nav) Array.prototype.forEach.call(nav.querySelectorAll('button'), function(item) { item.classList.toggle('is-active', item === button); });
 }
+function updateWritingStageNav() {
+  var nav = document.querySelector('.writing-stage-nav');
+  if (!nav) return;
+  var ids = ['writing-stage-task', 'writing-stage-material', 'writing-stage-lesson', 'writing-stage-paper', 'writing-stage-model', 'writing-stage-transfer'];
+  var buttons = nav.querySelectorAll('button');
+  var marker = window.scrollY + 150;
+  var active = 0;
+  ids.forEach(function(id, index) {
+    var section = document.getElementById(id);
+    if (section && section.getBoundingClientRect().top + window.scrollY <= marker) active = index;
+  });
+  Array.prototype.forEach.call(buttons, function(button, index) { button.classList.toggle('is-active', index === active); });
+}
+function renderWritingLetter(text) {
+  var paragraphs = String(text || '').split(/\n\s*\n/).filter(function(paragraph) { return paragraph.trim(); });
+  return '<div class="writing-letter-text">' + paragraphs.map(function(paragraph) {
+    return '<p class="writing-letter-paragraph">' + paragraph.split('\n').map(function(line) { return '<span class="writing-letter-line">' + escapeHtml(line) + '</span>'; }).join('') + '</p>';
+  }).join('') + '</div>';
+}
+function renderTrialShelfCard(book) {
+  var done = getBookProgress(book.id), total = book.chapters || (book.trialUnits || []).length;
+  var pct = total ? Math.round(done / total * 100) : 0;
+  var miniCards = TRIAL_CATEGORY_CONFIG.map(function(category) { return '<button type="button" class="world-shelf-module b2-shelf-module" onclick="event.stopPropagation();showTrialCategoryDashboard(\'' + escapeHtml(book.id) + '\',\'' + category.id + '\')"><strong>' + escapeHtml(category.label) + '</strong><small>' + category.indexes.length + ' 个模块</small></button>'; }).join('');
+  return '<article class="book-card world-shelf-card trial-shelf-card" onclick="showTrialDashboard(\'' + escapeHtml(book.id) + '\')"><div class="world-shelf-card-main"><div><h3><span class="book-kind">试运行教材</span>' + escapeHtml(book.title) + '</h3><div class="book-meta"><span>📚 ' + total + ' 个学习模块</span><span>🇷🇺→🇨🇳</span></div><div class="book-desc">先选择技能分类，再进入对应的文章、题组和练习。</div><div class="book-progress"><div class="progress-bar"><div class="progress-fill" style="width:' + pct + '%"></div></div><div class="progress-text">总进度 ' + done + '/' + total + ' (' + pct + '%)</div></div></div><button type="button" class="world-shelf-open" onclick="event.stopPropagation();showTrialDashboard(\'' + escapeHtml(book.id) + '\')">打开总仪表盘</button></div><div class="world-shelf-modules b2-shelf-modules">' + miniCards + '</div></article>';
+}
+function getTrialBook(bookId) {
+  return (booksData || []).find(function(book) { return book.id === bookId && book.trialPackage; }) || null;
+}
+function getTrialUnitProgress(book, index) {
+  var stats = readStats[book.id] || {}, record = stats[index];
+  return record && record.completed ? '已完成' : '尚未开始';
+}
+function getTrialUnitTitle(unit, index) {
+  if (unit && unit.title) return unit.title;
+  var id = unit && unit.id || '';
+  if (/grammar/.test(id)) return '语法词汇 · Variant I';
+  if (/reading-text(\d+)/.test(id)) return '阅读 · Текст ' + RegExp.$1;
+  if (/listening-(.+)/.test(id)) return '听力 · ' + RegExp.$1;
+  if (/writing/.test(id)) return '写作 · Variant I';
+  if (/speaking-t(\d+)/.test(id)) return '口语 · 任务 ' + RegExp.$1;
+  return '学习模块 ' + (index + 1);
+}
+function openTrialUnit(bookId, index) {
+  var book = getTrialBook(bookId);
+  if (!book || !(book.trialUnits || [])[index]) { showTrialDashboard(bookId); return; }
+  curBook = book; curCh = index; goChapter(index);
+}
+function getTrialContinueBanner(book) {
+  var record = parseStoredObject('rr_lastread_' + NOVEL_ID);
+  if (!record || record.bookId !== book.id || typeof record.chapter !== 'number') return '';
+  var title = getTrialUnitTitle((book.trialUnits || [])[record.chapter], record.chapter);
+  var savedAt = record.updatedAt ? new Date(record.updatedAt).toLocaleString('zh-CN') : '';
+  return '<section class="b2-continue-card trial-continue-card"><p>继续上次学习</p><h2>' + escapeHtml(title) + '</h2>' + (savedAt ? '<small>最近保存于 ' + escapeHtml(savedAt) + '</small>' : '') + '<button type="button" onclick="openTrialUnit(\'' + escapeHtml(book.id) + '\',' + record.chapter + ')">继续学习</button></section>';
+}
+var TRIAL_CATEGORY_CONFIG = [
+  { id: 'grammar', label: '语法词汇', description: '语法规则、词汇练习与知识卡', indexes: [0] },
+  { id: 'reading', label: '阅读', description: '三篇文章、段落翻译、理解题与复述辅助', indexes: [1, 2, 3] },
+  { id: 'listening', label: '听力', description: '五组听力题、合成音频、听力原文与精听', indexes: [4, 5, 6, 7, 8] },
+  { id: 'writing', label: '写作', description: '三类写作任务、草稿保存与范文讲解', indexes: [9] },
+  { id: 'speaking', label: '口语', description: '六个口语任务、提纲、录音与回听', indexes: [10, 11, 12, 13, 14, 15] }
+];
+function showTrialDashboard(bookId) {
+  var book = getTrialBook(bookId);
+  if (!book) { showShelf(); return; }
+  saveLastRead(); curBook = book; curView = 'trial-dashboard'; curCh = -1; stopTimer(); syncReaderShellState();
+  var units = book.trialUnits || [], done = units.filter(function(_, index) { return getTrialUnitProgress(book, index) === '已完成'; }).length;
+  var cards = TRIAL_CATEGORY_CONFIG.map(function(category) {
+    var categoryDone = category.indexes.filter(function(index) { return getTrialUnitProgress(book, index) === '已完成'; }).length;
+    return '<article class="b2-module-card trial-category-card" role="button" tabindex="0" onclick="showTrialCategoryDashboard(\'' + escapeHtml(book.id) + '\',\'' + category.id + '\')"><span class="book-kind">学习分类</span><h2>' + escapeHtml(category.label) + '</h2><small>' + escapeHtml(category.description) + '</small><span class="b2-status">已完成 ' + categoryDone + ' / ' + category.indexes.length + '</span><div class="world-module-actions"><button type="button" class="b2-finish" onclick="event.stopPropagation();showTrialCategoryDashboard(\'' + escapeHtml(book.id) + '\',\'' + category.id + '\')">打开分类</button></div></article>';
+  }).join('');
+  document.getElementById('app').innerHTML = b2FloatingNavigation({ backAction: 'showShelf()', backTitle: '书架', menuAction: 'showBreadcrumb()' }) + '<main class="main-container b2-dashboard reader-workbench-index"><header class="b2-dashboard-hero"><h1>' + escapeHtml(book.title) + '</h1><p>总仪表盘 · 按学习技能分类 · 已完成 ' + done + ' / ' + units.length + ' 个模块</p></header>' + getTrialContinueBanner(book) + '<section class="b2-module-grid trial-category-grid">' + cards + '</section></main>';
+  window.scrollTo(0, 0);
+}
+function showTrialCategoryDashboard(bookId, categoryId) {
+  var book = getTrialBook(bookId), category = TRIAL_CATEGORY_CONFIG.find(function(item) { return item.id === categoryId; });
+  if (!book || !category) { showTrialDashboard(bookId); return; }
+  if (categoryId === 'vocabulary') { openVocabulary(); return; }
+  saveLastRead(); curBook = book; curView = 'trial-category-dashboard'; curCh = -1; stopTimer(); syncReaderShellState();
+  var units = book.trialUnits || [];
+  var groupSize = category.id === 'reading' ? 3 : category.id === 'listening' ? 5 : category.indexes.length;
+  var groups = [];
+  for (var start = 0; start < category.indexes.length; start += groupSize) groups.push(category.indexes.slice(start, start + groupSize));
+  var list = groups.map(function(group, groupIndex) {
+    var first = group[0] + 1, last = group[group.length - 1] + 1;
+    var label = category.id === 'reading' ? '阅读文章 · 第 ' + first + '–' + last + ' 篇' : category.id === 'listening' ? '听力题组 · 第 ' + first + '–' + last : category.label + ' · 学习内容';
+    var entries = group.map(function(index) { var unit = units[index] || {}, title = getTrialUnitTitle(unit, index); return '<button type="button" class="listening-entry trial-list-entry" onclick="openTrialUnit(\'' + escapeHtml(book.id) + '\',' + index + ')"><span class="listening-entry-num">' + (index + 1) + '</span><span><span class="listening-entry-ru">' + escapeHtml(title) + '</span><span class="listening-entry-zh">' + escapeHtml(unit.description || '原书内容、中文翻译与交互练习') + '</span></span></button>'; }).join('');
+    return '<details class="listening-section trial-directory-section"' + (groupIndex === 0 ? ' open' : '') + '><summary><span class="listening-section-label"><span>' + escapeHtml(label) + '</span><span class="listening-section-count">' + group.length + ' 项</span></span></summary><div class="listening-entry-grid">' + entries + '</div></details>';
+  }).join('');
+  document.getElementById('app').innerHTML = b2FloatingNavigation({ backAction: 'showTrialDashboard(\'' + escapeHtml(book.id) + '\')', backTitle: '总仪表盘', menuAction: 'showBreadcrumb()' }) + '<main class="main-container b2-dashboard reader-workbench-index"><header class="b2-dashboard-hero"><h1>' + escapeHtml(category.label) + '</h1><p>分仪表盘 · ' + escapeHtml(category.description) + '</p></header>' + getTrialContinueBanner(book) + '<section class="listening-directory trial-directory">' + list + '</section></main>';
+  window.scrollTo(0, 0);
+}
+function showTrialModuleDashboard(bookId, index) {
+  var book = getTrialBook(bookId), unit = book && (book.trialUnits || [])[index];
+  if (!book || !unit) { showTrialDashboard(bookId); return; }
+  saveLastRead(); curBook = book; curView = 'trial-module-dashboard'; curCh = index; stopTimer(); syncReaderShellState();
+  var title = getTrialUnitTitle(unit, index);
+  var formatLabel = unit.format || unit.kind || '学习模块';
+  document.getElementById('app').innerHTML = b2FloatingNavigation({ backAction: 'showTrialDashboard(\'' + escapeHtml(book.id) + '\')', backTitle: '总仪表盘', menuAction: 'showBreadcrumb()' }) + '<main class="main-container b2-dashboard reader-workbench-index"><header class="b2-dashboard-hero"><h1>' + escapeHtml(title) + '</h1><p>分模块仪表盘 · ' + escapeHtml(formatLabel) + '</p></header><section class="b2-continue-card"><p>学习入口</p><h2>进入本模块内容</h2><p>页面会沿用 Reader 的原有交互、翻译、答题、保存和返回逻辑。</p><button type="button" class="b2-finish" onclick="goChapter(' + index + ')">开始学习</button></section></main>';
+  window.scrollTo(0, 0);
+}
+var currentApplicationGenreIndex = 0;
+function applicationGenreLineClass(variant, line, index, lines) {
+  if (variant === 'application') {
+    if (index < 2) return 'application-doc-address';
+    if (/^Заявление$/i.test(line)) return 'application-doc-title';
+    if (index >= lines.length - 2) return index === lines.length - 2 ? 'application-doc-signature' : 'application-doc-date';
+  }
+  if (variant === 'invitation' && index === 0) return 'application-doc-title';
+  if (variant === 'autobiography' && index === 0) return 'application-doc-title';
+  if (variant === 'receipt' && index === 0) return 'application-doc-title';
+  if (variant === 'explanatory' && /^(Объяснительная записка|Объяснительная)$/i.test(line.trim())) return 'application-doc-title';
+  if (variant === 'certificate') {
+    if (index < 5) return 'application-doc-header';
+    if (/^СПРАВКА$/i.test(line)) return 'application-doc-title';
+  }
+  if (variant === 'autobiography' && index === lines.length - 2) return 'application-doc-signature';
+  if (variant === 'autobiography' && index === lines.length - 1) return 'application-doc-date';
+  if (variant === 'receipt' && index >= lines.length - 2) return index === lines.length - 2 ? 'application-doc-date' : 'application-doc-signature';
+  if (variant === 'certificate' && index === lines.length - 2) return 'application-doc-signature';
+  if (variant === 'certificate' && index === lines.length - 1) return 'application-doc-stamp';
+  if (variant === 'letter' && index === lines.length - 1) return 'application-doc-date';
+  if (variant === 'congratulation' && index === lines.length - 1) return 'application-doc-date';
+  if (variant === 'letter' && index === lines.length - 2) return 'application-doc-signature';
+  if (variant === 'congratulation' && index >= lines.length - 3 && index < lines.length - 1) return 'application-doc-signature';
+  if (variant === 'complaint' && index >= lines.length - 2) return index === lines.length - 2 ? 'application-doc-date' : 'application-doc-signature';
+  if (variant === 'announcement' && index >= lines.length - 2) return index === lines.length - 2 ? 'application-doc-date' : 'application-doc-signature';
+  if (variant === 'explanatory' && index >= lines.length - 2) return index === lines.length - 2 ? 'application-doc-signature' : 'application-doc-date';
+  if (variant === 'announcement' && /^Объявление$/i.test(line)) return 'application-doc-title';
+  if (variant === 'congratulation' && index === 0) return 'application-doc-salutation';
+  if (variant === 'letter' && index === 0) return 'application-doc-salutation';
+  return '';
+}
+function renderApplicationDocument(genre) {
+  var variant = genre.layout && genre.layout.variant || 'document';
+  var lines = String(genre.originalTextRu || '').split('\n');
+  if (variant === 'autobiography') {
+    var autoTitle = lines[0] || '';
+    var autoFooterStart = Math.max(1, lines.length - 2);
+    var autoBody = lines.slice(1, autoFooterStart).map(function(line) { return '<div class="application-doc-line">' + escapeHtml(line || ' ') + '</div>'; }).join('');
+    var autoSignature = lines[lines.length - 2] || '';
+    var autoDate = lines[lines.length - 1] || '';
+    return '<div class="application-document application-document--autobiography"><div class="application-document-content"><div class="application-doc-line application-doc-title">' + escapeHtml(autoTitle) + '</div><div class="application-doc-body">' + autoBody + '</div><div class="application-doc-footer"><div class="application-doc-line application-doc-date">' + escapeHtml(autoDate) + '</div><div class="application-doc-line application-doc-signature">' + escapeHtml(autoSignature) + '</div></div></div></div>';
+  }
+  if (variant === 'receipt') {
+    var receiptDate = lines[lines.length - 2] || '';
+    var receiptSignature = lines[lines.length - 1] || '';
+    var receiptBody = lines.slice(1, lines.length - 2).map(function(line) { return '<div class="application-doc-line">' + escapeHtml(line || ' ') + '</div>'; }).join('');
+    return '<div class="application-document application-document--receipt"><div class="application-document-content"><div class="application-doc-line application-doc-title">' + escapeHtml(lines[0] || '') + '</div><div class="application-doc-body">' + receiptBody + '</div><div class="application-doc-footer"><div class="application-doc-line application-doc-date">' + escapeHtml(receiptDate) + '</div><div class="application-doc-line application-doc-signature">' + escapeHtml(receiptSignature) + '</div></div></div></div>';
+  }
+  if (variant === 'announcement') {
+    var announcementBody = lines.length > 1 ? '<div class="application-doc-body"><div class="application-doc-line">' + escapeHtml(lines[1] || ' ') + '</div></div>' : '';
+    var announcementDate = lines[lines.length - 2] || '';
+    var announcementSignature = lines[lines.length - 1] || '';
+    return '<div class="application-document application-document--announcement"><div class="application-document-content"><div class="application-doc-line application-doc-title">' + escapeHtml(lines[0] || '') + '</div>' + announcementBody + '<div class="application-doc-footer"><div class="application-doc-line application-doc-date">' + escapeHtml(announcementDate) + '</div><div class="application-doc-line application-doc-signature">' + escapeHtml(announcementSignature) + '</div></div></div></div>';
+  }
+  if (variant === 'complaint') {
+    var complaintTitle = lines.findIndex(function(line) { return /^Жалоба$/i.test(line.trim()); });
+    var complaintFooter = lines.length - 2;
+    var complaintHead = lines.slice(0, complaintTitle).map(function(line) { return '<div class="application-doc-line application-doc-address">' + escapeHtml(line || ' ') + '</div>'; }).join('');
+    var complaintBody = lines.slice(complaintTitle + 1, complaintFooter).map(function(line) { return '<div class="application-doc-line">' + escapeHtml(line || ' ') + '</div>'; }).join('');
+    return '<div class="application-document application-document--complaint"><div class="application-document-content">' + complaintHead + '<div class="application-doc-line application-doc-title">' + escapeHtml(lines[complaintTitle] || '') + '</div><div class="application-doc-body">' + complaintBody + '</div><div class="application-doc-footer"><div class="application-doc-line application-doc-date">' + escapeHtml(lines[complaintFooter] || '') + '</div><div class="application-doc-line application-doc-signature">' + escapeHtml(lines[complaintFooter + 1] || '') + '</div></div></div></div>';
+  }
+  if (variant === 'explanatory') {
+    var explanatoryTitle = lines.findIndex(function(line) { return /^Объяснительная записка$/i.test(line.trim()); });
+    var explanatoryFooter = lines.length - 2;
+    var explanatoryHead = lines.slice(0, explanatoryTitle).map(function(line) { return '<div class="application-doc-line application-doc-address">' + escapeHtml(line || ' ') + '</div>'; }).join('');
+    var explanatoryBody = lines.slice(explanatoryTitle + 1, explanatoryFooter).map(function(line) { return '<div class="application-doc-line">' + escapeHtml(line || ' ') + '</div>'; }).join('');
+    return '<div class="application-document application-document--explanatory"><div class="application-document-content">' + explanatoryHead + '<div class="application-doc-line application-doc-title">' + escapeHtml(lines[explanatoryTitle] || '') + '</div><div class="application-doc-body">' + explanatoryBody + '</div><div class="application-doc-footer"><div class="application-doc-line application-doc-signature">' + escapeHtml(lines[explanatoryFooter] || '') + '</div><div class="application-doc-line application-doc-date">' + escapeHtml(lines[explanatoryFooter + 1] || '') + '</div></div></div></div>';
+  }
+  if (variant === 'application') {
+    var titleIndex = lines.findIndex(function(line) { return /^Заявление$/i.test(line.trim()); });
+    var footerStart = Math.max(titleIndex + 1, lines.length - 2);
+    var address = lines.slice(0, Math.max(0, titleIndex)).map(function(line) { return '<div class="application-doc-line application-doc-address">' + escapeHtml(line || ' ') + '</div>'; }).join('');
+    var title = titleIndex >= 0 ? '<div class="application-doc-line application-doc-title">' + escapeHtml(lines[titleIndex]) + '</div>' : '';
+    var body = lines.slice(titleIndex + 1, footerStart).map(function(line) { return '<div class="application-doc-line">' + escapeHtml(line || ' ') + '</div>'; }).join('');
+    var signature = lines[footerStart] || '';
+    var date = lines[footerStart + 1] || '';
+    return '<div class="application-document application-document--application"><div class="application-doc-address-block">' + address + '</div><div class="application-doc-title-block">' + title + '</div><div class="application-doc-body">' + body + '</div><div class="application-doc-footer"><div class="application-doc-line application-doc-signature">' + escapeHtml(signature) + '</div><div class="application-doc-line application-doc-date">' + escapeHtml(date) + '</div></div></div>';
+  }
+  var body = lines.map(function(line, index) { return '<div class="application-doc-line ' + applicationGenreLineClass(variant, line, index, lines) + '">' + escapeHtml(line || ' ') + '</div>'; }).join('');
+  return '<div class="application-document application-document--' + escapeHtml(variant) + '"><div class="application-document-content">' + body + '</div></div>';
+}
+function renderApplicationTemplate(genre) {
+  var copy = Object.assign({}, genre, { originalTextRu: genre.template || '', translationZh: '' });
+  return renderApplicationDocument(copy).replace('class="application-document application-document--', 'class="application-document application-document--template application-document--');
+}
+function renderApplicationGenre(index) {
+  if (!currentWritingData || !currentWritingData.genres) return;
+  currentApplicationGenreIndex = Math.max(0, Math.min(index, currentWritingData.genres.length - 1));
+  renderApplicationWorkbench(currentWritingData, window.scrollY, currentApplicationGenreIndex);
+}
+function renderApplicationWorkbench(data, scrollPosition, selectedIndex) {
+  currentWritingData = data;
+  var genres = data.genres || [];
+  var index = typeof selectedIndex === 'number' ? selectedIndex : currentApplicationGenreIndex;
+  index = Math.max(0, Math.min(index, Math.max(0, genres.length - 1)));
+  currentApplicationGenreIndex = index;
+  var genre = genres[index] || {};
+  var sourcePages = (genre.sourcePages || data.sourcePages || []).map(function(page) { return 'PDF-' + String(page).padStart(3, '0'); }).join('、');
+  var nav = '<aside class="application-genre-nav" aria-label="应用文文体目录">' + genres.map(function(item, itemIndex) { return '<button type="button" class="' + (itemIndex === index ? 'is-active' : '') + '" onclick="renderApplicationGenre(' + itemIndex + ')">' + escapeHtml(item.titleZh || '') + ' · ' + escapeHtml(item.titleRu || '') + '</button>'; }).join('') + '</aside>';
+  var picker = '<select class="application-mobile-picker" aria-label="选择应用文文体" onchange="renderApplicationGenre(Number(this.value))">' + genres.map(function(item, itemIndex) { return '<option value="' + itemIndex + '"' + (itemIndex === index ? ' selected' : '') + '>' + escapeHtml(item.titleZh || '') + ' · ' + escapeHtml(item.titleRu || '') + '</option>'; }).join('') + '</select>';
+  var blocks = (genre.requiredBlocks || []).map(function(item) { return '<li>' + escapeHtml(item) + '</li>'; }).join('');
+  var notes = (genre.notes || []).map(function(item) { return '<li>' + escapeHtml(item) + '</li>'; }).join('');
+  var analysis = (genre.modelAnalysis || []).map(function(item) { return '<details class="writing-analysis-card"><summary>' + escapeHtml(item.label || '') + ' · ' + escapeHtml(item.quote || '') + '</summary><p>' + escapeHtml(item.explanation || '') + '</p></details>'; }).join('');
+  var model = '<section id="writing-stage-model" class="writing-model-section"><h2>第 5 步 · 原书范文与逐区块讲解</h2>' + renderApplicationDocument(genre) + (genre.translationZh ? '<details class="writing-translation" open><summary>完整中文说明</summary><p>' + escapeHtml(genre.translationZh) + '</p></details>' : '') + (analysis ? '<div class="writing-analysis-list">' + analysis + '</div>' : '') + '</section>';
+  var lesson = '<section id="writing-stage-lesson" class="writing-lesson-plan"><h2>第 3 步 · 学固定写法</h2><p>' + escapeHtml(genre.descriptionZh || '') + '</p><ol class="writing-lesson-steps"><li>识别文体：' + escapeHtml(genre.titleZh || '') + '（' + escapeHtml(genre.titleRu || '') + '）。</li><li>按固定区块完成：' + escapeHtml((genre.requiredBlocks || []).join('、')) + '。</li><li>结合原书注意事项检查位置、语气、格、数字和联系方式。</li></ol><h3>当前文体俄语骨架</h3>' + renderApplicationTemplate(genre) + '</section>';
+  var transfer = genre.transferTask || {};
+  var transferSection = '<section id="writing-stage-transfer" class="writing-transfer"><h2>第 6 步 · ' + escapeHtml(transfer.title || '变化题') + '</h2><p>' + escapeHtml(transfer.prompt || '') + '</p><ul>' + (transfer.checkpoints || []).map(function(item) { return '<li>' + escapeHtml(item) + '</li>'; }).join('') + '</ul></section>';
+  var task = '<section id="writing-stage-task" class="writing-source-task"><h2>第 1 步 · 读懂题目</h2><p class="ru-text">' + escapeHtml(data.task.instructionsRu || '') + '</p><p>' + escapeHtml(genre.descriptionZh || '') + ' 本题当前学习文体：' + escapeHtml(genre.titleZh || '') + '。</p></section>';
+  var material = '<section id="writing-stage-material"><h2>第 2 步 · 看原书格式</h2><p class="writing-status">当前只显示所选文体，避免 11 篇范文同时堆在页面中。</p>' + renderApplicationDocument(genre) + '<ul class="writing-status">' + notes + '</ul></section>';
+  var paper = '<section id="writing-stage-paper"><h2>第 4 步 · 在纸上形成内容</h2><p>先按当前文体的固定区块列关键词，再誊写 50–70 词的正式文本。</p><div class="writing-paper-grid">' + (genre.requiredBlocks || []).map(function(item) { return '<div><span>' + escapeHtml(item) + '</span><i></i></div>'; }).join('') + '</div></section>';
+  var stageNav = '<nav class="writing-stage-nav"><button class="is-active" onclick="writingJumpStage(\'writing-stage-task\',this)">1 读懂题目</button><button onclick="writingJumpStage(\'writing-stage-material\',this)">2 看原书格式</button><button onclick="writingJumpStage(\'writing-stage-lesson\',this)">3 学固定写法</button><button onclick="writingJumpStage(\'writing-stage-paper\',this)">4 纸上形成</button><button onclick="writingJumpStage(\'writing-stage-model\',this)">5 范文与讲解</button><button onclick="writingJumpStage(\'writing-stage-transfer\',this)">6 变化题</button></nav>';
+  var sourceNote = data.sourceNote ? '<p class="writing-source-note">原书核对说明：' + escapeHtml(data.sourceNote) + '</p>' : '';
+  var html = b2FloatingNavigation({ backAction: 'openB2Module(\'writing\')', backTitle: '目录', menuAction: 'showBreadcrumb()' }) + '<main class="main-container writing-workbench reader-workbench reader-workbench--writing application-workbench"><header class="chapter-header"><h1>' + escapeHtml(data.title) + '</h1><p>应用文总工作台 · 当前文体：' + escapeHtml(genre.titleZh || '') + ' · 原书印刷页：' + escapeHtml((genre.sourcePages || data.sourcePages || []).join('、')) + ' · PDF：' + escapeHtml(sourcePages) + '</p>' + sourceNote + '</header>' + stageNav + '<div class="application-workbench-shell">' + nav + '<div class="application-genre-detail">' + picker + task + material + lesson + paper + model + '<section><h2>格式与内容清单</h2><ol>' + blocks + '</ol></section>' + transferSection + '</div></div></main>';
+  document.getElementById('app').innerHTML = html;
+  window.scrollTo(0, typeof scrollPosition === 'number' ? scrollPosition : 0); applyTheme(); updateWritingStageNav();
+}
+function toggleB2BreadcrumbModule(moduleId) { b2BreadcrumbOpen.modules[moduleId] = !b2BreadcrumbOpen.modules[moduleId]; renderBreadcrumbPopup(); }
+function toggleB2BreadcrumbGroup(moduleId, groupIndex) { var key = moduleId + ':' + groupIndex; b2BreadcrumbOpen.groups[key] = !b2BreadcrumbOpen.groups[key]; renderBreadcrumbPopup(); }
+function openB2BreadcrumbChapter(moduleId, chapterIndex) { closeBreadcrumb(); openB2Module(moduleId); goChapter(chapterIndex); }
 function renderWritingWorkbench(data, scrollPosition) {
+  if (data.id === 'application' && !data.genres && data.applicationGenres) {
+    var applicationVariants = ['application', 'invitation', 'autobiography', 'receipt', 'certificate', 'letter', 'congratulation', 'announcement', 'complaint', 'explanatory', 'business-card'];
+    data.genres = data.applicationGenres.map(function(item, index) {
+      var title = String(item.title || '').split(' · ');
+      return { id: applicationVariants[index] || ('genre-' + index), titleZh: title[1] || title[0], titleRu: title[1] || '', sourcePages: data.sourcePages || [], descriptionZh: item.translation || '', descriptionRu: '', requiredBlocks: data.formatGuide && data.formatGuide.requiredBlocks || [], layout: { variant: applicationVariants[index] || 'document' }, originalTextRu: item.textRu || '', translationZh: item.translation || '', notes: data.formatGuide && data.formatGuide.notes || [], modelAnalysis: [], template: '', transferTask: { title: '变化题：更换当前文体情境', prompt: '更换人物、事件或场景，按当前文体的固定格式完成一篇应用文。', checkpoints: ['保留当前文体的固定区块', '内容、时间、地点或联系方式完整', '签名和日期等结尾信息齐全'] } };
+    });
+  }
+  if (data.id === 'application' && data.genres && data.genres.length) { renderApplicationWorkbench(data, scrollPosition); return; }
   currentWritingData = data;
   var sourcePages = (data.sourcePages || []).map(function(page) { return 'PDF-' + String(page).padStart(3, '0'); }).join('、');
   var blocks = (data.formatGuide.requiredBlocks || []).map(function(block, index) { return '<li>' + renderRuText(block, lookupContext('writing', data.id + '-format-' + (index + 1), 'writing-material', block, '', data.sourcePages || [])) + '</li>'; }).join('');
@@ -6311,20 +6741,33 @@ function renderWritingWorkbench(data, scrollPosition) {
   var outline = (support.outline || []).map(function(item, index) { return '<li>' + renderRuText(item, lookupContext('writing', data.id + '-outline-' + (index + 1), 'writing-support', item, '', data.sourcePages || [])) + '</li>'; }).join('');
   var patterns = (support.usefulPatterns || []).map(function(item, index) { return '<li>' + renderRuText(item, lookupContext('writing', data.id + '-pattern-' + (index + 1), 'writing-support', item, '', data.sourcePages || [])) + '</li>'; }).join('');
   var materials = (data.materials || []).map(function(material, index) { return renderWritingMaterial(material, data.id, index); }).join('');
+  if (data.applicationGenres && data.applicationGenres.length) {
+    materials += '<section class="writing-genre-library"><h3>原书 11 种应用文 · 俄语示例与格式说明</h3><p class="writing-status">下面逐项保留原书示例；先判断文体，再观察它必须出现的格式区块。</p>' + data.applicationGenres.map(function(item) {
+      return '<article class="writing-original-example writing-genre-card"><h4>' + escapeHtml(item.title || '') + '</h4><pre class="writing-source-excerpt ru-text">' + escapeHtml(item.textRu || '') + '</pre>' + (item.translation ? '<details class="writing-translation" open><summary>中文说明</summary><p>' + escapeHtml(item.translation).replace(/\n/g, '<br>') + '</p></details>' : '') + '</article>';
+    }).join('') + '</section>';
+  }
   var rubric = (data.rubric || []).map(function(item) { return '<li>' + escapeHtml(item) + '</li>'; }).join('');
   var lessonSteps = (lesson.steps || []).map(function(step) { return '<li><strong>' + escapeHtml(step.title || '') + '</strong><p>' + escapeHtml(step.instruction || '') + '</p>' + (step.paperTask ? '<p class="writing-paper-task">纸上完成：' + escapeHtml(step.paperTask) + '</p>' : '') + '</li>'; }).join('');
   var sentencePractice = (lesson.sentencePractice || []).map(function(item) { return '<article class="writing-pattern-card"><h4>' + escapeHtml(item.prompt || '') + '</h4><p class="ru-text">' + escapeHtml(item.pattern || '') + '</p><p>' + escapeHtml(item.hint || '') + '</p></article>'; }).join('');
   var template = lesson.template || {};
   var templateNotes = (template.notes || []).map(function(note) { return '<li>' + escapeHtml(note) + '</li>'; }).join('');
   var transfer = lesson.transferTask || {};
+  if (!transfer.prompt && data.id === 'recommendation-letter') {
+    transfer = { title: '任务 2 · 烹饪课程推荐信', prompt: 'Задание 2. На основе предложенной рекламной информации напишите письмо, в котором вы рекомендуете вашему знакомому/сыну, дочери вашего знакомого/, который давно хотел научиться хорошо готовить на кулинарных курсах. Ваше письмо должно содержать информацию о предлагаемых услугах, достаточную для принятия решения и позволяющую остановиться на одном из предложенных вариантов.', checkpoints: ['题意：根据广告，给一直想学好烹饪的熟人（或熟人的儿子、女儿）写推荐信。', '信中必须提供足够的服务信息，帮助对方作出决定并选定一个方案。', '阅读广告 5 分钟，写作 15 分钟，共 20 分钟；作文长度 50–70 词。'] };
+  }
+  if (!transfer.prompt && data.additionalModels && data.additionalModels[0]) {
+    var taskTwo = data.additionalModels[0];
+    transfer = { title: '任务 2 · 烹饪课程推荐信', prompt: taskTwo.taskTranslation || taskTwo.taskRu || '', checkpoints: ['先独立完成纸上提纲，再对照下方原书范文。', '检查称呼、推荐理由、课程信息、结束语、署名和日期。'] };
+  }
   var examPractice = data.examPractice || {};
   var additionalModels = (data.additionalModels || []).map(function(item, index) {
+    var intro = (item.intro || item.introRu) ? '<p>' + escapeHtml(item.intro || '') + '</p>' + (item.introRu ? '<p class="ru-text">' + escapeHtml(item.introRu) + '</p>' : '') : '';
     var material = item.materialRu ? '<section class="writing-original-example"><h4>原书广告材料</h4><p class="ru-text">' + escapeHtml(item.materialRu).replace(/\n/g, '<br>') + '</p>' + (item.materialTranslation ? '<details class="writing-translation" open><summary>广告完整中文翻译</summary><p>' + escapeHtml(item.materialTranslation).replace(/\n/g, '<br>') + '</p></details>' : '') + '</section>' : '';
     var task = item.taskRu ? '<p class="ru-text">' + escapeHtml(item.taskRu) + '</p>' + (item.taskTranslation ? '<details class="writing-translation" open><summary>题目完整中文翻译</summary><p>' + escapeHtml(item.taskTranslation).replace(/\n/g, '<br>') + '</p></details>' : '') : '';
-    var modelText = item.text ? '<div class="writing-model-inline"><h4>原书范文</h4><p class="ru-text">' + escapeHtml(item.text).replace(/\n/g, '<br>') + '</p>' + (item.translation ? '<details class="writing-translation" open><summary>范文完整中文翻译</summary><p>' + escapeHtml(item.translation).replace(/\n/g, '<br>') + '</p></details>' : '') + '</div>' : '';
-    return '<article class="writing-original-example"><h3>' + escapeHtml(item.title || ('原书例文 ' + (index + 1))) + '</h3>' + task + material + modelText + '</article>';
+    var modelText = item.text ? '<div class="writing-model-inline"><h4>原书范文</h4>' + renderWritingLetter(item.text) + (item.translation ? '<details class="writing-translation" open><summary>范文完整中文翻译</summary><p>' + escapeHtml(item.translation).replace(/\n/g, '<br>') + '</p></details>' : '') + '</div>' : '';
+    return '<article class="writing-original-example"><h3>' + escapeHtml(item.title || ('原书例文 ' + (index + 1))) + '</h3>' + intro + task + material + modelText + '</article>';
   }).join('');
-  var model = renderRuText(data.model.text || '', lookupContext('writing', data.id, 'writing-model', data.model.text || '', '', data.model.source && data.model.source.pages || data.sourcePages || [])).replace(/\n/g, '<br>');
+  var model = renderWritingLetter(data.model.text || '');
   var instructionsRu = data.task.instructionsRu || '';
   var taskPrompt = instructionsRu ? renderRuText(instructionsRu, lookupContext('writing', data.id + '-instructions', 'writing-material', instructionsRu, data.task.prompt || '', data.sourcePages || [])) : renderRuText(data.task.prompt, lookupContext('writing', data.id, 'writing-material', data.task.prompt, '', data.sourcePages || []));
   var taskTranslation = data.task.translation ? '<details class="writing-translation" open><summary>题目完整中文翻译</summary><p>' + escapeHtml(data.task.translation).replace(/\n/g, '<br>') + '</p></details>' : '';
@@ -6336,18 +6779,87 @@ function renderWritingWorkbench(data, scrollPosition) {
   var supportSection = (outline || patterns) ? '<section class="writing-support-box"><h2>学习辅助（非原书内容）</h2>' + (outline ? '<h3>起草顺序</h3><ol>' + outline + '</ol>' : '') + (patterns ? '<h3>可复用表达</h3><ul>' + patterns + '</ul>' : '') + '</section>' : '';
   var lessonSection = lesson.objective ? '<section class="writing-lesson-plan"><h2>本课要学会什么</h2><p>' + escapeHtml(lesson.objective) + '</p>' + (lessonSteps ? '<h3>做题步骤</h3><ol class="writing-lesson-steps">' + lessonSteps + '</ol>' : '') + (sentencePractice ? '<h3>半成品句型练习</h3><div class="writing-pattern-grid">' + sentencePractice + '</div>' : '') + (template.textRu ? '<h3>' + escapeHtml(template.title || '完整写作骨架') + '</h3><p>先看每段要完成什么，再在纸上把空格替换成自己的内容。</p><pre class="writing-template">' + escapeHtml(template.textRu) + '</pre>' + (templateNotes ? '<ul class="writing-status">' + templateNotes + '</ul>' : '') : '') + '</section>' : '';
   var transferSection = transfer.prompt ? '<section class="writing-transfer"><h2>' + escapeHtml(transfer.title || '变化题') + '</h2><p>' + escapeHtml(transfer.prompt) + '</p><ul>' + (transfer.checkpoints || []).map(function(item) { return '<li>' + escapeHtml(item) + '</li>'; }).join('') + '</ul></section>' : '';
+  if (data.id === 'recommendation-letter' && transferSection) transferSection = transferSection.replace('</h2><p>', '</h2><p class="ru-text">Задание 2. На основе предложенной рекламной информации напишите письмо, в котором вы рекомендуете вашему знакомому/сыну, дочери вашего знакомого/ , который давно хотел научиться хорошо готовить на кулинарных курсах. Ваше письмо должно содержать информацию о предлагаемых услугах, достаточную для принятия решения и позволяющую остановиться на одном из предложенных вариантов.</p><p>');
+  if (data.id === 'recommendation-letter' && transferSection) transferSection = transferSection.replace('</ul></section>', '</ul><h3>任务 2 · 原书广告材料</h3><div class="writing-ad-layout"><h3>КУЛИНАРНЫЕ КУРСЫ</h3><p class="writing-ad-line">Занятия пройдут с 07.11 по 30.11.</p><p class="writing-ad-line">Идёт набор групп, в которых не более 8 человек.</p><p class="writing-ad-line">Стоимость — 10 000 рублей.</p><p class="writing-ad-line">Содействие в трудоустройстве.</p><p class="writing-ad-line">Все подробности по телефону: 8 499 324 65 12.</p></div><h3>任务 2 参考范文</h3>' + renderWritingLetter('Привет, Иван!\n\nТы мне рассказывал, что уже давно хочешь научиться готовить вкусные и оригинальные блюда, но у тебя постоянно не хватает времени. В газете я увидел объявление о новых кулинарных курсах под руководством лучших московских шеф-поваров. Я считаю, что этот интенсивный курс поможет тебе осуществить твою мечту.\n\nВ объявлении я прочитал, что обучение проходит в группах не более 8 человек. Курсы длятся 3 недели и стоят всего 10 000 рублей. Для записи указан телефон 8 499 324 65 12.\n\nЖелаю тебе успехов!\nПока!\nАндрей\n07.07.2022') + '</section>');
+  if (additionalModels && transferSection) {
+    transferSection = transferSection.replace('</ul></section>', '</ul>' + additionalModels + '</section>');
+    additionalModels = '';
+  }
+  var draftTasks = [{ id: data.id, title: '任务 1 · ' + (data.task.genre || '写作'), wordTarget: data.task.wordTarget || '' }].concat((data.task.extraTasks || []).map(function (t, i) { return { id: t.id, title: '任务 ' + (i + 2) + ' · ' + (t.genre || '写作'), wordTarget: t.wordTarget || '' }; }));
+  var wwDrafts = getWritingWorkbenchDrafts();
+  var draftSections = draftTasks.map(function (t) {
+    var saved = (wwDrafts[t.id] || {}).value || '';
+    var versions = getWritingWorkbenchVersions()[t.id] || [];
+    var versionList = versions.map(function (v, i) {
+      return '<li><span>' + escapeHtml(String(v.savedAt).slice(0, 19).replace('T', ' ')) + ' · ' + countWritingWords(v.value) + ' 词</span>' +
+        '<button class="tb-btn" type="button" onclick="restoreWritingWorkbenchVersion(\'' + escapeHtml(t.id) + '\',' + i + ')">恢复</button></li>';
+    }).join('');
+    return '<article class="writing-draft-task"><h3>' + escapeHtml(t.title) + '</h3>' +
+      (t.wordTarget ? '<p class="writing-status">建议长度：' + escapeHtml(t.wordTarget) + '</p>' : '') +
+      '<textarea id="ww-draft-' + escapeHtml(t.id) + '" class="writing-draft" placeholder="在这里完成俄语写作…" oninput="saveWritingWorkbenchDraft(\'' + escapeHtml(t.id) + '\', this.value)">' + escapeHtml(saved) + '</textarea>' +
+      '<p id="ww-draft-status-' + escapeHtml(t.id) + '" class="writing-status">本地自动保存 · ' + countWritingWords(saved) + ' 词</p>' +
+      '<div class="writing-version-actions"><button class="tb-btn" type="button" onclick="saveWritingWorkbenchVersion(\'' + escapeHtml(t.id) + '\')">保存版本</button>' +
+      '<span id="ww-version-status-' + escapeHtml(t.id) + '" class="writing-status"></span></div>' +
+      '<ul class="writing-version-list" id="ww-version-list-' + escapeHtml(t.id) + '">' + versionList + '</ul></article>';
+  }).join('');
   var worksheet = lesson.paperWorksheet || {};
+  if (data.id === 'recommendation-letter') {
+    transferSection = transferSection.replace('<h2>', '<p class="writing-original-intro">推荐信也可能只给出一条具体的广告信息，考生根据该条广告信息写成书信形式推荐给朋友或需要的人。阅读广告时间 5 分钟，写作时间 15 分钟，共 20 分钟。作文长度：50–70 词。请看以下例子。</p><h2>');
+  }
   var worksheetSection = worksheet.fields ? '<section class="writing-paper-work"><h2>' + escapeHtml(worksheet.title || '纸上工作单') + '</h2><p>' + escapeHtml(worksheet.draftInstructions || '') + '</p><div class="writing-paper-grid">' + worksheet.fields.map(function(field) { return '<div><span>' + escapeHtml(field) + '</span><i></i></div>'; }).join('') + '</div></section>' : '';
   var analysisSection = (lesson.modelAnalysis || []).map(function(item) { return '<details class="writing-analysis-card"><summary>' + escapeHtml(item.label || '') + ' · ' + escapeHtml(item.quote || '') + '</summary><p>' + escapeHtml(item.function || '') + '</p><p class="writing-paper-task">纸上想一想：' + escapeHtml(item.question || '') + '</p></details>'; }).join('');
+  if (!analysisSection && data.id === 'recommendation-letter') analysisSection = ['称呼：Здравствуй, дорогой Миша! · 私人信函的朋友称呼。','信息来源：В газете я прочитал объявление… · 说明信息来自广告。','推荐理由：Я знаю, что ты хорошо знаешь японский язык… · 把朋友兴趣和项目连接起来。','关键信息：языковая практика… две недели；spbu.ru · 提供时长和联系方式。','结尾：Желаю тебе удачи! Пока, Антон! 01.07.2022 · 完成祝愿、告别、署名和日期。'].map(function(item) { return '<details class="writing-analysis-card" open><summary>' + escapeHtml(item.split(' · ')[0]) + '</summary><p>' + escapeHtml(item.split(' · ')[1]) + '</p></details>'; }).join('');
   var reviewSection = (lesson.selfReview || []).map(function(item) { return '<li><label><input type="checkbox"> ' + escapeHtml(item.check || '') + '</label><p>发现问题后：' + escapeHtml(item.repair || '') + '</p></li>'; }).join('');
   var examSection = examPractice.model ? '<section class="writing-exam-practice"><h2>' + escapeHtml(examPractice.title || '真题独立完成') + '</h2><p class="ru-text">' + escapeHtml(examPractice.taskRu || '') + '</p>' + (examPractice.taskTranslation ? '<details class="writing-translation" open><summary>真题完整中文翻译</summary><p>' + escapeHtml(examPractice.taskTranslation) + '</p></details>' : '') + '<p>' + escapeHtml(examPractice.paperTask || '') + '</p><div class="writing-model-inline"><h3>真题参考范文</h3><p class="ru-text">' + escapeHtml(examPractice.model).replace(/\n/g, '<br>') + '</p>' + (examPractice.modelTranslation ? '<details class="writing-translation" open><summary>范文完整中文翻译</summary><p>' + escapeHtml(examPractice.modelTranslation).replace(/\n/g, '<br>') + '</p></details>' : '') + '</div></section>' : '';
   var stageNav = '<nav class="writing-stage-nav"><button class="is-active" onclick="writingJumpStage(\'writing-stage-task\',this)">1 读懂题目</button><button onclick="writingJumpStage(\'writing-stage-material\',this)">2 看材料</button><button onclick="writingJumpStage(\'writing-stage-lesson\',this)">3 学做法</button><button onclick="writingJumpStage(\'writing-stage-paper\',this)">4 纸上形成</button><button onclick="writingJumpStage(\'writing-stage-model\',this)">5 看范文与修改</button><button onclick="writingJumpStage(\'writing-stage-transfer\',this)">6 变化题</button></nav><p class="writing-current-stage">当前阶段：先读懂任务，再看广告材料。上方阶段可以随时跳转。</p>';
   lessonSection = lessonSection.replace('<section class="writing-lesson-plan">', '<section id="writing-stage-lesson" class="writing-lesson-plan">');
   transferSection = transferSection.replace('<section class="writing-transfer">', '<section id="writing-stage-transfer" class="writing-transfer">');
-  var modelSection = '<section id="writing-stage-model" class="writing-model-section ws-animated-collapse"><h2>第 5 步 · 原书范文与逐段讲解</h2><p class="writing-status">先完成纸上初稿，再用这篇范文检查自己是否完成了同样的任务。</p><p class="ru-text">' + model + '</p>' + modelTranslation + '<small class="reading-answer-source">' + escapeHtml(data.model.source.label || 'B2 原书范文') + '</small>' + (analysisSection ? '<div class="writing-analysis-list">' + analysisSection + '</div>' : '') + '</section>';
-  var writingHtml = b2FloatingNavigation({ backAction: 'showChapters(\'russian_b2\')', backTitle: '目录', menuAction: 'showBreadcrumb()' }) + '<main class="main-container writing-workbench reader-workbench reader-workbench--writing"><header class="chapter-header"><h1>' + escapeHtml(data.title || '') + '</h1><p>纸笔模式 · 原书印刷页：' + escapeHtml(printedPages || '—') + ' · PDF：' + escapeHtml(sourcePages) + '</p>' + renderManualCompletionButton(WRITING_COMPLETED_KEY, data.id) + '</header>' + stageNav + '<section id="writing-stage-task" class="writing-source-task"><h2>第 1 步 · 读懂这道题</h2><p class="ru-text">' + taskPrompt + '</p>' + taskTranslation + metadata + '</section>' + sourceMaterialSection + lessonSection + '<section id="writing-stage-paper"><h2>第 4 步 · 在纸上形成内容</h2><p>把前面标出的重点和老师示范的方法整理成自己的纸上提纲，再开始初稿。这里不重新讲方法。页面不提供作文输入框，也不启动考试计时。</p></section>' + worksheetSection + '<section><h2>格式与内容清单</h2><ol>' + blocks + '</ol>' + (notes ? '<ul class="writing-status">' + notes + '</ul>' : '') + '</section>' + (rubric ? '<section><h2>评分自查</h2><ul>' + rubric + '</ul></section>' : '') + modelSection + (additionalModels ? '<section><h2>第二轮：烹饪课程半独立练习</h2>' + additionalModels + '</section>' : '') + (reviewSection ? '<section><h2>回到纸上修改：发现问题后怎么改</h2><ul class="writing-review-list">' + reviewSection + '</ul></section>' : '') + examSection + transferSection + supportSection + '</main>';
+  var modelSection = '<section id="writing-stage-model" class="writing-model-section ws-animated-collapse"><h2>第 5 步 · 原书范文与逐段讲解</h2><p class="writing-status">先完成纸上初稿，再用这篇范文检查自己是否完成了同样的任务。</p><div class="writing-model-body">' + model + '</div>' + modelTranslation + '<small class="reading-answer-source">' + escapeHtml(data.model.source.label || 'B2 原书范文') + '</small>' + (analysisSection ? '<div class="writing-analysis-list">' + analysisSection + '</div>' : '') + '</section>';
+  var writingHtml = b2FloatingNavigation({ backAction: getReaderDirectoryBackAction("openB2Module('writing')"), backTitle: '目录', menuAction: 'showBreadcrumb()' }) + '<main class="main-container writing-workbench reader-workbench reader-workbench--writing"><header class="chapter-header"><h1>' + escapeHtml(data.title || '') + '</h1><p>纸笔模式 · 原书印刷页：' + escapeHtml(printedPages || '—') + ' · PDF：' + escapeHtml(sourcePages) + '</p>' + renderManualCompletionButton(WRITING_COMPLETED_KEY, data.id) + '</header>' + stageNav + '<section id="writing-stage-task" class="writing-source-task"><h2>第 1 步 · 读懂这道题</h2><p class="ru-text">' + taskPrompt + '</p>' + taskTranslation + metadata + '</section>' + sourceMaterialSection + lessonSection + '<section id="writing-stage-paper"><h2>第 4 步 · 在纸上形成内容，并在下方录入初稿</h2><p>把前面标出的重点和老师示范的方法整理成自己的纸上提纲，再开始初稿。这里不重新讲方法，也不启动考试计时。</p>' + draftSections + '</section>' + worksheetSection + '<section><h2>格式与内容清单</h2><ol>' + blocks + '</ol>' + (notes ? '<ul class="writing-status">' + notes + '</ul>' : '') + '</section>' + (rubric ? '<section><h2>评分自查</h2><ul>' + rubric + '</ul></section>' : '') + modelSection + (additionalModels ? '<section><h2>第二轮：烹饪课程半独立练习</h2>' + additionalModels + '</section>' : '') + (reviewSection ? '<section><h2>回到纸上修改：发现问题后怎么改</h2><ul class="writing-review-list">' + reviewSection + '</ul></section>' : '') + examSection + transferSection + supportSection + '</main>';
   document.getElementById('app').innerHTML = writingHtml;
-  window.scrollTo(0, typeof scrollPosition === 'number' ? scrollPosition : 0); applyTheme(); saveLastRead(arguments[2]); initCollapseAnimations();
+  window.scrollTo(0, typeof scrollPosition === 'number' ? scrollPosition : 0); applyTheme(); saveLastRead(arguments[2]); initCollapseAnimations(); updateWritingStageNav();
+}
+/* ─── 写作工作台草稿与版本（writing-workbench 专用，复用 Reader 既有 localStorage 存储） ─── */
+var WRITING_WORKBENCH_DRAFTS_KEY = 'russian_b2_writing_workbench_drafts_v1';
+var WRITING_WORKBENCH_VERSIONS_KEY = 'russian_b2_writing_workbench_versions_v1';
+function getWritingWorkbenchDrafts() { try { return JSON.parse(localStorage.getItem(WRITING_WORKBENCH_DRAFTS_KEY) || '{}') || {}; } catch (e) { return {}; } }
+function getWritingWorkbenchVersions() { try { return JSON.parse(localStorage.getItem(WRITING_WORKBENCH_VERSIONS_KEY) || '{}') || {}; } catch (e) { return {}; } }
+function saveWritingWorkbenchDraft(taskId, value) {
+  var drafts = getWritingWorkbenchDrafts();
+  drafts[taskId] = { value: value, updatedAt: new Date().toISOString() };
+  try { localStorage.setItem(WRITING_WORKBENCH_DRAFTS_KEY, JSON.stringify(drafts)); } catch (e) {}
+  var status = document.getElementById('ww-draft-status-' + taskId);
+  if (status) status.textContent = '已本地保存 · ' + countWritingWords(value) + ' 词';
+}
+function saveWritingWorkbenchVersion(taskId) {
+  var field = document.getElementById('ww-draft-' + taskId);
+  var value = field ? field.value : '';
+  var status = document.getElementById('ww-version-status-' + taskId);
+  if (!value.trim()) { if (status) status.textContent = '草稿为空，未保存版本'; return; }
+  var all = getWritingWorkbenchVersions();
+  (all[taskId] = all[taskId] || []).push({ value: value, savedAt: new Date().toISOString() });
+  try { localStorage.setItem(WRITING_WORKBENCH_VERSIONS_KEY, JSON.stringify(all)); } catch (e) {}
+  if (status) status.textContent = '已保存版本 · ' + countWritingWords(value) + ' 词';
+  renderWritingWorkbenchVersions(taskId);
+}
+function renderWritingWorkbenchVersions(taskId) {
+  var box = document.getElementById('ww-version-list-' + taskId);
+  if (!box) return;
+  var versions = getWritingWorkbenchVersions()[taskId] || [];
+  box.innerHTML = versions.length ? versions.map(function (v, i) {
+    return '<li><span>' + escapeHtml(String(v.savedAt).slice(0, 19).replace('T', ' ')) + ' · ' + countWritingWords(v.value) + ' 词</span>' +
+      '<button class="tb-btn" type="button" onclick="restoreWritingWorkbenchVersion(\'' + escapeHtml(taskId) + '\',' + i + ')">恢复</button></li>';
+  }).join('') : '';
+}
+function restoreWritingWorkbenchVersion(taskId, index) {
+  var versions = getWritingWorkbenchVersions()[taskId] || [];
+  var record = versions[index];
+  if (!record) return;
+  var field = document.getElementById('ww-draft-' + taskId);
+  if (field) field.value = record.value;
+  saveWritingWorkbenchDraft(taskId, record.value);
+  var status = document.getElementById('ww-version-status-' + taskId);
+  if (status) status.textContent = '已恢复该版本 · ' + countWritingWords(record.value) + ' 词';
 }
 var SPEAKING_DRAFTS_KEY = 'russian_b2_speaking_notes_v1';
 var currentSpeakingData = null;
@@ -6421,11 +6933,11 @@ function renderSpeakingPractice(data, scrollPosition) {
   var warning = data.media && data.media.provenance === 'missing-original-media' ? '<section class="source-warning"><strong>原始媒体缺失</strong><p>' + escapeHtml(data.media.note || '教材原始媒体未保存；这里只提供可追溯的文字资料。') + '</p></section>' : '';
   var speakingTask = renderRuText(data.task.prompt, lookupContext('speaking', data.id, 'speaking-reference', data.task.prompt, '', data.sourcePages || []));
   var sourceAnswer = renderRuText(data.sourceAnswer.text || '', lookupContext('speaking', data.id, 'speaking-reference', data.sourceAnswer.text || '', '', data.sourceAnswer.source && data.sourceAnswer.source.pages || data.sourcePages || []));
-  document.getElementById('app').innerHTML = b2FloatingNavigation({ backAction: 'showChapters(\'russian_b2\')', backTitle: '目录', menuAction: 'showBreadcrumb()' }) + '<main class="main-container speaking-practice reader-workbench reader-workbench--speaking"><header class="chapter-header"><h1>' + escapeHtml(data.title || '') + '</h1><p class="reading-answer-source">原书页：' + escapeHtml(sourcePages) + '</p>' + renderManualCompletionButton(SPEAKING_COMPLETED_KEY, data.id) + '</header><section><h2>原书任务</h2><p>' + speakingTask + '</p></section>' + warning + '<section><h2>渐进练习</h2><ol class="speaking-steps">' + steps + '</ol></section><section><h2>你的提纲 / 转写</h2><textarea class="speaking-transcript" placeholder="先列关键词，再写下你准备说的内容…" oninput="saveSpeakingNote(\'' + escapeHtml(data.id) + '\', this.value)">' + escapeHtml(note) + '</textarea><p id="speaking-note-status" class="speaking-recording-status">本地自动保存</p></section><section><h2>录音与回听</h2><p class="speaking-recording-status">录音只存到这台设备的浏览器 IndexedDB，不会上传。</p><div class="speaking-recording-controls"><button id="start-speaking-recording" class="tb-btn" onclick="startSpeakingRecording()">开始录音</button><button id="stop-speaking-recording" class="tb-btn" onclick="stopSpeakingRecording()" disabled>结束录音</button><span id="speaking-recording-status" class="speaking-recording-status">尚未录音</span></div><audio id="speaking-playback" class="speaking-playback" controls hidden></audio></section><details><summary>原书参考回答（已核对）</summary><p class="ru-text">' + sourceAnswer + '</p><small class="reading-answer-source">' + escapeHtml(data.sourceAnswer.source.label || 'B2 原书参考回答') + '</small></details><details><summary>学习辅助：自查清单</summary><ul>' + checklist + '</ul></details></main>';
+  document.getElementById('app').innerHTML = b2FloatingNavigation({ backAction: getReaderDirectoryBackAction("showChapters('russian_b2')"), backTitle: '目录', menuAction: 'showBreadcrumb()' }) + '<main class="main-container speaking-practice reader-workbench reader-workbench--speaking"><header class="chapter-header"><h1>' + escapeHtml(data.title || '') + '</h1><p class="reading-answer-source">原书页：' + escapeHtml(sourcePages) + '</p>' + renderManualCompletionButton(SPEAKING_COMPLETED_KEY, data.id) + '</header><section><h2>原书任务</h2><p>' + speakingTask + '</p></section>' + warning + '<section><h2>渐进练习</h2><ol class="speaking-steps">' + steps + '</ol></section><section><h2>你的提纲 / 转写</h2><textarea class="speaking-transcript" placeholder="先列关键词，再写下你准备说的内容…" oninput="saveSpeakingNote(\'' + escapeHtml(data.id) + '\', this.value)">' + escapeHtml(note) + '</textarea><p id="speaking-note-status" class="speaking-recording-status">本地自动保存</p></section><section><h2>录音与回听</h2><p class="speaking-recording-status">录音只存到这台设备的浏览器 IndexedDB，不会上传。</p><div class="speaking-recording-controls"><button id="start-speaking-recording" class="tb-btn" onclick="startSpeakingRecording()">开始录音</button><button id="stop-speaking-recording" class="tb-btn" onclick="stopSpeakingRecording()" disabled>结束录音</button><span id="speaking-recording-status" class="speaking-recording-status">尚未录音</span></div><audio id="speaking-playback" class="speaking-playback" controls hidden></audio></section><details><summary>原书参考回答（已核对）</summary><p class="ru-text">' + sourceAnswer + '</p><small class="reading-answer-source">' + escapeHtml(data.sourceAnswer.source.label || 'B2 原书参考回答') + '</small></details><details><summary>学习辅助：自查清单</summary><ul>' + checklist + '</ul></details></main>';
   var speakingCompletePrompt = document.getElementById('completePrompt');
   if (speakingCompletePrompt) speakingCompletePrompt.classList.remove('visible');
   if (window.WhiteNightReaderSpeaking) window.WhiteNightReaderSpeaking.mount(data.id);
-  window.scrollTo(0, typeof scrollPosition === 'number' ? scrollPosition : 0); applyTheme(); saveLastRead(arguments[2]);
+  window.scrollTo(0, typeof scrollPosition === 'number' ? scrollPosition : 0); applyTheme(); saveLastRead(arguments[2]); applyReaderSourceJump();
 }
 var LISTENING_PROGRESS_KEY = 'russian_b2_listening_progress_v1';
 var LISTENING_DRAFTS_KEY = 'rr_listening_drafts_v1';
@@ -6860,12 +7372,12 @@ function renderListeningPractice(data, scrollPosition) {
     ? '<section class="lw-media-warning"><strong>尚未找到正确配套媒体</strong><p>旧导入音轨属于另一套教材，不能用于本单元考试或精听。题目与教材原文保留，等待正确配套音频重新绑定。</p></section>'
     : '<p class="reading-answer-source">来源：' + escapeHtml(media.provenance || '来源待核对') + (media.provenance === 'reconstructed-tts' ? ' · 重建音频，不等同于原始配套录音' : '') + '</p>';
   var modeBody = listeningViewMode === 'intensive' ? renderListeningIntensive(data) : listeningViewMode === 'media-exercise' ? renderListeningMediaExercise(data) : listeningViewMode === 'review' ? renderListeningReview(data) : listeningViewMode === 'quality-review' ? renderListeningQualityReview() : renderListeningExam(data);
-  var listeningBackAction = isWorldPeopleBook(curBook) ? 'showChapters(\'' + escapeHtml(curBook.id) + '\')' : (curBook && curBook.isB2Module ? 'showChapters(\'russian_b2\')' : 'showB2Dashboard()');
-  var listeningBackTitle = isWorldPeopleBook(curBook) || (curBook && curBook.isB2Module) ? '目录' : '仪表盘';
+  var listeningBackAction = isWorldPeopleBook(curBook) ? 'showChapters(\'' + escapeHtml(curBook.id) + '\')' : (curBook && curBook.isB2Module ? 'showChapters(\'russian_b2\')' : getReaderDirectoryBackAction('showB2Dashboard()'));
+  var listeningBackTitle = isWorldPeopleBook(curBook) || (curBook && (curBook.isB2Module || curBook.trialPackage)) ? '目录' : '仪表盘';
   document.getElementById('app').innerHTML = b2FloatingNavigation({ backAction: listeningBackAction, backTitle: listeningBackTitle, menuAction: 'showBreadcrumb()' }) +
     '<main class="lw-workbench reader-workbench reader-workbench--listening" data-mode="' + listeningViewMode + '" data-timeline-ready="loading">' + renderListeningTopbar(data, sourcePages) + renderListeningPlayer(data, mediaBase) +
     mediaNotice + modeBody + '</main>';
-  window.scrollTo(0, typeof scrollPosition === 'number' ? scrollPosition : 0); applyTheme(); saveLastRead(restoreState);
+  window.scrollTo(0, typeof scrollPosition === 'number' ? scrollPosition : 0); applyTheme(); saveLastRead(restoreState); applyReaderSourceJump();
   var isMediaExercise = listeningViewMode === 'media-exercise' && hasVerifiedListeningMediaExercise(data);
   var playerData = isMediaExercise ? Object.assign({}, data, { transcriptSegments: [] }) : data;
   var initResult = RussianListeningWorkbench.init({ data: playerData, captionsUrl: isMediaExercise ? '' : (media.captions ? mediaBase + media.captions : ''), initialTime: isMediaExercise && data.mediaExercise ? Number(data.mediaExercise.exerciseStartSeconds) : 0, playlist: (media.playlist || []).map(function(item) { return { url: mediaBase + item.file, label: item.label || '' }; }) });
@@ -7309,7 +7821,7 @@ function renderReadingPracticeChapter(data, scrollPosition) {
   var chapterMarks = (bookmarks[curBook.id] && bookmarks[curBook.id][curCh]) || [];
   var paragraphs = (data.original || []).map(function(paragraph, index) {
     var isBm = chapterMarks.indexOf(index) !== -1;
-    return '<div class="para-block" data-idx="' + index + '"><div class="para-actions"><button class="' + (isBm ? 'bookmarked' : '') + '" onclick="toggleBookmark(' + index + ',event)" title="收藏段落">' + (isBm ? '★' : '☆') + '</button></div><p class="ru-text rs-source-paragraph" id="rs-source-p-' + index + '">' + renderRuText(paragraph, lookupContext('reading', data.id + '-paragraph-' + (index + 1), 'reading-body', paragraph, (data.translations || [])[index] || '', data.sourcePages || [])) + '</p><p class="cn-text">' + escapeHtml((data.translations || [])[index] || '') + '</p></div>';
+    return '<div class="para-block" data-idx="' + index + '"><div class="para-actions"><button class="' + (isBm ? 'bookmarked' : '') + '" onclick="toggleBookmark(' + index + ',event)" title="收藏段落">' + (isBm ? '★' : '☆') + '</button></div><p class="ru-text rs-source-paragraph" id="rs-source-p-' + index + '">' + renderRuText(paragraph, lookupContext('reading', data.id + '-paragraph-' + (index + 1), 'reading-body', paragraph, (data.translations || [])[index] || '', data.sourcePages || [], { paragraphIndex: index })) + '</p><p class="cn-text">' + escapeHtml((data.translations || [])[index] || '') + '</p></div>';
   }).join('');
   var questions = (data.questions || []).map(renderReadingPracticeQuestion).join('');
   var navP = curCh > 0 ? '<button class="fab-nav" onclick="goChapter(' + (curCh - 1) + ')">← 上一篇</button>' : '<span class="fab-nav disabled">← 上一篇</span>';
@@ -7324,7 +7836,7 @@ function renderReadingPracticeChapter(data, scrollPosition) {
   var practicePanel = '<aside class="rs-practice-panel" id="b2ReadingPracticePanel" aria-label="练习题">' +
     '<header class="rs-practice-panel-header"><p class="rs-practice-panel-kicker">练习模式</p><h2>边读边答</h2><p>题目固定在这里，点原文词语仍可随时查义。</p></header>' +
     renderB2ReadingPracticeProgress() + questions + renderB2ReadingChapterCompletionAction() + '</aside>';
-  document.getElementById('app').innerHTML = b2FloatingNavigation({ backAction: 'showChapters(\'russian_b2\')', backTitle: '目录', menuAction: 'showBreadcrumb()' }) +
+  document.getElementById('app').innerHTML = b2FloatingNavigation({ backAction: getReaderDirectoryBackAction("showChapters('russian_b2')"), backTitle: '目录', menuAction: 'showBreadcrumb()' }) +
     '<main class="main-container reader-workbench reader-workbench--reading-practice" style="padding-bottom:20px"><header class="chapter-header"><h1>' + escapeHtml(data.title || '') + '</h1><p>' + supportState + '</p><p class="reading-answer-source">原书原文页：' + escapeHtml(sourcePages) + '</p>' + modeSwitch + '</header></main>' +
     '<div class="peek-counter">👁 查看原文: <span id="peekCnt">0</span> / <span id="totalParas">' + (data.original || []).length + '</span> 段</div>' +
     '<div class="reader-layout reader-reading-layout reader-workbench-layout ' + (layoutMode === 'reading' ? 'rs-reading-mode' : 'rs-practice-mode') + '" id="readerLayout">' +
@@ -7462,7 +7974,7 @@ function restartQuiz(mode, exerciseIds) {
 function renderChapter(data, restoreState) {
   var scrollPosition = restoreState && typeof restoreState.scroll === 'number' ? restoreState.scroll : undefined;
   if (data.format !== 'exam-practice') dictionaryController.setExamPolicy({ mode: 'learning', lookupUnlocked: true });
-  if (isQuizFirstBook(curBook) && data.format === 'quiz-first') {
+  if (data.format === 'quiz-first' && (isQuizFirstBook(curBook) || (curBook && curBook.trialPackage))) {
     if (restoreState && restoreState.activeQuestionId) pendingQuizJumpId = restoreState.activeQuestionId;
     renderQuizChapter(data, scrollPosition, restoreState); return;
   }
@@ -7489,7 +8001,7 @@ function renderChapter(data, restoreState) {
       '<div class="para-actions">' +
         '<button class="' + (isBm ? 'bookmarked' : '') + '" onclick="toggleBookmark(' + i + ',event)" title="收藏段落">' + (isBm ? '★' : '☆') + '</button>' +
       '</div>' +
-      '<p class="ru-text">' + renderRuText(front, lookupContext('reading', (curBook && curBook.id || 'reader') + '-ch' + curCh + '-p' + i, 'reading-body', front, back, [])) + '</p>' +
+      '<p class="ru-text">' + renderRuText(front, lookupContext('reading', (curBook && curBook.id || 'reader') + '-ch' + curCh + '-p' + i, 'reading-body', front, back, [], { paragraphIndex: i })) + '</p>' +
       '<p class="cn-text">' + escapeHtml(back) + '</p></div>'
     );
   }
@@ -8892,6 +9404,7 @@ function hidePopup() { document.getElementById('selPopup').classList.remove('vis
 var _scrollTimer = null;
 window.addEventListener('scroll', function() {
   updateProgress();
+  updateWritingStageNav();
   scheduleZlatoustVirtualWindow();
   clearTimeout(_scrollTimer); _scrollTimer = setTimeout(saveLastRead, 500);
   var btn = document.getElementById('backTop');
@@ -9226,9 +9739,17 @@ if (_jumpBook) {
         curBook = target;
         var chIdx = _jumpCh ? parseInt(_jumpCh, 10) : 0;
         if (isNaN(chIdx) || chIdx < 0) chIdx = 0;
-        window.history.replaceState({}, '', 'reader.html');
+        window.history.replaceState({}, '', 'reader.html?book=' + encodeURIComponent(_jumpBook) + (_jumpModule ? '&module=' + encodeURIComponent(_jumpModule) : '') + '&ch=' + chIdx + (_jumpParagraph != null ? '&paragraph=' + encodeURIComponent(_jumpParagraph) : ''));
         _jumpBook = null;
-        if (target.format === 'b2-full') showB2Dashboard();
+        if (target.format === 'b2-full' && _jumpModule) {
+          _jumpBook = null;
+          fetchJson('data/textbook/russian_b2/book.json', null).then(function(manifest) {
+            b2BookManifest = manifest;
+            openB2Module(_jumpModule);
+            setTimeout(applyReaderSourceJump, 900);
+          }).catch(function() { showB2Dashboard(); });
+        }
+        else if (target.format === 'b2-full') showB2Dashboard();
         else goChapter(chIdx);
       } else { showShelf(); }
     }).catch(function() { showShelf(); });
@@ -9775,6 +10296,7 @@ function renderWritingSpeakingChapter(data, scrollPosition, restoreState) {
     WhiteNightReaderSpeaking.mount(task.speakingId || (data.id + '-s-' + index));
   });
   window.scrollTo(0, typeof scrollPosition === 'number' ? scrollPosition : 0);
+  applyReaderSourceJump();
   applyTheme(); saveLastRead(arguments[2]); initCollapseAnimations();
 }
 
@@ -9999,7 +10521,7 @@ function renderReadingSpeakingChapter(data, scrollPosition, restoreState) {
       '<div class="para-actions">' +
         '<button class="' + (isBm ? 'bookmarked' : '') + '" onclick="toggleBookmark(' + i + ',event)" title="收藏段落">' + (isBm ? '★' : '☆') + '</button>' +
       '</div>' +
-      '<p class="ru-text rs-source-paragraph" id="rs-source-p-' + i + '">' + renderRuText(cleanPara, lookupContext('reading', 'reading_speaking-ch' + curCh + '-p' + i, 'reading-body', cleanPara, (trans[i] || ''), [])) + '</p>' +
+      '<p class="ru-text rs-source-paragraph" id="rs-source-p-' + i + '">' + renderRuText(cleanPara, lookupContext('reading', 'reading_speaking-ch' + curCh + '-p' + i, 'reading-body', cleanPara, (trans[i] || ''), [], { paragraphIndex: i })) + '</p>' +
       translationHtml + '</div>'
     );
   }
@@ -10468,6 +10990,18 @@ window.syncReaderActivityContext = function() {
   });
 };
 window.syncReaderActivityContext();
+// Vocabulary source links carry context even when an exact Reader chapter is unavailable.
+(function handleVocabularySourceLink() {
+  var hash = String(window.location.hash || '');
+  if (hash.indexOf('#vocabulary-source=') !== 0) return;
+  var match = hash.match(/^#vocabulary-source=([^&]*)/);
+  var chapter = hash.match(/[?&]chapter=([^&]*)/) || hash.match(/&chapter=([^&]*)/);
+  var word = match ? decodeURIComponent(match[1] || '') : '';
+  var chapterName = chapter ? decodeURIComponent(chapter[1] || '') : '';
+  var message = chapterName ? 'Vocabulary 来源：' + chapterName : 'Vocabulary 来源：' + (word || '当前词条');
+  if (typeof window.toast === 'function') window.toast(message);
+  else setTimeout(function () { var app = document.getElementById('app'); if (app) { var note = document.createElement('div'); note.className = 'reader-source-return-note'; note.textContent = message + '（当前 Reader 暂无精确定位）'; app.insertBefore(note, app.firstChild); } }, 0);
+})();
 </script>
 </body>
 </html>

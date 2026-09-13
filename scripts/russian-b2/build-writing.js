@@ -22,6 +22,14 @@ function validateWritingUnit(unit) {
   if (!unit.model || !unit.model.text || !unit.model.source || unit.model.source.kind !== 'b2-original') errors.push(`${unit.id}: model must retain B2-original source`);
   if (!unit.studySupport || unit.studySupport.label !== '学习辅助') errors.push(`${unit.id}: study support must be labelled 学习辅助`);
   if (unit.source) errors.push(...validateWritingTask(unit));
+  if (unit.id === 'application') {
+    if (!Array.isArray(unit.genres) || unit.genres.length !== 11) errors.push('application: genres must contain 11 document types');
+    for (const genre of unit.genres || []) {
+      for (const field of ['id', 'titleZh', 'titleRu', 'originalTextRu', 'translationZh', 'layout', 'requiredBlocks', 'modelAnalysis', 'template', 'transferTask']) {
+        if (genre[field] == null || (Array.isArray(genre[field]) && !genre[field].length)) errors.push(`application/${genre.id || 'unknown'}: missing ${field}`);
+      }
+    }
+  }
   return errors;
 }
 
@@ -41,9 +49,11 @@ function toReaderChapter(unit) {
     title: unit.title,
     sourcePages: unit.sourcePages,
     source: unit.source,
+    sourceNote: unit.sourceNote || '',
     reviewStatus: unit.reviewStatus,
     task: unit.task,
     materials: unit.materials || [],
+    genres: unit.genres || [],
     formatGuide: unit.format,
     model: unit.model,
     lesson: unit.lesson || null,
